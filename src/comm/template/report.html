@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+    <title>Caliper Report</title>
+    <meta charset="UTF-8"/>
+    <style type="text/css">
+        .left-column {
+            position: fixed;
+            width:20%;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+        }
+        .right-column {
+            margin-left: 22%;
+            width:60%;
+        }
+        .left-column ul,h2 {
+            display: block;
+            margin: 10px;
+            padding: 0;
+            list-style: none;
+        }
+        .left-column ul{
+            border-top: 1px solid #d9d9d9;
+            font-size: 14px;
+        }
+        .left-column li{
+            margin-bottom: 5px;
+            color: #5e6b73;
+        }
+        .left-column h3 {
+            border-left: 5px solid #009a61;
+        }
+        .right-column>div {
+            border-top: 1px solid #d9d9d9;
+        }
+        .right-column table {
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        .right-column th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #f2f2f2;
+        }
+        .right-column td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #ffffff;
+        }
+        .tag {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            background-color: rgba(1,126,102,0.08);
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color: #017E66;
+            text-align: center;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+        }
+        pre {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+            overflow:auto;
+            max-height:300px;
+            font-size:12px;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <div class="left-column">
+        <h2>Caliper Report</h2>
+        <ul>
+            <h3>&nbspBasic information</h3>
+            {{#summary.meta}}
+            <li><strong>{{name}}: &nbsp</strong><span>{{value}}</span></li>
+            {{/summary.meta}}
+            <li><a href="#benchmarkInfo">Details</a></li>
+        </ul>
+        <ul>
+            <h3>&nbspBenchmark results</h3>
+            <li><a href="#benchmarksummary">Summary</a></li>
+            {{#rounds}}
+            <li><a href="#{{id}}">{{id}}</a></li>
+            {{/rounds}}
+        </ul>
+        <ul>
+            <h3>&nbspSystem Under Test</h3>
+            {{#sut.meta}}
+            <li><strong>{{name}}: &nbsp</strong><span>{{value}}</span></li>
+            {{/sut.meta}}
+            <li><a href="#sutdetails">Details</a></li>
+        </ul>
+    </div>
+
+    <div class="right-column">
+        <div id="benchmarksummary">
+            {{#summary}}
+            <table>
+                <h3>Summary</h3>
+                <tr>
+                    {{#head}} <th>{{.}}</th>{{/head}}
+                </tr>
+
+                {{#results}}
+                <tr>
+                    {{#result}} <td>{{.}}</td>{{/result}}
+                </tr>
+                {{/results}}
+            </table>
+            {{/summary}}
+        </div>
+        {{#rounds}}
+        <div id="{{id}}">
+            <h3>{{id}}&nbsp-&nbsp{{description}}</h3>
+            <strong class="tag">performance metrics</strong>
+            {{#performance}}
+            <table>
+                <tr>
+                    {{#head}} <th>{{.}}</th>{{/head}}
+                </tr>
+                <tr>
+                    {{#result}} <td>{{.}}</td>{{/result}}
+                </tr>
+            </table>
+            {{/performance}}
+            <strong class="tag">resource consumption</strong>
+            {{#resource}}
+            <table>
+                <tr>
+                    {{#head}} <th>{{.}}</th>{{/head}}
+                </tr>
+                {{#results}}
+                <tr>
+                    {{#result}} <td>{{.}}</td>{{/result}}
+                </tr>
+                {{/results}}
+            </table>
+            {{/resource}}
+        </div>
+        {{/rounds}}
+        <div>
+            <h3>Test Environment</h3>
+            <strong class="tag">benchmark config</strong>
+            <pre id="benchmarkInfo">{{benchmarkInfo}}</pre>
+            <strong class="tag">SUT</strong>
+            <pre id="sutdetails">{{sut.details}}</pre>
+        </div>
+    </div>
+
+
+</main>
+
+</body>
+</html>

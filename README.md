@@ -1,0 +1,167 @@
+## Caliper Introduction
+
+Caliper is a blockchain performance benchmark framework, which allows users to test different blockchain solutions with predefined use cases, and get a set of performance test results.
+
+Currently supported blockchain solutions:
+* [fabric 1.0.5](https://github.com/hyperledger/fabric)
+* [sawtooth 0.8](https://github.com/hyperledger/sawtooth-core) 
+* [Iroha (develop branch @fcc2f7c8ceaee4f7654c3b216d65b8906a35f633)](https://github.com/hyperledger/iroha)
+
+Currently supported performance indicators:
+* Success rate
+* Transaction/Read throughput
+* Transaction/Read latency(minimum, maximum, average, percentile)
+* Resource consumption (CPU, Memory, Network IO,...)
+
+See [to add the link to PSWG] to find out the definitions and corresponding measurement methods.  
+
+##Achitecture
+See [Architecture introduction](docs/Architecture.md). 
+
+## Build
+
+### Pre-requisites
+
+Make sure following tools are installed
+* NodeJS 8.X
+* node-gyp
+* Docker
+* Docker-compose
+
+Run `npm install` in caliper folder to install dependencies locally
+
+### Install blockchain SDKs
+* Fabric
+  * Install with source code
+    * Clone [fabric-sdk-node](https://github.com/hyperledger/fabric-sdk-node) and run the headless tests to make sure everything is ok
+    * Install **fabric-client** and **fabric-ca-client** from the SDK, e.g run `npm install path-to-sdk/fabric-client path-to-sdk/fabric-ca-client` in caliper's root folder, or just copy the `node_modules` from fabric-sdk-node project
+  * Or install using the repository
+    * run `npm install fabric-ca-client fabric-client` in the root folder
+  
+* Sawtooth
+  * Clone [sawtooth-core](https://github.com/hyperledger/sawtooth-core) and run the `./bin/run_tests -m javascript_sdk` to test the SDK
+  * Install **sawtooth-sdk** from the SDK, e.g run `npm install path-to-sdk/javascript` in capliper's root folder.
+
+* Iroha
+  * Install dependencies
+  
+    ```
+    $sudo apt-get install libv8-dev 
+    $install google-protobuf grpc
+    ```
+  * A precompiled Iroha library is provided in `src/iroha/external`, which is compiled with Ubuntu 14 x86_64. The library should be replaced if it is incompatible with the under platform. 
+
+## Run benchmark
+
+All predefined benchmarks can be found in [*caliper/benchmark*](./benchmark) folder. 
+To start a benchmark, just run `node main.js -c yourconfig.json -n yournetwork.json` in the folder of the benchmark. 
+* -c : specify the config file of the benchmark, if not used,  *config.json* will be used as default.
+* -n : specify the config file of the blockchain network under test. If not used, the file address must be specified in the benchmak config file.
+```bash
+# start the simple benchmark, default config.json is used
+cd ~/caliper/benchmark/simple
+node main.js
+```
+
+Some example SUTs are provided in [*caliper/network*](./network) folder, they can be launched automatically before the test by setting the bootstrap commands in the configuration file, e.g
+```json
+{
+  "command" : {
+    "start": "docker-compose -f network/fabric/simplenetwork/docker-compose.yaml up -d",
+    "end" : "docker-compose -f network/fabric/simplenetwork/docker-compose.yaml down;docker rm $(docker ps -aq)"
+  }
+}
+```
+The scripts defined in *command.start* will be called before the test, and the scripts defined in *command.end* will be called after the finish of all tests. You can use them to define any preparation or clean-up works.  
+
+You can also run the test with your own blockchain network, a network configuration should be provided and corresponding file path should be specified in  configuration file's *blockchain.config*. 
+
+Note:
+* When running the benchmark, one or more blockchain clients will be used to generate and submit transactions to the SUT. The number of launched clients as well as testing workload can be defined using the [configuration file](./docs/Architecture.md#configuration-file).  
+* A HTML report will be generated automatically after the testing.
+
+**Alternative**
+
+You can also use npm scripts to run a benchmark.
+* npm run list: list all available benchmarks
+```bash
+$ npm run list
+
+> caliper@0.1.0 list /home/hurf/caliper
+> node ./scripts/list.js
+
+Available benchmarks:
+drm
+simple
+```
+
+* npm test: run a benchmark with specific config files
+```bash
+$ npm test -- simple -c ./benchmark/simple/config.json -n ./benchmark/simple/fabric.json
+
+> caliper@0.1.0 test /home/hurf/caliper
+> node ./scripts/test.js "simple" "-c" "./benchmark/simple/config.json" "-n" "./benchmark/simple/fabric.json"
+......
+```
+## Run benchmark with distributed clients (experimental)
+
+In this way, multiple clients can be launched on distributed hosts to run the same benchmark.
+
+1. Start the ZooKeeper service
+2. Launch clients on target machines separately by running `node ./src/comm/client/zoo-client.js zookeeper-server` or `npm run startclient -- zookeeper-server` . Time synchronization between target machines should be executed before launching the clients.  
+
+    Example:
+    ```bash
+    $ npm run startclient -- 10.229.42.159:2181
+    
+    > caliper@0.1.0 startclient /home/hurf/caliper
+    > node ./src/comm/client/zoo-client.js "10.229.42.159:2181"
+
+    Connected to ZooKeeper
+    Created client node:/caliper/clients/client_1514532063571_0000000006
+    Created receiving queue at:/caliper/client_1514532063571_0000000006_in
+    Created sending queue at:/caliper/client_1514532063571_0000000006_out
+    Waiting for messages at:/caliper/client_1514532063571_0000000006_in......
+    ```
+3. Modify the client type setting in configuration file to 'zookeeper'.
+
+    Example:
+    ```
+    "clients": {
+      "type": "zookeeper",
+      "zoo" : {
+        "server": "10.229.42.159:2181",
+        "clientsPerHost": 5
+      }
+    }
+    ```
+    
+4. Launch the benchmark on any machine as usual.
+
+Note:
+* Zookeeper is used to register clients and exchange messages. A launched client will add a new znode under /caliper/clients/. The benchmark checks the directory to learn how many clients are there, and assign tasks to each client according to the workload. 
+* There is no automatic time synchronization between the clients. You should manually synchronize time between target machines, for example using 'ntpdate'.
+* The blockchain configuration file must exist on machines which run the client, and the relative path (relative to the caliper folder) of the file must be identical. All referenced files in the configuration must also exist.   
+  
+
+
+
+## Write your own benchmarks
+Caliper provides a set of nodejs NBIs (North Bound Interfaces) for applications to interact with backend blockchain system. Check the [*src/comm/blockchain.js*](./src/comm/blockchain.js) to learn about the NBIs. Multiple *Adaptors* are implemented to translate the NBIs to different blockchain protocols. So developers can write a benchmark once, and run it with different blockchain systems.
+
+Generally speaking, to write a new caliper benchmark, you need to:
+* Write smart contracts for systems you want to test
+* Write a testing flow using caliper NBIs. Caliper provides a default benchmark engine, which is pluggable and configurable to integrate new tests easily. For more details, please refer to [Benchmark Engine](./docs/Architecture.md#benchmark-engine) .
+* Write a configuration file to define the backend network and benchmark arguments.
+
+## Directory Structure
+**Directory** | **Description**
+------------------ | --------------
+/benchmark | Samples of the blockchain benchmarks
+/docs | Documents
+/network | Boot configuration files used to deploy some predefined blockchain network under test.
+/src | Souce code of the framework
+/src/contract | Smart contracts for different blockchain systems
+  
+ 
+

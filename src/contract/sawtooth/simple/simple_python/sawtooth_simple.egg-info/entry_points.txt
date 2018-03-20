@@ -1,0 +1,3 @@
+[console_scripts]
+simple-tp-python = sawtooth_simple.processor.main:main
+

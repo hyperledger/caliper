@@ -1,0 +1,32 @@
+{
+   "blockchain": {
+    "type": "sawtooth",
+    "config": "benchmark/simple/sawtooth.json"
+  },
+  "test": {
+    "clients": {
+      "type": "local",
+      "number": 1
+    },
+    "rounds": [{
+        "label" : "open",
+        "txNumber" : [100],
+        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 1}}],
+        "arguments": {  "money": 10000 },
+        "callback" : "benchmark/simple/open.js"
+      },
+      {
+        "label" : "query",
+        "txNumber" : [100],
+        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 1}}],
+        "callback" : "benchmark/simple/query.js"
+      }]
+  },
+  "monitor": {
+    "type": "docker",
+    "docker":{
+      "name": ["all"]
+    },
+    "interval": 1
+  }
+}
