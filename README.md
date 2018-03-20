@@ -15,7 +15,7 @@ Currently supported performance indicators:
 
 See [to add the link to PSWG] to find out the definitions and corresponding measurement methods.  
 
-##Achitecture
+## Achitecture
 See [Architecture introduction](docs/Architecture.md). 
 
 ## Build
