@@ -28,6 +28,11 @@ var Blockchain = class {
             this.bcType = 'iroha';
             this.bcObj = new iroha(configPath);
         }
+        else if(config.hasOwnProperty('composer')) {
+            var composer = require('../composer/composer.js')
+            this.bcType = 'composer';
+            this.bcObj = new composer(configPath);
+        }
         else {
             this.bcType = 'unknown';
             throw new Error('Unknown blockchain config file ' + configPath);

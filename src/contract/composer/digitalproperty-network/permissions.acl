@@ -1,0 +1,18 @@
+/**
+ * Sample access control list.
+ */
+rule Default {
+    description: "Allow all participants access to all resources"
+    participant: "ANY"
+    operation: ALL
+    resource: "net.biz.digitalPropertyNetwork.*"
+    action: ALLOW
+}
+
+rule SystemACL {
+  description:  "System ACL to permit all access"
+  participant: "org.hyperledger.composer.system.Participant"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW
+}

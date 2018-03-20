@@ -11,8 +11,8 @@
     "startclient": "node ./src/comm/client/zoo-client.js"
   },
   "engines": {
-    "node": ">=8.0.0",
-    "npm": ">=2.15.9"
+    "node": ">=8.10.0",
+    "npm": ">=5.5.0"
   },
   "engine-strict": true,
   "engineStrict": true,
@@ -24,6 +24,7 @@
     "jsrsasign": "^8.0.4",
     "mustache": "^2.3.0",
     "node-zookeeper-client": "^0.2.2",
+    "ora": "^1.2.0",
     "pidusage": "^1.1.6",
     "ps-node": "^0.1.6",
     "request": "^2.81.0",
@@ -37,7 +38,7 @@
   "licenses": [
     {
       "type": "Apache-2.0",
-      "url": "https://github.com/Huawei-OSG/caliper/blob/master/LICENSE"
+      "url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
     }
   ]
 }
