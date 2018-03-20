@@ -36,14 +36,13 @@ var testUtil = require('./util.js');
 var e2eUtils = require('./e2eUtils.js');
 
 function run(config_path) {
+    var fabric   = Client.getConfigSetting('fabric');
+    var channels = fabric.channel;
+    if(!channels || channels.length === 0) {
+        return Promise.reject(new Error('No channel information found'));
+    }
     return new Promise(function(resolve, reject) {
         Client.addConfigFile(config_path);
-        var fabric   = Client.getConfigSetting('fabric');
-        var channels = fabric.channel;
-        if(!channels || channels.length === 0) {
-            return Promise.resolve();
-        }
-
         var t = global.tapeObj;
         var ORGS = fabric.network;
         var caRootsPath = ORGS.orderer.tls_cacerts;
