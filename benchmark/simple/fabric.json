@@ -56,7 +56,8 @@
       {
         "name": "mychannel",
         "config": "network/fabric/simplenetwork/mychannel.tx",
-        "organizations": ["org1", "org2"]
+        "organizations": ["org1", "org2"],
+        "deployed": false
       }
     ],
     "chaincodes": [{"id": "simple", "path": "contract/fabric/simple", "language":"golang", "version": "v0", "channel": "mychannel"}],
