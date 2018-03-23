@@ -7,7 +7,7 @@ The fabric configuration is a json file which defines a fabric object with six m
 {"cryptodir": "network/fabric/simplenetwork/crypto-config"}
 ```
 
-* network: defines the information of orderers and peers of backend fabric network. For simplicity's sake, only one orderer can be defined now, that causes all proposals being sent to the same orderer, which may hurt ordering performance. That should be fixed in future. The key of organization objects and peer objects must start with 'org' and 'peer'.
+* **network**: defines the information of orderers and peers of backend fabric network. For simplicity's sake, only one orderer can be defined now, that causes all proposals being sent to the same orderer, which may hurt ordering performance. That should be fixed in future. The key of organization objects and peer objects must start with 'org' and 'peer'.
 ```json
 {
   "network": {
@@ -58,6 +58,9 @@ The fabric configuration is a json file which defines a fabric object with six m
 ```
 
 * **chaincodes**: defines one or more chaincodes, those chaincodes can be installed and instantiated on all peers of the specific channel by calling *Blockchain.installSmartContract()* function.  
+  
+  Optionally an `init` attribute can also be set to an array of *string* values. This array will be passed as the argument to the chaincode's *Init* method. The `init` attribute defaults to an empty array.
+  
   The *path* attribute is relative to the *caliper/src* folder, since *$GOPATH* is temporarily set to the caliper root folder during benchmark execution. If you would like to install a Golang chaincode from a previously set *$GOPATH*, then set the *OVERWRITE_GOPATH* environment variable to *FALSE* before running the benchmark:  
   ```GOPATH=~/mygopath OVERWRITE_GOPATH=FALSE node main.js```
 ```json
@@ -67,7 +70,8 @@ The fabric configuration is a json file which defines a fabric object with six m
       "id": "drm", 
       "path": "contract/fabric/drm", 
       "version": "v0", 
-      "channel": "mychannel"
+      "channel": "mychannel",
+      "init": ["init_arg1", "init_arg2"]
     }
   ]
 }

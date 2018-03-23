@@ -353,7 +353,7 @@ function buildChaincodeProposal(client, the_user, chaincode, upgrade, transientM
 		chaincodeType: chaincode.language,
 		chaincodeVersion: chaincode.version,
 		fcn: 'init',
-		args: [],       // TODO: should defined in config file
+		args: chaincode.init || [],
 		txId: tx_id,
 		'endorsement-policy': endorsement_policy
 	};
