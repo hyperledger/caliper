@@ -2,3 +2,12 @@ architecture.pptx
 .idea/*
 *.bak
 node_modules/*
+
+# Ignore any generted html files
+*.html
+
+# Ignore DS_Store files from Mac
+**.DS_Store
+
+# Ignore any composer logs
+composer-logs/

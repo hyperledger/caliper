@@ -49,7 +49,21 @@ Run `npm install` in caliper folder to install dependencies locally
     $sudo apt-get install libv8-dev 
     $install google-protobuf grpc
     ```
-  * A precompiled Iroha library is provided in `src/iroha/external`, which is compiled with Ubuntu 14 x86_64. The library should be replaced if it is incompatible with the under platform. 
+  * A precompiled Iroha library is provided in `src/iroha/external`, which is compiled with Ubuntu 14 x86_64. The library should be replaced if it is incompatible with the under platform.
+
+* Composer
+   * Install dependencies
+   The easiest way to get started using a target version of Composer is to update the main package.json file to include the required Composer and Fabric modules, and subsequently run an `npm install` command. It is important that the Composer and Fabric versions are compatible. 
+
+   ```
+    "composer-admin": "0.18.2",
+    "composer-client": "0.18.2",
+    "composer-common": "0.18.2",
+    "fabric-ca-client": "1.1.0",
+    "fabric-client": "1.1.0",
+   ```
+
+   Please see the plugin [documentation](./docs/Composer.md) for more details on using the Composer performance plugin, and developing your own tests.
 
 ## Run benchmark
 
