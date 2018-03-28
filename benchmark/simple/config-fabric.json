@@ -21,7 +21,7 @@
       },
       {
         "label" : "query",
-        "txNumbAndTps" : [5000, 5000],
+        "txNumber" : [5000, 5000],
         "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 300}}, {"type": "fixed-rate", "opts": {"tps" : 400}}],
         "callback" : "benchmark/simple/query.js"
       }]
