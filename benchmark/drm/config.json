@@ -17,13 +17,15 @@
     "rounds": [
       {
         "label" : "publish",
-        "txNumbAndTps" : [[1,1]],
+        "txNumber" : [1],
         "arguments": {  "itemBytes": 2048000 },
+        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 1}}],
         "callback" : "benchmark/drm/publish.js"
       },
       {
         "label" : "query",
-        "txNumbAndTps" : [[1,1]],
+        "txNumber" : [1],
+        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 1}}],
         "callback" : "benchmark/drm/query.js"
       }]
   },
