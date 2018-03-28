@@ -169,54 +169,84 @@ function getMember(username, password, client, userOrg) {
 }
 
 function getAdmin(client, userOrg) {
-    // TODO: now the path format is hard-coded, shoule be defined in config file?
-	var keyPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s.example.com/users/Admin@%s.example.com/keystore', cryptodir, userOrg, userOrg));
-	if(!fs.existsSync(keyPath)) {
-	    keyPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s.example.com/users/Admin@%s.example.com/msp/keystore', cryptodir, userOrg, userOrg));
-	}
-	var keyPEM = Buffer.from(readAllFiles(keyPath)[0]).toString();
-	var certPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s.example.com/users/Admin@%s.example.com/signcerts', cryptodir, userOrg, userOrg));
-	if(!fs.existsSync(certPath)) {
-	    certPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s.example.com/users/Admin@%s.example.com/msp/signcerts', cryptodir, userOrg, userOrg));
-	}
-	var certPEM = readAllFiles(certPath)[0];
+    try {
+        if(!ORGS.hasOwnProperty(userOrg)) {
+            throw new Error('Could not found ' + userOrg + ' in configuration');
+        }
+        var org = ORGS[userOrg];
+        var keyPEM, certPEM;
+        if(org.user) {
+            keyPEM = fs.readFileSync(path.join(__dirname, '../..', org.user.key));
+            certPEM = fs.readFileSync(path.join(__dirname, '../..', org.user.cert));
+        }
+        else {
+            var keyPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s.example.com/users/Admin@%s.example.com/keystore', cryptodir, userOrg, userOrg));
+            if(!fs.existsSync(keyPath)) {
+                keyPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s.example.com/users/Admin@%s.example.com/msp/keystore', cryptodir, userOrg, userOrg));
+            }
+            keyPEM = readAllFiles(keyPath)[0];
+            var certPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s.example.com/users/Admin@%s.example.com/signcerts', cryptodir, userOrg, userOrg));
+            if(!fs.existsSync(certPath)) {
+                certPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s.example.com/users/Admin@%s.example.com/msp/signcerts', cryptodir, userOrg, userOrg));
+            }
+            certPEM = readAllFiles(certPath)[0];
+        }
 
-	var cryptoSuite = Client.newCryptoSuite();
-	if (userOrg) {
-		cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: module.exports.storePathForOrg(ORGS[userOrg].name)}));
-		client.setCryptoSuite(cryptoSuite);
-	}
+        var cryptoSuite = Client.newCryptoSuite();
+        cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: module.exports.storePathForOrg(ORGS[userOrg].name)}));
+        client.setCryptoSuite(cryptoSuite);
 
-	return Promise.resolve(client.createUser({
-		username: 'peer'+userOrg+'Admin',
-		mspid: ORGS[userOrg].mspid,
-		cryptoContent: {
-			privateKeyPEM: keyPEM.toString(),
-			signedCertPEM: certPEM.toString()
-		}
-	}));
+        return Promise.resolve(client.createUser({
+            username: 'peer'+userOrg+'Admin',
+            mspid: org.mspid,
+            cryptoContent: {
+                privateKeyPEM: keyPEM.toString(),
+                signedCertPEM: certPEM.toString()
+            }
+        }));
+    }
+    catch(err) {
+        return Promise.reject(err);
+    }
 }
 
 function getOrdererAdmin(client) {
-	var keyPath = path.join(__dirname, util.format('../../%s/ordererOrganizations/example.com/users/Admin@example.com/keystore', cryptodir));
-	if(!fs.existsSync(keyPath)) {
-	    keyPath = path.join(__dirname, util.format('../../%s/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore', cryptodir));
-	}
-	var keyPEM = Buffer.from(readAllFiles(keyPath)[0]).toString();
-	var certPath = path.join(   __dirname, util.format('../../%s/ordererOrganizations/example.com/users/Admin@example.com/signcerts', cryptodir));
-	if(!fs.existsSync(certPath)) {
-	    certPath = path.join(__dirname, util.format('../../%s/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts', cryptodir));
-	}
-	var certPEM = readAllFiles(certPath)[0];
+    try {
+        if(!ORGS.orderer) {
+            throw new Error('Could not found orderer in configuration');
+        }
 
-	return Promise.resolve(client.createUser({
-		username: 'ordererAdmin',
-		mspid: 'OrdererMSP',
-		cryptoContent: {
-			privateKeyPEM: keyPEM.toString(),
-			signedCertPEM: certPEM.toString()
-		}
-	}));
+        var orderer = ORGS.orderer;
+        var keyPEM, certPEM;
+        if(orderer.user) {
+            keyPEM = fs.readFileSync(path.join(__dirname, '../..', orderer.user.key));
+            certPEM = fs.readFileSync(path.join(__dirname, '../..', orderer.user.cert));
+        }
+        else {
+            var keyPath = path.join(__dirname, util.format('../../%s/ordererOrganizations/example.com/users/Admin@example.com/keystore', cryptodir));
+            if(!fs.existsSync(keyPath)) {
+                keyPath = path.join(__dirname, util.format('../../%s/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore', cryptodir));
+            }
+            keyPEM = readAllFiles(keyPath)[0];
+            var certPath = path.join(   __dirname, util.format('../../%s/ordererOrganizations/example.com/users/Admin@example.com/signcerts', cryptodir));
+            if(!fs.existsSync(certPath)) {
+                certPath = path.join(__dirname, util.format('../../%s/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts', cryptodir));
+            }
+            certPEM = readAllFiles(certPath)[0];
+        }
+
+        return Promise.resolve(client.createUser({
+            username: 'ordererAdmin',
+            mspid: 'OrdererMSP',
+            cryptoContent: {
+                privateKeyPEM: keyPEM.toString(),
+                signedCertPEM: certPEM.toString()
+            }
+        }));
+    }
+    catch(err) {
+        return Promise.reject(err);
+    }
 }
 
 function readFile(path) {

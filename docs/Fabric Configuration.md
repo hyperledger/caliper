@@ -1,27 +1,32 @@
 ## Fabric Configuration
 The fabric configuration is a json file which defines a fabric object with six main properties:
 
-* **cryptodir**: defines a relative path of the crypto directory which contains all cryptographic materials, all paths defined in the configuration are relative paths to the fabric root directory. The crypto directory structure must be identical with the output of fabric's cryptogen tool. The sub-directories names must match organizations' names defined in *network* element. The certificates and private keys in this directory are used by Caliper to act as the administrator or the member of corresponding organization to interact with fabric network, e.g to create channel, join channel, install chaincode, invoke chaincode, etc.      
+* **cryptodir**: Optionally defines a relative path of the crypto directory which contains all cryptographic materials, all paths defined in the configuration are relative paths to the fabric root directory. The crypto directory structure must be identical with the output of fabric's cryptogen tool. The sub-directories names must match organizations' names defined in *network* element. The certificates and private keys in this directory are used by Caliper to act as the administrator or the member of corresponding organization to interact with fabric network, e.g to create channel, join channel, install chaincode, invoke chaincode, etc. If not present, each organization's cryptographic materials must be defined directly in network property.        
  
 ```json
 {"cryptodir": "network/fabric/simplenetwork/crypto-config"}
 ```
 
-* **network**: defines the information of orderers and peers of backend fabric network. For simplicity's sake, only one orderer can be defined now, that causes all proposals being sent to the same orderer, which may hurt ordering performance. That should be fixed in future. The key of organization objects and peer objects must start with 'org' and 'peer'.
+* **network**: defines the information of orderers and peers of the SUT. For simplicity's sake, only one orderer can be defined now, that causes all proposals being sent to the same orderer, which may hurt ordering performance. That should be fixed in future. The attribute name of organizations and peers must start with 'org' and 'peer'.
+
+  Optionally an `user` attribute can be set with an organization to specify the key and certification that can be used by Caliper to interact with the SUT as a member of corresponding organization. If not present, Caliper will try to find them in `cryptodir`.
+
 ```json
 {
   "network": {
     "orderer": {
       "url": "grpcs://localhost:7050",
       "mspid": "OrdererMSP",
-      "msp": "network/fabric/simplenetwork/crypto-config/ordererOrganizations/example.com/msp/",
+      "user": {
+        "key": "network/fabric/simplenetwork/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/be595291403ff68280a724d7e868521815ad9e2fc8c5486f6d7ce6b62d6357cd_sk",
+        "cert": "network/fabric/simplenetwork/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts/Admin@example.com-cert.pem"
+      },
       "server-hostname": "orderer.example.com",
       "tls_cacerts": "network/fabric/simplenetwork/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt"
     },
     "org1": {
       "name": "peerOrg1",
       "mspid": "Org1MSP",
-      "msp": "network/fabric/simplenetwork/crypto-config/peerOrganizations/org1.example.com/msp/",
       "ca": {
         "url": "https://localhost:7054",
         "name": "ca-org1"
