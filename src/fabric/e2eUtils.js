@@ -696,15 +696,6 @@ function sleep(ms) {
 }
 module.exports.sleep = sleep;
 
-function loadMSPConfig(name, mspdir) {
-	var msp = {};
-	msp.id = name;
-	msp.rootCerts = readAllFiles(path.join(__dirname, rootPath, mspdir, 'cacerts'));
-	msp.admins = readAllFiles(path.join(__dirname, rootPath,mspdir, 'admincerts'));
-	return msp;
-}
-module.exports.loadMSPConfig = loadMSPConfig;
-
 function readAllFiles(dir) {
 	var files = fs.readdirSync(dir);
 	var certs = [];
