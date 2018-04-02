@@ -3,9 +3,11 @@
 Caliper is a blockchain performance benchmark framework, which allows users to test different blockchain solutions with predefined use cases, and get a set of performance test results.
 
 Currently supported blockchain solutions:
-* [fabric 1.0.5](https://github.com/hyperledger/fabric)
+* [fabric v1.0+](https://github.com/hyperledger/fabric), the lastest version that has been verified is v1.1.0 
 * [sawtooth 0.8](https://github.com/hyperledger/sawtooth-core) 
 * [Iroha (develop branch @fcc2f7c8ceaee4f7654c3b216d65b8906a35f633)](https://github.com/hyperledger/iroha)
+
+Hyperledger Composer is also supported, please see [Composer Performance Test](./docs/Composer.md).
 
 Currently supported performance indicators:
 * Success rate
@@ -33,10 +35,13 @@ Run `npm install` in caliper folder to install dependencies locally
 ### Install blockchain SDKs
 * Fabric
   * Install with source code
-    * Clone [fabric-sdk-node](https://github.com/hyperledger/fabric-sdk-node) and run the headless tests to make sure everything is ok
+    * Clone [fabric-sdk-node](https://github.com/hyperledger/fabric-sdk-node) and checkout release-1.1
+    * Run the headless tests to make sure everything is ok
     * Install **fabric-client** and **fabric-ca-client** from the SDK, e.g run `npm install path-to-sdk/fabric-client path-to-sdk/fabric-ca-client` in caliper's root folder, or just copy the `node_modules` from fabric-sdk-node project
   * Or install using the repository
-    * run `npm install fabric-ca-client fabric-client` in the root folder
+    * run `npm install fabric-ca-client@1.1.0 fabric-client@1.1.0` in the root folder
+  
+  (If you want to test fabric with old version such as v1.0, you should install compatible client SDK) 
   
 * Sawtooth
   * Clone [sawtooth-core](https://github.com/hyperledger/sawtooth-core) and run the `./bin/run_tests -m javascript_sdk` to test the SDK
