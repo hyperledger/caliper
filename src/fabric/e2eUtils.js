@@ -223,7 +223,6 @@ function instantiateChaincode(chaincode, endorsement_policy, upgrade){
 		}
 
 		// an event listener can only register with a peer in its own org
-		logger.debug(' create new eventhub %s', ORGS[userOrg][eventPeer].events);
 		let data = fs.readFileSync(path.join(__dirname, rootPath, ORGS[userOrg][eventPeer]['tls_cacerts']));
 		let eh = client.newEventHub();
 		eh.setPeerAddr(
@@ -254,7 +253,6 @@ function instantiateChaincode(chaincode, endorsement_policy, upgrade){
 		} else {
 			let request = buildChaincodeProposal(client, the_user, chaincode, upgrade, transientMap, endorsement_policy);
 			tx_id = request.txId;
-
 			return channel.sendInstantiateProposal(request);
 		}
 
@@ -268,11 +266,8 @@ function instantiateChaincode(chaincode, endorsement_policy, upgrade){
 		var all_good = true;
 		for(let i in proposalResponses) {
 			let one_good = false;
-			if (proposalResponses && proposalResponses[i].response && proposalResponses[i].response.status === 200) {
-				// special check only to test transient map support during chaincode upgrade
+			if (proposalResponses[i].response && proposalResponses[i].response.status === 200) {
 				one_good = true;
-			} else {
-				logger.error(type +' proposal was bad');
 			}
 			all_good = all_good & one_good;
 		}

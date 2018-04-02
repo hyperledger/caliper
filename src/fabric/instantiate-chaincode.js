@@ -55,8 +55,8 @@ module.exports.run = function (config_path) {
             return resolve();
         })
         .catch((err) => {
-            t.pass('Failed to instantiate chaincodes, ' + (err.stack?err.stack:err));
-            return reject(new Error('Fabric: Create channel failed'));
+            t.fail('Failed to instantiate chaincodes, ' + (err.stack?err.stack:err));
+            return reject(new Error('Fabric: instantiate chaincodes failed'));
          });
     });
 };
