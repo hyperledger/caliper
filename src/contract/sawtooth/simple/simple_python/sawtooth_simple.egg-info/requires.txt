@@ -1,4 +1,0 @@
-cbor
-colorlog
-sawtooth-sdk
-sawtooth-signing
