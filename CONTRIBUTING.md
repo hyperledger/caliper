@@ -35,7 +35,7 @@ For beginners of Caliper, if you want to :
     
 * Add supporting for a new DLT
   
-  You must implement a new class inherited from `BlockchainInterface` as the adaptor for the DLT. All source codes should be maintained in `fabrci/src`.
+  You must implement a new class inherited from `BlockchainInterface` as the adaptor for the DLT. All source codes should be maintained in `caliper/src`.
   
   You can also provide some sample DLT networks so that other people can try the test easily. The network files should be maintained in `caliper/network`.
   
