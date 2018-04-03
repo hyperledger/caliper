@@ -18,7 +18,7 @@ import hashlib
 
 import cbor
 
-from sawtooth_sdk.processor.state import StateEntry
+from sawtooth_sdk.processor.handler import TransactionHandler
 from sawtooth_sdk.processor.exceptions import InvalidTransaction
 from sawtooth_sdk.processor.exceptions import InternalError
 
@@ -43,7 +43,7 @@ def make_intkey_address(name):
         name.encode('utf-8')).hexdigest()[-64:]
 
 
-class SimpleTransactionHandler:
+class SimpleTransactionHandler(TransactionHandler):
     @property
     def family_name(self):
         return FAMILY_NAME
@@ -53,21 +53,17 @@ class SimpleTransactionHandler:
         return ['1.0']
 
     @property
-    def encodings(self):
-        return ['application/cbor']
-
-    @property
     def namespaces(self):
         return [SIMPLE_ADDRESS_PREFIX]
 
-    def apply(self, transaction, state_store):
+    def apply(self, transaction, context):
         verb, name, value = _unpack_transaction(transaction)
 
-        state = _get_state_data(name, state_store)
+        state = _get_state_data(name, context)
 
         updated_state = _do_intkey(verb, name, value, state)
 
-        _set_state_data(name, updated_state, state_store)
+        _set_state_data(name, updated_state, context)
 
 
 def _unpack_transaction(transaction):
@@ -128,10 +124,10 @@ def _validate_value(value):
                 a=MAX_VALUE))
 
 
-def _get_state_data(name, state_store):
+def _get_state_data(name, context):
     address = make_intkey_address(name)
 
-    state_entries = state_store.get([address])
+    state_entries = context.get_state([address])
 
     try:
         return cbor.loads(state_entries[0].data)
@@ -142,15 +138,12 @@ def _get_state_data(name, state_store):
             'Failed to load state data')
 
 
-def _set_state_data(name, state, state_store):
+def _set_state_data(name, state, context):
     address = make_intkey_address(name)
 
     encoded = cbor.dumps(state)
 
-    addresses = state_store.set([
-        StateEntry(
-            address=address,
-            data=encoded)])
+    addresses = context.set_state({address: encoded})
 
     if not addresses:
         raise InternalError(
