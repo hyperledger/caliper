@@ -33,8 +33,8 @@ if os.path.exists("/lib/systemd/system"):
 setup(name='sawtooth-simple',
       version=subprocess.check_output(
           ['../../../bin/get_version']).decode('utf-8').strip(),
-      description='Sawtooth Lake Intkey Python Example',
-      author='Intel Corporation',
+      description='Sawtooth Simple Python Example',
+      author='Hyperledger Caliper',
       url='https://github.com/hyperledger/sawtooth-core',
       packages=find_packages(),
       install_requires=[
