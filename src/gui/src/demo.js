@@ -48,6 +48,7 @@ function demoInit() {
 }
 module.exports.init = demoInit;
 
+// TODO: need to limit the maximum length for X-Axis
 function demoRefreshX() {
     var len = demoData.throughput.submitted.length;
     while(demoData.throughput.x.length < len) {
