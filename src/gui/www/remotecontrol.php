@@ -9,6 +9,7 @@
         $path = "your directory of caliper";
         $host = "host's ip address";
         $port = 22;
+        $debug = false;
         set_time_limit( 0);
 
         session_start();
@@ -33,6 +34,10 @@
         }
 
         if(ssh2_auth_password($connect, $user, $pwd)){
+            if($debug) {
+                sendmsg('debug', 'ssh connected, try to run: bash '.$path.'scripts/start.sh ' . $_GET['b'] . ' ' . $_GET['s']);
+            }
+
             // start the benchmark
             $stream = ssh2_exec($connect, 'bash '.$path.'scripts/start.sh ' . $_GET['b'] . ' ' . $_GET['s']);
             stream_set_blocking($stream, true);
@@ -82,16 +87,16 @@
             stream_get_contents($stream);
             fclose($stream);
 
-            sendmsg("finish","ok");
+            sendmsg('finish','ok');
             exit();
         }
         else {
-            sendmsg("finish", "error");
+            sendmsg('finish', 'Error: could not connect to ssh server');
             exit();
         }
     }
     catch(Exception $e) {
-        sendmsg("finish", "error");
+        sendmsg('finish', 'Error: '.$e->getMessage());
         exit();
     }
 
