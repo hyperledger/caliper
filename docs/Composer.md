@@ -50,14 +50,22 @@ To run a Composer based test, on a published set of versions, the required proce
 Following the command issue, the Caliper bench-flow process will execute, targeting the Composer tests specified within a config file. If no config file is passed, it will default to using config-composer.json. 
 
 ## Testing Your own Business Network Definition
-To test your own Business Network, it is necessary to:
-- Place the test Business Network Archive file into the src/contract/composer/bna folder
-- Add the new business network within the netork topology file as a `chaincode` to deploy
-- Create a test script that includes an `initilisation`, `run` and `end` phase
-- Add the new test script to the test config file as a test round, making sure that the `label` matches the business network name and that specified in the network topology `chaincodes`, and that the correct `callback` is specified.
-- If a Business Network has multiple transactions that are to be tested, it is possible to pass a named transaction within the test round `arguments`. Examples for doing this are provided within the `/caliper/benchmark/composer/composer-samples` directory.
+Examples for existing Business Networks are provided within the `/caliper/benchmark/composer/composer-samples` directory. To test your own Business Network, you must:
+- Place your Business Network files into a folder within `caliper/src/contract/composer`. The name of the folder that holds your Buinsess Network files should be named the same as your Business Network and represents the `chaincode` that is deployed.
+- Add the new Business Network within the network topology file as a `chaincode` to deploy
+- Create a test script that includes an `init`, `run` and `end` phase
+- Add the new test script to the test config file as a test round, making sure that the `label` matches the Business Network name and that specified in the network topology `chaincodes`, and that the correct `callback` is specified.
+- If a Business Network has multiple transactions that are to be tested, it is possible to pass a named transaction within the test round `arguments`.
+
+
+If modifying the existing config-composer.json file, then:
+- Modify `config-composer.json` 
+  - Change `rounds.label` to be the name of the folder inside `caliper/src/contract/composer` that contains your Business Network files
+  - Change `rounds.callback` to be the location of your test script
+  - Change `rounds.arguments` to provide any required arguments to your test
+- Modify the corresponding `composer.json` file identified in `config-composer.json` under `blockchain.config` to list (or replace) your business network name in the `composer.chaincodes` array
 
 ### Creating Tests For Your Business Network
 When creating tests for a business network, it is important to consider the system under test in order to prevent deadlocks and access denial. 
 
-For instance, if the desire is to test the update of an Asset, then it is not recommended to try updating the same asset concurrently. Instead it is necessary to create a set of assets to work with during the initialiastion phase and then update each asset within a single instance of the test run.
+For instance, if the desire is to test the update of an Asset, then it is not recommended to try updating the same asset concurrently. Instead it is necessary to create a set of assets to work with during the `init` phase and then update each asset within a single instance of the test run. In such instances the test should be driven under `txNumber` mode and the number of assets created in the test should ideally match the number of transactions specified within `txNumber`.
