@@ -18,10 +18,10 @@ import argparse
 import pkg_resources
 
 from sawtooth_sdk.processor.core import TransactionProcessor
-from sawtooth_sdk.client.log import init_console_logging
-from sawtooth_sdk.client.log import log_configuration
-from sawtooth_sdk.client.config import get_log_config
-from sawtooth_sdk.client.config import get_log_dir
+from sawtooth_sdk.processor.log import init_console_logging
+from sawtooth_sdk.processor.log import log_configuration
+from sawtooth_sdk.processor.config import get_log_config
+from sawtooth_sdk.processor.config import get_log_dir
 from sawtooth_simple.processor.handler import SimpleTransactionHandler
 
 
@@ -31,15 +31,13 @@ DISTRIBUTION_NAME = 'sawtooth-simple'
 def parse_args(args):
     parser = argparse.ArgumentParser(
         formatter_class=argparse.RawTextHelpFormatter)
-
-    parser.add_argument('endpoint',
-                        nargs='?',
+    parser.add_argument('-C', '--connect',
                         default='tcp://localhost:4004',
                         help='Endpoint for the validator connection')
     parser.add_argument('-v', '--verbose',
-                        action='count',
-                        default=0,
-                        help='Increase output sent to stderr')
+            action='count',
+            default=0,
+            help='Increase output sent to stderr')
 
     try:
         version = pkg_resources.get_distribution(DISTRIBUTION_NAME).version
@@ -62,7 +60,7 @@ def main(args=None):
     opts = parse_args(args)
     processor = None
     try:
-        processor = TransactionProcessor(url=opts.endpoint)
+        processor = TransactionProcessor(url=opts.connect)
         log_config = get_log_config(filename="intkey_log_config.toml")
 
         # If no toml, try loading yaml

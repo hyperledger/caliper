@@ -64,9 +64,9 @@ class Sawtooth extends BlockchainInterface {
 
 module.exports = Sawtooth;
 
-const restApiUrl = 'http://127.0.0.1:8080'
+const restApiUrl = 'http://127.0.0.1:8008'
 
-	function querybycontext(context, contractID, contractVer, name) {
+function querybycontext(context, contractID, contractVer, name) {
 	const address = calculateAddress(contractID, name)
 	return getState(address)
 }
@@ -238,28 +238,55 @@ function calculateAddresses(family, args) {
 }
 
 function createBatch(contractID, contractVer, addresses, args) {
-	const cbor =  require('cbor')
-	const {signer} = require('sawtooth-sdk')
-	const privateKey = signer.makePrivateKey()
-	const {TransactionEncoder} = require('sawtooth-sdk')
 
+	const {createHash} = require('crypto')
+	const {createContext, CryptoFactory} = require('sawtooth-sdk/signing')
+	const context = createContext('secp256k1')
+	const {protobuf} = require('sawtooth-sdk')
+	const privateKey = context.newRandomPrivateKey()
+	const signer = new CryptoFactory(context).newSigner(privateKey)
 
-	const encoder = new TransactionEncoder(privateKey, {
+	const cbor = require('cbor')
+	const payloadBytes = cbor.encode(args)
+
+	const transactionHeaderBytes = protobuf.TransactionHeader.encode({
 		familyName: contractID,
 		familyVersion: contractVer,
 		inputs: addresses,
 		outputs: addresses,
-		payloadEncoding: 'application/cbor',
-		payloadEncoder: cbor.encode
-	})
+		signerPublicKey: signer.getPublicKey().asHex(),
+		batcherPublicKey: signer.getPublicKey().asHex(),
+		dependencies: [],
+		payloadSha512: createHash('sha512').update(payloadBytes).digest('hex')
+	     }).finish()
 
-	const txn = encoder.create(args)
+	const txnSignature = signer.sign(transactionHeaderBytes)
 
-	const {BatchEncoder} = require('sawtooth-sdk')
-	const batcher = new BatchEncoder(privateKey)
+	const transaction = protobuf.Transaction.create({
+			header: transactionHeaderBytes,
+			headerSignature: txnSignature,
+			payload: payloadBytes
+		})
 
-	const batch = batcher.create([txn])
-	let link = restApiUrl + '/batch_status?id=' + batch.headerSignature 
-	const batchBytes = batcher.encode([batch])
-	return batchBytes
+	const transactions = [transaction]
+
+	const batchHeaderBytes = protobuf.BatchHeader.encode({
+                        signerPublicKey: signer.getPublicKey().asHex(),
+                        transactionIds: transactions.map((txn) => txn.headerSignature),
+		}).finish()
+
+	const batchSignature = signer.sign(batchHeaderBytes)
+
+	const batch = protobuf.Batch.create({
+			header: batchHeaderBytes,
+			headerSignature: batchSignature,
+			transactions: transactions
+		})
+
+	const batchListBytes = protobuf.BatchList.encode({
+		    batches: [batch]
+	}).finish()
+
+	return batchListBytes
+
 }
