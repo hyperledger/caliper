@@ -22,6 +22,10 @@ var RateControl = class {
                 var interval = require('./fixedRate.js');
                 this.controller = new interval(blockchain, rateControl.opts);
                 break
+            case 'pid-rate':
+                var interval = require('./pidRate.js');
+                this.controller = new interval(blockchain, rateControl.opts);
+                break
             default:
                 throw new Error('Unknown rate control type ' + rateControl.type);
         }

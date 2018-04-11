@@ -16,6 +16,12 @@
 
 var RateInterface = require('./rateInterface.js')
 
+/**
+ * This controller will send transactions at a specified fixed interval.
+ * 
+ * The TPS rate must be specified within the options for the controller type:
+ * "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 10}}]
+ */
 class FixedRate extends RateInterface {
     constructor(blockchain, opts) {
         super(blockchain, opts);
