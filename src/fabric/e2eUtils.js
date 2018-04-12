@@ -495,138 +495,186 @@ function releasecontext(context) {
 }
 module.exports.releasecontext = releasecontext;
 
-function invokebycontext(context, id, version, args, timeout){
-    var userOrg   = context.org;
-    var client    = context.client;
-    var channel   = context.channel;
-    var eventhubs = context.eventhubs;
-    var time0     = Date.now();
-    var tx_id     = client.newTransactionID();
-    var invoke_status = {
-        id           : tx_id.getTransactionID(),
-        status       : 'created',
-        time_create  : Date.now(),
-        time_final   : 0,
-        time_endorse : 0,
-        time_order   : 0,
-        result       : null
+async function invokebycontext(context, id, version, args, timeout){
+    const TxErrorEnum = require("./constant.js").TxErrorEnum;
+    const TxErrorIndex = require("./constant.js").TxErrorIndex;
+
+    const channel = context.channel;
+    const eventHubs = context.eventhubs;
+    const startTime = Date.now();
+    const txIdObject = context.client.newTransactionID();
+    const txId = txIdObject.getTransactionID().toString();
+
+    // timestamps are recorded for every phase regardless of success/failure
+    let invokeStatus = {
+        id: txId,
+        status: 'created',
+        time_create: Date.now(),
+        time_final: 0,
+        time_endorse: 0,
+        time_order: 0,
+        result: null,
+        verified: false, // if false, we cannot be sure that the final Tx status is accurate
+        error_flags: TxErrorEnum.NoError, // the bitmask of error codes that happened during the Tx life-cycle
+        error_messages: [] // the error messages corresponding to the error flags
     };
-    var pass_results = null;
 
     // TODO: should resolve endorsement policy to decides the target of endorsers
     // now random peers ( one peer per organization ) are used as endorsers as default, see the implementation of getContext
-	// send proposal to endorser
-	var f = args[0];
-	args.shift();
-	var request = {
-		chaincodeId : id,
-		fcn: f,
-	    args: args,
-		txId: tx_id,
-	};
+    // send proposal to endorser
+    const f = args[0];
+    args.shift();
+    const proposalRequest = {
+        chaincodeId: id,
+        fcn: f,
+        args: args,
+        txId: txIdObject,
+    };
 
-	return channel.sendTransactionProposal(request)
-	.then((results) =>{
-		pass_results = results;
-		invoke_status.time_endorse = Date.now();
-		var proposalResponses = pass_results[0];
+    let proposalResponseObject = null;
+    try {
+        try {
+            proposalResponseObject = await channel.sendTransactionProposal(proposalRequest, timeout * 1000);
+            invokeStatus.time_endorse = Date.now();
+        } catch (err) {
+            invokeStatus.time_endorse = Date.now();
+            invokeStatus.error_flags |= TxErrorEnum.ProposalResponseError;
+            invokeStatus.error_messages[TxErrorIndex.ProposalResponseError] = err.toString();
+            // error occurred, early life-cycle termination, definitely failed
+            invokeStatus.verified = true;
+            throw err; // handle logging in one place
+        }
 
-		var proposal = pass_results[1];
-		var all_good = true;
+        const proposalResponses = proposalResponseObject[0];
+        const proposal = proposalResponseObject[1];
 
-		for(let i in proposalResponses) {
-			let one_good = false;
-			let proposal_response = proposalResponses[i];
-			if( proposal_response.response && proposal_response.response.status === 200) {
-			    // TODO: the CPU cost of verifying response is too high.
-			    // Now we ignore this step to improve concurrent capacity for the client
-			    // so a client can initialize multiple concurrent transactions
-			    // Is it a reasonable way?
-				// one_good = channel.verifyProposalResponse(proposal_response);
-				one_good = true;
-		    }
-			all_good = all_good & one_good;
-		}
-		if (all_good) {
-			// check all the read/write sets to see if the same, verify that each peer
-			// got the same results on the proposal
-			all_good = channel.compareProposalResponseResults(proposalResponses);
-		}
-		if (all_good) {
-			invoke_status.result = proposalResponses[0].response.payload;
-
-			var request = {
-				proposalResponses: proposalResponses,
-				proposal: proposal,
-			};
-
-			var deployId = tx_id.getTransactionID();
-			var eventPromises = [];
-			var newTimeout = timeout * 1000 - (Date.now() - time0);
-			if(newTimeout < 10000) {
-			    console.log("WARNING: timeout is too small, default value is used instead");
-			    newTimeout = 10000;
+        let allGood = true;
+        for(let i in proposalResponses) {
+            let one_good = false;
+            let proposal_response = proposalResponses[i];
+            if( proposal_response.response && proposal_response.response.status === 200) {
+                // TODO: the CPU cost of verifying response is too high.
+                // Now we ignore this step to improve concurrent capacity for the client
+                // so a client can initialize multiple concurrent transactions
+                // Is it a reasonable way?
+                // one_good = channel.verifyProposalResponse(proposal_response);
+                one_good = true;
+            } else {
+                let err = new Error("Endorsement denied with status code: " + proposal_response.response.status);
+                invokeStatus.error_flags |= TxErrorEnum.BadProposalResponseError;
+                invokeStatus.error_messages[TxErrorIndex.BadProposalResponseError] = err.toString();
+                // explicit rejection, early life-cycle termination, definitely failed
+                invokeStatus.verified = true;
+                throw err;
 			}
+            allGood = allGood && one_good;
+        }
 
-			eventhubs.forEach((eh) => {
-				let txPromise = new Promise((resolve, reject) => {
-					let handle = setTimeout(reject, newTimeout);
+        if (allGood) {
+            // check all the read/write sets to see if the same, verify that each peer
+            // got the same results on the proposal
+            allGood = channel.compareProposalResponseResults(proposalResponses);
+            if (!allGood) {
+            	let err = new Error("Read/Write set mismatch between endorsements");
+                invokeStatus.error_flags |= TxErrorEnum.BadProposalResponseError;
+                invokeStatus.error_messages[TxErrorIndex.BadProposalResponseError] = err.toString();
+                // r/w set mismatch, early life-cycle termination, definitely failed
+                invokeStatus.verified = true;
+                throw err;
+            }
+        }
 
-					eh.registerTxEvent(deployId.toString(),
-						(tx, code) => {
-							clearTimeout(handle);
-							eh.unregisterTxEvent(deployId);
+        invokeStatus.result = proposalResponses[0].response.payload;
 
-							if (code !== 'VALID') {
-								reject();
-							} else {
-								resolve();
-							}
-						},
-						(err) => {
-							clearTimeout(handle);
-							resolve();
-						}
-					);
-				});
+        const transactionRequest = {
+            proposalResponses: proposalResponses,
+            proposal: proposal,
+        };
 
-				eventPromises.push(txPromise);
-			});
+        let newTimeout = timeout * 1000 - (Date.now() - startTime);
+        if(newTimeout < 10000) {
+            console.log("WARNING: timeout is too small, default value is used instead");
+            newTimeout = 10000;
+        }
 
-			var orderer_response;
-			return channel.sendTransaction(request)
-			.then((response) => {
-			    orderer_response  = response;
-			    invoke_status.time_order = Date.now();
-			    return Promise.all(eventPromises);
-			})
-			.then((results) => {
-			    return Promise.resolve(orderer_response);
-			}, ()=>{
-			    throw new Error('Failed to get valid event notification');
-			});
+        const eventPromises = [];
+        eventHubs.forEach((eh) => {
+            eventPromises.push(new Promise((resolve, reject) => {
+                let handle = setTimeout(reject, newTimeout);
+
+                eh.registerTxEvent(txId,
+                    (tx, code) => {
+                        clearTimeout(handle);
+                        eh.unregisterTxEvent(txId);
+
+                        // either explicit invalid event or valid event, verified in both cases by at least one peer
+                        invokeStatus.verified = true;
+                        if (code !== 'VALID') {
+                        	let err = new Error("Invalid transaction: " + code);
+                            invokeStatus.error_flags |= TxErrorEnum.BadEventNotificationError;
+                            invokeStatus.error_messages[TxErrorIndex.BadEventNotificationError] = err.toString();
+                            reject(err); // handle error in final catch
+                        } else {
+                            resolve();
+                        }
+                    },
+                    (err) => {
+                        clearTimeout(handle);
+                        // we don't know what happened, but give the other eventhub connections a chance
+						// to verify the Tx status, so resolve this call
+                        invokeStatus.error_flags |= TxErrorEnum.EventNotificationError;
+                        invokeStatus.error_messages[TxErrorIndex.EventNotificationError] = err.toString();
+                        resolve();
+                    }
+                );
+            }));
+        });
+
+        let broadcastResponse;
+        try {
+            broadcastResponse = await channel.sendTransaction(transactionRequest);
+        } catch (err) {
+        	// missing the ACK does not mean anything, the Tx could be already under ordering
+			// so let the events decide the final status, but log this error
+            invokeStatus.error_flags |= TxErrorEnum.OrdererResponseError;
+            invokeStatus.error_messages[TxErrorIndex.OrdererResponseError] = err.toString();
+        }
+
+        invokeStatus.time_order = Date.now();
+
+        if (broadcastResponse && broadcastResponse.status === 'SUCCESS') {
+            invokeStatus.status = 'submitted';
+        } else if (broadcastResponse && broadcastResponse.status !== 'SUCCESS') {
+        	let err = new Error('Received rejection from orderer service: ' + broadcastResponse.status);
+            invokeStatus.error_flags |= TxErrorEnum.BadOrdererResponseError;
+            invokeStatus.error_messages[TxErrorIndex.BadOrdererResponseError] = err.toString();
+            // the submission was explicitly rejected, so the Tx will definitely not be ordered
+            invokeStatus.verified = true;
+            throw err;
+        }
+
+        await Promise.all(eventPromises);
+        // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
+		// so mark it failed but leave it not verified
+		if (!invokeStatus.verified) {
+            invokeStatus.status = 'failed';
 		} else {
-			throw new Error('Failed to send Proposal or receive valid response. Response null or status is not 200. exiting...');
+            invokeStatus.status = 'success';
+            invokeStatus.verified = true;
 		}
-	}).then((response) => {
+    } catch (err)
+    {
+    	// at this point the Tx should be verified
+        invokeStatus.status = 'failed';
+        console.log("Failed to complete transaction [" + txId.substring(0, 5) + "...]:"
+			+ (err instanceof Error ? err.stack : err))
+    }
 
-		if (response.status === 'SUCCESS') {
-			invoke_status.status = 'success';
-			invoke_status.time_final = Date.now();
-			return Promise.resolve(invoke_status);
-		} else {
-			throw new Error('Failed to order the transaction. Error code: ' + response.status);
-		}
-	})
-	.catch((err) => {
-	    // return resolved, so we can use promise.all to handle multiple invoking
-	    // invoke_status is used to judge the invoking result
-	    console.log('Invoke chaincode failed, ' + (err.stack?err.stack:err));
-	    invoke_status.time_final = Date.now();
-	    invoke_status.status     = 'failed';
-	    return Promise.resolve(invoke_status);
-	});
-};
+    invokeStatus.time_final = Date.now();
+
+    return invokeStatus;
+}
+
 module.exports.invokebycontext = invokebycontext;
 
 function querybycontext(context, id, version, name) {
