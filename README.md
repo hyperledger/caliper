@@ -5,7 +5,7 @@ Caliper is a blockchain performance benchmark framework, which allows users to t
 Currently supported blockchain solutions:
 * [fabric 1.0.5](https://github.com/hyperledger/fabric)
 * [sawtooth 0.8](https://github.com/hyperledger/sawtooth-core) 
-* [Iroha (develop branch @fcc2f7c8ceaee4f7654c3b216d65b8906a35f633)](https://github.com/hyperledger/iroha)
+* [Iroha 1.0-beta](https://github.com/hyperledger/iroha)
 
 Currently supported performance indicators:
 * Success rate
@@ -15,7 +15,7 @@ Currently supported performance indicators:
 
 See [to add the link to PSWG] to find out the definitions and corresponding measurement methods.  
 
-##Achitecture
+## Achitecture
 See [Architecture introduction](docs/Architecture.md). 
 
 ## Build
@@ -40,16 +40,11 @@ Run `npm install` in caliper folder to install dependencies locally
   
 * Sawtooth
   * Clone [sawtooth-core](https://github.com/hyperledger/sawtooth-core) and run the `./bin/run_tests -m javascript_sdk` to test the SDK
-  * Install **sawtooth-sdk** from the SDK, e.g run `npm install path-to-sdk/javascript` in capliper's root folder.
+  * Install **sawtooth-sdk** from the SDK, e.g run `npm install path-to-sdk/javascript` in Caliper's root folder.
 
 * Iroha
-  * Install dependencies
-  
-    ```
-    $sudo apt-get install libv8-dev 
-    $install google-protobuf grpc
-    ```
-  * A precompiled Iroha library is provided in `src/iroha/external`, which is compiled with Ubuntu 14 x86_64. The library should be replaced if it is incompatible with the under platform.
+  * Install Iroha Library by `npm install iroha-lib` in Caliper's root folder.
+  * The package is in **alfa phase**, so if you have some problems with installing or compilation - please contact [Iroha maintainers](https://github.com/hyperledger/iroha/issues).
 
 * Composer
    * Install dependencies
