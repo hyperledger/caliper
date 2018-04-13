@@ -181,6 +181,6 @@ Generally speaking, to write a new caliper benchmark, you need to:
 /network | Boot configuration files used to deploy some predefined blockchain network under test.
 /src | Souce code of the framework
 /src/contract | Smart contracts for different blockchain systems
-  
- 
 
+## License
+The Caliper codebase is release under the [Apache 2.0 license](./LICENSE). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.
