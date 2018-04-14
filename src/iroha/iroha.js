@@ -121,7 +121,7 @@ class Iroha extends BlockchainInterface{
                                },
                                {
                                     tx: irohaType.txType['APPEND_ROLE'],
-                                    args: [id, 'moneyadm']
+                                    args: [id, 'moneyad']
                                },];
                 console.log('Create account for ' + id);
                 let p = irohaCommand(grpcCommandClient, adminAccount, Date.now(), txCounter, adminKeys, commands);

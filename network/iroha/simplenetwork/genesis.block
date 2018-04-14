@@ -71,7 +71,7 @@
                 },
                 {
                     "command_type": "CreateRole",
-                    "role_name": "moneyadm",
+                    "role_name": "moneyad",
                     "permissions": [
                         "can_add_asset_qty",
                         "can_create_asset",
@@ -110,7 +110,7 @@
                 {
                     "command_type": "AppendRole",
                     "account_id": "admin@test",
-                    "role_name": "moneyadm"
+                    "role_name": "moneyad"
                 }
             ]
         }
