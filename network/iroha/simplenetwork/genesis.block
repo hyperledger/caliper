@@ -15,14 +15,14 @@
                 {
                     "command_type": "AddPeer",
                     "peer": {
-                        "address": "iroha_node0:10001",
+                        "address": "iroha-node0:10001",
                         "peer_key": "bb6fecd300bd8adb717e9431c04e4c809363c00b3a4d91c85b6b6d5557873258"
                     }
                 },
                 {
                     "command_type": "AddPeer",
                     "peer": {
-                        "address": "iroha_node1:10001",
+                        "address": "iroha-node1:10001",
                         "peer_key": "5bea110012e064a05c087788f3f69fa2b15b1712d5b795d986d882b9b0d8ec51"
                     }
                 },
