@@ -10,18 +10,18 @@
 'use strict'
 
 var BlockchainInterface = require('../comm/blockchain-interface.js');
-var iroha = require('./external/irohanode');
+var iroha = require('iroha-lib');
 var txBuilder = new iroha.ModelTransactionBuilder();
 var queryBuilder = new iroha.ModelQueryBuilder();
 var crypto = new iroha.ModelCrypto();
 var protoTxHelper = new iroha.ModelProtoTransaction();
 var protoQueryHelper = new iroha.ModelProtoQuery();
-var pbTransaction = require('./external/block_pb.js').Transaction;
-var pbQuery = require('./external/queries_pb.js').Query;
+var pbTransaction = require('iroha-lib/pb/block_pb.js').Transaction;
+var pbQuery = require('iroha-lib/pb/queries_pb.js').Query;
 var grpc = require('grpc');
-var endpointGrpc = require('./external/endpoint_grpc_pb.js');
-var endpointPb = require('./external/endpoint_pb.js');
-var txStatus =  require('./external/endpoint_pb.js').TxStatus;
+var endpointGrpc = require('iroha-lib/pb/endpoint_grpc_pb.js');
+var endpointPb = require('iroha-lib/pb/endpoint_pb.js');
+var txStatus =  require('iroha-lib/pb/endpoint_pb.js').TxStatus;
 var irohaType = require('./type.js');
 var fs = require('fs');
 var path = require('path');
@@ -60,7 +60,7 @@ class Iroha extends BlockchainInterface{
         try{
             console.log('Creating new account for test clients......');
 
-            // get admin infro
+            // get admin info
             var config = require(this.configPath);
             var admin        = config.iroha.admin;
             var domain       = admin.domain;
@@ -490,7 +490,7 @@ function irohaQuery(client, account, time, counter, keys, commands, callback) {
         var queryBlob  = protoQueryHelper.signAndAddSignature(query, keys).blob();
         var queryArray = blob2array(queryBlob);
         var protoQuery = pbQuery.deserializeBinary(queryArray);
-        var responseType = require('./external/responses_pb.js').QueryResponse.ResponseCase;
+        var responseType = require('iroha-lib/pb/responses_pb.js').QueryResponse.ResponseCase;
         return new Promise((resolve, reject)=>{
                     client.find(protoQuery, (err, response)=>{
                         if(err){
