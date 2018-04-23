@@ -45,7 +45,7 @@ class Iroha extends BlockchainInterface{
 
     init() {
         // return Promise.resolve();
-        return sleep(5000); // wait for iroha network to start up
+        return sleep(10000); // wait for Iroha network to start up
                             // TODO: how to judge iroha service's status elegantly?
     }
 
@@ -465,12 +465,12 @@ function irohaCommand(client, account, time, counter, keys, commands) {
          })
          .catch((err)=>{
             console.log(err);
-            return Promise.reject('Failed to submit iroha tranaction');
+            return Promise.reject('Failed to submit Iroha transaction');
          })
     }
     catch(err) {
         console.log(err);
-        return Promise.reject('Failed to submit iroha tranaction');
+        return Promise.reject('Failed to submit Iroha transaction');
     }
 }
 
@@ -491,21 +491,22 @@ function irohaQuery(client, account, time, counter, keys, commands, callback) {
         var queryArray = blob2array(queryBlob);
         var protoQuery = pbQuery.deserializeBinary(queryArray);
         var responseType = require('iroha-lib/pb/responses_pb.js').QueryResponse.ResponseCase;
-        return new Promise((resolve, reject)=>{
-                    client.find(protoQuery, (err, response)=>{
-                        if(err){
-                            reject(err);
-                        }
-                        else {
-                            if(response.getResponseCase() === responseType['ERROR_RESPONSE']) { // error response
-                                reject(new Error('Query error, error code : ' + response.getErrorResponse().getReason()));
-                            }
-                            else {
-                                callback(response);
-                                resolve();
-                            }
-                        }
-                    });
+        return new Promise((resolve, reject) => {
+            client.find(protoQuery, (err, response) => {
+                if(err){
+                    reject(err);
+                }
+                else {
+                    if(response.getResponseCase() === responseType['ERROR_RESPONSE']) { // error response
+                        console.warn("Query: ", JSON.stringify(queryCommand))
+                        reject(new Error('Query error, error code : ' + response.getErrorResponse().getReason()));
+                    }
+                    else {
+                        callback(response);
+                        resolve();
+                    }
+                }
+            });
         });
     }
     catch(err) {
