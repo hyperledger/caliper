@@ -107,10 +107,6 @@ function getState(address) {
 	})
 }
 
-function sleep(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 function submitBatches(batchBytes) {
 	var invoke_status = {
 		id           : 0,

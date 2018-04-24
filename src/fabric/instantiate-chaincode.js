@@ -27,6 +27,8 @@ var _test = require('tape-promise');
 var test = _test(tape);
 
 var e2eUtils = require('./e2eUtils.js');
+var commUtils = require('../comm/util');
+
 var Client   = require('fabric-client')
 
 module.exports.run = function (config_path) {
@@ -47,7 +49,7 @@ module.exports.run = function (config_path) {
                 return e2eUtils.instantiateChaincode(chaincode, policy, false).then(() => {
                     t.pass('Instantiated chaincode ' + chaincode.id + ' successfully ');
                     t.comment('Sleep 5s...');
-                    return sleep(5000);
+                    return commUtils.sleep(5000);
                 });
             });
         }, Promise.resolve())
@@ -60,7 +62,3 @@ module.exports.run = function (config_path) {
          });
     });
 };
-
-function sleep(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms));
-}

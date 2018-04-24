@@ -25,7 +25,7 @@ var txStatus =  require('./external/endpoint_pb.js').TxStatus;
 var irohaType = require('./type.js');
 var fs = require('fs');
 var path = require('path');
-var sleep = require('../comm/sleep.js');
+var util = require('../comm/util.js');
 
 
 var contexts = {};
@@ -45,7 +45,7 @@ class Iroha extends BlockchainInterface{
 
     init() {
         // return Promise.resolve();
-        return sleep(5000); // wait for iroha network to start up
+        return util.sleep(5000); // wait for iroha network to start up
                             // TODO: how to judge iroha service's status elegantly?
     }
 
@@ -132,7 +132,7 @@ class Iroha extends BlockchainInterface{
             return Promise.all(promises)
                     .then(()=>{
                         console.log('Submitted create account transactions.');
-                        return sleep(5000);
+                        return util.sleep(5000);
                     })
                     .then(()=>{
                         console.log('Query accounts to see if they already exist ......')

@@ -12,37 +12,35 @@
  * limitations under the License.
  */
 
+'use strict';
+
+/* global getFactory getAssetRegistry emit */
 
 /**
  * Place an order for a vehicle
  * @param {org.acme.vehicle.lifecycle.manufacturer.PlaceOrder} placeOrder - the PlaceOrder transaction
  * @transaction
  */
-function placeOrder(placeOrder) {
-    console.log('placeOrder');
+async function placeOrder(placeOrder) { // eslint-disable-line no-unused-vars
+    console.log('placeOrder'); // eslint-disable-line no-console
 
-    var factory = getFactory();
-    var NS_M = 'org.acme.vehicle.lifecycle.manufacturer';
-    var NS = 'org.acme.vehicle.lifecycle';
-    var NS_D = 'org.vda';
+    const factory = getFactory();
+    const NS_M = 'org.acme.vehicle.lifecycle.manufacturer';
+    const NS = 'org.acme.vehicle.lifecycle';
 
-    var order = factory.newResource(NS_M, 'Order', placeOrder.orderId);
+    const order = factory.newResource(NS_M, 'Order', placeOrder.orderId);
     order.vehicleDetails = placeOrder.vehicleDetails;
     order.orderStatus = 'PLACED';
     order.manufacturer = placeOrder.manufacturer;
     order.orderer = factory.newRelationship(NS, 'PrivateOwner', placeOrder.orderer.getIdentifier());
 
     // save the order
-    return getAssetRegistry(order.getFullyQualifiedType())
-        .then(function (registry) {
-            return registry.add(order);
-        })
-        .then(function(){
-    		var placeOrderEvent = factory.newEvent(NS_M, 'PlaceOrderEvent');
-      		placeOrderEvent.orderId = order.orderId;
-      		placeOrderEvent.vehicleDetails = order.vehicleDetails;
-    		emit(placeOrderEvent);
-    	});
+    const registry = await getAssetRegistry(order.getFullyQualifiedType());
+    await registry.add(order);
+    const placeOrderEvent = factory.newEvent(NS_M, 'PlaceOrderEvent');
+    placeOrderEvent.orderId = order.orderId;
+    placeOrderEvent.vehicleDetails = order.vehicleDetails;
+    emit(placeOrderEvent);
 }
 
 /**
@@ -50,71 +48,61 @@ function placeOrder(placeOrder) {
  * @param {org.acme.vehicle.lifecycle.manufacturer.UpdateOrderStatus} updateOrderStatus - the UpdateOrderStatus transaction
  * @transaction
  */
-function updateOrderStatus(updateOrderStatus) {
-    console.log('updateOrderStatus');
+async function updateOrderStatus(updateOrderStatus) { // eslint-disable-line no-unused-vars
+    console.log('updateOrderStatus'); // eslint-disable-line no-console
 
-    var factory = getFactory();
-    var NS_M = 'org.acme.vehicle.lifecycle.manufacturer';
-    var NS = 'org.acme.vehicle.lifecycle';
-    var NS_D = 'org.vda';
+    const factory = getFactory();
+    const NS_M = 'org.acme.vehicle.lifecycle.manufacturer';
+    const NS = 'org.acme.vehicle.lifecycle';
+    const NS_D = 'org.vda';
 
     // save the new status of the order
     updateOrderStatus.order.orderStatus = updateOrderStatus.orderStatus;
 
-  	// get vehicle registry
-  	return getAssetRegistry(NS_D + '.Vehicle')
-  		.then(function(registry) {
-      		if (updateOrderStatus.orderStatus === 'VIN_ASSIGNED') {
-            	var vehicle = factory.newResource(NS_D, 'Vehicle', updateOrderStatus.vin );
-                vehicle.vehicleDetails = updateOrderStatus.order.vehicleDetails;
-                vehicle.vehicleDetails.vin = updateOrderStatus.vin;
-                vehicle.vehicleStatus = 'OFF_THE_ROAD';
-                return registry.add(vehicle);
-            } else if(updateOrderStatus.orderStatus === 'OWNER_ASSIGNED') {
-                if (!updateOrderStatus.order.orderer.vehicles) {
-                    updateOrderStatus.order.orderer.vehicles = [];
-                }
+    // get vehicle registry
+    const registry = await getAssetRegistry(NS_D + '.Vehicle');
+    if (updateOrderStatus.orderStatus === 'VIN_ASSIGNED') {
+        const vehicle = factory.newResource(NS_D, 'Vehicle', updateOrderStatus.vin);
+        vehicle.vehicleDetails = updateOrderStatus.order.vehicleDetails;
+        vehicle.vehicleDetails.vin = updateOrderStatus.vin;
+        vehicle.vehicleStatus = 'OFF_THE_ROAD';
+        await registry.add(vehicle);
+    } else if (updateOrderStatus.orderStatus === 'OWNER_ASSIGNED') {
+        if (!updateOrderStatus.order.orderer.vehicles) {
+            updateOrderStatus.order.orderer.vehicles = [];
+        }
 
-            	return registry.get(updateOrderStatus.vin)
-                    .then(function(vehicle) {
-                        vehicle.vehicleStatus = 'ACTIVE';
-                        vehicle.owner = factory.newRelationship('org.acme.vehicle.lifecycle', 'PrivateOwner', updateOrderStatus.order.orderer.email);
-                        vehicle.numberPlate = updateOrderStatus.numberPlate || '';
-                        vehicle.vehicleDetails.numberPlate = updateOrderStatus.numberPlate || '';
-                        vehicle.vehicleDetails.v5c = updateOrderStatus.v5c || '';
-                        if (!vehicle.logEntries) {
-                            vehicle.logEntries = [];
-                        }
-                        var logEntry = factory.newConcept(NS_D, 'VehicleTransferLogEntry');
-                        logEntry.vehicle = factory.newRelationship(NS_D, 'Vehicle', updateOrderStatus.vin);
-                        logEntry.buyer = factory.newRelationship(NS, 'PrivateOwner', updateOrderStatus.order.orderer.email);
-                        logEntry.timestamp = updateOrderStatus.timestamp;
-                        vehicle.logEntries.push(logEntry);
-                        return registry.update(vehicle);
-                    });
-            }
-    	})
-  		.then(function() {
-      		// get order registry
-    		return getAssetRegistry(updateOrderStatus.order.getFullyQualifiedType());
-    	})
-  		.then(function(registry) {
-      		// update order status
-            updateOrderStatus.order.vehicleDetails.vin = updateOrderStatus.vin || '';
-            
-            if (!updateOrderStatus.order.statusUpdates) {
-                updateOrderStatus.order.statusUpdates = [];
-            }
+        const vehicle = await registry.get(updateOrderStatus.vin);
+        vehicle.vehicleStatus = 'ACTIVE';
+        vehicle.owner = factory.newRelationship('org.acme.vehicle.lifecycle', 'PrivateOwner', updateOrderStatus.order.orderer.email);
+        vehicle.numberPlate = updateOrderStatus.numberPlate || '';
+        vehicle.vehicleDetails.numberPlate = updateOrderStatus.numberPlate || '';
+        vehicle.vehicleDetails.v5c = updateOrderStatus.v5c || '';
+        if (!vehicle.logEntries) {
+            vehicle.logEntries = [];
+        }
+        const logEntry = factory.newConcept(NS_D, 'VehicleTransferLogEntry');
+        logEntry.vehicle = factory.newRelationship(NS_D, 'Vehicle', updateOrderStatus.vin);
+        logEntry.buyer = factory.newRelationship(NS, 'PrivateOwner', updateOrderStatus.order.orderer.email);
+        logEntry.timestamp = updateOrderStatus.timestamp;
+        vehicle.logEntries.push(logEntry);
+        await registry.update(vehicle);
+    }
 
-            updateOrderStatus.order.statusUpdates.push(updateOrderStatus);
+    // get order registry
+    const orderRegistry = await getAssetRegistry(updateOrderStatus.order.getFullyQualifiedType());
+    // update order status
+    updateOrderStatus.order.vehicleDetails.vin = updateOrderStatus.vin || '';
 
-      		return registry.update(updateOrderStatus.order);
-    	})
-        .then(function(){
-    		var updateOrderStatusEvent = factory.newEvent(NS_M, 'UpdateOrderStatusEvent');
-      		updateOrderStatusEvent.orderStatus = updateOrderStatus.order.orderStatus;
-      		updateOrderStatusEvent.order = updateOrderStatus.order;
-    		emit(updateOrderStatusEvent);
-    	});
-        
+    if (!updateOrderStatus.order.statusUpdates) {
+        updateOrderStatus.order.statusUpdates = [];
+    }
+
+    updateOrderStatus.order.statusUpdates.push(updateOrderStatus);
+
+    await orderRegistry.update(updateOrderStatus.order);
+    const updateOrderStatusEvent = factory.newEvent(NS_M, 'UpdateOrderStatusEvent');
+    updateOrderStatusEvent.orderStatus = updateOrderStatus.order.orderStatus;
+    updateOrderStatusEvent.order = updateOrderStatus.order;
+    emit(updateOrderStatusEvent);
 }

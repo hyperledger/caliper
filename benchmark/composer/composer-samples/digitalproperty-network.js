@@ -4,7 +4,7 @@
 * You may obtain a copy of the License at
 *
 * http://www.apache.org/licenses/LICENSE-2.0
-* 
+*
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -22,7 +22,7 @@
 *        "arguments": {"testAssets": 10},
 *        "callback" : "benchmark/composer/composer-samples/digitalproperty-network.js"
 *      }
-*  - Init: 
+*  - Init:
 *    - Single Participant (Person) created
 *    - Test specified number of Assets (LandTitle) created, belonging to a Participant
 *  - Run:
@@ -30,60 +30,62 @@
 *
 */
 
-'use strict'
+'use strict';
 
-module.exports.info  = "Digital Property Network Performance Test";
+const Util = require('../../../src/comm/util');
+
+module.exports.info  = 'Digital Property Network Performance Test';
 
 const namespace = 'net.biz.digitalPropertyNetwork';
 
-var bc;
-var busNetConnection;
-var factory;
+let bc;
+let busNetConnection;
+let factory;
 
-var testAssetNum;
-var assetId = 0;
+let testAssetNum;
+let assetId = 0;
 
 module.exports.init = async function(blockchain, context, args) {
-    // Create Participants and Assets to use in main test    
+    // Create Participants and Assets to use in main test
     bc = blockchain;
     busNetConnection = context;
     testAssetNum = args.testAssets;
     factory = busNetConnection.getBusinessNetwork().getFactory();
-   
+
     try {
         // Add test participant
-        let participantRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Person')
+        let participantRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Person');
         let participant = factory.newResource(namespace, 'Person', 'PERSON_0');
         participant.firstName = 'penguin';
         participant.lastName = 'wombat';
-        console.log('Adding test participant');
+        Util.log('Adding test participant');
         await participantRegistry.addAll([participant]);
-        console.log('Participant addition complete');
+        Util.log('Participant addition complete');
 
         // Add test assets
         let assetRegistry = await busNetConnection.getAssetRegistry(namespace + '.LandTitle');
-        let assets   = Array();  
+        let assets   = Array();
         for (let i = 0; i < testAssetNum; i ++) {
             let testAsset = factory.newResource(namespace, 'LandTitle', 'TITLE_' + i);
             testAsset.owner = factory.newRelationship(namespace, 'Person', 'PERSON_0');
             testAsset.information = 'Random information';
             assets.push(testAsset);
-        }        
-        console.log('Adding ' + assets.length + ' Assets......');
-        await assetRegistry.addAll(assets); 
-        console.log('Asset addition complete');
+        }
+        Util.log('Adding ' + assets.length + ' Assets......');
+        await assetRegistry.addAll(assets);
+        Util.log('Asset addition complete');
     } catch (error) {
-        console.log('error in test init: ', error);
+        Util.log('error in test init: ', error);
         return Promise.reject(error);
     }
-}
+};
 
 module.exports.run = function() {
     let transaction = factory.newTransaction(namespace, 'RegisterPropertyForSale');
     transaction.seller = factory.newRelationship(namespace, 'Person', 'myId');
-    transaction.title = factory.newRelationship(namespace, 'LandTitle', 'TITLE_' + assetId++);  
+    transaction.title = factory.newRelationship(namespace, 'LandTitle', 'TITLE_' + assetId++);
     return bc.bcObj.submitTransaction(busNetConnection, transaction);
-}
+};
 
 module.exports.end = function(results) {
     return Promise.resolve(true);

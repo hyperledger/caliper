@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Huawei-OSG/caliper"
+    "url": "https://github.com/hyperledger/caliper"
   },
   "scripts": {
     "test": "node ./scripts/test.js",
     "list": "node ./scripts/list.js",
+    "lint": "eslint .",
     "startclient": "node ./src/comm/client/zoo-client.js"
   },
   "engines": {
@@ -33,6 +34,9 @@
     "table": "^4.0.1",
     "tape": "^4.8.0",
     "tape-promise": "^1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1"
   },
   "license": "Apache-2.0",
   "licenses": [
