@@ -8,10 +8,12 @@
 
 'use strict';
 
-let configFile;
-let networkFile;
-let path = require('path');
-let fs = require('fs-extra');
+var configFile;
+var networkFile;
+var path = require('path');
+var fs = require('fs-extra');
+var exec = require('child_process').exec;
+
 function setConfig(file) {
     configFile = path.join('../..', file);
 }
@@ -23,20 +25,20 @@ function setNetwork(file) {
 function main() {
     if(process.argv.length < 3) {
         console.log('undefined benchmark name, should be "npm test -- benchmark-name [options]"');
-        return;
+        process.exit(1);
     }
 
     let benchmark = process.argv[2];
     let runDir = path.join(__dirname, '../benchmark', benchmark);
     if(!fs.existsSync(runDir)) {
         console.log('directory ' + runDir + ' does not exist');
-        return;
+        process.exit(1);
     }
 
     let runExe = path.join(runDir, 'main.js');
     if(!fs.existsSync(runExe)) {
         console.log('file ' + runExe + ' does not exist');
-        return;
+        process.exit(1);
     }
 
     let program = require('commander');
@@ -54,11 +56,17 @@ function main() {
         cmd += networkFile;
     }
 
-    let childProcess = require('child_process');
-    let exec = childProcess.exec;
     let run = exec(cmd, {cwd: runDir});
     run.stdout.pipe(process.stdout);
     run.stderr.pipe(process.stderr);
+
+    run.on('close', (code) => {
+        console.log('Benchmark return code: ', code);
+        if (code !== 0) {
+            code = 1;
+        }        
+        process.exit(code);
+    });
 }
 
 main();

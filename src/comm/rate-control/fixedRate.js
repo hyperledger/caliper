@@ -15,6 +15,7 @@
 'use strict';
 
 let RateInterface = require('./rateInterface.js');
+let Sleep = require('../util').sleep;
 
 /**
  * This controller will send transactions at a specified fixed interval.
@@ -59,7 +60,7 @@ class FixedRate extends RateInterface {
         }
         let diff = (this.sleepTime * idx - (Date.now() - start));
         if( diff > 5) {
-            return new Promise(resolve => setTimeout(resolve, diff));
+            return Sleep(diff);
         }
         else {
             return Promise.resolve();

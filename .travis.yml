@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+- '8'
+matrix:
+    include:
+        - env: BENCHMARK=composer VERSION=0.19
+        - env: BENCHMARK=drm VERSION=1.0.5
+        - env: BENCHMARK=simple VERSION=1.0.5
+dist: trusty
+before_install: |
+    set -ev
+    set -o pipefail
+    npm install -g @alrra/travis-scripts
+
+script: ./.travis/script.sh
+
+cache:
+  directories:
+    - node_modules
+sudo: required
+notifications:
+  webhooks:
+    on_success: always # default: always
+    on_failure: always # default: always
+    on_start: always   # default: never
+    on_cancel: always # default: always
+    on_error: always # default: always
