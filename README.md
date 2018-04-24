@@ -12,12 +12,12 @@ Hyperledger Composer is also supported, please see [Composer Performance Test](.
 Currently supported performance indicators:
 * Success rate
 * Transaction/Read throughput
-* Transaction/Read latency(minimum, maximum, average, percentile)
+* Transaction/Read latency (minimum, maximum, average, percentile)
 * Resource consumption (CPU, Memory, Network IO,...)
 
 See [to add the link to PSWG] to find out the definitions and corresponding measurement methods.  
 
-##Achitecture
+## Achitecture
 See [Architecture introduction](docs/Architecture.md). 
 
 ## Build
