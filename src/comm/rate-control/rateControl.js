@@ -12,26 +12,34 @@
 * limitations under the License.
 */
 
-'use strict'
+'use strict';
 
-var RateControl = class {
+let RateControl = class {
     constructor(rateControl, blockchain) {
         console.log('*****', rateControl);
         switch (rateControl.type) {
             case 'fixed-rate':
-                var interval = require('./fixedRate.js');
+                const interval = require('./fixedRate.js');
                 this.controller = new interval(blockchain, rateControl.opts);
-                break
+                break;
+            case 'composite-rate':
+                const CompositeRateController = require('./compositeRate.js');
+                this.controller = new CompositeRateController(blockchain, rateControl.opts);
+                break;
+            case 'no-rate':
+                const NoRateController = require('./noRate.js');
+                this.controller = new NoRateController(blockchain, rateControl.opts);
+                break;
             default:
                 throw new Error('Unknown rate control type ' + rateControl.type);
         }
     }
 
     /**
-    * Initialise the rate controller with a passed msg object
-    * @param msg
-    * @return {Promise}
-    */
+     * Initialise the rate controller with a passed msg object
+     * @param msg
+     * @return {Promise}
+     */
     init(msg) {
         return this.controller.init(msg);
     }
@@ -47,6 +55,6 @@ var RateControl = class {
         return this.controller.applyRateControl(start, idx, results);
     }
 
-}
+};
 
 module.exports = RateControl;
