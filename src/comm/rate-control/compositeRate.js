@@ -140,12 +140,14 @@ class CompositeRateController extends RateInterface{
      * @param {number} idx The index of the current Tx provided by the client module.
      * @private
      */
-    __controllerSwitchForDuration(start, idx) {
+    async __controllerSwitchForDuration(start, idx) {
         let active = this.controllers[this.activeControllerIndex];
         const timeNow = Date.now();
         if (active.isLast || ((timeNow - start) < active.relFinishTime)) {
             return;
         }
+
+        await active.controller.end();
 
         this.activeControllerIndex++;
         active = this.controllers[this.activeControllerIndex];
@@ -162,11 +164,13 @@ class CompositeRateController extends RateInterface{
      * @param {number} idx The index of the current Tx provided by the client module.
      * @private
      */
-    __controllerSwitchForTxNumber(start, idx) {
+    async __controllerSwitchForTxNumber(start, idx) {
         let active = this.controllers[this.activeControllerIndex];
         if (active.isLast || (idx <= active.lastTxIndex)) {
             return;
         }
+
+        await active.controller.end();
 
         this.activeControllerIndex++;
         active = this.controllers[this.activeControllerIndex];
@@ -232,13 +236,22 @@ class CompositeRateController extends RateInterface{
      * @return {Promise} A promise that will resolve after the necessary time to keep the defined Tx rate.
      */
     async applyRateControl(start, idx, currentResults) {
-        this.controllerSwitch(start, idx);
+        await this.controllerSwitch(start, idx);
         const active = this.controllers[this.activeControllerIndex];
         // lie to the controller about the parameters to make this controller transparent
         // NOTE: if the shallow copying of slice is too slow for higher TPS rates,
         // consider making it configurable, maybe the underlying controllers do not need the results
         return active.controller.applyRateControl(start + active.startTimeDifference, idx - active.firstTxIndex,
             currentResults.slice(active.firstTxIndex));
+    }
+
+    /**
+     * Notify the rate controller about the end of the round.
+     *
+     * @return Promise
+     */
+    async end() {
+        return this.controllers[this.activeControllerIndex].controller.end();
     }
 }
 

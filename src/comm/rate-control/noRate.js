@@ -17,7 +17,7 @@
 const RateInterface = require('./rateInterface.js');
 
 /**
- * Rate controller for pausing generated load for a given time.
+ * Rate controller for pausing load generation for a given time.
  *
  * Can only be applied for duration-based rounds!
  *

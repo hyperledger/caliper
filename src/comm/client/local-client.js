@@ -163,6 +163,9 @@ async function runFixedNumber(msg, cb, context) {
     }
 
     await Promise.all(promises);
+    await rateControl.end();
+    // TODO: investigate premature eventhub shutdown
+    await new Promise(resolve => setTimeout(resolve, 3000));
     return await blockchain.releaseContext(context);
 }
 
@@ -186,5 +189,8 @@ async function runDuration(msg, cb, context) {
     }
 
     await Promise.all(results);
+    await rateControl.end();
+    // TODO: investigate premature eventhub shutdown
+    await new Promise(resolve => setTimeout(resolve, 3000));
     return await blockchain.releaseContext(context);    
 }

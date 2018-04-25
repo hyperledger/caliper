@@ -19,16 +19,20 @@ let RateControl = class {
         console.log('*****', rateControl);
         switch (rateControl.type) {
             case 'fixed-rate':
-                const interval = require('./fixedRate.js');
-                this.controller = new interval(blockchain, rateControl.opts);
+                const FixedRateController = require('./fixedRate.js');
+                this.controller = new FixedRateController(blockchain, rateControl.opts);
                 break;
             case 'composite-rate':
                 const CompositeRateController = require('./compositeRate.js');
                 this.controller = new CompositeRateController(blockchain, rateControl.opts);
                 break;
-            case 'no-rate':
+            case 'zero-rate':
                 const NoRateController = require('./noRate.js');
                 this.controller = new NoRateController(blockchain, rateControl.opts);
+                break;
+            case 'pid-rate':
+                const PidRateController = require('./pidRate.js');
+                this.controller = new PidRateController(blockchain, rateControl.opts);
                 break;
             default:
                 throw new Error('Unknown rate control type ' + rateControl.type);
@@ -53,6 +57,17 @@ let RateControl = class {
      */
     applyRateControl(start, idx, results) {
         return this.controller.applyRateControl(start, idx, results);
+    }
+
+    /**
+     * Notify the rate controller about the end of the round.
+     *
+     * @return Promise
+     */
+    end() {
+        if (typeof this.controller.end === 'function') {
+            return this.controller.end();
+        }
     }
 
 };

@@ -658,6 +658,7 @@ async function invokebycontext(context, id, version, args, timeout){
 		// so mark it failed but leave it not verified
 		if (!invokeStatus.verified) {
             invokeStatus.status = 'failed';
+            console.log("Failed to complete transaction [" + txId.substring(0, 5) + "...]: every eventhub connection closed");
 		} else {
             invokeStatus.status = 'success';
             invokeStatus.verified = true;
