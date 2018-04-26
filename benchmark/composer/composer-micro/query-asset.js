@@ -4,7 +4,7 @@
 * You may obtain a copy of the License at
 *
 * http://www.apache.org/licenses/LICENSE-2.0
-* 
+*
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21,33 +21,31 @@
 *        "arguments": {"testAssets": 10, "testMatches": 5},
 *        "callback" : "benchmark/composer/composer-micro/query-asset.js"
 *      }
-*  - Init: 
+*  - Init:
 *    - Test specified number of Assets created, with color RED (based on how many matches in the query to return), the remaining Assets being created BLUE
 *  - Run:
 *    - Transactions run to query for created assets that are RED
 *
 */
 
-'use strict'
+'use strict';
 
-module.exports.info  = "Query Asset Performance Test";
+const Util = require('../../../src/comm/util');
 
-var bc;
-var busNetConnection;
-var testAssetNum;
-var testMatches;
-var factory;
-var matchColor = 'RED';
-const namespace = 'org.acme.sample';
+module.exports.info  = 'Query Asset Performance Test';
 
-let myQuery;
+let busNetConnection;
+let testAssetNum;
+let testMatches;
+let factory;
+let matchColor = 'RED';
+
 let qryRef = 0;
 
 const vda_ns = 'org.vda';
 
 module.exports.init = async function(blockchain, context, args) {
-    // Create Assets to use in main query test    
-    bc = blockchain;
+    // Create Assets to use in main query test
     busNetConnection = context;
     testAssetNum = args.testAssets;
     testMatches = args.testMatches;
@@ -55,7 +53,7 @@ module.exports.init = async function(blockchain, context, args) {
     factory = busNetConnection.getBusinessNetwork().getFactory();
 
     let vehicles = [];
-    let createdMatches = 0;    
+    let createdMatches = 0;
     let missColor = 'BLUE';
 
     for(let i = 0; i < testAssetNum; i ++){
@@ -70,16 +68,16 @@ module.exports.init = async function(blockchain, context, args) {
         } else {
             details.colour = missColor;
         }
-        
+
         vehicle.vehicleDetails = details;
         vehicle.vehicleStatus = 'OFF_THE_ROAD';
         vehicles.push(vehicle);
     }
 
-    console.log(`About to add ${vehicles.length} Vehicles to Asset Registry`)
+    Util.log(`About to add ${vehicles.length} Vehicles to Asset Registry`);
     let vehicleRegistry = await busNetConnection.getAssetRegistry(vda_ns + '.Vehicle');
     await vehicleRegistry.addAll(vehicles);
-}
+};
 
 module.exports.run = function() {
     let invoke_status = {
@@ -95,19 +93,19 @@ module.exports.run = function() {
     // use the pre-compiled query named 'selectAllCarsByColour' that is within the business
     // network queries file
     return busNetConnection.query('selectAllCarsByColour', { colour: matchColor})
-    .then((result) => {
-        invoke_status.status = 'success';
-        invoke_status.time_final = Date.now();
-        invoke_status.result = result;
-        return Promise.resolve(invoke_status);
-    })
-    .catch((err) => {
-        invoke_status.time_final = Date.now();
-        invoke_status.status = 'failed';
-        invoke_status.result = [];        
-        return Promise.resolve(invoke_status);
-    });
-}
+        .then((result) => {
+            invoke_status.status = 'success';
+            invoke_status.time_final = Date.now();
+            invoke_status.result = result;
+            return Promise.resolve(invoke_status);
+        })
+        .catch((err) => {
+            invoke_status.time_final = Date.now();
+            invoke_status.status = 'failed';
+            invoke_status.result = [];
+            return Promise.resolve(invoke_status);
+        });
+};
 
 module.exports.end = function(results) {
     return Promise.resolve(true);

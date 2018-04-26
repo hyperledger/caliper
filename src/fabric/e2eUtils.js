@@ -734,11 +734,6 @@ function querybycontext(context, id, version, name) {
 
 module.exports.querybycontext = querybycontext;
 
-function sleep(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms));
-}
-module.exports.sleep = sleep;
-
 function readAllFiles(dir) {
 	var files = fs.readdirSync(dir);
 	var certs = [];

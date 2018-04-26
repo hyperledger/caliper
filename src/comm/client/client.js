@@ -14,7 +14,6 @@ const CLIENT_ZOO   = 'zookeeper';
 var zkUtil  = require('./zoo-util.js');
 var ZooKeeper = require('node-zookeeper-client');
 var clientUtil = require('./client-util.js');
-var sleep = require('../sleep.js');
 var Client = class {
     constructor(config, callback) {
         var conf = require(config);

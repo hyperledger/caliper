@@ -12,7 +12,7 @@
 var path  = require('path');
 var bc    = require('../blockchain.js');
 var RateControl = require('../rate-control/rateControl.js');
-var sleep = require('../sleep.js');
+var Util = require('../util.js');
 
 /**
  * Message handler
@@ -26,7 +26,7 @@ process.on('message', function(message) {
                     doTest(message)
                     .then((output) => {
                         result = output;
-                        return sleep(200);
+                        return Util.sleep(200);
                     })
                     .then(() => {
                          process.send({type: 'testResult', data: result});

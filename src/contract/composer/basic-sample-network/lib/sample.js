@@ -12,36 +12,30 @@
  * limitations under the License.
  */
 
+'use strict';
+
 /**
  * Sample transaction processor function.
  * @param {org.acme.sample.SampleTransaction} tx The sample transaction instance.
  * @transaction
  */
-function sampleTransaction(tx) {
+async function sampleTransaction(tx) {  // eslint-disable-line no-unused-vars
 
     // Save the old value of the asset.
-    var oldValue = tx.asset.value;
+    const oldValue = tx.asset.value;
 
     // Update the asset with the new value.
     tx.asset.value = tx.newValue;
 
     // Get the asset registry for the asset.
-    return getAssetRegistry('org.acme.sample.SampleAsset')
-        .then(function (assetRegistry) {
+    const assetRegistry = await getAssetRegistry('org.example.basic.SampleAsset'); // eslint-disable-line no-undef
+    // Update the asset in the asset registry.
+    await assetRegistry.update(tx.asset);
 
-            // Update the asset in the asset registry.
-            return assetRegistry.update(tx.asset);
-
-        })
-        .then(function () {
-
-            // Emit an event for the modified asset.
-            var event = getFactory().newEvent('org.acme.sample', 'SampleEvent');
-            event.asset = tx.asset;
-            event.oldValue = oldValue;
-            event.newValue = tx.newValue;
-            emit(event);
-
-        });
-
+    // Emit an event for the modified asset.
+    let event = getFactory().newEvent('org.example.basic', 'SampleEvent'); // eslint-disable-line no-undef
+    event.asset = tx.asset;
+    event.oldValue = oldValue;
+    event.newValue = tx.newValue;
+    emit(event); // eslint-disable-line no-undef
 }

@@ -4,7 +4,7 @@
 * You may obtain a copy of the License at
 *
 * http://www.apache.org/licenses/LICENSE-2.0
-* 
+*
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -22,7 +22,7 @@
 *        "arguments": {"testAssets": 50},
 *        "callback" : "benchmark/composer/composer-samples/basic-sample-network.js"
 *      }
-*  - Init: 
+*  - Init:
 *    - Single Participant created (PARTICIPANT_0)
 *    - Test specified number of Assets created, belonging to a PARTICIPANT_0
 *  - Run:
@@ -30,21 +30,22 @@
 *
 */
 
-'use strict'
-module.exports.info  = "Basic Sample Network Performance Test";
+'use strict';
+module.exports.info  = 'Basic Sample Network Performance Test';
 
 const composerUtils = require('../../../src/composer/composer_utils');
+const Util = require('../../../src/comm/util');
 
 const namespace = 'org.acme.sample';
 const busNetName = 'basic-sample-network';
 
-var bc;                 // The blockchain main (Composer)
-var busNetConnections;  // Global map of all business network connections to be used
-var testAssetNum;       // Number of test assets to create
-var factory;            // Global Factory
+let bc;                 // The blockchain main (Composer)
+let busNetConnections;  // Global map of all business network connections to be used
+let testAssetNum;       // Number of test assets to create
+let factory;            // Global Factory
 
 module.exports.init = async function(blockchain, context, args) {
-    // Create Participants and Assets to use in main test    
+    // Create Participants and Assets to use in main test
     bc = blockchain;
     busNetConnections = new Map();
     busNetConnections.set('admin', context);
@@ -52,45 +53,45 @@ module.exports.init = async function(blockchain, context, args) {
 
     try {
         factory = busNetConnections.get('admin').getBusinessNetwork().getFactory();
-        let participantRegistry = await busNetConnections.get('admin').getParticipantRegistry(namespace + '.SampleParticipant')
-        
+        let participantRegistry = await busNetConnections.get('admin').getParticipantRegistry(namespace + '.SampleParticipant');
+
         // Create & add participant
         let participant = factory.newResource(namespace, 'SampleParticipant', 'PARTICIPANT_0');
         participant.firstName = 'penguin';
         participant.lastName = 'wombat';
         await participantRegistry.add(participant);
 
-        console.log('About to create new participant card');
+        Util.log('About to create new participant card');
         let userName = 'User1';
         let newConnection = await composerUtils.obtainConnectionForParticipant(busNetConnections.get('admin'), busNetName, participant, userName);
         busNetConnections.set(userName, newConnection);
 
         // Create & add Assets
-        let assetRegistry = await busNetConnections.get('admin').getAssetRegistry(namespace + '.SampleAsset')
-        let assets = Array();        
+        let assetRegistry = await busNetConnections.get('admin').getAssetRegistry(namespace + '.SampleAsset');
+        let assets = Array();
         for (let i=0; i<testAssetNum; i++){
             let asset = factory.newResource(namespace, 'SampleAsset', 'ASSET_' + i);
             asset.owner = factory.newRelationship(namespace, 'SampleParticipant', 'PARTICIPANT_0');
-            asset.value = 'priceless';            
-            assets.push(asset);            
+            asset.value = 'priceless';
+            assets.push(asset);
         }
-        console.log('Adding ' + assets.length + ' Assets......');
-        await assetRegistry.addAll(assets);        
-       
-        console.log('Asset addition complete');
+        Util.log('Adding ' + assets.length + ' Assets......');
+        await assetRegistry.addAll(assets);
+
+        Util.log('Asset addition complete');
     } catch (error) {
-        console.log('error in test init: ', error);
+        Util.log('error in test init: ', error);
         return Promise.reject(error);
     }
-}
+};
 
 module.exports.run = function() {
     let transaction = factory.newTransaction(namespace, 'SampleTransaction');
     transaction.newValue = 'worthless';
     transaction.asset = factory.newRelationship(namespace, 'SampleAsset', 'ASSET_' + --testAssetNum);
-    
+
     return bc.bcObj.submitTransaction(busNetConnections.get('admin'), transaction);
-}
+};
 
 module.exports.end = function(results) {
     return Promise.resolve(true);
