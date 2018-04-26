@@ -15,6 +15,7 @@
 'use strict';
 
 const RateInterface = require('./rateInterface.js');
+const Util = require('../util');
 
 /**
  * Rate controller for pausing load generation for a given time.
@@ -55,7 +56,7 @@ class NoRateController extends RateInterface{
      */
     async init(msg) {
         if (msg.numb) {
-            throw new Error("This rate controller can only be applied for duration-based rounds")
+            throw new Error('This rate controller can only be applied for duration-based rounds');
         }
 
         this.sleepTime = msg.txDuration * 1000;
@@ -69,7 +70,7 @@ class NoRateController extends RateInterface{
      * @return {Promise} A promise that will resolve after the necessary time to keep the defined Tx rate.
      */
     async applyRateControl(start, idx, currentResults) {
-        return new Promise(resolve => setTimeout(resolve, this.sleepTime));
+        return Util.sleep(this.sleepTime);
     }
 }
 

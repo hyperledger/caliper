@@ -14,6 +14,7 @@
 var ps    = require('ps-node');
 var usage = require('pidusage')
 var MonitorInterface = require('./monitor-interface');
+var Util = require('./util.js');
 class MonitorProcess extends MonitorInterface {
     constructor(filter, interval) {
         super(filter, interval);
@@ -121,7 +122,7 @@ class MonitorProcess extends MonitorInterface {
         }
         this.pids = [];
 
-        return sleep(100);
+        return Util.sleep(100);
     }
 
     getPeers() {
@@ -259,8 +260,4 @@ function getUsage(pids, type) {
             resolve(res);
         });
     });
-}
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
 }

@@ -4,7 +4,7 @@
 * You may obtain a copy of the License at
 *
 * http://www.apache.org/licenses/LICENSE-2.0
-* 
+*
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -22,7 +22,7 @@
 *        "arguments": {"testAssets": 10},
 *        "callback" : "benchmark/composer/composer-samples/perishable-network.js"
 *      }
-*  - Init: 
+*  - Init:
 *    - Test specified number of (Importer/Grower) Participants created
 *    - Test specified number of (Shipment) Assets created, belonging to a Grower Participants
 *  - Run:
@@ -30,30 +30,32 @@
 *
 */
 
-'use strict'
+'use strict';
 
-module.exports.info  = "Perishable Network Performance Test";
+const Util = require('../../../src/comm/util');
 
-var bc;
-var busNetConnection;
-var testAssetNum;
-var factory;
-var assetId = 0;
+module.exports.info  = 'Perishable Network Performance Test';
+
+let bc;
+let busNetConnection;
+let testAssetNum;
+let factory;
+let assetId = 0;
 const namespace = 'org.acme.shipping.perishable';
 
 module.exports.init = async function(blockchain, context, args) {
-    // Create Participants and Assets to use in main test    
+    // Create Participants and Assets to use in main test
     bc = blockchain;
     busNetConnection = context;
     testAssetNum = args.testAssets;
 
     factory = busNetConnection.getBusinessNetwork().getFactory();
- 
+
     // Test specified number of Importers
-    var importers = new Array();
+    let importers = new Array();
     for (let i=0; i<testAssetNum; i++){
         let importer = factory.newResource(namespace, 'Importer', 'Importer_' + i);
-        var importerAddress = factory.newConcept(namespace, 'Address');
+        let importerAddress = factory.newConcept(namespace, 'Address');
         importerAddress.country = 'UK';
         importer.address = importerAddress;
         importer.accountBalance = 1000;
@@ -61,10 +63,10 @@ module.exports.init = async function(blockchain, context, args) {
     }
 
     // Test specified number of Growers
-    var growers = new Array();
+    let growers = new Array();
     for (let i=0; i<testAssetNum; i++){
         let grower = factory.newResource(namespace, 'Grower', 'Grower_' + i);
-        var growerAddress = factory.newConcept(namespace, 'Address');
+        let growerAddress = factory.newConcept(namespace, 'Address');
         growerAddress.country = 'USA';
         grower.address = growerAddress;
         grower.accountBalance = 0;
@@ -72,32 +74,32 @@ module.exports.init = async function(blockchain, context, args) {
     }
 
     // A Shipper
-    var shipper = factory.newResource(namespace, 'Shipper', 'shipper@email.com');
-    var shipperAddress = factory.newConcept(namespace, 'Address');
+    let shipper = factory.newResource(namespace, 'Shipper', 'shipper@email.com');
+    let shipperAddress = factory.newConcept(namespace, 'Address');
     shipperAddress.country = 'Panama';
     shipper.address = shipperAddress;
     shipper.accountBalance = 0;
 
     // The Contract(s)
-    var contracts = new Array();
+    let contracts = new Array();
     for (let i=0; i<testAssetNum; i++){
-        var contract = factory.newResource(namespace, 'Contract', 'CON_' + i);
+        let contract = factory.newResource(namespace, 'Contract', 'CON_' + i);
         contract.grower = factory.newRelationship(namespace, 'Grower', 'Grower_' + i);
         contract.importer = factory.newRelationship(namespace, 'Importer', 'Importer_' + i);
         contract.shipper = factory.newRelationship(namespace, 'Shipper', 'shipper@email.com');
-        var tomorrow = new Date();
+        let tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
         contract.arrivalDateTime = tomorrow; // the shipment has to arrive tomorrow
         contract.unitPrice = 0.5; // pay 50 cents per unit
         contract.minTemperature = 2; // min temperature for the cargo
         contract.maxTemperature = 10; // max temperature for the cargo
         contract.minPenaltyFactor = 0.2;
-        contract.maxPenaltyFactor = 0.2;  
+        contract.maxPenaltyFactor = 0.2;
         contracts.push(contract);
     }
 
     // Test specified number of Shipment(s)
-    var shipments = new Array();
+    let shipments = new Array();
     for (let i=0; i<testAssetNum; i++){
         let shipment = factory.newResource(namespace, 'Shipment', 'SHIP_' + i);
         shipment.type = 'BANANAS';
@@ -116,7 +118,7 @@ module.exports.init = async function(blockchain, context, args) {
 
     try {
         // Add to registries
-        let growerRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Grower')
+        let growerRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Grower');
         await growerRegistry.addAll(growers);
 
         let importerRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Importer');
@@ -131,18 +133,18 @@ module.exports.init = async function(blockchain, context, args) {
         let shipmentRegistry = await busNetConnection.getAssetRegistry(namespace + '.Shipment');
         await shipmentRegistry.addAll(shipments);
 
-        console.log('Test init() complete');
+        Util.log('Test init() complete');
     } catch (error) {
-        console.log('error in test init(): ', error);
+        Util.log('error in test init(): ', error);
         return Promise.reject(error);
-    } 
-}
+    }
+};
 
 module.exports.run = function() {
     let transaction = factory.newTransaction(namespace, 'ShipmentReceived');
-    transaction.shipment = factory.newRelationship(namespace, 'Shipment', 'SHIP_' +  assetId++); 
+    transaction.shipment = factory.newRelationship(namespace, 'Shipment', 'SHIP_' +  assetId++);
     return bc.bcObj.submitTransaction(busNetConnection, transaction);
-}
+};
 
 module.exports.end = function(results) {
     return Promise.resolve(true);

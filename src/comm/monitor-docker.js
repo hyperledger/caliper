@@ -10,6 +10,8 @@
 
 'use strict'
 
+var Util = require('./util.js');
+
 // todo: now we record the performance information in local variable, should use db later
 
 var MonitorInterface = require('./monitor-interface');
@@ -143,7 +145,7 @@ class MonitorDocker extends MonitorInterface {
         this.containers = [];
         this.stats      = {'time': []};
 
-        return sleep(100);
+        return Util.sleep(100);
     }
 
     getPeers() {
@@ -289,8 +291,4 @@ function newContainerStat() {
         blockIO_rx:  [],
         blockIO_wx:  []
     };
-}
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
 }

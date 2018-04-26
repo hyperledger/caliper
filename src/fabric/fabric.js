@@ -15,7 +15,8 @@ var impl_create      = require('./create-channel.js');
 var impl_join        = require('./join-channel.js');
 var impl_install     = require('./install-chaincode.js');
 var impl_instantiate = require('./instantiate-chaincode.js');
-var BlockchainInterface = require('../comm/blockchain-interface.js')
+var BlockchainInterface = require('../comm/blockchain-interface.js');
+var commUtils = require('../comm/util');
 
 class Fabric extends BlockchainInterface{
     constructor(config_path) {
@@ -69,7 +70,7 @@ class Fabric extends BlockchainInterface{
 
     releaseContext(context) {
         return e2eUtils.releasecontext(context).then(() => {
-            return sleep(1000);
+            return commUtils.sleep(1000);
         });
     }
 
@@ -135,7 +136,3 @@ class Fabric extends BlockchainInterface{
     }
 }
 module.exports = Fabric;
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}

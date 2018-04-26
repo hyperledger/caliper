@@ -12,32 +12,31 @@
  * limitations under the License.
  */
 
+'use strict';
+
+/* global getFactory getAssetRegistry emit query */
 
 /**
  * Transfer a vehicle to another private owner
  * @param {org.vda.PrivateVehicleTransfer} privateVehicleTransfer - the PrivateVehicleTransfer transaction
  * @transaction
  */
-function privateVehicleTransfer(privateVehicleTransfer) {
-    console.log('privateVehicleTransfer');
+async function privateVehicleTransfer(privateVehicleTransfer) { // eslint-disable-line no-unused-vars
+    console.log('privateVehicleTransfer'); // eslint-disable-line no-console
 
-    var currentParticipant = getCurrentParticipant();
+    const NS = 'org.acme.vehicle.lifecycle';
+    const NS_D = 'org.vda';
+    const factory = getFactory();
 
-
-    var NS_M = 'org.acme.vehicle.lifecycle.manufacturer';
-    var NS = 'org.acme.vehicle.lifecycle';
-    var NS_D = 'org.vda';
-    var factory = getFactory();
-
-    var seller = privateVehicleTransfer.seller;
-    var buyer = privateVehicleTransfer.buyer;
-    var vehicle = privateVehicleTransfer.vehicle;
+    const seller = privateVehicleTransfer.seller;
+    const buyer = privateVehicleTransfer.buyer;
+    const vehicle = privateVehicleTransfer.vehicle;
 
     //change vehicle owner
     vehicle.owner = buyer;
 
     //PrivateVehicleTransaction for log
-    var vehicleTransferLogEntry = factory.newConcept(NS_D, 'VehicleTransferLogEntry');
+    const vehicleTransferLogEntry = factory.newConcept(NS_D, 'VehicleTransferLogEntry');
     vehicleTransferLogEntry.vehicle = factory.newRelationship(NS_D, 'Vehicle', vehicle.getIdentifier());
     vehicleTransferLogEntry.seller = factory.newRelationship(NS, 'PrivateOwner', seller.getIdentifier());
     vehicleTransferLogEntry.buyer = factory.newRelationship(NS, 'PrivateOwner', buyer.getIdentifier());
@@ -48,10 +47,8 @@ function privateVehicleTransfer(privateVehicleTransfer) {
 
     vehicle.logEntries.push(vehicleTransferLogEntry);
 
-    return getAssetRegistry(vehicle.getFullyQualifiedType())
-        .then(function(ar) {
-            return ar.update(vehicle);
-        });
+    const assetRegistry = await getAssetRegistry(vehicle.getFullyQualifiedType());
+    await assetRegistry.update(vehicle);
 }
 
 /**
@@ -59,21 +56,15 @@ function privateVehicleTransfer(privateVehicleTransfer) {
  * @param {org.vda.ScrapVehicle} scrapVehicle - the ScrapVehicle transaction
  * @transaction
  */
-function scrapVehicle(scrapVehicle) {
-    console.log('scrapVehicle');
+async function scrapVehicle(scrapVehicle) { // eslint-disable-line no-unused-vars
+    console.log('scrapVehicle'); // eslint-disable-line no-console
 
-    var NS_D = 'org.vda';
-    var assetRegistry;
+    const NS_D = 'org.vda';
 
-    return getAssetRegistry(NS_D + '.Vehicle')
-        .then(function(ar) {
-            assetRegistry = ar;
-            return assetRegistry.get(scrapVehicle.vehicle.getIdentifier());
-        })
-        .then(function(vehicle){
-            vehicle.vehicleStatus = 'SCRAPPED';
-            return assetRegistry.update(vehicle);
-        });
+    const assetRegistry = await getAssetRegistry(NS_D + '.Vehicle');
+    const vehicle = await assetRegistry.get(scrapVehicle.vehicle.getIdentifier());
+    vehicle.vehicleStatus = 'SCRAPPED';
+    await assetRegistry.update(vehicle);
 }
 
 /**
@@ -81,44 +72,23 @@ function scrapVehicle(scrapVehicle) {
  * @param {org.vda.ScrapAllVehiclesByColour} scrapAllVehicles - the ScrapAllVehicles transaction
  * @transaction
  */
-function scrapAllVehiclesByColour(scrapAllVehicles) {
-    console.log('scrapVehicle');
+async function scrapAllVehiclesByColour(scrapAllVehicles) { // eslint-disable-line no-unused-vars
+    console.log('scrapAllVehiclesByColour'); // eslint-disable-line no-console
 
-    var NS_D = 'org.vda';
-    var assetRegistry;
-
-    // create the query
-    var q = {
-        selector: {
-            'vehicleDetails.colour': scrapAllVehicles.colour
-        }
-    };
-
-    return getAssetRegistry(NS_D + '.Vehicle')
-        .then(function (ar){
-            assetRegistry = ar;
-            return queryNative(JSON.stringify(q));
-        })
-        .then(function (resultArray) {
-            console.log('TP function received query result: ', JSON.stringify(resultArray));
-            if (resultArray.length < 1 ) {
-                throw new Error('No vehicles found with ' + scrapAllVehicles.colour, resultArray.length);
-            }
-
-            var factory = getFactory();
-            var promises =[];
-            var serializer = getSerializer();
-            for (var x = 0; x < resultArray.length; x++) {
-                var currentResult = resultArray[x];
-                var vehicle = serializer.fromJSON(currentResult.Record);
-
-                vehicle.vehicleStatus = 'SCRAPPED';
-                var scrapVehicleEvent = factory.newEvent(NS_D, 'ScrapVehicleEvent');
-                scrapVehicleEvent.vehicle = vehicle;
-                emit(scrapVehicleEvent);
-                promises.push(assetRegistry.update(vehicle));
-
-            }
-            return Promise.all(promises);
+    const NS_D = 'org.vda';
+    const assetRegistry = await getAssetRegistry(NS_D + '.Vehicle');
+    const vehicles = await query('selectAllCarsByColour', {'colour': scrapAllVehicles.colour});
+    if (vehicles.length >= 1) {
+        const factory = getFactory();
+        const vehiclesToScrap = vehicles.filter(function (vehicle) {
+            return vehicle.vehicleStatus !== 'SCRAPPED';
         });
+        for (let x = 0; x < vehiclesToScrap.length; x++) {
+            vehiclesToScrap[x].vehicleStatus = 'SCRAPPED';
+            const scrapVehicleEvent = factory.newEvent(NS_D, 'ScrapVehicleEvent');
+            scrapVehicleEvent.vehicle = vehiclesToScrap[x];
+            emit(scrapVehicleEvent);
+        }
+        await assetRegistry.updateAll(vehiclesToScrap);
+    }
 }

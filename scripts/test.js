@@ -6,12 +6,12 @@
 */
 
 
-'use strict'
+'use strict';
 
-var configFile;
-var networkFile;
-var path = require('path');
-var fs = require('fs-extra');
+let configFile;
+let networkFile;
+let path = require('path');
+let fs = require('fs-extra');
 function setConfig(file) {
     configFile = path.join('../..', file);
 }
@@ -26,25 +26,25 @@ function main() {
         return;
     }
 
-    var benchmark = process.argv[2];
-    var runDir = path.join(__dirname, '../benchmark', benchmark);
+    let benchmark = process.argv[2];
+    let runDir = path.join(__dirname, '../benchmark', benchmark);
     if(!fs.existsSync(runDir)) {
         console.log('directory ' + runDir + ' does not exist');
         return;
     }
 
-    var runExe = path.join(runDir, 'main.js');
+    let runExe = path.join(runDir, 'main.js');
     if(!fs.existsSync(runExe)) {
         console.log('file ' + runExe + ' does not exist');
         return;
     }
 
-    var program = require('commander');
+    let program = require('commander');
     program
         .option('-c, --config <file>', 'config file of the benchmark', setConfig)
         .option('-n, --network <file>', 'config file of the blockchain system under test', setNetwork)
         .parse(process.argv);
-    var cmd = 'node main.js';
+    let cmd = 'node main.js';
     if(typeof configFile === 'string') {
         cmd += ' -c ';
         cmd += configFile;
@@ -54,8 +54,8 @@ function main() {
         cmd += networkFile;
     }
 
-    var childProcess = require('child_process');
-    var exec = childProcess.exec;
+    let childProcess = require('child_process');
+    let exec = childProcess.exec;
     let run = exec(cmd, {cwd: runDir});
     run.stdout.pipe(process.stdout);
     run.stderr.pipe(process.stderr);

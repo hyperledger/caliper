@@ -33,7 +33,7 @@ var path = require('path');
 var grpc = require('grpc');
 
 var testUtil = require('./util.js');
-var e2eUtils = require('./e2eUtils.js');
+var commUtils = require('../comm/util');
 
 function run(config_path) {
     Client.addConfigFile(config_path);
@@ -145,7 +145,7 @@ function run(config_path) {
         }, Promise.resolve())
         .then(()=>{
             t.comment('Sleep 5s......');
-            return e2eUtils.sleep(5000);
+            return commUtils.sleep(5000);
         })
         .then(() => {
             return resolve();

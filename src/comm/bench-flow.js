@@ -21,6 +21,7 @@ var Blockchain = require('./blockchain.js');
 var Monitor = require('./monitor.js');
 var Report  = require('./report.js');
 var Client  = require('./client/client.js');
+var Util = require('./util.js');
 var blockchain, monitor, report, client;
 var resultsbyround = [];    // results table for each test round
 var round = 0;              // test round
@@ -265,7 +266,7 @@ function defaultTest(args, clientArgs, final) {
                     }
                     else {
                         console.log('wait 5 seconds for next round...');
-                        return sleep(5000).then( () => {
+                        return Util.sleep(5000).then( () => {
                             return monitor.restart();
                         })
                     }
@@ -447,8 +448,4 @@ function printResultsByRound() {
     printTable(resultsbyround);
 
     report.setSummaryTable(resultsbyround);
-}
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
 }

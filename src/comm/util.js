@@ -15,13 +15,26 @@
 'use strict';
 
 /**
- * Process a property that is held for sale
- * @param {net.biz.digitalPropertyNetwork.RegisterPropertyForSale} propertyForSale the property to be sold
- * @transaction
- */
-async function onRegisterPropertyForSale(propertyForSale) {   // eslint-disable-line no-unused-vars
-    propertyForSale.title.forSale = true;
+ * Internal Utility class for Caliper
+ */class Util {
 
-    const registry = await getAssetRegistry('net.biz.digitalPropertyNetwork.LandTitle'); // eslint-disable-line no-undef
-    await registry.update(propertyForSale.title);
+    /**
+     * Perform a sleep
+     * @param {*} ms the time to sleep, in ms
+     * @returns {Promise} a completed promise
+     */
+    static sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    /**
+     * Simple log method to output to the console
+     * @param {String} msg the string message to log
+     */
+    static log(msg) {
+        // eslint-disable-next-line no-console
+        console.log(msg);
+    }
 }
+
+module.exports = Util;

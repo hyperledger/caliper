@@ -4,7 +4,7 @@
 * You may obtain a copy of the License at
 *
 * http://www.apache.org/licenses/LICENSE-2.0
-* 
+*
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -19,142 +19,15 @@ const BusinessNetworkDefinition = require('composer-admin').BusinessNetworkDefin
 const BusinessNetworkConnection = require('composer-client').BusinessNetworkConnection;
 const IdCard = require('composer-common').IdCard;
 
-const sleep = require('../comm/sleep');
+const Util = require('../comm/util');
 
 const fs = require('fs');
-const os = require('os');
 const path = require('path');
 const childProcess = require('child_process');
 const ora = require('ora');
 
-// Exports
-module.exports.createChannels = createChannels;
-module.exports.joinChannels = joinChannels;
-module.exports.runtimeInstall = runtimeInstall;
-module.exports.networkStart = networkStart;
-module.exports.getBusNetConnection = getBusNetConnection;
-module.exports.createAdminBusNetCards = createAdminBusNetCards;
-module.exports.getCardNamesForBusNet = getCardNamesForBusNet;
-module.exports.obtainConnectionForParticipant = obtainConnectionForParticipant;
-
 /**
- * Create the Fabric channels as defined by the configuration data
- * @param {Object} config Configuration data in Json format
- */
-async function createChannels(config) {
-
-    let channels = config.composer.network.channels;
-    if(!channels || Object.keys(channels).length === 0) {
-        return Promise.reject('No channels defined within config: unable to create.');
-    }
-
-    let keys = Object.keys(channels);
-    let spinner = ora(`Creating channels ${keys}`).start();
-    for (let keysInc=0; keysInc<keys.length; keysInc++){
-        let key = keys[keysInc];
-        let channel = channels[key];
-        let orderer = config.composer.network.orderers[channel.orderers].hosturl;
-
-        try {
-            let mspconfig = '"CORE_PEER_MSPCONFIGPATH=' + channel.mspconfig + '"';
-            if(config.composer.network.tls) {                
-                let cmdString = ' docker exec -e ' + mspconfig + ' ' + channel.peers[0] + ' peer channel create -o ' + orderer + ' -c ' + key + ' -f ' + channel.config + ' --tls true --cafile ' + channel.cafile;
-                await runCommand(cmdString);
-            } else {                
-                let cmdString = ' docker exec -e ' + mspconfig + ' ' + channel.peers[0] + ' peer channel create -o ' + orderer + ' -c ' + key + ' -f ' + channel.config;
-                await runCommand(cmdString);
-            } 
-            spinner.succeed();
-        } catch (error) {
-            spinner.fail();
-            throw error;
-        }
-    }
-}
-
-/**
- * Join the peers to Fabric channels
- * @param {Object} config Configuration data in Json format
- */
-async function joinChannels(config) {
-    let orgs = config.composer.network.organizations;    
-
-    if(!orgs || orgs.length === 0) {
-        return Promise.reject('No organisations defined within config: unable to join channels.');
-    }
-
-    // for each organisation
-    for (let orgInc=0; orgInc<orgs.length; orgInc++){
-        let org = orgs[orgInc];
-
-        // Collect Organisation peers
-        let peerNames = org.peers;
-        let peers = new Array();
-        peerNames.forEach((peer) => {
-            peers.push(config.composer.network.peers[peer]);
-        })
-
-        if(!peers || peers.length === 0) {
-            return Promise.reject('No peers defined within org.config: unable to join peers to channel(s).');
-        }
-
-        // For each Peer
-        for (let peerInc=0; peerInc<peers.length; peerInc++){
-            let peer = peers[peerInc];
-
-            // Channels the peer is to join
-            let channelNames = peer.channels;
-            if(!channelNames || channelNames.length === 0) {
-                return Promise.reject('Error: No channels defined for peer ', peer.hostname);
-            }
-            
-            // For each Channel
-            for (let channelInc=0; channelInc<channelNames.length; channelInc++){
-                let channelName = channelNames[channelInc]
-                let channel = config.composer.network.channels[channelName];
-
-                let fetchCmd, joinCmd;
-                let orderer = config.composer.network.orderers[channel.orderers[0]];
-
-                if (config.composer.network.tls) {
-                    fetchCmd = 'docker exec -e "CORE_PEER_MSPCONFIGPATH=' + org.mspconfig + '" ' +  peer.hostname + ' peer channel fetch config -o ' + orderer.hosturl + ' -c ' + channelName + ' ' + channelName + '.block' + ' --tls --cafile ' + orderer.mspconfig;
-                    joinCmd = 'docker exec -e "CORE_PEER_MSPCONFIGPATH=' + org.mspconfig + '" ' +  peer.hostname + ' peer channel join -b ' + channelName + '.block --tls true --cafile ' + orderer.mspconfig;
-                } else {
-                    fetchCmd = 'docker exec -e "CORE_PEER_MSPCONFIGPATH=' + org.mspconfig + '" ' +  peer.hostname + ' peer channel fetch config -o ' + orderer.hosturl + ' -c ' + channelName + ' ' + channelName + '.block';
-                    joinCmd = 'docker exec -e "CORE_PEER_MSPCONFIGPATH=' + org.mspconfig + '" ' +  peer.hostname + ' peer channel join -b ' + channelName + '.block';
-                }
-                
-                let spinner = ora('Joining peers to channels').start();
-                try {
-                    await runCommand(fetchCmd);  
-                    const attempts = 5; // The join process can fail if couchDB is being used, so condition for that here             
-                    for (let i = 0; i<attempts; i++) {                   
-                        spinner.text =`Attempting to join peer ${peer.hostname} to channel ${channelName} (attempt ${i+1}/${attempts})`;
-                        try {                        
-                            await runCommand(joinCmd);
-                            break;
-                        } catch (error) {
-                            spinner.text = `Failed to join peer ${peer.hostname} to channel ${channelName} (attempt ${i+1}/${attempts})`;
-                            if (i+1 == attempts) {
-                                throw new Error(error);
-                            } else {
-                                await sleep(3000);
-                            }
-                        }
-                    }
-                    spinner.succeed();
-                } catch (error) {
-                    spinner.fail();
-                    throw error;
-                }
-                
-            }
-        }
-    }
-}
-
-/**
- * Run a command within a child process and return upon Promise completion. Promise will be rejected on error, or 
+ * Run a command within a child process and return upon Promise completion. Promise will be rejected on error, or
  * non-zero return code.
  * @param {String} command The command to run
  * @return {Promise} The promise for the child process executing the passed command
@@ -162,7 +35,7 @@ async function joinChannels(config) {
 function runCommand(command) {
 
     return new Promise( (resolve, reject) => {
-        
+
         let stderr = '';
         let stdout = '';
 
@@ -193,49 +66,119 @@ function runCommand(command) {
 }
 
 /**
- * Create Administration Business Network cards for each organisation defined within the configuration
+ * Create the Fabric channels as defined by the configuration data
  * @param {Object} config Configuration data in Json format
+ * @return {Promise} a completed Promise
+  */
+async function createChannels(config) {
+
+    let channels = config.composer.network.channels;
+    if(!channels || Object.keys(channels).length === 0) {
+        return Promise.reject('No channels defined within config: unable to create.');
+    }
+
+    let keys = Object.keys(channels);
+    let spinner = ora(`Creating channels ${keys}`).start();
+    for (let keysInc=0; keysInc<keys.length; keysInc++){
+        let key = keys[keysInc];
+        let channel = channels[key];
+        let orderer = config.composer.network.orderers[channel.orderers].hosturl;
+
+        try {
+            let mspconfig = '"CORE_PEER_MSPCONFIGPATH=' + channel.mspconfig + '"';
+            if(config.composer.network.tls) {
+                let cmdString = ' docker exec -e ' + mspconfig + ' ' + channel.peers[0] + ' peer channel create -o ' + orderer + ' -c ' + key + ' -f ' + channel.config + ' --tls true --cafile ' + channel.cafile;
+                await runCommand(cmdString);
+            } else {
+                let cmdString = ' docker exec -e ' + mspconfig + ' ' + channel.peers[0] + ' peer channel create -o ' + orderer + ' -c ' + key + ' -f ' + channel.config;
+                await runCommand(cmdString);
+            }
+            spinner.succeed();
+        } catch (error) {
+            spinner.fail();
+            throw error;
+        }
+    }
+}
+
+/**
+ * Join the peers to Fabric channels
+ * @param {Object} config Configuration data in Json format
+ * @returns {Promise} a completed Promise
  */
-async function createAdminBusNetCards(config) {    
-    let cryptodir = config.composer.cryptodir;
-    let orderer = config.composer.network.orderer;
+async function joinChannels(config) {
     let orgs = config.composer.network.organizations;
-    let adminConnection = await new AdminConnection();
 
-    // Loop over each Organisation
-    for (let i=0; i<orgs.length; i++){
-        let org = orgs[i];
-        let profile = createCommonConnectionProfile(org.name, config);
-        
-        // set metadata options
-        let metadata = {
-            version: 1,
-            userName : `${org.name}@${config.composer.network['x-type']}`,
-            roles : 'PeerAdmin',
-        };
+    if(!orgs || orgs.length === 0) {
+        return Promise.reject('No organisations defined within config: unable to join channels.');
+    }
 
-        // base card
-        let idCard = new IdCard(metadata, profile);
+    // for each organisation
+    for (let orgInc=0; orgInc<orgs.length; orgInc++){
+        let org = orgs[orgInc];
 
-        // certificates & privateKey
-        let certpath = path.join(__dirname, '/../../', cryptodir, org.adminCert);
-        let keyPath = path.join(__dirname, '/../../', cryptodir, org.adminKey);
-        let cert = fs.readFileSync(certpath).toString();
-        let key = fs.readFileSync(keyPath).toString();
+        // Collect Organisation peers
+        let peerNames = org.peers;
+        let peers = new Array();
+        peerNames.forEach((peer) => {
+            peers.push(config.composer.network.peers[peer]);
+        });
 
-        const newCredentials = {};
-        newCredentials.certificate = cert;
-        newCredentials.privateKey =  key;
+        if(!peers || peers.length === 0) {
+            return Promise.reject('No peers defined within org.config: unable to join peers to channel(s).');
+        }
 
-        idCard.setCredentials(newCredentials);
-        let cardName = `PerfPeerAdmin@${org.name}`;
+        // For each Peer
+        for (let peerInc=0; peerInc<peers.length; peerInc++){
+            let peer = peers[peerInc];
 
-        let exists = await adminConnection.hasCard(cardName);
-        if (exists) {
-            await adminConnection.deleteCard(cardName)
-            await adminConnection.importCard(cardName, idCard);
-        } else {
-            await adminConnection.importCard(cardName, idCard);
+            // Channels the peer is to join
+            let channelNames = peer.channels;
+            if(!channelNames || channelNames.length === 0) {
+                return Promise.reject('Error: No channels defined for peer ', peer.hostname);
+            }
+
+            // For each Channel
+            for (let channelInc=0; channelInc<channelNames.length; channelInc++){
+                let channelName = channelNames[channelInc];
+                let channel = config.composer.network.channels[channelName];
+
+                let fetchCmd, joinCmd;
+                let orderer = config.composer.network.orderers[channel.orderers[0]];
+
+                if (config.composer.network.tls) {
+                    fetchCmd = 'docker exec -e "CORE_PEER_MSPCONFIGPATH=' + org.mspconfig + '" ' +  peer.hostname + ' peer channel fetch config -o ' + orderer.hosturl + ' -c ' + channelName + ' ' + channelName + '.block' + ' --tls --cafile ' + orderer.mspconfig;
+                    joinCmd = 'docker exec -e "CORE_PEER_MSPCONFIGPATH=' + org.mspconfig + '" ' +  peer.hostname + ' peer channel join -b ' + channelName + '.block --tls true --cafile ' + orderer.mspconfig;
+                } else {
+                    fetchCmd = 'docker exec -e "CORE_PEER_MSPCONFIGPATH=' + org.mspconfig + '" ' +  peer.hostname + ' peer channel fetch config -o ' + orderer.hosturl + ' -c ' + channelName + ' ' + channelName + '.block';
+                    joinCmd = 'docker exec -e "CORE_PEER_MSPCONFIGPATH=' + org.mspconfig + '" ' +  peer.hostname + ' peer channel join -b ' + channelName + '.block';
+                }
+
+                let spinner = ora('Joining peers to channels').start();
+                try {
+                    await runCommand(fetchCmd);
+                    const attempts = 5; // The join process can fail if couchDB is being used, so condition for that here
+                    for (let i = 0; i<attempts; i++) {
+                        spinner.text =`Attempting to join peer ${peer.hostname} to channel ${channelName} (attempt ${i+1}/${attempts})`;
+                        try {
+                            await runCommand(joinCmd);
+                            break;
+                        } catch (error) {
+                            spinner.text = `Failed to join peer ${peer.hostname} to channel ${channelName} (attempt ${i+1}/${attempts})`;
+                            if (i+1 === attempts) {
+                                throw new Error(error);
+                            } else {
+                                await Util.sleep(3000);
+                            }
+                        }
+                    }
+                    spinner.succeed();
+                } catch (error) {
+                    spinner.fail();
+                    throw error;
+                }
+
+            }
         }
     }
 }
@@ -244,6 +187,7 @@ async function createAdminBusNetCards(config) {
  * Create the commmon-conection-profile for a named organization
  * @param {String} orgName The organisatino name to consider
  * @param {Object} config Configuration data in Json format
+ * @returns {Object} the common connection profile
  */
 function createCommonConnectionProfile(orgName, config) {
     let cryptodir = config.composer.cryptodir;
@@ -265,7 +209,7 @@ function createCommonConnectionProfile(orgName, config) {
     peer.eventReg = config.composer.network.timeout.toString();
     timeout.peer = peer;
     timeout.orderer = config.composer.network.timeout.toString();
-    client.connection = {};    
+    client.connection = {};
     client.connection.timeout = timeout;
     profile.client = client;
 
@@ -278,7 +222,7 @@ function createCommonConnectionProfile(orgName, config) {
         let channelPeers = {};
         configChannel.peers.forEach((peer) => {
             channelPeers[peer] = {};
-        })
+        });
         channel.peers = channelPeers;
         channels[key] = channel;
     });
@@ -361,6 +305,53 @@ function createCommonConnectionProfile(orgName, config) {
 }
 
 /**
+ * Create Administration Business Network cards for each organisation defined within the configuration
+ * @param {Object} config Configuration data in Json format
+ */
+async function createAdminBusNetCards(config) {
+    let cryptodir = config.composer.cryptodir;
+    let orgs = config.composer.network.organizations;
+    let adminConnection = await new AdminConnection();
+
+    // Loop over each Organisation
+    for (let i=0; i<orgs.length; i++){
+        let org = orgs[i];
+        let profile = createCommonConnectionProfile(org.name, config);
+
+        // set metadata options
+        let metadata = {
+            version: 1,
+            userName : `${org.name}@${config.composer.network['x-type']}`,
+            roles : 'PeerAdmin',
+        };
+
+        // base card
+        let idCard = new IdCard(metadata, profile);
+
+        // certificates & privateKey
+        let certpath = path.join(__dirname, '/../../', cryptodir, org.adminCert);
+        let keyPath = path.join(__dirname, '/../../', cryptodir, org.adminKey);
+        let cert = fs.readFileSync(certpath).toString();
+        let key = fs.readFileSync(keyPath).toString();
+
+        const newCredentials = {};
+        newCredentials.certificate = cert;
+        newCredentials.privateKey =  key;
+
+        idCard.setCredentials(newCredentials);
+        let cardName = `PerfPeerAdmin@${org.name}`;
+
+        let exists = await adminConnection.hasCard(cardName);
+        if (exists) {
+            await adminConnection.deleteCard(cardName);
+            await adminConnection.importCard(cardName, idCard);
+        } else {
+            await adminConnection.importCard(cardName, idCard);
+        }
+    }
+}
+
+/**
  * Perform a runtime install on the peers
  * @param {Object} businessNetwork The business network to install the runtime for
  * @param {*} installOptions Optional install options
@@ -373,22 +364,38 @@ async function runtimeInstall(businessNetwork, installOptions, cardName) {
     //check the file is there
     let filePath = path.join(__dirname, '..', businessNetwork.path, businessNetwork.id);
     if (fs.existsSync(filePath)) {
-        businessNetworkDefinition = await BusinessNetworkDefinition.fromDirectory(filePath)
+        businessNetworkDefinition = await BusinessNetworkDefinition.fromDirectory(filePath);
     } else {
         throw new Error(`Business Network named ${businessNetwork.name} does not exist on path ${filePath}`);
     }
-    
-    const spinner = ora(`Performing Composer runtime install for network ${businessNetwork.id} with card ${cardName}`).start(); 
-    await adminConnection.connect(cardName)
+
+    const spinner = ora(`Performing Composer runtime install for network ${businessNetwork.id} with card ${cardName}`).start();
+    await adminConnection.connect(cardName);
     try {
         await adminConnection.install(businessNetworkDefinition, installOptions);
         spinner.succeed();
     } catch (error){
-        console.log('Composer runtime install failed, ' + (error.stack ? error.stack : error));
+        Util.log('Composer runtime install failed, ' + (error.stack ? error.stack : error));
         spinner.fail();
         throw new Error(error);
     }
-};
+}
+
+/**
+ * Retrieve a business network connection using a named card
+ * @param {String} cardName Name of the business network card to use
+ * @return {Object} The business network connection obtained through the passed card
+ */
+async function getBusNetConnection(cardName) {
+    let busNetConnection = new BusinessNetworkConnection();
+    try {
+        await busNetConnection.connect(cardName);
+        return busNetConnection;
+    } catch (error){
+        Util.log('composer.getBusNetConnection() failed for cardName [' + cardName + '] with error: ' + (error.stack ? error.stack : error));
+        throw new Error(error);
+    }
+}
 
 /**
  * Start a business network
@@ -413,15 +420,15 @@ async function networkStart(businessNetwork, cardName, logLevel) {
 
     let idCard = new IdCard(metadata, card.getConnectionProfile());
     let idCardName = `PerfNetworkAdmin@${businessNetwork.id}`;
-    
-    let exists = await adminConnection.hasCard(idCardName);        
+
+    let exists = await adminConnection.hasCard(idCardName);
     if (exists) {
-        await adminConnection.deleteCard(idCardName)
+        await adminConnection.deleteCard(idCardName);
         await adminConnection.importCard(idCardName, idCard);
-    } else {              
+    } else {
         await adminConnection.importCard(idCardName, idCard);
     }
-        
+
     let startOptions = {};
 
     // Create the Network Admin that matches the above card
@@ -454,23 +461,7 @@ async function networkStart(businessNetwork, cardName, logLevel) {
         spinner.fail();
         throw error;
     }
-};
-
-/**
- * Retrieve a business network connection using a named card
- * @param {String} cardName Name of the business network card to use
- * @return {Object} The business network connection obtained through the passed card
- */
-async function getBusNetConnection(cardName) {
-    let busNetConnection = new BusinessNetworkConnection();
-    try {
-        await busNetConnection.connect(cardName);
-        return busNetConnection;
-    } catch (error){
-        console.log('composer.getBusNetConnection() failed for cardName [' + cardName + '] with error: ' + (error.stack ? error.stack : error));
-        throw new Error(error);
-    }
-};
+}
 
 /**
  * Retrieve all business network cards that are used to access a named business network
@@ -478,7 +469,7 @@ async function getBusNetConnection(cardName) {
  * @return {Strinrg[]} Array of all valid business network card names
  */
 async function getCardNamesForBusNet(busNet) {
-    console.log('getCardsForBusNet()', busNet);
+    Util.log('getCardsForBusNet()', busNet);
     const adminConnection = new AdminConnection();
 
     let busNetCards = [];
@@ -494,23 +485,24 @@ async function getCardNamesForBusNet(busNet) {
         }
     }
     return busNetCards;
-};
+}
 
 /**
- * Retrieve a business network connection for a participant within a Business Network. Will issue and identity 
- * to the passed userID, create and import a business network card that is valid for the business network, use the 
- * business network card to obtain a connection and pass the connection back.
- * @param {*} businessNetworkConnection An existing business network connection
+ * Retrieve a business network connection for a participant within a Business Network. Will issue and identity
+ * to the passed userID using an admin business network connection, create and import a business network card
+ * that is valid for the business network, use the business network card to obtain a connection and pass the connection back.
+ * @param {*} adminBusNetConnection An admin connection to the business network
  * @param {*} businessNetworkName  The business network name to create the card for
  * @param {*} particpant The existing Participant in the business network to create a connection for
  * @param {*} userID The userID to issue an identity to
+ * @returns {BusinessNetworkConnection} the businessNetworkConnection to a deployed Composer business network
  */
-async function obtainConnectionForParticipant(businessNetworkConnection, businessNetworkName, particpant, userID) {
+async function obtainConnectionForParticipant(adminBusNetConnection, businessNetworkName, particpant, userID) {
     const adminConnection = new AdminConnection();
-    
+
     // Issue the identity
-    let identity = await businessNetworkConnection.issueIdentity(particpant.getFullyQualifiedIdentifier(), userID);
-    
+    let identity = await adminBusNetConnection.issueIdentity(particpant.getFullyQualifiedIdentifier(), userID);
+
     // Retrieve default admin card
     let adminCardName = `PerfNetworkAdmin@${businessNetworkName}`;
     let adminCard = await adminConnection.exportCard(adminCardName);
@@ -525,14 +517,14 @@ async function obtainConnectionForParticipant(businessNetworkConnection, busines
 
     const card = new IdCard(metadata, adminCard.getConnectionProfile());
     const cardName = `PerfUser${userID}@${businessNetworkName}`;
-   
-    let exists = await adminConnection.hasCard(cardName);        
+
+    let exists = await adminConnection.hasCard(cardName);
     if (exists) {
-        console.log('Replacing existing business network user card: ', cardName);
-        await adminConnection.deleteCard(cardName)
+        Util.log('Replacing existing business network user card: ', cardName);
+        await adminConnection.deleteCard(cardName);
         await adminConnection.importCard(cardName, card);
     } else {
-        console.log('Importing card business network user card: ', cardName);                    
+        Util.log('Importing card business network user card: ', cardName);
         await adminConnection.importCard(cardName, card);
     }
 
@@ -542,3 +534,13 @@ async function obtainConnectionForParticipant(businessNetworkConnection, busines
 
     return newConnection;
 }
+
+// Exports
+module.exports.createChannels = createChannels;
+module.exports.joinChannels = joinChannels;
+module.exports.runtimeInstall = runtimeInstall;
+module.exports.networkStart = networkStart;
+module.exports.getBusNetConnection = getBusNetConnection;
+module.exports.createAdminBusNetCards = createAdminBusNetCards;
+module.exports.getCardNamesForBusNet = getCardNamesForBusNet;
+module.exports.obtainConnectionForParticipant = obtainConnectionForParticipant;

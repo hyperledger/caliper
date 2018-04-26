@@ -18,7 +18,7 @@ var zk = ZooKeeper.createClient(process.argv[2]);
 var zkUtil = require('./zoo-util.js');
 var clientUtil = require('./client-util.js');
 var path = require('path');
-var sleep = require('../sleep.js');
+var Util = require('../util.js');
 
 /**
 * zookeeper structure
@@ -134,7 +134,7 @@ function afterTest() {
         txUpdate();
     }
 
-    sleep(200).then(()=>{
+    Util.sleep(200).then(()=>{
         let message = {type: 'testResult', data: results[0]};
         if(Blockchain.mergeDefaultTxStats(results) === 0) {
             message = {type: 'testResult', data: Blockchain.createNullDefaultTxStats()};

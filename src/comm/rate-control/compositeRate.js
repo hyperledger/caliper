@@ -15,7 +15,7 @@
 'use strict';
 const RateInterface = require('./rateInterface.js');
 const RateControl = require('./rateControl.js');
-
+const Util = require('../util');
 
 /**
  * Encapsulates a controller and its scheduling information.
@@ -36,6 +36,12 @@ const RateControl = require('./rateControl.js');
  *                                  Only used in duration-based rounds.
  */
 class ControllerData {
+    /**
+     * Initialize a new instance of the ControllerData class.
+     * @param {number} weight The weight associated with the controller.
+     * @param {object} controllerOptions The specified options for the controller.
+     * @param {RateControl} controller The controller object.
+     */
     constructor(weight, controllerOptions, controller) {
         this.weight = weight;
         this.isLast = false;
@@ -77,7 +83,7 @@ class CompositeRateController extends RateInterface{
         this.activeControllerIndex = 0;
         this.controllerSwitch = null;
         this.logControllerChange = (this.options.logChange &&
-            typeof(this.options.logChange) === "boolean" && this.options.logChange) || false;
+            typeof(this.options.logChange) === 'boolean' && this.options.logChange) || false;
 
         this.__prepareControllers();
     }
@@ -91,16 +97,16 @@ class CompositeRateController extends RateInterface{
         let rateControllers = this.options.rateControllers;
 
         if (!Array.isArray(weights) || !Array.isArray(rateControllers)) {
-            throw new Error("Weight and controller definitions must be arrays.");
+            throw new Error('Weight and controller definitions must be arrays.');
         }
 
         if (weights.length !== rateControllers.length) {
-            throw new Error("The number of weights and controllers must be the same.");
+            throw new Error('The number of weights and controllers must be the same.');
         }
 
         const nan = weights.find(w => isNaN(Number(w)));
         if (nan) {
-            throw new Error("Not-a-number element among weights: " + nan);
+            throw new Error('Not-a-number element among weights: ' + nan);
         }
 
         // store them explicitly as numbers to avoid surprises later
@@ -110,13 +116,13 @@ class CompositeRateController extends RateInterface{
         // zero weights should be fine to allow easy temporary removal of controllers from the config file
         const negativeWeight = weights.find(w => w < 0);
         if (negativeWeight) {
-            throw new Error("Negative element among weights: " + negativeWeight);
+            throw new Error('Negative element among weights: ' + negativeWeight);
         }
 
         // normalize weights
         const weightSum = weights.reduce((prev, w) => prev + w, 0);
         if (weightSum === 0) {
-            throw new Error("Every weight is zero.");
+            throw new Error('Every weight is zero.');
         }
         weights = weights.map(w => w / weightSum);
 
@@ -154,7 +160,7 @@ class CompositeRateController extends RateInterface{
         active.firstTxIndex = idx;
         active.startTimeDifference = Date.now() - start;
         if (this.logControllerChange) {
-            console.log(`[CompositeRateController] Switching controller at Tx#${idx} after ${active.startTimeDifference}ms.`)
+            Util.log(`[CompositeRateController] Switching controller at Tx#${idx} after ${active.startTimeDifference}ms.`);
         }
     }
 
@@ -177,7 +183,7 @@ class CompositeRateController extends RateInterface{
         active.firstTxIndex = idx ;
         active.startTimeDifference = Date.now() - start;
         if (this.logControllerChange) {
-            console.log(`[CompositeRateController] Switching controller at Tx#${idx} after ${active.startTimeDifference}ms.`)
+            Util.log(`[CompositeRateController] Switching controller at Tx#${idx} after ${active.startTimeDifference}ms.`);
         }
     }
 
@@ -248,7 +254,7 @@ class CompositeRateController extends RateInterface{
     /**
      * Notify the rate controller about the end of the round.
      *
-     * @return Promise
+     * @return {Promise} The return promise
      */
     async end() {
         return this.controllers[this.activeControllerIndex].controller.end();
