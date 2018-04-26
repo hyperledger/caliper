@@ -24,7 +24,7 @@ Create a `SampleParticipant` participant:
 
 ```
 {
-  "$class": "org.acme.sample.SampleParticipant",
+  "$class": "org.example.basic.SampleParticipant",
   "participantId": "Toby",
   "firstName": "Tobias",
   "lastName": "Hunter"
@@ -35,9 +35,9 @@ Create a `SampleAsset` asset:
 
 ```
 {
-  "$class": "org.acme.sample.SampleAsset",
+  "$class": "org.example.basic.SampleAsset",
   "assetId": "assetId:1",
-  "owner": "resource:org.acme.sample.SampleParticipant#Toby",
+  "owner": "resource:org.example.basic.SampleParticipant#Toby",
   "value": "original value"
 }
 ```
@@ -46,8 +46,8 @@ Submit a `SampleTransaction` transaction:
 
 ```
 {
-  "$class": "org.acme.sample.SampleTransaction",
-  "asset": "resource:org.acme.sample.SampleAsset#assetId:1",
+  "$class": "org.example.basic.SampleTransaction",
+  "asset": "resource:org.example.basic.SampleAsset#assetId:1",
   "newValue": "new value"
 }
 ```

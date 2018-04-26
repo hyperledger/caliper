@@ -36,7 +36,7 @@ module.exports.info  = 'Basic Sample Network Performance Test';
 const composerUtils = require('../../../src/composer/composer_utils');
 const Util = require('../../../src/comm/util');
 
-const namespace = 'org.acme.sample';
+const namespace = 'org.example.basic';
 const busNetName = 'basic-sample-network';
 
 let bc;                 // The blockchain main (Composer)
