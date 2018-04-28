@@ -185,6 +185,6 @@ async function runDuration(msg, cb, context) {
         await rateControl.applyRateControl(start, txNum++, results);
     }
 
-    await Promise.all(results);
+    await Promise.all(promises);
     return await blockchain.releaseContext(context);    
 }
