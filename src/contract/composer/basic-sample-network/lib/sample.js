@@ -16,7 +16,7 @@
 
 /**
  * Sample transaction processor function.
- * @param {org.acme.sample.SampleTransaction} tx The sample transaction instance.
+ * @param {org.example.basic.SampleTransaction} tx The sample transaction instance.
  * @transaction
  */
 async function sampleTransaction(tx) {  // eslint-disable-line no-unused-vars
