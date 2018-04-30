@@ -34,14 +34,9 @@ Run `npm install` in caliper folder to install dependencies locally
 
 ### Install blockchain SDKs
 * Fabric
-  * Install with source code
-    * Clone [fabric-sdk-node](https://github.com/hyperledger/fabric-sdk-node) and checkout release-1.1
-    * Run the headless tests to make sure everything is ok
-    * Install **fabric-client** and **fabric-ca-client** from the SDK, e.g run `npm install path-to-sdk/fabric-client path-to-sdk/fabric-ca-client` in caliper's root folder, or just copy the `node_modules` from fabric-sdk-node project
-  * Or install using the repository
-    * run `npm install fabric-ca-client@1.1.0 fabric-client@1.1.0` in the root folder
-  
-  (If you want to test fabric with old version such as v1.0, you should install compatible client SDK) 
+  * Install using the repository
+    * run `npm install fabric-ca-client fabric-client` in the root folder
+    * If you want to test fabric with old version such as v1.0, you should install compatible client SDK, e.g `npm install fabric-ca-client@1.1.0 fabric-client@1.1.0`
   
 * Sawtooth
   * Clone [sawtooth-core](https://github.com/hyperledger/sawtooth-core) and run the `./bin/run_tests -m javascript_sdk` to test the SDK
@@ -72,17 +67,16 @@ Run `npm install` in caliper folder to install dependencies locally
 
 ## Run benchmark
 
-All predefined benchmarks can be found in [*caliper/benchmark*](./benchmark) folder. 
-To start a benchmark, just run `node main.js -c yourconfig.json -n yournetwork.json` in the folder of the benchmark. 
+All predefined benchmarks can be found in [*/benchmark*](./benchmark) folder. 
+To start a benchmark, just run these in root folder
+```bash
+node benchmark/simple/main.js -c yourconfig.json -n yournetwork.json
+```
 * -c : specify the config file of the benchmark, if not used,  *config.json* will be used as default.
 * -n : specify the config file of the blockchain network under test. If not used, the file address must be specified in the benchmak config file.
-```bash
-# start the simple benchmark, default config.json is used
-cd ~/caliper/benchmark/simple
-node main.js
-```
 
-Some example SUTs are provided in [*caliper/network*](./network) folder, they can be launched automatically before the test by setting the bootstrap commands in the configuration file, e.g
+
+Some example SUTs are provided in [*/network*](./network) folder, they can be launched automatically before the test by setting the bootstrap commands in the configuration file, e.g
 ```json
 {
   "command" : {
