@@ -36,7 +36,8 @@ Run `npm install` in caliper folder to install dependencies locally
 * Fabric
   * Install using the repository
     * run `npm install fabric-ca-client fabric-client` in the root folder
-    * If you want to test fabric with old version such as v1.0, you should install compatible client SDK, e.g `npm install fabric-ca-client@1.1.0 fabric-client@1.1.0`
+    * If you want to test fabric with old version such as v1.0, you should install compatible client SDK,   
+    e.g `npm install fabric-ca-client@1.1.0 fabric-client@1.1.0`
   
 * Sawtooth
   * Clone [sawtooth-core](https://github.com/hyperledger/sawtooth-core) and run the `./bin/run_tests -m javascript_sdk` to test the SDK
