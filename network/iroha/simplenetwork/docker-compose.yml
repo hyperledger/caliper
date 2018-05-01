@@ -2,7 +2,7 @@ version: '3'
 
 services:
   iroha-node0:
-    image: hyperledger/iroha:x86_64-develop-latest
+    image: hyperledger/iroha:develop
     container_name: iroha_node0
     ports:
       - "50051:50051"
@@ -26,7 +26,7 @@ services:
       - SYS_PTRACE
 
   iroha-node1:
-    image: hyperledger/iroha:x86_64-develop-latest
+    image: hyperledger/iroha:develop
     container_name: iroha_node1
     ports:
       - "50052:50051"
