@@ -3,48 +3,73 @@
 *
 * SPDX-License-Identifier: Apache-2.0
 *
-* @file, definition of the report generator, which uses Mustache to generate a html report
 */
 
 
-'use strict'
+'use strict';
 
-var Report = class {
+/**
+ * Convert an object to string
+ * @param {Object} value object to be converted
+ * @return {String} returned string
+ */
+function stringify(value) {
+    if(typeof value === 'object'){
+        if(Array.isArray(value)) {
+            return value.toString();
+        }
+        else {
+            return JSON.stringify(value, null, 2);
+        }
+    }
+    else {
+        return value;
+    }
+}
+
+/**
+ * Report class for generating test report
+ */
+class Report {
+    /**
+     * Constructor
+     */
     constructor() {
-        var path = require('path');
+        const path = require('path');
         this.template = path.join(__dirname, 'template/report.html');
         this.data = {
-                        "summary" : {       // summary of benchmark result
-                            "meta" : [],    // information of the summary, e.g. [{"name": "DLT Type", "value": "Fabric"}, {"name": "Benchmark", "value": "Simple"}...]
-                            "head" : [],    // table head for the summary table, e.g. ["Test","Name","Succ","Fail","Send Rate","Max Delay","Min Delay", "Avg Delay", "Throughput"],
-                            "results":[]   // table rows for the summary table, e.g. [{ "result": [0,"publish", 1,0,"1 tps", "10.78 s","10.78 s", "10.78 s", "1 tps"]},...]
-                        },
-                        "rounds" : [],     // results of each rounds, e.g
-                                             // [{
-                                             //     "id": "round 0",
-                                             //     "description" : "Test the performance for publishing digital item",
-                                             //     "performance": {
-                                             //       "head": ["Name","Succ","Fail","Send Rate","Max Delay","Min Delay", "Avg Delay", "Throughput"],
-                                             //       "result": ["publish", 1,0,"1 tps", "10.78 s","10.78 s", "10.78 s", "1 tps"]
-                                             //     },
-                                             //     "resource": {
-                                             //       "head": ["TYPE","NAME", "Memory(max)","Memory(avg)","CPU(max)", "CPU(avg)", "Traffic In","Traffic Out"],
-                                             //       "results": [
-                                             //         {
-                                             //          "result": ["Docker","peer1.org1.example.com", "94.4MB", "94.4MB", "0.89%", "0.84%", "0B", "0B"]
-                                             //         },
-                                             //         {
-                                             //           "result": ["Docker","peer0.org2.example.com","90.4MB", "90.4MB", "1.2%", "1.2%", "6KB", "0B"]
-                                             //         }
-                                             //       ]
-                                             //     }
-                                             //   },
-                        "benchmarkInfo": "not provided",   // readable information for the benchmark
-                        "sut": {
-                            "meta" : [],                    // metadata of the SUT
-                            "details" : "not provided"     // details of the SUT
-                        }
-                     };
+            'summary' : {       // summary of benchmark result
+                'meta' : [],    // information of the summary, e.g. [{"name": "DLT Type", "value": "Fabric"}, {"name": "Benchmark", "value": "Simple"}...]
+                'head' : [],    // table head for the summary table, e.g. ["Test","Name","Succ","Fail","Send Rate","Max Delay","Min Delay", "Avg Delay", "Throughput"],
+                'results':[]   // table rows for the summary table, e.g. [{ "result": [0,"publish", 1,0,"1 tps", "10.78 s","10.78 s", "10.78 s", "1 tps"]},...]
+            },
+            // results of each rounds, e.g
+            // [{
+            //     "id": "round 0",
+            //     "description" : "Test the performance for publishing digital item",
+            //     "performance": {
+            //       "head": ["Name","Succ","Fail","Send Rate","Max Delay","Min Delay", "Avg Delay", "Throughput"],
+            //       "result": ["publish", 1,0,"1 tps", "10.78 s","10.78 s", "10.78 s", "1 tps"]
+            //     },
+            //     "resource": {
+            //       "head": ["TYPE","NAME", "Memory(max)","Memory(avg)","CPU(max)", "CPU(avg)", "Traffic In","Traffic Out"],
+            //       "results": [
+            //         {
+            //          "result": ["Docker","peer1.org1.example.com", "94.4MB", "94.4MB", "0.89%", "0.84%", "0B", "0B"]
+            //         },
+            //         {
+            //           "result": ["Docker","peer0.org2.example.com","90.4MB", "90.4MB", "1.2%", "1.2%", "6KB", "0B"]
+            //         }
+            //       ]
+            //     }
+            //   },
+            'rounds' : [],
+            'benchmarkInfo': 'not provided',   // readable information for the benchmark
+            'sut': {
+                'meta' : [],                    // metadata of the SUT
+                'details' : 'not provided'     // details of the SUT
+            }
+        };
         this.started = false;
         this.peers = [];
         this.monitors = [];
@@ -52,8 +77,8 @@ var Report = class {
 
     /**
     * add a name/value metadata
-    * @name {String}, name of the metadata
-    * @value {String}, value of the metadata
+    * @param {String} name name of the metadata
+    * @param {String} value value of the metadata
     */
     addMetadata(name, value) {
         this.data.summary.meta.push({'name': name, 'value': value});
@@ -67,7 +92,7 @@ var Report = class {
 
     /**
     * set the head of summary table
-    * @table {@tableArray}
+    * @param {Array} table array containing rows of a table, each row is also an array
     */
     setSummaryTable(table) {
         if(!Array.isArray(table) || table.length < 1) {
@@ -85,7 +110,7 @@ var Report = class {
 
     /**
     * add a row to the summary table
-    * @head {Array}
+    * @param {Array} row elements of the row
     */
     addSummarytableRow(row) {
         if(!Array.isArray(row) || row.length < 1) {
@@ -96,11 +121,11 @@ var Report = class {
 
     /**
     * add a new benchmark round
-    * @description {String}, human readable description of this round
-    * @return {Number}, id of the round, be used to add details to this round
+    * @param {String} description human readable description of this round
+    * @return {Number} id of the round, be used to add details to this round
     */
     addBenchmarkRound(description) {
-        var id = this.data.rounds.length;
+        let id = this.data.rounds.length;
         this.data.rounds.push({
             'id' : 'round ' + id,
             'description' : description,
@@ -113,8 +138,8 @@ var Report = class {
 
     /**
     * set performance table of a specific round
-    * @id {Number}, id of the round
-    * @table {@tableArray}, table for the performance result
+    * @param {Number} id id of the round
+    * @param {Array} table table array containing the performance values
     */
     setRoundPerformance(id, table) {
         if(id < 0 || id >= this.data.rounds.length) {
@@ -133,8 +158,8 @@ var Report = class {
 
     /**
     * set resource consumption table of a specific round
-    * @id {Number}, id of the round
-    * @table {@tableArray}, table for the performance result
+    * @param {Number} id id of the round
+    * @param {Array} table table array containing the resource consumption values
     */
     setRoundResource(id, table) {
         if(id < 0 || id >= this.data.rounds.length) {
@@ -155,7 +180,7 @@ var Report = class {
 
     /**
     * set the readable information of the benchmark
-    * @info {String}
+    * @param {String} info information of the benchmark
     */
     setBenchmarkInfo(info) {
         this.data.benchmarkInfo = info;
@@ -163,8 +188,8 @@ var Report = class {
 
     /**
     * add SUT information
-    * @name {String}
-    * @value {any}
+    * @param {String} name name of the metadata
+    * @param {Object} value value of the metadata
     */
     addSUTInfo(name, value) {
         if(name === 'details') {
@@ -177,38 +202,24 @@ var Report = class {
 
     /**
     * generate a HTML report for the benchmark
-    * @output {String}, filename of the output
-    * @return {Promise}
+    * @param {String} output filename of the output
+    * @return {Promise} promise object
     */
     generate(output) {
         return new Promise((resolve, reject) => {
-            var fs = require('fs')
-            var Mustache = require('mustache');
-            var templateStr = fs.readFileSync(this.template).toString()
-            var html = Mustache.render(templateStr, this.data);
+            let fs = require('fs');
+            let Mustache = require('mustache');
+            let templateStr = fs.readFileSync(this.template).toString();
+            let html = Mustache.render(templateStr, this.data);
             fs.writeFile(output, html, (error) => {
-              if (error) {
-                reject(error)
-              } else {
-                resolve('Report  created successfully!')
-              }
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve('Report  created successfully!');
+                }
             });
-      });
+        });
     }
 }
 
 module.exports = Report;
-
-function stringify(value) {
-    if(typeof value === 'Object'){
-        if(Array.isArray(value)) {
-            return value.toString();
-        }
-        else {
-            return JSON.stringify(value, null, 2);
-        }
-    }
-    else {
-        return value;
-    }
-}

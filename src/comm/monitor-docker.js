@@ -3,19 +3,141 @@
 *
 * SPDX-License-Identifier: Apache-2.0
 *
-* @file, definition of the MonitorDocker class
-*        which is used to watch the resource consumption of specific local docker containers
 */
 
 
-'use strict'
+'use strict';
 
-var Util = require('./util.js');
+const Util = require('./util.js');
+const log  = Util.log;
+const MonitorInterface = require('./monitor-interface');
 
-// todo: now we record the performance information in local variable, should use db later
+/**
+ * create a containerStat object
+ * @return {JSON} containerStat object
+ */
+function newContainerStat() {
+    return {
+        mem_usage:   [],
+        mem_percent: [],
+        cpu_percent: [],
+        netIO_rx:    [],
+        netIO_tx:    [],
+        blockIO_rx:  [],
+        blockIO_wx:  []
+    };
+}
 
-var MonitorInterface = require('./monitor-interface');
+/**
+ * Find local containers according to searching filters
+ * @return {Promise} promise object
+ */
+function findContainers() {
+    let filterName = {local:[], remote:{}};
+    let url = require('url');
+    if(this.filter.hasOwnProperty('name')) {
+        for(let key in this.filter.name) {
+            let name = this.filter.name[key];
+            if(name.indexOf('http://') === 0) {
+                let remote = url.parse(name, true);
+                if(remote.hostname === null || remote.port === null || remote.pathname === '/') {
+                    log('monitor-docker: unrecognized host, ' + name);
+                }
+                else if(filterName.remote.hasOwnProperty(remote.hostname)) {
+                    filterName.remote[remote.hostname].containers.push(remote.pathname);
+                }
+                else {
+                    filterName.remote[remote.hostname] = {port: remote.port, containers: [remote.pathname]};
+                }
+            }
+            else{
+                filterName.local.push(name);
+            }
+        }
+    }
+
+    let promises = [];
+
+    // find local containers by name
+    if(filterName.local.length > 0) {
+        let p = this.si.dockerContainers('active').then((containers) => {
+            let size = containers.length;
+            if(size === 0) {
+                log('monitor-docker: could not find active local container');
+                return Promise.resolve();
+            }
+            if(filterName.local.indexOf('all') !== -1) {
+                for(let i = 0 ; i < size ; i++){
+                    this.containers.push({id: containers[i].id, name: containers[i].name, remote: null});
+                    this.stats[containers[i].id] = newContainerStat();
+                }
+            }
+            else {
+                for(let i = 0 ; i < size ; i++){
+                    if(filterName.local.indexOf(containers[i].name) !== -1) {
+                        this.containers.push({id: containers[i].id, name: containers[i].name, remote: null});
+                        this.stats[containers[i].id] = newContainerStat();
+                    }
+                }
+            }
+
+            return Promise.resolve();
+        }).catch((err) => {
+            log('Error(monitor-docker):' + err);
+            return Promise.resolve();
+        });
+        promises.push(p);
+    }
+    // find remote containers by name
+    for(let h in filterName.remote) {
+        let docker = new this.Docker({
+            host: h,
+            port: filterName.remote[h].port
+            // version: 'v1.20'
+        });
+        let p = docker.listContainers().then((containers) => {
+            let size = containers.length;
+            if(size === 0) {
+                log('monitor-docker: could not find remote container at ' + h);
+                return Promise.resolve();
+            }
+
+            if(filterName.remote[h].containers.indexOf('all') !== -1) {
+                for(let i = 0 ; i < size ; i++) {
+                    let container = docker.getContainer(containers[i].Id);
+                    this.containers.push({id: containers[i].Id, name: h + containers[i].Names[0], remote: container});
+                    this.stats[containers[i].Id] = newContainerStat();
+                }
+            }
+            else {
+                for(let i = 0 ; i < size ; i++) {
+                    if(filterName.remote[h].containers.indexOf(containers[i].Names[0]) !== -1) {
+                        let container = docker.getContainer(containers[i].Id);
+                        this.containers.push({id: containers[i].Id, name: h + containers[i].Names[0], remote: container});
+                        this.stats[containers[i].Id] = newContainerStat();
+                    }
+                }
+            }
+            return Promise.resolve();
+        }).catch((err) => {
+            log('Error(monitor-docker):' + err);
+            return Promise.resolve();
+        });
+        promises.push(p);
+    }
+
+    return Promise.all(promises);
+}
+
+/**
+ * Resource monitor for local/remote docker containers
+ */
 class MonitorDocker extends MonitorInterface {
+    /**
+     * Constructor
+     * @param {JSON} filter lookup filter for containers
+     * @param {*} interval resource fetching interval
+     */
     constructor(filter, interval) {
         super(filter, interval);
         this.si           = require('systeminformation');
@@ -41,25 +163,30 @@ class MonitorDocker extends MonitorInterface {
                 .....
             }
         */
-
-
     }
 
+    /**
+     * Start the monitor
+     * @return {Promise} promise object
+     */
     start() {
         return this.hasContainters.then( () => {
-            var self = this;
+            let self = this;
+            /**
+             * callback for reading containers' resouce usage
+             */
             function readContainerStats() {
                 if(self.isReading) {
                     return;
                 }
                 self.isReading = true;
-                var statPromises = [];
+                let statPromises = [];
                 for(let i = 0 ;i < self.containers.length ; i++){
                     if(self.containers[i].remote === null) {   // local
                         statPromises.push(self.si.dockerContainerStats(self.containers[i].id));
                     }
                     else {        // remote
-                        statPromises.push(self.containers[i].remote.stats({stream: false}))
+                        statPromises.push(self.containers[i].remote.stats({stream: false}));
                     }
                 }
                 Promise.all(statPromises).then((results) => {
@@ -68,7 +195,7 @@ class MonitorDocker extends MonitorInterface {
                         let stat = results[i];
                         let id = stat.id;
                         if(id !== self.containers[i].id) {
-                            console.log('monitor-docker: inconsistent id');
+                            log('monitor-docker: inconsistent id');
                             continue;
                         }
                         if(self.containers[i].remote === null) {    // local
@@ -87,7 +214,7 @@ class MonitorDocker extends MonitorInterface {
                             let cpuDelta = stat.cpu_stats.cpu_usage.total_usage - stat.precpu_stats.cpu_usage.total_usage;
                             let sysDelta = stat.cpu_stats.system_cpu_usage - stat.precpu_stats.system_cpu_usage;
                             if(cpuDelta > 0 && sysDelta > 0) {
-                                if(stat.cpu_stats.cpu_usage.hasOwnProperty('percpu_usage') && stat.cpu_stats.cpu_usage.percpu_usage != null) {
+                                if(stat.cpu_stats.cpu_usage.hasOwnProperty('percpu_usage') && stat.cpu_stats.cpu_usage.percpu_usage !== null) {
                                     self.stats[id].cpu_percent.push(cpuDelta / sysDelta * stat.cpu_stats.cpu_usage.percpu_usage.length * 100.0);
                                 }
                                 else {
@@ -109,21 +236,23 @@ class MonitorDocker extends MonitorInterface {
                         }
                     }
                     self.isReading = false;
-                })
-                .catch((err) => {
+                }).catch((err) => {
                     self.isReading = false;
                 });
-            };
+            }
 
             readContainerStats();   // read stats  immediately
             this.intervalObj = setInterval(readContainerStats, this.interval);
             return Promise.resolve();
-        })
-        .catch((err) => {
+        }).catch((err) => {
             return Promise.reject(err);
         });
     }
 
+    /**
+     * Restart the monitor
+     * @return {Promise} promise object
+     */
     restart() {
         clearInterval(this.intervalObj);
         for(let key in this.stats) {
@@ -140,6 +269,10 @@ class MonitorDocker extends MonitorInterface {
         return this.start();
     }
 
+    /**
+     * Stop the monitor
+     * @return {Promise} promise object
+     */
     stop() {
         clearInterval(this.intervalObj);
         this.containers = [];
@@ -148,8 +281,19 @@ class MonitorDocker extends MonitorInterface {
         return Util.sleep(100);
     }
 
+    /**
+     * Get information of watched containers
+     * info = {
+     *     key: key of the container
+     *     info: {
+     *         TYPE: 'docker',
+     *         NAME: name of the container
+     *     }
+     * }
+     * @return {Array} array of containers' information
+     */
     getPeers() {
-        var info = [];
+        let info = [];
         for(let i in this.containers) {
             let c = this.containers[i];
             if(c.hasOwnProperty('id')) {
@@ -165,130 +309,31 @@ class MonitorDocker extends MonitorInterface {
         return info;
     }
 
+    /**
+     * Get history of memory usage
+     * @param {String} key key of the container
+     * @return {Array} array of memory usage
+     */
     getMemHistory(key) {
         return this.stats[key].mem_usage;
     }
 
+    /**
+     * Get history of CPU usage
+     * @param {String} key key of the container
+     * @return {Array} array of CPU usage
+     */
     getCpuHistory(key) {
         return this.stats[key].cpu_percent;
     }
 
+    /**
+     * Get history of network IO usage as {in, out}
+     * @param {String} key key of the container
+     * @return {Array} array of network IO usage
+     */
     getNetworkHistory(key) {
         return {'in': this.stats[key].netIO_rx, 'out':this.stats[key].netIO_tx};
     }
-};
+}
 module.exports = MonitorDocker;
-
-/**
-* Find local containers according to searching filters
-*/
-function findContainers() {
-    var filterName = {local:[], remote:{}};
-    var url = require('url');
-    if(this.filter.hasOwnProperty('name')) {
-        for(let key in this.filter.name) {
-            let name = this.filter.name[key];
-            if(name.indexOf('http://') === 0) {
-                let remote = url.parse(name, true);
-                if(remote.hostname === null || remote.port === null || remote.pathname === '/') {
-                    console.log("monitor-docker: unrecognized host, " + name);
-                }
-                else if(filterName.remote.hasOwnProperty(remote.hostname)) {
-                    filterName.remote[remote.hostname].containers.push(remote.pathname);
-                }
-                else {
-                    filterName.remote[remote.hostname] = {port: remote.port, containers: [remote.pathname]};
-                }
-            }
-            else{
-                filterName.local.push(name);
-            }
-        }
-    }
-
-    var promises = [];
-
-    // find local containers by name
-    if(filterName.local.length > 0) {
-        let p = this.si.dockerContainers('active').then((containers) => {
-                    let size = containers.length;
-                    if(size === 0) {
-                        console.log("monitor-docker: could not find active local container");
-                        return Promise.resolve();
-                    }
-
-                    if(filterName.local.indexOf('all') != -1) {
-                        for(let i = 0 ; i < size ; i++){
-                            this.containers.push({id: containers[i].id, name: containers[i].name, remote: null});
-                            this.stats[containers[i].id] = newContainerStat();
-                        }
-                    }
-                    else {
-                        for(let i = 0 ; i < size ; i++){
-                            if(filterName.local.indexOf(containers[i].name) != -1) {
-                                this.containers.push({id: containers[i].id, name: containers[i].name, remote: null});
-                                this.stats[containers[i].id] = newContainerStat();
-                            }
-                        }
-                    }
-
-                    return Promise.resolve();
-                })
-                .catch((err) => {
-                    console.log("Error(monitor-docker):" + err);
-                    return Promise.resolve();
-                });
-        promises.push(p);
-    }
-    // find remote containers by name
-    for(let h in filterName.remote) {
-        let docker = new this.Docker({
-            host: h,
-            port: filterName.remote[h].port
-            // version: 'v1.20'
-        });
-        let p = docker.listContainers().then((containers) => {
-                    let size = containers.length;
-                    if(size === 0) {
-                        console.log("monitor-docker: could not find remote container at " + h);
-                        return Promise.resolve();
-                    }
-
-                    if(filterName.remote[h].containers.indexOf('all') != -1) {
-                        for(let i = 0 ; i < size ; i++) {
-                            let container = docker.getContainer(containers[i].Id);
-                            this.containers.push({id: containers[i].Id, name: h + containers[i].Names[0], remote: container});
-                            this.stats[containers[i].Id] = newContainerStat();
-                        }
-                    }
-                    else {
-                        for(let i = 0 ; i < size ; i++) {
-                            if(filterName.remote[h].containers.indexOf(containers[i].Names[0]) != -1) {
-                                let container = docker.getContainer(containers[i].Id);
-                                this.containers.push({id: containers[i].Id, name: h + containers[i].Names[0], remote: container});
-                                this.stats[containers[i].Id] = newContainerStat();
-                            }
-                        }
-                    }
-                    return Promise.resolve();
-                }).catch((err) => {
-                    console.log("Error(monitor-docker):" + err);
-                    return Promise.resolve();
-                });
-        promises.push(p);
-    }
-
-    return Promise.all(promises);
-}
-
-function newContainerStat() {
-    return {
-        mem_usage:   [],
-        mem_percent: [],
-        cpu_percent: [],
-        netIO_rx:    [],
-        netIO_tx:    [],
-        blockIO_rx:  [],
-        blockIO_wx:  []
-    };
-}
