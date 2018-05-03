@@ -5,20 +5,20 @@
 *
 */
 
-'use strict'
+'use strict';
+
+const Blockchain = require('../blockchain.js');
+const ZooKeeper = require('node-zookeeper-client');
+const zkUtil = require('./zoo-util.js');
+const clientUtil = require('./client-util.js');
+const path = require('path');
+const Util = require('../util.js');
+const log  = Util.log;
 
 if (process.argv.length < 3) {
-    console.log('Missed zookeeper address');
+    log('Missed zookeeper address');
     process.exit(0);
 }
-
-var Blockchain = require('../blockchain.js');
-var ZooKeeper = require('node-zookeeper-client');
-var zk = ZooKeeper.createClient(process.argv[2]);
-var zkUtil = require('./zoo-util.js');
-var clientUtil = require('./client-util.js');
-var path = require('path');
-var Util = require('../util.js');
 
 /**
 * zookeeper structure
@@ -32,80 +32,21 @@ var Util = require('../util.js');
 *         |                |--msg_xxx {message}
 *         |--client_yyy_in---...
 */
-
-var clientID = '', inNode = '', outNode = '';
-var closed = false;
-var results = [];   // contains testResult message data
-var updates = [];   // contains txUpdated message data
-var updateTail = 0;
-var updateInter = null;
-var updateTime = 1000;
-function close() {
-    if (closed) {
-        return;
-    }
-    closed = true;
-    clear()
-    .then(()=>{
-        let promises = [];
-        if(inNode !== '') {
-            promises.push(zkUtil.removeP(zk, inNode, -1, 'Failed to remove inNode due to'));
-        }
-        if(outNode !== '') {
-            promises.push(zkUtil.removeP(zk, outNode, -1, 'Failed to remove inNode due to'));
-        }
-    })
-    .then(()=>{
-        console.log('Node ' + inNode + ' ' + outNode + ' is deleted');
-        inNode = '';
-        outNode = '';
-        zk.close();
-    })
-    .catch((err)=>{
-        inNode = '';
-        outNode = '';
-        zk.close();
-    })
-}
+let zk = ZooKeeper.createClient(process.argv[2]);
+let clientID = '', inNode = '', outNode = '';
+let closed = false;
+let results = [];   // contains testResult message data
+let updates = [];   // contains txUpdated message data
+let updateTail = 0;
+let updateInter = null;
+let updateTime = 1000;
 
 /**
-* merge txUpdated message to a new txUpdated message and send to server
-*/
-function txUpdate() {
-    var len = updates.length;
-    if(len === updateTail) {
-        return;
-    }
-
-    var submitted = 0;
-    var committed = [];
-    for(let i = updateTail ; i < len ; i++) {
-        submitted += updates[i].submitted;
-        committed.push(updates[i].committed)
-    }
-    updateTail = len;
-
-    var message = {type: 'txUpdated', data: {submitted: submitted}};
-    if(Blockchain.mergeDefaultTxStats(committed) === 0) {
-        message.data['committed'] = Blockchain.createNullDefaultTxStats();
-    }
-    else {
-        message.data['committed'] = committed[0];
-    }
-    var buf = new Buffer(JSON.stringify(message));
-    write(buf);
-}
-
-// {session: {interval:obj, waiting:number, submitted:0, committed:[]}}
-var localClients = 0;
-var queryWaiting = {};
-const WAITING_TIMEOUT = 500;    // waiting for 500ms to get local result
-
-
-
-
+ * Remove unused znodes
+ * @return {Promise} promise object
+ */
 function clear() {
-    var promises = [];
+    let promises = [];
     if(inNode !== '') {
         promises.push(zkUtil.removeChildrenP(zk, inNode, 'Failed to remove children due to'));
     }
@@ -116,17 +57,86 @@ function clear() {
     return Promise.all(promises);
 }
 
+/**
+ * Close zk client
+ */
+function close() {
+    if (closed) {
+        return;
+    }
+    closed = true;
+    clear().then(()=>{
+        let promises = [];
+        if(inNode !== '') {
+            promises.push(zkUtil.removeP(zk, inNode, -1, 'Failed to remove inNode due to'));
+        }
+        if(outNode !== '') {
+            promises.push(zkUtil.removeP(zk, outNode, -1, 'Failed to remove inNode due to'));
+        }
+    }).then(()=>{
+        log('Node ' + inNode + ' ' + outNode + ' is deleted');
+        inNode = '';
+        outNode = '';
+        zk.close();
+    }).catch((err)=>{
+        inNode = '';
+        outNode = '';
+        zk.close();
+    });
+}
+
+/**
+ * Write data (send message) into zk
+ * @param {Buffer} data message data
+ * @return {Promise} promise object
+ */
 function write(data) {
     return zkUtil.createP(zk, outNode+'/msg_', data, ZooKeeper.CreateMode.EPHEMERAL_SEQUENTIAL, 'Failed to send message (create node) due to');
 }
 
+/**
+ * Generate and send txUpdated message
+ */
+function txUpdate() {
+    let len = updates.length;
+    if(len === updateTail) {
+        return;
+    }
+
+    let submitted = 0;
+    let committed = [];
+    for(let i = updateTail ; i < len ; i++) {
+        submitted += updates[i].submitted;
+        committed.push(updates[i].committed);
+    }
+    updateTail = len;
+
+    let message = {type: 'txUpdated', data: {submitted: submitted}};
+    if(Blockchain.mergeDefaultTxStats(committed) === 0) {
+        message.data.committed = Blockchain.createNullDefaultTxStats();
+    }
+    else {
+        message.data.committed = committed[0];
+    }
+    let buf = new Buffer(JSON.stringify(message));
+    write(buf);
+}
+
+
+/**
+ * Initialise global variables before test
+ */
 function beforeTest() {
     results = [];
     updates = [];
     updateTail = 0;
-    updateInter = setInterval(txUpdate, updateTime);;
+    updateInter = setInterval(txUpdate, updateTime);
 }
 
+/**
+ * Send results and release resources after test
+ * @return {Promise} promise object
+ */
 function afterTest() {
     if(updateInter) {
         clearInterval(updateInter);
@@ -134,7 +144,7 @@ function afterTest() {
         txUpdate();
     }
 
-    Util.sleep(200).then(()=>{
+    return Util.sleep(200).then(()=>{
         let message = {type: 'testResult', data: results[0]};
         if(Blockchain.mergeDefaultTxStats(results) === 0) {
             message = {type: 'testResult', data: Blockchain.createNullDefaultTxStats()};
@@ -144,106 +154,108 @@ function afterTest() {
         }
         let buf = new Buffer(JSON.stringify(message));
         return write(buf);
-    })
-    .catch((err) => {
-        console.log(err);
-    })
+    }).catch((err) => {
+        log(err);
+        return Promise.resolve();
+    });
 }
 
+/**
+ * Message handler
+ * @param {Object} data message received
+ * @return {Promise} returned bool value which indicates whether the zk connection has been closed or not
+ */
 function zooMessageCallback(data) {
-    var msg  = JSON.parse(data.toString());
-    console.log('Receive message, type='+msg.type);
+    let msg  = JSON.parse(data.toString());
+    log('Receive message, type='+msg.type);
 
     switch(msg.type) {
-        case 'test':
-            localClients = msg.clients;
-            beforeTest();
-            zkUtil.removeChildrenP(zk, outNode, 'Failed to remove children in outNode due to')
-            .then(()=>{
-                return clientUtil.startTest(msg.clients, msg, msg.clientargs, updates, results);
-            })
-            .then(() => {
-                return afterTest();
-            })
-            .catch((err)=>{
-                console.log('==Exception while testing, ' + err);
-                return afterTest();
-            });
-            break;
-        case 'quit':
-            clear();
-            break;
-        default:
-            clientUtil.sendMessage(msg);
-            break;
+    case 'test': {
+        beforeTest();
+        zkUtil.removeChildrenP(zk, outNode, 'Failed to remove children in outNode due to').then(()=>{
+            return clientUtil.startTest(msg.clients, msg, msg.clientargs, updates, results);
+        }).then(() => {
+            return afterTest();
+        }).catch((err)=>{
+            log('==Exception while testing, ' + err);
+            return afterTest();
+        });
+        break;
+    }
+    case 'quit': {
+        clear();
+        break;
+    }
+    default: {
+        clientUtil.sendMessage(msg);
+        break;
+    }
     }
     return Promise.resolve(closed);
 }
 
+/**
+ * Waiting for messages by watching corresponding zk nodes
+ * @return {Promise} promise object
+ */
 function watch() {
     return zkUtil.watchMsgQueueP(
         zk,
         inNode,
         (data) => {
-            return zooMessageCallback(data)
-                .catch((err) => {
-                    console.log('Exception encountered when watching message from zookeeper, due to:');
-                    console.log(err);
-                    return Promise.resolve(true);
-                });
+            return zooMessageCallback(data).catch((err) => {
+                log('Exception encountered when watching message from zookeeper, due to:');
+                log(err);
+                return Promise.resolve(true);
+            });
         },
         'Failed to watch children nodes in zookeeper'
     ).catch((err) => {
-        console.log(err);
+        log(err);
         return Promise.resolve();
-    })
+    });
 }
 
+/**
+ * Callback when connecting to zk
+ */
 zk.once('connected', function() {
-    console.log('Connected to ZooKeeper');
-    zkUtil.existsP(zk, zkUtil.NODE_ROOT, 'Failed to find NODE_ROOT due to')
-    .then((found)=>{
+    log('Connected to ZooKeeper');
+    zkUtil.existsP(zk, zkUtil.NODE_ROOT, 'Failed to find NODE_ROOT due to').then((found)=>{
         if(found) {
             return Promise.resolve();
         }
         else {
             return zkUtil.createP(zk, zkUtil.NODE_ROOT, null, ZooKeeper.CreateMode.PERSISTENT, 'Failed to create NODE_ROOT due to');
         }
-    })
-    .then(()=>{
-        return zkUtil.existsP(zk, zkUtil.NODE_CLIENT, 'Failed to find clients node due to')
-    })
-    .then((found)=>{
+    }).then(()=>{
+        return zkUtil.existsP(zk, zkUtil.NODE_CLIENT, 'Failed to find clients node due to');
+    }).then((found)=>{
         if(found) {
             return Promise.resolve();
         }
         else {
             return zkUtil.createP(zk, zkUtil.NODE_CLIENT, null, ZooKeeper.CreateMode.PERSISTENT, 'Failed to create clients node due to');
         }
-    })
-    .then(()=>{         // create client node
+    }).then(()=>{         // create client node
         let random = new Date().getTime();
         let clientPath = zkUtil.NODE_CLIENT + '/client_'+random+'_';
         return zkUtil.createP(zk, clientPath, null, ZooKeeper.CreateMode.EPHEMERAL_SEQUENTIAL, 'Failed to create client node due to');
-    })
-    .then((clientPath)=>{
-        console.log('Created client node:'+clientPath);
+    }).then((clientPath)=>{
+        log('Created client node:'+clientPath);
         clientID = path.basename(clientPath);
         inNode   = zkUtil.getInNode(clientID);
         outNode  = zkUtil.getOutNode(clientID);
         return zkUtil.createP(zk, inNode, null, ZooKeeper.CreateMode.PERSISTENT, 'Failed to create receiving queue due to');
-    })
-    .then((inPath)=>{
-        console.log('Created receiving queue at:'+inPath);
+    }).then((inPath)=>{
+        log('Created receiving queue at:'+inPath);
         return zkUtil.createP(zk, outNode, null, ZooKeeper.CreateMode.PERSISTENT, 'Failed to create sending queue due to');
-    })
-    .then((outPath)=>{
-        console.log('Created sending queue at:'+outPath);
-        console.log('Waiting for messages at:'+inNode+'......');
-        return watch();
-    })
-    .catch((err)=> {
-        console.log(err.stack ? err.stack : err);
+    }).then((outPath)=>{
+        log('Created sending queue at:'+outPath);
+        log('Waiting for messages at:'+inNode+'......');
+        watch();
+    }).catch((err)=> {
+        log(err.stack ? err.stack : err);
         close();
     });
 });

@@ -43,6 +43,6 @@ For beginners of Caliper, if you want to :
 
   The `caliper/src` folder contains source codes for all supported DLTs.
   
-* Help to improve the benchmark engineer
+* Help to improve the benchmark engine
 
-  The `caliper/src/comm` folder contains source codes for the benchmark engineer. For example, the `bench-flow.js` implements the default end-to-end test flow.
+  The `caliper/src/comm` folder contains source codes for the benchmark engine. For example, the `bench-flow.js` implements the default end-to-end test flow.

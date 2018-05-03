@@ -3,33 +3,38 @@
 *
 * SPDX-License-Identifier: Apache-2.0
 *
-* @file, definition of the BlockChain class, which is used to interact with backend's blockchain system
 */
 
-'use strict'
+'use strict';
 
-var path = require('path');
-var Blockchain = class {
+/**
+ * BlockChain class, define operations to interact with the blockchain system under test
+ */
+class Blockchain {
+    /**
+     * Constructor
+     * @param {String} configPath path of the blockchain configuration file
+     */
     constructor(configPath) {
-        var config = require(configPath);
+        let config = require(configPath);
 
         if(config.hasOwnProperty('fabric')) {
-            var fabric = require('../fabric/fabric.js');
+            let fabric = require('../fabric/fabric.js');
             this.bcType = 'fabric';
             this.bcObj = new fabric(configPath);
         }
         else if(config.hasOwnProperty('sawtooth')) {
-            var sawtooth = require('../sawtooth/sawtooth.js')
+            let sawtooth = require('../sawtooth/sawtooth.js');
             this.bcType = 'sawtooth';
             this.bcObj = new sawtooth(configPath);
         }
         else if(config.hasOwnProperty('iroha')) {
-            var iroha = require('../iroha/iroha.js');
+            let iroha = require('../iroha/iroha.js');
             this.bcType = 'iroha';
             this.bcObj = new iroha(configPath);
         }
         else if(config.hasOwnProperty('composer')) {
-            var composer = require('../composer/composer.js')
+            let composer = require('../composer/composer.js');
             this.bcType = 'composer';
             this.bcObj = new composer(configPath);
         }
@@ -40,80 +45,76 @@ var Blockchain = class {
     }
 
     /**
-    * return the blockchain type
-    * @return {string}
-    */
+     * return the blockchain's type
+     * @return {string} type of the blockchain
+     */
     gettype() {
         return this.bcType;
     }
 
     /**
-    * prepare the underlying blockchain environment, e.g. join channel for fabric's peers
-    * the function should be called only once for the same backend's blockchain system
-    * even if multiple Blockchain objects are instantiated
-    * @return {Promise}
+    * Initialise test environment, e.g. create a fabric channel for the test
+    * @return {Promise} promise object
     */
     init() {
         return this.bcObj.init();
     }
 
     /**
-    * create needed materials for multiple clients, e.g create account for each client and return the key pairs
-    * @number, number of clients
-    * @return {Promise}, array of generated JSON object for each client. The array length should be equal to the input number
-    *                    Each object should be passed to corresponding client and be used as a argument of getContext
-    */
+     * Perform required preparation for test clients, e.g. enroll clients and obtain key pairs
+     * @param {Number} number count of test clients
+     * @return {Promise} array of obtained material for test clients
+     */
     prepareClients (number) {
         return this.bcObj.prepareClients(number);
     }
 
     /**
-    * install smart contract on peers
-    * the detailed smart contract's information should be defined in the configuration file
-    * @return {Promise}
+    * Install smart contract(s), detail informations are defined in the blockchain configuration file
+    * @return {Promise} promise object
     */
     installSmartContract() {
         return this.bcObj.installSmartContract();
     }
 
     /**
-    * get a system context that will be used to interact with backend's blockchain system
-    * @name {string}, name of the context
-    * @args {object}, a JSON object that contains required materials for the client to interact with SUT, e.g key pairs for the client
-    *                 the actual format of the object is specified by each blochchain interface implementation
-    * @return {Promise.resolve(context)}
-    */
+     * Get a context for subsequent operations, e.g. invoke smart contract or query state
+     * @param {String} name name of the context
+     * @param {Object} args adapter specific arguments
+     * @return {Promise} obtained context object
+     */
     getContext(name, args) {
         return this.bcObj.getContext(name, args);
     }
 
     /**
-    * release the system context
-    * @return {Promise}
-    */
+     * Release a context as well as related resources
+     * @param {Object} context adapter specific object
+     * @return {Promise} promise object
+     */
     releaseContext(context) {
         return this.bcObj.releaseContext(context);
     }
 
     /**
-    * perform an 'invoke' transaction
-    * @context {Object}, context returned by getContext
-    * @contractID {string}, smart contract's id
-    * @contractVer {string}, smart contract's version
-    * @args {object}, invoking arguments
-    * @timeout {Number}, return directly after that time in seconds has elapsed
-    * @return {Promise.resolve(Object)}, return the key informations of the transaction, the format is
-     *       {
-    *           'id': transaction's id
-    *           'status':  status of the transaction, should be:
-    *                        - 'created': successfully created, but not validated or committed yet
-    *                        - 'success': successfully validated and committed in the ledger
-    *           'time_create': time(ms) that the transaction was created
-    *           'time_final':  time(ms) that the transaction was known to be final and committed in ledger
-    *           'result': response payloads of the transaction request
-    *           ...... :  blockchain platform specific values
-    *         }
-    */
+     * Invoke a smart contract and return a txStatus object or an array of txStatus objects which contain informations of the transaction
+     * txStatus = {
+     *     'id': transaction's id
+     *     'status':  status of the transaction, should be:
+     *                - 'created': successfully created, but not validated or committed yet
+     *                - 'success': successfully validated and committed in the ledger
+     *     'time_create': time(ms) that the transaction was created
+     *     'time_final':  time(ms) that the transaction was known to be final and committed in ledger
+     *     'result': response payloads of the transaction request
+     *     ...... :  other adapter specific properties
+     * }
+     * @param {Object} context context object from getContext
+     * @param {String} contractID identiy of the contract
+     * @param {String} contractVer version of the contract
+     * @param {JSON} args input parameters for the contract
+     * @param {Number} timeout request timeout, in second
+     * @return {Promise} txStatus object or an array of txStatus objects
+     */
     invokeSmartContract(context, contractID, contractVer, args, timeout) {
         if(typeof timeout !== 'number' || timeout < 0) {
             return this.bcObj.invokeSmartContract(context, contractID, contractVer, args, 120);
@@ -124,40 +125,31 @@ var Blockchain = class {
     }
 
     /**
-    * * perform a 'query' transaction to get state from the ledger
-    * @return {Promsie}, same format as invokeSmartContract's returning
-    */
+     * Query state from the ledger
+     * @param {Object} context context object from getContext
+     * @param {String} contractID identiy of the contract
+     * @param {String} contractVer version of the contract
+     * @param {String} key lookup key
+     * @return {Promise} as invokeSmateContract()
+     */
     queryState(context, contractID, contractVer, key) {
         return this.bcObj.queryState(context, contractID, contractVer, key);
     }
 
     /**
-    * txStatistics = {
-    *     succ : ,                            // number of succeeded txs
-    *     fail : ,                            // number of failed txs
-    *     create : {min: , max: },            // min/max time of tx created, in second
-    *     final  : {min: , max: },            // min/max time of tx becoming final, in second
-    *     delay  : {min: , max: , sum: , detail:[...]},     // min/max/sum time of txs' processing delay,  in second
-    *     // obsoleted throughput : {time: ,...},          // tps of each time slot
-    *     out : []                            // user defined output data
-    *     // obsoleted others: {object}                 // blockchain platform specific values
-    * }
+    * Calculate the default transaction statistics
+    * @param {Array} results array of txStatus
+    * @param {Boolean} detail indicates whether to keep detailed information
+    * @return {JSON} txStatistics JSON object
     */
-    /**
-    * generate and return the default statistics of transactions
-    * @ results {Array}, results of 'invoke'/'query' transactions
-    * @ detail {Boolean}, whether to keep detailed delay history
-    * @ return {Promise.resolve(txStatistics)}
-    */
-    // TODO: should be moved to a dependent 'analyser' module in which to do all result analysing work
     getDefaultTxStats(results, detail) {
-        var succ = 0, fail = 0, delay = 0;
-        var minFinal, maxFinal, minCreate, maxCreate;
-        var minDelay = 100000, maxDelay = 0;
-        var delays = [];
+        let succ = 0, fail = 0, delay = 0;
+        let minFinal, maxFinal, minCreate, maxCreate;
+        let minDelay = 100000, maxDelay = 0;
+        let delays = [];
         for(let i = 0 ; i < results.length ; i++) {
             let stat   = results[i];
-            let create = stat['time_create'];
+            let create = stat.time_create;
 
             if(typeof minCreate === 'undefined') {
                 minCreate = create;
@@ -174,7 +166,7 @@ var Blockchain = class {
 
             if(stat.status === 'success') {
                 succ++;
-                let final = stat['time_final'];
+                let final = stat.time_final;
                 let d     = (final - create) / 1000;
                 if(typeof minFinal === 'undefined') {
                     minFinal = final;
@@ -206,7 +198,7 @@ var Blockchain = class {
             }
         }
 
-        var stats = {
+        let stats = {
             'succ' : succ,
             'fail' : fail,
             'create' : {'min' : minCreate/1000, 'max' : maxCreate/1000},    // convert to second
@@ -218,14 +210,15 @@ var Blockchain = class {
     }
 
     /**
-    * merge an array of default 'txStatistics', the merged result is in the first object
-    * @ results {Array}, txStatistics array
-    * @ return {Number}, 0 if failed; otherwise 1
-    */
+     * merge an array of default 'txStatistics', the result is in first object of the array
+     * Note even failed the first object of the array may still be changed
+     * @param {Array} results txStatistics array
+     * @return {Number} 0 if failed; otherwise 1
+     */
     static mergeDefaultTxStats(results) {
         try{
             // skip invalid result
-            var skip = 0;
+            let skip = 0;
             for(let i = 0 ; i < results.length ; i++) {
                 let result = results[i];
                 if(!result.hasOwnProperty('succ') || !result.hasOwnProperty('fail') || (result.succ + result.fail) === 0) {
@@ -239,9 +232,11 @@ var Blockchain = class {
                 results.splice(0, skip);
             }
 
-            if(results.length === 0) return 0;
+            if(results.length === 0) {
+                return 0;
+            }
 
-            var r = results[0];
+            let r = results[0];
             for(let i = 1 ; i < results.length ; i++) {
                 let v = results[i];
                 if(!v.hasOwnProperty('succ') || !v.hasOwnProperty('fail') || (v.succ + v.fail) === 0) {
@@ -281,9 +276,9 @@ var Blockchain = class {
     }
 
     /**
-    * create a 'null txStatistics'
-    * @ results {Object}, txStatistics array
-    */
+     * create a 'null' txStatistics object
+     * @return {JSON} 'null' txStatistics object
+     */
     static createNullDefaultTxStats() {
         return {succ: 0, fail: 0};
     }
