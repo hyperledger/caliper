@@ -6,41 +6,41 @@
 */
 
 
-'use strict'
+'use strict';
 
-var crypto = require('crypto');
+const crypto = require('crypto');
 
-module.exports.info  = "publishing digital items";
+module.exports.info  = 'publishing digital items';
 
-var bc, contx;
-var itemBytes = 1024;   // default value
-var ids = [];           // save the generated item ids
+let bc, contx;
+let itemBytes = 1024;   // default value
+let ids = [];           // save the generated item ids
 
 module.exports.ids = ids;
 
 module.exports.init = function(blockchain, context, args) {
     if(args.hasOwnProperty('itemBytes') ) {
-       itemBytes = args.itemBytes;
+        itemBytes = args.itemBytes;
     }
 
     bc       = blockchain;
     contx    = context;
     return Promise.resolve();
-}
+};
 
 module.exports.run = function() {
-    var date   = new Date();
-    var today  = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
-    var author = process.pid.toString();
-    var buf    = crypto.randomBytes(itemBytes).toString('base64');
-    var item = {
-                    'author' : author,
-                    'createtime' : today,
-                    'info' : '',
-                    'item' : buf
-                };
+    const date   = new Date();
+    const today  = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+    const author = process.pid.toString();
+    const buf    = crypto.randomBytes(itemBytes).toString('base64');
+    const item = {
+        'author' : author,
+        'createtime' : today,
+        'info' : '',
+        'item' : buf
+    };
     return bc.invokeSmartContract(contx, 'drm', 'v0', {verb : 'publish', item: JSON.stringify(item)}, 120);
-}
+};
 
 module.exports.end = function(results) {
     for (let i in results){
@@ -50,7 +50,7 @@ module.exports.end = function(results) {
         }
     }
     return Promise.resolve();
-}
+};
 /**********************
 * save published items' identity
 **********************/
