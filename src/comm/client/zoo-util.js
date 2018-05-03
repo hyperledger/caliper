@@ -5,17 +5,25 @@
 *
 */
 
-'use strict'
+'use strict';
 
 module.exports.NODE_ROOT   = '/caliper';
 module.exports.NODE_CLIENT = '/caliper/clients';
 
-var ZooKeeper = require('node-zookeeper-client');
+const ZooKeeper = require('node-zookeeper-client');
+const log       = require('../util.js').log;
+/**
+ * Check if specified znode exists
+ * @param {Object} zookeeper zk object
+ * @param {String} path path of znode
+ * @param {String} errLog specified informative error message
+ * @return {Promise} returned bool indicates whether the znode exists or not
+ */
 function exists(zookeeper, path, errLog) {
     return new Promise((resolve, reject) => {
         zookeeper.exists(path, (err, stat) => {
             if(err) {
-                console.log(errLog);
+                log(errLog);
                 return reject(err);
             }
             if(stat) {
@@ -29,11 +37,20 @@ function exists(zookeeper, path, errLog) {
 }
 module.exports.existsP = exists;
 
+/**
+ * Create a znode
+ * @param {Object} zookeeper zk object
+ * @param {String} path path of the znode
+ * @param {Buffer} data data of the znode
+ * @param {Number} mode create mode
+ * @param {String} errLog specified informative error message
+ * @return {Promise} path of the created znode
+ */
 function create(zookeeper, path, data, mode, errLog) {
     return new Promise((resolve, reject) => {
         zookeeper.create(path, data, ZooKeeper.ACL.OPEN_ACL_UNSAFE, mode, (err, path) => {
             if(err) {
-                console.log(errLog);
+                log(errLog);
                 return reject(err);
             }
             else {
@@ -44,11 +61,19 @@ function create(zookeeper, path, data, mode, errLog) {
 }
 module.exports.createP = create;
 
+/**
+ * Remove a znode
+ * @param {Object} zookeeper zk object
+ * @param {String} path path of znode
+ * @param {Number} version znode's version
+ * @param {String} errLog specified informative error message
+ * @return {Promise} promise object
+ */
 function remove(zookeeper, path, version, errLog) {
     return new Promise((resolve, reject)=>{
         zookeeper.remove(path, version, (err)=>{
             if(err) {
-                console.log(errLog);
+                log(errLog);
                 return reject(err);
             }
             return resolve();
@@ -57,11 +82,19 @@ function remove(zookeeper, path, version, errLog) {
 }
 module.exports.removeP = remove;
 
+/**
+ * Read data of specified znode
+ * @param {Object} zookeeper zk object
+ * @param {String} path path of znode
+ * @param {Object} watcher zk watcher
+ * @param {String} errLog specified informative error message
+ * @return {Promise} data of specified znode
+ */
 function getData(zookeeper, path,watcher, errLog) {
     return new Promise((resolve, reject) => {
         zookeeper.getData(path, watcher, (err, data, stat) => {
             if(err) {
-                console.log(errLog);
+                log(errLog);
                 return reject(err);
             }
             else {
@@ -72,44 +105,70 @@ function getData(zookeeper, path,watcher, errLog) {
 }
 module.exports.getDataP = getData;
 
+/**
+ * Get children under specified znode
+ * @param {Object} zookeeper zk object
+ * @param {String} path path of znode
+ * @param {Object} watcher zk watcher
+ * @param {String} errLog specified informative error message
+ * @return {Promise} children list
+ */
 function getChildren(zookeeper, path, watcher, errLog) {
     return new Promise((resolve, reject) => {
-         zookeeper.getChildren(path, watcher, (err, children, stat)=>{
+        zookeeper.getChildren(path, watcher, (err, children, stat)=>{
             if (err) {
-                console.log(errLog);
+                log(errLog);
                 return reject(err);
             }
             else {
                 return resolve(children);
             }
-         });
+        });
     });
 }
 module.exports.getChildrenP = getChildren;
 
+/**
+ * Remove all children under specified znode
+ * @param {Object} zookeeper zk object
+ * @param {String} path path of znode
+ * @param {String} errLog specified informative error message
+ * @return {Promise} promise object
+ */
 function removeChildren(zookeeper, path, errLog) {
-    return getChildren(zookeeper, path, null, '')
-            .then((children)=>{
-                var promises = [];
-                children.forEach((child)=>{
-                    let p = remove(zookeeper, path+'/'+child, -1, '');
-                    promises.push(p);
-                });
-                return Promise.all(promises);
-            })
-            .catch((err)=>{
-                console.log(errLog);
-                console.log(err);
-                return Promise.resolve();
-            });
+    return getChildren(zookeeper, path, null, '').then((children)=>{
+        let promises = [];
+        children.forEach((child)=>{
+            let p = remove(zookeeper, path+'/'+child, -1, '');
+            promises.push(p);
+        });
+        return Promise.all(promises);
+    }).catch((err)=>{
+        log(errLog);
+        log(err);
+        return Promise.resolve();
+    });
 }
 module.exports.removeChildrenP = removeChildren;
 
+/**
+ * Receive and handle upcoming messages by watching specified znode continuously
+ * @param {Object} zookeeper zk object
+ * @param {String} path path of znode
+ * @param {Object} callback callback for new messages
+ * @param {String} errLog specified informative error message
+ * @return {Promise} promise object
+ */
 function watchMsgQueue(zookeeper, path, callback, errLog) {
-    var lastnode = null;
-    var cont     = true;
-    var whilst = ( resolve, reject) => {
-        return getChildren(
+    let lastnode = null;
+    let cont     = true;
+    /**
+     * main process
+     * @param {Object} resolve promise object
+     * @param {Object} reject  promise object
+     */
+    let whilst = ( resolve, reject) => {
+        getChildren(
             zookeeper,
             path,
             (event)=>{
@@ -117,14 +176,13 @@ function watchMsgQueue(zookeeper, path, callback, errLog) {
                     whilst(resolve, reject);
                 }
                 else {
-                    console.log('Stopped watching at '+path);
+                    log('Stopped watching at '+path);
                 }
             },
             errLog
-        )
-        .then((children)=>{
-            if(!cont) return;
-            if(children.length === 0)  return;
+        ).then((children)=>{
+            if(!cont) {return;}
+            if(children.length === 0)  {return;}
             children.sort();    // handle message one by one
             let preKnown = lastnode;
             lastnode = children[children.length - 1];
@@ -148,35 +206,30 @@ function watchMsgQueue(zookeeper, path, callback, errLog) {
             newNodes.reduce( (prev, item) => {
                 return prev.then( () => {
                     return getData(zookeeper, path+'/'+item, null, 'Failed to getData from zookeeper');
-                })
-                .then((data)=>{
+                }).then((data)=>{
                     zookeeper.remove(path+'/'+item, -1, (err)=>{
                         if(err) {
-                            console.log(err.stack);
+                            log(err.stack);
                         }
                     });
 
                     return callback(data);
-                })
-                .then((stop)=>{
-                    if(stop)
-                    {
+                }).then((stop)=>{
+                    if(stop) {
                         resolve();
                         cont = false;
                     }
                     return Promise.resolve();
-                })
-                .catch((err)=>{
+                }).catch((err)=>{
                     return Promise.resolve();
                 });
             }, Promise.resolve());
-        })
-        .catch((err)=>{
-            console.log(errLog);
+        }).catch((err)=>{
+            log(errLog);
             cont = false;
             resolve();
         });
-    }
+    };
 
     return new Promise((resolve, reject)=>{
         whilst( resolve, reject);
@@ -184,42 +237,21 @@ function watchMsgQueue(zookeeper, path, callback, errLog) {
 }
 module.exports.watchMsgQueueP = watchMsgQueue;
 
-
-function watchChildren(zookeeper, path, callback, errLog) {
-    var whilst = (resolve, reject) => {
-        return getChildren(
-            zookeeper,
-            path,
-            (event)=>{
-                whilst(resolve, reject);
-            },
-            errLog
-        )
-        .then((children)=>{
-            return callback(children)
-                .then((stop)=>{
-                    if(stop)
-                    {
-                        resolve();
-                    }
-                });
-        })
-        .catch((err)=>{
-            console.log(errLog);
-            reject(err);
-        });
-    }
-    return new Promise((resolve, reject)=>{
-        whilst(resolve, reject);
-    });
-}
-module.exports.watchChildrenP = watchChildren;
-
+/**
+ * Generate in node
+ * @param {String} clientID identity of specified zk client
+ * @return {String} path of the in node
+ */
 function getInNode(clientID) {
     return this.NODE_ROOT+'/'+clientID+'_in';
 }
 module.exports.getInNode = getInNode;
 
+/**
+ * Generate out node
+ * @param {String} clientID identity of specified zk client
+ * @return {String} path of the out node
+ */
 function getOutNode(clientID) {
     return this.NODE_ROOT+'/'+clientID+'_out';
 }
