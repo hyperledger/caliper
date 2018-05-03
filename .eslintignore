@@ -17,7 +17,6 @@ node_modules
 
 # Benchmarks
 /benchmark/drm
-/benchmark/simple
 
 # Scripts
 /scripts
