@@ -82,7 +82,7 @@ Below is a benchmark configuration file example:
   * **start** : be called at the beginning of the test
   * **end** : be called when finishing all tests
 * **test** - defines the metadata of the test, as well as multiple test rounds with specified workload:
-  * **name&description** : hman readable name and description of the benchmark, the value is used by the report generator to show in the testing report.
+  * **name&description** : human readable name and description of the benchmark, the value is used by the report generator to show in the testing report.
   * **clients** : defines the client type as well as relevant arguments, the 'type' property must be 'local' or 'zookeeper'
     * local: In this case, local processes will be forked and act as blockchain clients. The number of forked clients should be defined by 'number' property.
     * zookeeper: In this case, clients could be located on different machines and take tasks from master via zookeeper. Zookeeper server address as well as the number of simulated blockchain clients which launch locally by zookeeper client should be defined. A example of zookeeper configuration defined is as below: 
