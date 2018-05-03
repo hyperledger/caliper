@@ -19,27 +19,27 @@
 // in a happy-path scenario
 'use strict';
 
-var utils = require('fabric-client/lib/utils.js');
-var logger = utils.getLogger('E2E install-chaincode');
+//const utils = require('fabric-client/lib/utils.js');
+//const logger = utils.getLogger('E2E install-chaincode');
 
-var tape = require('tape');
-var _test = require('tape-promise');
-var test = _test(tape);
+//const tape = require('tape');
+//const _test = require('tape-promise');
+//const test = _test(tape);
 
-var e2eUtils = require('./e2eUtils.js');
-var testUtil = require('./util.js');
-var Client   = require('fabric-client');
+const e2eUtils = require('./e2eUtils.js');
+const testUtil = require('./util.js');
+const Client = require('fabric-client');
 
 module.exports.run = function (config_path) {
     Client.addConfigFile(config_path);
     testUtil.setupChaincodeDeploy();
-    var fabricSettings = Client.getConfigSetting('fabric');
-    var chaincodes     = fabricSettings.chaincodes;
+    const fabricSettings = Client.getConfigSetting('fabric');
+    let chaincodes = fabricSettings.chaincodes;
     if(typeof chaincodes === 'undefined' || chaincodes.length === 0) {
         return Promise.resolve();
     }
     return new Promise(function(resolve, reject) {
-        var t = global.tapeObj;
+        const t = global.tapeObj;
         t.comment('install all chaincodes......');
         chaincodes.reduce(function(prev, chaincode){
             return prev.then(() => {
@@ -55,15 +55,15 @@ module.exports.run = function (config_path) {
                 return Promise.all(promises).then(() => {
                     t.pass('Installed chaincode ' + chaincode.id +  ' successfully in all peers');
                     return Promise.resolve();
-                })
+                });
             });
         }, Promise.resolve())
-        .then(() => {
+            .then(() => {
                 return resolve();
-        })
-        .catch((err) => {
-            t.fail('Failed to install chaincodes, ' + (err.stack?err.stack:err));
-            return reject(err);
-        });
+            })
+            .catch((err) => {
+                t.fail('Failed to install chaincodes, ' + (err.stack?err.stack:err));
+                return reject(err);
+            });
     });
-}
+};

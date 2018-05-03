@@ -147,7 +147,7 @@ async function runFixedNumber(msg, cb, context) {
     console.log('Info: client ' + process.pid +  ' start test runFixedNumber()' + (cb.info ? (':' + cb.info) : ''));
     var rounds   = Array(msg.numb).fill(0);
     const rateControl = new RateControl(msg.rateControl, blockchain);
-    rateControl.init(msg);
+    await rateControl.init(msg);
     
     await cb.init(blockchain, context, msg.args);
     const start = Date.now();
@@ -164,15 +164,13 @@ async function runFixedNumber(msg, cb, context) {
 
     await Promise.all(promises);
     await rateControl.end();
-    // TODO: investigate premature eventhub shutdown
-    await new Promise(resolve => setTimeout(resolve, 3000));
     return await blockchain.releaseContext(context);
 }
 
 async function runDuration(msg, cb, context) {
     console.log('Info: client ' + process.pid +  ' start test runDuration()' + (cb.info ? (':' + cb.info) : ''));
     var rateControl = new RateControl(msg.rateControl, blockchain);
-    rateControl.init(msg);
+    await rateControl.init(msg);
     const duration = msg.txDuration; // duration in seconds   
     
     await cb.init(blockchain, context, msg.args);
@@ -190,7 +188,5 @@ async function runDuration(msg, cb, context) {
 
     await Promise.all(results);
     await rateControl.end();
-    // TODO: investigate premature eventhub shutdown
-    await new Promise(resolve => setTimeout(resolve, 3000));
     return await blockchain.releaseContext(context);    
 }
