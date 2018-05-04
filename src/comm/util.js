@@ -29,17 +29,11 @@
 
     /**
      * Simple log method to output to the console
-     * @param {String} msg the string message to log
-     * @param {Object} obj an object to log with the string message
+     * @param {any} msg messages to log
      */
-    static log(msg, obj) {
-        if (obj){
-            // eslint-disable-next-line no-console
-            console.log(msg, obj);
-        } else {
-            // eslint-disable-next-line no-console
-            console.log(msg);
-        }
+    static log(...msg) {
+        // eslint-disable-next-line no-console
+        console.log(...msg);
     }
 }
 
