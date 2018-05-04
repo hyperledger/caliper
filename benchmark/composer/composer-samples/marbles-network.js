@@ -32,7 +32,10 @@
 
 'use strict';
 
-const Util = require('../../../src/comm/util');
+const removeExisting = require('../composer-test-utils').clearAll;
+const Log = require('../../../src/comm/util').log;
+const os = require('os');
+const uuid = os.hostname() + process.pid; // UUID for client within test
 
 module.exports.info  = 'Marbles Network Performance Test';
 
@@ -50,43 +53,52 @@ module.exports.init = async function(blockchain, context, args) {
     testAssetNum = args.testAssets;
     factory = busNetConnection.getBusinessNetwork().getFactory();
 
+    let participantRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Player');
+    let assetRegistry = await busNetConnection.getAssetRegistry(namespace + '.Marble');
+    let marbles = Array();
+
     try {
         // Add test participant
-        let participantRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Player');
         let players = new Array();
         for (let i=0; i<2; i++) {
-            let player = factory.newResource(namespace, 'Player', 'PLAYER_' + i);
+            let player = factory.newResource(namespace, 'Player', 'PLAYER_' + uuid + i);
             player.firstName = 'penguin';
             player.lastName = 'wombat';
             players.push(player);
         }
-        Util.log('Adding test participant');
-        await participantRegistry.addAll(players);
-        Util.log('Participant addition complete');
 
         // Add test assets
-        let assetRegistry = await busNetConnection.getAssetRegistry(namespace + '.Marble');
-        let marbles = Array();
         for (let i=0; i<testAssetNum; i++) {
-            let marble = factory.newResource(namespace, 'Marble', 'MARBLE_' + i);
+            let marble = factory.newResource(namespace, 'Marble', 'MARBLE_' + uuid + i);
             marble.size = 'SMALL';
             marble.color = 'RED';
-            marble.owner = factory.newRelationship(namespace, 'Player', 'PLAYER_0');
+            marble.owner = factory.newRelationship(namespace, 'Player', 'PLAYER_' + uuid + 0);
             marbles.push(marble);
         }
-        Util.log('Adding ' + marbles.length + ' Assets......');
-        await assetRegistry.addAll(marbles);
-        Util.log('Asset addition complete');
+
+        // Conditionally add/update Test Assets
+        let populated = await assetRegistry.exists(marbles[0].getIdentifier());
+        if (!populated) {
+            Log('Adding test assets ...');
+            await participantRegistry.addAll(players);
+            await assetRegistry.addAll(marbles);
+            Log('Asset addition complete ...');
+        } else {
+            Log('Updating test assets ...');
+            await removeExisting(assetRegistry, 'MARBLE_' + uuid);
+            await assetRegistry.updateAll(marbles);
+            Log('Asset update complete ...');
+        }
     } catch (error) {
-        Util.log('error in test init: ', error);
+        Log('error in test init(): ', error);
         return Promise.reject(error);
     }
 };
 
 module.exports.run = function() {
     let transaction = factory.newTransaction(namespace, 'TradeMarble');
-    transaction.marble = factory.newRelationship(namespace, 'Marble', 'MARBLE_' + --testAssetNum);
-    transaction.newOwner = factory.newRelationship(namespace, 'Player', 'PLAYER_1');
+    transaction.marble = factory.newRelationship(namespace, 'Marble', 'MARBLE_' + uuid + --testAssetNum);
+    transaction.newOwner = factory.newRelationship(namespace, 'Player', 'PLAYER_' + uuid + 1);
     return bc.bcObj.submitTransaction(busNetConnection, transaction);
 };
 

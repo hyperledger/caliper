@@ -50,7 +50,10 @@
 */
 'use strict';
 
-const Util = require('../../../src/comm/util');
+const removeExisting = require('../composer-test-utils').clearAll;
+const Log = require('../../../src/comm/util').log;
+const os = require('os');
+const uuid = os.hostname() + process.pid; // UUID for client within test
 
 module.exports.info  = 'Vehicle Lifecycle Network Performance Test';
 
@@ -59,8 +62,7 @@ let busNetConnection;
 let testAssetNum;
 let testTransaction;
 let factory;
-
-let assetId = 0;
+let assetId;
 const base_ns = 'org.acme.vehicle.lifecycle';
 const manuf_ns = 'org.acme.vehicle.lifecycle.manufacturer';
 const vda_ns = 'org.vda';
@@ -72,37 +74,45 @@ module.exports.init = async function(blockchain, context, args) {
     testAssetNum = args.testAssets;
     testTransaction = args.transaction;
 
+    assetId = 0;
     factory = busNetConnection.getBusinessNetwork().getFactory();
+
+    let manufacturerRegistry = await busNetConnection.getParticipantRegistry(manuf_ns + '.Manufacturer');
+    let ownerRegistry = await busNetConnection.getParticipantRegistry(base_ns + '.PrivateOwner');
+    let orderRegistry = await busNetConnection.getAssetRegistry(manuf_ns + '.Order');
+    let vehicleRegistry = await busNetConnection.getAssetRegistry(vda_ns + '.Vehicle');
 
     let manufacturers = new Array();
     let privateOwners = new Array();
     let orders = new Array();
     let vehicles = new Array();
+    let populated;
 
     switch(testTransaction) {
     case 'placeOrder':
         // Require Manufacturer and number of Person(s) to order a vehicle from the company
         // - Single Manufacturer
-        manufacturers.push(factory.newResource(manuf_ns, 'Manufacturer', 'MANUFACTURER_1'));
+        manufacturers.push(factory.newResource(manuf_ns, 'Manufacturer', 'MANUFACTURER_' + uuid + '_0'));
         // - Test specified number of 'Person(s)'
         for(let i = 0; i < testAssetNum; i ++){
-            privateOwners.push(factory.newResource(base_ns, 'PrivateOwner', 'PRIVATEOWNER_' + i));
+            privateOwners.push(factory.newResource(base_ns, 'PrivateOwner', 'PRIVATEOWNER_' + uuid + '_' + i));
         }
+        populated = await manufacturerRegistry.exists(manufacturers[0].getIdentifier());
         break;
     case 'updateOrderStatus':
         // Require Manufacturer, number of Person(s), and a number of Order(s)
         // - Single Manufacturer
-        manufacturers.push(factory.newResource(manuf_ns, 'Manufacturer', 'MANUFACTURER_1'));
+        manufacturers.push(factory.newResource(manuf_ns, 'Manufacturer', 'MANUFACTURER_' + uuid + '_0'));
         // - Test specified number of 'Person(s)'
-        for(let i = 0; i < testAssetNum; i ++){
-            privateOwners.push(factory.newResource(base_ns, 'PrivateOwner', 'PRIVATEOWNER_' + i));
+        for (let i = 0; i < testAssetNum; i ++) {
+            privateOwners.push(factory.newResource(base_ns, 'PrivateOwner', 'PRIVATEOWNER_' + uuid + '_' + i));
         }
         // - Test specified number of 'Orders'
-        for(let i = 0; i < testAssetNum; i ++){
-            let order = factory.newResource(manuf_ns, 'Order', 'ORDER_' + i);
+        for (let i = 0; i < testAssetNum; i ++) {
+            let order = factory.newResource(manuf_ns, 'Order', 'ORDER_' + uuid + '_' + i);
             order.orderStatus = 'PLACED';
-            order.manufacturer = factory.newRelationship(manuf_ns, 'Manufacturer', 'MANUFACTURER_1');
-            order.orderer = factory.newRelationship(base_ns, 'PrivateOwner', 'PRIVATEOWNER_' + i);
+            order.manufacturer = factory.newRelationship(manuf_ns, 'Manufacturer', 'MANUFACTURER_' + uuid + '_0');
+            order.orderer = factory.newRelationship(base_ns, 'PrivateOwner', 'PRIVATEOWNER_' + uuid + '_' + i);
             let vehicle = factory.newConcept(vda_ns, 'VehicleDetails');
             vehicle.make = 'testMake';
             vehicle.modelType = 'testModel';
@@ -110,11 +120,12 @@ module.exports.init = async function(blockchain, context, args) {
             order.vehicleDetails = vehicle;
             orders.push(order);
         }
+        populated = await manufacturerRegistry.exists(manufacturers[0].getIdentifier());
         break;
     case 'scrapVehicle':
         // Require Vehicles to scrap
-        for(let i = 0; i < testAssetNum; i ++){
-            let vehicle = factory.newResource(vda_ns, 'Vehicle', 'VEHICLE_' + i);
+        for (let i = 0; i < testAssetNum; i ++) {
+            let vehicle = factory.newResource(vda_ns, 'Vehicle', 'VEHICLE_' + uuid + '_' + i);
             let details = factory.newConcept(vda_ns, 'VehicleDetails');
             details.make = 'testMake';
             details.modelType = 'testModel';
@@ -123,55 +134,64 @@ module.exports.init = async function(blockchain, context, args) {
             vehicle.vehicleStatus = 'OFF_THE_ROAD';
             vehicles.push(vehicle);
         }
+        populated = await vehicleRegistry.exists(vehicles[0].getIdentifier());
         break;
     default:
         throw new Error('No valid test Transaction specified');
     }
 
     try {
-        let manufacturerRegistry = await busNetConnection.getParticipantRegistry(manuf_ns + '.Manufacturer');
-        await manufacturerRegistry.addAll(manufacturers);
-
-        let ownerRegistry = await busNetConnection.getParticipantRegistry(base_ns + '.PrivateOwner');
-        await ownerRegistry.addAll(privateOwners);
-
-        let orderRegistry = await busNetConnection.getAssetRegistry(manuf_ns + '.Order');
-        await orderRegistry.addAll(orders);
-
-        let vehicleRegistry = await busNetConnection.getAssetRegistry(vda_ns + '.Vehicle');
-        await vehicleRegistry.addAll(vehicles);
-
-        Util.log('Test init() complete');
+        if (!populated) {
+            // First test pass, just add
+            Log('Adding test assets ...');
+            await manufacturerRegistry.addAll(manufacturers);
+            await ownerRegistry.addAll(privateOwners);
+            await vehicleRegistry.addAll(vehicles);
+            await orderRegistry.addAll(orders);
+            Log('Asset addition complete ...');
+        } else {
+            // Second test pass, update/remove
+            Log('Updating test assets ...');
+            await removeExisting(manufacturerRegistry, 'MANUFACTURER_' + uuid);
+            await removeExisting(ownerRegistry, 'PRIVATEOWNER_' + uuid);
+            await removeExisting(vehicleRegistry, 'VEHICLE_' + uuid);
+            await removeExisting(orderRegistry, 'ORDER_' + uuid);
+            await manufacturerRegistry.addAll(manufacturers);
+            await ownerRegistry.addAll(privateOwners);
+            await vehicleRegistry.addAll(vehicles);
+            await orderRegistry.addAll(orders);
+            Log('Asset update complete ...');
+        }
     } catch (error) {
-        Util.log('error in test init(): ', error);
+        Log('error in test init(): ', error);
         return Promise.reject(error);
     }
 };
 
 module.exports.run = function() {
     let transaction;
-    switch(testTransaction) {
+    switch (testTransaction) {
     case 'placeOrder': {
         transaction = factory.newTransaction(manuf_ns, 'PlaceOrder');
-        transaction.orderId = 'ORDER_' + assetId;
+        transaction.orderId = 'ORDER_' + uuid + '_' + assetId;
         let vehicle = factory.newConcept(vda_ns, 'VehicleDetails');
         vehicle.make = 'testMake';
         vehicle.modelType = 'testModel';
         vehicle.colour = 'testColour';
         transaction.vehicleDetails = vehicle;
-        transaction.manufacturer = factory.newRelationship(manuf_ns, 'Manufacturer', 'MANUFACTURER_1');
-        transaction.orderer = factory.newRelationship(base_ns, 'PrivateOwner', 'PRIVATEOWNER_' + assetId++);
+        transaction.manufacturer = factory.newRelationship(manuf_ns, 'Manufacturer', 'MANUFACTURER_' + uuid + '_');
+        transaction.orderer = factory.newRelationship(base_ns, 'PrivateOwner', 'PRIVATEOWNER_' + uuid + '_' + assetId++);
         break;
     }
     case 'updateOrderStatus': {
         transaction = factory.newTransaction(manuf_ns, 'UpdateOrderStatus');
-        transaction.order = factory.newRelationship(manuf_ns, 'Order', 'ORDER_' + assetId++);
+        transaction.order = factory.newRelationship(manuf_ns, 'Order', 'ORDER_' + uuid + '_' + assetId++);
         transaction.orderStatus = 'PLACED';
         break;
     }
     case 'scrapVehicle': {
         transaction = factory.newTransaction(vda_ns, 'ScrapVehicle');
-        transaction.vehicle = factory.newRelationship(vda_ns, 'Vehicle', 'VEHICLE_' + assetId++);
+        transaction.vehicle = factory.newRelationship(vda_ns, 'Vehicle', 'VEHICLE_' + uuid + '_' + assetId++);
         break;
     }
     default: {

@@ -32,7 +32,10 @@
 
 'use strict';
 
-const Util = require('../../../src/comm/util');
+const removeExisting = require('../composer-test-utils').clearAll;
+const Log = require('../../../src/comm/util').log;
+const os = require('os');
+const uuid = os.hostname() + process.pid; // UUID for client within test
 
 module.exports.info  = 'Digital Property Network Performance Test';
 
@@ -43,7 +46,7 @@ let busNetConnection;
 let factory;
 
 let testAssetNum;
-let assetId = 0;
+let assetId;
 
 module.exports.init = async function(blockchain, context, args) {
     // Create Participants and Assets to use in main test
@@ -52,30 +55,40 @@ module.exports.init = async function(blockchain, context, args) {
     testAssetNum = args.testAssets;
     factory = busNetConnection.getBusinessNetwork().getFactory();
 
+    let participantRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Person');
+    let assetRegistry = await busNetConnection.getAssetRegistry(namespace + '.LandTitle');
+    let assets   = Array();
+    assetId = 0;
+
     try {
         // Add test participant
-        let participantRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Person');
-        let participant = factory.newResource(namespace, 'Person', 'PERSON_0');
+        let participant = factory.newResource(namespace, 'Person', 'PERSON_' + uuid);
         participant.firstName = 'penguin';
         participant.lastName = 'wombat';
-        Util.log('Adding test participant');
-        await participantRegistry.addAll([participant]);
-        Util.log('Participant addition complete');
 
         // Add test assets
-        let assetRegistry = await busNetConnection.getAssetRegistry(namespace + '.LandTitle');
-        let assets   = Array();
         for (let i = 0; i < testAssetNum; i ++) {
-            let testAsset = factory.newResource(namespace, 'LandTitle', 'TITLE_' + i);
-            testAsset.owner = factory.newRelationship(namespace, 'Person', 'PERSON_0');
+            let testAsset = factory.newResource(namespace, 'LandTitle', 'TITLE_' + uuid + i);
+            testAsset.owner = factory.newRelationship(namespace, 'Person', 'PERSON_' + uuid);
             testAsset.information = 'Random information';
             assets.push(testAsset);
         }
-        Util.log('Adding ' + assets.length + ' Assets......');
-        await assetRegistry.addAll(assets);
-        Util.log('Asset addition complete');
+
+        // Conditionally add/update Test Assets
+        let populated = await assetRegistry.exists(assets[0].getIdentifier());
+        if (!populated) {
+            Log('Adding test assets ...');
+            await participantRegistry.addAll([participant]);
+            await assetRegistry.addAll(assets);
+            Log('Asset addition complete ...');
+        } else {
+            Log('Updating test assets ...');
+            await removeExisting(assetRegistry, 'TITLE_' + uuid);
+            await assetRegistry.updateAll(assets);
+            Log('Asset update complete ...');
+        }
     } catch (error) {
-        Util.log('error in test init: ', error);
+        Log('error in test init(): ', error);
         return Promise.reject(error);
     }
 };
@@ -83,7 +96,7 @@ module.exports.init = async function(blockchain, context, args) {
 module.exports.run = function() {
     let transaction = factory.newTransaction(namespace, 'RegisterPropertyForSale');
     transaction.seller = factory.newRelationship(namespace, 'Person', 'myId');
-    transaction.title = factory.newRelationship(namespace, 'LandTitle', 'TITLE_' + assetId++);
+    transaction.title = factory.newRelationship(namespace, 'LandTitle', 'TITLE_' + uuid + assetId++);
     return bc.bcObj.submitTransaction(busNetConnection, transaction);
 };
 
