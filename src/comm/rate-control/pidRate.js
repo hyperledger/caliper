@@ -15,7 +15,8 @@
 'use strict';
 
 const RateInterface = require('./rateInterface.js');
-const Util = require('../util');
+const Sleep = require('../util').sleep;
+const Log = require('../util').log;
 
 /**
  * Basic PID Controller for driving at a target loading (backlog transactions). This controller will aim to maintain a defined backlog
@@ -77,7 +78,7 @@ class PidRate extends RateInterface {
         let error = this.targetLoad - (idx - currentResults.length);
 
         if (this.showVars) {
-            Util.log('Current load error: ', error);
+            Log('Current load error: ', error);
         }
 
         // Determine Controller Coeffients
@@ -93,14 +94,14 @@ class PidRate extends RateInterface {
         this.sleep = this.sleep - (P + I + D);
 
         if (this.showVars) {
-            Util.log('Current P value: ', P);
-            Util.log('Current I value: ', I);
-            Util.log('Current D value: ', D);
-            Util.log('New sleep time: ',this.sleep);
+            Log('Current P value: ', P);
+            Log('Current I value: ', I);
+            Log('Current D value: ', D);
+            Log('New sleep time: ', this.sleep);
         }
 
         if (this.sleep > 5) {
-            return new Promise(resolve => setTimeout(resolve, this.sleep));
+            Sleep(this.sleep);
         } else {
             return Promise.resolve();
         }
