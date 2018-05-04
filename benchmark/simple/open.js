@@ -17,13 +17,18 @@ module.exports.init = function(blockchain, context, args) {
         return Promise.reject(new Error('simple.open - "money" is missed in the arguments'));
     }
 
-    initMoney = args['money'].toString();
+    initMoney = args.money.toString();
     bc = blockchain;
     contx = context;
     return Promise.resolve();
 };
 
 const dic = 'abcdefghijklmnopqrstuvwxyz';
+/**
+ * Generate string by picking characters from dic variable
+ * @param {*} number character to select
+ * @returns {String} string generated based on @param number
+ */
 function get26Num(number){
     let result = '';
     while(number > 0) {
@@ -34,6 +39,10 @@ function get26Num(number){
 }
 
 let prefix;
+/**
+ * Generate unique account key for the transaction
+ * @returns {String} account key
+ */
 function generateAccount() {
     // should be [a-z]{1,9}
     if(typeof prefix === 'undefined') {

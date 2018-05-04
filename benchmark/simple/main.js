@@ -8,6 +8,8 @@
 
 'use strict';
 
+const Util = require('../../src/comm/util');
+
 let configFile;
 let networkFile;
 
@@ -47,7 +49,7 @@ function main() {
         absConfigFile = path.join(__dirname, configFile);
     }
     if(!fs.existsSync(absConfigFile)) {
-        console.log('file ' + absConfigFile + ' does not exist');
+        Util.log('file ' + absConfigFile + ' does not exist');
         return;
     }
 
@@ -59,7 +61,7 @@ function main() {
             absNetworkFile = path.join(absCaliperDir, config.blockchain.config);
         }
         catch(err) {
-            console.log('failed to find blockchain.config in ' + absConfigFile);
+            Util.log('failed to find blockchain.config in ' + absConfigFile);
             return;
         }
     }
@@ -67,7 +69,7 @@ function main() {
         absNetworkFile = path.join(__dirname, networkFile);
     }
     if(!fs.existsSync(absNetworkFile)) {
-        console.log('file ' + absNetworkFile + ' does not exist');
+        Util.log('file ' + absNetworkFile + ' does not exist');
         return;
     }
 
