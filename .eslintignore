@@ -21,7 +21,6 @@ node_modules
 /scripts
 
 # Plugins
-/src/fabric
 /src/gui
 /src/iroha
 /src/sawtooth/
