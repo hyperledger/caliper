@@ -80,7 +80,7 @@ async function runFixedNumber(msg, cb, context) {
     log('Info: client ' + process.pid +  ' start test runFixedNumber()' + (cb.info ? (':' + cb.info) : ''));
     let rounds   = Array(msg.numb).fill(0);
     let rateControl = new RateControl(msg.rateControl, blockchain);
-    rateControl.init(msg);
+    await rateControl.init(msg);
 
     await cb.init(blockchain, context, msg.args);
     const start = Date.now();
@@ -96,6 +96,7 @@ async function runFixedNumber(msg, cb, context) {
     }
 
     await Promise.all(promises);
+    await rateControl.end();
     return await blockchain.releaseContext(context);
 }
 
@@ -109,7 +110,7 @@ async function runFixedNumber(msg, cb, context) {
 async function runDuration(msg, cb, context) {
     log('Info: client ' + process.pid +  ' start test runDuration()' + (cb.info ? (':' + cb.info) : ''));
     let rateControl = new RateControl(msg.rateControl, blockchain);
-    rateControl.init(msg);
+    await rateControl.init(msg);
     const duration = msg.txDuration; // duration in seconds
 
     await cb.init(blockchain, context, msg.args);
@@ -126,6 +127,7 @@ async function runDuration(msg, cb, context) {
     }
 
     await Promise.all(promises);
+    await rateControl.end();
     return await blockchain.releaseContext(context);
 }
 

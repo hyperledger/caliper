@@ -13,6 +13,7 @@
 */
 
 'use strict';
+
 const Util = require('../util');
 
 let RateControl = class {
@@ -23,16 +24,26 @@ let RateControl = class {
      * @param {Object} blockchain the blockcahin under test
      */
     constructor(rateControl, blockchain) {
-        Util.log('*****', rateControl);
+        Util.log(`***** ${rateControl}`);
         switch (rateControl.type) {
         case 'fixed-rate': {
-            let interval = require('./fixedRate.js');
-            this.controller = new interval(blockchain, rateControl.opts);
+            const FixedRateController = require('./fixedRate.js');
+            this.controller = new FixedRateController(blockchain, rateControl.opts);
+            break;
+        }
+        case 'composite-rate': {
+            const CompositeRateController = require('./compositeRate.js');
+            this.controller = new CompositeRateController(blockchain, rateControl.opts);
+            break;
+        }
+        case 'zero-rate': {
+            const NoRateController = require('./noRate.js');
+            this.controller = new NoRateController(blockchain, rateControl.opts);
             break;
         }
         case 'pid-rate': {
-            let interval = require('./pidRate.js');
-            this.controller = new interval(blockchain, rateControl.opts);
+            const PidRateController = require('./pidRate.js');
+            this.controller = new PidRateController(blockchain, rateControl.opts);
             break;
         }
         default:
@@ -41,6 +52,7 @@ let RateControl = class {
     }
 
     /**
+
     * Initialise the rate controller with a passed msg object
     * @param {JSON} msg the JSON initialise message for the controller
     * @return {Promise} the return promise
@@ -60,6 +72,16 @@ let RateControl = class {
         return this.controller.applyRateControl(start, idx, results);
     }
 
+    /**
+     * Notify the rate controller about the end of the round.
+     *
+     * @return {Promise} The return promise
+     */
+    end() {
+        if (typeof this.controller.end === 'function') {
+            return this.controller.end();
+        }
+    }
 };
 
 module.exports = RateControl;
