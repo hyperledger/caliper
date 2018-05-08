@@ -1,0 +1,38 @@
+{
+   "blockchain": {
+        "type": "sawtooth",
+        "config": "benchmark/simple/sawtooth.json"
+  },
+  "command" : {
+        "start": "docker-compose -f network/sawtooth/smallbank/sawtooth-smallbank-go.yaml up -d",
+        "end" : "docker-compose -f network/sawtooth/smallbank/sawtooth-smallbank-go.yaml down;docker rm $(docker ps -aq)"
+  },
+  "test": {
+    "name": "smallbank",
+    "description" : "This is smallbank benchmark for caliper",
+    "clients": {
+      "type": "local",
+      "number": 2
+    },
+    "rounds": [{
+        "label" : "smallOperations",
+        "txNumber" : [20],
+        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 2}}],
+        "arguments": {"accounts":30, "txnPerBatch":10},
+        "callback" : "benchmark/smallbank/smallbankOperations.js"
+      },
+      {
+        "label" : "query",
+        "txNumber" : [10],
+        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 5}}],
+        "callback" : "benchmark/smallbank/query.js"
+      }]
+  },
+  "monitor": {
+    "type": "docker",
+    "docker":{
+      "name": ["all"]
+    },
+    "interval": 1
+  }
+}
