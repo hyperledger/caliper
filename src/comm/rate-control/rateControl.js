@@ -35,6 +35,16 @@ let RateControl = class {
             this.controller = new interval(blockchain, rateControl.opts);
             break;
         }
+        case 'composite-rate': {
+            const CompositeRateController = require('./compositeRate.js');
+            this.controller = new CompositeRateController(blockchain, rateControl.opts);
+            break;
+        }
+        case 'zero-rate': {
+            const NoRateController = require('./noRate.js');
+            this.controller = new NoRateController(blockchain, rateControl.opts);
+            break;
+        }
         default:
             throw new Error('Unknown rate control type ' + rateControl.type);
         }
@@ -60,6 +70,16 @@ let RateControl = class {
         return this.controller.applyRateControl(start, idx, results);
     }
 
+    /**
+     * Notify the rate controller about the end of the round.
+     *
+     * @return {Promise} The return promise.
+     */
+    end() {
+        if (typeof this.controller.end === 'function') {
+            return this.controller.end();
+        }
+    }
 };
 
 module.exports = RateControl;

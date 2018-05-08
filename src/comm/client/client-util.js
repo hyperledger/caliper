@@ -140,6 +140,7 @@ function startTest(number, message, clientArgs, updates, results) {
             client.results = results;
             client.updates = updates;
             message.clientargs = clientArgs[idx];
+            message.clientIdx = idx;
             idx++;
 
             client.obj.send(message);
