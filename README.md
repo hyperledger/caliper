@@ -4,7 +4,7 @@ Caliper is a blockchain performance benchmark framework, which allows users to t
 
 Currently supported blockchain solutions:
 * [fabric v1.0+](https://github.com/hyperledger/fabric), the lastest version that has been verified is v1.1.0 
-* [sawtooth 0.8](https://github.com/hyperledger/sawtooth-core) 
+* [sawtooth 1.0+](https://github.com/hyperledger/sawtooth-core)
 * [Iroha (develop branch @fcc2f7c8ceaee4f7654c3b216d65b8906a35f633)](https://github.com/hyperledger/iroha)
 
 Hyperledger Composer is also supported, please see [Composer Performance Test](./docs/Composer.md).
@@ -40,8 +40,13 @@ Run `npm install` in caliper folder to install dependencies locally
     e.g. `npm install fabric-ca-client@1.1.0 fabric-client@1.1.0` 
   
 * Sawtooth
-  * Clone [sawtooth-core](https://github.com/hyperledger/sawtooth-core) and run the `./bin/run_tests -m javascript_sdk` to test the SDK
-  * Install **sawtooth-sdk** from the SDK, e.g run `npm install path-to-sdk/javascript` in capliper's root folder.
+  * Install dependencies
+
+    ```
+    $npm install protocol-buffers
+    ```
+  * Install sawtooth javascript sdk using repository
+    * run `npm install sawtooth-sdk` in the root folder
 
 * Iroha
   * Install dependencies
