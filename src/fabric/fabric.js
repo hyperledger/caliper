@@ -104,16 +104,21 @@ class Fabric extends BlockchainInterface{
      * @param {object} context The Fabric context returned by {getContext}.
      * @param {string} contractID The name of the chaincode.
      * @param {string} contractVer The version of the chaincode.
-     * @param {object} args The arguments (including the function name) to pass to the chaincode.
+     * @param {Array} args array of JSON formatted arguments for multiple transactions
      * @param {number} timeout The timeout to set for the execution in seconds.
      * @return {Promise<object>} The promise for the result of the execution.
      */
     invokeSmartContract(context, contractID, contractVer, args, timeout) {
-        let simpleArgs = [];
-        for(let key in args) {
-            simpleArgs.push(args[key]);
-        }
-        return e2eUtils.invokebycontext(context, contractID, contractVer, simpleArgs, timeout);
+        let promises = [];
+        args.forEach((item, index)=>{
+            let simpleArgs = [];
+            for(let key in item) {
+                simpleArgs.push(item[key]);
+            }
+            promises.push(e2eUtils.invokebycontext(context, contractID, contractVer, simpleArgs, timeout));
+        });
+        
+        return Promise.all(promises);
     }
 
     /**

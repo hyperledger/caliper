@@ -44,9 +44,20 @@ class Sawtooth extends BlockchainInterface {
 	}
 
 	invokeSmartContract(context, contractID, contractVer, args, timeout) {
-                var builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer);
+        let builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer);
 		const batchBytes = builder.buildBatch(args);
-		return submitBatches(batchBytes);
+		if(context.engine) {
+			context.engine.submitCallback(args.length);
+		}
+		return submitBatches(batchBytes).then((batchStats)=>{
+			// use batchStats for all transactions in this batch
+			let txStats = [];
+			for(let i = 0 ; i < args.length ; i++) {
+				let cloned = Object.assign({}, batchStats);
+				txStats.push(cloned);
+			}
+			return Promise.resolve(txStats);
+		});
 	}
 
 	queryState(context, contractID, contractVer, queryName) {
@@ -63,8 +74,11 @@ module.exports = Sawtooth;
 const restApiUrl = 'http://127.0.0.1:8008'
 
 function querybycontext(context, contractID, contractVer, address) {
-        var builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer);
-        const addr = builder.calculateAddress(address);
+    const builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer);
+	const addr = builder.calculateAddress(address);
+	if(context.engine) {
+		context.engine.submitCallback(1);
+	}
 	return getState(addr);
 }
 
@@ -110,8 +124,6 @@ function submitBatches(batchBytes) {
 		status       : 'created',
 		time_create  : Date.now(),
 		time_final   : 0,
-		time_endorse : 0,
-		time_order   : 0,
 		result       : null
 	};
 	const request = require('request-promise')

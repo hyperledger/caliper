@@ -97,7 +97,7 @@ class Blockchain {
     }
 
     /**
-     * Invoke a smart contract and return a txStatus object or an array of txStatus objects which contain informations of the transaction
+     * Invoke smart contract/submit transactions and return corresponding transactions' status
      * txStatus = {
      *     'id': transaction's id
      *     'status':  status of the transaction, should be:
@@ -108,20 +108,33 @@ class Blockchain {
      *     'result': response payloads of the transaction request
      *     ...... :  other adapter specific properties
      * }
-     * @param {Object} context context object from getContext
+     * @param {Object} context context object
      * @param {String} contractID identiy of the contract
      * @param {String} contractVer version of the contract
-     * @param {JSON} args input parameters for the contract
+     * @param {Array} args array of JSON formatted arguments for multiple transactions
      * @param {Number} timeout request timeout, in second
      * @return {Promise} txStatus object or an array of txStatus objects
      */
     invokeSmartContract(context, contractID, contractVer, args, timeout) {
-        if(typeof timeout !== 'number' || timeout < 0) {
-            return this.bcObj.invokeSmartContract(context, contractID, contractVer, args, 120);
+        let arg, time;    // compatible with old version
+        if(Array.isArray(args)) {
+            arg = args; 
+        }
+        else if(typeof args === 'object') {
+            arg = [args];
         }
         else {
-            return this.bcObj.invokeSmartContract(context, contractID, contractVer, args, timeout);
+            return Promise.reject(new Error('Invalid args for invokeSmartContract()'));
         }
+
+        if(typeof timeout !== 'number' || timeout < 0) {
+            time = 120;
+        }
+        else {
+            time = timeout;
+        }
+
+        return this.bcObj.invokeSmartContract(context, contractID, contractVer, arg, timeout);
     }
 
     /**

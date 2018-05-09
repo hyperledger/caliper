@@ -51,6 +51,10 @@ class BlockchainInterface {
 
     /**
      * Get a context for subsequent operations
+     * 'engine' attribute of returned context object must be reserved for benchmark engine to extend the context
+     *  engine = {
+     *   submitCallback: callback which must be called once new transaction(s) is submitted, it receives a number argument which tells how many transactions are submitted
+     * }
      * @param {String} name name of the context
      * @param {Object} args adapter specific arguments
      */
@@ -68,10 +72,10 @@ class BlockchainInterface {
 
     /**
      * Invoke a smart contract
-     * @param {Object} context context object from getContext
+     * @param {Object} context context object
      * @param {String} contractID identiy of the contract
      * @param {String} contractVer version of the contract
-     * @param {JSON} args input parameters for the contract
+     * @param {Array} args array of JSON formatted arguments for multiple transactions
      * @param {Number} timeout request timeout, in second
      */
     invokeSmartContract(context, contractID, contractVer, args, timeout) {

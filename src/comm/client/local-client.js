@@ -70,6 +70,14 @@ function beforeTest() {
 }
 
 /**
+ * Callback for new submitted transaction(s)
+ * @param {Number} count count of new submitted transaction(s)
+ */
+function submitCallback(count) {
+    txNum += count;
+}
+
+/**
  * Perform test with specified number of transactions
  * @param {JSON} msg start test message
  * @param {Object} cb callback module
@@ -78,7 +86,6 @@ function beforeTest() {
  */
 async function runFixedNumber(msg, cb, context) {
     log('Info: client ' + process.pid +  ' start test runFixedNumber()' + (cb.info ? (':' + cb.info) : ''));
-    let rounds   = Array(msg.numb).fill(0);
     let rateControl = new RateControl(msg.rateControl, blockchain);
     rateControl.init(msg);
 
@@ -86,13 +93,12 @@ async function runFixedNumber(msg, cb, context) {
     const start = Date.now();
 
     let promises = [];
-    for (let i = 0 ; i < rounds.length ; i++) {
+    while(txNum < msg.numb) {
         promises.push(cb.run().then((result) => {
             addResult(result);
             return Promise.resolve();
         }));
-        // Increment on txNum as is a global var used in txUpdate()
-        await rateControl.applyRateControl(start, txNum++, results);
+        await rateControl.applyRateControl(start, txNum, results);
     }
 
     await Promise.all(promises);
@@ -157,6 +163,18 @@ function doTest(msg) {
     };
 
     return blockchain.getContext(msg.label, msg.clientargs).then((context) => {
+        if(typeof context === 'undefined') {
+            context = {
+                engine : {
+                    submitCallback : submitCallback
+                }
+            };
+        }
+        else {
+            context.engine = {
+                submitCallback : submitCallback
+            };
+        }
         if (msg.txDuration) {
             return runDuration(msg, cb, context);
         } else {
