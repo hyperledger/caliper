@@ -117,7 +117,6 @@ class Fabric extends BlockchainInterface{
             }
             promises.push(e2eUtils.invokebycontext(context, contractID, contractVer, simpleArgs, timeout));
         });
-        
         return Promise.all(promises);
     }
 

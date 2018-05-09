@@ -128,8 +128,7 @@ async function runDuration(msg, cb, context) {
             addResult(result);
             return Promise.resolve();
         }));
-        // Increment on txNum as is a global var used in txUpdate()
-        await rateControl.applyRateControl(start, txNum++, results);
+        await rateControl.applyRateControl(start, txNum, results);
     }
 
     await Promise.all(promises);

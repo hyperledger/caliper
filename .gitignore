@@ -1,6 +1,7 @@
 architecture.pptx
 .idea/*
 *.bak
+zookeeper.out
 node_modules/*
 
 # Ignore any generted html files

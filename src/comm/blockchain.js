@@ -118,7 +118,7 @@ class Blockchain {
     invokeSmartContract(context, contractID, contractVer, args, timeout) {
         let arg, time;    // compatible with old version
         if(Array.isArray(args)) {
-            arg = args; 
+            arg = args;
         }
         else if(typeof args === 'object') {
             arg = [args];
@@ -134,7 +134,7 @@ class Blockchain {
             time = timeout;
         }
 
-        return this.bcObj.invokeSmartContract(context, contractID, contractVer, arg, timeout);
+        return this.bcObj.invokeSmartContract(context, contractID, contractVer, arg, time);
     }
 
     /**

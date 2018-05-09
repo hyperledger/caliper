@@ -23,9 +23,7 @@ node_modules
 # Plugins
 /src/gui
 /src/iroha
-/src/sawtooth/
 
 # Contracts for plugins
 /src/contract/iroha
-/src/contract/sawtooth
 
