@@ -15,11 +15,11 @@ var fs = require('fs-extra');
 var exec = require('child_process').exec;
 
 function setConfig(file) {
-    configFile = path.join('../..', file);
+    configFile = file
 }
 
 function setNetwork(file) {
-    networkFile = path.join('../..', file);
+    networkFile = file
 }
 
 function main() {
@@ -29,7 +29,7 @@ function main() {
     }
 
     let benchmark = process.argv[2];
-    let runDir = path.join(__dirname, '../benchmark', benchmark);
+    let runDir = path.join(__dirname, '../benchmark');
     if(!fs.existsSync(runDir)) {
         console.log('directory ' + runDir + ' does not exist');
         process.exit(1);
@@ -49,11 +49,11 @@ function main() {
     let cmd = 'node main.js';
     if(typeof configFile === 'string') {
         cmd += ' -c ';
-        cmd += configFile;
+        cmd += path.join('./', benchmark, configFile);
     }
     if(typeof networkFile === 'string') {
         cmd += ' -n ';
-        cmd += networkFile;
+        cmd += path.join('./', benchmark, networkFile);
     }
 
     let run = exec(cmd, {cwd: runDir});
