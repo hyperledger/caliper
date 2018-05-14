@@ -76,7 +76,7 @@ Run `npm install` in caliper folder to install dependencies locally
 All predefined benchmarks can be found in [*benchmark*](./benchmark) folder. 
 To start your first benchmark, just run this in root folder
 ```bash
-node benchmark/simple/main.js -c yourconfig.json -n yournetwork.json
+node benchmark/main.js -c yourconfig.json -n yournetwork.json
 ```
 * -c : specify the config file of the benchmark, if not used,  *config.json* will be used as default.
 * -n : specify the config file of the blockchain network under test. If not used, the file address must be specified in the benchmak config file.
@@ -115,10 +115,10 @@ simple
 
 * npm test: run a benchmark with specific config files
 ```bash
-$ npm test -- simple -c ./benchmark/simple/config.json -n ./benchmark/simple/fabric.json
+$ npm test -- simple -c config.json -n fabric.json
 
 > caliper@0.1.0 test /home/hurf/caliper
-> node ./scripts/test.js "simple" "-c" "./benchmark/simple/config.json" "-n" "./benchmark/simple/fabric.json"
+> node ./scripts/test.js "simple" "-c" "config.json" "-n" "fabric.json"
 ......
 ```
 ## Run benchmark with distributed clients (experimental)
