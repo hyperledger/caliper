@@ -30,14 +30,17 @@
 
 'use strict';
 
-const Util = require('../../../src/comm/util');
+const removeExisting = require('../composer-test-utils').clearAll;
+const Log = require('../../../src/comm/util').log;
+const os = require('os');
+const uuid = os.hostname() + process.pid; // UUID for client within test
 
 module.exports.info  = 'Bond Network Performance Test';
 
 let bc;
 let busNetConnection;
 let factory;
-let assetId = 0;
+let assetId;
 const namespace = 'org.acme.bond';
 
 module.exports.init = async function(blockchain, context, args) {
@@ -45,21 +48,33 @@ module.exports.init = async function(blockchain, context, args) {
     bc = blockchain;
     busNetConnection = context;
     factory = busNetConnection.getBusinessNetwork().getFactory();
+    assetId = 0;
 
     try {
         let participantRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Issuer');
-        let participant = factory.newResource(namespace, 'Issuer', 'ISSUER_0');
+        let participant = factory.newResource(namespace, 'Issuer', 'ISSUER_' + uuid);
         participant.name = 'penguin';
-        await participantRegistry.add(participant);
+        let populated = await participantRegistry.exists(participant.getIdentifier());
+        if (!populated) {
+            Log('Adding test assets ...');
+            await participantRegistry.add(participant);
+            Log('Asset addition complete ...');
+        } else {
+            Log('Updating test assets ...');
+            // remove all previously created items form test run
+            let assetRegistry = await busNetConnection.getAssetRegistry(namespace + '.BondAsset');
+            await removeExisting(assetRegistry, 'ISIN_' + uuid);
+            Log('Asset update complete ...');
+        }
     } catch (error) {
-        Util.log('error in test init: ', error);
+        Log('error in test init(): ', error);
         return Promise.reject(error);
     }
 };
 
 module.exports.run = function() {
     let transaction = factory.newTransaction(namespace, 'PublishBond');
-    transaction.ISINCode = 'ISIN_' + assetId++;
+    transaction.ISINCode = 'ISIN_' + uuid + assetId++;
     let bond = factory.newConcept(namespace, 'Bond');
     bond.instrumentId = [];
     bond.exchangeId = [];
@@ -71,7 +86,7 @@ module.exports.run = function() {
     paymentFrequency.periodMultiplier = 0;
     paymentFrequency.period = 'DAY';
     bond.paymentFrequency = paymentFrequency;
-    bond.issuer = factory.newRelationship(namespace, 'Issuer', 'ISSUER_0');
+    bond.issuer = factory.newRelationship(namespace, 'Issuer', 'ISSUER_' + uuid);
     transaction.bond = bond;
 
     return bc.bcObj.submitTransaction(busNetConnection, transaction);

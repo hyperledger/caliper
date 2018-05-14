@@ -32,7 +32,10 @@
 
 'use strict';
 
-const Util = require('../../../src/comm/util');
+const removeExisting = require('../composer-test-utils').clearAll;
+const Log = require('../../../src/comm/util').log;
+const os = require('os');
+const uuid = os.hostname() + process.pid; // UUID for client within test
 
 module.exports.info  = 'Perishable Network Performance Test';
 
@@ -40,7 +43,7 @@ let bc;
 let busNetConnection;
 let testAssetNum;
 let factory;
-let assetId = 0;
+let assetId;
 const namespace = 'org.acme.shipping.perishable';
 
 module.exports.init = async function(blockchain, context, args) {
@@ -48,13 +51,25 @@ module.exports.init = async function(blockchain, context, args) {
     bc = blockchain;
     busNetConnection = context;
     testAssetNum = args.testAssets;
+    assetId = 0;
 
     factory = busNetConnection.getBusinessNetwork().getFactory();
 
-    // Test specified number of Importers
+    let growerRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Grower');
+    let importerRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Importer');
+    let shipperRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Shipper');
+    let contractRegistry = await busNetConnection.getAssetRegistry(namespace + '.Contract');
+    let shipmentRegistry = await busNetConnection.getAssetRegistry(namespace + '.Shipment');
+
+    let shipments = new Array();
     let importers = new Array();
-    for (let i=0; i<testAssetNum; i++){
-        let importer = factory.newResource(namespace, 'Importer', 'Importer_' + i);
+    let growers = new Array();
+    let contracts = new Array();
+    let shipper;
+
+    // Test specified number of Importers
+    for (let i=0; i<testAssetNum; i++) {
+        let importer = factory.newResource(namespace, 'Importer', 'Importer_' + uuid + '_' + i);
         let importerAddress = factory.newConcept(namespace, 'Address');
         importerAddress.country = 'UK';
         importer.address = importerAddress;
@@ -63,9 +78,8 @@ module.exports.init = async function(blockchain, context, args) {
     }
 
     // Test specified number of Growers
-    let growers = new Array();
-    for (let i=0; i<testAssetNum; i++){
-        let grower = factory.newResource(namespace, 'Grower', 'Grower_' + i);
+    for (let i=0; i<testAssetNum; i++) {
+        let grower = factory.newResource(namespace, 'Grower', 'Grower_' + uuid + '_' + i);
         let growerAddress = factory.newConcept(namespace, 'Address');
         growerAddress.country = 'USA';
         grower.address = growerAddress;
@@ -74,19 +88,18 @@ module.exports.init = async function(blockchain, context, args) {
     }
 
     // A Shipper
-    let shipper = factory.newResource(namespace, 'Shipper', 'shipper@email.com');
+    shipper = factory.newResource(namespace, 'Shipper', uuid + '@email.com');
     let shipperAddress = factory.newConcept(namespace, 'Address');
     shipperAddress.country = 'Panama';
     shipper.address = shipperAddress;
     shipper.accountBalance = 0;
 
     // The Contract(s)
-    let contracts = new Array();
-    for (let i=0; i<testAssetNum; i++){
-        let contract = factory.newResource(namespace, 'Contract', 'CON_' + i);
-        contract.grower = factory.newRelationship(namespace, 'Grower', 'Grower_' + i);
-        contract.importer = factory.newRelationship(namespace, 'Importer', 'Importer_' + i);
-        contract.shipper = factory.newRelationship(namespace, 'Shipper', 'shipper@email.com');
+    for (let i=0; i<testAssetNum; i++) {
+        let contract = factory.newResource(namespace, 'Contract', 'CON_' + uuid + '_'  + i);
+        contract.grower = factory.newRelationship(namespace, 'Grower', 'Grower_' + uuid + '_' + i);
+        contract.importer = factory.newRelationship(namespace, 'Importer', 'Importer_' + uuid + '_' + i);
+        contract.shipper = factory.newRelationship(namespace, 'Shipper', uuid + '@email.com');
         let tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
         contract.arrivalDateTime = tomorrow; // the shipment has to arrive tomorrow
@@ -99,50 +112,52 @@ module.exports.init = async function(blockchain, context, args) {
     }
 
     // Test specified number of Shipment(s)
-    let shipments = new Array();
-    for (let i=0; i<testAssetNum; i++){
-        let shipment = factory.newResource(namespace, 'Shipment', 'SHIP_' + i);
+    for (let i=0; i<testAssetNum; i++) {
+        let shipment = factory.newResource(namespace, 'Shipment', 'SHIP_' + uuid + '_' + i);
         shipment.type = 'BANANAS';
         shipment.status = 'IN_TRANSIT';
         shipment.unitCount = 5000;
-        shipment.contract = factory.newRelationship(namespace, 'Contract', 'CON_' + i);
+        shipment.contract = factory.newRelationship(namespace, 'Contract', 'CON_' + uuid + '_' + i);
         let lowTemp = factory.newTransaction(namespace, 'TemperatureReading');
         lowTemp.centigrade = -2.0;
-        lowTemp.shipment = factory.newRelationship(namespace, 'Shipment', 'SHIP_' + i);
+        lowTemp.shipment = factory.newRelationship(namespace, 'Shipment', 'SHIP_' + uuid + '_' + i);
         let highTemp = factory.newTransaction(namespace, 'TemperatureReading');
         highTemp.centigrade = 20;
-        highTemp.shipment = factory.newRelationship(namespace, 'Shipment', 'SHIP_' + i);
+        highTemp.shipment = factory.newRelationship(namespace, 'Shipment', 'SHIP_' + uuid + '_' + i);
         shipment.temperatureReadings = [lowTemp, highTemp];
         shipments.push(shipment);
     }
 
     try {
-        // Add to registries
-        let growerRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Grower');
-        await growerRegistry.addAll(growers);
-
-        let importerRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Importer');
-        await importerRegistry.addAll(importers);
-
-        let shipperRegistry = await busNetConnection.getParticipantRegistry(namespace + '.Shipper');
-        await shipperRegistry.addAll([shipper]);
-
-        let contractRegistry = await busNetConnection.getAssetRegistry(namespace + '.Contract');
-        await contractRegistry.addAll(contracts);
-
-        let shipmentRegistry = await busNetConnection.getAssetRegistry(namespace + '.Shipment');
-        await shipmentRegistry.addAll(shipments);
-
-        Util.log('Test init() complete');
+        // Conditionally add/update registries
+        let populated = await growerRegistry.exists(growers[0].getIdentifier());
+        if (!populated) {
+            Log('Adding test assets ...');
+            await growerRegistry.addAll(growers);
+            await importerRegistry.addAll(importers);
+            await shipperRegistry.addAll([shipper]);
+            await contractRegistry.addAll(contracts);
+            await shipmentRegistry.addAll(shipments);
+            Log('Asset addition complete ...');
+        } else {
+            Log('Updating test assets ...');
+            await removeExisting(growerRegistry, 'Grower_' + uuid);
+            await removeExisting(importerRegistry, 'Importer_' + uuid);
+            await removeExisting(shipmentRegistry, 'SHIP_' + uuid);
+            await growerRegistry.addAll(growers);
+            await importerRegistry.addAll(importers);
+            await shipmentRegistry.addAll(shipments);
+            Log('Asset update complete ...');
+        }
     } catch (error) {
-        Util.log('error in test init(): ', error);
+        Log('error in test init(): ', error);
         return Promise.reject(error);
     }
 };
 
 module.exports.run = function() {
     let transaction = factory.newTransaction(namespace, 'ShipmentReceived');
-    transaction.shipment = factory.newRelationship(namespace, 'Shipment', 'SHIP_' +  assetId++);
+    transaction.shipment = factory.newRelationship(namespace, 'Shipment', 'SHIP_' + uuid + '_' +  assetId++);
     return bc.bcObj.submitTransaction(busNetConnection, transaction);
 };
 

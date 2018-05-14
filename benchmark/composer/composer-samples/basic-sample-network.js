@@ -31,13 +31,17 @@
 */
 
 'use strict';
+
 module.exports.info  = 'Basic Sample Network Performance Test';
 
 const composerUtils = require('../../../src/composer/composer_utils');
-const Util = require('../../../src/comm/util');
+const removeExisting = require('../composer-test-utils').clearAll;
+const Log = require('../../../src/comm/util').log;
+const os = require('os');
 
 const namespace = 'org.example.basic';
 const busNetName = 'basic-sample-network';
+const uuid = os.hostname() + process.pid; // UUID for client within test
 
 let bc;                 // The blockchain main (Composer)
 let busNetConnections;  // Global map of all business network connections to be used
@@ -51,36 +55,50 @@ module.exports.init = async function(blockchain, context, args) {
     busNetConnections.set('admin', context);
     testAssetNum = args.testAssets;
 
+    let participantRegistry = await busNetConnections.get('admin').getParticipantRegistry(namespace + '.SampleParticipant');
+    let assetRegistry = await busNetConnections.get('admin').getAssetRegistry(namespace + '.SampleAsset');
+    let assets = Array();
+
     try {
         factory = busNetConnections.get('admin').getBusinessNetwork().getFactory();
-        let participantRegistry = await busNetConnections.get('admin').getParticipantRegistry(namespace + '.SampleParticipant');
 
-        // Create & add participant
-        let participant = factory.newResource(namespace, 'SampleParticipant', 'PARTICIPANT_0');
-        participant.firstName = 'penguin';
-        participant.lastName = 'wombat';
-        await participantRegistry.add(participant);
+        let exists = await participantRegistry.exists('PARTICIPANT_' + uuid);
+        if (exists) {
+            // Example for creating multiple participants for test use
+            // Create & add participant
+            let participant = factory.newResource(namespace, 'SampleParticipant', 'PARTICIPANT_' + uuid);
+            participant.firstName = 'penguin';
+            participant.lastName = 'wombat';
+            await participantRegistry.add(participant);
 
-        Util.log('About to create new participant card');
-        let userName = 'User1';
-        let newConnection = await composerUtils.obtainConnectionForParticipant(busNetConnections.get('admin'), busNetName, participant, userName);
-        busNetConnections.set(userName, newConnection);
+            Log('About to create new participant card');
+            let userName = 'User1_' + uuid;
+            let newConnection = await composerUtils.obtainConnectionForParticipant(busNetConnections.get('admin'), busNetName, participant, userName);
+            busNetConnections.set(userName, newConnection);
+        }
 
-        // Create & add Assets
-        let assetRegistry = await busNetConnections.get('admin').getAssetRegistry(namespace + '.SampleAsset');
-        let assets = Array();
-        for (let i=0; i<testAssetNum; i++){
-            let asset = factory.newResource(namespace, 'SampleAsset', 'ASSET_' + i);
-            asset.owner = factory.newRelationship(namespace, 'SampleParticipant', 'PARTICIPANT_0');
+        // Create Test Assets
+        for (let i=0; i<testAssetNum; i++) {
+            let asset = factory.newResource(namespace, 'SampleAsset', 'ASSET_' + uuid + '_' + i);
+            asset.owner = factory.newRelationship(namespace, 'SampleParticipant', 'PARTICIPANT_' + uuid);
             asset.value = 'priceless';
             assets.push(asset);
         }
-        Util.log('Adding ' + assets.length + ' Assets......');
-        await assetRegistry.addAll(assets);
 
-        Util.log('Asset addition complete');
+        // Conditionally add/update Test Assets
+        let populated = await assetRegistry.exists(assets[0].getIdentifier());
+        if (!populated) {
+            Log('Adding test assets ...');
+            await assetRegistry.addAll(assets);
+            Log('Asset addition complete ...');
+        } else {
+            Log('Updating test assets ...');
+            await removeExisting(assetRegistry, 'ASSET_' + uuid);
+            await assetRegistry.addAll(assets);
+            Log('Asset update complete ...');
+        }
     } catch (error) {
-        Util.log('error in test init: ', error);
+        Log('error in test init(): ', error);
         return Promise.reject(error);
     }
 };
@@ -88,7 +106,7 @@ module.exports.init = async function(blockchain, context, args) {
 module.exports.run = function() {
     let transaction = factory.newTransaction(namespace, 'SampleTransaction');
     transaction.newValue = 'worthless';
-    transaction.asset = factory.newRelationship(namespace, 'SampleAsset', 'ASSET_' + --testAssetNum);
+    transaction.asset = factory.newRelationship(namespace, 'SampleAsset', 'ASSET_' + uuid + '_' + --testAssetNum);
 
     return bc.bcObj.submitTransaction(busNetConnections.get('admin'), transaction);
 };

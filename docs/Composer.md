@@ -40,7 +40,6 @@ The sample configuration file `/caliper/benchmark/composer/config-composer.json`
 
 Points to note:
 - The test `label` must match a corresponding `chaincodes` tag that is present within the network topology configration file.
-- Currently, only a single client test is supported
 
 To run a Composer based test, on a published set of versions, the required process is:
 - npm install, having specified the required Hyperledger Fabric/Composer versions
