@@ -428,7 +428,7 @@ module.exports = Iroha;
 function irohaCommand(client, account, time, counter, keys, commands) {
     try {
          var tx = txBuilder.creatorAccountId(account)
-                            .txCounter(counter)
+         //                   .txCounter(counter)
                             .createdTime(time);
          var txHash;
          return commands.reduce((prev, command) => {

@@ -21,6 +21,7 @@
     "commander": "^2.11.0",
     "dockerode": "^2.5.0",
     "fs-extra": "^4.0.2",
+    "iroha-lib": "0.0.6",
     "jsrsasign": "^8.0.4",
     "mustache": "^2.3.0",
     "node-zookeeper-client": "^0.2.2",
