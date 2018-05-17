@@ -581,6 +581,9 @@ async function invokebycontext(context, id, version, args, timeout){
 
     let proposalResponseObject = null;
     try {
+        if(context.engine) {
+            context.engine.submitCallback(1);
+        }
         try {
             proposalResponseObject = await channel.sendTransactionProposal(proposalRequest, timeout * 1000);
             invokeStatus.time_endorse = Date.now();
@@ -755,6 +758,10 @@ function querybycontext(context, id, version, name) {
         fcn: 'query',
         args: [name]
     };
+
+    if(context.engine) {
+        context.engine.submitCallback(1);
+    }
 
     return channel.queryByChaincode(request)
         .then((responses) => {

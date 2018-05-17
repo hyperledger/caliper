@@ -3,20 +3,33 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  *
- * @file, Batch builder interface for usecases, each use cases has to override buildBatch and calculateAddress methods 
  */
 
 
-'use strict'
+'use strict';
 
+/**
+ * Batch builder class
+ */
 class BatchBuilder {
+    /**
+     * Constructor
+     */
     constructor() {
     }
 
+    /**
+     * Build batch
+     * @param {*} args transactions arguments
+     */
     buildBatch(args) {
         throw new Error('buildBatch is not implemented for this application!!');
     }
 
+    /**
+     * Calculate address
+     * @param {String} name address name
+     */
     calculateAddress(name) {
         throw new Error('calculateAddress is not implemented for this application!!');
     }

@@ -308,6 +308,15 @@ class Iroha extends BlockchainInterface{
     }
 
     invokeSmartContract(context, contractID, contractVer, args, timeout) {
+        let promises = [];
+        args.forEach((item, index)=>{
+            promises.push(this._invokeSmartContract(context, contractID, contractVer, item, timeout));
+        });
+        
+        return Promise.all(promises);
+    }
+
+    _invokeSmartContract(context, contractID, contractVer, args, timeout) {
         try {
             if(!context.contract.hasOwnProperty(contractID)) {
                 throw new Error('Could not find contract named ' + contractID);
@@ -326,6 +335,9 @@ class Iroha extends BlockchainInterface{
                 timeout      : timeout*1000,
                 result       : null
             };
+            if(context.engine) {
+                context.engine.submitCallback(1);
+            }
             var key;
             if(irohaType.commandOrQuery(commands[0].tx) === 0) {
                 p = new Promise((resolve, reject)=>{
@@ -384,6 +396,9 @@ class Iroha extends BlockchainInterface{
                 time_final   : 0,
                 result       : null
             };
+            if(context.engine) {
+                context.engine.submitCallback(1);
+            }
             return new Promise((resolve, reject)=>{
                 let counter = context.queryCounter;
                 context.queryCounter++;

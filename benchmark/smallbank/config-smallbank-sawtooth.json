@@ -16,15 +16,15 @@
     },
     "rounds": [{
         "label" : "smallOperations",
-        "txNumber" : [20],
-        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 2}}],
+        "txNumber" : [200],
+        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 20}}],
         "arguments": {"accounts":30, "txnPerBatch":10},
         "callback" : "benchmark/smallbank/smallbankOperations.js"
       },
       {
         "label" : "query",
-        "txNumber" : [10],
-        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 5}}],
+        "txNumber" : [100],
+        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 50}}],
         "callback" : "benchmark/smallbank/query.js"
       }]
   },
