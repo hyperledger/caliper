@@ -14,7 +14,7 @@ let no_accounts=0;
 let account_array=[];
 let accounts, txnPerBatch;
 const initial_balance = 1000000;
-const operation_type = ['transact_savings','deposit_checking','send_payment','write_check','amalgamate'];
+const operation_type = ['transact_savings','deposit_checking','send_payment','write_check']; //,'amalgamate'];
 let prefix;
 
 /**
@@ -68,7 +68,7 @@ function generateWorkload() {
     if(workload.length === txnPerBatch) {
         return workload;
     }
-    else {
+    else if (workload.length === 0){    // not include 'create_account' and other operations in the same batch
         for(let j= workload.length; j<txnPerBatch; j++) {
             let op_index =  Math.floor(Math.random() * Math.floor(operation_type.length));
             let acc_index = Math.floor(Math.random() * Math.floor(account_array.length));
