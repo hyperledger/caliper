@@ -180,9 +180,9 @@ function demoStopWatch(output) {
     if(demoInterObj) {
         clearInterval(demoInterObj);
         demoInterObj = null;
-        update();
     }
     demoData.report = output;
+    update();
 }
 
 module.exports.stopWatch = demoStopWatch;
