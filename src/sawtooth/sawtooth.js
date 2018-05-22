@@ -11,7 +11,7 @@
 const BlockchainInterface = require('../comm/blockchain-interface.js');
 const BatchBuilderFactory = require('./Application/BatchBuilderFactory.js');
 const log = require('../comm/util.js').log;
-const restApiUrl = 'http://127.0.0.1:8008';
+let configPath;
 const request = require('request-promise');
 
 /**
@@ -27,6 +27,8 @@ function getState(address) {
         result       : null
     };
 
+    let config = require(configPath);
+    let restApiUrl = config.sawtooth.network.restapi.url;
     const stateLink = restApiUrl + '/state?address=' + address;
     let options = {
         uri: stateLink
@@ -164,6 +166,8 @@ function submitBatches(batchBytes) {
         time_final   : 0,
         result       : null
     };
+    let config = require(configPath);
+    let restApiUrl = config.sawtooth.network.restapi.url;
     const request = require('request-promise');
     let options = {
         method: 'POST',
@@ -192,6 +196,7 @@ class Sawtooth extends BlockchainInterface {
      */
     constructor(config_path) {
         super(config_path);
+        configPath = config_path;
         this.batchBuilder;
     }
 
