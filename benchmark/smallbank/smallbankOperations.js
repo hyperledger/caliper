@@ -122,7 +122,6 @@ function generateWorkload() {
                     source_customer_id = account_array[Math.floor(Math.random() * account_array.length)];
                 }
                 op_payload = {
-                    'amount': amount,
                     'dest_customer_id': dest_customer_id,
                     'source_customer_id': source_customer_id,
                     'transaction_type': random_op
