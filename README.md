@@ -5,7 +5,7 @@ Caliper is a blockchain performance benchmark framework, which allows users to t
 Currently supported blockchain solutions:
 * [fabric 1.0.5](https://github.com/hyperledger/fabric)
 * [sawtooth 0.8](https://github.com/hyperledger/sawtooth-core) 
-* [Iroha 1.0-beta](https://github.com/hyperledger/iroha)
+* [Iroha 1.0 beta-2](https://github.com/hyperledger/iroha)
 
 Currently supported performance indicators:
 * Success rate
