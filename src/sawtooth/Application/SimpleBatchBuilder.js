@@ -39,32 +39,36 @@ class SimpleBatchBuilder extends BatchBuilder {
 
         const privateKey = context.newRandomPrivateKey();
         const signer = new CryptoFactory(context).newSigner(privateKey);
-        const addr = args.account;
-        const address = this.calculateAddress(addr);
-        const addresses = [address];
 
-        const cbor = require('cbor');
-        const payloadBytes = cbor.encode(args);
+        let transactions = [];
+        for(let i = 0; i < args.length; i++) {
+            const addr = args[i].account;
+            const address = this.calculateAddress(addr);
+            const addresses = [address];
 
-        const transactionHeaderBytes = protobuf.TransactionHeader.encode({
-            familyName: this.familyName,
-            familyVersion: this.familyVersion,
-            inputs: addresses,
-            outputs: addresses,
-            signerPublicKey: signer.getPublicKey().asHex(),
-            batcherPublicKey: signer.getPublicKey().asHex(),
-            dependencies: [],
-            payloadSha512: createHash('sha512').update(payloadBytes).digest('hex')
-        }).finish();
+            const cbor = require('cbor');
+            const payloadBytes = cbor.encode(args[i]);
 
-        const txnSignature = signer.sign(transactionHeaderBytes);
-        const transaction = protobuf.Transaction.create({
-            header: transactionHeaderBytes,
-            headerSignature: txnSignature,
-            payload: payloadBytes
-        });
+            const transactionHeaderBytes = protobuf.TransactionHeader.encode({
+                familyName: this.familyName,
+                familyVersion: this.familyVersion,
+                inputs: addresses,
+                outputs: addresses,
+                signerPublicKey: signer.getPublicKey().asHex(),
+                batcherPublicKey: signer.getPublicKey().asHex(),
+                dependencies: [],
+                payloadSha512: createHash('sha512').update(payloadBytes).digest('hex')
+            }).finish();
 
-        const transactions = [transaction];
+            const txnSignature = signer.sign(transactionHeaderBytes);
+            const transaction = protobuf.Transaction.create({
+                header: transactionHeaderBytes,
+                headerSignature: txnSignature,
+                payload: payloadBytes
+            });
+            transactions.push(transaction);
+        }
+
         const batchHeaderBytes = protobuf.BatchHeader.encode({
             signerPublicKey: signer.getPublicKey().asHex(),
             transactionIds: transactions.map((txn) => txn.headerSignature),
@@ -93,7 +97,6 @@ class SimpleBatchBuilder extends BatchBuilder {
         const crypto = require('crypto');
         const _hash = (x) =>
             crypto.createHash('sha512').update(x).digest('hex').toLowerCase();
-
         const familyNameSpace = _hash(this.familyName).substring(0, 6);
         let address = familyNameSpace + _hash(name).slice(-64);
         return address;
