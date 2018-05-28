@@ -6,16 +6,18 @@
 */
 
 
-'use strict'
+'use strict';
+const log          = require('../util.js').log;
+let processes  = {}; // {pid:{obj, promise}}
 
-const CLIENT_LOCAL = 'local';
-const CLIENT_ZOO   = 'zookeeper';
-
-var zkUtil     = require('./zoo-util.js');
-var processes  = {}; // {pid:{obj, promise}}
-
+/**
+ * Call the Promise function for a process
+ * @param {String} pid pid of the process
+ * @param {Boolean} isResolve indicates resolve(true) or reject(false)
+ * @param {Object} msg input for the Promise function
+ */
 function setPromise(pid, isResolve, msg) {
-    var p = processes[pid];
+    let p = processes[pid];
     if(p && p.promise && typeof p.promise !== 'undefined') {
         if(isResolve) {
             p.promise.resolve(msg);
@@ -26,33 +28,41 @@ function setPromise(pid, isResolve, msg) {
     }
 }
 
+/**
+ * Push test result from a child process into the global array
+ * @param {String} pid pid of the child process
+ * @param {Object} data test result
+ */
 function pushResult(pid, data) {
-    var p = processes[pid];
+    let p = processes[pid];
     if(p && p.results && typeof p.results !== 'undefined') {
         p.results.push(data);
     }
 }
 
+/**
+ * Push update value from a child process into the global array
+ * @param {String} pid pid of the child process
+ * @param {Object} data update value
+ */
 function pushUpdate(pid, data) {
-    var p = processes[pid];
+    let p = processes[pid];
     if(p && p.updates && typeof p.updates !== 'undefined') {
         p.updates.push(data);
     }
 }
 
-function updateCallback(pid, session, data) {
-    var p = processes[pid];
-    if(p && p.updateCB && typeof p.updateCB !== 'undefined') {
-        p.updateCB(session, data);
-    }
-}
-
-function launchClient(message, updateCB, results) {
-    var path = require('path');
-    var childProcess = require('child_process');
-    var child = childProcess.fork(path.join(__dirname, 'local-client.js'));
-    var pid   = child.pid.toString();
-    processes[pid] = {obj: child, results: results, updateCB: updateCB};
+/**
+ * Launch a child process to do the test
+ * @param {Array} updates array to save txUpdate results
+ * @param {Array} results array to save the test results
+ */
+function launchClient(updates, results) {
+    let path = require('path');
+    let childProcess = require('child_process');
+    let child = childProcess.fork(path.join(__dirname, 'local-client.js'));
+    let pid   = child.pid.toString();
+    processes[pid] = {obj: child, results: results, updates: updates};
 
     child.on('message', function(msg) {
         if(msg.type === 'testResult') {
@@ -72,14 +82,24 @@ function launchClient(message, updateCB, results) {
     });
 
     child.on('exit', function(){
-        console.log('Client exited');
+        log('Client exited');
         setPromise(pid, true, null);
     });
 }
 
+/**
+ * Start a test
+ * @param {Number} number test clients' count
+ * @param {JSON} message start message
+ * @param {Array} clientArgs each element contains specific arguments for a client
+ * @param {Array} updates array to save txUpdate results
+ * @param {Array} results array to save the test results
+ * @return {Promise} promise object
+ */
 function startTest(number, message, clientArgs, updates, results) {
-    let count = 0;    
-    for (let i in processes) {
+    let count = 0;
+    for(let i in processes) {
+        i;  // avoid eslint error
         count++;
     }
     if(count === number) {  // already launched clients
@@ -101,9 +121,9 @@ function startTest(number, message, clientArgs, updates, results) {
             // Run for time specified txDuration based on clients
             // Do nothing, we run for the time specified within message.txDuration
         } else {
-            return reject(new Error('Unconditioned transaction rate driving mode'));
+            return Promise.reject(new Error('Unconditioned transaction rate driving mode'));
         }
-        
+
         message.clients = number;
 
         let promises = [];
@@ -111,38 +131,37 @@ function startTest(number, message, clientArgs, updates, results) {
         for(let id in processes) {
             let client = processes[id];
             let p = new Promise((resolve, reject) => {
-                client['promise'] = {
+                client.promise = {
                     resolve: resolve,
                     reject:  reject
-                }
+                };
             });
             promises.push(p);
-            client['results'] = results;
-            client['updates'] = updates;
-            message['clientargs'] = clientArgs[idx];
+            client.results = results;
+            client.updates = updates;
+            message.clientargs = clientArgs[idx];
+            message.clientIdx = idx;
             idx++;
 
             client.obj.send(message);
         }
 
-        return Promise.all(promises)
-                .then(()=>{
-                    // clear promises
-                    for(let client in processes) {
-                        delete client.promise;
-                    }
-                    return Promise.resolve();
-                })
-                .catch((err)=>{
-                    return Promise.reject(err);
-                });
+        return Promise.all(promises).then(()=>{
+            // clear promises
+            for(let client in processes) {
+                delete client.promise;
+            }
+            return Promise.resolve();
+        }).catch((err)=>{
+            return Promise.reject(err);
+        });
 
     }
 
     // launch clients
     processes = {};
     for(let i = 0 ; i < number ; i++) {
-        launchClient(message, updates, results);
+        launchClient(updates, results);
     }
 
     // start test
@@ -150,6 +169,11 @@ function startTest(number, message, clientArgs, updates, results) {
 }
 module.exports.startTest = startTest;
 
+/**
+ * Send message to all child processes
+ * @param {JSON} message message
+ * @return {Number} number of child processes
+ */
 function sendMessage(message) {
     for(let pid in processes) {
         processes[pid].obj.send(message);
@@ -158,6 +182,9 @@ function sendMessage(message) {
 }
 module.exports.sendMessage = sendMessage;
 
+/**
+ * Stop all test clients(child processes)
+ */
 function stop() {
     for(let pid in processes) {
         processes[pid].obj.kill();

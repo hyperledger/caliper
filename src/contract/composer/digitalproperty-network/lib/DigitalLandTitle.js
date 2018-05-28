@@ -12,23 +12,16 @@
  * limitations under the License.
  */
 
-/* global getAssetRegistry */
-/*eslint-disable no-unused-vars*/
-/*eslint-disable no-undef*/
-
 'use strict';
+
 /**
  * Process a property that is held for sale
  * @param {net.biz.digitalPropertyNetwork.RegisterPropertyForSale} propertyForSale the property to be sold
- * @return {Promise} Asset Registry Promise
  * @transaction
  */
-function onRegisterPropertyForSale(propertyForSale) {
-    console.log('### onRegisterPropertyForSale ' + propertyForSale.toString());
+async function onRegisterPropertyForSale(propertyForSale) {   // eslint-disable-line no-unused-vars
     propertyForSale.title.forSale = true;
 
-    return getAssetRegistry('net.biz.digitalPropertyNetwork.LandTitle').then(function(result) {
-        return result.update(propertyForSale.title);
-    }
-    );
+    const registry = await getAssetRegistry('net.biz.digitalPropertyNetwork.LandTitle'); // eslint-disable-line no-undef
+    await registry.update(propertyForSale.title);
 }

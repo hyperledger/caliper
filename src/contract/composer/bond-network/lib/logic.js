@@ -12,20 +12,22 @@
  * limitations under the License.
  */
 
+'use strict';
+
 /**
  * Publish a new bond
  * @param {org.acme.bond.PublishBond} publishBond - the publishBond transaction
  * @transaction
  */
-function publish(publishBond) {
+async function publish(publishBond) {  // eslint-disable-line no-unused-vars
 
-    return getAssetRegistry('org.acme.bond.BondAsset')
-        .then(function (registry) {
-            var factory = getFactory();
-            // Create the bond asset.
-            var bondAsset = factory.newResource('org.acme.bond', 'BondAsset', publishBond.ISINCode);
-            bondAsset.bond = publishBond.bond;
-            // Add the bond asset to the registry.
-            return registry.add(bondAsset);
-        });
+    const registry = await getAssetRegistry('org.acme.bond.BondAsset'); // eslint-disable-line no-undef
+    const factory = getFactory(); // eslint-disable-line no-undef
+
+    // Create the bond asset.
+    const bondAsset = factory.newResource('org.acme.bond', 'BondAsset', publishBond.ISINCode);
+    bondAsset.bond = publishBond.bond;
+
+    // Add the bond asset to the registry.
+    await registry.add(bondAsset);
 }

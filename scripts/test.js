@@ -6,12 +6,14 @@
 */
 
 
-'use strict'
+'use strict';
 
 var configFile;
 var networkFile;
 var path = require('path');
 var fs = require('fs-extra');
+var exec = require('child_process').exec;
+
 function setConfig(file) {
     configFile = path.join('../..', file);
 }
@@ -23,28 +25,28 @@ function setNetwork(file) {
 function main() {
     if(process.argv.length < 3) {
         console.log('undefined benchmark name, should be "npm test -- benchmark-name [options]"');
-        return;
+        process.exit(1);
     }
 
-    var benchmark = process.argv[2];
-    var runDir = path.join(__dirname, '../benchmark', benchmark);
+    let benchmark = process.argv[2];
+    let runDir = path.join(__dirname, '../benchmark', benchmark);
     if(!fs.existsSync(runDir)) {
         console.log('directory ' + runDir + ' does not exist');
-        return;
+        process.exit(1);
     }
 
-    var runExe = path.join(runDir, 'main.js');
+    let runExe = path.join(runDir, 'main.js');
     if(!fs.existsSync(runExe)) {
         console.log('file ' + runExe + ' does not exist');
-        return;
+        process.exit(1);
     }
 
-    var program = require('commander');
+    let program = require('commander');
     program
         .option('-c, --config <file>', 'config file of the benchmark', setConfig)
         .option('-n, --network <file>', 'config file of the blockchain system under test', setNetwork)
         .parse(process.argv);
-    var cmd = 'node main.js';
+    let cmd = 'node main.js';
     if(typeof configFile === 'string') {
         cmd += ' -c ';
         cmd += configFile;
@@ -54,11 +56,17 @@ function main() {
         cmd += networkFile;
     }
 
-    var childProcess = require('child_process');
-    var exec = childProcess.exec;
     let run = exec(cmd, {cwd: runDir});
     run.stdout.pipe(process.stdout);
     run.stderr.pipe(process.stderr);
+
+    run.on('close', (code) => {
+        console.log('Benchmark return code: ', code);
+        if (code !== 0) {
+            code = 1;
+        }        
+        process.exit(code);
+    });
 }
 
 main();

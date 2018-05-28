@@ -16,15 +16,15 @@
     },
     "rounds": [{
         "label" : "open",
-        "txNumber" : [5000, 5000, 5000],
-        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 100}}, {"type": "fixed-rate", "opts": {"tps" : 200}}, {"type": "fixed-rate", "opts": {"tps" : 300}}],
+        "txNumber" : [1000, 1000, 1000],
+        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 50}}, {"type": "fixed-rate", "opts": {"tps" : 100}}, {"type": "fixed-rate", "opts": {"tps" : 150}}],
         "arguments": { "money": 10000 },
         "callback" : "benchmark/simple/open.js"
       },
       {
         "label" : "query",
         "txNumber" : [5000, 5000],
-        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 300}}, {"type": "fixed-rate", "opts": {"tps" : 400}}],
+        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 100}}, {"type": "fixed-rate", "opts": {"tps" : 200}}],
         "callback" : "benchmark/simple/query.js"
       }]
   },

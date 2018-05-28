@@ -4,7 +4,7 @@
 * You may obtain a copy of the License at
 *
 * http://www.apache.org/licenses/LICENSE-2.0
-* 
+*
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -12,118 +12,100 @@
 * limitations under the License.
 *
 *  Query of Asset
-*  Queries for a specific Asset using a pre-defined query, built from basic-sample-network
+*  Queries for a specific Asset using a pre-defined query, built from vehicle-lifecycle-network
 *  - Example test round (txn <= testAssets)
 *      {
-*        "label" : "basic-sample-network",
-*        "txNumbAndTps" : [[10,20]],
-*        "arguments": {"testAssets": 10, "matches": 5},
+*        "label" : "vehicle-lifecycle-network",
+*        "txNumber" : [50],
+*        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 10}}],
+*        "arguments": {"testAssets": 10, "testMatches": 5},
 *        "callback" : "benchmark/composer/composer-micro/query-asset.js"
 *      }
-*  - Init: 
-*    - Two Participants created (PARTICIPANT_0, PARTICIPANT_1)
-*    - Test specified number of Assets created, belonging to a PARTICIPANT_0 (based on how many matches in the query to return)
-*    - Test specified number of Assets created, belonging to a PARTICIPANT_1
+*  - Init:
+*    - Test specified number of Assets created, with color RED (based on how many matches in the query to return), the remaining Assets being created BLUE
 *  - Run:
-*    - Transactions run to query for created assets owned by PARTICIPANT_0
+*    - Transactions run to query for created assets that are RED
 *
 */
 
-'use strict'
+'use strict';
 
-module.exports.info  = "Query Asset Performance Test";
+const Util = require('../../../src/comm/util');
 
-var bc;
-var busNetConnection;
-var testAssetNum;
-var factory;
-const namespace = 'org.acme.sample';
+module.exports.info  = 'Query Asset Performance Test';
 
-let myQuery;
+let busNetConnection;
+let testAssetNum;
+let testMatches;
+let factory;
+let matchColor = 'RED';
+
 let qryRef = 0;
 
-module.exports.init = function(blockchain, context, args) {
-    // Create Participants and Assets to use in main test    
-    bc = blockchain;
+const vda_ns = 'org.vda';
+
+module.exports.init = async function(blockchain, context, args) {
+    // Create Assets to use in main query test
     busNetConnection = context;
     testAssetNum = args.testAssets;
-    
+    testMatches = args.testMatches;
+
     factory = busNetConnection.getBusinessNetwork().getFactory();
-       
-    return busNetConnection.getParticipantRegistry(namespace + '.SampleParticipant')
-    .then((participantRegistry) => {
-        let participant1 = factory.newResource(namespace, 'SampleParticipant', 'PARTICIPANT_0');
-        participant1.firstName = 'percy';
-        participant1.lastName = 'penguin';
 
-        let participant2 = factory.newResource(namespace, 'SampleParticipant', 'PARTICIPANT_1');
-        participant2.firstName = 'winston';
-        participant2.lastName = 'wombat';
+    let vehicles = [];
+    let createdMatches = 0;
+    let missColor = 'BLUE';
 
-        return participantRegistry.addAll([participant1, participant2]);
-    })
-    .then(() => {
-        return busNetConnection.getAssetRegistry(namespace + '.SampleAsset')
-    })
-    .then((assetRegistry) => {
-        let matched = 0;
-        let assets = Array();        
-        for (let i=0; i<testAssetNum; i++){                
-            let asset = factory.newResource(namespace, 'SampleAsset', 'ASSET_' + i);
-            if (matched >= args.matches) {
-                asset.owner = factory.newRelationship(namespace, 'SampleParticipant', 'PARTICIPANT_0');
-                matched++;
-            } else {
-                asset.owner = factory.newRelationship(namespace, 'SampleParticipant', 'PARTICIPANT_1');
-            }
-            asset.value = 'priceless';            
-            assets.push(asset);            
+    for(let i = 0; i < testAssetNum; i ++){
+        let vehicle = factory.newResource(vda_ns, 'Vehicle', 'VEHICLE_' + i);
+        let details = factory.newConcept(vda_ns, 'VehicleDetails');
+        details.make = 'testMake';
+        details.modelType = 'testModel';
+
+        if(createdMatches<testMatches){
+            details.colour = matchColor;
+            createdMatches++;
+        } else {
+            details.colour = missColor;
         }
-        console.log('Adding ' + assets.length + ' Assets......');
-        return assetRegistry.addAll(assets);        
-    })
-    .then((resp) => {
-        console.log('Asset addition complete');
-        return Promise.resolve();
-    })
-    .then((resp) => {
-        // Add a query
-        console.log('Storing Query');
-        myQuery = busNetConnection.buildQuery('SELECT org.acme.sample.SampleAsset WHERE (owner == _$inputValue)');
-        return Promise.resolve();
-    })
-    .catch(function (err) {
-      console.log('error in test init: ', err);
-      return Promise.reject(err);
-    }); 
-}
+
+        vehicle.vehicleDetails = details;
+        vehicle.vehicleStatus = 'OFF_THE_ROAD';
+        vehicles.push(vehicle);
+    }
+
+    Util.log(`About to add ${vehicles.length} Vehicles to Asset Registry`);
+    let vehicleRegistry = await busNetConnection.getAssetRegistry(vda_ns + '.Vehicle');
+    await vehicleRegistry.addAll(vehicles);
+};
 
 module.exports.run = function() {
-    // Go for a query of an asset
-    let submitTime = Date.now();    
-    return busNetConnection.query(myQuery, { inputValue: 'PARTICIPANT_0'})
-    .then((result) => {
-        let invoke_status = {
-            id           : qryRef,
-            status       : 'created',
-            time_create  : submitTime,
-            time_final   : 0,
-            time_endorse : 0,
-            time_order   : 0,
-            result       : null
-        };
-    
-        invoke_status.status = 'success';
-        invoke_status.time_final = Date.now();
-        qryRef++;
-        return Promise.resolve(invoke_status);
-    })
-    .catch((err) => {
-        invoke_status.time_final = Date.now();
-        invoke_status.status = 'failed';
-        return Promise.resolve(invoke_status);
-    });      
-}
+    let invoke_status = {
+        id           : qryRef++,
+        status       : 'created',
+        time_create  : Date.now(),
+        time_final   : 0,
+        time_endorse : 0,
+        time_order   : 0,
+        result       : null
+    };
+
+    // use the pre-compiled query named 'selectAllCarsByColour' that is within the business
+    // network queries file
+    return busNetConnection.query('selectAllCarsByColour', { colour: matchColor})
+        .then((result) => {
+            invoke_status.status = 'success';
+            invoke_status.time_final = Date.now();
+            invoke_status.result = result;
+            return Promise.resolve(invoke_status);
+        })
+        .catch((err) => {
+            invoke_status.time_final = Date.now();
+            invoke_status.status = 'failed';
+            invoke_status.result = [];
+            return Promise.resolve(invoke_status);
+        });
+};
 
 module.exports.end = function(results) {
     return Promise.resolve(true);

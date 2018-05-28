@@ -12,15 +12,15 @@
  * limitations under the License.
  */
 
- /**
+'use strict';
+
+/**
   * Trade a marble to a new player
   * @param  {org.hyperledger_composer.marbles.TradeMarble} tradeMarble - the trade marble transaction
   * @transaction
   */
- function tradeMarble(tradeMarble) {
-   tradeMarble.marble.owner = tradeMarble.newOwner;
-   return getAssetRegistry('org.hyperledger_composer.marbles.Marble')
-     .then(function (assetRegistry) {
-       return assetRegistry.update(tradeMarble.marble);
-     });
- }
+async function tradeMarble(tradeMarble) {   // eslint-disable-line no-unused-vars
+    tradeMarble.marble.owner = tradeMarble.newOwner;
+    const assetRegistry = await getAssetRegistry('org.hyperledger_composer.marbles.Marble'); // eslint-disable-line no-undef
+    await assetRegistry.update(tradeMarble.marble);
+}

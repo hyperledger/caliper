@@ -99,8 +99,7 @@
     </style>
 </head>
 
-<script src="polyfills/eventsource.js"></script>
-<script src="echart/js/echarts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.0.4/echarts.min.js"></script>
 <script type="text/javascript">
     var sut = "fabric";
     const sutConf = {
@@ -172,23 +171,7 @@
     }
 
     function initChart(id) {
-        require.config({
-            paths: {
-                echarts: './echart/js'
-            }
-        });
-
-        require(
-            [
-                'echarts',
-                'echarts/chart/bar',
-                'echarts/chart/line',
-                'echarts/chart/map',
-            ],
-            function(ec) {
-                charts[id].obj = ec.init(document.getElementById(charts[id].element));
-            }
-        );
+        charts[id].obj = echarts.init(document.getElementById(charts[id].element));
     }
 
     function refreshChart(id) {
@@ -203,20 +186,14 @@
             tooltip: { trigger: 'axis' },
             animation: false,
             legend: { data: charts[id].data},
-            xAxis: [
-                {
-                    type: 'category',
-                    boundaryGap: false,
-                    name: charts[id].xAxis,
-                    data: pageHtmlJson[id].x
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value',
-                    name: charts[id].yAxis
-                }
-            ],
+            xAxis: {
+                name: charts[id].xAxis,
+                data: pageHtmlJson[id].x
+            },
+            yAxis: {
+                type: 'value',
+                name: charts[id].yAxis
+            },
             series:[]
         }
         var data = charts[id].data;
@@ -306,6 +283,9 @@
                         changeRunningStatus(false);
                         es.close();
                         es = null;
+                        if(msg.data !== 'ok') {
+                            alert(msg.data);
+                        }
                         break;
                     case 'report':
                         document.getElementById('report').href = 'report.html';
@@ -326,6 +306,9 @@
                         if(pageHtmlJson !== null && pageHtmlJson.hasOwnProperty('summary')) {
                             refreshTxInfo(pageHtmlJson.summary.txSub, pageHtmlJson.summary.txSucc, pageHtmlJson.summary.txFail);
                         }
+                        break;
+                    case 'debug':
+                        alert(msg.data);
                         break;
                     default:
                         alert('unknown message:'+msg.name);

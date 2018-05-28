@@ -1,6 +1,7 @@
 architecture.pptx
 .idea/*
 *.bak
+zookeeper.out
 node_modules/*
 
 # Ignore any generted html files
@@ -11,3 +12,7 @@ node_modules/*
 
 # Ignore any composer logs
 composer-logs/
+
+# Ignore code coverage logs
+.nyc_output/
+coverage/

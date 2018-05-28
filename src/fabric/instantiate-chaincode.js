@@ -19,48 +19,46 @@
 // in a happy-path scenario
 'use strict';
 
-var utils = require('fabric-client/lib/utils.js');
-var logger = utils.getLogger('E2E instantiate-chaincode');
+//const utils = require('fabric-client/lib/utils.js');
+//const logger = utils.getLogger('E2E instantiate-chaincode');
 
-var tape = require('tape');
-var _test = require('tape-promise');
-var test = _test(tape);
+//const tape = require('tape');
+//const _test = require('tape-promise');
+//const test = _test(tape);
 
-var e2eUtils = require('./e2eUtils.js');
-var Client   = require('fabric-client')
+const e2eUtils = require('./e2eUtils.js');
+const commUtils = require('../comm/util');
+
+const Client = require('fabric-client');
 
 module.exports.run = function (config_path) {
     Client.addConfigFile(config_path);
-    var fabricSettings = Client.getConfigSetting('fabric');
-    var policy         = fabricSettings['endorsement-policy'];  // TODO: support mulitple policies
-    var chaincodes     = fabricSettings.chaincodes;
+    const fabricSettings = Client.getConfigSetting('fabric');
+    const policy = fabricSettings['endorsement-policy'];  // TODO: support mulitple policies
+    let chaincodes = fabricSettings.chaincodes;
     if(typeof chaincodes === 'undefined' || chaincodes.length === 0) {
         return Promise.resolve();
     }
 
     return new Promise(function(resolve, reject) {
         // test('\n\n***** instantiate chaincode *****\n\n', (t) => {
-        var t = global.tapeObj;
+        const t = global.tapeObj;
         t.comment('Instantiate chaincode......');
         chaincodes.reduce(function(prev, chaincode){
             return prev.then(() => {
                 return e2eUtils.instantiateChaincode(chaincode, policy, false).then(() => {
                     t.pass('Instantiated chaincode ' + chaincode.id + ' successfully ');
                     t.comment('Sleep 5s...');
-                    return sleep(5000);
+                    return commUtils.sleep(5000);
                 });
             });
         }, Promise.resolve())
-        .then(() => {
-            return resolve();
-        })
-        .catch((err) => {
-            t.pass('Failed to instantiate chaincodes, ' + (err.stack?err.stack:err));
-            return reject(new Error('Fabric: Create channel failed'));
-         });
+            .then(() => {
+                return resolve();
+            })
+            .catch((err) => {
+                t.fail('Failed to instantiate chaincodes, ' + (err.stack?err.stack:err));
+                return reject(new Error('Fabric: instantiate chaincodes failed'));
+            });
     });
 };
-
-function sleep(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms));
-}

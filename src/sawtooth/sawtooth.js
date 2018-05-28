@@ -3,263 +3,292 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  *
- * @file, definition of the Sawtooth class, which implements the caliper's NBI for hyperledger sawtooth lake
  */
 
 
-'use strict'
+'use strict';
 
-var BlockchainInterface = require('../comm/blockchain-interface.js')
+const BlockchainInterface = require('../comm/blockchain-interface.js');
+const BatchBuilderFactory = require('./Application/BatchBuilderFactory.js');
+const log = require('../comm/util.js').log;
+let configPath;
+const request = require('request-promise');
+
+/**
+ * Get state according from given address
+ * @param {String} address Sawtooth address
+ * @return {Promise<object>} The promise for the result of the execution.
+ */
+function getState(address) {
+    let invoke_status = {
+        status       : 'created',
+        time_create  : Date.now(),
+        time_final   : 0,
+        result       : null
+    };
+
+    let config = require(configPath);
+    let restApiUrl = config.sawtooth.network.restapi.url;
+    const stateLink = restApiUrl + '/state?address=' + address;
+    let options = {
+        uri: stateLink
+    };
+    return request(options)
+        .then(function(body) {
+            let data = (JSON.parse(body)).data;
+
+            if (data.length > 0) {
+                let stateDataBase64 = data[0].data;
+                let stateDataBuffer = new Buffer(stateDataBase64, 'base64');
+                let stateData = stateDataBuffer.toString('hex');
+
+                invoke_status.time_final = Date.now();
+                invoke_status.result     = stateData;
+                invoke_status.status     = 'success';
+                return Promise.resolve(invoke_status);
+            }
+            else {
+                throw new Error('no query responses');
+            }
+        })
+        .catch(function (err) {
+            log('Query failed, ' + (err.stack?err.stack:err));
+            return Promise.resolve(invoke_status);
+        });
+}
+
+/**
+ * Query state according to given address
+ * @param {object} context Sawtooth context
+ * @param {string} contractID The identity of the smart contract.
+ * @param {string} contractVer The version of the smart contract.
+ * @param {string} address Lookup address
+ * @return {Promise<object>} The promise for the result of the execution.
+ */
+function querybycontext(context, contractID, contractVer, address) {
+    const builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer);
+    const addr = builder.calculateAddress(address);
+    if(context.engine) {
+        context.engine.submitCallback(1);
+    }
+    return getState(addr);
+}
+
+/**
+ * Send a request to Sawtooth network to get status of given batch
+ * @param {Object} resolve promise resolve object
+ * @param {String} statusLink request uri
+ * @param {Object} invoke_status execution result object
+ * @param {Object} intervalID object for the request interval
+ * @param {Object} timeoutID object for the request timeout
+ * @return {Promise<object>} The promise for the result of the execution.
+ */
+function getBatchStatusByRequest(resolve, statusLink, invoke_status, intervalID, timeoutID) {
+    let options = {
+        uri: statusLink
+    };
+    return request(options)
+        .then(function(body) {
+            let batchStatuses = JSON.parse(body).data;
+            let hasPending = false;
+            for (let index in batchStatuses){
+                let batchStatus = batchStatuses[index].status;
+                if (batchStatus === 'PENDING'){
+                    hasPending = true;
+                    break;
+                }
+            }
+            if (hasPending !== true){
+                invoke_status.status = 'success';
+                invoke_status.time_final = Date.now();
+                clearInterval(intervalID);
+                clearTimeout(timeoutID);
+                return resolve(invoke_status);
+            }
+        })
+        .catch(function (err) {
+            log(err);
+            return resolve(invoke_status);
+        });
+}
+
+/**
+ * Get status of given batch
+ * @param {String} link request uri
+ * @param {Object} invoke_status execution result
+ * @return {Promise<object>} The promise for the result of the execution.
+ */
+function getBatchStatus(link, invoke_status) {
+    let statusLink = link;
+    let intervalID = 0;
+    let timeoutID = 0;
+
+    let repeat = (ms, invoke_status) => {
+        return new Promise((resolve) => {
+            intervalID = setInterval(function(){
+                return getBatchStatusByRequest(resolve, statusLink, invoke_status, intervalID, timeoutID);
+            }, ms);
+
+        });
+    };
+
+    let timeout = (ms, invoke_status) => {
+        return new Promise((resolve) => {
+            timeoutID = setTimeout(function(){
+                clearInterval(intervalID );
+                return resolve(invoke_status);
+            }, ms);
+        });
+    };
+
+
+    return  Promise.race([repeat(500, invoke_status), timeout(30000, invoke_status)])
+        .then(function () {
+            return Promise.resolve(invoke_status);
+        })
+        .catch(function(error) {
+            log('getBatchStatus error: ' + error);
+            return Promise.resolve(invoke_status);
+        });
+}
+
+
+/**
+ * Submit a batch of transactions
+ * @param {Object} batchBytes batch bytes
+ * @return {Promise<object>} The promise for the result of the execution.
+ */
+function submitBatches(batchBytes) {
+    let invoke_status = {
+        id           : 0,
+        status       : 'created',
+        time_create  : Date.now(),
+        time_final   : 0,
+        result       : null
+    };
+    let config = require(configPath);
+    let restApiUrl = config.sawtooth.network.restapi.url;
+    const request = require('request-promise');
+    let options = {
+        method: 'POST',
+        url: restApiUrl + '/batches',
+        body: batchBytes,
+        headers: {'Content-Type': 'application/octet-stream'}
+    };
+    return request(options)
+        .then(function (body) {
+            let link = JSON.parse(body).link;
+            return getBatchStatus(link, invoke_status);
+        })
+        .catch(function (err) {
+            log('Submit batches failed, ' + (err.stack?err.stack:err));
+            return Promise.resolve(invoke_status);
+        });
+}
+
+/**
+ * Sawtooth class, which implements the caliper's NBI for hyperledger sawtooth lake
+ */
 class Sawtooth extends BlockchainInterface {
-	constructor(config_path) {
-		 super(config_path);
-	}
+    /**
+     * Constructor
+     * @param {String} config_path path of the Sawtooth configuration file
+     */
+    constructor(config_path) {
+        super(config_path);
+        configPath = config_path;
+        this.batchBuilder;
+    }
 
-	gettype() {
-		return 'sawtooth';
-	}
+    /**
+     * Initialize the {Sawtooth} object.
+     * Nothing to do now
+     * @return {Promise} The return promise.
+     */
+    init() {
+        // todo: sawtooth
+        return Promise.resolve();
+    }
 
-	init() {
-		// todo: sawtooth
-		return Promise.resolve();
-	}
-
-	installSmartContract() {
-		// todo:
-		return Promise.resolve();
-	}
-
-	getContext(name, args) {
-		return Promise.resolve();
-
-	}
-
-	releaseContext(context) {
+    /**
+     * Deploy the chaincode specified in the network configuration file to all peers.
+     * Not supported now
+     * @return {Promise} The return promise.
+     */
+    installSmartContract() {
         // todo:
-		return Promise.resolve();
-	}
+        return Promise.resolve();
+    }
 
-	invokeSmartContract(context, contractID, contractVer, args, timeout) {
-		const address = calculateAddresses(contractID, args)
-		let sawtoothContractVersion = '1.0'
-			if (contractVer === 'v0') {
-				sawtoothContractVersion = '1.0'
-			}
-		const batchBytes = createBatch(contractID, sawtoothContractVersion, address, args)
-		return submitBatches(batchBytes)
-	}
+    /**
+     * Return the Sawtooth context
+     * Nothing to do now
+     * @param {string} name Unused.
+     * @param {object} args Unused.
+     * @return {Promise} The return promise.
+     */
+    getContext(name, args) {
+        return Promise.resolve();
 
-	queryState(context, contractID, contractVer, queryName) {
-		let sawtoothContractVersion = '1.0'
-			if (contractVer === 'v0') {
-				sawtoothContractVersion = '1.0'
-			}
-		return querybycontext(context, contractID, contractVer, queryName)
-	}
+    }
 
-	getDefaultTxStats(stats, results) {
+    /**
+     * Release the Sawtooth context
+     * @param {object} context Sawtooth context to be released.
+     * @return {Promise} The return promise.
+     */
+    releaseContext(context) {
+        // todo:
+        return Promise.resolve();
+    }
+
+    /**
+     * Invoke the given smart contract according to the specified options.
+     * @param {object} context Sawtooth context
+     * @param {string} contractID The identity of the contract.
+     * @param {string} contractVer The version of the contract.
+     * @param {Array} args array of JSON formatted arguments for multiple transactions
+     * @param {number} timeout The timeout to set for the execution in seconds.
+     * @return {Promise<object>} The promise for the result of the execution.
+     */
+    invokeSmartContract(context, contractID, contractVer, args, timeout) {
+        let builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer);
+        const batchBytes = builder.buildBatch(args);
+        if(context.engine) {
+            context.engine.submitCallback(args.length);
+        }
+        return submitBatches(batchBytes).then((batchStats)=>{
+            // use batchStats for all transactions in this batch
+            let txStats = [];
+            for(let i = 0 ; i < args.length ; i++) {
+                let cloned = Object.assign({}, batchStats);
+                txStats.push(cloned);
+            }
+            return Promise.resolve(txStats);
+        });
+    }
+
+    /**
+     * Query state according to given name
+     * @param {object} context Sawtooth context
+     * @param {string} contractID The identity of the smart contract.
+     * @param {string} contractVer The version of the smart contract.
+     * @param {string} queryName Lookup name
+     * @return {Promise<object>} The promise for the result of the execution.
+     */
+    queryState(context, contractID, contractVer, queryName) {
+        return querybycontext(context, contractID, contractVer, queryName);
+    }
+
+    /**
+     * Calculate basic statistics of the execution results.
+     * Nothing to do now.
+     * @param {object} stats Unused.
+     * @param {object[]} results Unused.
+     */
+    getDefaultTxStats(stats, results) {
         // nothing to do now
-	}
+    }
 }
 
 module.exports = Sawtooth;
-
-const restApiUrl = 'http://127.0.0.1:8080'
-
-	function querybycontext(context, contractID, contractVer, name) {
-	const address = calculateAddress(contractID, name)
-	return getState(address)
-}
-
-function getState(address) {
-	var invoke_status = {
-			status       : 'created',
-			time_create  : Date.now(),
-			time_final   : 0,
-			result       : null
-	};
-
-	const stateLink = restApiUrl + '/state?address=' + address
-	var options = {
-			uri: stateLink
-	}
-	return request(options)
-	.then(function(body) {
-		let data = (JSON.parse(body))["data"]
-
-		if (data.length > 0) {
-			let stateDataBase64 = data[0]["data"]
-			let stateDataBuffer = new Buffer(stateDataBase64, 'base64')
-			let stateData = stateDataBuffer.toString('hex')
-
-			invoke_status.time_final = Date.now();
-			invoke_status.result     = stateData;
-			invoke_status.status     = 'success';
-			return Promise.resolve(invoke_status);
-		}
-		else {
-			throw new Error('no query responses');
-		}
-	})
-	.catch(function (err) {
-		console.log('Query failed, ' + (err.stack?err.stack:err));
-		return Promise.resolve(invoke_status);
-	})
-}
-
-function sleep(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function submitBatches(batchBytes) {
-	var invoke_status = {
-		id           : 0,
-		status       : 'created',
-		time_create  : Date.now(),
-		time_final   : 0,
-		time_endorse : 0,
-		time_order   : 0,
-		result       : null
-	};
-	const request = require('request-promise')
-	var options = {
-		method: 'POST',
-		url: restApiUrl + '/batches',
-		body: batchBytes,
-		headers: {'Content-Type': 'application/octet-stream'}
-	}
-	return request(options)	
-	.then(function (body) {
-		let link = JSON.parse(body).link
-		return getBatchStatus(link, invoke_status)
-	})
-	.catch(function (err) {
-		console.log('Submit batches failed, ' + (err.stack?err.stack:err))
-		return Promise.resolve(invoke_status);
-	})
-}
-
-var getIndex = 0
-function getBatchStatus(link, invoke_status) {
-	getIndex++
-	let statusLink = link
-	var intervalID = 0
-	var timeoutID = 0
-
-	var repeat = (ms, invoke_status) => {
-		return new Promise((resolve) => {
-			intervalID = setInterval(function(){					
-				return getBatchStatusByRequest(resolve, statusLink, invoke_status, intervalID, timeoutID)
-			}, ms)
-
-		})
-	}
-
-	var timeout = (ms, invoke_status) => {
-		return new Promise((resolve) => {
-			timeoutID = setTimeout(function(){
-				clearInterval(intervalID )
-				return resolve(invoke_status);
-			}, ms)
-		})
-	}
-
-
-	return  Promise.race([repeat(500, invoke_status), timeout(30000, invoke_status)])
-	.then(function () {
-		return Promise.resolve(invoke_status);
-	})
-	.catch(function(error) {
-		console.log('getBatchStatus error: ' + error)
-		return Promise.resolve(invoke_status);
-	})
-}
-
-var timeoutID = 0
-const request = require('request-promise')
-var requestIndex = 0
-
-function getBatchStatusByRequest(resolve, statusLink, invoke_status, intervalID, timeoutID) {
-	requestIndex++
-	var options = {
-		uri: statusLink
-	}
-	return request(options)
-	.then(function(body) {
-		let batchStatuses = JSON.parse(body).data
-		let hasPending = false
-		for (let index in batchStatuses){
-			let batchStatus = batchStatuses[index].status
-			if (batchStatus == 'PENDING'){
-				hasPending = true
-				break
-			}
-		}
-		if (hasPending != true){
-			invoke_status.status = 'success';
-			invoke_status.time_final = Date.now();
-			clearInterval(intervalID)
-			clearTimeout(timeoutID)
-			return resolve(invoke_status);
-		}
-	})
-	.catch(function (err) {
-		console.log(err)
-		return resolve(invoke_status);
-	})
-}
-
-function calculateAddress(family, name) {
-
-	const crypto = require('crypto')
-
-	const _hash = (x) =>
-	crypto.createHash('sha512').update(x).digest('hex').toLowerCase()
-
-	const INT_KEY_NAMESPACE = _hash(family).substring(0, 6)
-	let address = INT_KEY_NAMESPACE + _hash(name).slice(-64)
-	return address
-}
-
-function calculateAddresses(family, args) {
-	const crypto = require('crypto')
-
-	const _hash = (x) =>
-	crypto.createHash('sha512').update(x).digest('hex').toLowerCase()
-
-	const INT_KEY_NAMESPACE = _hash(family).substring(0, 6)
-	let addresses = []
-
-	for (let key in args){
-	    let address = INT_KEY_NAMESPACE + _hash(args[key]).slice(-64)
-		addresses.push(address)
-	}
-	return addresses
-}
-
-function createBatch(contractID, contractVer, addresses, args) {
-	const cbor =  require('cbor')
-	const {signer} = require('sawtooth-sdk')
-	const privateKey = signer.makePrivateKey()
-	const {TransactionEncoder} = require('sawtooth-sdk')
-
-
-	const encoder = new TransactionEncoder(privateKey, {
-		familyName: contractID,
-		familyVersion: contractVer,
-		inputs: addresses,
-		outputs: addresses,
-		payloadEncoding: 'application/cbor',
-		payloadEncoder: cbor.encode
-	})
-
-	const txn = encoder.create(args)
-
-	const {BatchEncoder} = require('sawtooth-sdk')
-	const batcher = new BatchEncoder(privateKey)
-
-	const batch = batcher.create([txn])
-	let link = restApiUrl + '/batch_status?id=' + batch.headerSignature 
-	const batchBytes = batcher.encode([batch])
-	return batchBytes
-}

@@ -3,25 +3,25 @@
  */
 rule EverybodyCanReadEverything {
     description: "Allow all participants read access to all resources"
-    participant: "org.acme.sample.SampleParticipant"
+    participant: "org.example.basic.SampleParticipant"
     operation: READ
-    resource: "org.acme.sample.*"
+    resource: "org.example.basic.*"
     action: ALLOW
 }
 
 rule EverybodyCanSubmitTransactions {
     description: "Allow all participants to submit transactions"
-    participant: "org.acme.sample.SampleParticipant"
+    participant: "org.example.basic.SampleParticipant"
     operation: CREATE
-    resource: "org.acme.sample.SampleTransaction"
+    resource: "org.example.basic.SampleTransaction"
     action: ALLOW
 }
 
 rule OwnerHasFullAccessToTheirAssets {
     description: "Allow all participants full access to their assets"
-    participant(p): "org.acme.sample.SampleParticipant"
+    participant(p): "org.example.basic.SampleParticipant"
     operation: ALL
-    resource(r): "org.acme.sample.SampleAsset"
+    resource(r): "org.example.basic.SampleAsset"
     condition: (r.owner.getIdentifier() === p.getIdentifier())
     action: ALLOW
 }

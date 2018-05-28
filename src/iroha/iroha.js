@@ -25,7 +25,7 @@ var txStatus =  require('iroha-lib/pb/endpoint_pb.js').TxStatus;
 var irohaType = require('./type.js');
 var fs = require('fs');
 var path = require('path');
-var sleep = require('../comm/sleep.js');
+var util = require('../comm/util.js');
 
 
 var contexts = {};
@@ -45,8 +45,8 @@ class Iroha extends BlockchainInterface{
 
     init() {
         // return Promise.resolve();
-        return sleep(10000); // wait for Iroha network to start up
-                            // TODO: how to judge iroha service's status elegantly?
+        return util.sleep(10000); // wait for iroha network to start up
+                                  // TODO: how to judge iroha service's status elegantly?
     }
 
     installSmartContract() {
@@ -132,7 +132,7 @@ class Iroha extends BlockchainInterface{
             return Promise.all(promises)
                     .then(()=>{
                         console.log('Submitted create account transactions.');
-                        return sleep(5000);
+                        return util.sleep(5000);
                     })
                     .then(()=>{
                         console.log('Query accounts to see if they already exist ......')
@@ -308,6 +308,15 @@ class Iroha extends BlockchainInterface{
     }
 
     invokeSmartContract(context, contractID, contractVer, args, timeout) {
+        let promises = [];
+        args.forEach((item, index)=>{
+            promises.push(this._invokeSmartContract(context, contractID, contractVer, item, timeout));
+        });
+        
+        return Promise.all(promises);
+    }
+
+    _invokeSmartContract(context, contractID, contractVer, args, timeout) {
         try {
             if(!context.contract.hasOwnProperty(contractID)) {
                 throw new Error('Could not find contract named ' + contractID);
@@ -326,6 +335,9 @@ class Iroha extends BlockchainInterface{
                 timeout      : timeout*1000,
                 result       : null
             };
+            if(context.engine) {
+                context.engine.submitCallback(1);
+            }
             var key;
             if(irohaType.commandOrQuery(commands[0].tx) === 0) {
                 p = new Promise((resolve, reject)=>{
@@ -384,6 +396,9 @@ class Iroha extends BlockchainInterface{
                 time_final   : 0,
                 result       : null
             };
+            if(context.engine) {
+                context.engine.submitCallback(1);
+            }
             return new Promise((resolve, reject)=>{
                 let counter = context.queryCounter;
                 context.queryCounter++;

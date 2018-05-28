@@ -48,6 +48,7 @@ function demoInit() {
 }
 module.exports.init = demoInit;
 
+// TODO: need to limit the maximum length for X-Axis
 function demoRefreshX() {
     var len = demoData.throughput.submitted.length;
     while(demoData.throughput.x.length < len) {
@@ -179,9 +180,9 @@ function demoStopWatch(output) {
     if(demoInterObj) {
         clearInterval(demoInterObj);
         demoInterObj = null;
-        update();
     }
     demoData.report = output;
+    update();
 }
 
 module.exports.stopWatch = demoStopWatch;

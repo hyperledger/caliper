@@ -6,14 +6,14 @@
 */
 
 
-'use strict'
+'use strict';
 
 function main() {
-    var path = require('path');
-    var fs = require('fs-extra');
-    var benchDir = path.join(__dirname, '../benchmark');
-    var benchmarks = fs.readdirSync(benchDir);
-    console.log('Available benchmarks:')
+    let path = require('path');
+    let fs = require('fs-extra');
+    let benchDir = path.join(__dirname, '../benchmark');
+    let benchmarks = fs.readdirSync(benchDir);
+    console.log('Available benchmarks:');
     benchmarks.forEach((item, index) => {
         let dir  = path.join(benchDir, item);
         let info = fs.statSync(dir);
@@ -22,7 +22,7 @@ function main() {
                 console.log(item);
             }
         }
-    })
+    });
 }
 
 main();

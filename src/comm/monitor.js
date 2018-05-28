@@ -3,34 +3,112 @@
 *
 * SPDX-License-Identifier: Apache-2.0
 *
-* @file, definition of the Monitor class, which is used to start/stop a monitor to watch the resource consumption
 */
 
 
-'use strict'
+'use strict';
 
-var table         = require('table');
+const table = require('table');
+const Util  = require('./util.js');
+const log   = Util.log;
 
-var Monitor = class {
-    constructor(config_path) {
-        this.configPath = config_path;
+/**
+* Get statistics(maximum, minimum, summation, average) of a number array
+* @param {Array} arr array of numbers
+* @return {JSON} JSON object as {max, min, total, avg}
+*/
+function getStatistics(arr) {
+    if(arr.length === 0) {
+        return {max : NaN, min : NaN, total : NaN, avg : NaN};
+    }
+
+    let max = arr[0], min = arr[0], total = arr[0];
+    for(let i = 1 ; i< arr.length ; i++) {
+        let value = arr[i];
+        if(value > max) {
+            max = value;
+        }
+        if(value < min) {
+            min = value;
+        }
+        total += value;
+    }
+
+    return {max : max, min : min, total : total, avg : total/arr.length};
+}
+
+/**
+* Normalize the value in byte
+* @param {Number} data value in byte
+* @return {String} value in string
+*/
+function byteNormalize(data) {
+    if(isNaN(data)) {
+        return '-';
+    }
+    let kb = 1024;
+    let mb = kb * 1024;
+    let gb = mb * 1024;
+    if(data < kb) {
+        return data.toString() + 'B';
+    }
+    else if(data < mb) {
+        return (data / kb).toFixed(1) + 'KB';
+    }
+    else if(data < gb) {
+        return (data / mb).toFixed(1) + 'MB';
+    }
+    else{
+        return (data / gb).toFixed(1) + 'GB';
+    }
+}
+
+/**
+* Cut down the string in case it's too long
+* @param {String} data input string
+* @return {String} normalized string
+*/
+function strNormalize(data) {
+    if(typeof data !== 'string' || data === null) {
+        return '-';
+    }
+
+    const maxLen = 30;
+    if(data.length <= maxLen) {
+        return data;
+    }
+
+    let newstr = data.slice(0,25) + '...' + data.slice(-5);
+    return newstr;
+}
+
+/**
+ * Monitor class, containing operations to watch resource consumption of specific destinations
+ */
+class Monitor {
+    /**
+     * Constructor
+     * @param {String} configPath path of the configuration file
+     */
+    constructor(configPath) {
+        this.configPath = configPath;
         this.started = false;
         this.peers = [];
         this.monitors = [];
     }
 
     /**
-    * start monitoring
-    * @return {Promise}
+    * start the monitor
+    * @return {Promise} promise object
     */
     start() {
-        var config = require(this.configPath);
-        var m = config.monitor;
+        const config = require(this.configPath);
+        const m = config.monitor;
         if(typeof m === 'undefined') {
             return Promise.reject(new Error('Failed to find monitor in config file'));
         }
 
-        var monitorTypes = m.type;
+        let monitorTypes = m.type;
         if(typeof m === 'undefined') {
             return Promise.reject(new Error('Failed to find monitor type in config file'));
         }
@@ -38,7 +116,7 @@ var Monitor = class {
             monitorTypes = [monitorTypes];
         }
 
-        var p;
+        let p;
         if(this.started === true) {
             p = this.stop();
         }
@@ -47,55 +125,51 @@ var Monitor = class {
         }
 
         return p.then(() => {
-            var promises = [];
+            let promises = [];
             monitorTypes.forEach( (type) => {
                 promises.push(new Promise((resolve, reject) => {
-                    let p = null;
+                    let promise = null;
                     if(type === 'docker') {     // monitor for local docker containers
-                        p = this._startDockerMonitor(m.docker, m.interval);
+                        promise = this._startDockerMonitor(m.docker, m.interval);
                     }
                     else if(type === 'process') {
-                        p = this._startProcessMonitor(m.process, m.interval);
+                        promise = this._startProcessMonitor(m.process, m.interval);
                     }
                     else {
-                        console.log('undefined monitor type: ' + type);
+                        log('undefined monitor type: ' + type);
                         return resolve();
                     }
-                    p.then((monitor)=>{
+                    promise.then((monitor)=>{
                         this.monitors.push(monitor);
                         resolve();
-                    })
-                    .catch((err)=>{
-                        console.log('start monitor ' + type + ' failed: ' + err);
+                    }).catch((err)=>{
+                        log('start monitor ' + type + ' failed: ' + err);
                         resolve();  // always return resolve for Promsie.all
                     });
                 }));
             });
             return Promise.all(promises);
-        })
-        .then(() => {
+        }).then(() => {
             this.started = true;
             return Promise.resolve();
-        })
-        .catch((err) => {
+        }).catch((err) => {
             return Promise.reject(err);
-        })
+        });
     }
 
     /**
-    * stop monitoring
-    * @return {Promise}
+    * stop the monitor
+    * @return {Promise} promise object
     */
     stop() {
         if( this.monitors.length > 0 && this.started === true) {
-            var promises = [];
+            let promises = [];
             this.monitors.forEach((monitor)=>{
                 promises.push(new Promise((resolve, reject) => {
                     monitor.stop().then(() => {
                         resolve();
-                    })
-                    .catch((err) => {
-                        console.log('stop monitor failed: ' + err);
+                    }).catch((err) => {
+                        log('stop monitor failed: ' + err);
                         resolve();
                     });
                 }));
@@ -105,9 +179,8 @@ var Monitor = class {
                 this.peers = [];
                 this.started  = false;
                 return Promise.resolve();
-            })
-            .catch((err)=>{
-                console.log('stop monitor failed: ' + err);
+            }).catch((err)=>{
+                log('stop monitor failed: ' + err);
                 this.monitors = [];
                 this.peers = [];
                 this.started  = false;
@@ -119,20 +192,19 @@ var Monitor = class {
     }
 
     /**
-    * restart monitoring, all the data recorded before will be cleared
-    * @return {Promise}
+    * restart the monitor, all data recorded internally will be cleared
+    * @return {Promise} promise object
     */
     restart() {
         if(this.monitors.length > 0 && this.started === true){
             this._readDefaultStats(false);
-            var promises = [];
+            let promises = [];
             this.monitors.forEach((monitor)=>{
                 promises.push(new Promise((resolve, reject) => {
                     monitor.restart().then(() => {
                         resolve();
-                    })
-                    .catch((err) => {
-                        console.log('restart monitor failed: ' + err);
+                    }).catch((err) => {
+                        log('restart monitor failed: ' + err);
                         resolve();
                     });
                 }));
@@ -140,28 +212,28 @@ var Monitor = class {
             return Promise.all(promises);
         }
 
-        return start();
+        return this.start();
     }
 
     /**
-    * print the default statistics
-    * @return {Array}, statistics table
+    * Get the default statistics table
+    * @return {Array} statistics table
     */
     getDefaultStats() {
         try {
             this._readDefaultStats(true);
 
             if(this.peers === null || this.peers.length === 0) {
-                console.log('Failed to read monitoring data');
+                log('Failed to read monitoring data');
                 return;
             }
 
-            var defaultTable = [];
-            var tableHead    = [];
+            let defaultTable = [];
+            let tableHead    = [];
             for(let i in this.peers[0].info) {
                 tableHead.push(i);
             }
-            var historyItems = this._getDefaultItems();
+            let historyItems = this._getDefaultItems();
             tableHead.push.apply(tableHead, historyItems);
 
             defaultTable.push(tableHead);
@@ -177,31 +249,31 @@ var Monitor = class {
             }
 
             return defaultTable;
-/*            var t = table.table(defaultTable, {border: table.getBorderCharacters('ramac')});
-            console.log('### resource stats ###');
-            console.log(t);*/
         }
         catch(err) {
-            console.log('Failed to read monitoring data, ' + (err.stack ? err.stack : err));
+            log('Failed to read monitoring data, ' + (err.stack ? err.stack : err));
             return [];
         }
     }
 
+    /**
+     * Print the maximum values of all watched items
+     */
     printMaxStats() {
         try {
             this._readDefaultStats(true);
 
             if(this.peers === null || this.peers.length === 0) {
-                console.log('Failed to read monitoring data');
+                log('Failed to read monitoring data');
                 return;
             }
 
-            var defaultTable = [];
-            var tableHead    = [];
+            let defaultTable = [];
+            let tableHead    = [];
             for(let i in this.peers[0].info) {
                 tableHead.push(i);
             }
-            var historyItems = this._getMaxItems();
+            let historyItems = this._getMaxItems();
             tableHead.push.apply(tableHead, historyItems);
 
             defaultTable.push(tableHead);
@@ -216,12 +288,12 @@ var Monitor = class {
                 defaultTable.push(row);
             }
 
-            var t = table.table(defaultTable, {border: table.getBorderCharacters('ramac')});
-            console.log('### resource stats (maximum) ###');
-            console.log(t);
+            let t = table.table(defaultTable, {border: table.getBorderCharacters('ramac')});
+            log('### resource stats (maximum) ###');
+            log(t);
         }
         catch(err) {
-            console.log('Failed to read monitoring data, ' + (err.stack ? err.stack : err));
+            log('Failed to read monitoring data, ' + (err.stack ? err.stack : err));
         }
     }
 
@@ -232,7 +304,7 @@ var Monitor = class {
     /**
     * read current statistics from monitor object and push the data into peers.history object
     * the history data will not be cleared until stop() is called, in other words, calling restart will not vanish the data
-    * @tmp {boolean}, =true, the data should only be stored in history temporarily
+    * @param {Boolean} tmp =true, the data should only be stored in history temporarily
     */
     _readDefaultStats(tmp) {
         if (this.peers.length === 0) {
@@ -240,7 +312,7 @@ var Monitor = class {
             {
                 let newPeers = this.monitors[i].getPeers();
                 newPeers.forEach((peer) => {
-                     peer['history'] = {
+                    peer.history = {
                         'Memory(max)' : [],
                         'Memory(avg)' : [],
                         'CPU(max)' : [],
@@ -248,8 +320,8 @@ var Monitor = class {
                         'Traffic In'  : [],
                         'Traffic Out' : []
                     };
-                    peer['isLastTmp'] = false;
-                    peer['monitor'] = this.monitors[i];
+                    peer.isLastTmp = false;
+                    peer.monitor = this.monitors[i];
                     this.peers.push(peer);
                 });
             }
@@ -284,11 +356,11 @@ var Monitor = class {
     }
 
     /**
-    * get names of default historical data
-    * @return {Array}
+    * Get names of default historical data
+    * @return {Array} array of names
     */
     _getDefaultItems() {
-        var items = [];
+        let items = [];
         for(let key in this.peers[0].history) {
             if(this.peers[0].history.hasOwnProperty(key)) {
                 items.push(key);
@@ -298,8 +370,8 @@ var Monitor = class {
     }
 
     /**
-    * get names of maximum related historical data
-    * @return {Array}
+    * Get names of maximum related historical data
+    * @return {Array} array of names
     */
     _getMaxItems() {
         return ['Memory(max)', 'CPU(max)', 'Traffic In','Traffic Out'];
@@ -307,23 +379,23 @@ var Monitor = class {
 
 
     /**
-    * get the last value of specific historical data
-    * @items {Array}, name of items
-    * @idx {Number}, peer index
-    * return {Array}, the normalized string values
+    * Get last values of specific historical data
+    * @param {Array} items names of the lookup items
+    * @param {Number} idx index of the lookup object
+    * @return {Array} normalized string values
     */
     _getLastHistoryValues(items, idx) {
-        var values = [];
+        let values = [];
         for(let i = 0 ; i < items.length ; i++) {
             let key = items[i];
             if (!this.peers[idx].history.hasOwnProperty(key)) {
-                console.log('could not find history object named ' + key);
+                log('could not find history object named ' + key);
                 values.push('-');
                 continue;
             }
             let length = this.peers[idx].history[key].length;
             if(length === 0) {
-                console.log('could not find history data of ' + key);
+                log('could not find history data of ' + key);
                 values.push('-');
                 continue;
             }
@@ -342,24 +414,24 @@ var Monitor = class {
         return values;
     }
 
-     /**
+    /**
     * get the maximum value of specific historical data
-    * @items {Array}, name of items
-    * @idx {Number}, peer index
-    * return {Array}, the normalized string values
+    * @param {Array} items names of the lookup items
+    * @param {Number} idx index of the lookup object
+    * @return {Array} array of normalized strings
     */
     _getMaxHistoryValues(items, idx) {
-        var values = [];
+        let values = [];
         for(let i = 0 ; i < items.length ; i++) {
             let key = items[i];
             if (!this.peers[idx].history.hasOwnProperty(key)) {
-                console.log('could not find history object named ' + key);
+                log('could not find history object named ' + key);
                 values.push('-');
                 continue;
             }
             let length = this.peers[idx].history[key].length;
             if(length === 0) {
-                console.log('could not find history data of ' + key);
+                log('could not find history data of ' + key);
                 values.push('-');
                 continue;
             }
@@ -378,104 +450,44 @@ var Monitor = class {
         return values;
     }
 
+    /**
+     * Start a monitor for docker containers
+     * @param {JSON} args lookup filter
+     * @param {Number} interval read interval, in second
+     * @return {Promise} promise object
+     */
     _startDockerMonitor(args, interval) {
         if(typeof args === 'undefined') {
-            args = {'name': ["all"]};
+            args = {'name': ['all']};
         }
         if(typeof interval === 'undefined') {
             interval = 1;
         }
 
-        var DockerMonitor = require('./monitor-docker.js');
-        var monitor = new DockerMonitor(args, interval);
+        let DockerMonitor = require('./monitor-docker.js');
+        let monitor = new DockerMonitor(args, interval);
         return monitor.start().then(()=>{
             return Promise.resolve(monitor);
-        })
-        .catch((err)=>{
+        }).catch((err)=>{
             return Promise.reject(err);
         });
     }
 
+    /**
+     * Start a monitor for local processes
+     * @param {JSON} args lookup filter
+     * @param {Number} interval read interval, in second
+     * @return {Promise} promise object
+     */
     _startProcessMonitor(args, interval) {
-        var ProcessMonitor = require('./monitor-process.js');
-        var monitor = new ProcessMonitor(args, interval);
+        let ProcessMonitor = require('./monitor-process.js');
+        let monitor = new ProcessMonitor(args, interval);
         return monitor.start().then(()=>{
             return Promise.resolve(monitor);
-        })
-        .catch((err)=>{
+        }).catch((err)=>{
             return Promise.reject(err);
         });
     }
 }
 
 module.exports = Monitor;
-
-/**
-* get the maximum,minimum,total, average value from a number array
-* @arr {Array}
-* @return {Object}
-*/
-function getStatistics(arr) {
-    if(arr.length === 0) {
-        return {max : NaN, min : NaN, total : NaN, avg : NaN};
-    }
-
-    var max = arr[0], min = arr[0], total = arr[0];
-    for(let i = 1 ; i< arr.length ; i++) {
-        let value = arr[i];
-        if(value > max) {
-            max = value;
-        }
-        if(value < min) {
-            min = value;
-        }
-        total += value;
-    }
-
-    return {max : max, min : min, total : total, avg : total/arr.length};
-}
-
-/**
-* Normalize the byte number
-* @data {Number}
-* @return {string}
-*/
-function byteNormalize(data) {
-    if(isNaN(data)) {
-        return '-';
-    }
-    var kb = 1024;
-    var mb = kb * 1024;
-    var gb = mb * 1024;
-    if(data < kb) {
-        return data.toString() + 'B';
-    }
-    else if(data < mb) {
-        return (data / kb).toFixed(1) + 'KB';
-    }
-    else if(data < gb) {
-        return (data / mb).toFixed(1) + 'MB';
-    }
-    else{
-        return (data / gb).toFixed(1) + 'GB';
-    }
-}
-
-/**
-* Cut down the string in case it's too long
-* @data {string}
-* @return {string}
-*/
-function strNormalize(data) {
-    if(typeof data !== 'string' || data === null) {
-        return '-';
-    }
-
-    const maxLen = 30;
-    if(data.length <= maxLen) {
-        return data;
-    }
-
-    var newstr = data.slice(0,25) + '...' + data.slice(-5);
-    return newstr;
-}

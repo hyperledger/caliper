@@ -12,21 +12,25 @@
  * limitations under the License.
  */
 
+/* global getFactory getParticipantRegistry getAssetRegistry */
+
+'use strict';
+
 /**
  * Setup the demo
  * @param {org.acme.vehicle.lifecycle.SetupDemo} setupDemo - the SetupDemo transaction
  * @transaction
  */
-function setupDemo(setupDemo) {
-    console.log('setupDemo');
+async function setupDemo(setupDemo) { // eslint-disable-line no-unused-vars
+    console.log('setupDemo'); // eslint-disable-line no-console
 
-    var factory = getFactory();
-    var NS_M = 'org.acme.vehicle.lifecycle.manufacturer';
-    var NS = 'org.acme.vehicle.lifecycle';
-    var NS_D = 'org.vda';
+    const factory = getFactory();
+    const NS_M = 'org.acme.vehicle.lifecycle.manufacturer';
+    const NS = 'org.acme.vehicle.lifecycle';
+    const NS_D = 'org.vda';
 
-    var names = ['dan', 'simon', 'jake', 'anastasia', 'matthew', 'mark', 'fenglian', 'sam', 'james', 'nick', 'caroline', 'rachel', 'john', 'rob', 'tom', 'paul', 'ed', 'dave', 'anthony', 'toby', 'ant', 'matt', 'anna'];
-    var vehicles = {
+    const names = ['dan', 'simon', 'jake', 'anastasia', 'matthew', 'mark', 'fenglian', 'sam', 'james', 'nick', 'caroline', 'rachel', 'john', 'rob', 'tom', 'paul', 'ed', 'dave', 'anthony', 'toby', 'ant', 'matt', 'anna'];
+    const vehicles = {
         'Arium': {
             'Nova': [
                 {
@@ -42,40 +46,40 @@ function setupDemo(setupDemo) {
                     'vehicleStatus': 'ACTIVE'
                 }
             ]
-        }, 
+        },
         'Morde': {
             'Putt': [
                 {
-                    'vin': '6437956437', 
+                    'vin': '6437956437',
                     'colour': 'black',
-                    'vehicleStatus': 'ACTIVE', 
+                    'vehicleStatus': 'ACTIVE',
                     'suspiciousMessage': 'Mileage anomaly'
                 },
                 {
-                    'vin': '857642213', 
+                    'vin': '857642213',
                     'colour': 'red',
                     'vehicleStatus': 'ACTIVE'
                 },
                 {
-                    'vin': '542376495', 
+                    'vin': '542376495',
                     'colour': 'silver',
                     'vehicleStatus': 'ACTIVE'
                 }
             ],
             'Pluto': [
                 {
-                    'vin': '976431649', 
+                    'vin': '976431649',
                     'colour': 'white',
                     'vehicleStatus': 'ACTIVE'
                 },
                 {
-                    'vin': '564215468', 
+                    'vin': '564215468',
                     'colour': 'green',
-                    'vehicleStatus': 'ACTIVE', 
+                    'vehicleStatus': 'ACTIVE',
                     'suspiciousMessage': 'Insurance write-off but still active'
                 },
                 {
-                    'vin': '784512464', 
+                    'vin': '784512464',
                     'colour': 'grey',
                     'vehicleStatus': 'ACTIVE'
                 }
@@ -91,109 +95,89 @@ function setupDemo(setupDemo) {
                 {
                     'vin': '312457645',
                     'colour': 'white',
-                    'vehicleStatus': 'ACTIVE', 
+                    'vehicleStatus': 'ACTIVE',
                     'suspiciousMessage': 'Suspicious ownership sequence'
                 },
                 {
                     'vin': '65235647',
                     'colour': 'silver',
-                    'vehicleStatus': 'ACTIVE', 
+                    'vehicleStatus': 'ACTIVE',
                     'suspiciousMessage': 'Untaxed vehicle'
                 }
-            ], 
+            ],
             'Rancher': [
                 {
                     'vin': '85654575',
                     'colour': 'blue',
                     'vehicleStatus': 'ACTIVE'
-                }, 
+                },
                 {
                     'vin': '326548754',
                     'colour': 'white',
-                    'vehicleStatus': 'ACTIVE', 
+                    'vehicleStatus': 'ACTIVE',
                     'suspiciousMessage': 'Uninsured vehicle'
                 }
             ]
         }
     };
-    
-    var manufacturers = [];
-    var privateOwners = [];
 
-    for (var name in vehicles) {
-        var manufacturer = factory.newResource(NS_M, 'Manufacturer', name);
-        manufacturers.push(manufacturer);
-    }
+    // register manufacturers
+    const manufacturers = Object.keys(vehicles).map(name => {
+        return factory.newResource(NS_M, 'Manufacturer', name);
+    });
+    const manufacturerRegistry = await getParticipantRegistry(NS_M + '.Manufacturer');
+    await manufacturerRegistry.addAll(manufacturers);
 
-   for(var i=0; i<names.length; i++) {
-       var name = names[i];
-       var privateOwner = factory.newResource(NS, 'PrivateOwner', name);
-       privateOwners.push(privateOwner);
-   }
+    // register private owners
+    const privateOwners = names.map(name => {
+        return factory.newResource(NS, 'PrivateOwner', name);
+    });
+    const privateOwnerRegistry = await getParticipantRegistry(NS + '.PrivateOwner');
+    await privateOwnerRegistry.addAll(privateOwners);
 
-    var regulator = factory.newResource(NS, 'Regulator', 'regulator');
+    // register regulator
+    const regulator = factory.newResource(NS, 'Regulator', 'regulator');
+    const regulatorRegistry = await getParticipantRegistry(NS + '.Regulator');
+    await regulatorRegistry.add(regulator);
 
+    // register vehicles
+    const vs = [];
+    let carCount = 0;
+    for (const mName in vehicles) {
+        const manufacturer = vehicles[mName];
+        for (const mModel in manufacturer) {
+            const model = manufacturer[mModel];
+            for (let i = 0; i < model.length; i++) {
+                const vehicleTemplate = model[i];
+                const vehicle = factory.newResource(NS_D, 'Vehicle', vehicleTemplate.vin);
+                vehicle.owner = factory.newRelationship(NS, 'PrivateOwner', names[carCount]);
+                vehicle.vehicleStatus = vehicleTemplate.vehicleStatus;
+                vehicle.vehicleDetails = factory.newConcept(NS_D, 'VehicleDetails');
+                vehicle.vehicleDetails.make = mName;
+                vehicle.vehicleDetails.modelType = mModel;
+                vehicle.vehicleDetails.colour = vehicleTemplate.colour;
+                vehicle.vehicleDetails.vin = vehicleTemplate.vin;
 
-    var privateOwnerRegistry;
-    var vehicleRegistry;
-
-    return getParticipantRegistry(NS + '.Regulator')
-        .then(function(regulatorRegistry) {
-            return regulatorRegistry.add(regulator);
-        })
-        .then(function() {
-            return getParticipantRegistry(NS_M + '.Manufacturer');
-        })
-        .then(function(manufacturerRegistry) {
-            return manufacturerRegistry.addAll(manufacturers);
-        })
-        .then(function() {
-            return getParticipantRegistry(NS + '.PrivateOwner');
-        })
-        .then(function(privateOwnerRegistry) {
-            return privateOwnerRegistry.addAll(privateOwners);
-        })
-        .then(function() {
-            return getAssetRegistry(NS_D + '.Vehicle');
-        })
-        .then(function(vehicleRegistry) {
-            var vs = [];
-            var carCount = 0;
-            for (var mName in vehicles) {
-                var manufacturer = vehicles[mName];
-                for (var mModel in manufacturer) {
-                    var model = manufacturer[mModel];
-                    for(var i=0; i<model.length; i++) {
-                        var vehicleTemplate = model[i];
-                        var vehicle = factory.newResource(NS_D, 'Vehicle', vehicleTemplate.vin);
-                        vehicle.owner = factory.newRelationship(NS, 'PrivateOwner', names[carCount]);
-                        vehicle.vehicleStatus = vehicleTemplate.vehicleStatus;
-                        vehicle.vehicleDetails = factory.newConcept(NS_D, 'VehicleDetails');
-                        vehicle.vehicleDetails.make = mName; 
-                        vehicle.vehicleDetails.modelType = mModel; 
-                        vehicle.vehicleDetails.colour = vehicleTemplate.colour; 
-                        vehicle.vehicleDetails.vin = vehicleTemplate.vin;
-
-                        if (vehicleTemplate.suspiciousMessage) {
-                            vehicle.suspiciousMessage = vehicleTemplate.suspiciousMessage;
-                        }
-
-                        if (!vehicle.logEntries) {
-                            vehicle.logEntries = [];
-                        }
-
-                        var logEntry = factory.newConcept(NS_D, 'VehicleTransferLogEntry');
-                        logEntry.vehicle = factory.newRelationship(NS_D, 'Vehicle', vehicleTemplate.vin);
-                        logEntry.buyer = factory.newRelationship(NS, 'PrivateOwner', names[carCount]);
-                        logEntry.timestamp = setupDemo.timestamp
-
-                        vehicle.logEntries.push(logEntry);
-
-                        vs.push(vehicle);
-                        carCount++;
-                    }
+                if (vehicleTemplate.suspiciousMessage) {
+                    vehicle.suspiciousMessage = vehicleTemplate.suspiciousMessage;
                 }
+
+                if (!vehicle.logEntries) {
+                    vehicle.logEntries = [];
+                }
+
+                const logEntry = factory.newConcept(NS_D, 'VehicleTransferLogEntry');
+                logEntry.vehicle = factory.newRelationship(NS_D, 'Vehicle', vehicleTemplate.vin);
+                logEntry.buyer = factory.newRelationship(NS, 'PrivateOwner', names[carCount]);
+                logEntry.timestamp = setupDemo.timestamp;
+
+                vehicle.logEntries.push(logEntry);
+
+                vs.push(vehicle);
+                carCount++;
             }
-            return vehicleRegistry.addAll(vs);
-        });
+        }
+    }
+    const vehicleRegistry = await getAssetRegistry(NS_D + '.Vehicle');
+    await vehicleRegistry.addAll(vs);
 }

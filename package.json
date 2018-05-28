@@ -3,16 +3,19 @@
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Huawei-OSG/caliper"
+    "url": "https://github.com/hyperledger/caliper"
   },
   "scripts": {
-    "test": "node ./scripts/test.js",
+    "test": "npm run lint && npm run nyc && npm run e2e",
+    "nyc": "nyc mocha --recursive -t 10000",
+    "e2e": "node ./scripts/test.js",
+    "lint": "eslint .",
     "list": "node ./scripts/list.js",
     "startclient": "node ./src/comm/client/zoo-client.js"
   },
   "engines": {
     "node": ">=8.10.0",
-    "npm": ">=5.5.0"
+    "npm": ">=5.6.0"
   },
   "engine-strict": true,
   "engineStrict": true,
@@ -35,6 +38,48 @@
     "table": "^4.0.1",
     "tape": "^4.8.0",
     "tape-promise": "^1.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^4.19.1",
+    "mocha": "3.4.2",
+    "nyc": "11.1.0",
+    "rewire": "^4.0.0",
+    "sinon": "2.3.8"
+  },
+  "optionalDependencies": {
+    "ajv": "^6.0.0"
+  },
+  "nyc": {
+    "exclude": [
+      "benchmark/**",
+      "docs/**",
+      "network/**",
+      "coverage/**",
+      "src/comm/*.js",
+      "src/comm/client/**",
+      "src/comm/rate-control/pidRate.js",
+      "src/comm/rate-control/rateControl.js",
+      "src/comm/rate-control/rateInterface.js",
+      "src/composer/**",
+      "src/contract/**",
+      "src/fabric/**",
+      "src/gui/**",
+      "src/iroha/**",
+      "src/sawtooth/**",
+      "scripts/**",
+      "test/**"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "all": true,
+    "check-coverage": true,
+    "statements": 100,
+    "branches": 100,
+    "functions": 100,
+    "lines": 100
   },
   "license": "Apache-2.0",
   "licenses": [
