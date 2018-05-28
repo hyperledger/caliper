@@ -7,9 +7,9 @@
 */
 
 
-'use strict'
+'use strict';
 
-var txType =  {
+const txType =  {
     // commands
     ADD_ASSET_QUANTITY : {type:'command', fn:'addAssetQuantity', argslen: 3},
     ADD_PEER : {type:'command', fn:'addPeer', argslen: 2},
@@ -41,10 +41,10 @@ var txType =  {
 module.exports.txType = txType;
 
 /**
-* judge whether the type is a command type or query type
-* @type {Number}
-* @return {Number}, 0: command; 1: query
-*/
+ * Judge whether the type is a command type or query type.
+ * @param {*} tx transaction or query object
+ * @return {Number}, 0: command; 1: query
+ */
 module.exports.commandOrQuery = function (tx) {
     if(tx.type === 'command') {
         return 0;
@@ -52,5 +52,4 @@ module.exports.commandOrQuery = function (tx) {
     else {
         return 1;
     }
-}
-
+};

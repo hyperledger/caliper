@@ -22,8 +22,3 @@ node_modules
 
 # Plugins
 /src/gui
-/src/iroha
-
-# Contracts for plugins
-/src/contract/iroha
-
