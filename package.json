@@ -9,7 +9,7 @@
     "test": "npm run lint && npm run nyc && npm run e2e",
     "nyc": "nyc mocha --recursive -t 10000",
     "e2e": "node ./scripts/test.js",
-    "lint": "eslint .",
+    "lint": "npx eslint .",
     "list": "node ./scripts/list.js",
     "startclient": "node ./src/comm/client/zoo-client.js"
   },
