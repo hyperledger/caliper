@@ -9,6 +9,7 @@
 
 'use strict';
 
+const util = require('../../../comm/util.js');
 const irohaType = require('../../../iroha/type.js');
 
 const open = function(context, domain, money) {
@@ -49,7 +50,7 @@ const simple = function(version, context, args) {
         }
     }
     catch(err){
-        console.log(err); // eslint-disable-line no-console
+        util.log(err);
         return [];
     }
 };

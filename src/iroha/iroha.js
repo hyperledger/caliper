@@ -6,7 +6,6 @@
 * @file, definition of the Iroha class, which implements the Caliper's NBI for Hyperledger Iroha.
 */
 
-/* eslint-disable no-console */
 
 'use strict';
 
@@ -90,12 +89,12 @@ function irohaCommand(client, account, time, keys, commands) {
                 return Promise.resolve(txHash);
             })
             .catch((err)=>{
-                console.warn(err);
+                util.log(err);
                 return Promise.reject('Failed to submit Iroha transaction');
             });
     }
     catch(err) {
-        console.warn(err);
+        util.log(err);
         return Promise.reject('Failed to submit Iroha transaction');
     }
 }
@@ -135,7 +134,7 @@ function irohaQuery(client, account, time, counter, keys, commands, callback) {
                 }
                 else {
                     if(response.getResponseCase() === responseType.ERROR_RESPONSE) { // error response
-                        console.warn('Query: ', JSON.stringify(queryCommand));
+                        util.log('Query: ', JSON.stringify(queryCommand));
                         reject(new Error('Query error, error code : ' + response.getErrorResponse().getReason()));
                     }
                     else {
@@ -147,7 +146,7 @@ function irohaQuery(client, account, time, counter, keys, commands, callback) {
         });
     }
     catch(err) {
-        console.warn(err);
+        util.log(err);
         return Promise.reject('Failed to submit iroha query');
     }
 }
@@ -175,7 +174,7 @@ class Iroha extends BlockchainInterface {
 
     prepareClients(number) {
         try{
-            console.log('Creating new account for test clients......');
+            util.log('Creating new account for test clients......');
 
             // get admin info
             let config = require(this.configPath);
@@ -189,8 +188,8 @@ class Iroha extends BlockchainInterface {
             let adminKeys    = crypto.convertFromExisting(adminPub, adminPriv);
 
             // test
-            console.log(`Admin's private key: ${adminPriv}`);
-            console.log(`Admin's public key: ${adminPub}`);
+            util.log(`Admin's private key: ${adminPriv}`);
+            util.log(`Admin's public key: ${adminPub}`);
 
             // create account for each client
             let result = [];
@@ -239,18 +238,18 @@ class Iroha extends BlockchainInterface {
                     tx: irohaType.txType.APPEND_ROLE,
                     args: [id, 'moneyad']
                 },];
-                console.log('Create account for ' + id);
+                util.log('Create account for ' + id);
                 let p = irohaCommand(grpcCommandClient, adminAccount, Date.now(), adminKeys, commands);
                 promises.push(p);
             }
             let queryCounter = 1;
             return Promise.all(promises)
                 .then(()=>{
-                    console.log('Submitted create account transactions.');
+                    util.log('Submitted create account transactions.');
                     return util.sleep(5000);
                 })
                 .then(()=>{
-                    console.log('Query accounts to see if they already exist ......');
+                    util.log('Query accounts to see if they already exist ......');
                     let promises = [];
                     for(let i = 0 ; i < result.length ; i++) {
                         let acc = result[i];
@@ -266,12 +265,12 @@ class Iroha extends BlockchainInterface {
                                 }],
                                 (response) => {
                                     let accountResp = response.getAccountResponse();
-                                    console.log('Got account successfully: ' + accountResp.getAccount().getAccountId());
+                                    util.log('Got account successfully: ' + accountResp.getAccount().getAccountId());
                                     resolve();
                                 }
                             )
                                 .catch((err)=>{
-                                    console.warn(err);
+                                    util.log(err);
                                     reject(new Error('Failed to query account'));
                                 });
                         });
@@ -281,7 +280,7 @@ class Iroha extends BlockchainInterface {
                     return Promise.all(promises);
                 })
                 .then(()=>{
-                    console.log('Finished create accounts, save key pairs for later use');
+                    util.log('Finished create accounts, save key pairs for later use');
                     return Promise.resolve(result);
                 })
                 .catch(()=>{
@@ -289,7 +288,7 @@ class Iroha extends BlockchainInterface {
                 });
         }
         catch (err) {
-            console.warn(err);
+            util.log(err);
             return Promise.reject(new Error('Could not create accounts for Iroha clients'));
         }
     }
@@ -330,7 +329,7 @@ class Iroha extends BlockchainInterface {
                         }
                         else {
                             if(fakeContracts.hasOwnProperty(id)) {
-                                console.log('WARNING: multiple callbacks for ' + id + ' have been found');
+                                util.log('WARNING: multiple callbacks for ' + id + ' have been found');
                             }
                             else {
                                 fakeContracts[id] = factory.contracts[id];
@@ -355,7 +354,7 @@ class Iroha extends BlockchainInterface {
                         let status = item.status;
                         let timeElapse =  Date.now() - status.time_create;
                         if(timeElapse > status.timeout) {
-                            console.log('Timeout when querying transaction\'s status');
+                            util.log('Timeout when querying transaction\'s status');
                             status.status = 'failed';
                             status.final  = Date.now();
                             item.resolve(status);
@@ -370,7 +369,7 @@ class Iroha extends BlockchainInterface {
                                 item.isquery = false;
                                 let final = false;
                                 if(err) {
-                                    console.warn(err);
+                                    util.log(err);
                                     status.status = 'failed';
                                     final = true;
                                 }
@@ -408,7 +407,7 @@ class Iroha extends BlockchainInterface {
             return Promise.resolve(contexts[args.id]);
         }
         catch (err) {
-            console.warn(err);
+            util.log(err);
             return Promise.reject(new Error('Failed when finding access point or user key'));
         }
     }
@@ -477,7 +476,7 @@ class Iroha extends BlockchainInterface {
                         }
                     )
                         .catch((err)=>{
-                            console.warn(err);
+                            util.log(err);
                             status.status = 'failed';
                             status.time_final = Date.now();
                             resolve(status);
@@ -488,7 +487,7 @@ class Iroha extends BlockchainInterface {
             return p;
         }
         catch(err) {
-            console.warn(err);
+            util.log(err);
             return Promise.reject();
         }
     }
@@ -524,7 +523,7 @@ class Iroha extends BlockchainInterface {
                     }
                 )
                     .catch((err)=>{
-                        console.warn(err);
+                        util.log(err);
                         status.status = 'failed';
                         status.time_final = Date.now();
                         resolve(status);
@@ -532,7 +531,7 @@ class Iroha extends BlockchainInterface {
             });
         }
         catch(err) {
-            console.warn(err);
+            util.log(err);
             return Promise.reject();
         }
     }
