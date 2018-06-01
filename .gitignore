@@ -3,6 +3,8 @@ architecture.pptx
 *.bak
 zookeeper.out
 node_modules/*
+package-lock.json
+output.log
 
 # Ignore any generted html files
 *.html
@@ -16,3 +18,9 @@ composer-logs/
 # Ignore code coverage logs
 .nyc_output/
 coverage/
+
+# Ignore zookeeper files
+zookeeper.out
+
+# Ignore IDE files
+.vscode/*
