@@ -100,22 +100,46 @@ class Fabric extends BlockchainInterface{
     }
 
     /**
-     * Invoke the given chaincode according to the specified options.
+     * Invoke the given chaincode according to the specified options. Multiple transactions will be generated according to the length of args.
      * @param {object} context The Fabric context returned by {getContext}.
      * @param {string} contractID The name of the chaincode.
      * @param {string} contractVer The version of the chaincode.
-     * @param {Array} args array of JSON formatted arguments for multiple transactions
+     * @param {Array} args Array of JSON formatted arguments for transaction(s). Each element containts arguments (including the function name) passing to the chaincode. JSON attribute named transaction_type is used by default to specify the function name. If the attribute does not exist, the first attribute will be used as the function name.
      * @param {number} timeout The timeout to set for the execution in seconds.
      * @return {Promise<object>} The promise for the result of the execution.
      */
     invokeSmartContract(context, contractID, contractVer, args, timeout) {
         let promises = [];
         args.forEach((item, index)=>{
-            let simpleArgs = [];
-            for(let key in item) {
-                simpleArgs.push(item[key]);
+            try {
+                let simpleArgs = [];
+                let func;
+                for(let key in item) {
+                    if(key === 'transaction_type') {
+                        func = item[key].toString();
+                    }
+                    else {
+                        simpleArgs.push(item[key].toString());
+                    }
+                }
+                if(func) {
+                    simpleArgs.splice(0, 0, func);
+                }
+                promises.push(e2eUtils.invokebycontext(context, contractID, contractVer, simpleArgs, timeout));
             }
-            promises.push(e2eUtils.invokebycontext(context, contractID, contractVer, simpleArgs, timeout));
+            catch(err) {
+                commUtils.log(err);
+                let badResult = {
+                    id: 'unknown',
+                    status: 'failed',
+                    time_create: Date.now(),
+                    time_final: Date.now(),
+                    time_endorse: 0,
+                    time_order: 0,
+                    result: null,
+                };
+                promises.push(Promise.resolve(badResult));
+            }
         });
         return Promise.all(promises);
     }
@@ -130,7 +154,7 @@ class Fabric extends BlockchainInterface{
      */
     queryState(context, contractID, contractVer, key) {
         // TODO: change string key to general object
-        return e2eUtils.querybycontext(context, contractID, contractVer, key);
+        return e2eUtils.querybycontext(context, contractID, contractVer, key.toString());
     }
 
     /**
