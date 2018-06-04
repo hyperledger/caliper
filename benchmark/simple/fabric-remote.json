@@ -89,7 +89,7 @@
     }
   },
   "info" : {
-    "Version": "1.0.5",
+    "Version": "1.1.0",
     "Size": "4 Peers",
     "Orderer": "Solo",
     "Distribution": "Single Host"
