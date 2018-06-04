@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  iroha_node0:
-    image: hyperledger/iroha-docker@sha256:b82a24eee7cc4215bf70d9f79acab8b817e4cf36cc9f87c1c63202dca552cf0f
+  iroha-node0:
+    image: hyperledger/iroha@sha256:b26333a7fdd12f6bb31f159d65f67c380c22e8d88b10d2cc6ed89541ebc7798e
     container_name: iroha_node0
     ports:
       - "50051:50051"
@@ -13,11 +13,8 @@ services:
       - IROHA_POSTGRES_PORT=5432
       - IROHA_POSTGRES_USER=iroha
       - IROHA_POSTGRES_PASSWORD=helloworld
-      - IROHA_REDIS_HOST=iroha_redis
-      - IROHA_REDIS_PORT=6379
       - CCACHE_DIR=/tmp/ccache
     depends_on:
-      - iroha_redis0
       - iroha_pg0
     entrypoint: ["../wait-for-it.sh", "iroha_pg0:5432", "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", "--config", "/opt/iroha/node0/config.sample", "--keypair_name", "node0"]
     tty: true
@@ -28,8 +25,8 @@ services:
     cap_add:
       - SYS_PTRACE
 
-  iroha_node1:
-    image: hyperledger/iroha-docker@sha256:b82a24eee7cc4215bf70d9f79acab8b817e4cf36cc9f87c1c63202dca552cf0f
+  iroha-node1:
+    image: hyperledger/iroha@sha256:b26333a7fdd12f6bb31f159d65f67c380c22e8d88b10d2cc6ed89541ebc7798e
     container_name: iroha_node1
     ports:
       - "50052:50051"
@@ -40,12 +37,9 @@ services:
       - IROHA_POSTGRES_PORT=5432
       - IROHA_POSTGRES_USER=iroha
       - IROHA_POSTGRES_PASSWORD=helloworld
-      - IROHA_REDIS_HOST=iroha_redis1
-      - IROHA_REDIS_PORT=6379
       - KEY=node1
       - CCACHE_DIR=/tmp/ccache
     depends_on:
-      - iroha_redis1
       - iroha_pg1
     entrypoint: ["../wait-for-it.sh", "iroha_pg1:5432", "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", "--config", "/opt/iroha/node1/config.sample", "--keypair_name", "node1"]
     tty: true
@@ -56,20 +50,12 @@ services:
     cap_add:
       - SYS_PTRACE
 
-  iroha_redis0:
-    image: redis:3.2.8
-    container_name: iroha_redis0
-
   iroha_pg0:
     image: postgres:9.5
     container_name: iroha_pg0
     environment:
       - POSTGRES_USER=iroha
       - IROHA_POSTGRES_PASSWORD=helloworld
-
-  iroha_redis1:
-    image: redis:3.2.8
-    container_name: iroha_redis1
 
   iroha_pg1:
     image: postgres:9.5

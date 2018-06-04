@@ -19,6 +19,9 @@ composer-logs/
 .nyc_output/
 coverage/
 
+# We prefer to not use lock files
+package-lock.json
+
 # Ignore zookeeper files
 zookeeper.out
 

@@ -9,7 +9,7 @@
     "test": "npm run lint && npm run nyc && npm run e2e",
     "nyc": "nyc mocha --recursive -t 10000",
     "e2e": "node ./scripts/test.js",
-    "lint": "eslint .",
+    "lint": "npx eslint .",
     "list": "node ./scripts/list.js",
     "startclient": "node ./src/comm/client/zoo-client.js"
   },
@@ -24,7 +24,8 @@
     "commander": "^2.11.0",
     "dockerode": "^2.5.0",
     "fs-extra": "^4.0.2",
-    "grpc": "1.10.1",
+    "grpc": "^1.12.2",
+    "iroha-lib": "^0.1.1",
     "jsrsasign": "^8.0.4",
     "mustache": "^2.3.0",
     "node-zookeeper-client": "^0.2.2",
