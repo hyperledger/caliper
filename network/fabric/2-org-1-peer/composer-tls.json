@@ -1,28 +1,29 @@
 {  
   "composer": {
     "chaincodes": [{"id": "basic-sample-network", "version": "0.1.0", "path": "contract/composer", "orgs": ["Org1", "Org2"], "loglevel": "INFO"}],
-    "cryptodir": "network/fabric-v11/config/crypto-config",
+    "cryptodir": "network/fabric/config/crypto-config",
     "network": {
       "x-type" : "hlfv1",
       "timeout": 3000,
       "version": "1.0.0",
-      "tls": false,
+      "tls": true,
       "orderers": {
         "orderer.example.com": {
-          "url": "grpc://localhost:7050",
+          "url": "grpcs://localhost:7050",
           "mspid": "OrdererMSP",
           "mspconfig": "/etc/hyperledger/msp/orderer/tls/ca.crt",
+          "cert": "/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt",
           "hostname": "orderer.example.com",
           "hosturl": "orderer.example.com:7050"
         }
       },
       "certificateAuthorities": {
         "ca.org1.example.com": {
-          "url": "http://localhost:7054",
+          "url": "https://localhost:7054",
           "name": "ca.org1.example.com"
         },
         "ca.org2.example.com": {
-          "url": "http://localhost:8054",
+          "url": "https://localhost:8054",
           "name": "ca.org2.example.com"
         }
       },
@@ -56,17 +57,19 @@
       ],
       "peers": {
         "peer0.org1.example.com": {
-          "url": "grpc://localhost:7051",
-          "eventUrl": "grpc://localhost:7053",
-          "hostname": "peer0.org1.example.com",          
+          "url": "grpcs://localhost:7051",
+          "eventUrl": "grpcs://localhost:7053",
+          "hostname": "peer0.org1.example.com",
+          "cert" : "/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt",
           "channels":[
             "mychannel"
           ]
         },
         "peer0.org2.example.com": {
-          "url": "grpc://localhost:8051",
-          "eventUrl": "grpc://localhost:8053",
+          "url": "grpcs://localhost:8051",
+          "eventUrl": "grpcs://localhost:8053",
           "hostname": "peer0.org2.example.com",
+          "cert" : "/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt",
           "channels":[
             "mychannel"
           ]
@@ -76,6 +79,7 @@
         "mychannel": {
           "config": "/etc/hyperledger/configtx/mychannel.tx",          
           "mspconfig": "/etc/hyperledger/msp/users/Admin@org1.example.com/msp",
+          "cafile": "/etc/hyperledger/msp/orderer/tls/ca.crt",
           "orderers": [
             "orderer.example.com"
           ],

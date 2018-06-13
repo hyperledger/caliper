@@ -1,10 +1,10 @@
 {  
   "composer": {
-    "chaincodes": [{"id": "basic-sample-network", "version": "0.1.0", "path": "contract/composer", "orgs": ["Org1", "Org2", "Org3"], "loglevel": "INFO"}],
-    "cryptodir": "network/fabric-v11/config/crypto-config",
+    "chaincodes": [{"id": "basic-sample-network", "version": "0.1.0", "path": "contract/composer", "orgs": ["Org1", "Org2"], "loglevel": "INFO"}],
+    "cryptodir": "network/fabric/config/crypto-config",
     "network": {
       "x-type" : "hlfv1",
-      "timeout": 10000,
+      "timeout": 3000,
       "version": "1.0.0",
       "tls": false,
       "orderers": {
@@ -24,10 +24,6 @@
         "ca.org2.example.com": {
           "url": "http://localhost:8054",
           "name": "ca.org2.example.com"
-        },
-        "ca.org3.example.com": {
-          "url": "http://localhost:9054",
-          "name": "ca.org3.example.com"
         }
       },
       "organizations": [
@@ -56,26 +52,13 @@
           "peers": [
             "peer0.org2.example.com"
           ]            
-        },
-        {            
-          "name": "Org3",
-          "mspid": "Org3MSP",
-          "mspconfig": "/etc/hyperledger/msp/users/Admin@org3.example.com/msp",
-          "adminCert": "/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/signcerts/Admin@org3.example.com-cert.pem",
-          "adminKey" : "/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/keystore/key.pem",
-          "certificateAuthorities": [
-            "ca.org3.example.com"
-          ],
-          "peers": [
-            "peer0.org3.example.com"
-          ]            
         }       
       ],
       "peers": {
         "peer0.org1.example.com": {
           "url": "grpc://localhost:7051",
           "eventUrl": "grpc://localhost:7053",
-          "hostname": "peer0.org1.example.com",
+          "hostname": "peer0.org1.example.com",          
           "channels":[
             "mychannel"
           ]
@@ -84,14 +67,6 @@
           "url": "grpc://localhost:8051",
           "eventUrl": "grpc://localhost:8053",
           "hostname": "peer0.org2.example.com",
-          "channels":[
-            "mychannel"
-          ]
-        },
-        "peer0.org3.example.com": {
-          "url": "grpc://localhost:9051",
-          "eventUrl": "grpc://localhost:9053",
-          "hostname": "peer0.org3.example.com",
           "channels":[
             "mychannel"
           ]
@@ -106,8 +81,7 @@
           ],
           "peers": [
             "peer0.org1.example.com",
-            "peer0.org2.example.com",
-            "peer0.org3.example.com"
+            "peer0.org2.example.com"
           ]
         }
       }
