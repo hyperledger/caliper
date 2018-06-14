@@ -116,13 +116,13 @@ func (t *SimpleChaincode) Transfer(stub shim.ChaincodeStubInterface, args []stri
 	if len(args) != 3 {
 		return shim.Error(ERROR_WRONG_FORMAT)
 	}
-	money, err := strconv.Atoi(args[1])
+	money, err := strconv.Atoi(args[2])
 	if err != nil {
 		return shim.Error(ERROR_WRONG_FORMAT)
 	}
 
 	moneyBytes1, err1 := stub.GetState(args[0])
-	moneyBytes2, err2 := stub.GetState(args[0])
+	moneyBytes2, err2 := stub.GetState(args[1])
 	if err1 != nil || err2 != nil {
 		s := fmt.Sprintf(ERROR_SYSTEM, err.Error())
 		return shim.Error(s)

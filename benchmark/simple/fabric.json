@@ -91,7 +91,8 @@
     },
     "context": {
       "open": "mychannel",
-      "query": "mychannel"
+      "query": "mychannel",
+      "transfer": "mychannel"
     }
   },
   "info" : {

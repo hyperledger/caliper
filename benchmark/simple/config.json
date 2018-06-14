@@ -1,5 +1,4 @@
-{
-  "blockchain": {
+{ "blockchain": {
     "type": "fabric",
     "config": "benchmark/simple/fabric.json"
   },
@@ -26,7 +25,14 @@
         "txNumber" : [5000, 5000],
         "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 100}}, {"type": "fixed-rate", "opts": {"tps" : 200}}],
         "callback" : "benchmark/simple/query.js"
-      }]
+      },
+      {
+	"label": "transfer",
+	"txNumber": [200],
+	"rateControl": [{"type": "fixed-rate", "opts": {"tps": 50}}],
+        "callback" : "benchmark/simple/transfer.js"
+      }
+]
   },
   "monitor": {
     "type": ["docker", "process"],
