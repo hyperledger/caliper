@@ -611,7 +611,7 @@ async function invokebycontext(context, id, version, args, timeout){
                 // one_good = channel.verifyProposalResponse(proposal_response);
                 one_good = true;
             } else {
-                let err = new Error('Endorsement denied with status code: ' + proposal_response.response.status);
+                let err = new Error('Endorsement denied: ' + proposal_response.toString());
                 invokeStatus.error_flags |= TxErrorEnum.BadProposalResponseError;
                 invokeStatus.error_messages[TxErrorIndex.BadProposalResponseError] = err.toString();
                 // explicit rejection, early life-cycle termination, definitely failed
