@@ -44,7 +44,7 @@ Points to note:
 To run a Composer based test, on a published set of versions, the required process is:
 - npm install, having specified the required Hyperledger Fabric/Composer versions
 - navigate to /caliper/benchmark/composer
-- run `node runner.js -c my-config.json`
+- run `node main.js -c my-config.json`
 
 Following the command issue, the Caliper bench-flow process will execute, targeting the Composer tests specified within a config file. If no config file is passed, it will default to using config-composer.json. 
 
