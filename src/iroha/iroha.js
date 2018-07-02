@@ -9,24 +9,28 @@
 
 'use strict';
 
-const BlockchainInterface = require('../comm/blockchain-interface.js');
-const iroha = require('iroha-lib');
-const txBuilder = new iroha.ModelTransactionBuilder();
-const queryBuilder = new iroha.ModelQueryBuilder();
-const crypto = new iroha.ModelCrypto();
-const protoTxHelper = new iroha.ModelProtoTransaction();
-const protoQueryHelper = new iroha.ModelProtoQuery();
-const pbTransaction = require('iroha-lib/pb/block_pb.js').Transaction;
-const pbQuery = require('iroha-lib/pb/queries_pb.js').Query;
-const grpc = require('grpc');
-const endpointGrpc = require('iroha-lib/pb/endpoint_grpc_pb.js');
-const endpointPb = require('iroha-lib/pb/endpoint_pb.js');
-const txStatus =  require('iroha-lib/pb/endpoint_pb.js').TxStatus;
-const irohaType = require('./type.js');
 const fs = require('fs');
 const path = require('path');
+const grpc = require('grpc');
+const {
+    ModelCrypto,
+    ModelProtoTransaction,
+    ModelProtoQuery,
+    ModelTransactionBuilder,
+    ModelQueryBuilder
+} = require('iroha-lib');
+const endpointPb = require('iroha-lib/pb/endpoint_pb.js');
+const txStatus =  require('iroha-lib/pb/endpoint_pb.js').TxStatus;
+const pbTransaction = require('iroha-lib/pb/block_pb.js').Transaction;
+const pbQuery = require('iroha-lib/pb/queries_pb.js').Query;
+const endpointGrpc = require('iroha-lib/pb/endpoint_grpc_pb.js');
 const util = require('../comm/util.js');
+const BlockchainInterface = require('../comm/blockchain-interface.js');
+const irohaType = require('./type.js');
 
+const txBuilder = new ModelTransactionBuilder();
+const queryBuilder = new ModelQueryBuilder();
+const crypto = new ModelCrypto();
 
 let contexts = {};
 
@@ -68,14 +72,17 @@ function irohaCommand(client, account, time, keys, commands) {
         }, Promise.resolve(tx))
             .then((transaction) => {
                 tx = transaction.build();
-                let txblob  = protoTxHelper.signAndAddSignature(tx, keys).blob();
+                let txblob  = (new ModelProtoTransaction(tx))
+                    .signAndAddSignature(keys)
+                    .finish()
+                    .blob();
                 let txArray = blob2array(txblob);
                 let txProto = pbTransaction.deserializeBinary(txArray);
                 let txHashBlob  = tx.hash().blob();
                 txHash = blob2array(txHashBlob);
 
                 return new Promise((resolve, reject) => {
-                    client.torii(txProto, (err, data)=>{
+                    client.torii(txProto, (err, data) => {
                         if(err){
                             reject(err);
                         }
@@ -123,7 +130,10 @@ function irohaQuery(client, account, time, counter, keys, commands, callback) {
         }
         query = query[tx.fn].apply(query, args);
         query = query.build();
-        let queryBlob  = protoQueryHelper.signAndAddSignature(query, keys).blob();
+        let queryBlob  = (new ModelProtoQuery(query))
+            .signAndAddSignature(keys)
+            .finish()
+            .blob();
         let queryArray = blob2array(queryBlob);
         let protoQuery = pbQuery.deserializeBinary(queryArray);
         let responseType = require('iroha-lib/pb/responses_pb.js').QueryResponse.ResponseCase;
