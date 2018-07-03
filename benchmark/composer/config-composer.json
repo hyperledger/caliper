@@ -1,11 +1,11 @@
 {
   "blockchain": {
     "type": "composer",
-    "config": "network/fabric-v11/2-org-1-peer/composer.json"
+    "config": "network/fabric/2-org-1-peer/composer.json"
   },
   "command" : {
-    "start": "docker-compose -f network/fabric-v11/2-org-1-peer/docker-compose.yaml up -d",
-    "end": "docker-compose -f network/fabric-v11/2-org-1-peer/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev-* -q)"
+    "start": "docker-compose -f network/fabric/2-org-1-peer/docker-compose.yaml up -d",
+    "end": "docker-compose -f network/fabric/2-org-1-peer/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev-* -q)"
   },
   "test": {
     "name": "Composer Performance test",

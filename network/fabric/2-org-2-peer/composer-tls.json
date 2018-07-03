@@ -1,7 +1,7 @@
 {  
   "composer": {
     "chaincodes": [{"id": "basic-sample-network", "version": "0.1.0", "path": "contract/composer", "orgs": ["Org1", "Org2"], "loglevel": "INFO"}],
-    "cryptodir": "network/fabric-v11/config/crypto-config",
+    "cryptodir": "network/fabric/config/crypto-config",
     "network": {
       "x-type" : "hlfv1",
       "timeout": 3000,
@@ -38,7 +38,8 @@
             "ca.org1.example.com"
           ],
           "peers": [
-            "peer0.org1.example.com"
+            "peer0.org1.example.com",
+            "peer1.org1.example.com"
           ]
         },
         {            
@@ -51,7 +52,8 @@
             "ca.org2.example.com"
           ],
           "peers": [
-            "peer0.org2.example.com"
+            "peer0.org2.example.com",
+            "peer1.org2.example.com"
           ]            
         }       
       ],
@@ -65,11 +67,29 @@
             "mychannel"
           ]
         },
+        "peer1.org1.example.com": {
+          "url": "grpcs://localhost:7057",
+          "eventUrl": "grpcs://localhost:7059",
+          "hostname": "peer1.org1.example.com",
+          "cert" : "/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/ca.crt",
+          "channels":[
+            "mychannel"
+          ]
+        },
         "peer0.org2.example.com": {
           "url": "grpcs://localhost:8051",
           "eventUrl": "grpcs://localhost:8053",
           "hostname": "peer0.org2.example.com",
           "cert" : "/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt",
+          "channels":[
+            "mychannel"
+          ]
+        },
+        "peer1.org2.example.com": {
+          "url": "grpcs://localhost:8057",
+          "eventUrl": "grpcs://localhost:8059",
+          "hostname": "peer1.org2.example.com",
+          "cert" : "/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls/ca.crt",
           "channels":[
             "mychannel"
           ]
@@ -85,7 +105,9 @@
           ],
           "peers": [
             "peer0.org1.example.com",
-            "peer0.org2.example.com"
+            "peer1.org1.example.com",
+            "peer0.org2.example.com",
+            "peer1.org2.example.com"
           ]
         }
       }

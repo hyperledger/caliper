@@ -1,7 +1,7 @@
 {  
   "composer": {
     "chaincodes": [{"id": "basic-sample-network", "version": "0.1.0", "path": "contract/composer", "orgs": ["Org1", "Org2"], "loglevel": "INFO"}],
-    "cryptodir": "network/fabric-v11/config/crypto-config",
+    "cryptodir": "network/fabric/config/crypto-config",
     "network": {
       "x-type" : "hlfv1",
       "timeout": 3000,
