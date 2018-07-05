@@ -45,6 +45,21 @@ let RateControl = class {
             this.controller = new NoRateController(blockchain, rateControl.opts);
             break;
         }
+        case 'record-rate': {
+            const RecordRateController = require('./recordRate.js');
+            this.controller = new RecordRateController(blockchain, rateControl.opts);
+            break;
+        }
+        case 'replay-rate': {
+            const ReplayRateController = require('./replayRate.js');
+            this.controller = new ReplayRateController(blockchain, rateControl.opts);
+            break;
+        }
+        case 'linear-rate': {
+            const LinearRateController = require('./linearRate.js');
+            this.controller = new LinearRateController(blockchain, rateControl.opts);
+            break;
+        }
         default:
             throw new Error('Unknown rate control type ' + rateControl.type);
         }
