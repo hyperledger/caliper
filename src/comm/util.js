@@ -18,6 +18,7 @@ const path = require('path');
 // comm --> src --> root
 const rootDir = path.join('..', '..');
 
+
 /**
  * Internal Utility class for Caliper
  */

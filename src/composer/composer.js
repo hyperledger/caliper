@@ -19,6 +19,7 @@
 // Caliper requires
 const BlockchainInterface = require('../comm/blockchain-interface.js');
 const Util = require('../comm/util');
+const TxStatus = require('../comm/transaction');
 
 // Composer helpers
 const composer_utils = require('./composer_utils.js');
@@ -146,83 +147,18 @@ class Composer extends BlockchainInterface {
      * @returns {Promise} a completed Promise containing a result
      */
     submitTransaction(connection, transaction) {
-        let invoke_status = {
-            id           : transaction.getIdentifier(),
-            status       : 'created',
-            time_create  : Date.now(),
-            time_final   : 0,
-            time_endorse : 0,
-            time_order   : 0,
-            result       : null
-        };
-
+        let invoke_status = new TxStatus(transaction.getIdentifier());
         return connection.submitTransaction(transaction)
             .then((complete) => {
-                invoke_status.status = 'success';
-                invoke_status.time_final = Date.now();
+                invoke_status.SetStatusSuccess();
                 return Promise.resolve(invoke_status);
             })
             .catch((err) => {
-                invoke_status.time_final = Date.now();
-                invoke_status.status = 'failed';
+                invoke_status.SetStatusFail();
                 invoke_status.result = [];
 
                 return Promise.resolve(invoke_status);
             });
-    }
-
-    /**
-     * Concrete implementation of getDefaultTxStats
-     * @param {*} stats the stats
-     * @param {*} results the results
-     */
-    getDefaultTxStats(stats, results) {
-        let minDelayC2E = 100000, maxDelayC2E = 0, sumDelayC2E = 0; // time from created to endorsed
-        let minDelayE2O = 100000, maxDelayE2O = 0, sumDelayE2O = 0; // time from endorsed to ordered
-        let minDelayO2V = 100000, maxDelayO2V = 0, sumDelayO2V = 0; // time from ordered to recorded
-        let hasValue = true;
-        for(let i = 0 ; i < results.length ; i++) {
-            let stat = results[i];
-            if(!stat.hasOwnProperty('time_endorse')) {
-                hasValue = false;
-                break;
-            }
-            if(stat.status === 'success') {
-                let delayC2E = stat.time_endorse - stat.time_create;
-                let delayE2O = stat.time_order - stat.time_endorse;
-                let delayO2V = stat.time_valid - stat.time_order;
-
-                if(delayC2E < minDelayC2E) {
-                    minDelayC2E = delayC2E;
-                }
-                if(delayC2E > maxDelayC2E) {
-                    maxDelayC2E = delayC2E;
-                }
-                sumDelayC2E += delayC2E;
-
-                if(delayE2O < minDelayE2O) {
-                    minDelayE2O = delayE2O;
-                }
-                if(delayE2O > maxDelayE2O) {
-                    maxDelayE2O = delayE2O;
-                }
-                sumDelayE2O += delayE2O;
-
-                if(delayO2V < minDelayO2V) {
-                    minDelayO2V = delayO2V;
-                }
-                if(delayO2V > maxDelayO2V) {
-                    maxDelayO2V = delayO2V;
-                }
-                sumDelayO2V += delayO2V;
-            }
-        }
-
-        if(hasValue) {
-            stats.delayC2E = {'min': minDelayC2E, 'max': maxDelayC2E, 'sum': sumDelayC2E};
-            stats.delayE2O = {'min': minDelayE2O, 'max': maxDelayE2O, 'sum': sumDelayE2O};
-            stats.delayO2V = {'min': minDelayO2V, 'max': maxDelayO2V, 'sum': sumDelayO2V};
-        }
     }
 }
 

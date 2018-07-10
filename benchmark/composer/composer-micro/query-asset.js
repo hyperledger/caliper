@@ -31,6 +31,7 @@
 'use strict';
 
 const Util = require('../../../src/comm/util');
+const TxStatus = require('../../../src/comm/transaction');
 
 module.exports.info  = 'Query Asset Performance Test';
 
@@ -80,29 +81,19 @@ module.exports.init = async function(blockchain, context, args) {
 };
 
 module.exports.run = function() {
-    let invoke_status = {
-        id           : qryRef++,
-        status       : 'created',
-        time_create  : Date.now(),
-        time_final   : 0,
-        time_endorse : 0,
-        time_order   : 0,
-        result       : null
-    };
+    let invoke_status = new TxStatus(qryRef++);
 
     // use the pre-compiled query named 'selectAllCarsByColour' that is within the business
     // network queries file
     return busNetConnection.query('selectAllCarsByColour', { colour: matchColor})
         .then((result) => {
-            invoke_status.status = 'success';
-            invoke_status.time_final = Date.now();
-            invoke_status.result = result;
+            invoke_status.SetStatusSuccess();
+            invoke_status.SetResult(result);
             return Promise.resolve(invoke_status);
         })
         .catch((err) => {
-            invoke_status.time_final = Date.now();
-            invoke_status.status = 'failed';
-            invoke_status.result = [];
+            invoke_status.SetStatusFail();
+            invoke_status.SetResult([]);
             return Promise.resolve(invoke_status);
         });
 };
