@@ -3,29 +3,35 @@
     "cryptodir": "network/fabric/simplenetwork/crypto-config",
     "network": {
       "orderer": {
-        "url": "grpcs://10.229.42.159:7050",
+        "url": "grpcs://localhost:7050",
         "mspid": "OrdererMSP",
-        "msp": "network/fabric/simplenetwork/crypto-config/ordererOrganizations/example.com/msp/",
+        "user": {
+          "key": "network/fabric/simplenetwork/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/be595291403ff68280a724d7e868521815ad9e2fc8c5486f6d7ce6b62d6357cd_sk",
+          "cert": "network/fabric/simplenetwork/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts/Admin@example.com-cert.pem"
+        },
         "server-hostname": "orderer.example.com",
         "tls_cacerts": "network/fabric/simplenetwork/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt"
       },
       "org1": {
         "name": "peerOrg1",
         "mspid": "Org1MSP",
-        "msp": "network/fabric/simplenetwork/crypto-config/peerOrganizations/org1.example.com/msp/",
+        "user": {
+          "key": "network/fabric/simplenetwork/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/0d2b2fc385b10fa59003217e1bb5af2d24a3d762266e287867a1bc290eb44657_sk",
+          "cert": "network/fabric/simplenetwork/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem"
+        },
         "ca": {
-          "url": "https://10.229.42.159:7054",
+          "url": "https://localhost:7054",
           "name": "ca-org1"
         },
         "peer1": {
-          "requests": "grpcs://10.229.42.159:7051",
-          "events": "grpcs://10.229.42.159:7053",
+          "requests": "grpcs://localhost:7051",
+          "events": "grpcs://localhost:7053",
           "server-hostname": "peer0.org1.example.com",
           "tls_cacerts": "network/fabric/simplenetwork/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
         },
         "peer2": {
-          "requests": "grpcs://10.229.42.159:7057",
-          "events": "grpcs://10.229.42.159:7059",
+          "requests": "grpcs://localhost:7057",
+          "events": "grpcs://localhost:7059",
           "server-hostname": "peer1.org1.example.com",
           "tls_cacerts": "network/fabric/simplenetwork/crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/ca.crt"
         }
@@ -33,20 +39,19 @@
       "org2": {
         "name": "peerOrg2",
         "mspid": "Org2MSP",
-        "msp": "network/fabric/simplenetwork/crypto-config/peerOrganizations/org2.example.com/msp/",
         "ca": {
-          "url": "https://10.229.42.159:8054",
+          "url": "https://localhost:8054",
           "name": "ca-org2"
         },
         "peer1": {
-          "requests": "grpcs://10.229.42.159:8051",
-          "events": "grpcs://10.229.42.159:8053",
+          "requests": "grpcs://localhost:8051",
+          "events": "grpcs://localhost:8053",
           "server-hostname": "peer0.org2.example.com",
           "tls_cacerts": "network/fabric/simplenetwork/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt"
         },
         "peer2": {
-          "requests": "grpcs://10.229.42.159:8057",
-          "events": "grpcs://10.229.42.159:8059",
+          "requests": "grpcs://localhost:8057",
+          "events": "grpcs://localhost:8059",
           "server-hostname": "peer1.org2.example.com",
           "tls_cacerts": "network/fabric/simplenetwork/crypto-config/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls/ca.crt"
         }
@@ -56,10 +61,11 @@
       {
         "name": "mychannel",
         "config": "network/fabric/simplenetwork/mychannel.tx",
-        "organizations": ["org1", "org2"]
+        "organizations": ["org1", "org2"],
+        "deployed": false
       }
     ],
-    "chaincodes": [{"id": "simple", "path": "contract/fabric/simple/go", "language":"golang", "version": "v0", "channel": "mychannel"}],
+    "chaincodes": [{"id": "simple", "path": "src/contract/fabric/simple/node", "language":"node", "version": "v0", "channel": "mychannel"}],
     "endorsement-policy": {
       "identities": [
         {
@@ -89,7 +95,7 @@
     }
   },
   "info" : {
-    "Version": "1.0.5",
+    "Version": "1.1.0",
     "Size": "4 Peers",
     "Orderer": "Solo",
     "Distribution": "Single Host"

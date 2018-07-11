@@ -108,10 +108,17 @@ function installChaincode(org, chaincode) {
     }).then((admin) => {
         the_user = admin;
 
+        let resolvedPath = chaincode.path;
+        let metadataPath = chaincode.metadataPath ? commUtils.resolvePath(chaincode.metadataPath) : chaincode.metadataPath;
+        if (chaincode.language === 'node') {
+            resolvedPath = commUtils.resolvePath(chaincode.path);
+        }
+
         // send proposal to endorser
         const request = {
             targets: targets,
-            chaincodePath: chaincode.path,
+            chaincodePath: resolvedPath,
+            metadataPath: metadataPath,
             chaincodeId: chaincode.id,
             chaincodeType: chaincode.language,
             chaincodeVersion: chaincode.version

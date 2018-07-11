@@ -62,12 +62,20 @@ The fabric configuration is a json file which defines a fabric object with six m
 }
 ```
 
-* **chaincodes**: defines one or more chaincodes, those chaincodes can be installed and instantiated on all peers of the specific channel by calling *Blockchain.installSmartContract()* function.  
+* **chaincodes**: defines one or more chaincodes, those chaincodes can be installed and instantiated on all peers of the specific channel by calling `Blockchain.installSmartContract()` function.  
   
-  Optionally an `init` attribute can also be set to an array of *string* values. This array will be passed as the argument to the chaincode's *Init* method. The `init` attribute defaults to an empty array.
+  Optionally an `init` attribute can also be set to an array of *string* values. This array will be passed as the argument to the chaincode's `Init` method. The `init` attribute defaults to an empty array.
   
-  The *path* attribute is relative to the *caliper/src* folder, since *$GOPATH* is temporarily set to the caliper root folder during benchmark execution. If you would like to install a Golang chaincode from a previously set *$GOPATH*, then set the *OVERWRITE_GOPATH* environment variable to *FALSE* before running the benchmark:  
+  The `language` property denotes the chaincode platform (i.e., the language it's written in). The currently supported values (by Caliper and the SDK) are: `golang` (default) and `node`.
+  
+  *Golang chaincode:* The `path` attribute by default is relative to the `caliper/src` folder, since `$GOPATH` is temporarily set to the Caliper root folder during benchmark execution. If you would like to install a Golang chaincode from a previously set `$GOPATH`, then set the `OVERWRITE_GOPATH` environment variable to `FALSE` before running the benchmark:  
+  
   ```GOPATH=~/mygopath OVERWRITE_GOPATH=FALSE node main.js```
+  
+  *Node.js chaincode:* The `path` attribute can be either relative to the Caliper root folder or an absolute path. Node.js chaincodes are supported starting from version `1.1.0` of Fabric and the Node SDK, so make sure that the Docker image and the SDK versions are appropriate. 
+  
+  The `metadataPath` attribute (for both languages) denotes any extra metadata that should be deployed with the chaincode, e.g., the CouchDB indexes to build. The `metadataPath` attribute can be either relative to the Caliper root folder or an absolute path. For the necessary folder structure, please refer to the [SDK documentation](https://fabric-sdk-node.github.io/tutorial-metadata-chaincode.html).
+  
 ```json
 {
   "chaincodes": [
@@ -76,7 +84,9 @@ The fabric configuration is a json file which defines a fabric object with six m
       "path": "contract/fabric/drm", 
       "version": "v0", 
       "channel": "mychannel",
-      "init": ["init_arg1", "init_arg2"]
+      "init": ["init_arg1", "init_arg2"],
+      "language": "golang",
+      "metadataPath": "src/contract/fabric/drm/metadata"
     }
   ]
 }
