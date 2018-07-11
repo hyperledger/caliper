@@ -205,11 +205,12 @@ class CompositeRateController extends RateInterface{
      * @param {number} msg.totalClients The number of clients executing the round.
      * @param {number} msg.clients The number of clients executing the round.
      * @param {object} msg.clientargs Arguments for the client.
-     * @param {number} msg.clientIdx The index of the current client.
+     * @param {number} msg.clientIdx The 0-based index of the current client.
+     * @param {number} msg.roundIdx The 1-based index of the current round.
      */
     async init(msg) {
         let currentSum = 0;
-        this.clientIdx = msg.clientIdx;
+        this.clientIdx = msg.clientIdx + 1;
 
         // pre-set switch logic to avoid an other condition check during rate control
         this.controllerSwitch = msg.numb ? this.__controllerSwitchForTxNumber : this.__controllerSwitchForDuration;

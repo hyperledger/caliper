@@ -233,6 +233,7 @@ function defaultTest(args, clientArgs, final) {
                 log('----test round ' + round + '----');
                 round++;
                 testIdx++;
+                item.roundIdx = round; // propagate round ID to clients
                 demo.startWatch(client);
 
                 return client.startTest(item, clientArgs, processResult, testLabel).then( () => {
