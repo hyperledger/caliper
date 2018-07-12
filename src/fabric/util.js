@@ -226,14 +226,15 @@ function getAdmin(client, userOrg) {
             certPEM = fs.readFileSync(path.join(__dirname, '../..', org.user.cert));
         }
         else {
-            let keyPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s.example.com/users/Admin@%s.example.com/keystore', cryptodir, userOrg, userOrg));
+            let domain = org.domain ? org.domain : (userOrg + '.example.com');
+            let keyPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s/users/Admin@%s/keystore', cryptodir, domain, domain));
             if(!fs.existsSync(keyPath)) {
-                keyPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s.example.com/users/Admin@%s.example.com/msp/keystore', cryptodir, userOrg, userOrg));
+                keyPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s/users/Admin@%s/msp/keystore', cryptodir, domain, domain));
             }
             keyPEM = readAllFiles(keyPath)[0];
-            let certPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s.example.com/users/Admin@%s.example.com/signcerts', cryptodir, userOrg, userOrg));
+            let certPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s/users/Admin@%s/signcerts', cryptodir, domain, domain));
             if(!fs.existsSync(certPath)) {
-                certPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s.example.com/users/Admin@%s.example.com/msp/signcerts', cryptodir, userOrg, userOrg));
+                certPath = path.join(__dirname, util.format('../../%s/peerOrganizations/%s/users/Admin@%s/msp/signcerts', cryptodir, domain, domain));
             }
             certPEM = readAllFiles(certPath)[0];
         }
@@ -274,21 +275,22 @@ function getOrdererAdmin(client) {
             certPEM = fs.readFileSync(path.join(__dirname, '../..', orderer.user.cert));
         }
         else {
-            let keyPath = path.join(__dirname, util.format('../../%s/ordererOrganizations/example.com/users/Admin@example.com/keystore', cryptodir));
+            let domain = orderer.domain ? orderer.domain : 'example.com';
+            let keyPath = path.join(__dirname, util.format('../../%s/ordererOrganizations/%s/users/Admin@%s/keystore', cryptodir, domain, domain));
             if(!fs.existsSync(keyPath)) {
-                keyPath = path.join(__dirname, util.format('../../%s/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore', cryptodir));
+                keyPath = path.join(__dirname, util.format('../../%s/ordererOrganizations/%s/users/Admin@%s/msp/keystore', cryptodir, domain, domain));
             }
             keyPEM = readAllFiles(keyPath)[0];
-            let certPath = path.join(__dirname, util.format('../../%s/ordererOrganizations/example.com/users/Admin@example.com/signcerts', cryptodir));
+            let certPath = path.join(__dirname, util.format('../../%s/ordererOrganizations/%s/users/Admin@%s/signcerts', cryptodir, domain, domain));
             if(!fs.existsSync(certPath)) {
-                certPath = path.join(__dirname, util.format('../../%s/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts', cryptodir));
+                certPath = path.join(__dirname, util.format('../../%s/ordererOrganizations/%s/users/Admin@%s/msp/signcerts', cryptodir, domain, domain));
             }
             certPEM = readAllFiles(certPath)[0];
         }
 
         return Promise.resolve(client.createUser({
             username: 'ordererAdmin',
-            mspid: 'OrdererMSP',
+            mspid: orderer.mspid,
             cryptoContent: {
                 privateKeyPEM: keyPEM.toString(),
                 signedCertPEM: certPEM.toString()
