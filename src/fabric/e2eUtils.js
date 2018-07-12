@@ -21,26 +21,33 @@
 const utils = require('fabric-client/lib/utils.js');
 const logger = utils.getLogger('E2E testing');
 const commUtils = require('../comm/util');
-
 const path = require('path');
 const fs = require('fs');
 const util = require('util');
-
 const Client = require('fabric-client');
 const testUtil = require('./util.js');
-
+const listener_config = require("../../listener/listener-config.json")
 let ORGS;
 const rootPath = '../..';
-
-//const grpc = require('grpc');
-
+const grpc = require('grpc');
+const _common = grpc.load(path.join(__dirname + '../../../node_modules/fabric-client/lib/protos/common/common.proto')).common;
+const _transProto = grpc.load(path.join(__dirname + '../../../node_modules/fabric-client/lib/protos/peer/transaction.proto')).protos;
 let tx_id = null;
 let the_user = null;
+
+var _validation_codes = {};
+var keys = Object.keys(_transProto.TxValidationCode);
+for(var i = 0;i<keys.length;i++) {
+	let new_key = _transProto.TxValidationCode[keys[i]];
+	_validation_codes[new_key] = keys[i];
+}
 
 /**
  * Initialize the Fabric client configuration.
  * @param {string} config_path The path of the Fabric network configuration file.
  */
+
+ 
 function init(config_path) {
     Client.addConfigFile(config_path);
     ORGS = Client.getConfigSetting('fabric').network;
@@ -427,7 +434,7 @@ function getcontext(channelConfig) {
     const channel = client.newChannel(channel_name);
     let orgName = ORGS[userOrg].name;
     const cryptoSuite = Client.newCryptoSuite();
-    const eventhubs = [];
+    //const eventhubs = [];
     cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: testUtil.storePathForOrg(orgName)}));
     client.setCryptoSuite(cryptoSuite);
 
@@ -477,7 +484,7 @@ function getcontext(channelConfig) {
                 channel.addPeer(peer);
 
                 // an event listener can only register with the peer in its own org
-                if(org === userOrg) {
+               /* if(org === userOrg) {
                     let eh = client.newEventHub();
                     eh.setPeerAddr(
                         peerInfo.events,
@@ -491,13 +498,13 @@ function getcontext(channelConfig) {
                         }
                     );
                     eventhubs.push(eh);
-                }
+                }*/
             }
 
             // register event listener
-            eventhubs.forEach((eh) => {
+           /* eventhubs.forEach((eh) => {
                 eh.connect();
-            });
+            });*/
 
             return channel.initialize();
         })
@@ -506,8 +513,8 @@ function getcontext(channelConfig) {
                 org: userOrg,
                 client: client,
                 channel: channel,
-                submitter: the_user,
-                eventhubs: eventhubs});
+                submitter: the_user});
+                //eventhubs: eventhubs
         })
         .catch((err) => {
             return Promise.reject(err);
@@ -533,6 +540,96 @@ function releasecontext(context) {
     return Promise.resolve();
 }
 module.exports.releasecontext = releasecontext;
+
+/**
+ * connect to Kafka, fetch block and confirmation time
+ * @param {*} resultsArray 
+ */
+function getTransactionConfirmationTime(resultsArray) {
+
+	return new Promise(function (resolve, reject) {
+		var map = []
+		resultsArray.forEach(function (internal_element) {
+			map[internal_element.id] = internal_element
+
+		})
+		var globalArray = []
+        globalArray.push(map)
+		var kafka = require('kafka-node');
+		var Consumer = kafka.Consumer;
+		var client1 = new kafka.KafkaClient({ kafkaHost: listener_config.broker_urls, requestTimeout: 300000000 });
+
+		var options = {
+			autoCommit: false,
+			fetchMaxWaitMs: 1000,
+			fetchMaxBytes: 5120 * 5120,
+			encoding: 'buffer',
+			 groupId: "groupID" + Math.floor(Math.random() * Math.floor(100))
+		};
+
+		var topics = [{
+			topic: listener_config.topic
+
+		}];
+
+		var consumer = new Consumer(client1, topics, options);
+		var finalresult = [];
+		var isTxfound;
+		var pendingCounter = 0
+
+		consumer.on('message', function (message) {
+			var buf = new Buffer(message.value); // Read string into a buffer.
+			var data = buf.toString('utf-8')
+            var block = JSON.parse(data).block
+            var txStatusCodes = block.metadata.metadata[_common.BlockMetadataIndex.TRANSACTIONS_FILTER];
+
+			for (var index = 0; index < block.data.data.length; index++) {
+				var channel_header = block.data.data[index].payload.header.channel_header;
+
+				// serach the globalArray if the Id exists or not. It will be present but in any one of the array in global Array
+				if (globalArray[0][channel_header.tx_id] != undefined || globalArray[0][channel_header.tx_id] != null) {
+
+                    var val_code = convertValidationCode(txStatusCodes[index]);
+					var object = globalArray[0][channel_header.tx_id]
+					object.time_final = JSON.parse(data).validTime;
+                  
+                    if (val_code != 'VALID'){
+                        object.verified = true
+                        object.status = 'failed'
+                    }
+                    else {
+                        object.verified = true
+                        object.status = "success";
+                    }
+                    
+					globalArray[0][channel_header.tx_id] = object
+					pendingCounter++
+					finalresult.push(object)
+				}
+				if (pendingCounter == resultsArray.length) {
+                    consumer.close(()=>{
+                        resolve(finalresult)
+                    })
+					
+				}
+
+			}
+
+		});
+
+	consumer.on('error', function (error) {
+            logger.error("Error while consuming blocks from MQ", error)
+            reject(error)
+
+		})
+	})
+}
+
+module.exports.getTransactionConfirmationTime = getTransactionConfirmationTime;
+
+function convertValidationCode(code) {
+	return _validation_codes[code];
+}
 
 /**
  * Submit a transaction to the given chaincode with the specified options.
@@ -648,7 +745,7 @@ async function invokebycontext(context, id, version, args, timeout){
             newTimeout = 10000;
         }
 
-        const eventPromises = [];
+        /*const eventPromises = [];
         eventHubs.forEach((eh) => {
             eventPromises.push(new Promise((resolve, reject) => {
                 let handle = setTimeout(reject, newTimeout);
@@ -679,7 +776,7 @@ async function invokebycontext(context, id, version, args, timeout){
                     }
                 );
             }));
-        });
+        });*/
 
         let broadcastResponse;
         try {
@@ -704,7 +801,7 @@ async function invokebycontext(context, id, version, args, timeout){
             throw err;
         }
 
-        await Promise.all(eventPromises);
+       /* await Promise.all(eventPromises);
         // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
         // so mark it failed but leave it not verified
         if (!invokeStatus.verified) {
@@ -719,10 +816,15 @@ async function invokebycontext(context, id, version, args, timeout){
         // at this point the Tx should be verified
         invokeStatus.status = 'failed';
         commUtils.log('Failed to complete transaction [' + txId.substring(0, 5) + '...]:' + (err instanceof Error ? err.stack : err));
+    }*/
+    } catch (err)
+    {
+        // at this point the Tx should be verified
+        console.log("failed")
+        invokeStatus.status = 'failed';
+        commUtils.log('Failed to complete transaction [' + txId.substring(0, 5) + '...]:' + (err instanceof Error ? err.stack : err));
     }
-
-    invokeStatus.time_final = Date.now();
-
+   
     return invokeStatus;
 }
 

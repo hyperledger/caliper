@@ -243,6 +243,15 @@ class Sawtooth extends BlockchainInterface {
     }
 
     /**
+     * Consume transaction confirmation time from Kafka. sawtooth adapter does not require the implementation function
+     * @param {object} resultsArray resultsArray containing transactions made by client.
+     * @return {Promise} The return promise.
+     */
+    getTransactionConfirmationTime(resultsArray) {
+        return Promise.resolve();
+    }
+
+    /**
      * Invoke the given smart contract according to the specified options.
      * @param {object} context Sawtooth context
      * @param {string} contractID The identity of the contract.

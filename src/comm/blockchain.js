@@ -96,6 +96,16 @@ class Blockchain {
         return this.bcObj.releaseContext(context);
     }
 
+
+    /**
+   * get result confirmation that will be used to check if the transaction invoked are successfully committed or not
+   * @result {string}, result after invoking all transaction
+   * @return {Promise.resolve(context)}
+   */
+  getTransactionConfirmationTime(result) {
+        return this.bcObj.getTransactionConfirmationTime(result);
+    }
+
     /**
      * Invoke smart contract/submit transactions and return corresponding transactions' status
      * txStatus = {

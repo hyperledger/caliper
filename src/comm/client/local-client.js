@@ -102,6 +102,7 @@ async function runFixedNumber(msg, cb, context) {
     }
 
     await Promise.all(promises);
+
     await rateControl.end();
     return await blockchain.releaseContext(context);
 }
@@ -114,6 +115,7 @@ async function runFixedNumber(msg, cb, context) {
  * @return {Promise} promise object
  */
 async function runDuration(msg, cb, context) {
+
     log('Info: client ' + process.pid +  ' start test runDuration()' + (cb.info ? (':' + cb.info) : ''));
     let rateControl = new RateControl(msg.rateControl, blockchain);
     rateControl.init(msg);
@@ -180,8 +182,18 @@ function doTest(msg) {
             return runFixedNumber(msg, cb, context);
         }
     }).then(() => {
-        clearUpdateInter();
-        return cb.end(results);
+      
+        if (msg.label != "query") {
+            return blockchain.getTransactionConfirmationTime(results).then((response)=>{
+                clearUpdateInter();
+                return cb.end(response);
+            })
+            
+        }else{
+            clearUpdateInter();
+            return cb.end(results);
+        } 
+        
     }).then(() => {
         // conditionally trim beginning and end results for this test run
         if (msg.trim) {

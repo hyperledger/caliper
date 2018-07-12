@@ -96,6 +96,7 @@ function getResultTitle() {
  * @return {Array} rows of the default result table
  */
 function getResultValue(r) {
+
     let row = [];
     try {
         row.push(r.label);
@@ -269,7 +270,7 @@ function defaultTest(args, clientArgs, final) {
  * @param {String} configFile path of the test configuration file
  * @param {String} networkFile path of the blockchain configuration file
  */
-module.exports.run = function(configFile, networkFile) {
+module.exports.run = function(configFile, networkFile, listener_child) {
     test('#######Caliper Test######', (t) => {
         global.tapeObj = t;
         absConfigFile  = configFile;
@@ -323,6 +324,12 @@ module.exports.run = function(configFile, networkFile) {
             }, Promise.resolve());
         }).then( () => {
             log('----------finished test----------\n');
+             
+            // kill the event listener process
+            if (typeof listener_child != undefined){
+                
+                listener_child.kill()
+            }
             printResultsByRound();
             monitor.printMaxStats();
             monitor.stop();

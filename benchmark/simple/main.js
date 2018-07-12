@@ -9,6 +9,10 @@
 'use strict';
 
 const Util = require('../../src/comm/util');
+const path = require('path');
+const childProcess = require('child_process');
+const fs = require('fs')  
+let absCaliperPath = '../../';
 
 let configFile;
 let networkFile;
@@ -73,9 +77,31 @@ function main() {
         return;
     }
 
-
+    // start the event block listener process
+    let blockchainPlatform = require(absConfigFile).blockchain.type
     const framework = require('../../src/comm/bench-flow.js');
-    framework.run(absConfigFile, absNetworkFile);
+    
+    console.log(blockchainPlatform)
+    if (blockchainPlatform == "sawtooth") {
+        framework.run(absConfigFile, absNetworkFile);
+    }
+    else {
+        let blockListenerPath = path.join(__dirname, absCaliperPath, 'listener/block-listener-handler.js');
+        let listener_child = childProcess.fork(blockListenerPath);
+    
+        listener_child.on('error', function () {
+            Util.log('client encountered unexpected error');
+        });
+    
+        listener_child.on('exit', function () {
+            Util.log('client exited');
+        });
+    
+        listener_child.send({ msg: absConfigFile }); 
+
+        framework.run(absConfigFile, absNetworkFile, listener_child);        
+    }
+    
 }
 
 main();

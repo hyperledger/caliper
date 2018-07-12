@@ -51,7 +51,7 @@ class Fabric extends BlockchainInterface{
      */
     installSmartContract() {
         // todo: now all chaincodes are installed and instantiated in all peers, should extend this later
-        return impl_install.run(this.configPath).then(() => {
+       return impl_install.run(this.configPath).then(() => {
             return impl_instantiate.run(this.configPath);
         })
             .catch((err) => {
@@ -97,6 +97,20 @@ class Fabric extends BlockchainInterface{
         return e2eUtils.releasecontext(context).then(() => {
             return commUtils.sleep(1000);
         });
+    }
+
+     /**
+     * Consume transaction confirmation time from Kafka.
+     * @param {object} resultsArray resultsArray containing transactions made by client.
+     * @return {Promise} The return promise.
+     */
+    getTransactionConfirmationTime(resultsArray) {
+
+        if (resultsArray.length <= 0) {
+            return Promise.reject(new Error("No transactions found in the result array"));
+        }
+
+        return e2eUtils.getTransactionConfirmationTime(resultsArray);
     }
 
     /**
