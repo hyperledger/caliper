@@ -1,7 +1,7 @@
 {
    "blockchain": {
         "type": "sawtooth",
-        "config": "benchmark/simple/sawtooth.json"
+        "config": "benchmark/smallbank/sawtooth.json"
   },
   "command" : {
         "start": "docker-compose -f network/sawtooth/smallbank/sawtooth-smallbank-go.yaml up -d",
