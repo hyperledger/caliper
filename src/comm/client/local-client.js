@@ -229,7 +229,7 @@ process.on('message', function(message) {
             }
         }
         catch(err) {
-            process.send({type: 'error', data: err});
+            process.send({type: 'error', data: err.toString()});
         }
     }
     else {
