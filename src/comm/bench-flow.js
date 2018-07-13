@@ -29,6 +29,8 @@ let round = 0;              // test round
 let demo = require('../gui/src/demo.js');
 let absConfigFile, absNetworkFile;
 let absCaliperDir = path.join(__dirname, '../..');
+let absCaliperPath = '../../';
+let listener_child;
 
 /**
  * Generate mustache template for test report
@@ -270,7 +272,9 @@ function defaultTest(args, clientArgs, final) {
  * @param {String} configFile path of the test configuration file
  * @param {String} networkFile path of the blockchain configuration file
  */
-module.exports.run = function(configFile, networkFile, listener_child) {
+module.exports.run = function(configFile, networkFile) {
+
+    let blockchainPlatform = require(configFile).blockchain.type
     test('#######Caliper Test######', (t) => {
         global.tapeObj = t;
         absConfigFile  = configFile;
@@ -299,6 +303,24 @@ module.exports.run = function(configFile, networkFile, listener_child) {
         });
 
         startPromise.then(() => {
+
+            // kill the event listener process for fabric
+            if (blockchainPlatform == "fabric") {
+                let blockListenerPath = path.join(__dirname, absCaliperPath, 'listener/block-listener-handler.js');
+                console.log(blockListenerPath)
+                 listener_child = childProcess.fork(blockListenerPath);
+            
+                listener_child.on('error', function () {
+                   log('client encountered unexpected error');
+                });
+            
+                listener_child.on('exit', function () {
+                    log('client exited');
+                });
+            
+                listener_child.send({ msg: configFile }); 
+            }
+
             return blockchain.init();
         }).then( () => {
             return blockchain.installSmartContract();
