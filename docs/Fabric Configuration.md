@@ -10,6 +10,8 @@ The fabric configuration is a json file which defines a fabric object with six m
 * **network**: defines the information of orderers and peers of the SUT. For simplicity's sake, only one orderer can be defined now, that causes all proposals being sent to the same orderer, which may hurt ordering performance. That should be fixed in future. The attribute name of organizations and peers must start with 'org' and 'peer'.
 
   Optionally an `user` attribute can be set with an organization to specify the key and certification that can be used by Caliper to interact with the SUT as a member of corresponding organization. If not present, Caliper will try to find them in `cryptodir`.
+  
+  The `domain` attribute for the orderer and organizations corresponds to the `Domain` set in the `crypto-config.yaml` file. It defaults to `example.com`, the domain used by (most of) the networks in this repository. 
 
 ```json
 {
@@ -17,6 +19,7 @@ The fabric configuration is a json file which defines a fabric object with six m
     "orderer": {
       "url": "grpcs://localhost:7050",
       "mspid": "OrdererMSP",
+      "domain": "example.com",
       "user": {
         "key": "network/fabric/simplenetwork/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/be595291403ff68280a724d7e868521815ad9e2fc8c5486f6d7ce6b62d6357cd_sk",
         "cert": "network/fabric/simplenetwork/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts/Admin@example.com-cert.pem"
@@ -27,6 +30,7 @@ The fabric configuration is a json file which defines a fabric object with six m
     "org1": {
       "name": "peerOrg1",
       "mspid": "Org1MSP",
+      "domain": "example.com",
       "ca": {
         "url": "https://localhost:7054",
         "name": "ca-org1"
