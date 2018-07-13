@@ -148,6 +148,9 @@ class Composer extends BlockchainInterface {
      */
     submitTransaction(connection, transaction) {
         let invoke_status = new TxStatus(transaction.getIdentifier());
+        if(connection.engine) {
+            connection.engine.submitCallback(1);
+        }
         return connection.submitTransaction(transaction)
             .then((complete) => {
                 invoke_status.SetStatusSuccess();
