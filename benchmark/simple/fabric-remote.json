@@ -13,7 +13,7 @@
       "org1": {
         "name": "peerOrg1",
         "mspid": "Org1MSP",
-        "domain": "example.com",
+        "domain": "org1.example.com",
         "msp": "network/fabric/simplenetwork/crypto-config/peerOrganizations/org1.example.com/msp/",
         "ca": {
           "url": "https://10.229.42.159:7054",
@@ -35,7 +35,7 @@
       "org2": {
         "name": "peerOrg2",
         "mspid": "Org2MSP",
-        "domain": "example.com",
+        "domain": "org2.example.com",
         "msp": "network/fabric/simplenetwork/crypto-config/peerOrganizations/org2.example.com/msp/",
         "ca": {
           "url": "https://10.229.42.159:8054",

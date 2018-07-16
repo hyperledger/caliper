@@ -13,6 +13,7 @@ const BatchBuilderFactory = require('./Application/BatchBuilderFactory.js');
 const log = require('../comm/util.js').log;
 let configPath;
 const request = require('request-promise');
+const TxStatus = require('../comm/transaction');
 
 /**
  * Get state according from given address
@@ -20,13 +21,7 @@ const request = require('request-promise');
  * @return {Promise<object>} The promise for the result of the execution.
  */
 function getState(address) {
-    let invoke_status = {
-        status       : 'created',
-        time_create  : Date.now(),
-        time_final   : 0,
-        result       : null
-    };
-
+    let txStatus = new TxStatus(0);
     let config = require(configPath);
     let restApiUrl = config.sawtooth.network.restapi.url;
     const stateLink = restApiUrl + '/state?address=' + address;
@@ -42,10 +37,9 @@ function getState(address) {
                 let stateDataBuffer = new Buffer(stateDataBase64, 'base64');
                 let stateData = stateDataBuffer.toString('hex');
 
-                invoke_status.time_final = Date.now();
-                invoke_status.result     = stateData;
-                invoke_status.status     = 'success';
-                return Promise.resolve(invoke_status);
+                txStatus.SetStatusSuccess();
+                txStatus.SetResult(stateData);
+                return Promise.resolve(txStatus);
             }
             else {
                 throw new Error('no query responses');
@@ -53,7 +47,7 @@ function getState(address) {
         })
         .catch(function (err) {
             log('Query failed, ' + (err.stack?err.stack:err));
-            return Promise.resolve(invoke_status);
+            return Promise.resolve(txStatus);
         });
 }
 
@@ -99,8 +93,7 @@ function getBatchStatusByRequest(resolve, statusLink, invoke_status, intervalID,
                 }
             }
             if (hasPending !== true){
-                invoke_status.status = 'success';
-                invoke_status.time_final = Date.now();
+                invoke_status.SetStatusSuccess();
                 clearInterval(intervalID);
                 clearTimeout(timeoutID);
                 return resolve(invoke_status);
@@ -159,13 +152,7 @@ function getBatchStatus(link, invoke_status) {
  * @return {Promise<object>} The promise for the result of the execution.
  */
 function submitBatches(batchBytes) {
-    let invoke_status = {
-        id           : 0,
-        status       : 'created',
-        time_create  : Date.now(),
-        time_final   : 0,
-        result       : null
-    };
+    let txStatus = new TxStatus(0);
     let config = require(configPath);
     let restApiUrl = config.sawtooth.network.restapi.url;
     const request = require('request-promise');
@@ -178,11 +165,11 @@ function submitBatches(batchBytes) {
     return request(options)
         .then(function (body) {
             let link = JSON.parse(body).link;
-            return getBatchStatus(link, invoke_status);
+            return getBatchStatus(link, txStatus);
         })
         .catch(function (err) {
             log('Submit batches failed, ' + (err.stack?err.stack:err));
-            return Promise.resolve(invoke_status);
+            return Promise.resolve(txStatus);
         });
 }
 
@@ -262,6 +249,7 @@ class Sawtooth extends BlockchainInterface {
             let txStats = [];
             for(let i = 0 ; i < args.length ; i++) {
                 let cloned = Object.assign({}, batchStats);
+                Object.setPrototypeOf(cloned, TxStatus.prototype);
                 txStats.push(cloned);
             }
             return Promise.resolve(txStats);
