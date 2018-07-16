@@ -249,6 +249,7 @@ class Sawtooth extends BlockchainInterface {
             let txStats = [];
             for(let i = 0 ; i < args.length ; i++) {
                 let cloned = Object.assign({}, batchStats);
+                Object.setPrototypeOf(cloned, TxStatus.prototype);
                 txStats.push(cloned);
             }
             return Promise.resolve(txStats);
