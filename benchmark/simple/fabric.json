@@ -16,7 +16,7 @@
       "org1": {
         "name": "peerOrg1",
         "mspid": "Org1MSP",
-        "domain": "example.com",
+        "domain": "org1.example.com",
         "user": {
           "key": "network/fabric/simplenetwork/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/0d2b2fc385b10fa59003217e1bb5af2d24a3d762266e287867a1bc290eb44657_sk",
           "cert": "network/fabric/simplenetwork/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem"
@@ -41,7 +41,7 @@
       "org2": {
         "name": "peerOrg2",
         "mspid": "Org2MSP",
-        "domain": "example.com",
+        "domain": "org2.example.com",
         "ca": {
           "url": "https://localhost:8054",
           "name": "ca-org2"
