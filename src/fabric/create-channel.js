@@ -32,7 +32,6 @@ const utils = require('fabric-client/lib/utils.js');
 const Client = require('fabric-client');
 //const util = require('util');
 const fs = require('fs');
-const path = require('path');
 //const grpc = require('grpc');
 
 const testUtil = require('./util.js');
@@ -54,7 +53,7 @@ function run(config_path) {
         const t = global.tapeObj;
         let ORGS = fabric.network;
         let caRootsPath = ORGS.orderer.tls_cacerts;
-        let data = fs.readFileSync(path.join(__dirname, '../..', caRootsPath));
+        let data = fs.readFileSync(commUtils.resolvePath(caRootsPath));
         let caroots = Buffer.from(data).toString();
         utils.setConfigSetting('key-value-store', 'fabric-client/lib/impl/FileKeyValueStore.js');
 
@@ -90,7 +89,7 @@ function run(config_path) {
                     })
                     .then((admin) =>{
                         // use the config update created by the configtx tool
-                        let envelope_bytes = fs.readFileSync(path.join(__dirname, '../..', channel.config));
+                        let envelope_bytes = fs.readFileSync(commUtils.resolvePath(channel.config));
                         config = client.extractChannelConfig(envelope_bytes);
 
                         // TODO: read from channel config instead of binary tx file

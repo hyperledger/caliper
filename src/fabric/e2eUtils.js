@@ -31,9 +31,6 @@ const Client = require('fabric-client');
 const testUtil = require('./util.js');
 
 let ORGS;
-const rootPath = '../..';
-
-//const grpc = require('grpc');
 
 let tx_id = null;
 let the_user = null;
@@ -67,7 +64,7 @@ function installChaincode(org, chaincode) {
     client.setCryptoSuite(cryptoSuite);
 
     const caRootsPath = ORGS.orderer.tls_cacerts;
-    let data = fs.readFileSync(path.join(__dirname, rootPath, caRootsPath));
+    let data = fs.readFileSync(commUtils.resolvePath(caRootsPath));
     let caroots = Buffer.from(data).toString();
 
     channel.addOrderer(
@@ -84,7 +81,7 @@ function installChaincode(org, chaincode) {
     for (let key in ORGS[org]) {
         if (ORGS[org].hasOwnProperty(key)) {
             if (key.indexOf('peer') === 0) {
-                let data = fs.readFileSync(path.join(__dirname, rootPath, ORGS[org][key].tls_cacerts));
+                let data = fs.readFileSync(commUtils.resolvePath(ORGS[org][key].tls_cacerts));
                 let peer = client.newPeer(
                     ORGS[org][key].requests,
                     {
@@ -233,7 +230,7 @@ function instantiateChaincode(chaincode, endorsement_policy, upgrade){
     client.setCryptoSuite(cryptoSuite);
 
     const caRootsPath = ORGS.orderer.tls_cacerts;
-    let data = fs.readFileSync(path.join(__dirname, rootPath, caRootsPath));
+    let data = fs.readFileSync(commUtils.resolvePath(caRootsPath));
     let caroots = Buffer.from(data).toString();
 
     channel.addOrderer(
@@ -261,10 +258,10 @@ function instantiateChaincode(chaincode, endorsement_policy, upgrade){
 
         let eventPeer = null;
         for(let org in ORGS) {
-            if(org.indexOf('org') === 0) {
+            if(ORGS.hasOwnProperty(org) && org.indexOf('org') === 0) {
                 for (let key in ORGS[org]) {
-                    if(key.indexOf('peer') === 0) {
-                        let data = fs.readFileSync(path.join(__dirname, rootPath, ORGS[org][key].tls_cacerts));
+                    if(ORGS[org].hasOwnProperty(key) && key.indexOf('peer') === 0) {
+                        let data = fs.readFileSync(commUtils.resolvePath(ORGS[org][key].tls_cacerts));
                         let peer = client.newPeer(
                             ORGS[org][key].requests,
                             {
@@ -282,7 +279,7 @@ function instantiateChaincode(chaincode, endorsement_policy, upgrade){
         }
 
         // an event listener can only register with a peer in its own org
-        let data = fs.readFileSync(path.join(__dirname, rootPath, ORGS[userOrg][eventPeer].tls_cacerts));
+        let data = fs.readFileSync(commUtils.resolvePath(ORGS[userOrg][eventPeer].tls_cacerts));
         let eh = client.newEventHub();
         eh.setPeerAddr(
             ORGS[userOrg][eventPeer].events,
@@ -440,7 +437,7 @@ function getcontext(channelConfig) {
     client.setCryptoSuite(cryptoSuite);
 
     const caRootsPath = ORGS.orderer.tls_cacerts;
-    let data = fs.readFileSync(path.join(__dirname, rootPath, caRootsPath));
+    let data = fs.readFileSync(commUtils.resolvePath(caRootsPath));
     let caroots = Buffer.from(data).toString();
 
     channel.addOrderer(
@@ -474,7 +471,7 @@ function getcontext(channelConfig) {
                 }
 
                 let peerInfo = peers[Math.floor(Math.random() * peers.length)];
-                let data = fs.readFileSync(path.join(__dirname, rootPath, peerInfo.tls_cacerts));
+                let data = fs.readFileSync(commUtils.resolvePath(peerInfo.tls_cacerts));
                 let peer = client.newPeer(
                     peerInfo.requests,
                     {
