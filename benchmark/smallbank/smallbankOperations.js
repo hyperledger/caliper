@@ -17,17 +17,12 @@ const initial_balance = 1000000;
 const operation_type = ['transact_savings','deposit_checking','send_payment','write_check', 'amalgamate'];
 let prefix;
 
-let idx = 0;
 /**
  * Get account index
  * @return {Number} index
  */
 function getAccount() {
-    idx++;
-    if(idx >= account_array.length) {
-        idx -= account_array.length;
-    }
-    return idx;
+    return Math.floor(Math.random()*Math.floor(account_array.length));
 }
 
 /**
@@ -35,19 +30,11 @@ function getAccount() {
  * @return {Array} index of two accounts
  */
 function get2Accounts() {
-    const rnd = 10;
     let idx1 = getAccount();
-    let idx2 = idx1 + Math.floor(Math.random() * rnd);
-    while(idx2 >= account_array.length && idx2 > 0) {
-        idx2 -= account_array.length;
-    }
-    if(idx2 < 0) {
-        idx2 = 0;
-    }
+    let idx2 = getAccount();
     if(idx2 === idx1) {
         idx2 = getAccount();
     }
-    idx = idx2;
     return [idx1, idx2];
 }
 
