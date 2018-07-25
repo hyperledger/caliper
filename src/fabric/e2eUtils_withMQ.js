@@ -434,7 +434,7 @@ function getcontext(channelConfig) {
     const channel = client.newChannel(channel_name);
     let orgName = ORGS[userOrg].name;
     const cryptoSuite = Client.newCryptoSuite();
-    const eventhubs = [];
+    //const eventhubs = [];
     cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: testUtil.storePathForOrg(orgName)}));
     client.setCryptoSuite(cryptoSuite);
 
@@ -484,7 +484,7 @@ function getcontext(channelConfig) {
                 channel.addPeer(peer);
 
                 // an event listener can only register with the peer in its own org
-                if(org === userOrg) {
+               /* if(org === userOrg) {
                     let eh = client.newEventHub();
                     eh.setPeerAddr(
                         peerInfo.events,
@@ -498,13 +498,13 @@ function getcontext(channelConfig) {
                         }
                     );
                     eventhubs.push(eh);
-                }
+                }*/
             }
 
             // register event listener
-            eventhubs.forEach((eh) => {
+           /* eventhubs.forEach((eh) => {
                 eh.connect();
-            });
+            });*/
 
             return channel.initialize();
         })
@@ -513,9 +513,8 @@ function getcontext(channelConfig) {
                 org: userOrg,
                 client: client,
                 channel: channel,
-                submitter: the_user,
-                eventhubs: eventhubs
-            });
+                submitter: the_user});
+                //eventhubs: eventhubs
         })
         .catch((err) => {
             return Promise.reject(err);
@@ -542,6 +541,91 @@ function releasecontext(context) {
 }
 module.exports.releasecontext = releasecontext;
 
+/**
+ * connect to Kafka, fetch block and confirmation time
+ * @param {*} resultsArray 
+ */
+/*function getTransactionConfirmationTime(resultsArray) {
+
+	return new Promise(function (resolve, reject) {
+		var map = []
+		resultsArray.forEach(function (internal_element) {
+			map[internal_element.id] = internal_element
+
+		})
+		var globalArray = []
+        globalArray.push(map)
+		var kafka = require('kafka-node');
+		var Consumer = kafka.Consumer;
+		var client1 = new kafka.KafkaClient({ kafkaHost: listener_config.broker_urls, requestTimeout: 300000000 });
+
+		var options = {
+			autoCommit: false,
+			fetchMaxWaitMs: 1000,
+			fetchMaxBytes: 5120 * 5120,
+			encoding: 'buffer',
+			 groupId: "groupID" + Math.floor(Math.random() * Math.floor(100))
+		};
+
+		var topics = [{
+			topic: listener_config.topic
+
+		}];
+
+		var consumer = new Consumer(client1, topics, options);
+		var finalresult = [];
+		var isTxfound;
+		var pendingCounter = 0
+
+		consumer.on('message', function (message) {
+			var buf = new Buffer(message.value); // Read string into a buffer.
+			var data = buf.toString('utf-8')
+            var block = JSON.parse(data).block
+            var txStatusCodes = block.metadata.metadata[_common.BlockMetadataIndex.TRANSACTIONS_FILTER];
+
+			for (var index = 0; index < block.data.data.length; index++) {
+				var channel_header = block.data.data[index].payload.header.channel_header;
+
+				// serach the globalArray if the Id exists or not. It will be present but in any one of the array in global Array
+				if (globalArray[0][channel_header.tx_id] != undefined || globalArray[0][channel_header.tx_id] != null) {
+
+                    var val_code = convertValidationCode(txStatusCodes[index]);
+					var object = globalArray[0][channel_header.tx_id]
+					object.time_final = JSON.parse(data).validTime;
+                  
+                    if (val_code != 'VALID'){
+                        object.verified = true
+                        object.status = 'failed'
+                    }
+                    else {
+                        object.verified = true
+                        object.status = "success";
+                    }
+                    
+					globalArray[0][channel_header.tx_id] = object
+					pendingCounter++
+					finalresult.push(object)
+				}
+				if (pendingCounter == resultsArray.length) {
+                    consumer.close(()=>{
+                        resolve(finalresult)
+                    })
+					
+				}
+
+			}
+
+		});
+
+	consumer.on('error', function (error) {
+            logger.error("Error while consuming blocks from MQ", error)
+            reject(error)
+
+		})
+	})
+}
+
+module.exports.getTransactionConfirmationTime = getTransactionConfirmationTime;*/
 
 function convertValidationCode(code) {
 	return _validation_codes[code];
@@ -661,7 +745,7 @@ async function invokebycontext(context, id, version, args, timeout){
             newTimeout = 10000;
         }
 
-        const eventPromises = [];
+        /*const eventPromises = [];
         eventHubs.forEach((eh) => {
             eventPromises.push(new Promise((resolve, reject) => {
                 let handle = setTimeout(reject, newTimeout);
@@ -692,7 +776,7 @@ async function invokebycontext(context, id, version, args, timeout){
                     }
                 );
             }));
-        });
+        });*/
 
         let broadcastResponse;
         try {
@@ -717,7 +801,7 @@ async function invokebycontext(context, id, version, args, timeout){
             throw err;
         }
 
-        await Promise.all(eventPromises);
+       /* await Promise.all(eventPromises);
         // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
         // so mark it failed but leave it not verified
         if (!invokeStatus.verified) {
@@ -727,15 +811,20 @@ async function invokebycontext(context, id, version, args, timeout){
             invokeStatus.status = 'success';
             invokeStatus.verified = true;
         }
-   
     } catch (err)
     {
         // at this point the Tx should be verified
         invokeStatus.status = 'failed';
         commUtils.log('Failed to complete transaction [' + txId.substring(0, 5) + '...]:' + (err instanceof Error ? err.stack : err));
+    }*/
+    } catch (err)
+    {
+        // at this point the Tx should be verified
+        
+        invokeStatus.status = 'failed';
+        commUtils.log('Failed to complete transaction [' + txId.substring(0, 5) + '...]:' + (err instanceof Error ? err.stack : err));
     }
    
-    invokeStatus.time_final = Date.now()
     return invokeStatus;
 }
 

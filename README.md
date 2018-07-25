@@ -66,7 +66,8 @@ Run `npm install` in caliper folder to install dependencies locally
 
    Please see the plugin [documentation](./docs/Composer.md) for more details on using the Composer performance plugin, and developing your own tests.
 
-### Install Apache Kafka MQ
+### Install Apache Kafka MQ (optional feature)
+You can also configure the tool to run with Apache Kafka. Set `WITH_MQ` flag to true in the config file for each benchmark and run through the following installation for Kafka.
   
 #### Pre-requisites for Kafka MQ
 

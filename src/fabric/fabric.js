@@ -9,7 +9,7 @@
 'use strict';
 
 const util = require('./util.js');
-const e2eUtils = require('./e2eUtils.js');
+let e2eUtils;
 const impl_create = require('./create-channel.js');
 const impl_join = require('./join-channel.js');
 const impl_install = require('./install-chaincode.js');
@@ -25,7 +25,14 @@ class Fabric extends BlockchainInterface{
      * Create a new instance of the {Fabric} class.
      * @param {string} config_path The path of the Fabric network configuration file.
      */
-    constructor(config_path) {
+    constructor(config_path, withMQ) {
+        if (!withMQ) {
+            e2eUtils = require('./e2eUtils.js')
+        }
+        else {
+            e2eUtils = require('./e2eUtils_withMQ.js')
+        }
+        
         super(config_path);
     }
 
@@ -104,14 +111,14 @@ class Fabric extends BlockchainInterface{
      * @param {object} resultsArray resultsArray containing transactions made by client.
      * @return {Promise} The return promise.
      */
-    getTransactionConfirmationTime(resultsArray) {
+    /*getTransactionConfirmationTime(resultsArray) {
 
         if (resultsArray.length <= 0) {
             return Promise.reject(new Error("No transactions found in the result array"));
         }
 
         return e2eUtils.getTransactionConfirmationTime(resultsArray);
-    }
+    }*/
 
     /**
      * Invoke the given chaincode according to the specified options. Multiple transactions will be generated according to the length of args.

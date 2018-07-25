@@ -8,6 +8,7 @@
     "end" : "docker-compose -f network/fabric/simplenetwork/docker-compose.yaml down;docker rm $(docker ps -aq)"
   },
   "test": {
+    "WITH_MQ": false,
     "clients": {
       "type": "local",
       "number": 5

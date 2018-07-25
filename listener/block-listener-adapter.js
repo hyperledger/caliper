@@ -34,8 +34,6 @@ var KafkaAdapter = class {
             default:
                 throw new Error('Unknown blockchain type, ' + this.bcType);
         }
-
-
     }
 
     /**

@@ -186,4 +186,3 @@ function demoStopWatch(output) {
 }
 
 module.exports.stopWatch = demoStopWatch;
-

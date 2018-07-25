@@ -24,7 +24,7 @@ let txUpdateTime = 1000;
 /**
  * Calculate realtime transaction statistics and send the txUpdated message
  */
-function txUpdate() {
+function txUpdate(withMQ) {
     let newNum = txNum - txLastNum;
     txLastNum += newNum;
 
@@ -41,7 +41,14 @@ function txUpdate() {
     else {
         newStats = blockchain.getDefaultTxStats(newResults, false);
     }
-    process.send({type: 'txUpdated', data: {submitted: newNum, committed: newStats}});
+    if (!withMQ) {
+        process.send({type: 'txUpdated', data: {submitted: newNum, committed: newStats}});
+    }
+    else {
+        // send the array of txns with id and send time, etc
+        process.send({type: 'txUpdated', data: {submitted: newNum, committed: newResults}});
+    }
+ 
 }
 
 /**
@@ -144,13 +151,13 @@ async function runDuration(msg, cb, context) {
  * @return {Promise} promise object
  */
 function doTest(msg) {
-    log('doTest() with:', msg);
+    
     let cb = require(path.join(__dirname, '../../..', msg.cb));
-    blockchain = new bc(path.join(__dirname, '../../..', msg.config));
-
+    blockchain = new bc(path.join(__dirname, '../../..', msg.config), msg.withMQ);
+    
     beforeTest();
     // start an interval to report results repeatedly
-    let txUpdateInter = setInterval(txUpdate, txUpdateTime);
+    let txUpdateInter = setInterval(txUpdate.bind(null, msg.withMQ), txUpdateTime);
     /**
      * Clear the update interval
      */
@@ -182,8 +189,8 @@ function doTest(msg) {
             return runFixedNumber(msg, cb, context);
         }
     }).then(() => {
-      
-        if (msg.label != "query") {
+     
+       /* if (msg.label != "query") {
             return blockchain.getTransactionConfirmationTime(results).then((response)=>{
                 clearUpdateInter();
                 return cb.end(response);
@@ -192,8 +199,9 @@ function doTest(msg) {
         }else{
             clearUpdateInter();
             return cb.end(results);
-        } 
-        
+        }*/ 
+            clearUpdateInter();
+            return cb.end(results);
     }).then(() => {
         // conditionally trim beginning and end results for this test run
         if (msg.trim) {
@@ -222,24 +230,40 @@ function doTest(msg) {
  * Message handler
  */
 process.on('message', function(message) {
+
+  
     if(message.hasOwnProperty('type')) {
         try {
             switch(message.type) {
             case 'test': {
+                if (message.withMQ){
+                    let result;
+                    doTest(message).then((output) => {
+                        result = output;
+                        return Util.sleep(200);
+                    })
+                    break;
+            }else{
                 let result;
-                doTest(message).then((output) => {
-                    result = output;
-                    return Util.sleep(200);
-                }).then(() => {
-                    process.send({type: 'testResult', data: result});
-                });
+                    doTest(message).then((output) => {
+                        result = output;
+                        return Util.sleep(200);
+                    }).then(() => {
+                        process.send({type: 'testResult', data: result});
+                    });
+                    break;
+                }
+            }
+            case 'roundsComplete': {
+                let result;
+                process.send({type: 'testResult', data: result});
                 break;
             }
             default: {
                 process.send({type: 'error', data: 'unknown message type'});
             }
-            }
         }
+    }
         catch(err) {
             process.send({type: 'error', data: err});
         }

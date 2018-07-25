@@ -8,23 +8,22 @@
     "end" : "docker-compose -f network/fabric/simplenetwork/docker-compose.yaml down;docker rm $(docker ps -aq)"
   },
   "test": {
-    "name": "simple",
-    "description" : "This is an example benchmark for caliper, to test the backend DLT's performance with simple account opening & querying transactions",
+    "WITH_MQ": true,
     "clients": {
       "type": "local",
       "number": 5
     },
     "rounds": [{
         "label" : "open",
-        "txNumber" : [1000, 1000, 1000],
-        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 50}}, {"type": "fixed-rate", "opts": {"tps" : 100}}, {"type": "fixed-rate", "opts": {"tps" : 150}}],
-        "arguments": { "money": 10000 },
+        "txNumber" : [5000, 5000, 5000],
+        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 100}}, {"type": "fixed-rate", "opts": {"tps" : 200}}, {"type": "fixed-rate", "opts": {"tps" : 300}}],
+        "arguments": {  "money": 10000 },
         "callback" : "benchmark/simple/open.js"
       },
       {
         "label" : "query",
         "txNumber" : [5000, 5000],
-        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 100}}, {"type": "fixed-rate", "opts": {"tps" : 200}}],
+        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 300}}, {"type": "fixed-rate", "opts": {"tps" : 400}}],
         "callback" : "benchmark/simple/query.js"
       }]
   },

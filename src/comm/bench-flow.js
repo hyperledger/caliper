@@ -26,11 +26,12 @@ const log = Util.log;
 let blockchain, monitor, report, client;
 let resultsbyround = [];    // results table for each test round
 let round = 0;              // test round
-let demo = require('../gui/src/demo.js');
+let demo;
 let absConfigFile, absNetworkFile;
 let absCaliperDir = path.join(__dirname, '../..');
 let absCaliperPath = '../../';
 let listener_child;
+let configurationType;
 
 /**
  * Generate mustache template for test report
@@ -156,6 +157,9 @@ function printResultsByRound() {
  * @return {Promise} promise object
  */
 function processResult(results, label){
+    if (configurationType){
+        return Promise.resolve();
+    }
     try{
         let resultTable = [];
         resultTable[0] = getResultTitle();
@@ -166,6 +170,46 @@ function processResult(results, label){
         }
         else {
             r = results[0];
+            r.label = label;
+            resultTable[1] = getResultValue(r);
+        }
+
+        if(resultsbyround.length === 0) {
+            resultsbyround.push(resultTable[0].slice(0));
+        }
+        if(resultTable.length > 1) {
+            resultsbyround.push(resultTable[1].slice(0));
+        }
+        log('###test result:###');
+        printTable(resultTable);
+        let idx = report.addBenchmarkRound(label);
+        report.setRoundPerformance(idx, resultTable);
+        let resourceTable = monitor.getDefaultStats();
+        if(resourceTable.length > 0) {
+            log('### resource stats ###');
+            printTable(resourceTable);
+            report.setRoundResource(idx, resourceTable);
+        }
+        return Promise.resolve();
+    }
+    catch(err) {
+        log(err);
+        return Promise.reject(err);
+    }
+}
+
+function processResultOptional(results, label){
+    
+    try{
+        let resultTable = [];
+        resultTable[0] = getResultTitle();
+        let r;
+        if(Blockchain.mergeDefaultTxStats(results) === 0) {
+            r = Blockchain.createNullDefaultTxStats;
+            r.label = label;
+        }
+        else {
+            r = results;
             r.label = label;
             resultTable[1] = getResultValue(r);
         }
@@ -217,7 +261,8 @@ function defaultTest(args, clientArgs, final) {
                 trim: args.trim ? args.trim : 0,
                 args: args.arguments,
                 cb  : args.callback,
-                config: configPath
+                config: configPath,
+                withMQ: configurationType
             };
             // condition for time based or number based test driving
             if (args.txNumber) {
@@ -231,27 +276,30 @@ function defaultTest(args, clientArgs, final) {
             tests.push(msg);
         }
         let testIdx = 0;
+        
         return tests.reduce( function(prev, item) {
             return prev.then( () => {
-                log('----test round ' + round + '----');
+                
+                log('----test round ' + round + '----'+item.label);
                 round++;
                 testIdx++;
-                demo.startWatch(client);
-
+                demo.startWatch(client, item.numb, processResultOptional, item.label);
                 return client.startTest(item, clientArgs, processResult, testLabel).then( () => {
-                    demo.pauseWatch();
-                    t.pass('passed \'' + testLabel + '\' testing');
-                    return Promise.resolve();
+                        demo.pauseWatch();
+                        t.pass('passed \'' + testLabel + '\' testing');
+                        return Promise.resolve();
+                    
                 }).then( () => {
                     if(final && testIdx === tests.length) {
                         return Promise.resolve();
                     }
                     else {
-                        log('wait 5 seconds for next round...');
-                        return Util.sleep(5000).then( () => {
-                            return monitor.restart();
-                        });
-                    }
+                            log('wait 5 seconds for next round...');
+                            return Util.sleep(5000).then( () => {
+                             return monitor.restart();
+                            });
+                        }
+                     
                 }).catch( (err) => {
                     demo.pauseWatch();
                     t.fail('failed \''  + testLabel + '\' testing, ' + (err.stack ? err.stack : err));
@@ -274,7 +322,14 @@ function defaultTest(args, clientArgs, final) {
  */
 module.exports.run = function(configFile, networkFile) {
 
-    let blockchainPlatform = require(configFile).blockchain.type
+    let localConfig = require(configFile)
+    configurationType = localConfig.test.WITH_MQ
+    if (!configurationType) {
+        demo = require('../gui/src/demo.js');
+    }
+    else {
+            demo = require('../gui/src/demoOptional.js')
+        }
     test('#######Caliper Test######', (t) => {
         global.tapeObj = t;
         absConfigFile  = configFile;
@@ -303,26 +358,22 @@ module.exports.run = function(configFile, networkFile) {
         });
 
         startPromise.then(() => {
-
-            // kill the event listener process for fabric
-            if (blockchainPlatform == "fabric") {
+           if (configurationType) {
                 let blockListenerPath = path.join(__dirname, absCaliperPath, 'listener/block-listener-handler.js');
-                console.log(blockListenerPath)
-                 listener_child = childProcess.fork(blockListenerPath);
-            
+                listener_child = childProcess.fork(blockListenerPath);
                 listener_child.on('error', function () {
-                   log('client encountered unexpected error');
+                    log('client encountered unexpected error');
                 });
             
                 listener_child.on('exit', function () {
                     log('client exited');
                 });
             
-                listener_child.send({ msg: configFile }); 
+                listener_child.send({ msg: configFile });  
             }
-
             return blockchain.init();
         }).then( () => {
+            
             return blockchain.installSmartContract();
         }).then( () => {
             return client.init().then((number)=>{
@@ -345,11 +396,11 @@ module.exports.run = function(configFile, networkFile) {
                 });
             }, Promise.resolve());
         }).then( () => {
+
             log('----------finished test----------\n');
              
             // kill the event listener process
-            if (typeof listener_child != undefined){
-                
+            if (configurationType){
                 listener_child.kill()
             }
             printResultsByRound();
@@ -363,6 +414,7 @@ module.exports.run = function(configFile, networkFile) {
                 return Promise.resolve();
             });
         }).then( () => {
+
             client.stop();
             let config = require(absConfigFile);
             if (config.hasOwnProperty('command') && config.command.hasOwnProperty('end')){

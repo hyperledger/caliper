@@ -45,7 +45,7 @@ module.exports.run = function() {
 module.exports.end = function(results) {
     for (let i in results){
         let stat = results[i];
-        if(stat.status === 'success') {
+        if(stat.status === 'success' || stat.status == 'submitted') {
             ids.push(stat.result.toString());
         }
     }
