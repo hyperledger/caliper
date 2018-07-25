@@ -64,11 +64,9 @@ class FabricListener {
                 eh.connect();
                
                 eh.registerBlockEvent((block) => {
-
                     var event_data = {}
                     event_data.validTime = Date.now()
                     event_data.block = block
-                    log("Received Block No", block.header.number, "at", event_data.validTime)
                     var payload = [{
                         topic: self.listener_config.topic,
                         messages: JSON.stringify(event_data),
