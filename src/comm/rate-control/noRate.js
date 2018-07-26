@@ -27,7 +27,7 @@ const Util = require('../util');
  */
 class NoRateController extends RateInterface{
     /**
-     * Creates a new instance of the UnboundedRateController class.
+     * Creates a new instance of the {NoRateController} class.
      * @constructor
      * @param {Blockchain} blockchain The initialized blockchain object.
      * @param {object} opts Options for the rate controller.
@@ -53,6 +53,8 @@ class NoRateController extends RateInterface{
      * @param {number} msg.totalClients The number of clients executing the round.
      * @param {number} msg.clients The number of clients executing the round.
      * @param {object} msg.clientargs Arguments for the client.
+     * @param {number} msg.clientIdx The 0-based index of the current client.
+     * @param {number} msg.roundIdx The 1-based index of the current round.
      */
     async init(msg) {
         if (msg.numb) {

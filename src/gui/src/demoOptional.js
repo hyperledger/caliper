@@ -29,6 +29,7 @@ var demoXLen = 60;     // default x axis length
 var demoData;
 var demoInterObj = null;
 var demoSessionID = 0;
+const TxStatus = require('../../comm/transaction.js');
 
 function demoInit() {
     var fs = require('fs');
@@ -107,21 +108,25 @@ function demoRefreshData(updates, label) {
         var sub = updates[i].submitted
         totalSubmitted += sub
         var submitted_transactions = updates[i].committed
+    
         for (let j =0; j < submitted_transactions.length; j++) {
-            var transaction = submitted_transactions[j]
-            if (cachedEvents.get(transaction.id) == undefined) {
-                cachedEvents.set(transaction.id, transaction)
+            var transactionStatus = submitted_transactions[j].status
+            var TransactionStatus = new TxStatus(transactionStatus.id, transactionStatus.status, transactionStatus.time_create, transactionStatus.time_final, 
+                transactionStatus.result, transactionStatus.verified, transactionStatus.flags, transactionStatus.error_messages);
+                
+            if (cachedEvents.get(TransactionStatus.GetID()) == undefined) {
+                cachedEvents.set(TransactionStatus.GetID(), TransactionStatus)
                 if (label == 'query') {
-                    confirmedTransactions.push(transaction)
+                    confirmedTransactions.push(TransactionStatus)
                     getDefaultStats(totalSubmitted, confirmedTransactions, label) 
                 }
             }
             else {
-                transaction.time_final = cachedEvents.get(transaction.id)
-                transaction.verified = true
-                transaction.status = 'success'
-                cachedEvents.set(transaction.id, transaction)
-                confirmedTransactions.push(transaction)
+                TransactionStatus.Set('time_final', cachedEvents.get(TransactionStatus.GetID()))
+                TransactionStatus.SetVerification(true)
+                TransactionStatus.Set('status', 'success')
+                cachedEvents.set(TransactionStatus.GetID(), TransactionStatus)
+                confirmedTransactions.push(TransactionStatus)
                 getDefaultStats(totalSubmitted, confirmedTransactions, label)
                
             }   
@@ -186,6 +191,7 @@ var updateID   = 0;
 
 function update(label) {
     var updates = client.getUpdates();
+   
     if(updates.id > updateID) { // new buffer
         updateTail = 0;
         updateID   = updates.id;
@@ -262,9 +268,9 @@ function consumeEvents(testLabel){
             else if (cachedEvents.get(transaction_id) != undefined){
 
                 var transactionObject = cachedEvents.get(transaction_id); 
-                transactionObject.time_final = confirmation_time;
-                transactionObject.verified = true;
-                transactionObject.status = 'success';
+                transactionObject.Set('time_final',confirmation_time)
+                transactionObject.SetVerification(true)
+                transactionObject.Set('status','success')
                 cachedEvents.set(transaction_id, transactionObject);
                 confirmedTransactions.push(transactionObject)
                 getDefaultStats(totalSubmitted, confirmedTransactions, testLabel)

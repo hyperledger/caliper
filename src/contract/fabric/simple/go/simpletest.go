@@ -18,7 +18,7 @@ import (
 const ERROR_SYSTEM = "{\"code\":300, \"reason\": \"system error: %s\"}"
 const ERROR_WRONG_FORMAT = "{\"code\":301, \"reason\": \"command format is wrong\"}"
 const ERROR_ACCOUNT_EXISTING = "{\"code\":302, \"reason\": \"account already exists\"}"
-const ERROR_ACCOUT_ABNORMAL = "{\"code\":303, \"reason\": \"abnormal account\"}"
+const ERROR_ACCOUNT_ABNORMAL = "{\"code\":303, \"reason\": \"abnormal account\"}"
 const ERROR_MONEY_NOT_ENOUGH = "{\"code\":304, \"reason\": \"account's money is not enough\"}"
 
 
@@ -105,34 +105,34 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, args []string)
 	}
 
 	if money == nil {
-		return shim.Error(ERROR_ACCOUT_ABNORMAL)
+		return shim.Error(ERROR_ACCOUNT_ABNORMAL)
 	}
 
 	return shim.Success(money)
 }
 
-// transfer money from account1 to account2, should be [transfer accout1 accout2 money]
+// transfer money from account1 to account2, should be [transfer account1 account2 money]
 func (t *SimpleChaincode) Transfer(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	if len(args) != 3 {
 		return shim.Error(ERROR_WRONG_FORMAT)
 	}
-	money, err := strconv.Atoi(args[1])
+	money, err := strconv.Atoi(args[2])
 	if err != nil {
 		return shim.Error(ERROR_WRONG_FORMAT)
 	}
 
 	moneyBytes1, err1 := stub.GetState(args[0])
-	moneyBytes2, err2 := stub.GetState(args[0])
+	moneyBytes2, err2 := stub.GetState(args[1])
 	if err1 != nil || err2 != nil {
 		s := fmt.Sprintf(ERROR_SYSTEM, err.Error())
 		return shim.Error(s)
 	}
 	if moneyBytes1 == nil || moneyBytes2 == nil {
-		return shim.Error(ERROR_ACCOUT_ABNORMAL)
+		return shim.Error(ERROR_ACCOUNT_ABNORMAL)
 	}
 
 	money1, _ := strconv.Atoi(string(moneyBytes1))
-	money2, _ := strconv.Atoi(string(moneyBytes1))
+	money2, _ := strconv.Atoi(string(moneyBytes2))
 	if money1 < money {
 		return shim.Error(ERROR_MONEY_NOT_ENOUGH)
 	}
@@ -148,7 +148,6 @@ func (t *SimpleChaincode) Transfer(stub shim.ChaincodeStubInterface, args []stri
 
 	err = stub.PutState(args[1], []byte(strconv.Itoa(money2)))
 	if err != nil {
-		stub.PutState(args[0], []byte(strconv.Itoa(money1+money)))
 		s := fmt.Sprintf(ERROR_SYSTEM, err.Error())
 		return shim.Error(s)
 	}

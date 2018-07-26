@@ -54,7 +54,7 @@ function generateAccount() {
 module.exports.run = function() {
     let newAcc = generateAccount();
     accounts.push(newAcc);
-    return bc.invokeSmartContract(contx, 'simple', 'v0', {verb: 'open', account: newAcc, money: initMoney}, 30);
+    return bc.invokeSmartContract(contx, 'simple', 'v0', {verb: 'open', account: newAcc, money: initMoney}, 200);
 };
 
 module.exports.end = function(results) {

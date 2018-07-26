@@ -7,50 +7,63 @@
 
 'use strict';
 
-const kafka = require('kafka-node');
-const Client = require('fabric-client')
-const fs = require('fs')
+const Client = require('fabric-client');
+const fs = require('fs');
 const path = require('path');
-const Promise = require('promise');
-var testUtil = require('../src/fabric/util.js');
+let testUtil = require('../src/fabric/util.js');
 const Util = require('../src/comm/util');
 const log = Util.log;
-const rootPath = "../"
+const rootPath = '../';
 
+
+/**
+ * Fabric Listener class, define operations to recieve block events from Fabric Peer and publish into kafka
+ */
 class FabricListener {
+    /**
+     * Constructor
+     * @param {String} listener_config path of the listener configuration file
+     * @param {Client} client_kafka, Kafka client
+     * @param {Producer} producer, Kafka HighLevelProducer
+     * @param {String} configPath path of the blockchain configuration file
+     */
     constructor(listener_config, client_kafka, producer, configPath) {
-        
-        this.testUtil = testUtil
+
+        this.testUtil = testUtil;
         let args = require(configPath).blockchain;
-        this.testUtil.init(path.join(__dirname, rootPath, args.config))
-        this.peerEventObject = {}
+        this.testUtil.init(path.join(__dirname, rootPath, args.config));
+        this.peerEventObject = {};
         this.peerEventObject.eventUrl = listener_config.peerEventUrl;
-        let tlsCert = fs.readFileSync(path.join(__dirname, rootPath, listener_config.peerEventTlscaPath))
-        this.peerEventObject.eventTlsca = tlsCert
+        let tlsCert = fs.readFileSync(path.join(__dirname, rootPath, listener_config.peerEventTlscaPath));
+        this.peerEventObject.eventTlsca = tlsCert;
         this.peerEventObject.eventServerHostName =listener_config.peerEventHostnameOverride;
         this.peerEventObject.org = listener_config.peerOrg;
         this.client = new Client();
-        this.client_kafka = client_kafka
-        this.producer = producer
-        this.listener_config = listener_config
-       
+        this.client_kafka = client_kafka;
+        this.producer = producer;
+        this.listener_config = listener_config;
+
     }
 
+    /**
+     * Fetch Blocks from Fabric peer and publish into kafka
+     *
+     */
     getBlocks() {
-        var self = this
+        let self = this;
         self.client_kafka.on('error', function (error) {
-            log("Kafka client ERROR", error);
+            log('Kafka client ERROR', error);
         });
 
         self.producer.on('ready', function () {
-            Client.newDefaultKeyValueStore({ path: "../hfc/hfc-test-kvs_peerOrg1" }).then((store) => {
+            Client.newDefaultKeyValueStore({ path: '../hfc/hfc-test-kvs_peerOrg1' }).then((store) => {
 
                 self.client.setStateStore(store);
                 return self.testUtil.getSubmitter(self.client, true, self.peerEventObject.org);
 
             }).then((admin) => {
 
-                self.client._userContext = admin
+                self.client._userContext = admin;
                 let eh = self.client.newEventHub();
                 eh.setPeerAddr(
                     self.peerEventObject.eventUrl,
@@ -58,16 +71,16 @@ class FabricListener {
                         pem: Buffer.from(self.peerEventObject.eventTlsca).toString(),
                         'ssl-target-name-override': self.peerEventObject.eventServerHostName,
                         'request-timeout': 12000000,
-                        "grpc.max_receive_message_length": -1
+                        'grpc.max_receive_message_length': -1
                     }
                 );
                 eh.connect();
-               
+
                 eh.registerBlockEvent((block) => {
-                    var event_data = {}
-                    event_data.validTime = Date.now()
-                    event_data.block = block
-                    var payload = [{
+                    let event_data = {};
+                    event_data.validTime = Date.now();
+                    event_data.block = block;
+                    let payload = [{
                         topic: self.listener_config.topic,
                         messages: JSON.stringify(event_data),
                         partition: 0,
@@ -76,23 +89,20 @@ class FabricListener {
 
                     self.producer.send(payload, function (error, result) {
                         if (error) {
-                            log("Error while publishing block in kafka", error);
-                        } else {
-                            var formattedResult = result[0]
-
+                            log('Error while publishing block in kafka', error);
                         }
                     });
 
                 },
-                    (err) => {
-                        log("Error in chaincode Event listener :", err)
-                    }
+                (err) => {
+                    log('Error in chaincode Event listener :', err);
+                }
                 );
-            })
+            });
 
-        })
+        });
         self.producer.on('error', function (error) {
-            log("Producer is not ready", error);
+            log('Producer is not ready', error);
         });
 
     }

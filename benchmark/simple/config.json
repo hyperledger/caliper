@@ -2,30 +2,30 @@
   "blockchain": {
     "type": "fabric",
     "config": "benchmark/simple/fabric.json"
-  },
+  }, 
   "command" : {
     "start": "docker-compose -f network/fabric/simplenetwork/docker-compose.yaml up -d",
-    "end" : "docker-compose -f network/fabric/simplenetwork/docker-compose.yaml down;docker rm $(docker ps -aq)"
+    "end" : "docker-compose -f network/fabric/simplenetwork/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
   },
   "test": {
     "WITH_MQ": true,
     "clients": {
       "type": "local",
-      "number": 5
+      "number": 4
     },
     "rounds": [{
-        "label" : "open",
-        "txNumber" : [5000, 5000, 5000],
-        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 100}}, {"type": "fixed-rate", "opts": {"tps" : 200}}, {"type": "fixed-rate", "opts": {"tps" : 300}}],
-        "arguments": {  "money": 10000 },
-        "callback" : "benchmark/simple/open.js"
-      },
-      {
-        "label" : "query",
-        "txNumber" : [5000, 5000],
-        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 300}}, {"type": "fixed-rate", "opts": {"tps" : 400}}],
-        "callback" : "benchmark/simple/query.js"
-      }]
+      "label" : "open",
+      "txNumber" : [1000, 1000, 1000],
+      "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 50}}, {"type": "fixed-rate", "opts": {"tps" : 100}}, {"type": "fixed-rate", "opts": {"tps" : 150}}],
+      "arguments": { "money": 10000 },
+      "callback" : "benchmark/simple/open.js"
+    },
+    {
+      "label" : "query",
+      "txNumber" : [5000, 5000],
+      "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 100}}, {"type": "fixed-rate", "opts": {"tps" : 200}}],
+      "callback" : "benchmark/simple/query.js"
+    }]
   },
   "monitor": {
     "type": ["docker", "process"],

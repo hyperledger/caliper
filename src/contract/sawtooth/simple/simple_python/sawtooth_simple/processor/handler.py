@@ -38,7 +38,7 @@ SIMPLE_ADDRESS_PREFIX = hashlib.sha512(
     FAMILY_NAME.encode('utf-8')).hexdigest()[0:6]
 
 
-def make_intkey_address(name):
+def make_simple_address(name):
     return SIMPLE_ADDRESS_PREFIX + hashlib.sha512(
         name.encode('utf-8')).hexdigest()[-64:]
 
@@ -61,7 +61,7 @@ class SimpleTransactionHandler(TransactionHandler):
 
         state = _get_state_data(name, context)
 
-        updated_state = _do_intkey(verb, name, value, state)
+        updated_state = _do_simple(verb, name, value, state)
 
         _set_state_data(name, updated_state, context)
 
@@ -93,9 +93,9 @@ def _decode_transaction(transaction):
     except AttributeError:
         raise InvalidTransaction('Name is required')
 
-    try:        
+    try:
         value = int(content['money'])
-        
+
     except AttributeError:
         raise InvalidTransaction('Value is required')
 
@@ -125,7 +125,7 @@ def _validate_value(value):
 
 
 def _get_state_data(name, context):
-    address = make_intkey_address(name)
+    address = make_simple_address(name)
 
     state_entries = context.get_state([address])
 
@@ -139,7 +139,7 @@ def _get_state_data(name, context):
 
 
 def _set_state_data(name, state, context):
-    address = make_intkey_address(name)
+    address = make_simple_address(name)
 
     encoded = cbor.dumps(state)
 
@@ -150,7 +150,7 @@ def _set_state_data(name, state, context):
             'State error')
 
 
-def _do_intkey(verb, name, value, state):
+def _do_simple(verb, name, value, state):
     verbs = {
         'open': _do_open,
         'delete': _do_delete,

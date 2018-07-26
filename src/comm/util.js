@@ -13,10 +13,16 @@
  */
 
 'use strict';
+const path = require('path');
+
+// comm --> src --> root
+const rootDir = path.join('..', '..');
+
 
 /**
  * Internal Utility class for Caliper
- */class Util {
+ */
+class Util {
 
     /**
      * Perform a sleep
@@ -34,6 +40,24 @@
     static log(...msg) {
         // eslint-disable-next-line no-console
         console.log(...msg);
+    }
+
+    /**
+     * Creates an absolute path from the provided relative path if necessary.
+     * @param {String} relOrAbsPath The relative or absolute path to convert to an absolute path.
+     *                              Relative paths are considered relative to the Caliper root folder.
+     * @return {String} The resolved absolute path.
+     */
+    static resolvePath(relOrAbsPath) {
+        if (!relOrAbsPath) {
+            throw new Error('Util.resolvePath: Parameter is undefined');
+        }
+
+        if (path.isAbsolute(relOrAbsPath)) {
+            return relOrAbsPath;
+        }
+
+        return path.join(__dirname, rootDir, relOrAbsPath);
     }
 }
 

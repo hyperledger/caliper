@@ -21,33 +21,21 @@
 const utils = require('fabric-client/lib/utils.js');
 const logger = utils.getLogger('E2E testing');
 const commUtils = require('../comm/util');
+const TxStatus  = require('../comm/transaction');
 const path = require('path');
 const fs = require('fs');
 const util = require('util');
 const Client = require('fabric-client');
 const testUtil = require('./util.js');
-const listener_config = require("../../listener/listener-config.json")
 let ORGS;
 const rootPath = '../..';
-const grpc = require('grpc');
-const _common = grpc.load(path.join(__dirname + '../../../node_modules/fabric-client/lib/protos/common/common.proto')).common;
-const _transProto = grpc.load(path.join(__dirname + '../../../node_modules/fabric-client/lib/protos/peer/transaction.proto')).protos;
 let tx_id = null;
 let the_user = null;
-
-var _validation_codes = {};
-var keys = Object.keys(_transProto.TxValidationCode);
-for(var i = 0;i<keys.length;i++) {
-	let new_key = _transProto.TxValidationCode[keys[i]];
-	_validation_codes[new_key] = keys[i];
-}
 
 /**
  * Initialize the Fabric client configuration.
  * @param {string} config_path The path of the Fabric network configuration file.
  */
-
- 
 function init(config_path) {
     Client.addConfigFile(config_path);
     ORGS = Client.getConfigSetting('fabric').network;
@@ -115,10 +103,17 @@ function installChaincode(org, chaincode) {
     }).then((admin) => {
         the_user = admin;
 
+        let resolvedPath = chaincode.path;
+        let metadataPath = chaincode.metadataPath ? commUtils.resolvePath(chaincode.metadataPath) : chaincode.metadataPath;
+        if (chaincode.language === 'node') {
+            resolvedPath = commUtils.resolvePath(chaincode.path);
+        }
+
         // send proposal to endorser
         const request = {
             targets: targets,
-            chaincodePath: chaincode.path,
+            chaincodePath: resolvedPath,
+            metadataPath: metadataPath,
             chaincodeId: chaincode.id,
             chaincodeType: chaincode.language,
             chaincodeVersion: chaincode.version
@@ -484,7 +479,7 @@ function getcontext(channelConfig) {
                 channel.addPeer(peer);
 
                 // an event listener can only register with the peer in its own org
-               /* if(org === userOrg) {
+                /* if(org === userOrg) {
                     let eh = client.newEventHub();
                     eh.setPeerAddr(
                         peerInfo.events,
@@ -502,7 +497,7 @@ function getcontext(channelConfig) {
             }
 
             // register event listener
-           /* eventhubs.forEach((eh) => {
+            /* eventhubs.forEach((eh) => {
                 eh.connect();
             });*/
 
@@ -514,7 +509,7 @@ function getcontext(channelConfig) {
                 client: client,
                 channel: channel,
                 submitter: the_user});
-                //eventhubs: eventhubs
+            //eventhubs: eventhubs
         })
         .catch((err) => {
             return Promise.reject(err);
@@ -541,95 +536,6 @@ function releasecontext(context) {
 }
 module.exports.releasecontext = releasecontext;
 
-/**
- * connect to Kafka, fetch block and confirmation time
- * @param {*} resultsArray 
- */
-/*function getTransactionConfirmationTime(resultsArray) {
-
-	return new Promise(function (resolve, reject) {
-		var map = []
-		resultsArray.forEach(function (internal_element) {
-			map[internal_element.id] = internal_element
-
-		})
-		var globalArray = []
-        globalArray.push(map)
-		var kafka = require('kafka-node');
-		var Consumer = kafka.Consumer;
-		var client1 = new kafka.KafkaClient({ kafkaHost: listener_config.broker_urls, requestTimeout: 300000000 });
-
-		var options = {
-			autoCommit: false,
-			fetchMaxWaitMs: 1000,
-			fetchMaxBytes: 5120 * 5120,
-			encoding: 'buffer',
-			 groupId: "groupID" + Math.floor(Math.random() * Math.floor(100))
-		};
-
-		var topics = [{
-			topic: listener_config.topic
-
-		}];
-
-		var consumer = new Consumer(client1, topics, options);
-		var finalresult = [];
-		var isTxfound;
-		var pendingCounter = 0
-
-		consumer.on('message', function (message) {
-			var buf = new Buffer(message.value); // Read string into a buffer.
-			var data = buf.toString('utf-8')
-            var block = JSON.parse(data).block
-            var txStatusCodes = block.metadata.metadata[_common.BlockMetadataIndex.TRANSACTIONS_FILTER];
-
-			for (var index = 0; index < block.data.data.length; index++) {
-				var channel_header = block.data.data[index].payload.header.channel_header;
-
-				// serach the globalArray if the Id exists or not. It will be present but in any one of the array in global Array
-				if (globalArray[0][channel_header.tx_id] != undefined || globalArray[0][channel_header.tx_id] != null) {
-
-                    var val_code = convertValidationCode(txStatusCodes[index]);
-					var object = globalArray[0][channel_header.tx_id]
-					object.time_final = JSON.parse(data).validTime;
-                  
-                    if (val_code != 'VALID'){
-                        object.verified = true
-                        object.status = 'failed'
-                    }
-                    else {
-                        object.verified = true
-                        object.status = "success";
-                    }
-                    
-					globalArray[0][channel_header.tx_id] = object
-					pendingCounter++
-					finalresult.push(object)
-				}
-				if (pendingCounter == resultsArray.length) {
-                    consumer.close(()=>{
-                        resolve(finalresult)
-                    })
-					
-				}
-
-			}
-
-		});
-
-	consumer.on('error', function (error) {
-            logger.error("Error while consuming blocks from MQ", error)
-            reject(error)
-
-		})
-	})
-}
-
-module.exports.getTransactionConfirmationTime = getTransactionConfirmationTime;*/
-
-function convertValidationCode(code) {
-	return _validation_codes[code];
-}
 
 /**
  * Submit a transaction to the given chaincode with the specified options.
@@ -638,31 +544,19 @@ function convertValidationCode(code) {
  * @param {string} version The version of the chaincode.
  * @param {string[]} args The arguments to pass to the chaincode.
  * @param {number} timeout The timeout for the transaction invocation.
- * @return {Promise<object>} The result and stats of the transaction invocation.
+ * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
  */
 async function invokebycontext(context, id, version, args, timeout){
     const TxErrorEnum = require('./constant.js').TxErrorEnum;
     const TxErrorIndex = require('./constant.js').TxErrorIndex;
 
     const channel = context.channel;
-    const eventHubs = context.eventhubs;
-    const startTime = Date.now();
     const txIdObject = context.client.newTransactionID();
     const txId = txIdObject.getTransactionID().toString();
-
     // timestamps are recorded for every phase regardless of success/failure
-    let invokeStatus = {
-        id: txId,
-        status: 'created',
-        time_create: Date.now(),
-        time_final: 0,
-        time_endorse: 0,
-        time_order: 0,
-        result: null,
-        verified: false, // if false, we cannot be sure that the final Tx status is accurate
-        error_flags: TxErrorEnum.NoError, // the bitmask of error codes that happened during the Tx life-cycle
-        error_messages: [] // the error messages corresponding to the error flags
-    };
+    let invokeStatus = new TxStatus(txId);
+    let errFlag = TxErrorEnum.NoError;
+    invokeStatus.SetFlag(errFlag);
 
     // TODO: should resolve endorsement policy to decides the target of endorsers
     // now random peers ( one peer per organization ) are used as endorsers as default, see the implementation of getContext
@@ -683,13 +577,14 @@ async function invokebycontext(context, id, version, args, timeout){
         }
         try {
             proposalResponseObject = await channel.sendTransactionProposal(proposalRequest, timeout * 1000);
-            invokeStatus.time_endorse = Date.now();
+            invokeStatus.Set('time_endorse', Date.now());
         } catch (err) {
-            invokeStatus.time_endorse = Date.now();
-            invokeStatus.error_flags |= TxErrorEnum.ProposalResponseError;
-            invokeStatus.error_messages[TxErrorIndex.ProposalResponseError] = err.toString();
+            invokeStatus.Set('time_endorse', Date.now());
+            errFlag |= TxErrorEnum.ProposalResponseError;
+            invokeStatus.SetFlag (errFlag);
+            invokeStatus.SetErrMsg(TxErrorIndex.ProposalResponseError, err.toString());
             // error occurred, early life-cycle termination, definitely failed
-            invokeStatus.verified = true;
+            invokeStatus.SetVerification(true);
             throw err; // handle logging in one place
         }
 
@@ -709,10 +604,11 @@ async function invokebycontext(context, id, version, args, timeout){
                 one_good = true;
             } else {
                 let err = new Error('Endorsement denied: ' + proposal_response.toString());
-                invokeStatus.error_flags |= TxErrorEnum.BadProposalResponseError;
-                invokeStatus.error_messages[TxErrorIndex.BadProposalResponseError] = err.toString();
+                errFlag |= TxErrorEnum.BadProposalResponseError;
+                invokeStatus.SetFlag(errFlag);
+                invokeStatus.SetErrMsg(TxErrorIndex.BadProposalResponseError, err.toString());
                 // explicit rejection, early life-cycle termination, definitely failed
-                invokeStatus.verified = true;
+                invokeStatus.SetVerification(true);
                 throw err;
             }
             allGood = allGood && one_good;
@@ -724,59 +620,22 @@ async function invokebycontext(context, id, version, args, timeout){
             allGood = channel.compareProposalResponseResults(proposalResponses);
             if (!allGood) {
                 let err = new Error('Read/Write set mismatch between endorsements');
-                invokeStatus.error_flags |= TxErrorEnum.BadProposalResponseError;
-                invokeStatus.error_messages[TxErrorIndex.BadProposalResponseError] = err.toString();
+                errFlag |= TxErrorEnum.BadProposalResponseError;
+                invokeStatus.SetFlag(errFlag);
+                invokeStatus.SetErrMsg(TxErrorIndex.BadProposalResponseError, err.toString());
                 // r/w set mismatch, early life-cycle termination, definitely failed
-                invokeStatus.verified = true;
+                invokeStatus.SetVerification(true);
                 throw err;
             }
         }
 
-        invokeStatus.result = proposalResponses[0].response.payload;
+        invokeStatus.SetResult(proposalResponses[0].response.payload);
 
         const transactionRequest = {
             proposalResponses: proposalResponses,
             proposal: proposal,
         };
 
-        let newTimeout = timeout * 1000 - (Date.now() - startTime);
-        if(newTimeout < 10000) {
-            commUtils.log('WARNING: timeout is too small, default value is used instead');
-            newTimeout = 10000;
-        }
-
-        /*const eventPromises = [];
-        eventHubs.forEach((eh) => {
-            eventPromises.push(new Promise((resolve, reject) => {
-                let handle = setTimeout(reject, newTimeout);
-
-                eh.registerTxEvent(txId,
-                    (tx, code) => {
-                        clearTimeout(handle);
-                        eh.unregisterTxEvent(txId);
-
-                        // either explicit invalid event or valid event, verified in both cases by at least one peer
-                        invokeStatus.verified = true;
-                        if (code !== 'VALID') {
-                            let err = new Error('Invalid transaction: ' + code);
-                            invokeStatus.error_flags |= TxErrorEnum.BadEventNotificationError;
-                            invokeStatus.error_messages[TxErrorIndex.BadEventNotificationError] = err.toString();
-                            reject(err); // handle error in final catch
-                        } else {
-                            resolve();
-                        }
-                    },
-                    (err) => {
-                        clearTimeout(handle);
-                        // we don't know what happened, but give the other eventhub connections a chance
-                        // to verify the Tx status, so resolve this call
-                        invokeStatus.error_flags |= TxErrorEnum.EventNotificationError;
-                        invokeStatus.error_messages[TxErrorIndex.EventNotificationError] = err.toString();
-                        resolve();
-                    }
-                );
-            }));
-        });*/
 
         let broadcastResponse;
         try {
@@ -784,47 +643,33 @@ async function invokebycontext(context, id, version, args, timeout){
         } catch (err) {
             // missing the ACK does not mean anything, the Tx could be already under ordering
             // so let the events decide the final status, but log this error
-            invokeStatus.error_flags |= TxErrorEnum.OrdererResponseError;
-            invokeStatus.error_messages[TxErrorIndex.OrdererResponseError] = err.toString();
+            errFlag |= TxErrorEnum.OrdererResponseError;
+            invokeStatus.SetFlag(errFlag);
+            invokeStatus.SetErrMsg(TxErrorIndex.OrdererResponseError,err.toString());
         }
 
-        invokeStatus.time_order = Date.now();
+        invokeStatus.Set('time_order', Date.now());
 
         if (broadcastResponse && broadcastResponse.status === 'SUCCESS') {
-            invokeStatus.status = 'submitted';
+            invokeStatus.Set('status', 'submitted');
         } else if (broadcastResponse && broadcastResponse.status !== 'SUCCESS') {
             let err = new Error('Received rejection from orderer service: ' + broadcastResponse.status);
-            invokeStatus.error_flags |= TxErrorEnum.BadOrdererResponseError;
-            invokeStatus.error_messages[TxErrorIndex.BadOrdererResponseError] = err.toString();
+            errFlag |= TxErrorEnum.BadOrdererResponseError;
+            invokeStatus.SetFlag(errFlag);
+            invokeStatus.SetErrMsg(TxErrorIndex.BadOrdererResponseError, err.toString());
             // the submission was explicitly rejected, so the Tx will definitely not be ordered
-            invokeStatus.verified = true;
+            invokeStatus.SetVerification(true);
             throw err;
         }
 
-       /* await Promise.all(eventPromises);
-        // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
-        // so mark it failed but leave it not verified
-        if (!invokeStatus.verified) {
-            invokeStatus.status = 'failed';
-            commUtils.log('Failed to complete transaction [' + txId.substring(0, 5) + '...]: every eventhub connection closed');
-        } else {
-            invokeStatus.status = 'success';
-            invokeStatus.verified = true;
-        }
     } catch (err)
     {
         // at this point the Tx should be verified
-        invokeStatus.status = 'failed';
-        commUtils.log('Failed to complete transaction [' + txId.substring(0, 5) + '...]:' + (err instanceof Error ? err.stack : err));
-    }*/
-    } catch (err)
-    {
-        // at this point the Tx should be verified
-        
-        invokeStatus.status = 'failed';
+        invokeStatus.SetStatusFail();
         commUtils.log('Failed to complete transaction [' + txId.substring(0, 5) + '...]:' + (err instanceof Error ? err.stack : err));
     }
-   
+
+
     return invokeStatus;
 }
 
@@ -844,13 +689,7 @@ function querybycontext(context, id, version, name) {
     const channel = context.channel;
     //const eventhubs = context.eventhubs;
     const tx_id = client.newTransactionID();
-    const invoke_status = {
-        id: tx_id.getTransactionID(),
-        status: 'created',
-        time_create: Date.now(),
-        time_final: 0,
-        result: null
-    };
+    const txStatus = new TxStatus(tx_id.getTransactionID());
 
     // send query
     const request = {
@@ -880,10 +719,9 @@ function querybycontext(context, id, version, name) {
                     }
                 }
 
-                invoke_status.time_final = Date.now();
-                invoke_status.result     = responses[0];
-                invoke_status.status     = 'success';
-                return Promise.resolve(invoke_status);
+                txStatus.SetStatusSuccess();
+                txStatus.SetResult(responses[0]);
+                return Promise.resolve(txStatus);
             }
             else {
                 throw new Error('no query responses');
@@ -891,9 +729,8 @@ function querybycontext(context, id, version, name) {
         })
         .catch((err) => {
             commUtils.log('Query failed, ' + (err.stack?err.stack:err));
-            invoke_status.time_final = Date.now();
-            invoke_status.status     = 'failed';
-            return Promise.resolve(invoke_status);
+            txStatus.SetStatusFail();
+            return Promise.resolve(txStatus);
         });
 }
 

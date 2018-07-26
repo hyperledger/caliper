@@ -18,37 +18,68 @@ let blockchain;
 let results      = [];
 let txNum        = 0;
 let txLastNum    = 0;
-let txUpdateTail = 0;
+let resultStats  = [];
 let txUpdateTime = 1000;
+let trimType = 0;
+let trim = 0;
+let startTime = 0;
 
 /**
  * Calculate realtime transaction statistics and send the txUpdated message
+ * @param {String} withMQ, Flag to check if caliper running in MQ mode
  */
 function txUpdate(withMQ) {
+
     let newNum = txNum - txLastNum;
     txLastNum += newNum;
 
-    let newResults =  results.slice(txUpdateTail);
-    txUpdateTail += newResults.length;
+    let newResults = results.slice(0);
+    results = [];
     if(newResults.length === 0 && newNum === 0) {
         return;
     }
 
     let newStats;
     if(newResults.length === 0) {
+
         newStats = bc.createNullDefaultTxStats();
     }
     else {
         newStats = blockchain.getDefaultTxStats(newResults, false);
     }
+
     if (!withMQ) {
         process.send({type: 'txUpdated', data: {submitted: newNum, committed: newStats}});
+        if (resultStats.length === 0) {
+
+            switch (trimType) {
+            case 0: // no trim
+                resultStats[0] = newStats;
+                break;
+            case 1: // based on duration
+                if (trim < (Date.now() - startTime)/1000) {
+                    resultStats[0] = newStats;
+                }
+                break;
+            case 2: // based on number
+                if (trim < newResults.length) {
+                    newResults = newResults.slice(trim);
+                    newStats = blockchain.getDefaultTxStats(newResults, false);
+                    resultStats[0] = newStats;
+                    trim = 0;
+                } else {
+                    trim -= newResults.length;
+                }
+                break;
+            }
+        } else {
+            resultStats[1] = newStats;
+            bc.mergeDefaultTxStats(resultStats);
+        }
     }
     else {
-        // send the array of txns with id and send time, etc
         process.send({type: 'txUpdated', data: {submitted: newNum, committed: newResults}});
     }
- 
 }
 
 /**
@@ -68,12 +99,25 @@ function addResult(result) {
 
 /**
  * Call before starting a new test
+ * @param {JSON} msg start test message
  */
-function beforeTest() {
+function beforeTest(msg) {
     results  = [];
-    txNum    = 0;
-    txUpdateTail = 0;
+    resultStats = [];
+    txNum = 0;
     txLastNum = 0;
+
+    // conditionally trim beginning and end results for this test run
+    if (msg.trim) {
+        if (msg.txDuration) {
+            trimType = 1;
+        } else {
+            trimType = 2;
+        }
+        trim = msg.trim;
+    } else {
+        trimType = 0;
+    }
 }
 
 /**
@@ -97,7 +141,7 @@ async function runFixedNumber(msg, cb, context) {
     rateControl.init(msg);
 
     await cb.init(blockchain, context, msg.args);
-    const start = Date.now();
+    startTime = Date.now();
 
     let promises = [];
     while(txNum < msg.numb) {
@@ -105,7 +149,7 @@ async function runFixedNumber(msg, cb, context) {
             addResult(result);
             return Promise.resolve();
         }));
-        await rateControl.applyRateControl(start, txNum, results);
+        await rateControl.applyRateControl(startTime, txNum, results);
     }
 
     await Promise.all(promises);
@@ -129,15 +173,15 @@ async function runDuration(msg, cb, context) {
     const duration = msg.txDuration; // duration in seconds
 
     await cb.init(blockchain, context, msg.args);
-    const start = Date.now();
+    startTime = Date.now();
 
     let promises = [];
-    while ((Date.now() - start)/1000 < duration) {
+    while ((Date.now() - startTime)/1000 < duration) {
         promises.push(cb.run().then((result) => {
             addResult(result);
             return Promise.resolve();
         }));
-        await rateControl.applyRateControl(start, txNum, results);
+        await rateControl.applyRateControl(startTime, txNum, results);
     }
 
     await Promise.all(promises);
@@ -151,11 +195,10 @@ async function runDuration(msg, cb, context) {
  * @return {Promise} promise object
  */
 function doTest(msg) {
-    
+
     let cb = require(path.join(__dirname, '../../..', msg.cb));
     blockchain = new bc(path.join(__dirname, '../../..', msg.config), msg.withMQ);
-    
-    beforeTest();
+    beforeTest(msg);
     // start an interval to report results repeatedly
     let txUpdateInter = setInterval(txUpdate.bind(null, msg.withMQ), txUpdateTime);
     /**
@@ -166,7 +209,7 @@ function doTest(msg) {
         if(txUpdateInter) {
             clearInterval(txUpdateInter);
             txUpdateInter = null;
-            txUpdate();
+            txUpdate.bind(null, msg.withMQ);
         }
     };
 
@@ -189,36 +232,28 @@ function doTest(msg) {
             return runFixedNumber(msg, cb, context);
         }
     }).then(() => {
-     
-       /* if (msg.label != "query") {
+
+        /* if (msg.label != "query") {
             return blockchain.getTransactionConfirmationTime(results).then((response)=>{
                 clearUpdateInter();
                 return cb.end(response);
             })
-            
+
         }else{
             clearUpdateInter();
             return cb.end(results);
-        }*/ 
-            clearUpdateInter();
-            return cb.end(results);
+        }*/
+        clearUpdateInter();
+        return cb.end(results);
     }).then(() => {
-        // conditionally trim beginning and end results for this test run
-        if (msg.trim) {
-            let trim;
-            if (msg.txDuration) {
-                // Considering time based number of transactions
-                trim = Math.floor(msg.trim * (results.length / msg.txDuration));
-            } else {
-                // Considering set number of transactions
-                trim = msg.trim;
-            }
-            let safeCut = (2 * trim) < results.length ? trim : results.length;
-            results = results.slice(safeCut, results.length - safeCut);
-        }
 
-        let stats = blockchain.getDefaultTxStats(results, true);
-        return Promise.resolve(stats);
+        if (resultStats.length > 0) {
+            return Promise.resolve(resultStats[0]);
+        }
+        else {
+
+            return Promise.resolve(bc.createNullDefaultTxStats());
+        }
     }).catch((err) => {
         clearUpdateInter();
         log('Client ' + process.pid + ': error ' + (err.stack ? err.stack : err));
@@ -231,24 +266,22 @@ function doTest(msg) {
  */
 process.on('message', function(message) {
 
-  
     if(message.hasOwnProperty('type')) {
         try {
             switch(message.type) {
             case 'test': {
                 if (message.withMQ){
+                    doTest(message).then((output) => {
+                        return Util.sleep(200);
+                    });
+                    break;
+                }else{
                     let result;
                     doTest(message).then((output) => {
                         result = output;
                         return Util.sleep(200);
-                    })
-                    break;
-            }else{
-                let result;
-                    doTest(message).then((output) => {
-                        result = output;
-                        return Util.sleep(200);
                     }).then(() => {
+
                         process.send({type: 'testResult', data: result});
                     });
                     break;
@@ -262,10 +295,10 @@ process.on('message', function(message) {
             default: {
                 process.send({type: 'error', data: 'unknown message type'});
             }
+            }
         }
-    }
         catch(err) {
-            process.send({type: 'error', data: err});
+            process.send({type: 'error', data: err.toString()});
         }
     }
     else {

@@ -45,7 +45,9 @@ module.exports.run = function() {
 module.exports.end = function(results) {
     for (let i in results){
         let stat = results[i];
-        if(stat.status === 'success' || stat.status == 'submitted') {
+
+        // for MQ mode the status will be submitted
+        if(stat.status === 'submitted' || stat.IsCommitted()) {
             ids.push(stat.result.toString());
         }
     }

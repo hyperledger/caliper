@@ -89,8 +89,8 @@ function printTable(value) {
  * @return {Array} row of the title
  */
 function getResultTitle() {
-    // TODO: allow configure percentile value
-    return ['Name', 'Succ', 'Fail', 'Send Rate', 'Max Latency', 'Min Latency', 'Avg Latency', '75%ile Latency', 'Throughput'];
+    // temporarily remove percentile return ['Name', 'Succ', 'Fail', 'Send Rate', 'Max Latency', 'Min Latency', 'Avg Latency', '75%ile Latency', 'Throughput'];
+    return ['Name', 'Succ', 'Fail', 'Send Rate', 'Max Latency', 'Min Latency', 'Avg Latency', 'Throughput'];
 }
 
 /**
@@ -109,7 +109,8 @@ function getResultValue(r) {
         row.push(r.delay.max.toFixed(2) + ' s');
         row.push(r.delay.min.toFixed(2) + ' s');
         row.push((r.delay.sum / r.succ).toFixed(2) + ' s');
-        if(r.delay.detail.length === 0) {
+        // temporarily remove percentile
+        /*if(r.delay.detail.length === 0) {
             row.push('N/A');
         }
         else{
@@ -117,12 +118,13 @@ function getResultValue(r) {
                 return a-b;
             });
             row.push(r.delay.detail[Math.floor(r.delay.detail.length * 0.75)].toFixed(2) + ' s');
-        }
+        }*/
 
         (r.final.max === r.final.min) ? row.push(r.succ + ' tps') : row.push(((r.succ / (r.final.max - r.create.min)).toFixed(0)) + ' tps');
     }
     catch (err) {
-        row = [r.label, 0, 0, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'];
+        // temporarily remove percentile row = [r.label, 0, 0, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'];
+        row = [r.label, 0, 0, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'];
     }
 
     return row;
@@ -157,6 +159,7 @@ function printResultsByRound() {
  * @return {Promise} promise object
  */
 function processResult(results, label){
+
     if (configurationType){
         return Promise.resolve();
     }
@@ -165,7 +168,7 @@ function processResult(results, label){
         resultTable[0] = getResultTitle();
         let r;
         if(Blockchain.mergeDefaultTxStats(results) === 0) {
-            r = Blockchain.createNullDefaultTxStats;
+            r = Blockchain.createNullDefaultTxStats();
             r.label = label;
         }
         else {
@@ -198,8 +201,13 @@ function processResult(results, label){
     }
 }
 
+/**
+ * @param {Array} results array of txStatistics specifically for caliper running in MQ mode
+ * @param {String} label label of the test round
+ * @return {Promise} promise object
+ */
 function processResultOptional(results, label){
-    
+
     try{
         let resultTable = [];
         resultTable[0] = getResultTitle();
@@ -276,30 +284,32 @@ function defaultTest(args, clientArgs, final) {
             tests.push(msg);
         }
         let testIdx = 0;
-        
+
         return tests.reduce( function(prev, item) {
             return prev.then( () => {
-                
+
                 log('----test round ' + round + '----'+item.label);
                 round++;
                 testIdx++;
+
                 demo.startWatch(client, item.numb, processResultOptional, item.label);
+                item.roundIdx = round; // propagate round ID to clients
                 return client.startTest(item, clientArgs, processResult, testLabel).then( () => {
-                        demo.pauseWatch();
-                        t.pass('passed \'' + testLabel + '\' testing');
-                        return Promise.resolve();
-                    
+                    demo.pauseWatch();
+                    t.pass('passed \'' + testLabel + '\' testing');
+                    return Promise.resolve();
+
                 }).then( () => {
                     if(final && testIdx === tests.length) {
                         return Promise.resolve();
                     }
                     else {
-                            log('wait 5 seconds for next round...');
-                            return Util.sleep(5000).then( () => {
-                             return monitor.restart();
-                            });
-                        }
-                     
+                        log('wait 5 seconds for next round...');
+                        return Util.sleep(5000).then( () => {
+                            return monitor.restart();
+                        });
+                    }
+
                 }).catch( (err) => {
                     demo.pauseWatch();
                     t.fail('failed \''  + testLabel + '\' testing, ' + (err.stack ? err.stack : err));
@@ -322,14 +332,14 @@ function defaultTest(args, clientArgs, final) {
  */
 module.exports.run = function(configFile, networkFile) {
 
-    let localConfig = require(configFile)
-    configurationType = localConfig.test.WITH_MQ
+    let localConfig = require(configFile);
+    configurationType = localConfig.test.WITH_MQ;
     if (!configurationType) {
         demo = require('../gui/src/demo.js');
     }
     else {
-            demo = require('../gui/src/demoOptional.js')
-        }
+        demo = require('../gui/src/demoOptional.js');
+    }
     test('#######Caliper Test######', (t) => {
         global.tapeObj = t;
         absConfigFile  = configFile;
@@ -358,22 +368,22 @@ module.exports.run = function(configFile, networkFile) {
         });
 
         startPromise.then(() => {
-           if (configurationType) {
+            if (configurationType) {
                 let blockListenerPath = path.join(__dirname, absCaliperPath, 'listener/block-listener-handler.js');
                 listener_child = childProcess.fork(blockListenerPath);
                 listener_child.on('error', function () {
                     log('client encountered unexpected error');
                 });
-            
+
                 listener_child.on('exit', function () {
                     log('client exited');
                 });
-            
-                listener_child.send({ msg: configFile });  
+
+                listener_child.send({ msg: configFile });
             }
             return blockchain.init();
         }).then( () => {
-            
+
             return blockchain.installSmartContract();
         }).then( () => {
             return client.init().then((number)=>{
@@ -398,10 +408,10 @@ module.exports.run = function(configFile, networkFile) {
         }).then( () => {
 
             log('----------finished test----------\n');
-             
+
             // kill the event listener process
             if (configurationType){
-                listener_child.kill()
+                listener_child.kill();
             }
             printResultsByRound();
             monitor.printMaxStats();

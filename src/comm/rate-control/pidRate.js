@@ -101,7 +101,7 @@ class PidRate extends RateInterface {
         }
 
         if (this.sleep > 5) {
-            Sleep(this.sleep);
+            return Sleep(this.sleep);
         } else {
             return Promise.resolve();
         }

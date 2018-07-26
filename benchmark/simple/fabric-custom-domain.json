@@ -1,0 +1,106 @@
+{
+  "fabric": {
+    "cryptodir": "network/fabric/customdomain/crypto-config",
+    "network": {
+      "orderer": {
+        "url": "grpcs://localhost:7050",
+        "mspid": "OrdererMSP",
+        "domain": "mydomain.com",
+        "user": {
+          "key": "network/fabric/customdomain/crypto-config/ordererOrganizations/mydomain.com/users/Admin@mydomain.com/msp/keystore/1435ca4590754efaefc6963ee97fd9d0b256516e11c07490b7f307b88599c42e_sk",
+          "cert": "network/fabric/customdomain/crypto-config/ordererOrganizations/mydomain.com/users/Admin@mydomain.com/msp/signcerts/Admin@mydomain.com-cert.pem"
+        },
+        "server-hostname": "orderer.mydomain.com",
+        "tls_cacerts": "network/fabric/customdomain/crypto-config/ordererOrganizations/mydomain.com/orderers/orderer.mydomain.com/tls/ca.crt"
+      },
+      "org1": {
+        "name": "peerOrg1",
+        "mspid": "org1MSP",
+        "domain": "org1.mydomain.com",
+        "user": {
+          "key": "network/fabric/customdomain/crypto-config/peerOrganizations/org1.mydomain.com/users/Admin@org1.mydomain.com/msp/keystore/d1868001e58970697ab964b00087e2a7895d499cbb1a45ae5f4d3ac9936017e6_sk",
+          "cert": "network/fabric/customdomain/crypto-config/peerOrganizations/org1.mydomain.com/users/Admin@org1.mydomain.com/msp/signcerts/Admin@org1.mydomain.com-cert.pem"
+        },
+        "ca": {
+          "url": "https://localhost:7054",
+          "name": "ca-org1"
+        },
+        "peer1": {
+          "requests": "grpcs://localhost:7051",
+          "events": "grpcs://localhost:7053",
+          "server-hostname": "peer0.org1.mydomain.com",
+          "tls_cacerts": "network/fabric/customdomain/crypto-config/peerOrganizations/org1.mydomain.com/peers/peer0.org1.mydomain.com/tls/ca.crt"
+        },
+        "peer2": {
+          "requests": "grpcs://localhost:7057",
+          "events": "grpcs://localhost:7059",
+          "server-hostname": "peer1.org1.mydomain.com",
+          "tls_cacerts": "network/fabric/customdomain/crypto-config/peerOrganizations/org1.mydomain.com/peers/peer1.org1.mydomain.com/tls/ca.crt"
+        }
+      },
+      "org6": {
+        "name": "peerOrg6",
+        "mspid": "org6MSP",
+        "domain": "org6.mydomain.com",
+        "ca": {
+          "url": "https://localhost:8054",
+          "name": "ca-org6"
+        },
+        "peer1": {
+          "requests": "grpcs://localhost:8051",
+          "events": "grpcs://localhost:8053",
+          "server-hostname": "peer0.org6.mydomain.com",
+          "tls_cacerts": "network/fabric/customdomain/crypto-config/peerOrganizations/org6.mydomain.com/peers/peer0.org6.mydomain.com/tls/ca.crt"
+        },
+        "peer2": {
+          "requests": "grpcs://localhost:8057",
+          "events": "grpcs://localhost:8059",
+          "server-hostname": "peer1.org6.mydomain.com",
+          "tls_cacerts": "network/fabric/customdomain/crypto-config/peerOrganizations/org6.mydomain.com/peers/peer1.org6.mydomain.com/tls/ca.crt"
+        }
+      }
+    },
+    "channel": [
+      {
+        "name": "mychannel",
+        "config": "network/fabric/customdomain/mychannel.tx",
+        "organizations": ["org1", "org6"],
+        "deployed": false
+      }
+    ],
+    "chaincodes": [{"id": "simple", "path": "src/contract/fabric/simple/node", "language":"node", "version": "v0", "channel": "mychannel"}],
+    "endorsement-policy": {
+      "identities": [
+        {
+          "role": {
+            "name": "member",
+            "mspId": "org1MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "member",
+            "mspId": "org6MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "admin",
+            "mspId": "org1MSP"
+          }
+        }
+      ],
+      "policy": { "2-of": [{"signed-by": 0}, {"signed-by": 1}]}
+    },
+    "context": {
+      "open": "mychannel",
+      "query": "mychannel"
+    }
+  },
+  "info" : {
+    "Version": "1.1.0",
+    "Size": "4 Peers",
+    "Orderer": "Solo",
+    "Distribution": "Single Host, Custom Orgs"
+  }
+}

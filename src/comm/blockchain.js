@@ -14,6 +14,7 @@ class Blockchain {
     /**
      * Constructor
      * @param {String} configPath path of the blockchain configuration file
+     * @param {String} withMQ, Flag to check if caliper running in MQ mode
      */
     constructor(configPath, withMQ) {
         let config = require(configPath);
@@ -101,22 +102,12 @@ class Blockchain {
    * @result {string}, result after invoking all transaction
    * @return {Promise.resolve(context)}
    */
-  /*getTransactionConfirmationTime(result) {
+    /*getTransactionConfirmationTime(result) {
         return this.bcObj.getTransactionConfirmationTime(result);
   }*/
 
     /**
      * Invoke smart contract/submit transactions and return corresponding transactions' status
-     * txStatus = {
-     *     'id': transaction's id
-     *     'status':  status of the transaction, should be:
-     *                - 'created': successfully created, but not validated or committed yet
-     *                - 'success': successfully validated and committed in the ledger
-     *     'time_create': time(ms) that the transaction was created
-     *     'time_final':  time(ms) that the transaction was known to be final and committed in ledger
-     *     'result': response payloads of the transaction request
-     *     ...... :  other adapter specific properties
-     * }
      * @param {Object} context context object
      * @param {String} contractID identiy of the contract
      * @param {String} contractVer version of the contract
@@ -171,7 +162,7 @@ class Blockchain {
         let delays = [];
         for(let i = 0 ; i < results.length ; i++) {
             let stat   = results[i];
-            let create = stat.time_create;
+            let create = stat.GetTimeCreate();
 
             if(typeof minCreate === 'undefined') {
                 minCreate = create;
@@ -186,9 +177,9 @@ class Blockchain {
                 }
             }
 
-            if(stat.status === 'success') {
+            if(stat.IsCommitted()) {
                 succ++;
-                let final = stat.time_final;
+                let final = stat.GetTimeFinal();
                 let d     = (final - create) / 1000;
                 if(typeof minFinal === 'undefined') {
                     minFinal = final;

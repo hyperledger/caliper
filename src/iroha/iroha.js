@@ -27,6 +27,7 @@ const endpointGrpc = require('iroha-lib/pb/endpoint_grpc_pb.js');
 const util = require('../comm/util.js');
 const BlockchainInterface = require('../comm/blockchain-interface.js');
 const irohaType = require('./type.js');
+const TxStatus = require('../comm/transaction');
 
 const txBuilder = new ModelTransactionBuilder();
 const queryBuilder = new ModelQueryBuilder();
@@ -362,43 +363,41 @@ class Iroha extends BlockchainInterface {
                     (function(id) {
                         let item   = self.statusWaiting[id];
                         let status = item.status;
-                        let timeElapse =  Date.now() - status.time_create;
-                        if(timeElapse > status.timeout) {
+                        let timeElapse =  Date.now() - status.GetTimeCreate();
+                        if(timeElapse > status.Get('timeout')) {
                             util.log('Timeout when querying transaction\'s status');
-                            status.status = 'failed';
-                            status.final  = Date.now();
+                            status.SetStatusFail();
                             item.resolve(status);
                             delete self.statusWaiting[id];
                         }
                         else if(!item.isquery) {
                             item.isquery = true;
                             let request = new endpointPb.TxStatusRequest();
-                            request.setTxHash(status.id);
+                            request.setTxHash(status.GetID());
 
                             self.grpcCommandClient.status(request, (err, response)=>{
                                 item.isquery = false;
                                 let final = false;
                                 if(err) {
                                     util.log(err);
-                                    status.status = 'failed';
+                                    status.SetStatusFail();
                                     final = true;
                                 }
                                 else {
                                     let s = response.getTxStatus();
 
                                     if(s === txStatus.COMMITTED) {
-                                        status.status = 'success';
+                                        status.SetStatusSuccess();
                                         final = true;
                                     }
                                     else if(s === txStatus.STATELESS_VALIDATION_FAILED ||
                                           s === txStatus.STATEFUL_VALIDATION_FAILED ||
                                           s === txStatus.NOT_RECEIVED) {
-                                        status.status = 'failed';
+                                        status.SetStatusFail();
                                         final = true;
                                     }
                                 }
                                 if (final) {
-                                    status.time_final  = Date.now();
                                     item.resolve(status);
                                     delete self.statusWaiting[id];
                                 }
@@ -450,14 +449,8 @@ class Iroha extends BlockchainInterface {
                 throw new Error('Empty output of contract ' + contractID);
             }
             let p;
-            let status = {
-                id           : null,
-                status       : 'created',
-                time_create  : Date.now(),
-                time_final   : 0,
-                timeout      : timeout*1000,
-                result       : null
-            };
+            let status = new TxStatus(null);
+            status.Set('timeout', timeout*1000);
             if(context.engine) {
                 context.engine.submitCallback(1);
             }
@@ -469,7 +462,7 @@ class Iroha extends BlockchainInterface {
                     context.txCounter++;
                     irohaCommand(this.grpcCommandClient, context.id, Date.now(), context.keys, commands)
                         .then((txid)=>{
-                            status.id = txid;
+                            status.SetID(txid);
                             this.statusWaiting[key] = {status:status, resolve:resolve, reject:reject, isquery: false};
                         });
                 });
@@ -480,15 +473,13 @@ class Iroha extends BlockchainInterface {
                     context.queryCounter++;
                     irohaQuery(this.grpcQueryClient, context.id, Date.now(), counter, context.keys, commands,
                         (response) => {
-                            status.status = 'success';
-                            status.time_final = Date.now();
+                            status.SetStatusSuccess();
                             resolve(status);  // TODO: should check the response??
                         }
                     )
                         .catch((err)=>{
                             util.log(err);
-                            status.status = 'failed';
-                            status.time_final = Date.now();
+                            status.SetStatusFail();
                             resolve(status);
                         });
                 });
@@ -512,13 +503,7 @@ class Iroha extends BlockchainInterface {
             if(commands.length === 0) {
                 throw new Error('Empty output of contract ' + contractID);
             }
-            let status = {
-                id           : null,
-                status       : 'created',
-                time_create  : Date.now(),
-                time_final   : 0,
-                result       : null
-            };
+            let status = new TxStatus(null);
             if(context.engine) {
                 context.engine.submitCallback(1);
             }
@@ -527,15 +512,13 @@ class Iroha extends BlockchainInterface {
                 context.queryCounter++;
                 irohaQuery(this.grpcQueryClient, context.id, Date.now(), counter, context.keys, commands,
                     (response) => {
-                        status.status = 'success';
-                        status.time_final = Date.now();
+                        status.SetStatusSuccess();
                         resolve(status);  // TODO: should check the response??
                     }
                 )
                     .catch((err)=>{
                         util.log(err);
-                        status.status = 'failed';
-                        status.time_final = Date.now();
+                        status.SetStatusFail();
                         resolve(status);
                     });
             });

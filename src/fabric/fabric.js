@@ -16,6 +16,7 @@ const impl_install = require('./install-chaincode.js');
 const impl_instantiate = require('./instantiate-chaincode.js');
 const BlockchainInterface = require('../comm/blockchain-interface.js');
 const commUtils = require('../comm/util');
+const TxStatus = require('../comm/transaction');
 
 /**
  * Implements {BlockchainInterface} for a Fabric backend.
@@ -24,15 +25,16 @@ class Fabric extends BlockchainInterface{
     /**
      * Create a new instance of the {Fabric} class.
      * @param {string} config_path The path of the Fabric network configuration file.
+     * @param {string} withMQ Flag to check if running in MQ mode or not.
      */
     constructor(config_path, withMQ) {
         if (!withMQ) {
-            e2eUtils = require('./e2eUtils.js')
+            e2eUtils = require('./e2eUtils.js');
         }
         else {
-            e2eUtils = require('./e2eUtils_withMQ.js')
+            e2eUtils = require('./e2eUtils_withMQ.js');
         }
-        
+
         super(config_path);
     }
 
@@ -58,7 +60,7 @@ class Fabric extends BlockchainInterface{
      */
     installSmartContract() {
         // todo: now all chaincodes are installed and instantiated in all peers, should extend this later
-       return impl_install.run(this.configPath).then(() => {
+        return impl_install.run(this.configPath).then(() => {
             return impl_instantiate.run(this.configPath);
         })
             .catch((err) => {
@@ -106,7 +108,7 @@ class Fabric extends BlockchainInterface{
         });
     }
 
-     /**
+    /**
      * Consume transaction confirmation time from Kafka.
      * @param {object} resultsArray resultsArray containing transactions made by client.
      * @return {Promise} The return promise.
@@ -150,15 +152,8 @@ class Fabric extends BlockchainInterface{
             }
             catch(err) {
                 commUtils.log(err);
-                let badResult = {
-                    id: 'unknown',
-                    status: 'failed',
-                    time_create: Date.now(),
-                    time_final: Date.now(),
-                    time_endorse: 0,
-                    time_order: 0,
-                    result: null,
-                };
+                let badResult = new TxStatus('artifact');
+                badResult.SetStatusFail();
                 promises.push(Promise.resolve(badResult));
             }
         });
@@ -176,60 +171,6 @@ class Fabric extends BlockchainInterface{
     queryState(context, contractID, contractVer, key) {
         // TODO: change string key to general object
         return e2eUtils.querybycontext(context, contractID, contractVer, key.toString());
-    }
-
-    /**
-     * Calculate basic statistics of the execution results.
-     * @param {object} stats The object that contains the different statistics.
-     * @param {object[]} results The collection of previous results.
-     */
-    getDefaultTxStats(stats, results) {
-        let minDelayC2E = 100000, maxDelayC2E = 0, sumDelayC2E = 0; // time from created to endorsed
-        let minDelayE2O = 100000, maxDelayE2O = 0, sumDelayE2O = 0; // time from endorsed to ordered
-        let minDelayO2V = 100000, maxDelayO2V = 0, sumDelayO2V = 0; // time from ordered to recorded
-        let hasValue = true;
-        for(let i = 0 ; i < results.length ; i++) {
-            let stat = results[i];
-            if(!stat.hasOwnProperty('time_endorse')) {
-                hasValue = false;
-                break;
-            }
-            if(stat.status === 'success') {
-                let delayC2E = (stat.time_endorse - stat.time_create)/1000;
-                let delayE2O = (stat.time_order - stat.time_endorse)/1000;
-                let delayO2V = (stat.time_valid - stat.time_order)/1000;
-
-                if(delayC2E < minDelayC2E) {
-                    minDelayC2E = delayC2E;
-                }
-                if(delayC2E > maxDelayC2E) {
-                    maxDelayC2E = delayC2E;
-                }
-                sumDelayC2E += delayC2E;
-
-                if(delayE2O < minDelayE2O) {
-                    minDelayE2O = delayE2O;
-                }
-                if(delayE2O > maxDelayE2O) {
-                    maxDelayE2O = delayE2O;
-                }
-                sumDelayE2O += delayE2O;
-
-                if(delayO2V < minDelayO2V) {
-                    minDelayO2V = delayO2V;
-                }
-                if(delayO2V > maxDelayO2V) {
-                    maxDelayO2V = delayO2V;
-                }
-                sumDelayO2V += delayO2V;
-            }
-        }
-
-        if(hasValue) {
-            stats.delayC2E = {'min': minDelayC2E, 'max': maxDelayC2E, 'sum': sumDelayC2E};
-            stats.delayE2O = {'min': minDelayE2O, 'max': maxDelayE2O, 'sum': sumDelayE2O};
-            stats.delayO2V = {'min': minDelayO2V, 'max': maxDelayO2V, 'sum': sumDelayO2V};
-        }
     }
 }
 module.exports = Fabric;

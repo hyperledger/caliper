@@ -144,7 +144,7 @@ class Client{
         switch(this.type) {
         case CLIENT_LOCAL:
             p = this._startLocalTest(message, clientArgs);
-            
+
             break;
         case CLIENT_ZOO:
             p = this._startZooTest(message, clientArgs);
@@ -153,10 +153,10 @@ class Client{
             return Promise.reject(new Error('Unknown client type: ' + this.type));
         }
         return p.then(()=>{
-          
-           return finishCB(this.results, finishArgs)
+
+            return finishCB(this.results, finishArgs);
         }).then(()=>{
-        
+
             return Promise.resolve();
         }).catch((err)=>{
             return Promise.reject(err);
