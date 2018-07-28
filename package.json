@@ -7,7 +7,7 @@
   },
   "scripts": {
     "test": "npm run lint && npm run nyc && npm run e2e",
-    "nyc": "nyc mocha --recursive -t 10000",
+    "nyc": "nyc --check-coverage false mocha --recursive -t 10000",
     "e2e": "node ./scripts/test.js",
     "lint": "npx eslint .",
     "list": "node ./scripts/list.js",
