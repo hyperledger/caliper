@@ -224,7 +224,7 @@ function doTest(msg) {
         }
     }).then(() => {
         clearUpdateInter();
-        return cb.end(results);
+        return cb.end();
     }).then(() => {
         if (resultStats.length > 0) {
             return Promise.resolve(resultStats[0]);

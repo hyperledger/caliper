@@ -26,7 +26,7 @@ module.exports.run = function() {
     return bc.queryState(contx, 'simple', 'v0', acc);
 };
 
-module.exports.end = function(results) {
+module.exports.end = function() {
     // do nothing
     return Promise.resolve();
 };

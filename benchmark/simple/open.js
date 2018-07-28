@@ -57,7 +57,7 @@ module.exports.run = function() {
     return bc.invokeSmartContract(contx, 'simple', 'v0', {verb: 'open', account: newAcc, money: initMoney}, 30);
 };
 
-module.exports.end = function(results) {
+module.exports.end = function() {
     return Promise.resolve();
 };
 

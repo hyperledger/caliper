@@ -35,6 +35,6 @@ module.exports.run = function() {
         }, 120);
 };
 
-module.exports.end = function(results) {
+module.exports.end = function() {
     return Promise.resolve();
 };

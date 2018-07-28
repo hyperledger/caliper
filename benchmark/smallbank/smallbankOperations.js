@@ -168,7 +168,7 @@ module.exports.run = function() {
     return bc.invokeSmartContract(contx, 'smallbank', '1.0', args, 30);
 };
 
-module.exports.end = function(results) {
+module.exports.end = function() {
     return Promise.resolve();
 };
 

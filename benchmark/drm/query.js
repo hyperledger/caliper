@@ -25,6 +25,6 @@ module.exports.run = function() {
     return bc.queryState(contx, 'drm', 'v0', id);
 };
 
-module.exports.end = function(results) {
+module.exports.end = function() {
     return Promise.resolve();
 };
