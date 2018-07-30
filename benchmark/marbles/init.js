@@ -38,6 +38,6 @@ module.exports.run = function() {
         }, 30);
 };
 
-module.exports.end = function(results) {
+module.exports.end = function() {
     return Promise.resolve();
 };

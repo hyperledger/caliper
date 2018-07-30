@@ -111,6 +111,6 @@ module.exports.run = function() {
     return bc.bcObj.submitTransaction(busNetConnections.get('admin'), transaction);
 };
 
-module.exports.end = function(results) {
+module.exports.end = function() {
     return Promise.resolve(true);
 };
