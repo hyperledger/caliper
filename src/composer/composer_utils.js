@@ -190,7 +190,6 @@ async function joinChannels(config) {
  * @returns {Object} the common connection profile
  */
 function createCommonConnectionProfile(orgName, config) {
-    let cryptodir = config.composer.cryptodir;
     let profile = {};
 
     // Header information
@@ -253,7 +252,7 @@ function createCommonConnectionProfile(orgName, config) {
             orderer.grpcOptions = grpcOptions;
 
             let tlsCACerts = {};
-            let certPath = path.join(__dirname, '/../../', cryptodir, configOrderer.cert);
+            let certPath = Util.resolvePath(configOrderer.cert);
             tlsCACerts.path = certPath;
             orderer.tlsCACerts = tlsCACerts;
         }
@@ -276,7 +275,7 @@ function createCommonConnectionProfile(orgName, config) {
             peer.grpcOptions = grpcOptions;
 
             let tlsCACerts = {};
-            let certPath =  path.join(__dirname, '/../../', cryptodir, configPeer.cert);
+            let certPath =  Util.resolvePath(configPeer.cert);
             tlsCACerts.path = certPath;
             peer.tlsCACerts = tlsCACerts;
         }
@@ -309,7 +308,6 @@ function createCommonConnectionProfile(orgName, config) {
  * @param {Object} config Configuration data in Json format
  */
 async function createAdminBusNetCards(config) {
-    let cryptodir = config.composer.cryptodir;
     let orgs = config.composer.network.organizations;
     let adminConnection = await new AdminConnection();
 
@@ -329,8 +327,8 @@ async function createAdminBusNetCards(config) {
         let idCard = new IdCard(metadata, profile);
 
         // certificates & privateKey
-        let certpath = path.join(__dirname, '/../../', cryptodir, org.adminCert);
-        let keyPath = path.join(__dirname, '/../../', cryptodir, org.adminKey);
+        let certpath = Util.resolvePath(org.adminCert);
+        let keyPath = Util.resolvePath(org.adminKey);
         let cert = fs.readFileSync(certpath).toString();
         let key = fs.readFileSync(keyPath).toString();
 
@@ -362,7 +360,7 @@ async function runtimeInstall(businessNetwork, installOptions, cardName) {
     let businessNetworkDefinition;
 
     //check the file is there
-    let filePath = path.join(__dirname, '..', businessNetwork.path, businessNetwork.id);
+    let filePath = path.join(Util.resolvePath(businessNetwork.path), businessNetwork.id);
     if (fs.existsSync(filePath)) {
         businessNetworkDefinition = await BusinessNetworkDefinition.fromDirectory(filePath);
     } else {

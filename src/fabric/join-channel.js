@@ -25,17 +25,16 @@
 //const test = _test(tape);
 
 //const util = require('util');
-const path = require('path');
 const fs = require('fs');
 
 const Client = require('fabric-client');
 const EventHub = require('fabric-client/lib/EventHub.js');
 
 const testUtil = require('./util.js');
+const commUtils = require('../comm/util');
 
 //let the_user = null;
 let tx_id = null;
-const rootpath = '../..';
 let ORGS;
 const allEventhubs = [];
 
@@ -67,7 +66,7 @@ function joinChannel(org, channelName) {
     const targets = [], eventhubs = [];
 
     const caRootsPath = ORGS.orderer.tls_cacerts;
-    let data = fs.readFileSync(path.join(__dirname, rootpath, caRootsPath));
+    let data = fs.readFileSync(commUtils.resolvePath(caRootsPath));
     let caroots = Buffer.from(data).toString();
     let genesis_block = null;
 
@@ -106,7 +105,7 @@ function joinChannel(org, channelName) {
         for (let key in ORGS[org]) {
             if (ORGS[org].hasOwnProperty(key)) {
                 if(key.indexOf('peer') === 0) {
-                    data = fs.readFileSync(path.join(__dirname, rootpath, ORGS[org][key].tls_cacerts));
+                    data = fs.readFileSync(commUtils.resolvePath(ORGS[org][key].tls_cacerts));
                     targets.push(
                         client.newPeer(
                             ORGS[org][key].requests,

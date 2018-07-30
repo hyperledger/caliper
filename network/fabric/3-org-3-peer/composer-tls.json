@@ -1,6 +1,6 @@
 {  
   "composer": {
-    "chaincodes": [{"id": "basic-sample-network", "version": "0.1.0", "path": "contract/composer", "orgs": ["Org1", "Org2", "Org3"], "loglevel": "INFO"}],
+    "chaincodes": [{"id": "basic-sample-network", "version": "0.1.0", "path": "src/contract/composer", "orgs": ["Org1", "Org2", "Org3"], "loglevel": "INFO"}],
     "cryptodir": "network/fabric/config/crypto-config",
     "network": {
       "x-type" : "hlfv1",
@@ -12,7 +12,7 @@
           "url": "grpcs://localhost:7050",
           "mspid": "OrdererMSP",
           "mspconfig": "/etc/hyperledger/msp/orderer/tls/ca.crt",
-          "cert": "/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt",
+          "cert": "network/fabric/config/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt",
           "hostname": "orderer.example.com",
           "hosturl": "orderer.example.com:7050"
         }
@@ -36,8 +36,8 @@
           "name": "Org1",
           "mspid": "Org1MSP",
           "mspconfig": "/etc/hyperledger/msp/users/Admin@org1.example.com/msp",
-          "adminCert": "/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem",
-          "adminKey" : "/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/key.pem",
+          "adminCert": "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem",
+          "adminKey" : "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/key.pem",
           "certificateAuthorities": [
             "ca.org1.example.com"
           ],
@@ -51,8 +51,8 @@
           "name": "Org2",
           "mspid": "Org2MSP",
           "mspconfig": "/etc/hyperledger/msp/users/Admin@org2.example.com/msp",
-          "adminCert": "/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/Admin@org2.example.com-cert.pem",
-          "adminKey" : "/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/key.pem",
+          "adminCert": "network/fabric/config/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/Admin@org2.example.com-cert.pem",
+          "adminKey" : "network/fabric/config/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/key.pem",
           "certificateAuthorities": [
             "ca.org2.example.com"
           ],
@@ -66,8 +66,8 @@
           "name": "Org3",
           "mspid": "Org3MSP",
           "mspconfig": "/etc/hyperledger/msp/users/Admin@org3.example.com/msp",
-          "adminCert": "/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/signcerts/Admin@org3.example.com-cert.pem",
-          "adminKey" : "/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/keystore/key.pem",
+          "adminCert": "network/fabric/config/crypto-config/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/signcerts/Admin@org3.example.com-cert.pem",
+          "adminKey" : "network/fabric/config/crypto-config/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/keystore/key.pem",
           "certificateAuthorities": [
             "ca.org3.example.com"
           ],
@@ -83,7 +83,7 @@
           "url": "grpcs://localhost:7051",
           "eventUrl": "grpcs://localhost:7053",
           "hostname": "peer0.org1.example.com",
-          "cert" : "/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt",
+          "cert" : "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt",
           "channels":[
             "mychannel"
           ]
@@ -92,7 +92,7 @@
           "url": "grpcs://localhost:7057",
           "eventUrl": "grpcs://localhost:7059",
           "hostname": "peer1.org1.example.com",
-          "cert" : "/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/ca.crt",
+          "cert" : "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/ca.crt",
           "channels":[
             "mychannel"
           ]
@@ -101,7 +101,7 @@
           "url": "grpcs://localhost:7063",
           "eventUrl": "grpcs://localhost:7065",
           "hostname": "peer2.org1.example.com",
-          "cert" : "/peerOrganizations/org1.example.com/peers/peer2.org1.example.com/tls/ca.crt",
+          "cert" : "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/peers/peer2.org1.example.com/tls/ca.crt",
           "channels":[
             "mychannel"
           ]
@@ -110,7 +110,7 @@
           "url": "grpcs://localhost:8051",
           "eventUrl": "grpcs://localhost:8053",
           "hostname": "peer0.org2.example.com",
-          "cert" : "/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt",
+          "cert" : "network/fabric/config/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt",
           "channels":[
             "mychannel"
           ]
@@ -119,7 +119,7 @@
           "url": "grpcs://localhost:8057",
           "eventUrl": "grpcs://localhost:8059",
           "hostname": "peer1.org2.example.com",
-          "cert" : "/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls/ca.crt",
+          "cert" : "network/fabric/config/crypto-config/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls/ca.crt",
           "channels":[
             "mychannel"
           ]
@@ -128,7 +128,7 @@
           "url": "grpcs://localhost:8063",
           "eventUrl": "grpcs://localhost:8065",
           "hostname": "peer2.org2.example.com",
-          "cert" : "/peerOrganizations/org2.example.com/peers/peer2.org2.example.com/tls/ca.crt",
+          "cert" : "network/fabric/config/crypto-config/peerOrganizations/org2.example.com/peers/peer2.org2.example.com/tls/ca.crt",
           "channels":[
             "mychannel"
           ]
@@ -137,7 +137,7 @@
           "url": "grpcs://localhost:9051",
           "eventUrl": "grpcs://localhost:9053",
           "hostname": "peer0.org3.example.com",
-          "cert" : "/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt",
+          "cert" : "network/fabric/config/crypto-config/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt",
           "channels":[
             "mychannel"
           ]
@@ -146,7 +146,7 @@
           "url": "grpcs://localhost:9057",
           "eventUrl": "grpcs://localhost:9059",
           "hostname": "peer1.org3.example.com",
-          "cert" : "/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/tls/ca.crt",
+          "cert" : "network/fabric/config/crypto-config/peerOrganizations/org3.example.com/peers/peer1.org3.example.com/tls/ca.crt",
           "channels":[
             "mychannel"
           ]
@@ -155,7 +155,7 @@
           "url": "grpcs://localhost:9063",
           "eventUrl": "grpcs://localhost:9065",
           "hostname": "peer2.org3.example.com",
-          "cert" : "/peerOrganizations/org3.example.com/peers/peer2.org3.example.com/tls/ca.crt",
+          "cert" : "network/fabric/config/crypto-config/peerOrganizations/org3.example.com/peers/peer2.org3.example.com/tls/ca.crt",
           "channels":[
             "mychannel"
           ]

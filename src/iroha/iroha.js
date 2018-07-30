@@ -10,7 +10,6 @@
 'use strict';
 
 const fs = require('fs');
-const path = require('path');
 const grpc = require('grpc');
 const {
     ModelCrypto,
@@ -192,8 +191,8 @@ class Iroha extends BlockchainInterface {
             let admin        = config.iroha.admin;
             let domain       = admin.domain;
             let adminAccount = admin.account + '@' + admin.domain;
-            let privPath     = path.join(__dirname, '../..', admin['key-priv']);
-            let pubPath      = path.join(__dirname, '../..', admin['key-pub']);
+            let privPath     = util.resolvePath(admin['key-priv']);
+            let pubPath      = util.resolvePath(admin['key-pub']);
             let adminPriv    = fs.readFileSync(privPath).toString();
             let adminPub     = fs.readFileSync(pubPath).toString();
             let adminKeys    = crypto.convertFromExisting(adminPub, adminPriv);
@@ -331,7 +330,7 @@ class Iroha extends BlockchainInterface {
                 let fakeContracts = {};
                 for(let i = 0 ; i < fc.length ; i++) {
                     let contract = fc[i];
-                    let facPath  = path.join(__dirname, '../..', contract.factory);
+                    let facPath  = util.resolvePath(contract.factory);
                     let factory  = require(facPath);
                     for(let j = 0 ; j < contract.id.length ; j++) {
                         let id = contract.id[j];
