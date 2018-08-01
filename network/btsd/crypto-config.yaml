@@ -1,0 +1,14 @@
+OrdererOrgs:
+  - Name: OrdererBTSD
+    Domain: btsd.example.com
+    Specs:
+      - Hostname: orderer
+
+PeerOrgs:
+  - Name: BTSD
+    Domain: btsd.example.com
+    EnableNodeOUs: true
+    Template:
+      Count: 6
+    Users:
+      Count: 1

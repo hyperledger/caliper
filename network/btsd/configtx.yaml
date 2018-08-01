@@ -1,0 +1,67 @@
+Organizations:
+    - &OrdererBTSD
+        Name: OrdererBTSD
+        ID: OrdererMSP
+        MSPDir: crypto-config/ordererOrganizations/btsd.example.com/msp
+
+    - &BTSD
+        Name: BTSDMSP
+        ID: BTSDMSP
+        MSPDir: crypto-config/peerOrganizations/btsd.example.com/msp
+        AnchorPeers:
+            - Host: peer0.btsd.example.com
+              Port: 7051
+
+Capabilities:
+    Global: &ChannelCapabilities
+        V1_1: true
+
+    Orderer: &OrdererCapabilities
+        V1_1: true
+
+    Application: &ApplicationCapabilities
+        V1_2: true
+
+Application: &ApplicationDefaults
+
+    Organizations:
+
+Orderer: &OrdererDefaults
+    OrdererType: solo
+    Addresses:
+        - orderer.example.com:7050
+    BatchTimeout: 15s
+    BatchSize:
+        MaxMessageCount: 1000
+        AbsoluteMaxBytes: 99 MB
+        PreferredMaxBytes: 512 KB
+
+    Kafka:
+        Brokers:
+            - 127.0.0.1:9092
+
+    Organizations:
+
+Profiles:
+
+    BTSDGenesis:
+        Capabilities:
+            <<: *ChannelCapabilities
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *OrdererBTSD
+            Capabilities:
+                <<: *OrdererCapabilities
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                    - *BTSD
+    BTSDChannel:
+        Consortium: SampleConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *BTSD
+            Capabilities:
+                <<: *ApplicationCapabilities

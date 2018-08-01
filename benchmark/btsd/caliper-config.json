@@ -1,0 +1,45 @@
+{
+  "blockchain": {
+    "type": "fabric",
+    "config": "benchmark/simple/caliper-network-config.json"
+  },
+  "command" : {
+    "start": "docker-compose -f network/btsd/docker-compose.yaml up -d",
+    "end" : "docker-compose -f network/btsd/docker-compose.yaml down; docker rm $(docker ps -aq)"
+  },
+  "test": {
+    "name": "open",
+    "description" : "This is an example benchmark for caliper",
+    "clients": {
+      "type": "local",
+      "number": 6
+    },
+    "rounds": [{
+      "label" : "open",
+      "txNumber" : [5000, 5000, 5000],
+      "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 100}}, {"type": "fixed-rate", "opts": {"tps" : 200}}, {"type": "fixed-rate", "opts": {"tps" : 300}}],
+      "arguments": {  "money": 10000 },
+      "callback" : "caliper/benchmark/simple/open.js"
+    },
+      {
+        "label" : "query",
+        "txNumber" : [5000, 5000],
+        "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 300}}, {"type": "fixed-rate", "opts": {"tps" : 400}}],
+        "callback" : "caliper/benchmark/simple/query.js"
+      }]
+  },
+  "monitor": {
+    "type": ["docker", "process"],
+    "docker":{
+      "name": ["all"]
+    },
+    "process": [
+      {
+        "command" : "node",
+        "arguments" : "local-client.js",
+        "multiOutput" : "avg"
+      }
+    ],
+    "interval": 1
+  }
+}

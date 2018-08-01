@@ -1,0 +1,99 @@
+{
+  "fabric": {
+    "cryptodir": "network/btsd/crypto-config",
+    "network": {
+      "orderer": {
+        "url": "grpcs://localhost:7050",
+        "mspid": "OrdererMSP",
+        "domain": "btsd.example.com",
+        "user": {
+          "key": "network/btsd/crypto-config/ordererOrganizations/btsd.example.com/users/Admin@btsd.example.com/msp/keystore/6ecc369f4dd779518a52290d2e11f36650d69dd1c7c711d4b8e44bd377b24d11_sk",
+          "cert": "network/btsd/crypto-config/ordererOrganizations/btsd.example.com/users/Admin@btsd.example.com/msp/signcerts/Admin@btsd.example.com-cert.pem"
+        },
+        "server-hostname": "orderer.example.com",
+        "tls_cacerts": "network/btsd/crypto-config/ordererOrganizations/btsd.example.com/orderers/orderer.btsd.example.com/tls/ca.crt"
+      },
+      "BTSD": {
+        "name": "BTSD",
+        "mspid": "BTSDMSP",
+        "domain": "btsd.example.com",
+        "ca": {
+          "url": "https://localhost:7054",
+          "name": "ca-btsd"
+        },
+        "peer0.btsd.example.com": {
+          "requests": "grpcs://localhost:7057",
+          "events": "grpcs://localhost:7059",
+          "server-hostname": "peer0.btsd.example.com",
+          "tls_cacerts": "network/btsd/crypto-config/peerOrganizations/peer0.btsd.example.com/peers/peer0.btsd.example.com/tls/ca.crt"
+        },
+        "peer1.btsd.example.com": {
+          "requests": "grpcs://localhost:7063",
+          "events": "grpcs://localhost:7065",
+          "server-hostname": "peer1.btsd.example.com",
+          "tls_cacerts": "network/btsd/crypto-config/peerOrganizations/peer1.btsd.example.com/peers/peer1.btsd.example.com/tls/ca.crt"
+        },
+        "peer2.btsd.example.com": {
+          "requests": "grpcs://localhost:7069",
+          "events": "grpcs://localhost:7074",
+          "server-hostname": "peer2.btsd.example.com",
+          "tls_cacerts": "network/btsd/crypto-configg/peerOrganizations/peer2.btsd.example.com/peers/peer2.btsd.example.com/tls/ca.crt"
+        },
+        "peer3.btsd.example.com": {
+          "requests": "grpcs://localhost:7075",
+          "events": "grpcs://localhost:7080",
+          "server-hostname": "peer3.btsd.example.com",
+          "tls_cacerts": "network/btsd/crypto-config/peerOrganizations/peer3.btsd.example.com/peers/peer3.btsd.example.com/tls/ca.crt"
+        },
+        "peer4.btsd.example.com": {
+          "requests": "grpcs://localhost:7081",
+          "events": "grpcs://localhost:7086",
+          "server-hostname": "peer4.btsd.example.com",
+          "tls_cacerts": "network/btsd/crypto-config/peerOrganizations/peer4.btsd.example.com/peers/peer4.btsd.example.com/tls/ca.crt"
+        },
+        "peer5.btsd.example.com": {
+          "requests": "grpcs://localhost:7087",
+          "events": "grpcs://localhost:7092",
+          "server-hostname": "peer5.btsd.example.com",
+          "tls_cacerts": "network/btsd/crypto-config/peerOrganizations/peer5.btsd.example.com/peers/peer5.btsd.example.com/tls/ca.crt"
+        }
+      }
+    },
+    "channel": [
+      {
+        "name": "BTSDChannel",
+        "config": "network/btsd/mychannel.tx",
+        "organizations": ["BTSD"],
+        "deployed": false
+      }
+    ],
+    "chaincodes": [{"id": "btsd", "path": "contract/btsd", "language":"golang", "version": "v0", "channel": "mychannel"}],
+    "endorsement-policy": {
+      "identities": [
+        {
+          "role": {
+            "name": "member",
+            "mspId": "BTSDMSP"
+          }
+        },
+        {
+          "role": {
+            "name": "admin",
+            "mspId": "BTSDMSP"
+          }
+        }
+      ],
+      "policy": { "2-of": [{"signed-by": 0}, {"signed-by": 1}]}
+    },
+    "context": {
+      "open": "BTSDChannel",
+      "query": "BTSDChannel"
+    },
+    "info" : {
+      "Version": "1.0.5",
+      "Size": "6 Peers",
+      "Orderer": "Solo",
+      "Distribution": "Single Host"
+    }
+  }
+}
