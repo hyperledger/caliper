@@ -5,6 +5,9 @@ import (
 
 	"encoding/json"
 
+	"bytes"
+	"math"
+
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	sc "github.com/hyperledger/fabric/protos/peer"
 	"github.com/pkg/errors"
@@ -19,8 +22,10 @@ type RecordManager struct {
 //Init default params on initializing chaincode
 func (s *RecordManager) Init(stub shim.ChaincodeStubInterface) sc.Response {
 	s.actionMap = map[string]stubFunc{
-		"registerSensor": registerSensor,
-		"recordInvoke":   recordInvoke,
+		"registerSensor":  registerSensor,
+		"recordInvoke":    recordInvoke,
+		"queryAllSensors": queryAllSensors,
+		"querySensor":     querySensor,
 	}
 
 	return shim.Success(nil)
@@ -37,73 +42,124 @@ func (s *RecordManager) Invoke(stub shim.ChaincodeStubInterface) sc.Response {
 		return shim.Error(fmt.Sprintf("failed to execute action %s: no such action", function))
 	}
 
-	if err := action(stub, args); err != nil {
+	result, err := action(stub, args)
+	if err != nil {
 		return shim.Error(fmt.Sprintf("action failed %s", err.Error()))
 	}
 
-	return shim.Success(nil)
+	return shim.Success(result)
 }
 
-func registerSensor(stub shim.ChaincodeStubInterface, args []string) error {
+func registerSensor(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	// 0 - ID
 	if len(args) != 1 {
-		return errors.New("invalid amount of args")
+		return nil, errors.New("invalid amount of args")
 	}
 
 	state, err := stub.GetState(args[0])
 	if err != nil {
-		return errors.Wrap(err, "failed to get state")
+		return nil, errors.Wrap(err, "failed to get state")
 	}
 	//sensor already registered
 	if state != nil {
-		return errors.New(fmt.Sprintf("sensor with id = %s is already registered", args[0]))
+		return nil, errors.New(fmt.Sprintf("sensor with id = %s is already registered", args[0]))
 	}
 
 	compositeKey, err := stub.CreateCompositeKey(string(SensorKeyType), []string{args[0]})
 	if err != nil {
-		return errors.Wrap(err, "failed to register sensor")
+		return nil, errors.Wrap(err, "failed to register sensor")
 	}
 
 	fmt.Printf("Your sensor was successfully registered %s", compositeKey)
 
-	return nil
+	return nil, nil
 }
 
-func recordInvoke(stub shim.ChaincodeStubInterface, args []string) error {
+func recordInvoke(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	// 0 - ID 1 - Value
 	if len(args) != 2 {
-		return errors.New("invalid amount of args")
+		return nil, errors.New("invalid amount of args")
 	}
-
-	stateValue, err := stub.GetState(args[0])
-	if err != nil {
-		return errors.Wrap(err, "failed to get state")
-	}
-	//sensor already registered
-	if stateValue == nil {
-		return errors.New("no such sensor")
-	}
-
 
 	value, err := cast.ToUint64E(args[1])
 	if err != nil {
-		return errors.Wrap(err, "failed to parse value")
+		return nil, errors.Wrap(err, "failed to parse value")
 	}
 
-	resultValue := cast.ToUint64(stateValue) + value
-
 	invoice := &Invoice{
-		Value: resultValue,
+		Value: value,
 	}
 
 	bytes, err := json.Marshal(invoice)
 	if err != nil {
-		return errors.Wrap(err, "invalid invoice body")
+		return nil, errors.Wrap(err, "invalid invoice body")
 	}
 
 	if err := stub.PutState(args[0], bytes); err != nil {
-		return errors.Wrap(err, "failed to put state")
+		return nil, errors.Wrap(err, "failed to put state")
 	}
 
-	return nil
+	return nil, nil
+}
+
+func queryAllSensors(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+
+	startKey := "0"
+	endKey := fmt.Sprintf("%d", uint64(math.MaxUint64))
+
+	resultsIterator, err := stub.GetStateByRange(startKey, endKey)
+	if err != nil {
+		return nil, errors.Wrap(err, "failed to get states")
+	}
+	defer resultsIterator.Close()
+
+	// buffer is a JSON array containing QueryResults
+	var buffer bytes.Buffer
+	buffer.WriteString("[")
+
+	bArrayMemberAlreadyWritten := false
+	for resultsIterator.HasNext() {
+		queryResponse, err := resultsIterator.Next()
+		if err != nil {
+			return nil, errors.Wrap(err, "failed to iterate by states")
+		}
+		// Add a comma before array members, suppress it for the first array member
+		if bArrayMemberAlreadyWritten == true {
+			buffer.WriteString(",")
+		}
+
+		buffer.WriteString("{\"Key\":")
+		buffer.WriteString("\"")
+		buffer.WriteString(queryResponse.Key)
+		buffer.WriteString("\"")
+
+		buffer.WriteString(", \"Record\":")
+		// Record is a JSON object, so we write as-is
+		buffer.WriteString(string(queryResponse.Value))
+		buffer.WriteString("}")
+		bArrayMemberAlreadyWritten = true
+	}
+	buffer.WriteString("]")
+
+	fmt.Printf("- queryAllSensors:\n%s\n", buffer.String())
+
+	return buffer.Bytes(), nil
+}
+
+func querySensor(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+	// 0 - ID
+	if len(args) != 1 {
+		return nil, errors.New("invalid amount of args")
+	}
+
+	stateValue, err := stub.GetState(args[0])
+	if err != nil {
+		return nil, err
+	}
+
+	sensor := Sensor{
+		ID:    cast.ToUint64(args[0]),
+		Value: cast.ToUint64(stateValue),
+	}
+	return json.Marshal(&sensor)
 }

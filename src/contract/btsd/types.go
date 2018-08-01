@@ -8,4 +8,4 @@ const (
 	SensorKeyType KeyType = "sensor"
 )
 
-type stubFunc func(stub shim.ChaincodeStubInterface, args []string) error
+type stubFunc func(stub shim.ChaincodeStubInterface, args []string) ([]byte, error)
