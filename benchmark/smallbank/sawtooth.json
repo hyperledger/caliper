@@ -1,9 +1,0 @@
-{
-  "sawtooth": {
-    "network": {
-      "restapi": {
-        "url": "http://127.0.0.1:8008"
-      }
-    }
-  }
-}
