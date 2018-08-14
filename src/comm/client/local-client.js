@@ -10,7 +10,6 @@
 'use strict';
 
 // global variables
-const path = require('path');
 const bc   = require('../blockchain.js');
 const RateControl = require('../rate-control/rateControl.js');
 const Util = require('../util.js');
@@ -212,8 +211,10 @@ async function runDuration(msg, cb, context) {
  */
 function doTest(msg) {
 
-    let cb = require(path.join(__dirname, '../../..', msg.cb));
-    blockchain = new bc(path.join(__dirname, '../../..', msg.config), msg.withMQ);
+    log('doTest() with:', msg);
+    let cb = require(Util.resolvePath(msg.cb));
+    blockchain = new bc(Util.resolvePath(msg.config), msg.withMQ);
+
     beforeTest(msg);
     // start an interval to report results repeatedly
     let txUpdateInter = setInterval(txUpdate, txUpdateTime);
@@ -249,7 +250,7 @@ function doTest(msg) {
         }
     }).then(() => {
         clearUpdateInter();
-        return cb.end(results);
+        return cb.end();
     }).then(() => {
 
         if (resultStats.length > 0) {

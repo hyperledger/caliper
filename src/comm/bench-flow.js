@@ -28,10 +28,12 @@ let resultsbyround = [];    // results table for each test round
 let round = 0;              // test round
 let demo = require('../gui/src/demo.js');
 let absConfigFile, absNetworkFile;
-let absCaliperDir = path.join(__dirname, '../..');
+
 let absCaliperPath = '../';
 let listener_child;
 let configurationType;
+let absCaliperDir = path.join(__dirname, '..', '..');
+
 
 /**
  * Generate mustache template for test report
@@ -289,8 +291,8 @@ module.exports.run = function(configFile, networkFile) {
    
     test('#######Caliper Test######', (t) => {
         global.tapeObj = t;
-        absConfigFile  = configFile;
-        absNetworkFile = networkFile;
+        absConfigFile  = Util.resolvePath(configFile);
+        absNetworkFile = Util.resolvePath(networkFile);
         blockchain = new Blockchain(absNetworkFile);
         monitor = new Monitor(absConfigFile);
         client  = new Client(absConfigFile);

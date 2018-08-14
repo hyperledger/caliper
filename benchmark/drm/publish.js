@@ -39,18 +39,20 @@ module.exports.run = function() {
         'info' : '',
         'item' : buf
     };
-    return bc.invokeSmartContract(contx, 'drm', 'v0', {verb : 'publish', item: JSON.stringify(item)}, 120);
+    return bc.invokeSmartContract(contx, 'drm', 'v0', {verb : 'publish', item: JSON.stringify(item)}, 120)
+        .then((results)=>{
+            for (let i in results){
+                let stat = results[i];
+                if(stat.IsCommitted()) {
+                    ids.push(stat.GetResult().toString());
+                }
+            }
+            return Promise.resolve(results);
+        });
 };
 
-module.exports.end = function(results) {
-    for (let i in results){
-        let stat = results[i];
 
-        // for MQ mode the status will be submitted
-        if(stat.status === 'submitted' || stat.IsCommitted()) {
-            ids.push(stat.result.toString());
-        }
-    }
+module.exports.end = function() {
     return Promise.resolve();
 };
 /**********************
@@ -58,7 +60,7 @@ module.exports.end = function(results) {
 **********************/
 /*var idfile = './tmp/ids.log'
 var fs = require('fs');
-module.exports.end = function(results) {
+module.exports.end = function() {
      for (let i in results){
         let stat = results[i];
         if(stat.status === 'success') {

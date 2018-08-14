@@ -16,7 +16,6 @@
 
 const RateInterface = require('./rateInterface.js');
 const RateControl = require('./rateControl');
-const path = require('path');
 const fs = require('fs');
 const util = require('../util');
 
@@ -24,8 +23,6 @@ const TEXT_FORMAT = 'TEXT';
 const BINARY_BE_FORMAT = 'BIN_BE';
 const BINARY_LE_FORMAT = 'BIN_LE';
 const supportedFormats = [TEXT_FORMAT, BINARY_BE_FORMAT, BINARY_LE_FORMAT];
-
-const rootDir = '../../..';
 
 /**
  * Decorator rate controller for recording the rate of an other controller.
@@ -108,10 +105,7 @@ class RecordRateController extends RateInterface{
         // resolve template path placeholders
         this.pathTemplate = this.pathTemplate.replace(/<R>/gi, this.roundIdx.toString());
         this.pathTemplate = this.pathTemplate.replace(/<C>/gi, this.clientIdx.toString());
-
-        if (!path.isAbsolute(this.pathTemplate)) {
-            this.pathTemplate = path.join(__dirname, rootDir, this.pathTemplate);
-        }
+        this.pathTemplate = util.resolvePath(this.pathTemplate);
 
         await this.rateController.init(msg);
     }

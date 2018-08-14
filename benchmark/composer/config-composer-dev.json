@@ -1,0 +1,48 @@
+{
+  "blockchain": {
+    "type": "composer",
+    "config": "network/fabric/dev/composer-tls.json"
+  },
+  "command" : {
+    "start": "docker-compose -f network/fabric/dev/docker-compose-tls.yaml up -d",
+    "end": "docker-compose -f network/fabric/dev/docker-compose-tls.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev-* -q)"
+  },
+  "test": {
+    "name": "Composer Performance test",
+    "description" : "This is an example Composer perf test",
+    "clients": {
+      "type": "local",
+      "number": 1
+    },
+    "rounds": [{
+                "label" : "basic-sample-network",
+                "txNumber" : [25],
+                "trim" : 0,
+                "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 5}}],
+                "arguments": {"testAssets": 25},
+                "callback" : "benchmark/composer/composer-samples/basic-sample-network.js"
+            },
+            {
+                "label" : "basic-sample-network",
+                "txNumber" : [50],
+                "trim" : 0,
+                "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 10}}],
+                "arguments": {"testAssets": 50},
+                "callback" : "benchmark/composer/composer-samples/basic-sample-network.js"
+            }]
+  },
+  "monitor": {
+    "type": ["docker", "process"],
+    "docker":{
+      "name": ["all"]
+    },
+    "process": [
+      {
+        "command" : "node",
+        "arguments" : "bench-client.js",
+        "multiOutput" : "avg"
+      }
+    ],
+    "interval": 1
+  }
+}

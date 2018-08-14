@@ -25,7 +25,7 @@ module.exports.run = function() {
     return bc.queryState(contx, 'smallbank', 'v0', acc_num);
 };
 
-module.exports.end = function(results) {
+module.exports.end = function() {
     // do nothing
     return Promise.resolve();
 };
