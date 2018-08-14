@@ -69,22 +69,26 @@ Run `npm install` in caliper folder to install dependencies locally
 
 ### Install Apache Kafka MQ (optional feature)
 You can also configure the tool to run with Apache Kafka. Set `WITH_MQ` flag to true in the config file for each benchmark and run through the following installation for Kafka.
+Currently only Hyperledger Fabric platform is supported with MQ mode.
   
 #### Pre-requisites for Kafka MQ
-
-  * Following tools are required to be installed.
+  * Run `npm install kafka-node@2.3.0` from root directory of caliper. 
+  * Following tools are required to be installed for kafka cluster.
       *   Docker version 17.03.0-ce or greater is required (tested with with 18.02.0-ce)
       *   Docker-compose version 1.8 or greater is required (tested with with 1.19.0)
 
   * Clone the file docker-compose-kafka.yaml present in `/kafka-setup` directory on the machine where you want to set up the Kafka cluster.
   * Open the file docker-compose-kafka.yaml and change the `KAFKA_ADVERTISED_HOST_NAME` environment variable to the machine IP address where Kafka will be running. 
   * Run `docker-compose -f docker-compose-kafka.yaml up -d`.
+  ### Note 
+  It is recommended to run the kafka cluster on a separate machine/Vm.
 
 ## Run benchmark
 
- ### Note
+ ### Note 
+ If `WITH_MQ` is set to true, then please ensure the following conditions are met:
   1) Before running the fabric related benchmarks, make sure Apache kafka MQ is set up correctly.
-  2) Set the IP address of the Kafka, Peer event Url and related details in the [listener-config.json](./listener/listener-config.json) file.
+  2) Set the IP address of the Kafka, Peer event Url and related details in the [listener-config.json](./src/listener/listener-config.json) file.
   
 
 All predefined benchmarks can be found in [*benchmark*](./benchmark) folder. 

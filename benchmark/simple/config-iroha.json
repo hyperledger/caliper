@@ -8,7 +8,6 @@
     "end" : "docker logs iroha_node0; docker logs iroha_node1; docker-compose -f network/iroha/simplenetwork/docker-compose.yml down"
   },
   "test": {
-    "WITH_MQ": false,
     "clients": {
       "type": "local",
       "number": 5

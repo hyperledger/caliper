@@ -2,14 +2,21 @@
   "blockchain": {
     "type": "fabric",
     "config": "benchmark/simple/fabric.json"
+<<<<<<< 76b1c27eda7cee9b5e5d4783ed07cc35bf1b4a2b
   },
+=======
+  },  
+>>>>>>> Remove logic from demoOptional.js and reuse demo.js for real time metrics calculation in MQ mode
   "command" : {
     "start": "docker-compose -f network/fabric/2org2peer/docker-compose.yaml up -d",
     "end" : "docker-compose -f network/fabric/2org2peer/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
   },
   "test": {
+<<<<<<< 76b1c27eda7cee9b5e5d4783ed07cc35bf1b4a2b
     "name": "simple",
     "description" : "This is an example benchmark for caliper, to test the backend DLT's performance with simple account opening & querying transactions",
+=======
+>>>>>>> Remove logic from demoOptional.js and reuse demo.js for real time metrics calculation in MQ mode
     "clients": {
       "type": "local",
       "number": 5

@@ -97,15 +97,12 @@ function launchClient(updates, results) {
  * @return {Promise} promise object
  */
 function startTest(number, message, clientArgs, updates, results) {
-    
     let count = 0;
     for(let i in processes) {
         i;  // avoid eslint error
         count++;
     }
-    if(count === number) {
-        
-                            // already launched clients
+    if(count === number) {  // already launched clients
         let txPerClient;
         if (message.numb) {
             // Run specified number of transactions
@@ -131,7 +128,6 @@ function startTest(number, message, clientArgs, updates, results) {
 
         let promises = [];
         let idx = 0;
-        
         for(let id in processes) {
             let client = processes[id];
             let p = new Promise((resolve, reject) => {
@@ -146,7 +142,7 @@ function startTest(number, message, clientArgs, updates, results) {
             message.clientargs = clientArgs[idx];
             message.clientIdx = idx;
             idx++;
-            
+
             client.obj.send(message);
         }
 
@@ -165,7 +161,6 @@ function startTest(number, message, clientArgs, updates, results) {
     // launch clients
     processes = {};
     for(let i = 0 ; i < number ; i++) {
-        
         launchClient(updates, results);
     }
 

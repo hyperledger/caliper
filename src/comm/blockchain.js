@@ -15,12 +15,13 @@ class Blockchain {
      * Constructor
      * @param {String} configPath path of the blockchain configuration file
      */
-    constructor(configPath, withMQ) {
+    constructor(configPath) {
         let config = require(configPath);
+
         if(config.hasOwnProperty('fabric')) {
             let fabric = require('../fabric/fabric.js');
             this.bcType = 'fabric';
-            this.bcObj = new fabric(configPath, withMQ);
+            this.bcObj = new fabric(configPath);
         }
         else if(config.hasOwnProperty('sawtooth')) {
             let sawtooth = require('../sawtooth/sawtooth.js');
@@ -101,9 +102,9 @@ class Blockchain {
    * @result {string}, result after invoking all transaction
    * @return {Promise.resolve(context)}
    */
-  /*getTransactionConfirmationTime(result) {
+  getTransactionConfirmationTime(result) {
         return this.bcObj.getTransactionConfirmationTime(result);
-  }*/
+    }
 
     /**
      * Invoke smart contract/submit transactions and return corresponding transactions' status

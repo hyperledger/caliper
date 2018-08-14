@@ -10,7 +10,6 @@
   "test": {
     "name": "smallbank",
     "description" : "This is smallbank benchmark for caliper",
-    "WITH_MQ": true,
     "clients": {
       "type": "local",
       "number": 5
