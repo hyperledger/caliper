@@ -10,7 +10,6 @@
   "test": {
     "name": "drm",
     "description" : "Benchmark for DRM scenario",
-    "WITH_MQ": true,
     "clients": {
       "type": "local",
       "number": 1

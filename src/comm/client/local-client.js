@@ -1,3 +1,5 @@
+
+
 /**
 * Copyright 2017 HUAWEI. All Rights Reserved.
 *
@@ -13,7 +15,6 @@ const bc   = require('../blockchain.js');
 const RateControl = require('../rate-control/rateControl.js');
 const Util = require('../util.js');
 const log  = Util.log;
-
 let blockchain;
 let results      = [];
 let txNum        = 0;
@@ -26,59 +27,74 @@ let startTime = 0;
 
 /**
  * Calculate realtime transaction statistics and send the txUpdated message
- * @param {String} withMQ, Flag to check if caliper running in MQ mode
+ * 
  */
-function txUpdate(withMQ) {
 
+function txUpdate() {
     let newNum = txNum - txLastNum;
     txLastNum += newNum;
 
     let newResults = results.slice(0);
     results = [];
+    let bufferToSend = [];
+    let nonMqBuffer = [];
+   
     if(newResults.length === 0 && newNum === 0) {
         return;
     }
 
     let newStats;
     if(newResults.length === 0) {
-
         newStats = bc.createNullDefaultTxStats();
     }
     else {
         newStats = blockchain.getDefaultTxStats(newResults, false);
-    }
-
-    if (!withMQ) {
-        process.send({type: 'txUpdated', data: {submitted: newNum, committed: newStats}});
-        if (resultStats.length === 0) {
-
-            switch (trimType) {
-            case 0: // no trim
-                resultStats[0] = newStats;
-                break;
-            case 1: // based on duration
-                if (trim < (Date.now() - startTime)/1000) {
-                    resultStats[0] = newStats;
-                }
-                break;
-            case 2: // based on number
-                if (trim < newResults.length) {
-                    newResults = newResults.slice(trim);
-                    newStats = blockchain.getDefaultTxStats(newResults, false);
-                    resultStats[0] = newStats;
-                    trim = 0;
-                } else {
-                    trim -= newResults.length;
-                }
-                break;
+        for (var i =0; i < newResults.length; i++){
+            var txObject = newResults[i];
+            // it is running in kafka mode or it is a query
+            if (txObject.GetneedVerifyWithMQFlag()){
+                bufferToSend.push(txObject)
             }
-        } else {
-            resultStats[1] = newStats;
-            bc.mergeDefaultTxStats(resultStats);
+            else {
+                nonMqBuffer.push(txObject);
+            }
         }
     }
-    else {
-        process.send({type: 'txUpdated', data: {submitted: newNum, committed: newResults}});
+
+    if (nonMqBuffer.length === 0) {
+        newStats = bc.createNullDefaultTxStats();
+    } else {
+        newStats = blockchain.getDefaultTxStats(nonMqBuffer, false);
+    }
+    process.send({type: 'txUpdated', data: {submitted: newNum, committed: newStats}});
+    if (resultStats.length === 0) {
+        switch (trimType) {
+        case 0: // no trim
+            resultStats[0] = newStats;
+            break;
+        case 1: // based on duration
+            if (trim < (Date.now() - startTime)/1000) {
+                resultStats[0] = newStats;
+            }
+            break;
+        case 2: // based on number
+            if (trim < newResults.length) {
+                newResults = newResults.slice(trim);
+                newStats = blockchain.getDefaultTxStats(newResults, false);
+                resultStats[0] = newStats;
+                trim = 0;
+            } else {
+                trim -= newResults.length;
+            }
+            break;
+        }
+    } else {
+        resultStats[1] = newStats;
+        bc.mergeDefaultTxStats(resultStats);
+    }
+
+   if (bufferToSend.length !=0) {
+    process.send({type: 'txUpdatedWithMQ', data: {submitted: bufferToSend.length, committed: bufferToSend}}); 
     }
 }
 
@@ -200,7 +216,7 @@ function doTest(msg) {
     blockchain = new bc(path.join(__dirname, '../../..', msg.config), msg.withMQ);
     beforeTest(msg);
     // start an interval to report results repeatedly
-    let txUpdateInter = setInterval(txUpdate.bind(null, msg.withMQ), txUpdateTime);
+    let txUpdateInter = setInterval(txUpdate, txUpdateTime);
     /**
      * Clear the update interval
      */
@@ -209,7 +225,7 @@ function doTest(msg) {
         if(txUpdateInter) {
             clearInterval(txUpdateInter);
             txUpdateInter = null;
-            txUpdate.bind(null, msg.withMQ);
+            txUpdate();
         }
     };
 
@@ -232,17 +248,6 @@ function doTest(msg) {
             return runFixedNumber(msg, cb, context);
         }
     }).then(() => {
-
-        /* if (msg.label != "query") {
-            return blockchain.getTransactionConfirmationTime(results).then((response)=>{
-                clearUpdateInter();
-                return cb.end(response);
-            })
-
-        }else{
-            clearUpdateInter();
-            return cb.end(results);
-        }*/
         clearUpdateInter();
         return cb.end(results);
     }).then(() => {
@@ -270,33 +275,20 @@ process.on('message', function(message) {
         try {
             switch(message.type) {
             case 'test': {
-                if (message.withMQ){
-                    doTest(message).then((output) => {
-                        return Util.sleep(200);
-                    });
-                    break;
-                }else{
-                    let result;
-                    doTest(message).then((output) => {
-                        result = output;
-                        return Util.sleep(200);
-                    }).then(() => {
-
-                        process.send({type: 'testResult', data: result});
-                    });
-                    break;
-                }
-            }
-            case 'roundsComplete': {
                 let result;
-                process.send({type: 'testResult', data: result});
+                doTest(message).then((output) => {
+                    result = output;
+                    return Util.sleep(200);
+                }).then(() => {
+                    process.send({type: 'testResult', data: result});
+                });
                 break;
             }
             default: {
                 process.send({type: 'error', data: 'unknown message type'});
             }
-            }
         }
+    }
         catch(err) {
             process.send({type: 'error', data: err.toString()});
         }

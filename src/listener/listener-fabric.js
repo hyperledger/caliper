@@ -10,10 +10,10 @@
 const Client = require('fabric-client');
 const fs = require('fs');
 const path = require('path');
-let testUtil = require('../src/fabric/util.js');
-const Util = require('../src/comm/util');
+let testUtil = require('../fabric/util.js');
+const Util = require('../comm/util');
 const log = Util.log;
-const rootPath = '../';
+const rootPath = '../../';
 
 
 /**
@@ -77,6 +77,7 @@ class FabricListener {
                 eh.connect();
 
                 eh.registerBlockEvent((block) => {
+                   
                     let event_data = {};
                     event_data.validTime = Date.now();
                     event_data.block = block;

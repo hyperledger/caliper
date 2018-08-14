@@ -7,7 +7,7 @@
 
 'use strict';
 const kafka = require('kafka-node');
-const Util = require('../src/comm/util');
+const Util = require('../comm/util');
 const log = Util.log;
 let HighLevelProducer = kafka.HighLevelProducer;
 
@@ -59,5 +59,13 @@ let KafkaAdapter = class {
         return this.bcObj.getBlocks();
     }
 
+    /**
+    * close the kafka producer
+    * @return {void} nothing
+    */
+    closeKafkaProducer () {
+        process.exit(0);
+         
+    }
 };
 module.exports = KafkaAdapter;

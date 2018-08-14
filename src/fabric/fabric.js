@@ -9,7 +9,7 @@
 'use strict';
 
 const util = require('./util.js');
-let e2eUtils;
+let e2eUtils = require('./e2eUtils.js');
 const impl_create = require('./create-channel.js');
 const impl_join = require('./join-channel.js');
 const impl_install = require('./install-chaincode.js');
@@ -25,16 +25,9 @@ class Fabric extends BlockchainInterface{
     /**
      * Create a new instance of the {Fabric} class.
      * @param {string} config_path The path of the Fabric network configuration file.
-     * @param {string} withMQ Flag to check if running in MQ mode or not.
+     *
      */
-    constructor(config_path, withMQ) {
-        if (!withMQ) {
-            e2eUtils = require('./e2eUtils.js');
-        }
-        else {
-            e2eUtils = require('./e2eUtils_withMQ.js');
-        }
-
+    constructor(config_path) {
         super(config_path);
     }
 
@@ -109,20 +102,6 @@ class Fabric extends BlockchainInterface{
     }
 
     /**
-     * Consume transaction confirmation time from Kafka.
-     * @param {object} resultsArray resultsArray containing transactions made by client.
-     * @return {Promise} The return promise.
-     */
-    /*getTransactionConfirmationTime(resultsArray) {
-
-        if (resultsArray.length <= 0) {
-            return Promise.reject(new Error("No transactions found in the result array"));
-        }
-
-        return e2eUtils.getTransactionConfirmationTime(resultsArray);
-    }*/
-
-    /**
      * Invoke the given chaincode according to the specified options. Multiple transactions will be generated according to the length of args.
      * @param {object} context The Fabric context returned by {getContext}.
      * @param {string} contractID The name of the chaincode.
@@ -131,7 +110,7 @@ class Fabric extends BlockchainInterface{
      * @param {number} timeout The timeout to set for the execution in seconds.
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    invokeSmartContract(context, contractID, contractVer, args, timeout) {
+    invokeSmartContract(context, contractID, contractVer, args, timeout, withMQ) {
         let promises = [];
         args.forEach((item, index)=>{
             try {
@@ -148,7 +127,7 @@ class Fabric extends BlockchainInterface{
                 if(func) {
                     simpleArgs.splice(0, 0, func);
                 }
-                promises.push(e2eUtils.invokebycontext(context, contractID, contractVer, simpleArgs, timeout));
+                promises.push(e2eUtils.invokebycontext(context, contractID, contractVer, simpleArgs, timeout, withMQ));
             }
             catch(err) {
                 commUtils.log(err);

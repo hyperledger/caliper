@@ -10,11 +10,11 @@
 
 const CLIENT_LOCAL = 'local';
 const CLIENT_ZOO   = 'zookeeper';
-
 const zkUtil  = require('./zoo-util.js');
 const ZooKeeper = require('node-zookeeper-client');
 const clientUtil = require('./client-util.js');
 const log = require('../util').log;
+
 
 /**
  * Callback function to handle messages received from zookeeper clients
@@ -88,7 +88,7 @@ class Client{
         let conf = require(config);
         this.config = conf.test.clients;
         this.results = [];                        // output of recent test round
-        this.updates = {id:0, data:[]};           // contains txUpdated messages
+        this.updates = {id:0, data:[]}; // contains txUpdated messages       
     }
 
     /**
@@ -96,6 +96,10 @@ class Client{
     * @return {Promise} promise object
     */
     init() {
+       if (this.config.hasOwnProperty('WITH_MQ') && this.config.WITH_MQ) {
+            clientUtil._consumeEvents();
+       }
+        
         if(this.config.hasOwnProperty('type')) {
             switch(this.config.type) {
             case CLIENT_LOCAL:
@@ -190,9 +194,13 @@ class Client{
         case CLIENT_ZOO:
             this._stopZoo();
             break;
-        case CLIENT_LOCAL:
+        case CLIENT_LOCAL: {
             clientUtil.stop();
+            if (this.config.WITH_MQ) {
+                clientUtil.closeKafkaConsumer();
+            }
             break;
+        }
         default:
                  // nothing to do
         }
@@ -203,9 +211,9 @@ class Client{
      * @return {Array} update array
      */
     getUpdates() {
+       
         return this.updates;
     }
-
 
     /**
     * pseudo private functions
@@ -222,8 +230,9 @@ class Client{
      * @return {Promise} promise object
      */
     _startLocalTest(message, clientArgs) {
+
         message.totalClients = this.number;
-        return clientUtil.startTest(this.number, message, clientArgs, this.updates.data, this.results);
+        return clientUtil.startTest(this.number, message, clientArgs, this.updates.data, this.results, this.config.WITH_MQ);
     }
 
     /**

@@ -8,7 +8,6 @@
     "end" : "docker-compose -f network/fabric/2-org-1-peer/docker-compose-tls.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
   },
   "test": {
-    "WITH_MQ": true,
     "clients": {
       "type": "local",
       "number": 5

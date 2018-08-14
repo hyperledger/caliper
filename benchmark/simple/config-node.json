@@ -10,7 +10,6 @@
   "test": {
     "name": "simple",
     "description" : "This is an example benchmark for caliper, to test the backend DLT's performance with simple account opening & querying transactions",
-    "WITH_MQ": true,
     "clients": {
       "type": "local",
       "number": 5

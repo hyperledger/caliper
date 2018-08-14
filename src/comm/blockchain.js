@@ -18,10 +18,11 @@ class Blockchain {
      */
     constructor(configPath, withMQ) {
         let config = require(configPath);
+        this.withMQ = withMQ;
         if(config.hasOwnProperty('fabric')) {
             let fabric = require('../fabric/fabric.js');
             this.bcType = 'fabric';
-            this.bcObj = new fabric(configPath, withMQ);
+            this.bcObj = new fabric(configPath);
         }
         else if(config.hasOwnProperty('sawtooth')) {
             let sawtooth = require('../sawtooth/sawtooth.js');
@@ -96,16 +97,6 @@ class Blockchain {
         return this.bcObj.releaseContext(context);
     }
 
-
-    /**
-   * get result confirmation that will be used to check if the transaction invoked are successfully committed or not
-   * @result {string}, result after invoking all transaction
-   * @return {Promise.resolve(context)}
-   */
-    /*getTransactionConfirmationTime(result) {
-        return this.bcObj.getTransactionConfirmationTime(result);
-  }*/
-
     /**
      * Invoke smart contract/submit transactions and return corresponding transactions' status
      * @param {Object} context context object
@@ -134,7 +125,7 @@ class Blockchain {
             time = timeout;
         }
 
-        return this.bcObj.invokeSmartContract(context, contractID, contractVer, arg, time);
+        return this.bcObj.invokeSmartContract(context, contractID, contractVer, arg, time, this.withMQ);
     }
 
     /**

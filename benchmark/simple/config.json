@@ -2,16 +2,15 @@
   "blockchain": {
     "type": "fabric",
     "config": "benchmark/simple/fabric.json"
-  }, 
+  },  
   "command" : {
     "start": "docker-compose -f network/fabric/simplenetwork/docker-compose.yaml up -d",
     "end" : "docker-compose -f network/fabric/simplenetwork/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
   },
   "test": {
-    "WITH_MQ": true,
     "clients": {
       "type": "local",
-      "number": 4
+      "number": 5
     },
     "rounds": [{
       "label" : "open",

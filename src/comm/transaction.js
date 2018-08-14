@@ -28,6 +28,7 @@ class TxStatus {
      * @param {boolean} verified, transaction verification flag
      * @param {string} flags, transaction flags
      * @param {array} error_messages, transaction id
+     * @param {boolean} needVerifyWithMQ, flag to check if mq is enabled or not
      *
      */
     constructor(id, status, time_create, time_final, result, verified, flags, error_messages) {
@@ -40,7 +41,8 @@ class TxStatus {
                 result: null,
                 verified: false,   // if false, we cannot be sure that the final Tx status is accurate
                 flags: 0,    // the blockchain specified flag
-                error_messages: [] // the blockchain specified error messages
+                error_messages: [], // the blockchain specified error messages
+                needVerifyWithMQ : false
             };
         }
         else{
@@ -52,7 +54,8 @@ class TxStatus {
                 result: result,
                 verified: verified,   // if false, we cannot be sure that the final Tx status is accurate
                 flags: flags,    // the blockchain specified flag
-                error_messages: [] // the blockchain specified error messages
+                error_messages: [], // the blockchain specified error messages
+                needVerifyWithMQ : false
             };
         }
     }
@@ -212,6 +215,22 @@ class TxStatus {
      */
     Get(key) {
         return this.status[key];
+    }
+
+     /**
+     * Get needVerifyWithMQ
+     *
+     */
+    GetneedVerifyWithMQFlag() {
+        return this.status.needVerifyWithMQ;
+    }
+
+    /**
+     * Set needVerifyWithMQ
+     *
+     */
+    SetneedVerifyWithMQFlag(flag) {
+         this.status.needVerifyWithMQ = flag;
     }
 }
 
