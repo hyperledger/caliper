@@ -77,7 +77,6 @@ class FabricListener {
                 eh.connect();
 
                 eh.registerBlockEvent((block) => {
-                   
                     let event_data = {};
                     event_data.validTime = Date.now();
                     event_data.block = block;

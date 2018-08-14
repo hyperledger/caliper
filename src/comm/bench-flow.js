@@ -224,7 +224,6 @@ function defaultTest(args, clientArgs, final) {
                 cb  : args.callback,
                 config: configPath,
                 withMQ: configurationType
-                
             };
             // condition for time based or number based test driving
             if (args.txNumber) {
@@ -234,7 +233,6 @@ function defaultTest(args, clientArgs, final) {
             } else {
                 return reject(new Error('Unspecified test driving mode'));
             }
-
             tests.push(msg);
         }
         let testIdx = 0;
@@ -288,7 +286,6 @@ module.exports.run = function(configFile, networkFile) {
 
     let localConfig = require(configFile);
     configurationType = localConfig.test.clients.WITH_MQ;
-   
     test('#######Caliper Test######', (t) => {
         global.tapeObj = t;
         absConfigFile  = Util.resolvePath(configFile);
@@ -318,7 +315,6 @@ module.exports.run = function(configFile, networkFile) {
 
         startPromise.then(() => {
             if (configurationType) {
-                
                 let blockListenerPath = path.join(__dirname, absCaliperPath, 'listener/block-listener-handler.js');
                 listener_child = childProcess.fork(blockListenerPath);
                 listener_child.on('error', function () {
@@ -353,9 +349,8 @@ module.exports.run = function(configFile, networkFile) {
         }).then( () => {
 
             if (configurationType) {
-                listener_child.send({type:'closeKafkaProducer', config: configFile})
+                listener_child.send({type:'closeKafkaProducer', config: configFile});
             }
-            
             log('----------finished test----------\n');
             printResultsByRound();
             monitor.printMaxStats();
@@ -363,7 +358,7 @@ module.exports.run = function(configFile, networkFile) {
             let date = new Date().toISOString().replace(/-/g,'').replace(/:/g,'').substr(0,15);
             let output = path.join(process.cwd(), 'report'+date+'.html' );
             return report.generate(output).then(()=>{
-            demo.stopWatch(output);
+                demo.stopWatch(output);
                 log('Generated report at ' + output);
                 return Promise.resolve();
             });
@@ -376,10 +371,7 @@ module.exports.run = function(configFile, networkFile) {
                 end.stdout.pipe(process.stdout);
                 end.stderr.pipe(process.stderr);
             }
-            
             t.end();
-            
-           
         }).catch( (err) => {
             demo.stopWatch();
             log('unexpected error, ' + (err.stack ? err.stack : err));

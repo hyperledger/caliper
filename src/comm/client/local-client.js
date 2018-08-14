@@ -26,9 +26,8 @@ let startTime = 0;
 
 /**
  * Calculate realtime transaction statistics and send the txUpdated message
- * 
+ *
  */
-
 function txUpdate() {
     let newNum = txNum - txLastNum;
     txLastNum += newNum;
@@ -37,7 +36,6 @@ function txUpdate() {
     results = [];
     let bufferToSend = [];
     let nonMqBuffer = [];
-   
     if(newResults.length === 0 && newNum === 0) {
         return;
     }
@@ -48,11 +46,11 @@ function txUpdate() {
     }
     else {
         newStats = blockchain.getDefaultTxStats(newResults, false);
-        for (var i =0; i < newResults.length; i++){
-            var txObject = newResults[i];
+        for (let i =0; i < newResults.length; i++){
+            let txObject = newResults[i];
             // it is running in kafka mode or it is a query
             if (txObject.GetneedVerifyWithMQFlag()){
-                bufferToSend.push(txObject)
+                bufferToSend.push(txObject);
             }
             else {
                 nonMqBuffer.push(txObject);
@@ -91,9 +89,8 @@ function txUpdate() {
         resultStats[1] = newStats;
         bc.mergeDefaultTxStats(resultStats);
     }
-
-   if (bufferToSend.length !=0) {
-    process.send({type: 'txUpdatedWithMQ', data: {submitted: bufferToSend.length, committed: bufferToSend}}); 
+    if (bufferToSend.length !==0) {
+        process.send({type: 'txUpdatedWithMQ', data: {submitted: bufferToSend.length, committed: bufferToSend}});
     }
 }
 
@@ -288,8 +285,8 @@ process.on('message', function(message) {
             default: {
                 process.send({type: 'error', data: 'unknown message type'});
             }
+            }
         }
-    }
         catch(err) {
             process.send({type: 'error', data: err.toString()});
         }

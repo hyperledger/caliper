@@ -108,6 +108,7 @@ class Fabric extends BlockchainInterface{
      * @param {string} contractVer The version of the chaincode.
      * @param {Array} args Array of JSON formatted arguments for transaction(s). Each element containts arguments (including the function name) passing to the chaincode. JSON attribute named transaction_type is used by default to specify the function name. If the attribute does not exist, the first attribute will be used as the function name.
      * @param {number} timeout The timeout to set for the execution in seconds.
+     * @param {number} withMQ Flag to determine if tool running in MQ mode.
      * @return {Promise<object>} The promise for the result of the execution.
      */
     invokeSmartContract(context, contractID, contractVer, args, timeout, withMQ) {

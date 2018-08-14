@@ -217,20 +217,22 @@ class TxStatus {
         return this.status[key];
     }
 
-     /**
+    /**
      * Get needVerifyWithMQ
+     * @return {Boolean} value
      *
-     */
+    */
     GetneedVerifyWithMQFlag() {
         return this.status.needVerifyWithMQ;
     }
 
     /**
      * Set needVerifyWithMQ
+     * @param {string} flag flag
      *
      */
     SetneedVerifyWithMQFlag(flag) {
-         this.status.needVerifyWithMQ = flag;
+        this.status.needVerifyWithMQ = flag;
     }
 }
 

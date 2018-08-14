@@ -29,7 +29,7 @@ function zooMessageCallback(data, updates, results) {
     switch(msg.type) {
     case 'testResult':
         results.push(msg.data);
-        stop = true;   // stop watching
+        stop = true; // stop watching
         break;
     case 'error':
         log('Client encountered error, ' + msg.data);
@@ -88,7 +88,7 @@ class Client{
         let conf = require(config);
         this.config = conf.test.clients;
         this.results = [];                        // output of recent test round
-        this.updates = {id:0, data:[]}; // contains txUpdated messages       
+        this.updates = {id:0, data:[]}; // contains txUpdated messages
     }
 
     /**
@@ -96,10 +96,9 @@ class Client{
     * @return {Promise} promise object
     */
     init() {
-       if (this.config.hasOwnProperty('WITH_MQ') && this.config.WITH_MQ) {
+        if (this.config.hasOwnProperty('WITH_MQ') && this.config.WITH_MQ) {
             clientUtil._consumeEvents();
-       }
-        
+        }
         if(this.config.hasOwnProperty('type')) {
             switch(this.config.type) {
             case CLIENT_LOCAL:
@@ -211,7 +210,6 @@ class Client{
      * @return {Array} update array
      */
     getUpdates() {
-       
         return this.updates;
     }
 

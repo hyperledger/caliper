@@ -28,8 +28,6 @@ const util = require('util');
 const Client = require('fabric-client');
 const testUtil = require('./util.js');
 let ORGS;
-
-const rootPath = '../..';
 let tx_id = null;
 let the_user = null;
 
@@ -545,6 +543,7 @@ module.exports.releasecontext = releasecontext;
  * @param {string} version The version of the chaincode.
  * @param {string[]} args The arguments to pass to the chaincode.
  * @param {number} timeout The timeout for the transaction invocation.
+ * @param {number} withMQ Flag to determine if tool running in MQ mode.
  * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
  */
 async function invokebycontext(context, id, version, args, timeout, withMQ){
@@ -685,11 +684,12 @@ async function invokebycontext(context, id, version, args, timeout, withMQ){
                     );
                 }));
             });
-    }
+        }
         let broadcastResponse;
         try {
             broadcastResponse = await channel.sendTransaction(transactionRequest);
-        } catch (err) {
+        }
+        catch (err) {
             // missing the ACK does not mean anything, the Tx could be already under ordering
             // so let the events decide the final status, but log this error
             errFlag |= TxErrorEnum.OrdererResponseError;

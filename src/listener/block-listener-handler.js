@@ -11,7 +11,6 @@ let block_listener_adapter = require('./block-listener-adapter.js');
 
 process.on('message', function(message) {
     let adapter = new block_listener_adapter (message.config);
-
     if(message.hasOwnProperty('type')) {
         try {
             switch(message.type) {
@@ -21,16 +20,14 @@ process.on('message', function(message) {
                 break;
             }
             case 'closeKafkaProducer': {
-               
                 adapter.closeKafkaProducer();
                 break;
             }
             default: {
-               
                 process.send({type: 'error', data: 'unknown message type'});
             }
+            }
         }
-    }
         catch(err) {
             process.send({type: 'error', data: err.toString()});
         }
@@ -43,4 +40,4 @@ process.on('message', function(message) {
 
 process.on('disconnect', function(){
     process.exit(0);
-})
+});

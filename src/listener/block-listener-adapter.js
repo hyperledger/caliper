@@ -65,7 +65,6 @@ let KafkaAdapter = class {
     */
     closeKafkaProducer () {
         process.exit(0);
-         
     }
 };
 module.exports = KafkaAdapter;
