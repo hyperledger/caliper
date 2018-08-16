@@ -34,6 +34,7 @@ module.exports.run = function (config_path) {
     Client.addConfigFile(config_path);
     testUtil.setupChaincodeDeploy();
     const fabricSettings = Client.getConfigSetting('fabric');
+    
     let chaincodes = fabricSettings.chaincodes;
     if(typeof chaincodes === 'undefined' || chaincodes.length === 0) {
         return Promise.resolve();
@@ -43,6 +44,11 @@ module.exports.run = function (config_path) {
         t.comment('install all chaincodes......');
         chaincodes.reduce(function(prev, chaincode){
             return prev.then(() => {
+                // Chaincode will not be installed when "deployed" set to "true" in fabric.json
+                if(chaincode.deployed) {
+                    return Promise.resolve();
+                }
+
                 let promises = [];
                 let channel  = testUtil.getChannel(chaincode.channel);
                 if(channel === null) {

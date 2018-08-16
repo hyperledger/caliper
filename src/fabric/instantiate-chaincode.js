@@ -1,7 +1,6 @@
 /**
  * Modifications Copyright 2017 HUAWEI
- * Copyright 2017 IBM All Rights Reserved.
- *
+ * Copyright 2017 IBM All Rights Reserved.  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -46,6 +45,11 @@ module.exports.run = function (config_path) {
         t.comment('Instantiate chaincode......');
         chaincodes.reduce(function(prev, chaincode){
             return prev.then(() => {
+                // Chaincode will not be instantiated when "deployed" set to "true" in fabric.json
+                if(chaincode.deployed) {
+                    return Promise.resolve();
+                }
+
                 return e2eUtils.instantiateChaincode(chaincode, policy, false).then(() => {
                     t.pass('Instantiated chaincode ' + chaincode.id + ' successfully ');
                     t.comment('Sleep 5s...');
