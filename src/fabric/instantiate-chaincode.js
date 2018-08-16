@@ -46,6 +46,11 @@ module.exports.run = function (config_path) {
         t.comment('Instantiate chaincode......');
         chaincodes.reduce(function(prev, chaincode){
             return prev.then(() => {
+                // Chaincode will not be instantiated when "deployed" set to "true" in fabric.json
+                if(chaincode.deployed) {
+                    return Promise.resolve();
+                }
+
                 return e2eUtils.instantiateChaincode(chaincode, policy, false).then(() => {
                     t.pass('Instantiated chaincode ' + chaincode.id + ' successfully ');
                     t.comment('Sleep 5s...');

@@ -68,6 +68,8 @@ The fabric configuration is a json file which defines a fabric object with six m
 
 * **chaincodes**: defines one or more chaincodes, those chaincodes can be installed and instantiated on all peers of the specific channel by calling `Blockchain.installSmartContract()` function.  
   
+  The 'deployed' property is same as the 'deployed' property in **channel**.
+
   Optionally an `init` attribute can also be set to an array of *string* values. This array will be passed as the argument to the chaincode's `Init` method. The `init` attribute defaults to an empty array.
   
   The `language` property denotes the chaincode platform (i.e., the language it's written in). The currently supported values (by Caliper and the SDK) are: `golang` (default) and `node`.
