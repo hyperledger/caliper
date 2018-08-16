@@ -34,7 +34,7 @@ module.exports.run = function (config_path) {
     Client.addConfigFile(config_path);
     testUtil.setupChaincodeDeploy();
     const fabricSettings = Client.getConfigSetting('fabric');
-    
+
     let chaincodes = fabricSettings.chaincodes;
     if(typeof chaincodes === 'undefined' || chaincodes.length === 0) {
         return Promise.resolve();
