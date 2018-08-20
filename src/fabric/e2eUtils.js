@@ -650,7 +650,7 @@ async function invokebycontext(context, id, version, args, timeout){
         const eventPromises = [];
         eventHubs.forEach((eh) => {
             eventPromises.push(new Promise((resolve, reject) => {
-                let handle = setTimeout(reject, newTimeout);
+                let handle = setTimeout(() => reject(new Error('Timeout')), newTimeout);
 
                 eh.registerTxEvent(txId,
                     (tx, code) => {
