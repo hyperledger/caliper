@@ -46,7 +46,7 @@ function main() {
         absConfigFile = path.join(__dirname, 'config.json');
     }
     else {
-        absConfigFile = path.join(__dirname, configFile);
+        absConfigFile = path.isAbsolute(configFile) ? configFile : path.join(__dirname, configFile);
     }
     if(!fs.existsSync(absConfigFile)) {
         Util.log('file ' + absConfigFile + ' does not exist');
@@ -54,11 +54,10 @@ function main() {
     }
 
     let absNetworkFile;
-    let absCaliperDir = path.join(__dirname, '../..');
     if(typeof networkFile === 'undefined') {
         try{
             let config = require(absConfigFile);
-            absNetworkFile = path.join(absCaliperDir, config.blockchain.config);
+            absNetworkFile = Util.resolvePath(config.blockchain.config);
         }
         catch(err) {
             Util.log('failed to find blockchain.config in ' + absConfigFile);
@@ -66,7 +65,7 @@ function main() {
         }
     }
     else {
-        absNetworkFile = path.join(__dirname, networkFile);
+        absNetworkFile = path.isAbsolute(networkFile) ? networkFile : path.join(__dirname, networkFile);
     }
     if(!fs.existsSync(absNetworkFile)) {
         Util.log('file ' + absNetworkFile + ' does not exist');
