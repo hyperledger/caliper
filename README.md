@@ -54,6 +54,7 @@ Run `npm install` in caliper folder to install dependencies locally
 
 * Composer
    * Install dependencies
+
    The easiest way to get started using a target version of Composer is to update the main package.json file to include the required Composer and Fabric modules, and subsequently run an `npm install` command. It is important that the Composer and Fabric versions are compatible. 
 
    ```
