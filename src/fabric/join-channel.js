@@ -28,7 +28,6 @@
 const fs = require('fs');
 
 const Client = require('fabric-client');
-const EventHub = require('fabric-client/lib/EventHub.js');
 
 const testUtil = require('./util.js');
 const commUtils = require('../comm/util');
@@ -116,14 +115,14 @@ function joinChannel(org, channelName) {
                         )
                     );
 
-                    let eh = new EventHub(client);  //client.newEventHub();
-                    eh.setPeerAddr(
+                    const peer = client.newPeer(
                         ORGS[org][key].events,
                         {
                             pem: Buffer.from(data).toString(),
                             'ssl-target-name-override': ORGS[org][key]['server-hostname']
                         }
                     );
+                    const eh = channel.newChannelEventHub(peer);
                     eh.connect();
                     eventhubs.push(eh);
                     allEventhubs.push(eh);
