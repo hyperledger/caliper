@@ -81,9 +81,9 @@ function launchClient(updates, results) {
         setPromise(pid, false, new Error('Client encountered unexpected error'));
     });
 
-    child.on('exit', function(){
-        log('Client exited');
-        setPromise(pid, true, null);
+    child.on('exit', function(code, signal){
+        console.log('Client exited ');
+        setPromise(pid, false, new Error('Client already exited'));
     });
 }
 
