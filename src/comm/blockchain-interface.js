@@ -88,8 +88,9 @@ class BlockchainInterface {
      * @param {String} contractID identiy of the contract
      * @param {String} contractVer version of the contract
      * @param {String} key lookup key
+     * @param {String=} [fcn] The chaincode query function name
      */
-    queryState(context, contractID, contractVer, key) {
+    queryState(context, contractID, contractVer, key, fcn) {
         throw new Error('queryState is not implemented for this blockchain system');
     }
 

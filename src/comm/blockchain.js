@@ -133,10 +133,11 @@ class Blockchain {
      * @param {String} contractID identiy of the contract
      * @param {String} contractVer version of the contract
      * @param {String} key lookup key
+     * @param {String=} [fcn] query function name
      * @return {Promise} as invokeSmateContract()
      */
-    queryState(context, contractID, contractVer, key) {
-        return this.bcObj.queryState(context, contractID, contractVer, key);
+    queryState(context, contractID, contractVer, key, fcn) {
+        return this.bcObj.queryState(context, contractID, contractVer, key, fcn);
     }
 
     /**

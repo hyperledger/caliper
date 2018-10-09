@@ -144,11 +144,12 @@ class Fabric extends BlockchainInterface{
      * @param {string} contractID The name of the chaincode.
      * @param {string} contractVer The version of the chaincode.
      * @param {string} key The argument to pass to the chaincode query.
+     * @param {string} [fcn=query] The chaincode query function name.
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    queryState(context, contractID, contractVer, key) {
+    queryState(context, contractID, contractVer, key, fcn = 'query') {
         // TODO: change string key to general object
-        return e2eUtils.querybycontext(context, contractID, contractVer, key.toString());
+        return e2eUtils.querybycontext(context, contractID, contractVer, key.toString(), fcn);
     }
 }
 module.exports = Fabric;
