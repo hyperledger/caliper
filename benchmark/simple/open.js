@@ -14,8 +14,12 @@ let txnPerBatch;
 let initMoney;
 let bc, contx;
 module.exports.init = function(blockchain, context, args) {
+    if(!args.hasOwnProperty('money')) {
+        return Promise.reject(new Error('simple.open - \'money\' is missed in the arguments'));
+    }
+
     if(!args.hasOwnProperty('txnPerBatch')) {
-        return Promise.reject(new Error('simple.open - \'txnPerBatch\' is missed in the arguments'));
+        args.txnPerBatch = 1;
     }
     initMoney = args.money;
     txnPerBatch = args.txnPerBatch;
