@@ -82,7 +82,7 @@ function launchClient(updates, results) {
     });
 
     child.on('exit', function(code, signal){
-        console.log('Client exited ');
+        log('Client exited ');
         setPromise(pid, false, new Error('Client already exited'));
     });
 }
