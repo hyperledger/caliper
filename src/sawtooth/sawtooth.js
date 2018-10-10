@@ -84,7 +84,7 @@ async function handleEvent(msg) {
         getBlock(events).then(result => {
             lastKnownBlockId = result.blockId.toString();
             let blockNum=result.blockNum;
-            //On receiving event with block, update the status of the block to sucess
+            //On receiving event with block, update the status of the block to success
             blockCommitSatus.set(blockNum, 'success');
         });
     } else {
@@ -153,6 +153,7 @@ function unsubscribe(stream1) {
 function getBatchEventResponse(block_num, batchStats) {
     return new Promise(resolve => {
         while(blockCommitSatus.get(block_num) !== 'pending') {
+            /* empty */
         }
         //remove the block number from map because we are done with this block
         blockCommitSatus.delete(block_num);
