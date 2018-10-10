@@ -135,7 +135,7 @@ describe('pidRate controller implementation', () => {
                 // Initial sleep time
                 let initialSleep = controller.sleep;
 
-                controller.applyRateControl(Date.now(), 10, []);
+                controller.applyRateControl(Date.now(), 10, new Array(10));
 
                 // Sleep time after control application
                 let finalSleep = controller.sleep;
@@ -157,7 +157,7 @@ describe('pidRate controller implementation', () => {
                 // Initial sleep time
                 let initialSleep = controller.sleep;
 
-                controller.applyRateControl(Date.now(), 11, []);
+                controller.applyRateControl(Date.now(), 0, new Array(11));
 
                 // Sleep time after control application
                 let finalSleep = controller.sleep;
@@ -204,7 +204,7 @@ describe('pidRate controller implementation', () => {
                 // Initial sleep time
                 let initialSleep = controller.sleep;
 
-                controller.applyRateControl(Date.now(), 10, []);
+                controller.applyRateControl(Date.now(), 10, new Array(10));
 
                 // Sleep time after control application
                 let finalSleep = controller.sleep;
@@ -229,7 +229,7 @@ describe('pidRate controller implementation', () => {
                 // Initial sleep time
                 let initialSleep = controller.sleep;
 
-                controller.applyRateControl(Date.now(), 11, []);
+                controller.applyRateControl(Date.now(), 11, new Array(11));
 
                 // Sleep time after control application
                 let finalSleep = controller.sleep;
@@ -279,7 +279,7 @@ describe('pidRate controller implementation', () => {
                 // Initial sleep time
                 let initialSleep = controller.sleep;
 
-                controller.applyRateControl(Date.now(), 10, []);
+                controller.applyRateControl(Date.now(), 10, new Array(10));
 
                 // Sleep time after control application
                 let finalSleep = controller.sleep;
@@ -304,7 +304,7 @@ describe('pidRate controller implementation', () => {
                 // Initial sleep time
                 let initialSleep = controller.sleep;
 
-                controller.applyRateControl(Date.now(), 11, []);
+                controller.applyRateControl(Date.now(), 11, new Array(11));
 
                 // Sleep time after control application
                 let finalSleep = controller.sleep;

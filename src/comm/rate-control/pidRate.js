@@ -65,17 +65,17 @@ class PidRate extends RateInterface {
     * - Sleep based on targetting a specific working load through a basic PID controller
     * @param {Number} start generation time of the first test transaction
     * @param {Number} idx sequence number of the current test transaction
-    * @param {Object[]} currentResults current result set
+    * @param {Object[]} unhandledResults current result set
     * @return {Promise} the return promise
     */
-    applyRateControl(start, idx, currentResults) {
+    applyRateControl(start, idx, unhandledResults) {
         // We steer the load by increasing/decreasing the sleep time to adjust the TPS using a basic PID controller
         // We will only observe currentResults growth once the txn is complete and a result is available
         // -at this point the txn will either be in state success/fail
 
         // Update current transaction backlog error
         // error = what you want - what you have
-        let error = this.targetLoad - (idx - currentResults.length);
+        let error = this.targetLoad - unhandledResults.length;
 
         if (this.showVars) {
             Log('Current load error: ', error);
