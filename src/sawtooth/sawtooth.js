@@ -14,6 +14,152 @@ const log = require('../comm/util.js').log;
 let configPath;
 const request = require('request-promise');
 const TxStatus = require('../comm/transaction');
+const _ = require('lodash');
+const { Stream } = require('sawtooth-sdk/messaging/stream');
+const {
+    Message,
+    EventList,
+    EventSubscription,
+    ClientEventsSubscribeRequest,
+    ClientEventsSubscribeResponse,
+    ClientEventsUnsubscribeRequest,
+    ClientEventsUnsubscribeResponse
+} = require('sawtooth-sdk/protobuf');
+
+let lastKnownBlockId=null;
+let stream;
+let blockCommitSatus = new Map();
+let currentBlockNum=0;
+
+/**
+* Get the last recent block id for the block chain
+* @return {Promise<String>} last recent block id
+*/
+async function getCurrentBlockId() {
+    const request = require('request-promise');
+    let config = require(configPath);
+    let restApiUrl = config.sawtooth.network.restapi.url;
+    const blocks = restApiUrl + '/blocks?limit=1';
+    let options = {
+        uri: blocks
+    };
+    return request(options)
+        .then(function(body) {
+            let data = (JSON.parse(body)).data;
+            if (data.length > 0) {
+                currentBlockNum = parseInt(data[0].header.block_num);
+                lastKnownBlockId = data[0].header_signature.toString();
+                return currentBlockNum;
+            }
+        });
+}
+
+/**
+ * Get block data from event message
+ * @param {Object} events message
+ * @return {Promise<object>} The promise for the result of event message
+ */
+async function getBlock(events) {
+    const block = _.chain(events)
+        .find(e => e.eventType === 'sawtooth/block-commit')
+        .get('attributes')
+        .map(a => [a.key, a.value])
+        .fromPairs()
+        .value();
+    return {
+        blockNum: parseInt(block.block_num),
+        blockId: block.block_id.toString(),
+        stateRootHash: block.state_root_hash
+    };
+}
+
+/**
+ * Handle event message to updated lastKnownBlockId for next event subscription
+ * @param {Object} msg event message
+ * @return {void}
+ */
+async function handleEvent(msg) {
+    if (msg.messageType === Message.MessageType.CLIENT_EVENTS) {
+        const events = EventList.decode(msg.content).events;
+        getBlock(events).then(result => {
+            lastKnownBlockId = result.blockId.toString();
+            let blockNum=result.blockNum;
+            //On receiving event with block, update the status of the block to sucess
+            blockCommitSatus.set(blockNum, 'success');
+        });
+    } else {
+        log('Warn: Received message of unknown type:', msg.messageType);
+    }
+}
+
+/**
+ * Subscribe to block-commit delta events
+ * @param {Object} stream object to send event subscribe message
+ * @return {void}
+ */
+async function subscribe(stream) {
+    //Subscribe to block-commit delta event
+    const blockSub = EventSubscription.create({
+        eventType: 'sawtooth/block-commit'
+    });
+
+    if(lastKnownBlockId === null) {
+        await getCurrentBlockId().then(() => {
+        });
+    }
+    stream.send(
+        Message.MessageType.CLIENT_EVENTS_SUBSCRIBE_REQUEST,
+        ClientEventsSubscribeRequest.encode({
+            subscriptions: [blockSub],
+            lastKnownBlockIds: [lastKnownBlockId]
+        }).finish()
+    )
+        .then(response => ClientEventsSubscribeResponse.decode(response))
+        .then(decoded => {
+            const status = _.findKey(ClientEventsSubscribeResponse.Status,
+                val => val === decoded.status);
+            if (status !== 'OK') {
+                throw new Error(`Validator responded with status "${status}"`);
+            }
+        });
+}
+
+/**
+ * Unsubscribe to block-commit delta events
+ * @param {Object} stream1 object to send event unsubscribe message
+ * @return {void}
+ */
+function unsubscribe(stream1) {
+    stream1.send(
+        Message.MessageType.CLIENT_EVENTS_UNSUBSCRIBE_REQUEST,
+        ClientEventsUnsubscribeRequest.encode({
+        }).finish()
+    )
+        .then(response => ClientEventsUnsubscribeResponse.decode(response))
+        .then(decoded => {
+            const status = _.findKey(ClientEventsUnsubscribeResponse.Status,
+                val => val === decoded.status);
+            if (status !== 'OK') {
+                throw new Error(`Validator responded with status "${status}"`);
+            }
+        });
+}
+/**
+ * Get batch commit event message on block commit
+ * @param {Number} block_num of next block
+ * @param {Number} batchStats Batch status object to update commit status
+ * @return {Promise<object>} returns batch commit status
+ */
+function getBatchEventResponse(block_num, batchStats) {
+    return new Promise(resolve => {
+        while(blockCommitSatus.get(block_num) !== 'pending') {
+        }
+        //remove the block number from map because we are done with this block
+        blockCommitSatus.delete(block_num);
+        batchStats.SetStatusSuccess();
+        return resolve(batchStats);
+    });
+}
 
 /**
  * Get state according from given address
@@ -69,89 +215,12 @@ function querybycontext(context, contractID, contractVer, address) {
 }
 
 /**
- * Send a request to Sawtooth network to get status of given batch
- * @param {Object} resolve promise resolve object
- * @param {String} statusLink request uri
- * @param {Object} invoke_status execution result object
- * @param {Object} intervalID object for the request interval
- * @param {Object} timeoutID object for the request timeout
- * @return {Promise<object>} The promise for the result of the execution.
- */
-function getBatchStatusByRequest(resolve, statusLink, invoke_status, intervalID, timeoutID) {
-    let options = {
-        uri: statusLink
-    };
-    return request(options)
-        .then(function(body) {
-            let batchStatuses = JSON.parse(body).data;
-            let hasPending = false;
-            for (let index in batchStatuses){
-                let batchStatus = batchStatuses[index].status;
-                if (batchStatus === 'PENDING'){
-                    hasPending = true;
-                    break;
-                }
-            }
-            if (hasPending !== true){
-                invoke_status.SetStatusSuccess();
-                clearInterval(intervalID);
-                clearTimeout(timeoutID);
-                return resolve(invoke_status);
-            }
-        })
-        .catch(function (err) {
-            log(err);
-            return resolve(invoke_status);
-        });
-}
-
-/**
- * Get status of given batch
- * @param {String} link request uri
- * @param {Object} invoke_status execution result
- * @return {Promise<object>} The promise for the result of the execution.
- */
-function getBatchStatus(link, invoke_status) {
-    let statusLink = link;
-    let intervalID = 0;
-    let timeoutID = 0;
-
-    let repeat = (ms, invoke_status) => {
-        return new Promise((resolve) => {
-            intervalID = setInterval(function(){
-                return getBatchStatusByRequest(resolve, statusLink, invoke_status, intervalID, timeoutID);
-            }, ms);
-
-        });
-    };
-
-    let timeout = (ms, invoke_status) => {
-        return new Promise((resolve) => {
-            timeoutID = setTimeout(function(){
-                clearInterval(intervalID );
-                return resolve(invoke_status);
-            }, ms);
-        });
-    };
-
-
-    return  Promise.race([repeat(500, invoke_status), timeout(30000, invoke_status)])
-        .then(function () {
-            return Promise.resolve(invoke_status);
-        })
-        .catch(function(error) {
-            log('getBatchStatus error: ' + error);
-            return Promise.resolve(invoke_status);
-        });
-}
-
-
-/**
  * Submit a batch of transactions
+ * @param {Number} block_num of batches
  * @param {Object} batchBytes batch bytes
  * @return {Promise<object>} The promise for the result of the execution.
  */
-function submitBatches(batchBytes) {
+async function submitBatches(block_num, batchBytes) {
     let txStatus = new TxStatus(0);
     let config = require(configPath);
     let restApiUrl = config.sawtooth.network.restapi.url;
@@ -164,14 +233,15 @@ function submitBatches(batchBytes) {
     };
     return request(options)
         .then(function (body) {
-            let link = JSON.parse(body).link;
-            return getBatchStatus(link, txStatus);
+            let txnStatus = getBatchEventResponse(block_num, txStatus);
+            return Promise.resolve(txnStatus);
         })
         .catch(function (err) {
             log('Submit batches failed, ' + (err.stack?err.stack:err));
             return Promise.resolve(txStatus);
         });
 }
+
 
 /**
  * Sawtooth class, which implements the caliper's NBI for hyperledger sawtooth lake
@@ -184,7 +254,6 @@ class Sawtooth extends BlockchainInterface {
     constructor(config_path) {
         super(config_path);
         configPath = config_path;
-        this.batchBuilder;
     }
 
     /**
@@ -194,6 +263,16 @@ class Sawtooth extends BlockchainInterface {
      */
     init() {
         // todo: sawtooth
+        let config = require(configPath);
+        let validatorUrl = config.sawtooth.network.validator.url;
+        if(validatorUrl === null) {
+            log('Error: Validator url is missing!!!');
+        }
+        stream = new Stream(validatorUrl);
+        stream.connect(() => {
+            subscribe(stream);
+            stream.onReceive(handleEvent);
+        });
         return Promise.resolve();
     }
 
@@ -226,6 +305,17 @@ class Sawtooth extends BlockchainInterface {
      */
     releaseContext(context) {
         // todo:
+        let config = require(configPath);
+        let validatorUrl = config.sawtooth.network.validator.url;
+        if(validatorUrl === null) {
+            log('Error: Validator url is missing!!!');
+        }
+        let stream1 = new Stream(validatorUrl);
+        stream1.connect(() => {
+            unsubscribe(stream1);
+        });
+        //stream.close();
+        //stream1.close();
         return Promise.resolve();
     }
 
@@ -238,13 +328,24 @@ class Sawtooth extends BlockchainInterface {
      * @param {number} timeout The timeout to set for the execution in seconds.
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    invokeSmartContract(context, contractID, contractVer, args, timeout) {
-        let builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer);
+    async invokeSmartContract(context, contractID, contractVer, args, timeout) {
+        let config = require(configPath);
+        let builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer,config);
         const batchBytes = builder.buildBatch(args);
         if(context.engine) {
             context.engine.submitCallback(args.length);
         }
-        return submitBatches(batchBytes).then((batchStats)=>{
+        //Get the next block number and status of block to pending
+        if(currentBlockNum === 0) {
+            await getCurrentBlockId().then(block_num => {
+                currentBlockNum = block_num+1;
+            });
+        }
+        else {
+            currentBlockNum = currentBlockNum +1;
+        }
+        blockCommitSatus.set(currentBlockNum,'pending');
+        return submitBatches(currentBlockNum, batchBytes).then((batchStats)=>{
             // use batchStats for all transactions in this batch
             let txStats = [];
             for(let i = 0 ; i < args.length ; i++) {
@@ -277,6 +378,7 @@ class Sawtooth extends BlockchainInterface {
     getDefaultTxStats(stats, results) {
         // nothing to do now
     }
+
 }
 
 module.exports = Sawtooth;
