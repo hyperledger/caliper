@@ -74,10 +74,10 @@ class LinearRateController extends RateInterface{
      * Perform the rate control by sleeping through the round.
      * @param {number} start The epoch time at the start of the round (ms precision).
      * @param {number} idx Sequence number of the current transaction.
-     * @param {object[]} currentResults The list of results of finished transactions.
+     * @param {object[]} recentResults The list of results of recent transactions.
      * @return {Promise} A promise that will resolve after the necessary time to keep the defined Tx rate.
      */
-    async applyRateControl(start, idx, currentResults) {
+    async applyRateControl(start, idx, recentResults) {
         let currentSleepTime = this._interpolate(start, idx);
         return currentSleepTime > 5 ? util.sleep(currentSleepTime) : Promise.resolve();
     }

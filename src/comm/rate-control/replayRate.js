@@ -119,10 +119,10 @@ class ReplayRateController extends RateInterface{
      * Perform the rate control by sleeping through the round.
      * @param {number} start The epoch time at the start of the round (ms precision).
      * @param {number} idx Sequence number of the current transaction.
-     * @param {object[]} currentResults The list of results of finished transactions.
+     * @param {object[]} recentResults The list of results of recent transactions.
      * @return {Promise} The return promise.
      */
-    async applyRateControl(start, idx, currentResults) {
+    async applyRateControl(start, idx, recentResults) {
         if (idx <= this.records.length - 1) {
             let sleepTime = this.records[idx] - (Date.now() - start);
             return sleepTime > 5 ? util.sleep(sleepTime) : Promise.resolve();
