@@ -34,10 +34,10 @@ Run `npm install` in caliper folder to install dependencies locally
 
 ### Install blockchain SDKs
 * Fabric
-  * Install using the repository
-    * run `npm install grpc@1.10.1 fabric-ca-client fabric-client` in the root folder
-    * If you want to test fabric with old version such as v1.1.0, you should install compatible client SDK,  
-    e.g. `npm install fabric-ca-client@1.1.0 fabric-client@1.1.0` 
+  * Install using the repository (for the supported Fabric v1.1)
+    * run `npm install grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0` in the root folder
+    * If you want to test Fabric with old version such as v1.0.0, you should install compatible client SDK,  
+    e.g. `npm install grpc@1.10.1 fabric-ca-client@1.0.0 fabric-client@1.0.0` 
   
 * Sawtooth
   * Install dependencies
