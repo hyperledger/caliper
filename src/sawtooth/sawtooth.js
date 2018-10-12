@@ -207,7 +207,8 @@ function getState(address) {
  * @return {Promise<object>} The promise for the result of the execution.
  */
 function querybycontext(context, contractID, contractVer, address) {
-    const builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer);
+    let config = require(configPath);
+    const builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer, config);
     const addr = builder.calculateAddress(address);
     if(context.engine) {
         context.engine.submitCallback(1);
@@ -331,7 +332,7 @@ class Sawtooth extends BlockchainInterface {
      */
     async invokeSmartContract(context, contractID, contractVer, args, timeout) {
         let config = require(configPath);
-        let builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer,config);
+        let builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer, config);
         const batchBytes = builder.buildBatch(args);
         if(context.engine) {
             context.engine.submitCallback(args.length);
