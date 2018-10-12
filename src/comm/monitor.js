@@ -225,7 +225,7 @@ class Monitor {
 
             if(this.peers === null || this.peers.length === 0) {
                 log('Failed to read monitoring data');
-                return;
+                return [];
             }
 
             let defaultTable = [];
