@@ -102,14 +102,15 @@ The composite rate controller can be specified by setting the rate controller `t
     
 * `logChange`: a `boolean` value indicating whether the switches between the specified rate controllers should be logged or not.
 
-**Important!** The existence of the composite rate controller is completely transparent to the specified "sub-controllers." This is achieved by essentially placing the controllers in a "virtualized" round, i.e., "lying" to them about: 
+**Important!** The existence of the composite rate controller is almost transparent to the specified "sub-controllers." This is achieved by essentially placing the controllers in a "virtualized" round, i.e., "lying" to them about: 
 * the duration of the round (for duration-based rounds),
 * the total number of transactions to submit (for transaction number-based rounds),
-* the starting time of the round,
-* the index of the next transaction to submit, and
-* the set of previously executed transactions.
+* the starting time of the round, and
+* the index of the next transaction to submit.
 
-This "virtualization" does not affect the memoryless controllers, i.e., the controllers whose control logic does not depend on global round properties or past transaction results. However, other controllers might exhibit some strange (but hopefully transient) behavior due to this "virtualized" round approach. The logic of the [PID controller](#pid-rate) for example depends on the transaction backlog, but the (possibly pending) transactions submitted in the previous phase (with a different controller) are not visible to the controller.
+The results of recently finished transactions are propagated to the sub-controllers as-is, so for the first few call of a newly activated sub-controller it can receive recent results that don't belong to its virtualized round. 
+
+This virtualization does not affect the memoryless controllers, i.e., the controllers whose control logic does not depend on global round properties or past transaction results. However, other controllers might exhibit some strange (but hopefully transient) behavior due to this "virtualized" round approach. For example, the logic of the [PID controller](#pid-rate) for example depends on the transaction backlog.
 
 ## Linear Rate
 
