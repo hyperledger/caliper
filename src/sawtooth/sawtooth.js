@@ -30,6 +30,21 @@ let lastKnownBlockId=null;
 let stream;
 let blockCommitSatus = new Map();
 let currentBlockNum=0;
+let currentEndpoint= 0;
+
+/**
+* Get the current rest end point
+* @return {String} rest endpoint url
+*/
+function getRESTUrl() {
+    let config = require(configPath);
+    let restApiUrls = config.sawtooth.network.restapi.urls;
+    currentEndpoint++;
+    if(currentEndpoint >= restApiUrls.length) {
+        currentEndpoint = currentEndpoint % restApiUrls.length;
+    }
+    return restApiUrls[currentEndpoint];
+}
 
 /**
 * Get the last recent block id for the block chain
@@ -37,9 +52,8 @@ let currentBlockNum=0;
 */
 async function getCurrentBlockId() {
     const request = require('request-promise');
-    let config = require(configPath);
-    let restApiUrl = config.sawtooth.network.restapi.url;
-    const blocks = restApiUrl + '/blocks?limit=1';
+    let restAPIUrl = getRESTUrl();
+    const blocks = restAPIUrl + '/blocks?limit=1';
     let options = {
         uri: blocks
     };
@@ -169,8 +183,7 @@ function getBatchEventResponse(block_num, batchStats) {
  */
 function getState(address) {
     let txStatus = new TxStatus(0);
-    let config = require(configPath);
-    let restApiUrl = config.sawtooth.network.restapi.url;
+    let restApiUrl = getRESTUrl();
     const stateLink = restApiUrl + '/state?address=' + address;
     let options = {
         uri: stateLink
@@ -223,8 +236,7 @@ function querybycontext(context, contractID, contractVer, address) {
  */
 async function submitBatches(block_num, batchBytes) {
     let txStatus = new TxStatus(0);
-    let config = require(configPath);
-    let restApiUrl = config.sawtooth.network.restapi.url;
+    let restApiUrl = getRESTUrl();
     const request = require('request-promise');
     let options = {
         method: 'POST',
