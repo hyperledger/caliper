@@ -19,6 +19,10 @@
   },
   "engine-strict": true,
   "engineStrict": true,
+  "files": [
+    "*",
+    "src/comm/template/report.html"
+  ],
   "dependencies": {
     "cbor": "^3.0.3",
     "commander": "^2.11.0",
@@ -56,15 +60,11 @@
       "coverage/**",
       "src/comm/*.js",
       "src/comm/client/**",
-      "src/comm/rate-control/pidRate.js",
-      "src/comm/rate-control/rateControl.js",
-      "src/comm/rate-control/rateInterface.js",
       "src/composer/**",
       "src/contract/**",
       "src/fabric/**",
       "src/gui/**",
       "src/iroha/**",
-      "src/sawtooth/**",
       "scripts/**",
       "test/**"
     ],

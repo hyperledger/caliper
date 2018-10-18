@@ -8,8 +8,7 @@
 
 'use strict';
 
-let SimpleBatchBuilder = require('./SimpleBatchBuilder.js');
-let SmallBankBatchBuilder = require('./SmallBankBatchBuilder.js');
+const Util = require('../../comm/util.js');
 
 /**
  * @abstract class has static method getBatchBuilder()
@@ -17,27 +16,34 @@ let SmallBankBatchBuilder = require('./SmallBankBatchBuilder.js');
  */
 class BatchBuilderFactory {
 
-/**
- * static factory method which will return batch builder instance based on family name and
- * family version
- * @param {string} familyName transaction family name
- * @param {string} familyVersion transaction family version
- * @returns {object} with specific builder instance.
- */
-    static getBatchBuilder(familyName, familyVersion) {
-        let sawtoothContractVersion = '1.0';
+    /**
+     * static factory method which will return batch builder instance based on family name and
+     * family version. This is dependent upon your configuration.
+     * @param {string} familyName transaction family name
+     * @param {string} familyVersion transaction family version
+     * @param {object} config the configuration
+     * @returns {object} with specific builder instance.
+     */
+    static getBatchBuilder(familyName, familyVersion, config) {
         if (familyVersion === 'v0') {
-            sawtoothContractVersion = '1.0';
+            familyVersion = '1.0';
         }
-
-        if(familyName === 'simple') {
-            return new SimpleBatchBuilder(familyName, sawtoothContractVersion);
+        if (!config.sawtooth.batchBuilders) {
+            throw new Error('There are no batch builders defined in the configuration');
         }
-        else if(familyName === 'smallbank') {
-            return new SmallBankBatchBuilder(familyName, sawtoothContractVersion);
+        if (!config.sawtooth.batchBuilders[familyName]) {
+            throw new Error('There is no batch builder for ' + familyName);
         }
-        else {
-            throw new Error('There is no batch builder for '+ familyName +' and '+ familyVersion);
+        if (!config.sawtooth.batchBuilders[familyName][familyVersion]) {
+            throw new Error('There is no batch builder for ' + familyName + '[' + familyVersion + ']');
+        }
+        const handlerPath = config.sawtooth.batchBuilders[familyName][familyVersion];
+        try {
+            const handler = require(Util.resolvePath(handlerPath));
+            return new handler(familyName, familyVersion);
+        } catch (err) {
+            throw new Error('Unable to load batch builder for ' + familyName + '[' + familyVersion +
+                '] at ' + handlerPath + '::' + err.message);
         }
     }
 }
