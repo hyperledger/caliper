@@ -344,6 +344,13 @@ module.exports.run = function(configFile, networkFile) {
                 let end = exec(config.command.end, {cwd: absCaliperDir});
                 end.stdout.pipe(process.stdout);
                 end.stderr.pipe(process.stderr);
+                end.on('close', (code) => {
+                    log('config command end close');
+                    if(code !== 0){
+                        code = 1;
+                    }
+                    process.exit(code);
+                });
             }
             t.end();
         }).catch( (err) => {
