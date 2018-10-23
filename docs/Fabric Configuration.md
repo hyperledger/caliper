@@ -1,8 +1,14 @@
+---
+layout: page
+title:  "Fabric Configuration"
+categories: jekyll update
+---
+
 ## Fabric Configuration
 The fabric configuration is a json file which defines a fabric object with six main properties:
 
 * **cryptodir**: Optionally defines a relative path of the crypto directory which contains all cryptographic materials, all paths defined in the configuration are relative paths to the fabric root directory. The crypto directory structure must be identical with the output of fabric's cryptogen tool. The sub-directories names must match organizations' names defined in *network* element. The certificates and private keys in this directory are used by Caliper to act as the administrator or the member of corresponding organization to interact with fabric network, e.g to create channel, join channel, install chaincode, invoke chaincode, etc. If not present, each organization's cryptographic materials must be defined directly in network property.        
- 
+
 ```json
 {"cryptodir": "network/fabric/simplenetwork/crypto-config"}
 ```
@@ -10,8 +16,8 @@ The fabric configuration is a json file which defines a fabric object with six m
 * **network**: defines the information of orderers and peers of the SUT. For simplicity's sake, only one orderer can be defined now, that causes all proposals being sent to the same orderer, which may hurt ordering performance. That should be fixed in future. The attribute name of organizations and peers must start with 'org' and 'peer'.
 
   Optionally an `user` attribute can be set with an organization to specify the key and certification that can be used by Caliper to interact with the SUT as a member of corresponding organization. If not present, Caliper will try to find them in `cryptodir`.
-  
-  The `domain` attribute for the orderer and organizations corresponds to the `Domain` set in the `crypto-config.yaml` file. It defaults to `example.com`, the domain used by (most of) the networks in this repository. 
+
+  The `domain` attribute for the orderer and organizations corresponds to the `Domain` set in the `crypto-config.yaml` file. It defaults to `example.com`, the domain used by (most of) the networks in this repository.
 
 ```json
 {
@@ -52,7 +58,7 @@ The fabric configuration is a json file which defines a fabric object with six m
 }
 ```    
 
-* **channel**: defines one or more channels used for the test. The 'deployed' property is used to define whether the channel has already been deployed (false as default when the property is missing). If the value is false, the defined channels can be created automatically by calling *Blockchain.init()* function. The binary tx file created by fabric configtxgen tool is used to provide details of the channel. 
+* **channel**: defines one or more channels used for the test. The 'deployed' property is used to define whether the channel has already been deployed (false as default when the property is missing). If the value is false, the defined channels can be created automatically by calling *Blockchain.init()* function. The binary tx file created by fabric configtxgen tool is used to provide details of the channel.
 ```json
 {
   "channel": [
@@ -67,26 +73,26 @@ The fabric configuration is a json file which defines a fabric object with six m
 ```
 
 * **chaincodes**: defines one or more chaincodes, those chaincodes can be installed and instantiated on all peers of the specific channel by calling `Blockchain.installSmartContract()` function.  
-  
+
   Optionally an `init` attribute can also be set to an array of *string* values. This array will be passed as the argument to the chaincode's `Init` method. The `init` attribute defaults to an empty array.
-  
+
   The `language` property denotes the chaincode platform (i.e., the language it's written in). The currently supported values (by Caliper and the SDK) are: `golang` (default) and `node`.
-  
+
   *Golang chaincode:* The `path` attribute by default is relative to the `caliper/src` folder, since `$GOPATH` is temporarily set to the Caliper root folder during benchmark execution. If you would like to install a Golang chaincode from a previously set `$GOPATH`, then set the `OVERWRITE_GOPATH` environment variable to `FALSE` before running the benchmark:  
-  
+
   ```GOPATH=~/mygopath OVERWRITE_GOPATH=FALSE node main.js```
-  
-  *Node.js chaincode:* The `path` attribute can be either relative to the Caliper root folder or an absolute path. Node.js chaincodes are supported starting from version `1.1.0` of Fabric and the Node SDK, so make sure that the Docker image and the SDK versions are appropriate. 
-  
+
+  *Node.js chaincode:* The `path` attribute can be either relative to the Caliper root folder or an absolute path. Node.js chaincodes are supported starting from version `1.1.0` of Fabric and the Node SDK, so make sure that the Docker image and the SDK versions are appropriate.
+
   The `metadataPath` attribute (for both languages) denotes any extra metadata that should be deployed with the chaincode, e.g., the CouchDB indexes to build. The `metadataPath` attribute can be either relative to the Caliper root folder or an absolute path. For the necessary folder structure, please refer to the [SDK documentation](https://fabric-sdk-node.github.io/tutorial-metadata-chaincode.html).
-  
+
 ```json
 {
   "chaincodes": [
     {
-      "id": "drm", 
-      "path": "contract/fabric/drm", 
-      "version": "v0", 
+      "id": "drm",
+      "path": "contract/fabric/drm",
+      "version": "v0",
       "channel": "mychannel",
       "init": ["init_arg1", "init_arg2"],
       "language": "golang",

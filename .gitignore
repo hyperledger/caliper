@@ -27,3 +27,8 @@ zookeeper.out
 
 # Ignore IDE files
 .vscode/*
+
+
+_site
+.sass-cache
+.jekyll-metadata

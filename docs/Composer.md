@@ -1,3 +1,9 @@
+---
+layout: page
+title:  "Composer Configuration"
+categories: jekyll update
+---
+
 # Composer Performance Tests
 Hyperledger Composer is a set of development tools to assist in the building of blockchain business applications. When a Business Network Archive is deployed into a blockchain system using the Composer tooling, the resulting chaincode includes both the Composer runtime (which is generic) and the user defined business network. Consequently the performance of the business application is determined by both the Composer runtime and the user defined business network.
 
@@ -46,7 +52,7 @@ To run a Composer based test, on a published set of versions, the required proce
 - navigate to /caliper/benchmark/composer
 - run `node main.js -c my-config.json`
 
-Following the command issue, the Caliper bench-flow process will execute, targeting the Composer tests specified within a config file. If no config file is passed, it will default to using config-composer.json. 
+Following the command issue, the Caliper bench-flow process will execute, targeting the Composer tests specified within a config file. If no config file is passed, it will default to using config-composer.json.
 
 ## Testing Your own Business Network Definition
 Examples for existing Business Networks are provided within the `/caliper/benchmark/composer/composer-samples` directory. To test your own Business Network, you must:
@@ -58,13 +64,13 @@ Examples for existing Business Networks are provided within the `/caliper/benchm
 
 
 If modifying the existing config-composer.json file, then:
-- Modify `config-composer.json` 
+- Modify `config-composer.json`
   - Change `rounds.label` to be the name of the folder inside `caliper/src/contract/composer` that contains your Business Network files
   - Change `rounds.callback` to be the location of your test script
   - Change `rounds.arguments` to provide any required arguments to your test
 - Modify the corresponding `composer.json` file identified in `config-composer.json` under `blockchain.config` to list (or replace) your business network name in the `composer.chaincodes` array
 
 ### Creating Tests For Your Business Network
-When creating tests for a business network, it is important to consider the system under test in order to prevent deadlocks and access denial. 
+When creating tests for a business network, it is important to consider the system under test in order to prevent deadlocks and access denial.
 
 For instance, if the desire is to test the update of an Asset, then it is not recommended to try updating the same asset concurrently. Instead it is necessary to create a set of assets to work with during the `init` phase and then update each asset within a single instance of the test run. In such instances the test should be driven under `txNumber` mode and the number of assets created in the test should ideally match the number of transactions specified within `txNumber`.
