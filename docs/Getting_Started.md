@@ -1,9 +1,15 @@
+---
+layout: page
+title:  "Getting Started"
+categories: jekyll update
+---
+
 ## Caliper Introduction
 
 Caliper is a blockchain performance benchmark framework, which allows users to test different blockchain solutions with predefined use cases, and get a set of performance test results.
 
 Currently supported blockchain solutions:
-* [fabric v1.0+](https://github.com/hyperledger/fabric), the lastest version that has been verified is v1.1.0 
+* [fabric v1.0+](https://github.com/hyperledger/fabric), the lastest version that has been verified is v1.1.0
 * [sawtooth 1.0+](https://github.com/hyperledger/sawtooth-core)
 * [Iroha 1.0 beta-3](https://github.com/hyperledger/iroha)
 
@@ -18,7 +24,7 @@ Currently supported performance indicators:
 See [to add the link to PSWG] to find out the definitions and corresponding measurement methods.  
 
 ## Achitecture
-See [Architecture introduction](docs/Architecture.md). 
+See [Architecture introduction](docs/Architecture.md).
 
 ## Build
 
@@ -37,8 +43,8 @@ Run `npm install` in caliper folder to install dependencies locally
   * Install using the repository (for the supported Fabric v1.1)
     * run `npm install grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0` in the root folder
     * If you want to test Fabric with old version such as v1.0.0, you should install compatible client SDK,  
-    e.g. `npm install grpc@1.10.1 fabric-ca-client@1.0.0 fabric-client@1.0.0` 
-  
+    e.g. `npm install grpc@1.10.1 fabric-ca-client@1.0.0 fabric-client@1.0.0`
+
 * Sawtooth
   * Install dependencies
 
@@ -55,7 +61,7 @@ Run `npm install` in caliper folder to install dependencies locally
 * Composer
    * Install dependencies
 
-   The easiest way to get started using a target version of Composer is to update the main package.json file to include the required Composer and Fabric modules, and subsequently run an `npm install` command. It is important that the Composer and Fabric versions are compatible. 
+   The easiest way to get started using a target version of Composer is to update the main package.json file to include the required Composer and Fabric modules, and subsequently run an `npm install` command. It is important that the Composer and Fabric versions are compatible.
 
    ```
     "composer-admin": "0.19.0",
@@ -69,7 +75,7 @@ Run `npm install` in caliper folder to install dependencies locally
 
 ## Run benchmark
 
-All predefined benchmarks can be found in [*benchmark*](./benchmark) folder. 
+All predefined benchmarks can be found in [*benchmark*](./benchmark) folder.
 To start your first benchmark, just run this in root folder
 ```bash
 node benchmark/simple/main.js -c yourconfig.json -n yournetwork.json
@@ -88,7 +94,7 @@ Some example SUTs are provided in [*network*](./network) folder, they can be lau
 ```
 The scripts defined in *command.start* will be called before the test, and the scripts defined in *command.end* will be called after the finish of all tests. You can use them to define any preparation or clean-up works.  
 
-You can also run the test with your own blockchain network, a network configuration should be provided and corresponding file path should be specified in  configuration file's *blockchain.config*. 
+You can also run the test with your own blockchain network, a network configuration should be provided and corresponding file path should be specified in  configuration file's *blockchain.config*.
 
 Note:
 * When running the benchmark, one or more blockchain clients will be used to generate and submit transactions to the SUT. The number of launched clients as well as testing workload can be defined using the [configuration file](./docs/Architecture.md#configuration-file).  
@@ -127,7 +133,7 @@ In this way, multiple clients can be launched on distributed hosts to run the sa
     Example:
     ```bash
     $ npm run startclient -- 10.229.42.159:2181
-    
+
     > caliper@0.1.0 startclient /home/hurf/caliper
     > node ./src/comm/client/zoo-client.js "10.229.42.159:2181"
 
@@ -149,14 +155,14 @@ In this way, multiple clients can be launched on distributed hosts to run the sa
       }
     }
     ```
-    
+
 4. Launch the benchmark on any machine as usual.
 
 Note:
-* Zookeeper is used to register clients and exchange messages. A launched client will add a new znode under /caliper/clients/. The benchmark checks the directory to learn how many clients are there, and assign tasks to each client according to the workload. 
+* Zookeeper is used to register clients and exchange messages. A launched client will add a new znode under /caliper/clients/. The benchmark checks the directory to learn how many clients are there, and assign tasks to each client according to the workload.
 * There is no automatic time synchronization between the clients. You should manually synchronize time between target machines, for example using 'ntpdate'.
 * The blockchain configuration file must exist on machines which run the client, and the relative path (relative to the caliper folder) of the file must be identical. All referenced files in the configuration must also exist.   
-  
+
 
 
 

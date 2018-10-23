@@ -5,13 +5,14 @@ categories: jekyll update
 ---
 
 ## Architecture
-![architecture](architecture.png)
+
+<img src="{{ site.baseurl }}/assets/img/architecture.png" alt="architecture">
 
 ### Adaptation Layer
 
 The adaptation layer is used to integrate existing blockchain system into Caliper framework. Each adaptor implements the 'Caliper Blockchain NBIs' by using corresponding blockchain's native SDK or RESTful API. Hyperledger Fabric1.0 and Sawtooth are current supported now, while Ethereum and other blockchain systems are in the plan.
 
-### Interface&Core Layer
+### Interface & Core Layer
 
 The interface&Core layer implements core functions and provides north bound interfaces for up-applications. Four kinds of NBIs are provided:
 * *Blockchain operating interfaces:* contains operations such as deploying smart contracts on backend blockchain, invoking contracts, querying states from the ledger, etc.
@@ -28,8 +29,7 @@ A default benchmark engine is implemented to help developers to understand the f
 
 ## Benchmark Engine
 
-
-![Benchmark Engine](test-framework.png)
+<img src="{{ site.baseurl }}/assets/img/test-framework.png" alt="Benchmark Engine">
 
 ### Configuration File
 
@@ -121,7 +121,8 @@ The master implements a default test flow which contains three stages:
 
 * Reporting stage: Statistics from all clients of each test round are analyzed, and a HTML format report will be generated automatically. A report example is as below:
 
-![Report example](report.png)
+
+<img src="{{ site.baseurl }}/assets/img/report.png" alt="report example">
 
 ### Clients
 

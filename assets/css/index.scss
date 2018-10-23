@@ -203,6 +203,10 @@ button {
     }
 }
 
+pre, code {
+  background-color: white;
+}
+
 .page-content {
   background-color: $c-offwhite;
   // height: 80vh;
@@ -294,4 +298,22 @@ button {
   .icon {
     margin-right: 20px;
   }
+}
+
+// Post Styling
+
+article {
+  &.post {
+    max-width: 100ch;
+    margin-top: 10vh;
+
+    .post-header {
+      margin-bottom: 150px;
+    }
+
+  }
+}
+
+.highlight {
+  background-color: white !important;
 }
