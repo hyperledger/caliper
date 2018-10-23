@@ -2,6 +2,7 @@
 layout: page
 title:  "Architecture"
 categories: jekyll update
+order: 2
 ---
 
 ## Architecture

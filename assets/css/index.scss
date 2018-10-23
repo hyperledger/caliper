@@ -217,9 +217,16 @@ pre, code {
 .wrapper-2 {
   margin-right: auto;
   margin-left: auto;
+
+  // max-width: 1600px;
+}
+
+.wrapper-3 {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
   padding-right: 50px;
   padding-left: 50px;
-  max-width: 1600px;
 }
 
 .site-header {
@@ -244,6 +251,9 @@ pre, code {
   max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 100px;
+  padding-right: 50px;
+  padding-left: 50px;
   // background-color: $c-offwhite;
   // width: 100%;
 
@@ -266,7 +276,7 @@ pre, code {
 }
 
 .section-1 {
-  // background-color: white;
+  background-color: white;
   height: 600px;
   justify-content: center;
   display: flex;
@@ -298,6 +308,44 @@ pre, code {
   .icon {
     margin-right: 20px;
   }
+}
+
+.section-2 {
+  height: 600px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $c-grey;
+  border-bottom: 1px solid $c-grey;
+  background-color: $c-purple;
+  color: white;
+
+  .title-1 {
+    h2 {
+      color: white;
+    }
+  }
+
+
+  .projects {
+    display: flex;
+    padding-top: 30px;
+    .project {
+      img {
+        padding-top: 20px;
+      }
+      flex: 1;
+      margin-right: 100px;
+    }
+  }
+}
+
+.content-fixed {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 50px;
+  padding-left: 50px;
 }
 
 // Post Styling

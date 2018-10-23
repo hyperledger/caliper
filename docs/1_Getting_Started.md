@@ -2,6 +2,7 @@
 layout: page
 title:  "Getting Started"
 categories: jekyll update
+order: 1
 ---
 
 ## Caliper Introduction
