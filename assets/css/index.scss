@@ -1,7 +1,7 @@
 // Font stack
 
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,600');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,400i,600|Material+Icons');
+// @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 $font-stack: 'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $display-font: 'IBM Plex Sans';
 
@@ -49,11 +49,35 @@ h2 {
   color: $c-black;
 }
 
+h3 {
+  font-family: $font-stack;
+  font-weight: 600;
+  font-size: 1.2rem !important;
+  line-height: 130%;
+  color: $c-black;
+}
+
+ul, li {
+  font-family: $font-stack;
+  color: $c-black;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
 p {
   font-family: $font-stack;
   color: $c-black;
   font-weight: 400;
   font-size: 0.9rem;
+}
+
+blockquote {
+  border-left: 4px solid $c-purple;
+  font-family: $font-stack;
+  font-style: italic;
+  letter-spacing: normal;
+  padding: 20px;
+  background-color: white;
 }
 
 button {
@@ -391,4 +415,26 @@ article {
       margin-bottom: 30px;
     }
   }
+  h2 {
+    padding-bottom: 10px;
+
+    + h3 {
+      // background: red;
+    }
+
+    + p {
+      // background: blue;
+    }
+  }
+
+  p, li, code, ul, pre, .highlighter-rouge {
+    + h2 {
+      padding-top: 30px;
+    }
+
+    + h3 {
+      padding-top: 30px;
+    }
+  }
+
 }
