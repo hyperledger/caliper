@@ -1,0 +1,19 @@
+{% for page in site.pages %}
+{% if page.categories contains 'docs' %}
+<div class="item">
+  <!-- <h3>{{page.title}}</h3>
+  <p>{{page.description}}</p> -->
+  <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
+</div>
+{% endif %}
+{% endfor %}
+<hr>
+{% for page in site.pages %}
+{% if page.categories contains 'reference' %}
+<div class="item">
+  <!-- <h3>{{page.title}}</h3>
+  <p>{{page.description}}</p> -->
+  <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
+</div>
+{% endif %}
+{% endfor %}

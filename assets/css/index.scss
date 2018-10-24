@@ -217,8 +217,6 @@ pre, code {
 .wrapper-2 {
   margin-right: auto;
   margin-left: auto;
-
-  // max-width: 1600px;
 }
 
 .wrapper-3 {
@@ -227,6 +225,7 @@ pre, code {
   margin-right: auto;
   padding-right: 50px;
   padding-left: 50px;
+  width: 100%;
 }
 
 .site-header {
@@ -364,4 +363,32 @@ article {
 
 .highlight {
   background-color: white !important;
+}
+
+// Navigation overrides
+
+.site-title {
+  line-height: 70px;
+}
+
+.site-nav {
+  line-height: 70px;
+}
+
+// Docs pages
+
+.docs-wrapper {
+  display: flex;
+  .docs-nav {
+    margin-top: 10vh;
+    margin-right: 100px;
+    li {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+    hr {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  }
 }

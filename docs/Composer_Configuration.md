@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  "Composer Configuration"
-categories: jekyll update
+categories: docs
 ---
 
 # Composer Performance Tests

@@ -1,8 +1,7 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2018-10-22 16:03:16 +0100
-categories: jekyll update
+title:  "Rate Controllers"
+categories: reference
 ---
 
 # Rate Controllers

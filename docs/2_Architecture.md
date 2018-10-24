@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  "Architecture"
-categories: jekyll update
+categories: docs
 order: 2
 ---
 

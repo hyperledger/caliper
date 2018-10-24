@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  "Fabric Configuration"
-categories: jekyll update
+categories: docs
 ---
 
 ## Fabric Configuration

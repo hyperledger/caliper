@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  "Getting Started"
-categories: jekyll update
+categories: docs
 order: 1
 ---
 
