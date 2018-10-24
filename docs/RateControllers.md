@@ -1,10 +1,8 @@
 ---
-layout: post
+layout: page
 title:  "Rate Controllers"
 categories: reference
 ---
-
-# Rate Controllers
 
 The rate at which transactions are input to the blockchain system is a key factor within performance tests. It may be desired to send transactions at a specified rate or follow a specified profile. Caliper permits the specification of custom rate controllers to enable a user to perform testing under a custom loading mechanism. A user may specify their own rate controller or use one of the default options:
 
@@ -273,7 +271,7 @@ Special care must be taken, when using duration-based benchmark execution, as it
 
 The recommended approach is to use transaction number-based round configurations, since the number of transactions to replay is known beforehand. Note, that the number of clients affects the actual number of transactions submitted by a client.
 
-# Custom Controllers
+## Custom Controllers
 
 Rate controllers must extend `/src/comm/rate-control/rateInterface.js`, providing concrete implementations for `init`, `applyRateControl`, and optionally for `end`. Once created it must be listed within `/src/comm/rate-control/rateControl.js` as an available controller within the constructor.
 

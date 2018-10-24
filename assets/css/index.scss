@@ -1,9 +1,10 @@
 // Font stack
 
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,400i,600|Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,400i,600|IBM+Plex+Mono|Material+Icons');
 // @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 $font-stack: 'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $display-font: 'IBM Plex Sans';
+$code-font: 'IBM Plex Mono', monospace;
 
 // Colours
 $c-black: #1e2425;
@@ -229,6 +230,12 @@ button {
 
 pre, code {
   background-color: white;
+  font-family: $code-font;
+  font-size: 0.9rem;
+}
+
+hr {
+  border: 1px solid $c-grey;
 }
 
 .page-content {
@@ -429,11 +436,11 @@ article {
 
   p, li, code, ul, pre, .highlighter-rouge {
     + h2 {
-      padding-top: 30px;
+      padding-top: 40px;
     }
 
     + h3 {
-      padding-top: 30px;
+      padding-top: 40px;
     }
   }
 

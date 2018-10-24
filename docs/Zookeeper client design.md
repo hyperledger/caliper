@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title:  "Zookeeper Client Design"
 categories: reference
 ---
