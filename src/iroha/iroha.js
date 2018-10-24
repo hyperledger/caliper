@@ -492,13 +492,13 @@ class Iroha extends BlockchainInterface {
         }
     }
 
-    queryState(context, contractID, contractVer, key) {
+    queryState(context, contractID, contractVer, key, fcn = 'query') {
         try {
             if(!context.contract.hasOwnProperty(contractID)) {
                 throw new Error('Could not find contract named ' + contractID);
             }
 
-            let commands = context.contract[contractID](contractVer, context, {verb: 'query', key: key});
+            let commands = context.contract[contractID](contractVer, context, {verb: fcn, key: key});
             if(commands.length === 0) {
                 throw new Error('Empty output of contract ' + contractID);
             }

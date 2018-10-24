@@ -11,17 +11,17 @@ module.exports.info  = 'querying accounts';
 
 
 let bc, contx;
-let accounts;
+let account_array;
 module.exports.init = function(blockchain, context, args) {
     const open = require('./open.js');
     bc       = blockchain;
     contx    = context;
-    accounts = open.accounts;
+    account_array = open.account_array;
     return Promise.resolve();
 };
 
 module.exports.run = function() {
-    const acc  = accounts[Math.floor(Math.random()*(accounts.length))];
+    const acc  = account_array[Math.floor(Math.random()*(account_array.length))];
 
     return bc.queryState(contx, 'simple', 'v0', acc);
 };

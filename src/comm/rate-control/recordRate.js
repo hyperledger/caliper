@@ -114,10 +114,10 @@ class RecordRateController extends RateInterface{
      * Perform the rate control by sleeping through the round.
      * @param {number} start The epoch time at the start of the round (ms precision).
      * @param {number} idx Sequence number of the current transaction.
-     * @param {object[]} currentResults The list of results of finished transactions.
+     * @param {object[]} recentResults The list of results of recent transactions.
      */
-    async applyRateControl(start, idx, currentResults) {
-        await this.rateController.applyRateControl(start, idx, currentResults);
+    async applyRateControl(start, idx, recentResults) {
+        await this.rateController.applyRateControl(start, idx, recentResults);
         this.records[idx] = Date.now() - start;
     }
 

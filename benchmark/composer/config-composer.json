@@ -26,7 +26,7 @@
                 "label" : "basic-sample-network",
                 "txNumber" : [50],
                 "trim" : 0,
-                "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 10}}],
+                "rateControl" : [{"type": "pid-rate", "opts": {"targetLoad": 5, "initialTPS": 2, "proportional": 0.2, "integral": 0.0001, "derrivative": 0.1}}],
                 "arguments": {"testAssets": 50},
                 "callback" : "benchmark/composer/composer-samples/basic-sample-network.js"
             }]

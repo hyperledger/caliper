@@ -1,8 +1,16 @@
 {
   "sawtooth": {
+    "batchBuilders": {
+      "simple": {
+        "1.0": "src/sawtooth/Application/SimpleBatchBuilder.js"
+      }
+    },
     "network": {
       "restapi": {
-        "url": "http://127.0.0.1:8008"
+        "urls": ["http://127.0.0.1:8008"]
+      },
+      "validator": {
+        "url": "tcp://127.0.0.1:4004"
       }
     }
   }

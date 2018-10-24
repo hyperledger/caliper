@@ -159,9 +159,9 @@ function launchClient(updates, results) {
         setPromise(pid, false, new Error('Client encountered unexpected error'));
     });
 
-    child.on('exit', function(){
-        log('Client exited');
-        setPromise(pid, true, null);
+    child.on('exit', function(code, signal){
+        log('Client exited ');
+        setPromise(pid, false, new Error('Client already exited'));
     });
 }
 
@@ -358,10 +358,12 @@ function stop() {
 }
 module.exports.stop = stop;
 
+
 /**
  * Close kafka consumer
  */
 function closeKafkaConsumer() {
-    globalConsumer.close(() => {});
+    globalConsumer.close(() => {
+    });
 }
 module.exports.closeKafkaConsumer = closeKafkaConsumer;
