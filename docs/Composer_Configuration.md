@@ -1,25 +1,25 @@
 ---
 layout: page
 title:  "Composer Configuration"
-categories: docs
+categories: config
 ---
 
-# Composer Performance Tests
+> The latest supported version of Hyperledger Composer is v0.20
+
+
 Hyperledger Composer is a set of development tools to assist in the building of blockchain business applications. When a Business Network Archive is deployed into a blockchain system using the Composer tooling, the resulting chaincode includes both the Composer runtime (which is generic) and the user defined business network. Consequently the performance of the business application is determined by both the Composer runtime and the user defined business network.
 
-## Configuring Caliper to run Composer Performance Tests
-Prior to running performance tests, it is important to note that the current framework has been written to support:
-- Hyperledger Composer v0.19.0 and higher
-- Hyperledger Fabric v1.1.0
+
+## Installing Composer dependencies
 
 The framework has been verified with the following dependencies:
 
 ```
-    "composer-admin": "0.19.0",
-    "composer-client": "0.19.0",
-    "composer-common": "0.19.0",
-    "fabric-ca-client": "1.1.0",
-    "fabric-client": "1.1.0",
+"composer-admin": "0.20.0",
+"composer-client": "0.20.0",
+"composer-common": "0.20.0",
+"fabric-ca-client": "1.2.0",
+"fabric-client": "1.2.0",
 ```
 
 In order to configure your local system to run tests on static (published) versions, it is recommended to update the Caliper package.json to import the version of Composer packages (`composer-client`, `composer-admin` and `composer-common`) that you wish to test, and the relevant versions of `fabric-ca-client` and `fabric-client`.
@@ -32,9 +32,9 @@ A point of note here is that during the chaincode instantiation process using Co
 
 ## Composer Code Locations
 The Composer contribution to Caliper is contained within three folders:
-- /Caliper/benchmark/composer, which contains the test runner and all tests
-- /Caliper/src/composer, which comprises the Composer specific code that uses the Caliper interfaces
-- /Caliper/contract/composer, which contains the business network files to be used in tests
+- `/Caliper/benchmark/composer`, which contains the test runner and all tests
+- `/Caliper/src/composer`, which comprises the Composer specific code that uses the Caliper interfaces
+- `/Caliper/contract/composer`, which contains the business network files to be used in tests
 
 ## Running a Composer Performance Test
 As per the Caliper framework, tests are run based on configuration files. These files are used to create a (Fabric) Blockchain topology and run a series of tests with a target tps.

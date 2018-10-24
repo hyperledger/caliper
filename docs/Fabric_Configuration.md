@@ -1,11 +1,24 @@
 ---
 layout: page
 title:  "Fabric Configuration"
-categories: docs
+categories: config
 ---
 
-## Fabric Configuration
-The fabric configuration is a json file which defines a fabric object with six main properties:
+> The latest supported version of Hyperledger Fabric is v1.2
+
+## Installing Fabric dependencies
+
+* Install using the repository (for the supported Fabric v1.1)
+  * run `npm install grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0` in the root folder
+  * If you want to test Fabric with old version such as v1.0.0, you should install compatible client SDK,  
+  e.g. `npm install grpc@1.10.1 fabric-ca-client@1.0.0 fabric-client@1.0.0`
+
+
+## Fabric Configuration file
+The configuration file must contain a 'fabric' property, which defines the Fabric configuration, and an 'info' property, which provides supplementary information for the test case.
+
+### Fabric
+The 'fabric' property has six main properties that are used to interact with the SUT.:
 
 * **cryptodir**: Optionally defines a relative path of the crypto directory which contains all cryptographic materials, all paths defined in the configuration are relative paths to the fabric root directory. The crypto directory structure must be identical with the output of fabric's cryptogen tool. The sub-directories names must match organizations' names defined in *network* element. The certificates and private keys in this directory are used by Caliper to act as the administrator or the member of corresponding organization to interact with fabric network, e.g to create channel, join channel, install chaincode, invoke chaincode, etc. If not present, each organization's cryptographic materials must be defined directly in network property.        
 
@@ -58,7 +71,7 @@ The fabric configuration is a json file which defines a fabric object with six m
 }
 ```    
 
-* **channel**: defines one or more channels used for the test. The 'deployed' property is used to define whether the channel has already been deployed (false as default when the property is missing). If the value is false, the defined channels can be created automatically by calling *Blockchain.init()* function. The binary tx file created by fabric configtxgen tool is used to provide details of the channel.
+* **channel**: defines one or more channels used for the test. The 'deployed' property is used to define whether the channel has already been deployed (false as default when the property is missing). If the value is false, the defined channels can be created automatically by calling `Blockchain.init()` function. The binary tx file created by fabric configtxgen tool is used to provide details of the channel.
 ```json
 {
   "channel": [
@@ -80,9 +93,10 @@ The fabric configuration is a json file which defines a fabric object with six m
 
   *Golang chaincode:* The `path` attribute by default is relative to the `caliper/src` folder, since `$GOPATH` is temporarily set to the Caliper root folder during benchmark execution. If you would like to install a Golang chaincode from a previously set `$GOPATH`, then set the `OVERWRITE_GOPATH` environment variable to `FALSE` before running the benchmark:  
 
-  ```GOPATH=~/mygopath OVERWRITE_GOPATH=FALSE node main.js```
+  ```GOPATH=~/mygopath OVERWRITE_GOPATH=FALSE node main.js
+  ```
 
-  *Node.js chaincode:* The `path` attribute can be either relative to the Caliper root folder or an absolute path. Node.js chaincodes are supported starting from version `1.1.0` of Fabric and the Node SDK, so make sure that the Docker image and the SDK versions are appropriate.
+  **Node.js chaincode:** The `path` attribute can be either relative to the Caliper root folder or an absolute path. Node.js chaincodes are supported starting from version `1.1.0` of Fabric and the Node SDK, so make sure that the Docker image and the SDK versions are appropriate.
 
   The `metadataPath` attribute (for both languages) denotes any extra metadata that should be deployed with the chaincode, e.g., the CouchDB indexes to build. The `metadataPath` attribute can be either relative to the Caliper root folder or an absolute path. For the necessary folder structure, please refer to the [SDK documentation](https://fabric-sdk-node.github.io/tutorial-metadata-chaincode.html).
 
@@ -124,7 +138,7 @@ The fabric configuration is a json file which defines a fabric object with six m
 }
 ```
 
-* **context**:defines a set of context to tell Caliper which fabric channle will be interacted with later. The context name(key) is the name of the test round defined by *test.rounds[x].label* in the test configuration file if the default [test framework](./Architecture.md#test-framework) is used. In this way, developers could use different fabric environment for different test rounds. The information is used by getContext() function to properly create a fabric client for later use, and register block events with appropriate peers.
+* **context:** defines a set of context to tell Caliper which fabric channle will be interacted with later. The context name(key) is the name of the test round defined by *test.rounds[x].label* in the test configuration file if the default [test framework](./Architecture.md#test-framework) is used. In this way, developers could use different fabric environment for different test rounds. The information is used by `getContext()` function to properly create a fabric client for later use, and register block events with appropriate peers.
 ```json
 {
   "context": {
@@ -137,7 +151,7 @@ The fabric configuration is a json file which defines a fabric object with six m
 The diagram below shows the typical fabric test flow.
 ![Fabric-flow](./fabric-flow.png)
 
-###Info Property
+### Info Property
 The configuration file may contain an 'info' property which is a common property for all blockchain configuration files. Users can use this property to disclose any information about the system under test (SUT). Caliper's report generator will read this property and add the information into the generated testing report. This property may contain any user defined key/value pairs. A special key named 'details', is reserved particularly to contain detailed information about the SUT.
 ```json
 {
@@ -153,7 +167,7 @@ The configuration file may contain an 'info' property which is a common property
 
 
 
-## TODO List
-* network: allow to define mulitple orderers and implement load balancing for ordering proposals.
+### TODO List
+* network: allow to define multiple orderers and implement load balancing for ordering proposals.
 * channel: allow to define row information of the channel directly as alternative option, instead of the tx file.  
 * endorsement-policy: allow to define multiple policies and relation between policy and chaincode.

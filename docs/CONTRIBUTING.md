@@ -1,8 +1,7 @@
 ---
-layout: post
+layout: page
 title:  "Contributing"
-date:   2018-10-22 16:03:16 +0100
-categories: jekyll update
+categories: opensource
 ---
 
 ## Contributing to Hyperledger Caliper

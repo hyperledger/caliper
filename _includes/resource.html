@@ -8,7 +8,25 @@
 {% endfor %}
 <hr>
 {% for page in site.pages %}
+{% if page.categories contains 'config' %}
+<div class="item">
+  <!-- <p>{{page.description}}</p> -->
+  <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
+</div>
+{% endif %}
+{% endfor %}
+<hr>
+{% for page in site.pages %}
 {% if page.categories contains 'reference' %}
+<div class="item">
+  <!-- <p>{{page.description}}</p> -->
+  <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
+</div>
+{% endif %}
+{% endfor %}
+<hr>
+{% for page in site.pages %}
+{% if page.categories contains 'opensource' %}
 <div class="item">
   <!-- <p>{{page.description}}</p> -->
   <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>

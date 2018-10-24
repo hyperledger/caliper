@@ -434,7 +434,7 @@ article {
     }
   }
 
-  p, li, code, ul, pre, .highlighter-rouge {
+  p, li, code, ul, pre, .highlighter-rouge, blockquote {
     + h2 {
       padding-top: 40px;
     }
@@ -442,6 +442,10 @@ article {
     + h3 {
       padding-top: 40px;
     }
+  }
+
+  li {
+    margin-bottom: 5px;
   }
 
 }
