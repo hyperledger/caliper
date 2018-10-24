@@ -456,3 +456,53 @@ article {
   }
 
 }
+
+// Media queries
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+.right-jumbo {
+  display: none;
+}
+
+.section-1 {
+  height: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  .content-fixed {
+    padding-right: 0px;
+    padding-left: 0px;
+    .performance-indicators {
+      flex-direction: column;
+      .performance-left {
+        margin-right: 0px;
+        .top {
+          margin-bottom: 0px;
+        }
+      }
+      .performance-right {
+        .top {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}
+
+.section-2 {
+  height: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  .projects {
+    flex-direction: column;
+    .project {
+      margin-right: 0px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.docs-wrapper {
+  flex-direction: column;
+}
+
+}
