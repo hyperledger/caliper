@@ -23,7 +23,7 @@ Caliper is a blockchain performance benchmark framework, which allows users to t
 * Transaction/Read latency(minimum, maximum, average, percentile)
 * Resource consumption (CPU, Memory, Network IO,...)
 
-See [to add the link to PSWG] to find out the definitions and corresponding measurement methods.  
+See [PSWG](https://wiki.hyperledger.org/groups/pswg/performance-and-scale-wg) to find out the definitions and corresponding measurement methods.  
 
 ## Achitecture
 See [Architecture Introduction]({{ site.baseurl }}{% link docs/2_Architecture.md %}).
@@ -40,14 +40,14 @@ Make sure following tools are installed
 
 Run `npm install` in Caliper folder to install dependencies locally, the relevant packages for the Hyperledger projects must be installed to use those plugins. You can find information in the pages below.
 
-- Fabric LINK HERE
-- Sawtooth LINK HERE
-- Iroha LINK HERE
-- Composer LINK HERE
+- [Fabric]({{ site.baseurl }}{% link docs/Fabric_Configuration.md %})
+- [Sawtooth]({{ site.baseurl }}{% link docs/Sawtooth_configuration.md %})
+- [Iroha]({{ site.baseurl }}{% link docs/Iroha_configuration.md %})
+- [Composer]({{ site.baseurl }}{% link docs/Composer_Configuration.md %})
 
 ## Run benchmark
 
-All predefined benchmarks can be found in [*benchmark*](./benchmark) folder.
+All predefined benchmarks can be found in [*benchmark*](https://github.com/hyperledger/caliper/tree/master/benchmark) folder.
 To start your first benchmark, just run this in root folder
 ```bash
 node benchmark/simple/main.js -c yourconfig.json -n yournetwork.json
@@ -55,7 +55,7 @@ node benchmark/simple/main.js -c yourconfig.json -n yournetwork.json
 * -c : specify the config file of the benchmark, if not used,  *config.json* will be used as default.
 * -n : specify the config file of the blockchain network under test. If not used, the file address must be specified in the benchmak config file.
 
-Some example SUTs are provided in [*network*](./network) folder, they can be launched automatically before the test by setting the bootstrap commands in the configuration file, e.g
+Some example SUTs are provided in [*network*](https://github.com/hyperledger/caliper/tree/master/network) folder, they can be launched automatically before the test by setting the bootstrap commands in the configuration file, e.g
 ```json
 {
   "command" : {

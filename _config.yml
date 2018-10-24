@@ -18,7 +18,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Caliper is a blockchain performance benchmark framework, which allows users to test different blockchain solutions with predefined use cases, and get a set of performance test results.
 baseurl: "/caliper" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  caliper
+# github_username:  "hyperledger/caliper"
 
 # Build settings
 markdown: kramdown
