@@ -26,7 +26,7 @@ Caliper is a blockchain performance benchmark framework, which allows users to t
 See [to add the link to PSWG] to find out the definitions and corresponding measurement methods.  
 
 ## Achitecture
-See [Architecture introduction](/2_Architecture.html).
+See [Architecture Introduction]({{ site.baseurl }}{% link docs/2_Architecture.md %}).
 
 ## Pre-requisites
 
@@ -69,7 +69,7 @@ The scripts defined in *command.start* will be called before the test, and the s
 You can also run the test with your own blockchain network, a network configuration should be provided and corresponding file path should be specified in  configuration file's *blockchain.config*.
 
 > Note:
-> * When running the benchmark, one or more blockchain clients will be used to generate and submit transactions to the SUT. The number of launched clients as well as testing workload can be defined using the [configuration file](./docs/Architecture.md#configuration-file).  
+> * When running the benchmark, one or more blockchain clients will be used to generate and submit transactions to the SUT. The number of launched clients as well as testing workload can be defined using the [configuration file]({{ site.baseurl }}{% link docs/2_Architecture.md %}).  
 > * A HTML report will be generated automatically after the testing.
 
 ### Alternative
@@ -140,7 +140,7 @@ In this way, multiple clients can be launched on distributed hosts to run the sa
 
 ## How to contribute
 
-See [Contributing](/CONTRIBUTING.md)
+See [Contributing]({{ site.baseurl }}{% link docs/CONTRIBUTING.md %})
 
 ## License
-The Caliper codebase is release under the [Apache 2.0 license](./LICENSE). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.
+The Caliper codebase is release under the [Apache 2.0 license]({{ site.baseurl }}{% link docs/LICENSE.md %}). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.

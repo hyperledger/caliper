@@ -8,7 +8,7 @@ Caliper provides a set of nodejs NBIs (North Bound Interfaces) for applications 
 
 Generally speaking, to write a new caliper benchmark, you need to:
 * Write smart contracts for systems you want to test
-* Write a testing flow using caliper NBIs. Caliper provides a default benchmark engine, which is pluggable and configurable to integrate new tests easily. For more details, please refer to [Benchmark Engine](./docs/Architecture.md#benchmark-engine) .
+* Write a testing flow using caliper NBIs. Caliper provides a default benchmark engine, which is pluggable and configurable to integrate new tests easily. For more details, please refer to [Benchmark Engine]({{ site.baseurl }}{% link docs/2_Architecture.md %}).
 * Write a configuration file to define the backend network and benchmark arguments.
 
 ### Directory Structure

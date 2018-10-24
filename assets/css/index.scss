@@ -240,8 +240,6 @@ hr {
 
 .page-content {
   background-color: $c-offwhite;
-  // height: 80vh;
-  // z-index: -1000;
   padding: 0px;
 }
 
@@ -256,7 +254,6 @@ hr {
   margin-right: auto;
   padding-right: 50px;
   padding-left: 50px;
-  width: 100%;
 }
 
 .site-header {
@@ -351,7 +348,7 @@ hr {
   color: white;
 
   .title-1 {
-    h2 {
+    h2, p {
       color: white;
     }
   }
@@ -365,7 +362,17 @@ hr {
         padding-top: 20px;
       }
       flex: 1;
-      margin-right: 100px;
+      margin-right: 30px;
+      padding: 25px;
+      border: 1px solid transparent;
+      transition: 0.4s cubic-bezier(0.075, 0.820, 0.165, 1.000);
+      background-color: mix($c-black, $c-purple, 40%);
+      color: white;
+      &:hover {
+        border: 1px solid mix($c-grey, $c-purple, 40%);
+        color: white;
+        text-decoration: none;
+      }
     }
   }
 }

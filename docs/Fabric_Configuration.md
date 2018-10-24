@@ -138,7 +138,7 @@ The 'fabric' property has six main properties that are used to interact with the
 }
 ```
 
-* **context:** defines a set of context to tell Caliper which fabric channle will be interacted with later. The context name(key) is the name of the test round defined by *test.rounds[x].label* in the test configuration file if the default [test framework](./Architecture.md#test-framework) is used. In this way, developers could use different fabric environment for different test rounds. The information is used by `getContext()` function to properly create a fabric client for later use, and register block events with appropriate peers.
+* **context:** defines a set of context to tell Caliper which fabric channle will be interacted with later. The context name(key) is the name of the test round defined by *test.rounds[x].label* in the test configuration file if the default [test framework]({{ site.baseurl }}{% link docs/2_Architecture.md %}) is used. In this way, developers could use different fabric environment for different test rounds. The information is used by `getContext()` function to properly create a fabric client for later use, and register block events with appropriate peers.
 ```json
 {
   "context": {
@@ -149,7 +149,7 @@ The 'fabric' property has six main properties that are used to interact with the
 ```
 
 The diagram below shows the typical fabric test flow.
-![Fabric-flow](./fabric-flow.png)
+<img src="{{ site.baseurl }}/assets/img/fabric-flow.png" alt="fabric-flow">
 
 ### Info Property
 The configuration file may contain an 'info' property which is a common property for all blockchain configuration files. Users can use this property to disclose any information about the system under test (SUT). Caliper's report generator will read this property and add the information into the generated testing report. This property may contain any user defined key/value pairs. A special key named 'details', is reserved particularly to contain detailed information about the SUT.
