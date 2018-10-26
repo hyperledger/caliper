@@ -30,6 +30,8 @@
     "fs-extra": "^4.0.2",
     "jsrsasign": "^8.0.4",
     "mustache": "^2.3.0",
+    "nconf": "^0.10.0",
+    "nconf-yaml": "^1.0.2",
     "node-zookeeper-client": "^0.2.2",
     "ora": "^1.2.0",
     "pidusage": "^1.1.6",

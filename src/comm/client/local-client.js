@@ -11,6 +11,19 @@
 const bc   = require('../blockchain.js');
 const RateControl = require('../rate-control/rateControl.js');
 const Util = require('../util.js');
+const cfUtil = require('../config-util.js');
+/*const path = require('path');
+const config = cfUtil.getConfig();
+const commUtils = require('../util');
+//const defaultConfig = commUtils.resolvePath('config/default.json');
+const defaultConfig = commUtils.resolvePath('config/default.yaml');
+
+//const defaultConfig = path.resolve(__dirname, '../../../config/default.json');
+//make sure this default has precedences
+config.reorderFileStores(defaultConfig);
+*/
+
+
 const log  = Util.log;
 
 let blockchain;
@@ -18,7 +31,7 @@ let results      = [];
 let txNum        = 0;
 let txLastNum    = 0;
 let resultStats  = [];
-let txUpdateTime = 1000;
+//let txUpdateTime = 1000;
 let trimType = 0;
 let trim = 0;
 let startTime = 0;
@@ -190,6 +203,8 @@ function doTest(msg) {
 
     beforeTest(msg);
     // start an interval to report results repeatedly
+    let txUpdateTime = cfUtil.getConfigSetting('core:tx-update-time', 1000);
+    log('txUpdateTime: ' + txUpdateTime);
     let txUpdateInter = setInterval(txUpdate, txUpdateTime);
     /**
      * Clear the update interval
