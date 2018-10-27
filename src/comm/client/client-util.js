@@ -58,7 +58,7 @@ function _consumeEvents(){
             if (cachedEvents.get(transaction_id)  === undefined)
             {
                 cachedEvents.set(transaction_id, confirmation_time);
-            }else if(cachedEvents.get(transaction_id) !== undefined) {
+            }else if(cachedEvents.get(transaction_id) !== undefined && typeof cachedEvents.get(transaction_id) != "number") {
                 let transactionObject = cachedEvents.get(transaction_id);
                 transactionObject.Set('time_final', confirmation_time);
                 transactionObject.SetVerification(true);
@@ -67,7 +67,14 @@ function _consumeEvents(){
                 confirmedTransactions.push(transactionObject);
                 totalTransactionsCommitted++;
             }
-        }
+			else {
+				log("Error executing benchmark test: Please ensure Kafka MQ is cleared before running the benchmark tests");
+				log("Info: Run `docker-compose -f docker-compose-kafka.yaml down` on the machine where kafka containers are running");
+				stop();
+				closeKafkaConsumer();
+				process.exit(1);
+			}
+		}
     });
     consumer.on('error', function(err){
         _consumeEvents();
