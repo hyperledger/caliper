@@ -109,7 +109,7 @@ class Monitor {
         }
 
         let monitorTypes = m.type;
-        if(typeof m === 'undefined') {
+        if(typeof monitorTypes === 'undefined') {
             return Promise.reject(new Error('Failed to find monitor type in config file'));
         }
         if(!Array.isArray(monitorTypes)) {
