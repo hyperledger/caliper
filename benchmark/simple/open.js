@@ -77,7 +77,7 @@ function generateWorkload() {
 
 module.exports.run = function() {
     let args = generateWorkload();
-    return bc.invokeSmartContract(contx, 'simple', 'v0', args, 30);
+    return bc.invokeSmartContract(contx, 'simple', 'v0', args, 100);
 };
 
 module.exports.end = function() {

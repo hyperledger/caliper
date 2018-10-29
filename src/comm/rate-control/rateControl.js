@@ -61,6 +61,11 @@ let RateControl = class {
             this.controller = new LinearRateController(blockchain, rateControl.opts);
             break;
         }
+        case 'fixed-feedback-rate': {
+            const FixedFeedbackRateController = require('./fixedFeedbackRate.js');
+            this.controller = new FixedFeedbackRateController(blockchain, rateControl.opts);
+            break;
+        }
         default:
             throw new Error('Unknown rate control type ' + rateControl.type);
         }
@@ -80,10 +85,11 @@ let RateControl = class {
      * @param {Number} start the start time
      * @param {Number} idx current transaction index
      * @param {Object[]} results current array of results
+     * @param {Array} resultStats, result status set
      * @return {Promise} the return promise
      */
-    applyRateControl(start, idx, results) {
-        return this.controller.applyRateControl(start, idx, results);
+    applyRateControl(start, idx, results, resultStats) {
+        return this.controller.applyRateControl(start, idx, results, resultStats);
     }
 
     /**
