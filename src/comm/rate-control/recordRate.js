@@ -18,6 +18,7 @@ const RateInterface = require('./rateInterface.js');
 const RateControl = require('./rateControl');
 const fs = require('fs');
 const util = require('../util');
+const logger = util.getLogger('recordRate.js');
 
 const TEXT_FORMAT = 'TEXT';
 const BINARY_BE_FORMAT = 'BIN_BE';
@@ -60,12 +61,12 @@ class RecordRateController extends RateInterface{
 
         // check for supported output formats
         if (typeof opts.outputFormat === 'undefined') {
-            util.log(`[RecordRateController] Output format is undefined. Defaulting to ${TEXT_FORMAT} format`);
+            logger.warn(`[RecordRateController] Output format is undefined. Defaulting to ${TEXT_FORMAT} format`);
             this.outputFormat = TEXT_FORMAT;
         } else if (supportedFormats.includes(opts.outputFormat.toUpperCase())) {
             this.outputFormat = opts.outputFormat.toUpperCase();
         } else {
-            util.log(`[RecordRateController] Output format ${opts.outputFormat} is not supported. Defaulting to CSV format`);
+            logger.warn(`[RecordRateController] Output format ${opts.outputFormat} is not supported. Defaulting to CSV format`);
             this.outputFormat = TEXT_FORMAT;
         }
 
@@ -139,15 +140,15 @@ class RecordRateController extends RateInterface{
                 this.exportToBinaryBigEndian();
                 break;
             default:
-                util.log(`[RecordRateController] Output format ${this.outputFormat} is not supported.`);
+                logger.error(`[RecordRateController] Output format ${this.outputFormat} is not supported.`);
                 break;
             }
 
             if (this.logEnd) {
-                util.log(`[RecordRateController] Recorded Tx submission times for Client#${this.clientIdx} in Round#${this.roundIdx} to ${this.pathTemplate}`);
+                logger.debug(`[RecordRateController] Recorded Tx submission times for Client#${this.clientIdx} in Round#${this.roundIdx} to ${this.pathTemplate}`);
             }
         } catch (err) {
-            util.log(`[RecordRateController] An error occured while writing records to ${this.pathTemplate}: ${err.stack ? err.stack : err}`);
+            logger.error(`[RecordRateController] An error occured while writing records to ${this.pathTemplate}: ${err.stack ? err.stack : err}`);
         }
     }
 

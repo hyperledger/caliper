@@ -10,6 +10,7 @@
 'use strict'
 
 /* global variables */
+var logger = require('../../comm/util.js').getLogger('demo.js');
 var path = require('path');
 var demoFile = path.join(__dirname, '../output/demo.json');
 var demoInterval = 1;   // interval length(s)
@@ -122,7 +123,7 @@ function demoRefreshData(updates) {
     }
 
    // if(started) {
-        console.log('[Transaction Info] - Submitted: ' + demoData.summary.txSub
+        logger.info('[Transaction Info] - Submitted: ' + demoData.summary.txSub
         + ' Succ: ' + demoData.summary.txSucc
         + ' Fail:' +  demoData.summary.txFail
         + ' Unfinished:' + (demoData.summary.txSub - demoData.summary.txSucc - demoData.summary.txFail));

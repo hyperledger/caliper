@@ -14,8 +14,8 @@
 
 'use strict';
 
-const commUtils = require('./util');
-
+//const commUtils = require('./util');
+const path = require('path');
 const nconf = require('nconf');
 nconf.formats.yaml = require('nconf-yaml');
 
@@ -35,7 +35,9 @@ const Config = class {
         nconf.env();
         // reference to configuration settings
         this._config = nconf;
-        const defaultConfig = commUtils.resolvePath('config/default.yaml');
+        const rootDir = path.join('..','..');
+        const defaultConfig = path.join(__dirname, rootDir, 'config/default.yaml');
+        //const defaultConfig = commUtils.resolvePath('config/default.yaml');
         this.file(defaultConfig);
     }
 

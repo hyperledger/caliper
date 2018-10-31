@@ -36,7 +36,7 @@ module.exports.info  = 'Basic Sample Network Performance Test';
 
 const composerUtils = require('../../../src/composer/composer_utils');
 const removeExisting = require('../composer-test-utils').clearAll;
-const Log = require('../../../src/comm/util').log;
+const logger = require('../../../src/comm/util').getLogger('basic-sample-network.js');
 const os = require('os');
 
 const namespace = 'org.example.basic';
@@ -71,7 +71,7 @@ module.exports.init = async function(blockchain, context, args) {
             participant.lastName = 'wombat';
             await participantRegistry.add(participant);
 
-            Log('About to create new participant card');
+            logger.debug('About to create new participant card');
             let userName = 'User1_' + uuid;
             let newConnection = await composerUtils.obtainConnectionForParticipant(busNetConnections.get('admin'), busNetName, participant, userName);
             busNetConnections.set(userName, newConnection);
@@ -88,17 +88,17 @@ module.exports.init = async function(blockchain, context, args) {
         // Conditionally add/update Test Assets
         let populated = await assetRegistry.exists(assets[0].getIdentifier());
         if (!populated) {
-            Log('Adding test assets ...');
+            logger.debug('Adding test assets ...');
             await assetRegistry.addAll(assets);
-            Log('Asset addition complete ...');
+            logger.debug('Asset addition complete ...');
         } else {
-            Log('Updating test assets ...');
+            logger.debug('Updating test assets ...');
             await removeExisting(assetRegistry, 'ASSET_' + uuid);
             await assetRegistry.addAll(assets);
-            Log('Asset update complete ...');
+            logger.debug('Asset update complete ...');
         }
     } catch (error) {
-        Log('error in test init(): ', error);
+        logger.error('error in test init(): ', error);
         return Promise.reject(error);
     }
 };

@@ -36,6 +36,7 @@ const fs = require('fs');
 
 const testUtil = require('./util.js');
 const commUtils = require('../comm/util');
+const commLogger = commUtils.getLogger('create-channel.js');
 
 /**
  * Create the channels located in the given configuration file.
@@ -63,7 +64,8 @@ function run(config_path) {
                     return Promise.resolve();
                 }
 
-                t.comment('create ' + channel.name + '......');
+                //t.comment('create ' + channel.name + '......');
+                commLogger.info('create ' + channel.name + '......');
 
                 // Acting as a client in first org when creating the channel
                 let client = new Client();
@@ -139,6 +141,7 @@ function run(config_path) {
                             .then((result) => {
                                 if(result.status && result.status === 'SUCCESS') {
                                     t.pass('created ' + channel.name + ' successfully');
+                                    commLogger.info('created ' + channel.name + ' successfully');
                                     return Promise.resolve();
                                 }
                                 else {
@@ -149,7 +152,8 @@ function run(config_path) {
             });
         }, Promise.resolve())
             .then(()=>{
-                t.comment('Sleep 5s......');
+                //t.comment('Sleep 5s......');
+                commLogger.info('Sleep 5s......');
                 return commUtils.sleep(5000);
             })
             .then(() => {
@@ -157,6 +161,7 @@ function run(config_path) {
             })
             .catch((err) => {
                 t.fail('Failed to create channels ' + (err.stack?err.stack:err));
+                commLogger.error('Failed to create channels ' + (err.stack?err.stack:err));
                 return reject(new Error('Fabric: Create channel failed'));
             });
     });

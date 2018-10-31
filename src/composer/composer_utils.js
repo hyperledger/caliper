@@ -20,7 +20,7 @@ const BusinessNetworkConnection = require('composer-client').BusinessNetworkConn
 const IdCard = require('composer-common').IdCard;
 
 const Util = require('../comm/util');
-
+const logger = Util.getLogger('composer_utils.js');
 const fs = require('fs');
 const path = require('path');
 const childProcess = require('child_process');
@@ -373,7 +373,7 @@ async function runtimeInstall(businessNetwork, installOptions, cardName) {
         await adminConnection.install(businessNetworkDefinition, installOptions);
         spinner.succeed();
     } catch (error){
-        Util.log('Composer runtime install failed, ' + (error.stack ? error.stack : error));
+        logger.error('Composer runtime install failed, ' + (error.stack ? error.stack : error));
         spinner.fail();
         throw new Error(error);
     }
@@ -390,7 +390,7 @@ async function getBusNetConnection(cardName) {
         await busNetConnection.connect(cardName);
         return busNetConnection;
     } catch (error){
-        Util.log('composer.getBusNetConnection() failed for cardName [' + cardName + '] with error: ' + (error.stack ? error.stack : error));
+        logger.error('composer.getBusNetConnection() failed for cardName [' + cardName + '] with error: ' + (error.stack ? error.stack : error));
         throw new Error(error);
     }
 }
@@ -467,7 +467,7 @@ async function networkStart(businessNetwork, cardName, logLevel) {
  * @return {Strinrg[]} Array of all valid business network card names
  */
 async function getCardNamesForBusNet(busNet) {
-    Util.log('getCardsForBusNet()', busNet);
+    logger.info('getCardsForBusNet()', busNet);
     const adminConnection = new AdminConnection();
 
     let busNetCards = [];
@@ -518,11 +518,11 @@ async function obtainConnectionForParticipant(adminBusNetConnection, businessNet
 
     let exists = await adminConnection.hasCard(cardName);
     if (exists) {
-        Util.log('Replacing existing business network user card: ', cardName);
+        logger.info('Replacing existing business network user card: ', cardName);
         await adminConnection.deleteCard(cardName);
         await adminConnection.importCard(cardName, card);
     } else {
-        Util.log('Importing card business network user card: ', cardName);
+        logger.info('Importing card business network user card: ', cardName);
         await adminConnection.importCard(cardName, card);
     }
 

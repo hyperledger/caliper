@@ -10,6 +10,7 @@
 'use strict';
 
 const util = require('../../../comm/util.js');
+const logger = util.getLogger('factory.js');
 const irohaType = require('../../../iroha/type.js');
 
 const open = function(context, domain, money) {
@@ -50,7 +51,7 @@ const simple = function(version, context, args) {
         }
     }
     catch(err){
-        util.log(err);
+        logger.error(err);
         return [];
     }
 };

@@ -12,7 +12,7 @@ const ps = require('ps-node');
 const usage = require('pidusage');
 const MonitorInterface = require('./monitor-interface');
 const Util = require('./util.js');
-const log = Util.log;
+const logger = Util.getLogger('monitor-process.js');
 
 /**
  * Initialise a state object
@@ -57,7 +57,7 @@ function findProcs(item) {
         let pids = [];
         ps.lookup(item, (err, resultList) => {
             if (err) {
-                log('failed looking the process up: ' + err);
+                logger.error('failed looking the process up: ' + err);
             }
             else {
                 for(let i = 0 ; i < resultList.length ; i++) {
@@ -115,7 +115,7 @@ function getUsage(pids, type) {
             }
             resolve(res);
         }).catch((err) => {
-            log('Exception encountered when fetching resource usage: ' + err);
+            logger.error('Exception encountered when fetching resource usage: ' + err);
             resolve(res);
         });
     });
@@ -200,7 +200,7 @@ class MonitorProcess extends MonitorInterface {
             Promise.all(promises).then(() => {
                 self.isReading = false;
             }).catch((err) => {
-                log('Exception occurred when looking the process up: ' + err);
+                logger.error('Exception occurred when looking the process up: ' + err);
             });
         }
         readStats();

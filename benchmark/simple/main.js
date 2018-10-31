@@ -41,6 +41,7 @@ function main() {
 
     const path = require('path');
     const fs = require('fs-extra');
+    let logger;
     let absConfigFile;
     if(typeof configFile === 'undefined') {
         absConfigFile = path.join(__dirname, 'config.json');
@@ -49,8 +50,13 @@ function main() {
         absConfigFile = path.isAbsolute(configFile) ? configFile : path.join(__dirname, configFile);
     }
     if(!fs.existsSync(absConfigFile)) {
-        Util.log('file ' + absConfigFile + ' does not exist');
+        logger= Util.getLogger('benchmark/simple/main.js');
+        logger.error('file ' + absConfigFile + ' does not exist');
         return;
+    }
+    else{
+        logger= Util.getLogger('benchamark/simple/main.js');
+        logger.debug('debgudebug');
     }
 
     let absNetworkFile;
@@ -60,7 +66,7 @@ function main() {
             absNetworkFile = Util.resolvePath(config.blockchain.config);
         }
         catch(err) {
-            Util.log('failed to find blockchain.config in ' + absConfigFile);
+            logger.error('failed to find blockchain.config in ' + absConfigFile);
             return;
         }
     }
@@ -68,7 +74,7 @@ function main() {
         absNetworkFile = path.isAbsolute(networkFile) ? networkFile : path.join(__dirname, networkFile);
     }
     if(!fs.existsSync(absNetworkFile)) {
-        Util.log('file ' + absNetworkFile + ' does not exist');
+        logger.error('file ' + absNetworkFile + ' does not exist');
         return;
     }
 
@@ -92,7 +98,6 @@ if(process.argv.length < 3) {
 else {
     config_path = path.join(__dirname, process.argv[2]);
 }
-
 // use default framework to run the tests
 var framework = require('../../src/comm/bench-flow.js');
 framework.run(config_path);

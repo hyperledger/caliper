@@ -8,10 +8,12 @@
 'use strict';
 
 // global variables
+const cfUtil = require('../config-util.js');
+const Util = require('../util.js');
+let logger = Util.getLogger('local-client.js');
 const bc   = require('../blockchain.js');
 const RateControl = require('../rate-control/rateControl.js');
-const Util = require('../util.js');
-const cfUtil = require('../config-util.js');
+
 /*const path = require('path');
 const config = cfUtil.getConfig();
 const commUtils = require('../util');
@@ -23,8 +25,6 @@ const defaultConfig = commUtils.resolvePath('config/default.yaml');
 config.reorderFileStores(defaultConfig);
 */
 
-
-const log  = Util.log;
 
 let blockchain;
 let results      = [];
@@ -140,7 +140,7 @@ function submitCallback(count) {
  * @return {Promise} promise object
  */
 async function runFixedNumber(msg, cb, context) {
-    log('Info: client ' + process.pid +  ' start test runFixedNumber()' + (cb.info ? (':' + cb.info) : ''));
+    logger.debug('Info: client ' + process.pid +  ' start test runFixedNumber()' + (cb.info ? (':' + cb.info) : ''));
     let rateControl = new RateControl(msg.rateControl, blockchain);
     rateControl.init(msg);
 
@@ -169,7 +169,7 @@ async function runFixedNumber(msg, cb, context) {
  * @return {Promise} promise object
  */
 async function runDuration(msg, cb, context) {
-    log('Info: client ' + process.pid +  ' start test runDuration()' + (cb.info ? (':' + cb.info) : ''));
+    logger.debug('Info: client ' + process.pid +  ' start test runDuration()' + (cb.info ? (':' + cb.info) : ''));
     let rateControl = new RateControl(msg.rateControl, blockchain);
     rateControl.init(msg);
     const duration = msg.txDuration; // duration in seconds
@@ -197,14 +197,14 @@ async function runDuration(msg, cb, context) {
  * @return {Promise} promise object
  */
 function doTest(msg) {
-    log('doTest() with:', msg);
+    logger.debug('doTest() with:', msg);
     let cb = require(Util.resolvePath(msg.cb));
     blockchain = new bc(Util.resolvePath(msg.config));
 
     beforeTest(msg);
     // start an interval to report results repeatedly
     let txUpdateTime = cfUtil.getConfigSetting('core:tx-update-time', 1000);
-    log('txUpdateTime: ' + txUpdateTime);
+    logger.debug('txUpdateTime: ' + txUpdateTime);
     let txUpdateInter = setInterval(txUpdate, txUpdateTime);
     /**
      * Clear the update interval
@@ -248,7 +248,7 @@ function doTest(msg) {
         }
     }).catch((err) => {
         clearUpdateInter();
-        log('Client ' + process.pid + ': error ' + (err.stack ? err.stack : err));
+        logger.error('Client ' + process.pid + ': error ' + (err.stack ? err.stack : err));
         return Promise.reject(err);
     });
 }
