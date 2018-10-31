@@ -3,7 +3,7 @@
   <div class="wrapper-3">
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
-    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    <a class="site-title" rel="author" href="{{ "/" | relative_url }}"><img src="{{ site.baseurl }}/assets/img/hyperledger_caliper_logo_color.png" alt="Hyperledger Caliper" height="40"></a>
 
     {%- if page_paths -%}
       <nav class="site-nav">
