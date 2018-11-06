@@ -10,6 +10,7 @@
 
 const BlockchainInterface = require('../comm/blockchain-interface.js');
 const BatchBuilderFactory = require('./Application/BatchBuilderFactory.js');
+const commUtils = require('../comm/util');
 const log = require('../comm/util.js').log;
 let configPath;
 const request = require('request-promise');
@@ -27,7 +28,6 @@ const {
 } = require('sawtooth-sdk/protobuf');
 
 let lastKnownBlockId=null;
-let stream;
 let blockCommitSatus = new Map();
 let currentBlockNum=0;
 let currentEndpoint= 0;
@@ -156,6 +156,8 @@ function unsubscribe(stream1) {
             if (status !== 'OK') {
                 throw new Error(`Validator responded with status "${status}"`);
             }
+            stream1.close();
+            return commUtils.sleep(1000);
         });
 }
 /**
@@ -277,16 +279,6 @@ class Sawtooth extends BlockchainInterface {
      */
     init() {
         // todo: sawtooth
-        let config = require(configPath);
-        let validatorUrl = config.sawtooth.network.validator.url;
-        if(validatorUrl === null) {
-            log('Error: Validator url is missing!!!');
-        }
-        stream = new Stream(validatorUrl);
-        stream.connect(() => {
-            subscribe(stream);
-            stream.onReceive(handleEvent);
-        });
         return Promise.resolve();
     }
 
@@ -308,7 +300,22 @@ class Sawtooth extends BlockchainInterface {
      * @return {Promise} The return promise.
      */
     getContext(name, args) {
-        return Promise.resolve();
+        let config  = require(this.configPath);
+        let context = config.sawtooth.context;
+        if(typeof context === 'undefined') {
+            //let config = require(configPath);
+            let validatorUrl = config.sawtooth.network.validator.url;
+            if(validatorUrl === null) {
+                log('Error: Validator url is missing!!!');
+            }
+            let stream = new Stream(validatorUrl);
+            stream.connect(() => {
+                subscribe(stream);
+                stream.onReceive(handleEvent);
+            });
+            context = {stream: stream};
+        }
+        return Promise.resolve(context);
 
     }
 
@@ -318,19 +325,7 @@ class Sawtooth extends BlockchainInterface {
      * @return {Promise} The return promise.
      */
     releaseContext(context) {
-        // todo:
-        let config = require(configPath);
-        let validatorUrl = config.sawtooth.network.validator.url;
-        if(validatorUrl === null) {
-            log('Error: Validator url is missing!!!');
-        }
-        let stream1 = new Stream(validatorUrl);
-        stream1.connect(() => {
-            unsubscribe(stream1);
-        });
-        //stream.close();
-        //stream1.close();
-        return Promise.resolve();
+        return unsubscribe(context.stream);
     }
 
     /**
