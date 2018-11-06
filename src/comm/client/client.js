@@ -14,7 +14,9 @@ const CLIENT_ZOO   = 'zookeeper';
 const zkUtil  = require('./zoo-util.js');
 const ZooKeeper = require('node-zookeeper-client');
 const clientUtil = require('./client-util.js');
+
 const log = require('../util').log;
+
 
 /**
  * Callback function to handle messages received from zookeeper clients
