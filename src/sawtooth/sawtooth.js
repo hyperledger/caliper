@@ -11,7 +11,7 @@
 const BlockchainInterface = require('../comm/blockchain-interface.js');
 const BatchBuilderFactory = require('./Application/BatchBuilderFactory.js');
 const commUtils = require('../comm/util');
-const log = require('../comm/util.js').log;
+const logger = require('../comm/util.js').getLogger('sawtooth.js');
 let configPath;
 const request = require('request-promise');
 const TxStatus = require('../comm/transaction');
@@ -102,7 +102,7 @@ async function handleEvent(msg) {
             blockCommitSatus.set(blockNum, 'success');
         });
     } else {
-        log('Warn: Received message of unknown type:', msg.messageType);
+        logger.warn('Warn: Received message of unknown type:', msg.messageType);
     }
 }
 
@@ -208,7 +208,7 @@ function getState(address) {
             }
         })
         .catch(function (err) {
-            log('Query failed, ' + (err.stack?err.stack:err));
+            logger.error('Query failed, ' + (err.stack?err.stack:err));
             return Promise.resolve(txStatus);
         });
 }
@@ -253,7 +253,7 @@ async function submitBatches(block_num, batchBytes) {
             return Promise.resolve(txnStatus);
         })
         .catch(function (err) {
-            log('Submit batches failed, ' + (err.stack?err.stack:err));
+            logger.error('Submit batches failed, ' + (err.stack?err.stack:err));
             return Promise.resolve(txStatus);
         });
 }
@@ -306,7 +306,7 @@ class Sawtooth extends BlockchainInterface {
             //let config = require(configPath);
             let validatorUrl = config.sawtooth.network.validator.url;
             if(validatorUrl === null) {
-                log('Error: Validator url is missing!!!');
+                logger.error('Error: Validator url is missing!!!');
             }
             let stream = new Stream(validatorUrl);
             stream.connect(() => {

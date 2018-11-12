@@ -33,6 +33,7 @@ const User = require('fabric-client/lib/User.js');
 //const ecdsaKey = require('fabric-client/lib/impl/ecdsa/key.js');
 const Constants = require('./constant.js');
 const commUtils = require('../comm/util');
+const commLogger = commUtils.getLogger('util.js');
 
 //const logger = require('fabric-client/lib/utils.js').getLogger('TestUtil');
 
@@ -201,7 +202,7 @@ function getMember(username, password, client, userOrg) {
                     return resolve(member);
                 }).catch((err) => {
                     // TODO: will remove t argument later
-                    commUtils.log('Failed to enroll and persist user. Error: ' + (err.stack ? err.stack : err));
+                    commLogger.error('Failed to enroll and persist user. Error: ' + (err.stack ? err.stack : err));
                 });
             });
         });

@@ -78,7 +78,7 @@ describe('pidRate controller implementation', () => {
         describe('logging actions', () => {
 
             let logStub = sinon.stub();
-            PidRate.__set__('Log', logStub);
+            PidRate.__set__('Logger.debug', logStub);
 
             beforeEach(() => {
                 logStub.resetHistory();

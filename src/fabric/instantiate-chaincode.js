@@ -28,6 +28,7 @@
 
 const e2eUtils = require('./e2eUtils.js');
 const commUtils = require('../comm/util');
+const commLogger = commUtils.getLogger('instantiate-chaincode.js');
 
 const Client = require('fabric-client');
 
@@ -43,12 +44,15 @@ module.exports.run = function (config_path) {
     return new Promise(function(resolve, reject) {
         // test('\n\n***** instantiate chaincode *****\n\n', (t) => {
         const t = global.tapeObj;
-        t.comment('Instantiate chaincode......');
+        //t.comment('Instantiate chaincode......');
+        commLogger.info('Instantiate chaincode......');
         chaincodes.reduce(function(prev, chaincode){
             return prev.then(() => {
                 return e2eUtils.instantiateChaincode(chaincode, policy, false).then(() => {
                     t.pass('Instantiated chaincode ' + chaincode.id + ' successfully ');
-                    t.comment('Sleep 5s...');
+                    //t.comment('Sleep 5s...');
+                    commLogger.info('Instantiated chaincode ' + chaincode.id + ' successfully ');
+                    commLogger.info('Sleep 5s...');
                     return commUtils.sleep(5000);
                 });
             });
@@ -58,6 +62,7 @@ module.exports.run = function (config_path) {
             })
             .catch((err) => {
                 t.fail('Failed to instantiate chaincodes, ' + (err.stack?err.stack:err));
+                commLogger.error('Failed to instantiate chaincodes, ' + (err.stack?err.stack:err));
                 return reject(new Error('Fabric: instantiate chaincodes failed'));
             });
     });

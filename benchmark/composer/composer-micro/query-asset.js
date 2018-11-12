@@ -31,6 +31,7 @@
 'use strict';
 
 const Util = require('../../../src/comm/util');
+const logger = Util.getLogger('query-asset.js');
 const TxStatus = require('../../../src/comm/transaction');
 
 module.exports.info  = 'Query Asset Performance Test';
@@ -75,7 +76,7 @@ module.exports.init = async function(blockchain, context, args) {
         vehicles.push(vehicle);
     }
 
-    Util.log(`About to add ${vehicles.length} Vehicles to Asset Registry`);
+    logger.debug(`About to add ${vehicles.length} Vehicles to Asset Registry`);
     let vehicleRegistry = await busNetConnection.getAssetRegistry(vda_ns + '.Vehicle');
     await vehicleRegistry.addAll(vehicles);
 };

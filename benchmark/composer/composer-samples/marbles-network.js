@@ -33,7 +33,7 @@
 'use strict';
 
 const removeExisting = require('../composer-test-utils').clearAll;
-const Log = require('../../../src/comm/util').log;
+const logger = require('../../../src/comm/util').getLogger('marbles-network.js');
 const os = require('os');
 const uuid = os.hostname() + process.pid; // UUID for client within test
 
@@ -79,18 +79,18 @@ module.exports.init = async function(blockchain, context, args) {
         // Conditionally add/update Test Assets
         let populated = await assetRegistry.exists(marbles[0].getIdentifier());
         if (!populated) {
-            Log('Adding test assets ...');
+            logger.debug('Adding test assets ...');
             await participantRegistry.addAll(players);
             await assetRegistry.addAll(marbles);
-            Log('Asset addition complete ...');
+            logger.debug('Asset addition complete ...');
         } else {
-            Log('Updating test assets ...');
+            logger.debug('Updating test assets ...');
             await removeExisting(assetRegistry, 'MARBLE_' + uuid);
             await assetRegistry.updateAll(marbles);
-            Log('Asset update complete ...');
+            logger.debug('Asset update complete ...');
         }
     } catch (error) {
-        Log('error in test init(): ', error);
+        logger.error('error in test init(): ', error);
         return Promise.reject(error);
     }
 };

@@ -9,7 +9,7 @@
 
 'use strict';
 
-const log = require('../../../src/comm/util.js').log;
+const logger = require('../../../src/comm/util.js').getLogger('SmallBankBatchBuilder.js');
 let BatchBuilder = require('./BatchBuilder.js');
 
 /**
@@ -33,7 +33,7 @@ function getCustomerIds(args) {
         cust_ids.push(args.dest_customer_id);
         break;
     default:
-        log('Error: Unknown payload type' + args.payload_type);
+        logger.error('Error: Unknown payload type' + args.payload_type);
         break;
     }
     return cust_ids;

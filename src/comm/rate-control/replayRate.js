@@ -17,6 +17,7 @@
 const RateInterface = require('./rateInterface.js');
 const fs = require('fs');
 const util = require('../util');
+const logger = util.getLogger('replayRate.js');
 
 const TEXT_FORMAT = 'TEXT';
 const BINARY_BE_FORMAT = 'BIN_BE';
@@ -58,12 +59,12 @@ class ReplayRateController extends RateInterface{
 
         // check for supported input formats
         if (typeof opts.inputFormat === 'undefined') {
-            util.log(`[ReplayRateController] Input format is undefined. Defaulting to ${TEXT_FORMAT} format`);
+            logger.warn(`[ReplayRateController] Input format is undefined. Defaulting to ${TEXT_FORMAT} format`);
             this.inputFormat = TEXT_FORMAT;
         } else if (supportedFormats.includes(opts.inputFormat.toUpperCase())) {
             this.inputFormat = opts.inputFormat.toUpperCase();
         } else {
-            util.log(`[ReplayRateController] Input format ${opts.inputFormat} is not supported. Defaulting to CSV format`);
+            logger.warn(`[ReplayRateController] Input format ${opts.inputFormat} is not supported. Defaulting to CSV format`);
             this.inputFormat = TEXT_FORMAT;
         }
     }
@@ -128,7 +129,7 @@ class ReplayRateController extends RateInterface{
             return sleepTime > 5 ? util.sleep(sleepTime) : Promise.resolve();
         } else {
             if (this.logWarnings) {
-                util.log(`[ReplayRateController] Using default sleep time of ${this.defaultSleepTime}ms for Tx#${idx}`);
+                logger.warn(`[ReplayRateController] Using default sleep time of ${this.defaultSleepTime}ms for Tx#${idx}`);
             }
             return util.sleep(this.defaultSleepTime);
         }

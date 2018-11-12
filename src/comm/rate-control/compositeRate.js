@@ -16,6 +16,7 @@
 const RateInterface = require('./rateInterface.js');
 const RateControl = require('./rateControl.js');
 const Util = require('../util');
+const logger = Util.getLogger('compositeRate.js');
 
 /**
  * Encapsulates a controller and its scheduling information.
@@ -162,7 +163,7 @@ class CompositeRateController extends RateInterface{
         active.firstTxIndex = idx;
         active.startTimeDifference = Date.now() - start;
         if (this.logControllerChange) {
-            Util.log(`[CompositeRateController] Switching controller in Client#${this.clientIdx} at Tx#${idx} after ${active.startTimeDifference}ms.`);
+            logger.debug(`[CompositeRateController] Switching controller in Client#${this.clientIdx} at Tx#${idx} after ${active.startTimeDifference}ms.`);
         }
     }
 
@@ -185,7 +186,7 @@ class CompositeRateController extends RateInterface{
         active.firstTxIndex = idx ;
         active.startTimeDifference = Date.now() - start;
         if (this.logControllerChange) {
-            Util.log(`[CompositeRateController] Switching controller in Client#${this.clientIdx} at Tx#${idx} after ${active.startTimeDifference}ms.`);
+            logger.debug(`[CompositeRateController] Switching controller in Client#${this.clientIdx} at Tx#${idx} after ${active.startTimeDifference}ms.`);
         }
     }
 
