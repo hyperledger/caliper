@@ -23,16 +23,8 @@ if (global && global.hfc) {
 
 require('nconf').reset();
 const utils = require('fabric-client/lib/utils.js');
-//const logger = utils.getLogger('E2E create-channel');
-
-//const tape = require('tape');
-//const _test = require('tape-promise');
-//const test = _test(tape);
-
 const Client = require('fabric-client');
-//const util = require('util');
 const fs = require('fs');
-//const grpc = require('grpc');
 
 const testUtil = require('./util.js');
 const commUtils = require('../comm/util');
@@ -51,7 +43,6 @@ function run(config_path) {
         return Promise.reject(new Error('No channel information found'));
     }
     return new Promise(function(resolve, reject) {
-        const t = global.tapeObj;
         let ORGS = fabric.network;
         let caRootsPath = ORGS.orderer.tls_cacerts;
         let data = fs.readFileSync(commUtils.resolvePath(caRootsPath));
@@ -64,7 +55,6 @@ function run(config_path) {
                     return Promise.resolve();
                 }
 
-                //t.comment('create ' + channel.name + '......');
                 commLogger.info('create ' + channel.name + '......');
 
                 // Acting as a client in first org when creating the channel
@@ -140,7 +130,6 @@ function run(config_path) {
                             })
                             .then((result) => {
                                 if(result.status && result.status === 'SUCCESS') {
-                                    t.pass('created ' + channel.name + ' successfully');
                                     commLogger.info('created ' + channel.name + ' successfully');
                                     return Promise.resolve();
                                 }
@@ -152,7 +141,6 @@ function run(config_path) {
             });
         }, Promise.resolve())
             .then(()=>{
-                //t.comment('Sleep 5s......');
                 commLogger.info('Sleep 5s......');
                 return commUtils.sleep(5000);
             })
@@ -160,7 +148,6 @@ function run(config_path) {
                 return resolve();
             })
             .catch((err) => {
-                t.fail('Failed to create channels ' + (err.stack?err.stack:err));
                 commLogger.error('Failed to create channels ' + (err.stack?err.stack:err));
                 return reject(new Error('Fabric: Create channel failed'));
             });
