@@ -8,7 +8,7 @@
 
 
 'use strict';
-const log          = require('../util.js').log;
+const logger = require('../util.js').getLogger('client-util.js');
 let processes  = {}; // {pid:{obj, promise}}
 let txUpdateTime = 1000;
 const kafka = require('kafka-node');
@@ -169,7 +169,7 @@ function launchClient(updates, results) {
     });
 
     child.on('exit', function(code, signal){
-        log('Client exited ');
+        logger.info('Client exited ');
         setPromise(pid, false, new Error('Client already exited'));
     });
 }

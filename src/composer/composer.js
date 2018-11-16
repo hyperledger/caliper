@@ -19,6 +19,7 @@
 // Caliper requires
 const BlockchainInterface = require('../comm/blockchain-interface.js');
 const Util = require('../comm/util');
+const logger = Util.getLogger('composer.js');
 const TxStatus = require('../comm/transaction');
 
 // Composer helpers
@@ -42,7 +43,7 @@ class Composer extends BlockchainInterface {
      * @returns {Promise} a completed Promise
      */
     init() {
-        Util.log('Initializing target platform configuration');
+        logger.info('Initializing target platform configuration');
         // initialise the target blockchain, create cards
         let config  = require(this.configPath);
         return this.initialiseFabric(config)
@@ -51,7 +52,7 @@ class Composer extends BlockchainInterface {
                 return composer_utils.createAdminBusNetCards(config);
             })
             .catch((err) => {
-                Util.log('composer.init() failed, ', err);
+                logger.error('composer.init() failed, ', err);
                 return Promise.reject(err);
             });
     }
@@ -70,7 +71,7 @@ class Composer extends BlockchainInterface {
                 return new Promise(resolve => setTimeout(resolve, 2000));
             })
             .catch((err) => {
-                Util.log('composer.init() failed at initialiseFabric(), ', err);
+                logger.error('composer.init() failed at initialiseFabric(), ', err);
                 return Promise.reject(err);
             });
     }
@@ -80,7 +81,7 @@ class Composer extends BlockchainInterface {
      * @returns {Promise} a completed Promise
      */
     installSmartContract() {
-        Util.log('Deploying Composer');
+        logger.info('Deploying Composer');
         // Here, this relates to deploying a Composer BusinessNetwork to the Blockchain platform
         // - runtime install on each participating org
         // - start from any participating org
@@ -112,10 +113,10 @@ class Composer extends BlockchainInterface {
                 }, Promise.resolve());
             })
             .then(() => {
-                Util.log('Composer deployment complete');
+                logger.info('Composer deployment complete');
             })
             .catch((err) => {
-                Util.log('composer.installSmartContract() failed, ', err);
+                logger.error('composer.installSmartContract() failed, ', err);
                 return Promise.reject(err);
             });
     }
@@ -126,7 +127,7 @@ class Composer extends BlockchainInterface {
      * @returns {BusinessNetworkConnection} an admin connection to the named business network
      */
     getContext(name) {
-        Util.log('getting  context for: ', name);
+        logger.info('getting  context for: ', name);
         // Return business network connection
         return composer_utils.getBusNetConnection('PerfNetworkAdmin@' + name);
     }

@@ -13,7 +13,6 @@ const CLIENT_ZOO   = 'zookeeper';
 const zkUtil  = require('./zoo-util.js');
 const ZooKeeper = require('node-zookeeper-client');
 const clientUtil = require('./client-util.js');
-const log = require('../util').log;
 const childProcess = require('child_process');
 const exec = childProcess.exec;
 const Util = require('../util.js');
@@ -22,6 +21,8 @@ let absConfigFile;
 let absCaliperDir;
 let listener_child;
 let test;
+const util = require('../util');
+const logger = util.getLogger('client.js');
 
 
 /**
@@ -40,7 +41,7 @@ function zooMessageCallback(data, updates, results) {
         stop = true; // stop watching
         break;
     case 'error':
-        log('Client encountered error, ' + msg.data);
+        logger.error('Client encountered error, ' + msg.data);
         stop = true;   // stop watching
         break;
     case 'txUpdated':
@@ -48,7 +49,7 @@ function zooMessageCallback(data, updates, results) {
         stop = false;
         break;
     default:
-        log('Unknown message type: ' + msg.type);
+        logger.warn('Unknown message type: ' + msg.type);
         stop = false;
         break;
     }
@@ -72,8 +73,7 @@ function zooStartWatch(zoo, updates, results) {
             path,
             (data)=>{
                 return zooMessageCallback(data, updates, results).catch((err) => {
-                    log('Exception encountered when watching message from zookeeper, due to:');
-                    log(err);
+                    logger.error('Exception encountered when watching message from zookeeper, due to:' + err);
                     return Promise.resolve(true);
                 });
             },
@@ -112,13 +112,13 @@ class Client{
 		
         if (this.config.hasOwnProperty('WITH_MQ') && this.config.WITH_MQ) {
 			clientUtil._consumeEvents(function(err){
-				log(err);
+				logger.error(err);
                 listener_child.send({type:'closeKafkaProducer', config: config});
             	clientUtil.stop();
 				clientUtil.closeKafkaConsumer();
 				demo.stopWatch();
 				 if (absConfigFile.hasOwnProperty('command') && absConfigFile.command.hasOwnProperty('end')){
-					log(absConfigFile.command.end);
+					logger.info(absConfigFile.command.end);
 					let end = exec(absConfigFile.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
 					  if (error) {
 						throw error;
@@ -213,7 +213,7 @@ class Client{
                 return 0;
             });
         default:
-            log('Unknown client type: ' + this.type);
+            logger.error('Unknown client type: ' + this.type);
             return 0;
         }
     }
@@ -328,12 +328,12 @@ class Client{
         this.zoo.zk = zk;
         let zoo = this.zoo;
         let connectHandle = setTimeout(()=>{
-            log('Could not connect to ZooKeeper');
+            logger.error('Could not connect to ZooKeeper');
             Promise.reject('Could not connect to ZooKeeper');
         }, TIMEOUT+100);
         let p = new Promise((resolve, reject) => {
             zk.once('connected', () => {
-                log('Connected to ZooKeeper');
+                logger.info('Connected to ZooKeeper');
                 clearTimeout(connectHandle);
                 zkUtil.existsP(zk, zkUtil.NODE_CLIENT, 'Failed to find clients due to').then((found)=>{
                     if(!found) {
@@ -348,7 +348,7 @@ class Client{
                         'Failed to list clients due to');
                 }).then((clients) => {
                     // TODO: not support add/remove zookeeper clients now
-                    log('get zookeeper clients:' + clients);
+                    logger.info('get zookeeper clients:' + clients);
                     for (let i = 0 ; i < clients.length ; i++) {
                         let clientID = clients[i];
                         zoo.hosts.push({
@@ -364,7 +364,7 @@ class Client{
                 });
             });
         });
-        log('Connecting to ZooKeeper......');
+        logger.info('Connecting to ZooKeeper......');
         zk.connect();
         return p;
     }
@@ -404,7 +404,7 @@ class Client{
                 return Promise.reject(new Error('Failed to start the remote test'));
             }
         }).catch((err)=>{
-            log('Failed to start the remote test');
+            logger.error('Failed to start the remote test');
             return Promise.reject(err);
         });
     }

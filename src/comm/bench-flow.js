@@ -22,7 +22,7 @@ const Monitor = require('./monitor.js');
 const Report  = require('./report.js');
 const Client  = require('./client/client.js');
 const Util = require('./util.js');
-const log = Util.log;
+const logger = Util.getLogger('bench-flow.js');
 let blockchain, monitor, report, client;
 let resultsbyround = [];    // results table for each test round
 let round = 0;              // test round
@@ -83,7 +83,7 @@ function createReport() {
  */
 function printTable(value) {
     let t = table.table(value, {border: table.getBorderCharacters('ramac')});
-    log(t);
+    logger.info(t);
 }
 
 /**
@@ -140,7 +140,7 @@ function printResultsByRound() {
     for(let i = 1 ; i < resultsbyround.length ; i++) {
         resultsbyround[i].unshift(i.toFixed(0));
     }
-    log('###all test results:###');
+    logger.info('###all test results:###');
     printTable(resultsbyround);
 
     report.setSummaryTable(resultsbyround);
@@ -181,20 +181,20 @@ function processResult(results, label){
         if(resultTable.length > 1) {
             resultsbyround.push(resultTable[1].slice(0));
         }
-        log('###test result:###');
+        logger.info('###test result:###');
         printTable(resultTable);
         let idx = report.addBenchmarkRound(label);
         report.setRoundPerformance(idx, resultTable);
         let resourceTable = monitor.getDefaultStats();
         if(resourceTable.length > 0) {
-            log('### resource stats ###');
+            logger.info('### resource stats ###');
             printTable(resourceTable);
             report.setRoundResource(idx, resourceTable);
         }
         return Promise.resolve();
     }
     catch(err) {
-        log(err);
+        logger.error(err);
         return Promise.reject(err);
     }
 }
@@ -210,6 +210,7 @@ function defaultTest(args, clientArgs, final) {
     return new Promise( function(resolve, reject) {
         const t = global.tapeObj;
         t.comment('\n\n###### testing \'' + args.label + '\' ######');
+        logger.info('###### testing \'' + args.label + '\' ######');
         let testLabel   = args.label;
         let testRounds  = args.txDuration ? args.txDuration : args.txNumber;
         let tests = []; // array of all test rounds
@@ -239,16 +240,15 @@ function defaultTest(args, clientArgs, final) {
 
         return tests.reduce( function(prev, item) {
             return prev.then( () => {
-
-                log('----test round ' + round + '----'+item.label);
+                logger.info('----test round ' + round + '----');
                 round++;
                 testIdx++;
-
-                demo.startWatch(client);
                 item.roundIdx = round; // propagate round ID to clients
+                demo.startWatch(client);
                 return client.startTest(item, clientArgs, processResult, testLabel).then( () => {
                     demo.pauseWatch();
                     t.pass('passed \'' + testLabel + '\' testing');
+                    logger.info('passed \'' + testLabel + '\' testing');
                     return Promise.resolve();
 
                 }).then( () => {
@@ -256,7 +256,8 @@ function defaultTest(args, clientArgs, final) {
                         return Promise.resolve();
                     }
                     else {
-                        log('wait 5 seconds for next round...');
+
+                        logger.info('wait 5 seconds for next round...');
                         return Util.sleep(5000).then( () => {
                             return monitor.restart();
                         });
@@ -265,6 +266,7 @@ function defaultTest(args, clientArgs, final) {
                 }).catch( (err) => {
                     demo.pauseWatch();
                     t.fail('failed \''  + testLabel + '\' testing, ' + (err.stack ? err.stack : err));
+                    logger.error('failed \''  + testLabel + '\' testing, ' + (err.stack ? err.stack : err));
                     return Promise.resolve();   // continue with next round ?
                 });
             });
@@ -272,6 +274,7 @@ function defaultTest(args, clientArgs, final) {
             return resolve();
         }).catch( (err) => {
             t.fail(err.stack ? err.stack : err);
+            logger.error(err.stack ? err.stack : err);
             return reject(new Error('defaultTest failed'));
         });
     });
@@ -283,9 +286,9 @@ function defaultTest(args, clientArgs, final) {
  * @param {String} networkFile path of the blockchain configuration file
  */
 module.exports.run = function(configFile, networkFile) {
-
     let localConfig = require(configFile);
     configurationType = localConfig.test.clients.WITH_MQ;
+    logger.info('#######Caliper Test######');
     test('#######Caliper Test######', (t) => {
         global.tapeObj = t;
         absConfigFile  = Util.resolvePath(configFile);
@@ -298,7 +301,7 @@ module.exports.run = function(configFile, networkFile) {
         let startPromise = new Promise((resolve, reject) => {
             let config = require(absConfigFile);
             if (config.hasOwnProperty('command') && config.command.hasOwnProperty('start')){
-                log(config.command.start);
+                logger.info(config.command.start);
                 let child = exec(config.command.start, {cwd: absCaliperDir}, (err, stdout, stderr) => {
                     if (err) {
                         return reject(err);
@@ -332,9 +335,9 @@ module.exports.run = function(configFile, networkFile) {
             });
         }).then( (clientArgs) => {
             monitor.start().then(()=>{
-                log('started monitor successfully');
+                logger.info('started monitor successfully');
             }).catch( (err) => {
-                log('could not start monitor, ' + (err.stack ? err.stack : err));
+                logger.error('could not start monitor, ' + (err.stack ? err.stack : err));
             });
 
             let allTests  = require(absConfigFile).test.rounds;
@@ -350,7 +353,7 @@ module.exports.run = function(configFile, networkFile) {
             if (configurationType) {
                 listener_child.send({type:'closeKafkaProducer', config: configFile});
             }
-            log('----------finished test----------\n');
+            logger.info('----------finished test----------\n');
             printResultsByRound();
             monitor.printMaxStats();
             monitor.stop();
@@ -358,14 +361,14 @@ module.exports.run = function(configFile, networkFile) {
             let output = path.join(process.cwd(), 'report'+date+'.html' );
             return report.generate(output).then(()=>{
                 demo.stopWatch(output);
-                log('Generated report at ' + output);
+                logger.info('Generated report at ' + output);
                 return Promise.resolve();
             });
         }).then( () => {
             client.stop();
             let config = require(absConfigFile);
             if (config.hasOwnProperty('command') && config.command.hasOwnProperty('end')){
-                log(config.command.end);
+				logger.info(config.command.end);
                 let end = exec(config.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
 					  if (error) {
 						throw error;
@@ -382,10 +385,10 @@ module.exports.run = function(configFile, networkFile) {
                 listener_child.send({type:'closeKafkaProducer', config: configFile});
             }
             demo.stopWatch();
-            log('unexpected error, ' + (err.stack ? err.stack : err));
+            logger.error('unexpected error, ' + (err.stack ? err.stack : err));
             let config = require(absConfigFile);
             if (config.hasOwnProperty('command') && config.command.hasOwnProperty('end')){
-                log(config.command.end);
+				 logger.info(config.command.end);
                 let end = exec(config.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
 					  if (error) {
 						throw error;
@@ -396,7 +399,8 @@ module.exports.run = function(configFile, networkFile) {
                 end.stdout.pipe(process.stdout);
                 end.stderr.pipe(process.stderr);
             }
-			t.end();
+				t.end();
+            }
         });
     });
 };

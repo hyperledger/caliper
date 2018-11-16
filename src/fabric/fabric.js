@@ -16,6 +16,7 @@ const impl_install = require('./install-chaincode.js');
 const impl_instantiate = require('./instantiate-chaincode.js');
 const BlockchainInterface = require('../comm/blockchain-interface.js');
 const commUtils = require('../comm/util');
+const commLogger = commUtils.getLogger('fabric.js');
 const TxStatus = require('../comm/transaction');
 
 /**
@@ -42,7 +43,7 @@ class Fabric extends BlockchainInterface{
             return impl_join.run(this.configPath);
         })
             .catch((err) => {
-                commUtils.log('fabric.init() failed, ' + (err.stack ? err.stack : err));
+                commLogger.error('fabric.init() failed, ' + (err.stack ? err.stack : err));
                 return Promise.reject(err);
             });
     }
@@ -57,7 +58,7 @@ class Fabric extends BlockchainInterface{
             return impl_instantiate.run(this.configPath);
         })
             .catch((err) => {
-                commUtils.log('fabric.installSmartContract() failed, ' + (err.stack ? err.stack : err));
+                commLogger.error('fabric.installSmartContract() failed, ' + (err.stack ? err.stack : err));
                 return Promise.reject(err);
             });
     }
@@ -131,7 +132,7 @@ class Fabric extends BlockchainInterface{
                 promises.push(e2eUtils.invokebycontext(context, contractID, contractVer, simpleArgs, timeout, withMQ));
             }
             catch(err) {
-                commUtils.log(err);
+                commLogger.error(err);
                 let badResult = new TxStatus('artifact');
                 badResult.SetStatusFail();
                 promises.push(Promise.resolve(badResult));

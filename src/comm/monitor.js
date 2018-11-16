@@ -10,7 +10,7 @@
 
 const table = require('table');
 const Util  = require('./util.js');
-const log   = Util.log;
+const logger= Util.getLogger('monitor.js');
 
 /**
 * Get statistics(maximum, minimum, summation, average) of a number array
@@ -109,7 +109,7 @@ class Monitor {
         }
 
         let monitorTypes = m.type;
-        if(typeof m === 'undefined') {
+        if(typeof monitorTypes === 'undefined') {
             return Promise.reject(new Error('Failed to find monitor type in config file'));
         }
         if(!Array.isArray(monitorTypes)) {
@@ -136,14 +136,14 @@ class Monitor {
                         promise = this._startProcessMonitor(m.process, m.interval);
                     }
                     else {
-                        log('undefined monitor type: ' + type);
+                        logger.error('undefined monitor type: ' + type);
                         return resolve();
                     }
                     promise.then((monitor)=>{
                         this.monitors.push(monitor);
                         resolve();
                     }).catch((err)=>{
-                        log('start monitor ' + type + ' failed: ' + err);
+                        logger.error('start monitor ' + type + ' failed: ' + err);
                         resolve();  // always return resolve for Promsie.all
                     });
                 }));
@@ -169,7 +169,7 @@ class Monitor {
                     monitor.stop().then(() => {
                         resolve();
                     }).catch((err) => {
-                        log('stop monitor failed: ' + err);
+                        logger.error('stop monitor failed: ' + err);
                         resolve();
                     });
                 }));
@@ -180,7 +180,7 @@ class Monitor {
                 this.started  = false;
                 return Promise.resolve();
             }).catch((err)=>{
-                log('stop monitor failed: ' + err);
+                logger.error('stop monitor failed: ' + err);
                 this.monitors = [];
                 this.peers = [];
                 this.started  = false;
@@ -204,7 +204,7 @@ class Monitor {
                     monitor.restart().then(() => {
                         resolve();
                     }).catch((err) => {
-                        log('restart monitor failed: ' + err);
+                        logger.error('restart monitor failed: ' + err);
                         resolve();
                     });
                 }));
@@ -224,7 +224,7 @@ class Monitor {
             this._readDefaultStats(true);
 
             if(this.peers === null || this.peers.length === 0) {
-                log('Failed to read monitoring data');
+                logger.error('Failed to read monitoring data');
                 return [];
             }
 
@@ -251,7 +251,7 @@ class Monitor {
             return defaultTable;
         }
         catch(err) {
-            log('Failed to read monitoring data, ' + (err.stack ? err.stack : err));
+            logger.error('Failed to read monitoring data, ' + (err.stack ? err.stack : err));
             return [];
         }
     }
@@ -264,7 +264,7 @@ class Monitor {
             this._readDefaultStats(true);
 
             if(this.peers === null || this.peers.length === 0) {
-                log('Failed to read monitoring data');
+                logger.error('Failed to read monitoring data');
                 return;
             }
 
@@ -289,11 +289,11 @@ class Monitor {
             }
 
             let t = table.table(defaultTable, {border: table.getBorderCharacters('ramac')});
-            log('### resource stats (maximum) ###');
-            log(t);
+            logger.info('### resource stats (maximum) ###');
+            logger.info(t);
         }
         catch(err) {
-            log('Failed to read monitoring data, ' + (err.stack ? err.stack : err));
+            logger.error('Failed to read monitoring data, ' + (err.stack ? err.stack : err));
         }
     }
 
@@ -389,13 +389,13 @@ class Monitor {
         for(let i = 0 ; i < items.length ; i++) {
             let key = items[i];
             if (!this.peers[idx].history.hasOwnProperty(key)) {
-                log('could not find history object named ' + key);
+                logger.warn('could not find history object named ' + key);
                 values.push('-');
                 continue;
             }
             let length = this.peers[idx].history[key].length;
             if(length === 0) {
-                log('could not find history data of ' + key);
+                logger.warn('could not find history data of ' + key);
                 values.push('-');
                 continue;
             }
@@ -425,13 +425,13 @@ class Monitor {
         for(let i = 0 ; i < items.length ; i++) {
             let key = items[i];
             if (!this.peers[idx].history.hasOwnProperty(key)) {
-                log('could not find history object named ' + key);
+                logger.warn('could not find history object named ' + key);
                 values.push('-');
                 continue;
             }
             let length = this.peers[idx].history[key].length;
             if(length === 0) {
-                log('could not find history data of ' + key);
+                logger.warn('could not find history data of ' + key);
                 values.push('-');
                 continue;
             }

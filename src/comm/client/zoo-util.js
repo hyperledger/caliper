@@ -11,7 +11,7 @@ module.exports.NODE_ROOT   = '/caliper';
 module.exports.NODE_CLIENT = '/caliper/clients';
 
 const ZooKeeper = require('node-zookeeper-client');
-const log       = require('../util.js').log;
+const logger    = require('../util.js').getLogger('zoo-util.js');
 /**
  * Check if specified znode exists
  * @param {Object} zookeeper zk object
@@ -23,7 +23,7 @@ function exists(zookeeper, path, errLog) {
     return new Promise((resolve, reject) => {
         zookeeper.exists(path, (err, stat) => {
             if(err) {
-                log(errLog);
+                logger.error(errLog);
                 return reject(err);
             }
             if(stat) {
@@ -50,7 +50,7 @@ function create(zookeeper, path, data, mode, errLog) {
     return new Promise((resolve, reject) => {
         zookeeper.create(path, data, ZooKeeper.ACL.OPEN_ACL_UNSAFE, mode, (err, path) => {
             if(err) {
-                log(errLog);
+                logger.error(errLog);
                 return reject(err);
             }
             else {
@@ -73,7 +73,7 @@ function remove(zookeeper, path, version, errLog) {
     return new Promise((resolve, reject)=>{
         zookeeper.remove(path, version, (err)=>{
             if(err) {
-                log(errLog);
+                logger.error(errLog);
                 return reject(err);
             }
             return resolve();
@@ -94,7 +94,7 @@ function getData(zookeeper, path,watcher, errLog) {
     return new Promise((resolve, reject) => {
         zookeeper.getData(path, watcher, (err, data, stat) => {
             if(err) {
-                log(errLog);
+                logger.error(errLog);
                 return reject(err);
             }
             else {
@@ -117,7 +117,7 @@ function getChildren(zookeeper, path, watcher, errLog) {
     return new Promise((resolve, reject) => {
         zookeeper.getChildren(path, watcher, (err, children, stat)=>{
             if (err) {
-                log(errLog);
+                logger.error(errLog);
                 return reject(err);
             }
             else {
@@ -144,8 +144,8 @@ function removeChildren(zookeeper, path, errLog) {
         });
         return Promise.all(promises);
     }).catch((err)=>{
-        log(errLog);
-        log(err);
+        logger.error(errLog);
+        logger.error(err);
         return Promise.resolve();
     });
 }
@@ -176,7 +176,7 @@ function watchMsgQueue(zookeeper, path, callback, errLog) {
                     whilst(resolve, reject);
                 }
                 else {
-                    log('Stopped watching at '+path);
+                    logger.info('Stopped watching at '+path);
                 }
             },
             errLog
@@ -209,7 +209,7 @@ function watchMsgQueue(zookeeper, path, callback, errLog) {
                 }).then((data)=>{
                     zookeeper.remove(path+'/'+item, -1, (err)=>{
                         if(err) {
-                            log(err.stack);
+                            logger.error(err.stack);
                         }
                     });
 
@@ -225,7 +225,7 @@ function watchMsgQueue(zookeeper, path, callback, errLog) {
                 });
             }, Promise.resolve());
         }).catch((err)=>{
-            log(errLog);
+            logger.error(errLog);
             cont = false;
             resolve();
         });

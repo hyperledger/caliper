@@ -10,16 +10,31 @@
 'use strict';
 
 // global variables
+const cfUtil = require('../config-util.js');
+const Util = require('../util.js');
+let logger = Util.getLogger('local-client.js');
 const bc   = require('../blockchain.js');
 const RateControl = require('../rate-control/rateControl.js');
 const Util = require('../util.js');
 const log  = Util.log;
+
+/*const path = require('path');
+const config = cfUtil.getConfig();
+const commUtils = require('../util');
+//const defaultConfig = commUtils.resolvePath('config/default.json');
+const defaultConfig = commUtils.resolvePath('config/default.yaml');
+
+//const defaultConfig = path.resolve(__dirname, '../../../config/default.json');
+//make sure this default has precedences
+config.reorderFileStores(defaultConfig);
+*/
+
 let blockchain;
 let results      = [];
 let txNum        = 0;
 let txLastNum    = 0;
 let resultStats  = [];
-let txUpdateTime = 1000;
+//let txUpdateTime = 1000;
 let trimType = 0;
 let trim = 0;
 let startTime = 0;
@@ -148,7 +163,7 @@ function submitCallback(count) {
  * @return {Promise} promise object
  */
 async function runFixedNumber(msg, cb, context) {
-    log('Info: client ' + process.pid +  ' start test runFixedNumber()' + (cb.info ? (':' + cb.info) : ''));
+    logger.debug('Info: client ' + process.pid +  ' start test runFixedNumber()' + (cb.info ? (':' + cb.info) : ''));
     let rateControl = new RateControl(msg.rateControl, blockchain);
     rateControl.init(msg);
 
@@ -178,8 +193,7 @@ async function runFixedNumber(msg, cb, context) {
  * @return {Promise} promise object
  */
 async function runDuration(msg, cb, context) {
-
-    log('Info: client ' + process.pid +  ' start test runDuration()' + (cb.info ? (':' + cb.info) : ''));
+    logger.debug('Info: client ' + process.pid +  ' start test runDuration()' + (cb.info ? (':' + cb.info) : ''));
     let rateControl = new RateControl(msg.rateControl, blockchain);
     rateControl.init(msg);
     const duration = msg.txDuration; // duration in seconds
@@ -207,13 +221,14 @@ async function runDuration(msg, cb, context) {
  * @return {Promise} promise object
  */
 function doTest(msg) {
-
-    log('doTest() with:', msg);
+    logger.debug('doTest() with:', msg);
     let cb = require(Util.resolvePath(msg.cb));
     blockchain = new bc(Util.resolvePath(msg.config), msg.withMQ);
 
     beforeTest(msg);
     // start an interval to report results repeatedly
+    let txUpdateTime = cfUtil.getConfigSetting('core:tx-update-time', 1000);
+    logger.debug('txUpdateTime: ' + txUpdateTime);
     let txUpdateInter = setInterval(txUpdate, txUpdateTime);
     /**
      * Clear the update interval
@@ -259,7 +274,7 @@ function doTest(msg) {
         }
     }).catch((err) => {
         clearUpdateInter();
-        log('Client ' + process.pid + ': error ' + (err.stack ? err.stack : err));
+        logger.error('Client ' + process.pid + ': error ' + (err.stack ? err.stack : err));
         return Promise.reject(err);
     });
 }

@@ -7,16 +7,16 @@
 
 'use strict';
 
+const Util = require('../util.js');
+const logger = Util.getLogger('zoo-client.js');
 const Blockchain = require('../blockchain.js');
 const ZooKeeper = require('node-zookeeper-client');
 const zkUtil = require('./zoo-util.js');
 const clientUtil = require('./client-util.js');
 const path = require('path');
-const Util = require('../util.js');
-const log  = Util.log;
 
 if (process.argv.length < 3) {
-    log('Missed zookeeper address');
+    logger.error('Missed zookeeper address');
     process.exit(0);
 }
 
@@ -74,7 +74,7 @@ function close() {
             promises.push(zkUtil.removeP(zk, outNode, -1, 'Failed to remove inNode due to'));
         }
     }).then(()=>{
-        log('Node ' + inNode + ' ' + outNode + ' is deleted');
+        logger.info('Node ' + inNode + ' ' + outNode + ' is deleted');
         inNode = '';
         outNode = '';
         zk.close();
@@ -155,7 +155,7 @@ function afterTest() {
         let buf = new Buffer(JSON.stringify(message));
         return write(buf);
     }).catch((err) => {
-        log(err);
+        logger.error(err);
         return Promise.resolve();
     });
 }
@@ -167,7 +167,7 @@ function afterTest() {
  */
 function zooMessageCallback(data) {
     let msg  = JSON.parse(data.toString());
-    log('Receive message, type='+msg.type);
+    logger.info('Receive message, type='+msg.type);
 
     switch(msg.type) {
     case 'test': {
@@ -177,7 +177,7 @@ function zooMessageCallback(data) {
         }).then(() => {
             return afterTest();
         }).catch((err)=>{
-            log('==Exception while testing, ' + err);
+            logger.error('==Exception while testing, ' + err);
             return afterTest();
         });
         break;
@@ -204,14 +204,13 @@ function watch() {
         inNode,
         (data) => {
             return zooMessageCallback(data).catch((err) => {
-                log('Exception encountered when watching message from zookeeper, due to:');
-                log(err);
+                logger.error('Exception encountered when watching message from zookeeper, due to:' + err);
                 return Promise.resolve(true);
             });
         },
         'Failed to watch children nodes in zookeeper'
     ).catch((err) => {
-        log(err);
+        logger.error(err);
         return Promise.resolve();
     });
 }
@@ -220,7 +219,7 @@ function watch() {
  * Callback when connecting to zk
  */
 zk.once('connected', function() {
-    log('Connected to ZooKeeper');
+    logger.info('Connected to ZooKeeper');
     zkUtil.existsP(zk, zkUtil.NODE_ROOT, 'Failed to find NODE_ROOT due to').then((found)=>{
         if(found) {
             return Promise.resolve();
@@ -242,20 +241,20 @@ zk.once('connected', function() {
         let clientPath = zkUtil.NODE_CLIENT + '/client_'+random+'_';
         return zkUtil.createP(zk, clientPath, null, ZooKeeper.CreateMode.EPHEMERAL_SEQUENTIAL, 'Failed to create client node due to');
     }).then((clientPath)=>{
-        log('Created client node:'+clientPath);
+        logger.info('Created client node:'+clientPath);
         clientID = path.basename(clientPath);
         inNode   = zkUtil.getInNode(clientID);
         outNode  = zkUtil.getOutNode(clientID);
         return zkUtil.createP(zk, inNode, null, ZooKeeper.CreateMode.PERSISTENT, 'Failed to create receiving queue due to');
     }).then((inPath)=>{
-        log('Created receiving queue at:'+inPath);
+        logger.info('Created receiving queue at:'+inPath);
         return zkUtil.createP(zk, outNode, null, ZooKeeper.CreateMode.PERSISTENT, 'Failed to create sending queue due to');
     }).then((outPath)=>{
-        log('Created sending queue at:'+outPath);
-        log('Waiting for messages at:'+inNode+'......');
+        logger.info('Created sending queue at:'+outPath);
+        logger.info('Waiting for messages at:'+inNode+'......');
         watch();
     }).catch((err)=> {
-        log(err.stack ? err.stack : err);
+        logger.error(err.stack ? err.stack : err);
         close();
     });
 });

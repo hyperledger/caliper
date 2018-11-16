@@ -51,7 +51,7 @@
 'use strict';
 
 const removeExisting = require('../composer-test-utils').clearAll;
-const Log = require('../../../src/comm/util').log;
+const logger = require('../../../src/comm/util').getLogger('vehicle-lifecycle-network.js');
 const os = require('os');
 const uuid = os.hostname() + process.pid; // UUID for client within test
 
@@ -143,15 +143,15 @@ module.exports.init = async function(blockchain, context, args) {
     try {
         if (!populated) {
             // First test pass, just add
-            Log('Adding test assets ...');
+            logger.debug('Adding test assets ...');
             await manufacturerRegistry.addAll(manufacturers);
             await ownerRegistry.addAll(privateOwners);
             await vehicleRegistry.addAll(vehicles);
             await orderRegistry.addAll(orders);
-            Log('Asset addition complete ...');
+            logger.debug('Asset addition complete ...');
         } else {
             // Second test pass, update/remove
-            Log('Updating test assets ...');
+            logger.debug('Updating test assets ...');
             await removeExisting(manufacturerRegistry, 'MANUFACTURER_' + uuid);
             await removeExisting(ownerRegistry, 'PRIVATEOWNER_' + uuid);
             await removeExisting(vehicleRegistry, 'VEHICLE_' + uuid);
@@ -160,10 +160,10 @@ module.exports.init = async function(blockchain, context, args) {
             await ownerRegistry.addAll(privateOwners);
             await vehicleRegistry.addAll(vehicles);
             await orderRegistry.addAll(orders);
-            Log('Asset update complete ...');
+            logger.debug('Asset update complete ...');
         }
     } catch (error) {
-        Log('error in test init(): ', error);
+        logger.error('error in test init(): ', error);
         return Promise.reject(error);
     }
 };

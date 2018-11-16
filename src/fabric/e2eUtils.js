@@ -18,9 +18,10 @@
 
 'use strict';
 
-const utils = require('fabric-client/lib/utils.js');
-const logger = utils.getLogger('E2E testing');
+//const utils = require('fabric-client/lib/utils.js');
+//const logger = utils.getLogger('E2E testing');
 const commUtils = require('../comm/util');
+const commLogger = commUtils.getLogger('e2eUtils.js');
 const TxStatus  = require('../comm/transaction');
 const path = require('path');
 const fs = require('fs');
@@ -131,7 +132,8 @@ function installChaincode(org, chaincode) {
             if (proposalResponses && proposalResponses[i].response && proposalResponses[i].response.status === 200) {
                 one_good = true;
             } else {
-                logger.error('install proposal was bad');
+                //logger.error('install proposal was bad');
+                commLogger.error('install proposal was bad');
                 errors.push(proposalResponses[i]);
             }
             all_good = all_good && one_good;
@@ -344,10 +346,10 @@ function instantiateChaincode(chaincode, endorsement_policy, upgrade){
                         eh.unregisterTxEvent(deployId);
 
                         if (code !== 'VALID') {
-                            commUtils.log('The chaincode ' + type + ' transaction was invalid, code = ' + code);
+                            commLogger.warn('The chaincode ' + type + ' transaction was invalid, code = ' + code);
                             reject();
                         } else {
-                            commUtils.log('The chaincode ' + type + ' transaction was valid.');
+                            commLogger.info('The chaincode ' + type + ' transaction was valid.');
                             resolve();
                         }
                     });
@@ -385,6 +387,7 @@ function instantiateChaincode(chaincode, endorsement_policy, upgrade){
             return Promise.resolve();
         })
         .catch((err) => {
+            commLogger.error(err);
             disconnect(eventhubs);
             return Promise.reject(err);
         });
@@ -642,6 +645,15 @@ async function invokebycontext(context, id, version, args, timeout, withMQ){
             proposal: proposal,
         };
 
+<<<<<<< HEAD
+=======
+        let newTimeout = timeout * 1000 - (Date.now() - startTime);
+        if(newTimeout < 10000) {
+            commLogger.warn('WARNING: timeout is too small, default value is used instead');
+            newTimeout = 10000;
+        }
+
+>>>>>>> upstream/master
         const eventPromises = [];
 
         if (! withMQ) {
@@ -711,6 +723,7 @@ async function invokebycontext(context, id, version, args, timeout, withMQ){
             throw err;
         }
 
+<<<<<<< HEAD
         if (!withMQ) {
             await Promise.all(eventPromises);
             // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
@@ -721,13 +734,23 @@ async function invokebycontext(context, id, version, args, timeout, withMQ){
             } else {
                 invokeStatus.SetStatusSuccess();
             }
+=======
+        await Promise.all(eventPromises);
+        // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
+        // so mark it failed but leave it not verified
+        if (!invokeStatus.IsVerified()) {
+            invokeStatus.SetStatusFail();
+            commLogger.error('Failed to complete transaction [' + txId.substring(0, 5) + '...]: every eventhub connection closed');
+        } else {
+            invokeStatus.SetStatusSuccess();
+>>>>>>> upstream/master
         }
 
     } catch (err)
     {
         // at this point the Tx should be verified
         invokeStatus.SetStatusFail();
-        commUtils.log('Failed to complete transaction [' + txId.substring(0, 5) + '...]:' + (err instanceof Error ? err.stack : err));
+        commLogger.error('Failed to complete transaction [' + txId.substring(0, 5) + '...]:' + (err instanceof Error ? err.stack : err));
     }
 
     return invokeStatus;
@@ -788,7 +811,7 @@ function querybycontext(context, id, version, name) {
             }
         })
         .catch((err) => {
-            commUtils.log('Query failed, ' + (err.stack?err.stack:err));
+            commLogger.error('Query failed, ' + (err.stack?err.stack:err));
             txStatus.SetStatusFail();
             return Promise.resolve(txStatus);
         });

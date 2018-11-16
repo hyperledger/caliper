@@ -29,6 +29,8 @@
 const e2eUtils = require('./e2eUtils.js');
 const testUtil = require('./util.js');
 const Client = require('fabric-client');
+const commUtils = require('../comm/util');
+const commLogger = commUtils.getLogger('install-chaincode.js');
 
 module.exports.run = function (config_path) {
     Client.addConfigFile(config_path);
@@ -40,7 +42,8 @@ module.exports.run = function (config_path) {
     }
     return new Promise(function(resolve, reject) {
         const t = global.tapeObj;
-        t.comment('install all chaincodes......');
+        //t.comment('install all chaincodes......');
+        commLogger.info('install all chaincodes......');
         chaincodes.reduce(function(prev, chaincode){
             return prev.then(() => {
                 let promises = [];
@@ -53,6 +56,7 @@ module.exports.run = function (config_path) {
                 }
 
                 return Promise.all(promises).then(() => {
+                    commLogger.info('Installed chaincode ' + chaincode.id +  ' successfully in all peers');
                     t.pass('Installed chaincode ' + chaincode.id +  ' successfully in all peers');
                     return Promise.resolve();
                 });
@@ -62,6 +66,7 @@ module.exports.run = function (config_path) {
                 return resolve();
             })
             .catch((err) => {
+                commLogger.error('Failed to install chaincodes, ' + (err.stack?err.stack:err));
                 t.fail('Failed to install chaincodes, ' + (err.stack?err.stack:err));
                 return reject(err);
             });
