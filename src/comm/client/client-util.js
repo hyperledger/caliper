@@ -9,8 +9,85 @@
 'use strict';
 const logger = require('../util.js').getLogger('client-util.js');
 let processes  = {}; // {pid:{obj, promise}}
+<<<<<<< 2e01d327dae5fd0c6bc59048ca19094ac140a214
 
 /**
+=======
+let txUpdateTime = 1000;
+const kafka = require('kafka-node');
+const listener_config = require('../../listener/listener-config.json');
+let confirmedTransactions = [];
+let cachedEvents = new Map();
+let unConfirmedTransactions = [];
+let txUpdateInter = null;
+let globalConsumer;
+const TxStatus = require('../transaction.js');
+let updateTail;
+const bc   = require('../blockchain.js');
+let path = require('path');
+const blockchain = new bc(path.join(__dirname, '../../../', 'benchmark/simple/fabric'));
+let testfinished = false;
+let global_pid;
+let confirmTail = 0;
+let totalTransactionsCommitted = 0;
+let totalTransactionsForMQ = 0;
+let invokeCallback = false;
+
+/**
+ *consume block events from Kafka MQ
+ */
+function _consumeEvents(cb){
+    let Consumer = kafka.Consumer;
+    let KafkaClient = new kafka.KafkaClient({ kafkaHost: listener_config.broker_urls, requestTimeout: 300000000 });
+    let options = {
+        autoCommit: true,
+        fetchMaxWaitMs: 1000,
+        fetchMaxBytes: 5120 * 5120,
+        encoding: 'buffer',
+        groupId: 'groupID' + Math.floor(Math.random() * Math.floor(100))
+    };
+    let topics = [{
+        topic: listener_config.topic
+    }];
+    let consumer = new Consumer(KafkaClient, topics, options);
+    globalConsumer = consumer;
+    consumer.on('message', function (message) {
+        let buf = new Buffer(message.value); // Read string into a buffer.
+        let data = buf.toString('utf-8');
+        let block = JSON.parse(data).block;
+        for (let index = 0; index < block.data.data.length; index++) {
+            let channel_header = block.data.data[index].payload.header.channel_header;
+            let transaction_id = channel_header.tx_id;
+            let confirmation_time = JSON.parse(data).validTime;
+            if (cachedEvents.get(transaction_id) === undefined)
+            {
+                cachedEvents.set(transaction_id, confirmation_time);
+            }else if(cachedEvents.get(transaction_id) !== undefined && typeof cachedEvents.get(transaction_id) !== "number") {
+                let transactionObject = cachedEvents.get(transaction_id);
+                transactionObject.Set('time_final', confirmation_time);
+                transactionObject.SetVerification(true);
+                transactionObject.Set('status','success');
+                cachedEvents.set(transaction_id, transactionObject);
+                confirmedTransactions.push(transactionObject);
+                totalTransactionsCommitted++;
+            }
+			else {
+				if (!invokeCallback) {
+					invokeCallback = true;
+					cb(new Error('Error executing benchmark test: Please ensure Kafka MQ is cleared before running the benchmark tests. Run `docker-compose -f docker-compose-kafka.yaml down` on the machine where kafka containers are running'));	
+				}
+			}
+		}
+    });
+    consumer.on('error', function(err){
+		 globalConsumer.close(() => {
+			_consumeEvents(); 
+		 });
+    });
+}
+module.exports._consumeEvents = _consumeEvents;
+/**
+>>>>>>> Kill fabric containers after the test is complete in MQ mode
  * Call the Promise function for a process
  * @param {String} pid pid of the process
  * @param {Boolean} isResolve indicates resolve(true) or reject(false)

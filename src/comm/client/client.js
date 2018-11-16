@@ -13,10 +13,22 @@ const CLIENT_ZOO   = 'zookeeper';
 const zkUtil  = require('./zoo-util.js');
 const ZooKeeper = require('node-zookeeper-client');
 const clientUtil = require('./client-util.js');
+<<<<<<< 2e01d327dae5fd0c6bc59048ca19094ac140a214
 
 const util = require('../util');
 const logger = util.getLogger('client.js');
 
+=======
+const log = require('../util').log;
+const childProcess = require('child_process');
+const exec = childProcess.exec;
+const Util = require('../util.js');
+let demo;
+let absConfigFile;
+let absCaliperDir;
+let listener_child;
+let test;
+>>>>>>> Kill fabric containers after the test is complete in MQ mode
 
 
 /**
@@ -97,9 +109,34 @@ class Client{
     * Initialise client object
     * @return {Promise} promise object
     */
-    init() {
+    init(demo, config, absCaliperDir, listener_child, t) {
+		demo = demo;
+		absConfigFile = require(Util.resolvePath(config));
+		absCaliperDir = absCaliperDir;
+		listener_child = listener_child;
+		test = t;
+		
         if (this.config.hasOwnProperty('WITH_MQ') && this.config.WITH_MQ) {
-            clientUtil._consumeEvents();
+			clientUtil._consumeEvents(function(err){
+				log(err);
+                listener_child.send({type:'closeKafkaProducer', config: config});
+            	clientUtil.stop();
+				clientUtil.closeKafkaConsumer();
+				demo.stopWatch();
+				 if (absConfigFile.hasOwnProperty('command') && absConfigFile.command.hasOwnProperty('end')){
+					log(absConfigFile.command.end);
+					let end = exec(absConfigFile.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
+					  if (error) {
+						throw error;
+					  }
+					  test.end();
+					  process.exit();
+					});
+					end.stdout.pipe(process.stdout);
+					end.stderr.pipe(process.stderr);
+					//test.end();
+                }
+     		});
         }
         if(this.config.hasOwnProperty('type')) {
             switch(this.config.type) {
