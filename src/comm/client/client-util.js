@@ -28,11 +28,12 @@ let global_pid;
 let confirmTail = 0;
 let totalTransactionsCommitted = 0;
 let totalTransactionsForMQ = 0;
+let invokeCallback = false;
 
 /**
  *consume block events from Kafka MQ
  */
-function _consumeEvents(){
+function _consumeEvents(cb){
     let Consumer = kafka.Consumer;
     let KafkaClient = new kafka.KafkaClient({ kafkaHost: listener_config.broker_urls, requestTimeout: 300000000 });
     let options = {
@@ -55,10 +56,10 @@ function _consumeEvents(){
             let channel_header = block.data.data[index].payload.header.channel_header;
             let transaction_id = channel_header.tx_id;
             let confirmation_time = JSON.parse(data).validTime;
-            if (cachedEvents.get(transaction_id)  === undefined)
+            if (cachedEvents.get(transaction_id) === undefined)
             {
                 cachedEvents.set(transaction_id, confirmation_time);
-            }else if(cachedEvents.get(transaction_id) !== undefined && typeof cachedEvents.get(transaction_id) != "number") {
+            }else if(cachedEvents.get(transaction_id) !== undefined && typeof cachedEvents.get(transaction_id) !== "number") {
                 let transactionObject = cachedEvents.get(transaction_id);
                 transactionObject.Set('time_final', confirmation_time);
                 transactionObject.SetVerification(true);
@@ -68,16 +69,17 @@ function _consumeEvents(){
                 totalTransactionsCommitted++;
             }
 			else {
-				log("Error executing benchmark test: Please ensure Kafka MQ is cleared before running the benchmark tests");
-				log("Info: Run `docker-compose -f docker-compose-kafka.yaml down` on the machine where kafka containers are running");
-				stop();
-				closeKafkaConsumer();
-				process.exit(1);
+				if (!invokeCallback) {
+					invokeCallback = true;
+					cb(new Error('Error executing benchmark test: Please ensure Kafka MQ is cleared before running the benchmark tests. Run `docker-compose -f docker-compose-kafka.yaml down` on the machine where kafka containers are running'));	
+				}
 			}
 		}
     });
     consumer.on('error', function(err){
-        _consumeEvents();
+		 globalConsumer.close(() => {
+			_consumeEvents(); 
+		 });
     });
 }
 module.exports._consumeEvents = _consumeEvents;

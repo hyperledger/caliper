@@ -327,7 +327,7 @@ module.exports.run = function(configFile, networkFile) {
 
             return blockchain.installSmartContract();
         }).then( () => {
-            return client.init().then((number)=>{
+            return client.init(demo, configFile, absCaliperDir, listener_child, t).then((number)=>{
                 return blockchain.prepareClients(number);
             });
         }).then( (clientArgs) => {
@@ -347,7 +347,6 @@ module.exports.run = function(configFile, networkFile) {
                 });
             }, Promise.resolve());
         }).then( () => {
-
             if (configurationType) {
                 listener_child.send({type:'closeKafkaProducer', config: configFile});
             }
@@ -367,21 +366,37 @@ module.exports.run = function(configFile, networkFile) {
             let config = require(absConfigFile);
             if (config.hasOwnProperty('command') && config.command.hasOwnProperty('end')){
                 log(config.command.end);
-                let end = exec(config.command.end, {cwd: absCaliperDir});
+                let end = exec(config.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
+					  if (error) {
+						throw error;
+					  }
+					  t.end();
+					  process.exit();
+					});
                 end.stdout.pipe(process.stdout);
                 end.stderr.pipe(process.stderr);
             }
             t.end();
         }).catch( (err) => {
+			if (configurationType) {
+                listener_child.send({type:'closeKafkaProducer', config: configFile});
+            }
             demo.stopWatch();
             log('unexpected error, ' + (err.stack ? err.stack : err));
             let config = require(absConfigFile);
             if (config.hasOwnProperty('command') && config.command.hasOwnProperty('end')){
                 log(config.command.end);
-                let end = exec(config.command.end, {cwd: absCaliperDir});
+                let end = exec(config.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
+					  if (error) {
+						throw error;
+					  }
+					  t.end();
+					  process.exit();
+					});
                 end.stdout.pipe(process.stdout);
                 end.stderr.pipe(process.stderr);
             }
+			t.end();
         });
     });
 };
