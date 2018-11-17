@@ -644,7 +644,7 @@ async function invokebycontext(context, id, version, args, timeout, withMQ){
             proposalResponses: proposalResponses,
             proposal: proposal,
         };
-
+        const eventPromises = [];
         if (! withMQ) {
 
             let newTimeout = timeout * 1000 - (Date.now() - startTime);
@@ -721,10 +721,9 @@ async function invokebycontext(context, id, version, args, timeout, withMQ){
             } else {
                 invokeStatus.SetStatusSuccess();
             }
-
-		} 
-	}
-	catch (err)
+        }
+    }
+    catch (err)
     {
         // at this point the Tx should be verified
         invokeStatus.SetStatusFail();

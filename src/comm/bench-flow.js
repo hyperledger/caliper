@@ -367,38 +367,37 @@ module.exports.run = function(configFile, networkFile) {
             client.stop();
             let config = require(absConfigFile);
             if (config.hasOwnProperty('command') && config.command.hasOwnProperty('end')){
-				logger.info(config.command.end);
+                logger.info(config.command.end);
                 let end = exec(config.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
-					  if (error) {
-						throw error;
-					  }
-					  t.end();
-					  //process.exit();
-					});
+                    if (error) {
+                        throw error;
+                    }
+                    t.end();
+                });
                 end.stdout.pipe(process.stdout);
                 end.stderr.pipe(process.stderr);
             }
             t.end();
         }).catch( (err) => {
-			if (configurationType) {
+            if (configurationType) {
                 listener_child.send({type:'closeKafkaProducer', config: configFile});
             }
             demo.stopWatch();
             logger.error('unexpected error, ' + (err.stack ? err.stack : err));
             let config = require(absConfigFile);
             if (config.hasOwnProperty('command') && config.command.hasOwnProperty('end')){
-				 logger.info(config.command.end);
+                logger.info(config.command.end);
                 let end = exec(config.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
-					  if (error) {
-						throw error;
-					  }
-					  t.end();
-					  //process.exit();
-					});
+                    if (error) {
+                        throw error;
+                    }
+                    t.end();
+                    process.exit();
+                });
                 end.stdout.pipe(process.stdout);
                 end.stderr.pipe(process.stderr);
             }
-				t.end();
+            t.end();
         });
     });
 };
