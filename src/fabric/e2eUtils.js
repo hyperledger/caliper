@@ -645,17 +645,6 @@ async function invokebycontext(context, id, version, args, timeout, withMQ){
             proposal: proposal,
         };
 
-<<<<<<< HEAD
-=======
-        let newTimeout = timeout * 1000 - (Date.now() - startTime);
-        if(newTimeout < 10000) {
-            commLogger.warn('WARNING: timeout is too small, default value is used instead');
-            newTimeout = 10000;
-        }
-
->>>>>>> upstream/master
-        const eventPromises = [];
-
         if (! withMQ) {
 
             let newTimeout = timeout * 1000 - (Date.now() - startTime);
@@ -722,8 +711,6 @@ async function invokebycontext(context, id, version, args, timeout, withMQ){
             invokeStatus.SetVerification(true);
             throw err;
         }
-
-<<<<<<< HEAD
         if (!withMQ) {
             await Promise.all(eventPromises);
             // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
@@ -734,19 +721,10 @@ async function invokebycontext(context, id, version, args, timeout, withMQ){
             } else {
                 invokeStatus.SetStatusSuccess();
             }
-=======
-        await Promise.all(eventPromises);
-        // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
-        // so mark it failed but leave it not verified
-        if (!invokeStatus.IsVerified()) {
-            invokeStatus.SetStatusFail();
-            commLogger.error('Failed to complete transaction [' + txId.substring(0, 5) + '...]: every eventhub connection closed');
-        } else {
-            invokeStatus.SetStatusSuccess();
->>>>>>> upstream/master
-        }
 
-    } catch (err)
+		} 
+	}
+	catch (err)
     {
         // at this point the Tx should be verified
         invokeStatus.SetStatusFail();

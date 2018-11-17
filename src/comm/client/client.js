@@ -128,8 +128,8 @@ class Client{
 					});
 					end.stdout.pipe(process.stdout);
 					end.stderr.pipe(process.stderr);
-					//test.end();
                 }
+				test.end();
      		});
         }
         if(this.config.hasOwnProperty('type')) {

@@ -28,7 +28,6 @@ let resultsbyround = [];    // results table for each test round
 let round = 0;              // test round
 let demo = require('../gui/src/demo.js');
 let absConfigFile, absNetworkFile;
-
 let absCaliperPath = '../';
 let listener_child;
 let configurationType;
@@ -321,7 +320,7 @@ module.exports.run = function(configFile, networkFile) {
                 let blockListenerPath = path.join(__dirname, absCaliperPath, 'listener/block-listener-handler.js');
                 listener_child = childProcess.fork(blockListenerPath);
                 listener_child.on('error', function () {
-                    log('client encountered unexpected error');
+                    logger.error('client encountered unexpected error');
                 });
                 listener_child.send({ type:'test', config: configFile });
             }
@@ -374,7 +373,7 @@ module.exports.run = function(configFile, networkFile) {
 						throw error;
 					  }
 					  t.end();
-					  process.exit();
+					  //process.exit();
 					});
                 end.stdout.pipe(process.stdout);
                 end.stderr.pipe(process.stderr);
@@ -394,13 +393,12 @@ module.exports.run = function(configFile, networkFile) {
 						throw error;
 					  }
 					  t.end();
-					  process.exit();
+					  //process.exit();
 					});
                 end.stdout.pipe(process.stdout);
                 end.stderr.pipe(process.stderr);
             }
 				t.end();
-            }
         });
     });
 };
