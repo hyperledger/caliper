@@ -35,6 +35,7 @@ let invokeCallback = false;
 
 /**
  *consume block events from Kafka MQ
+ * @param {Function} cb callback function to return control to caller
  */
 function _consumeEvents(cb){
     let Consumer = kafka.Consumer;
@@ -62,7 +63,7 @@ function _consumeEvents(cb){
             if (cachedEvents.get(transaction_id) === undefined)
             {
                 cachedEvents.set(transaction_id, confirmation_time);
-            }else if(cachedEvents.get(transaction_id) !== undefined && typeof cachedEvents.get(transaction_id) !== "number") {
+            }else if(cachedEvents.get(transaction_id) !== undefined && typeof cachedEvents.get(transaction_id) !== 'number') {
                 let transactionObject = cachedEvents.get(transaction_id);
                 transactionObject.Set('time_final', confirmation_time);
                 transactionObject.SetVerification(true);
@@ -71,18 +72,18 @@ function _consumeEvents(cb){
                 confirmedTransactions.push(transactionObject);
                 totalTransactionsCommitted++;
             }
-			else {
-				if (!invokeCallback) {
-					invokeCallback = true;
-					cb(new Error('Error executing benchmark test: Please ensure Kafka MQ is cleared before running the benchmark tests. Run `docker-compose -f docker-compose-kafka.yaml down` on the machine where kafka containers are running'));	
-				}
-			}
-		}
+            else {
+                if (!invokeCallback) {
+                    invokeCallback = true;
+                    cb(new Error('Error executing benchmark test: Please ensure Kafka MQ is cleared before running the benchmark tests. Run `docker-compose -f docker-compose-kafka.yaml down` on the machine where kafka containers are running'));
+                }
+            }
+        }
     });
     consumer.on('error', function(err){
-		 globalConsumer.close(() => {
-			_consumeEvents(); 
-		 });
+        globalConsumer.close(() => {
+            _consumeEvents();
+        });
     });
 }
 module.exports._consumeEvents = _consumeEvents;

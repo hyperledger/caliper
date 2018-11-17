@@ -743,6 +743,7 @@ async function invokebycontext(context, id, version, args, timeout){
             proposalResponses: proposalResponses,
             proposal: proposal,
         };
+<<<<<<< 007ee416892dbbcff5b0317129b71aa42d76d849
 
 <<<<<<< 345e9b9bcf883dc89544b09c503bb857612ba318
         let newTimeout = timeout * 1000 - (Date.now() - startTime);
@@ -761,6 +762,9 @@ async function invokebycontext(context, id, version, args, timeout){
                         clearTimeout(handle);
                         eh.unregisterTxEvent(txId);
 =======
+=======
+        const eventPromises = [];
+>>>>>>> Resolve linting issues
         if (! withMQ) {
 >>>>>>> Replace log with logger and resolve merge conflicts
 
@@ -836,11 +840,17 @@ async function invokebycontext(context, id, version, args, timeout){
             } else {
                 invokeStatus.SetStatusSuccess();
             }
+<<<<<<< 007ee416892dbbcff5b0317129b71aa42d76d849
 
 		} 
 	}
 	catch (err)
 >>>>>>> Replace log with logger and resolve merge conflicts
+=======
+        }
+    }
+    catch (err)
+>>>>>>> Resolve linting issues
     {
         // at this point the Tx should be verified
 <<<<<<< b5fd1cd1a0e3bedb2c2454a19ccb05ce7b209db1

@@ -434,43 +434,54 @@ module.exports.run = function(configFile, networkFile) {
             client.stop();
             let config = require(absConfigFile);
             if (config.hasOwnProperty('command') && config.command.hasOwnProperty('end')){
+<<<<<<< 007ee416892dbbcff5b0317129b71aa42d76d849
                 log(config.command.end);
+=======
+                logger.info(config.command.end);
+>>>>>>> Resolve linting issues
                 let end = exec(config.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
-					  if (error) {
-						throw error;
-					  }
-					  t.end();
-					  //process.exit();
-					});
+                    if (error) {
+                        throw error;
+                    }
+                    t.end();
+                });
                 end.stdout.pipe(process.stdout);
                 end.stderr.pipe(process.stderr);
             }
             t.end();
         }).catch( (err) => {
-			if (configurationType) {
+            if (configurationType) {
                 listener_child.send({type:'closeKafkaProducer', config: configFile});
             }
             demo.stopWatch();
             log('unexpected error, ' + (err.stack ? err.stack : err));
             let config = require(absConfigFile);
             if (config.hasOwnProperty('command') && config.command.hasOwnProperty('end')){
+<<<<<<< 007ee416892dbbcff5b0317129b71aa42d76d849
                 log(config.command.end);
+=======
+                logger.info(config.command.end);
+>>>>>>> Resolve linting issues
                 let end = exec(config.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
-					  if (error) {
-						throw error;
-					  }
-					  t.end();
-					  //process.exit();
-					});
+                    if (error) {
+                        throw error;
+                    }
+                    t.end();
+                    process.exit();
+                });
                 end.stdout.pipe(process.stdout);
                 end.stderr.pipe(process.stderr);
             }
+<<<<<<< 007ee416892dbbcff5b0317129b71aa42d76d849
 <<<<<<< 345e9b9bcf883dc89544b09c503bb857612ba318
 			t.end();
 >>>>>>> Kill fabric containers after the test is complete in MQ mode
 =======
 				t.end();
 >>>>>>> Replace log with logger and resolve merge conflicts
+=======
+            t.end();
+>>>>>>> Resolve linting issues
         });
     }).then( () => {
         client.stop();
