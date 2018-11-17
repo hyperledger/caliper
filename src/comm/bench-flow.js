@@ -373,7 +373,7 @@ module.exports.run = function(configFile, networkFile) {
                         throw error;
                     }
                     t.end();
-					process.exit();
+                    process.exit();
                 });
                 end.stdout.pipe(process.stdout);
                 end.stderr.pipe(process.stderr);
