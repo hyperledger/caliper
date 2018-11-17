@@ -26,8 +26,12 @@ let resultsbyround = [];    // results table for each test round
 let round = 0;              // test round
 let demo = require('../gui/src/demo.js');
 let absConfigFile, absNetworkFile;
+<<<<<<< 345e9b9bcf883dc89544b09c503bb857612ba318
 let absCaliperDir = path.join(__dirname, '..', '..');
 let absCaliperPath = '../../';
+=======
+let absCaliperPath = '../';
+>>>>>>> Replace log with logger and resolve merge conflicts
 let listener_child;
 let configurationType;
 
@@ -333,7 +337,7 @@ module.exports.run = function(configFile, networkFile) {
                 let blockListenerPath = path.join(__dirname, absCaliperPath, 'listener/block-listener-handler.js');
                 listener_child = childProcess.fork(blockListenerPath);
                 listener_child.on('error', function () {
-                    log('client encountered unexpected error');
+                    logger.error('client encountered unexpected error');
                 });
                 listener_child.send({ type:'test', config: configFile });
             }
@@ -436,7 +440,7 @@ module.exports.run = function(configFile, networkFile) {
 						throw error;
 					  }
 					  t.end();
-					  process.exit();
+					  //process.exit();
 					});
                 end.stdout.pipe(process.stdout);
                 end.stderr.pipe(process.stderr);
@@ -456,13 +460,17 @@ module.exports.run = function(configFile, networkFile) {
 						throw error;
 					  }
 					  t.end();
-					  process.exit();
+					  //process.exit();
 					});
                 end.stdout.pipe(process.stdout);
                 end.stderr.pipe(process.stderr);
             }
+<<<<<<< 345e9b9bcf883dc89544b09c503bb857612ba318
 			t.end();
 >>>>>>> Kill fabric containers after the test is complete in MQ mode
+=======
+				t.end();
+>>>>>>> Replace log with logger and resolve merge conflicts
         });
     }).then( () => {
         client.stop();

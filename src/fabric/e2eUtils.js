@@ -744,6 +744,7 @@ async function invokebycontext(context, id, version, args, timeout){
             proposal: proposal,
         };
 
+<<<<<<< 345e9b9bcf883dc89544b09c503bb857612ba318
         let newTimeout = timeout * 1000 - (Date.now() - startTime);
         if(newTimeout < 10000) {
             commLogger.warn('WARNING: timeout is too small, default value is used instead');
@@ -759,6 +760,9 @@ async function invokebycontext(context, id, version, args, timeout){
                     (tx, code) => {
                         clearTimeout(handle);
                         eh.unregisterTxEvent(txId);
+=======
+        if (! withMQ) {
+>>>>>>> Replace log with logger and resolve merge conflicts
 
                         // either explicit invalid event or valid event, verified in both cases by at least one peer
                         invokeStatus.SetVerification(true);
@@ -809,6 +813,7 @@ async function invokebycontext(context, id, version, args, timeout){
             invokeStatus.SetVerification(true);
             throw err;
         }
+<<<<<<< 345e9b9bcf883dc89544b09c503bb857612ba318
 
        /* await Promise.all(eventPromises);
         // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
@@ -820,6 +825,22 @@ async function invokebycontext(context, id, version, args, timeout){
             invokeStatus.SetStatusSuccess();
         }
     } catch (err)
+=======
+        if (!withMQ) {
+            await Promise.all(eventPromises);
+            // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
+            // so mark it failed but leave it not verified
+            if (!invokeStatus.IsVerified()) {
+                invokeStatus.SetStatusFail();
+                commUtils.log('Failed to complete transaction [' + txId.substring(0, 5) + '...]: every eventhub connection closed');
+            } else {
+                invokeStatus.SetStatusSuccess();
+            }
+
+		} 
+	}
+	catch (err)
+>>>>>>> Replace log with logger and resolve merge conflicts
     {
         // at this point the Tx should be verified
 <<<<<<< b5fd1cd1a0e3bedb2c2454a19ccb05ce7b209db1

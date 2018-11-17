@@ -13,6 +13,10 @@ const Util = require('../util.js');
 let logger = Util.getLogger('local-client.js');
 const bc   = require('../blockchain.js');
 const RateControl = require('../rate-control/rateControl.js');
+<<<<<<< 345e9b9bcf883dc89544b09c503bb857612ba318
+=======
+const log  = Util.log;
+>>>>>>> Replace log with logger and resolve merge conflicts
 
 /*const path = require('path');
 const config = cfUtil.getConfig();
