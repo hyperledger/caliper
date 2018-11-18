@@ -1,11 +1,11 @@
 {
   "blockchain": {
     "type": "composer",
-    "config": "network/fabric/dev/composer.json"
+    "config": "network/fabric/dev/composer-tls.json"
   },
   "command" : {
-    "start": "docker-compose -f network/fabric/dev/docker-compose.yaml up -d",
-    "end": "docker-compose -f network/fabric/dev/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev-* -q)"
+    "start": "docker-compose -f network/fabric/dev/docker-compose-tls.yaml up -d",
+    "end": "docker-compose -f network/fabric/dev/docker-compose-tls.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev-* -q)"
   },
   "test": {
     "name": "Composer Performance test",
