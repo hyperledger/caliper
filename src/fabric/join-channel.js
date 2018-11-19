@@ -17,14 +17,6 @@
 
 'use strict';
 
-//const utils = require('fabric-client/lib/utils.js');
-//const logger = utils.getLogger('E2E join-channel');
-
-//const tape = require('tape');
-//const _test = require('tape-promise');
-//const test = _test(tape);
-
-//const util = require('util');
 const fs = require('fs');
 
 const Client = require('fabric-client');
@@ -189,9 +181,7 @@ module.exports.run = function (config_path) {
     }
     ORGS = Client.getConfigSetting('fabric').network;
     return new Promise(function(resolve, reject) {
-        const t = global.tapeObj;
         commlogger.info('Join channel......');
-        //t.comment('Join channel......');
 
         return channels.reduce((prev, channel)=>{
             return prev.then(() => {
@@ -200,14 +190,12 @@ module.exports.run = function (config_path) {
                 }
 
                 commlogger.info('join ' + channel.name);
-                //t.comment('join ' + channel.name);
                 let promises = [];
                 channel.organizations.forEach((org, index) => {
                     promises.push(joinChannel(org, channel.name));
                 });
                 return Promise.all(promises).then(()=>{
                     commlogger.info('Successfully joined ' + channel.name);
-                    t.pass('Successfully joined ' + channel.name);
                     return Promise.resolve();
                 });
             });
@@ -217,7 +205,6 @@ module.exports.run = function (config_path) {
             })
             .catch((err)=>{
                 commlogger.error('Failed to join peers, ' + (err.stack?err.stack:err));
-                t.fail('Failed to join peers, ' + (err.stack?err.stack:err));
                 return reject(new Error('Fabric: Join channel failed'));
             });
     });

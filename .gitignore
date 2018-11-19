@@ -6,6 +6,9 @@ node_modules/*
 package-lock.json
 output.log
 
+#Ignore default Caliper log location
+log/
+
 # Ignore any generted html files
 *.html
 

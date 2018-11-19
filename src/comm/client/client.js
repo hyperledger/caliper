@@ -17,7 +17,6 @@ const childProcess = require('child_process');
 const exec = childProcess.exec;
 const Util = require('../util.js');
 let absConfigFile;
-let test;
 const util = require('../util');
 const logger = util.getLogger('client.js');
 
@@ -105,9 +104,8 @@ class Client{
     * @param {JSON} t test object
     * @return {Promise} promise object
     */
-    init(demo, config, absCaliperDir, listener_child, t) {
+    init(demo, config, absCaliperDir, listener_child) {
         absConfigFile = require(Util.resolvePath(config));
-        test = t;
 
         if (this.config.hasOwnProperty('WITH_MQ') && this.config.WITH_MQ) {
             clientUtil._consumeEvents(function(err){
@@ -122,13 +120,13 @@ class Client{
                         if (error) {
                             throw error;
                         }
-                        test.end();
+                        //test.end();
                         process.exit();
                     });
                     end.stdout.pipe(process.stdout);
                     end.stderr.pipe(process.stderr);
                 }
-                test.end();
+                //test.end();
             });
         }
         if(this.config.hasOwnProperty('type')) {

@@ -10,9 +10,6 @@
 'use strict';
 const logger = require('../util.js').getLogger('client-util.js');
 let processes  = {}; // {pid:{obj, promise}}
-let txUpdateTime = 1000;
-const kafka = require('kafka-node');
-const listener_config = require('../../listener/listener-config.json');
 let confirmedTransactions = [];
 let cachedEvents = new Map();
 let unConfirmedTransactions = [];
@@ -35,6 +32,8 @@ let invokeCallback = false;
  * @param {Function} cb callback function to return control to caller
  */
 function _consumeEvents(cb){
+    const kafka = require('kafka-node');
+    const listener_config = require('../../listener/listener-config.json');
     let Consumer = kafka.Consumer;
     let KafkaClient = new kafka.KafkaClient({ kafkaHost: listener_config.broker_urls, requestTimeout: 300000000 });
     let options = {
@@ -266,6 +265,7 @@ function updateResults(withMQ) {
  * @return {Promise} promise object
  */
 function startTest(number, message, clientArgs, updates, results, withMQ) {
+    let txUpdateTime = 1000;
     testfinished = false;
     let count = 0;
     for(let i in processes) {
