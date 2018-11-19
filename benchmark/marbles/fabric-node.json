@@ -3,7 +3,7 @@
     "cryptodir": "network/fabric/config/crypto-config",
     "network": {
       "orderer": {
-        "url": "grpcs://localhost:7050",
+        "url": "grpc://localhost:7050",
         "mspid": "OrdererMSP",
         "user": {
           "key": "network/fabric/config/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/key.pem",
@@ -20,12 +20,12 @@
           "cert": "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem"
         },
         "ca": {
-          "url": "https://localhost:7054",
+          "url": "http://localhost:7054",
           "name": "ca-org1"
         },
         "peer1": {
-          "requests": "grpcs://localhost:7051",
-          "events": "grpcs://localhost:7053",
+          "requests": "grpc://localhost:7051",
+          "events": "grpc://localhost:7053",
           "server-hostname": "peer0.org1.example.com",
           "tls_cacerts": "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
         }
@@ -34,12 +34,12 @@
         "name": "peerOrg2",
         "mspid": "Org2MSP",
         "ca": {
-          "url": "https://localhost:8054",
+          "url": "http://localhost:8054",
           "name": "ca-org2"
         },
         "peer1": {
-          "requests": "grpcs://localhost:8051",
-          "events": "grpcs://localhost:8053",
+          "requests": "grpc://localhost:8051",
+          "events": "grpc://localhost:8053",
           "server-hostname": "peer0.org2.example.com",
           "tls_cacerts": "network/fabric/config/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt"
         }

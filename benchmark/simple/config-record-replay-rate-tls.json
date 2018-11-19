@@ -1,11 +1,11 @@
 {
   "blockchain": {
     "type": "fabric",
-    "config": "benchmark/simple/fabric.json"
+    "config": "benchmark/simple/fabric-tls.json"
   },
   "command" : {
-    "start": "docker-compose -f network/fabric/2org2peer/docker-compose.yaml up -d",
-    "end" : "docker-compose -f network/fabric/2org2peer/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
+    "start": "docker-compose -f network/fabric/2org2peer/docker-compose-tls.yaml up -d",
+    "end" : "docker-compose -f network/fabric/2org2peer/docker-compose-tls.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
   },
   "test": {
     "name": "simple",

@@ -3,29 +3,37 @@
     "cryptodir": "network/fabric/config/crypto-config",
     "network": {
       "orderer": {
-        "url": "grpc://localhost:7050",
+        "url": "grpcs://localhost:7050",
         "mspid": "OrdererMSP",
-        "msp": "network/fabric/config/crypto-config/ordererOrganizations/example.com/msp/",
+        "domain": "example.com",
+        "user": {
+          "key": "network/fabric/config/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/key.pem",
+          "cert": "network/fabric/config/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts/Admin@example.com-cert.pem"
+        },
         "server-hostname": "orderer.example.com",
         "tls_cacerts": "network/fabric/config/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt"
       },
       "org1": {
         "name": "peerOrg1",
         "mspid": "Org1MSP",
-        "msp": "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/msp/",
+        "domain": "org1.example.com",
+        "user": {
+          "key": "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/key.pem",
+          "cert": "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem"
+        },
         "ca": {
-          "url": "http://localhost:7054",
+          "url": "https://localhost:7054",
           "name": "ca-org1"
         },
         "peer1": {
-          "requests": "grpc://localhost:7051",
-          "events": "grpc://localhost:7053",
+          "requests": "grpcs://localhost:7051",
+          "events": "grpcs://localhost:7053",
           "server-hostname": "peer0.org1.example.com",
           "tls_cacerts": "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
         },
         "peer2": {
-          "requests": "grpc://localhost:7057",
-          "events": "grpc://localhost:7059",
+          "requests": "grpcs://localhost:7057",
+          "events": "grpcs://localhost:7059",
           "server-hostname": "peer1.org1.example.com",
           "tls_cacerts": "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/ca.crt"
         }
@@ -33,20 +41,20 @@
       "org2": {
         "name": "peerOrg2",
         "mspid": "Org2MSP",
-        "msp": "network/fabric/config/crypto-config/peerOrganizations/org2.example.com/msp/",
+        "domain": "org2.example.com",
         "ca": {
-          "url": "http://localhost:8054",
+          "url": "https://localhost:8054",
           "name": "ca-org2"
         },
         "peer1": {
-          "requests": "grpc://localhost:8051",
-          "events": "grpc://localhost:8053",
+          "requests": "grpcs://localhost:8051",
+          "events": "grpcs://localhost:8053",
           "server-hostname": "peer0.org2.example.com",
           "tls_cacerts": "network/fabric/config/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt"
         },
         "peer2": {
-          "requests": "grpc://localhost:8057",
-          "events": "grpc://localhost:8059",
+          "requests": "grpcs://localhost:8057",
+          "events": "grpcs://localhost:8059",
           "server-hostname": "peer1.org2.example.com",
           "tls_cacerts": "network/fabric/config/crypto-config/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls/ca.crt"
         }
@@ -55,12 +63,12 @@
     "channel": [
       {
         "name": "mychannel",
-        "deployed": false,
         "config": "network/fabric/config/mychannel.tx",
-        "organizations": ["org1", "org2"]
+        "organizations": ["org1", "org2"],
+        "deployed": false
       }
     ],
-    "chaincodes": [{"id": "drm", "path": "contract/fabric/drm", "version": "v0", "language":"golang", "channel": "mychannel"}],
+    "chaincodes": [{"id": "simple", "path": "src/contract/fabric/simple/node", "language":"node", "version": "v0", "channel": "mychannel"}],
     "endorsement-policy": {
       "identities": [
         {
@@ -85,12 +93,12 @@
       "policy": { "2-of": [{"signed-by": 0}, {"signed-by": 1}]}
     },
     "context": {
-      "publish": "mychannel",
+      "open": "mychannel",
       "query": "mychannel"
     }
   },
   "info" : {
-    "Version": "1.0.0",
+    "Version": "1.1.0",
     "Size": "4 Peers",
     "Orderer": "Solo",
     "Distribution": "Single Host"

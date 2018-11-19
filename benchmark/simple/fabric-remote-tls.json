@@ -3,7 +3,7 @@
     "cryptodir": "network/fabric/2org2peer/crypto-config",
     "network": {
       "orderer": {
-        "url": "grpc://10.229.42.159:7050",
+        "url": "grpcs://10.229.42.159:7050",
         "mspid": "OrdererMSP",
         "domain": "example.com",
         "msp": "network/fabric/2org2peer/crypto-config/ordererOrganizations/example.com/msp/",
@@ -16,18 +16,18 @@
         "domain": "org1.example.com",
         "msp": "network/fabric/2org2peer/crypto-config/peerOrganizations/org1.example.com/msp/",
         "ca": {
-          "url": "http://10.229.42.159:7054",
+          "url": "https://10.229.42.159:7054",
           "name": "ca-org1"
         },
         "peer1": {
-          "requests": "grpc://10.229.42.159:7051",
-          "events": "grpc://10.229.42.159:7053",
+          "requests": "grpcs://10.229.42.159:7051",
+          "events": "grpcs://10.229.42.159:7053",
           "server-hostname": "peer0.org1.example.com",
           "tls_cacerts": "network/fabric/2org2peer/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
         },
         "peer2": {
-          "requests": "grpc://10.229.42.159:7057",
-          "events": "grpc://10.229.42.159:7059",
+          "requests": "grpcs://10.229.42.159:7057",
+          "events": "grpcs://10.229.42.159:7059",
           "server-hostname": "peer1.org1.example.com",
           "tls_cacerts": "network/fabric/2org2peer/crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/ca.crt"
         }
@@ -38,18 +38,18 @@
         "domain": "org2.example.com",
         "msp": "network/fabric/2org2peer/crypto-config/peerOrganizations/org2.example.com/msp/",
         "ca": {
-          "url": "http://10.229.42.159:8054",
+          "url": "https://10.229.42.159:8054",
           "name": "ca-org2"
         },
         "peer1": {
-          "requests": "grpc://10.229.42.159:8051",
-          "events": "grpc://10.229.42.159:8053",
+          "requests": "grpcs://10.229.42.159:8051",
+          "events": "grpcs://10.229.42.159:8053",
           "server-hostname": "peer0.org2.example.com",
           "tls_cacerts": "network/fabric/2org2peer/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt"
         },
         "peer2": {
-          "requests": "grpc://10.229.42.159:8057",
-          "events": "grpc://10.229.42.159:8059",
+          "requests": "grpcs://10.229.42.159:8057",
+          "events": "grpcs://10.229.42.159:8059",
           "server-hostname": "peer1.org2.example.com",
           "tls_cacerts": "network/fabric/2org2peer/crypto-config/peerOrganizations/org2.example.com/peers/peer1.org2.example.com/tls/ca.crt"
         }

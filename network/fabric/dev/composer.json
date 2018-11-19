@@ -1,6 +1,6 @@
-{  
+{
   "composer": {
-    "chaincodes": [{"id": "basic-sample-network", "version": "0.1.0", "path": "contract/composer", "orgs": ["Org1"], "loglevel": "INFO"}],
+    "chaincodes": [{"id": "basic-sample-network", "version": "0.1.0", "path": "src/contract/composer", "orgs": ["Org1"], "loglevel": "INFO"}],
     "cryptodir": "network/fabric/config/crypto-config",
     "network": {
       "x-type" : "hlfv1",
@@ -27,8 +27,8 @@
           "name": "Org1",
           "mspid": "Org1MSP",
           "mspconfig": "/etc/hyperledger/msp/users/Admin@org1.example.com/msp",
-          "adminCert": "/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem",
-          "adminKey" : "/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/key.pem",
+          "adminCert": "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem",
+          "adminKey" : "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/key.pem",
           "certificateAuthorities": [
             "ca.org1.example.com"
           ],
@@ -41,7 +41,7 @@
         "peer0.org1.example.com": {
           "url": "grpc://localhost:7051",
           "eventUrl": "grpc://localhost:7053",
-          "hostname": "peer0.org1.example.com",          
+          "hostname": "peer0.org1.example.com",
           "channels":[
             "mychannel"
           ]
@@ -49,7 +49,7 @@
       },
       "channels": {
         "mychannel": {
-          "config": "/etc/hyperledger/configtx/mychannel.tx",          
+          "config": "/etc/hyperledger/configtx/mychannel.tx",
           "mspconfig": "/etc/hyperledger/msp/users/Admin@org1.example.com/msp",
           "orderers": [
             "orderer.example.com"
@@ -59,6 +59,6 @@
           ]
         }
       }
-    }            
+    }
   }
 }

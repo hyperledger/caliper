@@ -4,8 +4,8 @@
     "config": "benchmark/simple/fabric-remote.json"
   },
   "command" : {
-    "start": "docker-compose -f network/fabric/simplenetwork/docker-compose.yaml up -d",
-    "end" : "docker-compose -f network/fabric/simplenetwork/docker-compose.yaml down;docker rm $(docker ps -aq)"
+    "start": "docker-compose -f network/fabric/2org2peer/docker-compose.yaml up -d",
+    "end" : "docker-compose -f network/fabric/2org2peer/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
   },
   "test": {
     "name": "simple",

@@ -1,6 +1,6 @@
-{  
+{
   "composer": {
-    "chaincodes": [{"id": "basic-sample-network", "version": "0.1.0", "path": "contract/composer", "orgs": ["Org1"], "loglevel": "INFO"}],
+    "chaincodes": [{"id": "basic-sample-network", "version": "0.1.0", "path": "src/contract/composer", "orgs": ["Org1"], "loglevel": "INFO"}],
     "cryptodir": "network/fabric/config/crypto-config",
     "network": {
       "x-type" : "hlfv1",
@@ -12,7 +12,7 @@
           "url": "grpcs://localhost:7050",
           "mspid": "OrdererMSP",
           "mspconfig": "/etc/hyperledger/msp/orderer/tls/ca.crt",
-          "cert": "/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt",
+          "cert": "network/fabric/config/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt",
           "hostname": "orderer.example.com",
           "hosturl": "orderer.example.com:7050"
         }
@@ -28,8 +28,8 @@
           "name": "Org1",
           "mspid": "Org1MSP",
           "mspconfig": "/etc/hyperledger/msp/users/Admin@org1.example.com/msp",
-          "adminCert": "/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem",
-          "adminKey" : "/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/key.pem",
+          "adminCert": "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem",
+          "adminKey" : "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/key.pem",
           "certificateAuthorities": [
             "ca.org1.example.com"
           ],
@@ -43,7 +43,7 @@
           "url": "grpcs://localhost:7051",
           "eventUrl": "grpcs://localhost:7053",
           "hostname": "peer0.org1.example.com",
-          "cert" : "/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt",
+          "cert" : "network/fabric/config/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt",
           "channels":[
             "mychannel"
           ]
@@ -51,7 +51,7 @@
       },
       "channels": {
         "mychannel": {
-          "config": "/etc/hyperledger/configtx/mychannel.tx",          
+          "config": "/etc/hyperledger/configtx/mychannel.tx",
           "mspconfig": "/etc/hyperledger/msp/users/Admin@org1.example.com/msp",
           "cafile": "/etc/hyperledger/msp/orderer/tls/ca.crt",
           "orderers": [
@@ -62,6 +62,6 @@
           ]
         }
       }
-    }            
+    }
   }
 }
