@@ -25,39 +25,32 @@ const Client = require('fabric-client');
 const commUtils = require('../comm/util');
 const commLogger = commUtils.getLogger('install-chaincode.js');
 
-module.exports.run = function (config_path) {
+module.exports.run = async function (config_path) {
     Client.addConfigFile(config_path);
     testUtil.setupChaincodeDeploy();
     const fabricSettings = Client.getConfigSetting('fabric');
     let chaincodes = fabricSettings.chaincodes;
     if(typeof chaincodes === 'undefined' || chaincodes.length === 0) {
-        return Promise.resolve();
+        return;
     }
-    return new Promise(function(resolve, reject) {
-        commLogger.info('install all chaincodes......');
-        chaincodes.reduce(function(prev, chaincode){
-            return prev.then(() => {
-                let promises = [];
-                let channel  = testUtil.getChannel(chaincode.channel);
-                if(channel === null) {
-                    throw new Error('could not find channel in config');
-                }
-                for(let v in channel.organizations) {
-                    promises.push(e2eUtils.installChaincode(channel.organizations[v], chaincode));
-                }
 
-                return Promise.all(promises).then(() => {
-                    commLogger.info('Installed chaincode ' + chaincode.id +  ' successfully in all peers');
-                    return Promise.resolve();
-                });
-            });
-        }, Promise.resolve())
-            .then(() => {
-                return resolve();
-            })
-            .catch((err) => {
-                commLogger.error('Failed to install chaincodes, ' + (err.stack?err.stack:err));
-                return reject(err);
-            });
-    });
+    commLogger.info('Installing chaincodes...');
+    try {
+        for (let chaincode of chaincodes) {
+            let channel  = testUtil.getChannel(chaincode.channel);
+            if(channel === null) {
+                throw new Error('could not find channel in config');
+            }
+
+            for(let v in channel.organizations) {
+                // NOTE: changed execution to sequential for easier debugging (this is a one-time task, performance doesn't matter)
+                await e2eUtils.installChaincode(channel.organizations[v], chaincode);
+            }
+
+            commLogger.info(`Installed chaincode ${chaincode.id} successfully in all peers`);
+        }
+    } catch (err) {
+        commLogger.error(`Failed to install chaincodes: ${(err.stack ? err.stack : err)}`);
+        throw err;
+    }
 };

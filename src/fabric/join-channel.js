@@ -48,9 +48,9 @@ function disconnect(ehs) {
  * Join the peers of the given organization to the given channel.
  * @param {string} org The name of the organization.
  * @param {string} channelName The name of the channel.
- * @return {Promise} The return promise.
+ * @async
  */
-function joinChannel(org, channelName) {
+async function joinChannel(org, channelName) {
     const client = new Client();
     const channel = client.newChannel(channelName);
 
@@ -61,7 +61,6 @@ function joinChannel(org, channelName) {
     const caRootsPath = ORGS.orderer.tls_cacerts;
     let data = fs.readFileSync(commUtils.resolvePath(caRootsPath));
     let caroots = Buffer.from(data).toString();
-    let genesis_block = null;
 
     channel.addOrderer(
         client.newOrderer(
@@ -73,55 +72,47 @@ function joinChannel(org, channelName) {
         )
     );
 
-    return Client.newDefaultKeyValueStore({
-        path: testUtil.storePathForOrg(orgName)
-    }).then((store) => {
+    try {
+        let store = await Client.newDefaultKeyValueStore({path: testUtil.storePathForOrg(orgName)});
         client.setStateStore(store);
-
-        return testUtil.getOrderAdminSubmitter(client);
-    }).then((admin) => {
+        await testUtil.getOrderAdminSubmitter(client);
         tx_id = client.newTransactionID();
         let request = {
             txId : tx_id
         };
 
-        return channel.getGenesisBlock(request);
-    }).then((block) =>{
-        genesis_block = block;
-
+        let genesis_block = await channel.getGenesisBlock(request);
         // get the peer org's admin required to send join channel requests
         client._userContext = null;
+        await testUtil.getSubmitter(client, true /* get peer org admin */, org);
 
-        return testUtil.getSubmitter(client, true /* get peer org admin */, org);
-    }).then((admin) => {
         //the_user = admin;
         for (let key in ORGS[org]) {
-            if (ORGS[org].hasOwnProperty(key)) {
-                if(key.indexOf('peer') === 0) {
-                    data = fs.readFileSync(commUtils.resolvePath(ORGS[org][key].tls_cacerts));
-                    targets.push(
-                        client.newPeer(
-                            ORGS[org][key].requests,
-                            {
-                                pem: Buffer.from(data).toString(),
-                                'ssl-target-name-override': ORGS[org][key]['server-hostname']
-                            }
-                        )
-                    );
-
-                    let eh = new EventHub(client);  //client.newEventHub();
-                    eh.setPeerAddr(
-                        ORGS[org][key].events,
-                        {
-                            pem: Buffer.from(data).toString(),
-                            'ssl-target-name-override': ORGS[org][key]['server-hostname']
-                        }
-                    );
-                    eh.connect();
-                    eventhubs.push(eh);
-                    allEventhubs.push(eh);
-                }
+            if (!ORGS[org].hasOwnProperty(key) || key.indexOf('peer') !== 0) {
+                continue;
             }
+
+            data = fs.readFileSync(commUtils.resolvePath(ORGS[org][key].tls_cacerts));
+            targets.push(
+                client.newPeer(
+                    ORGS[org][key].requests,
+                    {
+                        pem: Buffer.from(data).toString(),
+                        'ssl-target-name-override': ORGS[org][key]['server-hostname']
+                    }
+                )
+            );
+            let eh = new EventHub(client);
+            eh.setPeerAddr(
+                ORGS[org][key].events,
+                {
+                    pem: Buffer.from(data).toString(),
+                    'ssl-target-name-override': ORGS[org][key]['server-hostname']
+                }
+            );
+            eh.connect();
+            eventhubs.push(eh);
+            allEventhubs.push(eh);
         }
 
         const eventPromises = [];
@@ -149,64 +140,57 @@ function joinChannel(org, channelName) {
 
             eventPromises.push(txPromise);
         });
+
         tx_id = client.newTransactionID();
-        let request = {
+        request = {
             targets : targets,
             block : genesis_block,
             txId : tx_id
         };
+
         let sendPromise = channel.joinChannel(request);
-        return Promise.all([sendPromise].concat(eventPromises));
-    })
-        .then((results) => {
-            disconnect(eventhubs);
-            if(results[0] && results[0][0] && results[0][0].response && results[0][0].response.status === 200) {
-                // t.pass(util.format('Successfully joined peers in organization %s to join the channel', orgName));
-            } else {
-                throw new Error('Unexpected join channel response');
-            }
-        })
-        .catch((err)=>{
-            disconnect(eventhubs);
-            return Promise.reject(err);
-        });
+        let results = await Promise.all([sendPromise].concat(eventPromises));
+
+        disconnect(eventhubs);
+        if(results[0] && results[0][0] && results[0][0].response && results[0][0].response.status === 200) {
+            commlogger.info(`Successfully joined ${orgName}'s peers to ${channelName}`);
+        } else {
+            throw new Error('Unexpected join channel response');
+        }
+    } catch (err) {
+        disconnect(eventhubs);
+        commlogger.error(`Couldn't join ${orgName}'s peers to ${channelName}: ${err.stack ? err.stack : err}`);
+        throw err;
+    }
 }
 
-module.exports.run = function (config_path) {
+module.exports.run = async function (config_path) {
     Client.addConfigFile(config_path);
     const fabric = Client.getConfigSetting('fabric');
     let channels = fabric.channel;
     if(!channels || channels.length === 0) {
-        return Promise.resolve();
+        return;
     }
     ORGS = Client.getConfigSetting('fabric').network;
-    return new Promise(function(resolve, reject) {
-        commlogger.info('Join channel......');
+    commlogger.info('Joining channels...');
 
-        return channels.reduce((prev, channel)=>{
-            return prev.then(() => {
-                if(channel.deployed) {
-                    return Promise.resolve();
-                }
+    try {
+        for (let channel of channels) {
+            if(channel.deployed) {
+                continue;
+            }
 
-                commlogger.info('join ' + channel.name);
-                let promises = [];
-                channel.organizations.forEach((org, index) => {
-                    promises.push(joinChannel(org, channel.name));
-                });
-                return Promise.all(promises).then(()=>{
-                    commlogger.info('Successfully joined ' + channel.name);
-                    return Promise.resolve();
-                });
-            });
-        }, Promise.resolve())
-            .then(() => {
-                return resolve();
-            })
-            .catch((err)=>{
-                commlogger.error('Failed to join peers, ' + (err.stack?err.stack:err));
-                return reject(new Error('Fabric: Join channel failed'));
-            });
-    });
+            commlogger.info(`Joining ${channel.name}...`);
+            for (let org of channel.organizations) {
+                // NOTE: made the execution sequential for easier debugging
+                await joinChannel(org, channel.name);
+            }
+
+            commlogger.info(`Successfully joined ${channel.name}`);
+        }
+    } catch (err) {
+        commlogger.error(`Failed to join peers: ${(err.stack ? err.stack : err)}`);
+        throw err;
+    }
 };
 

@@ -22,7 +22,7 @@ class BlockchainInterface {
     /**
      * Initialise test environment
      */
-    init() {
+    async init() {
         throw new Error('init is not implemented for this blockchain system');
     }
 
@@ -32,7 +32,7 @@ class BlockchainInterface {
     /**
      * Install smart contract(s)
      */
-    installSmartContract() {
+    async installSmartContract() {
         throw new Error('installSmartContract is not implemented for this blockchain system');
     }
 
@@ -41,12 +41,12 @@ class BlockchainInterface {
      * @param {Number} number count of test clients
      * @return {Promise} obtained material for test clients
      */
-    prepareClients (number) {
+    async prepareClients (number) {
         let result = [];
         for(let i = 0 ; i< number ; i++) {
             result[i] = {}; // as default, return an empty object for each client
         }
-        return Promise.resolve(result);
+        return result;
     }
 
     /**
@@ -58,7 +58,7 @@ class BlockchainInterface {
      * @param {String} name name of the context
      * @param {Object} args adapter specific arguments
      */
-    getContext(name, args) {
+    async getContext(name, args) {
         throw new Error('getContext is not implemented for this blockchain system');
     }
 
@@ -66,7 +66,7 @@ class BlockchainInterface {
      * Release a context as well as related resources
      * @param {Object} context adapter specific object
      */
-    releaseContext(context) {
+    async releaseContext(context) {
         throw new Error('releaseContext is not implemented for this blockchain system');
     }
 
@@ -78,7 +78,7 @@ class BlockchainInterface {
      * @param {Array} args array of JSON formatted arguments for multiple transactions
      * @param {Number} timeout request timeout, in second
      */
-    invokeSmartContract(context, contractID, contractVer, args, timeout) {
+    async invokeSmartContract(context, contractID, contractVer, args, timeout) {
         throw new Error('invokeSmartContract is not implemented for this blockchain system');
     }
 
@@ -90,7 +90,7 @@ class BlockchainInterface {
      * @param {String} key lookup key
      * @param {String=} [fcn] The chaincode query function name
      */
-    queryState(context, contractID, contractVer, key, fcn) {
+    async queryState(context, contractID, contractVer, key, fcn) {
         throw new Error('queryState is not implemented for this blockchain system');
     }
 

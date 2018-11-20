@@ -94,78 +94,72 @@ function launchClient(updates, results) {
  * @param {Array} clientArgs each element contains specific arguments for a client
  * @param {Array} updates array to save txUpdate results
  * @param {Array} results array to save the test results
- * @return {Promise} promise object
+ * @async
  */
-function startTest(number, message, clientArgs, updates, results) {
+async function startTest(number, message, clientArgs, updates, results) {
     let count = 0;
     for(let i in processes) {
         i;  // avoid eslint error
         count++;
     }
-    if(count === number) {  // already launched clients
-        let txPerClient;
-        if (message.numb) {
-            // Run specified number of transactions
-            txPerClient  = Math.floor(message.numb / number);
 
-            // trim should be based on client number if specified with txNumber
-            if (message.trim) {
-                message.trim = Math.floor(message.trim / number);
-            }
+    if (count !== number) {
+        // launch clients
+        processes = {};
+        for(let i = 0 ; i < number ; i++) {
+            launchClient(updates, results);
+        }
+    }
 
-            if(txPerClient < 1) {
-                txPerClient = 1;
-            }
-            message.numb = txPerClient;
-        } else if (message.txDuration) {
-            // Run for time specified txDuration based on clients
-            // Do nothing, we run for the time specified within message.txDuration
-        } else {
-            return Promise.reject(new Error('Unconditioned transaction rate driving mode'));
+    let txPerClient;
+    if (message.numb) {
+        // Run specified number of transactions
+        txPerClient  = Math.floor(message.numb / number);
+
+        // trim should be based on client number if specified with txNumber
+        if (message.trim) {
+            message.trim = Math.floor(message.trim / number);
         }
 
-        message.clients = number;
-
-        let promises = [];
-        let idx = 0;
-        for(let id in processes) {
-            let client = processes[id];
-            let p = new Promise((resolve, reject) => {
-                client.promise = {
-                    resolve: resolve,
-                    reject:  reject
-                };
-            });
-            promises.push(p);
-            client.results = results;
-            client.updates = updates;
-            message.clientargs = clientArgs[idx];
-            message.clientIdx = idx;
-            idx++;
-
-            client.obj.send(message);
+        if(txPerClient < 1) {
+            txPerClient = 1;
         }
+        message.numb = txPerClient;
+    } else if (message.txDuration) {
+        // Run for time specified txDuration based on clients
+        // Do nothing, we run for the time specified within message.txDuration
+    } else {
+        throw new Error('Unconditioned transaction rate driving mode');
+        //return Promise.reject(new Error('Unconditioned transaction rate driving mode'));
+    }
 
-        return Promise.all(promises).then(()=>{
-            // clear promises
-            for(let client in processes) {
-                delete client.promise;
-            }
-            return Promise.resolve();
-        }).catch((err)=>{
-            return Promise.reject(err);
+    message.clients = number;
+
+    let promises = [];
+    let idx = 0;
+    for(let id in processes) {
+        let client = processes[id];
+        let p = new Promise((resolve, reject) => {
+            client.promise = {
+                resolve: resolve,
+                reject:  reject
+            };
         });
+        promises.push(p);
+        client.results = results;
+        client.updates = updates;
+        message.clientargs = clientArgs[idx];
+        message.clientIdx = idx;
+        idx++;
 
+        client.obj.send(message);
     }
 
-    // launch clients
-    processes = {};
-    for(let i = 0 ; i < number ; i++) {
-        launchClient(updates, results);
+    await Promise.all(promises);
+    // clear promises
+    for(let client in processes) {
+        delete client.promise;
     }
-
-    // start test
-    return startTest(number, message, clientArgs, updates, results);
 }
 module.exports.startTest = startTest;
 

@@ -14,18 +14,6 @@ let logger = Util.getLogger('local-client.js');
 const bc   = require('../blockchain.js');
 const RateControl = require('../rate-control/rateControl.js');
 
-/*const path = require('path');
-const config = cfUtil.getConfig();
-const commUtils = require('../util');
-//const defaultConfig = commUtils.resolvePath('config/default.json');
-const defaultConfig = commUtils.resolvePath('config/default.yaml');
-
-//const defaultConfig = path.resolve(__dirname, '../../../config/default.json');
-//make sure this default has precedences
-config.reorderFileStores(defaultConfig);
-*/
-
-
 let blockchain;
 let results      = [];
 let txNum        = 0;
@@ -142,7 +130,7 @@ function submitCallback(count) {
 async function runFixedNumber(msg, cb, context) {
     logger.debug('Info: client ' + process.pid +  ' start test runFixedNumber()' + (cb.info ? (':' + cb.info) : ''));
     let rateControl = new RateControl(msg.rateControl, blockchain);
-    rateControl.init(msg);
+    await rateControl.init(msg);
 
     await cb.init(blockchain, context, msg.args);
     startTime = Date.now();
@@ -171,7 +159,7 @@ async function runFixedNumber(msg, cb, context) {
 async function runDuration(msg, cb, context) {
     logger.debug('Info: client ' + process.pid +  ' start test runDuration()' + (cb.info ? (':' + cb.info) : ''));
     let rateControl = new RateControl(msg.rateControl, blockchain);
-    rateControl.init(msg);
+    await rateControl.init(msg);
     const duration = msg.txDuration; // duration in seconds
 
     await cb.init(blockchain, context, msg.args);
@@ -196,7 +184,7 @@ async function runDuration(msg, cb, context) {
  * @param {JSON} msg start test message
  * @return {Promise} promise object
  */
-function doTest(msg) {
+async function doTest(msg) {
     logger.debug('doTest() with:', msg);
     let cb = require(Util.resolvePath(msg.cb));
     blockchain = new bc(Util.resolvePath(msg.config));
@@ -218,7 +206,8 @@ function doTest(msg) {
         }
     };
 
-    return blockchain.getContext(msg.label, msg.clientargs).then((context) => {
+    try {
+        let context = await blockchain.getContext(msg.label, msg.clientargs);
         if(typeof context === 'undefined') {
             context = {
                 engine : {
@@ -231,55 +220,52 @@ function doTest(msg) {
                 submitCallback : submitCallback
             };
         }
+
         if (msg.txDuration) {
-            return runDuration(msg, cb, context);
+            await runDuration(msg, cb, context);
         } else {
-            return runFixedNumber(msg, cb, context);
+            await runFixedNumber(msg, cb, context);
         }
-    }).then(() => {
+
         clearUpdateInter();
-        return cb.end();
-    }).then(() => {
+        await cb.end();
+
         if (resultStats.length > 0) {
-            return Promise.resolve(resultStats[0]);
+            return resultStats[0];
         }
         else {
-            return Promise.resolve(bc.createNullDefaultTxStats());
+            return bc.createNullDefaultTxStats();
         }
-    }).catch((err) => {
+    } catch (err) {
         clearUpdateInter();
-        logger.error('Client ' + process.pid + ': error ' + (err.stack ? err.stack : err));
-        return Promise.reject(err);
-    });
+        logger.error(`Client[${process.pid}] encountered an error: ${(err.stack ? err.stack : err)}`);
+        throw err;
+    }
 }
 
 /**
  * Message handler
  */
-process.on('message', function(message) {
-    if(message.hasOwnProperty('type')) {
-        try {
-            switch(message.type) {
-            case 'test': {
-                let result;
-                doTest(message).then((output) => {
-                    result = output;
-                    return Util.sleep(200);
-                }).then(() => {
-                    process.send({type: 'testResult', data: result});
-                });
-                break;
-            }
-            default: {
-                process.send({type: 'error', data: 'unknown message type'});
-            }
-            }
+process.on('message', async (message) => {
+    if (!message.hasOwnProperty('type')) {
+        process.send({type: 'error', data: 'unknown message type'});
+        return;
+    }
+
+    try {
+        switch (message.type) {
+        case 'test': {
+            let result = await doTest(message);
+            await Util.sleep(200);
+            process.send({type: 'testResult', data: result});
+            break;
         }
-        catch(err) {
-            process.send({type: 'error', data: err.toString()});
+        default: {
+            process.send({type: 'error', data: 'unknown message type'});
+        }
         }
     }
-    else {
-        process.send({type: 'error', data: 'unknown message type'});
+    catch (err) {
+        process.send({type: 'error', data: err.toString()});
     }
 });
