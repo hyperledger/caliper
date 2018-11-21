@@ -27,7 +27,9 @@ let round = 0;              // test round
 let demo = require('../gui/src/demo.js');
 let absConfigFile, absNetworkFile;
 let absCaliperDir = path.join(__dirname, '..', '..');
-
+let absCaliperPath = '../../';
+let listener_child;
+let configurationType;
 
 /**
  * Generate mustache template for test report
@@ -278,6 +280,8 @@ function defaultTest(args, clientArgs, final) {
  * @param {String} networkFile path of the blockchain configuration file
  */
 module.exports.run = function(configFile, networkFile) {
+	let localConfig = require(configFile);
+    configurationType = localConfig.test.clients.WITH_MQ;
     logger.info('#######Caliper Test######');
     absConfigFile  = Util.resolvePath(configFile);
     absNetworkFile = Util.resolvePath(networkFile);
@@ -303,14 +307,21 @@ module.exports.run = function(configFile, networkFile) {
             resolve();
         }
     });
-
     startPromise.then(() => {
+        if (configurationType) {
+            let blockListenerPath = path.join(__dirname, absCaliperPath, 'listener/block-listener-handler.js');
+            listener_child = childProcess.fork(blockListenerPath);
+            listener_child.on('error', function () {
+                logger.error('client encountered unexpected error');
+            });
+            listener_child.send({ type:'test', config: configFile });
+        }
         return blockchain.init();
     }).then( () => {
 
         return blockchain.installSmartContract();
     }).then( () => {
-        return client.init().then((number)=>{
+        return client.init(demo, configFile, absCaliperDir, listener_child).then((number)=>{
             return blockchain.prepareClients(number);
         });
     }).then( (clientArgs) => {
@@ -330,6 +341,9 @@ module.exports.run = function(configFile, networkFile) {
             });
         }, Promise.resolve());
     }).then( () => {
+        if (configurationType) {
+            listener_child.send({type:'closeKafkaProducer', config: configFile});
+        }
         logger.info('----------finished test----------\n');
         printResultsByRound();
         monitor.printMaxStats();
@@ -346,11 +360,15 @@ module.exports.run = function(configFile, networkFile) {
         let config = require(absConfigFile);
         if (config.hasOwnProperty('command') && config.command.hasOwnProperty('end')){
             logger.info(config.command.end);
-            let end = exec(config.command.end, {cwd: absCaliperDir});
+            let end = exec(config.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
+                if (error) {
+                    throw error;
+                }
+                process.exit();
+            });
             end.stdout.pipe(process.stdout);
             end.stderr.pipe(process.stderr);
         }
-
         // NOTE: keep the below multi-line formatting intact, otherwise the indents will interfere with the template literal
         let testSummary = `# Test summary: ${success} succeeded, ${failure} failed #`;
         logger.info(`
@@ -360,12 +378,20 @@ ${testSummary}
 ${'#'.repeat(testSummary.length)}
 `);
     }).catch( (err) => {
+        if (configurationType) {
+            listener_child.send({type:'closeKafkaProducer', config: configFile});
+        }
         demo.stopWatch();
         logger.error('unexpected error, ' + (err.stack ? err.stack : err));
         let config = require(absConfigFile);
         if (config.hasOwnProperty('command') && config.command.hasOwnProperty('end')){
             logger.info(config.command.end);
-            let end = exec(config.command.end, {cwd: absCaliperDir});
+            let end = exec(config.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
+                if (error) {
+                    throw error;
+                }
+                process.exit();
+            });
             end.stdout.pipe(process.stdout);
             end.stderr.pipe(process.stderr);
         }

@@ -67,7 +67,24 @@ Run `npm install` in caliper folder to install dependencies locally
 
    Please see the plugin [documentation](./docs/Composer.md) for more details on using the Composer performance plugin, and developing your own tests.
 
+### Install Apache Kafka MQ
+  
+#### Pre-requisites for Kafka MQ
+
+  * Following tools are required to be installed.
+      *   Docker version 17.03.0-ce or greater is required (tested with with 18.02.0-ce)
+      *   Docker-compose version 1.8 or greater is required (tested with with 1.19.0)
+
+  * Clone the file docker-compose-kafka.yaml present in `/kafka-setup` directory on the machine where you want to set up the Kafka cluster.
+  * Open the file docker-compose-kafka.yaml and change the `KAFKA_ADVERTISED_HOST_NAME` environment variable to the machine IP address where Kafka will be running. 
+  * Run `docker-compose -f docker-compose-kafka.yaml up -d`.
+
 ## Run benchmark
+
+ ### Note
+  1) Before running the fabric related benchmarks, make sure Apache kafka MQ is set up correctly.
+  2) Set the IP address of the Kafka, Peer event Url and related details in the [listener-config.json](./listener/listener-config.json) file.
+  
 
 All predefined benchmarks can be found in [*benchmark*](./benchmark) folder. 
 To start your first benchmark, just run this in root folder

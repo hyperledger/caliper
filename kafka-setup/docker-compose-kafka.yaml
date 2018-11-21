@@ -1,0 +1,119 @@
+
+version: '2'
+services:
+  zookeeper0:
+    image: hyperledger/fabric-zookeeper:x86_64-1.0.0
+    restart: always
+    container_name: zookeeper0
+    environment:
+      - ZOO_MY_ID=1
+      - ZOO_SERVERS=server.1=zookeeper0:2888:3888 server.2=zookeeper1:2888:3888 server.3=zookeeper2:2888:3888
+    ports:
+      - "2181:2181"
+      - "3888:2888"
+      - "4888:3888"
+
+  zookeeper1:
+    image: hyperledger/fabric-zookeeper:x86_64-1.0.0
+    restart: always
+    ports:
+      - "5181:2181"
+      - "6888:2888"
+      - "7888:3888"
+    container_name: zookeeper1
+    environment:
+      - ZOO_MY_ID=2
+      - ZOO_SERVERS=server.1=zookeeper0:2888:3888 server.2=zookeeper1:2888:3888 server.3=zookeeper2:2888:3888
+
+  zookeeper2:
+    image: hyperledger/fabric-zookeeper:x86_64-1.0.0
+    restart: always
+    ports:
+      - "8181:2181"
+      - "9888:2888"
+      - "10888:3888"
+    container_name: zookeeper2
+    environment:
+      - ZOO_MY_ID=3
+      - ZOO_SERVERS=server.1=zookeeper0:2888:3888 server.2=zookeeper1:2888:3888 server.3=zookeeper2:2888:3888
+
+  kafka0:
+    image: hyperledger/fabric-kafka:x86_64-1.0.0
+    restart: always
+    container_name: kafka0
+    environment:
+      - KAFKA_ADVERTISED_HOST_NAME=localhost
+      - KAFKA_ADVERTISED_PORT=9092
+      - KAFKA_BROKER_ID=0
+      - KAFKA_MIN_INSYNC_REPLICAS=2
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=3
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper0:2181,zookeeper1:2181,zookeeper2:2181
+      - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+      - KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
+      - KAFKA_MESSAGE_MAX_BYTES=5242880 B
+      - KAFKA_REPLICA_FETCH_MAX_BYTES=5242880 B
+      - KAFKA_REPLICA_FETCH_RESPONSE_MAX_BYTES=52428800 B
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper0
+      - zookeeper1
+      - zookeeper2
+    links:
+      - zookeeper0
+      - zookeeper1
+      - zookeeper2
+
+  kafka1:
+    image: hyperledger/fabric-kafka:x86_64-1.0.0
+    restart: always
+    container_name: kafka1
+    environment:
+      - KAFKA_ADVERTISED_HOST_NAME=localhost
+      - KAFKA_ADVERTISED_PORT=8092
+      - KAFKA_BROKER_ID=1
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=3
+      - KAFKA_MIN_INSYNC_REPLICAS=2
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper0:2181,zookeeper1:2181,zookeeper2:2181
+      - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+      - KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
+      - KAFKA_MESSAGE_MAX_BYTES=5242880 B
+      - KAFKA_REPLICA_FETCH_MAX_BYTES=5242880 B
+      - KAFKA_REPLICA_FETCH_RESPONSE_MAX_BYTES=52428800 B
+    ports:
+      - "8092:9092"
+    depends_on:
+      - zookeeper0
+      - zookeeper1
+      - zookeeper2
+    links:
+      - zookeeper0
+      - zookeeper1
+      - zookeeper2
+
+  kafka2:
+    image: hyperledger/fabric-kafka:x86_64-1.0.0
+    restart: always
+    container_name: kafka2
+    environment:
+      - KAFKA_ADVERTISED_HOST_NAME=localhost
+      - KAFKA_ADVERTISED_PORT=7092
+      - KAFKA_BROKER_ID=2
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=3
+      - KAFKA_MIN_INSYNC_REPLICAS=2
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper0:2181,zookeeper1:2181,zookeeper2:2181
+      - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+      - KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
+      - KAFKA_MESSAGE_MAX_BYTES=5242880 B
+      - KAFKA_REPLICA_FETCH_MAX_BYTES=5242880 B
+      - KAFKA_REPLICA_FETCH_RESPONSE_MAX_BYTES=52428800 B
+    ports:
+      - "7092:9092"
+    depends_on:
+      - zookeeper0
+      - zookeeper1
+      - zookeeper2
+    links:
+      - zookeeper0
+      - zookeeper1
+      - zookeeper2
