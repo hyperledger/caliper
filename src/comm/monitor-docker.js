@@ -215,7 +215,8 @@ class MonitorDocker extends MonitorInterface {
                             let sysDelta = stat.cpu_stats.system_cpu_usage - stat.precpu_stats.system_cpu_usage;
                             if(cpuDelta > 0 && sysDelta > 0) {
                                 if(stat.cpu_stats.cpu_usage.hasOwnProperty('percpu_usage') && stat.cpu_stats.cpu_usage.percpu_usage !== null) {
-                                    self.stats[id].cpu_percent.push(cpuDelta / sysDelta * stat.cpu_stats.cpu_usage.percpu_usage.length * 100.0);
+                                    //self.stats[id].cpu_percent.push(cpuDelta / sysDelta * stat.cpu_stats.cpu_usage.percpu_usage.length * 100.0);
+                                    self.stats[id].cpu_percent.push(cpuDelta / sysDelta * MonitorDocker.coresInUse(stat.cpu_stats) * 100.0);
                                 }
                                 else {
                                     self.stats[id].cpu_percent.push(cpuDelta / sysDelta * 100.0);
@@ -335,6 +336,27 @@ class MonitorDocker extends MonitorInterface {
      */
     getNetworkHistory(key) {
         return {'in': this.stats[key].netIO_rx, 'out':this.stats[key].netIO_tx};
+    }
+    
+    /**
+     * count the cpu core in real use
+     * @return the number core in real use
+     */
+    static coresInUse(cpu_stats) {
+        return cpu_stats.online_cpus || MonitorDocker.findCoresInUse(cpu_stats.cpu_usage.percpu_usage || []);
+    }
+
+    /**
+     * find the cpu core in real use
+     * @return the the percpu_usage.length
+     */
+    static findCoresInUse(percpu_usage) {
+        percpu_usage = percpu_usage.filter((coreUsage) => {
+            if (coreUsage > 0) {
+                return (coreUsage)
+            }
+        });
+        return percpu_usage.length;
     }
 }
 module.exports = MonitorDocker;
