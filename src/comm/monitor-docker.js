@@ -358,5 +358,5 @@ class MonitorDocker extends MonitorInterface {
         });
         return percpu_usage.length;
     }
-}
+    
 module.exports = MonitorDocker;
