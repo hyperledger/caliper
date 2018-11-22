@@ -9,13 +9,6 @@
 'use strict';
 const logger = require('../util.js').getLogger('client-util.js');
 let processes  = {}; // {pid:{obj, promise}}
-<<<<<<< 2e01d327dae5fd0c6bc59048ca19094ac140a214
-
-/**
-=======
-let txUpdateTime = 1000;
-const kafka = require('kafka-node');
-const listener_config = require('../../listener/listener-config.json');
 let confirmedTransactions = [];
 let cachedEvents = new Map();
 let unConfirmedTransactions = [];
@@ -38,6 +31,8 @@ let invokeCallback = false;
  * @param {Function} cb callback function to return control to caller
  */
 function _consumeEvents(cb){
+    const kafka = require('kafka-node');
+    const listener_config = require('../../listener/listener-config.json');
     let Consumer = kafka.Consumer;
     let KafkaClient = new kafka.KafkaClient({ kafkaHost: listener_config.broker_urls, requestTimeout: 300000000 });
     let options = {
@@ -88,7 +83,6 @@ function _consumeEvents(cb){
 }
 module.exports._consumeEvents = _consumeEvents;
 /**
->>>>>>> Kill fabric containers after the test is complete in MQ mode
  * Call the Promise function for a process
  * @param {String} pid pid of the process
  * @param {Boolean} isResolve indicates resolve(true) or reject(false)
@@ -131,12 +125,22 @@ function pushUpdate(pid, data) {
 }
 
 /**
+ * Push update value from a child process into the global array
+ * @param {String} pid pid of the child process
+ * @param {Object} data update value
+ */
+function pushUpdateForMQ(pid, data) {
+    totalTransactionsForMQ += data.submitted;
+    unConfirmedTransactions.push(data);
+}
+
+/**
  * Launch a child process to do the test
  * @param {Array} updates array to save txUpdate results
  * @param {Array} results array to save the test results
  */
 function launchClient(updates, results) {
-    let path = require('path');
+    //let path = require('path');
     let childProcess = require('child_process');
     let child = childProcess.fork(path.join(__dirname, 'local-client.js'));
     let pid   = child.pid.toString();
@@ -145,13 +149,17 @@ function launchClient(updates, results) {
     child.on('message', function(msg) {
         if(msg.type === 'testResult') {
             pushResult(pid, msg.data);
-            setPromise(pid, true, null);
+            setPromise(pid, true, msg.data);
         }
         else if(msg.type === 'error') {
             setPromise(pid, false, new Error('Client encountered error:' + msg.data));
         }
         else if(msg.type === 'txUpdated') {
             pushUpdate(pid, msg.data);
+        }
+        else if(msg.type === 'txUpdatedWithMQ') {
+            global_pid = pid;
+            pushUpdateForMQ(pid, msg.data);
         }
     });
 
@@ -166,21 +174,112 @@ function launchClient(updates, results) {
 }
 
 /**
+ *
+ * @param {Array} updates array to process txUpdates
+ */
+function verifyUnconfirmedTransactions(updates) {
+    for (let i = 0; i < updates.length; i++) {
+        let submitted_transactions = updates[i].committed;
+        for (let j =0; j < submitted_transactions.length; j++) {
+            let transactionStatus = submitted_transactions[j].status;
+            let TransactionStatus = new TxStatus(transactionStatus.id, transactionStatus.status, transactionStatus.time_create, transactionStatus.time_final,
+                transactionStatus.result, transactionStatus.verified, transactionStatus.flags, transactionStatus.error_messages);
+            if (cachedEvents.get(TransactionStatus.GetID()) === undefined) {
+                if (TransactionStatus.GetFlag() === 0) {
+                    cachedEvents.set(TransactionStatus.GetID(), TransactionStatus);
+                } else {
+                    confirmedTransactions.push(TransactionStatus);
+                    totalTransactionsCommitted++;
+                }
+            }
+            else  {
+                TransactionStatus.Set('time_final', cachedEvents.get(TransactionStatus.GetID()));
+                TransactionStatus.SetVerification(true);
+                TransactionStatus.Set('status', 'success');
+                cachedEvents.set(TransactionStatus.GetID(), TransactionStatus);
+                confirmedTransactions.push(TransactionStatus);
+                totalTransactionsCommitted++;
+            }
+        }
+    }
+    let newResults = [];
+    let len  = confirmedTransactions.length;
+    if(len > confirmTail) {
+        newResults = confirmedTransactions.slice(confirmTail, len);
+        confirmTail = len;
+    }
+    let newStats = blockchain.getDefaultTxStats(newResults, false);
+    let dataToUpdate = {submitted: 0, committed: newStats};
+    pushUpdate(global_pid, dataToUpdate);
+}
+
+/**
+ * Update
+ *
+ */
+function update() {
+    let data = [];
+    let len  = unConfirmedTransactions.length;
+    if(len > updateTail) {
+        data = unConfirmedTransactions.slice(updateTail, len);
+        updateTail = len;
+    }
+    verifyUnconfirmedTransactions(data);
+}
+
+/**
+ * updateResults
+ * @param {*} withMQ flag to determine if running MQ mode
+ * @return {Promise} promise object
+ */
+function updateResults(withMQ) {
+    if (withMQ && unConfirmedTransactions.length !== 0) {
+        return new Promise(function(resolve, reject) {
+            (function wait(){
+                if (totalTransactionsCommitted === totalTransactionsForMQ && testfinished === true) {
+                    let finalStats = blockchain.getDefaultTxStats(confirmedTransactions, false);
+                    pushResult(global_pid, finalStats);
+                    clearInterval(txUpdateInter);
+                    return resolve();
+                }
+                setTimeout(wait, 5000);
+            })();
+        });
+    }
+    else {
+        return new Promise(function(resolve, reject){
+            resolve();
+        });
+    }
+}
+
+/**
  * Start a test
  * @param {Number} number test clients' count
  * @param {JSON} message start message
  * @param {Array} clientArgs each element contains specific arguments for a client
  * @param {Array} updates array to save txUpdate results
  * @param {Array} results array to save the test results
+ * @param {*} withMQ flag to determine if running MQ mode
  * @return {Promise} promise object
  */
-function startTest(number, message, clientArgs, updates, results) {
+function startTest(number, message, clientArgs, updates, results, withMQ) {
+    let txUpdateTime = 1000;
+    testfinished = false;
     let count = 0;
     for(let i in processes) {
         i;  // avoid eslint error
         count++;
     }
-    if(count === number) {  // already launched clients
+    if(count === number) {
+        if (withMQ) {
+            txUpdateInter = setInterval(update, txUpdateTime);
+            updateTail = 0;
+            confirmTail = 0;
+            unConfirmedTransactions = [];
+            confirmedTransactions = [];
+        }
+        // already launched clients
         let txPerClient;
         if (message.numb) {
             // Run specified number of transactions
@@ -206,6 +305,7 @@ function startTest(number, message, clientArgs, updates, results) {
 
         let promises = [];
         let idx = 0;
+
         for(let id in processes) {
             let client = processes[id];
             let p = new Promise((resolve, reject) => {
@@ -220,30 +320,26 @@ function startTest(number, message, clientArgs, updates, results) {
             message.clientargs = clientArgs[idx];
             message.clientIdx = idx;
             idx++;
-
             client.obj.send(message);
         }
-
-        return Promise.all(promises).then(()=>{
-            // clear promises
+        return Promise.all(promises).then(() =>{
             for(let client in processes) {
                 delete client.promise;
             }
+            testfinished = true;
+            return updateResults(withMQ);
+        }).then(() => {
+            clearInterval(txUpdateInter);
             return Promise.resolve();
-        }).catch((err)=>{
-            return Promise.reject(err);
         });
-
     }
-
-    // launch clients
+    //launch clients
     processes = {};
     for(let i = 0 ; i < number ; i++) {
         launchClient(updates, results);
     }
-
     // start test
-    return startTest(number, message, clientArgs, updates, results);
+    return startTest(number, message, clientArgs, updates, results, withMQ);
 }
 module.exports.startTest = startTest;
 
@@ -270,3 +366,12 @@ function stop() {
     processes = {};
 }
 module.exports.stop = stop;
+
+
+/**
+ * Close kafka consumer
+ */
+function closeKafkaConsumer() {
+    globalConsumer.close(() => {
+    });
+}

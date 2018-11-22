@@ -5,6 +5,6 @@
      "peerOrg":"org1",
      "peerEventUrl":"grpcs://localhost:7053",
      "peerEventHostnameOverride":"peer0.org1.example.com",
-     "peerEventTlscaPath":"network/fabric/simplenetwork/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+     "peerEventTlscaPath":"network/fabric/2org2peer/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
  } 
  

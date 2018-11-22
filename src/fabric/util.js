@@ -144,6 +144,7 @@ module.exports.readFile = readFile;
 
 module.exports.init = function(config_path) {
     Client.addConfigFile(config_path);
+	var c = require(config_path)
     const fa = Client.getConfigSetting('fabric');
     ORGS = fa.network;
     channels = fa.channel;

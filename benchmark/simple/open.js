@@ -76,22 +76,12 @@ function generateWorkload() {
 }
 
 module.exports.run = function() {
-<<<<<<< 76b1c27eda7cee9b5e5d4783ed07cc35bf1b4a2b
     let args = generateWorkload();
     return bc.invokeSmartContract(contx, 'simple', 'v0', args, 30);
-=======
-    let newAcc = generateAccount();
-    accounts.push(newAcc);
-    return bc.invokeSmartContract(contx, 'simple', 'v0', {verb: 'open', account: newAcc, money: initMoney}, 30);
->>>>>>> Remove logic from demoOptional.js and reuse demo.js for real time metrics calculation in MQ mode
 };
 
 module.exports.end = function() {
     return Promise.resolve();
 };
 
-<<<<<<< 76b1c27eda7cee9b5e5d4783ed07cc35bf1b4a2b
 module.exports.account_array = account_array;
-=======
-module.exports.accounts = accounts;
->>>>>>> Remove logic from demoOptional.js and reuse demo.js for real time metrics calculation in MQ mode

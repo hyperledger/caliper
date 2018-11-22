@@ -26,12 +26,8 @@ let resultsbyround = [];    // results table for each test round
 let round = 0;              // test round
 let demo = require('../gui/src/demo.js');
 let absConfigFile, absNetworkFile;
-<<<<<<< 345e9b9bcf883dc89544b09c503bb857612ba318
 let absCaliperDir = path.join(__dirname, '..', '..');
 let absCaliperPath = '../../';
-=======
-let absCaliperPath = '../';
->>>>>>> Replace log with logger and resolve merge conflicts
 let listener_child;
 let configurationType;
 
@@ -286,7 +282,6 @@ function defaultTest(args, clientArgs, final) {
 module.exports.run = function(configFile, networkFile) {
 	let localConfig = require(configFile);
     configurationType = localConfig.test.clients.WITH_MQ;
-<<<<<<< 2e01d327dae5fd0c6bc59048ca19094ac140a214
     logger.info('#######Caliper Test######');
     absConfigFile  = Util.resolvePath(configFile);
     absNetworkFile = Util.resolvePath(networkFile);
@@ -304,51 +299,6 @@ module.exports.run = function(configFile, networkFile) {
                     return reject(err);
                 }
                 return resolve();
-=======
-    test('#######Caliper Test######', (t) => {
-        global.tapeObj = t;
-        absConfigFile  = Util.resolvePath(configFile);
-        absNetworkFile = Util.resolvePath(networkFile);
-        blockchain = new Blockchain(absNetworkFile);
-        monitor = new Monitor(absConfigFile);
-        client  = new Client(absConfigFile);
-        createReport();
-        demo.init();
-        let startPromise = new Promise((resolve, reject) => {
-            let config = require(absConfigFile);
-            if (config.hasOwnProperty('command') && config.command.hasOwnProperty('start')){
-                log(config.command.start);
-                let child = exec(config.command.start, {cwd: absCaliperDir}, (err, stdout, stderr) => {
-                    if (err) {
-                        return reject(err);
-                    }
-                    return resolve();
-                });
-                child.stdout.pipe(process.stdout);
-                child.stderr.pipe(process.stderr);
-            }
-            else {
-                resolve();
-            }
-        });
-
-        startPromise.then(() => {
-            if (configurationType) {
-                let blockListenerPath = path.join(__dirname, absCaliperPath, 'listener/block-listener-handler.js');
-                listener_child = childProcess.fork(blockListenerPath);
-                listener_child.on('error', function () {
-                    logger.error('client encountered unexpected error');
-                });
-                listener_child.send({ type:'test', config: configFile });
-            }
-            return blockchain.init();
-        }).then( () => {
-
-            return blockchain.installSmartContract();
-        }).then( () => {
-            return client.init(demo, configFile, absCaliperDir, listener_child, t).then((number)=>{
-                return blockchain.prepareClients(number);
->>>>>>> Kill fabric containers after the test is complete in MQ mode
             });
             child.stdout.pipe(process.stdout);
             child.stderr.pipe(process.stderr);
@@ -369,7 +319,6 @@ module.exports.run = function(configFile, networkFile) {
         return blockchain.init();
     }).then( () => {
 
-<<<<<<< 2e01d327dae5fd0c6bc59048ca19094ac140a214
         return blockchain.installSmartContract();
     }).then( () => {
         return client.init(demo, configFile, absCaliperDir, listener_child).then((number)=>{
@@ -405,84 +354,6 @@ module.exports.run = function(configFile, networkFile) {
             demo.stopWatch(output);
             logger.info('Generated report at ' + output);
             return Promise.resolve();
-=======
-            let allTests  = require(absConfigFile).test.rounds;
-            let testIdx   = 0;
-            let testNum   = allTests.length;
-            return allTests.reduce( (prev, item) => {
-                return prev.then( () => {
-                    ++testIdx;
-                    return defaultTest(item, clientArgs, (testIdx === testNum));
-                });
-            }, Promise.resolve());
-        }).then( () => {
-            if (configurationType) {
-                listener_child.send({type:'closeKafkaProducer', config: configFile});
-            }
-            log('----------finished test----------\n');
-            printResultsByRound();
-            monitor.printMaxStats();
-            monitor.stop();
-            let date = new Date().toISOString().replace(/-/g,'').replace(/:/g,'').substr(0,15);
-            let output = path.join(process.cwd(), 'report'+date+'.html' );
-            return report.generate(output).then(()=>{
-                demo.stopWatch(output);
-                log('Generated report at ' + output);
-                return Promise.resolve();
-            });
-        }).then( () => {
-            client.stop();
-            let config = require(absConfigFile);
-            if (config.hasOwnProperty('command') && config.command.hasOwnProperty('end')){
-<<<<<<< 007ee416892dbbcff5b0317129b71aa42d76d849
-                log(config.command.end);
-=======
-                logger.info(config.command.end);
->>>>>>> Resolve linting issues
-                let end = exec(config.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
-                    if (error) {
-                        throw error;
-                    }
-                    t.end();
-                    process.exit();
-                });
-                end.stdout.pipe(process.stdout);
-                end.stderr.pipe(process.stderr);
-            }
-            t.end();
-        }).catch( (err) => {
-            if (configurationType) {
-                listener_child.send({type:'closeKafkaProducer', config: configFile});
-            }
-            demo.stopWatch();
-            log('unexpected error, ' + (err.stack ? err.stack : err));
-            let config = require(absConfigFile);
-            if (config.hasOwnProperty('command') && config.command.hasOwnProperty('end')){
-<<<<<<< 007ee416892dbbcff5b0317129b71aa42d76d849
-                log(config.command.end);
-=======
-                logger.info(config.command.end);
->>>>>>> Resolve linting issues
-                let end = exec(config.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
-                    if (error) {
-                        throw error;
-                    }
-                    t.end();
-                    process.exit();
-                });
-                end.stdout.pipe(process.stdout);
-                end.stderr.pipe(process.stderr);
-            }
-<<<<<<< 007ee416892dbbcff5b0317129b71aa42d76d849
-<<<<<<< 345e9b9bcf883dc89544b09c503bb857612ba318
-			t.end();
->>>>>>> Kill fabric containers after the test is complete in MQ mode
-=======
-				t.end();
->>>>>>> Replace log with logger and resolve merge conflicts
-=======
-            t.end();
->>>>>>> Resolve linting issues
         });
     }).then( () => {
         client.stop();

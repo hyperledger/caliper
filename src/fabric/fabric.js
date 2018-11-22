@@ -101,20 +101,6 @@ class Fabric extends BlockchainInterface{
         });
     }
 
-     /**
-     * Consume transaction confirmation time from Kafka.
-     * @param {object} resultsArray resultsArray containing transactions made by client.
-     * @return {Promise} The return promise.
-     */
-    getTransactionConfirmationTime(resultsArray) {
-
-        if (resultsArray.length <= 0) {
-            return Promise.reject(new Error("No transactions found in the result array"));
-        }
-
-        return e2eUtils.getTransactionConfirmationTime(resultsArray);
-    }
-
     /**
      * Invoke the given chaincode according to the specified options. Multiple transactions will be generated according to the length of args.
      * @param {object} context The Fabric context returned by {getContext}.
@@ -125,7 +111,7 @@ class Fabric extends BlockchainInterface{
      * @param {number} withMQ Flag to determine if tool running in MQ mode.
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    invokeSmartContract(context, contractID, contractVer, args, timeout) {
+    invokeSmartContract(context, contractID, contractVer, args, timeout, withMQ) {
         let promises = [];
         args.forEach((item, index)=>{
             try {
@@ -142,7 +128,7 @@ class Fabric extends BlockchainInterface{
                 if(func) {
                     simpleArgs.splice(0, 0, func);
                 }
-                promises.push(e2eUtils.invokebycontext(context, contractID, contractVer, simpleArgs, timeout));
+                promises.push(e2eUtils.invokebycontext(context, contractID, contractVer, simpleArgs, timeout, withMQ));
             }
             catch(err) {
                 commLogger.error(err);

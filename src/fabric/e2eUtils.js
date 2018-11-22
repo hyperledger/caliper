@@ -28,21 +28,9 @@ const fs = require('fs');
 const util = require('util');
 const Client = require('fabric-client');
 const testUtil = require('./util.js');
-const listener_config = require("../../listener/listener-config.json")
 let ORGS;
-const rootPath = '../..';
-const grpc = require('grpc');
-const _common = grpc.load(path.join(__dirname + '../../../node_modules/fabric-client/lib/protos/common/common.proto')).common;
-const _transProto = grpc.load(path.join(__dirname + '../../../node_modules/fabric-client/lib/protos/peer/transaction.proto')).protos;
 let tx_id = null;
 let the_user = null;
-
-var _validation_codes = {};
-var keys = Object.keys(_transProto.TxValidationCode);
-for(var i = 0;i<keys.length;i++) {
-	let new_key = _transProto.TxValidationCode[keys[i]];
-	_validation_codes[new_key] = keys[i];
-}
 
 /**
  * Initialize the Fabric client configuration.
@@ -445,7 +433,7 @@ function getcontext(channelConfig) {
     const channel = client.newChannel(channel_name);
     let orgName = ORGS[userOrg].name;
     const cryptoSuite = Client.newCryptoSuite();
-    //const eventhubs = [];
+    const eventhubs = [];
     cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: testUtil.storePathForOrg(orgName)}));
     client.setCryptoSuite(cryptoSuite);
 
@@ -495,7 +483,7 @@ function getcontext(channelConfig) {
                 channel.addPeer(peer);
 
                 // an event listener can only register with the peer in its own org
-               /* if(org === userOrg) {
+                if(org === userOrg) {
                     let eh = client.newEventHub();
                     eh.setPeerAddr(
                         peerInfo.events,
@@ -509,13 +497,13 @@ function getcontext(channelConfig) {
                         }
                     );
                     eventhubs.push(eh);
-                }*/
+                }
             }
 
             // register event listener
-           /* eventhubs.forEach((eh) => {
+            eventhubs.forEach((eh) => {
                 eh.connect();
-            });*/
+            });
 
             return channel.initialize();
         })
@@ -524,8 +512,9 @@ function getcontext(channelConfig) {
                 org: userOrg,
                 client: client,
                 channel: channel,
-                submitter: the_user});
-                //eventhubs: eventhubs
+                submitter: the_user,
+                eventhubs: eventhubs
+            });
         })
         .catch((err) => {
             return Promise.reject(err);
@@ -553,105 +542,16 @@ function releasecontext(context) {
 module.exports.releasecontext = releasecontext;
 
 /**
- * connect to Kafka, fetch block and confirmation time
- * @param {*} resultsArray 
- */
-function getTransactionConfirmationTime(resultsArray) {
-
-	return new Promise(function (resolve, reject) {
-		var map = []
-		resultsArray.forEach(function (internal_element) {
-			map[internal_element.id] = internal_element
-
-		})
-		var globalArray = []
-        globalArray.push(map)
-		var kafka = require('kafka-node');
-		var Consumer = kafka.Consumer;
-		var client1 = new kafka.KafkaClient({ kafkaHost: listener_config.broker_urls, requestTimeout: 300000000 });
-
-		var options = {
-			autoCommit: false,
-			fetchMaxWaitMs: 1000,
-			fetchMaxBytes: 5120 * 5120,
-			encoding: 'buffer',
-			 groupId: "groupID" + Math.floor(Math.random() * Math.floor(100))
-		};
-
-		var topics = [{
-			topic: listener_config.topic
-
-		}];
-
-		var consumer = new Consumer(client1, topics, options);
-		var finalresult = [];
-		var isTxfound;
-		var pendingCounter = 0
-
-		consumer.on('message', function (message) {
-			var buf = new Buffer(message.value); // Read string into a buffer.
-			var data = buf.toString('utf-8')
-            var block = JSON.parse(data).block
-            var txStatusCodes = block.metadata.metadata[_common.BlockMetadataIndex.TRANSACTIONS_FILTER];
-
-			for (var index = 0; index < block.data.data.length; index++) {
-				var channel_header = block.data.data[index].payload.header.channel_header;
-
-				// serach the globalArray if the Id exists or not. It will be present but in any one of the array in global Array
-				if (globalArray[0][channel_header.tx_id] != undefined || globalArray[0][channel_header.tx_id] != null) {
-
-                    var val_code = convertValidationCode(txStatusCodes[index]);
-					var object = globalArray[0][channel_header.tx_id]
-					object.time_final = JSON.parse(data).validTime;
-                  
-                    if (val_code != 'VALID'){
-                        object.verified = true
-                        object.status = 'failed'
-                    }
-                    else {
-                        object.verified = true
-                        object.status = "success";
-                    }
-                    
-					globalArray[0][channel_header.tx_id] = object
-					pendingCounter++
-					finalresult.push(object)
-				}
-				if (pendingCounter == resultsArray.length) {
-                    consumer.close(()=>{
-                        resolve(finalresult)
-                    })
-					
-				}
-
-			}
-
-		});
-
-	consumer.on('error', function (error) {
-            logger.error("Error while consuming blocks from MQ", error)
-            reject(error)
-
-		})
-	})
-}
-
-module.exports.getTransactionConfirmationTime = getTransactionConfirmationTime;
-
-function convertValidationCode(code) {
-	return _validation_codes[code];
-}
-
-/**
  * Submit a transaction to the given chaincode with the specified options.
  * @param {object} context The Fabric context.
  * @param {string} id The name of the chaincode.
  * @param {string} version The version of the chaincode.
  * @param {string[]} args The arguments to pass to the chaincode.
  * @param {number} timeout The timeout for the transaction invocation.
+ * @param {number} withMQ Flag to determine if tool running in MQ mode.
  * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
  */
-async function invokebycontext(context, id, version, args, timeout){
+async function invokebycontext(context, id, version, args, timeout, withMQ){
     const TxErrorEnum = require('./constant.js').TxErrorEnum;
     const TxErrorIndex = require('./constant.js').TxErrorIndex;
 
@@ -665,6 +565,9 @@ async function invokebycontext(context, id, version, args, timeout){
     let invokeStatus = new TxStatus(txId);
     let errFlag = TxErrorEnum.NoError;
     invokeStatus.SetFlag(errFlag);
+    if (withMQ) {
+        invokeStatus.SetneedVerifyWithMQFlag(true);
+    }
 
     // TODO: should resolve endorsement policy to decides the target of endorsers
     // now random peers ( one peer per organization ) are used as endorsers as default, see the implementation of getContext
@@ -743,60 +646,53 @@ async function invokebycontext(context, id, version, args, timeout){
             proposalResponses: proposalResponses,
             proposal: proposal,
         };
-<<<<<<< 007ee416892dbbcff5b0317129b71aa42d76d849
-
-<<<<<<< 345e9b9bcf883dc89544b09c503bb857612ba318
-        let newTimeout = timeout * 1000 - (Date.now() - startTime);
-        if(newTimeout < 10000) {
-            commLogger.warn('WARNING: timeout is too small, default value is used instead');
-            newTimeout = 10000;
-        }
-
-        /*const eventPromises = [];
-        eventHubs.forEach((eh) => {
-            eventPromises.push(new Promise((resolve, reject) => {
-                let handle = setTimeout(() => reject(new Error('Timeout')), newTimeout);
-
-                eh.registerTxEvent(txId,
-                    (tx, code) => {
-                        clearTimeout(handle);
-                        eh.unregisterTxEvent(txId);
-=======
-=======
         const eventPromises = [];
->>>>>>> Resolve linting issues
         if (! withMQ) {
->>>>>>> Replace log with logger and resolve merge conflicts
 
-                        // either explicit invalid event or valid event, verified in both cases by at least one peer
-                        invokeStatus.SetVerification(true);
-                        if (code !== 'VALID') {
-                            let err = new Error('Invalid transaction: ' + code);
-                            errFlag |= TxErrorEnum.BadEventNotificationError;
+            let newTimeout = timeout * 1000 - (Date.now() - startTime);
+            if(newTimeout < 10000) {
+                commUtils.log('WARNING: timeout is too small, default value is used instead');
+                newTimeout = 10000;
+            }
+            eventHubs.forEach((eh) => {
+                eventPromises.push(new Promise((resolve, reject) => {
+                    let handle = setTimeout(reject, newTimeout);
+
+                    eh.registerTxEvent(txId,
+                        (tx, code) => {
+                            clearTimeout(handle);
+                            eh.unregisterTxEvent(txId);
+
+                            // either explicit invalid event or valid event, verified in both cases by at least one peer
+                            invokeStatus.SetVerification(true);
+                            if (code !== 'VALID') {
+                                let err = new Error('Invalid transaction: ' + code);
+                                errFlag |= TxErrorEnum.BadEventNotificationError;
+                                invokeStatus.SetFlag(errFlag);
+                                invokeStatus.SetErrMsg(TxErrorIndex.BadEventNotificationError, err.toString());
+                                reject(err); // handle error in final catch
+                            } else {
+                                resolve();
+                            }
+                        },
+                        (err) => {
+                            clearTimeout(handle);
+                            // we don't know what happened, but give the other eventhub connections a chance
+                            // to verify the Tx status, so resolve this call
+                            errFlag |= TxErrorEnum.EventNotificationError;
                             invokeStatus.SetFlag(errFlag);
-                            invokeStatus.SetErrMsg(TxErrorIndex.BadEventNotificationError, err.toString());
-                            reject(err); // handle error in final catch
-                        } else {
+                            invokeStatus.SetErrMsg(TxErrorIndex.EventNotificationError, err.toString());
                             resolve();
                         }
-                    },
-                    (err) => {
-                        clearTimeout(handle);
-                        // we don't know what happened, but give the other eventhub connections a chance
-                        // to verify the Tx status, so resolve this call
-                        errFlag |= TxErrorEnum.EventNotificationError;
-                        invokeStatus.SetFlag(errFlag);
-                        invokeStatus.SetErrMsg(TxErrorIndex.EventNotificationError, err.toString());
-                        resolve();
-                    }
-                );
-            }));
-        });*/
-
+                    );
+                }));
+            });
+        }
         let broadcastResponse;
         try {
             broadcastResponse = await channel.sendTransaction(transactionRequest);
-        } catch (err) {
+        }
+        catch (err) {
             // missing the ACK does not mean anything, the Tx could be already under ordering
             // so let the events decide the final status, but log this error
             errFlag |= TxErrorEnum.OrdererResponseError;
@@ -817,19 +713,6 @@ async function invokebycontext(context, id, version, args, timeout){
             invokeStatus.SetVerification(true);
             throw err;
         }
-<<<<<<< 345e9b9bcf883dc89544b09c503bb857612ba318
-
-       /* await Promise.all(eventPromises);
-        // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
-        // so mark it failed but leave it not verified
-        if (!invokeStatus.IsVerified()) {
-            invokeStatus.SetStatusFail();
-            commLogger.error('Failed to complete transaction [' + txId.substring(0, 5) + '...]: every eventhub connection closed');
-        } else {
-            invokeStatus.SetStatusSuccess();
-        }
-    } catch (err)
-=======
         if (!withMQ) {
             await Promise.all(eventPromises);
             // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
@@ -840,35 +723,15 @@ async function invokebycontext(context, id, version, args, timeout){
             } else {
                 invokeStatus.SetStatusSuccess();
             }
-<<<<<<< 007ee416892dbbcff5b0317129b71aa42d76d849
-
-		} 
-	}
-	catch (err)
->>>>>>> Replace log with logger and resolve merge conflicts
-=======
         }
     }
     catch (err)
->>>>>>> Resolve linting issues
     {
         // at this point the Tx should be verified
-<<<<<<< b5fd1cd1a0e3bedb2c2454a19ccb05ce7b209db1
         invokeStatus.SetStatusFail();
         commLogger.error('Failed to complete transaction [' + txId.substring(0, 5) + '...]:' + (err instanceof Error ? err.stack : err));
     }
 
-=======
-        invokeStatus.status = 'failed';
-        commUtils.log('Failed to complete transaction [' + txId.substring(0, 5) + '...]:' + (err instanceof Error ? err.stack : err));
-    }*/
-    } catch (err)
-    {
-        // at this point the Tx should be verified
-        console.log("failed")
-        invokeStatus.status = 'failed';
-        commUtils.log('Failed to complete transaction [' + txId.substring(0, 5) + '...]:' + (err instanceof Error ? err.stack : err));
-    }
     return invokeStatus;
 }
 

@@ -13,19 +13,15 @@ const CLIENT_ZOO   = 'zookeeper';
 const zkUtil  = require('./zoo-util.js');
 const ZooKeeper = require('node-zookeeper-client');
 const clientUtil = require('./client-util.js');
-<<<<<<< 2e01d327dae5fd0c6bc59048ca19094ac140a214
+
 
 const util = require('../util');
 const logger = util.getLogger('client.js');
 
-=======
-const log = require('../util').log;
 const childProcess = require('child_process');
 const exec = childProcess.exec;
-const Util = require('../util.js');
 let absConfigFile;
 let test;
->>>>>>> Kill fabric containers after the test is complete in MQ mode
 
 
 /**
@@ -111,30 +107,10 @@ class Client{
     * @param {JSON} t test object
     * @return {Promise} promise object
     */
-    init(demo, config, absCaliperDir, listener_child, t) {
-        absConfigFile = require(Util.resolvePath(config));
-        test = t;
+    init(demo, config, absCaliperDir, listener_child) {
+        absConfigFile = require(util.resolvePath(config));
 
         if (this.config.hasOwnProperty('WITH_MQ') && this.config.WITH_MQ) {
-<<<<<<< 007ee416892dbbcff5b0317129b71aa42d76d849
-			clientUtil._consumeEvents(function(err){
-				log(err);
-                listener_child.send({type:'closeKafkaProducer', config: config});
-            	clientUtil.stop();
-				clientUtil.closeKafkaConsumer();
-				demo.stopWatch();
-				 if (absConfigFile.hasOwnProperty('command') && absConfigFile.command.hasOwnProperty('end')){
-					log(absConfigFile.command.end);
-					let end = exec(absConfigFile.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
-					  if (error) {
-						throw error;
-					  }
-					  test.end();
-					  process.exit();
-					});
-					end.stdout.pipe(process.stdout);
-					end.stderr.pipe(process.stderr);
-=======
             clientUtil._consumeEvents(function(err){
                 logger.error(err);
                 listener_child.send({type:'closeKafkaProducer', config: config});
@@ -147,14 +123,12 @@ class Client{
                         if (error) {
                             throw error;
                         }
-                        test.end();
+                        
                         process.exit();
                     });
                     end.stdout.pipe(process.stdout);
                     end.stderr.pipe(process.stderr);
->>>>>>> Resolve linting issues
                 }
-                test.end();
             });
         }
         if(this.config.hasOwnProperty('type')) {

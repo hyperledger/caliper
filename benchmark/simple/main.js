@@ -78,9 +78,11 @@ function main() {
         return;
     }
 
-
     const framework = require('../../src/comm/bench-flow.js');
     framework.run(absConfigFile, absNetworkFile);
+    
+	
+	
 }
 
 main();
