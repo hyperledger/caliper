@@ -30,9 +30,6 @@ let absCaliperPath = '../';
 let listener_child;
 let configurationType;
 let absCaliperDir = path.join(__dirname, '..', '..');
-let absCaliperPath = '../../';
-let listener_child;
-let configurationType;
 
 /**
  * Generate mustache template for test report

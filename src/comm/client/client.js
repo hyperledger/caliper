@@ -17,8 +17,6 @@ const childProcess = require('child_process');
 const exec = childProcess.exec;
 const util = require('../util');
 const logger = util.getLogger('client.js');
-const childProcess = require('child_process');
-const exec = childProcess.exec;
 let absConfigFile;
 
 
