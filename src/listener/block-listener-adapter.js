@@ -64,4 +64,3 @@ var KafkaAdapter = class {
     }
 
 }
-module.exports = KafkaAdapter;

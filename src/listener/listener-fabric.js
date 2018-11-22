@@ -56,7 +56,6 @@ class FabricListener {
         });
 
         self.producer.on('ready', function () {
-			console.log("event")
             Client.newDefaultKeyValueStore({ path: '../hfc/hfc-test-kvs_peerOrg1' }).then((store) => {
 
                 self.client.setStateStore(store);
@@ -87,7 +86,6 @@ class FabricListener {
                         partition: 0,
                         attributes: 1
                     }];
-					console.log(payload)
 
                     self.producer.send(payload, function (error, result) {
                         if (error) {

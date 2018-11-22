@@ -7,7 +7,6 @@
     "start": "docker-compose -f network/fabric/2org2peer/docker-compose.yaml up -d",
     "end" : "docker-compose -f network/fabric/2org2peer/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
   },
-  
     "test": {
       "clients": {
         "type": "local",

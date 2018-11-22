@@ -1,3 +1,4 @@
+
 /**
 * Copyright 2017 HUAWEI. All Rights Reserved.
 *
@@ -374,4 +375,7 @@ module.exports.stop = stop;
 function closeKafkaConsumer() {
     globalConsumer.close(() => {
     });
+
 }
+module.exports.closeKafkaConsumer = closeKafkaConsumer;
+

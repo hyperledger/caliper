@@ -743,10 +743,9 @@ module.exports.invokebycontext = invokebycontext;
  * @param {string} id The name of the chaincode.
  * @param {string} version The version of the chaincode.
  * @param {string} name The single argument to pass to the chaincode.
- * @param {string} fcn The chaincode query function name.
  * @return {Promise<object>} The result and stats of the transaction invocation.
  */
-function querybycontext(context, id, version, name, fcn) {
+function querybycontext(context, id, version, name) {
     //const userOrg = context.org;
     const client = context.client;
     const channel = context.channel;
@@ -759,7 +758,7 @@ function querybycontext(context, id, version, name, fcn) {
         chaincodeId: id,
         chaincodeVersion: version,
         txId: tx_id,
-        fcn: fcn,
+        fcn: 'query',
         args: [name]
     };
 

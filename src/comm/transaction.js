@@ -21,6 +21,7 @@ class TxStatus {
     /**
      * Constructor
      * @param {string} id, transaction id
+
      */
     constructor(id) {
         this.status = {
@@ -193,7 +194,8 @@ class TxStatus {
         return this.status[key];
     }
 	
-	/**
+
+    /**
      * Get needVerifyWithMQ
      * @return {Boolean} value
      *

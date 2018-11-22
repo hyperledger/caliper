@@ -13,15 +13,13 @@ const CLIENT_ZOO   = 'zookeeper';
 const zkUtil  = require('./zoo-util.js');
 const ZooKeeper = require('node-zookeeper-client');
 const clientUtil = require('./client-util.js');
-
-
+const childProcess = require('child_process');
+const exec = childProcess.exec;
 const util = require('../util');
 const logger = util.getLogger('client.js');
-
 const childProcess = require('child_process');
 const exec = childProcess.exec;
 let absConfigFile;
-let test;
 
 
 /**
@@ -123,7 +121,6 @@ class Client{
                         if (error) {
                             throw error;
                         }
-                        
                         process.exit();
                     });
                     end.stdout.pipe(process.stdout);
@@ -179,7 +176,6 @@ class Client{
         switch(this.type) {
         case CLIENT_LOCAL:
             p = this._startLocalTest(message, clientArgs);
-            
             break;
         case CLIENT_ZOO:
             p = this._startZooTest(message, clientArgs);
@@ -188,10 +184,9 @@ class Client{
             return Promise.reject(new Error('Unknown client type: ' + this.type));
         }
         return p.then(()=>{
-          
-           return finishCB(this.results, finishArgs)
+         
+            return finishCB(this.results, finishArgs);
         }).then(()=>{
-        
             return Promise.resolve();
         }).catch((err)=>{
             return Promise.reject(err);

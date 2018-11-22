@@ -1,3 +1,5 @@
+
+
 /**
 * Copyright 2017 HUAWEI. All Rights Reserved.
 *
@@ -25,7 +27,6 @@ const defaultConfig = commUtils.resolvePath('config/default.yaml');
 config.reorderFileStores(defaultConfig);
 */
 
-
 let blockchain;
 let results      = [];
 let txNum        = 0;
@@ -38,14 +39,16 @@ let startTime = 0;
 
 /**
  * Calculate realtime transaction statistics and send the txUpdated message
+ *
  */
 function txUpdate() {
     let newNum = txNum - txLastNum;
     txLastNum += newNum;
 
-
     let newResults = results.slice(0);
     results = [];
+    let bufferToSend = [];
+    let nonMqBuffer = [];
     if(newResults.length === 0 && newNum === 0) {
         return;
     }
@@ -56,9 +59,24 @@ function txUpdate() {
     }
     else {
         newStats = blockchain.getDefaultTxStats(newResults, false);
+        for (let i =0; i < newResults.length; i++){
+            let txObject = newResults[i];
+            // it is running in kafka mode or it is a query
+            if (txObject.GetneedVerifyWithMQFlag()){
+                bufferToSend.push(txObject);
+            }
+            else {
+                nonMqBuffer.push(txObject);
+            }
+        }
+    }
+
+    if (nonMqBuffer.length === 0) {
+        newStats = bc.createNullDefaultTxStats();
+    } else {
+        newStats = blockchain.getDefaultTxStats(nonMqBuffer, false);
     }
     process.send({type: 'txUpdated', data: {submitted: newNum, committed: newStats}});
-
     if (resultStats.length === 0) {
         switch (trimType) {
         case 0: // no trim
@@ -83,6 +101,9 @@ function txUpdate() {
     } else {
         resultStats[1] = newStats;
         bc.mergeDefaultTxStats(resultStats);
+    }
+    if (bufferToSend.length !==0) {
+        process.send({type: 'txUpdatedWithMQ', data: {submitted: bufferToSend.length, committed: bufferToSend}});
     }
 }
 
@@ -200,7 +221,7 @@ async function runDuration(msg, cb, context) {
 function doTest(msg) {
     logger.debug('doTest() with:', msg);
     let cb = require(Util.resolvePath(msg.cb));
-    blockchain = new bc(Util.resolvePath(msg.config));
+    blockchain = new bc(Util.resolvePath(msg.config), msg.withMQ);
 
     beforeTest(msg);
     // start an interval to report results repeatedly
@@ -241,10 +262,12 @@ function doTest(msg) {
         clearUpdateInter();
         return cb.end();
     }).then(() => {
+
         if (resultStats.length > 0) {
             return Promise.resolve(resultStats[0]);
         }
         else {
+
             return Promise.resolve(bc.createNullDefaultTxStats());
         }
     }).catch((err) => {
@@ -258,6 +281,7 @@ function doTest(msg) {
  * Message handler
  */
 process.on('message', function(message) {
+
     if(message.hasOwnProperty('type')) {
         try {
             switch(message.type) {

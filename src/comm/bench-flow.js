@@ -26,6 +26,9 @@ let resultsbyround = [];    // results table for each test round
 let round = 0;              // test round
 let demo = require('../gui/src/demo.js');
 let absConfigFile, absNetworkFile;
+let absCaliperPath = '../';
+let listener_child;
+let configurationType;
 let absCaliperDir = path.join(__dirname, '..', '..');
 let absCaliperPath = '../../';
 let listener_child;
@@ -217,7 +220,8 @@ function defaultTest(args, clientArgs, final) {
                 trim: args.trim ? args.trim : 0,
                 args: args.arguments,
                 cb  : args.callback,
-                config: configPath
+                config: configPath,
+                withMQ: configurationType
             };
             // condition for time based or number based test driving
             if (args.txNumber) {
@@ -233,11 +237,9 @@ function defaultTest(args, clientArgs, final) {
 
         return tests.reduce( function(prev, item) {
             return prev.then( () => {
-
                 logger.info('----test round ' + round + '----');
                 round++;
                 testIdx++;
-
                 item.roundIdx = round; // propagate round ID to clients
                 demo.startWatch(client);
                 return client.startTest(item, clientArgs, processResult, testLabel).then( () => {

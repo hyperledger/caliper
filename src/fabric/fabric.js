@@ -9,7 +9,7 @@
 'use strict';
 
 const util = require('./util.js');
-const e2eUtils = require('./e2eUtils.js');
+let e2eUtils = require('./e2eUtils.js');
 const impl_create = require('./create-channel.js');
 const impl_join = require('./join-channel.js');
 const impl_install = require('./install-chaincode.js');
@@ -26,6 +26,7 @@ class Fabric extends BlockchainInterface{
     /**
      * Create a new instance of the {Fabric} class.
      * @param {string} config_path The path of the Fabric network configuration file.
+     *
      */
     constructor(config_path) {
         super(config_path);
