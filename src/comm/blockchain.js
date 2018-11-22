@@ -54,27 +54,28 @@ class Blockchain {
 
     /**
     * Initialise test environment, e.g. create a fabric channel for the test
-    * @return {Promise} promise object
+    * @async
     */
-    init() {
-        return this.bcObj.init();
+    async init() {
+        await this.bcObj.init();
     }
 
     /**
      * Perform required preparation for test clients, e.g. enroll clients and obtain key pairs
      * @param {Number} number count of test clients
      * @return {Promise} array of obtained material for test clients
+     * @async
      */
-    prepareClients (number) {
-        return this.bcObj.prepareClients(number);
+    async prepareClients (number) {
+        return await this.bcObj.prepareClients(number);
     }
 
     /**
     * Install smart contract(s), detail informations are defined in the blockchain configuration file
-    * @return {Promise} promise object
+    * @async
     */
-    installSmartContract() {
-        return this.bcObj.installSmartContract();
+    async installSmartContract() {
+        await this.bcObj.installSmartContract();
     }
 
     /**
@@ -82,9 +83,10 @@ class Blockchain {
      * @param {String} name name of the context
      * @param {Object} args adapter specific arguments
      * @return {Promise} obtained context object
+     * @async
      */
-    getContext(name, args) {
-        return this.bcObj.getContext(name, args);
+    async getContext(name, args) {
+        return await this.bcObj.getContext(name, args);
     }
 
     /**
@@ -92,8 +94,8 @@ class Blockchain {
      * @param {Object} context adapter specific object
      * @return {Promise} promise object
      */
-    releaseContext(context) {
-        return this.bcObj.releaseContext(context);
+    async releaseContext(context) {
+        return await this.bcObj.releaseContext(context);
     }
 
     /**
@@ -105,7 +107,7 @@ class Blockchain {
      * @param {Number} timeout request timeout, in second
      * @return {Promise} txStatus object or an array of txStatus objects
      */
-    invokeSmartContract(context, contractID, contractVer, args, timeout) {
+    async invokeSmartContract(context, contractID, contractVer, args, timeout) {
         let arg, time;    // compatible with old version
         if(Array.isArray(args)) {
             arg = args;
@@ -114,7 +116,7 @@ class Blockchain {
             arg = [args];
         }
         else {
-            return Promise.reject(new Error('Invalid args for invokeSmartContract()'));
+            throw new Error('Invalid args for invokeSmartContract()');
         }
 
         if(typeof timeout !== 'number' || timeout < 0) {
@@ -124,7 +126,7 @@ class Blockchain {
             time = timeout;
         }
 
-        return this.bcObj.invokeSmartContract(context, contractID, contractVer, arg, time);
+        return await this.bcObj.invokeSmartContract(context, contractID, contractVer, arg, time);
     }
 
     /**
@@ -136,8 +138,8 @@ class Blockchain {
      * @param {String=} [fcn] query function name
      * @return {Promise} as invokeSmateContract()
      */
-    queryState(context, contractID, contractVer, key, fcn) {
-        return this.bcObj.queryState(context, contractID, contractVer, key, fcn);
+    async queryState(context, contractID, contractVer, key, fcn) {
+        return await this.bcObj.queryState(context, contractID, contractVer, key, fcn);
     }
 
     /**

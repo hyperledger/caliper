@@ -49,7 +49,7 @@ function main() {
 
     let path = require('path');
     let fs = require('fs-extra');
-    let logger;
+    let logger = Util.getLogger('benchmark/composer/main.js');
     let absConfigFile;
     if(typeof configFile === 'undefined') {
         absConfigFile = path.join(__dirname, 'config-composer.json');
@@ -58,12 +58,8 @@ function main() {
         absConfigFile = path.join(__dirname, configFile);
     }
     if(!fs.existsSync(absConfigFile)) {
-        logger= Util.getLogger('benchmark/composer/main.js');
         logger.error('file ' + absConfigFile + ' does not exist');
         return;
-    }
-    else{
-        logger= Util.getLogger('benchmark/composer/main.js');
     }
 
     let absNetworkFile;
@@ -87,7 +83,13 @@ function main() {
     }
 
     let framework = require('../../src/comm/bench-flow.js');
-    framework.run(absConfigFile, absNetworkFile);
+    (async () => {
+        try {
+            await framework.run(absConfigFile, absNetworkFile);
+        } catch (err) {
+            logger.error(`Error while executing the benchmark: ${err.stack ? err.stack : err}`);
+        }
+    })();
 }
 
 main();
