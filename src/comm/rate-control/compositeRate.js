@@ -245,9 +245,10 @@ class CompositeRateController extends RateInterface{
      * @param {number} start The epoch time at the start of the round (ms precision).
      * @param {number} idx Sequence number of the current transaction.
      * @param {object[]} recentResults The list of results of recent transactions.
+     * @param {Array} resultStats, result status set
      * @return {Promise} A promise that will resolve after the necessary time to keep the defined Tx rate.
      */
-    async applyRateControl(start, idx, recentResults) {
+    async applyRateControl(start, idx, recentResults, resultStats) {
         await this.controllerSwitch(start, idx);
         const active = this.controllers[this.activeControllerIndex];
         // NOTE: since we don't know much about the transaction indices corresponding to
@@ -260,7 +261,7 @@ class CompositeRateController extends RateInterface{
 
         // lie to the controller about the parameters to make this controller transparent
         return active.controller.applyRateControl(start + active.startTimeDifference, idx - active.firstTxIndex,
-            recentResults);
+            recentResults, resultStats);
     }
 
     /**

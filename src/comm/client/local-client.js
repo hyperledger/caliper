@@ -141,7 +141,7 @@ async function runFixedNumber(msg, cb, context) {
             addResult(result);
             return Promise.resolve();
         }));
-        await rateControl.applyRateControl(startTime, txNum, results);
+        await rateControl.applyRateControl(startTime, txNum, results, resultStats);
     }
 
     await Promise.all(promises);
@@ -171,7 +171,7 @@ async function runDuration(msg, cb, context) {
             addResult(result);
             return Promise.resolve();
         }));
-        await rateControl.applyRateControl(startTime, txNum, results);
+        await rateControl.applyRateControl(startTime, txNum, results, resultStats);
     }
 
     await Promise.all(promises);

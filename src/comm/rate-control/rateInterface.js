@@ -42,8 +42,9 @@ class RateInterface {
      * @param {Number} start the start time
      * @param {Number} idx current transactino index
      * @param {Object[]} results current array of results
+     * @param {Array} resultStats, result status set
      */
-    applyRateControl(start, idx, results) {
+    applyRateControl(start, idx, results, resultStats) {
         throw new Error('applyRateControl is not implemented for this blockchain system');
     }
 }
