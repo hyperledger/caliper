@@ -1,4 +1,11 @@
 {
+  "caliper" : {
+    "blockchain": "fabric",
+    "command" : {
+      "start": "docker-compose -f network/fabric/2org2peer/docker-compose-tls.yaml up -d",
+      "end" : "docker-compose -f network/fabric/2org2peer/docker-compose-tls.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
+    }
+  },
   "fabric": {
     "cryptodir": "network/fabric/2org2peer/crypto-config",
     "network": {

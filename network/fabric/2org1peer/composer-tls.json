@@ -1,4 +1,11 @@
-{  
+{ 
+  "caliper": {
+    "blockchain": "composer",
+    "command" : {
+      "start": "docker-compose -f network/fabric/2org1peer/docker-compose-tls.yaml up -d",
+      "end": "docker-compose -f network/fabric/2org1peer/docker-compose-tls.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev-* -q)"
+    }
+  }, 
   "composer": {
     "chaincodes": [{"id": "basic-sample-network", "version": "0.1.0", "path": "src/contract/composer", "orgs": ["Org1", "Org2"], "loglevel": "INFO"}],
     "cryptodir": "network/fabric/config/crypto-config",

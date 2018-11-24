@@ -297,14 +297,15 @@ module.exports.run = async function(configFile, networkFile) {
     demo.init();
 
     let configObject = require(absConfigFile);
+    let networkObject = require(absNetworkFile);
 
     try {
-        if (configObject.hasOwnProperty('command') && configObject.command.hasOwnProperty('start')) {
-            if (!configObject.command.start.trim()) {
+        if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('command') && networkObject.caliper.command.hasOwnProperty('start')) {
+            if (!networkObject.caliper.command.start.trim()) {
                 throw new Error('Start command is specified but it is empty');
             }
 
-            await execAsync(configObject.command.start);
+            await execAsync(networkObject.caliper.command.start);
         }
 
         await blockchain.init();
@@ -345,11 +346,12 @@ module.exports.run = async function(configFile, networkFile) {
     }finally {
         demo.stopWatch();
 
-        if (configObject.hasOwnProperty('command') && configObject.command.hasOwnProperty('end')) {
-            if (!configObject.command.end.trim()) {
+        if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('command') && networkObject.caliper.command.hasOwnProperty('end')) {
+            if (!networkObject.caliper.command.end.trim()) {
                 logger.error('End command is specified but it is empty');
             } else {
-                await execAsync(configObject.command.end);
+
+                await execAsync(networkObject.caliper.command.end);
             }
         }
 

@@ -17,28 +17,33 @@ class Blockchain {
      */
     constructor(configPath) {
         let config = require(configPath);
-
-        if(config.hasOwnProperty('fabric')) {
-            let fabric = require('../fabric/fabric.js');
-            this.bcType = 'fabric';
-            this.bcObj = new fabric(configPath);
+        if(config.hasOwnProperty('caliper') && config.caliper.hasOwnProperty('blockchain')){
+            if(config.caliper.blockchain === 'fabric') {
+                let fabric = require('../fabric/fabric.js');
+                this.bcType = 'fabric';
+                this.bcObj = new fabric(configPath);
+            }
+            else if(config.caliper.blockchain ==='sawtooth') {
+                let sawtooth = require('../sawtooth/sawtooth.js');
+                this.bcType = 'sawtooth';
+                this.bcObj = new sawtooth(configPath);
+            }
+            else if(config.caliper.blockchain ==='iroha') {
+                let iroha = require('../iroha/iroha.js');
+                this.bcType = 'iroha';
+                this.bcObj = new iroha(configPath);
+            }
+            else if(config.caliper.blockchain === 'composer') {
+                let composer = require('../composer/composer.js');
+                this.bcType = 'composer';
+                this.bcObj = new composer(configPath);
+            }
+            else {
+                this.bcType = 'unknown';
+                throw new Error('Unknown blockchain type: ' + config.caliper.blockchain);
+            }
         }
-        else if(config.hasOwnProperty('sawtooth')) {
-            let sawtooth = require('../sawtooth/sawtooth.js');
-            this.bcType = 'sawtooth';
-            this.bcObj = new sawtooth(configPath);
-        }
-        else if(config.hasOwnProperty('iroha')) {
-            let iroha = require('../iroha/iroha.js');
-            this.bcType = 'iroha';
-            this.bcObj = new iroha(configPath);
-        }
-        else if(config.hasOwnProperty('composer')) {
-            let composer = require('../composer/composer.js');
-            this.bcType = 'composer';
-            this.bcObj = new composer(configPath);
-        }
-        else {
+        else{
             this.bcType = 'unknown';
             throw new Error('Unknown blockchain config file ' + configPath);
         }

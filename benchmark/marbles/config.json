@@ -1,12 +1,4 @@
-{
-  "blockchain": {
-    "type": "fabric",
-    "config": "benchmark/marbles/fabric-go-tls.json"
-  },
-  "command" : {
-    "start": "docker-compose -f network/fabric/2org1peer/docker-compose-tls.yaml up -d",
-    "end" : "docker-compose -f network/fabric/2org1peer/docker-compose-tls.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
-  },
+{ 
   "test": {
     "clients": {
       "type": "local",
