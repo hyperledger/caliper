@@ -12,7 +12,7 @@ const fs = require('fs');
 const path = require('path');
 let testUtil = require('../fabric/util.js');
 const Util = require('../comm/util');
-const log = Util.log;
+const logger = Util.getLogger();
 const rootPath = '../../';
 
 
@@ -52,7 +52,7 @@ class FabricListener {
     getBlocks() {
         let self = this;
         self.client_kafka.on('error', function (error) {
-            log('Kafka client ERROR', error);
+            logger.error('Kafka client ERROR', error);
         });
 
         self.producer.on('ready', function () {
@@ -89,20 +89,20 @@ class FabricListener {
 
                     self.producer.send(payload, function (error, result) {
                         if (error) {
-                            log('Error while publishing block in kafka', error);
+                            logger.error('Error while publishing block in kafka', error);
                         }
                     });
 
                 },
                 (err) => {
-                    log('Error in chaincode Event listener :', err);
+                    logger.error('Error in chaincode Event listener :', err);
                 }
                 );
             });
 
         });
         self.producer.on('error', function (error) {
-            log('Producer is not ready', error);
+            logger.error('Producer is not ready', error);
         });
 
     }

@@ -599,7 +599,7 @@ async function invokebycontext(context, id, version, args, timeout, withMQ){
 
             let newTimeout = timeout * 1000 - (Date.now() - startTime);
             if(newTimeout < 10000) {
-                commUtils.log('WARNING: timeout is too small, default value is used instead');
+                commLogger.warn('WARNING: timeout is too small, default value is used instead');
                 newTimeout = 10000;
             }
             eventHubs.forEach((eh) => {
@@ -667,7 +667,7 @@ async function invokebycontext(context, id, version, args, timeout, withMQ){
             // so mark it failed but leave it not verified
             if (!invokeStatus.IsVerified()) {
                 invokeStatus.SetStatusFail();
-                commUtils.log('Failed to complete transaction [' + txId.substring(0, 5) + '...]: every eventhub connection closed');
+                commLogger.error('Failed to complete transaction [' + txId.substring(0, 5) + '...]: every eventhub connection closed');
             } else {
                 invokeStatus.SetStatusSuccess();
             }

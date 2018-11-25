@@ -8,7 +8,7 @@
 'use strict';
 const kafka = require('kafka-node');
 const Util = require('../comm/util');
-const log = Util.log;
+const logger = Util.getLogger();
 let HighLevelProducer = kafka.HighLevelProducer;
 
 let KafkaAdapter = class {
@@ -45,7 +45,7 @@ let KafkaAdapter = class {
         this.producer.on('ready', function () {
             self.producer.createTopics([self.listener_config.topic], false, function (err, data) {
                 if (err) {
-                    log('Error creating Topic', err);
+                    logger.error('Error creating Topic', err);
                 }
             });
         });
