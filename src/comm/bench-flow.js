@@ -289,8 +289,6 @@ function execAsync(command) {
  * @param {String} networkFile path of the blockchain configuration file
  */
 module.exports.run = async function(configFile, networkFile) {
-    let localConfig = require(configFile);
-    configurationType = localConfig.test.clients.WITH_MQ;
     logger.info('####### Caliper Test ######');
     absConfigFile  = Util.resolvePath(configFile);
     absNetworkFile = Util.resolvePath(networkFile);
@@ -301,6 +299,7 @@ module.exports.run = async function(configFile, networkFile) {
     demo.init();
 
     let configObject = require(absConfigFile);
+    configurationType = configObject.test.clients.WITH_MQ;
 
     try {
         if (configObject.hasOwnProperty('command') && configObject.command.hasOwnProperty('start')) {
