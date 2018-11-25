@@ -33,125 +33,108 @@ const commLogger = commUtils.getLogger('create-channel.js');
 /**
  * Create the channels located in the given configuration file.
  * @param {string} config_path The path to the Fabric network configuration file.
- * @return {Promise} The return promise.
+ * @async
  */
-function run(config_path) {
+async function run(config_path) {
     Client.addConfigFile(config_path);
     const fabric = Client.getConfigSetting('fabric');
     const channels = fabric.channel;
     if(!channels || channels.length === 0) {
-        return Promise.reject(new Error('No channel information found'));
+        throw new Error('No channel information found');
     }
-    return new Promise(function(resolve, reject) {
-        let ORGS = fabric.network;
-        let caRootsPath = ORGS.orderer.tls_cacerts;
-        let data = fs.readFileSync(commUtils.resolvePath(caRootsPath));
-        let caroots = Buffer.from(data).toString();
-        utils.setConfigSetting('key-value-store', 'fabric-client/lib/impl/FileKeyValueStore.js');
 
-        return channels.reduce((prev, channel)=>{
-            return prev.then(()=>{
-                if(channel.deployed) {
-                    return Promise.resolve();
+    let ORGS = fabric.network;
+    let caRootsPath = ORGS.orderer.tls_cacerts;
+    let data = fs.readFileSync(commUtils.resolvePath(caRootsPath));
+    let caroots = Buffer.from(data).toString();
+    utils.setConfigSetting('key-value-store', 'fabric-client/lib/impl/FileKeyValueStore.js');
+
+    try {
+        for (let channel of channels) {
+            if(channel.deployed) {
+                continue;
+            }
+
+            commLogger.info(`Creating ${channel.name}...`);
+
+            // Acting as a client in first org when creating the channel
+            let client = new Client();
+            let org = channel.organizations[0];
+            let orderer = client.newOrderer(
+                ORGS.orderer.url,
+                {
+                    'pem': caroots,
+                    'ssl-target-name-override': ORGS.orderer['server-hostname']
                 }
+            );
 
-                commLogger.info('create ' + channel.name + '......');
+            let config = null;
+            let signatures = [];
 
-                // Acting as a client in first org when creating the channel
-                let client = new Client();
-                let org = channel.organizations[0];
-                let orderer = client.newOrderer(
-                    ORGS.orderer.url,
-                    {
-                        'pem': caroots,
-                        'ssl-target-name-override': ORGS.orderer['server-hostname']
-                    }
-                );
+            let store = await Client.newDefaultKeyValueStore({path: testUtil.storePathForOrg(org)});
+            client.setStateStore(store);
+            let cryptoSuite = Client.newCryptoSuite();
+            cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: testUtil.storePathForOrg(org)}));
+            client.setCryptoSuite(cryptoSuite);
 
-                let config = null;
-                let signatures = [];
+            await testUtil.getOrderAdminSubmitter(client);
 
-                return Client.newDefaultKeyValueStore({path: testUtil.storePathForOrg(org)})
-                    .then((store) => {
-                        client.setStateStore(store);
-                        let cryptoSuite = Client.newCryptoSuite();
-                        cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: testUtil.storePathForOrg(org)}));
-                        client.setCryptoSuite(cryptoSuite);
-                        return testUtil.getOrderAdminSubmitter(client);
-                    })
-                    .then((admin) =>{
-                        // use the config update created by the configtx tool
-                        let envelope_bytes = fs.readFileSync(commUtils.resolvePath(channel.config));
-                        config = client.extractChannelConfig(envelope_bytes);
+            // use the config update created by the configtx tool
+            let envelope_bytes = fs.readFileSync(commUtils.resolvePath(channel.config));
+            config = client.extractChannelConfig(envelope_bytes);
 
-                        // TODO: read from channel config instead of binary tx file
+            // TODO: read from channel config instead of binary tx file
 
-                        // sign the config for each org
-                        return channel.organizations.reduce(function(prev, item){
-                            return prev.then(() => {
-                                client._userContext = null;
-                                return testUtil.getSubmitter(client, true, item).then((orgAdmin) =>{
-                                    // sign the config
-                                    let signature = client.signChannelConfig(config);
-                                    // TODO: signature counting against policies on the orderer
-                                    // at the moment is being investigated, but it requires this
-                                    // weird double-signature from each org admin
-                                    signatures.push(signature);
-                                    signatures.push(signature);
-                                    return Promise.resolve();
-                                });
-                            });
-                        }, Promise.resolve())
-                            .then(()=>{
-                                client._userContext = null;
-                                return testUtil.getOrderAdminSubmitter(client);
-                            })
-                            .then((orderAdmin) => {
-                                // sign the config
-                                let signature = client.signChannelConfig(config);
-                                // collect signature from orderer admin
-                                // TODO: signature counting against policies on the orderer
-                                // at the moment is being investigated, but it requires this
-                                // weird double-signature from each org admin
-                                signatures.push(signature);
-                                signatures.push(signature);
-                                // build up the create request
-                                let tx_id = client.newTransactionID();
-                                let request = {
-                                    config: config,
-                                    signatures : signatures,
-                                    name : channel.name,
-                                    orderer : orderer,
-                                    txId  : tx_id
-                                };
+            // sign the config for each org
+            for (let organization of channel.organizations) {
+                client._userContext = null;
+                await testUtil.getSubmitter(client, true, organization);
+                // sign the config
+                let signature = client.signChannelConfig(config);
+                // TODO: signature counting against policies on the orderer
+                // at the moment is being investigated, but it requires this
+                // weird double-signature from each org admin
+                signatures.push(signature);
+                signatures.push(signature);
+            }
 
-                                // send create request to orderer
-                                return client.createChannel(request);
-                            })
-                            .then((result) => {
-                                if(result.status && result.status === 'SUCCESS') {
-                                    commLogger.info('created ' + channel.name + ' successfully');
-                                    return Promise.resolve();
-                                }
-                                else {
-                                    throw new Error('create status is ' + result.status);
-                                }
-                            });
-                    });
-            });
-        }, Promise.resolve())
-            .then(()=>{
-                commLogger.info('Sleep 5s......');
-                return commUtils.sleep(5000);
-            })
-            .then(() => {
-                return resolve();
-            })
-            .catch((err) => {
-                commLogger.error('Failed to create channels ' + (err.stack?err.stack:err));
-                return reject(new Error('Fabric: Create channel failed'));
-            });
-    });
+            client._userContext = null;
+            await testUtil.getOrderAdminSubmitter(client);
+
+            // sign the config
+            let signature = client.signChannelConfig(config);
+            // collect signature from orderer admin
+            // TODO: signature counting against policies on the orderer
+            // at the moment is being investigated, but it requires this
+            // weird double-signature from each org admin
+            signatures.push(signature);
+            signatures.push(signature);
+            // build up the create request
+            let tx_id = client.newTransactionID();
+            let request = {
+                config: config,
+                signatures : signatures,
+                name : channel.name,
+                orderer : orderer,
+                txId  : tx_id
+            };
+
+            // send create request to orderer
+            let result = await client.createChannel(request);
+            if(result.status && result.status === 'SUCCESS') {
+                commLogger.info(`Created ${channel.name} successfully`);
+            }
+            else {
+                throw new Error(`Create status for ${channel.name} is ${result.status}`);
+            }
+        }
+
+        commLogger.info('Sleeping 5s...');
+        await commUtils.sleep(5000);
+    } catch (err) {
+        commLogger.error(`Failed to create channels: ${(err.stack ? err.stack : err)}`);
+        throw err;
+    }
 }
 
 module.exports.run = run;

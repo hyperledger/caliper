@@ -19,23 +19,15 @@
 
 const path = require('path');
 const fs = require('fs-extra');
-//const os = require('os');
 const util = require('util');
-
-//const jsrsa = require('jsrsasign');
-//const KEYUTIL = jsrsa.KEYUTIL;
 
 const Client = require('fabric-client');
 const copService = require('fabric-ca-client/lib/FabricCAClientImpl.js');
 const User = require('fabric-client/lib/User.js');
-//const CryptoSuite = require('fabric-client/lib/impl/CryptoSuite_ECDSA_AES.js');
-//const KeyStore = require('fabric-client/lib/impl/CryptoKeyStore.js');
-//const ecdsaKey = require('fabric-client/lib/impl/ecdsa/key.js');
+
 const Constants = require('./constant.js');
 const commUtils = require('../comm/util');
 const commLogger = commUtils.getLogger('util.js');
-
-//const logger = require('fabric-client/lib/utils.js').getLogger('TestUtil');
 
 let channels = [];
 let cryptodir;
@@ -144,7 +136,6 @@ module.exports.readFile = readFile;
 
 module.exports.init = function(config_path) {
     Client.addConfigFile(config_path);
-	var c = require(config_path)
     const fa = Client.getConfigSetting('fabric');
     ORGS = fa.network;
     channels = fa.channel;
@@ -164,49 +155,45 @@ const tlsOptions = {
  * @param {string} userOrg The name of the user's organization.
  * @return {Promise<User>} The retrieved and enrolled user object.
  */
-function getMember(username, password, client, userOrg) {
+async function getMember(username, password, client, userOrg) {
     const caUrl = ORGS[userOrg].ca.url;
+    let user = await client.getUserContext(username, true);
+    if (user && user.isEnrolled()) {
+        return user;
+    }
 
-    return client.getUserContext(username, true)
-        .then((user) => {
-            return new Promise((resolve, reject) => {
-                if (user && user.isEnrolled()) {
-                    return resolve(user);
-                }
+    const member = new User(username);
+    let cryptoSuite = client.getCryptoSuite();
+    if (!cryptoSuite) {
+        cryptoSuite = Client.newCryptoSuite();
+        if (userOrg) {
+            cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: module.exports.storePathForOrg(ORGS[userOrg].name)}));
+            client.setCryptoSuite(cryptoSuite);
+        }
+    }
+    member.setCryptoSuite(cryptoSuite);
 
-                const member = new User(username);
-                let cryptoSuite = client.getCryptoSuite();
-                if (!cryptoSuite) {
-                    cryptoSuite = Client.newCryptoSuite();
-                    if (userOrg) {
-                        cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: module.exports.storePathForOrg(ORGS[userOrg].name)}));
-                        client.setCryptoSuite(cryptoSuite);
-                    }
-                }
-                member.setCryptoSuite(cryptoSuite);
+    // need to enroll it with CA server
+    const cop = new copService(caUrl, tlsOptions, ORGS[userOrg].ca.name, cryptoSuite);
 
-                // need to enroll it with CA server
-                const cop = new copService(caUrl, tlsOptions, ORGS[userOrg].ca.name, cryptoSuite);
-
-                return cop.enroll({
-                    enrollmentID: username,
-                    enrollmentSecret: password
-                }).then((enrollment) => {
-                    return member.setEnrollment(enrollment.key, enrollment.certificate, ORGS[userOrg].mspid);
-                }).then(() => {
-                    let skipPersistence = false;
-                    if (!client.getStateStore()) {
-                        skipPersistence = true;
-                    }
-                    return client.setUserContext(member, skipPersistence);
-                }).then(() => {
-                    return resolve(member);
-                }).catch((err) => {
-                    // TODO: will remove t argument later
-                    commLogger.error('Failed to enroll and persist user. Error: ' + (err.stack ? err.stack : err));
-                });
-            });
+    try {
+        let enrollment = await cop.enroll({
+            enrollmentID: username,
+            enrollmentSecret: password
         });
+
+        await member.setEnrollment(enrollment.key, enrollment.certificate, ORGS[userOrg].mspid);
+        let skipPersistence = false;
+        if (!client.getStateStore()) {
+            skipPersistence = true;
+        }
+
+        await client.setUserContext(member, skipPersistence);
+        return member;
+    } catch (err) {
+        commLogger.error(`Failed to enroll and persist user: ${(err.stack ? err.stack : err)}`);
+        throw err;
+    }
 }
 
 /**
@@ -215,7 +202,7 @@ function getMember(username, password, client, userOrg) {
  * @param {string} userOrg The name of the user's organization.
  * @return {User} The admin user identity.
  */
-function getAdmin(client, userOrg) {
+async function getAdmin(client, userOrg) {
     try {
         if(!ORGS.hasOwnProperty(userOrg)) {
             throw new Error('Could not found ' + userOrg + ' in configuration');
@@ -248,17 +235,18 @@ function getAdmin(client, userOrg) {
         cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: module.exports.storePathForOrg(ORGS[userOrg].name)}));
         client.setCryptoSuite(cryptoSuite);
 
-        return Promise.resolve(client.createUser({
+        return await client.createUser({
             username: 'peer'+userOrg+'Admin',
             mspid: org.mspid,
             cryptoContent: {
                 privateKeyPEM: keyPEM.toString(),
                 signedCertPEM: certPEM.toString()
             }
-        }));
+        });
     }
     catch(err) {
-        return Promise.reject(err);
+        commLogger.error(`Couldn't retrieve admin of ${userOrg}: ${err.stack ? err.stack : err}`);
+        throw err;
     }
 }
 
@@ -267,7 +255,7 @@ function getAdmin(client, userOrg) {
  * @param {Client} client The Fabric client object.
  * @return {User} The retrieved orderer admin identity.
  */
-function getOrdererAdmin(client) {
+async function getOrdererAdmin(client) {
     try {
         if(!ORGS.orderer) {
             throw new Error('Could not found orderer in configuration');
@@ -296,17 +284,18 @@ function getOrdererAdmin(client) {
             certPEM = readAllFiles(certPath)[0];
         }
 
-        return Promise.resolve(client.createUser({
+        return await client.createUser({
             username: 'ordererAdmin',
             mspid: orderer.mspid,
             cryptoContent: {
                 privateKeyPEM: keyPEM.toString(),
                 signedCertPEM: certPEM.toString()
             }
-        }));
+        });
     }
     catch(err) {
-        return Promise.reject(err);
+        commLogger.error(`Couldn't retrieve admin of orderer org: ${err.stack ? err.stack : err}`);
+        throw err;
     }
 }
 
@@ -316,7 +305,7 @@ module.exports.getOrderAdminSubmitter = function(client) {
     return getOrdererAdmin(client);
 };
 
-module.exports.getSubmitter = function(client, peerOrgAdmin, org) {
+module.exports.getSubmitter = async function(client, peerOrgAdmin, org) {
     if (arguments.length < 2) {throw new Error('"client" and "test" are both required parameters');}
 
     let peerAdmin, userOrg;
@@ -338,8 +327,8 @@ module.exports.getSubmitter = function(client, peerOrgAdmin, org) {
     }
 
     if (peerAdmin) {
-        return getAdmin(client, userOrg);
+        return await getAdmin(client, userOrg);
     } else {
-        return getMember('admin', 'adminpw', client, userOrg);
+        return await getMember('admin', 'adminpw', client, userOrg);
     }
 };

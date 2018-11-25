@@ -103,9 +103,8 @@ class Client{
     * @param {JSON} t test object
     * @return {Promise} promise object
     */
-    init(demo, config, absCaliperDir, listener_child) {
+    async init(demo, config, absCaliperDir, listener_child) {
         absConfigFile = require(util.resolvePath(config));
-
         if (this.config.hasOwnProperty('WITH_MQ') && this.config.WITH_MQ) {
             clientUtil._consumeEvents(function(err){
                 logger.error(err);
@@ -136,15 +135,15 @@ class Client{
                 else {
                     this.number = 1;
                 }
-                return Promise.resolve(this.number);
+                return this.number;
             case CLIENT_ZOO:
-                return this._initZoo();
+                return await this._initZoo();
             default:
-                return Promise.reject(new Error('Unknown client type, should be local or zookeeper'));
+                throw new Error('Unknown client type, should be local or zookeeper');
             }
         }
         else {
-            return Promise.reject(new Error('Failed to find client type in config file'));
+            throw new Error('Failed to find client type in config file');
         }
     }
 
@@ -162,52 +161,26 @@ class Client{
     *            };
     * @param {JSON} message start message
     * @param {Array} clientArgs each element of the array contains arguments that should be passed to corresponding test client
-    * @param {Object} finishCB callback after the test finished
+    * @param {function} finishCB callback after the test finished
     * @param {any} finishArgs arguments that should be passed to finishCB, the callback is invoke as finishCB(this.results, finshArgs)
-    * @return {Promise} promise object
+     * @async
     */
-    startTest(message, clientArgs, finishCB, finishArgs) {
-        let p;
+    async startTest(message, clientArgs, finishCB, finishArgs) {
         this.results = [];
         this.updates.data = [];
         this.updates.id++;
-        switch(this.type) {
-        case CLIENT_LOCAL:
-            p = this._startLocalTest(message, clientArgs);
-            break;
-        case CLIENT_ZOO:
-            p = this._startZooTest(message, clientArgs);
-            break;
-        default:
-            return Promise.reject(new Error('Unknown client type: ' + this.type));
-        }
-        return p.then(()=>{
-         
-            return finishCB(this.results, finishArgs);
-        }).then(()=>{
-            return Promise.resolve();
-        }).catch((err)=>{
-            return Promise.reject(err);
-        });
-    }
 
-    /**
-    * Send message to actual clients
-    * @param {JSON} message JSON message
-    * @return {Number} actual number of sent messages
-    */
-    sendMessage(message) {
         switch(this.type) {
         case CLIENT_LOCAL:
-            return this._sendLocalMessage(message);
+            await this._startLocalTest(message, clientArgs);
+            break;
         case CLIENT_ZOO:
-            return this._sendZooMessage(message).catch((err) => {
-                return 0;
-            });
+            await this._startZooTest(message, clientArgs);
+            break;
         default:
-            logger.error('Unknown client type: ' + this.type);
-            return 0;
+            throw new Error(`Unknown client type: ${this.type}`);
         }
+        await finishCB(this.results, finishArgs);
     }
 
     /**
@@ -242,6 +215,7 @@ class Client{
     * pseudo private functions
     */
 
+
     /**
     * functions for CLIENT_LOCAL
     */
@@ -251,20 +225,11 @@ class Client{
      * @param {JSON} message start messages
      * @param {Array} clientArgs arguments for the test clients
      * @return {Promise} promise object
+     * @async
      */
-    _startLocalTest(message, clientArgs) {
-
+    async _startLocalTest(message, clientArgs) {
         message.totalClients = this.number;
-        return clientUtil.startTest(this.number, message, clientArgs, this.updates.data, this.results, this.config.WITH_MQ);
-    }
-
-    /**
-     * Send message to local clients
-     * @param {JSON} message JSON message
-     * @return {Number} number of sent messages
-     */
-    _sendLocalMessage(message) {
-        return clientUtil.sendMessage(message);
+        return await clientUtil.startTest(this.number, message, clientArgs, this.updates.data, this.results, this.config.WITH_MQ);
     }
 
     /**

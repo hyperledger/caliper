@@ -233,7 +233,7 @@ function update() {
  * @param {*} withMQ flag to determine if running MQ mode
  * @return {Promise} promise object
  */
-function updateResults(withMQ) {
+async function updateResults(withMQ) {
     if (withMQ && unConfirmedTransactions.length !== 0) {
         return new Promise(function(resolve, reject) {
             (function wait(){
@@ -262,85 +262,83 @@ function updateResults(withMQ) {
  * @param {Array} updates array to save txUpdate results
  * @param {Array} results array to save the test results
  * @param {*} withMQ flag to determine if running MQ mode
- * @return {Promise} promise object
+ * @async
  */
-function startTest(number, message, clientArgs, updates, results, withMQ) {
-    let txUpdateTime = 1000;
-    testfinished = false;
+async function startTest(number, message, clientArgs, updates, results, withMQ) {
     let count = 0;
+    let txUpdateTime = 1000;
     for(let i in processes) {
         i;  // avoid eslint error
         count++;
     }
-    if(count === number) {
-        if (withMQ) {
-            txUpdateInter = setInterval(update, txUpdateTime);
-            updateTail = 0;
-            confirmTail = 0;
-            unConfirmedTransactions = [];
-            confirmedTransactions = [];
+
+    if (count !== number) {
+        // launch clients
+        processes = {};
+        for(let i = 0 ; i < number ; i++) {
+            launchClient(updates, results);
         }
-        // already launched clients
-        let txPerClient;
-        if (message.numb) {
-            // Run specified number of transactions
-            txPerClient  = Math.floor(message.numb / number);
+    }
 
-            // trim should be based on client number if specified with txNumber
-            if (message.trim) {
-                message.trim = Math.floor(message.trim / number);
-            }
+    if (withMQ) {
+        txUpdateInter = setInterval(update, txUpdateTime);
+        updateTail = 0;
+        confirmTail = 0;
+        unConfirmedTransactions = [];
+        confirmedTransactions = [];
+    }
+    let txPerClient;
+    if (message.numb) {
+        // Run specified number of transactions
+        txPerClient  = Math.floor(message.numb / number);
 
-            if(txPerClient < 1) {
-                txPerClient = 1;
-            }
-            message.numb = txPerClient;
-        } else if (message.txDuration) {
-            // Run for time specified txDuration based on clients
-            // Do nothing, we run for the time specified within message.txDuration
-        } else {
-            return Promise.reject(new Error('Unconditioned transaction rate driving mode'));
+        // trim should be based on client number if specified with txNumber
+        if (message.trim) {
+            message.trim = Math.floor(message.trim / number);
         }
 
-        message.clients = number;
-
-        let promises = [];
-        let idx = 0;
-
-        for(let id in processes) {
-            let client = processes[id];
-            let p = new Promise((resolve, reject) => {
-                client.promise = {
-                    resolve: resolve,
-                    reject:  reject
-                };
-            });
-            promises.push(p);
-            client.results = results;
-            client.updates = updates;
-            message.clientargs = clientArgs[idx];
-            message.clientIdx = idx;
-            idx++;
-            client.obj.send(message);
+        if(txPerClient < 1) {
+            txPerClient = 1;
         }
-        return Promise.all(promises).then(() =>{
-            for(let client in processes) {
-                delete client.promise;
-            }
-            testfinished = true;
-            return updateResults(withMQ);
-        }).then(() => {
-            clearInterval(txUpdateInter);
-            return Promise.resolve();
+        message.numb = txPerClient;
+    } else if (message.txDuration) {
+        // Run for time specified txDuration based on clients
+        // Do nothing, we run for the time specified within message.txDuration
+    } else {
+        throw new Error('Unconditioned transaction rate driving mode');
+        //return Promise.reject(new Error('Unconditioned transaction rate driving mode'));
+    }
+
+    message.clients = number;
+
+    let promises = [];
+    let idx = 0;
+    for(let id in processes) {
+        let client = processes[id];
+        let p = new Promise((resolve, reject) => {
+            client.promise = {
+                resolve: resolve,
+                reject:  reject
+            };
         });
+        promises.push(p);
+        client.results = results;
+        client.updates = updates;
+        message.clientargs = clientArgs[idx];
+        message.clientIdx = idx;
+        idx++;
+
+        client.obj.send(message);
     }
-    //launch clients
-    processes = {};
-    for(let i = 0 ; i < number ; i++) {
-        launchClient(updates, results);
+
+    await Promise.all(promises);
+    // clear promises
+    for(let client in processes) {
+        delete client.promise;
     }
-    // start test
-    return startTest(number, message, clientArgs, updates, results, withMQ);
+    testfinished = true;
+    await updateResults(withMQ);
+    clearInterval(txUpdateInter);
 }
 module.exports.startTest = startTest;
 

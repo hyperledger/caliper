@@ -200,76 +200,86 @@ function processResult(results, label){
  * @param {JSON} args testing arguments
  * @param {Array} clientArgs arguments for clients
  * @param {Boolean} final =true, the last test round; otherwise, =false
- * @return {Promise} promise object
+ * @async
  */
-function defaultTest(args, clientArgs, final) {
-    return new Promise( function(resolve, reject) {
-        logger.info('###### testing \'' + args.label + '\' ######');
-        let testLabel   = args.label;
-        let testRounds  = args.txDuration ? args.txDuration : args.txNumber;
-        let tests = []; // array of all test rounds
-        let configPath = path.relative(absCaliperDir, absNetworkFile);
-        for(let i = 0 ; i < testRounds.length ; i++) {
-            let msg = {
-                type: 'test',
-                label : args.label,
-                rateControl: args.rateControl[i] ? args.rateControl[i] : {type:'fixed-rate', 'opts' : {'tps': 1}},
-                trim: args.trim ? args.trim : 0,
-                args: args.arguments,
-                cb  : args.callback,
-                config: configPath,
-                withMQ: configurationType
-            };
-            // condition for time based or number based test driving
-            if (args.txNumber) {
-                msg.numb = testRounds[i];
-            } else if (args.txDuration) {
-                msg.txDuration = testRounds[i];
-            } else {
-                return reject(new Error('Unspecified test driving mode'));
-            }
-            tests.push(msg);
+async function defaultTest(args, clientArgs, final) {
+    logger.info(`###### Testing '${args.label}' ######`);
+    let testLabel   = args.label;
+    let testRounds  = args.txDuration ? args.txDuration : args.txNumber;
+    let tests = []; // array of all test rounds
+    let configPath = path.relative(absCaliperDir, absNetworkFile);
+
+    for(let i = 0 ; i < testRounds.length ; i++) {
+        let msg = {
+            type: 'test',
+            label : args.label,
+            rateControl: args.rateControl[i] ? args.rateControl[i] : {type:'fixed-rate', 'opts' : {'tps': 1}},
+            trim: args.trim ? args.trim : 0,
+            args: args.arguments,
+            cb  : args.callback,
+            config: configPath,
+            withMQ: configurationType
+        };
+        // condition for time based or number based test driving
+        if (args.txNumber) {
+            msg.numb = testRounds[i];
+        } else if (args.txDuration) {
+            msg.txDuration = testRounds[i];
+        } else {
+            throw new Error('Unspecified test driving mode');
         }
-        let testIdx = 0;
+        tests.push(msg);
+    }
 
-        return tests.reduce( function(prev, item) {
-            return prev.then( () => {
-                logger.info('----test round ' + round + '----');
-                round++;
-                testIdx++;
-                item.roundIdx = round; // propagate round ID to clients
-                demo.startWatch(client);
-                return client.startTest(item, clientArgs, processResult, testLabel).then( () => {
-                    demo.pauseWatch();
-                    success++;
-                    logger.info('passed \'' + testLabel + '\' testing');
-                    return Promise.resolve();
+    let testIdx = 0;
 
-                }).then( () => {
-                    if(final && testIdx === tests.length) {
-                        return Promise.resolve();
-                    }
-                    else {
+    for (let test of tests) {
+        logger.info(`------ Test round ${round + 1} ------`);
+        round++;
+        testIdx++;
 
-                        logger.info('wait 5 seconds for next round...');
-                        return Util.sleep(5000).then( () => {
-                            return monitor.restart();
-                        });
-                    }
+        test.roundIdx = round; // propagate round ID to clients
+        demo.startWatch(client);
+        try {
+            await client.startTest(test, clientArgs, processResult, testLabel);
 
-                }).catch( (err) => {
-                    demo.pauseWatch();
-                    failure++;
-                    logger.error('failed \''  + testLabel + '\' testing, ' + (err.stack ? err.stack : err));
-                    return Promise.resolve();   // continue with next round ?
-                });
-            });
-        }, Promise.resolve()).then( () => {
+            demo.pauseWatch();
+            success++;
+            logger.info(`------ Passed '${testLabel}' testing ------`);
+
+            // prepare for the next round
+            if(!final || testIdx !== tests.length) {
+                logger.info('Waiting 5 seconds for the next round...');
+                await Util.sleep(5000);
+                await monitor.restart();
+            }
+        } catch (err) {
+            demo.pauseWatch();
+            failure++;
+            logger.error(`------ Failed '${testLabel}' testing with the following error ------
+${err.stack ? err.stack : err}`);
+            // continue with next round
+        }
+    }
+}
+/**
+ * Executes the given command asynchronously.
+ * @param {string} command The command to execute through a newly spawn shell.
+ * @return {Promise} The return promise is resolved upon the successful execution of the command, or rejected with an Error instance.
+ * @async
+ */
+function execAsync(command) {
+    return new Promise((resolve, reject) => {
+        logger.info(`Executing command: ${command}`);
+        let child = exec(command, {cwd: absCaliperDir}, (err, stdout, stderr) => {
+            if (err) {
+                logger.error(`Unsuccessful command execution. Error code: ${err.code}. Terminating signal: ${err.signal}`);
+                return reject(err);
+            }
             return resolve();
-        }).catch( (err) => {
-            logger.error(err.stack ? err.stack : err);
-            return reject(new Error('defaultTest failed'));
         });
+        child.stdout.pipe(process.stdout);
+        child.stderr.pipe(process.stderr);
     });
 }
 
@@ -278,10 +288,10 @@ function defaultTest(args, clientArgs, final) {
  * @param {String} configFile path of the test configuration file
  * @param {String} networkFile path of the blockchain configuration file
  */
-module.exports.run = function(configFile, networkFile) {
-	let localConfig = require(configFile);
+module.exports.run = async function(configFile, networkFile) {
+    let localConfig = require(configFile);
     configurationType = localConfig.test.clients.WITH_MQ;
-    logger.info('#######Caliper Test######');
+    logger.info('####### Caliper Test ######');
     absConfigFile  = Util.resolvePath(configFile);
     absNetworkFile = Util.resolvePath(networkFile);
     blockchain = new Blockchain(absNetworkFile);
@@ -289,24 +299,18 @@ module.exports.run = function(configFile, networkFile) {
     client  = new Client(absConfigFile);
     createReport();
     demo.init();
-    let startPromise = new Promise((resolve, reject) => {
-        let config = require(absConfigFile);
-        if (config.hasOwnProperty('command') && config.command.hasOwnProperty('start')){
-            logger.info(config.command.start);
-            let child = exec(config.command.start, {cwd: absCaliperDir}, (err, stdout, stderr) => {
-                if (err) {
-                    return reject(err);
-                }
-                return resolve();
-            });
-            child.stdout.pipe(process.stdout);
-            child.stderr.pipe(process.stderr);
+
+    let configObject = require(absConfigFile);
+
+    try {
+        if (configObject.hasOwnProperty('command') && configObject.command.hasOwnProperty('start')) {
+            if (!configObject.command.start.trim()) {
+                throw new Error('Start command is specified but it is empty');
+            }
+
+            await execAsync(configObject.command.start);
         }
-        else {
-            resolve();
-        }
-    });
-    startPromise.then(() => {
+
         if (configurationType) {
             let blockListenerPath = path.join(__dirname, absCaliperPath, 'listener/block-listener-handler.js');
             listener_child = childProcess.fork(blockListenerPath);
@@ -315,58 +319,48 @@ module.exports.run = function(configFile, networkFile) {
             });
             listener_child.send({ type:'test', config: configFile });
         }
-        return blockchain.init();
-    }).then( () => {
+        await blockchain.init();
+        await blockchain.installSmartContract();
+        let numberOfClients = await client.init(demo, configFile, absCaliperDir, listener_child);
+        let clientArgs = await blockchain.prepareClients(numberOfClients);
 
-        return blockchain.installSmartContract();
-    }).then( () => {
-        return client.init(demo, configFile, absCaliperDir, listener_child).then((number)=>{
-            return blockchain.prepareClients(number);
-        });
-    }).then( (clientArgs) => {
-        monitor.start().then(()=>{
-            logger.info('started monitor successfully');
-        }).catch( (err) => {
-            logger.error('could not start monitor, ' + (err.stack ? err.stack : err));
-        });
+        try {
+            await monitor.start();
+            logger.info('Started monitor successfully');
+        } catch (err) {
+            logger.error('Could not start monitor, ' + (err.stack ? err.stack : err));
+        }
+        let allTests = configObject.test.rounds;
+        let testIdx = 0;
+        let testNum = allTests.length;
 
-        let allTests  = require(absConfigFile).test.rounds;
-        let testIdx   = 0;
-        let testNum   = allTests.length;
-        return allTests.reduce( (prev, item) => {
-            return prev.then( () => {
-                ++testIdx;
-                return defaultTest(item, clientArgs, (testIdx === testNum));
-            });
-        }, Promise.resolve());
-    }).then( () => {
+        for (let test of allTests) {
+            ++testIdx;
+            await defaultTest(test, clientArgs, (testIdx === testNum));
+        }
+        logger.info('---------- Finished Test ----------\n');
+        printResultsByRound();
+        monitor.printMaxStats();
+        await monitor.stop();
+
+        let date = new Date().toISOString().replace(/-/g,'').replace(/:/g,'').substr(0,15);
+        let output = path.join(process.cwd(), `report-${date}.html`);
+        await report.generate(output);
+        logger.info(`Generated report at ${output}`);
+        client.stop();
+    } catch (err) {
+        logger.error(`Error: ${err.stack ? err.stack : err}`);
+    }finally {
+        demo.stopWatch();
         if (configurationType) {
             listener_child.send({type:'closeKafkaProducer', config: configFile});
         }
-        logger.info('----------finished test----------\n');
-        printResultsByRound();
-        monitor.printMaxStats();
-        monitor.stop();
-        let date = new Date().toISOString().replace(/-/g,'').replace(/:/g,'').substr(0,15);
-        let output = path.join(process.cwd(), 'report'+date+'.html' );
-        return report.generate(output).then(()=>{
-            demo.stopWatch(output);
-            logger.info('Generated report at ' + output);
-            return Promise.resolve();
-        });
-    }).then( () => {
-        client.stop();
-        let config = require(absConfigFile);
-        if (config.hasOwnProperty('command') && config.command.hasOwnProperty('end')){
-            logger.info(config.command.end);
-            let end = exec(config.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
-                if (error) {
-                    throw error;
-                }
-                process.exit();
-            });
-            end.stdout.pipe(process.stdout);
-            end.stderr.pipe(process.stderr);
+        if (configObject.hasOwnProperty('command') && configObject.command.hasOwnProperty('end')) {
+            if (!configObject.command.end.trim()) {
+                logger.error('End command is specified but it is empty');
+            } else {
+                await execAsync(configObject.command.end);
+            }
         }
         // NOTE: keep the below multi-line formatting intact, otherwise the indents will interfere with the template literal
         let testSummary = `# Test summary: ${success} succeeded, ${failure} failed #`;
@@ -376,23 +370,6 @@ ${'#'.repeat(testSummary.length)}
 ${testSummary}
 ${'#'.repeat(testSummary.length)}
 `);
-    }).catch( (err) => {
-        if (configurationType) {
-            listener_child.send({type:'closeKafkaProducer', config: configFile});
-        }
-        demo.stopWatch();
-        logger.error('unexpected error, ' + (err.stack ? err.stack : err));
-        let config = require(absConfigFile);
-        if (config.hasOwnProperty('command') && config.command.hasOwnProperty('end')){
-            logger.info(config.command.end);
-            let end = exec(config.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
-                if (error) {
-                    throw error;
-                }
-                process.exit();
-            });
-            end.stdout.pipe(process.stdout);
-            end.stderr.pipe(process.stderr);
-        }
-    });
+    }
+    process.exit();
 };

@@ -33,7 +33,7 @@ class TxStatus {
             verified: false,   // if false, we cannot be sure that the final Tx status is accurate
             flags: 0,    // the blockchain specified flag
             error_messages: [], // the blockchain specified error messages
-			needVerifyWithMQ : false
+            needVerifyWithMQ : false
         };
     }
 
@@ -193,7 +193,6 @@ class TxStatus {
     Get(key) {
         return this.status[key];
     }
-	
 
     /**
      * Get needVerifyWithMQ
