@@ -360,16 +360,16 @@ module.exports.run = async function(configFile, networkFile) {
                 logger.error('End command is specified but it is empty');
             } else {
                 await execAsync(configObject.command.end);
-            }
-        }
-        // NOTE: keep the below multi-line formatting intact, otherwise the indents will interfere with the template literal
-        let testSummary = `# Test summary: ${success} succeeded, ${failure} failed #`;
-        logger.info(`
+                let testSummary = `# Test summary: ${success} succeeded, ${failure} failed #`;
+                logger.info(`
         
 ${'#'.repeat(testSummary.length)}
 ${testSummary}
 ${'#'.repeat(testSummary.length)}
 `);
+                process.exit();
+            }
+        }
+        // NOTE: keep the below multi-line formatting intact, otherwise the indents will interfere with the template literal
     }
-    process.exit();
 };

@@ -233,7 +233,7 @@ function update() {
  * @param {*} withMQ flag to determine if running MQ mode
  * @return {Promise} promise object
  */
-async function updateResults(withMQ) {
+function updateResults(withMQ) {
     if (withMQ && unConfirmedTransactions.length !== 0) {
         return new Promise(function(resolve, reject) {
             (function wait(){
@@ -267,6 +267,7 @@ async function updateResults(withMQ) {
 async function startTest(number, message, clientArgs, updates, results, withMQ) {
     let count = 0;
     let txUpdateTime = 1000;
+    testfinished = false;
     for(let i in processes) {
         i;  // avoid eslint error
         count++;
