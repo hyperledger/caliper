@@ -24,24 +24,17 @@ echo "---- Target version ${VERSION}"
 if [ "${BENCHMARK}" == "composer" ]; then
     # Run version
     if [ "${VERSION}" == "0.19" ]; then
-        npm install composer-admin@">=0.19.0 <0.20.0"
-        npm install composer-client@">=0.19.0 <0.20.0"
-        npm install composer-common@">=0.19.0 <0.20.0"
-        npm install fabric-client@1.1.0
+        npm run composer-deps
         npm run test -- composer
     else
         echo "Unknown version ${VERSION} for benchmark ${BENCHMARK}"
         exit  1
     fi
 elif [ "${BENCHMARK}" == "drm" ]; then
-    npm install grpc@1.10.1
-    npm install fabric-ca-client@1.1.0
-    npm install fabric-client@1.1.0
+    npm run fabric-deps
     npm run test -- drm
 elif [ "${BENCHMARK}" == "simple" ]; then
-    npm install grpc@1.10.1
-    npm install fabric-ca-client@1.1.0
-    npm install fabric-client@1.1.0
+    npm run fabric-deps
     npm run test -- simple
 else
     echo "Unknown target benchmark ${BENCHMARK}"
