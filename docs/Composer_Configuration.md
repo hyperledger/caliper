@@ -12,17 +12,10 @@ Hyperledger Composer is a set of development tools to assist in the building of 
 
 ## Installing Composer dependencies
 
-The framework has been verified with the following dependencies:
-
-```
-"composer-admin": "0.20.0",
-"composer-client": "0.20.0",
-"composer-common": "0.20.0",
-"fabric-ca-client": "1.2.0",
-"fabric-client": "1.2.0",
-```
-
-In order to configure your local system to run tests on static (published) versions, it is recommended to update the Caliper package.json to import the version of Composer packages (`composer-client`, `composer-admin` and `composer-common`) that you wish to test, and the relevant versions of `fabric-ca-client` and `fabric-client`.
+* Install Composer dependancies via `npm install` commands:
+  * Issue the command `npm run composer-deps` in the root folder
+  * If you want to test Composer with a specific version such as v0.19.0, you should install directly,  
+  e.g. `npm install --no-save composer-admin@0.19.0 composer-client@0.19.0 composer-common@0.19.0 fabric-ca-client@1.2.0 fabric-client@1.2.0` in Caliper's root folder.
 
 In order to configure your system to run tests on unpublished version, for instance testing the impact of a code change in a local repository, it is necessary to:
 - use an npm proxy such as [Verdaccio](https://github.com/verdaccio/verdaccio) to host the latest code
