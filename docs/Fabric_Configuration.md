@@ -8,10 +8,10 @@ categories: config
 
 ## Installing Fabric dependencies
 
-* Install using the repository (for the supported Fabric v1.1)
-  * run `npm install grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0` in the root folder
-  * If you want to test Fabric with old version such as v1.0.0, you should install compatible client SDK,  
-  e.g. `npm install grpc@1.10.1 fabric-ca-client@1.0.0 fabric-client@1.0.0`
+* Install Fabric dependancies using `npm install` commands:
+  * Issue the command `npm run fabric-deps` in the root folder
+  * If you want to test Fabric with a specific version such as v1.0.0, you should install directly,  
+  e.g. `npm install --no-save grpc@1.10.1 fabric-ca-client@1.0.0 fabric-client@1.0.0`  in Caliper's root folder.
 
 
 ## Fabric Configuration file
