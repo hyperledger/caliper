@@ -59,8 +59,7 @@ function main() {
     let absCaliperDir = path.join(__dirname, '../..');
     if(typeof networkFile === 'undefined') {
         try{
-            let config = require(absConfigFile);
-            absNetworkFile = path.join(absCaliperDir, config.blockchain.config);
+            absNetworkFile = path.join(absCaliperDir, 'benchmark/smallbank/fabric.json');
         }
         catch(err) {
             logger.error('failed to find blockchain.config in ' + absConfigFile);

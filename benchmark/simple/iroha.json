@@ -1,4 +1,11 @@
 {
+  "caliper": {  
+    "blockchain": "iroha",
+    "command" : {
+      "start": "docker-compose -f network/iroha/simplenetwork/docker-compose.yml up -d",
+      "end" : "docker logs iroha_node0; docker logs iroha_node1; docker-compose -f network/iroha/simplenetwork/docker-compose.yml down"
+    }
+  },
   "iroha": {
     "admin" :{
       "account":"admin",

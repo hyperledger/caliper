@@ -57,8 +57,7 @@ function main() {
     let absNetworkFile;
     if(typeof networkFile === 'undefined') {
         try{
-            let config = require(absConfigFile);
-            absNetworkFile = Util.resolvePath(config.blockchain.config);
+            absNetworkFile = Util.resolvePath('benchmark/simple/fabric.json');
         }
         catch(err) {
             logger.error('failed to find blockchain.config in ' + absConfigFile);

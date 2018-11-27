@@ -1,12 +1,4 @@
 {
-   "blockchain": {
-    "type": "sawtooth",
-    "config": "benchmark/simple/sawtooth.json"
-  },
-  "command" : {
-    "start": "docker-compose -f network/sawtooth/simplenetwork/sawtooth-simple.yaml up -d",
-    "end" : "docker-compose -f network/sawtooth/simplenetwork/sawtooth-simple.yaml down;docker rm $(docker ps -aq)"
-  },
   "test": {
       "name": "simple",
       "description" : "This is an example benchmark for caliper",
