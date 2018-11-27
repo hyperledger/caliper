@@ -1,9 +1,5 @@
 ## Contributing to Hyperledger Caliper
 
-Welcome to Hyperledger Caliper project, we are excited about the prospect of you contributing. 
-
-### How to contribute
-
 We are using GitHub issues for bug reports and feature requests.
 
 If you find any bug in the source code or have any trivial changes (such as typos fix, minor feature), you can raise an issue or delivery a fix via a pull request directly.
