@@ -14,9 +14,11 @@ const CLIENT_ZOO   = 'zookeeper';
 const zkUtil  = require('./zoo-util.js');
 const ZooKeeper = require('node-zookeeper-client');
 const clientUtil = require('./client-util.js');
-
+const childProcess = require('child_process');
+const exec = childProcess.exec;
 const util = require('../util');
 const logger = util.getLogger('client.js');
+let absConfigFile;
 
 
 /**
@@ -97,8 +99,38 @@ class Client{
     /**
     * Initialise client object
     * @return {Promise} promise object
+    * @param {JSON} demo object which trakcs real time metrics
+    * @param {String} config path of the configuration file
+    * @param {String} absCaliperDir caliper directory
+    * @param {JSON} listener_child child process
+    * @param {String} networkFile network file path
+    * @param {JSON} t test object
     */
-    async init() {
+    async init(demo, config, absCaliperDir, listener_child, networkFile) {
+        absConfigFile = require(util.resolvePath(networkFile));
+        if (this.config.hasOwnProperty('WITH_MQ') && this.config.WITH_MQ) {
+            clientUtil._consumeEvents(function(err){
+                logger.error(err);
+                listener_child.send({type:'closeKafkaProducer', config: absConfigFile});
+                clientUtil.stop();
+                clientUtil.closeKafkaConsumer();
+                demo.stopWatch();
+                if (absConfigFile.hasOwnProperty('caliper') && absConfigFile.caliper.hasOwnProperty('command') && absConfigFile.caliper.command.hasOwnProperty('start')) {
+                    if (!absConfigFile.caliper.command.start.trim()) {
+                        throw new Error('Start command is specified but it is empty');
+                    }
+                    logger.info(absConfigFile.caliper.command.end);
+                    let end = exec(absConfigFile.caliper.command.end, {cwd: absCaliperDir}, (error, stdout, stderr) => {
+                        if (error) {
+                            throw error;
+                        }
+                        process.exit();
+                    });
+                    end.stdout.pipe(process.stdout);
+                    end.stderr.pipe(process.stderr);
+                }
+            });
+        }
         if(this.config.hasOwnProperty('type')) {
             switch(this.config.type) {
             case CLIENT_LOCAL:
@@ -195,7 +227,7 @@ class Client{
      */
     async _startLocalTest(message, clientArgs) {
         message.totalClients = this.number;
-        return await clientUtil.startTest(this.number, message, clientArgs, this.updates.data, this.results);
+        return await clientUtil.startTest(this.number, message, clientArgs, this.updates.data, this.results, this.config.WITH_MQ);
     }
 
     /**

@@ -78,8 +78,9 @@ class BlockchainInterface {
      * @param {String} contractVer version of the contract
      * @param {Array} args array of JSON formatted arguments for multiple transactions
      * @param {Number} timeout request timeout, in second
+     * @param {Boolean} withMQ flag to determine if running in MQ mode
      */
-    async invokeSmartContract(context, contractID, contractVer, args, timeout) {
+    async invokeSmartContract(context, contractID, contractVer, args, timeout, withMQ) {
         throw new Error('invokeSmartContract is not implemented for this blockchain system');
     }
 

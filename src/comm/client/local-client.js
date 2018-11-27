@@ -31,9 +31,10 @@ function txUpdate() {
     let newNum = txNum - txLastNum;
     txLastNum += newNum;
 
-
     let newResults = results.slice(0);
     results = [];
+    let bufferToSend = [];
+    let nonMqBuffer = [];
     if(newResults.length === 0 && newNum === 0) {
         return;
     }
@@ -44,9 +45,24 @@ function txUpdate() {
     }
     else {
         newStats = blockchain.getDefaultTxStats(newResults, false);
+        for (let i =0; i < newResults.length; i++){
+            let txObject = newResults[i];
+            // it is running in kafka mode or it is a query
+            if (txObject.GetneedVerifyWithMQFlag()){
+                bufferToSend.push(txObject);
+            }
+            else {
+                nonMqBuffer.push(txObject);
+            }
+        }
+    }
+
+    if (nonMqBuffer.length === 0) {
+        newStats = bc.createNullDefaultTxStats();
+    } else {
+        newStats = blockchain.getDefaultTxStats(nonMqBuffer, false);
     }
     process.send({type: 'txUpdated', data: {submitted: newNum, committed: newStats}});
-
     if (resultStats.length === 0) {
         switch (trimType) {
         case 0: // no trim
@@ -71,6 +87,9 @@ function txUpdate() {
     } else {
         resultStats[1] = newStats;
         bc.mergeDefaultTxStats(resultStats);
+    }
+    if (bufferToSend.length !==0) {
+        process.send({type: 'txUpdatedWithMQ', data: {submitted: bufferToSend.length, committed: bufferToSend}});
     }
 }
 
@@ -187,7 +206,7 @@ async function runDuration(msg, cb, context) {
 async function doTest(msg) {
     logger.debug('doTest() with:', msg);
     let cb = require(Util.resolvePath(msg.cb));
-    blockchain = new bc(Util.resolvePath(msg.config));
+    blockchain = new bc(Util.resolvePath(msg.config), msg.withMQ);
 
     beforeTest(msg);
     // start an interval to report results repeatedly

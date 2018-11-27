@@ -27,6 +27,9 @@ let round = 0;              // test round
 let demo = require('../gui/src/demo.js');
 let absConfigFile, absNetworkFile;
 let absCaliperDir = path.join(__dirname, '..', '..');
+let listener_child;
+let configurationType;
+let absCaliperPath = '../';
 
 
 /**
@@ -217,7 +220,8 @@ async function defaultTest(args, clientArgs, final) {
             trim: args.trim ? args.trim : 0,
             args: args.arguments,
             cb  : args.callback,
-            config: configPath
+            config: configPath,
+            withMQ: configurationType
         };
         // condition for time based or number based test driving
         if (args.txNumber) {
@@ -301,6 +305,7 @@ module.exports.run = async function(configFile, networkFile) {
     //let configObject = require(absConfigFile);
     let configObject = Util.parseYaml(absConfigFile);
     let networkObject = require(absNetworkFile);
+    configurationType = configObject.test.clients.WITH_MQ;
 
     try {
         if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('command') && networkObject.caliper.command.hasOwnProperty('start')) {
@@ -311,9 +316,17 @@ module.exports.run = async function(configFile, networkFile) {
             await execAsync(networkObject.caliper.command.start);
         }
 
+        if (configurationType) {
+            let blockListenerPath = path.join(__dirname, absCaliperPath, 'listener/block-listener-handler.js');
+            listener_child = childProcess.fork(blockListenerPath);
+            listener_child.on('error', function () {
+                logger.error('client encountered unexpected error');
+            });
+            listener_child.send({ type:'test', config: absNetworkFile });
+        }
         await blockchain.init();
         await blockchain.installSmartContract();
-        let numberOfClients = await client.init();
+        let numberOfClients = await client.init(demo, configFile, absCaliperDir, listener_child, networkFile);
         let clientArgs = await blockchain.prepareClients(numberOfClients);
 
         try {
@@ -348,6 +361,9 @@ module.exports.run = async function(configFile, networkFile) {
         logger.error(`Error: ${err.stack ? err.stack : err}`);
     }finally {
         demo.stopWatch();
+        if (configurationType) {
+            listener_child.send({type:'closeKafkaProducer', config: absNetworkFile});
+        }
 
         if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('command') && networkObject.caliper.command.hasOwnProperty('end')) {
             if (!networkObject.caliper.command.end.trim()) {
@@ -355,16 +371,16 @@ module.exports.run = async function(configFile, networkFile) {
             } else {
 
                 await execAsync(networkObject.caliper.command.end);
-            }
-        }
-
-        // NOTE: keep the below multi-line formatting intact, otherwise the indents will interfere with the template literal
-        let testSummary = `# Test summary: ${success} succeeded, ${failure} failed #`;
-        logger.info(`
+                // NOTE: keep the below multi-line formatting intact, otherwise the indents will interfere with the template literal
+                let testSummary = `# Test summary: ${success} succeeded, ${failure} failed #`;
+                logger.info(`
         
 ${'#'.repeat(testSummary.length)}
 ${testSummary}
 ${'#'.repeat(testSummary.length)}
 `);
+                process.exit();
+            }
+        }
     }
 };

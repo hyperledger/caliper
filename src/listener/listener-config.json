@@ -1,0 +1,10 @@
+{
+    "broker_urls": "10.80.66.151:9092,10.80.66.151:7092,10.80.66.151:8092",
+     "zk_url": "10.80.66.151:2181",
+     "topic": "client-b",
+     "peerOrg":"org1",
+     "peerEventUrl":"grpc://localhost:7053",
+     "peerEventHostnameOverride":"peer0.org1.example.com",
+     "peerEventTlscaPath":"network/fabric/config/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+ } 
+ 

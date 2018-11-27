@@ -553,9 +553,10 @@ module.exports.releasecontext = releasecontext;
  * @param {string} version The version of the chaincode.
  * @param {string[]} args The arguments to pass to the chaincode.
  * @param {number} timeout The timeout for the transaction invocation.
+ * @param {number} withMQ Flag to determine if tool running in MQ mode.
  * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
  */
-async function invokebycontext(context, id, version, args, timeout){
+async function invokebycontext(context, id, version, args, timeout, withMQ){
     const TxErrorEnum = require('./constant.js').TxErrorEnum;
     const TxErrorIndex = require('./constant.js').TxErrorIndex;
 
@@ -569,6 +570,9 @@ async function invokebycontext(context, id, version, args, timeout){
     let invokeStatus = new TxStatus(txId);
     let errFlag = TxErrorEnum.NoError;
     invokeStatus.SetFlag(errFlag);
+    if (withMQ) {
+        invokeStatus.SetneedVerifyWithMQFlag(true);
+    }
 
     // TODO: should resolve endorsement policy to decides the target of endorsers
     // now random peers ( one peer per organization ) are used as endorsers as default, see the implementation of getContext
@@ -655,44 +659,52 @@ async function invokebycontext(context, id, version, args, timeout){
         }
 
         const eventPromises = [];
-        eventHubs.forEach((eh) => {
-            eventPromises.push(new Promise((resolve, reject) => {
-                let handle = setTimeout(() => reject(new Error('Timeout')), newTimeout);
+        if (! withMQ) {
 
-                eh.registerTxEvent(txId,
-                    (tx, code) => {
-                        clearTimeout(handle);
-                        eh.unregisterTxEvent(txId);
+            let newTimeout = timeout * 1000 - (Date.now() - startTime);
+            if(newTimeout < 10000) {
+                commLogger.warn('WARNING: timeout is too small, default value is used instead');
+                newTimeout = 10000;
+            }
+            eventHubs.forEach((eh) => {
+                eventPromises.push(new Promise((resolve, reject) => {
+                    let handle = setTimeout(reject, newTimeout);
 
-                        // either explicit invalid event or valid event, verified in both cases by at least one peer
-                        invokeStatus.SetVerification(true);
-                        if (code !== 'VALID') {
-                            let err = new Error('Invalid transaction: ' + code);
-                            errFlag |= TxErrorEnum.BadEventNotificationError;
+                    eh.registerTxEvent(txId,
+                        (tx, code) => {
+                            clearTimeout(handle);
+                            eh.unregisterTxEvent(txId);
+
+                            // either explicit invalid event or valid event, verified in both cases by at least one peer
+                            invokeStatus.SetVerification(true);
+                            if (code !== 'VALID') {
+                                let err = new Error('Invalid transaction: ' + code);
+                                errFlag |= TxErrorEnum.BadEventNotificationError;
+                                invokeStatus.SetFlag(errFlag);
+                                invokeStatus.SetErrMsg(TxErrorIndex.BadEventNotificationError, err.toString());
+                                reject(err); // handle error in final catch
+                            } else {
+                                resolve();
+                            }
+                        },
+                        (err) => {
+                            clearTimeout(handle);
+                            // we don't know what happened, but give the other eventhub connections a chance
+                            // to verify the Tx status, so resolve this call
+                            errFlag |= TxErrorEnum.EventNotificationError;
                             invokeStatus.SetFlag(errFlag);
-                            invokeStatus.SetErrMsg(TxErrorIndex.BadEventNotificationError, err.toString());
-                            reject(err); // handle error in final catch
-                        } else {
+                            invokeStatus.SetErrMsg(TxErrorIndex.EventNotificationError, err.toString());
                             resolve();
                         }
-                    },
-                    (err) => {
-                        clearTimeout(handle);
-                        // we don't know what happened, but give the other eventhub connections a chance
-                        // to verify the Tx status, so resolve this call
-                        errFlag |= TxErrorEnum.EventNotificationError;
-                        invokeStatus.SetFlag(errFlag);
-                        invokeStatus.SetErrMsg(TxErrorIndex.EventNotificationError, err.toString());
-                        resolve();
-                    }
-                );
-            }));
-        });
-
+                    );
+                }));
+            });
+        }
         let broadcastResponse;
         try {
             broadcastResponse = await channel.sendTransaction(transactionRequest);
-        } catch (err) {
+        }
+        catch (err) {
             // missing the ACK does not mean anything, the Tx could be already under ordering
             // so let the events decide the final status, but log this error
             errFlag |= TxErrorEnum.OrdererResponseError;
@@ -713,17 +725,19 @@ async function invokebycontext(context, id, version, args, timeout){
             invokeStatus.SetVerification(true);
             throw err;
         }
-
-        await Promise.all(eventPromises);
-        // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
-        // so mark it failed but leave it not verified
-        if (!invokeStatus.IsVerified()) {
-            invokeStatus.SetStatusFail();
-            commLogger.error('Failed to complete transaction [' + txId.substring(0, 5) + '...]: every eventhub connection closed');
-        } else {
-            invokeStatus.SetStatusSuccess();
+        if (!withMQ) {
+            await Promise.all(eventPromises);
+            // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
+            // so mark it failed but leave it not verified
+            if (!invokeStatus.IsVerified()) {
+                invokeStatus.SetStatusFail();
+                commLogger.error('Failed to complete transaction [' + txId.substring(0, 5) + '...]: every eventhub connection closed');
+            } else {
+                invokeStatus.SetStatusSuccess();
+            }
         }
-    } catch (err)
+    }
+    catch (err)
     {
         // at this point the Tx should be verified
         invokeStatus.SetStatusFail();
