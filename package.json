@@ -12,11 +12,10 @@
     "lint": "npx eslint .",
     "list": "node ./scripts/list.js",
     "startclient": "node ./src/comm/client/zoo-client.js",
-    "composer-deps": "npm install --no-save composer-admin@0.20.0 composer-client@0.20.0 composer-common@0.20.0 fabric-ca-client@1.2.0 fabric-client@1.2.0",
+    "composer-deps": "npm install --no-save composer-admin@0.19.18 composer-client@0.19.18 composer-common@0.19.18 fabric-ca-client@1.2.0 fabric-client@1.2.0",
     "fabric-deps": "npm install --no-save grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0",
     "iroha-deps": "npm install --no-save iroha-lib@0.1.7",
     "sawtooth-deps": "npm install --no-save protocol-buffers sawtooth-sdk"
-
   },
   "engines": {
     "node": ">=8.10.0",

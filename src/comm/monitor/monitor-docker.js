@@ -8,7 +8,7 @@
 
 'use strict';
 
-const Util = require('./util.js');
+const Util = require('../util.js');
 const logger = Util.getLogger('monitor-docker.js');
 const MonitorInterface = require('./monitor-interface');
 
@@ -150,7 +150,7 @@ class MonitorDocker extends MonitorInterface {
         /* this.stats : record statistics of each container
             {
                 'time' : [] // time slot
-                'container_id" : {              // refer to https://www.npmjs.com/package/systeminformatioin
+                'container_id" : {              // refer to https://www.npmjs.com/package/systeminformation
                     'mem_usage'   : [],
                     'mem_percent' : [],
                     'cpu_percent' : [],
@@ -336,6 +336,15 @@ class MonitorDocker extends MonitorInterface {
      */
     getNetworkHistory(key) {
         return {'in': this.stats[key].netIO_rx, 'out':this.stats[key].netIO_tx};
+    }
+
+    /**
+     * Get history of disc usage as {read, wrtie}
+     * @param {String} key key of the container
+     * @return {Array} array of disc usage
+     */
+    getDiscHistory(key) {
+        return {'read': this.stats[key].blockIO_rx, 'write':this.stats[key].blockIO_wx};
     }
 
     /**

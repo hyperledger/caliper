@@ -15,12 +15,11 @@
                 "callback" : "benchmark/composer/composer-samples/basic-sample-network.js"
             },
             {
-                "label" : "basic-sample-network",
-                "txNumber" : [50],
-                "trim" : 0,
-                "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 10}}],
-                "arguments": {"testAssets": 50},
-                "callback" : "benchmark/composer/composer-samples/basic-sample-network.js"
+              "label" : "vehicle-lifecycle-network",
+              "txNumber" : [100],
+              "rateControl" : [{"type": "fixed-rate", "opts": {"tps" :8}}],
+             "arguments": {"testAssets": 10, "testMatches": 5},
+              "callback" : "benchmark/composer/composer-micro/query-asset.js"
             }]
   },
   "monitor": {

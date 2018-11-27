@@ -11,7 +11,7 @@
 const ps = require('ps-node');
 const usage = require('pidusage');
 const MonitorInterface = require('./monitor-interface');
-const Util = require('./util.js');
+const Util = require('../util.js');
 const logger = Util.getLogger('monitor-process.js');
 
 /**
@@ -307,6 +307,16 @@ class MonitorProcess extends MonitorInterface {
     getNetworkHistory(key) {
         // not supported now return {'in': this.stats[key].netIO_rx, 'out':this.stats[key].netIO_tx};
         return {'in': [], 'out': []};
+    }
+
+    /**
+     * Get history of disc usage as {read, wrtie}
+     * @param {String} key key of the container
+     * @return {Array} array of disc usage
+     */
+    getDiscHistory(key) {
+        // not supported now return {'in': this.stats[key].netIO_rx, 'out':this.stats[key].netIO_tx};
+        return {'read': [], 'write': []};
     }
 }
 module.exports = MonitorProcess;
