@@ -55,7 +55,7 @@ function main() {
         absConfigFile = path.join(__dirname, 'config-composer.json');
     }
     else {
-        absConfigFile = path.join(__dirname, configFile);
+        absConfigFile = path.isAbsolute(configFile) ? configFile : path.join(__dirname, configFile);
     }
     if(!fs.existsSync(absConfigFile)) {
         logger.error('file ' + absConfigFile + ' does not exist');
@@ -74,7 +74,7 @@ function main() {
         }
     }
     else {
-        absNetworkFile = path.join(__dirname, networkFile);
+        absNetworkFile = path.isAbsolute(networkFile) ? networkFile : path.join(__dirname, networkFile);
     }
     if(!fs.existsSync(absNetworkFile)) {
         logger.error('file ' + absNetworkFile + ' does not exist');
