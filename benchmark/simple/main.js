@@ -57,7 +57,7 @@ function main() {
     let absNetworkFile;
     if(typeof networkFile === 'undefined') {
         try{
-            absNetworkFile = Util.resolvePath('benchmark/simple/fabric.json');
+            absNetworkFile = Util.resolvePath('network/fabric/2org2peer/fabric-simple.json');
         }
         catch(err) {
             logger.error('failed to find blockchain.config in ' + absConfigFile);

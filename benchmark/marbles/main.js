@@ -47,7 +47,7 @@ function main() {
         absConfigFile = path.join(__dirname, 'config.json');
     }
     else {
-        absConfigFile = path.join(__dirname, configFile);
+        absConfigFile = path.isAbsolute(configFile) ? configFile : path.join(__dirname, configFile);
     }
     if(!fs.existsSync(absConfigFile)) {
         logger.error('file ' + absConfigFile + ' does not exist');
@@ -58,7 +58,7 @@ function main() {
     let absCaliperDir = path.join(__dirname, '../..');
     if(typeof networkFile === 'undefined') {
         try{
-            absNetworkFile = path.join(absCaliperDir, 'benchmark/marbles/fabric-go.json');
+            absNetworkFile = path.join(absCaliperDir, 'network/fabric/2org1peer/fabric-marbles-go.json');
         }
         catch(err) {
             logger.error('failed to find blockchain.config in ' + absConfigFile);
@@ -66,7 +66,7 @@ function main() {
         }
     }
     else {
-        absNetworkFile = path.join(__dirname, networkFile);
+        absNetworkFile = path.isAbsolute(networkFile) ? networkFile : path.join(__dirname, networkFile);
     }
     if(!fs.existsSync(absNetworkFile)) {
         logger.error('file ' + absNetworkFile + ' does not exist');
