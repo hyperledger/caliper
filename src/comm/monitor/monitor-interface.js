@@ -72,7 +72,15 @@ class MonitorInterface{
     * @param {String} key Lookup key
     */
     getNetworkHistory(key) {
-        throw new Error('getCpuHistory is not implemented for this monitor');
+        throw new Error('getNetworkHistory is not implemented for this monitor');
+    }
+
+    /**
+     * Get history of disc usage as {read, wrtie}
+     * @param {String} key Lookup key
+     */
+    getDiscHistory(key) {
+        throw new Error('getDiscHistory is not implemented for this monitor');
     }
 }
 module.exports = MonitorInterface;

@@ -7,7 +7,7 @@
     }
   }, 
   "composer": {
-    "chaincodes": [{"id": "basic-sample-network", "version": "0.1.0", "path": "src/contract/composer", "orgs": ["Org1", "Org2"], "loglevel": "INFO"}],
+    "chaincodes": [{"id": "basic-sample-network", "version": "0.1.0", "path": "src/contract/composer", "orgs": ["Org1", "Org2"], "loglevel": "INFO"}, {"id": "vehicle-lifecycle-network", "version": "0.1.0", "path": "src/contract/composer", "orgs": ["Org1", "Org2"], "loglevel": "INFO"}],
     "cryptodir": "network/fabric/config/crypto-config",
     "network": {
       "x-type" : "hlfv1",

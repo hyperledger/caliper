@@ -9,7 +9,7 @@
 'use strict';
 
 const table = require('table');
-const Util  = require('./util.js');
+const Util  = require('../util');
 const logger= Util.getLogger('monitor.js');
 
 /**
@@ -289,8 +289,8 @@ class Monitor {
             }
 
             let t = table.table(defaultTable, {border: table.getBorderCharacters('ramac')});
-            logger.info('### resource stats (maximum) ###');
-            logger.info(t);
+            logger.info('\n ### resource stats (maximum) ###');
+            logger.info('\n' + t);
         }
         catch(err) {
             logger.error('Failed to read monitoring data, ' + (err.stack ? err.stack : err));
@@ -318,7 +318,9 @@ class Monitor {
                         'CPU(max)' : [],
                         'CPU(avg)' : [],
                         'Traffic In'  : [],
-                        'Traffic Out' : []
+                        'Traffic Out' : [],
+                        'Disc Read'  : [],
+                        'Disc Write' : []
                     };
                     peer.isLastTmp = false;
                     peer.monitor = this.monitors[i];
@@ -332,6 +334,7 @@ class Monitor {
             let mem = peer.monitor.getMemHistory(key);
             let cpu = peer.monitor.getCpuHistory(key);
             let net = peer.monitor.getNetworkHistory(key);
+            let disc = peer.monitor.getDiscHistory(key);
             let mem_stat = getStatistics(mem);
             let cpu_stat = getStatistics(cpu);
             if(peer.isLastTmp) {
@@ -342,6 +345,8 @@ class Monitor {
                 peer.history['CPU(avg)'][lastIdx] = cpu_stat.avg;
                 peer.history['Traffic In'][lastIdx] = net.in[net.in.length-1] - net.in[0];
                 peer.history['Traffic Out'][lastIdx] = net.out[net.out.length-1] - net.out[0];
+                peer.history['Disc Write'][lastIdx] = disc.write[disc.write.length-1] - disc.write[0];
+                peer.history['Disc Read'][lastIdx] = disc.read[disc.read.length-1] - disc.read[0];
             }
             else {
                 peer.history['Memory(max)'].push(mem_stat.max);
@@ -350,6 +355,8 @@ class Monitor {
                 peer.history['CPU(avg)'].push(cpu_stat.avg);
                 peer.history['Traffic In'].push(net.in[net.in.length-1] - net.in[0]);
                 peer.history['Traffic Out'].push(net.out[net.out.length-1] - net.out[0]);
+                peer.history['Disc Write'].push(disc.write[disc.write.length-1] - disc.write[0]);
+                peer.history['Disc Read'].push(disc.read[disc.read.length-1] - disc.read[0]);
             }
             peer.isLastTmp = tmp;
         });
@@ -374,7 +381,7 @@ class Monitor {
     * @return {Array} array of names
     */
     _getMaxItems() {
-        return ['Memory(max)', 'CPU(max)', 'Traffic In','Traffic Out'];
+        return ['Memory(max)', 'CPU(max)', 'Traffic In','Traffic Out', 'Disc Read', 'Disc Write'];
     }
 
 
@@ -400,7 +407,7 @@ class Monitor {
                 continue;
             }
             let value = this.peers[idx].history[key][length - 1];
-            if(key.indexOf('Memory') === 0 || key.indexOf('Traffic') === 0) {
+            if(key.indexOf('Memory') === 0 || key.indexOf('Traffic') === 0 || key.indexOf('Disc') === 0) {
                 values.push(byteNormalize(value));
             }
             else if(key.indexOf('CPU') === 0) {
@@ -436,7 +443,7 @@ class Monitor {
                 continue;
             }
             let stats = getStatistics(this.peers[idx].history[key]);
-            if(key.indexOf('Memory') === 0 || key.indexOf('Traffic') === 0) {
+            if(key.indexOf('Memory') === 0 || key.indexOf('Traffic') === 0 || key.indexOf('Disc') === 0) {
                 values.push(byteNormalize(stats.max));
             }
             else if(key.indexOf('CPU') === 0) {
