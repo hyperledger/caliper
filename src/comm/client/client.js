@@ -87,7 +87,8 @@ class Client{
      * @param {String} config path of the configuration file
      */
     constructor(config) {
-        let conf = require(config);
+        //let conf = require(config);
+        let conf = util.parseYaml(config);
         this.config = conf.test.clients;
         this.results = [];                        // output of recent test round
         this.updates = {id:0, data:[]};           // contains txUpdated messages

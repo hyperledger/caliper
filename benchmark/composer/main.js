@@ -52,7 +52,7 @@ function main() {
     let logger = Util.getLogger('benchmark/composer/main.js');
     let absConfigFile;
     if(typeof configFile === 'undefined') {
-        absConfigFile = path.join(__dirname, 'config-composer.json');
+        absConfigFile = path.join(__dirname, 'config-composer.yaml');
     }
     else {
         absConfigFile = path.isAbsolute(configFile) ? configFile : path.join(__dirname, configFile);
@@ -66,7 +66,7 @@ function main() {
     let absCaliperDir = path.join(__dirname, '../..');
     if(typeof networkFile === 'undefined') {
         try{
-            absNetworkFile = path.join(absCaliperDir, 'network/fabric/2org2peer/composer-tls.json');
+            absNetworkFile = path.join(absCaliperDir, 'network/fabric/2org1peer/composer-tls.json');
         }
         catch(err) {
             logger.error('failed to find blockchain.config in ' + absConfigFile);

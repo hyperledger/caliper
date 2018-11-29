@@ -1,0 +1,36 @@
+---
+test:
+  name: drm
+  description: Benchmark for DRM scenario
+  clients:
+    type: local
+    number: 1
+  rounds:
+  - label: publish
+    txNumber:
+    - 1
+    arguments:
+      itemBytes: 2048000
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 1
+    callback: benchmark/drm/publish.js
+  - label: query
+    txNumber:
+    - 1
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 1
+    callback: benchmark/drm/query.js
+monitor:
+  type: docker
+  docker:
+    name:
+    - peer0.org1.example.com
+    - peer1.org1.example.com
+    - peer0.org2.example.com
+    - peer1.org2.example.com
+    - orderer.example.com
+  interval: 1

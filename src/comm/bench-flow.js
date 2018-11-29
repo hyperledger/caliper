@@ -15,7 +15,7 @@ const exec = childProcess.exec;
 const path = require('path');
 const table = require('table');
 const Blockchain = require('./blockchain.js');
-const Monitor = require('./monitor.js');
+const Monitor = require('./monitor/monitor.js');
 const Report  = require('./report.js');
 const Client  = require('./client/client.js');
 const Util = require('./util.js');
@@ -33,7 +33,8 @@ let absCaliperDir = path.join(__dirname, '..', '..');
  * Generate mustache template for test report
  */
 function createReport() {
-    let config = require(absConfigFile);
+    //let config = require(absConfigFile);
+    let config = Util.parseYaml(absConfigFile);
     report  = new Report();
     report.addMetadata('DLT', blockchain.gettype());
     try{
@@ -77,7 +78,7 @@ function createReport() {
  */
 function printTable(value) {
     let t = table.table(value, {border: table.getBorderCharacters('ramac')});
-    logger.info(t);
+    logger.info('\n' + t);
 }
 
 /**
@@ -101,7 +102,7 @@ function getResultValue(r) {
         row.push(r.label);
         row.push(r.succ);
         row.push(r.fail);
-        (r.create.max === r.create.min) ? row.push((r.succ + r.fail) + ' tps') : row.push(((r.succ + r.fail) / (r.create.max - r.create.min)).toFixed(0) + ' tps');
+        (r.create.max === r.create.min) ? row.push((r.succ + r.fail) + ' tps') : row.push(((r.succ + r.fail) / (r.create.max - r.create.min)).toFixed(1) + ' tps');
         row.push(r.delay.max.toFixed(2) + ' s');
         row.push(r.delay.min.toFixed(2) + ' s');
         row.push((r.delay.sum / r.succ).toFixed(2) + ' s');
@@ -296,7 +297,8 @@ module.exports.run = async function(configFile, networkFile) {
     createReport();
     demo.init();
 
-    let configObject = require(absConfigFile);
+    //let configObject = require(absConfigFile);
+    let configObject = Util.parseYaml(absConfigFile);
     let networkObject = require(absNetworkFile);
 
     try {

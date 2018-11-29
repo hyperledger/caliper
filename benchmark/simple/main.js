@@ -44,7 +44,7 @@ function main() {
     let logger = Util.getLogger('benchmark/simple/main.js');
     let absConfigFile;
     if(typeof configFile === 'undefined') {
-        absConfigFile = path.join(__dirname, 'config.json');
+        absConfigFile = path.join(__dirname, 'config.yaml');
     }
     else {
         absConfigFile = path.isAbsolute(configFile) ? configFile : path.join(__dirname, configFile);

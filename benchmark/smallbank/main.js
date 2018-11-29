@@ -45,7 +45,7 @@ function main() {
     let logger = Util.getLogger('benchamark/smallbank/main.js');
     let absConfigFile;
     if(typeof configFile === 'undefined') {
-        absConfigFile = path.join(__dirname, 'config.json');
+        absConfigFile = path.join(__dirname, 'config.yaml');
     }
     else {
         absConfigFile = path.isAbsolute(configFile) ? configFile : path.join(__dirname, configFile);

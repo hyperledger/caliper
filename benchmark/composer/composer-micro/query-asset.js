@@ -84,6 +84,9 @@ module.exports.init = async function(blockchain, context, args) {
 module.exports.run = function() {
     let invoke_status = new TxStatus(qryRef++);
 
+    if(busNetConnection.engine) {
+        busNetConnection.engine.submitCallback(1);
+    }
     // use the pre-compiled query named 'selectAllCarsByColour' that is within the business
     // network queries file
     return busNetConnection.query('selectAllCarsByColour', { colour: matchColor})
