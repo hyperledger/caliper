@@ -7,6 +7,7 @@ categories: reference
 The rate at which transactions are input to the blockchain system is a key factor within performance tests. It may be desired to send transactions at a specified rate or follow a specified profile. Caliper permits the specification of custom rate controllers to enable a user to perform testing under a custom loading mechanism. A user may specify their own rate controller or use one of the default options:
 
 * [Fixed rate](#fixed-rate)
+* [Fixed feedback rate](#fixed-feedback-rate)
 * [PID rate](#pid-rate)
 * [Composite rate](#composite-rate)
 * [Linear rate](#linear-rate)
@@ -23,6 +24,18 @@ The fixed rate controller, driving at 10 TPS, is specified through the following
 {
   "type": "fixed-rate",
   "opts": {"tps" : 10}
+}
+```
+
+## Fixed Feedback Rate
+The fixed feedback rate controller which is the extension of fixed rate also will originally send input transactions at a fixed interval. When the unfinished transactions exceeds times of the defined unfinished transactions for each client,it will stop sending input transactions temporally by sleeping a long period of time.
+
+The fixed feedback rate controller, driving at 100 TPS, 100 unfinished transactions for each client, is specified through the following controller option:
+
+```json
+{
+  "type": "fixed-feedback-rate",
+  "opts": {"tps" : 100, "unfinished_per_client": 100}
 }
 ```
 
