@@ -102,7 +102,8 @@ class Monitor {
     * @return {Promise} promise object
     */
     start() {
-        const config = require(this.configPath);
+        //const config = require(this.configPath);
+        const config = Util.parseYaml(this.configPath);
         const m = config.monitor;
         if(typeof m === 'undefined') {
             return Promise.reject(new Error('Failed to find monitor in config file'));

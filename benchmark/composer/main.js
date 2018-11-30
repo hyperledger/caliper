@@ -52,7 +52,7 @@ function main() {
     let logger = Util.getLogger('benchmark/composer/main.js');
     let absConfigFile;
     if(typeof configFile === 'undefined') {
-        absConfigFile = path.join(__dirname, 'config-composer.json');
+        absConfigFile = path.join(__dirname, 'config-composer.yaml');
     }
     else {
         absConfigFile = path.isAbsolute(configFile) ? configFile : path.join(__dirname, configFile);

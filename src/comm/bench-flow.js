@@ -33,7 +33,8 @@ let absCaliperDir = path.join(__dirname, '..', '..');
  * Generate mustache template for test report
  */
 function createReport() {
-    let config = require(absConfigFile);
+    //let config = require(absConfigFile);
+    let config = Util.parseYaml(absConfigFile);
     report  = new Report();
     report.addMetadata('DLT', blockchain.gettype());
     try{
@@ -296,7 +297,8 @@ module.exports.run = async function(configFile, networkFile) {
     createReport();
     demo.init();
 
-    let configObject = require(absConfigFile);
+    //let configObject = require(absConfigFile);
+    let configObject = Util.parseYaml(absConfigFile);
     let networkObject = require(absNetworkFile);
 
     try {

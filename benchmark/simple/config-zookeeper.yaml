@@ -1,0 +1,36 @@
+---
+test:
+  name: simple
+  description: This is an example benchmark for caliper, to test the backend DLT's
+    performance with simple account opening & querying transactions
+  clients:
+    type: zookeeper
+    zoo:
+      server: 10.229.42.159:2181
+      clientsPerHost: 5
+  rounds:
+  - label: open
+    txNumber:
+    - 2000
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 200
+    arguments:
+      money: 10000
+    callback: benchmark/simple/open.js
+  - label: query
+    txNumber:
+    - 2000
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 200
+    callback: benchmark/simple/query.js
+monitor:
+  type:
+  - docker
+  docker:
+    name:
+    - all
+  interval: 1

@@ -1,0 +1,32 @@
+---
+test:
+  name: simple
+  description: This is an example benchmark for caliper, to test the backend DLT's
+    performance with simple account opening & querying transactions
+  clients:
+    type: local
+    number: 5
+  rounds:
+  - label: open
+    txDuration:
+    - 15
+    rateControl:
+    - type: linear-rate
+      opts:
+        startingTps: 25
+        finishingTps: 75
+    arguments:
+      money: 10000
+    callback: benchmark/simple/open.js
+monitor:
+  type:
+  - docker
+  - process
+  docker:
+    name:
+    - all
+  process:
+  - command: node
+    arguments: local-client.js
+    multiOutput: avg
+  interval: 1

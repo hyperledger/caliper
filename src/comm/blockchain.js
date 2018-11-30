@@ -17,6 +17,7 @@ class Blockchain {
      */
     constructor(configPath) {
         let config = require(configPath);
+
         if(config.hasOwnProperty('caliper') && config.caliper.hasOwnProperty('blockchain')){
             if(config.caliper.blockchain === 'fabric') {
                 let fabric = require('../fabric/fabric.js');

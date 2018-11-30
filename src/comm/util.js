@@ -18,6 +18,7 @@ const moment  = require('moment');
 const winston = require('winston');
 require('winston-daily-rotate-file');
 const fs = require('fs');
+const yaml = require('js-yaml');
 const cfUtil = require('../../src/comm/config-util.js');
 // comm --> src --> root
 const rootDir = path.join('..', '..');
@@ -235,6 +236,27 @@ class Util {
         }
 
         return path.join(__dirname, rootDir, relOrAbsPath);
+    }
+
+    /**
+     * parse a yaml file.
+     * @param {String} filenameOrFilepath the yaml file path
+     * @return {object} the parsed data.
+     */
+    static parseYaml(filenameOrFilepath) {
+        if (!filenameOrFilepath) {
+            throw new Error('Util.parseYaml: Parameter is undefined');
+        }
+
+        let config ;
+        try{
+            config = yaml.safeLoad(fs.readFileSync(filenameOrFilepath),'utf8');
+        }
+        catch(e) {
+            //console.log(e);
+            throw new Error('failed to parse the yaml file');
+        }
+        return config;
     }
 }
 
