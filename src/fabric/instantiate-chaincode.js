@@ -28,7 +28,7 @@ const Client = require('fabric-client');
 module.exports.run = async function (config_path) {
     Client.addConfigFile(config_path);
     const fabricSettings = Client.getConfigSetting('fabric');
-    const policy = fabricSettings['endorsement-policy'];  // TODO: support mulitple policies
+    const policy = fabricSettings['endorsement-policy'];  // TODO: support multiple policies
     let chaincodes = fabricSettings.chaincodes;
     if(typeof chaincodes === 'undefined' || chaincodes.length === 0) {
         return;

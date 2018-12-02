@@ -73,7 +73,7 @@ class BlockchainInterface {
     /**
      * Invoke a smart contract
      * @param {Object} context context object
-     * @param {String} contractID identiy of the contract
+     * @param {String} contractID identity of the contract
      * @param {String} contractVer version of the contract
      * @param {Array} args array of JSON formatted arguments for multiple transactions
      * @param {Number} timeout request timeout, in second
@@ -85,7 +85,7 @@ class BlockchainInterface {
     /**
      * Query state from the ledger
      * @param {Object} context context object from getContext
-     * @param {String} contractID identiy of the contract
+     * @param {String} contractID identity of the contract
      * @param {String} contractVer version of the contract
      * @param {String} key lookup key
      * @param {String=} [fcn] The chaincode query function name

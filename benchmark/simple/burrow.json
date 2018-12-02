@@ -1,0 +1,15 @@
+{
+  "burrow": {
+    "network": {
+      "validator": {
+        "grpc": "localhost:20002",
+        "address": "network/burrow/simplenetwork/chain/keys/names/Full_0"
+      }
+    }
+  },
+  "info" : {
+    "Version": "develop",
+    "Size": "2 Peers",
+    "Distribution": "Single Host"
+  }
+}
