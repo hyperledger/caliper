@@ -100,6 +100,23 @@ async function installChaincode(org, chaincode) {
     // get the peer org's admin required to send install chaincode requests
     the_user = await testUtil.getSubmitter(client, true /* get peer org admin */, org);
 
+    //let peers = client.getPeersForOrg(ORGS[org].mspid);
+    let peers = channel.getPeers();
+    let res = await client.queryInstalledChaincodes(peers[0]);
+    let found = false;
+    for (let i = 0; i < res.chaincodes.length; i++) {
+        if (res.chaincodes[i].name === chaincode.id &&
+            res.chaincodes[i].version === chaincode.version &&
+            res.chaincodes[i].path === chaincode.path) {
+            found = true;
+            commLogger.debug('installedChaincode: ' + JSON.stringify(res.chaincodes[i]));
+            break;
+        }
+    }
+    if (found) {
+        return;
+    }
+
     let resolvedPath = chaincode.path;
     let metadataPath = chaincode.metadataPath ? commUtils.resolvePath(chaincode.metadataPath) : chaincode.metadataPath;
     if (chaincode.language === 'node') {
@@ -123,8 +140,15 @@ async function installChaincode(org, chaincode) {
     let errors = [];
     for(let i in proposalResponses) {
         let one_good = false;
+        //commLogger.info('installChaincode responses: i=' + i + ' ' + JSON.stringify(proposalResponses[i]));
         if (proposalResponses && proposalResponses[i].response && proposalResponses[i].response.status === 200) {
             one_good = true;
+        /*} else if (proposalResponses && proposalResponses[i] && proposalResponses[i].code === 2){
+
+            if (proposalResponses[i].details && proposalResponses[i].details.indexOf('exists') !== -1) {
+                one_good = true;
+            }
+            */
         } else {
             commLogger.error('install proposal was bad');
             errors.push(proposalResponses[i]);
@@ -276,6 +300,22 @@ async function instantiateChaincode(chaincode, endorsement_policy, upgrade){
         // organizations
         await channel.initialize();
 
+
+        let res = await channel.queryInstantiatedChaincodes();
+        let found = false;
+        for (let i = 0; i < res.chaincodes.length; i++) {
+            if (res.chaincodes[i].name === chaincode.id &&
+                res.chaincodes[i].version === chaincode.version &&
+                res.chaincodes[i].path === chaincode.path) {
+                found = true;
+                commLogger.debug('instantiatedChaincode: ' + JSON.stringify(res.chaincodes[i]));
+                break;
+            }
+        }
+        if (found) {
+            return;
+        }
+
         let results;
         // the v1 chaincode has Init() method that expects a transient map
         if (upgrade) {
@@ -293,16 +333,26 @@ async function instantiateChaincode(chaincode, endorsement_policy, upgrade){
 
         const proposal = results[1];
         let all_good = true;
+        let instantiated = false;
         for(let i in proposalResponses) {
+            //commLogger.info('instantiateChaincode responses: i=' + i + ' ' + JSON.stringify(proposalResponses[i]));
             let one_good = false;
             if (proposalResponses[i].response && proposalResponses[i].response.status === 200) {
                 one_good = true;
+            /*} else if (proposalResponses && proposalResponses[i] && proposalResponses[i].code === 2){
+                if (proposalResponses[i].details && proposalResponses[i].details.indexOf('exists') !== -1) {
+                    one_good = true;
+                    instantiated = true;
+                }*/
+
             }
             all_good = all_good && one_good;
         }
 
         if (!all_good) {
             throw new Error('Failed to send ' + type + ' Proposal or receive valid response. Response null or status is not 200.');
+        }else if (instantiated) {
+            return;
         }
 
         const request = {
