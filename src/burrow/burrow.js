@@ -50,7 +50,7 @@ class Burrow extends BlockchainInterface{
      * Return the Burrow context associated with the given callback module name.
      * @param {string} name The name of the callback module as defined in the configuration files.
      * @param {object} args Unused.
-     * @return {object} The assembled Fabric context.
+     * @return {object} The assembled Burrow context.
      * @async
      */
     getContext(name, args) {
@@ -64,8 +64,8 @@ class Burrow extends BlockchainInterface{
             }
             let account = fs.readFileSync(util.resolvePath(config.burrow.network.validator.address)).toString();
 
-            logger.info(`Account: ${account}`);
-            logger.info(`GRPC: ${grpc}`);
+            // logger.info(`Account: ${account}`);
+            // logger.info(`GRPC: ${grpc}`);
 
             let options = {objectReturn: true};
             let burrow = monax.createInstance(grpc, account, options);
@@ -111,7 +111,6 @@ class Burrow extends BlockchainInterface{
    */
     async burrowTransaction(context, contractID, contractVer, args, timeout) {
         let status = new TxStatus(args.account);
-        status.Set('timeout', timeout*1000);
         if(context.engine) {
             context.engine.submitCallback(1);
         }
@@ -125,11 +124,15 @@ class Burrow extends BlockchainInterface{
             Fee: 5000
         };
 
-        return context.stream.transact.CallTxSync(tx).then((execution)=>{
+        try {
+            let execution = await context.stream.transact.CallTxSync(tx);
             status.SetID(execution.TxHash.toString());
             status.SetStatusSuccess();
-            return status;
-        });
+        } catch (err) {
+            status.SetStatusFail();
+        }
+
+        return status;
     }
 
     /**
