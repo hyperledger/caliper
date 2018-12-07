@@ -15,24 +15,44 @@ const util = require('../comm/util.js');
 const logger = util.getLogger('burrow.js');
 const TxStatus = require('../comm/transaction');
 
-/* eslint-disable require-jsdoc */
 /**
  * Implements {BlockchainInterface} for a Burrow backend.
  */
 class Burrow extends BlockchainInterface{
+
+    /**
+   * Create a new instance of the {Burrow} class.
+   * @param {string} config_path The path of the Fabric network configuration file.
+   */
     constructor(config_path) {
         super(config_path);
         this.statusInterval = null;
     }
 
+    /**
+     * Initialize the {Burrow} object.
+     * @return {time} sleep
+     */
     init() {
         return util.sleep(2000);
     }
 
+    /**
+     * Deploy the chaincode specified in the network configuration file to all peers.
+     * @return {Burrow} resolve
+     */
     installSmartContract() {
+        // TODO: complete
         return Promise.resolve();
     }
 
+    /**
+     * Return the Burrow context associated with the given callback module name.
+     * @param {string} name The name of the callback module as defined in the configuration files.
+     * @param {object} args Unused.
+     * @return {object} The assembled Fabric context.
+     * @async
+     */
     getContext(name, args) {
         let config  = require(this.configPath);
         let context = config.burrow.context;
@@ -54,9 +74,13 @@ class Burrow extends BlockchainInterface{
         return Promise.resolve(context);
     }
 
-    releaseContext(context) {
+    /**
+     * Release the given Burrow context.
+     * @param {object} context The Burrow context to release.
+     * @async
+     */
+    async releaseContext(context) {
         // nothing to do
-        return Promise.resolve();
     }
 
     /**
@@ -86,35 +110,37 @@ class Burrow extends BlockchainInterface{
    * @return {Promise<TxStatus>} result and stats of the transaction invocation.
    */
     async burrowTransaction(context, contractID, contractVer, args, timeout) {
-        try {
-            let status = new TxStatus(args.account);
-            status.Set('timeout', timeout*1000);
-            if(context.engine) {
-                context.engine.submitCallback(1);
-            }
-
-            let tx = {
-                Input: {
-                    Address: Buffer.from(context.account,'hex'),
-                    Amount: args.money
-                },
-                GasLimit: 5000,
-                Fee: 5000
-            };
-
-            let exe = context.stream.transact.CallTxSync(tx).then((execution)=>{
-                status.SetID(execution.TxHash.toString());
-                status.SetStatusSuccess();
-                return status;
-            });
-            return exe;
+        let status = new TxStatus(args.account);
+        status.Set('timeout', timeout*1000);
+        if(context.engine) {
+            context.engine.submitCallback(1);
         }
-        catch(err) {
-            logger.error(err);
-            return Promise.reject();
-        }
+
+        let tx = {
+            Input: {
+                Address: Buffer.from(context.account,'hex'),
+                Amount: args.money
+            },
+            GasLimit: 5000,
+            Fee: 5000
+        };
+
+        return context.stream.transact.CallTxSync(tx).then((execution)=>{
+            status.SetID(execution.TxHash.toString());
+            status.SetStatusSuccess();
+            return status;
+        });
     }
 
+    /**
+     * Query the given chaincode according to the specified options.
+     * @param {object} context The Burrow context returned by {getContext}.
+     * @param {string} contractID The name of the chaincode.
+     * @param {string} contractVer The version of the chaincode.
+     * @param {string} key The argument to pass to the chaincode query.
+     * @param {string} [fcn=query] The chaincode query function name.
+     * @return {Promise<object>} The promise for the result of the execution.
+     */
     async queryState(context, contractID, contractVer, key, fcn = 'query') {
         return Promise.resolve();
     }
