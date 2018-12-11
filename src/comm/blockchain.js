@@ -34,6 +34,11 @@ class Blockchain {
                 this.bcType = 'iroha';
                 this.bcObj = new iroha(configPath);
             }
+            else if(config.caliper.blockchain ==='burrow') {
+                let burrow = require('../burrow/burrow.js');
+                this.bcType = 'burrow';
+                this.bcObj = new burrow(configPath);
+            }
             else if(config.caliper.blockchain === 'composer') {
                 let composer = require('../composer/composer.js');
                 this.bcType = 'composer';
