@@ -429,10 +429,11 @@ function getOrgPeers(orgName) {
 /**
  * Create a Fabric context based on the channel configuration.
  * @param {object} channelConfig The channel object from the configuration file.
+ * @param {Integer} clientIdx the client index
  * @return {Promise<object>} The created Fabric context.
  * @async
  */
-async function getcontext(channelConfig) {
+async function getcontext(channelConfig, clientIdx) {
     Client.setConfigSetting('request-timeout', 120000);
     const channel_name = channelConfig.name;
     // var userOrg = channelConfig.organizations[0];
@@ -470,7 +471,7 @@ async function getcontext(channelConfig) {
 
     the_user = await testUtil.getSubmitter(client, true, userOrg);
 
-    // set up the channel to use each org's random peer for
+    // set up the channel to use assign peers based on the client index
     // both requests and events
     for(let i in channelConfig.organizations) {
         let org   = channelConfig.organizations[i];
@@ -480,7 +481,8 @@ async function getcontext(channelConfig) {
             throw new Error('could not find peer of ' + org);
         }
 
-        let peerInfo = peers[Math.floor(Math.random() * peers.length)];
+        // Cycle through available peers based on clientIdx
+        let peerInfo = peers[clientIdx % peers.length];
         let data = fs.readFileSync(commUtils.resolvePath(peerInfo.tls_cacerts));
         let peer = client.newPeer(
             peerInfo.requests,

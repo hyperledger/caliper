@@ -65,11 +65,12 @@ class Fabric extends BlockchainInterface{
     /**
      * Return the Fabric context associated with the given callback module name.
      * @param {string} name The name of the callback module as defined in the configuration files.
-     * @param {object} args Unused.
+     * @param {object} args unused.
+     * @param {Integer} clientIdx The client index.
      * @return {object} The assembled Fabric context.
      * @async
      */
-    async getContext(name, args) {
+    async getContext(name, args, clientIdx) {
         util.init(this.configPath);
         e2eUtils.init(this.configPath);
 
@@ -87,7 +88,7 @@ class Fabric extends BlockchainInterface{
             throw new Error('Could not find context information in the config file');
         }
 
-        return await e2eUtils.getcontext(channel);
+        return await e2eUtils.getcontext(channel, clientIdx);
     }
 
     /**

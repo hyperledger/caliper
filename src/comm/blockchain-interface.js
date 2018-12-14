@@ -57,8 +57,9 @@ class BlockchainInterface {
      * }
      * @param {String} name name of the context
      * @param {Object} args adapter specific arguments
+     * @param {Integer} clientIdx the client index
      */
-    async getContext(name, args) {
+    async getContext(name, args, clientIdx) {
         throw new Error('getContext is not implemented for this blockchain system');
     }
 
