@@ -103,10 +103,10 @@ Below is a benchmark configuration file example:
   * **label** : hint for the test. For example, you can use the transaction name as the label name to tell which transaction is mainly used to test the performance. The value is also used as the context name for *blockchain.getContext()*. For example, developers may want to test performance of different Fabric channels, in that case, tests with different label can be bound to different fabric channels.  
   * **txNumber** : defines an array of sub-rounds with different transaction numbers to be run in each round. For example, [5000,400] means totally 5000 transactions will be generated in the first round and 400 will be generated in the second.
   * **txDuration** : defines an array of sub-rounds with time based test runs. For example [150,400] means two runs will be made, the first test will run for 150 seconds, and the second will run for 400 seconds. If specified in addition to txNumber, the txDuration option will take precedence.
-  * **rateControl** : defines an array of custom rate controls to use during the benchmarking test sub-rounds. If not specified will default to 'fixed-rate' that will drive the benchmarking at a set 1 TPS rate. If defined, the rate control mechanism must exist, and may be provided with options to use to control the rate at which messages are sent, or to specify a message rate profile. Each round, specified within **txNumber** or **txDuration** must have a corresponding rate control item within the **rateControl** array. For more information on available rate controllers and how to implement custom rate controllers, refer to the [rate controllers section]({{ site.baseurl }}{% link docs/RateControllers.md %})
+  * **rateControl** : defines an array of custom rate controls to use during the benchmarking test sub-rounds. If not specified will default to 'fixed-rate' that will drive the benchmarking at a set 1 TPS rate. If defined, the rate control mechanism must exist, and may be provided with options to use to control the rate at which messages are sent, or to specify a message rate profile. Each round, specified within **txNumber** or **txDuration** must have a corresponding rate control item within the **rateControl** array. For more information on available rate controllers and how to implement custom rate controllers, refer to the [rate controllers section]({{ site.baseurl }}{% link docs/Rate_Controllers.md %})
   * **trim** : performs a trimming operation on the client results to eliminate the warm-up and cool-down phase being included within tests reports. If specified, the trim option will respect the round measurement. For example, if `txNumber` is the driving test mode the a value of 30 means the initial and final 30 transactions of the results from each client will be ignored when generating result statistics; if `txDuration` is being used, the the initial and final 30seconds of the the results from each client will be ignored.
   * **arguments** : user defined arguments which will be passed directly to the user defined test module.
-  * **callback** : specifies the user defined module used in this test round. Please see [User defined test module]({{ site.baseurl }}{% link docs/writing_benchmarks.md %}) to learn more details.
+  * **callback** : specifies the user defined module used in this test round. Please see [User defined test module]({{ site.baseurl }}{% link docs/Writing_Benchmarks.md %}) to learn more details.
 * **monitor** - defines the type of resource monitors and monitored objects, as well as the time interval for the monitoring.
   * docker : a docker monitor is used to monitor specified docker containers on local or remote hosts. Docker Remote API is used to retrieve remote container's stats. Reserved container name 'all' means all containers on the host will be watched. In above example, the monitor will retrieve the stats of two containers per second, one is a local container named 'peer0.org1.example.com' and another is a remote container named 'orderer.example.com' located on host '192.168.1.100', 2375 is the listening port of Docker on that host.
   * process : a process monitor is used to monitor specified local process. For example, users can use this monitor to watch the resource consumption of simulated blockchain clients. The 'command' and 'arguments' properties are used to specify the processes. The 'multiOutput' property is used to define the meaning of the output if multiple processes are found. 'avg' means the output is the average resource consumption of those processes, while 'sum' means the output is the summing consumption.  
@@ -127,7 +127,7 @@ The master implements a default test flow which contains three stages:
 
 ### Clients
 
-#### Local clients
+#### Local Clients
 
 In this mode, the master uses Node.js cluster module to fork multiple local clients (child processes) to do the actual testing work. As Node.js is single-threaded by nature, local cluster could be useful to improve clients' performance on multi-core machine.
 
@@ -139,15 +139,15 @@ The client invokes a test module which implements user defined testing logic.The
 
 A local client will only be launched once at beginning of the first test round, and be destroyed after finishing all the tests.
 
-#### Zookeeper clients
+#### Zookeeper Clients
 
 In this mode, multiple zookeeper clients are launched independently. A zookeeper client will register itself after launch and watch for testing tasks. After testing, a znode which contains the result of performance statistics will be created.
 
 A zookeeper client also forks multiple child processes (local clients) to do the actual testing work as described above.
 
-For more details, please refer to [Zookeper Client Design]({{ site.baseurl }}{% link docs/Zookeeper client design.md %}).
+For more details, please refer to [Zookeper Client Design]({{ site.baseurl }}{% link docs/Zookeeper_Client_Design.md %}).
 
-### User defined test module
+### User Defined Test Module
 
 A test module implements functions that actually generate and submit transactions. By this way, developers can implement their own testing logic and integrate it with the benchmark engine.  
 
