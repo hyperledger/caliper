@@ -21,14 +21,12 @@
 
 const e2eUtils = require('./e2eUtils.js');
 const testUtil = require('./util.js');
-const Client = require('fabric-client');
 const commUtils = require('../comm/util');
 const commLogger = commUtils.getLogger('install-chaincode.js');
 
 module.exports.run = async function (config_path) {
-    Client.addConfigFile(config_path);
     testUtil.setupChaincodeDeploy();
-    const fabricSettings = Client.getConfigSetting('fabric');
+    const fabricSettings = commUtils.parseYaml(config_path).fabric;
     let chaincodes = fabricSettings.chaincodes;
     if(typeof chaincodes === 'undefined' || chaincodes.length === 0) {
         return;

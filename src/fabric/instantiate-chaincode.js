@@ -23,11 +23,8 @@ const e2eUtils = require('./e2eUtils.js');
 const commUtils = require('../comm/util');
 const commLogger = commUtils.getLogger('instantiate-chaincode.js');
 
-const Client = require('fabric-client');
-
 module.exports.run = async function (config_path) {
-    Client.addConfigFile(config_path);
-    const fabricSettings = Client.getConfigSetting('fabric');
+    const fabricSettings = commUtils.parseYaml(config_path).fabric;
     const policy = fabricSettings['endorsement-policy'];  // TODO: support multiple policies
     let chaincodes = fabricSettings.chaincodes;
     if(typeof chaincodes === 'undefined' || chaincodes.length === 0) {

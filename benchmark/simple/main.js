@@ -44,7 +44,7 @@ function main() {
     let logger = Util.getLogger('benchmark/simple/main.js');
     let absConfigFile;
     if(typeof configFile === 'undefined') {
-        absConfigFile = path.join(__dirname, 'config.yaml');
+        absConfigFile = path.join(__dirname, 'config-linear-rate.yaml');
     }
     else {
         absConfigFile = path.isAbsolute(configFile) ? configFile : path.join(__dirname, configFile);
@@ -57,7 +57,7 @@ function main() {
     let absNetworkFile;
     if(typeof networkFile === 'undefined') {
         try{
-            absNetworkFile = Util.resolvePath('network/fabric/2org2peer/fabric-simple.json');
+            absNetworkFile = Util.resolvePath('network/fabric-v1.1/2org1peergoleveldb/fabric-node-tls.json');
         }
         catch(err) {
             logger.error('failed to find blockchain.config in ' + absConfigFile);

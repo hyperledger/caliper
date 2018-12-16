@@ -165,13 +165,12 @@ async function joinChannel(org, channelName) {
 }
 
 module.exports.run = async function (config_path) {
-    Client.addConfigFile(config_path);
-    const fabric = Client.getConfigSetting('fabric');
+    const fabric = commUtils.parseYaml(config_path).fabric;
     let channels = fabric.channel;
     if(!channels || channels.length === 0) {
         return;
     }
-    ORGS = Client.getConfigSetting('fabric').network;
+    ORGS = fabric.network;
     commlogger.info('Joining channels...');
 
     try {

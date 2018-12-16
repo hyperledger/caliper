@@ -1,0 +1,79 @@
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+---
+
+Organizations:
+    - &OrdererOrg
+        Name: OrdererMSP
+        ID: OrdererMSP
+        MSPDir: crypto-config/ordererOrganizations/mydomain.com/msp
+        AdminPrincipal: Role.MEMBER
+
+    - &Org0
+        Name: org1MSP
+        ID: org1MSP
+        MSPDir: crypto-config/peerOrganizations/org1.mydomain.com/msp
+        AdminPrincipal: Role.ADMIN
+        AnchorPeers:
+            - Host: peer0.org1.mydomain.com
+              Port: 7051
+            - Host: peer1.org1.mydomain.com
+              Port: 7051
+
+    - &Org6
+        Name: org6MSP
+        ID: org6MSP
+        MSPDir: crypto-config/peerOrganizations/org6.mydomain.com/msp
+        AdminPrincipal: Role.ADMIN
+        AnchorPeers:
+            - Host: peer0.org6.mydomain.com
+              Port: 7051
+            - Host: peer1.org6.mydomain.com
+              Port: 7051
+
+Orderer: &OrdererDefaults
+    OrdererType: solo
+    Addresses:
+        - orderer.mydomain.com:7050
+    BatchTimeout: 1s
+    BatchSize:
+        MaxMessageCount: 500
+        AbsoluteMaxBytes: 999 MB
+        PreferredMaxBytes: 5 MB
+    MaxChannels: 0
+    Organizations:
+
+Application: &ApplicationDefaults
+    Organizations:
+
+Profiles:
+
+    TwoOrgsOrdererGenesis:
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *OrdererOrg
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                    - *Org0
+                    - *Org6
+    TwoOrgsChannel:
+        Consortium: SampleConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org0
+                - *Org6

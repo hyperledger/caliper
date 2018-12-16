@@ -135,8 +135,7 @@ function readAllFiles(dir) {
 module.exports.readFile = readFile;
 
 module.exports.init = function(config_path) {
-    Client.addConfigFile(config_path);
-    const fa = Client.getConfigSetting('fabric');
+    const fa = commUtils.parseYaml(config_path).fabric;
     ORGS = fa.network;
     channels = fa.channel;
     cryptodir = commUtils.resolvePath(fa.cryptodir);

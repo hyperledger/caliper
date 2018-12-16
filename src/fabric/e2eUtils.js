@@ -26,6 +26,7 @@ const path = require('path');
 const fs = require('fs');
 
 const Client = require('fabric-client');
+const Peer = require('fabric-client/lib/Peer');
 const testUtil = require('./util.js');
 
 let ORGS;
@@ -38,8 +39,7 @@ let the_user = null;
  * @param {string} config_path The path of the Fabric network configuration file.
  */
 function init(config_path) {
-    Client.addConfigFile(config_path);
-    ORGS = Client.getConfigSetting('fabric').network;
+    ORGS = commUtils.parseYaml(config_path).fabric.network;
 }
 module.exports.init = init;
 
@@ -100,9 +100,9 @@ async function installChaincode(org, chaincode) {
     // get the peer org's admin required to send install chaincode requests
     the_user = await testUtil.getSubmitter(client, true /* get peer org admin */, org);
 
-    //let peers = client.getPeersForOrg(ORGS[org].mspid);
+    // SDK 1.2 returns ChannelPeer instances, so we need the underlying _peer object
     let peers = channel.getPeers();
-    let res = await client.queryInstalledChaincodes(peers[0]);
+    let res = await client.queryInstalledChaincodes(peers[0] instanceof Peer ? peers[0] : peers[0]._peer);
     let found = false;
     for (let i = 0; i < res.chaincodes.length; i++) {
         if (res.chaincodes[i].name === chaincode.id &&
