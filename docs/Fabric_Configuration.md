@@ -8,11 +8,10 @@ categories: config
 
 ## Installing Fabric dependencies
 
-* Install Fabric dependancies using `npm install` commands:
-  * Issue the command `npm run fabric-deps` in the root folder
-  * If you want to test Fabric with a specific version such as v1.0.0, you should install directly,  
-  e.g. `npm install --no-save grpc@1.10.1 fabric-ca-client@1.0.0 fabric-client@1.0.0`  in Caliper's root folder.
-
+* Install Fabric dependencies executing the appropriate `npm run` command in the Caliper root folder:
+  * `npm run fabric-v1.0-deps`
+  * `npm run fabric-v1.1-deps`
+  * `npm run fabric-v1.2-deps`
 
 ## Fabric Configuration file
 The configuration file must contain a 'fabric' property, which defines the Fabric configuration, and an 'info' property, which provides supplementary information for the test case.
