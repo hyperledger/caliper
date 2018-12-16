@@ -8,6 +8,9 @@
 
 'use strict';
 const logger = require('../util.js').getLogger('client-util.js');
+const path = require('path');
+const childProcess = require('child_process');
+
 let processes  = {}; // {pid:{obj, promise}}
 
 /**
@@ -58,8 +61,6 @@ function pushUpdate(pid, data) {
  * @param {Array} results array to save the test results
  */
 function launchClient(updates, results) {
-    let path = require('path');
-    let childProcess = require('child_process');
     let child = childProcess.fork(path.join(__dirname, 'local-client.js'));
     let pid   = child.pid.toString();
     processes[pid] = {obj: child, results: results, updates: updates};
@@ -150,9 +151,10 @@ async function startTest(number, message, clientArgs, updates, results) {
         client.updates = updates;
         message.clientargs = clientArgs[idx];
         message.clientIdx = idx;
-        idx++;
 
+        // send message to client and update idx
         client.obj.send(message);
+        idx++;
     }
 
     await Promise.all(promises);

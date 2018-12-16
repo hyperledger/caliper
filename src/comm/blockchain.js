@@ -93,11 +93,12 @@ class Blockchain {
      * Get a context for subsequent operations, e.g. invoke smart contract or query state
      * @param {String} name name of the context
      * @param {Object} args adapter specific arguments
+     * @param {Integer} clientIdx the client index
      * @return {Promise} obtained context object
      * @async
      */
-    async getContext(name, args) {
-        return await this.bcObj.getContext(name, args);
+    async getContext(name, args, clientIdx) {
+        return await this.bcObj.getContext(name, args, clientIdx);
     }
 
     /**
