@@ -31,10 +31,10 @@ if [ "${BENCHMARK}" == "composer" ]; then
         exit  1
     fi
 elif [ "${BENCHMARK}" == "drm" ]; then
-    npm run fabric-deps
+    npm run fabric-v1.1-deps
     npm run test -- drm
 elif [ "${BENCHMARK}" == "simple" ]; then
-    npm run fabric-deps
+    npm run fabric-v1.1-deps
     npm run test -- simple
 else
     echo "Unknown target benchmark ${BENCHMARK}"

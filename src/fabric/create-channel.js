@@ -36,8 +36,7 @@ const commLogger = commUtils.getLogger('create-channel.js');
  * @async
  */
 async function run(config_path) {
-    Client.addConfigFile(config_path);
-    const fabric = Client.getConfigSetting('fabric');
+    const fabric = commUtils.parseYaml(config_path).fabric;
     const channels = fabric.channel;
     if(!channels || channels.length === 0) {
         throw new Error('No channel information found');

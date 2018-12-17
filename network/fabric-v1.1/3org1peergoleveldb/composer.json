@@ -1,0 +1,132 @@
+{
+  "caliper": {
+    "blockchain": "composer",
+    "command" : {
+      "start": "docker-compose -f network/fabric-v1.1/3org1peergoleveldb/docker-compose.yaml up -d;sleep 3s",
+      "end": "docker-compose -f network/fabric-v1.1/3org1peergoleveldb/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev-* -q)"
+    }
+  },
+  "composer": {
+    "chaincodes": [
+      {"id": "basic-sample-network", "version": "0.1.0", "path": "src/contract/composer", "orgs": ["Org1", "Org2", "Org3"], "loglevel": "INFO"},
+      {"id": "vehicle-lifecycle-network", "version": "0.1.0", "path": "src/contract/composer", "orgs": ["Org1", "Org2", "Org3"], "loglevel": "INFO"}
+    ],
+    "cryptodir": "network/fabric-v1.1/config/crypto-config",
+    "network": {
+      "x-type" : "hlfv1",
+      "timeout": 10000,
+      "version": "1.0.0",
+      "tls": false,
+      "orderers": {
+        "orderer.example.com": {
+          "url": "grpc://localhost:7050",
+          "mspid": "OrdererMSP",
+          "mspconfig": "/etc/hyperledger/msp/orderer/tls/ca.crt",
+          "hostname": "orderer.example.com",
+          "hosturl": "orderer.example.com:7050"
+        }
+      },
+      "certificateAuthorities": {
+        "ca.org1.example.com": {
+          "url": "http://localhost:7054",
+          "name": "ca.org1.example.com"
+        },
+        "ca.org2.example.com": {
+          "url": "http://localhost:8054",
+          "name": "ca.org2.example.com"
+        },
+        "ca.org3.example.com": {
+          "url": "http://localhost:9054",
+          "name": "ca.org3.example.com"
+        }
+      },
+      "organizations": [
+        {
+          "name": "Org1",
+          "mspid": "Org1MSP",
+          "mspconfig": "/etc/hyperledger/msp/users/Admin@org1.example.com/msp",
+          "adminCert": "network/fabric-v1.1/config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem",
+          "adminKey" : "network/fabric-v1.1/config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/key.pem",
+          "certificateAuthorities": [
+            "ca.org1.example.com"
+          ],
+          "peers": [
+            "peer0.org1.example.com"
+          ]
+        },
+        {
+          "name": "Org2",
+          "mspid": "Org2MSP",
+          "mspconfig": "/etc/hyperledger/msp/users/Admin@org2.example.com/msp",
+          "adminCert": "network/fabric-v1.1/config/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/Admin@org2.example.com-cert.pem",
+          "adminKey" : "network/fabric-v1.1/config/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/key.pem",
+          "certificateAuthorities": [
+            "ca.org2.example.com"
+          ],
+          "peers": [
+            "peer0.org2.example.com"
+          ]
+        },
+        {
+          "name": "Org3",
+          "mspid": "Org3MSP",
+          "mspconfig": "/etc/hyperledger/msp/users/Admin@org3.example.com/msp",
+          "adminCert": "network/fabric-v1.1/config/crypto-config/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/signcerts/Admin@org3.example.com-cert.pem",
+          "adminKey" : "network/fabric-v1.1/config/crypto-config/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp/keystore/key.pem",
+          "certificateAuthorities": [
+            "ca.org3.example.com"
+          ],
+          "peers": [
+            "peer0.org3.example.com"
+          ]
+        }
+      ],
+      "peers": {
+        "peer0.org1.example.com": {
+          "url": "grpc://localhost:7051",
+          "eventUrl": "grpc://localhost:7053",
+          "hostname": "peer0.org1.example.com",
+          "channels":[
+            "mychannel"
+          ]
+        },
+        "peer0.org2.example.com": {
+          "url": "grpc://localhost:8051",
+          "eventUrl": "grpc://localhost:8053",
+          "hostname": "peer0.org2.example.com",
+          "channels":[
+            "mychannel"
+          ]
+        },
+        "peer0.org3.example.com": {
+          "url": "grpc://localhost:9051",
+          "eventUrl": "grpc://localhost:9053",
+          "hostname": "peer0.org3.example.com",
+          "channels":[
+            "mychannel"
+          ]
+        }
+      },
+      "channels": {
+        "mychannel": {
+          "config": "/etc/hyperledger/configtx/mychannel.tx",
+          "mspconfig": "/etc/hyperledger/msp/users/Admin@org1.example.com/msp",
+          "orderers": [
+            "orderer.example.com"
+          ],
+          "peers": [
+            "peer0.org1.example.com",
+            "peer0.org2.example.com",
+            "peer0.org3.example.com"
+          ]
+        }
+      }
+    }
+  },
+  "info" : {
+    "Version": "1.1.0",
+    "Size": "3 Orgs with 1 Peer",
+    "Orderer": "Solo",
+    "Distribution": "Single Host"
+  }
+}
