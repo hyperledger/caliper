@@ -113,6 +113,7 @@ async function startTest(number, message, clientArgs, updates, results) {
     }
 
     let txPerClient;
+    let totalTx = message.numb;
     if (message.numb) {
         // Run specified number of transactions
         txPerClient  = Math.floor(message.numb / number);
@@ -151,6 +152,10 @@ async function startTest(number, message, clientArgs, updates, results) {
         client.updates = updates;
         message.clientargs = clientArgs[idx];
         message.clientIdx = idx;
+
+        if(totalTx % number !== 0 && idx === number-1){
+            message.numb = totalTx - txPerClient*(number - 1);
+        }
 
         // send message to client and update idx
         client.obj.send(message);
