@@ -30,3 +30,8 @@ zookeeper.out
 
 # Ignore IDE files
 .vscode/*
+
+# Website files
+.sass-cache/
+Gemfile.lock
+_site/

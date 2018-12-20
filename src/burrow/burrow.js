@@ -38,12 +38,38 @@ class Burrow extends BlockchainInterface{
     }
 
     /**
-     * Deploy the chaincode specified in the network configuration file to all peers.
-     * @return {Burrow} resolve
+     * Deploy the smart contract specified in the network configuration file.
+     * @return {object} Promise execution for namereg.
      */
-    installSmartContract() {
-        // TODO: complete
-        return Promise.resolve();
+    async installSmartContract() {
+        let config  = require(this.configPath);
+        let grpc = config.burrow.network.validator.grpc;
+        if(grpc === null) {
+            logger.error('Error: Validator url not set.');
+        }
+        let account = fs.readFileSync(util.resolvePath(config.burrow.network.validator.address)).toString();
+        let options = {objectReturn: true};
+        let burrow = monax.createInstance(grpc, account, options);
+        let data = JSON.parse(fs.readFileSync(util.resolvePath(config.contract.path)).toString());
+        let abi = data.Abi;
+        let bytecode = data.Evm.Bytecode.Object;
+
+        const contract = burrow.contracts.new(abi, bytecode);
+        let contractAddress = await contract._constructor('');
+        logger.info(`Contract: ${contractAddress}`);
+
+        // this stores the contract address in a namereg for easy retreival
+        let setPayload = {
+            Input: {
+                Address: Buffer.from(account,'hex'),
+                Amount: 50000
+            },
+            Name: 'DOUG',
+            Data: contractAddress,
+            Fee: 5000
+        };
+
+        return burrow.transact.NameTxSync(setPayload);
     }
 
     /**
@@ -53,9 +79,10 @@ class Burrow extends BlockchainInterface{
      * @return {object} The assembled Burrow context.
      * @async
      */
-    getContext(name, args) {
+    async getContext(name, args) {
         let config  = require(this.configPath);
         let context = config.burrow.context;
+
         if(typeof context === 'undefined') {
 
             let grpc = config.burrow.network.validator.grpc;
@@ -69,7 +96,10 @@ class Burrow extends BlockchainInterface{
 
             let options = {objectReturn: true};
             let burrow = monax.createInstance(grpc, account, options);
-            context = {stream: burrow, account: account};
+
+            // get the contract address from the namereg
+            let address = (await burrow.query.GetName({Name: 'DOUG'})).Data;
+            context = {stream: burrow, account: account, address: address};
         }
         return Promise.resolve(context);
     }
@@ -85,12 +115,12 @@ class Burrow extends BlockchainInterface{
 
     /**
    * Invoke a smart contract.
-   * @param {Object} context context object
-   * @param {String} contractID identity of the contract
-   * @param {String} contractVer version of the contract
-   * @param {Array} args array of JSON formatted arguments for multiple transactions
-   * @param {Number} timeout request timeout, in seconds
-   * @return {Promise<object>} the promise for the result of the execution.
+   * @param {Object} context Context object.
+   * @param {String} contractID Identity of the contract.
+   * @param {String} contractVer Version of the contract.
+   * @param {Array} args Array of JSON formatted arguments for multiple transactions.
+   * @param {Number} timeout Request timeout, in seconds.
+   * @return {Promise<object>} The promise for the result of the execution.
    */
     async invokeSmartContract(context, contractID, contractVer, args, timeout) {
         let promises = [];
@@ -102,12 +132,12 @@ class Burrow extends BlockchainInterface{
 
     /**
    * Submit a transaction to the burrow daemon with the specified options.
-   * @param {Object} context context object
-   * @param {String} contractID identity of the contract
-   * @param {String} contractVer version of the contract
-   * @param {Array} args array of JSON formatted arguments for multiple transactions
-   * @param {Number} timeout request timeout, in seconds
-   * @return {Promise<TxStatus>} result and stats of the transaction invocation.
+   * @param {Object} context Context object.
+   * @param {String} contractID Identity of the contract.
+   * @param {String} contractVer Version of the contract.
+   * @param {Array} args Array of JSON formatted arguments for multiple transactions.
+   * @param {Number} timeout Request timeout, in seconds.
+   * @return {Promise<TxStatus>} Result and stats of the transaction invocation.
    */
     async burrowTransaction(context, contractID, contractVer, args, timeout) {
         let status = new TxStatus(args.account);
@@ -120,6 +150,7 @@ class Burrow extends BlockchainInterface{
                 Address: Buffer.from(context.account,'hex'),
                 Amount: args.money
             },
+            Address: Buffer.from(context.address, 'hex'),
             GasLimit: 5000,
             Fee: 5000
         };
@@ -136,12 +167,12 @@ class Burrow extends BlockchainInterface{
     }
 
     /**
-     * Query the given chaincode according to the specified options.
+     * Query the given smart contract according to the specified options.
      * @param {object} context The Burrow context returned by {getContext}.
-     * @param {string} contractID The name of the chaincode.
-     * @param {string} contractVer The version of the chaincode.
-     * @param {string} key The argument to pass to the chaincode query.
-     * @param {string} [fcn=query] The chaincode query function name.
+     * @param {string} contractID The name of the contract.
+     * @param {string} contractVer The version of the contract.
+     * @param {string} key The argument to pass to the smart contract query.
+     * @param {string} [fcn=query] The contract query function name.
      * @return {Promise<object>} The promise for the result of the execution.
      */
     async queryState(context, contractID, contractVer, key, fcn = 'query') {
