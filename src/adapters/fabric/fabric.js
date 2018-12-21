@@ -14,10 +14,10 @@ const impl_create = require('./create-channel.js');
 const impl_join = require('./join-channel.js');
 const impl_install = require('./install-chaincode.js');
 const impl_instantiate = require('./instantiate-chaincode.js');
-const BlockchainInterface = require('../comm/blockchain-interface.js');
-const commUtils = require('../comm/util');
+const BlockchainInterface = require('../../comm/blockchain-interface.js');
+const commUtils = require('../../comm/util');
 const commLogger = commUtils.getLogger('fabric.js');
-const TxStatus = require('../comm/transaction');
+const TxStatus = require('../../comm/transaction');
 
 /**
  * Implements {BlockchainInterface} for a Fabric backend.

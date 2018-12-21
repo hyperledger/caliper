@@ -9,7 +9,7 @@
 
 'use strict';
 
-const logger = require('../../../src/comm/util.js').getLogger('SmallBankBatchBuilder.js');
+const logger = require('../../../../src/comm/util.js').getLogger('SmallBankBatchBuilder.js');
 let BatchBuilder = require('./BatchBuilder.js');
 
 /**

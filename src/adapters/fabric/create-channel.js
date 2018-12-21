@@ -27,7 +27,7 @@ const Client = require('fabric-client');
 const fs = require('fs');
 
 const testUtil = require('./util.js');
-const commUtils = require('../comm/util');
+const commUtils = require('../../comm/util');
 const commLogger = commUtils.getLogger('create-channel.js');
 
 /**

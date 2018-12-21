@@ -8,13 +8,13 @@
 
 'use strict';
 
-const BlockchainInterface = require('../comm/blockchain-interface.js');
+const BlockchainInterface = require('../../comm/blockchain-interface.js');
 const BatchBuilderFactory = require('./Application/BatchBuilderFactory.js');
-const commUtils = require('../comm/util');
-const logger = require('../comm/util.js').getLogger('sawtooth.js');
+const commUtils = require('../../comm/util');
+const logger = require('../../comm/util.js').getLogger('sawtooth.js');
 let configPath;
 const request = require('request-promise');
-const TxStatus = require('../comm/transaction');
+const TxStatus = require('../../comm/transaction');
 const _ = require('lodash');
 const { Stream } = require('sawtooth-sdk/messaging/stream');
 const {

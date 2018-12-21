@@ -23,7 +23,7 @@ const Client = require('fabric-client');
 const EventHub = require('fabric-client/lib/EventHub.js');
 
 const testUtil = require('./util.js');
-const commUtils = require('../comm/util');
+const commUtils = require('../../comm/util');
 const commlogger = commUtils.getLogger('join-channel.js');
 
 //let the_user = null;

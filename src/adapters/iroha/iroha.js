@@ -25,9 +25,9 @@ const pbQuery = require('iroha-lib/pb/queries_pb.js').Query;
 const endpointGrpc = require('iroha-lib/pb/endpoint_grpc_pb.js');
 const util = require('../comm/util.js');
 const logger = util.getLogger('iroha.js');
-const BlockchainInterface = require('../comm/blockchain-interface.js');
+const BlockchainInterface = require('../../comm/blockchain-interface.js');
 const irohaType = require('./type.js');
-const TxStatus = require('../comm/transaction');
+const TxStatus = require('../../comm/transaction');
 
 const txBuilder = new ModelTransactionBuilder();
 const queryBuilder = new ModelQueryBuilder();

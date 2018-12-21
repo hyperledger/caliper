@@ -8,7 +8,7 @@
 
 'use strict';
 
-const Util = require('../../comm/util.js');
+const Util = require('../../../comm/util.js');
 
 /**
  * @abstract class has static method getBatchBuilder()

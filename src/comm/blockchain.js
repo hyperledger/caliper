@@ -20,27 +20,27 @@ class Blockchain {
 
         if(config.hasOwnProperty('caliper') && config.caliper.hasOwnProperty('blockchain')){
             if(config.caliper.blockchain === 'fabric') {
-                let fabric = require('../fabric/fabric.js');
+                let fabric = require('../adapters/fabric/fabric.js');
                 this.bcType = 'fabric';
                 this.bcObj = new fabric(configPath);
             }
             else if(config.caliper.blockchain ==='sawtooth') {
-                let sawtooth = require('../sawtooth/sawtooth.js');
+                let sawtooth = require('../adapters/sawtooth/sawtooth.js');
                 this.bcType = 'sawtooth';
                 this.bcObj = new sawtooth(configPath);
             }
             else if(config.caliper.blockchain ==='iroha') {
-                let iroha = require('../iroha/iroha.js');
+                let iroha = require('../adapters/iroha/iroha.js');
                 this.bcType = 'iroha';
                 this.bcObj = new iroha(configPath);
             }
             else if(config.caliper.blockchain ==='burrow') {
-                let burrow = require('../burrow/burrow.js');
+                let burrow = require('../adapters/burrow/burrow.js');
                 this.bcType = 'burrow';
                 this.bcObj = new burrow(configPath);
             }
             else if(config.caliper.blockchain === 'composer') {
-                let composer = require('../composer/composer.js');
+                let composer = require('../adapters/composer/composer.js');
                 this.bcType = 'composer';
                 this.bcObj = new composer(configPath);
             }

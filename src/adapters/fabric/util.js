@@ -26,7 +26,7 @@ const copService = require('fabric-ca-client/lib/FabricCAClientImpl.js');
 const User = require('fabric-client/lib/User.js');
 
 const Constants = require('./constant.js');
-const commUtils = require('../comm/util');
+const commUtils = require('../../comm/util');
 const commLogger = commUtils.getLogger('util.js');
 
 let channels = [];

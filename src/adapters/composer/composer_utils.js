@@ -19,7 +19,7 @@ const BusinessNetworkDefinition = require('composer-admin').BusinessNetworkDefin
 const BusinessNetworkConnection = require('composer-client').BusinessNetworkConnection;
 const IdCard = require('composer-common').IdCard;
 
-const Util = require('../comm/util');
+const Util = require('../../comm/util');
 const logger = Util.getLogger('composer_utils.js');
 const fs = require('fs');
 const path = require('path');

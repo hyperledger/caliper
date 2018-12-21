@@ -17,10 +17,10 @@
 'use strict';
 
 // Caliper requires
-const BlockchainInterface = require('../comm/blockchain-interface.js');
-const Util = require('../comm/util');
+const BlockchainInterface = require('../../comm/blockchain-interface.js');
+const Util = require('../../comm/util');
 const logger = Util.getLogger('composer.js');
-const TxStatus = require('../comm/transaction');
+const TxStatus = require('../../comm/transaction');
 
 // Composer helpers
 const composer_utils = require('./composer_utils.js');
