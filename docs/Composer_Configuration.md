@@ -21,7 +21,7 @@ In order to configure your system to run tests on unpublished version, for insta
 - use an npm proxy such as [Verdaccio](https://github.com/verdaccio/verdaccio) to host the latest code
 - update the package information in the Caliper project to reflect the unpublished version that are to be tested
 - perform an npm install in the Caliper project in order to retrieve the latest code
-A point of note here is that during the chaincode instantiation process using Composer, as the chaincode is built, it will perform an npm install of the latest Composer code that matches the version of the Composer code that invoked the process. Due to this it is necesary to ensure that for each system the chaincode is being instantiated on, an npm proxy that can make the required code available is present.
+A point of note here is that during the chaincode instantiation process using Composer, as the chaincode is built, it will perform an npm install of the latest Composer code that matches the version of the Composer code that invoked the process. Due to this it is necessary to ensure that for each system the chaincode is being instantiated on, an npm proxy that can make the required code available is present.
 
 ## Composer Code Locations
 The Composer contribution to Caliper is contained within three folders:

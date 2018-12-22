@@ -3,7 +3,8 @@
 node_modules/*
 package-lock.json
 output.log
-
+log/
+.nyc_output
 
 # Ignore DS_Store files from Mac
 **.DS_Store
@@ -11,7 +12,6 @@ output.log
 # We prefer to not use lock files
 package-lock.json
 *.lock
-
 
 _site/
 .sass-cache

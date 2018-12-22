@@ -10,10 +10,11 @@ order: 1
 Caliper is a blockchain performance benchmark framework, which allows users to test different blockchain solutions with predefined use cases, and get a set of performance test results.
 
 **Currently supported blockchain solutions:**
-* [Hyperledger Fabric](https://github.com/hyperledger/fabric)
-* [Hyperledger Sawtooth](https://github.com/hyperledger/sawtooth-core)
-* [Hyperledger Iroha](https://github.com/hyperledger/iroha)
+* [Hyperledger Burrow](https://github.com/hyperledger/burrow)
 * [Hyperledger Composer](https://github.com/hyperledger/composer)
+* [Hyperledger Fabric](https://github.com/hyperledger/fabric)
+* [Hyperledger Iroha](https://github.com/hyperledger/iroha)
+* [Hyperledger Sawtooth](https://github.com/hyperledger/sawtooth-core)
 
 <br>
 
@@ -40,12 +41,13 @@ Make sure following tools are installed
 
 Run `npm install` in Caliper folder to install dependencies locally, the relevant packages for the Hyperledger projects must be installed to use those plugins. You can find information in the pages below.
 
-- [Fabric]({{ site.baseurl }}{% link docs/Fabric_Configuration.md %})
-- [Sawtooth]({{ site.baseurl }}{% link docs/Sawtooth_configuration.md %})
-- [Iroha]({{ site.baseurl }}{% link docs/Iroha_configuration.md %})
+- [Burrow]({{ site.baseurl }}{% link docs/Burrow_Configuration.md %})
 - [Composer]({{ site.baseurl }}{% link docs/Composer_Configuration.md %})
+- [Fabric]({{ site.baseurl }}{% link docs/Fabric_Configuration.md %})
+- [Iroha]({{ site.baseurl }}{% link docs/Iroha_Configuration.md %})
+- [Sawtooth]({{ site.baseurl }}{% link docs/Sawtooth_Configuration.md %})
 
-## Run benchmark
+## Run Benchmark
 
 All predefined benchmarks can be found in [*benchmark*](https://github.com/hyperledger/caliper/tree/master/benchmark) folder.
 To start your first benchmark, just run this in root folder
@@ -98,7 +100,7 @@ $ npm test -- simple -c ./benchmark/simple/config.json -n ./benchmark/simple/fab
 ......
 ```
 
-## Run benchmark with distributed clients (experimental)
+## Run Benchmark with Distributed Clients (Experimental)
 
 In this way, multiple clients can be launched on distributed hosts to run the same benchmark.
 
@@ -138,7 +140,7 @@ In this way, multiple clients can be launched on distributed hosts to run the sa
 > * There is no automatic time synchronization between the clients. You should manually synchronize time between target machines, for example using 'ntpdate'.
 > * The blockchain configuration file must exist on machines which run the client, and the relative path (relative to the caliper folder) of the file must be identical. All referenced files in the configuration must also exist.   
 
-## How to contribute
+## How to Contribute
 
 See [Contributing]({{ site.baseurl }}{% link docs/CONTRIBUTING.md %})
 

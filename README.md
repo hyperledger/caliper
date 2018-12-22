@@ -3,7 +3,7 @@
 Welcome to the GitHub pages for Caliper. These documents serve to explain the configuration and use of Caliper for testing the performance of your blockchain networks. This static site is hosted on an organization static site in GitHub (https://github.com/hyperledger/caliper).
 
 ## Achitecture
-Jekyl is used to publish the site, 
+Jekyl is used to publish the site,
 
 The jekyll template and files are stored in this tree
 
@@ -32,7 +32,8 @@ The jekyll template and files are stored in this tree
 This couldn't be simpler, there is a useful [GitHub guide](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/) that explains the full process, but for those in a rush:
 
 * Install [Ruby 2.1.0 or higher](https://www.ruby-lang.org/en/downloads/)
-* Install Bundler with the command `gem install bundler`
+* Install Bundler: `gem install bundler`
+* Install Jekyll: `gem install jekyll`
 * Publish the site locally with `bundle exec jekyll serve`
 * Navigate to the site, default `http://127.0.0.1:4000/caliper/`
 
@@ -40,7 +41,7 @@ This couldn't be simpler, there is a useful [GitHub guide](https://help.github.c
 
 If you would like to help us document Caliper, please feel free to raise a PR. You may wish to edit a page, or add a new page, but please ensure that the site builds before submitting the PR.
 
-All pages are contained wihtin the `/docs` folder as markdown files, and any resources that they require (such as png images) are held within the `/assets` folder. Please stick to this convention. 
+All pages are contained wihtin the `/docs` folder as markdown files, and any resources that they require (such as png images) are held within the `/assets` folder. Please stick to this convention.
 
 ### Editing Pages
 
