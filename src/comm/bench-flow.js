@@ -30,6 +30,7 @@ let absCaliperDir = path.join(__dirname, '..', '..');
 let listener_child;
 let configurationType;
 let absCaliperPath = '../';
+const cfUtil = require('./config-util.js');
 
 
 /**
@@ -305,7 +306,7 @@ module.exports.run = async function(configFile, networkFile) {
     //let configObject = require(absConfigFile);
     let configObject = Util.parseYaml(absConfigFile);
     let networkObject = require(absNetworkFile);
-    configurationType = configObject.test.clients.WITH_MQ;
+    configurationType = cfUtil.getConfigSetting('core:with-mq', false);
 
     try {
         if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('command') && networkObject.caliper.command.hasOwnProperty('start')) {

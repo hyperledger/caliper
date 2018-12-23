@@ -14,12 +14,9 @@ class Blockchain {
     /**
      * Constructor
      * @param {String} configPath path of the blockchain configuration file
-     * @param {String} withMQ, Flag to check if caliper running in MQ mode
      */
-    constructor(configPath, withMQ) {
+    constructor(configPath) {
         let config = require(configPath);
-        this.withMQ = withMQ;
-        
         if(config.hasOwnProperty('caliper') && config.caliper.hasOwnProperty('blockchain')){
             if(config.caliper.blockchain === 'fabric') {
                 let fabric = require('../fabric/fabric.js');
@@ -140,7 +137,7 @@ class Blockchain {
             time = timeout;
         }
 
-        return await this.bcObj.invokeSmartContract(context, contractID, contractVer, arg, time, this.withMQ);
+        return await this.bcObj.invokeSmartContract(context, contractID, contractVer, arg, time);
     }
 
     /**

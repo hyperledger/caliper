@@ -206,7 +206,7 @@ async function runDuration(msg, cb, context) {
 async function doTest(msg) {
     logger.debug('doTest() with:', msg);
     let cb = require(Util.resolvePath(msg.cb));
-    blockchain = new bc(Util.resolvePath(msg.config), msg.withMQ);
+    blockchain = new bc(Util.resolvePath(msg.config));
 
     beforeTest(msg);
     // start an interval to report results repeatedly

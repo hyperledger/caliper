@@ -33,6 +33,8 @@ let ORGS;
 
 let tx_id = null;
 let the_user = null;
+const cfUtil = require('../comm/config-util.js');
+const withMQ = cfUtil.getConfigSetting('core:with-mq',false);
 
 /**
  * Initialize the Fabric client configuration.
@@ -553,10 +555,9 @@ module.exports.releasecontext = releasecontext;
  * @param {string} version The version of the chaincode.
  * @param {string[]} args The arguments to pass to the chaincode.
  * @param {number} timeout The timeout for the transaction invocation.
- * @param {number} withMQ Flag to determine if tool running in MQ mode.
  * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
  */
-async function invokebycontext(context, id, version, args, timeout, withMQ){
+async function invokebycontext(context, id, version, args, timeout){
     const TxErrorEnum = require('./constant.js').TxErrorEnum;
     const TxErrorIndex = require('./constant.js').TxErrorIndex;
 

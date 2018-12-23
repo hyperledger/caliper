@@ -12,7 +12,7 @@ const fs = require('fs');
 const path = require('path');
 let testUtil = require('../fabric/util.js');
 const Util = require('../comm/util');
-const logger = Util.getLogger();
+const logger = Util.getLogger('listener-fabric.js');
 const rootPath = '../../';
 
 
@@ -45,7 +45,8 @@ class FabricListener {
     }
 
     /**
-     * Fetch Blocks from Fabric peer and publish into kafka
+     * Listen for block event from fabric peer, record the timestamp and publish it into kafka.
+     * This timestamp is used by the metric calculator process to calculate the tps and latency.
      *
      */
     getBlocks() {
@@ -85,7 +86,6 @@ class FabricListener {
                         partition: 0,
                         attributes: 1
                     }];
-
                     self.producer.send(payload, function (error, result) {
                         if (error) {
                             logger.error('Error while publishing block in kafka', error);

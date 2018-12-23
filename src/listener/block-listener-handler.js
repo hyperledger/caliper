@@ -10,6 +10,7 @@
 let block_listener_adapter = require('./block-listener-adapter.js');
 
 process.on('message', function(message) {
+
     let adapter = new block_listener_adapter (message.config);
     if(message.hasOwnProperty('type')) {
         try {

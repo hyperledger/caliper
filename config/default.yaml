@@ -4,5 +4,6 @@ core:
     log-file:
         debug: log/caliper.log
         info: console
+    with-mq: false
 fabric:
 sawtooth:

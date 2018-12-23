@@ -19,6 +19,7 @@ const exec = childProcess.exec;
 const util = require('../util');
 const logger = util.getLogger('client.js');
 let absConfigFile;
+const cfUtil = require('../config-util.js');
 
 
 /**
@@ -107,9 +108,10 @@ class Client{
     * @param {JSON} t test object
     */
     async init(demo, config, absCaliperDir, listener_child, networkFile) {
+        let configurationType = cfUtil.getConfigSetting('core:with-mq', false);
         absConfigFile = require(util.resolvePath(networkFile));
-        if (this.config.hasOwnProperty('WITH_MQ') && this.config.WITH_MQ) {
-            clientUtil._consumeEvents(function(err){
+        if (configurationType) {
+            clientUtil._consumeEvents(networkFile, function(err){
                 logger.error(err);
                 listener_child.send({type:'closeKafkaProducer', config: absConfigFile});
                 clientUtil.stop();
@@ -227,7 +229,7 @@ class Client{
      */
     async _startLocalTest(message, clientArgs) {
         message.totalClients = this.number;
-        return await clientUtil.startTest(this.number, message, clientArgs, this.updates.data, this.results, this.config.WITH_MQ);
+        return await clientUtil.startTest(this.number, message, clientArgs, this.updates.data, this.results);
     }
 
     /**
@@ -263,7 +265,6 @@ class Client{
         if(!this.config.hasOwnProperty('zoo')) {
             return Promise.reject('Failed to find zoo property in config file');
         }
-
         let configZoo = this.config.zoo;
         if(configZoo.hasOwnProperty('server')) {
             this.zoo.server = configZoo.server;

@@ -8,7 +8,7 @@
 'use strict';
 const kafka = require('kafka-node');
 const Util = require('../comm/util');
-const logger = Util.getLogger();
+const logger = Util.getLogger('block-listener-adapter.js');
 let HighLevelProducer = kafka.HighLevelProducer;
 
 let KafkaAdapter = class {
@@ -38,7 +38,7 @@ let KafkaAdapter = class {
     }
 
     /**
-     * Create Kafka topic
+     * Create Kafka topic. Event listener process will publish the block event and timestamp into this kafka topic
      */
     createTopic() {
         let self = this;

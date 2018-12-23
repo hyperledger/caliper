@@ -10,7 +10,7 @@
 const logger = require('../util.js').getLogger('client-util.js');
 const path = require('path');
 const childProcess = require('child_process');
-
+const Util = require('../util.js');
 let processes  = {}; // {pid:{obj, promise}}
 let confirmedTransactions = [];
 let cachedEvents = new Map();
@@ -20,20 +20,22 @@ let globalConsumer;
 const TxStatus = require('../transaction.js');
 let updateTail;
 const bc   = require('../blockchain.js');
-let path = require('path');
-const blockchain = new bc(path.join(__dirname, '../../../', 'benchmark/simple/fabric'));
+let blockchain;
 let testfinished = false;
 let global_pid;
 let confirmTail = 0;
 let totalTransactionsCommitted = 0;
 let totalTransactionsForMQ = 0;
 let invokeCallback = false;
+const cfUtil = require('../config-util.js');
 
 /**
- *consume block events from Kafka MQ
+ * consume block events and confirmation time of every transaction from Kafka MQ
+ * @param {String} networkFile path of the network config file
  * @param {Function} cb callback function to return control to caller
  */
-function _consumeEvents(cb){
+function _consumeEvents(networkFile, cb){
+    blockchain = new bc(Util.resolvePath(networkFile));
     const kafka = require('kafka-node');
     const listener_config = require('../../listener/listener-config.json');
     let Consumer = kafka.Consumer;
@@ -184,8 +186,15 @@ function verifyUnconfirmedTransactions(updates) {
         let submitted_transactions = updates[i].committed;
         for (let j =0; j < submitted_transactions.length; j++) {
             let transactionStatus = submitted_transactions[j].status;
-            let TransactionStatus = new TxStatus(transactionStatus.id, transactionStatus.status, transactionStatus.time_create, transactionStatus.time_final,
-                transactionStatus.result, transactionStatus.verified, transactionStatus.flags, transactionStatus.error_messages);
+            let TransactionStatus = new TxStatus(transactionStatus.id);
+            TransactionStatus.Set('time_create', transactionStatus.time_create);
+            TransactionStatus.Set('needVerifyWithMQ', transactionStatus.needVerifyWithMQ);
+            TransactionStatus.Set('status', transactionStatus.status);
+            TransactionStatus.Set('time_final', transactionStatus.time_final);
+            TransactionStatus.Set('result', transactionStatus.result);
+            TransactionStatus.Set('verified', transactionStatus.verified);
+            TransactionStatus.Set('flags', transactionStatus.flags);
+            TransactionStatus.Set('error_messages', transactionStatus.error_messages);
             if (cachedEvents.get(TransactionStatus.GetID()) === undefined) {
                 if (TransactionStatus.GetFlag() === 0) {
                     cachedEvents.set(TransactionStatus.GetID(), TransactionStatus);
@@ -262,10 +271,10 @@ function updateResults(withMQ) {
  * @param {Array} clientArgs each element contains specific arguments for a client
  * @param {Array} updates array to save txUpdate results
  * @param {Array} results array to save the test results
- * @param {*} withMQ flag to determine if running MQ mode
  * @async
  */
-async function startTest(number, message, clientArgs, updates, results, withMQ) {
+async function startTest(number, message, clientArgs, updates, results) {
+    let withMQ = cfUtil.getConfigSetting('core:with-mq', false);
     let count = 0;
     let txUpdateTime = 1000;
     testfinished = false;

@@ -71,7 +71,6 @@ function main() {
         logger.error('file ' + absNetworkFile + ' does not exist');
         return;
     }
-
     const framework = require('../../src/comm/bench-flow.js');
     (async () => {
         try {
