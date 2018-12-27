@@ -207,7 +207,7 @@ async function doTest(msg) {
     };
 
     try {
-        let context = await blockchain.getContext(msg.label, msg.clientargs, msg.clientIdx);
+        let context = await blockchain.getContext(msg.label, msg.clientargs, msg.clientIdx, msg.txFile);
         if(typeof context === 'undefined') {
             context = {
                 engine : {
