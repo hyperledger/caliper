@@ -111,6 +111,16 @@ function insertLoggerName(originalLogger, lname) {
 }
 
 /**
+  * according to the start time,sort the array a sleep
+  * @param {object} a one interval object including start and end
+  * @param {object} b one interval object including start and end
+  * @returns {int} the resualt indicats which is larger
+  */
+function sortByStart(a,b){
+    return a.start - b.start;
+}
+
+/**
  * Internal Utility class for Caliper
  */
 class Util {
@@ -257,6 +267,45 @@ class Util {
             throw new Error('failed to parse the yaml file');
         }
         return config;
+    }
+
+    /**
+     * merge the successful transactions' time intervals .
+     * @param {array}  intervals the  successful transactions' time intervals
+     * @return {array} the merged intervals.
+     */
+    static mergeInterval(intervals){
+        if(intervals.length===0){
+            return [];
+        }
+        intervals.sort(sortByStart);
+        let mergedInterval=[];
+        let left = intervals[0].start;
+        let right = intervals[0].end;
+        for(let t=1;t<intervals.length;t++){
+            if(intervals[t].start<= right){
+                //overlap
+                right = Math.max(intervals[t].end, right);
+            }
+            else{
+                //not overlap
+                mergedInterval.push({
+                    start: left,
+                    end: right
+                });
+                left  = intervals[t].start;
+                right = intervals[t].end;
+            }
+        }
+        mergedInterval.push({
+            start: left,
+            end: right
+        });
+        /* console.log('merged*************');
+         for(let i=0;i<mergedInterval.length;i++){
+             console.log(mergedInterval[i].start+'  '+mergedInterval[i].end);
+         }*/
+        return mergedInterval;
     }
 }
 

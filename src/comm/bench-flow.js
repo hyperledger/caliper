@@ -117,8 +117,17 @@ function getResultValue(r) {
             row.push(r.delay.detail[Math.floor(r.delay.detail.length * 0.75)].toFixed(2) + ' s');
         }*/
 
-        (r.final.max === r.create.min) ? row.push(r.succ + ' tps') : row.push(((r.succ / (r.final.max - r.create.min)).toFixed(1)) + ' tps');
+        //(r.final.max === r.create.min) ? row.push(r.succ + ' tps') : row.push(((r.succ / (r.final.max - r.create.min)).toFixed(1)) + ' tps');
         logger.debug('r.create.max: '+ r.create.max + ' r.create.min: ' + r.create.min + ' r.final.max: ' + r.final.max + ' r.final.min: '+ r.final.min);
+        logger.debug(r.sucIntervals[0].start+ ' '+r.sucIntervals[0].end);
+        let intervals = 0;
+        for(let i=1;i<r.sucIntervals.length;i++){
+            logger.debug(r.sucIntervals[i].start+ ' '+r.sucIntervals[i].end);
+            intervals += (r.sucIntervals[i].start - r.sucIntervals[i-1].end);
+        }
+        intervals = intervals/1000;
+        logger.debug('intervals length: '+ r.sucIntervals.length+' fail time: '+intervals);
+        (r.final.max === (r.create.min + intervals)) ? row.push(r.succ + ' tps') : row.push(((r.succ / (r.final.max - r.create.min-intervals)).toFixed(1)) + ' tps');
     }
     catch (err) {
         // temporarily remove percentile row = [r.label, 0, 0, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'];

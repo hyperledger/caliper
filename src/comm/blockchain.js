@@ -6,6 +6,7 @@
 */
 
 'use strict';
+const commUtils = require('./util.js');
 
 /**
  * BlockChain class, define operations to interact with the blockchain system under test
@@ -165,6 +166,7 @@ class Blockchain {
         let minFinal, maxFinal, minCreate, maxCreate;
         let minDelay = 100000, maxDelay = 0;
         let delays = [];
+        let sucIntervals = [];
         for(let i = 0 ; i < results.length ; i++) {
             let stat   = results[i];
             let create = stat.GetTimeCreate();
@@ -210,11 +212,18 @@ class Blockchain {
                 if(detail) {
                     delays.push(d);
                 }
+
+
+                sucIntervals.push({
+                    start: create,
+                    end: final
+                });
             }
             else {
                 fail++;
             }
         }
+        let mergedSucIntervals = commUtils.mergeInterval(sucIntervals);
 
         let stats = {
             'succ' : succ,
@@ -222,7 +231,8 @@ class Blockchain {
             'create' : {'min' : minCreate/1000, 'max' : maxCreate/1000},    // convert to second
             'final'  : {'min' : minFinal/1000,  'max' : maxFinal/1000 },
             'delay'  : {'min' : minDelay,  'max' : maxDelay, 'sum' : delay, 'detail': (detail?delays:[]) },
-            'out' : []
+            'out' : [],
+            'sucIntervals': mergedSucIntervals
         };
         return stats;
     }
@@ -255,6 +265,13 @@ class Blockchain {
             }
 
             let r = results[0];
+
+            let sucIntervals = [];
+
+            for(let t=0;t<r.sucIntervals.length;t++){
+                sucIntervals.push(r.sucIntervals[t]);
+            }
+
             for(let i = 1 ; i < results.length ; i++) {
                 let v = results[i];
                 if(!v.hasOwnProperty('succ') || !v.hasOwnProperty('fail') || (v.succ + v.fail) === 0) {
@@ -285,7 +302,13 @@ class Blockchain {
                 for(let j = 0 ; j < v.delay.detail.length ; j++) {
                     r.delay.detail.push(v.delay.detail[j]);
                 }
+                //merge the success Interval for accurate calculation
+                for(let t=0;t<v.sucIntervals.length;t++){
+                    sucIntervals.push(v.sucIntervals[t]);
+                }
             }
+            let mergedSucIntervals = commUtils.mergeInterval(sucIntervals);
+            r.sucIntervals = mergedSucIntervals;
             return 1;
         }
         catch(err) {
