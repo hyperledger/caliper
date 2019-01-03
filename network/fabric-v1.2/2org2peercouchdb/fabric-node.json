@@ -22,7 +22,7 @@
         "msp": "network/fabric-v1.2/config/crypto-config/peerOrganizations/org1.example.com/msp/",
         "ca": {
           "url": "http://localhost:7054",
-          "name": "ca-org1"
+          "name": "ca.org1.example.com"
         },
         "peer1": {
           "requests": "grpc://localhost:7051",
@@ -43,7 +43,7 @@
         "msp": "network/fabric-v1.2/config/crypto-config/peerOrganizations/org2.example.com/msp/",
         "ca": {
           "url": "http://localhost:8054",
-          "name": "ca-org2"
+          "name": "ca.org2.example.com"
         },
         "peer1": {
           "requests": "grpc://localhost:8051",

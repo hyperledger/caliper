@@ -30,7 +30,7 @@
         },
         "ca": {
           "url": "https://localhost:7054",
-          "name": "ca-org1"
+          "name": "ca.org1.example.com"
         },
         "peer1": {
           "requests": "grpcs://localhost:7051",
