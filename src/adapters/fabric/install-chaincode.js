@@ -20,28 +20,35 @@
 'use strict';
 
 const e2eUtils = require('./e2eUtils.js');
-const commUtils = require('../comm/util');
-const commLogger = commUtils.getLogger('instantiate-chaincode.js');
+const testUtil = require('./util.js');
+const commUtils = require('../../comm/util');
+const commLogger = commUtils.getLogger('install-chaincode.js');
 
 module.exports.run = async function (config_path) {
+    testUtil.setupChaincodeDeploy();
     const fabricSettings = commUtils.parseYaml(config_path).fabric;
-    const policy = fabricSettings['endorsement-policy'];  // TODO: support multiple policies
     let chaincodes = fabricSettings.chaincodes;
     if(typeof chaincodes === 'undefined' || chaincodes.length === 0) {
         return;
     }
 
+    commLogger.info('Installing chaincodes...');
     try {
-        commLogger.info('Instantiating chaincodes...');
         for (let chaincode of chaincodes) {
-            await e2eUtils.instantiateChaincode(chaincode, policy, false);
-            commLogger.info(`Instantiated chaincode ${chaincode.id} successfully`);
-        }
+            let channel  = testUtil.getChannel(chaincode.channel);
+            if(channel === null) {
+                throw new Error('could not find channel in config');
+            }
 
-        commLogger.info('Sleeping 5s...');
-        await commUtils.sleep(5000);
+            for(let v in channel.organizations) {
+                // NOTE: changed execution to sequential for easier debugging (this is a one-time task, performance doesn't matter)
+                await e2eUtils.installChaincode(channel.organizations[v], chaincode);
+            }
+
+            commLogger.info(`Installed chaincode ${chaincode.id} successfully in all peers`);
+        }
     } catch (err) {
-        commLogger.error(`Failed to instantiate chaincodes: ${(err.stack ? err.stack : err)}`);
+        commLogger.error(`Failed to install chaincodes: ${(err.stack ? err.stack : err)}`);
         throw err;
     }
 };

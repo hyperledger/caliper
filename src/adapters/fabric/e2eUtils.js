@@ -18,9 +18,9 @@
 
 'use strict';
 
-const commUtils = require('../comm/util');
+const commUtils = require('../../comm/util');
 const commLogger = commUtils.getLogger('e2eUtils.js');
-const TxStatus  = require('../comm/transaction');
+const TxStatus  = require('../../comm/transaction');
 
 const path = require('path');
 const fs = require('fs');

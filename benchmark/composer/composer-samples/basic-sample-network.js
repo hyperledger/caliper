@@ -34,7 +34,7 @@
 
 module.exports.info  = 'Basic Sample Network Performance Test';
 
-const composerUtils = require('../../../src/composer/composer_utils');
+const composerUtils = require('../../../src/adapters/composer/composer_utils');
 const removeExisting = require('../composer-test-utils').clearAll;
 const logger = require('../../../src/comm/util').getLogger('basic-sample-network.js');
 const os = require('os');

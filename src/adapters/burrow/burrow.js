@@ -10,10 +10,10 @@
 
 const fs = require('fs');
 const monax = require('@monax/burrow');
-const BlockchainInterface = require('../comm/blockchain-interface.js');
-const util = require('../comm/util.js');
+const BlockchainInterface = require('../../comm/blockchain-interface.js');
+const util = require('../../comm/util.js');
 const logger = util.getLogger('burrow.js');
-const TxStatus = require('../comm/transaction');
+const TxStatus = require('../../comm/transaction');
 
 /**
  * Implements {BlockchainInterface} for a Burrow backend.

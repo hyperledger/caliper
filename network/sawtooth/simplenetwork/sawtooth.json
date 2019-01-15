@@ -9,7 +9,7 @@
   "sawtooth": {
     "batchBuilders": {
       "simple": {
-        "1.0": "src/sawtooth/Application/SimpleBatchBuilder.js"
+        "1.0": "src/adapters/sawtooth/Application/SimpleBatchBuilder.js"
       }
     },
     "network": {
