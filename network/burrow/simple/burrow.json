@@ -1,0 +1,24 @@
+{
+  "caliper" : {
+    "blockchain": "burrow",
+    "command" : {
+      "start": "docker-compose -f network/burrow/simple/docker-compose.yml up -d",
+      "end" : "docker-compose -f network/burrow/simple/docker-compose.yml down"
+    }
+  },
+  "burrow": {
+    "network": {
+      "validator": {
+        "host": "localhost",
+        "port": "20002",
+        "address": "network/burrow/simple/chain/keys/names/Full_0"
+      }
+    }
+  },
+  "contract": { "path": "src/contract/burrow/simple/simple.bin" },
+  "info" : {
+    "Version": "develop",
+    "Size": "2 Peers",
+    "Distribution": "Single Host"
+  }
+}

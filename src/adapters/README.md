@@ -3,9 +3,9 @@ This folder containers kinds of adapters which will interact with the correspond
 
 # How to write your own blockchain adapter
 Let's look inside first and learn about how the whole framework interacts with the backend blockchain system.
-When the benchmark engine is running, the master process of benchmark engine will call the user defined blockchian class to complete the blockchain's and chaicodes' installation. Then, after the master process launches the corresponding clients, each client will do the test. During the test, the client will get current blockchain's context, run test scripts, release the blockchain's context in the end, and return the performance statistics. Hence, if users intend to test the blockchain system which Caliper is unable to support, the bellows are what the users would concern about.
+When the benchmark engine is running, the master process of benchmark engine will call the user defined blockchain class to complete the blockchain's and chaincodes' installation. Then, after the master process launches the corresponding clients, each client will do the test. During the test, the client will get current blockchain's context, run test scripts, release the blockchain's context in the end, and return the performance statistics. Hence, if users intend to test the blockchain system which Caliper is unable to support, the bellows are what the users would concern about.
 
-* Use Blockchain NBI to write your own blockchian Class: Below is a Blockchain interface implementaion example. 
+* Use Blockchain NBI to write your own blockchain Class: Below is a Blockchain interface implementation example.
   ```
     /**
     * Implements {BlockchainInterface} for a myblockchain backend.
@@ -17,7 +17,7 @@ When the benchmark engine is running, the master process of benchmark engine wil
     * @param {string} config_path The path of  Myblockchain network configuration file.
     */
         constructor(config_path) {
-            
+
         }
 
         /**
@@ -102,11 +102,11 @@ When the benchmark engine is running, the master process of benchmark engine wil
   ```
 * Add predefined Network files into the dir `network/`:  These files will be useful when Caliper is trying to simulate your blockchain system. Please add all of the related files what a new boot blockchain system needs.
 * Add your own network configuration file into the corresponding network folder: Make sure the files that are necessary to boot your blockchain are specified here.
-* Define your command which will be excuted before and after the test
+* Define your command which will be executed before and after the test
 * Define your own smart contracts: Your own smart contracts could be put into the dir `src/contract/myblockchain/`.
 * Define your test module: Use Blockchain NBI to write your own test script which should include 3 functions(init(), run()and end()) as the files in the dir `bechmark/simple/open.js` and  `bechmark/simple/query.js`, and change the callback property in the test configuration file into current test script's path.
- 
-* Define the installation script: To facilliate other user, an installation script in the file `packeage.json` is appreciated.  
+
+* Define the installation script: To facilitate other users, an installation script in the file `package.json` is appreciated.  
   ```
   "scripts": {
     "myblockchain-deps": "npm install --no-save myblockchainpackage
