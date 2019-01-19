@@ -94,11 +94,12 @@ class Blockchain {
      * @param {String} name name of the context
      * @param {Object} args adapter specific arguments
      * @param {Integer} clientIdx the client index
+     * @param {Object} txFile the file information for reading or writing.
      * @return {Promise} obtained context object
      * @async
      */
-    async getContext(name, args, clientIdx) {
-        return await this.bcObj.getContext(name, args, clientIdx);
+    async getContext(name, args, clientIdx, txFile) {
+        return await this.bcObj.getContext(name, args, clientIdx, txFile);
     }
 
     /**
@@ -165,8 +166,14 @@ class Blockchain {
         let minFinal, maxFinal, minCreate, maxCreate;
         let minDelay = 100000, maxDelay = 0;
         let delays = [];
+        let sTPTotal = 0;
+        let sTTotal = 0;
+        let invokeTotal = 0;
         for(let i = 0 ; i < results.length ; i++) {
             let stat   = results[i];
+            sTPTotal = sTPTotal + stat.Get('sTP');
+            sTTotal = sTTotal + stat.Get('sT');
+            invokeTotal += stat.Get('invokeLatency');
             let create = stat.GetTimeCreate();
 
             if(typeof minCreate === 'undefined') {
@@ -222,7 +229,11 @@ class Blockchain {
             'create' : {'min' : minCreate/1000, 'max' : maxCreate/1000},    // convert to second
             'final'  : {'min' : minFinal/1000,  'max' : maxFinal/1000 },
             'delay'  : {'min' : minDelay,  'max' : maxDelay, 'sum' : delay, 'detail': (detail?delays:[]) },
-            'out' : []
+            'out' : [],
+            'sTPTotal': sTPTotal,
+            'sTTotal': sTTotal,
+            'invokeTotal': invokeTotal,
+            'length': results.length
         };
         return stats;
     }
@@ -239,6 +250,7 @@ class Blockchain {
             let skip = 0;
             for(let i = 0 ; i < results.length ; i++) {
                 let result = results[i];
+
                 if(!result.hasOwnProperty('succ') || !result.hasOwnProperty('fail') || (result.succ + result.fail) === 0) {
                     skip++;
                 }
@@ -246,6 +258,7 @@ class Blockchain {
                     break;
                 }
             }
+
             if(skip > 0) {
                 results.splice(0, skip);
             }
@@ -262,6 +275,10 @@ class Blockchain {
                 }
                 r.succ += v.succ;
                 r.fail += v.fail;
+                r.sTPTotal += v.sTPTotal;
+                r.sTTotal += v.sTTotal;
+                r.invokeTotal += v.invokeTotal;
+                r.length += v.length;
                 r.out.push.apply(r.out, v.out);
                 if(v.create.min < r.create.min) {
                     r.create.min = v.create.min;
@@ -289,6 +306,7 @@ class Blockchain {
             return 1;
         }
         catch(err) {
+            //throw err;
             return 0;
         }
     }

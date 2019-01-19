@@ -29,10 +29,18 @@ const Client = require('fabric-client');
 const Peer = require('fabric-client/lib/Peer');
 const testUtil = require('./util.js');
 
+const signedOffline = require('./signTransactionOffline.js');
+
 let ORGS;
 
 let tx_id = null;
 let the_user = null;
+
+let signedTransactionArray = [];
+let signedCommitProposal = [];
+let txFile;
+let invokeCount = 0;
+let clientIndex = 0;
 
 /**
  * Initialize the Fabric client configuration.
@@ -42,6 +50,55 @@ function init(config_path) {
     ORGS = commUtils.parseYaml(config_path).fabric.network;
 }
 module.exports.init = init;
+
+/**
+ * Read signed proposal from file.
+ * @param {string} name The prefix name of the file.
+ * @async
+ */
+async function readFromFile(name){
+    try {
+        signedTransactionArray = [];
+        signedCommitProposal = [];
+        invokeCount = 0;
+        let fileName = name + '.signed.metadata.' + clientIndex;
+        let binFileName = name + '.signed.binary.' + clientIndex;
+
+        let data = fs.readFileSync(fileName);
+        signedTransactionArray = JSON.parse(data);
+        commLogger.debug('read buffer file ok');
+        /*fs.readFile(binFileName, function(err, data){
+            commLogger.debug('read buffer file ok');
+            let signedBuffer = data;
+            let start = 0;
+            for(let i = 0; i < signedTransactionArray.length; i++) {
+                //commLogger.info('i: ' + i + ' ' + JSON.stringify(signedTransactionArray[i].txId));
+                let length = signedTransactionArray[i].signatureLength;
+                let signature = signedBuffer.slice(start, start + length);
+                start += length;
+                length = signedTransactionArray[i].payloadLength;
+                let payload = signedBuffer.slice(start, start + length);
+                signedCommitProposal.push({signature: signature, payload: payload});
+                start += length;
+            }
+        });*/
+        let signedBuffer = fs.readFileSync(binFileName);
+        let start = 0;
+        for(let i = 0; i < signedTransactionArray.length; i++) {
+            let length = signedTransactionArray[i].signatureLength;
+            let signature = signedBuffer.slice(start, start + length);
+            start += length;
+            length = signedTransactionArray[i].payloadLength;
+            let payload = signedBuffer.slice(start, start + length);
+            signedCommitProposal.push({signature: signature, payload: payload});
+            start += length;
+        }
+    }catch(err) {
+        commLogger.error('read err: ' + err);
+    }
+}
+
+module.exports.readFromFile = readFromFile;
 
 /**
  * Deploy the given chaincode to the given organization's peers.
@@ -430,10 +487,13 @@ function getOrgPeers(orgName) {
  * Create a Fabric context based on the channel configuration.
  * @param {object} channelConfig The channel object from the configuration file.
  * @param {Integer} clientIdx the client index
+ * @param {object} txModeFile The file information for reading or writing.
  * @return {Promise<object>} The created Fabric context.
  * @async
  */
-async function getcontext(channelConfig, clientIdx) {
+async function getcontext(channelConfig, clientIdx, txModeFile) {
+    clientIndex = clientIdx;
+    txFile = txModeFile;
     Client.setConfigSetting('request-timeout', 120000);
     const channel_name = channelConfig.name;
     // var userOrg = channelConfig.organizations[0];
@@ -534,6 +594,7 @@ module.exports.getcontext = getcontext;
  * @async
  */
 async function releasecontext(context) {
+
     if(context.hasOwnProperty('eventhubs')){
         for(let key in context.eventhubs) {
             const eventhub = context.eventhubs[key];
@@ -547,107 +608,73 @@ async function releasecontext(context) {
 module.exports.releasecontext = releasecontext;
 
 /**
- * Submit a transaction to the given chaincode with the specified options.
+ * Write signed proposal to file.
+ * @param {string} name The prefix name of the file.
+ * @async
+ */
+async function writeToFile(name){
+    let fileName = name + '.signed.metadata.' + clientIndex;
+    let binFileName = name + '.signed.binary.' + clientIndex;
+
+    try {
+        let reArray = [];
+        let bufferArray = [];
+        for(let i = 0; i < signedTransactionArray.length; i++) {
+            let signedTransaction = signedTransactionArray[i];
+            let signedProposal = signedTransactionArray[i].signedTransaction;
+            let signature = signedProposal.signature;
+            bufferArray.push(signature);
+            let payload = signedProposal.payload;
+            bufferArray.push(payload);
+            reArray.push({txId: signedTransaction.txId, transactionRequest: signedTransaction.transactionRequest, signatureLength: signature.length, payloadLength: payload.length});
+        }
+        let buffer = Buffer.concat(bufferArray);
+        /*fs.writeFile(binFileName, buffer, function (err) {
+            //commLogger.info('write buffer file ok');
+        });
+
+        let signedString = JSON.stringify(reArray);
+        fs.writeFile(fileName, signedString, function (err) {
+            signedTransactionArray = [];
+            signedCommitProposal = [];
+            commLogger.debug('write file ok');
+        });*/
+
+        fs.writeFileSync(binFileName, buffer);
+        let signedString = JSON.stringify(reArray);
+        fs.writeFileSync(fileName, signedString);
+        signedTransactionArray = [];
+        signedCommitProposal = [];
+        commLogger.debug('write file ok');
+
+    }catch(err) {
+        commLogger.error('write err: ' + err);
+    }
+
+}
+
+module.exports.writeToFile = writeToFile;
+
+const TxErrorEnum = require('./constant.js').TxErrorEnum;
+const TxErrorIndex = require('./constant.js').TxErrorIndex;
+
+
+/**
+ * Submit a transaction to the orderer.
  * @param {object} context The Fabric context.
- * @param {string} id The name of the chaincode.
- * @param {string} version The version of the chaincode.
- * @param {string[]} args The arguments to pass to the chaincode.
+ * @param {object} signedTransaction The transaction information.
+ * @param {object} invokeStatus The result and stats of the transaction.
+ * @param {number} startTime The start time.
  * @param {number} timeout The timeout for the transaction invocation.
  * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
  */
-async function invokebycontext(context, id, version, args, timeout){
-    const TxErrorEnum = require('./constant.js').TxErrorEnum;
-    const TxErrorIndex = require('./constant.js').TxErrorIndex;
+async function sendTransaction(context, signedTransaction, invokeStatus, startTime, timeout){
 
     const channel = context.channel;
     const eventHubs = context.eventhubs;
-    const startTime = Date.now();
-    const txIdObject = context.client.newTransactionID();
-    const txId = txIdObject.getTransactionID().toString();
-
-    // timestamps are recorded for every phase regardless of success/failure
-    let invokeStatus = new TxStatus(txId);
+    const txId = signedTransaction.txId;
     let errFlag = TxErrorEnum.NoError;
-    invokeStatus.SetFlag(errFlag);
-
-    // TODO: should resolve endorsement policy to decides the target of endorsers
-    // now random peers ( one peer per organization ) are used as endorsers as default, see the implementation of getContext
-    // send proposal to endorser
-    const f = args[0];
-    args.shift();
-    const proposalRequest = {
-        chaincodeId: id,
-        fcn: f,
-        args: args,
-        txId: txIdObject,
-    };
-
-    let proposalResponseObject = null;
     try {
-        if(context.engine) {
-            context.engine.submitCallback(1);
-        }
-        try {
-            proposalResponseObject = await channel.sendTransactionProposal(proposalRequest, timeout * 1000);
-            invokeStatus.Set('time_endorse', Date.now());
-        } catch (err) {
-            invokeStatus.Set('time_endorse', Date.now());
-            errFlag |= TxErrorEnum.ProposalResponseError;
-            invokeStatus.SetFlag (errFlag);
-            invokeStatus.SetErrMsg(TxErrorIndex.ProposalResponseError, err.toString());
-            // error occurred, early life-cycle termination, definitely failed
-            invokeStatus.SetVerification(true);
-            throw err; // handle logging in one place
-        }
-
-        const proposalResponses = proposalResponseObject[0];
-        const proposal = proposalResponseObject[1];
-
-        let allGood = true;
-        for(let i in proposalResponses) {
-            let one_good = false;
-            let proposal_response = proposalResponses[i];
-            if( proposal_response.response && proposal_response.response.status === 200) {
-                // TODO: the CPU cost of verifying response is too high.
-                // Now we ignore this step to improve concurrent capacity for the client
-                // so a client can initialize multiple concurrent transactions
-                // Is it a reasonable way?
-                // one_good = channel.verifyProposalResponse(proposal_response);
-                one_good = true;
-            } else {
-                let err = new Error('Endorsement denied: ' + proposal_response.toString());
-                errFlag |= TxErrorEnum.BadProposalResponseError;
-                invokeStatus.SetFlag(errFlag);
-                invokeStatus.SetErrMsg(TxErrorIndex.BadProposalResponseError, err.toString());
-                // explicit rejection, early life-cycle termination, definitely failed
-                invokeStatus.SetVerification(true);
-                throw err;
-            }
-            allGood = allGood && one_good;
-        }
-
-        if (allGood) {
-            // check all the read/write sets to see if the same, verify that each peer
-            // got the same results on the proposal
-            allGood = channel.compareProposalResponseResults(proposalResponses);
-            if (!allGood) {
-                let err = new Error('Read/Write set mismatch between endorsements');
-                errFlag |= TxErrorEnum.BadProposalResponseError;
-                invokeStatus.SetFlag(errFlag);
-                invokeStatus.SetErrMsg(TxErrorIndex.BadProposalResponseError, err.toString());
-                // r/w set mismatch, early life-cycle termination, definitely failed
-                invokeStatus.SetVerification(true);
-                throw err;
-            }
-        }
-
-        invokeStatus.SetResult(proposalResponses[0].response.payload);
-
-        const transactionRequest = {
-            proposalResponses: proposalResponses,
-            proposal: proposal,
-        };
-
         let newTimeout = timeout * 1000 - (Date.now() - startTime);
         if(newTimeout < 10000) {
             commLogger.warn('WARNING: timeout is too small, default value is used instead');
@@ -657,8 +684,8 @@ async function invokebycontext(context, id, version, args, timeout){
         const eventPromises = [];
         eventHubs.forEach((eh) => {
             eventPromises.push(new Promise((resolve, reject) => {
-                let handle = setTimeout(() => reject(new Error('Timeout')), newTimeout);
-
+                //let handle = setTimeout(() => reject(new Error('Timeout')), newTimeout);
+                let handle = setTimeout(() => reject(new Error('Timeout')), 100000);
                 eh.registerTxEvent(txId,
                     (tx, code) => {
                         clearTimeout(handle);
@@ -686,13 +713,46 @@ async function invokebycontext(context, id, version, args, timeout){
                         resolve();
                     }
                 );
+
             }));
         });
 
         let broadcastResponse;
         try {
-            broadcastResponse = await channel.sendTransaction(transactionRequest);
+            let signedProposal = signedTransaction.signedTransaction;
+            let broadcastResponsePromise;
+            let transactionRequest = signedTransaction.transactionRequest;
+            if (signedProposal === null){
+                if(txFile && txFile.readWrite === 'write') {
+                    const beforeInvokeTime = Date.now();
+                    let signedTransaction = signedOffline.generateSignedTransaction(transactionRequest, channel);
+                    invokeStatus.Set('invokeLatency', (Date.now() - beforeInvokeTime));
+                    signedTransactionArray.push({
+                        txId: txId,
+                        signedTransaction: signedTransaction,
+                        transactionRequest: {orderer: transactionRequest.orderer}
+                    });
+                    return invokeStatus;
+                }
+                const beforeTransactionTime = Date.now();
+                broadcastResponsePromise = channel.sendTransaction(transactionRequest);
+                invokeStatus.Set('sT', (Date.now() - beforeTransactionTime));
+            } else {
+                const beforeTransactionTime = Date.now();
+                //let signature = Buffer.from(signedProposal.signature.data);
+                //let payload = Buffer.from(signedProposal.payload.data);
+                let signature = signedProposal.signature;
+                let payload =  signedProposal.payload;
+                broadcastResponsePromise = channel.sendSignedTransaction({
+                    signedProposal: {signature: signature, payload: payload},
+                    request: signedTransaction.transactionRequest,
+                });
+                invokeStatus.Set('sT', (Date.now() - beforeTransactionTime));
+                invokeStatus.Set('invokeLatency', (Date.now() - startTime));
+            }
+            broadcastResponse = await broadcastResponsePromise;
         } catch (err) {
+            commLogger.error('Failed to send transaction error: ' + err);
             // missing the ACK does not mean anything, the Tx could be already under ordering
             // so let the events decide the final status, but log this error
             errFlag |= TxErrorEnum.OrdererResponseError;
@@ -725,6 +785,241 @@ async function invokebycontext(context, id, version, args, timeout){
         }
     } catch (err)
     {
+        // at this point the Tx should be verified
+        invokeStatus.SetStatusFail();
+        commLogger.error('Failed to complete transaction [' + txId.substring(0, 5) + '...]:' + (err instanceof Error ? err.stack : err));
+    }
+    return invokeStatus;
+}
+
+
+/**
+ * Submit a transaction to the given chaincode with the specified options.
+ * @param {object} context The Fabric context.
+ * @param {string} id The name of the chaincode.
+ * @param {string} version The version of the chaincode.
+ * @param {string[]} args The arguments to pass to the chaincode.
+ * @param {number} timeout The timeout for the transaction invocation.
+ * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
+ */
+async function invokebycontext(context, id, version, args, timeout){
+
+    const channel = context.channel;
+    //const eventHubs = context.eventhubs;
+    const startTime = Date.now();
+
+    // timestamps are recorded for every phase regardless of success/failure
+    let invokeStatus;
+
+    if(context.engine) {
+        context.engine.submitCallback(1);
+    }
+    //commLogger.info('txFile: ' + JSON.stringify(txFile) + ' clientIndex: ' + clientIndex);
+    //commLogger.info('signedTransactionArray.length: ' + signedTransactionArray.length + ' : signedCommitProposal.length: ' + signedCommitProposal.length);
+
+    if(txFile && txFile.readWrite === 'read' && signedTransactionArray.length !== 0) {
+        let count = invokeCount % signedTransactionArray.length;
+        let signedTransaction = signedTransactionArray[count];
+        signedTransaction.signedTransaction = signedCommitProposal[count];
+        invokeCount++;
+        const txId = signedTransaction.txId;
+        invokeStatus = new TxStatus(txId);
+        let errFlag = TxErrorEnum.NoError;
+        invokeStatus.SetFlag(errFlag);
+        return sendTransaction(context, signedTransaction, invokeStatus, startTime, timeout);
+    }
+
+    const txIdObject = context.client.newTransactionID();
+    const txId = txIdObject.getTransactionID().toString();
+    invokeStatus = new TxStatus(txId);
+    let errFlag = TxErrorEnum.NoError;
+    invokeStatus.SetFlag(errFlag);
+
+    // TODO: should resolve endorsement policy to decides the target of endorsers
+    // now random peers ( one peer per organization ) are used as endorsers as default, see the implementation of getContext
+    // send proposal to endorser
+    const f = args[0];
+    args.shift();
+    const proposalRequest = {
+        chaincodeId: id,
+        fcn: f,
+        args: args,
+        txId: txIdObject,
+    };
+
+    let proposalResponseObject = null;
+    try {
+        try {
+            //proposalResponseObject = await channel.sendTransactionProposal(proposalRequest, timeout * 1000);
+            const beforeProposalTime = Date.now();
+            let proposalResponseObjectPromise = channel.sendTransactionProposal(proposalRequest, timeout * 1000);
+            //commLogger.info('sendTransactionProposal: ' + (Date.now() - beforeProposalTime));
+            invokeStatus.Set('sTP', (Date.now() - beforeProposalTime));
+            proposalResponseObject = await proposalResponseObjectPromise;
+            invokeStatus.Set('time_endorse', Date.now());
+        } catch (err) {
+            invokeStatus.Set('time_endorse', Date.now());
+            errFlag |= TxErrorEnum.ProposalResponseError;
+            invokeStatus.SetFlag (errFlag);
+            invokeStatus.SetErrMsg(TxErrorIndex.ProposalResponseError, err.toString());
+            // error occurred, early life-cycle termination, definitely failed
+            invokeStatus.SetVerification(true);
+            throw err; // handle logging in one place
+        }
+
+        const proposalResponses = proposalResponseObject[0];
+        const proposal = proposalResponseObject[1];
+
+        let allGood = true;
+        for(let i in proposalResponses) {
+            let one_good = false;
+            let proposal_response = proposalResponses[i];
+            if( proposal_response.response && proposal_response.response.status === 200) {
+                // TODO: the CPU cost of verifying response is too high.
+                // Now we ignore this step to improve concurrent capacity for the client
+                // so a client can initialize multiple concurrent transactions
+                // Is it a reasonable way?
+                //let beforeInvokeTime = Date.now();
+                //one_good = channel.verifyProposalResponse(proposal_response);
+                //invokeStatus.Set('invokeLatency', (Date.now() - beforeInvokeTime));
+                one_good = true;
+            } else {
+                let err = new Error('Endorsement denied: ' + proposal_response.toString());
+                errFlag |= TxErrorEnum.BadProposalResponseError;
+                invokeStatus.SetFlag(errFlag);
+                invokeStatus.SetErrMsg(TxErrorIndex.BadProposalResponseError, err.toString());
+                // explicit rejection, early life-cycle termination, definitely failed
+                invokeStatus.SetVerification(true);
+                throw err;
+            }
+            allGood = allGood && one_good;
+        }
+
+        if (allGood) {
+            // check all the read/write sets to see if the same, verify that each peer
+            // got the same results on the proposal
+            //let beforeInvokeTime = Date.now()
+            allGood = channel.compareProposalResponseResults(proposalResponses);
+            //invokeStatus.Set('invokeLatency', (Date.now() - beforeInvokeTime));
+            if (!allGood) {
+                let err = new Error('Read/Write set mismatch between endorsements');
+                errFlag |= TxErrorEnum.BadProposalResponseError;
+                invokeStatus.SetFlag(errFlag);
+                invokeStatus.SetErrMsg(TxErrorIndex.BadProposalResponseError, err.toString());
+                // r/w set mismatch, early life-cycle termination, definitely failed
+                invokeStatus.SetVerification(true);
+                throw err;
+            }
+        }
+
+        invokeStatus.SetResult(proposalResponses[0].response.payload);
+
+        const transactionRequest = {
+            proposalResponses: proposalResponses,
+            proposal: proposal,
+        };
+        invokeStatus = sendTransaction(context, {txId: txId, signedTransaction: null, transactionRequest: transactionRequest}, invokeStatus, startTime, timeout);
+
+        /*let newTimeout = timeout * 1000 - (Date.now() - startTime);
+        if(newTimeout < 10000) {
+            commLogger.warn('WARNING: timeout is too small, default value is used instead');
+            newTimeout = 10000;
+        }
+
+        const eventPromises = [];
+        eventHubs.forEach((eh) => {
+            eventPromises.push(new Promise((resolve, reject) => {
+                let handle = setTimeout(() => reject(new Error('Timeout')), newTimeout);
+                eh.registerTxEvent(txId,
+                    (tx, code) => {
+                        clearTimeout(handle);
+                        eh.unregisterTxEvent(txId);
+
+                        // either explicit invalid event or valid event, verified in both cases by at least one peer
+                        invokeStatus.SetVerification(true);
+                        if (code !== 'VALID') {
+                            let err = new Error('Invalid transaction: ' + code);
+                            errFlag |= TxErrorEnum.BadEventNotificationError;
+                            invokeStatus.SetFlag(errFlag);
+                            invokeStatus.SetErrMsg(TxErrorIndex.BadEventNotificationError, err.toString());
+                            reject(err); // handle error in final catch
+                        } else {
+                            resolve();
+                        }
+                    },
+                    (err) => {
+                        clearTimeout(handle);
+                        // we don't know what happened, but give the other eventhub connections a chance
+                        // to verify the Tx status, so resolve this call
+                        errFlag |= TxErrorEnum.EventNotificationError;
+                        invokeStatus.SetFlag(errFlag);
+                        invokeStatus.SetErrMsg(TxErrorIndex.EventNotificationError, err.toString());
+                        resolve();
+                    }
+                );
+
+            }));
+        });
+
+        let broadcastResponse;
+        try {
+            //broadcastResponse = await channel.sendTransaction(transactionRequest);
+            const beforeInvokeTime = Date.now();
+            let signedTransaction = signedOffline.generateSignedTransaction(transactionRequest, channel);
+            invokeStatus.Set('invokeLatency', (Date.now() - beforeInvokeTime));
+            if(cfUtil.getConfigSetting('fabric:invoke-write') === 'file') {
+                signedTransactionArray.push({
+                    txId: txId,
+                    signedTransaction: signedTransaction,
+                    transactionRequest: transactionRequest
+                });
+                return invokeStatus;
+            }
+
+            const beforeTransactionTime = Date.now();
+            //let broadcastResponsePromise = channel.sendTransaction(transactionRequest);
+            let broadcastResponsePromise = channel.sendSignedTransaction({
+                signedProposal: signedTransaction,
+                request: transactionRequest,
+            });
+            invokeStatus.Set('sT', (Date.now() - beforeTransactionTime));
+
+            //commLogger.info('sendTransaction: ' + (Date.now() - beforeTransactionTime));
+            broadcastResponse = await broadcastResponsePromise;
+
+        } catch (err) {
+             commLogger.error('Failed to send transaction error: ' + err);
+            // missing the ACK does not mean anything, the Tx could be already under ordering
+            // so let the events decide the final status, but log this error
+            errFlag |= TxErrorEnum.OrdererResponseError;
+            invokeStatus.SetFlag(errFlag);
+            invokeStatus.SetErrMsg(TxErrorIndex.OrdererResponseError,err.toString());
+        }
+
+        invokeStatus.Set('time_order', Date.now());
+
+        if (broadcastResponse && broadcastResponse.status === 'SUCCESS') {
+            invokeStatus.Set('status', 'submitted');
+        } else if (broadcastResponse && broadcastResponse.status !== 'SUCCESS') {
+            let err = new Error('Received rejection from orderer service: ' + broadcastResponse.status);
+            errFlag |= TxErrorEnum.BadOrdererResponseError;
+            invokeStatus.SetFlag(errFlag);
+            invokeStatus.SetErrMsg(TxErrorIndex.BadOrdererResponseError, err.toString());
+            // the submission was explicitly rejected, so the Tx will definitely not be ordered
+            invokeStatus.SetVerification(true);
+            throw err;
+        }
+
+        await Promise.all(eventPromises);
+        // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
+        // so mark it failed but leave it not verified
+        if (!invokeStatus.IsVerified()) {
+            invokeStatus.SetStatusFail();
+            commLogger.error('Failed to complete transaction [' + txId.substring(0, 5) + '...]: every eventhub connection closed');
+        } else {
+            invokeStatus.SetStatusSuccess();
+        }*/
+    } catch (err) {
         // at this point the Tx should be verified
         invokeStatus.SetStatusFail();
         commLogger.error('Failed to complete transaction [' + txId.substring(0, 5) + '...]:' + (err instanceof Error ? err.stack : err));

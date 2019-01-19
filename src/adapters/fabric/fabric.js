@@ -67,13 +67,23 @@ class Fabric extends BlockchainInterface{
      * @param {string} name The name of the callback module as defined in the configuration files.
      * @param {object} args unused.
      * @param {Integer} clientIdx The client index.
+     * @param {Object} txFile the file information for reading or writing.
      * @return {object} The assembled Fabric context.
      * @async
      */
-    async getContext(name, args, clientIdx) {
+    async getContext(name, args, clientIdx, txFile) {
         util.init(this.configPath);
         e2eUtils.init(this.configPath);
-
+        this.txFile = txFile;
+        if(this.txFile){
+            this.txFile.name = name;
+            commLogger.debug('getContext) name: ' + name +  ' clientIndex: ' + clientIdx + ' txFile: ' + JSON.stringify(this.txFile));
+            if(this.txFile.readWrite === 'read') {
+                if(this.txFile.roundCurrent === 0){
+                    await e2eUtils.readFromFile(this.txFile.name);
+                }
+            }
+        }
         let config  = require(this.configPath);
         let context = config.fabric.context;
         let channel;
@@ -88,7 +98,7 @@ class Fabric extends BlockchainInterface{
             throw new Error('Could not find context information in the config file');
         }
 
-        return await e2eUtils.getcontext(channel, clientIdx);
+        return await e2eUtils.getcontext(channel, clientIdx, txFile);
     }
 
     /**
@@ -97,6 +107,11 @@ class Fabric extends BlockchainInterface{
      * @async
      */
     async releaseContext(context) {
+        if(this.txFile && this.txFile.readWrite === 'write') {
+            if(this.txFile.roundCurrent === (this.txFile.roundLength - 1)){
+                await e2eUtils.writeToFile(this.txFile.name);
+            }
+        }
         await e2eUtils.releasecontext(context);
         await commUtils.sleep(1000);
     }

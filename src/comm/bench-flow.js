@@ -142,7 +142,6 @@ function printResultsByRound() {
     report.setSummaryTable(resultsbyround);
 }
 
-
 /**
  * merge testing results from various clients and store the merged result in the global result array
  * txStatistics = {
@@ -171,6 +170,11 @@ function processResult(results, label){
             resultTable[1] = getResultValue(r);
         }
 
+        let sTP = r.sTPTotal / r.length;
+        let sT = r.sTTotal / r.length;
+        logger.debug('sendTransactionProposal: ' + sTP + 'ms length: ' + r.length);
+        logger.debug('sendTransaction: ' + sT + 'ms');
+        logger.debug('invokeLantency: ' + r.invokeTotal / r.length + 'ms');
         if(resultsbyround.length === 0) {
             resultsbyround.push(resultTable[0].slice(0));
         }
@@ -217,11 +221,37 @@ async function defaultTest(args, clientArgs, final) {
             trim: args.trim ? args.trim : 0,
             args: args.arguments,
             cb  : args.callback,
-            config: configPath
+            config: configPath,
         };
         // condition for time based or number based test driving
         if (args.txNumber) {
             msg.numb = testRounds[i];
+            // File information for reading or writing transaction request
+            msg.txFile = {roundLength: testRounds.length, roundCurrent: i, txMode: args.txMode};
+            if(args.txMode && args.txMode.type === 'file-write') {
+                logger.info('------ Prepare(file-write) waiting ------');
+                msg.txFile.readWrite = 'write';
+                msg.rateControl = {type: 'fixed-rate', opts: {tps: 400}};
+                try {
+                    await client.startTest(msg, clientArgs, function(){}, testLabel);
+                    msg.numb = testRounds[i];
+                    msg.txFile.readWrite = 'read';
+                    msg.rateControl = args.rateControl[i] ? args.rateControl[i] : {type:'fixed-rate', 'opts' : {'tps': 1}};
+                    if(i === (testRounds.length - 1)) {
+                        logger.info('Waiting 5 seconds...');
+                        logger.info('------ Prepare(file-write) success------');
+                        await Util.sleep(5000);
+                    }
+                } catch (err) {
+                    logger.error('------Prepare(file-write) failed------');
+                    args.txMode.type = 'file-no';
+                }
+
+            }else if(args.txMode && args.txMode.type === 'file-read'){
+                msg.txFile.readWrite = 'read';
+            }else {
+                msg.txFile.readWrite = 'no';
+            }
         } else if (args.txDuration) {
             msg.txDuration = testRounds[i];
         } else {
