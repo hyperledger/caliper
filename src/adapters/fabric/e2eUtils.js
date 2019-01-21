@@ -67,21 +67,6 @@ async function readFromFile(name){
         let data = fs.readFileSync(fileName);
         signedTransactionArray = JSON.parse(data);
         commLogger.debug('read buffer file ok');
-        /*fs.readFile(binFileName, function(err, data){
-            commLogger.debug('read buffer file ok');
-            let signedBuffer = data;
-            let start = 0;
-            for(let i = 0; i < signedTransactionArray.length; i++) {
-                //commLogger.info('i: ' + i + ' ' + JSON.stringify(signedTransactionArray[i].txId));
-                let length = signedTransactionArray[i].signatureLength;
-                let signature = signedBuffer.slice(start, start + length);
-                start += length;
-                length = signedTransactionArray[i].payloadLength;
-                let payload = signedBuffer.slice(start, start + length);
-                signedCommitProposal.push({signature: signature, payload: payload});
-                start += length;
-            }
-        });*/
         let signedBuffer = fs.readFileSync(binFileName);
         let start = 0;
         for(let i = 0; i < signedTransactionArray.length; i++) {
@@ -629,16 +614,6 @@ async function writeToFile(name){
             reArray.push({txId: signedTransaction.txId, transactionRequest: signedTransaction.transactionRequest, signatureLength: signature.length, payloadLength: payload.length});
         }
         let buffer = Buffer.concat(bufferArray);
-        /*fs.writeFile(binFileName, buffer, function (err) {
-            //commLogger.info('write buffer file ok');
-        });
-
-        let signedString = JSON.stringify(reArray);
-        fs.writeFile(fileName, signedString, function (err) {
-            signedTransactionArray = [];
-            signedCommitProposal = [];
-            commLogger.debug('write file ok');
-        });*/
 
         fs.writeFileSync(binFileName, buffer);
         let signedString = JSON.stringify(reArray);
@@ -919,106 +894,6 @@ async function invokebycontext(context, id, version, args, timeout){
             proposal: proposal,
         };
         invokeStatus = sendTransaction(context, {txId: txId, signedTransaction: null, transactionRequest: transactionRequest}, invokeStatus, startTime, timeout);
-
-        /*let newTimeout = timeout * 1000 - (Date.now() - startTime);
-        if(newTimeout < 10000) {
-            commLogger.warn('WARNING: timeout is too small, default value is used instead');
-            newTimeout = 10000;
-        }
-
-        const eventPromises = [];
-        eventHubs.forEach((eh) => {
-            eventPromises.push(new Promise((resolve, reject) => {
-                let handle = setTimeout(() => reject(new Error('Timeout')), newTimeout);
-                eh.registerTxEvent(txId,
-                    (tx, code) => {
-                        clearTimeout(handle);
-                        eh.unregisterTxEvent(txId);
-
-                        // either explicit invalid event or valid event, verified in both cases by at least one peer
-                        invokeStatus.SetVerification(true);
-                        if (code !== 'VALID') {
-                            let err = new Error('Invalid transaction: ' + code);
-                            errFlag |= TxErrorEnum.BadEventNotificationError;
-                            invokeStatus.SetFlag(errFlag);
-                            invokeStatus.SetErrMsg(TxErrorIndex.BadEventNotificationError, err.toString());
-                            reject(err); // handle error in final catch
-                        } else {
-                            resolve();
-                        }
-                    },
-                    (err) => {
-                        clearTimeout(handle);
-                        // we don't know what happened, but give the other eventhub connections a chance
-                        // to verify the Tx status, so resolve this call
-                        errFlag |= TxErrorEnum.EventNotificationError;
-                        invokeStatus.SetFlag(errFlag);
-                        invokeStatus.SetErrMsg(TxErrorIndex.EventNotificationError, err.toString());
-                        resolve();
-                    }
-                );
-
-            }));
-        });
-
-        let broadcastResponse;
-        try {
-            //broadcastResponse = await channel.sendTransaction(transactionRequest);
-            const beforeInvokeTime = Date.now();
-            let signedTransaction = signedOffline.generateSignedTransaction(transactionRequest, channel);
-            invokeStatus.Set('invokeLatency', (Date.now() - beforeInvokeTime));
-            if(cfUtil.getConfigSetting('fabric:invoke-write') === 'file') {
-                signedTransactionArray.push({
-                    txId: txId,
-                    signedTransaction: signedTransaction,
-                    transactionRequest: transactionRequest
-                });
-                return invokeStatus;
-            }
-
-            const beforeTransactionTime = Date.now();
-            //let broadcastResponsePromise = channel.sendTransaction(transactionRequest);
-            let broadcastResponsePromise = channel.sendSignedTransaction({
-                signedProposal: signedTransaction,
-                request: transactionRequest,
-            });
-            invokeStatus.Set('sT', (Date.now() - beforeTransactionTime));
-
-            //commLogger.info('sendTransaction: ' + (Date.now() - beforeTransactionTime));
-            broadcastResponse = await broadcastResponsePromise;
-
-        } catch (err) {
-             commLogger.error('Failed to send transaction error: ' + err);
-            // missing the ACK does not mean anything, the Tx could be already under ordering
-            // so let the events decide the final status, but log this error
-            errFlag |= TxErrorEnum.OrdererResponseError;
-            invokeStatus.SetFlag(errFlag);
-            invokeStatus.SetErrMsg(TxErrorIndex.OrdererResponseError,err.toString());
-        }
-
-        invokeStatus.Set('time_order', Date.now());
-
-        if (broadcastResponse && broadcastResponse.status === 'SUCCESS') {
-            invokeStatus.Set('status', 'submitted');
-        } else if (broadcastResponse && broadcastResponse.status !== 'SUCCESS') {
-            let err = new Error('Received rejection from orderer service: ' + broadcastResponse.status);
-            errFlag |= TxErrorEnum.BadOrdererResponseError;
-            invokeStatus.SetFlag(errFlag);
-            invokeStatus.SetErrMsg(TxErrorIndex.BadOrdererResponseError, err.toString());
-            // the submission was explicitly rejected, so the Tx will definitely not be ordered
-            invokeStatus.SetVerification(true);
-            throw err;
-        }
-
-        await Promise.all(eventPromises);
-        // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
-        // so mark it failed but leave it not verified
-        if (!invokeStatus.IsVerified()) {
-            invokeStatus.SetStatusFail();
-            commLogger.error('Failed to complete transaction [' + txId.substring(0, 5) + '...]: every eventhub connection closed');
-        } else {
-            invokeStatus.SetStatusSuccess();
-        }*/
     } catch (err) {
         // at this point the Tx should be verified
         invokeStatus.SetStatusFail();
