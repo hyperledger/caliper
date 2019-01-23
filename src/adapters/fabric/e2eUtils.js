@@ -540,7 +540,7 @@ async function getcontext(channelConfig, clientIdx, txModeFile) {
 
         // an event listener can only register with the peer in its own org
         if(org === userOrg) {
-            let eh = client.newEventHub();
+            /*let eh = client.newEventHub();
             eh.setPeerAddr(
                 peerInfo.events,
                 {
@@ -551,7 +551,8 @@ async function getcontext(channelConfig, clientIdx, txModeFile) {
                     'grpc.keepalive_time_ms' : 360000   // time to wait for ping response, 6 minutes
                     // 'grpc.http2.keepalive_time' : 15
                 }
-            );
+            );*/
+            let eh = channel.newChannelEventHub(peer);
             eventhubs.push(eh);
         }
     }
@@ -579,7 +580,6 @@ module.exports.getcontext = getcontext;
  * @async
  */
 async function releasecontext(context) {
-
     if(context.hasOwnProperty('eventhubs')){
         for(let key in context.eventhubs) {
             const eventhub = context.eventhubs[key];
@@ -660,7 +660,7 @@ async function sendTransaction(context, signedTransaction, invokeStatus, startTi
         eventHubs.forEach((eh) => {
             eventPromises.push(new Promise((resolve, reject) => {
                 //let handle = setTimeout(() => reject(new Error('Timeout')), newTimeout);
-                let handle = setTimeout(() => reject(new Error('Timeout')), 100000);
+                let handle = setTimeout(() => {eh.unregisterTxEvent(txId); reject(new Error('Timeout'));}, timeout * 1000);
                 eh.registerTxEvent(txId,
                     (tx, code) => {
                         clearTimeout(handle);
@@ -733,6 +733,8 @@ async function sendTransaction(context, signedTransaction, invokeStatus, startTi
             errFlag |= TxErrorEnum.OrdererResponseError;
             invokeStatus.SetFlag(errFlag);
             invokeStatus.SetErrMsg(TxErrorIndex.OrdererResponseError,err.toString());
+            invokeStatus.SetStatusFail();
+            return invokeStatus;
         }
 
         invokeStatus.Set('time_order', Date.now());
@@ -859,13 +861,16 @@ async function invokebycontext(context, id, version, args, timeout){
                 //invokeStatus.Set('invokeLatency', (Date.now() - beforeInvokeTime));
                 one_good = true;
             } else {
-                let err = new Error('Endorsement denied: ' + proposal_response.toString());
+                //let err = new Error('Endorsement denied: ' + proposal_response.toString());
                 errFlag |= TxErrorEnum.BadProposalResponseError;
                 invokeStatus.SetFlag(errFlag);
-                invokeStatus.SetErrMsg(TxErrorIndex.BadProposalResponseError, err.toString());
+                invokeStatus.SetErrMsg(TxErrorIndex.BadProposalResponseError, 'Endorsement denied: ' + proposal_response.toString());
                 // explicit rejection, early life-cycle termination, definitely failed
                 invokeStatus.SetVerification(true);
-                throw err;
+                commLogger.error('Failed to complete transaction [' + txId.substring(0, 5) + '...]:' + ' Endorsement denied: ' + proposal_response.toString());
+                invokeStatus.SetStatusFail();
+                return invokeStatus;
+                //throw err;
             }
             allGood = allGood && one_good;
         }

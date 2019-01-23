@@ -13,28 +13,16 @@ test:
   rounds:
   - label: open
     txNumber:
-    - 5000
+    - 1000000
     rateControl:
     - type: fixed-feedback-rate
       opts:
-        tps: 100
-        sleep_time: 1000
-        unfinished_per_client: 10
+        tps: 2000
+        sleep_time: 50
+        unfinished_per_client: 100
     arguments:
       money: 10000
     callback: benchmark/simple/open.js
-  - label: query
-    txNumber:
-    - 5000
-    - 5000
-    rateControl:
-    - type: fixed-rate
-      opts:
-        tps: 300
-    - type: fixed-rate
-      opts:
-        tps: 400
-    callback: benchmark/simple/query.js
 monitor:
   type:
   - docker

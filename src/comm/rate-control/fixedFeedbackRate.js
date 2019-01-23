@@ -62,9 +62,13 @@ class FixedFeedbackRateController extends RateInterface{
             return;
         }
 
-        let diff = (this.sleepTime * idx - ((Date.now() - this.total_sleep_time) - start));
+        /*let diff = (this.sleepTime * idx - ((Date.now() - this.total_sleep_time) - start));
         if( diff > 5) {
             return await util.sleep(diff);
+        }*/
+
+        if(idx % 100 === 0) {
+            return util.sleep(5);
         }
 
         if(resultStats.length === 0) {
@@ -92,7 +96,7 @@ class FixedFeedbackRateController extends RateInterface{
 
         // Determines the sleep time according to the current number of
         // unfinished transactions with the configure one.
-        for(let i = 10; i > 0; --i) {
+        for(let i = 100; i > 0; --i) {
             if(unfinished >= i * this.unfinished_per_client) {
                 this.total_sleep_time += i * this.sleep_time;
                 return await util.sleep(i * this.sleep_time);
