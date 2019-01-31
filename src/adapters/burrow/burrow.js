@@ -16,9 +16,42 @@ const logger = util.getLogger('burrow.js');
 const TxStatus = require('../../comm/transaction');
 
 /**
+    Read the connection details from the config file.
+    @param {object} config Adapter config.
+    @return {object} url, account Connection settings.
+*/
+function burrowConnect(config) {
+    let host = config.burrow.network.validator.host;
+    if (host === null) {
+        throw new Error('host url not set');
+    }
+
+    let port = config.burrow.network.validator.port;
+    if (port === null) {
+        throw new Error('grpc port not set');
+    }
+
+    let account;
+    try {
+        account = fs.readFileSync(util.resolvePath(config.burrow.network.validator.address)).toString();
+    } catch (err) {
+        account = config.burrow.network.validator.address.toString();
+    }
+    logger.info(`Account: ${account}`);
+    if (account === null) {
+        throw new Error('no validator account found');
+    }
+
+    return {
+        url: host + ':' + port,
+        account: account,
+    };
+}
+
+/**
  * Implements {BlockchainInterface} for a Burrow backend.
  */
-class Burrow extends BlockchainInterface{
+class Burrow extends BlockchainInterface {
 
     /**
    * Create a new instance of the {Burrow} class.
@@ -43,32 +76,33 @@ class Burrow extends BlockchainInterface{
      */
     async installSmartContract() {
         let config  = require(this.configPath);
-        let grpc = config.burrow.network.validator.grpc;
-        if(grpc === null) {
-            logger.error('Error: Validator url not set.');
-        }
-        let account = fs.readFileSync(util.resolvePath(config.burrow.network.validator.address)).toString();
+        let connection = burrowConnect(config);
         let options = {objectReturn: true};
-        let burrow = monax.createInstance(grpc, account, options);
-        let data = JSON.parse(fs.readFileSync(util.resolvePath(config.contract.path)).toString());
-        let abi = data.Abi;
-        let bytecode = data.Evm.Bytecode.Object;
+        let burrow = monax.createInstance(connection.url, connection.account, options);
 
-        const contract = burrow.contracts.new(abi, bytecode);
-        let contractAddress = await contract._constructor('');
-        logger.info(`Contract: ${contractAddress}`);
+        let data,abi,bytecode,contract;
+        try {
+            data = JSON.parse(fs.readFileSync(util.resolvePath(config.contract.path)).toString());
+            abi = data.Abi;
+            bytecode = data.Evm.Bytecode.Object;
 
-        // this stores the contract address in a namereg for easy retreival
+            contract = await burrow.contracts.deploy(abi, bytecode);
+            logger.info(`Contract: ${contract.address}`);
+        } catch (err) {
+            throw err;
+        }
+
         let setPayload = {
             Input: {
-                Address: Buffer.from(account,'hex'),
+                Address: Buffer.from(connection.account,'hex'),
                 Amount: 50000
             },
             Name: 'DOUG',
-            Data: contractAddress,
+            Data: contract.address,
             Fee: 5000
         };
 
+        // this stores the contract address in a namereg for easy retrieval
         return burrow.transact.NameTxSync(setPayload);
     }
 
@@ -85,22 +119,15 @@ class Burrow extends BlockchainInterface{
 
         if(typeof context === 'undefined') {
 
-            let grpc = config.burrow.network.validator.grpc;
-            if(grpc === null) {
-                logger.error('Error: Validator url not set.');
-            }
-            let account = fs.readFileSync(util.resolvePath(config.burrow.network.validator.address)).toString();
-
-            // logger.info(`Account: ${account}`);
-            // logger.info(`GRPC: ${grpc}`);
-
+            let connection = burrowConnect(config);
             let options = {objectReturn: true};
-            let burrow = monax.createInstance(grpc, account, options);
+            let burrow = monax.createInstance(connection.url, connection.account, options);
 
             // get the contract address from the namereg
             let address = (await burrow.query.GetName({Name: 'DOUG'})).Data;
-            context = {stream: burrow, account: account, address: address};
+            context = {account: connection.account, address: address, burrow: burrow};
         }
+
         return Promise.resolve(context);
     }
 
@@ -141,7 +168,7 @@ class Burrow extends BlockchainInterface{
    */
     async burrowTransaction(context, contractID, contractVer, args, timeout) {
         let status = new TxStatus(args.account);
-        if(context.engine) {
+        if (context.engine) {
             context.engine.submitCallback(1);
         }
 
@@ -156,7 +183,7 @@ class Burrow extends BlockchainInterface{
         };
 
         try {
-            let execution = await context.stream.transact.CallTxSync(tx);
+            let execution = await context.burrow.transact.CallTxSync(tx);
             status.SetID(execution.TxHash.toString());
             status.SetStatusSuccess();
         } catch (err) {
@@ -176,7 +203,24 @@ class Burrow extends BlockchainInterface{
      * @return {Promise<object>} The promise for the result of the execution.
      */
     async queryState(context, contractID, contractVer, key, fcn = 'query') {
-        return Promise.resolve();
+        let status = new TxStatus();
+        if (context.engine) {
+            context.engine.submitCallback(1);
+        }
+
+        return new Promise(function(resolve, reject) {
+            context.burrow.query.GetAccount({Address: Buffer.from(context.address, 'hex')}, function(error, data){
+                if (error) {
+                    status.SetStatusFail();
+                    reject(error);
+                } else {
+                    status.SetStatusSuccess();
+                    resolve(data);
+                }
+            });
+        }).then(function(result) {
+            return status;
+        });
     }
 
     /**
