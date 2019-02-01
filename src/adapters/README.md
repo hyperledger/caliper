@@ -100,15 +100,14 @@ When the benchmark engine is running, the master process of benchmark engine wil
         this.bcObj = new myblockchain(configPath);
     }
   ```
-* Add predefined Network files into the dir `network/`:  These files will be useful when Caliper is trying to simulate your blockchain system. Please add all of the related files what a new boot blockchain system needs.
+* Add predefined Network files into the directory `network/`:  These files will be useful when Caliper is trying to simulate your blockchain system. Please add all of the related files what a new boot blockchain system needs.
 * Add your own network configuration file into the corresponding network folder: Make sure the files that are necessary to boot your blockchain are specified here.
 * Define your command which will be excuted before and after the test
-* Define your own smart contracts: Your own smart contracts could be put into the dir `src/contract/myblockchain/`.
-* Define your test module: Use Blockchain NBI to write your own test script which should include 3 functions(init(), run()and end()) as the files in the dir `bechmark/simple/open.js` and  `bechmark/simple/query.js`, and change the callback property in the test configuration file into current test script's path.
- 
-* Define the installation script: To facilliate other user, an installation script in the file `packeage.json` is appreciated.  
+* Define your own smart contracts:  As Caliper has several test cases now, it is necessary to realize your own smart contracts according to current test cases, eg. you could provide your smart contracts about opening an account, querying an account, deleting an account and transfering according to the test case `simple`. Your own smart contracts could be put into the directory `src/contract/myblockchain/`.
+* Define the installation script: To facilliate other user, an installation script in the file `packeage.json` is appreciated. Your packages and  other dependencies should be added. 
   ```
   "scripts": {
     "myblockchain-deps": "npm install --no-save myblockchainpackage
   }
   ```
+If you would like to define your test module, please use Blockchain NBI to write your own test script which should include 3 functions(init(), run()and end()) as the files in the directory `bechmark/simple/open.js` and  `bechmark/simple/query.js`, and change the callback property in the test configuration file into current test script's path. The whole flow of Benchmarks is referred to  [Writing Benchmarks]({{ site.baseurl }}{% link docs/Writing_Benchmarks.md %}).
