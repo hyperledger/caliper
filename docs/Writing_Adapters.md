@@ -1,26 +1,25 @@
 ---
 layout: page
-title:  "Writing Benchmarks"
+title:  "Writing Adapters"
 categories: reference
 ---
-# About the Adapters
-This folder containers kinds of adapters which will interact with the corresponding backend blockchain.
 
-# How to write your own blockchain adapter
+## How to write your own blockchain adapter
 Let's look inside first and learn about how the whole framework interacts with the backend blockchain system.
 When the benchmark engine is running, the master process of benchmark engine will call the user defined blockchian class to complete the blockchain's and chaicodes' installation. Then, after the master process launches the corresponding clients, each client will do the test. During the test, the client will get current blockchain's context, run test scripts, release the blockchain's context in the end, and return the performance statistics. Hence, if users intend to test the blockchain system which Caliper is unable to support, the bellows are what the users would concern about.
 
 * Use Blockchain NBI to write your own blockchain Class: Below is a Blockchain interface implementation example. 
-  ```
+
+  ```javascript
     /**
     * Implements {BlockchainInterface} for a myblockchain backend.
     */
     class Myblockchain extends BlockchainInterface{
 
-    /**
-    * Create a new instance of the {Myblockchain} class.
-    * @param {string} config_path The path of  Myblockchain network configuration file.
-    */
+        /**
+        * Create a new instance of the {Myblockchain} class.
+        * @param {string} config_path The path of  Myblockchain network configuration file.
+        */
         constructor(config_path) {
 
         }
@@ -61,14 +60,14 @@ When the benchmark engine is running, the master process of benchmark engine wil
         }
 
         /**
-    * Invoke a smart contract.
-    * @param {Object} context context object
-    * @param {String} contractID identity of the contract
-    * @param {String} contractVer version of the contract
-    * @param {Array} args array of JSON formatted arguments for multiple transactions
-    * @param {Number} timeout request timeout, in seconds
-    * @return {Promise<object>} the promise for the result of the execution.
-    */
+        * Invoke a smart contract.
+        * @param {Object} context context object
+        * @param {String} contractID identity of the contract
+        * @param {String} contractVer version of the contract
+        * @param {Array} args array of JSON formatted arguments for multiple transactions
+        * @param {Number} timeout request timeout, in seconds
+        * @return {Promise<object>} the promise for the result of the execution.
+        */
         async invokeSmartContract(context, contractID, contractVer, args, timeout) {
             ...
         }
@@ -87,10 +86,10 @@ When the benchmark engine is running, the master process of benchmark engine wil
         }
 
         /**
-    * Get adapter specific transaction statistics.
-    * @param {JSON} stats txStatistics object
-    * @param {Array} results array of txStatus objects.
-    */
+        * Get adapter specific transaction statistics.
+        * @param {JSON} stats txStatistics object
+        * @param {Array} results array of txStatus objects.
+        */
         getDefaultTxStats(stats, results) {
             ...
         }
@@ -98,7 +97,7 @@ When the benchmark engine is running, the master process of benchmark engine wil
   ```
 
 * Add your own blockchain type into the blockchain's constructor function: In the file `src/comm/blockchain.js`, a new blockchain type should be added into the constructor function.
-  ```
+  ```js
     if(config.caliper.blockchain === 'myblockchain') {
         let myblockchain = require('../adapters/myblockchain/myblockchain.js');
         this.bcType = 'myblockchain';
@@ -110,10 +109,10 @@ When the benchmark engine is running, the master process of benchmark engine wil
 * Define your command which will be executed before and after the test
 * Define your own smart contracts: As Caliper has several test cases now, it is necessary to realize your own smart contracts according to current test cases, eg. you could provide your smart contracts about opening an account, querying an account, deleting an account and transfering according to the test case `simple`. Your own smart contracts could be put into the directory `src/contract/myblockchain/`.
 * Define the installation script: To facilitate other users, an installation script in the file `package.json` is appreciated. Your packages and  other dependencies should be added.
-  ```
-  "scripts": {
-    "myblockchain-deps": "npm install --no-save myblockchainpackage
-  }
+  ```json
+    "scripts": {
+        "myblockchain-deps": "npm install --no-save myblockchainpackage"
+    }
   ```
 
 If you would like to define your test module, please use Blockchain NBI to write your own test script which should include 3 functions(init(), run()and end()) as the files in the directory `bechmark/simple/open.js` and  `bechmark/simple/query.js`, and change the callback property in the test configuration file into current test script's path. The whole flow of Benchmarks is referred to  [Writing Benchmarks]({{ site.baseurl }}{% link docs/Writing_Benchmarks.md %}).
