@@ -271,7 +271,7 @@ function buildChaincodeProposal(client, chaincode, upgrade, transientMap, endors
  * @async
  */
 async function instantiate(chaincode, endorsement_policy, upgrade){
-    Client.setConfigSetting('request-timeout', 120000);
+    Client.setConfigSetting('request-timeout', 600000);
 
     let channel = testUtil.getChannel(chaincode.channel);
     if(channel === null) {
@@ -343,6 +343,21 @@ async function instantiate(chaincode, endorsement_policy, upgrade){
     }
 
     await channel.initialize();
+
+    let res = await channel.queryInstantiatedChaincodes();
+    let found = false;
+    for (let i = 0; i < res.chaincodes.length; i++) {
+        if (res.chaincodes[i].name === chaincode.id &&
+            res.chaincodes[i].version === chaincode.version &&
+            res.chaincodes[i].path === chaincode.path) {
+            found = true;
+            commLogger.debug('instantiatedChaincode: ' + JSON.stringify(res.chaincodes[i]));
+            break;
+        }
+    }
+    if (found) {
+        return;
+    }
 
     let results;
     // the v1 chaincode has Init() method that expects a transient map
@@ -426,7 +441,7 @@ async function instantiate(chaincode, endorsement_policy, upgrade){
  */
 async function instantiateLegacy(chaincode, endorsement_policy, upgrade){
 
-    Client.setConfigSetting('request-timeout', 120000);
+    Client.setConfigSetting('request-timeout', 600000);
 
     let channel = testUtil.getChannel(chaincode.channel);
     if(channel === null) {

@@ -127,7 +127,7 @@ class Fabric extends BlockchainInterface{
                 throw new Error('Could not find context information in the config file');
             }
 
-            return await e2eUtils.getcontext(channel, clientIdx);
+            return await e2eUtils.getcontext(channel, clientIdx, txFile);
         }
     }
 
