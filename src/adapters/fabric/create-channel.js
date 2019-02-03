@@ -50,7 +50,7 @@ async function run(config_path) {
         utils.setConfigSetting('key-value-store', 'fabric-client/lib/impl/FileKeyValueStore.js');
 
         for (const channel of channels) {
-            if(channels.deployed) {
+            if(channel.deployed) {
                 continue;
             }
 

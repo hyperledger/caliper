@@ -22,3 +22,4 @@ node_modules
 
 # Plugins
 /src/gui
+/src/adapters/fabric/ChannelSignedTransaction.js
