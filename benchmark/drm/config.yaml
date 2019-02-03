@@ -8,7 +8,7 @@ test:
   rounds:
   - label: publish
     txNumber:
-    - 1
+    - 10
     arguments:
       itemBytes: 2048000
     rateControl:
@@ -18,7 +18,7 @@ test:
     callback: benchmark/drm/publish.js
   - label: query
     txNumber:
-    - 1
+    - 10
     rateControl:
     - type: fixed-rate
       opts:

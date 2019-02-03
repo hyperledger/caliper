@@ -1,19 +1,17 @@
 /**
- * Modifications Copyright 2017 HUAWEI
- * Copyright 2016 IBM,HUAWEI All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the 'License');
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an 'AS IS' BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
 
 'use strict';
 
@@ -22,13 +20,12 @@ const fs = require('fs-extra');
 const util = require('util');
 
 const Client = require('fabric-client');
-const copService = require('fabric-ca-client/lib/FabricCAClientImpl.js');
 const User = require('fabric-client/lib/User.js');
-
 const Constants = require('./constant.js');
 const commUtils = require('../../comm/util');
 const commLogger = commUtils.getLogger('util.js');
 
+let copService;
 let channels = [];
 let cryptodir;
 let ORGS;
@@ -135,10 +132,16 @@ function readAllFiles(dir) {
 module.exports.readFile = readFile;
 
 module.exports.init = function(config_path) {
-    const fa = commUtils.parseYaml(config_path).fabric;
-    ORGS = fa.network;
-    channels = fa.channel;
-    cryptodir = commUtils.resolvePath(fa.cryptodir);
+    const config = commUtils.parseYaml(config_path);
+    ORGS = config.fabric.network;
+    channels = config.fabric.channel;
+    cryptodir = commUtils.resolvePath(config.fabric.cryptodir);
+    const isLegacy = (config.info.Version.startsWith('1.0') || config.info.Version.startsWith('1.1'));
+    if(isLegacy){
+        copService = require('fabric-ca-client/lib/FabricCAClientImpl.js');
+    } else {
+        copService = require('fabric-ca-client/lib/FabricCAClient.js');
+    }
 };
 
 const tlsOptions = {
@@ -156,37 +159,36 @@ const tlsOptions = {
  */
 async function getMember(username, password, client, userOrg) {
     const caUrl = ORGS[userOrg].ca.url;
-    let user = await client.getUserContext(username, true);
-    if (user && user.isEnrolled()) {
-        return user;
-    }
 
-    const member = new User(username);
-    let cryptoSuite = client.getCryptoSuite();
-    if (!cryptoSuite) {
-        cryptoSuite = Client.newCryptoSuite();
-        if (userOrg) {
-            cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: module.exports.storePathForOrg(ORGS[userOrg].name)}));
-            client.setCryptoSuite(cryptoSuite);
-        }
-    }
-    member.setCryptoSuite(cryptoSuite);
-
-    // need to enroll it with CA server
-    const cop = new copService(caUrl, tlsOptions, ORGS[userOrg].ca.name, cryptoSuite);
+    const user = await client.getUserContext(username, true);
 
     try {
-        let enrollment = await cop.enroll({
-            enrollmentID: username,
-            enrollmentSecret: password
-        });
+        if (user && user.isEnrolled()) {
+            return user;
+        }
+
+        const member = new User(username);
+        let cryptoSuite = client.getCryptoSuite();
+        if (!cryptoSuite) {
+            cryptoSuite = Client.newCryptoSuite();
+            if (userOrg) {
+                cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: module.exports.storePathForOrg(ORGS[userOrg].name)}));
+                client.setCryptoSuite(cryptoSuite);
+            }
+        }
+        member.setCryptoSuite(cryptoSuite);
+
+        // need to enroll it with CA server
+        const cop = new copService(caUrl, tlsOptions, ORGS[userOrg].ca.name, cryptoSuite);
+
+        const enrollment = await cop.enroll({enrollmentID: username, enrollmentSecret: password});
 
         await member.setEnrollment(enrollment.key, enrollment.certificate, ORGS[userOrg].mspid);
+
         let skipPersistence = false;
         if (!client.getStateStore()) {
             skipPersistence = true;
         }
-
         await client.setUserContext(member, skipPersistence);
         return member;
     } catch (err) {
