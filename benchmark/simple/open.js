@@ -25,6 +25,7 @@ module.exports.init = function(blockchain, context, args) {
     txnPerBatch = args.txnPerBatch;
     bc = blockchain;
     contx = context;
+
     return Promise.resolve();
 };
 
@@ -65,12 +66,19 @@ function generateWorkload() {
     for(let i= 0; i < txnPerBatch; i++) {
         let acc_id = generateAccount();
         account_array.push(acc_id);
-        let acc = {
-            'verb': 'open',
-            'account': acc_id,
-            'money': initMoney
-        };
-        workload.push(acc);
+
+        if (bc.bcType === 'fabric-ccp') {
+            workload.push({
+                chaincodeFunction: 'open',
+                chaincodeArguments: [acc_id, initMoney.toString()],
+            });
+        } else {
+            workload.push({
+                'verb': 'open',
+                'account': acc_id,
+                'money': initMoney
+            });
+        }
     }
     return workload;
 }

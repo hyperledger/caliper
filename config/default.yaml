@@ -4,5 +4,21 @@ core:
     log-file:
         debug: log/caliper.log
         info: console
+fabricCcp:
+    sleepAfter:
+        createChannel: 5000
+        joinChannel: 5000
+        instantiateChaincode: 5000
+    verify:
+        proposalResponse: false
+        readWriteSets: true
+    timeout:
+        chaincodeInstantiate: 300000
+        chaincodeInstantiateEvent: 100000
+        invokeOrQuery: 60000
+    loadBalancing: tx
+    overwriteGopath: true
+    latencyThreshold: 1.0
+    countQueryAsLoad: true
 fabric:
 sawtooth:

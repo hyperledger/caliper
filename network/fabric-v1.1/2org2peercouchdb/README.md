@@ -13,8 +13,9 @@ This directory contains a sample __Fabric v1.1__ network with the following prop
 ## Communication protocol
 * The `docker-compose.yaml` file specifies a network __without TLS__ communication.
 * The `docker-compose-tls.yaml` file specifies a network __with TLS__ communication.
+* The `docker-compose-mutual-tls.yaml` file specifies a network __with mutual TLS__ communication. Only supported by the Fabric-CCP adapter!
 
-The configuration files names (with or without the `-tls` part) indicate which network type it relies on. They are not distinguished further in the next sections.
+The configuration files names (with or without the `(-mutual)-tls` part) indicate which network type it relies on. They are not distinguished further in the next sections.
 
 ## Platform configurations
 
@@ -26,11 +27,11 @@ The following network configuration files are available for the different platfo
   * `vehicle-lifecycle-network`
 
 ### Fabric
-* `fabric-go(-tls).json` (__golang__ implementations) 
+* `fabric(-ccp)-go((-mutual)-tls)` (__golang__ implementations) 
   * `marbles` __with__ CouchDB index metadata and rich query support.
   * `drm`
   * `simple`
   * `smallbank`
-* `fabric-node(-tls).json` (__Node.JS__ implementations) 
+* `fabric(-ccp)-node((-mutual)-tls)` (__Node.JS__ implementations) 
   * `marbles` __with__ CouchDB index metadata and rich query support.
   * `simple`

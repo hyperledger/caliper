@@ -25,6 +25,7 @@ module.exports.init = function(blockchain, context, args) {
 
     bc       = blockchain;
     contx    = context;
+
     return Promise.resolve();
 };
 
@@ -39,12 +40,25 @@ module.exports.run = function() {
         'info' : '',
         'item' : buf
     };
-    return bc.invokeSmartContract(contx, 'drm', 'v0', {verb : 'publish', item: JSON.stringify(item)}, 120)
-        .then((results)=>{
-            for (let i in results){
-                let stat = results[i];
-                if(stat.IsCommitted()) {
-                    ids.push(stat.GetResult().toString());
+
+    let args;
+    if (bc.bcType === 'fabric-ccp') {
+        args = {
+            chaincodeFunction: 'publish',
+            chaincodeArguments: [JSON.stringify(item)]
+        };
+    } else {
+        args = {
+            verb : 'publish',
+            item: JSON.stringify(item)
+        };
+    }
+
+    return bc.invokeSmartContract(contx, 'drm', 'v0', args, 120)
+        .then(results => {
+            for (let result of results){
+                if(result.IsCommitted()) {
+                    ids.push(result.GetResult().toString());
                 }
             }
             return Promise.resolve(results);
