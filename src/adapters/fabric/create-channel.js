@@ -122,7 +122,7 @@ async function run(config_path) {
                 commLogger.info(`Created ${channel.name} successfully`);
             }
             else {
-                throw new Error(`Create status for ${channel.name} is ${result.status}`);
+                throw new Error(`Create status for ${channel.name} is ${result.status} with information ${result.info}`);
             }
         }
 

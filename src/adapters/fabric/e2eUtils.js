@@ -558,7 +558,7 @@ async function instantiateLegacy(chaincode, endorsement_policy, upgrade){
         let all_good = true;
         let instantiated = false;
         for(let i in proposalResponses) {
-            //commLogger.info('instantiateChaincode responses: i=' + i + ' ' + JSON.stringify(proposalResponses[i]));
+            commLogger.debug('instantiateChaincode responses: i=' + i + ' ' + JSON.stringify(proposalResponses[i]));
             let one_good = false;
             if (proposalResponses[i].response && proposalResponses[i].response.status === 200) {
                 one_good = true;
