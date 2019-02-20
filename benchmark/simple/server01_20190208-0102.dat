@@ -1,0 +1,34 @@
+/*** CONFIGURATION INFORMATION ***/
+"Linux dstat"
+"netSpeed = 1000"
+"netBandwidth = 1250000"
+"netFullDuplex = full"
+"netSpeed.eno1 = 1000"
+"netBandwidth.eno1 = 1250000"
+"netFullDuplex.eno1 = full"
+"os_name = Ubuntu 16.04.5 LTS"
+"cpu_model = Intel(R) Xeon(R) Gold 6244 CPU @ 3.60GHz"
+"cpu_cores = 32"
+"cpu_sockets = 2"
+"cpu_cores_per_socket = 8"
+"cpu_threads_per_core = 2"
+"memory_size = 97605416"
+"swap_size = 1003516"
+"timezoneOffset = -08:00"
+"timezoneAbbrev = PST"
+"list_of_ssd = sda(INTEL SSDSCKJB48), nvme1n1(INTEL SSDPE2KX040T8                     ), nvme0n1(INTEL SSDPE2KX040T8                     )"
+"list_of_hdd = none"
+"pagesize = 4096"
+"list_of_md = "
+"dataVersion = 6"
+"comment = "
+
+/*** START OF PROFILING OUTPUT ***/
+"Dstat 0.7.2 CSV output"
+"Author:","Dag Wieers <dag@wieers.com>",,,,"URL:","http://dag.wieers.com/home-made/dstat/"
+"Host:","server01",,,,"User:","builder"
+"Cmdline:","dstat --nocolor --noheaders --epoch --cpu --net -N eno1,total -dD sda,nvme1n1,nvme0n1 --disk-time --disk-queue --io --mem --page --output .tmp_start_collection",,,,"Date:","08 Feb 2019 01:02:47 PST"
+
+"epoch","total cpu usage",,,,,,"net/eno1",,"net/total",,"dsk/sda",,"dsk/nvme1n1",,"dsk/nvme0n1",,"tim/sda",,"tim/nvme1n1",,"tim/nvme0n1",,"qu/sda","qu/nvme1n1","qu/nvme0n1","io/sda",,"io/nvme1n1",,"io/nvme0n1",,"memory usage",,,,"paging",
+"epoch","usr","sys","idl","wai","hiq","siq","recv","send","recv","send","read","writ","read","writ","read","writ","reads","writs","reads","writs","reads","writs","queue","queue","queue","read","writ","read","writ","read","writ","used","buff","cach","free","in","out"
+1549616567.388,4.720,0.695,94.396,0.116,0.0,0.073,0.0,0.0,0.0,0.0,27438.074,4122278.450,262.054,0.0,359.311,0.0,22108.0,2364056.0,4.0,0.0,8.0,0.0,0.0,0.0,0.0,1.057,304.126,0.009,0.0,0.011,0.0,1779060736.0,252633088.0,1563426816.0,96352825344.0,0.0,0.0

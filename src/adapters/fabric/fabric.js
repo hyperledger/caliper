@@ -52,7 +52,6 @@ class Fabric extends BlockchainInterface{
      * @async
      */
     async installSmartContract() {
-        // todo: now all chaincodes are installed and instantiated in all peers, should extend this later
         try {
             await impl_install.run(this.configPath);
             await impl_instantiate.run(this.configPath);
@@ -65,7 +64,7 @@ class Fabric extends BlockchainInterface{
     /**
      * Return the Fabric context associated with the given callback module name.
      * @param {string} name The name of the callback module as defined in the configuration files.
-     * @param {object} args unused.
+     * @param {object} args Unused.
      * @param {Integer} clientIdx The client index.
      * @param {Object} txFile the file information for reading or writing.
      * @return {object} The assembled Fabric context.
@@ -84,21 +83,52 @@ class Fabric extends BlockchainInterface{
                 }
             }
         }
-        let config  = require(this.configPath);
-        let context = config.fabric.context;
-        let channel;
-        if(typeof context === 'undefined') {
-            channel = util.getDefaultChannel();
-        }
-        else{
-            channel = util.getChannel(context[name]);
-        }
 
-        if(!channel) {
-            throw new Error('Could not find context information in the config file');
-        }
+        let fabricSettings  = require(this.configPath);
+        let context = fabricSettings.fabric.context;
 
-        return await e2eUtils.getcontext(channel, clientIdx, txFile);
+        // Either using network mode or baseAPI mode
+        if (fabricSettings.info.contractInvoke) {
+            // Create in memory wallet using org0
+            const org = fabricSettings.fabric.channel[0].organizations[0];
+            const userId = fabricSettings.fabric.network[org].user.name;
+            const wallet = await e2eUtils.createInMemoryWallet(org);
+
+            const opts = {
+                wallet: wallet,
+                identity: userId,
+                discovery: {enabled: false}
+            };
+
+            // clientTlsIdentity is conditional on config
+            if (fabricSettings.fabric.network.orderer.url.startsWith('grpcs')) {
+                opts.clientTlsIdentity = 'tlsId';
+            }
+
+            // Retrieve gateway using ccp and options
+            const gateway = await e2eUtils.retrieveGateway(fabricSettings.fabric.ccp, opts);
+
+            // Retrieve and return the contract using the network API commands
+            commLogger.info(`Retrieving contract from channel ${context[name].channel} and chaincodeID ${context[name].chaincodeId}`);
+            const network = await gateway.getNetwork(context[name].channel);
+            const contract = await network.getContract(context[name].chaincodeId);
+
+            return {gateway: gateway, contract: contract};
+        } else {
+            let channel;
+            if(typeof context === 'undefined') {
+                channel = util.getDefaultChannel();
+            }
+            else{
+                channel = util.getChannel(context[name]);
+            }
+
+            if(!channel) {
+                throw new Error('Could not find context information in the config file');
+            }
+
+            return await e2eUtils.getcontext(channel, clientIdx, txFile);
+        }
     }
 
     /**
@@ -112,7 +142,11 @@ class Fabric extends BlockchainInterface{
                 await e2eUtils.writeToFile(this.txFile.name);
             }
         }
-        await e2eUtils.releasecontext(context);
+        if (context.gateway) {
+            await context.gateway.disconnect();
+        } else {
+            await e2eUtils.releasecontext(context);
+        }
         await commUtils.sleep(1000);
     }
 
@@ -142,7 +176,11 @@ class Fabric extends BlockchainInterface{
                 if(func) {
                     simpleArgs.splice(0, 0, func);
                 }
-                promises.push(e2eUtils.invokebycontext(context, contractID, contractVer, simpleArgs, timeout));
+                if(context.gateway) {
+                    promises.push(e2eUtils.submitTransaction(context, simpleArgs));
+                } else {
+                    promises.push(e2eUtils.invokebycontext(context, contractID, contractVer, simpleArgs, timeout));
+                }
             }
             catch(err) {
                 commLogger.error(err);
@@ -159,13 +197,23 @@ class Fabric extends BlockchainInterface{
      * @param {object} context The Fabric context returned by {getContext}.
      * @param {string} contractID The name of the chaincode.
      * @param {string} contractVer The version of the chaincode.
-     * @param {string} key The argument to pass to the chaincode query.
+     * @param {string} arg The argument to pass to the chaincode query.
      * @param {string} [fcn=query] The chaincode query function name.
+     * @param {Boolean} consensus boolean flag to indicate if the query is to be recorded ont the ledger or not
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    async queryState(context, contractID, contractVer, key, fcn = 'query') {
-        // TODO: change string key to general object
-        return await e2eUtils.querybycontext(context, contractID, contractVer, key.toString(), fcn);
+    queryState(context, contractID, contractVer, arg, fcn = 'query', consensus) {
+
+        // Branch on interaction type
+        if(context.gateway) {
+            if (consensus) {
+                return e2eUtils.submitTransaction(context, arg);
+            } else {
+                return e2eUtils.executeTransaction(context, arg);
+            }
+        } else {
+            return e2eUtils.querybycontext(context, contractID, contractVer, arg.toString(), fcn);
+        }
     }
 }
 module.exports = Fabric;

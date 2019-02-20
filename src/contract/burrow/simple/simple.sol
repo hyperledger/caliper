@@ -1,13 +1,13 @@
 pragma solidity >=0.0.0;
 
-contract Storage {
-  uint public balance = 0;
+contract simple {
+  uint private money = 0;
 
   function receive() public payable {
-    balance += msg.value;
+    money += msg.value;
   }
 
-  function query() constant public returns (uint256) {
-    return balance;
+  function balance() public constant returns (uint total) {
+    return money;
   }
 }
