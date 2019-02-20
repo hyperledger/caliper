@@ -506,7 +506,6 @@ async function instantiateLegacy(chaincode, endorsement_policy, upgrade){
         }
     }
 
-    // an event listener can only register with a peer in its own org
     data = fs.readFileSync(commUtils.resolvePath(ORGS[userOrg][eventPeer].tls_cacerts));
     let eh = client.newEventHub();
     eh.setPeerAddr(
@@ -562,7 +561,7 @@ async function instantiateLegacy(chaincode, endorsement_policy, upgrade){
             let one_good = false;
             if (proposalResponses[i].response && proposalResponses[i].response.status === 200) {
                 one_good = true;
-            /*} else if (proposalResponses && proposalResponses[i] && proposalResponses[i].code === 2){
+                /*} else if (proposalResponses && proposalResponses[i] && proposalResponses[i].code === 2){
                 if (proposalResponses[i].details && proposalResponses[i].details.indexOf('exists') !== -1) {
                     one_good = true;
                     instantiated = true;
