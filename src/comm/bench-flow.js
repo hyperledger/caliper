@@ -20,6 +20,7 @@ const Report  = require('./report.js');
 const Client  = require('./client/client.js');
 const Util = require('./util.js');
 const logger = Util.getLogger('bench-flow.js');
+const config = require('./config-util.js');
 let blockchain, monitor, report, client;
 let success = 0, failure = 0;
 let resultsbyround = [];    // results table for each test round
@@ -330,15 +331,20 @@ module.exports.run = async function(configFile, networkFile) {
 
     //let configObject = require(absConfigFile);
     let configObject = Util.parseYaml(absConfigFile);
-    let networkObject = require(absNetworkFile);
+    let networkObject = Util.parseYaml(absNetworkFile);
+    let skipStart = config.getConfigSetting('core:skipStartScript', false);
+    let skipEnd = config.getConfigSetting('core:skipEndScript', false);
+    skipStart = skipStart === true || skipStart === 'true';
+    skipEnd = skipEnd === true || skipEnd === 'true';
 
     try {
         if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('command') && networkObject.caliper.command.hasOwnProperty('start')) {
             if (!networkObject.caliper.command.start.trim()) {
                 throw new Error('Start command is specified but it is empty');
             }
-
-            await execAsync(networkObject.caliper.command.start);
+            if(!skipStart){
+                await execAsync(networkObject.caliper.command.start);
+            }
         }
 
         await blockchain.init();
@@ -383,8 +389,9 @@ module.exports.run = async function(configFile, networkFile) {
             if (!networkObject.caliper.command.end.trim()) {
                 logger.error('End command is specified but it is empty');
             } else {
-
-                await execAsync(networkObject.caliper.command.end);
+                if(!skipEnd){
+                    await execAsync(networkObject.caliper.command.end);
+                }
             }
         }
 
