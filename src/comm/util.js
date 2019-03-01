@@ -254,7 +254,7 @@ class Util {
         }
         catch(e) {
             //console.log(e);
-            throw new Error('failed to parse the yaml file');
+            throw new Error('failed to parse the yaml file: ${(e.stack ? e.stack : e)}');
         }
         return config;
     }

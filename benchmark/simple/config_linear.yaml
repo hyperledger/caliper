@@ -1,0 +1,119 @@
+---
+test:
+  name: simple
+  description: This is an example benchmark for caliper, to test the backend DLT's
+    performance with simple account opening & querying transactions
+  clients:
+    type: local
+    number: 5
+  rounds:
+  - label: open
+    txNumber:
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    - 10000
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 100
+    - type: fixed-rate
+      opts:
+        tps: 200
+    - type: fixed-rate
+      opts:
+        tps: 300
+    - type: fixed-rate
+      opts:
+        tps: 400
+    - type: fixed-rate
+      opts:
+        tps: 500
+    - type: fixed-rate
+      opts:
+        tps: 600
+    - type: fixed-rate
+      opts:
+        tps: 700
+    - type: fixed-rate
+      opts:
+        tps: 800
+    - type: fixed-rate
+      opts:
+        tps: 900
+    - type: fixed-rate
+      opts:
+        tps: 1000
+    - type: fixed-rate
+      opts:
+        tps: 1100
+    - type: fixed-rate
+      opts:
+        tps: 1200
+    - type: fixed-rate
+      opts:
+        tps: 1300
+    - type: fixed-rate
+      opts:
+        tps: 1400
+    - type: fixed-rate
+      opts:
+        tps: 1500
+    - type: fixed-rate
+      opts:
+        tps: 1600
+    - type: fixed-rate
+      opts:
+        tps: 1700
+    - type: fixed-rate
+      opts:
+        tps: 1800
+    - type: fixed-rate
+      opts:
+        tps: 1900
+    - type: fixed-rate
+      opts:
+        tps: 2000
+    arguments:
+      money: 10000
+    callback: benchmark/simple/open.js
+  - label: query
+    txNumber:
+    - 1000
+    - 1000
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 100
+    - type: fixed-rate
+      opts:
+        tps: 200
+    callback: benchmark/simple/query.js
+monitor:
+  type:
+  - docker
+  - process
+  docker:
+    name:
+    - all
+  process:
+  - command: node
+    arguments: local-client.js
+    multiOutput: avg
+  interval: 1

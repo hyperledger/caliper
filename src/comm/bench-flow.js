@@ -207,7 +207,7 @@ function processResult(results, label){
  * @async
  */
 async function defaultTest(args, clientArgs, final) {
-    logger.info(`###### Testing '${args.label}' ######`);
+    logger.info(`####### Testing '${args.label}' #######`);
     let testLabel   = args.label;
     let testRounds  = args.txDuration ? args.txDuration : args.txNumber;
     let tests = []; // array of all test rounds
@@ -319,7 +319,7 @@ function execAsync(command) {
  * @param {String} networkFile path of the blockchain configuration file
  */
 module.exports.run = async function(configFile, networkFile) {
-    logger.info('####### Caliper Test ######');
+    logger.info('####### Caliper Test #######');
     absConfigFile  = Util.resolvePath(configFile);
     absNetworkFile = Util.resolvePath(networkFile);
     blockchain = new Blockchain(absNetworkFile);
@@ -391,7 +391,7 @@ module.exports.run = async function(configFile, networkFile) {
         // NOTE: keep the below multi-line formatting intact, otherwise the indents will interfere with the template literal
         let testSummary = `# Test summary: ${success} succeeded, ${failure} failed #`;
         logger.info(`
-        
+
 ${'#'.repeat(testSummary.length)}
 ${testSummary}
 ${'#'.repeat(testSummary.length)}

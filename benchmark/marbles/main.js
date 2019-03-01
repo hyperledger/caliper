@@ -58,7 +58,7 @@ function main() {
     let absCaliperDir = path.join(__dirname, '../..');
     if(typeof networkFile === 'undefined') {
         try{
-            absNetworkFile = path.join(absCaliperDir, 'network/fabric-v1.1/2org1peergoleveldb/fabric-go-tls.json');
+            absNetworkFile = path.join(absCaliperDir, 'network/fabric-v1.2/2org1peercouchdb/fabric-go-tls.json');
         }
         catch(err) {
             logger.error('failed to find blockchain.config in ' + absConfigFile);

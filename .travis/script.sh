@@ -14,11 +14,10 @@
 #
 
 # Exit on first error, print all commands.
-set -ev
+set -e
 set -o pipefail
 
 echo "---- Running benchmark ${BENCHMARK}"
-echo "---- Target version ${VERSION}"
 
 # Run benchmark
 if [ "${BENCHMARK}" == "composer" ]; then
@@ -26,20 +25,20 @@ if [ "${BENCHMARK}" == "composer" ]; then
     if [ "${VERSION}" == "0.19" ]; then
         npm run composer-deps
         npm run test -- composer
+        exit $?
     else
         echo "Unknown version ${VERSION} for benchmark ${BENCHMARK}"
         exit  1
     fi
 elif [ "${BENCHMARK}" == "drm" ]; then
-    npm run fabric-v1.1-deps
+    npm run fabric-deps
     npm run test -- drm
+    exit $?
 elif [ "${BENCHMARK}" == "simple" ]; then
     npm run fabric-v1.1-deps
     npm run test -- simple
+    exit $?
 else
     echo "Unknown target benchmark ${BENCHMARK}"
     exit 1
 fi
-
-echo "---- Script complete"
-exit

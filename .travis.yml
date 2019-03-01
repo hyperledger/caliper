@@ -4,8 +4,8 @@ node_js:
 matrix:
     include:
         - env: BENCHMARK=composer VERSION=0.19
-        - env: BENCHMARK=drm VERSION=1.0.5
-        - env: BENCHMARK=simple VERSION=1.0.5
+        - env: BENCHMARK=drm
+        - env: BENCHMARK=simple
 dist: trusty
 before_install: |
     set -ev

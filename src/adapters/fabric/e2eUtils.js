@@ -1,20 +1,17 @@
 /**
- * Modifications Copyright 2017 HUAWEI
- * Copyright 2017 IBM All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
-
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+*/
 
 'use strict';
 
@@ -22,17 +19,17 @@ const commUtils = require('../../comm/util');
 const commLogger = commUtils.getLogger('e2eUtils.js');
 const TxStatus  = require('../../comm/transaction');
 
-const path = require('path');
-const fs = require('fs');
-
+const FabricCAServices = require('fabric-ca-client');
 const Client = require('fabric-client');
-const Peer = require('fabric-client/lib/Peer');
+const fs = require('fs');
+const util = require('util');
 const testUtil = require('./util.js');
 
 const signedOffline = require('./signTransactionOffline.js');
 
+let Gateway, InMemoryWallet, X509WalletMixin;
 let ORGS;
-
+let isLegacy;
 let tx_id = null;
 let the_user = null;
 
@@ -47,9 +44,38 @@ let clientIndex = 0;
  * @param {string} config_path The path of the Fabric network configuration file.
  */
 function init(config_path) {
-    ORGS = commUtils.parseYaml(config_path).fabric.network;
+    const config = commUtils.parseYaml(config_path);
+    ORGS = config.fabric.network;
+    isLegacy = (config.info.Version.startsWith('1.0') || config.info.Version.startsWith('1.1'));
+    if(!isLegacy){
+        Gateway = require('fabric-network').Gateway;
+        InMemoryWallet = require('fabric-network').InMemoryWallet;
+        X509WalletMixin = require('fabric-network').X509WalletMixin;
+    }
 }
-module.exports.init = init;
+
+/**
+ * Enrol and get the cert
+ * @param {*} fabricCAEndpoint url of org endpoint
+ * @param {*} caName name of caName
+ * @return {Object} something useful in a promise
+ */
+async function tlsEnroll(fabricCAEndpoint, caName) {
+    const tlsOptions = {
+        trustedRoots: [],
+        verify: false
+    };
+    const caService = new FabricCAServices(fabricCAEndpoint, tlsOptions, caName);
+    const req = {
+        enrollmentID: 'admin',
+        enrollmentSecret: 'adminpw',
+        profile: 'tls'
+    };
+
+    const enrollment = await caService.enroll(req);
+    enrollment.key = enrollment.key.toBytes();
+    return enrollment;
+}
 
 /**
  * Read signed proposal from file.
@@ -98,6 +124,14 @@ async function installChaincode(org, chaincode) {
     const client = new Client();
     const channel = client.newChannel(channel_name);
 
+    // Conditional action on TLS enablement
+    if(ORGS.orderer.url.toString().startsWith('grpcs')){
+        const fabricCAEndpoint = ORGS[org].ca.url;
+        const caName = ORGS[org].ca.name;
+        const tlsInfo = await tlsEnroll(fabricCAEndpoint, caName);
+        client.setTlsClientCertAndKey(tlsInfo.certificate, tlsInfo.key);
+    }
+
     const orgName = ORGS[org].name;
     const cryptoSuite = Client.newCryptoSuite();
     cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: testUtil.storePathForOrg(orgName)}));
@@ -136,15 +170,15 @@ async function installChaincode(org, chaincode) {
         }
     }
 
-    let store = await Client.newDefaultKeyValueStore({path: testUtil.storePathForOrg(orgName)});
+    const store = await Client.newDefaultKeyValueStore({path: testUtil.storePathForOrg(orgName)});
     client.setStateStore(store);
 
     // get the peer org's admin required to send install chaincode requests
     the_user = await testUtil.getSubmitter(client, true /* get peer org admin */, org);
 
-    // SDK 1.2 returns ChannelPeer instances, so we need the underlying _peer object
+    // Don't re-install existing chaincode
     let peers = channel.getPeers();
-    let res = await client.queryInstalledChaincodes(peers[0] instanceof Peer ? peers[0] : peers[0]._peer);
+    let res = await client.queryInstalledChaincodes(peers[0].constructor.name.localeCompare('Peer') === 0 ? peers[0] : peers[0]._peer);
     let found = false;
     for (let i = 0; i < res.chaincodes.length; i++) {
         if (res.chaincodes[i].name === chaincode.id &&
@@ -175,22 +209,16 @@ async function installChaincode(org, chaincode) {
         chaincodeVersion: chaincode.version
     };
 
-    let results = await client.installChaincode(request);
+    const results = await client.installChaincode(request);
+
     const proposalResponses = results[0];
 
     let all_good = true;
-    let errors = [];
+    const errors = [];
     for(let i in proposalResponses) {
         let one_good = false;
-        //commLogger.info('installChaincode responses: i=' + i + ' ' + JSON.stringify(proposalResponses[i]));
         if (proposalResponses && proposalResponses[i].response && proposalResponses[i].response.status === 200) {
             one_good = true;
-        /*} else if (proposalResponses && proposalResponses[i] && proposalResponses[i].code === 2){
-
-            if (proposalResponses[i].details && proposalResponses[i].details.indexOf('exists') !== -1) {
-                one_good = true;
-            }
-            */
         } else {
             commLogger.error('install proposal was bad');
             errors.push(proposalResponses[i]);
@@ -198,35 +226,20 @@ async function installChaincode(org, chaincode) {
         all_good = all_good && one_good;
     }
     if (!all_good) {
-        throw new Error(`Failed to send install Proposal or receive valid response: ${errors}`);
-    }
-}
-module.exports.installChaincode = installChaincode;
-
-/**
- * Disconnect from the given event hubs.
- * @param {object[]} ehs The collection of event hubs.
- */
-function disconnect(ehs) {
-    for(let key in ehs) {
-        const eventhub = ehs[key];
-        if (eventhub && eventhub.isconnected()) {
-            eventhub.disconnect();
-        }
+        throw new Error(util.format('Failed to send install Proposal or receive valid response: %s', errors));
     }
 }
 
 /**
  * Assemble a chaincode proposal request.
  * @param {Client} client The Fabric client object.
- * @param {User} the_user Unused.
  * @param {object} chaincode The chaincode object from the configuration file.
  * @param {boolean} upgrade Indicates whether the request is an upgrade or not.
  * @param {object} transientMap The transient map the request.
  * @param {object} endorsement_policy The endorsement policy object from the configuration file.
  * @return {object} The assembled chaincode proposal request.
  */
-function buildChaincodeProposal(client, the_user, chaincode, upgrade, transientMap, endorsement_policy) {
+function buildChaincodeProposal(client, chaincode, upgrade, transientMap, endorsement_policy) {
     const tx_id = client.newTransactionID();
 
     // send proposal to endorser
@@ -257,8 +270,178 @@ function buildChaincodeProposal(client, the_user, chaincode, upgrade, transientM
  * @param {boolean} upgrade Indicates whether the call is an upgrade or a new instantiation.
  * @async
  */
-async function instantiateChaincode(chaincode, endorsement_policy, upgrade){
-    Client.setConfigSetting('request-timeout', 120000);
+async function instantiate(chaincode, endorsement_policy, upgrade){
+    Client.setConfigSetting('request-timeout', 600000);
+
+    let channel = testUtil.getChannel(chaincode.channel);
+    if(channel === null) {
+        throw new Error('Could not find channel in config');
+    }
+    const channel_name = channel.name;
+    const userOrg = channel.organizations[0];
+
+    const targets = [];
+    const eventhubs = [];
+    let type = 'instantiate';
+    if(upgrade) {type = 'upgrade';}
+    const client = new Client();
+    channel = client.newChannel(channel_name);
+
+    const orgName = ORGS[userOrg].name;
+    const cryptoSuite = Client.newCryptoSuite();
+    cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: testUtil.storePathForOrg(orgName)}));
+    client.setCryptoSuite(cryptoSuite);
+
+    const caRootsPath = ORGS.orderer.tls_cacerts;
+    let data = fs.readFileSync(commUtils.resolvePath(caRootsPath));
+    let caroots = Buffer.from(data).toString();
+
+    // Conditional action on TLS enablement
+    if(ORGS.orderer.url.toString().startsWith('grpcs')){
+        const fabricCAEndpoint = ORGS[userOrg].ca.url;
+        const caName = ORGS[userOrg].ca.name;
+        const tlsInfo = await tlsEnroll(fabricCAEndpoint, caName);
+        client.setTlsClientCertAndKey(tlsInfo.certificate, tlsInfo.key);
+    }
+
+    channel.addOrderer(
+        client.newOrderer(
+            ORGS.orderer.url,
+            {
+                'pem': caroots,
+                'ssl-target-name-override': ORGS.orderer['server-hostname']
+            }
+        )
+    );
+
+    const transientMap = {'test': 'transientValue'};
+    let request = null;
+
+    const store = await Client.newDefaultKeyValueStore({path: testUtil.storePathForOrg(orgName)});
+    client.setStateStore(store);
+    the_user = await testUtil.getSubmitter(client, true /* use peer org admin*/, userOrg);
+
+    for(let org in ORGS) {
+        if(ORGS.hasOwnProperty(org) && org.indexOf('org') === 0) {
+            for (let key in ORGS[org]) {
+                if(ORGS[org].hasOwnProperty(key) && key.indexOf('peer') === 0) {
+                    let data = fs.readFileSync(commUtils.resolvePath(ORGS[org][key].tls_cacerts));
+                    let peer = client.newPeer(
+                        ORGS[org][key].requests,
+                        {
+                            pem: Buffer.from(data).toString(),
+                            'ssl-target-name-override': ORGS[org][key]['server-hostname']
+                        });
+                    targets.push(peer);
+                    channel.addPeer(peer);
+
+                    const eh = channel.newChannelEventHub(peer);
+                    eventhubs.push(eh);
+                }
+            }
+        }
+    }
+
+    await channel.initialize();
+
+    let res = await channel.queryInstantiatedChaincodes();
+    let found = false;
+    for (let i = 0; i < res.chaincodes.length; i++) {
+        if (res.chaincodes[i].name === chaincode.id &&
+            res.chaincodes[i].version === chaincode.version &&
+            res.chaincodes[i].path === chaincode.path) {
+            found = true;
+            commLogger.debug('instantiatedChaincode: ' + JSON.stringify(res.chaincodes[i]));
+            break;
+        }
+    }
+    if (found) {
+        return;
+    }
+
+    let results;
+    // the v1 chaincode has Init() method that expects a transient map
+    if (upgrade) {
+        let request = buildChaincodeProposal(client, chaincode, upgrade, transientMap, endorsement_policy);
+        tx_id = request.txId;
+        results = await channel.sendUpgradeProposal(request);
+    } else {
+        let request = buildChaincodeProposal(client, chaincode, upgrade, transientMap, endorsement_policy);
+        tx_id = request.txId;
+        results = await channel.sendInstantiateProposal(request);
+    }
+
+    const proposalResponses = results[0];
+
+    const proposal = results[1];
+    let all_good = true;
+    for(const i in proposalResponses) {
+        if (proposalResponses && proposalResponses[i].response && proposalResponses[i].response.status === 200) {
+            commLogger.info(type +' proposal was good');
+        } else {
+            commLogger.warn(type +' proposal was bad: ' + proposalResponses[i]);
+            all_good = false;
+        }
+    }
+    if (all_good) {
+        commLogger.info('Successfully sent Proposal and received ProposalResponse');
+        request = {
+            proposalResponses: proposalResponses,
+            proposal: proposal
+        };
+    } else {
+        commLogger.warn(JSON.stringify(proposalResponses));
+        throw new Error('All proposals were not good');
+    }
+    const deployId = tx_id.getTransactionID();
+
+    const eventPromises = [];
+    eventPromises.push(channel.sendTransaction(request));
+    eventhubs.forEach((eh) => {
+        let txPromise = new Promise((resolve, reject) => {
+            let handle = setTimeout(reject, 300000);
+
+            eh.registerTxEvent(deployId.toString(), (tx, code) => {
+                commLogger.info('The chaincode ' + type + ' transaction has been committed on peer '+ eh.getPeerAddr());
+                clearTimeout(handle);
+                if (code !== 'VALID') {
+                    commLogger.warn('The chaincode ' + type + ' transaction was invalid, code = ' + code);
+                    reject();
+                } else {
+                    commLogger.info('The chaincode ' + type + ' transaction was valid.');
+                    resolve();
+                }
+            }, (err) => {
+                commLogger.warn('There was a problem with the instantiate event ' + err);
+                clearTimeout(handle);
+                reject();
+            }, {
+                disconnect: true
+            });
+            eh.connect();
+        });
+        eventPromises.push(txPromise);
+    });
+
+    results = await Promise.all(eventPromises);
+    if (results && !(results[0] instanceof Error) && results[0].status === 'SUCCESS') {
+        commLogger.info('Successfully sent ' + type + 'transaction to the orderer.');
+    } else {
+        commLogger.warn('Failed to order the ' + type + 'transaction. Error code: ' + results[0].status);
+        throw new Error('Failed to order the ' + type + 'transaction. Error code: ' + results[0].status);
+    }
+}
+
+/**
+ * Instantiate or upgrade the given chaincode with the given endorsement policy.
+ * @param {object} chaincode The chaincode object from the configuration file.
+ * @param {object} endorsement_policy The endorsement policy object from the configuration file.
+ * @param {boolean} upgrade Indicates whether the call is an upgrade or a new instantiation.
+ * @async
+ */
+async function instantiateLegacy(chaincode, endorsement_policy, upgrade){
+
+    Client.setConfigSetting('request-timeout', 600000);
 
     let channel = testUtil.getChannel(chaincode.channel);
     if(channel === null) {
@@ -323,7 +506,6 @@ async function instantiateChaincode(chaincode, endorsement_policy, upgrade){
         }
     }
 
-    // an event listener can only register with a peer in its own org
     data = fs.readFileSync(commUtils.resolvePath(ORGS[userOrg][eventPeer].tls_cacerts));
     let eh = client.newEventHub();
     eh.setPeerAddr(
@@ -342,7 +524,6 @@ async function instantiateChaincode(chaincode, endorsement_policy, upgrade){
         // organizations
         await channel.initialize();
 
-
         let res = await channel.queryInstantiatedChaincodes();
         let found = false;
         for (let i = 0; i < res.chaincodes.length; i++) {
@@ -357,16 +538,15 @@ async function instantiateChaincode(chaincode, endorsement_policy, upgrade){
         if (found) {
             return;
         }
-
         let results;
         // the v1 chaincode has Init() method that expects a transient map
         if (upgrade) {
-            let request = buildChaincodeProposal(client, the_user, chaincode, upgrade, transientMap, endorsement_policy);
+            let request = buildChaincodeProposal(client, chaincode, upgrade, transientMap, endorsement_policy);
             tx_id = request.txId;
 
             results = await channel.sendUpgradeProposal(request);
         } else {
-            let request = buildChaincodeProposal(client, the_user, chaincode, upgrade, transientMap, endorsement_policy);
+            let request = buildChaincodeProposal(client, chaincode, upgrade, transientMap, endorsement_policy);
             tx_id = request.txId;
             results = await channel.sendInstantiateProposal(request);
         }
@@ -377,11 +557,11 @@ async function instantiateChaincode(chaincode, endorsement_policy, upgrade){
         let all_good = true;
         let instantiated = false;
         for(let i in proposalResponses) {
-            //commLogger.info('instantiateChaincode responses: i=' + i + ' ' + JSON.stringify(proposalResponses[i]));
+            commLogger.debug('instantiateChaincode responses: i=' + i + ' ' + JSON.stringify(proposalResponses[i]));
             let one_good = false;
             if (proposalResponses[i].response && proposalResponses[i].response.status === 200) {
                 one_good = true;
-            /*} else if (proposalResponses && proposalResponses[i] && proposalResponses[i].code === 2){
+                /*} else if (proposalResponses && proposalResponses[i] && proposalResponses[i].code === 2){
                 if (proposalResponses[i].details && proposalResponses[i].details.indexOf('exists') !== -1) {
                     one_good = true;
                     instantiated = true;
@@ -443,11 +623,30 @@ async function instantiateChaincode(chaincode, endorsement_policy, upgrade){
             throw new Error('Failed to order the ' + type + 'transaction. Error code: ' + response.status);
         }
     } finally {
-        disconnect(eventhubs);
+        for(let key in eventhubs) {
+            const eventhub = eventhubs[key];
+            if (eventhub && eventhub.isconnected()) {
+                eventhub.disconnect();
+            }
+        }
     }
 }
 
-module.exports.instantiateChaincode = instantiateChaincode;
+/**
+ * Instantiate or upgrade the given chaincode with the given endorsement policy.
+ * @param {object} chaincode The chaincode object from the configuration file.
+ * @param {object} endorsement_policy The endorsement policy object from the configuration file.
+ * @param {boolean} upgrade Indicates whether the call is an upgrade or a new instantiation.
+ * @async
+ */
+async function instantiateChaincode(chaincode, endorsement_policy, upgrade){
+
+    if (isLegacy) {
+        await instantiateLegacy(chaincode, endorsement_policy, upgrade);
+    } else {
+        await instantiate(chaincode, endorsement_policy, upgrade);
+    }
+}
 
 /**
  * Get the peers of a given organization.
@@ -474,7 +673,6 @@ function getOrgPeers(orgName) {
  * @param {Integer} clientIdx the client index
  * @param {object} txModeFile The file information for reading or writing.
  * @return {Promise<object>} The created Fabric context.
- * @async
  */
 async function getcontext(channelConfig, clientIdx, txModeFile) {
     clientIndex = clientIdx;
@@ -491,6 +689,15 @@ async function getcontext(channelConfig, clientIdx, txModeFile) {
     let orgName = ORGS[userOrg].name;
     const cryptoSuite = Client.newCryptoSuite();
     const eventhubs = [];
+
+    // Conditional action on TLS enablement
+    if(ORGS[userOrg].ca.url.toString().startsWith('https')){
+        const fabricCAEndpoint = ORGS[userOrg].ca.url;
+        const caName = ORGS[userOrg].ca.name;
+        const tlsInfo = await tlsEnroll(fabricCAEndpoint, caName);
+        client.setTlsClientCertAndKey(tlsInfo.certificate, tlsInfo.key);
+    }
+
     cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: testUtil.storePathForOrg(orgName)}));
     client.setCryptoSuite(cryptoSuite);
 
@@ -509,14 +716,12 @@ async function getcontext(channelConfig, clientIdx, txModeFile) {
     );
 
     orgName = ORGS[userOrg].name;
-    let store = await Client.newDefaultKeyValueStore({path: testUtil.storePathForOrg(orgName)});
-    if (store) {
-        client.setStateStore(store);
-    }
 
+    const store = await Client.newDefaultKeyValueStore({path: testUtil.storePathForOrg(orgName)});
+    client.setStateStore(store);
     the_user = await testUtil.getSubmitter(client, true, userOrg);
 
-    // set up the channel to use assign peers based on the client index
+    // set up the channel to use each org's random peer for
     // both requests and events
     for(let i in channelConfig.organizations) {
         let org   = channelConfig.organizations[i];
@@ -539,7 +744,7 @@ async function getcontext(channelConfig, clientIdx, txModeFile) {
         channel.addPeer(peer);
 
         // an event listener can only register with the peer in its own org
-        if(org === userOrg) {
+        if (isLegacy){
             let eh = client.newEventHub();
             eh.setPeerAddr(
                 peerInfo.events,
@@ -553,6 +758,11 @@ async function getcontext(channelConfig, clientIdx, txModeFile) {
                 }
             );
             eventhubs.push(eh);
+        } else {
+            if(org === userOrg) {
+                let eh = channel.newChannelEventHub(peer);
+                eventhubs.push(eh);
+            }
         }
     }
 
@@ -562,7 +772,6 @@ async function getcontext(channelConfig, clientIdx, txModeFile) {
     });
 
     await channel.initialize();
-
     return {
         org: userOrg,
         client: client,
@@ -571,7 +780,7 @@ async function getcontext(channelConfig, clientIdx, txModeFile) {
         eventhubs: eventhubs
     };
 }
-module.exports.getcontext = getcontext;
+
 
 /**
  * Disconnect the event hubs.
@@ -579,7 +788,6 @@ module.exports.getcontext = getcontext;
  * @async
  */
 async function releasecontext(context) {
-
     if(context.hasOwnProperty('eventhubs')){
         for(let key in context.eventhubs) {
             const eventhub = context.eventhubs[key];
@@ -590,7 +798,6 @@ async function releasecontext(context) {
         context.eventhubs = [];
     }
 }
-module.exports.releasecontext = releasecontext;
 
 /**
  * Write signed proposal to file.
@@ -846,7 +1053,7 @@ async function invokebycontext(context, id, version, args, timeout){
         const proposal = proposalResponseObject[1];
 
         let allGood = true;
-        for(let i in proposalResponses) {
+        for(const i in proposalResponses) {
             let one_good = false;
             let proposal_response = proposalResponses[i];
             if( proposal_response.response && proposal_response.response.status === 200) {
@@ -903,8 +1110,6 @@ async function invokebycontext(context, id, version, args, timeout){
     return invokeStatus;
 }
 
-module.exports.invokebycontext = invokebycontext;
-
 /**
  * Submit a query to the given chaincode with the specified options.
  * @param {object} context The Fabric context.
@@ -933,44 +1138,165 @@ async function querybycontext(context, id, version, name, fcn) {
         context.engine.submitCallback(1);
     }
 
-    let responses = await channel.queryByChaincode(request);
-    if (responses.length === 0) {
-        throw new Error('No query responses');
-    }
-
-    const value = responses[0];
-    if (value instanceof Error) {
-        throw value;
-    }
-
-    for (let i = 1; i < responses.length; i++) {
-        if (responses[i].length !== value.length || !responses[i].every(function (v, idx) {
-            return v === value[idx];
-        })) {
-            throw new Error('Conflicting query responses');
+    const responses = await channel.queryByChaincode(request);
+    if(responses.length > 0) {
+        const value = responses[0];
+        if(value instanceof Error) {
+            throw value;
         }
+
+        for(let i = 1 ; i < responses.length ; i++) {
+            if(responses[i].length !== value.length || !responses[i].every(function(v,idx){
+                return v === value[idx]; })) {
+                throw new Error('conflicting query responses');
+            }
+        }
+
+        txStatus.SetStatusSuccess();
+        txStatus.SetResult(responses[0]);
+        return Promise.resolve(txStatus);
     }
-
-    txStatus.SetStatusSuccess();
-    txStatus.SetResult(responses[0]);
-    return txStatus;
+    else {
+        throw new Error('no query responses');
+    }
 }
-
-module.exports.querybycontext = querybycontext;
 
 /**
- * Read all file contents in the given directory.
- * @param {string} dir The path of the directory.
- * @return {object[]} The collection of raw file contents.
+ * Utility method to recursively resolve the tlsCACerts paths listed within the passed json object
+ * @param {Object} jsonObj a json object defining a common connection profile
  */
-function readAllFiles(dir) {
-    const files = fs.readdirSync(dir);
-    const certs = [];
-    files.forEach((file_name) => {
-        let file_path = path.join(dir,file_name);
-        let data = fs.readFileSync(file_path);
-        certs.push(data);
-    });
-    return certs;
+function resolveTlsCACerts(jsonObj) {
+    if( typeof jsonObj === 'object' ) {
+        Object.entries(jsonObj).forEach(([key, value]) => {
+            // key is either an array index or object key
+            if(key.toString() === 'tlsCACerts'){
+                value.path = commUtils.resolvePath(value.path);
+                return;
+            } else {
+                resolveTlsCACerts(value);
+            }
+        });
+    } else {
+        return;
+    }
 }
-module.exports.readAllFiles = readAllFiles;
+
+/**
+ * Create and return an InMemoryWallet for a user in the org
+ * @param {String} org the org
+ * @returns {InMemoryWallet} an InMemoryWallet
+ */
+async function createInMemoryWallet(org) {
+    const orgConfig = ORGS[org];
+    const cert = fs.readFileSync(commUtils.resolvePath(orgConfig.user.cert)).toString();
+    const key = fs.readFileSync(commUtils.resolvePath(orgConfig.user.key)).toString();
+    const inMemoryWallet = new InMemoryWallet();
+
+    await inMemoryWallet.import(orgConfig.user.name, X509WalletMixin.createIdentity(orgConfig.mspid, cert, key));
+
+    if (ORGS.orderer.url.startsWith('grpcs')) {
+        const fabricCAEndpoint = orgConfig.ca.url;
+        const caName = orgConfig.ca.name;
+        const tlsInfo = await tlsEnroll(fabricCAEndpoint, caName);
+        await inMemoryWallet.import('tlsId', X509WalletMixin.createIdentity(org, tlsInfo.certificate, tlsInfo.key));
+    }
+
+    return inMemoryWallet;
+}
+
+/**
+ * Retrieve the Gateway object for use in subsequent network invocation commands
+ * @param {String} ccpPath the path to the common connection profile for the network
+ * @param {String} opts the name of the organisation to use
+ * @returns {Network} the Fabric Network object
+ */
+async function retrieveGateway(ccpPath, opts) {
+    const gateway = new Gateway();
+
+    ccpPath = commUtils.resolvePath(ccpPath);
+    let ccp = JSON.parse(fs.readFileSync(ccpPath).toString());
+
+    // need to resolve tlsCACerts paths for current system
+    resolveTlsCACerts(ccp);
+
+    await gateway.connect(ccp, opts);
+    return gateway;
+}
+
+/**
+ * Submit a transaction to the given chaincode with the specified options.
+ * @param {object} context The Fabric context.
+ * @param {string[]} args The arguments to pass to the chaincode.
+ * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
+ */
+async function submitTransaction(context, args){
+    const TxErrorEnum = require('./constant.js').TxErrorEnum;
+    const txIdObject = context.gateway.client.newTransactionID();
+    const txId = txIdObject.getTransactionID().toString();
+
+    // timestamps are recorded for every phase regardless of success/failure
+    let invokeStatus = new TxStatus(txId);
+    let errFlag = TxErrorEnum.NoError;
+    invokeStatus.SetFlag(errFlag);
+
+    if(context.engine) {
+        context.engine.submitCallback(1);
+    }
+
+    try {
+        const result = await context.contract.submitTransaction(...args);
+        invokeStatus.result = result;
+        invokeStatus.verified = true;
+        invokeStatus.SetStatusSuccess();
+        return invokeStatus;
+    } catch (err) {
+        invokeStatus.SetStatusFail();
+        invokeStatus.result = [];
+        return Promise.resolve(invokeStatus);
+    }
+}
+
+/**
+ * Executes a the given chaincode function with the specified options; this will not append to the ledger
+ * @param {object} context The Fabric context.
+ * @param {string[]} args The arguments to pass to the chaincode.
+ * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
+ */
+async function executeTransaction(context, args){
+    const TxErrorEnum = require('./constant.js').TxErrorEnum;
+    const txIdObject = context.gateway.client.newTransactionID();
+    const txId = txIdObject.getTransactionID().toString();
+
+    // timestamps are recorded for every phase regardless of success/failure
+    let invokeStatus = new TxStatus(txId);
+    let errFlag = TxErrorEnum.NoError;
+    invokeStatus.SetFlag(errFlag);
+
+    if(context.engine) {
+        context.engine.submitCallback(1);
+    }
+
+    try {
+        const result = await context.contract.executeTransaction(...args);
+        invokeStatus.result = result;
+        invokeStatus.SetStatusSuccess();
+        return invokeStatus;
+    } catch (err) {
+        invokeStatus.SetStatusFail();
+        invokeStatus.result = [];
+        return Promise.resolve(invokeStatus);
+    }
+}
+
+module.exports.init = init;
+module.exports.installChaincode = installChaincode;
+module.exports.instantiateChaincode = instantiateChaincode;
+module.exports.getcontext = getcontext;
+module.exports.releasecontext = releasecontext;
+module.exports.invokebycontext = invokebycontext;
+module.exports.querybycontext = querybycontext;
+module.exports.tlsEnroll = tlsEnroll;
+module.exports.createInMemoryWallet = createInMemoryWallet;
+module.exports.retrieveGateway = retrieveGateway;
+module.exports.submitTransaction = submitTransaction;
+module.exports.executeTransaction = executeTransaction;

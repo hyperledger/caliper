@@ -57,7 +57,7 @@ function main() {
     let absNetworkFile;
     if(typeof networkFile === 'undefined') {
         try{
-            absNetworkFile = Util.resolvePath('network/fabric-v1.1/2org1peergoleveldb/fabric-node-tls.json');
+            absNetworkFile = Util.resolvePath('network/fabric-v1.1/2org1peergoleveldb/fabric-go-tls.json');
         }
         catch(err) {
             logger.error('failed to find blockchain.config in ' + absConfigFile);

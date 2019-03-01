@@ -30,7 +30,7 @@
         },
         "ca": {
           "url": "http://localhost:7054",
-          "name": "ca-org1"
+          "name": "ca.org1.mydomain.com"
         },
         "peer1": {
           "requests": "grpc://localhost:7051",
@@ -55,7 +55,7 @@
         },
         "ca": {
           "url": "http://localhost:8054",
-          "name": "ca-org6"
+          "name": "ca.org6.mydomain.com"
         },
         "peer1": {
           "requests": "grpc://localhost:8051",
