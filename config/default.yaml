@@ -4,6 +4,8 @@ core:
     log-file:
         debug: log/caliper.log
         info: console
+    skipStartScript: false
+    skipEndScript: false
 fabricCcp:
     sleepAfter:
         createChannel: 5000
@@ -22,3 +24,5 @@ fabricCcp:
     countQueryAsLoad: true
 fabric:
 sawtooth:
+
+
