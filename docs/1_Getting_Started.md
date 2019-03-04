@@ -44,6 +44,7 @@ Run `npm install` in Caliper folder to install dependencies locally, the relevan
 - [Burrow]({{ site.baseurl }}{% link docs/Burrow_Configuration.md %})
 - [Composer]({{ site.baseurl }}{% link docs/Composer_Configuration.md %})
 - [Fabric]({{ site.baseurl }}{% link docs/Fabric_Configuration.md %})
+- [Fabric CCP]({{ site.baseurl }}{% link docs/Fabric_Ccp_Configuration.md %})
 - [Iroha]({{ site.baseurl }}{% link docs/Iroha_Configuration.md %})
 - [Sawtooth]({{ site.baseurl }}{% link docs/Sawtooth_Configuration.md %})
 
