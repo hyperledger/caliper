@@ -65,7 +65,7 @@ function createReport() {
         report.addMetadata('Test Rounds', ' ');
     }
 
-    let sut = require(absNetworkFile);
+    let sut = Util.parseYaml(absNetworkFile);
     if(sut.hasOwnProperty('info')) {
         for(let key in sut.info) {
             report.addSUTInfo(key, sut.info[key]);
@@ -332,6 +332,7 @@ module.exports.run = async function(configFile, networkFile) {
     //let configObject = require(absConfigFile);
     let configObject = Util.parseYaml(absConfigFile);
     let networkObject = Util.parseYaml(absNetworkFile);
+
     let skipStart = config.getConfigSetting('core:skipStartScript', false);
     let skipEnd = config.getConfigSetting('core:skipEndScript', false);
     skipStart = skipStart === true || skipStart === 'true';

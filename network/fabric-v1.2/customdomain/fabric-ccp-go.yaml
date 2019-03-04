@@ -1,0 +1,162 @@
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+name: Fabric
+version: "1.0"
+mutual-tls: false
+
+caliper:
+  blockchain: fabric-ccp
+  command:
+    start: docker-compose -f network/fabric-v1.2/customdomain/docker-compose.yaml up -d;sleep 3s
+    end: docker-compose -f network/fabric-v1.2/customdomain/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q);rm -rf /tmp/hfc-*
+
+info:
+  Version: 1.2.0
+  Size: 2 Orgs with 2 Peers
+  Orderer: Solo
+  Distribution: Single Host
+  StateDB: GoLevelDB
+
+clients:
+  client0.org1.mydomain.com:
+    client:
+      organization: Org1
+      credentialStore:
+        path: /tmp/hfc-kvs/org1
+        cryptoStore:
+          path: /tmp/hfc-cvs/org1
+      clientPrivateKey:
+        path: network/fabric-v1.2/customdomain/crypto-config/peerOrganizations/org1.mydomain.com/users/User1@org1.mydomain.com/msp/keystore/key.pem
+      clientSignedCert:
+        path: network/fabric-v1.2/customdomain/crypto-config/peerOrganizations/org1.mydomain.com/users/User1@org1.mydomain.com/msp/signcerts/User1@org1.mydomain.com-cert.pem
+
+  client0.org6.mydomain.com:
+    client:
+      organization: Org6
+      credentialStore:
+        path: /tmp/hfc-kvs/org6
+        cryptoStore:
+          path: /tmp/hfc-cvs/org6
+      clientPrivateKey:
+        path: network/fabric-v1.2/customdomain/crypto-config/peerOrganizations/org6.mydomain.com/users/User1@org6.mydomain.com/msp/keystore/key.pem
+      clientSignedCert:
+        path: network/fabric-v1.2/customdomain/crypto-config/peerOrganizations/org6.mydomain.com/users/User1@org6.mydomain.com/msp/signcerts/User1@org6.mydomain.com-cert.pem
+
+
+channels:
+  mychannel:
+    configBinary: network/fabric-v1.2/customdomain/mychannel.tx
+    created: false
+    orderers:
+    - orderer.mydomain.com
+    peers:
+      peer0.org1.mydomain.com:
+        eventSource: true
+      peer1.org1.mydomain.com:
+        eventSource: true
+      peer0.org6.mydomain.com:
+        eventSource: true
+      peer1.org6.mydomain.com:
+        eventSource: true
+
+    chaincodes:
+    - id: marbles
+      version: v0
+      language: golang
+      path: contract/fabric/marbles/go
+      metadataPath: src/contract/fabric/marbles/go/metadata
+    - id: drm
+      version: v0
+      language: golang
+      path: contract/fabric/drm
+    - id: simple
+      version: v0
+      language: golang
+      path: contract/fabric/simple/go
+    - id: smallbank
+      version: v0
+      language: golang
+      path: contract/fabric/smallbank
+
+organizations:
+  Org1:
+    mspid: org1MSP
+    peers:
+    - peer0.org1.mydomain.com
+    - peer1.org1.mydomain.com
+    certificateAuthorities:
+    - ca.org1.mydomain.com
+    adminPrivateKey:
+      path: network/fabric-v1.2/customdomain/crypto-config/peerOrganizations/org1.mydomain.com/users/Admin@org1.mydomain.com/msp/keystore/key.pem
+    signedCert:
+      path: network/fabric-v1.2/customdomain/crypto-config/peerOrganizations/org1.mydomain.com/users/Admin@org1.mydomain.com/msp/signcerts/Admin@org1.mydomain.com-cert.pem
+
+  Org6:
+    mspid: org6MSP
+    peers:
+    - peer0.org6.mydomain.com
+    - peer1.org6.mydomain.com
+    certificateAuthorities:
+    - ca.org6.mydomain.com
+    adminPrivateKey:
+      path: network/fabric-v1.2/customdomain/crypto-config/peerOrganizations/org6.mydomain.com/users/Admin@org6.mydomain.com/msp/keystore/key.pem
+    signedCert:
+      path: network/fabric-v1.2/customdomain/crypto-config/peerOrganizations/org6.mydomain.com/users/Admin@org6.mydomain.com/msp/signcerts/Admin@org6.mydomain.com-cert.pem
+
+orderers:
+  orderer.mydomain.com:
+    url: grpc://localhost:7050
+    grpcOptions:
+      ssl-target-name-override: orderer.mydomain.com
+
+peers:
+  peer0.org1.mydomain.com:
+    url: grpc://localhost:7051
+    grpcOptions:
+      ssl-target-name-override: peer0.org1.mydomain.com
+      grpc.keepalive_time_ms: 600000
+
+  peer1.org1.mydomain.com:
+    url: grpc://localhost:7057
+    grpcOptions:
+      ssl-target-name-override: peer1.org1.mydomain.com
+      grpc.keepalive_time_ms: 600000
+
+  peer0.org6.mydomain.com:
+    url: grpc://localhost:8051
+    grpcOptions:
+      ssl-target-name-override: peer0.org6.mydomain.com
+      grpc.keepalive_time_ms: 600000
+
+  peer1.org6.mydomain.com:
+    url: grpc://localhost:8057
+    grpcOptions:
+      ssl-target-name-override: peer1.org6.mydomain.com
+      grpc.keepalive_time_ms: 600000
+
+certificateAuthorities:
+  ca.org1.mydomain.com:
+    url: http://localhost:7054
+    httpOptions:
+      verify: false
+    registrar:
+    - enrollId: admin
+      enrollSecret: adminpw
+
+  ca.org6.mydomain.com:
+    url: http://localhost:8054
+    httpOptions:
+      verify: false
+    registrar:
+    - enrollId: admin
+      enrollSecret: adminpw

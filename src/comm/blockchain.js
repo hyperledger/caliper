@@ -7,6 +7,8 @@
 
 'use strict';
 
+const util = require('./util.js');
+
 /**
  * BlockChain class, define operations to interact with the blockchain system under test
  */
@@ -16,13 +18,18 @@ class Blockchain {
      * @param {String} configPath path of the blockchain configuration file
      */
     constructor(configPath) {
-        let config = require(configPath);
+        let config = util.parseYaml(configPath);
 
         if(config.hasOwnProperty('caliper') && config.caliper.hasOwnProperty('blockchain')){
             if(config.caliper.blockchain === 'fabric') {
                 let fabric = require('../adapters/fabric/fabric.js');
                 this.bcType = 'fabric';
                 this.bcObj = new fabric(configPath);
+            }
+            else if(config.caliper.blockchain ==='fabric-ccp') {
+                let Fabric = require('../adapters/fabric-ccp/fabric.js');
+                this.bcType = 'fabric-ccp';
+                this.bcObj = new Fabric(configPath);
             }
             else if(config.caliper.blockchain ==='sawtooth') {
                 let sawtooth = require('../adapters/sawtooth/sawtooth.js');

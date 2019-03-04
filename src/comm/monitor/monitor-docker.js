@@ -232,8 +232,22 @@ class MonitorDocker extends MonitorInterface {
                             }
                             self.stats[id].netIO_rx.push(ioRx);
                             self.stats[id].netIO_tx.push(ioTx);
-                            self.stats[id].blockIO_rx.push(0);
-                            self.stats[id].blockIO_wx.push(0);
+                            let diskR = 0, diskW = 0;
+                            if(stat.blkio_stats && stat.blkio_stats.hasOwnProperty('io_service_bytes_recursive')){
+                                //console.log(stat.blkio_stats.io_service_bytes_recursive);
+                                let temp = stat.blkio_stats.io_service_bytes_recursive;
+                                for(let dIo =0; dIo<temp.length; dIo++){
+                                    if(temp[dIo].op.toLowerCase() === 'read'){
+                                        diskR +=temp[dIo].value;
+                                    }
+                                    if(temp[dIo].op.toLowerCase() === 'write'){
+                                        diskW += temp[dIo].value;
+                                    }
+                                }
+                            }
+                            //console.log(diskR+'  W: '+diskW);
+                            self.stats[id].blockIO_rx.push(diskR);
+                            self.stats[id].blockIO_wx.push(diskW);
                         }
                     }
                     self.isReading = false;

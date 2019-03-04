@@ -22,17 +22,29 @@ let bc, contx;
 module.exports.init = function(blockchain, context, args) {
     bc = blockchain;
     contx = context;
+
     return Promise.resolve();
 };
 
 module.exports.run = function() {
     txIndex++;
-    // TODO: until Fabric query is implemented, use invoke
-    return bc.invokeSmartContract(contx, 'marbles', 'v1',
-        {
+    let marbleOwner = owners[txIndex % owners.length];
+    let args;
+
+    if (bc.bcType === 'fabric-ccp') {
+        args = {
+            chaincodeFunction: 'queryMarblesByOwner',
+            chaincodeArguments: [marbleOwner]
+        };
+    } else {
+        args = {
             verb: 'queryMarblesByOwner',
-            owner: owners[txIndex % owners.length]
-        }, 120);
+            owner: marbleOwner
+        };
+    }
+
+    // TODO: until Fabric query is implemented, use invoke
+    return bc.invokeSmartContract(contx, 'marbles', 'v1', args, 120);
 };
 
 module.exports.end = function() {

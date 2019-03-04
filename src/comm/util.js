@@ -258,6 +258,108 @@ class Util {
         }
         return config;
     }
+
+    /**
+     * Checks whether the given object is defined and not null.
+     * @param {object} object The object to check.
+     * @return {boolean} True, if the object is defined and not null. Otherwise false.
+     */
+    static checkDefined(object) {
+        return object !== 'undefined' && object !== null;
+    }
+
+    /**
+     * Throws an error if the object is undefined or null.
+     * @param {object} object The object to check.
+     * @param {string} msg Optional error message to throw in case of unsuccessful check.
+     */
+    static assertDefined(object, msg) {
+        if (object === 'undefined' || object === null) {
+            throw new Error(msg || 'Object is undefined or null!');
+        }
+    }
+
+    /**
+     * Checks whether the property exists on the object and it isn't undefined or null.
+     * @param {object} object The object to check for the property.
+     * @param {string} propertyName The name of the property to check.
+     * @return {boolean} True, if the property exists and it's defined and not null. Otherwise false.
+     */
+    static checkProperty(object, propertyName) {
+        return object.hasOwnProperty(propertyName) && object[propertyName] !== undefined &&
+            object[propertyName] !== null;
+    }
+
+    /**
+     * Throws an error if the property doesn't exists on the object or it's undefined or null.
+     * @param {object} object The object to check for the property.
+     * @param {string} objectName Optional error message to throw in case of an unsuccessful check.
+     * @param {string} propertyName The name of the property to check.
+     */
+    static assertProperty(object, objectName, propertyName) {
+        if (!object.hasOwnProperty(propertyName) || object[propertyName] === undefined ||
+            object[propertyName] === null) {
+            throw new Error(`Property '${propertyName}' of ${objectName || 'object'} is missing, undefined or null`);
+        }
+    }
+
+    /**
+     * Checks whether any of the given properties exists and is defined and is not null on the given object.
+     * @param {object} object The object to check for the properties.
+     * @param {string[]} propertyNames The list of property names to check.
+     * @return {boolean} True if any of the given properties exists on the object and is defined and is not null. Otherwise false.
+     */
+    static checkAnyProperty(object, ...propertyNames) {
+        for (let property of propertyNames) {
+            if (Util.checkProperty(object, property)) {
+                return true; // found an existing property with a value
+            }
+            // else ignore it, maybe an other property will exist
+        }
+
+        // none of them exists
+        return false;
+    }
+
+    /**
+     * Throws an error if none of the given properties exists and is defined and is not null on the given object.
+     * @param {object} object The object to check for the properties.
+     * @param {string} objectName The name of the object
+     * @param {string[]} propertyNames The list of property names to check.
+     */
+    static assertAnyProperty(object, objectName, ...propertyNames) {
+        if (!Util.checkAnyProperty(object, ...propertyNames)) {
+            throw new Error(`None of the properties of ${objectName || 'object'} exists or has values: ${propertyNames.toString()}`);
+        }
+    }
+
+    /**
+     * Checks whether all of the given properties exist and are defined and are not null on the given object.
+     * @param {object} object The object to check for the properties.
+     * @param {string[]} propertyNames The list of property names to check.
+     * @return {boolean} True if all of the given properties exist on the object and are defined and are not null. Otherwise false.
+     */
+    static checkAllProperties(object, ...propertyNames) {
+        for (let property of propertyNames) {
+            if (!Util.checkProperty(object, property)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Throws an error if  any of the given properties exists and is defined and is not null on the given object.
+     * @param {object} object The object to check for the properties.
+     * @param {string} objectName The name of the object for the error message.
+     * @param {string[]} propertyNames The list of property names to check.
+     */
+    static assertAllProperties(object, objectName, ...propertyNames) {
+        for (let property of propertyNames) {
+            Util.assertProperty(object, objectName, property);
+        }
+    }
 }
 
 module.exports = Util;

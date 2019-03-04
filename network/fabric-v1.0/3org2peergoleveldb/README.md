@@ -22,7 +22,7 @@ The following network configuration files are available for the different platfo
 
 
 ### Fabric
-* `fabric-go(-tls).json` (__golang__ implementations) 
+* `fabric(-ccp)-go(-tls)` (__golang__ implementations) 
   * `marbles` __without__ CouchDB index metadata and rich query support.
   * `drm`
   * `simple`
