@@ -160,11 +160,29 @@ module.exports.init = function(blockchain, context, args) {
     txnPerBatch = args.txnPerBatch;
     bc = blockchain;
     contx = context;
+
     return Promise.resolve();
 };
 
 module.exports.run = function() {
     let args = generateWorkload();
+
+    // rearrange arguments for the Fabric adapter
+    if (bc.bcType === 'fabric-ccp') {
+        let ccpArgs = [];
+        for (let arg of args) {
+            let functionArgs = Object.values(arg);
+            functionArgs.pop(); // remove the transaction_type value from the end
+
+            ccpArgs.push({
+                chaincodeFunction: arg.transaction_type,
+                chaincodeArguments: functionArgs,
+            });
+        }
+
+        args = ccpArgs;
+    }
+
     return bc.invokeSmartContract(contx, 'smallbank', '1.0', args, 30);
 };
 

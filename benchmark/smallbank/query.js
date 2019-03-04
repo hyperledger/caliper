@@ -22,7 +22,16 @@ module.exports.init = function(blockchain, context, args) {
 
 module.exports.run = function() {
     let acc_num  = accounts[Math.floor(Math.random()*(accounts.length))];
-    return bc.queryState(contx, 'smallbank', 'v0', acc_num);
+    if (bc.bcType === 'fabric-ccp') {
+        let args = {
+            chaincodeFunction: 'query',
+            chaincodeArguments: [acc_num],
+        };
+        return bc.bcObj.querySmartContract(contx, 'smallbank', '1.0', args, 3);
+    } else {
+        // NOTE: the query API is inconsistent with the invoke API
+        return bc.queryState(contx, 'smallbank', '1.0', acc_num);
+    }
 };
 
 module.exports.end = function() {

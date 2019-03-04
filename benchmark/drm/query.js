@@ -12,17 +12,29 @@ module.exports.info  = 'querying digital items';
 
 let bc, contx;
 let itemIDs;
+
 module.exports.init = function(blockchain, context, args) {
     const publish = require('./publish.js');
     bc      = blockchain;
     contx   = context;
     itemIDs = publish.ids;
+
     return Promise.resolve();
 };
 
 module.exports.run = function() {
     const id  = itemIDs[Math.floor(Math.random()*(itemIDs.length))];
-    return bc.queryState(contx, 'drm', 'v0', id);
+    if (bc.bcType === 'fabric-ccp') {
+        let args = {
+            chaincodeFunction: 'query',
+            chaincodeArguments: [id],
+        };
+
+        return bc.bcObj.querySmartContract(contx, args, 12 * 1000);
+    } else {
+        // NOTE: query API is not consistent with invoke API
+        return bc.queryState(contx, 'drm', 'v0', id);
+    }
 };
 
 module.exports.end = function() {

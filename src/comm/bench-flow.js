@@ -64,7 +64,7 @@ function createReport() {
         report.addMetadata('Test Rounds', ' ');
     }
 
-    let sut = require(absNetworkFile);
+    let sut = Util.parseYaml(absNetworkFile);
     if(sut.hasOwnProperty('info')) {
         for(let key in sut.info) {
             report.addSUTInfo(key, sut.info[key]);
@@ -330,7 +330,7 @@ module.exports.run = async function(configFile, networkFile) {
 
     //let configObject = require(absConfigFile);
     let configObject = Util.parseYaml(absConfigFile);
-    let networkObject = require(absNetworkFile);
+    let networkObject = Util.parseYaml(absNetworkFile);
 
     try {
         if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('command') && networkObject.caliper.command.hasOwnProperty('start')) {

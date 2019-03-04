@@ -31,7 +31,8 @@ class TxStatus {
             result: null,
             verified: false,   // if false, we cannot be sure that the final Tx status is accurate
             flags: 0,    // the blockchain specified flag
-            error_messages: [] // the blockchain specified error messages
+            error_messages: [], // the blockchain specified error messages
+            custom_data: new Map()
         };
     }
 
@@ -70,10 +71,11 @@ class TxStatus {
     /**
      * Set the tx's status to 'success'
      * The 'time_final' will also be recorded
+     * @param {number} time The epoch time to record for the status change.
      */
-    SetStatusSuccess() {
+    SetStatusSuccess(time) {
         this.status.status = 'success';
-        this.status.time_final = Date.now();
+        this.status.time_final = time || Date.now();
     }
 
     /**
@@ -180,7 +182,7 @@ class TxStatus {
      * @param {any} value value
      */
     Set(key, value) {
-        this.status[key] = value;
+        this.status.custom_data.set(key, value);
     }
 
     /**
@@ -189,7 +191,15 @@ class TxStatus {
      * @return {any} value
      */
     Get(key) {
-        return this.status[key];
+        return this.status.custom_data.get(key);
+    }
+
+    /**
+     * Gets the Map of custom date recorded for the transaction.
+     * @return {Map<string, object>} The map of custom data.
+     */
+    GetCustomData() {
+        return this.status.custom_data;
     }
 }
 
