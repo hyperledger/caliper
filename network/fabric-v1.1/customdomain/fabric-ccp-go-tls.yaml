@@ -91,7 +91,7 @@ organizations:
     - peer0.org1.mydomain.com
     - peer1.org1.mydomain.com
     certificateAuthorities:
-    - ca-org1
+    - ca.org1.mydomain.com
     adminPrivateKey:
       path: network/fabric-v1.1/customdomain/crypto-config/peerOrganizations/org1.mydomain.com/users/Admin@org1.mydomain.com/msp/keystore/key.pem
     signedCert:
@@ -103,7 +103,7 @@ organizations:
     - peer0.org6.mydomain.com
     - peer1.org6.mydomain.com
     certificateAuthorities:
-    - ca-org6
+    - ca.org6.mydomain.com
     adminPrivateKey:
       path: network/fabric-v1.1/customdomain/crypto-config/peerOrganizations/org6.mydomain.com/users/Admin@org6.mydomain.com/msp/keystore/key.pem
     signedCert:
@@ -151,7 +151,7 @@ peers:
       path: network/fabric-v1.1/customdomain/crypto-config/peerOrganizations/org6.mydomain.com/peers/peer1.org6.mydomain.com/msp/tlscacerts/tlsca.org6.mydomain.com-cert.pem
 
 certificateAuthorities:
-  ca-org1:
+  ca.org1.mydomain.com:
     url: https://localhost:7054
     httpOptions:
       verify: false
@@ -161,7 +161,7 @@ certificateAuthorities:
     - enrollId: admin
       enrollSecret: adminpw
 
-  ca-org6:
+  ca.org6.mydomain.com:
     url: https://localhost:8054
     httpOptions:
       verify: false
