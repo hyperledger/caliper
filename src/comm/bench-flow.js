@@ -221,7 +221,7 @@ async function defaultTest(args, clientArgs, final) {
             trim: args.trim ? args.trim : 0,
             args: args.arguments,
             cb  : args.callback,
-            config: configPath,
+            config: configPath
         };
         // condition for time based or number based test driving
         if (args.txNumber) {
