@@ -24,19 +24,19 @@ if [ "${BENCHMARK}" == "composer" ]; then
     # Run version
     if [ "${VERSION}" == "0.19" ]; then
         npm run composer-deps
-        npm run test -- composer
+        npm run test -- -- --config=benchmark/composer/config.yaml --network=network/fabric-v1.2/dev/composer-tls.json
         exit $?
     else
         echo "Unknown version ${VERSION} for benchmark ${BENCHMARK}"
         exit  1
     fi
 elif [ "${BENCHMARK}" == "drm" ]; then
-    npm run fabric-deps
-    npm run test -- drm
+    npm run fabric-v1.1-deps
+    npm run test -- -- --config=benchmark/drm/config.yaml --network=network/fabric-v1.1/dev/fabric-go-tls.json
     exit $?
 elif [ "${BENCHMARK}" == "simple" ]; then
     npm run fabric-v1.1-deps
-    npm run test -- simple
+    npm run test -- -- --config=benchmark/simple/config-linear-rate.yaml --network=network/fabric-v1.1/dev/fabric-node-tls.json
     exit $?
 else
     echo "Unknown target benchmark ${BENCHMARK}"
