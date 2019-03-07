@@ -13,4 +13,4 @@ categories: config
 
 ## Issues
 
-Burrow integration is currently in an early phase of development so we are still to incorporate example smart contracts and chain queries. If you think you can help us out, please send a PR!
+Burrow integration is currently in an early phase of development, if you think you can help us out, please send a PR!
