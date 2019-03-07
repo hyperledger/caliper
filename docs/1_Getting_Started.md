@@ -37,7 +37,7 @@ Make sure following tools are installed
 * Docker
 * Docker-compose
 
-### Install blockchain SDKs
+### Install Blockchain SDKs
 
 Run `npm install` in Caliper folder to install dependencies locally, the relevant packages for the Hyperledger projects must be installed to use those plugins. You can find information in the pages below.
 
@@ -51,19 +51,19 @@ Run `npm install` in Caliper folder to install dependencies locally, the relevan
 ## Run Benchmark
 
 All predefined benchmarks can be found in [*benchmark*](https://github.com/hyperledger/caliper/tree/master/benchmark) folder.
-To start your first benchmark, just run this in root folder
+To start your first benchmark, just run this from the root folder:
 ```bash
-node benchmark/simple/main.js -c yourconfig.json -n yournetwork.json
+npm run bench -- -c yourconfig.json -n yournetwork.json
 ```
-* -c : specify the config file of the benchmark, if not used,  *config.json* will be used as default.
-* -n : specify the config file of the blockchain network under test. If not used, the file address must be specified in the benchmak config file.
+* -c : specify the config file of the benchmark (required).
+* -n : specify the config file of the blockchain network under test (required).
 
-Some example SUTs are provided in [*network*](https://github.com/hyperledger/caliper/tree/master/network) folder, they can be launched automatically before the test by setting the bootstrap commands in the configuration file, e.g
+Some example SUTs are provided in [*network*](https://github.com/hyperledger/caliper/tree/master/network) folder, they can be launched automatically before the test by setting the bootstrap commands in the configuration file, e.g.
 ```json
 {
   "command" : {
-    "start": "docker-compose -f network/fabric/simplenetwork/docker-compose.yaml up -d",
-    "end" : "docker-compose -f network/fabric/simplenetwork/docker-compose.yaml down;docker rm $(docker ps -aq)"
+    "start": "docker-compose -f network/fabric-v1.1/dev/docker-compose.yaml up -d",
+    "end" : "docker-compose -f network/fabric-v1.1/dev/docker-compose.yaml down;docker rm $(docker ps -aq)"
   }
 }
 ```
@@ -89,16 +89,6 @@ $ npm run list
 Available benchmarks:
 drm
 simple
-```
-
-* npm test: run a benchmark with specific config files
-
-```bash
-$ npm test -- simple -c ./benchmark/simple/config.json -n ./benchmark/simple/fabric.json
-
-> caliper@0.1.0 test /home/hurf/caliper
-> node ./scripts/test.js "simple" "-c" "./benchmark/simple/config.json" "-n" "./benchmark/simple/fabric.json"
-......
 ```
 
 ## Run Benchmark with Distributed Clients (Experimental)
