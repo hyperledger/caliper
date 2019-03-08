@@ -3,7 +3,7 @@
     "blockchain": "sawtooth",
     "command" : {
           "start": "docker-compose -f network/sawtooth/smallbank/sawtooth-smallbank-go.yaml up -d",
-          "end" : "docker-compose -f network/sawtooth/smallbank/sawtooth-smallbank-go.yaml down;docker rm $(docker ps -aq)"
+          "end" : "docker-compose -f network/sawtooth/smallbank/sawtooth-smallbank-go.yaml down;!(\"$(docker ps -aq)\") || docker rm $(docker ps -aq)"
     }
   },
   "sawtooth": {

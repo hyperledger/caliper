@@ -3,7 +3,7 @@
     "blockchain": "fabric",
     "command" : {
       "start": "docker-compose -f network/fabric-v1.4/customdomain/docker-compose-tls.yaml up -d",
-      "end" : "docker-compose -f network/fabric-v1.4/customdomain/docker-compose-tls.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
+      "end" : "docker-compose -f network/fabric-v1.4/customdomain/docker-compose-tls.yaml down;!(\"$(docker ps -aq)\") || docker rm $(docker ps -aq)"
     }
   },
   "fabric": {

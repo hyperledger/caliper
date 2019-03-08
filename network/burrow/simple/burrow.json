@@ -3,7 +3,7 @@
     "blockchain": "burrow",
     "command" : {
       "start": "docker-compose -f network/burrow/simple/docker-compose.yml up -d",
-      "end" : "docker-compose -f network/burrow/simple/docker-compose.yml down"
+      "end" : "docker-compose -f network/burrow/simple/docker-compose.yml down;!(\"$(docker ps -aq)\") || docker rm $(docker ps -aq)"
     }
   },
   "burrow": {

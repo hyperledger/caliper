@@ -3,7 +3,7 @@
     "blockchain": "fabric",
     "command" : {
       "start": "docker-compose -f network/fabric-v1.3/2org1peergoleveldb/docker-compose-tls.yaml up -d;sleep 3s",
-      "end" : "docker-compose -f network/fabric-v1.3/2org1peergoleveldb/docker-compose-tls.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
+      "end" : "docker-compose -f network/fabric-v1.3/2org1peergoleveldb/docker-compose-tls.yaml down;!(\"$(docker ps -aq)\") || docker rm $(docker ps -aq)"
     }
   },
   "fabric": {
