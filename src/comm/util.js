@@ -245,7 +245,7 @@ class Util {
      */
     static parseYaml(filenameOrFilepath) {
         if (!filenameOrFilepath) {
-            throw new Error('Util.parseYaml: Parameter is undefined');
+            throw new Error('Util.parseYaml: the name or path of a file is undefined');
         }
 
         let config ;
@@ -254,7 +254,7 @@ class Util {
         }
         catch(e) {
             //console.log(e);
-            throw new Error('failed to parse the yaml file: ${(e.stack ? e.stack : e)}');
+            throw new Error('failed to parse the yaml file(' + filenameOrFilepath + '): '+ e );
         }
         return config;
     }
