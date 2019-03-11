@@ -40,6 +40,8 @@ Then the Fabric-specific dependencies can be easily installed by running one of 
 * `npm run fabric-v1.0-deps`
 * `npm run fabric-v1.1-deps`
 * `npm run fabric-v1.2-deps`
+* `npm run fabric-v1.3-deps`
+* `npm run fabric-v1.4-deps`
 
 The above scripts install the appropriate version of the `grpc` package and the Fabric SDK packages. If you would like to install some custom versions of these, the following command can serve as a template (changing `<VERSION>` to the desired version numbers):
 
