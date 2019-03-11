@@ -155,6 +155,10 @@ class Fabric extends BlockchainInterface {
         this.randomTargetOrdererCache = new Map();
         this.defaultInvoker = Array.from(this.networkUtil.getClients())[0];
 
+        if (this.networkUtil.isInCompatibilityMode() && this.version.greaterThan('1.1.0')) {
+            throw new Error(`Fabric 1.0 compatibility mode is detected, but SDK version ${this.version.toString()} is used`);
+        }
+
         // this value is hardcoded, if it's used, that means that the provided timeouts are not sufficient
         this.configSmallestTimeout = 1000;
 
@@ -921,7 +925,7 @@ class Fabric extends BlockchainInterface {
                         if (!this.networkUtil.isInCompatibilityMode()) {
                             request.metadataPath = util.resolvePath(ccObject.metadataPath);
                         } else {
-                            throw new (`Installing ${chaincodeInfo.id}@${chaincodeInfo.version} with metadata is not supported in Fabric v1.0`);
+                            throw new Error(`Installing ${chaincodeInfo.id}@${chaincodeInfo.version} with metadata is not supported in Fabric v1.0`);
                         }
                     }
 
