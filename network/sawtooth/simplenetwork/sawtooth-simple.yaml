@@ -40,7 +40,7 @@ services:
     expose:
       - 4004
     volumes:
-      - '../../../../caliper/:/project/'
+      - '../../../:/project/'
     entrypoint: simple-tp-python -vv -C tcp://validator:4004
     stop_signal: SIGKILL
 
