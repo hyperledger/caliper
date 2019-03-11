@@ -40,8 +40,8 @@ RUN pip3 install --upgrade pip
 RUN pip3 install grpcio \
  && pip3 install grpcio-tools \
  && pip3 install protobuf \
- && pip3 install sawtooth-sdk \
- && pip3 install sawtooth-signing \
+ && pip3 install sawtooth-sdk==1.0.5 \
+ && pip3 install sawtooth-signing==1.0.5 \
  && apt-get install -y -q --allow-downgrades \
     python3-cbor \
     python3-colorlog \
