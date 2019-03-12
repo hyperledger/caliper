@@ -18,7 +18,7 @@
 const os = require('os');
 const path = require('path');
 
-const tempdir = path.join(os.tmpdir(), 'hfc');
+const tempdir = path.join(os.homedir(), 'tmp/hfc');
 
 const TxErrorEnum = {
     NoError: 0,
