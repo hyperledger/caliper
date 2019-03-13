@@ -27,7 +27,6 @@ const supportedFormats = [TEXT_FORMAT, BINARY_BE_FORMAT, BINARY_LE_FORMAT];
 /**
  * Rate controller for replaying a previously recorded transaction trace.
  *
- * @property {Blockchain} blockchain The initialized blockchain object.
  * @property {object} options The user-supplied options for the controller.
  * @property {object[]} records The record of times for submitted transactions.
  * @property {string} pathTemplate The template path for the file to record to.
@@ -42,11 +41,10 @@ class ReplayRateController extends RateInterface{
     /**
      * Creates a new instance of the {ReplayRateController} class.
      * @constructor
-     * @param {Blockchain} blockchain The initialized blockchain object.
      * @param {object} opts Options for the rate controller.
      */
-    constructor(blockchain, opts) {
-        super(blockchain, opts);
+    constructor(opts) {
+        super(opts);
         this.records = [];
 
         if (typeof opts.pathTemplate === 'undefined') {
@@ -70,6 +68,41 @@ class ReplayRateController extends RateInterface{
     }
 
     /**
+     * Imports the timings from a one-column CSV format.
+     */
+    _importFromText() {
+        this.records = fs.readFileSync(this.pathTemplate, 'utf-8').split('\n').map(line => parseInt(line));
+    }
+
+    /**
+     * Imports the timings from a little endian binary format.
+     */
+    _importFromBinaryLittleEndian() {
+        let buffer = fs.readFileSync(this.pathTemplate);
+        let length = buffer.readUInt32LE(0);
+        this.records = new Array(length);
+
+        for (let i = 1; i <= length; i++) {
+            // because of the first 4 byte, the i-th record starts after i*4 bytes
+            this.records[i - 1] = buffer.readUInt32LE(i * 4);
+        }
+    }
+
+    /**
+     * Imports the timings from a big endian binary format.
+     */
+    _importFromBinaryBigEndian() {
+        let buffer = fs.readFileSync(this.pathTemplate);
+        let length = buffer.readUInt32BE(0);
+        this.records = new Array(length);
+
+        for (let i = 1; i <= length; i++) {
+            // because of the first 4 byte, the i-th record starts after i*4 bytes
+            this.records[i - 1] = buffer.readUInt32BE(i * 4);
+        }
+    }
+
+    /**
      * Initializes the rate controller.
      *
      * @param {object} msg Client options with adjusted per-client load settings.
@@ -87,6 +120,7 @@ class ReplayRateController extends RateInterface{
      * @param {object} msg.clientargs Arguments for the client.
      * @param {number} msg.clientIdx The 0-based index of the current client.
      * @param {number} msg.roundIdx The 1-based index of the current round.
+     * @async
      */
     async init(msg) {
         this.roundIdx = msg.roundIdx;
@@ -103,13 +137,13 @@ class ReplayRateController extends RateInterface{
 
         switch (this.inputFormat) {
         case TEXT_FORMAT:
-            this.importFromText();
+            this._importFromText();
             break;
         case BINARY_BE_FORMAT:
-            this.importFromBinaryBigEndian();
+            this._importFromBinaryBigEndian();
             break;
         case BINARY_LE_FORMAT:
-            this.importFromBinaryLittleEndian();
+            this._importFromBinaryLittleEndian();
             break;
         default:
             throw new Error(`Unsupported replay rate controller input format: ${this.inputFormat}`);
@@ -117,58 +151,44 @@ class ReplayRateController extends RateInterface{
     }
 
     /**
-     * Perform the rate control by sleeping through the round.
+     * Perform the rate control.
      * @param {number} start The epoch time at the start of the round (ms precision).
      * @param {number} idx Sequence number of the current transaction.
      * @param {object[]} recentResults The list of results of recent transactions.
-     * @return {Promise} The return promise.
+     * @param {object[]} resultStats The aggregated stats of previous results.
+     * @async
      */
-    async applyRateControl(start, idx, recentResults) {
+    async applyRateControl(start, idx, recentResults, resultStats) {
         if (idx <= this.records.length - 1) {
             let sleepTime = this.records[idx] - (Date.now() - start);
-            return sleepTime > 5 ? util.sleep(sleepTime) : Promise.resolve();
+            if (sleepTime > 5) {
+                await util.sleep(sleepTime);
+            }
         } else {
             if (this.logWarnings) {
-                logger.warn(`[ReplayRateController] Using default sleep time of ${this.defaultSleepTime}ms for Tx#${idx}`);
+                logger.warn(`Using default sleep time of ${this.defaultSleepTime}ms for Tx#${idx}`);
             }
-            return util.sleep(this.defaultSleepTime);
+            await util.sleep(this.defaultSleepTime);
         }
     }
 
     /**
-     * Imports the timings from a one-column CSV format.
+     * Notify the rate controller about the end of the round.
+     * @async
      */
-    importFromText() {
-        this.records = fs.readFileSync(this.pathTemplate, 'utf-8').split('\n').map(line => parseInt(line));
-    }
-
-    /**
-     * Imports the timings from a little endian binary format.
-     */
-    importFromBinaryLittleEndian() {
-        let buffer = fs.readFileSync(this.pathTemplate);
-        let length = buffer.readUInt32LE(0);
-        this.records = new Array(length);
-
-        for (let i = 1; i <= length; i++) {
-            // because of the first 4 byte, the i-th record starts after i*4 bytes
-            this.records[i - 1] = buffer.readUInt32LE(i * 4);
-        }
-    }
-
-    /**
-     * Imports the timings from a big endian binary format.
-     */
-    importFromBinaryBigEndian() {
-        let buffer = fs.readFileSync(this.pathTemplate);
-        let length = buffer.readUInt32BE(0);
-        this.records = new Array(length);
-
-        for (let i = 1; i <= length; i++) {
-            // because of the first 4 byte, the i-th record starts after i*4 bytes
-            this.records[i - 1] = buffer.readUInt32BE(i * 4);
-        }
-    }
+    async end() { }
 }
 
-module.exports = ReplayRateController;
+/**
+ * Creates a new rate controller instance.
+ * @constructor
+ * @param {object} opts The rate controller options.
+ * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
+ * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
+ * @return {RateInterface} The rate controller instance.
+ */
+function createRateController(opts, clientIdx, roundIdx) {
+    return new ReplayRateController(opts);
+}
+
+module.exports.createRateController = createRateController;

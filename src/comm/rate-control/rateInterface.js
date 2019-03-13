@@ -20,32 +20,56 @@
 class RateInterface {
 
     /**
-     * Main consrtuctor
-     * @param {Object} blockchain the blockchain under test
-     * @param {JSON} opts confituration options
+     * Base class constructor.
+     * @param {object} opts The rate controller options.
+     * @constructor
      */
-    constructor(blockchain, opts) {
-        this.blockchain = blockchain;
+    constructor(opts) {
         this.options = opts;
     }
 
     /**
-     * Initialise the rate controller with a passed msg object
-     * @param {JSON} msg the JSON initilise message
+     * Initializes the rate controller.
+     *
+     * @param {object} msg Client options with adjusted per-client load settings.
+     * @param {string} msg.type The type of the message. Currently always 'test'
+     * @param {string} msg.label The label of the round.
+     * @param {object} msg.rateControl The rate control to use for the round.
+     * @param {number} msg.trim The number/seconds of transactions to trim from the results.
+     * @param {object} msg.args The user supplied arguments for the round.
+     * @param {string} msg.cb The path of the user's callback module.
+     * @param {string} msg.config The path of the network's configuration file.
+     * @param {number} msg.numb The number of transactions to generate during the round.
+     * @param {number} msg.txDuration The length of the round in SECONDS.
+     * @param {number} msg.totalClients The number of clients executing the round.
+     * @param {number} msg.clients The number of clients executing the round.
+     * @param {object} msg.clientargs Arguments for the client.
+     * @param {number} msg.clientIdx The 0-based index of the current client.
+     * @param {number} msg.roundIdx The 1-based index of the current round.
+     * @async
      */
-    init(msg) {
-        throw new Error('init is not implemented for this blockchain system');
+    async init(msg) {
+        throw new Error('Function \'init\' is not implemented for this rate controller');
     }
 
     /**
-     * Perform the rate control action based on knowledge of the start time, current index, and current results.
-     * @param {Number} start the start time
-     * @param {Number} idx current transaction index
-     * @param {Object[]} results current array of results
-     * @param {Array} resultStats, result status set
+     * Perform the rate control action based on knowledge of the start time, current index, and previous results.
+     * @param {number} start The epoch time at the start of the round (ms precision).
+     * @param {number} idx Sequence number of the current transaction.
+     * @param {object[]} recentResults The list of results of recent transactions.
+     * @param {object[]} resultStats The aggregated stats of previous results.
+     * @async
      */
-    applyRateControl(start, idx, results, resultStats) {
-        throw new Error('applyRateControl is not implemented for this blockchain system');
+    async applyRateControl(start, idx, recentResults, resultStats) {
+        throw new Error('Function \'applyRateControl\' is not implemented for this rate controller');
+    }
+
+    /**
+     * Notify the rate controller about the end of the round.
+     * @async
+     */
+    async end() {
+        throw new Error('Function \'end\' is not implemented for this rate controller');
     }
 }
 

@@ -28,7 +28,6 @@ const supportedFormats = [TEXT_FORMAT, BINARY_BE_FORMAT, BINARY_LE_FORMAT];
 /**
  * Decorator rate controller for recording the rate of an other controller.
  *
- * @property {Blockchain} blockchain The initialized blockchain object.
  * @property {object} options The user-supplied options for the controller.
  * @property {object[]} records The record of times for submitted transactions.
  * @property {RateControl} rateController The rate controller to record.
@@ -42,11 +41,12 @@ class RecordRateController extends RateInterface{
     /**
      * Creates a new instance of the {RecordRateController} class.
      * @constructor
-     * @param {Blockchain} blockchain The initialized blockchain object.
      * @param {object} opts Options for the rate controller.
+     * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
+     * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
      */
-    constructor(blockchain, opts) {
-        super(blockchain, opts);
+    constructor(opts, clientIdx, roundIdx) {
+        super(opts);
         this.records = [];
 
         if (typeof opts.pathTemplate === 'undefined') {
@@ -61,17 +61,59 @@ class RecordRateController extends RateInterface{
 
         // check for supported output formats
         if (typeof opts.outputFormat === 'undefined') {
-            logger.warn(`[RecordRateController] Output format is undefined. Defaulting to ${TEXT_FORMAT} format`);
+            logger.warn(`Output format is undefined. Defaulting to ${TEXT_FORMAT} format`);
             this.outputFormat = TEXT_FORMAT;
         } else if (supportedFormats.includes(opts.outputFormat.toUpperCase())) {
             this.outputFormat = opts.outputFormat.toUpperCase();
         } else {
-            logger.warn(`[RecordRateController] Output format ${opts.outputFormat} is not supported. Defaulting to CSV format`);
+            logger.warn(`Output format ${opts.outputFormat} is not supported. Defaulting to CSV format`);
             this.outputFormat = TEXT_FORMAT;
         }
 
         this.pathTemplate = opts.pathTemplate;
-        this.rateController = new RateControl(opts.rateController, blockchain);
+        this.rateController = new RateControl(opts.rateController, clientIdx, roundIdx);
+    }
+
+    /**
+     * Exports the recorded results in text format.
+     */
+    _exportToText() {
+        fs.writeFileSync(this.pathTemplate, '', 'utf-8');
+        this.records.forEach(submitTime => fs.appendFileSync(this.pathTemplate, `${submitTime}\n`));
+    }
+
+    /**
+     * Exports the recorded results in little endian binary format.
+     */
+    _exportToBinaryLittleEndian() {
+        // 4 bytes for array length, and 4 bytes for every array element
+        let buffer = Buffer.alloc((this.records.length + 1) * 4);
+        let offset = 0; // offset will be maintained by the buffer return value
+
+        offset = buffer.writeUInt32LE(this.records.length, offset);
+
+        for (let i = 0; i < this.records.length; i++) {
+            offset = buffer.writeUInt32LE(this.records[i], offset);
+        }
+
+        fs.writeFileSync(this.pathTemplate, buffer, 'binary');
+    }
+
+    /**
+     * Exports the recorded results in big endian binary format.
+     */
+    _exportToBinaryBigEndian() {
+        // 4 bytes for array length, and 4 bytes for every array element
+        let buffer = Buffer.alloc((this.records.length + 1) * 4);
+        let offset = 0; // offset will be maintained by the buffer return value
+
+        offset = buffer.writeUInt32BE(this.records.length, offset);
+
+        for (let i = 0; i < this.records.length; i++) {
+            offset = buffer.writeUInt32BE(this.records[i], offset);
+        }
+
+        fs.writeFileSync(this.pathTemplate, buffer, 'binary');
     }
 
     /**
@@ -92,6 +134,7 @@ class RecordRateController extends RateInterface{
      * @param {object} msg.clientargs Arguments for the client.
      * @param {number} msg.clientIdx The 0-based index of the current client.
      * @param {number} msg.roundIdx The 1-based index of the current round.
+     * @async
      */
     async init(msg) {
         this.roundIdx = msg.roundIdx;
@@ -112,11 +155,12 @@ class RecordRateController extends RateInterface{
     }
 
     /**
-     * Perform the rate control by sleeping through the round.
+     * Perform the rate control.
      * @param {number} start The epoch time at the start of the round (ms precision).
      * @param {number} idx Sequence number of the current transaction.
      * @param {object[]} recentResults The list of results of recent transactions.
-     * @param {Array} resultStats, result status set
+     * @param {object[]} resultStats The aggregated stats of previous results.
+     * @async
      */
     async applyRateControl(start, idx, recentResults, resultStats) {
         await this.rateController.applyRateControl(start, idx, recentResults, resultStats);
@@ -125,6 +169,7 @@ class RecordRateController extends RateInterface{
 
     /**
      * Notify the rate controller about the end of the round.
+     * @async
      */
     async end() {
         await this.rateController.end();
@@ -132,68 +177,38 @@ class RecordRateController extends RateInterface{
         try {
             switch (this.outputFormat) {
             case TEXT_FORMAT:
-                this.exportToText();
+                this._exportToText();
                 break;
             case BINARY_LE_FORMAT:
-                this.exportToBinaryLittleEndian();
+                this._exportToBinaryLittleEndian();
                 break;
             case BINARY_BE_FORMAT:
-                this.exportToBinaryBigEndian();
+                this._exportToBinaryBigEndian();
                 break;
             default:
-                logger.error(`[RecordRateController] Output format ${this.outputFormat} is not supported.`);
+                logger.error(`Output format ${this.outputFormat} is not supported.`);
                 break;
             }
 
             if (this.logEnd) {
-                logger.debug(`[RecordRateController] Recorded Tx submission times for Client#${this.clientIdx} in Round#${this.roundIdx} to ${this.pathTemplate}`);
+                logger.debug(`Recorded Tx submission times for Client#${this.clientIdx} in Round#${this.roundIdx} to ${this.pathTemplate}`);
             }
         } catch (err) {
-            logger.error(`[RecordRateController] An error occured while writing records to ${this.pathTemplate}: ${err.stack ? err.stack : err}`);
+            logger.error(`An error occured while writing records to ${this.pathTemplate}: ${err.stack ? err.stack : err}`);
         }
-    }
-
-    /**
-     * Exports the recorded results in text format.
-     */
-    exportToText() {
-        fs.writeFileSync(this.pathTemplate, '', 'utf-8');
-        this.records.forEach(submitTime => fs.appendFileSync(this.pathTemplate, `${submitTime}\n`));
-    }
-
-    /**
-     * Exports the recorded results in little endian binary format.
-     */
-    exportToBinaryLittleEndian() {
-        // 4 bytes for array length, and 4 bytes for every array element
-        let buffer = Buffer.alloc((this.records.length + 1) * 4);
-        let offset = 0; // offset will be maintained by the buffer return value
-
-        offset = buffer.writeUInt32LE(this.records.length, offset);
-
-        for (let i = 0; i < this.records.length; i++) {
-            offset = buffer.writeUInt32LE(this.records[i], offset);
-        }
-
-        fs.writeFileSync(this.pathTemplate, buffer, 'binary');
-    }
-
-    /**
-     * Exports the recorded results in big endian binary format.
-     */
-    exportToBinaryBigEndian() {
-        // 4 bytes for array length, and 4 bytes for every array element
-        let buffer = Buffer.alloc((this.records.length + 1) * 4);
-        let offset = 0; // offset will be maintained by the buffer return value
-
-        offset = buffer.writeUInt32BE(this.records.length, offset);
-
-        for (let i = 0; i < this.records.length; i++) {
-            offset = buffer.writeUInt32BE(this.records[i], offset);
-        }
-
-        fs.writeFileSync(this.pathTemplate, buffer, 'binary');
     }
 }
 
-module.exports = RecordRateController;
+/**
+ * Creates a new rate controller instance.
+ * @constructor
+ * @param {object} opts The rate controller options.
+ * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
+ * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
+ * @return {RateInterface} The rate controller instance.
+ */
+function createRateController(opts, clientIdx, roundIdx) {
+    return new RecordRateController(opts, clientIdx, roundIdx);
+}
+
+module.exports.createRateController = createRateController;

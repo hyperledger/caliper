@@ -32,19 +32,35 @@ const Logger = require('../util').getLogger('pidRate.js');
 class PidRate extends RateInterface {
 
     /**
-     * Constructor
-     * @param {Object} blockchain the blockchain under test
-     * @param {JSON} opts the configuration options
+     * Creates a new instance of the PidRate class.
+     * @constructor
+     * @param {object} opts Options for the rate controller.
      */
-    constructor(blockchain, opts) {
-        super(blockchain, opts);
+    constructor(opts) {
+        super(opts);
     }
 
     /**
-     * Initialise the rate controller with a passed msg object
-     * @param {JSON} msg the initialisation message
+     * Initializes the rate controller.
+     *
+     * @param {object} msg Client options with adjusted per-client load settings.
+     * @param {string} msg.type The type of the message. Currently always 'test'
+     * @param {string} msg.label The label of the round.
+     * @param {object} msg.rateControl The rate control to use for the round.
+     * @param {number} msg.trim The number/seconds of transactions to trim from the results.
+     * @param {object} msg.args The user supplied arguments for the round.
+     * @param {string} msg.cb The path of the user's callback module.
+     * @param {string} msg.config The path of the network's configuration file.
+     * @param {number} msg.numb The number of transactions to generate during the round.
+     * @param {number} msg.txDuration The length of the round in SECONDS.
+     * @param {number} msg.totalClients The number of clients executing the round.
+     * @param {number} msg.clients The number of clients executing the round.
+     * @param {object} msg.clientargs Arguments for the client.
+     * @param {number} msg.clientIdx The 0-based index of the current client.
+     * @param {number} msg.roundIdx The 1-based index of the current round.
+     * @async
      */
-    init(msg) {
+    async init(msg) {
         // Required
         this.targetLoad = this.options.targetLoad;
         this.Kp = this.options.proportional;
@@ -62,20 +78,21 @@ class PidRate extends RateInterface {
 
     /**
     * Perform the rate control action based on knowledge of the start time, current index, and current results.
-    * - Sleep based on targetting a specific working load through a basic PID controller
-    * @param {Number} start generation time of the first test transaction
-    * @param {Number} idx sequence number of the current test transaction
-    * @param {Object[]} unhandledResults current result set
-    * @return {Promise} the return promise
+    * - Sleep based on targeting a specific working load through a basic PID controller
+     * @param {number} start The epoch time at the start of the round (ms precision).
+     * @param {number} idx Sequence number of the current transaction.
+     * @param {object[]} recentResults The list of results of recent transactions.
+     * @param {object[]} resultStats The aggregated stats of previous results.
+     * @async
     */
-    applyRateControl(start, idx, unhandledResults) {
+    async applyRateControl(start, idx, recentResults, resultStats) {
         // We steer the load by increasing/decreasing the sleep time to adjust the TPS using a basic PID controller
         // We will only observe currentResults growth once the txn is complete and a result is available
         // -at this point the txn will either be in state success/fail
 
         // Update current transaction backlog error
         // error = what you want - what you have
-        let error = this.targetLoad - unhandledResults.length;
+        let error = this.targetLoad - recentResults.length;
 
         if (this.showVars) {
             Logger.debug('Current load error: ', error);
@@ -101,11 +118,27 @@ class PidRate extends RateInterface {
         }
 
         if (this.sleep > 5) {
-            return Sleep(this.sleep);
-        } else {
-            return Promise.resolve();
+            await Sleep(this.sleep);
         }
     }
+
+    /**
+     * Notify the rate controller about the end of the round.
+     * @async
+     */
+    async end() { }
 }
 
-module.exports = PidRate;
+/**
+ * Creates a new rate controller instance.
+ * @constructor
+ * @param {object} opts The rate controller options.
+ * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
+ * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
+ * @return {RateInterface} The rate controller instance.
+ */
+function createRateController(opts, clientIdx, roundIdx) {
+    return new PidRate(opts);
+}
+
+module.exports.createRateController = createRateController;
