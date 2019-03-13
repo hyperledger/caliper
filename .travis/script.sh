@@ -24,7 +24,7 @@ if [ "${BENCHMARK}" == "composer" ]; then
     # Run version
     if [ "${VERSION}" == "0.19" ]; then
         npm run composer-deps
-        npm run test -- -- --config=benchmark/composer/config.yaml --network=network/fabric-v1.2/dev/composer-tls.json
+        npm run test -- -- --config=benchmark/composer/config.yaml --network=network/fabric-v1.1/dev/composer-tls.json
         exit $?
     else
         echo "Unknown version ${VERSION} for benchmark ${BENCHMARK}"
