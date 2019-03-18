@@ -108,12 +108,10 @@ class Fabric extends BlockchainInterface{
             // Retrieve gateway using ccp and options
             const gateway = await e2eUtils.retrieveGateway(fabricSettings.fabric.ccp, opts);
 
-            // Retrieve and return the contract using the network API commands
-            commLogger.info(`Retrieving contract from channel ${context[name].channel} and chaincodeID ${context[name].chaincodeId}`);
-            const network = await gateway.getNetwork(context[name].channel);
-            const contract = await network.getContract(context[name].chaincodeId);
-
-            return {gateway: gateway, contract: contract};
+            // Retrieve and return the network using the network API commands
+            commLogger.info(`Retrieving network from channelName ${context[name]}`);
+            const network = await gateway.getNetwork(context[name]);
+            return {gateway: gateway, network: network, clientIdx};
         } else {
             let channel;
             if(typeof context === 'undefined') {
