@@ -55,6 +55,8 @@ function createReport() {
         for(let i = 0 ; i < config.test.rounds.length ; i++) {
             if(config.test.rounds[i].hasOwnProperty('txNumber')) {
                 r += config.test.rounds[i].txNumber.length;
+            } else if (config.test.rounds[i].hasOwnProperty('txDuration')) {
+                r += config.test.rounds[i].txDuration.length;
             }
         }
         report.addMetadata('Test Rounds', r);
