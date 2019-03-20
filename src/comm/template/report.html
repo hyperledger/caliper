@@ -103,9 +103,9 @@
         <ul>
             <h3>&nbspBenchmark results</h3>
             <li><a href="#benchmarksummary">Summary</a></li>
-            {{#rounds}}
-            <li><a href="#{{id}}">{{id}}</a></li>
-            {{/rounds}}
+            {{#tests}}
+                <li><a href="#{{label}}">{{label}}</a></li>
+            {{/tests}}
         </ul>
         <ul>
             <h3>&nbspSystem Under Test</h3>
@@ -133,35 +133,39 @@
             </table>
             {{/summary}}
         </div>
-        {{#rounds}}
-        <div id="{{id}}">
-            <h3>{{id}}&nbsp-&nbsp{{description}}</h3>
-            <strong class="tag">performance metrics</strong>
-            {{#performance}}
-            <table>
-                <tr>
-                    {{#head}} <th>{{.}}</th>{{/head}}
-                </tr>
-                <tr>
-                    {{#result}} <td>{{.}}</td>{{/result}}
-                </tr>
-            </table>
-            {{/performance}}
-            <strong class="tag">resource consumption</strong>
-            {{#resource}}
-            <table>
-                <tr>
-                    {{#head}} <th>{{.}}</th>{{/head}}
-                </tr>
-                {{#results}}
-                <tr>
-                    {{#result}} <td>{{.}}</td>{{/result}}
-                </tr>
-                {{/results}}
-            </table>
-            {{/resource}}
+        {{#tests}}
+        <div id="{{label}}">
+            <h3>{{label}}</h3>
+            <p>{{description}}</p>                
+                {{#rounds}}
+                <h3>{{id}}</h3>
+                <strong class="tag">performance metrics</strong>
+                {{#performance}}
+                <table>
+                    <tr>
+                        {{#head}} <th>{{.}}</th>{{/head}}
+                    </tr>
+                    <tr>
+                        {{#result}} <td>{{.}}</td>{{/result}}
+                    </tr>
+                </table>
+                {{/performance}}
+                <strong class="tag">resource consumption</strong>
+                {{#resource}}
+                <table>
+                    <tr>
+                        {{#head}} <th>{{.}}</th>{{/head}}
+                    </tr>
+                    {{#results}}
+                    <tr>
+                        {{#result}} <td>{{.}}</td>{{/result}}
+                    </tr>
+                    {{/results}}
+                </table>
+                {{/resource}}
+                {{/rounds}}
         </div>
-        {{/rounds}}
+        {{/tests}}
         <div>
             <h3>Test Environment</h3>
             <strong class="tag">benchmark config</strong>
