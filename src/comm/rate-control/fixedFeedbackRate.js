@@ -24,20 +24,37 @@ const util = require('../util');
  */
 class FixedFeedbackRateController extends RateInterface{
     /**
-     * Constructor
-     * @param {Object} blockchain the blockchain under test
-     * @param {JSON} opts the configuration options
+     * Creates a new instance of the FixedFeedbackRateController class.
+     * @constructor
+     * @param {object} opts Options for the rate controller.
      */
-    constructor(blockchain, opts) {
-        super(blockchain, opts);
+    constructor(opts) {
+        super(opts);
     }
 
     /**
-     * Initialise the rate controller with a passed msg object
-     * - Only require the desired TPS from the standard msg options
-     * @param {JSON} msg the initialisation message
+     * Initializes the rate controller.
+     * Only requires the desired TPS from the options.
+     *
+     * @param {object} msg Client options with adjusted per-client load settings.
+     * @param {string} msg.type The type of the message. Currently always 'test'
+     * @param {string} msg.label The label of the round.
+     * @param {object} msg.rateControl The rate control to use for the round.
+     * @param {number} msg.trim The number/seconds of transactions to trim from the results.
+     * @param {object} msg.args The user supplied arguments for the round.
+     * @param {string} msg.cb The path of the user's callback module.
+     * @param {string} msg.config The path of the network's configuration file.
+     * @param {number} msg.numb The number of transactions to generate during the round.
+     * @param {number} msg.txDuration The length of the round in SECONDS.
+     * @param {number} msg.totalClients The number of clients executing the round.
+     * @param {number} msg.clients The number of clients executing the round.
+     * @param {object} msg.clientargs Arguments for the client.
+     * @param {number} msg.clientIdx The 0-based index of the current client.
+     * @param {number} msg.roundIdx The 1-based index of the current round.
+     *
+     * @async
      */
-    init(msg) {
+    async init(msg) {
         const tps = this.options.tps;
         const tpsPerClient = msg.totalClients ? (tps / msg.totalClients) : tps;
         this.sleepTime = (tpsPerClient > 0) ? 1000/tpsPerClient : 0;
@@ -50,21 +67,22 @@ class FixedFeedbackRateController extends RateInterface{
     }
 
     /**
-    * Perform the rate control action based on knowledge of the start time, current index, and current results.Sleep a suitable time
-    * @param {number} start, generation time of the first test transaction
-    * @param {number} idx, sequence number of the current test transaction
-    * @param {Array} currentResults, current result set
-    * @param {Array} resultStats, result status set
-    * @return {promise} the return promise
+    * Perform the rate control action based on knowledge of the start time, current index, and current results. Sleeps a suitable time.
+     * @param {number} start The epoch time at the start of the round (ms precision).
+     * @param {number} idx Sequence number of the current transaction.
+     * @param {object[]} recentResults The list of results of recent transactions.
+     * @param {object[]} resultStats The aggregated stats of previous results.
+     * @async
     */
-    async applyRateControl(start, idx, currentResults, resultStats) {
+    async applyRateControl(start, idx, recentResults, resultStats) {
         if(this.sleepTime === 0 || idx < this.unfinished_per_client) {
             return;
         }
 
         let diff = (this.sleepTime * idx - ((Date.now() - this.total_sleep_time) - start));
         if( diff > 5) {
-            return await util.sleep(diff);
+            await util.sleep(diff);
+            return;
         }
 
         if(resultStats.length === 0) {
@@ -84,7 +102,8 @@ class FixedFeedbackRateController extends RateInterface{
             for(let i = 30; i > 0; --i) {
                 if(this.zero_succ_count >= i) {
                     this.total_sleep_time += i * this.sleep_time;
-                    return await util.sleep(i * this.sleep_time);
+                    await util.sleep(i * this.sleep_time);
+                    return;
                 }
             }
         }
@@ -95,11 +114,28 @@ class FixedFeedbackRateController extends RateInterface{
         for(let i = 10; i > 0; --i) {
             if(unfinished >= i * this.unfinished_per_client) {
                 this.total_sleep_time += i * this.sleep_time;
-                return await util.sleep(i * this.sleep_time);
+                await util.sleep(i * this.sleep_time);
+                return;
             }
         }
-        return;
     }
+
+    /**
+     * Notify the rate controller about the end of the round.
+     * @async
+     */
+    async end() { }
 }
 
-module.exports = FixedFeedbackRateController;
+/**
+ * Creates a new rate controller instance.
+ * @param {object} opts The rate controller options.
+ * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
+ * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
+ * @return {RateInterface} The rate controller instance.
+ */
+function createRateController(opts, clientIdx, roundIdx) {
+    return new FixedFeedbackRateController(opts);
+}
+
+module.exports.createRateController = createRateController;

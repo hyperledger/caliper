@@ -22,18 +22,16 @@ const Util = require('../util');
  *
  * Can only be applied for duration-based rounds!
  *
- * @property {Blockchain} blockchain The initialized blockchain object.
  * @property {object} options The user-supplied options for the controller.
  */
 class NoRateController extends RateInterface{
     /**
      * Creates a new instance of the {NoRateController} class.
      * @constructor
-     * @param {Blockchain} blockchain The initialized blockchain object.
      * @param {object} opts Options for the rate controller.
      */
-    constructor(blockchain, opts) {
-        super(blockchain, opts);
+    constructor(opts) {
+        super(opts);
         this.sleepTime = 0;
     }
 
@@ -55,10 +53,11 @@ class NoRateController extends RateInterface{
      * @param {object} msg.clientargs Arguments for the client.
      * @param {number} msg.clientIdx The 0-based index of the current client.
      * @param {number} msg.roundIdx The 1-based index of the current round.
+     * @async
      */
     async init(msg) {
         if (msg.numb) {
-            throw new Error('This rate controller can only be applied for duration-based rounds');
+            throw new Error('The no-rate controller can only be applied for duration-based rounds');
         }
 
         this.sleepTime = msg.txDuration * 1000;
@@ -69,11 +68,29 @@ class NoRateController extends RateInterface{
      * @param {number} start The epoch time at the start of the round (ms precision).
      * @param {number} idx Sequence number of the current transaction.
      * @param {object[]} recentResults The list of results of recent transactions.
-     * @return {Promise} A promise that will resolve after the necessary time to keep the defined Tx rate.
+     * @param {object[]} resultStats The aggregated stats of previous results.
+     * @async
      */
-    async applyRateControl(start, idx, recentResults) {
-        return Util.sleep(this.sleepTime);
+    async applyRateControl(start, idx, recentResults, resultStats) {
+        await Util.sleep(this.sleepTime);
     }
+
+    /**
+     * Notify the rate controller about the end of the round.
+     * @async
+     */
+    async end() { }
 }
 
-module.exports = NoRateController;
+/**
+ * Creates a new rate controller instance.
+ * @param {object} opts The rate controller options.
+ * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
+ * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
+ * @return {RateInterface} The rate controller instance.
+ */
+function createRateController(opts, clientIdx, roundIdx) {
+    return new NoRateController(opts);
+}
+
+module.exports.createRateController = createRateController;

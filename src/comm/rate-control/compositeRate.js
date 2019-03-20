@@ -16,6 +16,7 @@
 const RateInterface = require('./rateInterface.js');
 const RateControl = require('./rateControl.js');
 const Util = require('../util');
+
 const logger = Util.getLogger('compositeRate.js');
 
 /**
@@ -60,7 +61,6 @@ class ControllerData {
  *
  * Time related values are expressed in millisecond!
  *
- * @property {Blockchain} blockchain The initialized blockchain object.
  * @property {object} options The user-supplied options for the controller.
  * @property {number[]} options.weights The list of weights for the different controllers.
  * @property {object[]} options.rateControllers The list of descriptors of the controllers.
@@ -74,12 +74,13 @@ class CompositeRateController extends RateInterface{
     /**
      * Creates a new instance of the CompositeRateController class.
      * @constructor
-     * @param {Blockchain} blockchain The initialized blockchain object.
      * @param {object} opts Options for the rate controller.
+     * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
+     * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
      * @throws {Error} Throws error if there is a problem with the weight and/or controller options.
      */
-    constructor(blockchain, opts) {
-        super(blockchain, opts);
+    constructor(opts, clientIdx, roundIdx) {
+        super(opts);
 
         this.controllers = [];
         this.activeControllerIndex = 0;
@@ -88,14 +89,16 @@ class CompositeRateController extends RateInterface{
         this.logControllerChange = (this.options.logChange &&
             typeof(this.options.logChange) === 'boolean' && this.options.logChange) || false;
 
-        this.__prepareControllers();
+        this.__prepareControllers(clientIdx, roundIdx);
     }
 
     /**
      * Internal method for preparing the controllers for further use.
+     * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
+     * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
      * @private
      */
-    __prepareControllers() {
+    __prepareControllers(clientIdx, roundIdx) {
         let weights = this.options.weights;
         let rateControllers = this.options.rateControllers;
 
@@ -135,7 +138,7 @@ class CompositeRateController extends RateInterface{
                 continue;
             }
 
-            let info = new ControllerData(weights[i], rateControllers[i], new RateControl(rateControllers[i], this.blockchain));
+            let info = new ControllerData(weights[i], rateControllers[i], new RateControl(rateControllers[i], clientIdx, roundIdx));
             this.controllers.push(info);
         }
 
@@ -148,6 +151,7 @@ class CompositeRateController extends RateInterface{
      * @param {number} start The start time of the round provided by the client module.
      * @param {number} idx The index of the current Tx provided by the client module.
      * @private
+     * @async
      */
     async __controllerSwitchForDuration(start, idx) {
         let active = this.controllers[this.activeControllerIndex];
@@ -163,7 +167,7 @@ class CompositeRateController extends RateInterface{
         active.firstTxIndex = idx;
         active.startTimeDifference = Date.now() - start;
         if (this.logControllerChange) {
-            logger.debug(`[CompositeRateController] Switching controller in Client#${this.clientIdx} at Tx#${idx} after ${active.startTimeDifference}ms.`);
+            logger.debug(`Switching controller in Client#${this.clientIdx} at Tx#${idx} after ${active.startTimeDifference}ms.`);
         }
     }
 
@@ -172,6 +176,7 @@ class CompositeRateController extends RateInterface{
      * @param {number} start The start time of the round provided by the client module.
      * @param {number} idx The index of the current Tx provided by the client module.
      * @private
+     * @async
      */
     async __controllerSwitchForTxNumber(start, idx) {
         let active = this.controllers[this.activeControllerIndex];
@@ -186,12 +191,12 @@ class CompositeRateController extends RateInterface{
         active.firstTxIndex = idx ;
         active.startTimeDifference = Date.now() - start;
         if (this.logControllerChange) {
-            logger.debug(`[CompositeRateController] Switching controller in Client#${this.clientIdx} at Tx#${idx} after ${active.startTimeDifference}ms.`);
+            logger.debug(`Switching controller in Client#${this.clientIdx} at Tx#${idx} after ${active.startTimeDifference}ms.`);
         }
     }
 
     /**
-     * Initializes the composite rate controller.
+     * Initializes the rate controller.
      *
      * @param {object} msg Client options with adjusted per-client load settings.
      * @param {string} msg.type The type of the message. Currently always 'test'
@@ -208,6 +213,7 @@ class CompositeRateController extends RateInterface{
      * @param {object} msg.clientargs Arguments for the client.
      * @param {number} msg.clientIdx The 0-based index of the current client.
      * @param {number} msg.roundIdx The 1-based index of the current round.
+     * @async
      */
     async init(msg) {
         let currentSum = 0;
@@ -245,8 +251,8 @@ class CompositeRateController extends RateInterface{
      * @param {number} start The epoch time at the start of the round (ms precision).
      * @param {number} idx Sequence number of the current transaction.
      * @param {object[]} recentResults The list of results of recent transactions.
-     * @param {Array} resultStats, result status set
-     * @return {Promise} A promise that will resolve after the necessary time to keep the defined Tx rate.
+     * @param {object[]} resultStats The aggregated stats of previous results.
+     * @async
      */
     async applyRateControl(start, idx, recentResults, resultStats) {
         await this.controllerSwitch(start, idx);
@@ -256,22 +262,32 @@ class CompositeRateController extends RateInterface{
 
         // if (idx - this.firstTxIndex + 1) >= recentResults.length  ==> everything is transparent, the rate controller
         // has been running long enough, so every recent result belongs to it
-        // otherwise ==> some results MUST belong to the previous controller, but we dont't know which result index
+        // otherwise ==> some results MUST belong to the previous controller, but we don't know which result index
         // corresponds to active.firstTxIndex, maybe none of them, because this phase hasn't produced results yet
 
         // lie to the controller about the parameters to make this controller transparent
-        return active.controller.applyRateControl(start + active.startTimeDifference, idx - active.firstTxIndex,
+        await active.controller.applyRateControl(start + active.startTimeDifference, idx - active.firstTxIndex,
             recentResults, resultStats);
     }
 
     /**
      * Notify the rate controller about the end of the round.
-     *
-     * @return {Promise} The return promise
+     * @async
      */
     async end() {
-        return this.controllers[this.activeControllerIndex].controller.end();
+        await this.controllers[this.activeControllerIndex].controller.end();
     }
 }
 
-module.exports = CompositeRateController;
+/**
+ * Creates a new rate controller instance.
+ * @param {object} opts The rate controller options.
+ * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
+ * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
+ * @return {RateInterface} The rate controller instance.
+ */
+function createRateController(opts, clientIdx, roundIdx) {
+    return new CompositeRateController(opts, clientIdx, roundIdx);
+}
+
+module.exports.createRateController = createRateController;

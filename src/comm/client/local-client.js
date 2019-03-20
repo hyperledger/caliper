@@ -129,7 +129,7 @@ function submitCallback(count) {
  */
 async function runFixedNumber(msg, cb, context) {
     logger.debug('Info: client ' + process.pid +  ' start test runFixedNumber()' + (cb.info ? (':' + cb.info) : ''));
-    let rateControl = new RateControl(msg.rateControl, blockchain);
+    let rateControl = new RateControl(msg.rateControl, msg.clientIdx, msg.roundIdx);
     await rateControl.init(msg);
 
     await cb.init(blockchain, context, msg.args);
@@ -158,7 +158,7 @@ async function runFixedNumber(msg, cb, context) {
  */
 async function runDuration(msg, cb, context) {
     logger.debug('Info: client ' + process.pid +  ' start test runDuration()' + (cb.info ? (':' + cb.info) : ''));
-    let rateControl = new RateControl(msg.rateControl, blockchain);
+    let rateControl = new RateControl(msg.rateControl, msg.clientIdx, msg.roundIdx);
     await rateControl.init(msg);
     const duration = msg.txDuration; // duration in seconds
 
