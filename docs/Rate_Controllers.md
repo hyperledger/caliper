@@ -15,6 +15,8 @@ The rate at which transactions are input to the blockchain system is a key facto
 * [Record rate](#record-rate)
 * [Replay rate](#replay-rate)
 
+For implementing your own rate controller, refer to the [Adding Custom Controllers](#adding-custom-controllers) section.
+
 ## Fixed Rate
 The fixed rate controller is the most basic controller, and also the default option if no controller is specified. It will send input transactions at a fixed interval that is specified as TPS (transactions per second).
 
@@ -284,8 +286,126 @@ Special care must be taken, when using duration-based benchmark execution, as it
 
 The recommended approach is to use transaction number-based round configurations, since the number of transactions to replay is known beforehand. Note, that the number of clients affects the actual number of transactions submitted by a client.
 
-## Custom Controllers
+## Adding Custom Controllers
 
-Rate controllers must extend `/src/comm/rate-control/rateInterface.js`, providing concrete implementations for `init`, `applyRateControl`, and optionally for `end`. Once created it must be listed within `/src/comm/rate-control/rateControl.js` as an available controller within the constructor.
+It is possible to use rate controllers that are not built-in controllers of Caliper. When you specify the rate controller in the test configuration file (see the [architecture documentation]({{ site.baseurl }}{% link docs/2_Architecture.md %})), you must set the `type` and `opts` attributes.
 
-Custom options are passed to the controller through the `opts` parameter. For example `{"type": "my-rate-control", "opts": {"opt1" : x, "opt2" : [a,b,c]}}` will use the rate controller `my-rate-control` and pass it the `opts` object that will be available for use within the rate controller for custom actions.
+You can set the `type` attribute so that it points to your custom JS file that satisfies the following criteria:
+1. The file/module exports a `createRateController` function that takes the following parameters:
+    1. An `opts` parameter that is the `object` representation of the `opts` attribute set in the configuration file, and contains the custom settings of your rate controller.
+    1. A `clientIdx` parameter of type `number` that is the 0-based index of the client process using this rate controller.
+    1. A `roundIdx` parameter of type `number` that is the 1-based index of the round where the rate controller is used.
+    
+    The function must return an object (i.e., your rate controller instance) that satisfies the next criteria.
+2. The object returned by `createRateController` must implement the `/src/comm/rate-control/rateInterface.js` interface, i.e., must provide the following async functions:
+    1. `init`, for initializing the rate controller at the beginning of the round.
+    1. `applyRateControl`, for performing the actual rate control by "blocking" the execution (in an async manner) for the desired time.
+    1. `end`, for disposing any acquired resources at the end of a round.
+
+The following example is a complete implementation of a rate control that doesn't perform any control, thus allowing the submitting of transactions as fast as the program execution allows it (warning, this implementation run with many client processes could easily over-load a backend network, so use it with caution).
+
+```js
+/*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+'use strict';
+
+const RateInterface = require('path-to-caliper/src/comm/rate-control/rateInterface.js');
+
+/**
+ * Rate controller for allowing uninterrupted workloadload generation.
+ *
+ * @property {object} options The user-supplied options for the controller. Empty.
+ */
+class MaxRateController extends RateInterface{
+    /**
+     * Creates a new instance of the MaxRateController class.
+     * @constructor
+     * @param {object} opts Options for the rate controller. Empty.
+     */
+    constructor(opts) {
+        // just pass it to the base class
+        super(opts);
+    }
+
+    /**
+     * Initializes the rate controller.
+     *
+     * @param {object} msg Client options with adjusted per-client load settings.
+     * @param {string} msg.type The type of the message. Currently always 'test'
+     * @param {string} msg.label The label of the round.
+     * @param {object} msg.rateControl The rate control to use for the round.
+     * @param {number} msg.trim The number/seconds of transactions to trim from the results.
+     * @param {object} msg.args The user supplied arguments for the round.
+     * @param {string} msg.cb The path of the user's callback module.
+     * @param {string} msg.config The path of the network's configuration file.
+     * @param {number} msg.numb The number of transactions to generate during the round.
+     * @param {number} msg.txDuration The length of the round in SECONDS.
+     * @param {number} msg.totalClients The number of clients executing the round.
+     * @param {number} msg.clients The number of clients executing the round.
+     * @param {object} msg.clientargs Arguments for the client.
+     * @param {number} msg.clientIdx The 0-based index of the current client.
+     * @param {number} msg.roundIdx The 1-based index of the current round.
+     * @async
+     */
+    async init(msg) {
+        // no init is needed
+    }
+
+    /**
+     * Doesn't perform any rate control.
+     * @param {number} start The epoch time at the start of the round (ms precision).
+     * @param {number} idx Sequence number of the current transaction.
+     * @param {object[]} recentResults The list of results of recent transactions.
+     * @param {object[]} resultStats The aggregated stats of previous results.
+     * @async
+     */
+    async applyRateControl(start, idx, recentResults, resultStats) {
+        // no sleeping is needed, allow the transaction invocation immediately
+    }
+
+    /**
+     * Notify the rate controller about the end of the round.
+     * @async
+     */
+    async end() { 
+        // nothing to dispose of
+    }
+}
+
+/**
+ * Creates a new rate controller instance.
+ * @param {object} opts The rate controller options.
+ * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
+ * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
+ * @return {RateInterface} The rate controller instance.
+ */
+function createRateController(opts, clientIdx, roundIdx) {
+    // no need for the other parameters
+    return new MaxRateController(opts);
+}
+
+module.exports.createRateController = createRateController;
+``` 
+
+Let's say you save this implementation into a file called `maxRateController.js` next to your Caliper directory (so they're on the same level). In the test configuration file you can set this rate controller (at its required place in the configuration hierarchy) the following way:
+
+```yaml
+rateControl:
+  # relative path from the Caliper directory
+- type: ../maxRateController.js
+  # empty options
+  opts: 
+
+```
