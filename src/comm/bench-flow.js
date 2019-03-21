@@ -34,7 +34,6 @@ let absCaliperDir = path.join(__dirname, '..', '..');
  * Generate mustache template for test report
  */
 function createReport() {
-    //let config = require(absConfigFile);
     let config = Util.parseYaml(absConfigFile);
     report  = new Report();
     report.addMetadata('DLT', blockchain.gettype());
@@ -73,6 +72,8 @@ function createReport() {
             report.addSUTInfo(key, sut.info[key]);
         }
     }
+
+    report.addLabelDescriptionMap(config.test.rounds);
 }
 
 /**
@@ -187,12 +188,12 @@ function processResult(results, label){
         logger.info('###test result:###');
         printTable(resultTable);
         let idx = report.addBenchmarkRound(label);
-        report.setRoundPerformance(idx, resultTable);
+        report.setRoundPerformance(label, idx, resultTable);
         let resourceTable = monitor.getDefaultStats();
         if(resourceTable.length > 0) {
             logger.info('### resource stats ###');
             printTable(resourceTable);
-            report.setRoundResource(idx, resourceTable);
+            report.setRoundResource(label, idx, resourceTable);
         }
         return Promise.resolve();
     }

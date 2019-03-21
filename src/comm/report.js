@@ -62,8 +62,8 @@ class Report {
             //         }
             //       ]
             //     }
-            //   },
-            'rounds' : [],
+            //   }
+            'tests' : [],
             'benchmarkInfo': 'not provided',   // readable information for the benchmark
             'sut': {
                 'meta' : [],                    // metadata of the SUT
@@ -121,60 +121,114 @@ class Report {
 
     /**
     * add a new benchmark round
-    * @param {String} description human readable description of this round
-    * @return {Number} id of the round, be used to add details to this round
+    * @param {String} label the test label
+    * @return {Number} id of the round, used to add details to this round
     */
-    addBenchmarkRound(description) {
-        let id = this.data.rounds.length;
-        this.data.rounds.push({
-            'id' : 'round ' + id,
-            'description' : description,
-            'performance' : {'head':[], 'result': []},
-            'resource' : {'head':[], 'results': []}
-        });
+    addBenchmarkRound(label) {
+        let index;
+        let exists = false;
+        for (let i=0; i<this.data.tests.length; i++) {
+            if (this.data.tests[i].label.localeCompare(label) === 0){
+                // Label test container exists
+                exists = true;
+                index = i;
+            }
+        }
 
-        return id;
+        if (exists) {
+            // Add the next round at the index point
+            const id = this.data.tests[index].rounds.length;
+            this.data.tests[index].rounds.push({
+                'id' : 'round ' + id,
+                'performance' : {'head':[], 'result': []},
+                'resource' : {'head':[], 'results': []}
+            });
+            return id;
+        } else {
+            // New item
+            this.data.tests.push({
+                'description' : this.descriptionmap.get(label),
+                'label' : label,
+                'rounds': [{
+                    'id' : 'round 0',
+                    'performance' : {'head':[], 'result': []},
+                    'resource' : {'head':[], 'results': []}
+                }]
+            });
+            return 0;
+        }
     }
 
     /**
     * set performance table of a specific round
+    * @param {String} label the round label
     * @param {Number} id id of the round
     * @param {Array} table table array containing the performance values
     */
-    setRoundPerformance(id, table) {
-        if(id < 0 || id >= this.data.rounds.length) {
+    setRoundPerformance(label, id, table) {
+
+        let index;
+        let exists = false;
+        for (let i=0; i<this.data.tests.length; i++) {
+            if (this.data.tests[i].label.localeCompare(label) === 0){
+                // Label test container exists
+                exists = true;
+                index = i;
+            }
+        }
+
+        if (!exists){
+            throw new Error('Non-existing report test label passed');
+        }
+
+        if(id < 0 || id >= this.data.tests[index].rounds.length) {
             throw new Error('unrecognized report id');
         }
         if(!Array.isArray(table) || table.length < 1) {
             throw new Error('unrecognized report table');
         }
 
-        this.data.rounds[id].performance.head = table[0];
+        this.data.tests[index].rounds[id].performance.head = table[0];
         if(table.length > 1)
         {
-            this.data.rounds[id].performance.result = table[1];
+            this.data.tests[index].rounds[id].performance.result = table[1];
         }
     }
 
     /**
     * set resource consumption table of a specific round
+    * @param {String} label the round label
     * @param {Number} id id of the round
     * @param {Array} table table array containing the resource consumption values
     */
-    setRoundResource(id, table) {
-        if(id < 0 || id >= this.data.rounds.length) {
+    setRoundResource(label, id, table) {
+        let index;
+        let exists = false;
+        for (let i=0; i<this.data.tests.length; i++) {
+            if (this.data.tests[i].label.localeCompare(label) === 0){
+                // Label test container exists
+                exists = true;
+                index = i;
+            }
+        }
+
+        if (!exists){
+            throw new Error('Non-existing report test label passed');
+        }
+
+        if(id < 0 || id >= this.data.tests[index].rounds.length) {
             throw new Error('unrecognized report id');
         }
         if(!Array.isArray(table) || table.length < 1) {
             throw new Error('unrecognized report table');
         }
 
-        this.data.rounds[id].resource.head = table[0];
+        this.data.tests[index].rounds[id].resource.head = table[0];
         for(let i = 1 ; i < table.length ; i++) {
             if(!Array.isArray(table)) {
                 throw new Error('unrecognized report table');
             }
-            this.data.rounds[id].resource.results.push({'result' : table[i]});
+            this.data.tests[index].rounds[id].resource.results.push({'result' : table[i]});
         }
     }
 
@@ -219,6 +273,21 @@ class Report {
                 }
             });
         });
+    }
+
+    /**
+     * Generate a label - descrition map
+     * @param {Object} rounds the test rounds from teh yaml config file
+     */
+    addLabelDescriptionMap(rounds){
+        const descriptionmap = new Map();
+        for(let i = 0 ; i < rounds.length ; i++) {
+            if(rounds[i].hasOwnProperty('description')) {
+                descriptionmap.set(rounds[i].label, rounds[i].description);
+            }
+        }
+        this.descriptionmap = descriptionmap;
+
     }
 }
 
