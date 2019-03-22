@@ -22,13 +22,9 @@ test:
     - 50
     trim: 0
     rateControl:
-    - type: pid-rate
+    - type: fixed-backlog
       opts:
-        targetLoad: 5
-        initialTPS: 2
-        proportional: 0.2
-        integral: 0.0001
-        derrivative: 0.1
+        unfinished_per_client: 5
     arguments:
       testAssets: 50
     callback: benchmark/composer/composer-samples/basic-sample-network.js

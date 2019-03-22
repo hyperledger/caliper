@@ -19,7 +19,7 @@ let logger = util.getLogger('rateControl.js');
 
 const builtInControllers = new Map([
     ['fixed-rate', './fixedRate.js'],
-    ['pid-rate', './pidRate.js'],
+    ['fixed-backlog', './fixedBacklog.js'],
     ['composite-rate', './compositeRate.js'],
     ['zero-rate', './noRate.js'],
     ['record-rate', './recordRate.js'],
