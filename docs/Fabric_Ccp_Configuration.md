@@ -449,52 +449,19 @@ A client can have the following properties (some of it originating from the SDK'
 
 # Configuring the Adapter
 
-Some runtime properties of the adapter can be configured through the `fabricCcp` section of the `config/default.yaml` configuration file:
+Some runtime properties of the adapter can be configured through Caliper's [runtime configuration mechanism]({{ site.baseurl }}{% link docs/Runtime_Configuration.md %}). For the available settings, see the `fabricccp` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/config/default.yaml) and its embedded documentation.
 
-```yaml
-fabricCcp:
-  sleepAfter:
-    createChannel: 5000
-    joinChannel: 3000
-    instantiateChaincode: 5000
-  verify:
-    proposalResponse: false
-    readWriteSets: true
-  timeout:
-    chaincodeInstantiate: 300000
-    chaincodeInstantiateEvent: 100000
-    invokeOrQuery: 60000
-  loadBalancing: client
-  overwriteGopath: true
-  latencyThreshold: 1.0
-  countQueryAsLoad: true
-``` 
+Additionally, the adapter provides a dynamic setting for skipping the creation of certain channels in case they already exist. If you wish to skip the creation of `mychannel`, for example, then you can signal this the following ways:
 
-* The `sleepAfter` section contains the durations in milliseconds the adapter should sleep after an operation:
-  * `createChannel`: the duration in milliseconds to sleep after creating the channels.
-  * `joinChannel`: the duration in milliseconds to sleep after the peers join the channels. 
-  * `instantiateChaincode`: the duration in milliseconds to sleep after instantiating the chaincodes.
-
-* The `verify` section contains switches that turn on/off some verification-related part of the transaction life-cycle:
-  * `proposalResponse`:  indicates whether to verify the identity of the endorsers and their signatures for each proposal response after endorsing a transaction. Note, that this is a CPU intensive step, use it with caution.
-  * `readWriteSets`: indicates whether to verify that the read-write sets returned by the endorsers match.
-
-* The `timeout` section contains timeouts related to the initialization part of the adapter. Note, that these are client-side timeouts. Make sure that you also properly configured the corresponding peer-side timeouts:
-  * `chaincodeInstantiate`: timeout in milliseconds for the endorsement part of a chaincode instantiation (i.e., executing the chaincode's `Init` function and receiving the result).
-  * `chaincodeInstantiateEvent`: timeout in milliseconds for receiving the event about the result of a chaincode instantiation (i.e., the final/committing part of the instantiation).
-  * `invokeOrQuery`: the default timeout in milliseconds to use for invoking or querying transactions (applied for the entire life-cycle).
-
-* The `loadBalancing` value determines how automatic load balancing is applied if the client callback module doesn't provide explicit targets:
-  * use the value `client` to perform client-based load balancing, meaning that each client process (that generates the actual workload) will have fix target peers and target orderer. 
-  * use the value `tx` to perform transaction-based load balancing, meaning that the peer and orderer targets change for every submitted transaction or query.
-
-* The `overwriteGopath` value indicates whether to temporarily set the `GOPATH` environment variable to the Caliper root directory. The example networks and chaincodes assume that this property is `true`. If you want to deploy chaincodes from a custom location, set it to `false` and make sure `GOPATH` is [configured properly](https://github.com/golang/go/wiki/GOPATH).
-
-* The `latencyThreshold` value determines the reported commit time of a transaction. The _Blockchain Performance Metrics_ [whitepaper](https://www.hyperledger.org/resources/publications/blockchain-performance-metrics) by the _Performance and Scale Working Group_ defines the transaction latency metric (on page 9) with respect to a network threshold. For example, the latency of a transaction at a network threshold of 90% is the time it takes to commit the transaction at 90% of the nodes in the network. 
-
-  The `latencyThreshold` value corresponds to this percentage (0 meaning 0% and 1 meaning 100%). Note, that the latencies are based on the times the commit events arrive from the peers. So only the peers marked as event sources in the [channels](#channels) configuration section contribute to the latency. If you would like an accurate latency value, mark every peer in the channel as an event source and set `latencyThreshold` to 1. 
-
-* The `countQueryAsLoad` value indicates whether to count queries as workload, i.e., whether the generated report should include them. Note, that the [per-query options](#querying-a-chaincode) take precedence if provided.
+* Passing the command line flag `--Caliper-FabricCcp-SkipCreateChannel-mychannel`
+* Setting the environment variable `CALIPER_FABRICCCP_SKIPCREATECHANNEL_MYCHANNEL=true`
+* Setting the configuration file entry
+    ```yaml
+    caliper:
+      fabricccp:
+        skipcreatechannel:
+          mychannel: true
+    ```
 
 ---
 
