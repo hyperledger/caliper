@@ -1,0 +1,57 @@
+{
+  "name": "caliper-composer",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyperledger/caliper"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run nyc",
+    "lint": "npx eslint .",
+    "nyc": "nyc mocha --recursive -t 10000"
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">=8.10.0",
+    "npm": ">=5.6.0"
+  },
+  "dependencies": {
+    "caliper-core" : "0.1.0",
+    "composer-admin" : "0.20.8",
+    "composer-client" : "0.20.8",
+    "composer-common" : "0.20.8",
+    "fabric-ca-client" : "^1.4.0",
+    "fabric-client" : "^1.4.0",
+    "ora": "^1.2.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^4.19.1",
+    "mocha": "3.4.2",
+    "nyc": "11.1.0",
+    "rewire": "^4.0.0",
+    "sinon": "2.3.8"
+  },
+  "nyc": {
+    "exclude": [
+        "lib/**"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "all": true,
+    "check-coverage": false,
+    "statements": 5,
+    "branches": 8,
+    "functions": 7,
+    "lines": 5
+  },
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
+    }
+  ]
+}

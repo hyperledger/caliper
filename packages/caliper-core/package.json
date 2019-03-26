@@ -1,0 +1,68 @@
+{
+  "name": "caliper-core",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyperledger/caliper"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run nyc",
+    "lint": "npx eslint .",
+    "nyc": "nyc mocha --recursive -t 10000"
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">=8.10.0",
+    "npm": ">=5.6.0"
+  },
+  "dependencies": {
+    "compare-versions": "^3.4.0",
+    "dockerode": "^2.5.0",
+    "js-yaml": "^3.12.0",
+    "moment": "^2.22.2",
+    "mustache": "^2.3.0",
+    "nconf": "^0.10.0",
+    "nconf-yaml": "^1.0.2",
+    "node-zookeeper-client": "^0.2.2",
+    "pidusage": "^1.1.6",
+    "ps-node": "^0.1.6",
+    "request": "^2.81.0",
+    "systeminformation": "^3.23.7",
+    "table": "^4.0.1",
+    "winston": "^2.4.4",
+    "winston-daily-rotate-file": "^3.5.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^4.19.1",
+    "mocha": "3.4.2",
+    "nyc": "11.1.0",
+    "rewire": "^4.0.0",
+    "sinon": "2.3.8"
+  },
+  "optionalDependencies": {
+    "ajv": "^6.0.0"
+  },
+  "nyc": {
+    "exclude": [
+        "lib/**"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "all": true,
+    "check-coverage": false,
+    "statements": 1,
+    "branches": 1,
+    "functions": 1,
+    "lines": 1
+  },
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
+    }
+  ]
+}
