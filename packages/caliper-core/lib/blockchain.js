@@ -129,6 +129,7 @@ class Blockchain {
     getDefaultTxStats(results, detail) {
         let succ = 0, fail = 0, delay = 0;
         let minFinal, maxFinal, minCreate, maxCreate;
+        let maxLastFinal;
         let minDelay = 100000, maxDelay = 0;
         let delays = [];
         let sTPTotal = 0;
@@ -186,13 +187,23 @@ class Blockchain {
             else {
                 fail++;
             }
+
+            let curFinal = stat.GetTimeFinal();
+            if(typeof maxLastFinal === 'undefined') {
+                maxLastFinal = curFinal;
+            }
+            else{
+                if(curFinal > maxLastFinal){
+                    maxLastFinal = curFinal;
+                }
+            }
         }
 
         let stats = {
             'succ' : succ,
             'fail' : fail,
             'create' : {'min' : minCreate/1000, 'max' : maxCreate/1000},    // convert to second
-            'final'  : {'min' : minFinal/1000,  'max' : maxFinal/1000 },
+            'final'  : {'min' : minFinal/1000,  'max' : maxFinal/1000, 'last' : maxLastFinal/1000 },
             'delay'  : {'min' : minDelay,  'max' : maxDelay, 'sum' : delay, 'detail': (detail?delays:[]) },
             'out' : [],
             'sTPTotal': sTPTotal,
@@ -256,6 +267,9 @@ class Blockchain {
                 }
                 if(v.final.max > r.final.max) {
                     r.final.max = v.final.max;
+                }
+                if(v.final.last > r.final.last){
+                    r.final.last = v.final.last;
                 }
                 if(v.delay.min < r.delay.min) {
                     r.delay.min = v.delay.min;
