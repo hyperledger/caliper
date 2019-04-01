@@ -18,6 +18,9 @@ module.exports.init = function(blockchain, context, args) {
     bc      = blockchain;
     contx   = context;
     itemIDs = publish.ids;
+    if (publish.ids.length === 0) {
+        throw new Error('publish.ids.length is 0');
+    }
 
     return Promise.resolve();
 };
