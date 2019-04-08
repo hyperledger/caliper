@@ -6,9 +6,9 @@ categories: config
 
 > The latest supported version of Hyperledger Sawtooth is v1.0
 
-# Installing Sawtooth dependencies
+## Using Alternative Sawtooth Versions
+If you wish to use a specific Sawtooth version, it is necessary to modify the `protocol-buffers` and `sawtooth-sdk` version levels listed as dependancies in `packages/caliper-sawtooth/package.json`, and then rebuild the Caliper project using the following commands issued at the root Caliper project location:
 
-* Install Sawtooth dependancies using `npm install` commands:
-  * Issue the command  `npm run sawtooth-deps` in the root folder
-  * If you want to test Sawtooth with a specific version such as v1.0.5, you should install directly,  
-  e.g. `npm install protocol-buffers sawtooth-sdk@1.0.5` in Caliper's root folder.
+- `npm install`
+- `npm run repoclean`
+- `npm run bootstrap`

@@ -29,24 +29,14 @@ The page covers the following aspects of using the Fabric CCP adapter:
 * [transaction data gathered](#transaction-data-gathered-by-the-adapter) by the adapter;
 * and a [complete example](#connection-profile-example) of a connection profile.
 
-# Installing the required dependencies
 
-First, make sure that you installed the general Caliper dependencies by executing the following command in the Caliper root directory: 
+## Using Alternative Fabric Versions
 
-`npm install`
+If you wish to use a specific Fabric-SDK, it is necessary to modify the `fabric-client`, `fabric-ca-client` and (possibly) `fabric-network` version levels listed as dependancies in `packages/caliper-fabric-ccp/package.json`, , and then rebuild the Caliper project using the following commands issued at the root Caliper project location:
 
-Then the Fabric-specific dependencies can be easily installed by running one of the version-specific `npm` scripts in the Caliper root directory:
-
-* `npm run fabric-v1.0-deps`
-* `npm run fabric-v1.1-deps`
-* `npm run fabric-v1.2-deps`
-* `npm run fabric-v1.3-deps`
-* `npm run fabric-v1.4-deps`
-
-The above scripts install the appropriate version of the `grpc` package and the Fabric SDK packages. If you would like to install some custom versions of these, the following command can serve as a template (changing `<VERSION>` to the desired version numbers):
-
-`npm install --no-save grpc@<VERSION> fabric-ca-client@<VERSION> fabric-client@<VERSION>`
-
+- `npm install`
+- `npm run repoclean`
+- `npm run bootstrap`
 ---
 
 # Assembling the Network Configuration File

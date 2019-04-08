@@ -6,10 +6,15 @@ categories: config
 
 > The latest supported version of Hyperledger Iroha is v1.0 beta-3
 
-## Installing Iroha dependencies
+* The npm package is in **alfa phase**, so if you have some problems with installing or compilation - please contact [Iroha maintainers](https://github.com/hyperledger/iroha/issues).
 
-* Install Iroha dependencies using `npm install` commands:
-  * Issue the command  `npm run iroha-deps` in the root folder
-  * If you want to test Iroha with a specific version such as v0.1.7, you should install directly,  
-  e.g. `npm install --no-save iroha-lib@0.1.7` in Caliper's root folder.
-* The package is in **alfa phase**, so if you have some problems with installing or compilation - please contact [Iroha maintainers](https://github.com/hyperledger/iroha/issues).
+## Using Alternative Iroha Versions
+If you wish to use a specific Iroha version, it is necessary to modify the iroha-lib version levels listed as dependancies in `packages/caliper-iroha/package.json`, and then rebuild the Caliper project using the following commands issued at the root Caliper project location:
+
+- `npm install`
+- `npm run repoclean`
+- `npm run bootstrap`
+
+## Issues
+
+Iroha integration is currently in an early phase of development, if you think you can help us out, please send a PR!
