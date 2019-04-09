@@ -29,6 +29,12 @@ const tmp = require('tmp');
 const logger = util.getLogger('adapters/fabric-ccp');
 const config = require('../../comm/config-util.js').getConfig();
 
+//modify
+const signedOffline = require('./signTransactionOffline.js');
+//modify
+    const TxErrorEnum = require('./constant.js').TxErrorEnum;
+    const TxErrorIndex = require('./constant.js').TxErrorIndex;
+
 //////////////////////
 // TYPE DEFINITIONS //
 //////////////////////
@@ -147,6 +153,13 @@ class Fabric extends BlockchainInterface {
         this.adminProfiles = new Map();
         this.registrarProfiles = new Map();
         this.eventSources = [];
+
+        //modify
+        this.signedTransactionArray = [];
+        this.signedCommitProposal = [];
+        this.txFile;
+        this.invokeCount = 0;
+
         this.clientIndex = 0;
         this.txIndex = -1;
         this.networkUtil = new FabricNetwork(networkConfig);
@@ -1526,6 +1539,142 @@ class Fabric extends BlockchainInterface {
         return invokeStatus;
     }
 
+    
+
+    /**
+ * Submit a transaction to the orderer.
+ * @param {object} context The Fabric context.
+ * @param {object} signedTransaction The transaction information.
+ * @param {object} invokeStatus The result and stats of the transaction.
+ * @param {number} startTime The start time.
+ * @param {number} timeout The timeout for the transaction invocation.
+ * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
+ */
+async function sendTransaction(context, signedTransaction, invokeStatus, startTime, timeout){
+
+    const channel = context.channel;
+    const eventHubs = context.eventhubs;
+    const txId = signedTransaction.txId;
+    let errFlag = TxErrorEnum.NoError;
+    try {
+        let newTimeout = timeout * 1000 - (Date.now() - startTime);
+        if(newTimeout < 10000) {
+            logger.warn('WARNING: timeout is too small, default value is used instead');
+            newTimeout = 10000;
+        }
+
+        const eventPromises = [];
+        eventHubs.forEach((eh) => {
+            eventPromises.push(new Promise((resolve, reject) => {
+                //let handle = setTimeout(() => reject(new Error('Timeout')), newTimeout);
+                let handle = setTimeout(() => reject(new Error('Timeout')), 100000);
+                eh.registerTxEvent(txId,
+                    (tx, code) => {
+                        clearTimeout(handle);
+                        eh.unregisterTxEvent(txId);
+
+                        // either explicit invalid event or valid event, verified in both cases by at least one peer
+                        invokeStatus.SetVerification(true);
+                        if (code !== 'VALID') {
+                            let err = new Error('Invalid transaction: ' + code);
+                            errFlag |= TxErrorEnum.BadEventNotificationError;
+                            invokeStatus.SetFlag(errFlag);
+                            invokeStatus.SetErrMsg(TxErrorIndex.BadEventNotificationError, err.toString());
+                            reject(err); // handle error in final catch
+                        } else {
+                            resolve();
+                        }
+                    },
+                    (err) => {
+                        clearTimeout(handle);
+                        // we don't know what happened, but give the other eventhub connections a chance
+                        // to verify the Tx status, so resolve this call
+                        errFlag |= TxErrorEnum.EventNotificationError;
+                        invokeStatus.SetFlag(errFlag);
+                        invokeStatus.SetErrMsg(TxErrorIndex.EventNotificationError, err.toString());
+                        resolve();
+                    }
+                );
+
+            }));
+        });
+
+        let broadcastResponse;
+        try {
+            let signedProposal = signedTransaction.signedTransaction;
+            let broadcastResponsePromise;
+            let transactionRequest = signedTransaction.transactionRequest;
+            if (signedProposal === null){
+                if(this.txFile && this.txFile.readWrite === 'write') {
+                    const beforeInvokeTime = Date.now();
+                    let signedTransaction = signedOffline.generateSignedTransaction(transactionRequest, channel);
+                    invokeStatus.Set('invokeLatency', (Date.now() - beforeInvokeTime));
+                    this.signedTransactionArray.push({
+                        txId: txId,
+                        signedTransaction: signedTransaction,
+                        transactionRequest: {orderer: transactionRequest.orderer}
+                    });
+                    return invokeStatus;
+                }
+                const beforeTransactionTime = Date.now();
+                broadcastResponsePromise = channel.sendTransaction(transactionRequest);
+                invokeStatus.Set('sT', (Date.now() - beforeTransactionTime));
+            } else {
+                const beforeTransactionTime = Date.now();
+                //let signature = Buffer.from(signedProposal.signature.data);
+                //let payload = Buffer.from(signedProposal.payload.data);
+                let signature = signedProposal.signature;
+                let payload =  signedProposal.payload;
+                broadcastResponsePromise = channel.sendSignedTransaction({
+                    signedProposal: {signature: signature, payload: payload},
+                    request: signedTransaction.transactionRequest,
+                });
+                invokeStatus.Set('sT', (Date.now() - beforeTransactionTime));
+                invokeStatus.Set('invokeLatency', (Date.now() - startTime));
+            }
+            broadcastResponse = await broadcastResponsePromise;
+        } catch (err) {
+            logger.error('Failed to send transaction error: ' + err);
+            // missing the ACK does not mean anything, the Tx could be already under ordering
+            // so let the events decide the final status, but log this error
+            errFlag |= TxErrorEnum.OrdererResponseError;
+            invokeStatus.SetFlag(errFlag);
+            invokeStatus.SetErrMsg(TxErrorIndex.OrdererResponseError,err.toString());
+        }
+
+        invokeStatus.Set('time_order', Date.now());
+
+        if (broadcastResponse && broadcastResponse.status === 'SUCCESS') {
+            invokeStatus.Set('status', 'submitted');
+        } else if (broadcastResponse && broadcastResponse.status !== 'SUCCESS') {
+            let err = new Error('Received rejection from orderer service: ' + broadcastResponse.status);
+            errFlag |= TxErrorEnum.BadOrdererResponseError;
+            invokeStatus.SetFlag(errFlag);
+            invokeStatus.SetErrMsg(TxErrorIndex.BadOrdererResponseError, err.toString());
+            // the submission was explicitly rejected, so the Tx will definitely not be ordered
+            invokeStatus.SetVerification(true);
+            throw err;
+        }
+
+        await Promise.all(eventPromises);
+        // if the Tx is not verified at this point, then every eventhub connection failed (with resolve)
+        // so mark it failed but leave it not verified
+        if (!invokeStatus.IsVerified()) {
+            invokeStatus.SetStatusFail();
+            logger.error('Failed to complete transaction [' + txId.substring(0, 5) + '...]: every eventhub connection closed');
+        } else {
+            invokeStatus.SetStatusSuccess();
+        }
+    } catch (err)
+    {
+        // at this point the Tx should be verified
+        invokeStatus.SetStatusFail();
+        logger.error('Failed to complete transaction [' + txId.substring(0, 5) + '...]:' + (err instanceof Error ? err.stack : err));
+    }
+    return invokeStatus;
+}
+
+
     /**
      * Invokes the specified chaincode according to the provided settings.
      *
@@ -1557,6 +1706,26 @@ class Fabric extends BlockchainInterface {
             throw Error(`Invoker ${invokeSettings.invokerIdentity} not found!`);
         }
 
+        //modify
+        let invokeStatus;
+        if(context.engine) {
+        context.engine.submitCallback(1);
+        }
+        //logger.info('txFile: ' + JSON.stringify(txFile) + ' clientIndex: ' + clientIndex);
+        //logger.info('signedTransactionArray.length: ' + signedTransactionArray.length + ' : signedCommitProposal.length: ' + signedCommitProposal.length);
+
+        if(this.txFile && this.txFile.readWrite === 'read' && this.signedTransactionArray.length !== 0) {
+            let count = this.invokeCount % this.signedTransactionArray.length;
+            let signedTransaction = this.signedTransactionArray[count];
+            signedTransaction.signedTransaction = this.signedCommitProposal[count];
+            this.invokeCount++;
+            const txId = signedTransaction.txId;
+            invokeStatus = new TxStatus(txId);
+            let errFlag = TxErrorEnum.NoError;
+            invokeStatus.SetFlag(errFlag);
+            return this.sendTransaction(context, signedTransaction, invokeStatus, startTime, timeout);
+        }
+
         ////////////////////////////////
         // PREPARE SOME BASIC OBJECTS //
         ////////////////////////////////
@@ -1565,7 +1734,7 @@ class Fabric extends BlockchainInterface {
         const txId = txIdObject.getTransactionID();
 
         // timestamps are recorded for every phase regardless of success/failure
-        let invokeStatus = new TxStatus(txId);
+        invokeStatus = new TxStatus(txId);
         invokeStatus.Set('request_type', 'transaction');
 
         let errors = []; // errors are collected during response validations
@@ -1595,13 +1764,24 @@ class Fabric extends BlockchainInterface {
         // NOTE: everything happens inside a try-catch
         // no exception should escape, transaction failures have to be handled gracefully
         try {
+            /*modify
             if (context.engine) {
                 context.engine.submitCallback(1);
             }
+            */
             try {
                 // account for the elapsed time up to this point
+                /*modify
                 proposalResponseObject = await channel.sendTransactionProposal(proposalRequest,
                     this._getRemainingTimeout(startTime, timeout));
+                */
+                //modify
+                //proposalResponseObject = await channel.sendTransactionProposal(proposalRequest, timeout * 1000);
+                const beforeProposalTime = Date.now();
+                let proposalResponseObjectPromise = channel.sendTransactionProposal(proposalRequest, timeout * 1000);
+                //logger.info('sendTransactionProposal: ' + (Date.now() - beforeProposalTime));
+                invokeStatus.Set('sTP', (Date.now() - beforeProposalTime));
+                proposalResponseObject = await proposalResponseObjectPromise;
 
                 invokeStatus.Set('time_endorse', Date.now());
             } catch (err) {
@@ -1712,9 +1892,12 @@ class Fabric extends BlockchainInterface {
                 proposal: proposal,
                 orderer: targetOrderer
             };
+            invokeStatus = this.sendTransaction(context, {txId: txId, signedTransaction: null, transactionRequest: transactionRequest}, invokeStatus, startTime, timeout);
+    
 
+            //modify
             /** @link{BroadcastResponse} */
-            let broadcastResponse;
+            /*let broadcastResponse;
             try {
                 // wrap it in a Promise to add explicit timeout to the call
                 let responsePromise = new Promise(async (resolve, reject) => {
@@ -1779,6 +1962,7 @@ class Fabric extends BlockchainInterface {
                 // mark the time corresponding to the set threshold
                 invokeStatus.SetStatusSuccess(eventResults[thresholdIndex].time);
             }
+            */
         } catch (err) {
             invokeStatus.SetStatusFail();
 
@@ -1803,6 +1987,76 @@ class Fabric extends BlockchainInterface {
     // PUBLIC API FUNCTIONS //
     //////////////////////////
 
+
+    /**
+ * Read signed proposal from file.
+ * @param {string} name The prefix name of the file.
+ * @async
+ */
+    async function readFromFile(name){
+        try {
+            this.signedTransactionArray = [];
+            this.signedCommitProposal = [];
+            this.invokeCount = 0;
+            let fileName = name + '.signed.metadata.' + clientIndex;
+            let binFileName = name + '.signed.binary.' + clientIndex;
+
+            let data = fs.readFileSync(fileName);
+            this.signedTransactionArray = JSON.parse(data);
+            logger.debug('read buffer file ok');
+            let signedBuffer = fs.readFileSync(binFileName);
+            let start = 0;
+            for(let i = 0; i < this.signedTransactionArray.length; i++) {
+                let length = this.signedTransactionArray[i].signatureLength;
+                let signature = signedBuffer.slice(start, start + length);
+                start += length;
+                length = this.signedTransactionArray[i].payloadLength;
+                let payload = signedBuffer.slice(start, start + length);
+                this.signedCommitProposal.push({signature: signature, payload: payload});
+                start += length;
+            }
+        }catch(err) {
+            logger.error('read err: ' + err);
+        }
+    }
+
+    //modify
+    /**
+    * Write signed proposal to file.
+    * @param {string} name The prefix name of the file.
+    * @async
+    */
+    async function writeToFile(name){
+        let fileName = name + '.signed.metadata.' + this.clientIndex;
+        let binFileName = name + '.signed.binary.' + this.clientIndex;
+
+        try {
+            let reArray = [];
+            let bufferArray = [];
+            for(let i = 0; i < this.signedTransactionArray.length; i++) {
+                let signedTransaction = this.signedTransactionArray[i];
+                let signedProposal = this.signedTransactionArray[i].signedTransaction;
+                let signature = signedProposal.signature;
+                bufferArray.push(signature);
+                let payload = signedProposal.payload;
+                bufferArray.push(payload);
+                reArray.push({txId: signedTransaction.txId, transactionRequest: signedTransaction.transactionRequest, signatureLength: signature.length, payloadLength: payload.length});
+            }
+            let buffer = Buffer.concat(bufferArray);
+
+            fs.writeFileSync(binFileName, buffer);
+            let signedString = JSON.stringify(reArray);
+            fs.writeFileSync(fileName, signedString);
+            this.signedTransactionArray = [];
+            this.signedCommitProposal = [];
+            logger.debug('write file ok');
+
+        }catch(err) {
+            logger.error('write err: ' + err);
+        }
+
+    }
+
     /**
      * Prepares the adapter by loading user data and connection to the event hubs.
      *
@@ -1812,11 +2066,23 @@ class Fabric extends BlockchainInterface {
      * @return {Promise<{networkInfo : FabricNetwork, eventSources: EventSource[]}>} Returns the network utility object.
      * @async
      */
-    async getContext(name, args, clientIdx) {
+    async getContext(name, args, clientIdx, txFile_) {
         // reload the profiles silently
         await this._initializeRegistrars(false);
         await this._initializeAdmins(false);
         await this._initializeUsers(false);
+
+        //modify
+        this.txFile = txFile_;
+        if(this.txFile){
+            this.txFile.name = name;
+            logger.debug('getContext) name: ' + name +  ' clientIndex: ' + clientIdx + ' txFile: ' + JSON.stringify(this.txFile));
+            if(this.txFile.readWrite === 'read') {
+                if(this.txFile.roundCurrent === 0){
+                    await this.readFromFile(this.txFile.name);
+                }
+            }
+        }
 
         for (let channel of this.networkUtil.getChannels()) {
             // initialize the channels by getting the config from the orderer
@@ -2025,6 +2291,11 @@ class Fabric extends BlockchainInterface {
      * @async
      */
     async releaseContext(context) {
+        if(this.txFile && this.txFile.readWrite === 'write') {
+            if(this.txFile.roundCurrent === (this.txFile.roundLength - 1)){
+                await this.writeToFile(this.txFile.name);
+            }
+        }
         this.eventSources.forEach((es) => {
             if (es.eventHub.isconnected()) {
                 es.eventHub.disconnect();
