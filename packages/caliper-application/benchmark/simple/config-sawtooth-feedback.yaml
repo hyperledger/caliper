@@ -8,14 +8,16 @@ test:
   rounds:
   - label: open
     txNumber:
-    - 50
+    - 2000
     rateControl:
-    - type: fixed-rate
+    - type: fixed-feedback-rate
       opts:
-        tps: 10
+        tps: 30
+        sleep_time: 200
+        unfinished_per_client: 5
     arguments:
       money: 10000
-      txnPerBatch: 10
+      txnPerBatch: 1
     callback: benchmark/simple/open.js
   - label: query
     txNumber:

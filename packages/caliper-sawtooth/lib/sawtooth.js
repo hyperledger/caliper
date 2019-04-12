@@ -29,7 +29,8 @@ const _ = require('lodash');
 
 let configPath;
 let lastKnownBlockId=null;
-let blockCommitSatus = new Map();
+//let blockCommitSatus = new Map();
+let batchCommitStatus = new Map();
 let currentBlockNum=0;
 let currentEndpoint= 0;
 
@@ -69,6 +70,32 @@ async function getCurrentBlockId() {
         });
 }
 
+
+/**
+ * Get batch ids from block
+ * @param {String} blockId the ID of a block
+ * @return {Promise<object>} The promise for the batch ids
+ */
+async function getBlockBatchIds(blockId) {
+    const request = require('request-promise');
+    let restAPIUrl = getRESTUrl();
+    const blocks = restAPIUrl + '/blocks/' + blockId;
+    let options = {
+        uri: blocks
+    };
+    return request(options)
+        .then(function(body) {
+            let data = (JSON.parse(body)).data;
+            if (data !== undefined) {
+                let batchIds = data.header.batch_ids;
+                return batchIds;
+            }else{
+                return [];
+            }
+        });
+}
+
+
 /**
  * Get block data from event message
  * @param {Object} events message
@@ -81,9 +108,11 @@ async function getBlock(events) {
         .map(a => [a.key, a.value])
         .fromPairs()
         .value();
+    let batchIds = await getBlockBatchIds(block.block_id);
     return {
         blockNum: parseInt(block.block_num),
         blockId: block.block_id.toString(),
+        batchIds: batchIds,
         stateRootHash: block.state_root_hash
     };
 }
@@ -95,12 +124,13 @@ async function getBlock(events) {
  */
 async function handleEvent(msg) {
     if (msg.messageType === Message.MessageType.CLIENT_EVENTS) {
+        //logger.info('msg: ' + JSON.stringify(msg));
         const events = EventList.decode(msg.content).events;
         getBlock(events).then(result => {
-            lastKnownBlockId = result.blockId.toString();
-            let blockNum=result.blockNum;
-            //On receiving event with block, update the status of the block to success
-            blockCommitSatus.set(blockNum, 'success');
+            //On receiving event with block, update the statuses of the batches success
+            for(let i = 0; i < result.batchIds.length; i++) {
+                batchCommitStatus.set(result.batchIds[i].toString('hex'), 'success');
+            }
         });
     } else {
         logger.warn('Warn: Received message of unknown type:', msg.messageType);
@@ -163,20 +193,27 @@ function unsubscribe(stream1) {
 }
 /**
  * Get batch commit event message on block commit
- * @param {Number} block_num of next block
+ * @param {String} batchID The ID of a batch
  * @param {Number} batchStats Batch status object to update commit status
+ * @param {Number} timeout The timeout for the execution in millseconds
  * @return {Promise<object>} returns batch commit status
  */
-function getBatchEventResponse(block_num, batchStats) {
-    return new Promise(resolve => {
-        while(blockCommitSatus.get(block_num) !== 'pending') {
-            /* empty */
+async function getBatchEventResponse(batchID, batchStats, timeout) {
+    try {
+        const beforeTime = Date.now();
+        while(batchCommitStatus.get(batchID) === 'pending') {
+            if((Date.now() - beforeTime) > timeout) {
+                throw new Error('Timeout, batchID: ' + batchID);
+            }
+            await CaliperUtils.sleep(200);
         }
-        //remove the block number from map because we are done with this block
-        blockCommitSatus.delete(block_num);
         batchStats.SetStatusSuccess();
-        return resolve(batchStats);
-    });
+        return batchStats;
+    } catch(err){
+        logger.info('getBatchEventResponse err: ' + err);
+        batchStats.SetStatusFail();
+        return batchStats;
+    }
 }
 
 /**
@@ -237,9 +274,10 @@ function querybycontext(context, contractID, contractVer, address, workspaceRoot
  * Submit a batch of transactions
  * @param {Number} block_num of batches
  * @param {Object} batchBytes batch bytes
+ * @param {Number} timeout The timeout to set for the execution in seconds
  * @return {Promise<object>} The promise for the result of the execution.
  */
-async function submitBatches(block_num, batchBytes) {
+async function submitBatches(block_num, batchBytes, timeout) {
     let txStatus = new TxStatus(0);
     let restApiUrl = getRESTUrl();
     const request = require('request-promise');
@@ -251,11 +289,16 @@ async function submitBatches(block_num, batchBytes) {
     };
     return request(options)
         .then(function (body) {
-            let txnStatus = getBatchEventResponse(block_num, txStatus);
+            let batchId = (JSON.parse(body).link.split('id='))[1];
+            if(batchCommitStatus.get(batchId) !== 'success') {
+                batchCommitStatus.set(batchId,'pending');
+            }
+            let txnStatus = getBatchEventResponse(batchId, txStatus, timeout);
             return Promise.resolve(txnStatus);
         })
         .catch(function (err) {
-            logger.error('Submit batches failed, ' + (err.stack?err.stack:err));
+            logger.error('Submit batches failed, ' + err);
+            txStatus.SetStatusFail();
             return Promise.resolve(txStatus);
         });
 }
@@ -342,32 +385,41 @@ class Sawtooth extends BlockchainInterface {
      * @return {Promise<object>} The promise for the result of the execution.
      */
     async invokeSmartContract(context, contractID, contractVer, args, timeout) {
-        let config = require(configPath);
-        let builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer, config, this.workspaceRoot);
-        const batchBytes = builder.buildBatch(args);
-        if(context.engine) {
-            context.engine.submitCallback(args.length);
-        }
-        //Get the next block number and status of block to pending
-        if(currentBlockNum === 0) {
-            await getCurrentBlockId().then(block_num => {
-                currentBlockNum = block_num+1;
-            });
-        }
-        else {
-            currentBlockNum = currentBlockNum +1;
-        }
-        blockCommitSatus.set(currentBlockNum,'pending');
-        return submitBatches(currentBlockNum, batchBytes).then((batchStats)=>{
-            // use batchStats for all transactions in this batch
+        try {
+            let config = require(configPath);
+            let builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer, config, this.workspaceRoot);
+            const batchBytes = builder.buildBatch(args);
+            if(context.engine) {
+                context.engine.submitCallback(args.length);
+            }
+            //Get the next block number and status of block to pending
+            if(currentBlockNum === 0) {
+                await getCurrentBlockId().then(block_num => {
+                    currentBlockNum = block_num+1;
+                });
+            }
+            else {
+                currentBlockNum = currentBlockNum +1;
+            }
+            let batchStats = await submitBatches(currentBlockNum, batchBytes, timeout * 1000);
+
             let txStats = [];
             for(let i = 0 ; i < args.length ; i++) {
                 let cloned = Object.assign({}, batchStats);
                 Object.setPrototypeOf(cloned, TxStatus.prototype);
                 txStats.push(cloned);
             }
-            return Promise.resolve(txStats);
-        });
+            return txStats;
+        } catch (err) {
+            logger.error('invokeSmartContract failed, ' + err);
+            let txStats = [];
+            for(let i = 0 ; i < args.length ; i++) {
+                let txStatus = new TxStatus(0);
+                txStatus.SetStatusFail();
+                txStats.push(txStatus);
+            }
+            return txStats;
+        }
     }
 
     /**
