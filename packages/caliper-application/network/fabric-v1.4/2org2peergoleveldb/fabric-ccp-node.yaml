@@ -1,0 +1,154 @@
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+name: Fabric
+version: "1.0"
+mutual-tls: false
+
+caliper:
+  blockchain: fabric-ccp
+  command:
+    start: docker-compose -f network/fabric-v1.4/2org2peergoleveldb/docker-compose.yaml up -d;sleep 3s
+    end: docker-compose -f network/fabric-v1.4/2org2peergoleveldb/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q);rm -rf /tmp/hfc-*
+
+info:
+  Version: 1.4.0
+  Size: 2 Orgs with 2 Peers
+  Orderer: Solo
+  Distribution: Single Host
+  StateDB: GoLevelDB
+
+clients:
+  client0.org1.example.com:
+    client:
+      organization: Org1
+      credentialStore:
+        path: /tmp/hfc-kvs/org1
+        cryptoStore:
+          path: /tmp/hfc-cvs/org1
+      clientPrivateKey:
+        path: network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/key.pem
+      clientSignedCert:
+        path: network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem
+
+  client0.org2.example.com:
+    client:
+      organization: Org2
+      credentialStore:
+        path: /tmp/hfc-kvs/org2
+        cryptoStore:
+          path: /tmp/hfc-cvs/org2
+      clientPrivateKey:
+        path: network/fabric-v1.4/config/crypto-config/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/keystore/key.pem
+      clientSignedCert:
+        path: network/fabric-v1.4/config/crypto-config/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/signcerts/User1@org2.example.com-cert.pem
+
+
+channels:
+  mychannel:
+    configBinary: network/fabric-v1.4/config/mychannel.tx
+    created: false
+    orderers:
+    - orderer.example.com
+    peers:
+      peer0.org1.example.com:
+        eventSource: true
+      peer1.org1.example.com:
+        eventSource: true
+      peer0.org2.example.com:
+        eventSource: true
+      peer1.org2.example.com:
+        eventSource: true
+
+    chaincodes:
+    - id: marbles
+      version: v0
+      language: node
+      path: src/contract/fabric/marbles/node
+      metadataPath: src/contract/fabric/marbles/node/metadata
+    - id: simple
+      version: v0
+      language: node
+      path: src/contract/fabric/simple/node
+
+organizations:
+  Org1:
+    mspid: Org1MSP
+    peers:
+    - peer0.org1.example.com
+    - peer1.org1.example.com
+    certificateAuthorities:
+    - ca.org1.example.com
+    adminPrivateKey:
+      path: network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/key.pem
+    signedCert:
+      path: network/fabric-v1.4/config/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem
+
+  Org2:
+    mspid: Org2MSP
+    peers:
+    - peer0.org2.example.com
+    - peer1.org2.example.com
+    certificateAuthorities:
+    - ca.org2.example.com
+    adminPrivateKey:
+      path: network/fabric-v1.4/config/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/key.pem
+    signedCert:
+      path: network/fabric-v1.4/config/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/Admin@org2.example.com-cert.pem
+
+orderers:
+  orderer.example.com:
+    url: grpc://localhost:7050
+    grpcOptions:
+      ssl-target-name-override: orderer.example.com
+
+peers:
+  peer0.org1.example.com:
+    url: grpc://localhost:7051
+    grpcOptions:
+      ssl-target-name-override: peer0.org1.example.com
+      grpc.keepalive_time_ms: 600000
+
+  peer1.org1.example.com:
+    url: grpc://localhost:7057
+    grpcOptions:
+      ssl-target-name-override: peer1.org1.example.com
+      grpc.keepalive_time_ms: 600000
+
+  peer0.org2.example.com:
+    url: grpc://localhost:8051
+    grpcOptions:
+      ssl-target-name-override: peer0.org2.example.com
+      grpc.keepalive_time_ms: 600000
+
+  peer1.org2.example.com:
+    url: grpc://localhost:8057
+    grpcOptions:
+      ssl-target-name-override: peer1.org2.example.com
+      grpc.keepalive_time_ms: 600000
+
+certificateAuthorities:
+  ca.org1.example.com:
+    url: http://localhost:7054
+    httpOptions:
+      verify: false
+    registrar:
+    - enrollId: admin
+      enrollSecret: adminpw
+
+  ca.org2.example.com:
+    url: http://localhost:8054
+    httpOptions:
+      verify: false
+    registrar:
+    - enrollId: admin
+      enrollSecret: adminpw
