@@ -69,12 +69,12 @@ channels:
     - id: marbles
       version: v0
       language: node
-      path: contract/fabric/marbles/node
-      metadataPath: contract/fabric/marbles/node/metadata
+      path: src/contract/fabric/marbles/node
+      metadataPath: src/contract/fabric/marbles/node/metadata
     - id: simple
       version: v0
       language: node
-      path: contract/fabric/simple/node
+      path: src/contract/fabric/simple/node
 
 organizations:
   Org1:

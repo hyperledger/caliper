@@ -21,7 +21,7 @@
     "src/comm/template/report.html"
   ],
   "dependencies": {
-    "@monax/burrow" : "0.24.3",
+    "@monax/burrow" : "0.23.0",
     "caliper-core" : "0.1.0"
   },
   "devDependencies": {
