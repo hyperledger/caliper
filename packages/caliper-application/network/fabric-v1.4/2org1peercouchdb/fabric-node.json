@@ -56,8 +56,8 @@
       }
     ],
     "chaincodes": [
-      {"id": "marbles", "path": "contract/fabric/marbles/node", "language":"node", "version": "v1", "channel": "mychannel", "metadataPath": "contract/fabric/marbles/node/metadata"},
-      {"id": "simple", "path": "contract/fabric/simple/node", "language":"node", "version": "v0", "channel": "mychannel"}
+      {"id": "marbles", "path": "src/contract/fabric/marbles/node", "language":"node", "version": "v1", "channel": "mychannel", "metadataPath": "src/contract/fabric/marbles/node/metadata"},
+      {"id": "simple", "path": "src/contract/fabric/simple/node", "language":"node", "version": "v0", "channel": "mychannel"}
     ],
     "endorsement-policy": {
       "identities": [
