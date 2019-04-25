@@ -9,8 +9,9 @@ output.log
 #Ignore default Caliper log location
 log/
 
-# Ignore any generted html files
+# Ignore any generted html files, but include the report html template
 *.html
+!/packages/caliper-core/lib/report/template/report.html
 
 # Ignore DS_Store files from Mac
 **.DS_Store

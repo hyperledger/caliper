@@ -3,9 +3,9 @@ node_js:
 - '8'
 matrix:
     include:
-        - env: BENCHMARK=composer VERSION=0.19
-        - env: BENCHMARK=drm
-        - env: BENCHMARK=simple
+        - env: BENCHMARK=composer
+        - env: BENCHMARK=fabric
+        - env: BENCHMARK=fabric-ccp
 dist: trusty
 before_install: |
     set -ev

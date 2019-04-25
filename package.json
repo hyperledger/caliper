@@ -1,99 +1,28 @@
 {
   "name": "caliper",
+  "description": "Performance benchmarking for Hyperledger blockchain technologies.  You must install [Lerna](https://lernajs.io) to build this multi-package repository.",
   "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/hyperledger/caliper"
   },
   "scripts": {
-    "test": "npm run lint && npm run nyc && npm run e2e",
-    "lint": "npx eslint .",
-    "list": "node ./scripts/list.js",
-    "nyc": "nyc mocha --recursive -t 10000",
-    "e2e": "node ./scripts/main.js",
-    "bench": "node ./scripts/main.js",
-    "startclient": "node ./src/comm/client/zoo-client.js",
-    "burrow-deps": "npm install --no-save @monax/burrow@0.23.0 grpc@1.16.1",
-    "composer-deps": "npm install --no-save composer-admin@0.19.18 composer-client@0.19.18 composer-common@0.19.18 fabric-ca-client@1.1.0 fabric-client@1.1.0",
-    "fabric-v1.0-deps": "npm install --no-save grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0",
-    "fabric-v1.1-deps": "npm install --no-save grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0",
-    "fabric-v1.2-deps": "npm install --no-save grpc@1.10.1 fabric-ca-client@1.2.0 fabric-client@1.2.0",
-    "fabric-v1.3-deps": "npm install --no-save grpc@1.14.2 fabric-ca-client@1.3.0 fabric-client@1.3.0 fabric-network@1.4.0",
-    "fabric-v1.4-deps": "npm install --no-save grpc@1.14.2 fabric-ca-client@1.4.0 fabric-client@1.4.0 fabric-network@1.4.0",
-    "iroha-deps": "npm install --no-save iroha-lib@0.1.7",
-    "sawtooth-deps": "npm install --no-save protocol-buffers sawtooth-sdk"
+    "repoclean": "lerna clean",
+    "bootstrap": "lerna bootstrap",
+    "test": "lerna run test"
   },
+  "engineStrict": true,
   "engines": {
     "node": ">=8.10.0",
     "npm": ">=5.6.0"
   },
-  "engine-strict": true,
-  "engineStrict": true,
   "files": [
     "*",
     "src/comm/template/report.html"
   ],
-  "dependencies": {
-    "cbor": "^3.0.3",
-    "compare-versions": "^3.4.0",
-    "commander": "^2.19.0",
-    "dockerode": "^2.5.0",
-    "fs-extra": "^4.0.2",
-    "js-yaml": "^3.12.0",
-    "jsrsasign": "^8.0.4",
-    "moment": "^2.22.2",
-    "mustache": "^2.3.0",
-    "nconf": "^0.10.0",
-    "nconf-yaml": "^1.0.2",
-    "node-zookeeper-client": "^0.2.2",
-    "ora": "^1.2.0",
-    "pidusage": "^1.1.6",
-    "ps-node": "^0.1.6",
-    "request": "^2.81.0",
-    "request-promise": "^4.2.1",
-    "systeminformation": "^3.23.7",
-    "table": "^4.0.1",
-    "tmp": "0.0.33",
-    "winston": "^2.4.4",
-    "winston-daily-rotate-file": "^3.5.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "chai": "^3.5.0",
-    "eslint": "^4.19.1",
-    "mocha": "3.4.2",
-    "nyc": "11.1.0",
-    "rewire": "^4.0.0",
-    "sinon": "2.3.8"
-  },
-  "optionalDependencies": {
-    "ajv": "^6.0.0"
-  },
-  "nyc": {
-    "exclude": [
-      "benchmark/**",
-      "docs/**",
-      "network/**",
-      "coverage/**",
-      "src/comm/*.js",
-      "src/comm/client/**",
-      "src/composer/**",
-      "src/contract/**",
-      "src/fabric/**",
-      "src/gui/**",
-      "src/iroha/**",
-      "scripts/**",
-      "test/**"
-    ],
-    "reporter": [
-      "text-summary",
-      "html"
-    ],
-    "all": true,
-    "check-coverage": false,
-    "statements": 5,
-    "branches": 8,
-    "functions": 7,
-    "lines": 5
+    "lerna": "2.0.0"
   },
   "license": "Apache-2.0",
   "licenses": [
