@@ -4,14 +4,14 @@ title:  "Fabric Configuration"
 categories: config
 ---
 
-> The latest supported version of Hyperledger Fabric is v1.2
+> The latest supported version of Hyperledger Fabric is v1.4
 
-## Installing Fabric dependencies
+## Using Alternative Fabric Versions
+If you wish to use a specific Composer version, it is necessary to modify the `fabric-client`, `fabric-ca-client`, and (depending on level) `fabric-network` version levels listed as dependancies in `packages/caliper-fabric/package.json`, and then rebuild the Caliper project using the following commands issued at the root Caliper project location:
 
-* Install Fabric dependencies executing the appropriate `npm run` command in the Caliper root folder:
-  * `npm run fabric-v1.0-deps`
-  * `npm run fabric-v1.1-deps`
-  * `npm run fabric-v1.2-deps`
+- `npm install`
+- `npm run repoclean`
+- `npm run bootstrap`
 
 ## Fabric Configuration file
 The configuration file must contain a 'fabric' property, which defines the Fabric configuration, and an 'info' property, which provides supplementary information for the test case.

@@ -37,9 +37,15 @@ Make sure following tools are installed
 * Docker
 * Docker-compose
 
-### Install Blockchain SDKs
+### Building Caliper
 
-Run `npm install` in Caliper folder to install dependencies locally, the relevant packages for the Hyperledger projects must be installed to use those plugins. You can find information in the pages below.
+Caliper is split into pacakges that are managed by Lerna, a tool for managing JavaScript projects with multiple packages. To build Caliper, it is necessary to first pull the required base dependancies, and then bootstrap the Caliper project. Note that if you modify base code, it is necessary to rebuild the project
+
+- Run `npm install` in Caliper root folder to install base dependencies locally
+- Run `npm run repoclean` in Caliper root folder to ensure that all the packages are clean
+- Run `npm run bootstrap` to bootstrap the packages in the Caliper repository. This will install all package dependancies and link any cross dependancies.
+
+Steps for configuring a benchmark that targets a supported blockchain technology are given in the following links:
 
 - [Burrow]({{ site.baseurl }}{% link docs/Burrow_Configuration.md %})
 - [Composer]({{ site.baseurl }}{% link docs/Composer_Configuration.md %})
@@ -50,7 +56,7 @@ Run `npm install` in Caliper folder to install dependencies locally, the relevan
 
 ## Run Benchmark
 
-All predefined benchmarks can be found in [*benchmark*](https://github.com/hyperledger/caliper/tree/master/benchmark) folder.
+All predefined benchmarks can be found in [*benchmark*](https://github.com/hyperledger/caliper/tree/master/packages/caliper-application/benchmark/) folder.
 To start your first benchmark, just run this from the root folder:
 ```bash
 npm run bench -- -c yourconfig.json -n yournetwork.json
@@ -58,7 +64,7 @@ npm run bench -- -c yourconfig.json -n yournetwork.json
 * -c : specify the config file of the benchmark (required).
 * -n : specify the config file of the blockchain network under test (required).
 
-Some example SUTs are provided in [*network*](https://github.com/hyperledger/caliper/tree/master/network) folder, they can be launched automatically before the test by setting the bootstrap commands in the configuration file, e.g.
+Some example SUTs are provided in [*network*](https://github.com/hyperledger/caliper/tree/master/packages/caliper-application/network) folder, they can be launched automatically before the test by setting the bootstrap commands in the configuration file, e.g.
 ```json
 {
   "command" : {
@@ -96,14 +102,12 @@ simple
 In this way, multiple clients can be launched on distributed hosts to run the same benchmark.
 
 1. Start the ZooKeeper service
-2. Launch clients on target machines separately by running `node ./src/comm/client/zoo-client.js zookeeper-server` or `npm run startclient -- zookeeper-server` . Time synchronization between target machines should be executed before launching the clients.  
+2. Launch a `caliper-zoo-client` on each target machine. This may be done via the `caliper-application` sample  by running `node start-zoo-client.js -t <target type> -n <network config> -a <zookeeper address>`. Time synchronization between target machines should be executed before launching the clients.  
 
     Example:
     ```bash
-    $ npm run startclient -- 10.229.42.159:2181
-
-    > caliper@0.1.0 startclient /home/hurf/caliper
-    > node ./src/comm/client/zoo-client.js "10.229.42.159:2181"
+    > cd ~/github/caliper/packages/caliper-application/scripts
+    > node start-zoo-client.js -t fabric -n ../network/fabric-v1.4/2org1peercouchdb/fabric-node.json -a "10.229.42.159:2181"
 
     Connected to ZooKeeper
     Created client node:/caliper/clients/client_1514532063571_0000000006
