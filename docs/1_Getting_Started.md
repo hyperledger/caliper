@@ -43,7 +43,7 @@ Caliper is split into pacakges that are managed by Lerna, a tool for managing Ja
 
 - Run `npm install` in Caliper root folder to install base dependencies locally
 - Run `npm run repoclean` in Caliper root folder to ensure that all the packages are clean
-- Run `npm run bootstrap` to bootstrap the packages in the Caliper repository. This will install all package dependancies and link any cross dependancies.
+- Run `npm run bootstrap` to bootstrap the packages in the Caliper repository. This will install all package dependancies and link any cross dependancies. It will take some time to finish installation. If it is interrupted by `ctrl+c`, please recover the file `package.json` first and then run `npm run bootstrap` again.
 
 Steps for configuring a benchmark that targets a supported blockchain technology are given in the following links:
 
@@ -57,12 +57,14 @@ Steps for configuring a benchmark that targets a supported blockchain technology
 ## Run Benchmark
 
 All predefined benchmarks can be found in [*benchmark*](https://github.com/hyperledger/caliper/tree/master/packages/caliper-application/benchmark/) folder.
-To start your first benchmark, just run this from the root folder:
+To start your first benchmark, just run this from the folder `packages/caliper-application/scripts`:
 ```bash
-npm run bench -- -c yourconfig.json -n yournetwork.json
+node run-benchmark.js -c yourconfig -n yournetwork
 ```
 * -c : specify the config file of the benchmark (required).
 * -n : specify the config file of the blockchain network under test (required).
+
+When running benchmarks, the errors like 'not find modules' occur. Please running `npm rebuild` from the root folder.
 
 Some example SUTs are provided in [*network*](https://github.com/hyperledger/caliper/tree/master/packages/caliper-application/network) folder, they can be launched automatically before the test by setting the bootstrap commands in the configuration file, e.g.
 ```json
@@ -101,8 +103,8 @@ simple
 
 In this way, multiple clients can be launched on distributed hosts to run the same benchmark.
 
-1. Start the ZooKeeper service
-2. Launch a `caliper-zoo-client` on each target machine. This may be done via the `caliper-application` sample  by running `node start-zoo-client.js -t <target type> -n <network config> -a <zookeeper address>`. Time synchronization between target machines should be executed before launching the clients.  
+1. Start the ZooKeeper service: run `node zoo-service.js -t start` from the folder `packages/caliper-application/scripts`.
+2. Launch a `caliper-zoo-client` on each target machine. This may be done via the `caliper-application` sample  by running `node start-zoo-client.js -n <network config> -a <zookeeper service address>`. Time synchronization between target machines should be executed before launching the clients.
 
     Example:
     ```bash
