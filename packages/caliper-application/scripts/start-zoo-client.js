@@ -20,7 +20,6 @@ async function main() {
     let program = require('commander');
     program
         .allowUnknownOption()
-        .option('-t, --type <string>', 'benchmark type')
         .option('-a, --address <string>', 'zookeeper address')
         .option('-n, --network <file>', 'config file of the blockchain system under test')
         .parse(process.argv);
@@ -29,10 +28,6 @@ async function main() {
 
     if(typeof program.address === 'undefined') {
         logger.error('zookeeper address is required');
-        process.exit(1);
-    }
-    if(typeof program.type === 'undefined') {
-        logger.error('blockchain target type is required and is one of [burrow, composer, fabric, iroha, sawtooth]');
         process.exit(1);
     }
     if(typeof program.network === 'undefined') {
@@ -46,13 +41,22 @@ async function main() {
         process.exit(1);
     }
 
+    let blockchainType = '';
+    let networkObject = CaliperUtils.parseYaml(absNetworkFile);
+    if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('blockchain')) {
+        blockchainType = networkObject.caliper.blockchain;
+    } else {
+        throw new Error('The ' + absNetworkFile + ' has no blockchain type')
+    }
+
+
     // Obtain the root path from which all relative paths in the network config files are based from
     const workspace = path.join(__dirname, '../');
 
     try {
-        logger.info('Starting zookeeper client of type ' + program.type);
+        logger.info('Starting zookeeper client of type ' + blockchainType);
         // Define the blockchain client types based on passed -t option
-        const {ClientFactory} = require('caliper-' + program.type);
+        const {ClientFactory} = require('caliper-' + blockchainType);
         const clientFactory = new ClientFactory(absNetworkFile, workspace);
 
         zooClient = new CaliperZooClient(program.address, clientFactory, workspace);
