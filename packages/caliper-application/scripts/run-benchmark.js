@@ -19,7 +19,6 @@ async function main() {
     let program = require('commander');
     program
         .allowUnknownOption()
-        .option('-t, --type <string>', 'benchmark type')
         .option('-c, --config <file>', 'config file of the benchmark')
         .option('-n, --network <file>', 'config file of the blockchain system under test')
         .parse(process.argv);
@@ -30,10 +29,7 @@ async function main() {
         logger.error('config file is required');
         process.exit(1);
     }
-    if(typeof program.type === 'undefined') {
-        logger.error('blockchain target type is required and is one of [burrow, composer, fabric, iroha, sawtooth]');
-        process.exit(1);
-    }
+
     if(typeof program.network === 'undefined') {
         logger.error('network file is required');
         process.exit(1);
@@ -54,10 +50,18 @@ async function main() {
     // Obtain the root path from which all relative paths in the network config files are based from
     const workspace = path.join(__dirname, '../');
 
+    let blockchainType = '';
+    let networkObject = CaliperUtils.parseYaml(absNetworkFile);
+    if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('blockchain')) {
+        blockchainType = networkObject.caliper.blockchain;
+    } else {
+        throw new Error('The ' + absNetworkFile + ' has no blockchain type') 
+    }
+
     try {
-        logger.info('Benchmark for target Blockchain type ' + program.type + ' about to start');
+        logger.info('Benchmarr for target Blockchain type ' + blockchainType + ' about to start');
         // Define the blockchain client types based on passed -t option
-        const {AdminClient, ClientFactory} = require('caliper-' + program.type);
+        const {AdminClient, ClientFactory} = require('caliper-' + blockchainType);
         const adminClient = new AdminClient(absNetworkFile, workspace);
         const clientFactory = new ClientFactory(absNetworkFile, workspace);
 
