@@ -9,7 +9,7 @@
   "sawtooth": {
     "batchBuilders": {
       "smallbank": {
-        "1.0": "src/adapters/sawtooth/Application/SmallBankBatchBuilder.js"
+        "1.0": "src/contract/sawtooth/smallbank/SmallBankBatchBuilder.js"
       }
     },
     "network": {
