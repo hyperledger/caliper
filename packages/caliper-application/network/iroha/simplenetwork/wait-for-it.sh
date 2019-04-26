@@ -171,6 +171,11 @@ if [[ $CLI != "" ]]; then
         echoerr "$cmdname: strict mode, refusing to execute subprocess"
         exit $RESULT
     fi
+    echoerr ${CLI[@]}
+    echoerr $PWD
+    echoerr $KEY
+    cd $KEY
+    echoerr $PWD
     exec "${CLI[@]}"
 else
     exit $RESULT

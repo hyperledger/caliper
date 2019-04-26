@@ -1,9 +1,15 @@
-/**
-* Copyright 2017 HUAWEI. All Rights Reserved.
+/*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
 *
-* SPDX-License-Identifier: Apache-2.0
+* http://www.apache.org/licenses/LICENSE-2.0
 *
-* @file, definition of the Iroha class, which implements the Caliper's NBI for Hyperledger Iroha.
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
 */
 
 
@@ -11,95 +17,120 @@
 
 const fs = require('fs');
 const grpc = require('grpc');
-const {
-    ModelCrypto,
-    ModelProtoTransaction,
-    ModelProtoQuery,
-    ModelTransactionBuilder,
-    ModelQueryBuilder
-} = require('iroha-lib');
-const endpointPb = require('iroha-lib/pb/endpoint_pb.js');
-const txStatus =  require('iroha-lib/pb/endpoint_pb.js').TxStatus;
-const pbTransaction = require('iroha-lib/pb/block_pb.js').Transaction;
-const pbQuery = require('iroha-lib/pb/queries_pb.js').Query;
-const endpointGrpc = require('iroha-lib/pb/endpoint_grpc_pb.js');
+
+const IrohaService_v1Client = require('iroha-helpers/lib/proto/endpoint_grpc_pb');
+const CommandService_v1Client = IrohaService_v1Client.CommandService_v1Client;
+const QueryService_v1Client = IrohaService_v1Client.QueryService_v1Client;
+
+const generateKeypair = require('iroha-helpers/lib/cryptoHelper.js').default;
 
 const {BlockchainInterface, CaliperUtils, TxStatus} = require('caliper-core');
 const logger = CaliperUtils.getLogger('iroha.js');
 
-const irohaType = require('./type.js');
-
-const txBuilder = new ModelTransactionBuilder();
-const queryBuilder = new ModelQueryBuilder();
-const crypto = new ModelCrypto();
+const irohaQueries = require('iroha-helpers/lib/queries').default;
+const irohaUtil = require('iroha-helpers/lib/util.js');
+const txHelper = require('iroha-helpers/lib/txHelper.js').default;
+const TxStatusLib = require('iroha-helpers/lib/proto/endpoint_pb.js').TxStatus;
+const TxStatusRequest = require('iroha-helpers/lib/proto/endpoint_pb.js').TxStatusRequest;
 
 let contexts = {};
 
 /**
- * Convert between Iroha's Blob type and Uint8Array.
- * @param {iroha.Blob} blob The object with blob data.
- * @return {Uint8Array} The output JS byte array.
+ * Create Iroha transaction and send it to a node.
+ * @param {Array} txs commandOptions
+ * @param {Object} txClient - transaction commands
+ * @param {timeoutLimit} timeoutLimit timeout
+ * @param {Array} requiredStatuses status
+ * @returns {Promise} promise with sended transactions
  */
-function blob2array(blob) {
-    let bytearray = new Uint8Array(blob.size());
-    for (let i = 0 ; i < blob.size() ; ++i) {
-        bytearray[i] = blob.get(i);
-    }
-    return bytearray;
+function sendTransactions(txs, txClient, timeoutLimit, requiredStatuses = ['COMMITTED']){
+    const hashes = txs.map(x => txHelper.hash(x));
+    const txList = txHelper.createTxListFromArray(txs);
+    return new Promise((resolve, reject) => {
+        const timer = setTimeout(()=>{
+            txClient.$channel.close();
+            reject(new Error('Please check IP address OR your internet connection'));
+        }, timeoutLimit);
+        txClient.listTorii(txList, (err) => {
+            clearTimeout(timer);
+            if(err) {
+                return reject(err);
+            }
+            resolve();
+        });
+    }).then(async () => {
+        try{
+            let requests = hashes.map(hash => new Promise((resolve, reject) =>{
+                let statuses = [];
+                let request = new TxStatusRequest();
+                request.setTxHash(hash.toString('hex'));
+                let timer = setTimeout(()=>{
+                    txClient.$channel.close();
+                    reject(new Error('Query txStatus timeout'));
+                }, timeoutLimit);
+
+                let stream = txClient.statusStream(request);
+                stream.on('data', function (response){
+                    statuses.push(response);
+                });
+                stream.on('end', function (end){
+                    clearTimeout(timer);
+                    statuses.length > 0? resolve(statuses[statuses.length - 1].getTxStatus()) : resolve(null);
+                });
+            }));
+            let values = await Promise.all(requests);
+            let statuses = values.map(x => x!== null ? irohaUtil.getProtoEnumName(TxStatusLib, 'iroha.protocol.Txstatus', x) : null);
+            return statuses.some(x => requiredStatuses.includes(x)) ? Promise.resolve({txId: hashes, statuses: statuses}) : Promise.reject(new Error(`Your Transaction wasn't committed: expected: ${requiredStatuses}, actual: ${statuses}` ));
+        }catch(e){
+            logger.error(e);
+            return Promise.reject(new Error('Query txStatus timeout'));
+        }
+    });
 }
 
 /**
  * Create Iroha transaction and send it to a node.
- * @param {endpointGrpc.CommandServiceClient} client - GRPC endpoint
- * @param {string} account - creator account id
- * @param {number} time - time of creation
- * @param {iroha.Keypair} keys - keypair to sign
- * @param {Array} commands - transaction commands
- * @returns {Promise} promise with sended transaction
+ * {
+ * privateKeys: [''],
+ * creatorAccountId: '',
+ * quorum: 1,
+ * commandService: null,
+ * timeoutLimit: 5000
+ * }
+ * @param {Object} commandOption commandOptions
+ * @param {Array} commandArgs - transaction commands
+ * @returns {Promise} promise with sended transactions
  */
-function irohaCommand(client, account, time, keys, commands) {
+function irohaCommand(commandOption, commandArgs) {
     try {
-        let tx = txBuilder.creatorAccountId(account).createdTime(time);
-        let txHash;
-        return commands.reduce((prev, command) => {
-            return prev.then((trans) => {
-                let tx   = command.tx;
-                let args = command.args;
-                if(args.length !== tx.argslen) {
-                    return Promise.reject(new Error('Wrong arguments number for ' + tx.fn + ' : expected ' + tx.argslen + ' , got ' + args.length));
-                }
-                return Promise.resolve(trans[tx.fn].apply(trans, args));
-            });
-        }, Promise.resolve(tx))
-            .then((transaction) => {
-                tx = transaction.build();
-                let txblob  = (new ModelProtoTransaction(tx))
-                    .signAndAddSignature(keys)
-                    .finish()
-                    .blob();
-                let txArray = blob2array(txblob);
-                let txProto = pbTransaction.deserializeBinary(txArray);
-                let txHashBlob  = tx.hash().blob();
-                txHash = blob2array(txHashBlob);
 
-                return new Promise((resolve, reject) => {
-                    client.torii(txProto, (err, data) => {
-                        if(err){
-                            reject(err);
-                        }
-                        else {
-                            resolve();
-                        }
-                    });
-                });
-            })
-            .then(()=>{
-                return Promise.resolve(txHash);
-            })
-            .catch((err)=>{
-                logger.error(err);
-                return Promise.reject('Failed to submit Iroha transaction');
+        let commands;
+        if(!Array.isArray(commandArgs)){
+            commands = [commandArgs];
+        }else{
+            commands = commandArgs;
+        }
+
+        let privateKeys = commandOption.privateKeys;
+        let creatorAccountId = commandOption.creatorAccountId;
+        let quorum = commandOption.quorum;
+        let commandService = commandOption.commandService;
+        let timeoutLimit = commandOption.timeoutLimit;
+
+        let promises = [];
+        for (let i = 0; i < commands.length; i++) {
+            let commandArg = commands[i];
+            let tx = txHelper.addCommand(txHelper.emptyTransaction(), commandArg.fn, commandArg.args);
+            let txToSend = txHelper.addMeta(tx,{
+                creatorAccountId: creatorAccountId,
+                quorum: quorum
             });
+            txToSend = irohaUtil.signWithArrayOfKeys(txToSend, privateKeys);
+            let txClient = commandService;
+            let p = sendTransactions([txToSend], txClient, timeoutLimit);
+            promises.push(p);
+        }
+        return Promise.all(promises);
     }
     catch(err) {
         logger.error(err);
@@ -109,52 +140,24 @@ function irohaCommand(client, account, time, keys, commands) {
 
 /**
  * Create Iroha query and send it to a node.
- * @param {endpointGrpc.QueryServiceClient} client - GRPC endpoint
- * @param {string} account - creator account id
- * @param {number} time - time of creation
- * @param {number} counter - query counter
- * @param {iroha.Keypair} keys - keypair to sign
+ * @param {Object} queryOptions queryOptions
  * @param {Array} commands - query commands
- * @param {Function} callback - callback with query response
- * @returns {undefined}
+ * @returns {Promise} promise with the results.
  */
-function irohaQuery(client, account, time, counter, keys, commands, callback) {
+function irohaQuery(queryOptions, commands) {
     try {
-        let queryCommand = commands[0];
-        let query = queryBuilder.creatorAccountId(account)
-            .createdTime(time)
-            .queryCounter(counter);
-        let tx   = queryCommand.tx;
-        let args = queryCommand.args;
-        if(args.length !== tx.argslen) {
-            throw new Error('Wrong arguments number for ' + tx.fn + ' : expected ' + tx.argslen + ' , got ' + args.length);
+
+        if(!Array.isArray(commands)){
+            commands = [commands];
         }
-        query = query[tx.fn].apply(query, args);
-        query = query.build();
-        let queryBlob  = (new ModelProtoQuery(query))
-            .signAndAddSignature(keys)
-            .finish()
-            .blob();
-        let queryArray = blob2array(queryBlob);
-        let protoQuery = pbQuery.deserializeBinary(queryArray);
-        let responseType = require('iroha-lib/pb/responses_pb.js').QueryResponse.ResponseCase;
-        return new Promise((resolve, reject) => {
-            client.find(protoQuery, (err, response) => {
-                if(err){
-                    reject(err);
-                }
-                else {
-                    if(response.getResponseCase() === responseType.ERROR_RESPONSE) { // error response
-                        logger.info('Query: ', JSON.stringify(queryCommand));
-                        reject(new Error('Query error, error code : ' + response.getErrorResponse().getReason()));
-                    }
-                    else {
-                        callback(response);
-                        resolve();
-                    }
-                }
-            });
-        });
+
+        let promises = [];
+        for(let i = 0; i < commands.length; i++){
+            let queryArg = commands[i];
+            let p = irohaQueries[queryArg.fn](queryOptions,queryArg.args);
+            promises.push(p);
+        }
+        return Promise.all(promises);
     }
     catch(err) {
         logger.error(err);
@@ -169,26 +172,38 @@ function irohaQuery(client, account, time, counter, keys, commands, callback) {
 class Iroha extends BlockchainInterface {
     constructor(config_path, workspace_root) {
         super(config_path);
-        this.statusInterval = null;
         this.bcType = 'iroha';
         this.workspaceRoot = workspace_root;
     }
 
-    init() {
+    /**
+     *Initialize the {iroha} object.
+     * @async
+     * @returns{promise} promise
+     */
+    async init() {
         // TODO: How to judge Iroha service's status elegantly?
         return CaliperUtils.sleep(10000); // Wait for Iroha network to start up
     }
 
-    installSmartContract() {
+    /**
+     * Deploy the smart contract specified in the network configuration file.
+     * @return {promise} Promise.resolve().
+     * @async
+     */
+    async installSmartContract() {
         // Now Iroha doesn't support smart contract,
         // using internal transactions to construct contracts
         return Promise.resolve();
     }
 
-    prepareClients(number) {
+    /**
+     * Perform required preparation for test clients
+     * @param {Number} number count of test clients
+     * @return {Promise} obtained material for test clients
+     */
+    async prepareClients(number) {
         try{
-            logger.info('Creating new account for test clients......');
-
             // get admin info
             let config = require(this.configPath);
             let admin        = config.iroha.admin;
@@ -198,22 +213,32 @@ class Iroha extends BlockchainInterface {
             let pubPath      = CaliperUtils.resolvePath(admin['key-pub'], this.workspaceRoot);
             let adminPriv    = fs.readFileSync(privPath).toString();
             let adminPub     = fs.readFileSync(pubPath).toString();
-            let adminKeys    = crypto.convertFromExisting(adminPub, adminPriv);
-
             // test
             logger.info(`Admin's private key: ${adminPriv}`);
             logger.info(`Admin's public key: ${adminPub}`);
 
             // create account for each client
             let result = [];
-            let promises = [];
             let node = this._findNode();
-            let grpcCommandClient = new endpointGrpc.CommandServiceClient(node.torii, grpc.credentials.createInsecure());
-            let grpcQueryClient   = new endpointGrpc.QueryServiceClient(node.torii, grpc.credentials.createInsecure());
+            logger.info('node: ' + node.torii);
 
+            let commandService = new CommandService_v1Client(
+                node.torii,
+                grpc.credentials.createInsecure()
+            );
+
+            // build create account transaction
+            let commandOptions = {
+                privateKeys: [adminPriv],
+                creatorAccountId: adminAccount,
+                quorum: 1,
+                commandService: commandService,
+                timeoutLimit: 5000
+            };
             // generate random name, [a-z]
             let seed = 'abcdefghijklmnopqrstuvwxyz';
             let accountNames = [];
+
             const generateName = function() {
                 let name = '';
                 for(let i = 0 ; i < 5 ; i++) {
@@ -226,87 +251,69 @@ class Iroha extends BlockchainInterface {
                     return generateName();
                 }
             };
+            let promises = [];
             for(let i = 0 ; i < number ; i++) {
-                let keys = crypto.generateKeypair();
                 let name = generateName();
                 let id   = name + '@' + domain;
                 accountNames.push(name);
+
+                let keypairs = generateKeypair.generateKeyPair();
+                //client information
                 result.push({
                     name:    name,
                     domain:  domain,
                     id:      id,
-                    pubKey:  keys.publicKey().hex(),
-                    privKey: keys.privateKey().hex()
+                    pubKey:  keypairs.publicKey,
+                    privKey: keypairs.privateKey
                 });
-                // build create account transaction
+
                 let commands = [{
-                    tx: irohaType.txType.CREATE_ACCOUNT,
-                    args: [name, domain, keys.publicKey()]
+                    fn: 'createAccount',
+                    args: {accountName: name, domainId: domain, publicKey: keypairs.publicKey}
                 },
                 {
-                    tx: irohaType.txType.APPEND_ROLE,
-                    args: [id, 'admin']
-                },
-                {
-                    tx: irohaType.txType.APPEND_ROLE,
-                    args: [id, 'moneyad']
-                },];
-                logger.info('Create account for ' + id);
-                let p = irohaCommand(grpcCommandClient, adminAccount, Date.now(), adminKeys, commands);
+                    fn: 'appendRole',
+                    args: {accountId: id, roleName: 'admin'}
+                }];
+
+                let p = irohaCommand(commandOptions,commands[0]).then(()=>
+                    irohaCommand(commandOptions,commands[1]));
+
                 promises.push(p);
             }
-            let queryCounter = 1;
-            return Promise.all(promises)
-                .then(()=>{
-                    logger.info('Submitted create account transactions.');
-                    return CaliperUtils.sleep(5000);
-                })
-                .then(()=>{
-                    logger.info('Query accounts to see if they already exist ......');
-                    let promises = [];
-                    for(let i = 0 ; i < result.length ; i++) {
-                        let acc = result[i];
-                        let p = new Promise((resolve, reject)=>{
-                            irohaQuery(grpcQueryClient,
-                                adminAccount,
-                                Date.now(),
-                                queryCounter,
-                                adminKeys,
-                                [{
-                                    tx: irohaType.txType.GET_ACCOUNT,
-                                    args: [acc.id]
-                                }],
-                                (response) => {
-                                    let accountResp = response.getAccountResponse();
-                                    logger.info('Got account successfully: ' + accountResp.getAccount().getAccountId());
-                                    resolve();
-                                }
-                            )
-                                .catch((err)=>{
-                                    logger.error(err);
-                                    reject(new Error('Failed to query account'));
-                                });
-                        });
-                        queryCounter++;
-                        promises.push(p);
-                    }
-                    return Promise.all(promises);
-                })
-                .then(()=>{
-                    logger.info('Finished create accounts, save key pairs for later use');
-                    return Promise.resolve(result);
-                })
-                .catch(()=>{
-                    return Promise.reject(new Error('Could not create accounts for Iroha clients'));
-                });
+
+            let responses = await Promise.all(promises);
+            let queryCounter = 0;
+
+            for(let i=0;i<responses.length;i++){
+                if(responses[i][0].statuses[0] === 'COMMITTED'){
+                    queryCounter++;
+                }
+            }
+            if(queryCounter!== responses.length){
+                return Promise.reject(new Error('failed to create'));
+            }
+            else{
+                logger.info('created clients succesfully');
+                return Promise.resolve(result);
+            }
         }
-        catch (err) {
+        catch(err){
             logger.error(err);
-            return Promise.reject(new Error('Could not create accounts for Iroha clients'));
+            return Promise.reject(new Error('Failed when prepareClients'));
         }
     }
 
-    getContext(name, args) {
+    /**
+     * Return the Iroha context associated with the given callback module name.
+     * @param {string} name The name of the callback module as defined in the configuration files, for example open or query.
+     * @param {object} args Unused, the client material returned by function prepareClient.
+     * @param {Integer} clientIdx The client index.
+     * @param {Object} txFile the file information for reading or writing.
+     * @return {object} The assembled Iroha context.
+     * @async
+     */
+    async getContext(name, args, clientIdx, txFile) {
         try {
             if(!args.hasOwnProperty('name') || !args.hasOwnProperty('domain') || !args.hasOwnProperty('id') || !args.hasOwnProperty('pubKey') || !args.hasOwnProperty('privKey')) {
                 throw new Error('Invalid Iroha::getContext arguments');
@@ -320,20 +327,19 @@ class Iroha extends BlockchainInterface {
                     id:           args.id,
                     pubKey:       args.pubKey,
                     privKey:      args.privKey,
-                    keys:         crypto.convertFromExisting(args.pubKey, args.privKey),
                     txCounter:    1,
                     queryCounter: 1
                 };
-
-
                 let config = require(this.configPath);
 
                 // find callbacks for simulated smart contract
                 let fc = config.iroha.fakecontract;
+
                 let fakeContracts = {};
                 for(let i = 0 ; i < fc.length ; i++) {
                     let contract = fc[i];
-                    let facPath  = CaliperUtils.resolvePath(contract.factory, this.workspaceRoot);
+                    //load the fakeContract.
+                    let facPath  = CaliperUtils.resolvePath(contract.factory,this.workspaceRoot);
                     let factory  = require(facPath);
                     for(let j = 0 ; j < contract.id.length ; j++) {
                         let id = contract.id[j];
@@ -350,187 +356,155 @@ class Iroha extends BlockchainInterface {
                         }
                     }
                 }
-
                 let node = this._findNode();
                 contexts[args.id].torii = node.torii;
                 contexts[args.id].contract = fakeContracts;
             }
-
-            this.grpcCommandClient = new endpointGrpc.CommandServiceClient(contexts[args.id].torii, grpc.credentials.createInsecure());
-            this.grpcQueryClient   = new endpointGrpc.QueryServiceClient(contexts[args.id].torii, grpc.credentials.createInsecure());
-            this.statusWaiting     = {};
-            let self = this;
-            const getStatus = function() {
-                for(let key in self.statusWaiting) {
-                    (function(id) {
-                        let item   = self.statusWaiting[id];
-                        let status = item.status;
-                        let timeElapse =  Date.now() - status.GetTimeCreate();
-                        if(timeElapse > status.Get('timeout')) {
-                            logger.warn('Timeout when querying transaction\'s status');
-                            status.SetStatusFail();
-                            item.resolve(status);
-                            delete self.statusWaiting[id];
-                        }
-                        else if(!item.isquery) {
-                            item.isquery = true;
-                            let request = new endpointPb.TxStatusRequest();
-                            request.setTxHash(status.GetID());
-
-                            self.grpcCommandClient.status(request, (err, response)=>{
-                                item.isquery = false;
-                                let final = false;
-                                if(err) {
-                                    logger.error(err);
-                                    status.SetStatusFail();
-                                    final = true;
-                                }
-                                else {
-                                    let s = response.getTxStatus();
-
-                                    if(s === txStatus.COMMITTED) {
-                                        status.SetStatusSuccess();
-                                        final = true;
-                                    }
-                                    else if(s === txStatus.STATELESS_VALIDATION_FAILED ||
-                                          s === txStatus.STATEFUL_VALIDATION_FAILED ||
-                                          s === txStatus.NOT_RECEIVED) {
-                                        status.SetStatusFail();
-                                        final = true;
-                                    }
-                                }
-                                if (final) {
-                                    item.resolve(status);
-                                    delete self.statusWaiting[id];
-                                }
-                            });
-                        }
-                    })(key);
-                }
-            };
-
-            if(this.statusInterval) {
-                clearInterval(this.statusInterval);
-            }
-            this.statusInterval = setInterval(getStatus, 1000);
-
-            // return the context
+            this.grpcCommandClient = new CommandService_v1Client(contexts[args.id].torii, grpc.credentials.createInsecure());
+            this.grpcQueryClient = new QueryService_v1Client(contexts[args.id].torii, grpc.credentials.createInsecure());
             return Promise.resolve(contexts[args.id]);
-        }
-        catch (err) {
+        }catch(err) {
             logger.error(err);
             return Promise.reject(new Error('Failed when finding access point or user key'));
         }
     }
 
-    releaseContext(context) {
-        if(this.statusInterval) {
-            clearInterval(this.statusInterval);
-            this.statusInterval = null;
-        }
+    /**
+     * Release the given Iroha context.
+     * @param {object} context The Burrow context to release.
+     * @returns {Promise} promise.resolve
+     * @async
+     */
+    async releaseContext(context) {
         return Promise.resolve();
     }
 
-    invokeSmartContract(context, contractID, contractVer, args, timeout) {
+    /**
+     * Invoke a smart contract.
+     * @param {Object} context Context object.
+     * @param {String} contractID Identity of the contract.
+     * @param {String} contractVer Version of the contract.
+     * @param {Array} args Array of JSON formatted arguments for multiple transactions.
+     * @param {Number} timeout Request timeout, in seconds.
+     * @return {Promise<object>} The promise for the result of the execution.
+     */
+    async invokeSmartContract(context, contractID, contractVer, args, timeout) {
         let promises = [];
         args.forEach((item, index)=>{
-            promises.push(this._invokeSmartContract(context, contractID, contractVer, item, timeout));
+            promises.push(this._invokeSmartContract(context, contractID, contractVer, item, timeout*1000));
         });
 
         return Promise.all(promises);
     }
 
-    _invokeSmartContract(context, contractID, contractVer, args, timeout) {
+    /**
+     * Invoke a smart contract.
+     * @param {Object} context Context object.
+     * @param {String} contractID Identity of the contract.
+     * @param {String} contractVer Version of the contract.
+     * @param {json}  args formatted arguments for multiple transactions.
+     * @param {Number} timeout Request timeout, in milliseconds.
+     * @return {Promise<object>} The promise for the result of the execution.
+     */
+    async _invokeSmartContract(context, contractID, contractVer, args, timeout) {
+        if(!context.contract.hasOwnProperty(contractID)) {
+            throw new Error('Could not find contract named ' + contractID);
+        }
+
+        let keypairs = generateKeypair.generateKeyPair();
+        let argsIroha = {
+            accountName: args.account,
+            domainId: context.domain,
+            publicKey: keypairs.publicKey,
+            verb: args.verb
+        };
+
+        let commands = context.contract[contractID](context, argsIroha);
+        if(commands.length === 0) {
+            throw new Error('Empty output of contract ' + contractID);
+        }
+        let status = new TxStatus(null);
+        status.Set('timeout', timeout);
+
+        if(context.engine) {
+            context.engine.submitCallback(1);
+        }
         try {
-            if(!context.contract.hasOwnProperty(contractID)) {
-                throw new Error('Could not find contract named ' + contractID);
-            }
+            //Submit the transaction.
+            let commandOptions = {
+                privateKeys: [context.privKey],
+                creatorAccountId: context.id,
+                quorum: 1,
+                commandService: this.grpcCommandClient,
+                timeoutLimit: timeout
+            };
 
-            let commands = context.contract[contractID](contractVer, context, args);
-            if(commands.length === 0) {
-                throw new Error('Empty output of contract ' + contractID);
-            }
-            let p;
-            let status = new TxStatus(null);
-            status.Set('timeout', timeout*1000);
-            if(context.engine) {
-                context.engine.submitCallback(1);
-            }
-            let key;
-            if(irohaType.commandOrQuery(commands[0].tx) === 0) {
-                p = new Promise((resolve, reject)=>{
-                    let counter = context.txCounter;
-                    key = context.id+'_command_'+counter;
-                    context.txCounter++;
-                    irohaCommand(this.grpcCommandClient, context.id, Date.now(), context.keys, commands)
-                        .then((txid)=>{
-                            status.SetID(txid);
-                            this.statusWaiting[key] = {status:status, resolve:resolve, reject:reject, isquery: false};
-                        });
-                });
-            }
-            else {
-                p = new Promise((resolve, reject)=>{
-                    let counter = context.queryCounter;
-                    context.queryCounter++;
-                    irohaQuery(this.grpcQueryClient, context.id, Date.now(), counter, context.keys, commands,
-                        (response) => {
-                            status.SetStatusSuccess();
-                            resolve(status);  // TODO: should check the response??
-                        }
-                    )
-                        .catch((err)=>{
-                            logger.error(err);
-                            status.SetStatusFail();
-                            resolve(status);
-                        });
-                });
-            }
+            let result =  await irohaCommand(commandOptions, commands);
+            let txIds = result[0].txId;
+            let txStatuses = result[0].statuses;
+            status.SetID(txIds[txIds.length - 1]);
 
-            return p;
+            if(txStatuses[txStatuses.length - 1] === 'COMMITTED'){
+                status.SetStatusSuccess();
+            }
+            else{
+                status.SetStatusFail();
+            }
+            return Promise.resolve(status);
         }
         catch(err) {
-            logger.error(err);
-            return Promise.reject();
+            status.SetStatusFail();
+            return Promise.resolve(status);
         }
     }
 
-    queryState(context, contractID, contractVer, key, fcn = 'query') {
-        try {
-            if(!context.contract.hasOwnProperty(contractID)) {
-                throw new Error('Could not find contract named ' + contractID);
-            }
+    /**
+     * Query the given smart contract according to the specified options.
+     * @param {object} context The Iroha context returned by {getContext}.
+     * @param {string} contractID The name of the contract.
+     * @param {string} contractVer The version of the contract.
+     * @param {string} account The argument to pass to the smart contract query.
+     * @param {string} [fcn=query] The contract query function name.
+     * @return {Promise<object>} The promise for the result of the execution.
+     */
+    async queryState(context, contractID, contractVer, account, fcn = 'query') {
+        if(!context.contract.hasOwnProperty(contractID)) {
+            throw new Error('Could not find contract named ' + contractID);
+        }
+        let accountId = account + '@' + context.domain;
+        let argsIroha = {accountId: accountId, verb: fcn};
+        let commands = context.contract[contractID](context, argsIroha);
+        if(commands.length === 0) {
+            throw new Error('Empty output of contract ' + contractID);
+        }
 
-            let commands = context.contract[contractID](contractVer, context, {verb: fcn, key: key});
-            if(commands.length === 0) {
-                throw new Error('Empty output of contract ' + contractID);
-            }
-            let status = new TxStatus(null);
-            if(context.engine) {
-                context.engine.submitCallback(1);
-            }
-            return new Promise((resolve, reject)=>{
-                let counter = context.queryCounter;
-                context.queryCounter++;
-                irohaQuery(this.grpcQueryClient, context.id, Date.now(), counter, context.keys, commands,
-                    (response) => {
-                        status.SetStatusSuccess();
-                        resolve(status);  // TODO: should check the response??
-                    }
-                )
-                    .catch((err)=>{
-                        logger.error(err);
-                        status.SetStatusFail();
-                        resolve(status);
-                    });
-            });
+        let status = new TxStatus(null);
+        if(context.engine) {
+            context.engine.submitCallback(1);
+        }
+        try {
+
+            let queryOptions = {
+                privateKey: context.privKey,
+                creatorAccountId: context.id,
+                queryService: this.grpcQueryClient,
+                timeoutLimit: 5000
+            };
+            await irohaQuery(queryOptions,commands);
+            status.SetStatusSuccess();
+            return Promise.resolve(status);
         }
         catch(err) {
-            logger.error(err);
-            return Promise.reject();
+            logger.info(err);
+            status.SetStatusFail();
+            return Promise.resolve(status);
         }
     }
 
+    /**
+     * Find an node randomly according to the network configuration.
+     * @return {Promise<object>} The promise for the result of the execution.
+     */
     _findNode() {
         let nodes  = [];
         let config = require(this.configPath);

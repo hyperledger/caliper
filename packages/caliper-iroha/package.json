@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "caliper-core": "0.1.0",
-    "iroha-lib" : "^0.1.7"
+    "iroha-helpers" : "0.6.3"
   },
   "devDependencies": {
     "chai": "^3.5.0",

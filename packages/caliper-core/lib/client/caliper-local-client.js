@@ -87,7 +87,6 @@ class CaliperLocalClient {
      * @param {Object} result test result, should be an array or a single JSON object
      */
     addResult(result) {
-        logger.debug('addResult :', result);
         if(Array.isArray(result)) { // contain multiple results
             for(let i = 0 ; i < result.length ; i++) {
                 this.results.push(result[i]);
