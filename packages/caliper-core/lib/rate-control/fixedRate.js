@@ -76,7 +76,7 @@ class FixedRate extends RateInterface {
             return;
         }
         let diff = (this.sleepTime * idx - (Date.now() - start));
-        if(idx % 100 === 0) {
+        if(diff<=5 && idx % 100 === 0) {
             await Sleep(5);
             return;
         }
