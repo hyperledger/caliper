@@ -8,8 +8,8 @@
   },
   "composer": {
     "chaincodes": [
-      {"id": "basic-sample-network", "version": "0.1.0", "path": "contract/composer", "orgs": ["Org1", "Org2"], "loglevel": "INFO"},
-      {"id": "vehicle-lifecycle-network", "version": "0.1.0", "path": "contract/composer", "orgs": ["Org1", "Org2"], "loglevel": "INFO"}
+      {"id": "basic-sample-network", "version": "0.1.0", "path": "src/contract/composer", "orgs": ["Org1", "Org2"], "loglevel": "INFO"},
+      {"id": "vehicle-lifecycle-network", "version": "0.1.0", "path": "src/contract/composer", "orgs": ["Org1", "Org2"], "loglevel": "INFO"}
     ],
     "cryptodir": "network/fabric-v1.1/config/crypto-config",
     "network": {

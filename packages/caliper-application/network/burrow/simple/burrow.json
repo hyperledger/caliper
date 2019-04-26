@@ -15,7 +15,7 @@
       }
     }
   },
-  "contract": { "path": "contract/burrow/simple/simple.bin" },
+  "contract": { "path": "src/contract/burrow/simple/simple.bin" },
   "info" : {
     "Version": "develop",
     "Size": "2 Peers",
