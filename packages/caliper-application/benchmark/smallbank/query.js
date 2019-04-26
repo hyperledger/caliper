@@ -25,7 +25,7 @@ module.exports.run = function() {
     if (bc.bcType === 'fabric-ccp') {
         let args = {
             chaincodeFunction: 'query',
-            chaincodeArguments: [acc_num],
+            chaincodeArguments: [acc_num.toString()],
         };
         return bc.bcObj.querySmartContract(contx, 'smallbank', '1.0', args, 3);
     } else {
