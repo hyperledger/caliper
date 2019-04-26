@@ -12,6 +12,7 @@
 const CaliperUtils = require('caliper-core').CaliperUtils;
 const logger = CaliperUtils.getLogger('SmallBankBatchBuilder.js');
 const BatchBuilder = require('caliper-sawtooth').BatchBuilder;
+const protosPath = '../src/contract/sawtooth/smallbank/protos/smallbank.proto'
 
 /**
  * get the list of customer ids from the list of small bank transactions
@@ -48,7 +49,7 @@ function getCustomerIds(args) {
 function createAccountPayload(args) {
     let protobuf = require('protocol-buffers');
     let fs = require('fs');
-    let root = protobuf(fs.readFileSync('./protos/smallbank.proto'));
+    let root = protobuf(fs.readFileSync(protosPath));
 
     let account = root.SmallbankTransactionPayload.encode({
         payload_type: root.SmallbankTransactionPayload.PayloadType.CREATE_ACCOUNT,
@@ -70,7 +71,7 @@ function createAccountPayload(args) {
 function createDepositCheckingPayload(args) {
     let protobuf = require('protocol-buffers');
     let fs = require('fs');
-    let root = protobuf(fs.readFileSync('./protos/smallbank.proto'));
+    let root = protobuf(fs.readFileSync(protosPath));
 
     let account = root.SmallbankTransactionPayload.encode({
         payload_type: root.SmallbankTransactionPayload.PayloadType.DEPOSIT_CHECKING,
@@ -90,7 +91,7 @@ function createDepositCheckingPayload(args) {
 function createWriteCheckPayload(args) {
     let protobuf = require('protocol-buffers');
     let fs = require('fs');
-    let root = protobuf(fs.readFileSync('./protos/smallbank.proto'));
+    let root = protobuf(fs.readFileSync(protosPath));
 
     let account = root.SmallbankTransactionPayload.encode({
         payload_type: root.SmallbankTransactionPayload.PayloadType.WRITE_CHECK,
@@ -110,7 +111,7 @@ function createWriteCheckPayload(args) {
 function createTransactSavingsPayload(args) {
     let protobuf = require('protocol-buffers');
     let fs = require('fs');
-    let root = protobuf(fs.readFileSync('./protos/smallbank.proto'));
+    let root = protobuf(fs.readFileSync(protosPath));
 
     let account = root.SmallbankTransactionPayload.encode({
         payload_type: root.SmallbankTransactionPayload.PayloadType.TRANSACT_SAVINGS,
@@ -130,7 +131,7 @@ function createTransactSavingsPayload(args) {
 function createSendPaymentPayload(args) {
     let protobuf = require('protocol-buffers');
     let fs = require('fs');
-    let root = protobuf(fs.readFileSync('./protos/smallbank.proto'));
+    let root = protobuf(fs.readFileSync(protosPath));
 
     let sendPayment = root.SmallbankTransactionPayload.encode({
         payload_type: root.SmallbankTransactionPayload.PayloadType.SEND_PAYMENT,
@@ -151,7 +152,7 @@ function createSendPaymentPayload(args) {
 function createAmalgamatePayload(args) {
     let protobuf = require('protocol-buffers');
     let fs = require('fs');
-    let root = protobuf(fs.readFileSync('./protos/smallbank.proto'));
+    let root = protobuf(fs.readFileSync(protosPath));
 
     let amalgamatePayment = root.SmallbankTransactionPayload.encode({
         payload_type: root.SmallbankTransactionPayload.PayloadType.AMALGAMATE,
