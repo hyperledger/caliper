@@ -35,8 +35,9 @@ class CaliperZooClient {
      * Create the zoo client
      * @param {Object} address the zookeeper address
      * @param {Object} clientFactory blockchain client factory
+     * @param {String} networkRoot fully qualified path to the root location of network files
      */
-    constructor(address, clientFactory) {
+    constructor(address, clientFactory, networkRoot) {
         this.address = address;
         this.clientFactory = clientFactory;
         this.zk = ZooKeeper.createClient(address);
@@ -49,6 +50,7 @@ class CaliperZooClient {
         this.updateTail = 0;
         this.updateInter = null;
         this.updateTime = 1000;
+        this.networkRoot = networkRoot;
     }
 
     /**
@@ -183,6 +185,7 @@ class CaliperZooClient {
         switch(msg.type) {
         case 'test': {
             this.beforeTest();
+            msg.root = this.networkRoot;
             zkUtil.removeChildrenP(this.zk, this.outNode, 'Failed to remove children in outNode due to').then(()=>{
                 return clientUtil.startTest(msg.clients, msg, msg.clientargs, this.updates, this.results, this.clientFactory);
             }).then(() => {

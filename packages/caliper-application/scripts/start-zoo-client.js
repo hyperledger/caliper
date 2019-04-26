@@ -55,7 +55,7 @@ async function main() {
         const {ClientFactory} = require('caliper-' + program.type);
         const clientFactory = new ClientFactory(absNetworkFile, workspace);
 
-        zooClient = new CaliperZooClient(program.address, clientFactory);
+        zooClient = new CaliperZooClient(program.address, clientFactory, workspace);
         zooClient.start();
     } catch (err) {
         logger.error(`Error while executing the benchmark: ${err.stack ? err.stack : err}`);
