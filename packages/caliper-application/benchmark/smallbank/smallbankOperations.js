@@ -171,9 +171,8 @@ module.exports.run = function() {
     if (bc.bcType === 'fabric-ccp') {
         let ccpArgs = [];
         for (let arg of args) {
-            let functionArgs = Object.values(arg);
-            functionArgs.pop(); // remove the transaction_type value from the end
-
+            let tempArgs = Object.values(arg);
+            let functionArgs = [tempArgs[0].toString(), tempArgs[1].toString(), tempArgs[2].toString(), tempArgs[3].toString()];
             ccpArgs.push({
                 chaincodeFunction: arg.transaction_type,
                 chaincodeArguments: functionArgs,
