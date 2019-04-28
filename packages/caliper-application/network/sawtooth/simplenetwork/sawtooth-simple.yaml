@@ -19,7 +19,7 @@ version: "2.1"
 services:
 
   settings-tp:
-    image: hyperledger/sawtooth-settings-tp:1.0
+    image: hyperledger/sawtooth-settings-tp:1.0.5
     container_name: sawtooth-settings-tp-default
     depends_on:
       - validator
@@ -45,7 +45,7 @@ services:
     stop_signal: SIGKILL
 
   validator:
-    image: hyperledger/sawtooth-validator:1.0
+    image: hyperledger/sawtooth-validator:1.0.5
     container_name: sawtooth-validator-default
     expose:
       - 4004
@@ -65,7 +65,7 @@ services:
     stop_signal: SIGKILL
 
   rest-api:
-    image: hyperledger/sawtooth-rest-api:1.0
+    image: hyperledger/sawtooth-rest-api:1.0.5
     container_name: sawtooth-rest-api-default
     expose:
       - 8008
@@ -77,7 +77,7 @@ services:
     stop_signal: SIGKILL
 
   shell:
-    image: hyperledger/sawtooth-all:1.0
+    image: hyperledger/sawtooth-all:1.0.5
     container_name: sawtooth-shell-default
     depends_on:
       - rest-api
