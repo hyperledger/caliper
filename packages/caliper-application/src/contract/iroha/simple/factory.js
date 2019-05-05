@@ -1,51 +1,54 @@
-/**
-* Copyright 2017 HUAWEI. All Rights Reserved.
+/*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
 *
-* SPDX-License-Identifier: Apache-2.0
+* http://www.apache.org/licenses/LICENSE-2.0
 *
-* @file, definition of the Fabric class, which implements the caliper's NBI for hyperledger fabric
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
 */
 
 
 'use strict';
 
-const util = require('../../../comm/util.js');
-const logger = util.getLogger('factory.js');
-const irohaType = require('../../../iroha/type.js');
+//const util = require('../../../comm/util.js');
+const CaliperUtils = require('caliper-core').CaliperUtils;
+const logger = CaliperUtils.getLogger('factory.js');
 
-const open = function(context, domain, money) {
+// TODO: two or more commands
+const open = function(context, args) {
+
     return [
         {
-            tx: irohaType.txType.CREATE_DOMAIN,
-            args: [domain, 'user']
-        },
-        {
-            tx: irohaType.txType.CREATE_ASSET,
-            args: ['rmb', domain, 0]
-        },
-        {
-            tx: irohaType.txType.ADD_ASSET_QUANTITY,
-            args: [context.id, 'rmb#'+domain, money]
+            fn: 'createAccount',
+            args: {accountName: args.accountName, domainId: context.domain, publicKey: args.publicKey}
         }
     ];
 };
 
-const query = function(context, key) {
+// TODO: two or more queries.
+const query = function(context, args) {
+
     return [
         {
-            tx: irohaType.txType.GET_ASSET_INFO,
-            args: ['rmb#'+key]
+            fn: 'getAccount',
+            args: {accountId: args.accountId}
         }
     ];
 };
 
-const simple = function(version, context, args) {
+const simple = function(context, args) {
     try{
+
         switch(args.verb) {
         case 'open':
-            return open(context, args.account, args.money);
+            return open(context, args);
         case 'query':
-            return query(context, args.key);
+            return query(context, args);
         default:
             throw new Error('Unknown verb for "simple" contract');
         }
