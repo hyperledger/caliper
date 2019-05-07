@@ -1,7 +1,7 @@
 {
   "block_store_path" : "/tmp/block_store/",
-  "torii_port" : 50052,
-  "internal_port" : 10002,
+  "torii_port" : 50051,
+  "internal_port" : 10001,
   "pg_opt" : "host=iroha_pg1 port=5432 user=iroha password=helloworld",
   "max_proposal_size" : 10,
   "mst_expiration_time": 1440,

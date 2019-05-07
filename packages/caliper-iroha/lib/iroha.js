@@ -233,7 +233,7 @@ class Iroha extends BlockchainInterface {
                 creatorAccountId: adminAccount,
                 quorum: 1,
                 commandService: commandService,
-                timeoutLimit: 5000
+                timeoutLimit: 50000
             };
             // generate random name, [a-z]
             let seed = 'abcdefghijklmnopqrstuvwxyz';
