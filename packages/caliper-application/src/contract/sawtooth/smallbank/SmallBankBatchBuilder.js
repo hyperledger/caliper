@@ -12,7 +12,7 @@
 const CaliperUtils = require('caliper-core').CaliperUtils;
 const logger = CaliperUtils.getLogger('SmallBankBatchBuilder.js');
 const BatchBuilder = require('caliper-sawtooth').BatchBuilder;
-const protosPath = '../src/contract/sawtooth/smallbank/protos/smallbank.proto'
+const protosPath = '../src/contract/sawtooth/smallbank/protos/smallbank.proto';
 
 /**
  * get the list of customer ids from the list of small bank transactions
