@@ -55,11 +55,11 @@ async function main() {
     if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('blockchain')) {
         blockchainType = networkObject.caliper.blockchain;
     } else {
-        throw new Error('The ' + absNetworkFile + ' has no blockchain type') 
+        throw new Error('The ' + absNetworkFile + ' has no blockchain type');
     }
 
     try {
-        logger.info('Benchmarr for target Blockchain type ' + blockchainType + ' about to start');
+        logger.info('Benchmark for target Blockchain type ' + blockchainType + ' about to start');
         // Define the blockchain client types based on passed -t option
         const {AdminClient, ClientFactory} = require('caliper-' + blockchainType);
         const adminClient = new AdminClient(absNetworkFile, workspace);

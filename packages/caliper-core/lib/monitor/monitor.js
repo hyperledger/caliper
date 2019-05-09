@@ -69,7 +69,7 @@ function byteNormalize(data) {
 * @return {String} normalized string
 */
 function strNormalize(data) {
-    if(typeof data !== 'string' || data === null) {
+    if(!data || typeof data !== 'string') {
         return '-';
     }
 

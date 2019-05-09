@@ -38,10 +38,8 @@ class FixedBacklog extends RateInterface {
      * @param {JSON} msg the initialisation message
      */
     init(msg) {
-        this.sleep_time = this.options.sleep_time ? parseFloat(this.options.sleep_time) : 10;
+        this.sleep_time = this.options.sleep_time ? parseFloat(this.options.sleep_time) : 100;
         this.unfinished_per_client = this.options.unfinished_per_client ? parseInt(this.options.unfinished_per_client) : 10;
-        this.zero_succ_count = 0;
-        this.total_sleep_time = 0;
     }
 
     /**
@@ -55,15 +53,14 @@ class FixedBacklog extends RateInterface {
     async applyRateControl(start, idx, currentResults, resultStats) {
 
         // Waiting until successful transactions occur.
-        if(!resultStats[0] || !resultStats[0].succ || !resultStats[0].delay)  {
+        if(resultStats.length < 2 || !resultStats[0].succ || !resultStats[0].delay)  {
             await Sleep(this.sleep_time);
             return;
         }
 
         // Get transaction details
-        let stats = resultStats[0]; //processed results
-        const sent = stats.succ + stats.fail;
-        let unfinished = idx - (sent + (currentResults.length +1));
+        const completeTransactions = resultStats[0].length + currentResults.length; // work from all processed results: resultStats[0]=all processed result stats
+        let unfinished = idx - completeTransactions;
 
         // Shortcut if we are below the target threshold
         if(unfinished < this.unfinished_per_client) {
@@ -73,12 +70,11 @@ class FixedBacklog extends RateInterface {
         // Determines the sleep time according to the current number of
         // unfinished transactions with that in the config file
         const delay = resultStats[0].delay;
-        const avDelay = (delay.sum)/sent;
+        const avDelay = ((delay.sum)/completeTransactions)*1000;
         const error = unfinished - this.unfinished_per_client;
 
-        Logger.debug('Transaction backlog error: ' + error);
-
         // Sleep for a count of the load error and the current average delay
+        Logger.info('Backlog error: ' + error);
         await Sleep(error * avDelay);
     }
 

@@ -15,7 +15,7 @@
 'use strict';
 
 let RateInterface = require('./rateInterface.js');
-let Sleep = require('../utils/caliper-utils').sleep;;
+let Sleep = require('../utils/caliper-utils').sleep;
 
 /**
  * This controller will send transactions at a specified fixed interval.

@@ -40,7 +40,7 @@ let RateControl = class {
 
         // resolve the type to a module path
         let modulePath = builtInControllers.has(rateControl.type)
-            ? builtInControllers.get(rateControl.type) : util.resolvePath(rateControl.type);
+            ? builtInControllers.get(rateControl.type) : CaliperUtils.resolvePath(rateControl.type);
 
         let factoryFunction = require(modulePath).createRateController;
         if (!factoryFunction) {

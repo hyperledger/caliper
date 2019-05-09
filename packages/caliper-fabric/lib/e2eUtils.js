@@ -428,10 +428,10 @@ async function instantiate(chaincode, endorsement_policy, upgrade){
 
     results = await Promise.all(eventPromises);
     if (results && !(results[0] instanceof Error) && results[0].status === 'SUCCESS') {
-        commLogger.info('Successfully sent ' + type + 'transaction to the orderer.');
+        commLogger.info('Successfully sent ' + type + ' transaction to the orderer.');
     } else {
-        commLogger.warn('Failed to order the ' + type + 'transaction. Error code: ' + results[0].status);
-        throw new Error('Failed to order the ' + type + 'transaction. Error code: ' + results[0].status);
+        commLogger.warn('Failed to order the ' + type + ' transaction. Error code: ' + results[0].status);
+        throw new Error('Failed to order the ' + type + ' transaction. Error code: ' + results[0].status);
     }
 }
 
