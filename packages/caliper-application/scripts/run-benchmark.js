@@ -59,7 +59,7 @@ async function main() {
     }
 
     try {
-        logger.info('Benchmarr for target Blockchain type ' + blockchainType + ' about to start');
+        logger.info('Benchmark for target Blockchain type ' + blockchainType + ' about to start');
         // Define the blockchain client types based on passed -t option
         const {AdminClient, ClientFactory} = require('caliper-' + blockchainType);
         const adminClient = new AdminClient(absNetworkFile, workspace);
