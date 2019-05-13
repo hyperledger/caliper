@@ -139,8 +139,8 @@ module.exports.init = function(config_path, root) {
     channels = config.fabric.channel;
     networkRoot = root;
     cryptodir = CaliperUtils.resolvePath(config.fabric.cryptodir, root);
-    const isLegacy = (config.info.Version.startsWith('1.0') || config.info.Version.startsWith('1.1'));
-    if(isLegacy){
+    const isLegacyFabricCAClientImpl = (config.info.Version.startsWith('1.0') || config.info.Version.startsWith('1.1') || config.info.Version.startsWith('1.2'));
+    if(isLegacyFabricCAClientImpl){
         copService = require('fabric-ca-client/lib/FabricCAClientImpl.js');
     } else {
         copService = require('fabric-ca-client/lib/FabricCAClient.js');
