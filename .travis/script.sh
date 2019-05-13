@@ -24,13 +24,13 @@ cd ./packages/caliper-application/scripts
 
 # Run benchmark
 if [ "${BENCHMARK}" == "composer" ]; then
-    node run-benchmark.js -c ../benchmark/composer/config.yaml -t composer -n ../network/fabric-v1.3/2org1peercouchdb/composer.json
+    node run-benchmark.js -c ../benchmark/composer/config.yaml -n ../network/fabric-v1.3/2org1peercouchdb/composer.json
     exit $?
 elif [ "${BENCHMARK}" == "fabric" ]; then
-    node run-benchmark.js -c ../benchmark/simple/config.yaml -t fabric -n ../network/fabric-v1.4/2org1peercouchdb/fabric-node.json
+    node run-benchmark.js -c ../benchmark/simple/config.yaml -n ../network/fabric-v1.4/2org1peercouchdb/fabric-node.json
     exit $?
 elif [ "${BENCHMARK}" == "fabric-ccp" ]; then
-    node run-benchmark.js -c ../benchmark/simple/config.yaml -t fabric-ccp -n ../network/fabric-v1.2/2org1peercouchdb/fabric-ccp-node.yaml
+    node run-benchmark.js -c ../benchmark/simple/config.yaml -n ../network/fabric-v1.2/2org1peercouchdb/fabric-ccp-node.yaml
     exit $?
 else
     echo "Unknown target benchmark ${BENCHMARK}"
