@@ -9,7 +9,7 @@
 
 const cfUtil = require('../config/config-util.js');
 const CaliperUtils = require('../utils/caliper-utils.js');
-const logger = CaliperUtils.getLogger('local-client.js');
+const Logger = CaliperUtils.getLogger('local-client.js');
 const bc   = require('../blockchain.js');
 const RateControl = require('../rate-control/rateControl.js');
 
@@ -137,7 +137,7 @@ class CaliperLocalClient {
      * @return {Promise} promise object
      */
     async runFixedNumber(msg, cb, context) {
-        logger.info('Info: client ' + process.pid +  ' start test runFixedNumber()' + (cb.info ? (':' + cb.info) : ''));
+        Logger.info('Info: client ' + process.pid +  ' start test runFixedNumber()' + (cb.info ? (':' + cb.info) : ''));
         let rateControl = new RateControl(msg.rateControl, msg.clientIdx, msg.roundIdx);
         await rateControl.init(msg);
 
@@ -166,7 +166,7 @@ class CaliperLocalClient {
      * @return {Promise} promise object
      */
     async runDuration(msg, cb, context) {
-        logger.info('Info: client ' + process.pid +  ' start test runDuration()' + (cb.info ? (':' + cb.info) : ''));
+        Logger.info('Info: client ' + process.pid +  ' start test runDuration()' + (cb.info ? (':' + cb.info) : ''));
         let rateControl = new RateControl(msg.rateControl, msg.clientIdx, msg.roundIdx);
         await rateControl.init(msg);
         const duration = msg.txDuration; // duration in seconds
@@ -207,19 +207,18 @@ class CaliperLocalClient {
      * @return {Promise} promise object
      */
     async doTest(msg) {
-        logger.debug('doTest() with:', msg);
+        Logger.debug('doTest() with:', msg);
         let cb = require(CaliperUtils.resolvePath(msg.cb, msg.root));
 
         this.beforeTest(msg);
 
         let txUpdateTime = cfUtil.getConfigSetting('core:tx-update-time', 1000);
-        logger.info('txUpdateTime: ' + txUpdateTime);
+        Logger.info('txUpdateTime: ' + txUpdateTime);
         const self = this;
         let txUpdateInter = setInterval( () => { self.txUpdate();  } , txUpdateTime);
 
         try {
             let context = await this.blockchain.getContext(msg.label, msg.clientargs, msg.clientIdx, msg.txFile);
-            const self = this;
             if(typeof context === 'undefined') {
                 context = {
                     engine : {
@@ -250,7 +249,7 @@ class CaliperLocalClient {
             }
         } catch (err) {
             this.clearUpdateInter();
-            logger.info(`Client[${process.pid}] encountered an error: ${(err.stack ? err.stack : err)}`);
+            Logger.info(`Client[${process.pid}] encountered an error: ${(err.stack ? err.stack : err)}`);
             throw err;
         }
     }

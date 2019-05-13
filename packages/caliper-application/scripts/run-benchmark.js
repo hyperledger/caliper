@@ -55,7 +55,7 @@ async function main() {
     if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('blockchain')) {
         blockchainType = networkObject.caliper.blockchain;
     } else {
-        throw new Error('The ' + absNetworkFile + ' has no blockchain type') 
+        throw new Error('The ' + absNetworkFile + ' has no blockchain type');
     }
 
     try {
