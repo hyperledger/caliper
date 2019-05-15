@@ -15,30 +15,25 @@
 
 'use strict';
 
-//const util = require('../../../comm/util.js');
 const CaliperUtils = require('caliper-core').CaliperUtils;
 const logger = CaliperUtils.getLogger('factory.js');
 
 // TODO: two or more commands
 const open = function(context, args) {
 
-    return [
-        {
-            fn: 'createAccount',
-            args: {accountName: args.accountName, domainId: context.domain, publicKey: args.publicKey}
-        }
-    ];
+    return {
+        fn: 'createAccount',
+        args: {accountName: args.accountName, domainId: context.domain, publicKey: args.publicKey}
+    };
 };
 
 // TODO: two or more queries.
 const query = function(context, args) {
 
-    return [
-        {
-            fn: 'getAccount',
-            args: {accountId: args.accountId}
-        }
-    ];
+    return {
+        fn: 'getAccount',
+        args: {accountId: args.accountId}
+    };
 };
 
 const simple = function(context, args) {
@@ -55,7 +50,7 @@ const simple = function(context, args) {
     }
     catch(err){
         logger.error(err);
-        return [];
+        return {};
     }
 };
 

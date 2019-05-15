@@ -13,6 +13,7 @@ test:
         tps: 50
     arguments:
       money: 10000
+      txnPerBatch: 10
     callback: benchmark/simple/open.js
   - label: query
     txNumber:

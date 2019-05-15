@@ -33,63 +33,87 @@ const txHelper = require('iroha-helpers/lib/txHelper.js').default;
 const TxStatusLib = require('iroha-helpers/lib/proto/endpoint_pb.js').TxStatus;
 const TxStatusRequest = require('iroha-helpers/lib/proto/endpoint_pb.js').TxStatusRequest;
 
-let contexts = {};
 
 /**
- * Create Iroha transaction and send it to a node.
- * @param {Array} txs commandOptions
- * @param {Object} txClient - transaction commands
+ * Create Iroha transactions and send them to a node.
+ * @param {Array} txs txToSends
+ * @param {Object} txClient - transaction client
  * @param {timeoutLimit} timeoutLimit timeout
- * @param {Array} requiredStatuses status
- * @returns {Promise} promise with sended transactions
+ * @returns {Array} hashes
  */
-function sendTransactions(txs, txClient, timeoutLimit, requiredStatuses = ['COMMITTED']){
-    const hashes = txs.map(x => txHelper.hash(x));
-    const txList = txHelper.createTxListFromArray(txs);
-    return new Promise((resolve, reject) => {
-        const timer = setTimeout(()=>{
-            txClient.$channel.close();
-            reject(new Error('Please check IP address OR your internet connection'));
-        }, timeoutLimit);
-        txClient.listTorii(txList, (err) => {
-            clearTimeout(timer);
-            if(err) {
-                return reject(err);
-            }
-            resolve();
+async function sendTransactions(txs, txClient, timeoutLimit){
+    try{
+        const hashes = txs.map(x => txHelper.hash(x));
+        const txList = txHelper.createTxListFromArray(txs);
+        let p = new Promise((resolve, reject) => {
+            const timer = setTimeout(()=>{
+                txClient.$channel.close();
+                reject(new Error('Please check IP address OR your internet connection'));
+            }, timeoutLimit);
+            txClient.listTorii(txList, (err) => {
+                clearTimeout(timer);
+                if(err) {
+                    return reject(err);
+                }
+                resolve();
+            });
         });
-    }).then(async () => {
-        try{
-            let requests = hashes.map(hash => new Promise((resolve, reject) =>{
-                let statuses = [];
-                let request = new TxStatusRequest();
-                request.setTxHash(hash.toString('hex'));
-                let timer = setTimeout(()=>{
-                    txClient.$channel.close();
-                    reject(new Error('Query txStatus timeout'));
-                }, timeoutLimit);
-
-                let stream = txClient.statusStream(request);
-                stream.on('data', function (response){
-                    statuses.push(response);
-                });
-                stream.on('end', function (end){
-                    clearTimeout(timer);
-                    statuses.length > 0? resolve(statuses[statuses.length - 1].getTxStatus()) : resolve(null);
-                });
-            }));
-            let values = await Promise.all(requests);
-            let statuses = values.map(x => x!== null ? irohaUtil.getProtoEnumName(TxStatusLib, 'iroha.protocol.Txstatus', x) : null);
-            return statuses.some(x => requiredStatuses.includes(x)) ? Promise.resolve({txId: hashes, statuses: statuses}) : Promise.reject(new Error(`Your Transaction wasn't committed: expected: ${requiredStatuses}, actual: ${statuses}` ));
-        }catch(e){
-            logger.error(e);
-            return Promise.reject(new Error('Query txStatus timeout'));
-        }
-    });
+        await p;
+        return hashes;
+    }catch(e){
+        logger.error(e);
+        return Promise.reject(new Error('failed to send txs.'));
+    }
 }
 
 /**
- * Create Iroha transaction and send it to a node.
+ * Create Iroha transactions and send them to a node.
+ * @param {Array} hashes txToSends
+ * @param {Object} txClient - transaction client
+ * @param {Number} timeoutLimit timeout
+ * @param {Array} requiredStatuses status
+ * @returns {Promise} promise with transactions' statuses
+ */
+async function getTxStatus(hashes, txClient, timeoutLimit, requiredStatuses = ['COMMITTED']){
+    try{
+        let requests = hashes.map(hash => new Promise((resolve, reject) =>{
+            let statuses = [];
+            let request = new TxStatusRequest();
+            request.setTxHash(hash.toString('hex'));
+            let timer = setTimeout(()=>{
+                txClient.$channel.close();
+                reject(new Error('Query txStatus timeout'));
+            }, timeoutLimit);
+
+            let stream = txClient.statusStream(request);
+            stream.on('data', function (response){
+                statuses.push(response);
+            });
+            stream.on('end', function (end){
+                clearTimeout(timer);
+                statuses.length > 0? resolve(statuses[statuses.length - 1].getTxStatus()) : resolve(null);
+            });
+        }));
+        let values = await Promise.all(requests);
+        let statuses = values.map(x => x!== null ? irohaUtil.getProtoEnumName(TxStatusLib, 'iroha.protocol.Txstatus', x) : null);
+        let results = [];
+        statuses.forEach(item =>{
+            if(requiredStatuses.includes(item)){
+                results.push('COMMITTED');
+            }else{
+                results.push('failure');
+            }
+        });
+
+        return Promise.resolve(results);
+    }catch(e){
+        logger.error(e);
+        return Promise.reject(new Error('txs aren\'t committed to the ledger'));
+    }
+}
+
+/**
+ * Create Iroha transactions and send them to a node.
  * {
  * privateKeys: [''],
  * creatorAccountId: '',
@@ -101,7 +125,7 @@ function sendTransactions(txs, txClient, timeoutLimit, requiredStatuses = ['COMM
  * @param {Array} commandArgs - transaction commands
  * @returns {Promise} promise with sended transactions
  */
-function irohaCommand(commandOption, commandArgs) {
+async function irohaCommand(commandOption, commandArgs) {
     try {
 
         let commands;
@@ -114,10 +138,10 @@ function irohaCommand(commandOption, commandArgs) {
         let privateKeys = commandOption.privateKeys;
         let creatorAccountId = commandOption.creatorAccountId;
         let quorum = commandOption.quorum;
-        let commandService = commandOption.commandService;
+        let txClient = commandOption.commandService;
         let timeoutLimit = commandOption.timeoutLimit;
 
-        let promises = [];
+        let txToSends = [];
         for (let i = 0; i < commands.length; i++) {
             let commandArg = commands[i];
             let tx = txHelper.addCommand(txHelper.emptyTransaction(), commandArg.fn, commandArg.args);
@@ -126,11 +150,12 @@ function irohaCommand(commandOption, commandArgs) {
                 quorum: quorum
             });
             txToSend = irohaUtil.signWithArrayOfKeys(txToSend, privateKeys);
-            let txClient = commandService;
-            let p = sendTransactions([txToSend], txClient, timeoutLimit);
-            promises.push(p);
+            txToSends.push(txToSend);
         }
-        return Promise.all(promises);
+
+        let hashes = await sendTransactions(txToSends,txClient,timeoutLimit);// batch mode
+        let results = await getTxStatus(hashes,txClient,timeoutLimit);
+        return Promise.resolve(results);
     }
     catch(err) {
         logger.error(err);
@@ -141,7 +166,7 @@ function irohaCommand(commandOption, commandArgs) {
 /**
  * Create Iroha query and send it to a node.
  * @param {Object} queryOptions queryOptions
- * @param {Array} commands - query commands
+ * @param {Array} commands query commands
  * @returns {Promise} promise with the results.
  */
 function irohaQuery(queryOptions, commands) {
@@ -286,12 +311,12 @@ class Iroha extends BlockchainInterface {
             let queryCounter = 0;
 
             for(let i=0;i<responses.length;i++){
-                if(responses[i][0].statuses[0] === 'COMMITTED'){
+                if(responses[i][0] === 'COMMITTED'){
                     queryCounter++;
                 }
             }
             if(queryCounter!== responses.length){
-                return Promise.reject(new Error('failed to create'));
+                return Promise.reject(new Error('failed to create clients'));
             }
             else{
                 logger.info('created clients succesfully');
@@ -318,51 +343,49 @@ class Iroha extends BlockchainInterface {
             if(!args.hasOwnProperty('name') || !args.hasOwnProperty('domain') || !args.hasOwnProperty('id') || !args.hasOwnProperty('pubKey') || !args.hasOwnProperty('privKey')) {
                 throw new Error('Invalid Iroha::getContext arguments');
             }
-            if(!contexts.hasOwnProperty(args.id)) {
-                // save context for later use
-                // since iroha requires sequential counter for messages from same account, the counter must be save if getContext are invoked multiple times for the same account
-                contexts[args.id] = {
-                    name:         args.name,
-                    domain:       args.domain,
-                    id:           args.id,
-                    pubKey:       args.pubKey,
-                    privKey:      args.privKey,
-                    txCounter:    1,
-                    queryCounter: 1
-                };
-                let config = require(this.configPath);
+            let context = {};
+            // save context for later use
+            // since iroha requires sequential counter for messages from same account, the counter must be save if getContext are invoked multiple times for the same account
+            context = {
+                name:         args.name,
+                domain:       args.domain,
+                id:           args.id,
+                pubKey:       args.pubKey,
+                privKey:      args.privKey,
+                txCounter:    1,
+                queryCounter: 1
+            };
+            let config = require(this.configPath);
 
-                // find callbacks for simulated smart contract
-                let fc = config.iroha.fakecontract;
-
-                let fakeContracts = {};
-                for(let i = 0 ; i < fc.length ; i++) {
-                    let contract = fc[i];
-                    //load the fakeContract.
-                    let facPath  = CaliperUtils.resolvePath(contract.factory,this.workspaceRoot);
-                    let factory  = require(facPath);
-                    for(let j = 0 ; j < contract.id.length ; j++) {
-                        let id = contract.id[j];
-                        if(!factory.contracts.hasOwnProperty(id)) {
-                            throw new Error('Could not get function "' + id + '" in ' + facPath);
+            // find callbacks for simulated smart contract
+            let fc = config.iroha.fakecontract;
+            let fakeContracts = {};
+            for(let i = 0 ; i < fc.length ; i++) {
+                let contract = fc[i];
+                //load the fakeContract.
+                let facPath  = CaliperUtils.resolvePath(contract.factory,this.workspaceRoot);
+                let factory  = require(facPath);
+                for(let j = 0 ; j < contract.id.length ; j++) {
+                    let id = contract.id[j];
+                    if(!factory.contracts.hasOwnProperty(id)) {
+                        throw new Error('Could not get function "' + id + '" in ' + facPath);
+                    }
+                    else {
+                        if(fakeContracts.hasOwnProperty(id)) {
+                            logger.warn('WARNING: multiple callbacks for ' + id + ' have been found');
                         }
                         else {
-                            if(fakeContracts.hasOwnProperty(id)) {
-                                logger.warn('WARNING: multiple callbacks for ' + id + ' have been found');
-                            }
-                            else {
-                                fakeContracts[id] = factory.contracts[id];
-                            }
+                            fakeContracts[id] = factory.contracts[id];
                         }
                     }
                 }
-                let node = this._findNode();
-                contexts[args.id].torii = node.torii;
-                contexts[args.id].contract = fakeContracts;
             }
-            this.grpcCommandClient = new CommandService_v1Client(contexts[args.id].torii, grpc.credentials.createInsecure());
-            this.grpcQueryClient = new QueryService_v1Client(contexts[args.id].torii, grpc.credentials.createInsecure());
-            return Promise.resolve(contexts[args.id]);
+            let node = this._findNode();
+            context.torii = node.torii;
+            context.contract = fakeContracts;
+            this.grpcCommandClient = new CommandService_v1Client(context.torii, grpc.credentials.createInsecure());
+            this.grpcQueryClient = new QueryService_v1Client(context.torii, grpc.credentials.createInsecure());
+            return Promise.resolve(context);
         }catch(err) {
             logger.error(err);
             return Promise.reject(new Error('Failed when finding access point or user key'));
@@ -389,12 +412,8 @@ class Iroha extends BlockchainInterface {
      * @return {Promise<object>} The promise for the result of the execution.
      */
     async invokeSmartContract(context, contractID, contractVer, args, timeout) {
-        let promises = [];
-        args.forEach((item, index)=>{
-            promises.push(this._invokeSmartContract(context, contractID, contractVer, item, timeout*1000));
-        });
-
-        return Promise.all(promises);
+        let results = await this._invokeSmartContract(context,contractID,contractVer,args,timeout*1000);
+        return Promise.resolve(results);
     }
 
     /**
@@ -403,31 +422,33 @@ class Iroha extends BlockchainInterface {
      * @param {String} contractID Identity of the contract.
      * @param {String} contractVer Version of the contract.
      * @param {json}  args formatted arguments for multiple transactions.
-     * @param {Number} timeout Request timeout, in milliseconds.
+     * @param {Number} timeout Request timeout, in seconds.
      * @return {Promise<object>} The promise for the result of the execution.
      */
     async _invokeSmartContract(context, contractID, contractVer, args, timeout) {
         if(!context.contract.hasOwnProperty(contractID)) {
             throw new Error('Could not find contract named ' + contractID);
         }
+        let commands = args.map(item => {
+            let keypairs = generateKeypair.generateKeyPair();
+            let argsIroha = {
+                accountName: item.account,
+                domainId: context.domain,
+                publicKey: keypairs.publicKey,
+                verb: item.verb
+            };
+            return context.contract[contractID](context, argsIroha);
+        });
 
-        let keypairs = generateKeypair.generateKeyPair();
-        let argsIroha = {
-            accountName: args.account,
-            domainId: context.domain,
-            publicKey: keypairs.publicKey,
-            verb: args.verb
-        };
-
-        let commands = context.contract[contractID](context, argsIroha);
         if(commands.length === 0) {
             throw new Error('Empty output of contract ' + contractID);
         }
+
         let status = new TxStatus(null);
         status.Set('timeout', timeout);
 
         if(context.engine) {
-            context.engine.submitCallback(1);
+            context.engine.submitCallback(args.length);
         }
         try {
             //Submit the transaction.
@@ -438,19 +459,20 @@ class Iroha extends BlockchainInterface {
                 commandService: this.grpcCommandClient,
                 timeoutLimit: timeout
             };
-
-            let result =  await irohaCommand(commandOptions, commands);
-            let txIds = result[0].txId;
-            let txStatuses = result[0].statuses;
-            status.SetID(txIds[txIds.length - 1]);
-
-            if(txStatuses[txStatuses.length - 1] === 'COMMITTED'){
-                status.SetStatusSuccess();
-            }
-            else{
-                status.SetStatusFail();
-            }
-            return Promise.resolve(status);
+ 
+            let results =  await irohaCommand(commandOptions, commands);
+            let txStatuses = [];
+            results.forEach(item => {
+                let cloned = Object.assign({}, status);
+                Object.setPrototypeOf(cloned,TxStatus.prototype);
+                if(item === 'COMMITTED'){
+                    cloned.SetStatusSuccess();
+                }else{
+                    cloned.SetStatusFail();
+                }
+                txStatuses.push(cloned);
+            });
+            return Promise.resolve(txStatuses);
         }
         catch(err) {
             status.SetStatusFail();
