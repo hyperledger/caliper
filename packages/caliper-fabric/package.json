@@ -6,7 +6,7 @@
     "url": "https://github.com/hyperledger/caliper"
   },
   "scripts": {
-    "test": "npm run lint && npm run nyc",
+    "test": "npm run lint",
     "lint": "npx eslint .",
     "nyc": "nyc mocha --recursive -t 10000",
     "fabric-v1.0-deps": "npm install --no-save grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0",
@@ -20,10 +20,6 @@
     "node": ">=8.10.0",
     "npm": ">=5.6.0"
   },
-  "files": [
-    "*",
-    "src/comm/template/report.html"
-  ],
   "dependencies": {
     "caliper-core" : "0.1.0",
     "fabric-protos": "2.0.0-snapshot.1",

@@ -459,7 +459,7 @@ class Iroha extends BlockchainInterface {
                 commandService: this.grpcCommandClient,
                 timeoutLimit: timeout
             };
- 
+
             let results =  await irohaCommand(commandOptions, commands);
             let txStatuses = [];
             results.forEach(item => {

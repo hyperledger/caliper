@@ -17,27 +17,11 @@
 set -e
 set -o pipefail
 
-echo "---- Running benchmark ${BENCHMARK}"
-
+# Bootstrap the project
 npm run bootstrap
-cd ./packages/caliper-application/scripts
 
-# Run benchmark
-if [ "${BENCHMARK}" == "composer" ]; then
-    node run-benchmark.js -c ../benchmark/composer/config.yaml -n ../network/fabric-v1.3/2org1peercouchdb/composer.json
-    exit $?
-elif [ "${BENCHMARK}" == "fabric-ccp" ]; then
-    # Run with channel creation using a createChannelTx in couchDB
-    node run-benchmark.js -c ../benchmark/simple/config.yaml -n ../network/fabric-v1.4/2org1peercouchdb/fabric-ccp-node.yaml
-    rc=$?
-    if [[ $rc != 0 ]]; then
-        exit $rc;
-    else
-        # Run with channel creation using a tx file in LevelDB
-        node run-benchmark.js -c ../benchmark/simple/config.yaml -n ../network/fabric-v1.4/2org1peergoleveldb/fabric-ccp-go.yaml
-        exit $?
-    fi
-else
-    echo "Unknown target benchmark ${BENCHMARK}"
-    exit 1
-fi
+# Run linting and unit tests
+npm test
+
+echo "---- Running Integration test for adaptor ${BENCHMARK}"
+./packages/caliper-tests-integration/scripts/run-integration-tests.sh

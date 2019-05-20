@@ -1,0 +1,29 @@
+{
+    "name": "caliper-tests-integration",
+    "version": "0.1.0",
+    "description": "Integration tests for Hyperledger Caliper",
+    "scripts": {
+      "start_verdaccio": "PM2_HOME=.pm2 pm2 start verdaccio -- -l 0.0.0.0:4873 -c scripts/config.yaml",
+      "stop_verdaccio": "PM2_HOME=.pm2 pm2 stop verdaccio || true",
+      "test": "exit 0",
+      "setup_verdaccio": "npm run start_verdaccio && node ./scripts/npm_serve"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/hyperledger/caliper.git"
+    },
+    "keywords": [
+      "blockchain",
+      "performance"
+    ],
+    "author": "Hyperledger Caliper",
+    "license": "Apache-2.0",
+    "bugs": {
+      "url": "https://github.com/hyperledger/caliper/issues"
+    },
+    "homepage": "https://github.com/hyperledger/caliper#readme",
+    "devDependencies": {
+      "pm2": "2.10.1",
+      "verdaccio": "2.6.4"
+    }
+  }

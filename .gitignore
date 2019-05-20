@@ -36,3 +36,9 @@ zookeeper.out
 .sass-cache/
 Gemfile.lock
 _site/
+
+# verdaccio files
+**/storage
+
+# pm2 files
+**/.pm2/
