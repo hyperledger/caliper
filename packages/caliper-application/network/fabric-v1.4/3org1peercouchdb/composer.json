@@ -3,7 +3,7 @@
     "blockchain": "composer",
     "command" : {
       "start": "docker-compose -f network/fabric-v1.4/3org1peercouchdb/docker-compose.yaml up -d;sleep 3s",
-      "end": "docker-compose -f network/fabric-v1.4/3org1peercouchdb/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev-* -q)"
+      "end": "docker-compose -f network/fabric-v1.4/3org1peercouchdb/docker-compose.yaml down;(test -z \"$(docker ps -aq)\") || docker rm $(docker ps -aq);docker rmi $(docker images dev-* -q)"
     }
   },
   "composer": {

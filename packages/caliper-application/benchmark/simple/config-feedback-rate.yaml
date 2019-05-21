@@ -4,8 +4,7 @@ blockchain:
   config: benchmark/simple/fabric.json
 command:
   start: docker-compose -f network/fabric/2org2peer/docker-compose.yaml up -d
-  end: docker-compose -f network/fabric/2org2peer/docker-compose.yaml down;docker
-    rm $(docker ps -aq);docker rmi $(docker images dev* -q)
+  end: docker-compose -f network/fabric/2org2peer/docker-compose.yaml down;(test -z \"$(docker ps -aq)\") || docker rm $(docker ps -aq);(test -z \"$(docker images dev* -q)\") || docker rmi $(docker images dev* -q)
 test:
   clients:
     type: local
