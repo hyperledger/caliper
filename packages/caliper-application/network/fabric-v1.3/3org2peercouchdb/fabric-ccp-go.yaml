@@ -18,7 +18,7 @@ caliper:
   blockchain: fabric-ccp
   command:
     start: docker-compose -f network/fabric-v1.3/3org2peercouchdb/docker-compose.yaml up -d;sleep 3s
-    end: docker-compose -f network/fabric-v1.3/3org2peercouchdb/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q);rm -rf /tmp/hfc-*
+    end: docker-compose -f network/fabric-v1.3/3org2peercouchdb/docker-compose.yaml down;(test -z \"$(docker ps -aq)\") || docker rm $(docker ps -aq);(test -z \"$(docker images dev* -q)\") || docker rmi $(docker images dev* -q);rm -rf /tmp/hfc-*
 
 info:
   Version: 1.3.0
