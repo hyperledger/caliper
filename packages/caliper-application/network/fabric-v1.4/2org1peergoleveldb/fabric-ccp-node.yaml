@@ -55,8 +55,12 @@ clients:
 
 channels:
   mychannel:
-    configBinary: network/fabric-v1.4/config/mychannel.tx
     created: false
+    definition:
+        capabilities: []
+        consortium: 'SampleConsortium'
+        msps: ['Org1MSP', 'Org2MSP', 'Org3MSP']
+        version: 0
     orderers:
     - orderer.example.com
     peers:

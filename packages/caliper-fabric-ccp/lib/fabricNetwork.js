@@ -210,7 +210,6 @@ class FabricNetwork {
                 requiredCas.add(this.getOrganizationOfClient(client));
             }
 
-
         }
 
         // ============
@@ -229,7 +228,7 @@ class FabricNetwork {
             if (!CaliperUtils.checkProperty(channelObj, 'created') || !channelObj.created) {
                 // one kind of config is needed
                 if (!CaliperUtils.checkProperty(channelObj, 'configBinary')) {
-                    CaliperUtils.assertAllProperties(channelObj, channelObjName, 'configUpdateObject', 'configtxlatorPath');
+                    CaliperUtils.assertAllProperties(channelObj, channelObjName, 'definition');
                 }
             }
 

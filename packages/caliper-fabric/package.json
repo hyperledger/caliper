@@ -26,6 +26,7 @@
   ],
   "dependencies": {
     "caliper-core" : "0.1.0",
+    "fabric-protos": "2.0.0-snapshot.1",
     "fs-extra": "^4.0.2",
     "nconf": "^0.10.0"
   },
