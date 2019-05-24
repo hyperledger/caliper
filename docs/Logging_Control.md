@@ -105,8 +105,8 @@ The different modules of Caliper will automatically use the configured targets f
 To create your own logger instance, use the following API:
 
 ```js
-const util = require('path-to-caliper/src/comm/util.js');
-let myLogger = util.getLogger('MyModuleName');
+const CaliperUtils = require('caliper-core').CaliperUtils;
+const commlogger = CaliperUtils.getLogger('my-module');
 
 // ...
 
