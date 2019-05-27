@@ -212,7 +212,7 @@ class CaliperLocalClient {
 
         this.beforeTest(msg);
 
-        let txUpdateTime = cfUtil.getConfigSetting('core:tx-update-time', 1000);
+        let txUpdateTime = cfUtil.get(cfUtil.keys.CoreTxUpdateTime, 1000);
         Logger.info('txUpdateTime: ' + txUpdateTime);
         const self = this;
         let txUpdateInter = setInterval( () => { self.txUpdate();  } , txUpdateTime);

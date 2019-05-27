@@ -18,7 +18,6 @@ const FabricClient = require('fabric-client');
 const {google, common} = require('fabric-protos');
 const {BlockchainInterface, CaliperUtils, TxStatus, Version, ConfigUtil} = require('caliper-core');
 const logger = CaliperUtils.getLogger('adapters/fabric-ccp');
-const config = ConfigUtil.getConfig();
 
 const FabricNetwork = require('./fabricNetwork.js');
 
@@ -161,18 +160,18 @@ class Fabric extends BlockchainInterface {
         // this value is hardcoded, if it's used, that means that the provided timeouts are not sufficient
         this.configSmallestTimeout = 1000;
 
-        this.configSleepAfterCreateChannel = config.get('fabricCcp:sleepAfter:createChannel', 5000);
-        this.configSleepAfterJoinChannel = config.get('fabricCcp:sleepAfter:joinChannel', 3000);
-        this.configSleepAfterInstantiateChaincode = config.get('fabricCcp:sleepAfter:instantiateChaincode', 5000);
-        this.configVerifyProposalResponse = this._getBoolConfig('fabricCcp:verify:proposalResponse', true);
-        this.configVerifyReadWriteSets = this._getBoolConfig('fabricCcp:verify:readWriteSets', true);
-        this.configLatencyThreshold = config.get('fabricCcp:latencyThreshold', 1.0);
-        this.configOverwriteGopath = this._getBoolConfig('fabricCcp:overwriteGopath', true);
-        this.configChaincodeInstantiateTimeout = config.get('fabricCcp:timeout:chaincodeInstantiate', 300000);
-        this.configChaincodeInstantiateEventTimeout = config.get('fabricCcp:timeout:chaincodeInstantiateEvent', 300000);
-        this.configDefaultTimeout = config.get('fabricCcp:timeout:invokeOrQuery', 60000);
-        this.configClientBasedLoadBalancing = config.get('fabricCcp:loadBalancing', 'client') === 'client';
-        this.configCountQueryAsLoad = this._getBoolConfig('fabricCcp:countQueryAsLoad', true);
+        this.configSleepAfterCreateChannel = ConfigUtil.get(ConfigUtil.keys.FabricSleepAfterCreateChannel, 5000);
+        this.configSleepAfterJoinChannel = ConfigUtil.get(ConfigUtil.keys.FabricSleepAfterJoinChannel, 3000);
+        this.configSleepAfterInstantiateChaincode = ConfigUtil.get(ConfigUtil.keys.FabricSleepAfterInstantiateChaincode, 5000);
+        this.configVerifyProposalResponse = ConfigUtil.get(ConfigUtil.keys.FabricVerifyProposalResponse, true);
+        this.configVerifyReadWriteSets = ConfigUtil.get(ConfigUtil.keys.FabricVerifyReadWriteSets, true);
+        this.configLatencyThreshold = ConfigUtil.get(ConfigUtil.keys.FabricLatencyThreshold, 1.0);
+        this.configOverwriteGopath = ConfigUtil.get(ConfigUtil.keys.FabricOverwriteGopath, true);
+        this.configChaincodeInstantiateTimeout = ConfigUtil.get(ConfigUtil.keys.FabricTimeoutChaincodeInstantiate, 300000);
+        this.configChaincodeInstantiateEventTimeout = ConfigUtil.get(ConfigUtil.keys.FabricTimeoutChaincodeInstantiateEvent, 300000);
+        this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.FabricTimeoutInvokeOrQuery, 60000);
+        this.configClientBasedLoadBalancing = ConfigUtil.get(ConfigUtil.keys.FabricLoadBalancing, 'client') === 'client';
+        this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.FabricCountQueryAsLoad, true);
 
         this._prepareCaches();
     }
@@ -264,6 +263,11 @@ class Fabric extends BlockchainInterface {
 
             if (CaliperUtils.checkProperty(channelObject, 'created') && channelObject.created) {
                 logger.info(`Channel '${channel}' is configured as created, skipping creation`);
+                continue;
+            }
+
+            if (ConfigUtil.get(ConfigUtil.keys.FabricSkipCreateChannelPrefix + channel, false)) {
+                logger.info(`Creation of Channel '${channel}' is configured to skip`);
                 continue;
             }
 
@@ -442,18 +446,6 @@ class Fabric extends BlockchainInterface {
         } catch (err) {
             throw new Error(`Couldn't enroll ${profileName || 'user'}: ${err.message}`);
         }
-    }
-
-    /**
-     * Retrieves a bool argument from the configuration store, taking into account the bool parsing behavior.
-     * @param {string} key The key of the configuration to retrieve.
-     * @param {object} defaultValue The default value to return if the configuration is not found.
-     * @return {boolean} The retrieved value of the configuration as true of false. (Instead of 'true' of 'false'.)
-     * @private
-     */
-    _getBoolConfig(key, defaultValue) {
-        let val = config.get(key, defaultValue);
-        return val === true || val === 'true';
     }
 
     /**

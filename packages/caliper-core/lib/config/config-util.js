@@ -12,45 +12,66 @@
  * limitations under the License.
  */
 
-
-
 'use strict';
-
 
 const Config = require('./Config.js');
 
-//
-//Internal method to add additional configuration file to override default file configuration settings
-//
-module.exports.addConfigFile = (path) => {
-    const config = exports.getConfig();
-    config.file(path);
-};
-
-//
-//Internal method to set an override setting to the configuration settings
-//
-module.exports.setConfigSetting = (name, value) => {
-    const config = exports.getConfig();
-    config.set(name, value);
-};
-
-//
-//Internal method to get an override setting to the configuration settings
-//
-exports.getConfigSetting = (name, default_value) => {
-    const config = exports.getConfig();
-    return config.get(name, default_value);
-};
-
-//
-// Internal method to get the configuration settings singleton
-//
-exports.getConfig = () => {
-    if (global.config) {
-        return global.config;
+/**
+ * Gets the singleton Config instance, creates it if necessary.
+ * @return {Config} The singleton Config instance.
+ * @private
+ */
+function _getConfigInstance() {
+    if (!global.caliper) {
+        global.caliper = {};
     }
-    const config = new Config();
-    global.config = config;
-    return config;
+
+    if (!global.caliper.config) {
+        global.caliper.config = new Config();
+    }
+
+    return global.caliper.config;
+}
+
+/**
+ * Utility function for setting a value for a key in the configuration store.
+ * @param {string} name The key of the configuration to set.
+ * @param {any} value The value to set.
+ */
+function set(name, value) {
+    _getConfigInstance().set(name, value);
+}
+
+/**
+ * Utility function for retrieving a value from the configuration store.
+ * @param {string} name The key of the configuration to retrieve.
+ * @param {any} defaultValue The value to return in case the key is not found.
+ * @return {any} The value of the configuration or the defaultValue parameter if not found.
+ */
+function get(name, defaultValue) {
+    return _getConfigInstance().get(name, defaultValue);
+}
+
+const keys = {
+    CoreTxUpdateTime: 'caliper-core-txupdatetime',
+    CoreSkipStartScript: 'caliper-core-skipstartscript',
+    CoreSkipEndScript: 'caliper-core-skipendscript',
+    CoreLogging: 'caliper-core-logging',
+    FabricSleepAfterCreateChannel: 'caliper-fabricccp-sleepafter-createchannel',
+    FabricSleepAfterJoinChannel: 'caliper-fabricccp-sleepafter-joinchannel',
+    FabricSleepAfterInstantiateChaincode: 'caliper-fabricccp-sleepafter-instantiatechaincode',
+    FabricVerifyProposalResponse: 'caliper-fabricccp-verify-proposalresponse',
+    FabricVerifyReadWriteSets: 'caliper-fabricccp-verify-readwritesets',
+    FabricTimeoutChaincodeInstantiate: 'caliper-fabricccp-timeout-chaincodeinstantiate',
+    FabricTimeoutChaincodeInstantiateEvent: 'caliper-fabricccp-timeout-chaincodeinstantiateevent',
+    FabricTimeoutInvokeOrQuery: 'caliper-fabricccp-timeout-invokeorquery',
+    FabricLoadBalancing: 'caliper-fabricccp-loadbalancing',
+    FabricOverwriteGopath: 'caliper-fabricccp-overwritegopath',
+    FabricLatencyThreshold: 'caliper-fabricccp-latencythreshold',
+    FabricCountQueryAsLoad: 'caliper-fabricccp-countqueryasload',
+    FabricSkipCreateChannelPrefix: 'caliper-fabricccp-skipcreatechannel-'
 };
+
+module.exports.get = get;
+module.exports.set = set;
+module.exports.keys = keys;
