@@ -51,8 +51,11 @@
       {
         "name": "mychannel",
         "deployed": false,
-        "config": "network/fabric-v1.4/config/mychannel.tx",
-        "organizations": ["org1", "org2"]
+        "capabilities": [],
+        "consortium": "SampleConsortium",
+        "msps": ["Org1MSP", "Org2MSP", "Org3MSP"],
+        "organizations": ["org1", "org2"],
+        "version": 0
       }
     ],
     "chaincodes": [

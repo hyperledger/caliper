@@ -29,6 +29,128 @@ const fs = require('fs');
 const testUtil = require('./util.js');
 const e2eUtils = require('./e2eUtils.js');
 
+const {google, common} = require('fabric-protos');
+
+/**
+ * Populate an empty object with application capabilities
+ * @param {*} applicationCapabilities the application capability keys
+ * @returns {*} capabilities in a protobuffer
+ */
+function populateCapabilities(applicationCapabilities) {
+    const capabilities = {};
+    for (const capability of applicationCapabilities) {
+        capabilities[capability] = new common.Capability();
+    }
+    return  new common.Capabilities({ capabilities: capabilities });
+}
+
+/**
+ * @param {*} subPolicyName cn
+ * @param {*} rule rule
+ * @returns {*} the policy
+ */
+function makeImplicitMetaPolicy(subPolicyName, rule){
+    const metaPolicy = new common.ImplicitMetaPolicy({ sub_policy: subPolicyName, rule: rule });
+    const policy= new common.Policy({ type: common.Policy.PolicyType.IMPLICIT_META, value: metaPolicy.toBuffer() });
+    return policy;
+}
+
+/**
+ * Generate a write policy
+ * @param {*} version the policy version
+ * @param {string} modPolicy the modification policy
+ * @returns {*} an object of Admin/Reader/Writer keys mapping to populated ConfigPolicy protobuffers
+ */
+function generateWritePolicy(version, modPolicy) {
+    // Write Policy
+    const writePolicies = {};
+    // admins
+    const adminsPolicy = makeImplicitMetaPolicy('Admins', common.ImplicitMetaPolicy.Rule.MAJORITY); // majority
+    writePolicies.Admins = new common.ConfigPolicy({ version: version, policy: adminsPolicy, mod_policy: modPolicy });
+    // Readers
+    const readersPolicy = makeImplicitMetaPolicy('Readers', common.ImplicitMetaPolicy.Rule.ANY); // Any
+    writePolicies.Readers = new common.ConfigPolicy({ version: version, policy: readersPolicy, mod_policy: modPolicy });
+    // Writers
+    const writersPolicy = makeImplicitMetaPolicy('Writers', common.ImplicitMetaPolicy.Rule.ANY); // Any
+    writePolicies.Writers = new common.ConfigPolicy({ version: version, policy: writersPolicy, mod_policy: modPolicy });
+    return writePolicies;
+}
+/**
+ * Create tx for channel create
+ * @param {string} channelName name of chanel to be created
+ * @param {number} channelVersion the channel version being configured
+ * @param {Array<string>} applicationCapabilities application capabilities for the channel
+ * @param {string} consortiumName the consortium name for the channel. Must match that specified in the original configtx.yaml file
+ * @param {Array<string>} mspIds array of mspids that are specified in the original configtx.yaml file
+ * @returns {common.Envelope} a channelTx envelope
+ */
+function createChannelTxEnvelope(channelName, channelVersion, applicationCapabilities, consortiumName, mspIds) {
+
+    // Versioning
+    const readVersion = 0;
+    const writeVersion = 0;
+    const appVersion = 1;
+    const policyVersion = 0;
+
+    // Build the readSet
+    const readValues = {};
+    readValues.Consortium = new common.ConfigValue();
+
+    const readAppGroup = {};
+    for (const mspId of mspIds) {
+        readAppGroup[mspId] = new common.ConfigGroup();
+    }
+    const readGroups = {};
+    readGroups.Application = new common.ConfigGroup({ groups: readAppGroup });
+
+    const readSet = new common.ConfigGroup({ version: readVersion, groups: readGroups, values: readValues });
+
+    // Build the writeSet (based on consortium name and passed Capabiliites)
+    const modPolicy = 'Admins';
+    const writeValues = {};
+
+    const consortium = new common.Consortium({ name: consortiumName });
+    writeValues.Consortium = new common.ConfigValue({ version: writeVersion, value: consortium.toBuffer() });
+
+    if (applicationCapabilities) {
+        const capabilities = populateCapabilities(applicationCapabilities);
+        writeValues.Capabilities = new common.ConfigValue({ version: writeVersion, value: capabilities.toBuffer(), mod_policy: modPolicy });
+    }
+
+    // Write Policy
+    const writePolicies = generateWritePolicy(policyVersion, modPolicy);
+
+    // Write Application Groups
+    const writeAppGroup = {};
+    for (const mspId of mspIds) {
+        writeAppGroup[mspId] = new common.ConfigGroup();
+    }
+
+    const writeGroups = {};
+    writeGroups.Application = new common.ConfigGroup({ version: appVersion, groups: writeAppGroup, policies: writePolicies, mod_policy: modPolicy });
+
+    const writeSet = new common.ConfigGroup({ version: writeVersion, groups: writeGroups, values: writeValues });
+
+    // Now create the configUpdate and configUpdateEnv
+    const configUpdate = new common.ConfigUpdate({ channel_id: channelName, read_set: readSet, write_set: writeSet});
+    const configUpdateEnv= new common.ConfigUpdateEnvelope({ config_update: configUpdate.toBuffer(), signatures: [] });
+
+    // Channel header
+    const channelTimestamp = new google.protobuf.Timestamp({ seconds: Date.now()/1000, nanos: 0 }); // Date.now() is millis since 1970 epoch, we need seconds
+    const channelEpoch = 0;
+    const chHeader = new common.ChannelHeader({ type: common.HeaderType.CONFIG_UPDATE, version: channelVersion, timestamp: channelTimestamp, channel_id: channelName, epoch: channelEpoch });
+
+    // Common header
+    const header = new common.Header({ channel_header: chHeader.toBuffer() });
+
+    // Form the payload header/data
+    const payload = new common.Payload({ header: header, data: configUpdateEnv.toBuffer() });
+
+    // Form and return the envelope
+    const envelope = new common.Envelope({ payload: payload.toBuffer() });
+    return envelope;
+}
+
 /**
  * Create the channels located in the given configuration file.
  * @param {string} config_path The path to the Fabric network configuration file.
@@ -87,9 +209,18 @@ async function run(config_path, root_path) {
             client.setCryptoSuite(cryptoSuite);
             await testUtil.getOrderAdminSubmitter(client);
 
-            // use the config update created by the configtx tool
-            let envelope_bytes = fs.readFileSync(CaliperUtils.resolvePath(channel.config, root_path));
-            config = client.extractChannelConfig(envelope_bytes);
+            if (channel.config) {
+                commLogger.info(`Channel '${channel}' definiton being retrieved from file`);
+                let envelope_bytes = fs.readFileSync(CaliperUtils.resolvePath(channel.config, root_path));
+                config = client.extractChannelConfig(envelope_bytes);
+            } else {
+                // Use the protos to create a channelTx envelope and then extract the config buffer required
+                commLogger.info(`Channel '${channel}' definiton being generated`);
+                const channelTx = createChannelTxEnvelope(channel.name, channel.version, channel.capabilities, channel.consortium, channel.msps);
+                const payload = common.Payload.decode(channelTx.getPayload().toBuffer());
+                const configtx = common.ConfigUpdateEnvelope.decode(payload.getData().toBuffer());
+                config =  configtx.getConfigUpdate().toBuffer();
+            }
 
             // sign the config for each org
             for (const organization of channel.organizations){
@@ -133,6 +264,8 @@ async function run(config_path, root_path) {
         commLogger.error(`Failed to create channels: ${(err.stack ? err.stack : err)}`);
         throw err;
     }
+
 }
+
 
 module.exports.run = run;

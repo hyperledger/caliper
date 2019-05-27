@@ -15,6 +15,7 @@
 'use strict';
 
 const FabricClient = require('fabric-client');
+const {google, common} = require('fabric-protos');
 const {BlockchainInterface, CaliperUtils, TxStatus, Version, ConfigUtil} = require('caliper-core');
 const logger = CaliperUtils.getLogger('adapters/fabric-ccp');
 const config = ConfigUtil.getConfig();
@@ -22,8 +23,7 @@ const config = ConfigUtil.getConfig();
 const FabricNetwork = require('./fabricNetwork.js');
 
 const fs = require('fs');
-const child_process = require('child_process');
-const tmp = require('tmp');
+
 
 //////////////////////
 // TYPE DEFINITIONS //
@@ -263,7 +263,7 @@ class Fabric extends BlockchainInterface {
             let channelObject = this.networkUtil.getNetworkObject().channels[channel];
 
             if (CaliperUtils.checkProperty(channelObject, 'created') && channelObject.created) {
-                logger.info(`${channel} is configured as created, skipping it`);
+                logger.info(`Channel '${channel}' is configured as created, skipping creation`);
                 continue;
             }
 
@@ -271,10 +271,15 @@ class Fabric extends BlockchainInterface {
 
             let configUpdate;
             if (CaliperUtils.checkProperty(channelObject, 'configBinary')) {
+                logger.info(`Channel '${channel}' definiton being retrieved from file`);
                 configUpdate = this._getChannelConfigFromFile(channelObject, channel);
             }
             else {
-                configUpdate = this._getChannelConfigFromConfiguration(channelObject, channel);
+                logger.info(`Channel '${channel}' definiton being generated from description`);
+                const channelTx = this._createChannelTxEnvelope(channelObject.definition, channel);
+                const payload = common.Payload.decode(channelTx.getPayload().toBuffer());
+                const configtx = common.ConfigUpdateEnvelope.decode(payload.getData().toBuffer());
+                configUpdate =  configtx.getConfigUpdate().toBuffer();
             }
 
             // NOTE: without knowing the system channel policies, signing with every org admin is a safe bet
@@ -286,7 +291,7 @@ class Fabric extends BlockchainInterface {
                 try {
                     signatures.push(admin.signChannelConfig(configUpdate));
                 } catch (err) {
-                    throw new Error(`${org}'s admin couldn't sign the configuration update of ${channel}: ${err.message}`);
+                    throw new Error(`${org}'s admin couldn't sign the configuration update of Channel '${channel}': ${err.message}`);
                 }
             }
 
@@ -302,17 +307,17 @@ class Fabric extends BlockchainInterface {
                 /** @link{BroadcastResponse} */
                 let broadcastResponse = await admin.createChannel(request);
 
-                CaliperUtils.assertDefined(broadcastResponse, `The returned broadcast response for creating ${channel} is undefined`);
+                CaliperUtils.assertDefined(broadcastResponse, `The returned broadcast response for creating Channel '${channel}' is undefined`);
                 CaliperUtils.assertProperty(broadcastResponse, 'broadcastResponse', 'status');
 
                 if (broadcastResponse.status !== 'SUCCESS') {
-                    throw new Error(`Orderer response indicated unsuccessful ${channel} creation: ${broadcastResponse.status}`);
+                    throw new Error(`Orderer response indicated unsuccessful Channel '${channel}' creation: ${broadcastResponse.status}`);
                 }
             } catch (err) {
-                throw new Error(`Couldn't create ${channel}: ${err.message}`);
+                throw new Error(`Couldn't create Channel '${channel}': ${err.message}`);
             }
 
-            logger.info(`${channel} successfully created`);
+            logger.info(`Channel '${channel}' successfully created`);
         }
 
         return channelCreated;
@@ -452,51 +457,122 @@ class Fabric extends BlockchainInterface {
     }
 
     /**
-     * Extracts the channel configuration directly from the configuration.
+     * Populate an envelope with a channel creation transaction
      * @param {object} channelObject The channel configuration object.
      * @param {string} channelName The name of the channel.
      * @return {Buffer} The extracted channel configuration bytes.
      * @private
      */
-    _getChannelConfigFromConfiguration(channelObject, channelName) {
-        // spawn a configtxlator process and encode the config object through a temporary file
-        // NOTES:
-        // 1) there doesn't seem to be a straightforward SDK API for this
-        // 2) sync is okay in Caliper initialization phase
-        // 3) for some reason configtxlator cannot open /dev/stdin and stdout when buffers are attached to them
-        // so temporary files have to be used
-        // ./configtxlator proto_encode --type=common.ConfigUpdate --input=tmpInputFile --output=tmpOutputFile
-        let binaryPath = CaliperUtils.resolvePath(channelObject.configtxlatorPath, this.workspaceRoot);
-        let tmpInputFile = null;
-        let tmpOutputFile = null;
-        try {
-            tmpInputFile = tmp.tmpNameSync();
-            tmpOutputFile = tmp.tmpNameSync();
-            fs.writeFileSync(tmpInputFile, JSON.stringify(channelObject.configUpdateObject));
-            let result = child_process.spawnSync(binaryPath, ['proto_encode', '--type=common.ConfigUpdate', `--output=${tmpOutputFile}`, `--input=${tmpInputFile}`]);
-            if (result.error) {
-                throw new Error(`Couldn't encode ${channelName} config update: ${result.error.message}`);
-            }
+    _createChannelTxEnvelope(channelObject, channelName) {
+        // Versioning
+        const readVersion = 0;
+        const writeVersion = 0;
+        const appVersion = 1;
+        const policyVersion = 0;
 
-            if (result.status !== 0) {
-                let stderr = Buffer.from(result.stderr, 'utf-8').toString();
-                let stdout = Buffer.from(result.stdout, 'utf-8').toString();
-                logger.error(`configtxlator stderr output:\n${stderr}`);
-                logger.error(`configtxlator stdout output:\n${stdout}`);
-                throw new Error(`Couldn't encode ${channelName} config update: exit status is ${result.status}`);
-            }
+        // Build the readSet
+        const readValues = {};
+        readValues.Consortium = new common.ConfigValue();
 
-            return fs.readFileSync(tmpOutputFile);
-        } catch (err) {
-            throw err;
-        } finally {
-            if (tmpInputFile && fs.existsSync(tmpInputFile)) {
-                fs.unlinkSync(tmpInputFile);
-            }
-            if (tmpOutputFile && fs.existsSync(tmpOutputFile)) {
-                fs.unlinkSync(tmpOutputFile);
-            }
+        const readAppGroup = {};
+        for (const mspId of channelObject.msps) {
+            readAppGroup[mspId] = new common.ConfigGroup();
         }
+        const readGroups = {};
+        readGroups.Application = new common.ConfigGroup({ groups: readAppGroup });
+
+        const readSet = new common.ConfigGroup({ version: readVersion, groups: readGroups, values: readValues });
+
+        // Build the writeSet (based on consortium name and passed Capabiliites)
+        const modPolicy = 'Admins';
+        const writeValues = {};
+
+        const consortium = new common.Consortium({ name: channelObject.consortium });
+        writeValues.Consortium = new common.ConfigValue({ version: writeVersion, value: consortium.toBuffer() });
+
+        if (channelObject.capabilities) {
+            const capabilities = this._populateCapabilities(channelObject.capabilities);
+            writeValues.Capabilities = new common.ConfigValue({ version: writeVersion, value: capabilities.toBuffer(), mod_policy: modPolicy });
+        }
+
+        // Write Policy
+        const writePolicies = this._generateWritePolicy(policyVersion, modPolicy);
+
+        // Write Application Groups
+        const writeAppGroup = {};
+        for (const mspId of channelObject.msps) {
+            writeAppGroup[mspId] = new common.ConfigGroup();
+        }
+
+        const writeGroups = {};
+        writeGroups.Application = new common.ConfigGroup({ version: appVersion, groups: writeAppGroup, policies: writePolicies, mod_policy: modPolicy });
+
+        const writeSet = new common.ConfigGroup({ version: writeVersion, groups: writeGroups, values: writeValues });
+
+        // Now create the configUpdate and configUpdateEnv
+        const configUpdate = new common.ConfigUpdate({ channel_id: channelName, read_set: readSet, write_set: writeSet});
+        const configUpdateEnv= new common.ConfigUpdateEnvelope({ config_update: configUpdate.toBuffer(), signatures: [] });
+
+        // Channel header
+        const channelTimestamp = new google.protobuf.Timestamp({ seconds: Date.now()/1000, nanos: 0 }); // Date.now() is millis since 1970 epoch, we need seconds
+        const channelEpoch = 0;
+        const chHeader = new common.ChannelHeader({ type: common.HeaderType.CONFIG_UPDATE, version: channelObject.version, timestamp: channelTimestamp, channel_id: channelName, epoch: channelEpoch });
+
+        // Common header
+        const header = new common.Header({ channel_header: chHeader.toBuffer() });
+
+        // Form the payload header/data
+        const payload = new common.Payload({ header: header, data: configUpdateEnv.toBuffer() });
+
+        // Form and return the envelope
+        const envelope = new common.Envelope({ payload: payload.toBuffer() });
+        return envelope;
+    }
+
+    /**
+     * Populate a Capabilities protobuf
+     * @param {Array<string>} applicationCapabilities the application capability keys
+     * @returns {common.Capabilities} Capabilities in a protobuff
+     */
+    _populateCapabilities(applicationCapabilities) {
+        const capabilities = {};
+        for (const capability of applicationCapabilities) {
+            capabilities[capability] = new common.Capability();
+        }
+        return  new common.Capabilities({ capabilities: capabilities });
+    }
+
+    /**
+     * Form a populted Poicy protobuf that contains an ImplicitMetaPolicy
+     * @param {String} subPolicyName the sub policy name
+     * @param {common.Policy.PolicyType} rule the rule type
+     * @returns {common.Policy} the policy protobuf
+     */
+    _makeImplicitMetaPolicy(subPolicyName, rule){
+        const metaPolicy = new common.ImplicitMetaPolicy({ sub_policy: subPolicyName, rule: rule });
+        const policy= new common.Policy({ type: common.Policy.PolicyType.IMPLICIT_META, value: metaPolicy.toBuffer() });
+        return policy;
+    }
+
+    /**
+     * Generate a write policy
+     * @param {number} version the policy version
+     * @param {string} modPolicy the modification policy
+     * @returns {Object} an object of Admin/Reader/Writer keys mapping to populated ConfigPolicy protobuffs
+     */
+    _generateWritePolicy(version, modPolicy) {
+        // Write Policy
+        const writePolicies = {};
+        // admins
+        const adminsPolicy = this._makeImplicitMetaPolicy('Admins', common.ImplicitMetaPolicy.Rule.MAJORITY); // majority
+        writePolicies.Admins = new common.ConfigPolicy({ version: version, policy: adminsPolicy, mod_policy: modPolicy });
+        // Readers
+        const readersPolicy = this._makeImplicitMetaPolicy('Readers', common.ImplicitMetaPolicy.Rule.ANY); // Any
+        writePolicies.Readers = new common.ConfigPolicy({ version: version, policy: readersPolicy, mod_policy: modPolicy });
+        // Writers
+        const writersPolicy = this._makeImplicitMetaPolicy('Writers', common.ImplicitMetaPolicy.Rule.ANY); // Any
+        writePolicies.Writers = new common.ConfigPolicy({ version: version, policy: writersPolicy, mod_policy: modPolicy });
+        return writePolicies;
     }
 
     /**
