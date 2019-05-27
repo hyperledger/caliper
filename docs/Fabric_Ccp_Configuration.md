@@ -504,14 +504,14 @@ The second argument of the `init` callback is a `context`, which is a platform-s
 }
 ```
 
-The `networkInfo` property is a `FabricNetwork` instance that provides simple string-based "queries" and results about the network topology, so the callback doesn't have to rely on the structure of the network configuration file. For the details of the API, refer to the `src/adapters/fabric-ccp/fabricNetwork.js` file.
+The `networkInfo` property is a `FabricNetwork` instance that provides simple string-based "queries" and results about the network topology, so the callback doesn't have to rely on the structure of the network configuration file. For the details of the API, refer to the `packages/fabric-ccp/lib/fabricNetwork.js` file.
 
 
 ## The _run_ Callback
 
-The `blockchain` object received (and saved) in the `init` callback is of type `src/comm/Blockchain.js`, and it wraps the adapter object. The `blockchain.bcType` property has the `fabric-ccp` string value.
+The `blockchain` object received (and saved) in the `init` callback is of type `packages/fabric-ccp/lib/Blockchain.js`, and it wraps the adapter object. The `blockchain.bcType` property has the `fabric-ccp` string value.
 
-> __Due to the diverging adapter interfaces for queries, you need to access the underlying adapter object to use this adapter's query feature. The adapter object is accessible through the `blockchain.bcObj` property, which is of type `src/adapters/fabric-ccp/fabric.js`.__
+> __Due to the diverging adapter interfaces for queries, you need to access the underlying adapter object to use this adapter's query feature. The adapter object is accessible through the `blockchain.bcObj` property, which is of type `packages/fabric-ccp/lib/fabric.js`.__
 
 The two main functions of the adapter are `invokeSmartContract` and `querySmartContract`, sharing a similar API.
 
@@ -577,7 +577,7 @@ Using "batches" also increases the expected workload of the system, since the ra
 
 # Transaction Data Gathered by the Adapter
 
-The previously discussed  `invokeSmartContract` and `querySmartContract` functions return an array whose elements correspond to the result of the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/master/src/comm/transaction.js). The class provides some standard and platform-specific information about its corresponding transaction.
+The previously discussed  `invokeSmartContract` and `querySmartContract` functions return an array whose elements correspond to the result of the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
 
 The standard information provided by the type are the following:
 * `GetID():string` returns the transaction ID.

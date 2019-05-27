@@ -4,7 +4,7 @@ title:  "Writing Benchmarks"
 categories: reference
 ---
 ## Write your own benchmarks
-Caliper provides a set of nodejs NBIs (North Bound Interfaces) for applications to interact with backend blockchain system. Check the [*src/comm/blockchain.js*](./src/comm/blockchain.js) to learn about the NBIs. Multiple *Adaptors* are implemented to translate the NBIs to different blockchain protocols. So developers can write a benchmark once, and run it with different blockchain systems.
+Caliper provides a set of nodejs NBIs (North Bound Interfaces) for applications to interact with backend blockchain system. Check the [*packages/caliper-core/lib/blockchain.js*](./packages/caliper-core/lib/blockchain.js) to learn about the NBIs. Multiple *Adaptors* are implemented to translate the NBIs to different blockchain protocols. So developers can write a benchmark once, and run it with different blockchain systems.
 
 Generally speaking, to write a new caliper benchmark, you need to:
 * Write smart contracts for systems you want to test

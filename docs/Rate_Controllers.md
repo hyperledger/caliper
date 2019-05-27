@@ -281,7 +281,7 @@ You can set the `type` attribute so that it points to your custom JS file that s
     1. A `roundIdx` parameter of type `number` that is the 1-based index of the round where the rate controller is used.
     
     The function must return an object (i.e., your rate controller instance) that satisfies the next criteria.
-2. The object returned by `createRateController` must implement the `/src/comm/rate-control/rateInterface.js` interface, i.e., must provide the following async functions:
+2. The object returned by `createRateController` must implement the `/packages/caliper-core/lib/rate-control/rateInterface.js` interface, i.e., must provide the following async functions:
     1. `init`, for initializing the rate controller at the beginning of the round.
     1. `applyRateControl`, for performing the actual rate control by "blocking" the execution (in an async manner) for the desired time.
     1. `end`, for disposing any acquired resources at the end of a round.
@@ -305,7 +305,7 @@ The following example is a complete implementation of a rate control that doesn'
 
 'use strict';
 
-const RateInterface = require('path-to-caliper/src/comm/rate-control/rateInterface.js');
+const RateInterface = require('path-to-caliper/caliper-core/lib/rate-control/rateInterface.js');
 
 /**
  * Rate controller for allowing uninterrupted workloadload generation.
