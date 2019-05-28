@@ -200,8 +200,8 @@ let SimpleChaincode = class {
         money2 += money;
 
         try {
-            await stub.putState(params[0], Buffer.from(money1));
-            await stub.putState(params[1], Buffer.from(money2));
+            await stub.putState(params[0], Buffer.from(money1.toString()));
+            await stub.putState(params[1], Buffer.from(money2.toString()));
         } catch (err) {
             return getErrorResponse('transfer', ERROR_SYSTEM, err);
         }
