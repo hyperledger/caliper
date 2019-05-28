@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
 
-# Prior to generation, need to run:
-# export FABRIC_CFG_PATH=<path to directory>
+# if the binaries are not available, download them
+if [[ ! -d "bin" ]]; then
+  curl -sSL http://bit.ly/2ysbOFE | bash -s -- 1.1.0 1.1.0 0.4.14 -ds
+fi
+
+rm -rf ./crypto-config/
+rm -f ./orgs.genesis.block
+rm -f ./mychannel.tx
 
 # The below assumes you have the relevant code available to generate the cryto-material
-~/fabric/1_1_preview/bin/cryptogen generate --config=./crypto-config.yaml
-~/fabric/1_1_preview/bin/configtxgen -profile OrgsOrdererGenesis -outputBlock orgs.genesis.block
-~/fabric/1_1_preview/bin/configtxgen -profile OrgsChannel -outputCreateChannelTx mychannel.tx -channelID mychannel
+./bin/cryptogen generate --config=./crypto-config.yaml
+./bin/configtxgen -profile OrgsOrdererGenesis -outputBlock orgs.genesis.block -channelID syschannel
+./bin/configtxgen -profile OrgsChannel -outputCreateChannelTx mychannel.tx -channelID mychannel
 
 # Rename the key files we use to be key.pem instead of a uuid
 for KEY in $(find crypto-config -type f -name "*_sk"); do
