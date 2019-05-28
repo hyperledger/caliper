@@ -14,121 +14,120 @@
 
 'use strict';
 
+const fs = require('fs');
 const path = require('path');
 const nconf = require('nconf');
+
 nconf.formats.yaml = require('nconf-yaml');
 
-//
-// The class representing the hierarchy of configuration settings.
-//
-const Config = class {
+/**
+ * Normalizes the key of the given setting.
+ * @param {{key: string, value: any}} kvPair The setting as a key-value pair.
+ * @return {{key: string, value: any}} The setting with the modified key.
+ */
+function normalizeSettingKey(kvPair) {
+    kvPair.key = kvPair.key.toLowerCase().replace(/[_]/g, '-');
+    return kvPair;
+}
+
+/**
+ * Returns the settings for parsing a configuration file.
+ * @param {string} filename The path of the configuration file.
+ * @return {{file: string, logicalSeparator: string, format: object}} The parsing options.
+ */
+function getFileParsingOptions(filename) {
+    return { file: filename, logicalSeparator: '-', format: nconf.formats.yaml };
+}
+
+/**
+ * The class encapsulating the hierarchy of runtime configurations.
+ * @type {Config}
+ */
+class Config {
     /**
      * Constructor
      */
     constructor() {
-        nconf.use('memory');
-        nconf.use('mapenv', {type:'memory'});
-        this.mapSettings(nconf.stores.mapenv, process.env);
-        this._fileStores = [];
-        nconf.argv();
-        nconf.env();
-        // reference to configuration settings
-        this._config = nconf;
-        const defaultConfig = path.join(__dirname, './default.yaml');
-        this.file(defaultConfig);
-    }
+        // create own instance in case other dependencies also use nconf
+        this._config = new nconf.Provider();
 
-    /**
-     * utility method to map (convert) the environment(upper case and underscores) style
-     * names to configuration (lower case and dashes) style names
-     * @param {Object} store store of the settings
-     * @param {Object} settings settings of the configuration
-     */
-    mapSettings(store, settings) {
-        for(let key in settings) {
-            const value = settings[key];
-            key = key.toLowerCase();
-            key = key.replace(/_/g, '-');
-            store.set(key,value);
-        }
-    }
+        ///////////////////////////////////////////////////////////////////////////////
+        // the priority is the following:                                            //
+        // memory > commandline args > environment variables > project config file > //
+        // > user config file > machine config file > default config file            //
+        ///////////////////////////////////////////////////////////////////////////////
 
-    /**
-     *   utility method to reload the file based stores so
-     *   the last one added is on the top of the files hierarchy
-     *   unless the bottom flag indicates to add otherwise
-     * @param {String} path path of the file
-     * @param {Boolean} bottom indicate of the files hierarchy
-     */
-    reorderFileStores(path, bottom) {
-        // first remove all the file stores
-        for(const x in this._fileStores) {
-            this._config.remove(this._fileStores[x]);
+        this._config.use('memory');
+
+        // normalize the argument names to be more robust
+        this._config.argv({ parseValues: true, transform: normalizeSettingKey });
+
+        // normalize the argument names to be more robust
+        this._config.env({ parseValues: true, transform: normalizeSettingKey });
+
+        // TODO: resolve the paths according to the workspace, once it's set through the config API
+
+        // if "caliper-projectconfig" is set at this point, include that file
+        let projectConf = this.get('caliper-projectconfig', undefined);
+        if (projectConf && (typeof projectConf === 'string')) {
+            this._config.file('project', getFileParsingOptions(projectConf));
+        } else if (fs.existsSync('caliper.yaml')) {
+            // check whether caliper.yaml is present in the current working directory for convenience
+            this._config.file('project', getFileParsingOptions('caliper.yaml'));
         }
 
-        if(bottom) {
-            // add to the bottom of the list
-            this._fileStores.push(path);
-        } else {
-            // add this new file to the front of the list
-            this._fileStores.unshift(path);
+        // if "caliper-userconfig" is set at this point, include that file
+        let userConfig = this.get('caliper-userconfig', undefined);
+        if (userConfig && (typeof userConfig === 'string')) {
+            this._config.file('user', getFileParsingOptions(userConfig));
         }
 
-        // now load all the file stores
-        for(const x in this._fileStores) {
-            const name = this._fileStores[x];
-            //this._config.file(name, name);
-            this._config.file({file: name, format: nconf.formats.yaml});
+        // if "caliper-machineconfig" is set at this point, include that file
+        let machineConfig = this.get('caliper-machineconfig', undefined);
+        if (machineConfig) {
+            this._config.file('machine', getFileParsingOptions(machineConfig));
         }
-    }
 
-    /**
-     * Add an additional file
-     * @param {String} path path of the file
-     */
-    file(path) {
-        if(typeof path !== 'string') {
-            throw new Error('The "path" parameter must be a string');
-        }
-        // just reuse the path name as the store name...will be unique
-        this.reorderFileStores(path);
+        // as fallback, always include the default config packaged with Caliper
+        const defaultConfig = path.join(__dirname, 'default.yaml');
+        this._config.file('default', getFileParsingOptions(defaultConfig));
     }
 
     /**
      * Get the config setting with name.
-     * If the setting is not found returns the default value provided.
-     * @param {String} name of the setting
-     * @param {any} default_value default value of the setting
-     * @return {any} value of the setting
+     * If the setting is not found, returns the provided default value.
+     * @param {string} name Key/name of the setting.
+     * @param {any} defaultValue The default value to return if the setting is not found.
+     * @return {any} Value of the setting
      */
-    get(name, default_value) {
-        let return_value = null;
+    get(name, defaultValue) {
+        let value = null;
 
         try {
-            return_value = this._config.get(name);
+            value = this._config.get(name);
         }
         catch(err) {
-            return_value = default_value;
+            value = defaultValue;
         }
 
-        if(return_value === null || return_value === undefined) {
-            return_value = default_value;
+        // NOTE: can't use !value, since a falsey value could be a valid setting
+        if(value === null || value === undefined) {
+            value = defaultValue;
         }
 
-        return return_value;
+        return value;
     }
 
     /**
      * Set a value into the 'memory' store of config settings.
      * This will override all other settings.
-     * @param {String} name name of the setting
-     * @param {String} value value of the setting
+     * @param {string} name name of the setting
+     * @param {any} value value of the setting
      */
     set(name, value) {
         this._config.set(name,value);
     }
-
-};
+}
 
 module.exports = Config;
 
