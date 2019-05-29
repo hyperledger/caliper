@@ -52,7 +52,6 @@ services:
         - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
         - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/msp/orderer/msp
         - ORDERER_KAFKA_VERBOSE=true
-        - ORDERER_HOST=orderer0.example.com
         working_dir: /opt/gopath/src/github.com/hyperledger/fabric
         command: orderer
         ports:
@@ -79,7 +78,6 @@ services:
         - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
         - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/msp/orderer/msp
         - ORDERER_KAFKA_VERBOSE=true
-        - ORDERER_HOST=orderer0.example.com
         working_dir: /opt/gopath/src/github.com/hyperledger/fabric
         command: orderer
         ports:
