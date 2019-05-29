@@ -64,7 +64,6 @@ services:
         - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
         - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
         - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/msp/orderer/tls/ca.crt]
-        - ORDERER_HOST=orderer0.example.com
         working_dir: /opt/gopath/src/github.com/hyperledger/fabric
         command: orderer
         ports:
@@ -95,7 +94,6 @@ services:
         - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
         - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
         - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/msp/orderer/tls/ca.crt]
-        - ORDERER_HOST=orderer0.example.com
         working_dir: /opt/gopath/src/github.com/hyperledger/fabric
         command: orderer
         ports:

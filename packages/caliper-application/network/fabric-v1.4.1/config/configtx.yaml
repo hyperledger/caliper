@@ -1,0 +1,101 @@
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+Organizations:
+    - &OrdererOrg
+        Name: OrdererMSP
+        ID: OrdererMSP
+        MSPDir: crypto-config/ordererOrganizations/example.com/msp
+        AdminPrincipal: Role.MEMBER
+
+    - &Org0
+        Name: Org1MSP
+        ID: Org1MSP
+        MSPDir: crypto-config/peerOrganizations/org1.example.com/msp
+        AdminPrincipal: Role.ADMIN
+        AnchorPeers:
+            - Host: peer0.org1.example.com
+              Port: 7051
+            - Host: peer1.org1.example.com
+              Port: 7051
+            - Host: peer2.org1.example.com
+              Port: 7051
+
+    - &Org1
+        Name: Org2MSP
+        ID: Org2MSP
+        MSPDir: crypto-config/peerOrganizations/org2.example.com/msp
+        AdminPrincipal: Role.ADMIN
+        AnchorPeers:
+            - Host: peer0.org2.example.com
+              Port: 7051
+            - Host: peer1.org2.example.com
+              Port: 7051
+            - Host: peer2.org2.example.com
+              Port: 7051
+
+    - &Org2
+        Name: Org3MSP
+        ID: Org3MSP
+        MSPDir: crypto-config/peerOrganizations/org3.example.com/msp
+        AdminPrincipal: Role.ADMIN
+        AnchorPeers:
+            - Host: peer0.org3.example.com
+              Port: 7051
+            - Host: peer1.org3.example.com
+              Port: 7051
+            - Host: peer2.org3.example.com
+              Port: 7051
+
+Orderer: &OrdererDefaults
+    OrdererType: solo
+    Addresses:
+        - orderer.example.com:7050
+    BatchTimeout: 250ms
+    BatchSize:
+        MaxMessageCount: 10
+        AbsoluteMaxBytes: 128 MB
+        PreferredMaxBytes: 128 MB
+
+    MaxChannels: 0
+
+    Kafka:
+        Brokers:
+            - 127.0.0.1:9092
+
+    Organizations:
+
+Application: &ApplicationDefaults
+    Organizations:
+
+
+Profiles:
+
+    OrgsOrdererGenesis:
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+            - *OrdererOrg
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                - *Org0
+                - *Org1
+                - *Org2
+    OrgsChannel:
+        Consortium: SampleConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+            - *Org0
+            - *Org1
+            - *Org2
