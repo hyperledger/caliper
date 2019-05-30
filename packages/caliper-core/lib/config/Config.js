@@ -26,7 +26,12 @@ nconf.formats.yaml = require('nconf-yaml');
  * @return {{key: string, value: any}} The setting with the modified key.
  */
 function normalizeSettingKey(kvPair) {
-    kvPair.key = kvPair.key.toLowerCase().replace(/[_]/g, '-');
+    let newKey = kvPair.key.toLowerCase().replace(/[_]/g, '-');
+    // only change the command line argument or environment variable name for Caliper settings
+    if (newKey.startsWith('caliper-')) {
+        kvPair.key = newKey;
+    }
+
     return kvPair;
 }
 
