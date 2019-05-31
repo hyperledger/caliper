@@ -32,7 +32,7 @@ See [Architecture Introduction]({{ site.baseurl }}{% link docs/2_Architecture.md
 ## Pre-requisites
 
 Make sure following tools are installed
-* NodeJS 8.X
+* NodeJS 8 (LTS), 9, or 10 (LTS) *we do not support higher versions as the dependancy chain does not permit this*
 * node-gyp
 * Docker
 * Docker-compose
@@ -44,6 +44,8 @@ Caliper is split into pacakges that are managed by Lerna, a tool for managing Ja
 - Run `npm install` in Caliper root folder to install base dependencies locally
 - Run `npm run repoclean` in Caliper root folder to ensure that all the packages are clean
 - Run `npm run bootstrap` to bootstrap the packages in the Caliper repository. This will install all package dependancies and link any cross dependancies. It will take some time to finish installation. If it is interrupted by `ctrl+c`, please recover the file `package.json` first and then run `npm run bootstrap` again.
+
+Do not run any of the above commands with `sudo`, as it will cause the bootstrap process to fail
 
 Steps for configuring a benchmark that targets a supported blockchain technology are given in the following links:
 
