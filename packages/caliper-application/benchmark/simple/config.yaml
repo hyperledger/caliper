@@ -27,6 +27,17 @@ test:
       opts:
         tps: 100
     callback: benchmark/simple/query.js
+  - label: transfer
+    description: Test description for transfering money between accounts
+    txNumber:
+        - 100
+    rateControl:
+        - type: fixed-rate
+          opts:
+              tps: 50
+    arguments:
+        money: 100
+    callback: benchmark/simple/transfer.js
 monitor:
   type:
   - docker
