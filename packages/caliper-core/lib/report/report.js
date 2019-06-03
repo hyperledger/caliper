@@ -12,290 +12,198 @@
  * limitations under the License.
  */
 
-
 'use strict';
 
-let fs = require('fs');
-let Mustache = require('mustache');
-const path = require('path');
+const ReportBuilder = require('./report-builder');
+const Blockchain = require('../blockchain');
+const CaliperUtils = require('../utils/caliper-utils');
+const logger = CaliperUtils.getLogger('report-builder');
+
+const table = require('table');
 
 /**
- * Convert an object to string
- * @param {Object} value object to be converted
- * @return {String} returned string
- */
-function stringify(value) {
-    if(typeof value === 'object'){
-        if(Array.isArray(value)) {
-            return value.toString();
-        }
-        else {
-            return JSON.stringify(value, null, 2);
-        }
-    }
-    else {
-        return value;
-    }
-}
-
-/**
- * Report class for generating test report
+ * Class for building a report
  */
 class Report {
+
     /**
      * Constructor
+     * @param {Monoitor} monitor the test monitor
      */
-    constructor() {
-        this.template = path.join(__dirname, 'template/report.html');
-        this.data = {
-            'summary' : {       // summary of benchmark result
-                'meta' : [],    // information of the summary, e.g. [{"name": "DLT Type", "value": "Fabric"}, {"name": "Benchmark", "value": "Simple"}...]
-                'head' : [],    // table head for the summary table, e.g. ["Test","Name","Succ","Fail","Send Rate","Max Delay","Min Delay", "Avg Delay", "Throughput"],
-                'results':[]   // table rows for the summary table, e.g. [{ "result": [0,"publish", 1,0,"1 tps", "10.78 s","10.78 s", "10.78 s", "1 tps"]},...]
-            },
-            // results of each rounds, e.g
-            // [{
-            //     "id": "round 0",
-            //     "description" : "Test the performance for publishing digital item",
-            //     "performance": {
-            //       "head": ["Name","Succ","Fail","Send Rate","Max Delay","Min Delay", "Avg Delay", "Throughput"],
-            //       "result": ["publish", 1,0,"1 tps", "10.78 s","10.78 s", "10.78 s", "1 tps"]
-            //     },
-            //     "resource": {
-            //       "head": ["TYPE","NAME", "Memory(max)","Memory(avg)","CPU(max)", "CPU(avg)", "Traffic In","Traffic Out"],
-            //       "results": [
-            //         {
-            //          "result": ["Docker","peer1.org1.example.com", "94.4MB", "94.4MB", "0.89%", "0.84%", "0B", "0B"]
-            //         },
-            //         {
-            //           "result": ["Docker","peer0.org2.example.com","90.4MB", "90.4MB", "1.2%", "1.2%", "6KB", "0B"]
-            //         }
-            //       ]
-            //     }
-            //   }
-            'tests' : [],
-            'benchmarkInfo': 'not provided',   // readable information for the benchmark
-            'sut': {
-                'meta' : [],                    // metadata of the SUT
-                'details' : 'not provided'     // details of the SUT
-            }
-        };
-        this.started = false;
-        this.peers = [];
-        this.monitors = [];
+    constructor(monitor) {
+        this.monitor = monitor;
+        this.reportBuilder = new ReportBuilder();
+        this.resultsbyround = [];
     }
 
     /**
-    * add a name/value metadata
-    * @param {String} name name of the metadata
-    * @param {String} value value of the metadata
-    */
-    addMetadata(name, value) {
-        this.data.summary.meta.push({'name': name, 'value': value});
-    }
-
-    /**
-    * @tableArray, [[head], [row1], [row2], ...]
-    *              the first element must be an array represents the header of the table,
-    *              and the rest elements represent the rows of the table
-    */
-
-    /**
-    * set the head of summary table
-    * @param {Array} table array containing rows of a table, each row is also an array
-    */
-    setSummaryTable(table) {
-        if(!Array.isArray(table) || table.length < 1) {
-            throw new Error('unrecognized report table');
+     * Generate mustache template for test report
+     * @param {String} absConfigFile the config file used by this flow
+     * @param {String} absNetworkFile the network config file used by this flow
+     * @param {String} blockchainType the blockchain target type
+     */
+    createReport(absConfigFile, absNetworkFile, blockchainType) {
+        let config = CaliperUtils.parseYaml(absConfigFile);
+        this.reportBuilder.addMetadata('DLT', blockchainType);
+        try{
+            this.reportBuilder.addMetadata('Benchmark', config.test.name);
         }
-
-        this.data.summary.head = table[0];
-        for(let i = 1 ; i < table.length ; i++) {
-            if(!Array.isArray(table)) {
-                throw new Error('unrecognized report table');
-            }
-            this.data.summary.results.push({'result' : table[i]});
+        catch(err) {
+            this.reportBuilder.addMetadata('Benchmark', ' ');
         }
-    }
-
-    /**
-    * add a row to the summary table
-    * @param {Array} row elements of the row
-    */
-    addSummarytableRow(row) {
-        if(!Array.isArray(row) || row.length < 1) {
-            throw new Error('unrecognized report row');
+        try {
+            this.reportBuilder.addMetadata('Description', config.test.description);
         }
-        this.data.summary.results.push({'result' : row});
-    }
-
-    /**
-    * add a new benchmark round
-    * @param {String} label the test label
-    * @return {Number} id of the round, used to add details to this round
-    */
-    addBenchmarkRound(label) {
-        let index;
-        let exists = false;
-        for (let i=0; i<this.data.tests.length; i++) {
-            if (this.data.tests[i].label.localeCompare(label) === 0){
-                // Label test container exists
-                exists = true;
-                index = i;
-            }
+        catch(err) {
+            this.reportBuilder.addMetadata('Description', ' ');
         }
-
-        if (exists) {
-            // Add the next round at the index point
-            const id = this.data.tests[index].rounds.length;
-            this.data.tests[index].rounds.push({
-                'id' : 'round ' + id,
-                'performance' : {'head':[], 'result': []},
-                'resource' : {'head':[], 'results': []}
-            });
-            return id;
-        } else {
-            // New item
-            this.data.tests.push({
-                'description' : this.descriptionmap.get(label),
-                'label' : label,
-                'rounds': [{
-                    'id' : 'round 0',
-                    'performance' : {'head':[], 'result': []},
-                    'resource' : {'head':[], 'results': []}
-                }]
-            });
-            return 0;
-        }
-    }
-
-    /**
-    * set performance table of a specific round
-    * @param {String} label the round label
-    * @param {Number} id id of the round
-    * @param {Array} table table array containing the performance values
-    */
-    setRoundPerformance(label, id, table) {
-
-        let index;
-        let exists = false;
-        for (let i=0; i<this.data.tests.length; i++) {
-            if (this.data.tests[i].label.localeCompare(label) === 0){
-                // Label test container exists
-                exists = true;
-                index = i;
-            }
-        }
-
-        if (!exists){
-            throw new Error('Non-existing report test label passed');
-        }
-
-        if(id < 0 || id >= this.data.tests[index].rounds.length) {
-            throw new Error('unrecognized report id');
-        }
-        if(!Array.isArray(table) || table.length < 1) {
-            throw new Error('unrecognized report table');
-        }
-
-        this.data.tests[index].rounds[id].performance.head = table[0];
-        if(table.length > 1)
-        {
-            this.data.tests[index].rounds[id].performance.result = table[1];
-        }
-    }
-
-    /**
-    * set resource consumption table of a specific round
-    * @param {String} label the round label
-    * @param {Number} id id of the round
-    * @param {Array} table table array containing the resource consumption values
-    */
-    setRoundResource(label, id, table) {
-        let index;
-        let exists = false;
-        for (let i=0; i<this.data.tests.length; i++) {
-            if (this.data.tests[i].label.localeCompare(label) === 0){
-                // Label test container exists
-                exists = true;
-                index = i;
-            }
-        }
-
-        if (!exists){
-            throw new Error('Non-existing report test label passed');
-        }
-
-        if(id < 0 || id >= this.data.tests[index].rounds.length) {
-            throw new Error('unrecognized report id');
-        }
-        if(!Array.isArray(table) || table.length < 1) {
-            throw new Error('unrecognized report table');
-        }
-
-        this.data.tests[index].rounds[id].resource.head = table[0];
-        for(let i = 1 ; i < table.length ; i++) {
-            if(!Array.isArray(table)) {
-                throw new Error('unrecognized report table');
-            }
-            this.data.tests[index].rounds[id].resource.results.push({'result' : table[i]});
-        }
-    }
-
-    /**
-    * set the readable information of the benchmark
-    * @param {String} info information of the benchmark
-    */
-    setBenchmarkInfo(info) {
-        this.data.benchmarkInfo = info;
-    }
-
-    /**
-    * add SUT information
-    * @param {String} name name of the metadata
-    * @param {Object} value value of the metadata
-    */
-    addSUTInfo(name, value) {
-        if(name === 'details') {
-            this.data.sut.details = stringify(value);
-        }
-        else {
-            this.data.sut.meta.push({'name': name, 'value': stringify(value)});
-        }
-    }
-
-    /**
-    * generate a HTML report for the benchmark
-    * @param {String} output filename of the output
-    * @return {Promise} promise object
-    */
-    generate(output) {
-        return new Promise((resolve, reject) => {
-            let templateStr = fs.readFileSync(this.template).toString();
-            let html = Mustache.render(templateStr, this.data);
-            fs.writeFile(output, html, (error) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve('Report  created successfully!');
+        try{
+            let r = 0;
+            for(let i = 0 ; i < config.test.rounds.length ; i++) {
+                if(config.test.rounds[i].hasOwnProperty('txNumber')) {
+                    r += config.test.rounds[i].txNumber.length;
+                } else if (config.test.rounds[i].hasOwnProperty('txDuration')) {
+                    r += config.test.rounds[i].txDuration.length;
                 }
-            });
-        });
+            }
+            this.reportBuilder.addMetadata('Test Rounds', r);
+            this.reportBuilder.setBenchmarkInfo(JSON.stringify(config.test, null, 2));
+        }
+        catch(err) {
+            this.reportBuilder.addMetadata('Test Rounds', ' ');
+        }
+
+        let sut = CaliperUtils.parseYaml(absNetworkFile);
+        if(sut.hasOwnProperty('info')) {
+            for(let key in sut.info) {
+                this.reportBuilder.addSUTInfo(key, sut.info[key]);
+            }
+        }
+        this.reportBuilder.addLabelDescriptionMap(config.test.rounds);
     }
 
     /**
-     * Generate a label - descrition map
-     * @param {Object} rounds the test rounds from teh yaml config file
+     * print table
+     * @param {Array} value rows of the table
      */
-    addLabelDescriptionMap(rounds){
-        const descriptionmap = new Map();
-        for(let i = 0 ; i < rounds.length ; i++) {
-            if(rounds[i].hasOwnProperty('description')) {
-                descriptionmap.set(rounds[i].label, rounds[i].description);
-            }
-        }
-        this.descriptionmap = descriptionmap;
+    printTable(value) {
+        let t = table.table(value, {border: table.getBorderCharacters('ramac')});
+        logger.info('\n' + t);
+    }
 
+    /**
+     * get the default result table's title
+     * @return {Array} row of the title
+     */
+    getResultTitle() {
+        // temporarily remove percentile return ['Name', 'Succ', 'Fail', 'Send Rate', 'Max Latency', 'Min Latency', 'Avg Latency', '75%ile Latency', 'Throughput'];
+        return ['Name', 'Succ', 'Fail', 'Send Rate', 'Max Latency', 'Min Latency', 'Avg Latency', 'Throughput'];
+    }
+
+    /**
+     * get rows of the default result table
+     * @param {Array} r array of txStatistics JSON objects
+     * @return {Array} rows of the default result table
+     */
+    getResultValue(r) {
+        let row = [];
+        try {
+            row.push(r.label);
+            row.push(r.succ);
+            row.push(r.fail);
+            (r.create.max === r.create.min) ? row.push((r.succ + r.fail) + ' tps') : row.push(((r.succ + r.fail) / (r.create.max - r.create.min)).toFixed(1) + ' tps');
+            row.push(r.delay.max.toFixed(2) + ' s');
+            row.push(r.delay.min.toFixed(2) + ' s');
+            row.push((r.delay.sum / r.succ).toFixed(2) + ' s');
+
+            (r.final.last === r.create.min) ? row.push(r.succ + ' tps') : row.push((r.succ / (r.final.last - r.create.min)).toFixed(1) + ' tps');
+            logger.debug('r.create.max: '+ r.create.max + ' r.create.min: ' + r.create.min + ' r.final.max: ' + r.final.max + ' r.final.min: '+ r.final.min + ' r.final.last: ' + r.final.last);
+            logger.debug(' throughput for only success time computed: '+  (r.succ / (r.final.max - r.create.min)).toFixed(1));
+        }
+        catch (err) {
+            row = [r.label, 0, 0, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'];
+        }
+        return row;
+    }
+
+    /**
+     * print the performance testing results of all test rounds
+     */
+    printResultsByRound() {
+        this.resultsbyround[0].unshift('Test');
+        for(let i = 1 ; i < this.resultsbyround.length ; i++) {
+            this.resultsbyround[i].unshift(i.toFixed(0));
+        }
+        logger.info('###all test results:###');
+        this.printTable(this.resultsbyround);
+
+        this.reportBuilder.setSummaryTable(this.resultsbyround);
+    }
+
+    /**
+     * merge testing results from various clients and store the merged result in the global result array
+     * txStatistics = {
+     *     succ   : ,                        // number of committed txns
+     *     fail   : ,                        // number of failed txns
+     *     create : {min:, max: },            // min/max time when txns were created/submitted
+     *     final  : {min:, max: },            // min/max time when txns were committed
+     *     delay  : {min:, max: , sum:, detail:[]},     // min/max/sum of txns' end2end delay, as well as all txns' delay
+     * }
+     * @param {Array} results array of txStatistics
+     * @param {String} label label of the test round
+     * @return {Promise} promise object
+     */
+    processResult(results, label){
+        try{
+            let resultTable = [];
+            resultTable[0] = this.getResultTitle();
+            let r;
+            if(Blockchain.mergeDefaultTxStats(results) === 0) {
+                r = Blockchain.createNullDefaultTxStats();
+                r.label = label;
+            }
+            else {
+                r = results[0];
+                r.label = label;
+                resultTable[1] = this.getResultValue(r);
+            }
+
+            let sTP = r.sTPTotal / r.length;
+            let sT = r.sTTotal / r.length;
+            logger.debug('sendTransactionProposal: ' + sTP + 'ms length: ' + r.length);
+            logger.debug('sendTransaction: ' + sT + 'ms');
+            logger.debug('invokeLantency: ' + r.invokeTotal / r.length + 'ms');
+            if(this.resultsbyround.length === 0) {
+                this.resultsbyround.push(resultTable[0].slice(0));
+            }
+            if(resultTable.length > 1) {
+                this.resultsbyround.push(resultTable[1].slice(0));
+            }
+            logger.info('###test result:###');
+            this.printTable(resultTable);
+            let idx = this.reportBuilder.addBenchmarkRound(label);
+            this.reportBuilder.setRoundPerformance(label, idx, resultTable);
+            let resourceTable = this.monitor.getDefaultStats();
+            if(resourceTable.length > 0) {
+                logger.info('### resource stats ###');
+                this.printTable(resourceTable);
+                this.reportBuilder.setRoundResource(label, idx, resourceTable);
+            }
+            return Promise.resolve();
+        }
+        catch(err) {
+            logger.error(err);
+            return Promise.reject(err);
+        }
+    }
+
+    /**
+     * Print the generated report to file
+     * @param {string} outFile the name of the file to write
+     * @async
+     */
+    async finalize(outFile) {
+        await this.reportBuilder.generate(outFile);
     }
 }
 

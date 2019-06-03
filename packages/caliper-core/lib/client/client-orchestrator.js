@@ -141,12 +141,12 @@ class ClientOrchestrator {
     *            };
     * @param {JSON} message start message
     * @param {Array} clientArgs each element of the array contains arguments that should be passed to corresponding test client
-    * @param {function} finishCB callback after the test finished
+    * @param {Report} report the report being built
     * @param {any} finishArgs arguments that should be passed to finishCB, the callback is invoke as finishCB(this.results, finshArgs)
     * @param {Object} clientFactory a factor used to spawn test clients
     * @async
     */
-    async startTest(message, clientArgs, finishCB, finishArgs, clientFactory) {
+    async startTest(message, clientArgs, report, finishArgs, clientFactory) {
         this.results = [];
         this.updates.data = [];
         this.updates.id++;
@@ -162,7 +162,7 @@ class ClientOrchestrator {
             throw new Error(`Unknown client type: ${this.type}`);
         }
 
-        await finishCB(this.results, finishArgs);
+        await report.processResult(this.results, finishArgs);
     }
 
     /**
