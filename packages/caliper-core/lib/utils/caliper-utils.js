@@ -13,6 +13,9 @@
  */
 
 'use strict';
+
+const childProcess = require('child_process');
+const exec = childProcess.exec;
 const path = require('path');
 require('winston-daily-rotate-file');
 const fs = require('fs');
@@ -209,6 +212,28 @@ class CaliperUtils {
         for (let property of propertyNames) {
             CaliperUtils.assertProperty(object, objectName, property);
         }
+    }
+
+    /**
+     * Executes the given command asynchronously.
+     * @param {string} command The command to execute through a newly spawn shell.
+     * @return {Promise} The return promise is resolved upon the successful execution of the command, or rejected with an Error instance.
+     * @async
+     */
+    static execAsync(command) {
+        const logger = CaliperUtils.getLogger('caliper-utils');
+        return new Promise((resolve, reject) => {
+            logger.info(`Executing command: ${command}`);
+            let child = exec(command, (err, stdout, stderr) => {
+                if (err) {
+                    logger.error(`Unsuccessful command execution. Error code: ${err.code}. Terminating signal: ${err.signal}`);
+                    return reject(err);
+                }
+                return resolve();
+            });
+            child.stdout.pipe(process.stdout);
+            child.stderr.pipe(process.stderr);
+        });
     }
 }
 
