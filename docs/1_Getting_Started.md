@@ -39,7 +39,7 @@ Make sure following tools are installed
 
 ### Building Caliper
 
-Caliper is split into pacakges that are managed by Lerna, a tool for managing JavaScript projects with multiple packages. To build Caliper, it is necessary to first pull the required base dependancies, and then bootstrap the Caliper project. Note that if you modify base code, it is necessary to rebuild the project
+Caliper is split into pacakges that are managed by Lerna, a tool for managing JavaScript projects with multiple packages. To build Caliper, it is necessary to first pull the required base dependancies, and then bootstrap the Caliper project. Note that if you modify any base code, it is necessary to rebuild the project
 
 - Run `npm install` in Caliper root folder to install base dependencies locally
 - Run `npm run repoclean` in Caliper root folder to ensure that all the packages are clean
@@ -56,69 +56,86 @@ Steps for configuring a benchmark that targets a supported blockchain technology
 - [Iroha]({{ site.baseurl }}{% link docs/Iroha_Configuration.md %})
 - [Sawtooth]({{ site.baseurl }}{% link docs/Sawtooth_Configuration.md %})
 
-## Run Benchmark
+## Running a Benchmark
 
-All predefined benchmarks can be found in [*benchmark*](https://github.com/hyperledger/caliper/tree/master/packages/caliper-application/benchmark/) folder.
-To start your first benchmark, just run this from the folder `packages/caliper-application/scripts`:
+Benchmarks may be run using the Caliper command line interface. We are preparing to publish Caliper packages to npm, though our build process includes an integration test that publishes all Caliper modules to a proxy npm server, and then globally installs the CLI package from this server. We advise using the Caliper test utility to obtain the Caliper CLI.
+
+### Install the Caliper CLI
+
+We have not yet published Caliper to npm, however the Caliper CLI may be obtained via our test script located in `<CaliperRoot>/packages/caliper-tests-integration/scripts/run-integration-tests.sh`. The test script requires an environmental variable set in order to pick a specific adaptor to test; please note that this is only a requirement of out CI system.
+
+Steps:
+ 1. If you have not already built the Caliper project, outlined in the section above, please do so.
+ 2. To obtain the Caliper CLI run the following from the root Caliper location
+
 ```bash
-node run-benchmark.js -c yourconfig -n yournetwork
+export BENCHMARK=fabric-ccp
+./packages/caliper-tests-integration/scripts/run-integration-tests.sh
 ```
-* -c : specify the config file of the benchmark (required).
-* -n : specify the config file of the blockchain network under test (required).
 
-When running benchmarks, the errors like 'not find modules' occur. Please running `npm rebuild` from the root folder.
+The above will start an npm proxy server (Verdaccio), publish the Caliper modules to the server, globally install the packages, and finally run a traget benchmark. The result of the benchmark is not important at this time; if the benchmark commences, then you have the Caliper packages installed globally on the machine that issued the command.
 
-Some example SUTs are provided in [*network*](https://github.com/hyperledger/caliper/tree/master/packages/caliper-application/network) folder, they can be launched automatically before the test by setting the bootstrap commands in the configuration file, e.g.
-```json
-{
-  "command" : {
-    "start": "docker-compose -f network/fabric-v1.1/dev/docker-compose.yaml up -d",
-    "end" : "docker-compose -f network/fabric-v1.1/dev/docker-compose.yaml down;docker rm $(docker ps -aq)"
-  }
-}
-```
-The scripts defined in *command.start* will be called before the test, and the scripts defined in *command.end* will be called after the finish of all tests. You can use them to define any preparation or clean-up works.  
+The current Caliper packages are set to support the following adaptor client libraries:
+ - Burrow: @monax/burrow@0.23.0
+ - Composer: composer@0.20.8
+ - Fabric: fabric-client@1.4.0
+ - Iroha: iroha-helpers@0.6.3
+ - Sawtooth: sawtooth-sdk@1.0.5
 
-You can also run the test with your own blockchain network, a network configuration should be provided and corresponding file path should be specified in  configuration file's *blockchain.config*.
+If you need to run a benchmark using an adaptor with an alternative client dependancy to the above, it will be necessary to modify the respective package.json file and then rebuild the Caliper project prior to running the integration test script. A known compatibiltiy list is provided below.
+ 
+#### Compatibility List:
+ 
+ | DLT | Client Compatibilty |
+ | :-- | :------------------ |
+ |Fabric v1.0 | grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0 |
+ |Fabric v1.1 | grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0 |
+ |Fabric v1.2 | fabric-ca-client@1.4.0 fabric-client@1.4.0 fabric-network@1.4.0 |
+ |Fabric v1.3 | fabric-ca-client@1.4.0 fabric-client@1.4.0 fabric-network@1.4.0 |
+ |Fabric v1.4 | fabric-ca-client@1.4.0 fabric-client@1.4.0 fabric-network@1.4.0 |
+
+
+For instance, if you wish to test Hyperledger Fabric v1.1, it will be necessary to modify the `caliper-fabric-ccp` adaptor to use `grpc@1.10.1, fabric-ca-client@1.1.0, fabric-client@1.1.0`.
 
 > Note:
-> * When running the benchmark, one or more blockchain clients will be used to generate and submit transactions to the SUT. The number of launched clients as well as testing workload can be defined using the [configuration file]({{ site.baseurl }}{% link docs/2_Architecture.md %}).  
-> * A HTML report will be generated automatically after the testing.
+> When the Caliper packages are published to npm, we will be publishing versions for the above compatibility requirements and will update the compatibility table with published Caliper versions that you will be able to obtain using `npm install -g caliper-<package>@<version>`
 
-### Alternative
+### Run a Sample Benchmark 
 
-You can also use npm scripts to run a benchmark.
-* npm run list: list all available benchmarks
+All predefined benchmarks can be found in the [*benchmark*](https://github.com/hyperledger/caliper/tree/master/packages/caliper-samples/benchmark/) folder. The Caliper CLI has the notion of a workspace, which contains your 
+benchmark configuration and test files.
+
+Benchamarks may be run using the Caliper CLI command
 
 ```bash
-$ npm run list
-
-> caliper@0.1.0 list /home/hurf/caliper
-> node ./scripts/list.js
-
-Available benchmarks:
-drm
-simple
+caliper benchmark run -w <path to workspace> -c <benchmark config> -n <blockchain config>
 ```
+* -w : path to a workspace directory (required)
+* -c : relative path from the workspace to the benchmark configuration file (required).
+* -n : relative path from the workspace to the config file of the blockchain network under test (required).
+
+Assuming you are in the root caliper directory, the following command will run a test using the material from a Caliper sample:
+
+```bash
+caliper benchmark run -w ./packages/caliper-samples -c benchmark/simple/config.yaml -n network/fabric-v1.4/2org1peercouchdb/fabric-ccp-node.yaml
+```
+
+The files present in the `caliper-samples` directory may be modified or added to, in order to perform the desired benchmark. Before adding a benchmark, please inspect the example benchmark content and structure; you will need to add your own configuration files for the blockchain system under test, the benchmark configuration, smart contracts, and test files (callbacks) that interact with the deployed smart contract.
+
 
 ## Run Benchmark with Distributed Clients (Experimental)
 
 In this way, multiple clients can be launched on distributed hosts to run the same benchmark.
 
-1. Start the ZooKeeper service: run `node zoo-service.js -t start` from the folder `packages/caliper-application/scripts`.
-2. Launch a `caliper-zoo-client` on each target machine. This may be done via the `caliper-application` sample  by running `node start-zoo-client.js -n <network config> -a <zookeeper service address>`. Time synchronization between target machines should be executed before launching the clients.
+1. Start the ZooKeeper service using the Caliper CLI: 
+```bash
+caliper zooservice start
+```
+2. Launch a caliper-zoo-client on each target machine using the Caliper CLI:
+```bash
+caliper zooclient start -w ~/myCaliperProject -a <host-address>:<port>  -n my-sut-config.yaml
+```
 
-    Example:
-    ```bash
-    > cd ~/github/caliper/packages/caliper-application/scripts
-    > node start-zoo-client.js -t fabric -n ../network/fabric-v1.4/2org1peercouchdb/fabric-node.json -a "10.229.42.159:2181"
-
-    Connected to ZooKeeper
-    Created client node:/caliper/clients/client_1514532063571_0000000006
-    Created receiving queue at:/caliper/client_1514532063571_0000000006_in
-    Created sending queue at:/caliper/client_1514532063571_0000000006_out
-    Waiting for messages at:/caliper/client_1514532063571_0000000006_in......
-    ```
 3. Modify the client type setting in configuration file to 'zookeeper'.
 
     Example:
