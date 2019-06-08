@@ -3,7 +3,7 @@
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
 
-// 	  http://www.apache.org/licenses/LICENSE-2.0
+//  http://www.apache.org/licenses/LICENSE-2.0
 
 //  Unless required by applicable law or agreed to in writing, software
 //  distributed under the License is distributed on an 'AS IS' BASIS,
@@ -67,24 +67,24 @@
 //  */
 // var Channel = class {
 
-// 	/**
-// 	 * Returns a new instance of the class. This is a client-side-only call. To create a new channel
-// 	 * in the fabric, call [createChannel()]{@link Client#createChannel}.
-// 	 *
-// 	 * @param {string} name - Name to identify the channel. This value is used as the identifier
-// 	 *                        of the channel when making channel-aware requests with the fabric,
-// 	 *                        such as invoking chaincodes to endorse transactions. The naming of
-// 	 *                        channels is enforced by the ordering service and must be unique within
-// 	 *                        the fabric backend
-// 	 * @param {Client} clientContext - The client instance, which provides operational context
-// 	 *                                 such as the signing identity
-// 	 */
-// 	constructor(name, clientContext) {
-// 		// name is required
-// 		if (typeof name === 'undefined' || !name) {
-// 			logger.error('Failed to create Channel. Missing requirement "name" parameter.');
-// 			throw new Error('Failed to create Channel. Missing requirement "name" parameter.');
-// 		}
+/**
+* Returns a new instance of the class. This is a client-side-only call. To create a new channel
+    * in the fabric, call [createChannel()]{@link Client#createChannel}.
+    *
+    * @param {string} name - Name to identify the channel. This value is used as the identifier
+    *                        of the channel when making channel-aware requests with the fabric,
+    *                        such as invoking chaincodes to endorse transactions. The naming of
+    *                        channels is enforced by the ordering service and must be unique within
+    *                        the fabric backend
+    * @param {Client} clientContext - The client instance, which provides operational context
+    *                                 such as the signing identity
+    */
+//  constructor(name, clientContext) {
+//      // name is required
+//      if (typeof name === 'undefined' || !name) {
+//          logger.error('Failed to create Channel. Missing requirement "name" parameter.');
+//          throw new Error('Failed to create Channel. Missing requirement "name" parameter.');
+//      }
 
 // 		if (typeof clientContext === 'undefined' || !clientContext) {
 // 			logger.error('Failed to create Channel. Missing requirement "clientContext" parameter.');

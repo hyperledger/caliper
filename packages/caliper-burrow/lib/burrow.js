@@ -16,7 +16,7 @@
 
 const fs = require('fs');
 const monax = require('@monax/burrow');
-const {BlockchainInterface, CaliperUtils, TxStatus} = require('caliper-core');
+const { BlockchainInterface, CaliperUtils, TxStatus } = require('caliper-core');
 const logger = CaliperUtils.getLogger('burrow.js');
 
 /**
@@ -83,12 +83,12 @@ class Burrow extends BlockchainInterface {
      * @return {object} Promise execution for namereg.
      */
     async installSmartContract() {
-        let config  = require(this.configPath);
+        let config = require(this.configPath);
         let connection = burrowConnect(config, this.workspaceRoot);
-        let options = {objectReturn: true};
+        let options = { objectReturn: true };
         let burrow = monax.createInstance(connection.url, connection.account, options);
 
-        let data,abi,bytecode,contract;
+        let data, abi, bytecode, contract;
         try {
             data = JSON.parse(fs.readFileSync(CaliperUtils.resolvePath(config.contract.path, this.workspaceRoot)).toString());
             abi = data.Abi;
@@ -102,7 +102,7 @@ class Burrow extends BlockchainInterface {
 
         let setPayload = {
             Input: {
-                Address: Buffer.from(connection.account,'hex'),
+                Address: Buffer.from(connection.account, 'hex'),
                 Amount: 50000
             },
             Name: 'DOUG',
@@ -122,18 +122,18 @@ class Burrow extends BlockchainInterface {
      * @async
      */
     async getContext(name, args) {
-        let config  = require(this.configPath);
+        let config = require(this.configPath);
         let context = config.burrow.context;
 
-        if(typeof context === 'undefined') {
+        if (typeof context === 'undefined') {
 
             let connection = burrowConnect(config, this.workspaceRoot);
-            let options = {objectReturn: true};
+            let options = { objectReturn: true };
             let burrow = monax.createInstance(connection.url, connection.account, options);
 
             // get the contract address from the namereg
-            let address = (await burrow.query.GetName({Name: 'DOUG'})).Data;
-            context = {account: connection.account, address: address, burrow: burrow};
+            let address = (await burrow.query.GetName({ Name: 'DOUG' })).Data;
+            context = { account: connection.account, address: address, burrow: burrow };
         }
 
         return Promise.resolve(context);
@@ -159,7 +159,7 @@ class Burrow extends BlockchainInterface {
    */
     async invokeSmartContract(context, contractID, contractVer, args, timeout) {
         let promises = [];
-        args.forEach((item, index)=>{
+        args.forEach((item, index) => {
             promises.push(this.burrowTransaction(context, contractID, contractVer, item, timeout));
         });
         return await Promise.all(promises);
@@ -182,7 +182,7 @@ class Burrow extends BlockchainInterface {
 
         let tx = {
             Input: {
-                Address: Buffer.from(context.account,'hex'),
+                Address: Buffer.from(context.account, 'hex'),
                 Amount: args.money
             },
             Address: Buffer.from(context.address, 'hex'),
@@ -216,8 +216,8 @@ class Burrow extends BlockchainInterface {
             context.engine.submitCallback(1);
         }
 
-        return new Promise(function(resolve, reject) {
-            context.burrow.query.GetAccount({Address: Buffer.from(context.address, 'hex')}, function(error, data){
+        return new Promise(function (resolve, reject) {
+            context.burrow.query.GetAccount({ Address: Buffer.from(context.address, 'hex') }, function (error, data) {
                 if (error) {
                     status.SetStatusFail();
                     reject(error);
@@ -226,7 +226,7 @@ class Burrow extends BlockchainInterface {
                     resolve(data);
                 }
             });
-        }).then(function(result) {
+        }).then(function (result) {
             return status;
         });
     }

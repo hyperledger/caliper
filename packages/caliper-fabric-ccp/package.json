@@ -6,7 +6,7 @@
     "url": "https://github.com/hyperledger/caliper"
   },
   "scripts": {
-    "test": "npm run lint && npm run nyc",
+    "test": "npm run lint",
     "lint": "npx eslint .",
     "list": "node ./scripts/list.js",
     "nyc": "nyc mocha --recursive -t 10000"

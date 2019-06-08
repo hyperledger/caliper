@@ -16,8 +16,11 @@
 'use strict';
 
 const logger = require('../../utils/caliper-utils').getLogger('demo.js');
-const path = require('path');
-const demoFile = path.join(__dirname, '../output/demo.json');
+const fs = require('fs-extra');
+const {join} = require('path');
+const demoPath = '/tmp/caliper/output';
+const demoFile = join(demoPath, 'demo.json');
+
 let demoInterval = 1;   // interval length(s)
 let demoXLen = 60;     // default x axis length
 let demoData;
@@ -27,7 +30,6 @@ let demoInterObj = null;
  * Demonstration
  */
 function demoInit() {
-    let fs = require('fs');
     demoData =  {
         maxlen : 300,
         throughput: {
@@ -54,6 +56,10 @@ function demoInit() {
     for(let i = 0 ; i < demoXLen ; i++) {
         demoData.throughput.x.push(i * demoInterval);
         demoData.latency.x.push(i * demoInterval);
+    }
+
+    if (!fs.existsSync(demoPath)) {
+        fs.mkdirpSync(demoPath);
     }
 
     fs.writeFileSync(demoFile,  JSON.stringify(demoData));

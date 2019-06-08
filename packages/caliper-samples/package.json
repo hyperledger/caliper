@@ -1,0 +1,27 @@
+{
+  "name": "caliper-samples",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyperledger/caliper"
+  },
+  "scripts": {
+    "test": "exit 0"
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">=8.10.0",
+    "npm": ">=5.6.0"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
+    }
+  ]
+}
