@@ -42,3 +42,6 @@ _site/
 
 # pm2 files
 **/.pm2/
+
+# lerna log
+lerna-debug.log
