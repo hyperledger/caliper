@@ -1,0 +1,41 @@
+---
+test:
+  name: Hello World
+  description: This is a helloworld benchmark of FISCO BCOS for caliper
+  clients:
+    type: local
+    number: 1
+  rounds:
+  - label: get
+    description: Test performance of getting name
+    txNumber:
+    - 10000
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 1000
+    callback: benchmark/fisco-bcos/helloworld/get.js
+  - label: set
+    description: Test performance of setting name
+    txNumber:
+    - 10000
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 1000
+    callback: benchmark/fisco-bcos/helloworld/set.js
+monitor:
+  type:
+  - docker
+  - process
+  docker:
+    name:
+    - node0
+    - node1
+    - node2
+    - node3
+  process:
+    - command: node
+      arguments: fiscoBcosClientWorker.js
+      multiOutput: avg
+  interval: 0.5

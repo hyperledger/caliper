@@ -45,3 +45,9 @@ _site/
 
 # lerna log
 lerna-debug.log
+
+# contract address file
+**/*.address
+
+# Ignore data
+data/

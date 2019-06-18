@@ -56,6 +56,7 @@ const packages = [
     'caliper-fabric-ccp',
     'caliper-iroha',
     'caliper-sawtooth',
+    'caliper-fisco-bcos',
     'caliper-cli'];
 
 // Packages to be installed in integration test(s)

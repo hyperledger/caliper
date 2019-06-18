@@ -1,0 +1,43 @@
+---
+test:
+  name: Precompiled Transfer
+  description: This is a precompiled transfer benchmark of FISCO BCOS for caliper
+  clients:
+    type: local
+    number: 4
+  rounds:
+  - label: addUser
+    description: generate users for transfer test later
+    txNumber:
+    - 1000
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 1000
+    callback: benchmark/fisco-bcos/transfer/precompiled/addUser.js
+  - label: transfer
+    description: transfer money between users
+    txNumber:
+    - 10000
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 1000
+    arguments:
+      txnPerBatch: 10
+    callback: benchmark/fisco-bcos/transfer/precompiled/transfer.js
+monitor:
+  type:
+  - docker
+  - process
+  docker:
+    name:
+    - node0
+    - node1
+    - node2
+    - node3
+  process:
+    - command: node
+      arguments: fiscoBcosClientWorker.js
+      multiOutput: avg
+  interval: 0.2

@@ -28,6 +28,7 @@
     "caliper-fabric-ccp" : "0.1.0",
     "caliper-iroha" : "0.1.0",
     "caliper-sawtooth" : "0.1.0",
+    "caliper-fisco-bcos" : "0.0.1",
     "chalk": "1.1.3",
     "yargs": "10.0.3"
   },

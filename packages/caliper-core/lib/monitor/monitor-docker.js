@@ -109,7 +109,7 @@ function findContainers() {
                 return Promise.resolve();
             }
 
-            if(filterName.remote[h].containers.indexOf('all') !== -1) {
+            if(filterName.remote[h].containers.indexOf('/all') !== -1) {
                 for(let i = 0 ; i < size ; i++) {
                     let container = docker.getContainer(containers[i].Id);
                     this.containers.push({id: containers[i].Id, name: h + containers[i].Names[0], remote: container});
@@ -211,7 +211,16 @@ class MonitorDocker extends MonitorInterface {
                         if(self.containers[i].remote === null) {    // local
                             self.stats[id].mem_usage.push(stat.mem_usage);
                             self.stats[id].mem_percent.push(stat.mem_percent);
-                            self.stats[id].cpu_percent.push(stat.cpu_percent);
+                            let cpuDelta = stat.cpu_stats.cpu_usage.total_usage - stat.precpu_stats.cpu_usage.total_usage;
+                            let sysDelta = stat.cpu_stats.system_cpu_usage - stat.precpu_stats.system_cpu_usage;
+                            if(cpuDelta > 0 && sysDelta > 0) {
+                                if(stat.cpu_stats.cpu_usage.hasOwnProperty('percpu_usage') && stat.cpu_stats.cpu_usage.percpu_usage !== null) {
+                                    self.stats[id].cpu_percent.push(cpuDelta / sysDelta * MonitorDocker.coresInUse(stat.cpu_stats) * 100.0);
+                                }
+                                else {
+                                    self.stats[id].cpu_percent.push(cpuDelta / sysDelta * 100.0);
+                                }
+                            }
                             self.stats[id].netIO_rx.push(stat.netIO.rx);
                             self.stats[id].netIO_tx.push(stat.netIO.tx);
                             self.stats[id].blockIO_rx.push(stat.blockIO.r);

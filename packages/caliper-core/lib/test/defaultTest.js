@@ -44,6 +44,7 @@ class DefaultTest {
         this.report = report;
         this.round = 0;
         this.demo = demo;
+        this.monitor = report.getMonitor();
     }
 
     /**

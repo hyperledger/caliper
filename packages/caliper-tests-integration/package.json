@@ -5,8 +5,11 @@
     "scripts": {
       "start_verdaccio": "PM2_HOME=.pm2 pm2 start verdaccio -- -l 0.0.0.0:4873 -c scripts/config.yaml",
       "stop_verdaccio": "PM2_HOME=.pm2 pm2 stop verdaccio || true",
+      "delete_verdaccio": "PM2_HOME=.pm2 pm2 delete verdaccio || true",
+      "clear_packages": " rm -rf scripts/storage || true",
       "test": "exit 0",
-      "setup_verdaccio": "npm run start_verdaccio && node ./scripts/npm_serve"
+      "setup_verdaccio": "npm run start_verdaccio && node ./scripts/npm_serve",
+      "teardown_verdaccio": "npm run stop_verdaccio && npm run delete_verdaccio && npm run clear_packages"
     },
     "repository": {
       "type": "git",

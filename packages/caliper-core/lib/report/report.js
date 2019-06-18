@@ -45,22 +45,20 @@ class Report {
     createReport(absConfigFile, absNetworkFile, blockchainType) {
         let config = CaliperUtils.parseYaml(absConfigFile);
         this.reportBuilder.addMetadata('DLT', blockchainType);
-        try{
+        try {
             this.reportBuilder.addMetadata('Benchmark', config.test.name);
-        }
-        catch(err) {
+        } catch (err) {
             this.reportBuilder.addMetadata('Benchmark', ' ');
         }
         try {
             this.reportBuilder.addMetadata('Description', config.test.description);
-        }
-        catch(err) {
+        } catch (err) {
             this.reportBuilder.addMetadata('Description', ' ');
         }
-        try{
+        try {
             let r = 0;
-            for(let i = 0 ; i < config.test.rounds.length ; i++) {
-                if(config.test.rounds[i].hasOwnProperty('txNumber')) {
+            for (let i = 0; i < config.test.rounds.length; i++) {
+                if (config.test.rounds[i].hasOwnProperty('txNumber')) {
                     r += config.test.rounds[i].txNumber.length;
                 } else if (config.test.rounds[i].hasOwnProperty('txDuration')) {
                     r += config.test.rounds[i].txDuration.length;
@@ -68,14 +66,13 @@ class Report {
             }
             this.reportBuilder.addMetadata('Test Rounds', r);
             this.reportBuilder.setBenchmarkInfo(JSON.stringify(config.test, null, 2));
-        }
-        catch(err) {
+        } catch (err) {
             this.reportBuilder.addMetadata('Test Rounds', ' ');
         }
 
         let sut = CaliperUtils.parseYaml(absNetworkFile);
-        if(sut.hasOwnProperty('info')) {
-            for(let key in sut.info) {
+        if (sut.hasOwnProperty('info')) {
+            for (let key in sut.info) {
                 this.reportBuilder.addSUTInfo(key, sut.info[key]);
             }
         }
@@ -83,11 +80,20 @@ class Report {
     }
 
     /**
+     * @return {Monitor} the monitor hold by report
+     */
+    getMonitor() {
+        return this.monitor;
+    }
+
+    /**
      * print table
      * @param {Array} value rows of the table
      */
     printTable(value) {
-        let t = table.table(value, {border: table.getBorderCharacters('ramac')});
+        let t = table.table(value, {
+            border: table.getBorderCharacters('ramac')
+        });
         logger.info('\n' + t);
     }
 
@@ -111,16 +117,15 @@ class Report {
             row.push(r.label);
             row.push(r.succ);
             row.push(r.fail);
-            (r.create.max === r.create.min) ? row.push((r.succ + r.fail) + ' tps') : row.push(((r.succ + r.fail) / (r.create.max - r.create.min)).toFixed(1) + ' tps');
+            (r.create.max === r.create.min) ? row.push((r.succ + r.fail) + ' tps'): row.push(((r.succ + r.fail) / (r.create.max - r.create.min)).toFixed(1) + ' tps');
             row.push(r.delay.max.toFixed(2) + ' s');
             row.push(r.delay.min.toFixed(2) + ' s');
             row.push((r.delay.sum / r.succ).toFixed(2) + ' s');
 
-            (r.final.last === r.create.min) ? row.push(r.succ + ' tps') : row.push((r.succ / (r.final.last - r.create.min)).toFixed(1) + ' tps');
-            logger.debug('r.create.max: '+ r.create.max + ' r.create.min: ' + r.create.min + ' r.final.max: ' + r.final.max + ' r.final.min: '+ r.final.min + ' r.final.last: ' + r.final.last);
-            logger.debug(' throughput for only success time computed: '+  (r.succ / (r.final.max - r.create.min)).toFixed(1));
-        }
-        catch (err) {
+            (r.final.last === r.create.min) ? row.push(r.succ + ' tps'): row.push((r.succ / (r.final.last - r.create.min)).toFixed(1) + ' tps');
+            logger.debug('r.create.max: ' + r.create.max + ' r.create.min: ' + r.create.min + ' r.final.max: ' + r.final.max + ' r.final.min: ' + r.final.min + ' r.final.last: ' + r.final.last);
+            logger.debug(' throughput for only success time computed: ' + (r.succ / (r.final.max - r.create.min)).toFixed(1));
+        } catch (err) {
             row = [r.label, 0, 0, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'];
         }
         return row;
@@ -131,7 +136,7 @@ class Report {
      */
     printResultsByRound() {
         this.resultsbyround[0].unshift('Test');
-        for(let i = 1 ; i < this.resultsbyround.length ; i++) {
+        for (let i = 1; i < this.resultsbyround.length; i++) {
             this.resultsbyround[i].unshift(i.toFixed(0));
         }
         logger.info('###all test results:###');
@@ -153,16 +158,15 @@ class Report {
      * @param {String} label label of the test round
      * @return {Promise} promise object
      */
-    processResult(results, label){
-        try{
+    processResult(results, label) {
+        try {
             let resultTable = [];
             resultTable[0] = this.getResultTitle();
             let r;
-            if(Blockchain.mergeDefaultTxStats(results) === 0) {
+            if (Blockchain.mergeDefaultTxStats(results) === 0) {
                 r = Blockchain.createNullDefaultTxStats();
                 r.label = label;
-            }
-            else {
+            } else {
                 r = results[0];
                 r.label = label;
                 resultTable[1] = this.getResultValue(r);
@@ -173,10 +177,10 @@ class Report {
             logger.debug('sendTransactionProposal: ' + sTP + 'ms length: ' + r.length);
             logger.debug('sendTransaction: ' + sT + 'ms');
             logger.debug('invokeLantency: ' + r.invokeTotal / r.length + 'ms');
-            if(this.resultsbyround.length === 0) {
+            if (this.resultsbyround.length === 0) {
                 this.resultsbyround.push(resultTable[0].slice(0));
             }
-            if(resultTable.length > 1) {
+            if (resultTable.length > 1) {
                 this.resultsbyround.push(resultTable[1].slice(0));
             }
             logger.info('###test result:###');
@@ -184,14 +188,13 @@ class Report {
             let idx = this.reportBuilder.addBenchmarkRound(label);
             this.reportBuilder.setRoundPerformance(label, idx, resultTable);
             let resourceTable = this.monitor.getDefaultStats();
-            if(resourceTable.length > 0) {
+            if (resourceTable.length > 0) {
                 logger.info('### resource stats ###');
                 this.printTable(resourceTable);
                 this.reportBuilder.setRoundResource(label, idx, resourceTable);
             }
             return Promise.resolve();
-        }
-        catch(err) {
+        } catch (err) {
             logger.error(err);
             return Promise.reject(err);
         }
