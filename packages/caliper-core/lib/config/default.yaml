@@ -70,6 +70,12 @@ caliper:
         latencythreshold: 1.0
         # Indicates whether to count queries as workload, i.e., whether the generated report should include them
         countqueryasload: true
+        # Indicates whether to use the Fabric Gateway API
+        usegateway: false
+        # Indicates whether to use the localhost default within the Fabric Gateway API
+        gatewaylocalhost: true
+        # Indicates whether to use the Fabric discovery mechanism (via Gateway API)
+        discovery: false
 
     fabric:
     sawtooth:

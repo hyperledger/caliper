@@ -37,8 +37,8 @@ class FabricClientFactory {
      * Spawn the worker and perform required init
      * @returns {Object} the child process
      */
-    async spawnWorker() {
-        const child = childProcess.fork(path.join(__dirname, './fabricClientWorker.js'));
+    spawnWorker() {
+        const child = childProcess.fork(path.join(__dirname, './fabricClientWorker.js'), process.argv.slice(1), { env: process.env});
 
         const msg = {
             type: 'init',
