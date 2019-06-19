@@ -17,6 +17,7 @@
 const {CaliperLocalClient, CaliperUtils} = require('caliper-core');
 const FabricClient = require('./fabric');
 
+const logger = CaliperUtils.getLogger('fabric-ccp/fabricClientWorker');
 let caliperClient;
 /**
  * Message handler
@@ -32,8 +33,15 @@ process.on('message', async (message) => {
         switch (message.type) {
         case 'init': {
             const blockchain = new FabricClient(message.absNetworkFile, message.networkRoot);
+            // reload the profiles silently
+            await blockchain._initializeRegistrars(false);
+            await blockchain._initializeAdmins(false);
+            await blockchain._initializeUsers(false);
+
             caliperClient = new CaliperLocalClient(blockchain);
             process.send({type: 'ready', data: {pid: process.pid, complete: true}});
+
+            logger.info('Client ready');
             break;
         }
         case 'test': {
