@@ -166,12 +166,9 @@ async function run(config_path, root_path) {
 
     try {
         let ORGS = fabric.network;
-        let caroots;
-        if(ORGS.orderer.url.startsWith("grpcs")) {
-            let caRootsPath = ORGS.orderer.tls_cacerts;
-            let data = fs.readFileSync(CaliperUtils.resolvePath(caRootsPath, root_path));
-            caroots = Buffer.from(data).toString();    
-        }
+        let caRootsPath = ORGS.orderer.tls_cacerts;
+        let data = fs.readFileSync(CaliperUtils.resolvePath(caRootsPath, root_path));
+        let caroots = Buffer.from(data).toString();
         utils.setConfigSetting('key-value-store', 'fabric-client/lib/impl/FileKeyValueStore.js');
 
         for (const channel of channels) {

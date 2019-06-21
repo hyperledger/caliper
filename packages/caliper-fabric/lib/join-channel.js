@@ -35,12 +35,9 @@ async function joinChannel(org, channelName, orgs, root_path) {
     const orgName = orgs[org].name;
     const targets = [];
 
-    let caroots;
-    if(orgs.orderer.url.startsWith("grpcs")) {
-        let caRootsPath = orgs.orderer.tls_cacerts;
-        let data = fs.readFileSync(CaliperUtils.resolvePath(caRootsPath, root_path));
-        caroots = Buffer.from(data).toString();    
-    }
+    const caRootsPath = orgs.orderer.tls_cacerts;
+    let data = fs.readFileSync(CaliperUtils.resolvePath(caRootsPath, root_path));
+    let caroots = Buffer.from(data).toString();
 
     try {
 
@@ -81,16 +78,12 @@ async function joinChannel(org, channelName, orgs, root_path) {
         for (let key in orgs[org]) {
             if (orgs[org].hasOwnProperty(key)) {
                 if(key.indexOf('peer') === 0) {
-                    let peercaroots;
-                    if(orgs[org][key].requests.startsWith("grpcs")) {
-                        let data = fs.readFileSync(CaliperUtils.resolvePath(orgs[org][key].tls_cacerts, root_path));
-                        peercaroots = Buffer.from(data).toString();
-                    }
+                    data = fs.readFileSync(CaliperUtils.resolvePath(orgs[org][key].tls_cacerts, root_path));
                     targets.push(
                         client.newPeer(
                             orgs[org][key].requests,
                             {
-                                pem: peercaroots,
+                                pem: Buffer.from(data).toString(),
                                 'ssl-target-name-override': orgs[org][key]['server-hostname']
                             }
                         )

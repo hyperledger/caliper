@@ -139,12 +139,9 @@ async function installChaincode(org, chaincode) {
     cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: testUtil.storePathForOrg(orgName)}));
     client.setCryptoSuite(cryptoSuite);
 
-    let caroots;
-    if(ORGS.orderer.url.startsWith("grpcs")) {
-        let caRootsPath = ORGS.orderer.tls_cacerts;
-        let data = fs.readFileSync(CaliperUtils.resolvePath(caRootsPath, networkRoot));
-        caroots = Buffer.from(data).toString();
-    }
+    const caRootsPath = ORGS.orderer.tls_cacerts;
+    let data = fs.readFileSync(CaliperUtils.resolvePath(caRootsPath, networkRoot));
+    let caroots = Buffer.from(data).toString();
 
     channel.addOrderer(
         client.newOrderer(
@@ -160,15 +157,11 @@ async function installChaincode(org, chaincode) {
     for (let key in ORGS[org]) {
         if (ORGS[org].hasOwnProperty(key)) {
             if (key.indexOf('peer') === 0) {
-                let peercaroots;
-                if(ORGS[org][key].requests.startsWith("grpcs")) {
-                    let data = fs.readFileSync(CaliperUtils.resolvePath(ORGS[org][key].tls_cacerts, networkRoot));
-                    peercaroots = Buffer.from(data).toString();
-                }                
+                let data = fs.readFileSync(CaliperUtils.resolvePath(ORGS[org][key].tls_cacerts, networkRoot));
                 let peer = client.newPeer(
                     ORGS[org][key].requests,
                     {
-                        pem: peercaroots,
+                        pem: Buffer.from(data).toString(),
                         'ssl-target-name-override': ORGS[org][key]['server-hostname']
                     }
                 );
@@ -301,12 +294,9 @@ async function instantiate(chaincode, endorsement_policy, upgrade){
     cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: testUtil.storePathForOrg(orgName)}));
     client.setCryptoSuite(cryptoSuite);
 
-    let caroots;
-    if(ORGS.orderer.url.startsWith("grpcs")) {
-        let caRootsPath = ORGS.orderer.tls_cacerts;
-        let data = fs.readFileSync(CaliperUtils.resolvePath(caRootsPath, networkRoot));
-        caroots = Buffer.from(data).toString();    
-    }    
+    const caRootsPath = ORGS.orderer.tls_cacerts;
+    let data = fs.readFileSync(CaliperUtils.resolvePath(caRootsPath, networkRoot));
+    let caroots = Buffer.from(data).toString();
 
     // Conditional action on TLS enablement
     if(ORGS.orderer.url.toString().startsWith('grpcs')){
@@ -337,15 +327,11 @@ async function instantiate(chaincode, endorsement_policy, upgrade){
         if(ORGS.hasOwnProperty(org) && org.indexOf('org') === 0) {
             for (let key in ORGS[org]) {
                 if(ORGS[org].hasOwnProperty(key) && key.indexOf('peer') === 0) {
-                    let peercaroots;
-                    if(ORGS[org][key].requests.startsWith("grpcs")) {
-                        let data = fs.readFileSync(CaliperUtils.resolvePath(ORGS[org][key].tls_cacerts, networkRoot));
-                        peercaroots = Buffer.from(data).toString();
-                    }                    
+                    let data = fs.readFileSync(CaliperUtils.resolvePath(ORGS[org][key].tls_cacerts, networkRoot));
                     let peer = client.newPeer(
                         ORGS[org][key].requests,
                         {
-                            pem: peercaroots,
+                            pem: Buffer.from(data).toString(),
                             'ssl-target-name-override': ORGS[org][key]['server-hostname']
                         });
                     targets.push(peer);
@@ -478,12 +464,9 @@ async function instantiateLegacy(chaincode, endorsement_policy, upgrade){
     cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: testUtil.storePathForOrg(orgName)}));
     client.setCryptoSuite(cryptoSuite);
 
-    let caroots;
-    if(ORGS.orderer.url.startsWith("grpcs")) {
-        let caRootsPath = ORGS.orderer.tls_cacerts;
-        let data = fs.readFileSync(CaliperUtils.resolvePath(caRootsPath, root_path));
-        caroots = Buffer.from(data).toString();
-    }
+    const caRootsPath = ORGS.orderer.tls_cacerts;
+    let data = fs.readFileSync(CaliperUtils.resolvePath(caRootsPath, networkRoot));
+    let caroots = Buffer.from(data).toString();
 
     channel.addOrderer(
         client.newOrderer(
@@ -508,15 +491,11 @@ async function instantiateLegacy(chaincode, endorsement_policy, upgrade){
         if(ORGS.hasOwnProperty(org) && org.indexOf('org') === 0) {
             for (let key in ORGS[org]) {
                 if(ORGS[org].hasOwnProperty(key) && key.indexOf('peer') === 0) {
-                    let peercaroots;
-                    if(ORGS[org][key].requests.startsWith("grpcs")) {
-                        let data = fs.readFileSync(CaliperUtils.resolvePath(ORGS[org][key].tls_cacerts, networkRoot));
-                        peercaroots = Buffer.from(data).toString();
-                    }                    
+                    let data = fs.readFileSync(CaliperUtils.resolvePath(ORGS[org][key].tls_cacerts, networkRoot));
                     let peer = client.newPeer(
                         ORGS[org][key].requests,
                         {
-                            pem: peercaroots,
+                            pem: Buffer.from(data).toString(),
                             'ssl-target-name-override': ORGS[org][key]['server-hostname']
                         });
                     targets.push(peer);
@@ -529,16 +508,12 @@ async function instantiateLegacy(chaincode, endorsement_policy, upgrade){
         }
     }
 
-    let peercaroots;
-    if(ORGS[userOrg][eventPeer].events.startsWith("grpcs")) {
-        let data = fs.readFileSync(CaliperUtils.resolvePath(ORGS[userOrg][eventPeer].tls_cacerts, networkRoot));
-        peercaroots = Buffer.from(data).toString();
-    }     
+    data = fs.readFileSync(CaliperUtils.resolvePath(ORGS[userOrg][eventPeer].tls_cacerts, networkRoot));
     let eh = client.newEventHub();
     eh.setPeerAddr(
         ORGS[userOrg][eventPeer].events,
         {
-            pem: peercaroots,
+            pem: Buffer.from(data).toString(),
             'ssl-target-name-override': ORGS[userOrg][eventPeer]['server-hostname']
         }
     );
@@ -728,12 +703,9 @@ async function getcontext(channelConfig, clientIdx, txModeFile) {
     cryptoSuite.setCryptoKeyStore(Client.newCryptoKeyStore({path: testUtil.storePathForOrg(orgName)}));
     client.setCryptoSuite(cryptoSuite);
 
-    let caroots;
-    if(ORGS.orderer.url.startsWith("grpcs")) {
-        let caRootsPath = ORGS.orderer.tls_cacerts;
-        let data = fs.readFileSync(CaliperUtils.resolvePath(caRootsPath, networkRoot));
-        caroots = Buffer.from(data).toString();
-    }
+    const caRootsPath = ORGS.orderer.tls_cacerts;
+    let data = fs.readFileSync(CaliperUtils.resolvePath(caRootsPath, networkRoot));
+    let caroots = Buffer.from(data).toString();
 
     channel.addOrderer(
         client.newOrderer(
@@ -763,15 +735,11 @@ async function getcontext(channelConfig, clientIdx, txModeFile) {
 
         // Cycle through available peers based on clientIdx
         let peerInfo = peers[clientIdx % peers.length];
-        let peercaroots;
-        if(peerInfo.requests.startsWith("grpcs")) {
-            let data = fs.readFileSync(CaliperUtils.resolvePath(peerInfo.tls_cacerts, networkRoot));
-            peercaroots = Buffer.from(data).toString();
-        }
+        let data = fs.readFileSync(CaliperUtils.resolvePath(peerInfo.tls_cacerts, networkRoot));
         let peer = client.newPeer(
             peerInfo.requests,
             {
-                pem: peercaroots,
+                pem: Buffer.from(data).toString(),
                 'ssl-target-name-override': peerInfo['server-hostname']
             }
         );
