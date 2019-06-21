@@ -127,7 +127,7 @@ async function installChaincode(org, chaincode) {
     const channel = client.newChannel(channel_name);
 
     // Conditional action on TLS enablement
-    if(ORGS.orderer.url.toString().startsWith('grpcs')){
+    if(ORGS.orderer.url.toString().startsWith('grpcs') && ORGS[org].ca){
         const fabricCAEndpoint = ORGS[org].ca.url;
         const caName = ORGS[org].ca.name;
         const tlsInfo = await tlsEnroll(fabricCAEndpoint, caName);
@@ -309,7 +309,7 @@ async function instantiate(chaincode, endorsement_policy, upgrade){
     }    
 
     // Conditional action on TLS enablement
-    if(ORGS.orderer.url.toString().startsWith('grpcs')){
+    if(ORGS.orderer.url.toString().startsWith('grpcs') && ORGS[userOrg].ca){
         const fabricCAEndpoint = ORGS[userOrg].ca.url;
         const caName = ORGS[userOrg].ca.name;
         const tlsInfo = await tlsEnroll(fabricCAEndpoint, caName);
@@ -718,7 +718,7 @@ async function getcontext(channelConfig, clientIdx, txModeFile) {
     const eventhubs = [];
 
     // Conditional action on TLS enablement
-    if(ORGS[userOrg].ca.url.toString().startsWith('https')){
+    if(ORGS[userOrg].ca && ORGS[userOrg].ca.url.toString().startsWith('https')){
         const fabricCAEndpoint = ORGS[userOrg].ca.url;
         const caName = ORGS[userOrg].ca.name;
         const tlsInfo = await tlsEnroll(fabricCAEndpoint, caName);

@@ -186,7 +186,7 @@ async function run(config_path, root_path) {
             const org = channel.organizations[0];
 
             // Conditional action on TLS enablement
-            if(fabric.network.orderer.url.toString().startsWith('grpcs')){
+            if(fabric.network.orderer.url.toString().startsWith('grpcs') && fabric.network[org].ca){
                 const fabricCAEndpoint = fabric.network[org].ca.url;
                 const caName = fabric.network[org].ca.name;
                 const tlsInfo = await e2eUtils.tlsEnroll(fabricCAEndpoint, caName);
