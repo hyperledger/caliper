@@ -45,7 +45,7 @@ async function joinChannel(org, channelName, orgs, root_path) {
     try {
 
         // Conditional action on TLS enablement
-        if(orgs.orderer.url.toString().startsWith('grpcs') && orgs[org].ca){
+        if(orgs.orderer.url.toString().startsWith('grpcs')){
             const fabricCAEndpoint = orgs[org].ca.url;
             const caName = orgs[org].ca.name;
             const tlsInfo = await e2eUtils.tlsEnroll(fabricCAEndpoint, caName);
