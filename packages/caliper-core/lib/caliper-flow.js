@@ -81,7 +81,7 @@ module.exports.run = async function(absConfigFile, absNetworkFile, admin, client
 
         let testIdx = 0;
 
-        const tester = new Test(clientArgs, absNetworkFile, clientOrchestrator, clientFactory, workspace, report, demo);
+        const tester = new Test(clientArgs, absNetworkFile, clientOrchestrator, clientFactory, workspace, report, demo, monitor);
         const allTests = configObject.test.rounds;
         for (let test of allTests) {
             ++testIdx;
