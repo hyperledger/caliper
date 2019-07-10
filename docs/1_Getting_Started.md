@@ -39,7 +39,7 @@ Make sure following tools are installed
 
 ### Building Caliper
 
-Caliper is split into pacakges that are managed by Lerna, a tool for managing JavaScript projects with multiple packages. To build Caliper, it is necessary to first pull the required base dependancies, and then bootstrap the Caliper project. Note that if you modify any base code, it is necessary to rebuild the project
+Caliper is split into packages that are managed by Lerna, a tool for managing JavaScript projects with multiple packages. To build Caliper, it is necessary to first pull the required base dependancies, and then bootstrap the Caliper project. Note that if you modify any base code, it is necessary to rebuild the project
 
 - Run `npm install` in Caliper root folder to install base dependencies locally
 - Run `npm run repoclean` in Caliper root folder to ensure that all the packages are clean
@@ -62,18 +62,11 @@ Benchmarks may be run using the Caliper command line interface. We are preparing
 
 ### Install the Caliper CLI
 
-We have not yet published Caliper to npm, however the Caliper CLI may be obtained via our test script located in `<CaliperRoot>/packages/caliper-tests-integration/scripts/run-integration-tests.sh`. The test script requires an environmental variable set in order to pick a specific adaptor to test; please note that this is only a requirement of out CI system.
+We have not yet published Caliper to npm, however the Caliper CLI may be obtained via our test scripts located in `<CaliperRoot>/packages/caliper-tests-integration`.
 
 Steps:
  1. If you have not already built the Caliper project, outlined in the section above, please do so.
- 2. To obtain the Caliper CLI run the following from the root Caliper location
-
-```bash
-export BENCHMARK=fabric-ccp
-./packages/caliper-tests-integration/scripts/run-integration-tests.sh
-```
-
-The above will start an npm proxy server (Verdaccio), publish the Caliper modules to the server, globally install the packages, and finally run a traget benchmark. The result of the benchmark is not important at this time; if the benchmark commences, then you have the Caliper packages installed globally on the machine that issued the command.
+ 2. Follow the described steps in the [integration package readme](https://github.com/hyperledger/caliper/blob/master/packages/caliper-tests-integration/README.md).
 
 The current Caliper packages are set to support the following adaptor client libraries:
  - Burrow: @monax/burrow@0.23.0
@@ -82,11 +75,11 @@ The current Caliper packages are set to support the following adaptor client lib
  - Iroha: iroha-helpers@0.6.3
  - Sawtooth: sawtooth-sdk@1.0.5
 
-If you need to run a benchmark using an adaptor with an alternative client dependancy to the above, it will be necessary to modify the respective package.json file and then rebuild the Caliper project prior to running the integration test script. A known compatibiltiy list is provided below.
+If you need to run a benchmark using an adaptor with an alternative client dependancy to the above, it will be necessary to modify the respective package.json file and then rebuild the Caliper project prior to publishing and installing it again locally. A known compatibility list is provided below.
  
 #### Compatibility List:
  
- | DLT | Client Compatibilty |
+ | DLT | Client Compatibility |
  | :-- | :------------------ |
  |Fabric v1.0 | grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0 |
  |Fabric v1.1 | grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0 |
@@ -105,7 +98,7 @@ For instance, if you wish to test Hyperledger Fabric v1.1, it will be necessary 
 All predefined benchmarks can be found in the [*benchmark*](https://github.com/hyperledger/caliper/tree/master/packages/caliper-samples/benchmark/) folder. The Caliper CLI has the notion of a workspace, which contains your 
 benchmark configuration and test files.
 
-Benchamarks may be run using the Caliper CLI command
+Benchmarks may be run using the Caliper CLI command
 
 ```bash
 caliper benchmark run -w <path to workspace> -c <benchmark config> -n <blockchain config>
