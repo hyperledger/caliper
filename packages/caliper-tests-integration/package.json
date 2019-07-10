@@ -1,32 +1,34 @@
 {
-    "name": "caliper-tests-integration",
-    "version": "0.1.0",
-    "description": "Integration tests for Hyperledger Caliper",
-    "scripts": {
-      "start_verdaccio": "PM2_HOME=.pm2 pm2 start verdaccio -- -l 0.0.0.0:4873 -c scripts/config.yaml",
-      "stop_verdaccio": "PM2_HOME=.pm2 pm2 stop verdaccio || true",
-      "delete_verdaccio": "PM2_HOME=.pm2 pm2 delete verdaccio || true",
-      "clear_packages": " rm -rf scripts/storage || true",
-      "test": "exit 0",
-      "setup_verdaccio": "npm run start_verdaccio && node ./scripts/npm_serve",
-      "teardown_verdaccio": "npm run stop_verdaccio && npm run delete_verdaccio && npm run clear_packages"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/hyperledger/caliper.git"
-    },
-    "keywords": [
-      "blockchain",
-      "performance"
-    ],
-    "author": "Hyperledger Caliper",
-    "license": "Apache-2.0",
-    "bugs": {
-      "url": "https://github.com/hyperledger/caliper/issues"
-    },
-    "homepage": "https://github.com/hyperledger/caliper#readme",
-    "devDependencies": {
-      "pm2": "2.10.1",
-      "verdaccio": "2.6.4"
-    }
-  }
+  "name": "caliper-tests-integration",
+  "version": "0.1.0",
+  "description": "Integration tests for Hyperledger Caliper",
+  "scripts": {
+    "cleanup": "./scripts/cleanup.sh",
+    "start_verdaccio": "./scripts/start-verdaccio.sh",
+    "publish_packages": "./scripts/publish-packages.sh",
+    "install_cli": "./scripts/install-packages.sh",
+    "e2e_install": "npm run cleanup && npm run start_verdaccio && npm run publish_packages && npm run install_cli && npm run cleanup",
+    "run_tests": "./scripts/run-tests.sh",
+    "stop_verdaccio": "PM2_HOME=.pm2 pm2 stop verdaccio || true",
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyperledger/caliper.git"
+  },
+  "keywords": [
+    "blockchain",
+    "performance"
+  ],
+  "author": "Hyperledger Caliper",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/hyperledger/caliper/issues"
+  },
+  "homepage": "https://github.com/hyperledger/caliper#readme",
+  "devDependencies": {
+    "pm2": "2.10.1",
+    "verdaccio": "2.6.4"
+  },
+  "dependencies": {}
+}
