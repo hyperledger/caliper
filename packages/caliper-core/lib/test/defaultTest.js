@@ -26,16 +26,17 @@ const path = require('path');
 class DefaultTest {
 
     /**
-    * load client(s) to do performance tests
-    * @param {Array} clientArgs arguments for clients
-    * @param {String} absNetworkFile the network config file patch
-    * @param {ClientOrchestrator} clientOrchestrator the client orchestrator
-    * @param {Object} clientFactory factory used to spawn test clients
-    * @param {String} networkRoot the root location
-    * @param {Report} report the report being built
-    * @param {Object} demo the demo UI component
-    */
-    constructor(clientArgs, absNetworkFile, clientOrchestrator, clientFactory, networkRoot, report, demo) {
+     * load client(s) to do performance tests
+     * @param {Array} clientArgs arguments for clients
+     * @param {String} absNetworkFile the network config file patch
+     * @param {ClientOrchestrator} clientOrchestrator the client orchestrator
+     * @param {Object} clientFactory factory used to spawn test clients
+     * @param {String} networkRoot the root location
+     * @param {Report} report the report being built
+     * @param {Object} demo the demo UI component
+     * @param {Object} monitor The monitor object
+     */
+    constructor(clientArgs, absNetworkFile, clientOrchestrator, clientFactory, networkRoot, report, demo, monitor) {
         this.clientArgs = clientArgs;
         this.absNetworkFile = absNetworkFile;
         this.clientFactory = clientFactory;
@@ -44,7 +45,7 @@ class DefaultTest {
         this.report = report;
         this.round = 0;
         this.demo = demo;
-        this.monitor = report.getMonitor();
+        this.monitor = monitor;
     }
 
     /**
