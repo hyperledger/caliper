@@ -14,24 +14,18 @@
 #
 
 # Exit on first error, print all commands.
-set -e
+set -ev
 set -o pipefail
 
-# Bootstrap the project
-npm run bootstrap
+# Set ARCH
+ARCH=`uname -m`
 
-# Run linting and unit tests
-npm test
+# Grab the parent (root) directory.
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 
-echo "---- Publishing packages locally"
-cd ./packages/caliper-tests-integration/
-npm run cleanup
-npm run start_verdaccio
-npm run publish_packages
+# Switch into the integration tests directory to access required npm run commands
+cd "${DIR}"
 
-echo "---- Installing CLI"
-npm run install_cli
-npm run cleanup
-
-echo "---- Running Integration test for adaptor ${BENCHMARK}"
-npm run run_tests
+export npm_config_registry=http://localhost:4873
+# Publish latest packages
+node ./scripts/npm_install
