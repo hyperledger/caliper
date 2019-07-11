@@ -109,7 +109,7 @@ function findContainers() {
                 return Promise.resolve();
             }
 
-            if(filterName.remote[h].containers.indexOf('all') !== -1) {
+            if(filterName.remote[h].containers.indexOf('/all') !== -1) {
                 for(let i = 0 ; i < size ; i++) {
                     let container = docker.getContainer(containers[i].Id);
                     this.containers.push({id: containers[i].Id, name: h + containers[i].Names[0], remote: container});
