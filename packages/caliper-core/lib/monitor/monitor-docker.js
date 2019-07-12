@@ -221,6 +221,9 @@ class MonitorDocker extends MonitorInterface {
                                     self.stats[id].cpu_percent.push(cpuDelta / sysDelta * 100.0);
                                 }
                             }
+                            else {
+                                self.stats[id].cpu_percent.push(0);
+                            }
                             self.stats[id].netIO_rx.push(stat.netIO.rx);
                             self.stats[id].netIO_tx.push(stat.netIO.tx);
                             self.stats[id].blockIO_rx.push(stat.blockIO.r);
