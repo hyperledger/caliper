@@ -137,6 +137,20 @@ class CaliperLocalClient {
     }
 
     /**
+     * Put a task to immediate queue of NodeJS event loop
+     * @param {function} func The function needed to be exectued immediately
+     * @return {Promise} Promise of execution
+     */
+    setImmediatePromise(func) {
+        return new Promise((resolve) => {
+            setImmediate(() => {
+                func();
+                resolve();
+            });
+        });
+    }
+
+    /**
      * Perform test with specified number of transactions
      * @param {JSON} msg start test message
      * @param {Object} cb callback module
@@ -153,10 +167,15 @@ class CaliperLocalClient {
 
         let promises = [];
         while(this.txNum < msg.numb) {
-            promises.push(cb.run().then((result) => {
-                this.addResult(result);
-                return Promise.resolve();
-            }));
+            // If this function calls cb.run() too quickly, micro task queue will be filled with unexecuted promises,
+            // and I/O task(s) will get no chance to be execute and fall into starvation, for more detail info please visit:
+            // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
+            await this.setImmediatePromise(() => {
+                promises.push(cb.run().then((result) => {
+                    this.addResult(result);
+                    return Promise.resolve();
+                }));
+            });
             await rateControl.applyRateControl(this.startTime, this.txNum, this.results, this.resultStats);
         }
 
@@ -183,10 +202,15 @@ class CaliperLocalClient {
 
         let promises = [];
         while ((Date.now() - this.startTime)/1000 < duration) {
-            promises.push(cb.run().then((result) => {
-                this.addResult(result);
-                return Promise.resolve();
-            }));
+            // If this function calls cb.run() too quickly, micro task queue will be filled with unexecuted promises,
+            // and I/O task(s) will get no chance to be execute and fall into starvation, for more detail info please visit:
+            // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
+            await this.setImmediatePromise(() => {
+                promises.push(cb.run().then((result) => {
+                    this.addResult(result);
+                    return Promise.resolve();
+                }));
+            });
             await rateControl.applyRateControl(this.startTime, this.txNum, this.results, this.resultStats);
         }
 
