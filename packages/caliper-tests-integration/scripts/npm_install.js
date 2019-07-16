@@ -17,7 +17,7 @@
 const exec = require('child_process').exec;
 const version = require('../../../lerna.json').version;
 
-const NPM_RETRIES = 10;
+const NPM_RETRIES = 5;
 
 /**
  * Invoke a promisified exec
@@ -35,7 +35,7 @@ function invokeCmd(cmd) {
         // Log ony error output
         proc.stderr.on('data', function(data) {
             // eslint-disable-next-line no-console
-            console.log('stdErr: ' + data);
+            console.log(data);
         });
         // Capture Protactor return code
         proc.on('close', function(code) {
@@ -46,17 +46,6 @@ function invokeCmd(cmd) {
         });
     });
 }
-
-// Required packages for serving
-const packages = [
-    'caliper-core',
-    'caliper-burrow',
-    'caliper-composer',
-    'caliper-fabric',
-    'caliper-fabric-ccp',
-    'caliper-iroha',
-    'caliper-sawtooth',
-    'caliper-cli'];
 
 // Packages to be installed in integration test(s)
 const testPackages = [
@@ -70,28 +59,6 @@ const thirdPartyPackages = [
 (async function () {
 
     try {
-
-        // Set registry and publish
-        for (const p of packages) {
-            let published = false;
-            for (let i = 0; i < NPM_RETRIES; i++) {
-                console.log(`Publishing package ${p} to local npm server (attempt ${i+1}/${NPM_RETRIES})`);
-                try {
-                    await invokeCmd(`npm publish --registry http://localhost:4873 ../${p}`);
-                    console.log(`Published package ${p} to local npm server (attempt ${i+1}/${NPM_RETRIES})`);
-                    published = true;
-                    break;
-                } catch (error) {
-                    console.error(`Failed to publish package ${p} to local npm server (attempt ${i+1}/${NPM_RETRIES})`);
-                    console.error(error);
-                }
-            }
-            if (!published) {
-                console.error(`Aborting, could not publish package ${p} to local npm server`);
-                process.exit(1);
-            }
-        }
-
         // Globally install test packages
         for (const p of testPackages) {
             let published = false;

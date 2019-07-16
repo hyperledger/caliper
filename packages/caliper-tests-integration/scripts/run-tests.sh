@@ -26,57 +26,32 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 # Switch into the integration tests directory to access required npm run commands
 cd "${DIR}"
 
-function cleanup {
-    echo "cleaning up from ${DIR}"
-    npm run stop_verdaccio
-    rm -rf ./pm2
-    rm -rf ./scripts/storage
-    rm -rf ${HOME}/.config/verdaccio
-    rm -rf ${HOME}/.npmrc
-    echo "cleanup complete"
-}
-
-# Delete any existing configuration.
-cleanup
-
 # Barf if we don't recognize this test adaptor.
-if [ "${BENCHMARK}" = "" ]; then
+if [[ "${BENCHMARK}" = "" ]]; then
     echo You must set BENCHMARK to one of the desired test adaptors 'composer|fabric-ccp'
     echo For example:
     echo  export BENCHMARK=fabric-ccp
     exit 1
 fi
 
-# Verdaccio server requires a dummy user if publishing via npm
-echo '//localhost:4873/:_authToken="foo"' > ${HOME}/.npmrc
-echo fetch-retries=10 >> ${HOME}/.npmrc
-export npm_config_registry=http://localhost:4873
-
-# Start npm server and publish latest packages to it
-npm run setup_verdaccio
-
 # Run benchmark adaptor
-if [ "${BENCHMARK}" == "composer" ]; then
+if [[ "${BENCHMARK}" == "composer" ]]; then
     caliper benchmark run -c benchmark/composer/config.yaml -n network/fabric-v1.3/2org1peercouchdb/composer.json -w ../caliper-samples/
     rc=$?
-    cleanup
     exit $rc;
 elif [ "${BENCHMARK}" == "fabric-ccp" ]; then
     # Run with channel creation using a createChannelTx in couchDB, using a Gateway
     caliper benchmark run -c benchmark/simple/config.yaml -n network/fabric-v1.4.1/2org1peercouchdb/fabric-ccp-node.yaml -w ../caliper-samples/ --caliper-fabricccp-usegateway
     rc=$?
     if [[ $rc != 0 ]]; then
-        cleanup
         exit $rc;
     else
         # Run with channel creation using an existing tx file in LevelDB, using a low level Caliper client
         caliper benchmark run -c benchmark/simple/config.yaml -n network/fabric-v1.4/2org1peergoleveldb/fabric-ccp-go.yaml -w ../caliper-samples/
         rc=$?
-        cleanup
         exit $rc;
     fi
 else
     echo "Unknown target benchmark ${BENCHMARK}"
-    cleanup
     exit 1
 fi
