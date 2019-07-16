@@ -15,7 +15,6 @@
 
 'use strict';
 const logger = require('../utils/caliper-utils').getLogger('client-util.js');
-
 let processes  = {}; // {pid:{obj, promise}}
 
 /**
@@ -27,13 +26,18 @@ let processes  = {}; // {pid:{obj, promise}}
  */
 function setPromise(pid, isResolve, msg, isReady) {
     const client = processes[pid];
-    const type = isReady ? 'ready' : 'promise';
-    if(client && client[type] && typeof client[type] !== 'undefined') {
-        if(isResolve) {
-            client[type].resolve(msg);
-        }
-        else {
-            client[type].reject(msg);
+    if (client) {
+        const type = isReady ? 'ready' : 'promise';
+        const clientObj = client.obj;
+        if(clientObj && clientObj[type] && typeof clientObj[type] !== 'undefined') {
+            if(isResolve) {
+                clientObj[type].resolve(msg);
+            }
+            else {
+                clientObj[type].reject(msg);
+            }
+        } else {
+            throw new Error('Unconditioned case within setPromise()');
         }
     }
 }
@@ -69,13 +73,25 @@ function pushUpdate(pid, data) {
  * @param {Object} clientFactory a factory to spawn clients
  * @param {Array} readyPromises array to hold ready promises
  */
-async function launchClient(updates, results, clientFactory, readyPromises) {
-    let client = await clientFactory.spawnWorker();
+function launchClient(updates, results, clientFactory, readyPromises) {
+    let client = clientFactory.spawnWorker();
     let pid   = client.pid.toString();
+
+    logger.info('Launching client with PID ', pid);
     processes[pid] = {obj: client, results: results, updates: updates};
+
+    let p = new Promise((resolve, reject) => {
+        client.ready = {
+            resolve: resolve,
+            reject:  reject
+        };
+    });
+
+    readyPromises.push(p);
 
     client.on('message', function(msg) {
         if(msg.type === 'ready') {
+            logger.info('Client ready message recieved');
             setPromise(pid, true, null, true);
         }
         else if(msg.type === 'testResult') {
@@ -95,18 +111,9 @@ async function launchClient(updates, results, clientFactory, readyPromises) {
     });
 
     client.on('exit', function(code, signal){
-        logger.info('Client exited ');
+        logger.info(`Client exited with code ${code}`);
         setPromise(pid, false, new Error('Client already exited'));
     });
-
-    let p = new Promise((resolve, reject) => {
-        client.ready = {
-            resolve: resolve,
-            reject:  reject
-        };
-    });
-
-    readyPromises.push(p);
 }
 
 /**
@@ -136,8 +143,11 @@ async function startTest(number, message, clientArgs, updates, results, clientFa
     }
 
     // wait for all clients to have initialised
+    logger.info(`Waiting for ${readyPromises.length} clients to be ready... `);
+
     await Promise.all(readyPromises);
-    logger.info('All clients ready, starting test phase');
+
+    logger.info(`${readyPromises.length} clients ready, starting test phase`);
 
     let txPerClient;
     let totalTx = message.numb;
@@ -168,7 +178,7 @@ async function startTest(number, message, clientArgs, updates, results, clientFa
     for(let id in processes) {
         let client = processes[id];
         let p = new Promise((resolve, reject) => {
-            client.promise = {
+            client.obj.promise = {
                 resolve: resolve,
                 reject:  reject
             };

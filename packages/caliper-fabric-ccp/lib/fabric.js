@@ -20,6 +20,7 @@ const {BlockchainInterface, CaliperUtils, TxStatus, Version, ConfigUtil} = requi
 const logger = CaliperUtils.getLogger('adapters/fabric-ccp');
 
 const FabricNetwork = require('./fabricNetwork.js');
+let FabricNetworkAPI;
 
 const fs = require('fs');
 
@@ -122,6 +123,9 @@ const fs = require('fs');
  * @property {number} configDefaultTimeout The default timeout in milliseconds to use for invoke/query transactions.
  * @property {string} configClientBasedLoadBalancing The value indicating the type of automatic load balancing to use.
  * @property {boolean} configCountQueryAsLoad Indicates whether queries should be counted as workload.
+ * @property {boolean} configUseGateway Indicates whether to use the Fabric Gateway API
+ * @property {boolean} configLocalHost Indicates whether to use the localhost default within the Fabric Gateway API
+ * @property {boolean} configDiscovery Indicates whether to use discovery within the Fabric Gateway API
  */
 class Fabric extends BlockchainInterface {
     /**
@@ -152,6 +156,8 @@ class Fabric extends BlockchainInterface {
         this.channelEventSourcesCache = new Map();
         this.randomTargetOrdererCache = new Map();
         this.defaultInvoker = Array.from(this.networkUtil.getClients())[0];
+        this.wallet = undefined;
+        this.userContracts = new Map();
 
         if (this.networkUtil.isInCompatibilityMode() && this.version.greaterThan('1.1.0')) {
             throw new Error(`Fabric 1.0 compatibility mode is detected, but SDK version ${this.version.toString()} is used`);
@@ -172,8 +178,17 @@ class Fabric extends BlockchainInterface {
         this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.FabricTimeoutInvokeOrQuery, 60000);
         this.configClientBasedLoadBalancing = ConfigUtil.get(ConfigUtil.keys.FabricLoadBalancing, 'client') === 'client';
         this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.FabricCountQueryAsLoad, true);
+        this.configUseGateway = ConfigUtil.get(ConfigUtil.keys.FabricGateway, false);
+        this.configLocalHost = ConfigUtil.get(ConfigUtil.keys.FabricGatewayLocalHost, true);
+        this.configDiscovery = ConfigUtil.get(ConfigUtil.keys.FabricDiscovery, false);
+
+        // Network Gateway is only available in SDK versions greater than v1.4.0
+        if (this.configUseGateway && this.version.lessThan('1.4.0')) {
+            throw new Error(`Fabric SDK ${this.version.toString()} is not supported when using a Fabric Gateway object, use at least version 1.4.0`);
+        }
 
         this._prepareCaches();
+        this._prepareGateway();
     }
 
     ////////////////////////////////
@@ -406,6 +421,7 @@ class Fabric extends BlockchainInterface {
      * @param {string} userName The name of the user.
      * @param {{privateKeyPEM: Buffer, signedCertPEM: Buffer}} cryptoContent The object containing the signing key and cert in PEM format.
      * @param {string} profileName Optional name of the profile that will appear in error messages.
+     * @returns {FabricClient.User} The User object created
      * @private
      * @async
      */
@@ -413,7 +429,7 @@ class Fabric extends BlockchainInterface {
         // set the user explicitly based on its crypto materials
         // createUser also sets the user context
         try {
-            await profile.createUser({
+            return await profile.createUser({
                 username: userName,
                 mspid: this.networkUtil.getMspIdOfOrganization(org),
                 cryptoContent: cryptoContent,
@@ -670,17 +686,25 @@ class Fabric extends BlockchainInterface {
                 if (initPhase) {
                     logger.warn(`${org}'s admin's materials found locally. Make sure it is the right one!`);
                 }
+
+                if (this.configUseGateway) {
+                    await this._addToWallet(org, admin.getIdentity()._certificate, admin.getSigningIdentity()._signer._key.toBytes(), adminName);
+                }
                 continue;
             }
 
             // set the admin explicitly based on its crypto materials
-            await this._createUser(adminProfile, org, adminName, this.networkUtil.getAdminCryptoContentOfOrganization(org),
+            const adminUser = await this._createUser(adminProfile, org, adminName, this.networkUtil.getAdminCryptoContentOfOrganization(org),
                 `${org}'s admin`);
 
             this.adminProfiles.set(org, adminProfile);
 
             if (this.networkUtil.isMutualTlsEnabled()) {
                 this._setTlsAdminCertAndKey(org);
+            }
+
+            if (this.configUseGateway) {
+                await this._addToWallet(org, adminUser.getIdentity()._certificate, adminUser.getSigningIdentity()._signer._key.toBytes(), adminName);
             }
 
             logger.info(`${org}'s admin's materials are successfully loaded`);
@@ -782,13 +806,18 @@ class Fabric extends BlockchainInterface {
                 if (initPhase) {
                     logger.warn(`${client}'s materials found locally. Make sure it is the right one!`);
                 }
+
+                if (this.configUseGateway) {
+                    // Add identity to wallet
+                    await this._addToWallet(org, user.getIdentity()._certificate, user.getSigningIdentity()._signer._key.toBytes(), client);
+                }
                 continue;
             }
 
             let cryptoContent = this.networkUtil.getClientCryptoContent(client);
             if (cryptoContent) {
                 // the client is already enrolled, just create and persist the User object
-                await this._createUser(clientProfile, org, client, cryptoContent, client);
+                user = await this._createUser(clientProfile, org, client, cryptoContent, client);
                 if (this.networkUtil.isMutualTlsEnabled()) {
                     // the materials are included in the configuration file
                     let crypto = this.networkUtil.getClientCryptoContent(client);
@@ -797,6 +826,11 @@ class Fabric extends BlockchainInterface {
 
                 if (initPhase) {
                     logger.info(`${client}'s materials are successfully loaded`);
+                }
+
+                if (this.configUseGateway) {
+                    // Add identity to wallet
+                    await this._addToWallet(org, user.getIdentity()._certificate, user.getSigningIdentity()._signer._key.toBytes(), client);
                 }
                 continue;
             }
@@ -809,7 +843,7 @@ class Fabric extends BlockchainInterface {
                 let enrollment = await this._enrollUser(clientProfile, client, enrollmentSecret, client);
 
                 // create the new user based on the retrieved materials
-                await this._createUser(clientProfile, org, client,
+                user = await this._createUser(clientProfile, org, client,
                     {
                         privateKeyPEM: enrollment.key.toBytes(),
                         signedCertPEM: Buffer.from(enrollment.certificate)
@@ -822,6 +856,11 @@ class Fabric extends BlockchainInterface {
 
                 if (initPhase) {
                     logger.info(`${client} successfully enrolled`);
+                }
+
+                if (this.configUseGateway) {
+                    // Add identity to wallet
+                    await this._addToWallet(org, user.getIdentity()._certificate, user.getSigningIdentity()._signer._key.toBytes(), client);
                 }
                 continue;
             }
@@ -883,7 +922,7 @@ class Fabric extends BlockchainInterface {
             let enrollment = await this._enrollUser(clientProfile, client, secret, client);
 
             // create the new user based on the retrieved materials
-            await this._createUser(clientProfile, org, client,
+            user = await this._createUser(clientProfile, org, client,
                 {privateKeyPEM: enrollment.key.toBytes(), signedCertPEM: Buffer.from(enrollment.certificate)}, client);
 
             if (this.networkUtil.isMutualTlsEnabled()) {
@@ -895,7 +934,118 @@ class Fabric extends BlockchainInterface {
             if (initPhase) {
                 logger.info(`${client} successfully enrolled`);
             }
+
+            if (this.configUseGateway) {
+                // Add identity to wallet
+                await this._addToWallet(org, user.getIdentity()._certificate, user.getSigningIdentity()._signer._key.toBytes(), client);
+            }
         }
+    }
+
+    /**
+     * Add a user to the wallet under a provided name
+     * @param {string} org, the organization name
+     * @param {string} certificate the user certificaate
+     * @param {string} key the private key matching the certificate
+     * @param {string} name the name to store the User as within the wallet
+     * @async
+     */
+    async _addToWallet(org, certificate, key, name) {
+        const walletId = FabricNetworkAPI.X509WalletMixin.createIdentity(this.networkUtil.getMspIdOfOrganization(org), certificate, key);
+        await this.wallet.import(name, walletId);
+        logger.info(`Added ${name} user created and added to wallet`);
+    }
+
+    /**
+     * Extract and persist Contracts from Gateway Networks for admin and client users
+     * @async
+     */
+    async _initializeContracts() {
+        // Prepare Admin contracts
+        let orgs = this.networkUtil.getOrganizations();
+        for (let org of orgs) {
+            // Admin is a special case
+            let userName = `admin.${org}`;
+            // Retrieve
+            const contractMap = await this._retrieveContractsForUser(userName);
+
+            // Persist
+            logger.info(`Persisting contract map for admin user ${userName}`);
+            this.userContracts.set(userName, contractMap);
+        }
+
+        // Prepare client contracts
+        let clients = this.networkUtil.getClients();
+        for (let client of clients) {
+            // Retrieve
+            const contractMap = await this._retrieveContractsForUser(client);
+
+            // Persist
+            logger.info(`Persisting contract map for user ${client}`);
+            this.userContracts.set(client, contractMap);
+        }
+    }
+
+    /**
+     * Retrieve all Contracts from the passed client gateway object
+     * @param {string} userName, the unique client user name
+     * @returns {Map<FabricNetworkAPI.Contract>} A map of all Contracts retrieved from the client Gateway
+     * @async
+     */
+    async _retrieveContractsForUser(userName) {
+
+        // Retrieve the gateway for the passed user
+        // - userName must match that created for wallet userId in init phases
+        const gateway = await this._retrieveUserGateway(userName);
+
+        // Work on all channels to build a contract map
+        logger.info(`Generating contract map for user ${userName}`);
+        const contractMap = new Map();
+        const channels = this.networkUtil.getChannels();
+        for (const channel of channels) {
+            // retrieve the channel network
+            const network = await gateway.getNetwork(channel);
+            // Work on all chaincodes/smart contracts in the channel
+            const chaincodes = this.networkUtil.getChaincodesOfChannel(channel);
+            for (const chaincode of chaincodes) {
+                const contract = await network.getContract(chaincode.id);
+                contractMap.set(chaincode.id, contract);
+            }
+        }
+
+        return contractMap;
+    }
+
+    /**
+     * Retrieve a Gateway object for the passed userId
+     * @param {string} userId string user id to use as the identity
+     * @returns {FabricNet.Gateway} a gateway object for the passed user identity
+     * @async
+     */
+    async _retrieveUserGateway(userId) {
+        // Build options for the connection
+        const opts = {
+            wallet: this.wallet,
+            identity: userId,
+            discovery: {
+                asLocalhost: this.configLocalHost,
+                enabled: this.configDiscovery
+            }
+        };
+
+        // Optional on mutual auth
+        if (this.networkUtil.isMutualTlsEnabled()) {
+            opts.clientTlsIdentity = 'tlsId';
+        }
+
+        // Retrieve gateway using ccp and options
+        const gateway = new FabricNetworkAPI.Gateway();
+
+        logger.info(`Connecting user ${userId} to a Network Gateway`);
+        await gateway.connect(this.networkUtil.getNetworkObject(), opts);
+
+        // return the gateway object
+        return gateway;
     }
 
     /**
@@ -1405,6 +1555,17 @@ class Fabric extends BlockchainInterface {
     }
 
     /**
+     * Dynamically sets Gateway 'require' and initialises an in memory wallet
+     * @private
+     */
+    _prepareGateway() {
+        if (this.configUseGateway) {
+            FabricNetworkAPI = require('fabric-network');
+            this.wallet = new FabricNetworkAPI.InMemoryWallet();
+        }
+    }
+
+    /**
      * Partially assembles a Client object containing general network information.
      * @param {string} org The name of the organization the client belongs to. Mandatory, if the client name is omitted.
      * @param {string} clientName The name of the client to base the profile on.
@@ -1866,12 +2027,123 @@ class Fabric extends BlockchainInterface {
         return invokeStatus;
     }
 
+    /**
+     * Submit a transaction using a Gateway contract
+     * @param {object} context The context previously created by the Fabric adapter.
+     * @param {ChaincodeInvokeSettings} invokeSettings The settings associated with the transaction submission.
+     * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
+     * @async
+     */
+    async _submitGatewayTransaction(context, invokeSettings) {
+
+        // Retrieve the existing contract and a client
+        const contract = await this._getUserContract(invokeSettings.invokerIdentity, invokeSettings.chaincodeId);
+        const client = this.clientProfiles.get(invokeSettings.invokerIdentity);
+
+        // Build the Caliper TxStatus, this is a reduced item when compared to the low level API capabilities
+        const txIdObject = client.newTransactionID();
+        const txId = txIdObject.getTransactionID();
+        let invokeStatus = new TxStatus(txId);
+        invokeStatus.Set('request_type', 'transaction');
+
+        if(context.engine) {
+            context.engine.submitCallback(1);
+        }
+
+        try {
+            const result = await contract.submitTransaction(invokeSettings.chaincodeFunction, ...invokeSettings.chaincodeArguments);
+            invokeStatus.result = result;
+            invokeStatus.verified = true;
+            invokeStatus.SetStatusSuccess();
+            return invokeStatus;
+        } catch (err) {
+            logger.error(`Failed to submit transaction [${invokeSettings.chaincodeFunction}] using arguments [${invokeSettings.chaincodeArguments}],  with error: ${err.stack ? err.stack : err}`);
+            invokeStatus.SetStatusFail();
+            invokeStatus.result = [];
+            return invokeStatus;
+        }
+    }
+
+    /**
+     * Submit a transaction using a Gateway contract
+     * @param {object} context The context previously created by the Fabric adapter.
+     * @param {ChaincodeQuerySettings} querySettings The settings associated with the transaction evaluation.
+     * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
+     * @async
+     */
+    async _evaluateGatewayTransaction(context, querySettings) {
+
+        // Retrieve the existing contract and a client
+        const contract = await this._getUserContract(querySettings.invokerIdentity, querySettings.chaincodeId);
+        const client = this.clientProfiles.get(querySettings.invokerIdentity);
+
+        // Build the Caliper TxStatus, this is a reduced item when compared to the low level API capabilities
+        const txIdObject = client.newTransactionID();
+        const txId = txIdObject.getTransactionID();
+        let invokeStatus = new TxStatus(txId);
+        invokeStatus.Set('request_type', 'query');
+
+        if(context.engine) {
+            context.engine.submitCallback(1);
+        }
+
+        try {
+            const result = await contract.evaluateTransaction(querySettings.chaincodeFunction, ...querySettings.chaincodeArguments);
+            invokeStatus.result = result;
+            invokeStatus.verified = true;
+            invokeStatus.SetStatusSuccess();
+            return invokeStatus;
+        } catch (err) {
+            logger.error(`Failed to evaluate transaction [${querySettings.chaincodeFunction}] using arguments [${querySettings.chaincodeArguments}],  with error: ${err.stack ? err.stack : err}`);
+            invokeStatus.SetStatusFail();
+            invokeStatus.result = [];
+            return invokeStatus;
+        }
+    }
+
+    /**
+     * Get the named contract for a named user
+     * @param {string} invokerIdentity the user identity for interacting with the contract
+     * @param {string} contractName the anme of the contract to return
+     * @returns {FabricNetworkAPI.Contract} A contract that may be used to submit or evaluate transactions
+     * @async
+     */
+    async _getUserContract(invokerIdentity, contractName) {
+
+        // Determine the invoking user for this transaction
+        let userName;
+        if (invokerIdentity.startsWith('#')) {
+            userName = invokerIdentity.substring(1);
+        } else {
+            userName = invokerIdentity;
+        }
+
+        const contractSet = this.userContracts.get(userName);
+
+        // If no contract set found, there is a user configuration/test specification error, so it should terminate
+        if (!contractSet) {
+            throw Error(`No contracts for Invoker ${userName} found!`);
+        }
+
+        // Retrieve the named Network Contract for the invoking user from the Map
+        const contract = contractSet.get(contractName);
+
+        // If no contract found, there is a user configuration/test specification error, so it should terminate
+        if (!contract) {
+            throw Error(`No contract named ${contractName} found!`);
+        }
+
+        return contract;
+    }
+
     //////////////////////////
     // PUBLIC API FUNCTIONS //
     //////////////////////////
 
     /**
-     * Prepares the adapter by loading user data and connection to the event hubs.
+     * Prepares the adapter by either:
+     * - building a gateway object linked to a wallet ID
+     * - loading user data and connection to the event hubs.
      *
      * @param {string} name Unused.
      * @param {Array<string>} args Unused.
@@ -1880,90 +2152,101 @@ class Fabric extends BlockchainInterface {
      * @async
      */
     async getContext(name, args, clientIdx) {
-        // reload the profiles silently
-        await this._initializeRegistrars(false);
-        await this._initializeAdmins(false);
-        await this._initializeUsers(false);
-
-        for (let channel of this.networkUtil.getChannels()) {
-            // initialize the channels by getting the config from the orderer
-            //await this._initializeChannel(this.registrarProfiles, channel);
-            await this._initializeChannel(this.adminProfiles, channel);
-            await this._initializeChannel(this.clientProfiles, channel);
-        }
-
+        // Set client index and reset counter for new test round
         this.clientIndex = clientIdx;
-        this.txIndex = -1; // reset counter for new test round
+        this.txIndex = -1;
 
-        if (this.networkUtil.isInCompatibilityMode()) {
-            // NOTE: for old event hubs we have a single connection to every peer set as an event source
-            const EventHub = require('fabric-client/lib/EventHub.js');
+        // Branch on use of a Gateway or standard Caliper client
+        if (this.configUseGateway) {
+            // Build Gateway Network Contracts for possible users and return the network object
+            // - within submit/evaluate, a contract will be used for a nominated user
+            await this._initializeContracts();
 
-            for (let peer of this.networkUtil.getAllEventSources()) {
-                let org = this.networkUtil.getOrganizationOfPeer(peer);
-                let admin = this.adminProfiles.get(org);
-
-                let eventHub = new EventHub(admin);
-                eventHub.setPeerAddr(this.networkUtil.getPeerEventUrl(peer),
-                    this.networkUtil.getGrpcOptionsOfPeer(peer));
-
-                // we can use the same peer for multiple channels in case of peer-level eventing
-                this.eventSources.push({
-                    channel: this.networkUtil.getChannelsOfPeer(peer),
-                    peer: peer,
-                    eventHub: eventHub
-                });
-            }
+            // We are done - return the networkUtil object
+            return {
+                networkInfo: this.networkUtil,
+                clientIdx
+            };
         } else {
-            // NOTE: for channel event hubs we might have multiple connections to a peer,
-            // so connect to the defined event sources of every org in every channel
+            // Configure the adaptor
             for (let channel of this.networkUtil.getChannels()) {
-                for (let org of this.networkUtil.getOrganizationsOfChannel(channel)) {
+                // initialize the channels by getting the config from the orderer
+                //await this._initializeChannel(this.registrarProfiles, channel);
+                await this._initializeChannel(this.adminProfiles, channel);
+                await this._initializeChannel(this.clientProfiles, channel);
+            }
+
+            if (this.networkUtil.isInCompatibilityMode()) {
+                // NOTE: for old event hubs we have a single connection to every peer set as an event source
+                const EventHub = require('fabric-client/lib/EventHub.js');
+
+                for (let peer of this.networkUtil.getAllEventSources()) {
+                    let org = this.networkUtil.getOrganizationOfPeer(peer);
                     let admin = this.adminProfiles.get(org);
 
-                    // The API for retrieving channel event hubs changed, from SDK v1.2 it expects the MSP ID of the org
-                    let orgId = this.version.lessThan('1.2.0') ? org : this.networkUtil.getMspIdOfOrganization(org);
+                    let eventHub = new EventHub(admin);
+                    eventHub.setPeerAddr(this.networkUtil.getPeerEventUrl(peer),
+                        this.networkUtil.getGrpcOptionsOfPeer(peer));
 
-                    let eventHubs = admin.getChannel(channel, true).getChannelEventHubsForOrg(orgId);
+                    // we can use the same peer for multiple channels in case of peer-level eventing
+                    this.eventSources.push({
+                        channel: this.networkUtil.getChannelsOfPeer(peer),
+                        peer: peer,
+                        eventHub: eventHub
+                    });
+                }
+            } else {
+                // NOTE: for channel event hubs we might have multiple connections to a peer,
+                // so connect to the defined event sources of every org in every channel
+                for (let channel of this.networkUtil.getChannels()) {
+                    for (let org of this.networkUtil.getOrganizationsOfChannel(channel)) {
+                        let admin = this.adminProfiles.get(org);
 
-                    // the peer (as an event source) is associated with exactly one channel in case of channel-level eventing
-                    for (let eventHub of eventHubs) {
-                        this.eventSources.push({
-                            channel: [channel],
-                            peer: this.networkUtil.getPeerNameOfEventHub(eventHub),
-                            eventHub: eventHub
-                        });
+                        // The API for retrieving channel event hubs changed, from SDK v1.2 it expects the MSP ID of the org
+                        let orgId = this.version.lessThan('1.2.0') ? org : this.networkUtil.getMspIdOfOrganization(org);
+
+                        let eventHubs = admin.getChannel(channel, true).getChannelEventHubsForOrg(orgId);
+
+                        // the peer (as an event source) is associated with exactly one channel in case of channel-level eventing
+                        for (let eventHub of eventHubs) {
+                            this.eventSources.push({
+                                channel: [channel],
+                                peer: this.networkUtil.getPeerNameOfEventHub(eventHub),
+                                eventHub: eventHub
+                            });
+                        }
                     }
                 }
             }
-        }
 
-        this.eventSources.forEach((es) => {
-            es.eventHub.connect(false);
-        });
+            this.eventSources.forEach((es) => {
+                es.eventHub.connect(false);
+            });
 
-        // rebuild the event source cache
-        this.channelEventSourcesCache = new Map();
+            // rebuild the event source cache
+            this.channelEventSourcesCache = new Map();
 
-        for (let es of this.eventSources) {
-            let channels = es.channel;
+            for (let es of this.eventSources) {
+                let channels = es.channel;
 
-            // an event source can be used for multiple channels in compatibility mode
-            for (let c of channels) {
-                // initialize the cache for a channel with an empty array at the first time
-                if (!this.channelEventSourcesCache.has(c)) {
-                    this.channelEventSourcesCache.set(c, []);
+                // an event source can be used for multiple channels in compatibility mode
+                for (let c of channels) {
+                    // initialize the cache for a channel with an empty array at the first time
+                    if (!this.channelEventSourcesCache.has(c)) {
+                        this.channelEventSourcesCache.set(c, []);
+                    }
+
+                    // add the event source to the channels collection
+                    let eventSources = this.channelEventSourcesCache.get(c);
+                    eventSources.push(es);
                 }
-
-                // add the event source to the channels collection
-                let eventSources = this.channelEventSourcesCache.get(c);
-                eventSources.push(es);
             }
-        }
 
-        return {
-            networkInfo: this.networkUtil
-        };
+            return {
+                networkInfo: this.networkUtil,
+                clientIdx
+            };
+        }
     }
 
     /**
@@ -2038,7 +2321,11 @@ class Fabric extends BlockchainInterface {
                 settings.invokerIdentity = this.defaultInvoker;
             }
 
-            promises.push(this._submitSingleTransaction(context, settings, timeout * 1000));
+            if (this.configUseGateway) {
+                promises.push(this._submitGatewayTransaction(context, settings));
+            } else {
+                promises.push(this._submitSingleTransaction(context, settings, timeout * 1000));
+            }
         }
 
         return await Promise.all(promises);
@@ -2079,7 +2366,11 @@ class Fabric extends BlockchainInterface {
                 settings.invokerIdentity = this.defaultInvoker;
             }
 
-            promises.push(this._submitSingleQuery(context, settings, timeout * 1000));
+            if (this.configUseGateway) {
+                promises.push(this._evaluateGatewayTransaction(context, settings));
+            } else {
+                promises.push(this._submitSingleQuery(context, settings, timeout * 1000));
+            }
         }
 
         return await Promise.all(promises);

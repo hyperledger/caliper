@@ -69,7 +69,10 @@ const keys = {
     FabricOverwriteGopath: 'caliper-fabricccp-overwritegopath',
     FabricLatencyThreshold: 'caliper-fabricccp-latencythreshold',
     FabricCountQueryAsLoad: 'caliper-fabricccp-countqueryasload',
-    FabricSkipCreateChannelPrefix: 'caliper-fabricccp-skipcreatechannel-'
+    FabricSkipCreateChannelPrefix: 'caliper-fabricccp-skipcreatechannel-',
+    FabricGateway: 'caliper-fabricccp-usegateway',
+    FabricGatewayLocalHost: 'caliper-fabricccp-gatewaylocalhost',
+    FabricDiscovery: 'caliper-fabricccp-discovery'
 };
 
 module.exports.get = get;

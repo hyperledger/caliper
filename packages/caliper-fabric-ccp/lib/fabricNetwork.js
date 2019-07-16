@@ -1275,6 +1275,7 @@ class FabricNetwork {
     isTlsEnabled() {
         return this.tls;
     }
+
 }
 
 module.exports = FabricNetwork;

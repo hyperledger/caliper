@@ -38,7 +38,7 @@ class BurrowClientFactory {
      * @returns {Object} the child process
      */
     async spawnWorker() {
-        const child = childProcess.fork(path.join(__dirname, './burrowClientWorker.js'));
+        const child = childProcess.fork(path.join(__dirname, './burrowClientWorker.js'), process.argv.slice(1), { env: process.env});
 
         const msg = {
             type: 'init',

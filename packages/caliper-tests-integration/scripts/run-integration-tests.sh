@@ -62,14 +62,14 @@ if [ "${BENCHMARK}" == "composer" ]; then
     cleanup
     exit $rc;
 elif [ "${BENCHMARK}" == "fabric-ccp" ]; then
-    # Run with channel creation using a createChannelTx in couchDB
-    caliper benchmark run -c benchmark/simple/config.yaml -n network/fabric-v1.4/2org1peercouchdb/fabric-ccp-node.yaml -w ../caliper-samples/
+    # Run with channel creation using a createChannelTx in couchDB, using a Gateway
+    caliper benchmark run -c benchmark/simple/config.yaml -n network/fabric-v1.4.1/2org1peercouchdb/fabric-ccp-node.yaml -w ../caliper-samples/ --caliper-fabricccp-usegateway
     rc=$?
     if [[ $rc != 0 ]]; then
         cleanup
         exit $rc;
     else
-        # Run with channel creation using a tx file in LevelDB
+        # Run with channel creation using an existing tx file in LevelDB, using a low level Caliper client
         caliper benchmark run -c benchmark/simple/config.yaml -n network/fabric-v1.4/2org1peergoleveldb/fabric-ccp-go.yaml -w ../caliper-samples/
         rc=$?
         cleanup
