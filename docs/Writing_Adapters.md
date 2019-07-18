@@ -96,7 +96,7 @@ When the benchmark engine is running, the master process of benchmark engine wil
     }
   ```
 
-* Add your own blockchain type into the blockchain's constructor function: In the file `src/comm/blockchain.js`, a new blockchain type should be added into the constructor function.
+* Add your own blockchain type into the blockchain's constructor function: In the file `caliper-core/lib/blockchain.js`, a new blockchain type should be added into the constructor function.
   ```js
     if(config.caliper.blockchain === 'myblockchain') {
         let myblockchain = require('../adapters/myblockchain/myblockchain.js');
@@ -107,7 +107,7 @@ When the benchmark engine is running, the master process of benchmark engine wil
 * Add predefined Network files into the dir `network/`:  These files will be useful when Caliper is trying to simulate your blockchain system. Please add all of the related files what a new boot blockchain system needs.
 * Add your own network configuration file into the corresponding network folder: Make sure the files that are necessary to boot your blockchain are specified here.
 * Define your command which will be executed before and after the test
-* Define your own smart contracts: As Caliper has several test cases now, it is necessary to realize your own smart contracts according to current test cases, eg. you could provide your smart contracts about opening an account, querying an account, deleting an account and transfering according to the test case `simple`. Your own smart contracts could be put into the directory `src/contract/myblockchain/`.
+* Define your own smart contracts: As Caliper has several test cases now, it is necessary to realize your own smart contracts according to current test cases, eg. you could provide your smart contracts about opening an account, querying an account, deleting an account and transfering according to the test case `simple`. Your own smart contracts could be put into the directory `packages/caliper-samples/contract/myblockchain/`.
 * Define the installation script: To facilitate other users, an installation script in the file `package.json` is appreciated. Your packages and  other dependencies should be added.
   ```json
     "scripts": {
