@@ -53,6 +53,7 @@ const packages = [
     'caliper-composer',
     'caliper-fabric',
     'caliper-fabric-ccp',
+    'caliper-fisco-bcos',
     'caliper-iroha',
     'caliper-sawtooth',
     'caliper-cli'];
