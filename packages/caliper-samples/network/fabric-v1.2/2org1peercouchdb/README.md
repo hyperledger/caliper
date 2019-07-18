@@ -27,11 +27,11 @@ The following network configuration files are available for the different platfo
   * `vehicle-lifecycle-network`
 
 ### Fabric
-* `fabric(-ccp)-go((-mutual)-tls)` (__golang__ implementations) 
+* `fabric-ccp-go((-mutual)-tls)` (__golang__ implementations) 
   * `marbles` __with__ CouchDB index metadata and rich query support.
   * `drm`
   * `simple`
   * `smallbank`
-* `fabric(-ccp)-node((-mutual)-tls)` (__Node.JS__ implementations) 
+* `fabric-ccp-node((-mutual)-tls)` (__Node.JS__ implementations) 
   * `marbles` __with__ CouchDB index metadata and rich query support.
   * `simple`
