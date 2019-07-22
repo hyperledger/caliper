@@ -46,8 +46,6 @@ test:
     number: 5
   rounds:
   - label: open
-    txMode:
-      type: real-time
     txNumber:
     - 5000
     - 5000
@@ -104,7 +102,6 @@ monitor:
       }
       ```
   * **label** : 当前测试标签名称。例如，可以使用当前交易目的名称（如开户）作为标签名称，来说明当前性能测试的交易类型。该值还可用作blockchain.getContext()中的Context名称。又例如，开发人员可能希望测试不同Fabric通道的性能，在这种情况下，具有不同标签的测试可以绑定到不同的Fabric通道。 
-  * **txMode** : 指定交易的生成模式。当前支持两种测试交易生成模式。一种为`real-time` ，这意味着交易将实时生成并立即发送到后端系统，这也是Caliper的默认交易生成模式，即若未设置txMode，Caliper将在 `real-time` mode下运行。另一种模式是文件测试模式，这意味着客户端生成的交易将被首先保存到文件中，然后再发送到后端系统。文件模式包含两个子类，分别命名为 `file-read` 和 `file-write`。在 `file-read`模式下, Caliper将读取交易文件以进行测试。在`file-write`模式下，将根据txNumber、tps、duration等配置生成所有交易，然后将这些交易发送到后端系统以完成测试。生成的交易文件保存在当前目录中。如果该目录下的交易文件与当前配置文件的参数（如txNumber和客户端编号）不匹配，则Caliper将生成新的交易文件。交易文件可以在docker模式下重复使用，而在自己部署的网络中则不可重复使用。需要注意的是，文件相关的txMode目前仅支持固定发送速率（即速率控制的类型应为固定速率）和Fabric。由于Fabric客户端版本1.0、1.1和1.2不支持函数sendSignedTransaction, 在使用文件模式进行测试时，需要将文件`node_modules/fabric-client/lib/Channel.js/ChannelSignedTransaction.js`重命名为 `node_modules/fabric-client/lib/Channel.js`。文件模式和`real-time`模式之间交易的创建时间存在明显差异，前者将fabric客户端发送交易文件到orderer节点之前的时间记录为交易创建时间，而后者将交易创建时间标记为交易生成的时间。这意味着，在文件模式中交易生成和发送propsal的这段时间未记入当前交易从生成到后端系统确认交易的时间。
   * **txNumber** : 定义一个子轮测试数组，每个轮次有不同的交易数量。例如, [5000,400] 表示在第一轮中将生成总共5000个交易，在第二轮中将生成400个交易。
   * **txDuration** : 定义基于时间测试的子轮数组。例如 [150,400] 表示将进行两次测试，第一次测试将运行150秒，第二次运行将运行400秒。如果当前配置文件中同时指定了txNumber和txDuration，系统将优先根据txDuration设置运行测试。
   * **rateControl** : 定义每个子轮测试期间使用的速率控制数组。如果未指定，则默认为“固定速率”，将以1TPS速率发送交易开始测试。如果已定义，务必保证所选用的速率控制机制名称正确并且提供对应的发送速率及所需参数。在每一轮测试中,  **txNumber** 或 **txDuration** 在 **rateControl** 中具有相应的速率控制项。有关可用速率控制器以及如何实现自定义速率控制器的更多信息，请参阅 [速率控制部分]({{ site.baseurl }}{% link docs/Rate_Controllers.md %})。
@@ -116,110 +113,6 @@ monitor:
   * process : 进程监视器用于监视指定的本地进程。例如，用户可以使用此监视器来监视模拟区块链客户端的资源消耗。'command'和'arguments'属性用于指定进程。如果找到多个进程，'multiOutput'属性用于定义输出的含义。'avg'表示输出是这些过程的平均资源消耗，而'sum'表示输出是总和消耗。 
   * others : 待后续补充。
 
-以下是一个区块链配置文件的示例：
-```json
-{
-  "caliper": {
-    "blockchain": "fabric",
-    "command" : {
-      "start": "docker-compose -f network/fabric-v1.1/2org1peergoleveldb/docker-compose.yaml up -d;sleep 3s",
-      "end" : "docker-compose -f network/fabric-v1.1/2org1peergoleveldb/docker-compose.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)"
-    }
-  },
-  "fabric": {
-    "cryptodir": "network/fabric-v1.1/config/crypto-config",
-    "network": {
-      "orderer": {
-        "url": "grpc://localhost:7050",
-        "mspid": "OrdererMSP",
-        "msp": "network/fabric-v1.1/config/crypto-config/ordererOrganizations/example.com/msp/",
-        "server-hostname": "orderer.example.com",
-        "tls_cacerts": "network/fabric-v1.1/config/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt"
-      },
-      "org1": {
-        "name": "peerOrg1",
-        "mspid": "Org1MSP",
-        "msp": "network/fabric-v1.1/config/crypto-config/peerOrganizations/org1.example.com/msp/",
-        "ca": {
-          "url": "http://localhost:7054",
-          "name": "ca-org1"
-        },
-        "peer1": {
-          "requests": "grpc://localhost:7051",
-          "events": "grpc://localhost:7053",
-          "server-hostname": "peer0.org1.example.com",
-          "tls_cacerts": "network/fabric-v1.1/config/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
-        }
-      },
-      "org2": {
-        "name": "peerOrg2",
-        "mspid": "Org2MSP",
-        "msp": "network/fabric-v1.1/config/crypto-config/peerOrganizations/org2.example.com/msp/",
-        "ca": {
-          "url": "http://localhost:8054",
-          "name": "ca-org2"
-        },
-        "peer1": {
-          "requests": "grpc://localhost:8051",
-          "events": "grpc://localhost:8053",
-          "server-hostname": "peer0.org2.example.com",
-          "tls_cacerts": "network/fabric-v1.1/config/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt"
-        }
-      }
-    },
-    "channel": [
-      {
-        "name": "mychannel",
-        "deployed": false,
-        "config": "network/fabric-v1.1/config/mychannel.tx",
-        "organizations": ["org1", "org2"]
-      }
-    ],
-    "chaincodes": [
-      {"id": "simple", "path": "contract/fabric/simple/go", "language":"golang", "version": "v0", "channel": "mychannel"},
-    ],
-    "endorsement-policy": {
-      "identities": [
-        {
-          "role": {
-            "name": "member",
-            "mspId": "Org1MSP"
-          }
-        },
-        {
-          "role": {
-            "name": "member",
-            "mspId": "Org2MSP"
-          }
-        },
-        {
-          "role": {
-            "name": "admin",
-            "mspId": "Org1MSP"
-          }
-        }
-      ],
-      "policy": { "2-of": [{"signed-by": 0}, {"signed-by": 1}]}
-    },
-    "context": {
-      "open": "mychannel", 
-      "query": "mychannel"
-    }
-  },
-  "info" : {
-    "Version": "1.1.0",
-    "Size": "2 Orgs with 1 Peer",
-    "Orderer": "Solo",
-    "Distribution": "Single Host"
-  }
-}
-```
-* **caliper** - 定义caliper使用的参数:
-  * **blockchain** - 定义后端区块链系统的类型和适配器的配置文件，以识别要与之交互的后端区块链网络。参阅 [*Fabric Config*]({{ site.baseurl }}{% link docs/Fabric_Configuration.md %}) 了解更多信息。
-  * **command** - 定义将在测试的特定阶段调用的命令。
-    * **start** : 在测试开始时调用的命令，此例中用于启动后端区块链网络。
-    * **end** : 完成所有测试后调用的命令，此例中用于停止后端运作的区块链网络。
-* **fabric** - 定义将由后端区块链系统使用的网络相关配置。这里的名称是fabric，但它可以更改为caliper支持的DLT中的任何一个，例如Composer，Sawtooth，Iroha和Burrow。
 ### Master
 
 实现默认测试流程，其中包含三个阶段：
