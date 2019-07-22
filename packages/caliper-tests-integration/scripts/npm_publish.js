@@ -51,7 +51,6 @@ const packages = [
     'caliper-core',
     'caliper-burrow',
     'caliper-composer',
-    'caliper-fabric',
     'caliper-fabric-ccp',
     'caliper-iroha',
     'caliper-sawtooth',
