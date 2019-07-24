@@ -230,7 +230,7 @@ function getLogger(name, parentLogger) {
     // The global Caliper logger must be created
 
     // Check if there are any logger targets configured
-    let logConfig = configUtil.get(configUtil.keys.CoreLogging, undefined);
+    let logConfig = configUtil.get(configUtil.keys.Logging, undefined);
 
     // if not, just create a default logger with console and file targets
     if (!logConfig) {

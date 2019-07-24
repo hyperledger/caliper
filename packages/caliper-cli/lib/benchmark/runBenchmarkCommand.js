@@ -19,7 +19,7 @@ const RunBenchmark = require ('./lib/runBenchmark');
 // enforces singletons
 const checkFn = (argv, options) => {
 
-    ['benchConfig','blockchainConfig','workspace'].forEach((e)=>{
+    ['caliper-benchconfig','caliper-networkconfig','caliper-workspace'].forEach((e)=>{
         if (Array.isArray(argv[e])){
             throw new Error(`Option ${e} can only be specified once`);
         }
@@ -33,14 +33,14 @@ module.exports.describe = 'Run a Caliper benchmark';
 module.exports.builder = function (yargs){
 
     yargs.options({
-        'benchConfig' : {alias: 'c', required: true, describe: 'Path to the benchmark workload file that describes the test client(s), test rounds and monitor.', type: 'string' },
-        'blockchainConfig'  : {alias: 'n', required: true, describe:'Path to the blockchain configuration file that contains information required to interact with the SUT', type: 'string'},
-        'workspace'  : {alias: 'w', required: true, describe:'Workspace directory that contains all configuration information', type: 'string'}
+        'caliper-benchconfig' : {required: true, describe: 'Path to the benchmark workload file that describes the test client(s), test rounds and monitor.', type: 'string' },
+        'caliper-networkconfig'  : {required: true, describe:'Path to the blockchain configuration file that contains information required to interact with the SUT', type: 'string'},
+        'caliper-workspace'  : {required: true, describe:'Workspace directory that contains all configuration information', type: 'string'}
     });
-    yargs.usage('caliper benchmark run -w ~/myCaliperProject -c my-app-test-config.yaml -n my-sut-config.yaml');
+    yargs.usage('caliper benchmark run --caliper-workspace ~/myCaliperProject --caliper-benchconfig my-app-test-config.yaml --caliper-networkconfig my-sut-config.yaml');
 
     // enforce the option after these options
-    yargs.requiresArg(['benchConfig','blockchainConfig','workspace']);
+    yargs.requiresArg(['caliper-benchconfig','caliper-networkconfig','caliper-workspace']);
 
     // enforce singletons
     yargs.check(checkFn);

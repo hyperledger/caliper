@@ -166,21 +166,21 @@ class Fabric extends BlockchainInterface {
         // this value is hardcoded, if it's used, that means that the provided timeouts are not sufficient
         this.configSmallestTimeout = 1000;
 
-        this.configSleepAfterCreateChannel = ConfigUtil.get(ConfigUtil.keys.FabricSleepAfterCreateChannel, 5000);
-        this.configSleepAfterJoinChannel = ConfigUtil.get(ConfigUtil.keys.FabricSleepAfterJoinChannel, 3000);
-        this.configSleepAfterInstantiateChaincode = ConfigUtil.get(ConfigUtil.keys.FabricSleepAfterInstantiateChaincode, 5000);
-        this.configVerifyProposalResponse = ConfigUtil.get(ConfigUtil.keys.FabricVerifyProposalResponse, true);
-        this.configVerifyReadWriteSets = ConfigUtil.get(ConfigUtil.keys.FabricVerifyReadWriteSets, true);
-        this.configLatencyThreshold = ConfigUtil.get(ConfigUtil.keys.FabricLatencyThreshold, 1.0);
-        this.configOverwriteGopath = ConfigUtil.get(ConfigUtil.keys.FabricOverwriteGopath, true);
-        this.configChaincodeInstantiateTimeout = ConfigUtil.get(ConfigUtil.keys.FabricTimeoutChaincodeInstantiate, 300000);
-        this.configChaincodeInstantiateEventTimeout = ConfigUtil.get(ConfigUtil.keys.FabricTimeoutChaincodeInstantiateEvent, 300000);
-        this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.FabricTimeoutInvokeOrQuery, 60000);
-        this.configClientBasedLoadBalancing = ConfigUtil.get(ConfigUtil.keys.FabricLoadBalancing, 'client') === 'client';
-        this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.FabricCountQueryAsLoad, true);
-        this.configUseGateway = ConfigUtil.get(ConfigUtil.keys.FabricGateway, false);
-        this.configLocalHost = ConfigUtil.get(ConfigUtil.keys.FabricGatewayLocalHost, true);
-        this.configDiscovery = ConfigUtil.get(ConfigUtil.keys.FabricDiscovery, false);
+        this.configSleepAfterCreateChannel = ConfigUtil.get(ConfigUtil.keys.Fabric.SleepAfter.CreateChannel, 5000);
+        this.configSleepAfterJoinChannel = ConfigUtil.get(ConfigUtil.keys.Fabric.SleepAfter.JoinChannel, 3000);
+        this.configSleepAfterInstantiateChaincode = ConfigUtil.get(ConfigUtil.keys.Fabric.SleepAfter.InstantiateChaincode, 5000);
+        this.configVerifyProposalResponse = ConfigUtil.get(ConfigUtil.keys.Fabric.Verify.ProposalResponse, true);
+        this.configVerifyReadWriteSets = ConfigUtil.get(ConfigUtil.keys.Fabric.Verify.ReadWriteSets, true);
+        this.configLatencyThreshold = ConfigUtil.get(ConfigUtil.keys.Fabric.LatencyThreshold, 1.0);
+        this.configOverwriteGopath = ConfigUtil.get(ConfigUtil.keys.Fabric.OverwriteGopath, true);
+        this.configChaincodeInstantiateTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.ChaincodeInstantiate, 300000);
+        this.configChaincodeInstantiateEventTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.ChaincodeInstantiateEvent, 300000);
+        this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.InvokeOrQuery, 60000);
+        this.configClientBasedLoadBalancing = ConfigUtil.get(ConfigUtil.keys.Fabric.LoadBalancing, 'client') === 'client';
+        this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountQueryAsLoad, true);
+        this.configUseGateway = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway, false);
+        this.configLocalHost = ConfigUtil.get(ConfigUtil.keys.Fabric.GatewayLocalHost, true);
+        this.configDiscovery = ConfigUtil.get(ConfigUtil.keys.Fabric.Discovery, false);
 
         // Network Gateway is only available in SDK versions greater than v1.4.0
         if (this.configUseGateway && this.version.lessThan('1.4.0')) {
@@ -281,7 +281,7 @@ class Fabric extends BlockchainInterface {
                 continue;
             }
 
-            if (ConfigUtil.get(ConfigUtil.keys.FabricSkipCreateChannelPrefix + channel, false)) {
+            if (ConfigUtil.get(ConfigUtil.keys.Fabric.SkipCreateChannelPrefix + channel, false)) {
                 logger.info(`Creation of Channel '${channel}' is configured to skip`);
                 continue;
             }

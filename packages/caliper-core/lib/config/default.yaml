@@ -11,32 +11,39 @@
 # limitations under the License.
 
 caliper:
-
-    # Configurations related to core Caliper behaviors
-    core:
-        # Sets the frequency of the progress reports in milliseconds
-        txupdatetime: 1000
-        # Indicates whether to skip the start command script in the network configuration file, if provided
-        skipstartscript: false
-        # Indicates whether to skip the end command script in the network configuration file, if provided
-        skipendscript: false
-        # Configurations related to the logging mechanism
-        logging:
-            # Defines a console target with info level
-            consolelogger:
-                target: console
-                level: info
-            # Defines a daily rotating file target with debug level
-            filelogger:
-                target: daily-rotate-file
-                level: debug
-                filename: log/caliper-%DATE%.log
-                datePattern: YYYY-MM-DD-HH
-                maxSize: 5m
-                zippedArchive: true
+    # Workspace directory that contains all configuration information
+    workspace: './'
+    # Path to the benchmark workload file that describes the test client(s), test rounds and monitor
+    benchconfig:
+    # Path to the blockchain configuration file that contains information required to interact with the SUT
+    networkconfig:
+    # Address of a ZooKeeper node used by distributed clients
+    zooaddress:
+    # Path to a zookeeper service yaml file
+    zooconfig:
+    # Sets the frequency of the progress reports in milliseconds
+    txupdatetime: 1000
+    # Indicates whether to skip the start command script in the network configuration file, if provided
+    skipstartscript: false
+    # Indicates whether to skip the end command script in the network configuration file, if provided
+    skipendscript: false
+    # Configurations related to the logging mechanism
+    logging:
+        # Defines a console target with info level
+        consolelogger:
+            target: console
+            level: info
+        # Defines a daily rotating file target with debug level
+        filelogger:
+            target: daily-rotate-file
+            level: debug
+            filename: log/caliper-%DATE%.log
+            datePattern: YYYY-MM-DD-HH
+            maxSize: 5m
+            zippedArchive: true
 
     # Configurations related to the Fabric CCP adapter
-    fabricccp:
+    fabric:
         # Sets the sleep behaviors after different init actions
         sleepafter:
             # The time in milliseconds to sleep after creating the channels (if created channels at all)
@@ -77,5 +84,4 @@ caliper:
         # Indicates whether to use the Fabric discovery mechanism (via Gateway API)
         discovery: false
 
-    fabric:
     sawtooth:

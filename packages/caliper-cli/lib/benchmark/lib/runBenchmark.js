@@ -14,7 +14,7 @@
 
 'use strict';
 
-const {CaliperFlow, CaliperUtils} = require('caliper-core');
+const {CaliperFlow, CaliperUtils, ConfigUtil} = require('caliper-core');
 const chalk = require('chalk');
 const cmdUtil = require('../../utils/cmdutils');
 const path = require('path');
@@ -30,14 +30,14 @@ class RunBenchmark {
     * @param {string} argv argument list from caliper benchmark command
     */
     static async handler(argv) {
-        let benchConfigFile;
-        let blockchainConfigFile;
-        let workspace;
+        let workspace = ConfigUtil.get(ConfigUtil.keys.Workspace, './');
+        let benchConfigFile = ConfigUtil.get(ConfigUtil.keys.BenchConfig, undefined);
+        let blockchainConfigFile = ConfigUtil.get(ConfigUtil.keys.NetworkConfig, undefined);
 
         // Workspace is expected to be the root location of working folders
-        workspace = path.resolve(argv.workspace);
-        benchConfigFile = path.isAbsolute(argv.benchConfig) ? argv.benchConfig : path.join(workspace, argv.benchConfig);
-        blockchainConfigFile = path.isAbsolute(argv.blockchainConfig) ? argv.blockchainConfig : path.join(workspace, argv.blockchainConfig);
+        workspace = path.resolve(workspace);
+        benchConfigFile = path.isAbsolute(benchConfigFile) ? benchConfigFile : path.join(workspace, benchConfigFile);
+        blockchainConfigFile = path.isAbsolute(blockchainConfigFile) ? blockchainConfigFile : path.join(workspace, blockchainConfigFile);
 
         if(!fs.existsSync(benchConfigFile)) {
             throw(new Error('Configuration file ' + benchConfigFile + ' does not exist'));

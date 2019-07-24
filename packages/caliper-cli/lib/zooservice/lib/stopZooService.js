@@ -14,6 +14,7 @@
 
 'use strict';
 
+const {ConfigUtil} = require('caliper-core');
 const childProcess = require('child_process');
 const exec = childProcess.exec;
 
@@ -31,14 +32,14 @@ class StopZooService {
     */
     static async handler(argv) {
         let cmd = 'docker-compose -f ';
-        if (argv.config){
+        if (ConfigUtil.get(ConfigUtil.keys.ZooConfig, undefined)){
             cmd += argv.config + ' down';
         } else {
             cmdUtil.log(chalk.blue.bold('Using default configuration file'));
             cmd += __dirname + '/zookeeper-service.yaml down';
         }
 
-        cmdUtil.log(chalk.blue.bold('Stoping zookeeper service ......'));
+        cmdUtil.log(chalk.blue.bold('Stopping zookeeper service ......'));
         await StopZooService.execAsync(cmd);
         cmdUtil.log(chalk.blue.bold('Stop zookeeper service successful'));
     }
