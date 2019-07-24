@@ -4,7 +4,7 @@ node_js:
 matrix:
     include:
         - env: BENCHMARK=composer
-        - env: BENCHMARK=fabric-ccp
+        - env: BENCHMARK=fabric
 dist: trusty
 before_install: |
     set -ev

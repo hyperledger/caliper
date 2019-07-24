@@ -29,7 +29,7 @@ module.exports.init = function(blockchain, context, args) {
 
 module.exports.run = function() {
     let acc_num  = accounts[Math.floor(Math.random()*(accounts.length))];
-    if (bc.bcType === 'fabric-ccp') {
+    if (bc.bcType === 'fabric') {
         let args = {
             chaincodeFunction: 'query',
             chaincodeArguments: [acc_num.toString()],

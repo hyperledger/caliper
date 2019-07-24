@@ -21,7 +21,7 @@ The configuration files names (with or without the `(-mutual)-tls` part) indicat
 The following network configuration files are available for the different platforms, containing the listed chaincodes that will be deployed (installed and instantiated).
 
 ### Fabric
-* `fabric-ccp-go(-tls)` (__golang__ implementations) 
+* `fabric-go(-tls)` (__golang__ implementations) 
   * `marbles` __without__ CouchDB index metadata and rich query support.
   * `drm`
   * `simple`

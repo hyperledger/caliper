@@ -48,7 +48,7 @@ module.exports.run = function() {
     };
 
     let args;
-    if (bc.bcType === 'fabric-ccp') {
+    if (bc.bcType === 'fabric') {
         args = {
             chaincodeFunction: 'publish',
             chaincodeArguments: [JSON.stringify(item)]

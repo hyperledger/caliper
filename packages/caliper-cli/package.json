@@ -24,7 +24,7 @@
     "caliper-core" : "0.1.0",
     "caliper-burrow" : "0.1.0",
     "caliper-composer" : "0.1.0",
-    "caliper-fabric-ccp" : "0.1.0",
+    "caliper-fabric" : "0.1.0",
     "caliper-iroha" : "0.1.0",
     "caliper-sawtooth" : "0.1.0",
     "chalk": "1.1.3",

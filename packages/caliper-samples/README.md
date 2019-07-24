@@ -5,12 +5,7 @@ Basic CLI driven sample(s)
 ## Working Benchmarks (local)
 - Fabric
 ```bash
-caliper benchmark run -w <workspace path> -c benchmark/simple/config.yaml -n network/fabric-v1.4/2org1peercouchdb/fabric-node.json
-```
-
-- Fabric CCP
-```bash
-caliper benchmark run -w <workspace path> -c benchmark/simple/config.yaml -n .network/fabric-v1.2/2org1peercouchdb/fabric-ccp-node.json
+caliper benchmark run -w <workspace path> -c benchmark/simple/config.yaml -n network/fabric-v1.4/2org1peercouchdb/fabric-node.yaml
 ```
 
 - Composer
