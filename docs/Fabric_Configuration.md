@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  "Fabric CCP Configuration"
+title:  "Fabric Configuration"
 categories: config
 ---
 
@@ -32,7 +32,7 @@ The page covers the following aspects of using the Fabric CCP adapter:
 
 ## Using Alternative Fabric Versions
 
-If you wish to use a specific Fabric-SDK, it is necessary to modify the `fabric-client`, `fabric-ca-client` and (possibly) `fabric-network` version levels listed as dependancies in `packages/caliper-fabric-ccp/package.json`, , and then rebuild the Caliper project using the following commands issued at the root Caliper project location:
+If you wish to use a specific Fabric-SDK, it is necessary to modify the `fabric-client`, `fabric-ca-client` and (possibly) `fabric-network` version levels listed as dependancies in `packages/caliper-fabric/package.json`, , and then rebuild the Caliper project using the following commands issued at the root Caliper project location:
 
 - `npm install`
 - `npm run repoclean`
@@ -89,13 +89,13 @@ mutual-tls: true
 
 _Caliper-specific._ 
 
-The top-level `caliper` attribute specifies the type of the blockchain platform, so Caliper can instantiate the appropriate adapter when it starts. To use this adapter, specify the `fabric-ccp` value for the `blockchain` attribute. 
+The top-level `caliper` attribute specifies the type of the blockchain platform, so Caliper can instantiate the appropriate adapter when it starts. To use this adapter, specify the `fabric` value for the `blockchain` attribute. 
 
 Furthermore, it also contains two optional commands: a `start` command to execute once before the tests and an `end` command to execute once after the tests. Using these commands is an easy way, for example, to automatically start and stop a test network. When connecting to an already deployed network, you can omit these commands.
 
 ```yaml
 caliper:
-  blockchain: fabric-ccp
+  blockchain: fabric
   command:
     start: docker-compose -f network/fabric-v1.0/2org1peercouchdb/docker-compose-tls.yaml up -d;sleep 3s
     end: docker-compose -f network/fabric-v1.0/2org1peercouchdb/docker-compose-tls.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)
@@ -471,14 +471,14 @@ The second argument of the `init` callback is a `context`, which is a platform-s
 }
 ```
 
-The `networkInfo` property is a `FabricNetwork` instance that provides simple string-based "queries" and results about the network topology, so the callback doesn't have to rely on the structure of the network configuration file. For the details of the API, refer to the `packages/fabric-ccp/lib/fabricNetwork.js` file.
+The `networkInfo` property is a `FabricNetwork` instance that provides simple string-based "queries" and results about the network topology, so the callback doesn't have to rely on the structure of the network configuration file. For the details of the API, refer to the `packages/caliper-fabric/lib/fabricNetwork.js` file.
 
 
 ## The _run_ Callback
 
-The `blockchain` object received (and saved) in the `init` callback is of type `packages/fabric-ccp/lib/Blockchain.js`, and it wraps the adapter object. The `blockchain.bcType` property has the `fabric-ccp` string value.
+The `blockchain` object received (and saved) in the `init` callback is of type `packages/fabric/lib/Blockchain.js`, and it wraps the adapter object. The `blockchain.bcType` property has the `fabric` string value.
 
-> __Due to the diverging adapter interfaces for queries, you need to access the underlying adapter object to use this adapter's query feature. The adapter object is accessible through the `blockchain.bcObj` property, which is of type `packages/fabric-ccp/lib/fabric.js`.__
+> __Due to the diverging adapter interfaces for queries, you need to access the underlying adapter object to use this adapter's query feature. The adapter object is accessible through the `blockchain.bcObj` property, which is of type `packages/caliper-fabric/lib/fabric.js`.__
 
 The two main functions of the adapter are `invokeSmartContract` and `querySmartContract`, sharing a similar API.
 
@@ -595,7 +595,7 @@ version: "1.0"
 mutual-tls: false
 
 caliper:
-  blockchain: fabric-ccp
+  blockchain: fabric
   command:
     start: docker-compose -f network/fabric-v1.1/2org2peergoleveldb/docker-compose-tls.yaml up -d;sleep 3s
     end: docker-compose -f network/fabric-v1.1/2org2peergoleveldb/docker-compose-tls.yaml down;docker rm $(docker ps -aq);docker rmi $(docker images dev* -q)
