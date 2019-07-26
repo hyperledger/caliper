@@ -51,7 +51,7 @@ Steps for configuring a benchmark that targets a supported blockchain technology
 
 - [Burrow]({{ site.baseurl }}{% link docs/Burrow_Configuration.md %})
 - [Composer]({{ site.baseurl }}{% link docs/Composer_Configuration.md %})
-- [Fabric CCP]({{ site.baseurl }}{% link docs/Fabric_Ccp_Configuration.md %})
+- [Fabric]({{ site.baseurl }}{% link docs/Fabric_Configuration.md %})
 - [Iroha]({{ site.baseurl }}{% link docs/Iroha_Configuration.md %})
 - [Sawtooth]({{ site.baseurl }}{% link docs/Sawtooth_Configuration.md %})
 
@@ -87,7 +87,7 @@ If you need to run a benchmark using an adaptor with an alternative client depen
  |Fabric v1.4 | fabric-ca-client@1.4.0 fabric-client@1.4.0 fabric-network@1.4.0 |
 
 
-For instance, if you wish to test Hyperledger Fabric v1.1, it will be necessary to modify the `caliper-fabric-ccp` adaptor to use `grpc@1.10.1, fabric-ca-client@1.1.0, fabric-client@1.1.0`.
+For instance, if you wish to test Hyperledger Fabric v1.1, it will be necessary to modify the `caliper-fabric` adaptor to use `grpc@1.10.1, fabric-ca-client@1.1.0, fabric-client@1.1.0`.
 
 > Note:
 > When the Caliper packages are published to npm, we will be publishing versions for the above compatibility requirements and will update the compatibility table with published Caliper versions that you will be able to obtain using `npm install -g caliper-<package>@<version>`
@@ -109,7 +109,7 @@ caliper benchmark run -w <path to workspace> -c <benchmark config> -n <blockchai
 Assuming you are in the root caliper directory, the following command will run a test using the material from a Caliper sample:
 
 ```bash
-caliper benchmark run -w ./packages/caliper-samples -c benchmark/simple/config.yaml -n network/fabric-v1.4/2org1peercouchdb/fabric-ccp-node.yaml
+caliper benchmark run -w ./packages/caliper-samples -c benchmark/simple/config.yaml -n network/fabric-v1.4/2org1peercouchdb/fabric-node.yaml
 ```
 
 The files present in the `caliper-samples` directory may be modified or added to, in order to perform the desired benchmark. Before adding a benchmark, please inspect the example benchmark content and structure; you will need to add your own configuration files for the blockchain system under test, the benchmark configuration, smart contracts, and test files (callbacks) that interact with the deployed smart contract.
