@@ -10,6 +10,8 @@
     "e2e_install": "npm run cleanup && npm run start_verdaccio && npm run publish_packages && npm run install_cli && npm run cleanup",
     "run_tests": "./scripts/run-tests.sh",
     "stop_verdaccio": "PM2_HOME=.pm2 pm2 stop verdaccio || true",
+    "pretest": "npm run licchk",
+    "licchk": "license-check-and-add",
     "test": "exit 0"
   },
   "repository": {
@@ -28,7 +30,45 @@
   "homepage": "https://github.com/hyperledger/caliper#readme",
   "devDependencies": {
     "pm2": "2.10.1",
-    "verdaccio": "3.12.0"
+    "verdaccio": "3.12.0",
+    "license-check-and-add": "2.3.6"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "license-check-and-add-config": {
+    "folder": ".",
+    "license": "../../LICENSE.txt",
+    "exact_paths_method": "EXCLUDE",
+    "exact_paths": [
+      "node_modules",
+      ".nyc_output",
+      "coverage",
+      ".pm2/touch"
+    ],
+    "file_type_method": "EXCLUDE",
+    "file_types": [
+      ".yml",
+      ".log",
+      ".pm2",
+      ".html",
+      ".pid",
+      ".md"
+    ],
+    "insert_license": false,
+    "license_formats": {
+      "js": {
+        "prepend": "/*",
+        "append": "*/",
+        "eachLine": {
+          "prepend": "* "
+        }
+      },
+      "editorconfig|yaml": {
+        "prepend": "#",
+        "append": "#",
+        "eachLine": {
+          "prepend": "# "
+        }
+      }
+    }
+  }
 }

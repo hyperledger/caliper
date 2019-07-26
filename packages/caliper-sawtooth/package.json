@@ -6,6 +6,8 @@
     "url": "https://github.com/hyperledger/caliper"
   },
   "scripts": {
+    "pretest": "npm run licchk",
+    "licchk": "license-check-and-add",
     "test": "npm run lint && npm run nyc",
     "lint": "npx eslint .",
     "list": "node ./scripts/list.js",
@@ -17,9 +19,9 @@
     "npm": ">=5.6.0"
   },
   "dependencies": {
-    "caliper-core" : "0.1.0",
-    "protocol-buffers" : "^4.1.0",
-    "sawtooth-sdk" : "^1.0.5",
+    "caliper-core": "0.1.0",
+    "protocol-buffers": "^4.1.0",
+    "sawtooth-sdk": "^1.0.5",
     "cbor": "^3.0.3",
     "request-promise": "^4.2.1"
   },
@@ -29,11 +31,43 @@
     "mocha": "3.4.2",
     "nyc": "11.1.0",
     "rewire": "^4.0.0",
-    "sinon": "2.3.8"
+    "sinon": "2.3.8",
+    "license-check-and-add": "2.3.6"
+  },
+  "license-check-and-add-config": {
+    "folder": ".",
+    "license": "../../LICENSE.txt",
+    "exact_paths_method": "EXCLUDE",
+    "exact_paths": [
+      "node_modules",
+      ".nyc_output",
+      "coverage"
+    ],
+    "file_type_method": "EXCLUDE",
+    "file_types": [
+      ".yml"
+    ],
+    "insert_license": false,
+    "license_formats": {
+      "js": {
+        "prepend": "/*",
+        "append": "*/",
+        "eachLine": {
+          "prepend": "* "
+        }
+      },
+      "editorconfig": {
+        "prepend": "#",
+        "append": "#",
+        "eachLine": {
+          "prepend": "# "
+        }
+      }
+    }
   },
   "nyc": {
     "exclude": [
-        "lib/**"
+      "lib/**"
     ],
     "reporter": [
       "text-summary",
