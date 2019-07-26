@@ -42,6 +42,9 @@ test:
     arguments:
       testAssets: 50
     callback: benchmark/composer/composer-samples/basic-sample-network.js
+observer:
+  interval: 1
+  type: local
 monitor:
   type:
   - docker

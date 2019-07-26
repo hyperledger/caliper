@@ -115,6 +115,9 @@ test:
       opts:
         tps: 50
     callback: benchmark/smallbank/query.js
+observer:
+  interval: 1
+  type: local
 monitor:
   type: docker
   docker:

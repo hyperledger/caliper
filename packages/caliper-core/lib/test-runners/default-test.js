@@ -33,10 +33,10 @@ class DefaultTest {
      * @param {Object} clientFactory factory used to spawn test clients
      * @param {String} networkRoot the root location
      * @param {Report} report the report being built
-     * @param {Object} demo the demo UI component
-     * @param {Object} monitor The monitor object
+     * @param {TestObserver} testObserver the test observer
+     * @param {Object} monitorOrchestrator The monitor object
      */
-    constructor(clientArgs, absNetworkFile, clientOrchestrator, clientFactory, networkRoot, report, demo, monitor) {
+    constructor(clientArgs, absNetworkFile, clientOrchestrator, clientFactory, networkRoot, report, testObserver, monitorOrchestrator) {
         this.clientArgs = clientArgs;
         this.absNetworkFile = absNetworkFile;
         this.clientFactory = clientFactory;
@@ -44,8 +44,8 @@ class DefaultTest {
         this.networkRoot = networkRoot;
         this.report = report;
         this.round = 0;
-        this.demo = demo;
-        this.monitor = monitor;
+        this.testObserver = testObserver;
+        this.monitorOrchestrator = monitorOrchestrator;
     }
 
     /**
@@ -57,6 +57,7 @@ class DefaultTest {
      */
     async runTestRounds(args, final) {
         logger.info(`####### Testing '${args.label}' #######`);
+        this.testObserver.setBenchmark(args.label);
         const testLabel   = args.label;
         const testRounds  = args.txDuration ? args.txDuration : args.txNumber;
         const tests = []; // array of all test rounds
@@ -64,7 +65,7 @@ class DefaultTest {
 
         // Build test rounds
         for (let i = 0 ; i < testRounds.length ; i++) {
-            const msg = {
+            const test = {
                 type: 'test',
                 label : testLabel,
                 rateControl: args.rateControl[i] ? args.rateControl[i] : {type:'fixed-rate', 'opts' : {'tps': 1}},
@@ -72,17 +73,19 @@ class DefaultTest {
                 args: args.arguments,
                 cb  : args.callback,
                 config: configPath,
-                root: this.networkRoot
+                root: this.networkRoot,
+                testRound: i,
+                pushUrl: this.monitorOrchestrator.hasMonitor('prometheus') ? this.monitorOrchestrator.getMonitor('prometheus').getPushGatewayURL() : null
             };
             // condition for time based or number based test driving
             if (args.txNumber) {
-                msg.numb = testRounds[i];
+                test.numb = testRounds[i];
             } else if (args.txDuration) {
-                msg.txDuration = testRounds[i];
+                test.txDuration = testRounds[i];
             } else {
                 throw new Error('Unspecified test driving mode');
             }
-            tests.push(msg);
+            tests.push(test);
         }
 
 
@@ -95,12 +98,24 @@ class DefaultTest {
             logger.info(`------ Test round ${this.round += 1} ------`);
             testIdx++;
 
-            test.roundIdx = this.round; // propagate round ID to clients
-            this.demo.startWatch(this.clientOrchestrator);
+            this.testObserver.setRound(test.testRound);
             try {
-                await this.clientOrchestrator.startTest(test, this.clientArgs, this.report, testLabel, this.clientFactory);
+                this.testObserver.startWatch(this.clientOrchestrator);
+                const {results, start, end} = await this.clientOrchestrator.startTest(test, this.clientArgs, this.clientFactory);
+                await this.testObserver.stopWatch();
 
-                this.demo.pauseWatch();
+                // Build the report
+                // - TPS
+                let idx;
+                if (this.monitorOrchestrator.hasMonitor('prometheus')) {
+                    idx = await this.report.processPrometheusTPSResults({start, end}, testLabel, test.testRound);
+                } else {
+                    idx = await this.report.processLocalTPSResults(results, testLabel);
+                }
+
+                // - Resource utilization
+                await this.report.buildRoundResourceStatistics(idx, testLabel);
+
                 successes++;
                 logger.info(`------ Passed '${testLabel}' testing ------`);
 
@@ -108,10 +123,9 @@ class DefaultTest {
                 if(!final || testIdx !== tests.length) {
                     logger.info('Waiting 5 seconds for the next round...');
                     await CaliperUtils.sleep(5000);
-                    await this.monitor.restart();
+                    await this.monitorOrchestrator.restartAllMonitors();
                 }
             } catch (err) {
-                this.demo.pauseWatch();
                 failures++;
                 logger.error(`------ Failed '${testLabel}' testing with the following error ------
     ${err.stack ? err.stack : err}`);

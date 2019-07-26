@@ -43,6 +43,9 @@ test:
       opts:
         tps: 200
     callback: benchmark/simple/query.js
+observer:
+  interval: 1
+  type: local
 monitor:
   type:
   - docker

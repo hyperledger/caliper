@@ -1,5 +1,6 @@
 {
   "name": "@hyperledger/caliper-sawtooth",
+  "description": "Hyperledger Sawtooth adaptor for Caliper, enabling the running of a performance benchmarks that interact with Sawtooth",
   "version": "0.1.0",
   "repository": {
     "type": "git",

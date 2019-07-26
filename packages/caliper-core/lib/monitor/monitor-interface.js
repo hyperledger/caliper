@@ -22,72 +22,41 @@
 class MonitorInterface{
     /**
      * Constructor
-     * @param {JSON} filter Lookup filter
-     * @param {*} interval Watching interval, in second
+     * @param {JSON} monitorConfig Configuration object for the monitor
+     * @param {number} interval Watching interval, in seconds
      */
-    constructor(filter, interval) {
-        this.filter       = filter;
-        this.interval     = interval*1000; // ms
+    constructor(monitorConfig, interval) {
+        this.monitorConfig = monitorConfig;
+        this.interval     = interval*1000; // convert to ms
     }
 
     /**
     * start monitoring
     */
-    start() {
+    async start() {
         throw new Error('start is not implemented for this monitor');
     }
 
     /**
     * restart monitoring
     */
-    restart() {
+    async restart() {
         throw new Error('restart is not implemented for this monitor');
     }
 
     /**
     * stop monitoring
     */
-    stop() {
+    async stop() {
         throw new Error('stop is not implemented for this monitor');
     }
 
     /**
-    * Get watching list
-    */
-    getPeers() {
-        throw new Error('getPeers is not implemented for this monitor');
-    }
-
-    /**
-    * Get history of memory usage, in byte
-    * @param {String} key Lookup key
-    */
-    getMemHistory(key) {
-        throw new Error('getMemHistory is not implemented for this monitor');
-    }
-
-    /**
-    * Get history of cpu usage, %
-    * @param {String} key Lookup key
-    */
-    getCpuHistory(key) {
-        throw new Error('getCpuHistory is not implemented for this monitor');
-    }
-
-    /**
-    * Get history of network IO usage, byte
-    * @param {String} key Lookup key
-    */
-    getNetworkHistory(key) {
-        throw new Error('getNetworkHistory is not implemented for this monitor');
-    }
-
-    /**
-     * Get history of disc usage as {read, wrtie}
-     * @param {String} key Lookup key
+     * Get statistics from the monitor in the form of an Array containing Map<string, string> detailing key/value pairs
+     * @async
      */
-    getDiscHistory(key) {
-        throw new Error('getDiscHistory is not implemented for this monitor');
+    async getStatistics() {
+        throw new Error('getStatistics is not implemented for this monitor');
     }
 }
 module.exports = MonitorInterface;
