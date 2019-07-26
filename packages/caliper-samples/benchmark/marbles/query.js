@@ -31,7 +31,7 @@ module.exports.run = function() {
     let marbleOwner = owners[txIndex % owners.length];
     let args;
 
-    if (bc.bcType === 'fabric-ccp') {
+    if (bc.bcType === 'fabric') {
         args = {
             chaincodeFunction: 'queryMarblesByOwner',
             chaincodeArguments: [marbleOwner]

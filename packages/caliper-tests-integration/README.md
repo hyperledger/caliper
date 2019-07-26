@@ -84,7 +84,7 @@ npm run cleanup && npm run start_verdaccio && npm run publish_packages && npm ru
 ## Running the integration tests
 Once the CLI is installed, you can run the integration tests for a given platform.
 
-* For Fabric: `BENCHMARK=fabric-ccp npm run run_tests`
+* For Fabric: `BENCHMARK=fabric npm run run_tests`
 * For Composer: `BENCHMARK=composer npm run run_tests`
 
 As long as the script finishes, it should tidy up all the artifacts that are created during tests, but if it fails, then you may have to do a manual clean up (removing **every running Docker container**) executing the following commands:

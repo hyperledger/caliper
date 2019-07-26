@@ -34,7 +34,7 @@ module.exports.init = function(blockchain, context, args) {
 
 module.exports.run = function() {
     const id  = itemIDs[Math.floor(Math.random()*(itemIDs.length))];
-    if (bc.bcType === 'fabric-ccp') {
+    if (bc.bcType === 'fabric') {
         let args = {
             chaincodeFunction: 'query',
             chaincodeArguments: [id],
