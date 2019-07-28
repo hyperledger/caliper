@@ -58,10 +58,10 @@ This is the integration test suite used for caliper; it runs in the Travis build
 ## Creating a New Test Case
 
 Currently the easiest way to create a new test case is to extend or add to the `caliper-samples` package. You have options from this point:
-- run the integration tests to get the CLI module installed, then use the command line comand `caliper benchmark run -w <path>/caliper-samples -c benchmark/my-config.yaml -n network/my-network.yaml`
-- directly run `node ./packages/caliper-cli/caliper.js benchmark run -c benchmark/my-config.yaml -n network/my-network.yaml -w ./packages/caliper-samples` from the root folder
+- run the integration tests to get the CLI module installed, then use the command line comand `caliper benchmark run --caliper-workspace <path>/caliper-samples --caliper-benchconfig benchmark/my-config.yaml --caliper-networkconfig network/my-network.yaml`
+- directly run `node ./packages/caliper-cli/caliper.js benchmark run --caliper-benchconfig benchmark/my-config.yaml --caliper-networkconfig network/my-network.yaml --caliper-workspace ./packages/caliper-samples` from the root folder
 
-Before adding a benchmark, please inspect the `caliper-samples` structure and example benchmarks; you will need to add your own configuration files for the blockchain system under test, the benchmark configuration, smart contracts, and test files (callbacks) that interact with the deployed smart contract. You can then run the benchmark using the `run-benchmark.js` script and passing your configuration files that describe that benchmark.
+Before adding a benchmark, please inspect the `caliper-samples` structure and example benchmarks; you will need to add your own configuration files for the blockchain system under test, the benchmark configuration, smart contracts, and test files (callbacks) that interact with the deployed smart contract. You can then run the benchmark using the approaches above.
     
 ## Add an Adaptor for a New DLT
   

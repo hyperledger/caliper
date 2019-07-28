@@ -58,16 +58,16 @@ The above code also shows how a custom user module/code can easily leverage Cali
 
 If we wish to influence the behavior of a third-party code (e.g., Caliper or a user callback module), we usually can't (or don't want to) overwrite the setting in the source code. A standard way of modifying the behavior of third-party/pre-packaged applications is to provide the settings as commandline arguments.
 
-If you start Caliper through the [provided script]({{ site.baseurl }}{% link docs/1_Getting_Started.md %}#run-benchmark), then you can override runtime settings the following way:
+Starting Caliper through the [CLI]({{ site.baseurl }}{% link docs/1_Getting_Started.md %}#run-a-sample-benchmark), you can override runtime settings the following way:
 
 ```bash
-node run-benchmark.js -c yourconfig.yaml -n yournetwork.yaml --mymodule-performance-shoudbefast=true
+caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml --mymodule-performance-shoudbefast=true
 ```
 
 The arguments will be converted to lower-case letters and every `_` character will be replaced with `-`. So the above command can be written in a more user friendly way:
 
 ```bash
-node run-benchmark.js -c yourconfig.yaml -n yournetwork.yaml --MyModule_Performance_ShoudBeFast=true
+caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml --MyModule_Performance_ShoudBeFast=true
 ```
 
 Both ways will result in the setting key `mymodule-performance-shoudbefast` associated with the `boolean` value `true`.
@@ -77,11 +77,11 @@ Note, that `nconf` will automatically parse values of common types, so the `true
 Moreover, `boolean` values can be specified as flags, without explicitly setting the `true` or `false` value (note the `no-` prefix for the second case):
 * Setting a key to `true`:
     ```bash
-    node run-benchmark.js -c yourconfig.yaml -n yournetwork.yaml --mymodule-performance-shoudbefast
+    caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml --mymodule-performance-shoudbefast
     ```
 * Setting a key to `false`:
     ```bash
-    node run-benchmark.js -c yourconfig.yaml -n yournetwork.yaml --no-mymodule-performance-shoudbefast
+    caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml --no-mymodule-performance-shoudbefast
     ```
 
 
@@ -97,7 +97,7 @@ The example setting can be set the following way using an environment variable:
 export MYMODULE_PERFORMANCE_SHOULDBEFAST=true
 
 # calling some script containing the following command
-node run-benchmark.js -c yourconfig.yaml -n yournetwork.yaml
+caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml
 ```
 
 Note the standard notation of environment variable setting: upper-case letters separated by `_` characters. Caliper performs the same transformation as with command line arguments: the variable names will be converted to lower-case letters and every `_` character will be replaced with `-`. So the above setting will also result in the setting key `mymodule-performance-shoudbefast` associated with the `boolean` value `true`.
@@ -130,12 +130,12 @@ The project-level configuration file can be included into the hierarchy in two w
 
   * The command line approach: 
     ```bash
-    node run-benchmark.js -c yourconfig.yaml -n yournetwork.yaml --Caliper-ProjectConfig=mypath/project1-config.yaml
+    caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml --Caliper-ProjectConfig=mypath/project1-config.yaml
     ```
   * The environment variable approach: 
     ```bash
     export CALIPER_PROJECTCONFIG=mypath/project1-config.yaml
-    node run-benchmark.js -c yourconfig.yaml -n yournetwork.yaml
+    caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml
     ```
     
 Note that project-level settings will override the settings defined by the locations of the next sections.
@@ -146,12 +146,12 @@ If you find yourself overriding the same settings for multiple Caliper benchmark
 
 * The command line approach: 
     ```bash
-    node run-benchmark.js -c yourconfig.yaml -n yournetwork.yaml --Caliper-UserConfig=~/.config/my-caliper-config.yaml
+    caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml --Caliper-UserConfig=~/.config/my-caliper-config.yaml
     ```
 * The environment variable approach: 
     ```bash
     export CALIPER_USERCONFIG=~/.config/my-caliper-config.yaml
-    node run-benchmark.js -c yourconfig.yaml -n yournetwork.yaml
+    caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml
     ```
 * The configuration file approach (excerpt from the project-level configuration file): 
     ```yaml
@@ -166,12 +166,12 @@ If multiple users use the same workstation and want to share common settings acr
 
 * The command line approach: 
     ```bash
-    node run-benchmark.js -c yourconfig.yaml -n yournetwork.yaml --Caliper-MachineConfig=/etc/config/caliper.yaml
+    caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml --Caliper-MachineConfig=/etc/config/caliper.yaml
     ```
 * The environment variable approach: 
     ```bash
     export CALIPER_MACHINECONFIG=/etc/config/caliper.yaml
-    node run-benchmark.js -c yourconfig.yaml -n yournetwork.yaml
+    caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml
     ```
 * The configuration file approach (excerpt from the project- or user-level configuration file): 
     ```yaml
