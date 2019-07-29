@@ -15,7 +15,7 @@
 
 'use strict';
 
-const { BlockchainInterface, CaliperUtils, TxStatus }= require('caliper-core');
+const { BlockchainInterface, CaliperUtils, TxStatus }= require('@hyperledger/caliper-core');
 const logger = CaliperUtils.getLogger('sawtooth.js');
 
 const BatchBuilderFactory = require('./batch/BatchBuilderFactory.js');

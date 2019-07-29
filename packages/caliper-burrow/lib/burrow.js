@@ -16,7 +16,7 @@
 
 const fs = require('fs');
 const monax = require('@monax/burrow');
-const { BlockchainInterface, CaliperUtils, TxStatus } = require('caliper-core');
+const { BlockchainInterface, CaliperUtils, TxStatus } = require('@hyperledger/caliper-core');
 const logger = CaliperUtils.getLogger('burrow.js');
 
 /**

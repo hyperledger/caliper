@@ -1,5 +1,5 @@
 {
-  "name": "caliper-sawtooth",
+  "name": "@hyperledger/caliper-sawtooth",
   "version": "0.1.0",
   "repository": {
     "type": "git",
@@ -10,7 +10,6 @@
     "licchk": "license-check-and-add",
     "test": "npm run lint && npm run nyc",
     "lint": "npx eslint .",
-    "list": "node ./scripts/list.js",
     "nyc": "nyc mocha --recursive -t 10000"
   },
   "engineStrict": true,
@@ -19,13 +18,11 @@
     "npm": ">=5.6.0"
   },
   "dependencies": {
-    "caliper-core": "0.1.0",
-    "protocol-buffers": "^4.1.0",
-    "sawtooth-sdk": "^1.0.5",
-    "cbor": "^3.0.3",
+    "@hyperledger/caliper-core": "0.1.0",
     "request-promise": "^4.2.1"
   },
   "devDependencies": {
+    "sawtooth-sdk": "^1.0.5",
     "chai": "^3.5.0",
     "eslint": "^4.19.1",
     "mocha": "3.4.2",
@@ -41,11 +38,14 @@
     "exact_paths": [
       "node_modules",
       ".nyc_output",
-      "coverage"
+      "coverage",
+      ".gitignore",
+      "log"
     ],
     "file_type_method": "EXCLUDE",
     "file_types": [
-      ".yml"
+      ".yml",
+      ".log"
     ],
     "insert_license": false,
     "license_formats": {

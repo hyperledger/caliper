@@ -32,9 +32,9 @@ module.exports.command = 'start';
 module.exports.describe = 'Start a zookeeper client on a provided host:port using provided blockchain configuration and a workspace location';
 module.exports.builder = function (yargs){
     yargs.options({
-        'caliper-zooaddress' : {required: true, describe: 'zookeeper address', type: 'string' },
-        'caliper-networkconfig'  : {required: true, describe:'Path to the blockchain configuration file that contains information required to interact with the SUT', type: 'string'},
-        'caliper-workspace'  : {required: true, describe:'Workspace directory that contains all configuration information', type: 'string'}
+        'caliper-zooaddress' : {describe: 'zookeeper address', type: 'string' },
+        'caliper-networkconfig'  : {describe:'Path to the blockchain configuration file that contains information required to interact with the SUT', type: 'string'},
+        'caliper-workspace'  : {describe:'Workspace directory that contains all configuration information', type: 'string'}
     });
     yargs.usage('caliper zooclient start --caliper-workspace ~/myCaliperProject --caliper-zooaddress <host-address>:<port>  --caliper-networkconfig my-sut-config.yaml');
 

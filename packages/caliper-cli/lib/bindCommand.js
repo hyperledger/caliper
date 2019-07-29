@@ -14,12 +14,12 @@
 
 'use strict';
 
-const RunBenchmark = require ('./lib/runBenchmark');
+const Bind = require ('./bind/bind.js');
 
 // enforces singletons
 const checkFn = (argv, options) => {
 
-    ['caliper-benchconfig','caliper-networkconfig','caliper-workspace'].forEach((e)=>{
+    ['caliper-bind-sut','caliper-bind-sdk', 'caliper-bind-args', 'caliper-bind-cwd'].forEach((e)=>{
         if (Array.isArray(argv[e])){
             throw new Error(`Option ${e} can only be specified once`);
         }
@@ -28,19 +28,20 @@ const checkFn = (argv, options) => {
     return true;
 };
 module.exports._checkFn = checkFn;
-module.exports.command = 'run [options]';
-module.exports.describe = 'Run a Caliper benchmark';
+module.exports.command = 'bind [options]';
+module.exports.describe = 'Bind Caliper to a specific SUT and its SDK version';
 module.exports.builder = function (yargs){
 
     yargs.options({
-        'caliper-benchconfig' : {describe: 'Path to the benchmark workload file that describes the test client(s), test rounds and monitor.', type: 'string' },
-        'caliper-networkconfig'  : {describe:'Path to the blockchain configuration file that contains information required to interact with the SUT', type: 'string'},
-        'caliper-workspace'  : {describe:'Workspace directory that contains all configuration information', type: 'string'}
+        'caliper-bind-sut' : {describe: 'The name of the platform to bind to', type: 'string' },
+        'caliper-bind-sdk'  : {describe: 'Version of the platform SDK to bind to', type: 'string'},
+        'caliper-bind-cwd'  : {describe: 'The working directory for performing the SDK install', type: 'string'},
+        'caliper-bind-args'  : {describe: 'Additional arguments to pass to "npm install". Use the "=" notation when setting this parameter', type: 'string'}
     });
-    yargs.usage('caliper benchmark run --caliper-workspace ~/myCaliperProject --caliper-benchconfig my-app-test-config.yaml --caliper-networkconfig my-sut-config.yaml');
+    yargs.usage('Usage:\n  caliper bind --caliper-bind-sut fabric --caliper-bind-sdk 1.4.1 --caliper-bind-cwd ./ --caliper-bind-args="-g"');
 
     // enforce the option after these options
-    yargs.requiresArg(['caliper-benchconfig','caliper-networkconfig','caliper-workspace']);
+    yargs.requiresArg(['caliper-bind-sut','caliper-bind-sdk','caliper-bind-args', 'caliper-bind-cwd']);
 
     // enforce singletons
     yargs.check(checkFn);
@@ -49,5 +50,5 @@ module.exports.builder = function (yargs){
 };
 
 module.exports.handler = (argv) => {
-    return argv.thePromise = RunBenchmark.handler(argv);
+    return argv.thePromise = Bind.handler(argv);
 };

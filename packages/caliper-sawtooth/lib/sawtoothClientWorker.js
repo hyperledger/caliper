@@ -14,7 +14,7 @@
 
 'use strict';
 
-const {CaliperLocalClient, CaliperUtils} = require('caliper-core');
+const {CaliperLocalClient, CaliperUtils} = require('@hyperledger/caliper-core');
 const SawtoothClient = require('./sawtooth');
 
 let caliperClient;

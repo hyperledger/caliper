@@ -14,9 +14,9 @@
 
 'use strict';
 
-const CaliperUtils = require('caliper-core').CaliperUtils;
+const CaliperUtils = require('@hyperledger/caliper-core').CaliperUtils;
 const logger = CaliperUtils.getLogger('SmallBankBatchBuilder.js');
-const BatchBuilder = require('caliper-sawtooth').BatchBuilder;
+const BatchBuilder = require('@hyperledger/caliper-sawtooth').BatchBuilder;
 const protosPath = '../src/contract/sawtooth/smallbank/protos/smallbank.proto';
 
 /**

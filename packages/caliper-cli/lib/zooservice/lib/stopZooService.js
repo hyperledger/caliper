@@ -14,7 +14,7 @@
 
 'use strict';
 
-const {ConfigUtil} = require('caliper-core');
+const {ConfigUtil} = require('@hyperledger/caliper-core');
 const childProcess = require('child_process');
 const exec = childProcess.exec;
 

@@ -24,7 +24,7 @@ const QueryService_v1Client = IrohaService_v1Client.QueryService_v1Client;
 
 const generateKeypair = require('iroha-helpers/lib/cryptoHelper.js').default;
 
-const {BlockchainInterface, CaliperUtils, TxStatus} = require('caliper-core');
+const {BlockchainInterface, CaliperUtils, TxStatus} = require('@hyperledger/caliper-core');
 const logger = CaliperUtils.getLogger('iroha.js');
 
 const irohaQueries = require('iroha-helpers/lib/queries').default;

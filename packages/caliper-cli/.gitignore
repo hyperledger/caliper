@@ -1,8 +1,7 @@
 *.bak
 
-# Ignore any generated html files, but include the report html template
+# Ignore any generated html files
 *.html
-!/packages/caliper-core/lib/report/template/report.html
 
 # Ignore DS_Store files from Mac
 **.DS_Store

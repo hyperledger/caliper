@@ -14,7 +14,7 @@
 
 'use strict';
 
-const CaliperUtils = require('caliper-core').CaliperUtils;
+const CaliperUtils = require('@hyperledger/caliper-core').CaliperUtils;
 
 /**
  * @abstract class has static method getBatchBuilder()
