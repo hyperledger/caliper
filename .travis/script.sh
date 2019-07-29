@@ -20,7 +20,7 @@ set -o pipefail
 # Bootstrap the project
 npm run bootstrap
 
-# Run linting and unit tests
+# Run linting, license check and unit tests
 npm test
 
 echo "---- Publishing packages locally"

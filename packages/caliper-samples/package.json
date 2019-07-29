@@ -6,6 +6,8 @@
     "url": "https://github.com/hyperledger/caliper"
   },
   "scripts": {
+    "pretest": "npm run licchk",
+    "licchk": "license-check-and-add",
     "test": "exit 0"
   },
   "engineStrict": true,
@@ -13,9 +15,75 @@
     "node": ">=8.10.0",
     "npm": ">=5.6.0"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "license-check-and-add": "2.3.6"
+  },
+  "license-check-and-add-config": {
+    "folder": ".",
+    "license": "../../LICENSE.txt",
+    "exact_paths_method": "EXCLUDE",
+    "exact_paths": [
+      "node_modules",
+      ".nyc_output",
+      "coverage",
+      "benchmark/smallbank/.Rhistory",
+      "network/burrow/simple/chain/keys/names",
+      "network/sawtooth/simplenetwork/Dockerfile",
+      "network/fabric-v1.0/config/.gitignore",
+      "network/fabric-v1.1/config/.gitignore",
+      "network/fabric-v1.2/config/.gitignore",
+      "network/fabric-v1.3/config/.gitignore",
+      "network/fabric-v1.4/config/.gitignore",
+      "network/fabric-v1.4/kafka/config/.gitignore",
+      "network/fabric-v1.4.1/config/.gitignore",
+      "network/fabric-v1.4.1/raft/config/.gitignore",
+      "src/contract/sawtooth/simple/simple_python/simple-tp-python",
+      "src/contract/sawtooth/simple/simple_python/packaging/systemd/sawtooth-simple-tp-python",
+      "src/contract/sawtooth/docker/sawtooth-int-simple-tp-python"
+    ],
+    "file_type_method": "EXCLUDE",
+    "file_types": [
+      ".yml",
+      ".log",
+      ".acl",
+      ".md",
+      ".toml",
+      ".sample",
+      ".service",
+      ".priv",
+      ".pub",
+      ".pem",
+      ".html",
+      ".bin",
+      ".crt",
+      ".key",
+      ".tx",
+      ".block",
+      ".sh",
+      ".qry",
+      ".list",
+      ".sol",
+      ".proto",
+      ".cfg"
+    ],
+    "insert_license": false,
+    "license_formats": {
+      "js|cto|go": {
+        "prepend": "/*",
+        "append": "*/",
+        "eachLine": {
+          "prepend": "* "
+        }
+      },
+      "editorconfig|yaml": {
+        "prepend": "#",
+        "append": "#",
+        "eachLine": {
+          "prepend": "# "
+        }
+      }
+    }
   },
   "license": "Apache-2.0",
   "licenses": [

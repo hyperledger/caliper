@@ -23,7 +23,7 @@ let Sleep = require('../utils/caliper-utils').sleep;
  * The TPS rate must be specified within the options for the controller type:
  * "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 10}}]
  *
- */
+*/
 class FixedRate extends RateInterface {
 
     /**

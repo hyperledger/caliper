@@ -10,7 +10,9 @@
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
 * limitations under the License.
-*
+*/
+
+/*
 *  Query of Asset
 *  Queries for a specific Asset using a pre-defined query, built from vehicle-lifecycle-network
 *  - Example test round (txn <= testAssets)
