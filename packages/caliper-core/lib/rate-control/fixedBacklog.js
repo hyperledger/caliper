@@ -74,7 +74,7 @@ class FixedBacklog extends RateInterface {
         const error = unfinished - this.unfinished_per_client;
 
         // Sleep for a count of the load error and the current average delay
-        Logger.info('Backlog error: ' + error);
+        Logger.debug('Backlog error: ' + error);
         await Sleep(error * avDelay);
     }
 
