@@ -19,7 +19,7 @@ const Stop = require ('./lib/stopZooService');
 // enforces singletons
 const checkFn = (argv, options) => {
 
-    ['config'].forEach((e)=>{
+    ['caliper-zooconfig'].forEach((e)=>{
         if (Array.isArray(argv[e])){
             throw new Error(`Option ${e} can only be specified once`);
         }
@@ -32,9 +32,9 @@ module.exports.command = 'stop';
 module.exports.describe = 'Stop a zookeeper service';
 module.exports.builder = function (yargs){
     yargs.options({
-        'config' : {alias: 'c', required: false, describe: 'Path to a zookeeper service yaml file.', type: 'string' }
+        'caliper-zooconfig' : {required: false, describe: 'Path to a zookeeper service yaml file.', type: 'string' }
     });
-    yargs.usage('caliper zooservice stop -c ./my-zoo-service.yaml');
+    yargs.usage('caliper zooservice stop --caliper-zooconfig ./my-zoo-service.yaml');
 
     // enforce singletons
     yargs.check(checkFn);

@@ -19,7 +19,7 @@ const Start = require ('./lib/startZooClient');
 // enforces singletons
 const checkFn = (argv, options) => {
 
-    ['address','blockchainConfig','workspace'].forEach((e)=>{
+    ['caliper-zooaddress','caliper-networkconfig','caliper-workspace'].forEach((e)=>{
         if (Array.isArray(argv[e])){
             throw new Error(`Option ${e} can only be specified once`);
         }
@@ -32,14 +32,14 @@ module.exports.command = 'start';
 module.exports.describe = 'Start a zookeeper client on a provided host:port using provided blockchain configuration and a workspace location';
 module.exports.builder = function (yargs){
     yargs.options({
-        'address' : {alias: 'a', required: true, describe: 'zookeeper address', type: 'string' },
-        'blockchainConfig'  : {alias: 'n', required: true, describe:'Path to the blockchain configuration file that contains information required to interact with the SUT', type: 'string'},
-        'workspace'  : {alias: 'w', required: true, describe:'Workspace directory that contains all configuration information', type: 'string'}
+        'caliper-zooaddress' : {required: true, describe: 'zookeeper address', type: 'string' },
+        'caliper-networkconfig'  : {required: true, describe:'Path to the blockchain configuration file that contains information required to interact with the SUT', type: 'string'},
+        'caliper-workspace'  : {required: true, describe:'Workspace directory that contains all configuration information', type: 'string'}
     });
-    yargs.usage('caliper zooclient start -w ~/myCaliperProject -a <host-address>:<port>  -n my-sut-config.yaml');
+    yargs.usage('caliper zooclient start --caliper-workspace ~/myCaliperProject --caliper-zooaddress <host-address>:<port>  --caliper-networkconfig my-sut-config.yaml');
 
     // enforce the option after these options
-    yargs.requiresArg(['address','blockchainConfig','workspace']);
+    yargs.requiresArg(['caliper-zooaddress','caliper-networkconfig','caliper-workspace']);
 
     // enforce singletons
     yargs.check(checkFn);

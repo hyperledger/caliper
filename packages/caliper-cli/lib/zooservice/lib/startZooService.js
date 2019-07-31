@@ -14,6 +14,7 @@
 
 'use strict';
 
+const {ConfigUtil} = require('caliper-core');
 const childProcess = require('child_process');
 const exec = childProcess.exec;
 
@@ -31,7 +32,7 @@ class StartZooService {
     */
     static async handler(argv) {
         let cmd = 'docker-compose -f ';
-        if (argv.config){
+        if (ConfigUtil.get(ConfigUtil.keys.ZooConfig, undefined)){
             cmd += argv.config + ' up';
         } else {
             cmdUtil.log(chalk.blue.bold('Using default configuration file'));

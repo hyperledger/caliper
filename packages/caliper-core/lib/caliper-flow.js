@@ -53,8 +53,8 @@ module.exports.run = async function(absConfigFile, absNetworkFile, admin, client
     let configObject = CaliperUtils.parseYaml(absConfigFile);
     let networkObject = CaliperUtils.parseYaml(absNetworkFile);
 
-    let skipStart = Config.get(Config.keys.CoreSkipStartScript, false);
-    let skipEnd = Config.get(Config.keys.CoreSkipEndScript, false);
+    let skipStart = Config.get(Config.keys.SkipStartScript, false);
+    let skipEnd = Config.get(Config.keys.SkipEndScript, false);
 
     try {
         if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('command') && networkObject.caliper.command.hasOwnProperty('start')) {

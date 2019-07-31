@@ -53,26 +53,39 @@ function get(name, defaultValue) {
 }
 
 const keys = {
-    CoreTxUpdateTime: 'caliper-core-txupdatetime',
-    CoreSkipStartScript: 'caliper-core-skipstartscript',
-    CoreSkipEndScript: 'caliper-core-skipendscript',
-    CoreLogging: 'caliper-core-logging',
-    FabricSleepAfterCreateChannel: 'caliper-fabricccp-sleepafter-createchannel',
-    FabricSleepAfterJoinChannel: 'caliper-fabricccp-sleepafter-joinchannel',
-    FabricSleepAfterInstantiateChaincode: 'caliper-fabricccp-sleepafter-instantiatechaincode',
-    FabricVerifyProposalResponse: 'caliper-fabricccp-verify-proposalresponse',
-    FabricVerifyReadWriteSets: 'caliper-fabricccp-verify-readwritesets',
-    FabricTimeoutChaincodeInstantiate: 'caliper-fabricccp-timeout-chaincodeinstantiate',
-    FabricTimeoutChaincodeInstantiateEvent: 'caliper-fabricccp-timeout-chaincodeinstantiateevent',
-    FabricTimeoutInvokeOrQuery: 'caliper-fabricccp-timeout-invokeorquery',
-    FabricLoadBalancing: 'caliper-fabricccp-loadbalancing',
-    FabricOverwriteGopath: 'caliper-fabricccp-overwritegopath',
-    FabricLatencyThreshold: 'caliper-fabricccp-latencythreshold',
-    FabricCountQueryAsLoad: 'caliper-fabricccp-countqueryasload',
-    FabricSkipCreateChannelPrefix: 'caliper-fabricccp-skipcreatechannel-',
-    FabricGateway: 'caliper-fabricccp-usegateway',
-    FabricGatewayLocalHost: 'caliper-fabricccp-gatewaylocalhost',
-    FabricDiscovery: 'caliper-fabricccp-discovery'
+    Workspace: 'caliper-workspace',
+    BenchConfig: 'caliper-benchconfig',
+    NetworkConfig: 'caliper-networkconfig',
+    ZooAddress: 'caliper-zooaddress',
+    ZooConfig: 'caliper-zooconfig',
+    TxUpdateTime: 'caliper-txupdatetime',
+    SkipStartScript: 'caliper-skipstartscript',
+    SkipEndScript: 'caliper-skipendscript',
+    Logging: 'caliper-logging',
+    Fabric: {
+        SleepAfter: {
+            CreateChannel: 'caliper-fabric-sleepafter-createchannel',
+            JoinChannel: 'caliper-fabric-sleepafter-joinchannel',
+            InstantiateChaincode: 'caliper-fabric-sleepafter-instantiatechaincode',
+        },
+        Verify: {
+            ProposalResponse: 'caliper-fabric-verify-proposalresponse',
+            ReadWriteSets: 'caliper-fabric-verify-readwritesets',
+        },
+        Timeout: {
+            ChaincodeInstantiate: 'caliper-fabric-timeout-chaincodeinstantiate',
+            ChaincodeInstantiateEvent: 'caliper-fabric-timeout-chaincodeinstantiateevent',
+            InvokeOrQuery: 'caliper-fabric-timeout-invokeorquery',
+        },
+        LoadBalancing: 'caliper-fabric-loadbalancing',
+        OverwriteGopath: 'caliper-fabric-overwritegopath',
+        LatencyThreshold: 'caliper-fabric-latencythreshold',
+        CountQueryAsLoad: 'caliper-fabric-countqueryasload',
+        SkipCreateChannelPrefix: 'caliper-fabric-skipcreatechannel-',
+        Gateway: 'caliper-fabric-usegateway',
+        GatewayLocalHost: 'caliper-fabric-gatewaylocalhost',
+        Discovery: 'caliper-fabric-discovery'
+    }
 };
 
 module.exports.get = get;
