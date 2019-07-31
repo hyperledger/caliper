@@ -26,7 +26,7 @@ Caliper is a blockchain performance benchmark framework, which allows users to t
 
 See [PSWG](https://wiki.hyperledger.org/groups/pswg/performance-and-scale-wg) to find out the definitions and corresponding measurement methods.  
 
-## Achitecture
+## Architecture
 See [Architecture Introduction]({{ site.baseurl }}{% link docs/2_Architecture.md %}).
 
 ## Pre-requisites
@@ -100,16 +100,16 @@ benchmark configuration and test files.
 Benchmarks may be run using the Caliper CLI command
 
 ```bash
-caliper benchmark run -w <path to workspace> -c <benchmark config> -n <blockchain config>
+caliper benchmark run --caliper-workspace <path to workspace> --caliper-benchconfig <benchmark config> --caliper-networkconfig <blockchain config>
 ```
-* -w : path to a workspace directory (required)
-* -c : relative path from the workspace to the benchmark configuration file (required).
-* -n : relative path from the workspace to the config file of the blockchain network under test (required).
+* --caliper-workspace : path to a workspace directory (required)
+* --caliper-benchconfig : relative path from the workspace to the benchmark configuration file (required).
+* --caliper-networkconfig : relative path from the workspace to the config file of the blockchain network under test (required).
 
 Assuming you are in the root caliper directory, the following command will run a test using the material from a Caliper sample:
 
 ```bash
-caliper benchmark run -w ./packages/caliper-samples -c benchmark/simple/config.yaml -n network/fabric-v1.4/2org1peercouchdb/fabric-node.yaml
+caliper benchmark run --caliper-workspace ./packages/caliper-samples --caliper-benchconfig benchmark/simple/config.yaml --caliper-networkconfig network/fabric-v1.4/2org1peercouchdb/fabric-node.yaml
 ```
 
 The files present in the `caliper-samples` directory may be modified or added to, in order to perform the desired benchmark. Before adding a benchmark, please inspect the example benchmark content and structure; you will need to add your own configuration files for the blockchain system under test, the benchmark configuration, smart contracts, and test files (callbacks) that interact with the deployed smart contract.
