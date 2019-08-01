@@ -159,7 +159,7 @@ class Composer extends BlockchainInterface {
             .catch((err) => {
                 invoke_status.SetStatusFail();
                 invoke_status.result = [];
-
+                logger.error('submitTransaction failed with error: ', err);
                 return Promise.resolve(invoke_status);
             });
     }
