@@ -16,6 +16,14 @@ Caliper is a blockchain performance benchmark framework, which allows users to t
 * [Hyperledger Iroha](https://github.com/hyperledger/iroha)
 * [Hyperledger Sawtooth](https://github.com/hyperledger/sawtooth-core)
 
+Steps for configuring a benchmark that targets a supported blockchain technology are given in the following pages:
+
+- [Burrow]({{ site.baseurl }}{% link docs/Burrow_Configuration.md %})
+- [Composer]({{ site.baseurl }}{% link docs/Composer_Configuration.md %})
+- [Fabric]({{ site.baseurl }}{% link docs/Fabric_Configuration.md %})
+- [Iroha]({{ site.baseurl }}{% link docs/Iroha_Configuration.md %})
+- [Sawtooth]({{ site.baseurl }}{% link docs/Sawtooth_Configuration.md %})
+
 <br>
 
 **Currently supported performance indicators:**
@@ -27,94 +35,12 @@ Caliper is a blockchain performance benchmark framework, which allows users to t
 See [PSWG](https://wiki.hyperledger.org/groups/pswg/performance-and-scale-wg) to find out the definitions and corresponding measurement methods.  
 
 ## Architecture
-See [Architecture Introduction]({{ site.baseurl }}{% link docs/2_Architecture.md %}).
+See the [Architecture Introduction]({{ site.baseurl }}{% link docs/2_Architecture.md %}) page.
 
-## Pre-requisites
+## Installing Caliper
+See the [Installing and Running Caliper]({{ site.baseurl }}{% link docs/Installing_Caliper.md %}) page.
 
-Make sure following tools are installed
-* NodeJS 8 (LTS), 9, or 10 (LTS) *we do not support higher versions as the dependancy chain does not permit this*
-* node-gyp
-* Docker
-* Docker-compose
-
-### Building Caliper
-
-Caliper is split into packages that are managed by Lerna, a tool for managing JavaScript projects with multiple packages. To build Caliper, it is necessary to first pull the required base dependancies, and then bootstrap the Caliper project. Note that if you modify any base code, it is necessary to rebuild the project
-
-- Run `npm install` in Caliper root folder to install base dependencies locally
-- Run `npm run repoclean` in Caliper root folder to ensure that all the packages are clean
-- Run `npm run bootstrap` to bootstrap the packages in the Caliper repository. This will install all package dependancies and link any cross dependancies. It will take some time to finish installation. If it is interrupted by `ctrl+c`, please recover the file `package.json` first and then run `npm run bootstrap` again.
-
-Do not run any of the above commands with `sudo`, as it will cause the bootstrap process to fail
-
-Steps for configuring a benchmark that targets a supported blockchain technology are given in the following links:
-
-- [Burrow]({{ site.baseurl }}{% link docs/Burrow_Configuration.md %})
-- [Composer]({{ site.baseurl }}{% link docs/Composer_Configuration.md %})
-- [Fabric]({{ site.baseurl }}{% link docs/Fabric_Configuration.md %})
-- [Iroha]({{ site.baseurl }}{% link docs/Iroha_Configuration.md %})
-- [Sawtooth]({{ site.baseurl }}{% link docs/Sawtooth_Configuration.md %})
-
-## Running a Benchmark
-
-Benchmarks may be run using the Caliper command line interface. We are preparing to publish Caliper packages to npm, though our build process includes an integration test that publishes all Caliper modules to a proxy npm server, and then globally installs the CLI package from this server. We advise using the Caliper test utility to obtain the Caliper CLI.
-
-### Install the Caliper CLI
-
-We have not yet published Caliper to npm, however the Caliper CLI may be obtained via our test scripts located in `<CaliperRoot>/packages/caliper-tests-integration`.
-
-Steps:
- 1. If you have not already built the Caliper project, outlined in the section above, please do so.
- 2. Follow the described steps in the [integration package readme](https://github.com/hyperledger/caliper/blob/master/packages/caliper-tests-integration/README.md).
-
-The current Caliper packages are set to support the following adaptor client libraries:
- - Burrow: @monax/burrow@0.23.0
- - Composer: composer@0.20.8
- - Fabric: fabric-client@1.4.0
- - Iroha: iroha-helpers@0.6.3
- - Sawtooth: sawtooth-sdk@1.0.5
-
-If you need to run a benchmark using an adaptor with an alternative client dependancy to the above, it will be necessary to modify the respective package.json file and then rebuild the Caliper project prior to publishing and installing it again locally. A known compatibility list is provided below.
- 
-#### Compatibility List:
- 
- | DLT | Client Compatibility |
- | :-- | :------------------ |
- |Fabric v1.0 | grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0 |
- |Fabric v1.1 | grpc@1.10.1 fabric-ca-client@1.1.0 fabric-client@1.1.0 |
- |Fabric v1.2 | fabric-ca-client@1.4.0 fabric-client@1.4.0 fabric-network@1.4.0 |
- |Fabric v1.3 | fabric-ca-client@1.4.0 fabric-client@1.4.0 fabric-network@1.4.0 |
- |Fabric v1.4 | fabric-ca-client@1.4.0 fabric-client@1.4.0 fabric-network@1.4.0 |
-
-
-For instance, if you wish to test Hyperledger Fabric v1.1, it will be necessary to modify the `caliper-fabric` adaptor to use `grpc@1.10.1, fabric-ca-client@1.1.0, fabric-client@1.1.0`.
-
-> Note:
-> When the Caliper packages are published to npm, we will be publishing versions for the above compatibility requirements and will update the compatibility table with published Caliper versions that you will be able to obtain using `npm install -g caliper-<package>@<version>`
-
-### Run a Sample Benchmark 
-
-All predefined benchmarks can be found in the [*benchmark*](https://github.com/hyperledger/caliper/tree/master/packages/caliper-samples/benchmark/) folder. The Caliper CLI has the notion of a workspace, which contains your 
-benchmark configuration and test files.
-
-Benchmarks may be run using the Caliper CLI command
-
-```bash
-caliper benchmark run --caliper-workspace <path to workspace> --caliper-benchconfig <benchmark config> --caliper-networkconfig <blockchain config>
-```
-* --caliper-workspace : path to a workspace directory (required)
-* --caliper-benchconfig : relative path from the workspace to the benchmark configuration file (required).
-* --caliper-networkconfig : relative path from the workspace to the config file of the blockchain network under test (required).
-
-Assuming you are in the root caliper directory, the following command will run a test using the material from a Caliper sample:
-
-```bash
-caliper benchmark run --caliper-workspace ./packages/caliper-samples --caliper-benchconfig benchmark/simple/config.yaml --caliper-networkconfig network/fabric-v1.4/2org1peercouchdb/fabric-node.yaml
-```
-
-The files present in the `caliper-samples` directory may be modified or added to, in order to perform the desired benchmark. Before adding a benchmark, please inspect the example benchmark content and structure; you will need to add your own configuration files for the blockchain system under test, the benchmark configuration, smart contracts, and test files (callbacks) that interact with the deployed smart contract.
-
-#### Caliper Flow Control
+## Caliper Flow Control
 
 The default Caliper lifecycle is:
 - Start SUT (using a `start` command in the network configuration file)
