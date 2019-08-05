@@ -22,7 +22,7 @@ The adapter exposes many SDK features directly to the user callback modules, mak
 > * support of PSWG blockchain metrics (e.g., latency @ network threshold)
 
 The page covers the following aspects of using the Fabric CCP adapter:
-* how to [install the required dependencies](#installing-the-required-dependencies);
+* how to [install the required dependencies](#using-alternative-fabric-versions);
 * how to [assemble a connection profile file](#assembling-the-network-configuration-file), a.k.a., the blockchain network configuration file;
 * how to [configure some runtime options](#configuring-the-adapter) of the adapter;
 * how to [use the adapter interface](#using-the-adapter-interface) from the user callback module;
