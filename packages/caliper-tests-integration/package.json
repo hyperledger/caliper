@@ -9,6 +9,7 @@
     "install_cli": "./scripts/install-packages.sh",
     "e2e_install": "npm run cleanup && npm run start_verdaccio && npm run publish_packages && npm run install_cli && npm run cleanup",
     "run_tests": "./scripts/run-tests.sh",
+    "run_tests_direct": "./scripts/run-tests-direct.sh",
     "stop_verdaccio": "PM2_HOME=.pm2 pm2 stop verdaccio || true",
     "pretest": "npm run licchk",
     "licchk": "license-check-and-add",
