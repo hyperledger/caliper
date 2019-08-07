@@ -40,6 +40,6 @@ results.thePromise.then( () => {
     }
     process.exit(0);
 }).catch((error) => {
-    cmdUtil.log(error+chalk.red('\nCommand failed\n'));
+    cmdUtil.log(error.stack+chalk.red('\nCommand failed\n'));
     process.exit(1);
 });

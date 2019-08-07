@@ -1,0 +1,57 @@
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+---
+test:
+  name: Solidity Transfer
+  description: This is a solidity transfer benchmark of FISCO BCOS for caliper
+  clients:
+    type: local
+    number: 4
+  rounds:
+  - label: addUser
+    description: generate users for transfer test later
+    txNumber:
+    - 1000
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 1000
+    callback: benchmark/fisco-bcos/transfer/solidity/addUser.js
+  - label: transfer
+    description: transfer money between users
+    txNumber:
+    - 10000
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 1000
+    arguments:
+      txnPerBatch: 10
+    callback: benchmark/fisco-bcos/transfer/solidity/transfer.js
+monitor:
+  type:
+  - docker
+  - process
+  docker:
+    name:
+    - node0
+    - node1
+    - node2
+    - node3
+  process:
+    - command: node
+      arguments: fiscoBcosClientWorker.js
+      multiOutput: avg
+  interval: 0.2

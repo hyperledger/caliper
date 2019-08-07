@@ -7,6 +7,7 @@ Currently supported blockchain solutions:
 * [sawtooth 1.0+](https://github.com/hyperledger/sawtooth-core)
 * [Iroha 1.0 beta-3](https://github.com/hyperledger/iroha)
 * [Burrow 1.0](https://github.com/hyperledger/burrow)
+* [FISCO BCOS v2.0.0](https://github.com/FISCO-BCOS/FISCO-BCOS)
 
 [Hyperledger Composer](https://github.com/hyperledger/composer) is also supported.
 

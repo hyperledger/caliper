@@ -39,6 +39,7 @@ Each `caliper-<adapter>` is a separate package that contains a distinct adaptor 
 - caliper-fabric
 - caliper-iroha
 - caliper-sawtooth
+- caliper-fisco-bcos
 
 Each adaptor implements the `BlockchainInterface` from the core package, as well as a `ClientFactory` and `ClientWorker` that are bespoke to the adaptor.
 
