@@ -1,6 +1,6 @@
 .idea/*
 *.bak
-node_modules/*
+node_modules/
 package-lock.json
 output.log
 log/
@@ -8,6 +8,18 @@ log/
 
 # Ignore DS_Store files from Mac
 **.DS_Store
+
+# Ignore code coverage logs
+coverage/
+
+# Ignore IDE files
+.vscode/
+
+# pm2 files
+**/.pm2/
+
+# Ignore any generted html files
+*.html
 
 # We prefer to not use lock files
 package-lock.json
