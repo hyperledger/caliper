@@ -172,7 +172,7 @@ class Report {
             let sT = r.sTTotal / r.length;
             logger.debug('sendTransactionProposal: ' + sTP + 'ms length: ' + r.length);
             logger.debug('sendTransaction: ' + sT + 'ms');
-            logger.debug('invokeLantency: ' + r.invokeTotal / r.length + 'ms');
+            logger.debug('invokeLatency: ' + r.invokeTotal / r.length + 'ms');
             if(this.resultsbyround.length === 0) {
                 this.resultsbyround.push(resultTable[0].slice(0));
             }
