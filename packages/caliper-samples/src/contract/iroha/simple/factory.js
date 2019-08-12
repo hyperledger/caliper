@@ -15,9 +15,6 @@
 
 'use strict';
 
-const CaliperUtils = require('caliper-core').CaliperUtils;
-const logger = CaliperUtils.getLogger('factory.js');
-
 // TODO: two or more commands
 const open = function(context, args) {
 
@@ -49,7 +46,7 @@ const simple = function(context, args) {
         }
     }
     catch(err){
-        logger.error(err);
+        console.error(err);
         return {};
     }
 };

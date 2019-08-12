@@ -387,7 +387,7 @@ class Iroha extends BlockchainInterface {
             this.grpcQueryClient = new QueryService_v1Client(context.torii, grpc.credentials.createInsecure());
             return Promise.resolve(context);
         }catch(err) {
-            logger.error(err);
+            logger.error(`Error within getContext: ${err.stack ? err.stack : err}`);
             return Promise.reject(new Error('Failed when finding access point or user key'));
         }
     }
