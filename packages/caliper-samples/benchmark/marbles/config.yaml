@@ -13,6 +13,11 @@
 #
 
 ---
+flow:
+    skipStart: true
+    skipInit: true
+    skipInstall: true
+    skipEnd: true
 test:
   clients:
     type: local

@@ -57,21 +57,36 @@ module.exports.run = async function(absConfigFile, absNetworkFile, admin, client
     let skipEnd = Config.get(Config.keys.SkipEndScript, false);
 
     try {
-        if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('command') && networkObject.caliper.command.hasOwnProperty('start')) {
-            if (!networkObject.caliper.command.start.trim()) {
-                throw new Error('Start command is specified but it is empty');
-            }
-            if(!skipStart){
-                const cmd = 'cd ' + workspace + ';' + networkObject.caliper.command.start;
-                await CaliperUtils.execAsync(cmd);
+
+        // Conditional running of 'start' commands
+        if (skipStart || (configObject.flow && configObject.flow.skipStart))  {
+            logger.info('Skipping start commands due to passed flag');
+        } else {
+            if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('command') && networkObject.caliper.command.hasOwnProperty('start')) {
+                if (!networkObject.caliper.command.start.trim()) {
+                    throw new Error('Start command is specified but it is empty');
+                } else {
+                    const cmd = 'cd ' + workspace + ';' + networkObject.caliper.command.start;
+                    await CaliperUtils.execAsync(cmd);
+                }
             }
         }
 
-        await adminClient.init();
-        await adminClient.installSmartContract();
-        let numberOfClients = await clientOrchestrator.init();
-        let clientArgs = await adminClient.prepareClients(numberOfClients);
+        // Conditional network initialisation
+        if (configObject.flow && configObject.flow.skipInit) {
+            logger.info('Skipping network initialisation due to test config flag');
+        } else {
+            await adminClient.init();
+        }
 
+        // Conditional smart contract installation
+        if (configObject.flow && configObject.flow.skipInstall) {
+            logger.info('Skipping smart contract installation due to test config flag');
+        } else {
+            await adminClient.installSmartContract();
+        }
+
+        // Start the monitors
         try {
             await monitor.start();
             logger.info('Started monitor successfully');
@@ -80,6 +95,8 @@ module.exports.run = async function(absConfigFile, absNetworkFile, admin, client
         }
 
         let testIdx = 0;
+        let numberOfClients = await clientOrchestrator.init();
+        let clientArgs = await adminClient.prepareClients(numberOfClients);
 
         const tester = new Test(clientArgs, absNetworkFile, clientOrchestrator, clientFactory, workspace, report, demo, monitor);
         const allTests = configObject.test.rounds;
@@ -107,11 +124,14 @@ module.exports.run = async function(absConfigFile, absNetworkFile, admin, client
     } finally {
         demo.stopWatch();
 
-        if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('command') && networkObject.caliper.command.hasOwnProperty('end')) {
-            if (!networkObject.caliper.command.end.trim()) {
-                logger.error('End command is specified but it is empty');
-            } else {
-                if(!skipEnd){
+        // Conditional running of 'end' commands
+        if (skipEnd || (configObject.flow && configObject.flow.skipEnd)) {
+            logger.info('Skipping end commands due to passed flag');
+        } else {
+            if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('command') && networkObject.caliper.command.hasOwnProperty('end')) {
+                if (!networkObject.caliper.command.end.trim()) {
+                    logger.error('End command is specified but it is empty');
+                } else {
                     const cmd = 'cd ' + workspace + ';' + networkObject.caliper.command.end;
                     await CaliperUtils.execAsync(cmd);
                 }
