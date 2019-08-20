@@ -154,6 +154,8 @@ class FabricNetwork {
 
         this.mutualTls = CaliperUtils.checkProperty(this.network, 'mutual-tls') ? this.network['mutual-tls'] : false;
 
+        this.fileWalletPath = CaliperUtils.checkProperty(this.network, 'wallet') ? this.network.wallet : false;
+
         // ===========
         // = CLIENTS =
         // ===========
@@ -174,42 +176,46 @@ class FabricNetwork {
             clientObject = this.network.clients[client].client;
             clientObjectName = `network.clients.${client}.client`;
 
-            CaliperUtils.assertAllProperties(clientObject, clientObjectName, 'organization', 'credentialStore');
-            CaliperUtils.assertAllProperties(clientObject.credentialStore, `${clientObjectName}.credentialStore`, 'path', 'cryptoStore');
-            CaliperUtils.assertProperty(clientObject.credentialStore.cryptoStore, `${clientObjectName}.credentialStore.cryptoStore`, 'path');
+            CaliperUtils.assertProperty(clientObject, clientObjectName, 'organization');
 
-            // normalize paths
-            clientObject.credentialStore.path = CaliperUtils.resolvePath(clientObject.credentialStore.path, this.workspaceRoot);
-            clientObject.credentialStore.cryptoStore.path = CaliperUtils.resolvePath(clientObject.credentialStore.cryptoStore.path, this.workspaceRoot);
+            // Will be using either a wallet with existing identities, or keys/certs for the creation of new identities
+            if (!this.fileWalletPath) {
+                CaliperUtils.assertProperty(clientObject, clientObjectName, 'credentialStore');
+                CaliperUtils.assertAllProperties(clientObject.credentialStore, `${clientObjectName}.credentialStore`, 'path', 'cryptoStore');
+                CaliperUtils.assertProperty(clientObject.credentialStore.cryptoStore, `${clientObjectName}.credentialStore.cryptoStore`, 'path');
 
-            // user identity can be provided in multiple ways
-            // if there is any crypto content info, every crypto content info is needed
-            if (CaliperUtils.checkAnyProperty(clientObject, 'clientPrivateKey', 'clientSignedCert')) {
-                CaliperUtils.assertAllProperties(clientObject, clientObjectName, 'clientPrivateKey', 'clientSignedCert');
+                // normalize paths
+                clientObject.credentialStore.path = CaliperUtils.resolvePath(clientObject.credentialStore.path, this.workspaceRoot);
+                clientObject.credentialStore.cryptoStore.path = CaliperUtils.resolvePath(clientObject.credentialStore.cryptoStore.path, this.workspaceRoot);
 
-                // either file path or pem content is needed
-                CaliperUtils.assertAnyProperty(clientObject.clientPrivateKey, `${clientObjectName}.clientPrivateKey`, 'path', 'pem');
-                CaliperUtils.assertAnyProperty(clientObject.clientSignedCert, `${clientObjectName}.clientSignedCert`, 'path', 'pem');
+                // user identity can be provided in multiple ways
+                // if there is any crypto content info, every crypto content info is needed
+                if (CaliperUtils.checkAnyProperty(clientObject, 'clientPrivateKey', 'clientSignedCert')) {
+                    CaliperUtils.assertAllProperties(clientObject, clientObjectName, 'clientPrivateKey', 'clientSignedCert');
 
-                // normalize the paths if provided
-                if (CaliperUtils.checkProperty(clientObject.clientPrivateKey, 'path')) {
-                    clientObject.clientPrivateKey.path = CaliperUtils.resolvePath(clientObject.clientPrivateKey.path, this.workspaceRoot);
+                    // either file path or pem content is needed
+                    CaliperUtils.assertAnyProperty(clientObject.clientPrivateKey, `${clientObjectName}.clientPrivateKey`, 'path', 'pem');
+                    CaliperUtils.assertAnyProperty(clientObject.clientSignedCert, `${clientObjectName}.clientSignedCert`, 'path', 'pem');
+
+                    // normalize the paths if provided
+                    if (CaliperUtils.checkProperty(clientObject.clientPrivateKey, 'path')) {
+                        clientObject.clientPrivateKey.path = CaliperUtils.resolvePath(clientObject.clientPrivateKey.path, this.workspaceRoot);
+                    }
+
+                    if (CaliperUtils.checkProperty(clientObject.clientSignedCert, 'path')) {
+                        clientObject.clientSignedCert.path = CaliperUtils.resolvePath(clientObject.clientSignedCert.path, this.workspaceRoot);
+                    }
+                } else if (CaliperUtils.checkProperty(clientObject, 'enrollSecret')) {
+                    // otherwise, enrollment info can also be specified and the CA will be needed
+                    // TODO: currently only one CA is supported
+                    requiredCas.add(this.getOrganizationOfClient(client));
+                } else {
+                    // if no crypto material or enrollment info is provided, then registration and CA info is needed
+                    CaliperUtils.assertProperty(clientObject, clientObjectName, 'affiliation');
+                    // TODO: currently only one CA is supported
+                    requiredCas.add(this.getOrganizationOfClient(client));
                 }
-
-                if (CaliperUtils.checkProperty(clientObject.clientSignedCert, 'path')) {
-                    clientObject.clientSignedCert.path = CaliperUtils.resolvePath(clientObject.clientSignedCert.path, this.workspaceRoot);
-                }
-            } else if (CaliperUtils.checkProperty(clientObject, 'enrollSecret')) {
-                // otherwise, enrollment info can also be specified and the CA will be needed
-                // TODO: currently only one CA is supported
-                requiredCas.add(this.getOrganizationOfClient(client));
-            } else {
-                // if no crypto material or enrollment info is provided, then registration and CA info is needed
-                CaliperUtils.assertProperty(clientObject, clientObjectName, 'affiliation');
-                // TODO: currently only one CA is supported
-                requiredCas.add(this.getOrganizationOfClient(client));
             }
-
         }
 
         // ============
@@ -1250,6 +1256,16 @@ class FabricNetwork {
         }
 
         return map;
+    }
+
+
+    /**
+     * Return the name of the first client in the named organisation
+     * @param {string} org the organisation name
+     * @returns {string} the client name
+     */
+    getFirstClientInOrg(org) {
+        return this.getClientsOfOrganization(org)[0];
     }
 
     /**
