@@ -114,6 +114,20 @@ caliper benchmark run --caliper-workspace ./packages/caliper-samples --caliper-b
 
 The files present in the `caliper-samples` directory may be modified or added to, in order to perform the desired benchmark. Before adding a benchmark, please inspect the example benchmark content and structure; you will need to add your own configuration files for the blockchain system under test, the benchmark configuration, smart contracts, and test files (callbacks) that interact with the deployed smart contract.
 
+#### Caliper Flow Control
+
+In some cases it is desirable to run a subset of Caliper capabilities. It is possible to use command line flags to run only a single phase of the caliper lifecycle. These flags are:
+- `start-only` only run the start command within the network configuration file
+- `init-only` only run the blockchain init() function that is used to configure an existing blockchain network
+- `install-ony` only install the listed smart contracts listed in the network configuration file
+- `test-only` only run the benchmark test
+- `end-only` only run the end command within the network configuration file
+Only one flag is permitted to be supplied at a time, for instance, given that a blockchain network has been created, configured and has smart contracts installed, to run the benchmark test, the following command would be used:
+
+```bash
+caliper benchmark run --caliper-workspace ./packages/caliper-samples --caliper-benchconfig benchmark/simple/config.yaml --caliper-networkconfig network/fabric-v1.4/2org1peercouchdb/fabric-node.yaml --test-only
+```
+
 
 ## Run Benchmark with Distributed Clients (Experimental)
 
