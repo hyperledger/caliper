@@ -25,10 +25,6 @@ caliper:
     zooconfig:
     # Sets the frequency of the progress reports in milliseconds
     txupdatetime: 1000
-    # Indicates whether to skip the start command script in the network configuration file, if provided
-    skipstartscript: false
-    # Indicates whether to skip the end command script in the network configuration file, if provided
-    skipendscript: false
     # Configurations related to the logging mechanism
     logging:
         # Defines a console target with info level
@@ -43,6 +39,33 @@ caliper:
             datePattern: YYYY-MM-DD-HH
             maxSize: 5m
             zippedArchive: true
+
+    # Caliper flow options
+    flow:
+        # Skip options
+        skip:
+            # Indicates whether to skip the start command script in the network configuration file, if provided
+            start: false
+            # Indicates whether to skip the init phase of the benchmark
+            init: false
+            # Indicates whether to skip the smart contract install phase of the benchmark
+            install: false
+            # Indicates whether to skip the test phase of the benchmark
+            test: false
+            # Indicates whether to skip the end command script in the network configuration file, if provided
+            end: false
+        # Only options
+        only:
+            # Indicates whether to only perform the start command script in the network configuration file, if provided
+            start: false
+            # Indicates whether to only perform the init phase of the benchmark
+            init: false
+            # Indicates whether to only perform the smart contract install phase of the benchmark
+            install: false
+            # Indicates whether to only perform the test phase of the benchmark
+            test: false
+            # Indicates whether to only perform the end command script in the network configuration file, if provided
+            end: false
 
     # Configurations related to the Fabric CCP adapter
     fabric:
