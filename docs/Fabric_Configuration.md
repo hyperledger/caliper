@@ -50,6 +50,7 @@ The configuration file consists of the following top-level sections, that togeth
 * [Mutual TLS](#mutual-tls) configuration
 * [Information](#caliper) about the platform type for Caliper
 * [Network information](#network-information) to include in the generated report
+* [Wallet](#wallet-information) to enable use of a user-specified File Wallet
 * The [certificate authority](#certificate-authorities) (CA) nodes in the network
 * The [peer nodes](#peers) in the network
 * The [orderer nodes](#orderers) in the network
@@ -112,6 +113,14 @@ info:
   Orderer: Solo
   Distribution: Single Host
   StateDB: CouchDB
+```
+
+## Wallet Information
+
+An optional attribute that specifies the fully qualified path to an exported FileSystemWallet. If specified, all interactions will be based on the identities stored in the wallet, and any listed client keys within the client section *must* correspond to an existing identity within the wallet.
+
+```yaml
+wallet: /fully/quaified/path/to/myFileWallet
 ```
 
 ## Certificate Authorities
@@ -385,7 +394,7 @@ A channel can have the following properties:
 
 _Caliper-specific._
 
-The top-level `clients` section contains one or more arbitrary, but unique client names as keys, and each key has a corresponding object (sub-keys) that describes the properties of that client. These client names can be referenced from the user callback modules when submitting a transaction to set the identity of the invoker.
+The top-level `clients` section contains one or more unique client names as keys, and each key has a corresponding object (sub-keys) that describes the properties of that client. These client names can be referenced from the user callback modules when submitting a transaction to set the identity of the invoker.
 
 ```yaml
 clients:
@@ -407,6 +416,25 @@ clients:
       # properties of the client
 ```
 
+### With File System Wallet
+If using a file system wallet to specify identies, each client name *must* correspond to one of the identies within the provided wallet. If you wish to specify an `Admin Client` then the naming convention is that of `admin.<orgname>`. If no explicit admin client is provided for an organisation, it is assumed that the first listed client for that organisation is associated with an administrative identity.
+
+When a file system wallet is specified, the only required property for each client is the organisation name to which the client belongs.
+
+```yaml
+clients:
+  admin.Org1:
+    client:
+      organization: Org1
+  userOrg1:
+    client:
+      organization: Org1
+  user0rg2:
+    client:
+      organization: Org2
+```
+
+### Without File System Wallet
 A client can have the following properties (some of it originating from the SDK's CCP):
 * `organization`: the name of the organization (from the top-level `organizations` section) of the client.
 * `credentialStore`: the implementation-specific properties of the key-value store. A `FileKeyValueStore`, for example, has the following properties:
