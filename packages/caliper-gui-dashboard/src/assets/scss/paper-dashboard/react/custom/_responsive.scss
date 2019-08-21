@@ -1,0 +1,35 @@
+@media screen and (max-width: 991px){
+  .navbar-nav{
+    .nav-link{
+      i.fa,
+      i.fal,
+      i.fas,
+      i.fab,
+      i.far,
+      i.nc-icon{
+        opacity: .5;
+      }
+    }
+  }
+  .navbar .dropdown.show .dropdown-menu{
+    border: 0;
+    -webkit-transition: none;
+    transition: none;
+    -webkit-box-shadow: none;
+    width: auto;
+    margin: 0 1rem;
+    box-shadow: none;
+    position: static!important;
+    padding-left: 10px;
+    display: block!important;
+    -webkit-transform: translateZ(0)!important;
+    transform: translateZ(0)!important;
+    background: inherit;
+    &:before,&:after{
+      display: none;
+    }
+  }
+  .navbar.bg-dark .dropdown.show .dropdown-menu a{
+    color: $white-color;
+  }
+}
