@@ -21,3 +21,12 @@ module.exports.CaliperUtils = require('./lib/utils/caliper-utils');
 module.exports.Version = require('./lib/utils/version');
 module.exports.ConfigUtil = require('./lib/config/config-util');
 module.exports.CaliperFlow = require('./lib/caliper-flow');
+
+// More dependencies for caliper-flow test
+module.exports.ClientOrchestrator = require('./lib/client/client-orchestrator');
+module.exports.Blockchain = require('./lib/blockchain');
+module.exports.MonitorOrchestrator = require('./lib/monitor/monitor-orchestrator');
+module.exports.Report = require('./lib/report/report');
+module.exports.DefaultTest = require('./lib/test-runners/default-test');
+module.exports.LocalObserver = require('./lib/test-observers/local-observer');
+module.exports.PrometheusObserver = require('./lib/test-observers/prometheus-observer');

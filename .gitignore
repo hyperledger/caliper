@@ -3,6 +3,7 @@
 # Ignore any generated html files, but include the report html template
 *.html
 !/packages/caliper-core/lib/report/template/report.html
+!/packages/caliper-gui/gui-client/caliper-gui-dashboard/public/index.html
 
 # Ignore DS_Store files from Mac
 **.DS_Store
@@ -51,3 +52,5 @@ lerna-debug.log
 
 # Ignore data
 data/
+# caliper-gui local data and temp tests
+packages/caliper-gui/gui-server/caliper-api/data/

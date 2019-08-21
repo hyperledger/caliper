@@ -1,0 +1,26 @@
+.navbar{
+  .navbar-nav{
+    .nav-link{
+      i.fa + p,
+      i.fal + p,
+      i.fas + p,
+      i.fab + p,
+      i.far + p,
+      i.nc-icon + p{
+        margin-left: 7px;
+      }
+      i.fa,
+      i.fal,
+      i.fas,
+      i.fab,
+      i.far,
+      i.nc-icon{
+        font-size: 18px;
+        position: relative;
+        top: 3px;
+        text-align: center;
+        width: 21px;
+      }
+    }
+  }
+}
