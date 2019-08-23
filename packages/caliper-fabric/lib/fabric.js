@@ -1030,7 +1030,8 @@ class Fabric extends BlockchainInterface {
             discovery: {
                 asLocalhost: this.configLocalHost,
                 enabled: this.configDiscovery
-            }
+            },
+            eventHandlerOptions: { commitTimeout: this.configDefaultTimeout }
         };
 
         // Optional on mutual auth
