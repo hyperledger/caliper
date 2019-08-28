@@ -32,6 +32,7 @@
     "license": "LICENSE.txt",
     "exact_paths_method": "EXCLUDE",
     "exact_paths": [
+      "CODEOWNERS",
       "LICENSE",
       "node_modules",
       ".nyc_output",
