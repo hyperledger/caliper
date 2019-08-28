@@ -2263,6 +2263,7 @@ class Fabric extends BlockchainInterface {
         await this._initializeRegistrars(true);
         await this._initializeAdmins(true);
         await this._initializeUsers(true);
+        this.initPhaseCompleted = true;
 
         if (await this._createChannels()) {
             logger.info(`Sleeping ${this.configSleepAfterCreateChannel / 1000.0}s...`);
@@ -2280,6 +2281,13 @@ class Fabric extends BlockchainInterface {
      * @async
      */
     async installSmartContract() {
+        // With flow conditioning, this phase is conditionally required
+        if (!this.initPhaseCompleted ) {
+            await this._initializeRegistrars(true);
+            await this._initializeAdmins(true);
+            await this._initializeUsers(true);
+        }
+
         await this._installChaincodes();
         if (await this._instantiateChaincodes()) {
             logger.info(`Sleeping ${this.configSleepAfterInstantiateChaincode / 1000.0}s...`);

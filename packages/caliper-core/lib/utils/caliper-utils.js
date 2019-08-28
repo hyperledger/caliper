@@ -21,6 +21,7 @@ require('winston-daily-rotate-file');
 const fs = require('fs');
 const yaml = require('js-yaml');
 const loggingUtil = require('./logging-util.js');
+const Config = require('../config/config-util');
 
 /**
  * Internal Utility class for Caliper
@@ -234,6 +235,100 @@ class CaliperUtils {
             child.stdout.pipe(process.stdout);
             child.stderr.pipe(process.stderr);
         });
+    }
+
+    /**
+     * Retrieve user specified flow flags
+     * @returns {JSON} a JSON object containing conditioned flow options
+     */
+    static getFlowOptions() {
+        // High level flow default options
+        const flowOpts = {
+            performStart: true,
+            performInit: true,
+            performInstall: true,
+            performTest: true,
+            performEnd: true
+        };
+
+        let skip = 0;
+        let only = 0;
+
+        if (Config.get(Config.keys.Flow.Skip.Start, false)) {
+            flowOpts.performStart = false;
+            skip++;
+        }
+
+        if (Config.get(Config.keys.Flow.Skip.Init, false)) {
+            flowOpts.performInit = false;
+            skip++;
+        }
+
+        if (Config.get(Config.keys.Flow.Skip.Install, false)) {
+            flowOpts.performInstall = false;
+            skip++;
+        }
+
+        if (Config.get(Config.keys.Flow.Skip.Test, false)) {
+            flowOpts.performTest = false;
+            skip++;
+        }
+
+        if (Config.get(Config.keys.Flow.Skip.End, false)) {
+            flowOpts.performEnd = false;
+            skip++;
+        }
+
+        if (Config.get(Config.keys.Flow.Only.Start, false)) {
+            flowOpts.performInit = false;
+            flowOpts.performInstall = false;
+            flowOpts.performTest = false;
+            flowOpts.performEnd = false;
+            only++;
+        }
+
+        if (Config.get(Config.keys.Flow.Only.Init, false)) {
+            flowOpts.performStart = false;
+            flowOpts.performInstall = false;
+            flowOpts.performTest = false;
+            flowOpts.performEnd = false;
+            only++;
+        }
+
+        if (Config.get(Config.keys.Flow.Only.Install, false)) {
+            flowOpts.performStart = false;
+            flowOpts.performInit = false;
+            flowOpts.performTest = false;
+            flowOpts.performEnd = false;
+            only++;
+        }
+
+        if (Config.get(Config.keys.Flow.Only.Test, false)) {
+            flowOpts.performStart = false;
+            flowOpts.performInit = false;
+            flowOpts.performInstall = false;
+            flowOpts.performEnd = false;
+            only++;
+        }
+
+        if (Config.get(Config.keys.Flow.Only.End, false)) {
+            flowOpts.performStart = false;
+            flowOpts.performInit = false;
+            flowOpts.performInstall = false;
+            flowOpts.performTest = false;
+            only++;
+        }
+
+        if (skip && only) {
+            throw new Error('Incompatible benchmark flow parameters specified, caliper-flow-skip-x and caliper-flow-only-x flags may not be mixed');
+        }
+
+        if (only > 1) {
+            throw new Error('Incompatible benchmark flow parameters specified, only one of [caliper-flow-only-start, caliper-flow-only-init, caliper-flow-only-install, caliper-flow-only-test, caliper-flow-only-end] may be specified at a time');
+        }
+
+        return flowOpts;
+
     }
 }
 
