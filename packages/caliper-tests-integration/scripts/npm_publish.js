@@ -66,7 +66,7 @@ const packages = [
             for (let i = 0; i < NPM_RETRIES; i++) {
                 console.log(`Publishing package ${p} to local npm server (attempt ${i+1}/${NPM_RETRIES})`);
                 try {
-                    await invokeCmd(`npm publish --registry http://localhost:4873 --force ../${p}`);
+                    await invokeCmd(`npm publish --registry=http://localhost:4873 --force ../${p}`);
                     console.log(`Published package ${p} to local npm server (attempt ${i+1}/${NPM_RETRIES})`);
                     published = true;
                     break;
