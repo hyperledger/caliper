@@ -1,4 +1,4 @@
-## Hyperledger Caliper
+# Hyperledger Caliper
 
 Welcome to the Hyperledger Caliper project. Caliper is a blockchain performance benchmark framework, which allows users to test different blockchain solutions with predefined use cases, and get a set of performance test results.
 
@@ -20,22 +20,8 @@ See the [PSWG white paper](https://www.hyperledger.org/resources/publications/bl
 
 For more information on using Caliper please consult the [documentation site](https://hyperledger.github.io/caliper/)
 
-## Pre-requisites
-
-Make sure following tools are installed:
-* NodeJS 8 (LTS), 9, or 10 (LTS) *we do not support higher versions as the dependancy chain does not permit this*
-* node-gyp
-* Docker
-* Docker-compose
-
-## Building Caliper
-Caliper is split into packages that are managed by Lerna, a tool for managing JavaScript projects with multiple packages. To build Caliper, it is necessary to first pull the required base dependancies, and then bootstrap the Caliper project. Note that if you modify base code, it is necessary to rebuild the project
-
-* Run `npm install` in Caliper root folder to install base dependencies locally
-* Run `npm run repoclean` in Caliper root folder to ensure that all the packages are clean
-* Run `npm run bootstrap` to bootstrap the packages in the Caliper repository. This will install all package dependancies and link any cross dependancies. It will take some time to finish installation. If it is interrupted by ctrl+c, please recover the file package.json first and then run `npm run bootstrap` again.
-
-Do not run any of the above commands with `sudo`, as it will cause the bootstrap process to fail
+## Install and usage
+See the [related documentation page](https://hyperledger.github.io/caliper/docs/Installing_Caliper.html).
 
 ## How to contact us
 
