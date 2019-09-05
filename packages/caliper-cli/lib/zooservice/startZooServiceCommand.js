@@ -32,7 +32,7 @@ module.exports.command = 'start';
 module.exports.describe = 'Start a zookeeper service';
 module.exports.builder = function (yargs){
     yargs.options({
-        'caliper-zooconfig' : {required: false, describe: 'Path to a zookeeper service yaml file.', type: 'string' }
+        'caliper-zooconfig' : {describe: 'Path to a zookeeper service yaml file.', type: 'string' }
     });
     yargs.usage('caliper zooservice start --caliper-zooconfig ./my-zoo-service.yaml');
 

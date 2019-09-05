@@ -24,7 +24,7 @@ const version = 'v' + require('./package.json').version;
 let results = yargs
     .commandDir('./lib')
     .help()
-    .example('caliper benchmark run\ncaliper zooclient start\ncaliper zooservice start  ')
+    .example('caliper bind\ncaliper benchmark run\ncaliper zooclient start\ncaliper zooservice start  ')
     .demand(1)
     .wrap(null)
     .strict()

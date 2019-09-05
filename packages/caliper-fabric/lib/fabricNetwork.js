@@ -16,8 +16,8 @@
 
 const yaml = require('js-yaml');
 const fs = require('fs');
-const CaliperUtils = require('caliper-core').CaliperUtils;
-const ConfigUtil = require('caliper-core').ConfigUtil;
+const CaliperUtils = require('@hyperledger/caliper-core').CaliperUtils;
+const ConfigUtil = require('@hyperledger/caliper-core').ConfigUtil;
 
 /**
  * Utility class for accessing information in a Common Connection Profile configuration

@@ -15,7 +15,7 @@
 'use strict';
 
 // Caliper-Core requires
-const {BlockchainInterface, CaliperUtils, TxStatus}= require('caliper-core');
+const {BlockchainInterface, CaliperUtils, TxStatus}= require('@hyperledger/caliper-core');
 const logger = CaliperUtils.getLogger('composer.js');
 
 // Composer helpers

@@ -17,7 +17,7 @@
 const FabricClient = require('fabric-client');
 let FabricNetworkAPI = require('fabric-network');
 const {google, common} = require('fabric-protos');
-const {BlockchainInterface, CaliperUtils, TxStatus, Version, ConfigUtil} = require('caliper-core');
+const {BlockchainInterface, CaliperUtils, TxStatus, Version, ConfigUtil} = require('@hyperledger/caliper-core');
 const logger = CaliperUtils.getLogger('adapters/fabric');
 
 const FabricNetwork = require('./fabricNetwork.js');

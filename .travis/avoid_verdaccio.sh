@@ -17,12 +17,15 @@
 set -e
 set -o pipefail
 
-# Bootstrap the project
-npm run bootstrap
+# Bootstrap the project again
+npm i && npm run repoclean -- --yes && npm run bootstrap
 
 # Run linting, license check and unit tests
 npm test
 
+# Call CLI directly
+export CALL_METHOD="node ../caliper-cli/caliper.js"
+
 echo "---- Running Integration test for adaptor ${BENCHMARK}"
 cd ./packages/caliper-tests-integration/
-npm run run_tests_direct
+npm run run_tests

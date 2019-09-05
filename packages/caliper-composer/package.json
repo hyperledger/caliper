@@ -1,5 +1,5 @@
 {
-  "name": "caliper-composer",
+  "name": "@hyperledger/caliper-composer",
   "version": "0.1.0",
   "repository": {
     "type": "git",
@@ -18,15 +18,15 @@
     "npm": ">=5.6.0"
   },
   "dependencies": {
-    "caliper-core": "0.1.0",
+    "@hyperledger/caliper-core": "0.1.0",
+    "ora": "^1.2.0"
+  },
+  "devDependencies": {
     "composer-admin": "0.20.8",
     "composer-client": "0.20.8",
     "composer-common": "0.20.8",
     "fabric-ca-client": "^1.4.0",
     "fabric-client": "^1.4.0",
-    "ora": "^1.2.0"
-  },
-  "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^4.19.1",
     "mocha": "3.4.2",
@@ -42,11 +42,14 @@
     "exact_paths": [
       "node_modules",
       ".nyc_output",
-      "coverage"
+      "coverage",
+      ".gitignore",
+      "log"
     ],
     "file_type_method": "EXCLUDE",
     "file_types": [
-      ".yml"
+      ".yml",
+      ".log"
     ],
     "insert_license": false,
     "license_formats": {

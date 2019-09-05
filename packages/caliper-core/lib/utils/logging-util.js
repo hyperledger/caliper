@@ -90,10 +90,11 @@ function _createDefaultLogger() {
     winstonOptions.transports.push(new (winston.transports.Console)({
         name: 'console',
         level: 'info',
+        colorize: true,
         handleExceptions: true
     }));
 
-    let fileName = 'log/caliper-%DATE%.log';
+    let fileName = path.join(configUtil.get(configUtil.keys.Workspace, '.'), 'log/caliper-%DATE%.log');
     let dirName = path.dirname(fileName);
     if (!fs.existsSync(dirName)) {
         fs.mkdirSync(dirName);
@@ -160,6 +161,7 @@ function _createConfiguredLogger(logConfig) {
         }
         case 'file': {
             let filePath = targetSettings.filename || 'log/caliper.log';
+            filePath = path.isAbsolute(filePath) ? filePath : path.join(configUtil.get(configUtil.keys.Workspace, '.'), filePath);
             let dirName = path.dirname(filePath);
             if (!fs.existsSync(dirName)) {
                 fs.mkdirSync(dirName);
@@ -181,6 +183,7 @@ function _createConfiguredLogger(logConfig) {
         }
         case 'daily-rotate-file': {
             let filePath = targetSettings.filename || 'log/caliper-%DATE%.log';
+            filePath = path.isAbsolute(filePath) ? filePath : path.join(configUtil.get(configUtil.keys.Workspace, '.'), filePath);
             let dirName = path.dirname(filePath);
             if (!fs.existsSync(dirName)) {
                 fs.mkdirSync(dirName);

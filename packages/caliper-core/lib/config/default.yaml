@@ -13,6 +13,16 @@
 #
 
 caliper:
+    # Settings related to the binding command
+    bind:
+        # The name of the platform to bind to
+        sut:
+        # The SDK version of the platform to bind to
+        sdk:
+        # The CWD to use for the binding (i.e., npm install) command
+        cwd:
+        # The additional args to pass to the binding (i.e., npm install) command
+        args:
     # Workspace directory that contains all configuration information
     workspace: './'
     # Path to the benchmark workload file that describes the test client(s), test rounds and monitor

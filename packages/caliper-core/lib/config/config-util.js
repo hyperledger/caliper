@@ -53,6 +53,12 @@ function get(name, defaultValue) {
 }
 
 const keys = {
+    Bind: {
+        Sut: 'caliper-bind-sut',
+        Sdk: 'caliper-bind-sdk',
+        Args: 'caliper-bind-args',
+        Cwd: 'caliper-bind-cwd'
+    },
     Workspace: 'caliper-workspace',
     BenchConfig: 'caliper-benchconfig',
     NetworkConfig: 'caliper-networkconfig',

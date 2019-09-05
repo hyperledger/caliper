@@ -14,7 +14,7 @@
 
 'use strict';
 
-const {CaliperFlow, CaliperUtils, ConfigUtil} = require('caliper-core');
+const {CaliperFlow, CaliperUtils, ConfigUtil} = require('@hyperledger/caliper-core');
 const chalk = require('chalk');
 const cmdUtil = require('../../utils/cmdutils');
 const path = require('path');
@@ -39,12 +39,12 @@ class RunBenchmark {
         benchConfigFile = path.isAbsolute(benchConfigFile) ? benchConfigFile : path.join(workspace, benchConfigFile);
         blockchainConfigFile = path.isAbsolute(blockchainConfigFile) ? blockchainConfigFile : path.join(workspace, blockchainConfigFile);
 
-        if(!fs.existsSync(benchConfigFile)) {
-            throw(new Error('Configuration file ' + benchConfigFile + ' does not exist'));
+        if(!benchConfigFile || !fs.existsSync(benchConfigFile)) {
+            throw(new Error(`Benchmark configuration file "${benchConfigFile || 'UNSET'}" does not exist`));
         }
 
-        if(!fs.existsSync(blockchainConfigFile)) {
-            throw(new Error('Configuration file ' + blockchainConfigFile + ' does not exist'));
+        if(!blockchainConfigFile || !fs.existsSync(blockchainConfigFile)) {
+            throw(new Error(`Network configuration file "${blockchainConfigFile || 'UNSET'}" does not exist`));
         }
 
         let blockchainType = '';
@@ -57,7 +57,7 @@ class RunBenchmark {
 
         try {
             cmdUtil.log(chalk.blue.bold('Benchmark for target Blockchain type ' + blockchainType + ' about to start'));
-            const {AdminClient, ClientFactory} = require('caliper-' + blockchainType);
+            const {AdminClient, ClientFactory} = require('@hyperledger/caliper-' + blockchainType);
             const adminClient = new AdminClient(blockchainConfigFile, workspace);
             const clientFactory = new ClientFactory(blockchainConfigFile, workspace);
 

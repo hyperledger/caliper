@@ -14,7 +14,7 @@
 
 'use strict';
 
-const BatchBuilder = require('caliper-sawtooth').BatchBuilder;
+const BatchBuilder = require('@hyperledger/caliper-sawtooth').BatchBuilder;
 const {createHash} = require('crypto');
 const {createContext, CryptoFactory} = require('sawtooth-sdk/signing');
 const {protobuf} = require('sawtooth-sdk');

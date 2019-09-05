@@ -19,7 +19,7 @@ const BusinessNetworkDefinition = require('composer-admin').BusinessNetworkDefin
 const BusinessNetworkConnection = require('composer-client').BusinessNetworkConnection;
 const IdCard = require('composer-common').IdCard;
 
-const CaliperUtils= require('caliper-core').CaliperUtils;
+const CaliperUtils= require('@hyperledger/caliper-core').CaliperUtils;
 const logger = CaliperUtils.getLogger('composer_utils.js');
 const fs = require('fs');
 const path = require('path');

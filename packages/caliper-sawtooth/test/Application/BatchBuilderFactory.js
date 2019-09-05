@@ -16,7 +16,7 @@
 
 const rewire = require('rewire');
 const BatchBuilderFactory = rewire('../../lib/batch/BatchBuilderFactory');
-const {CaliperUtils} = require('caliper-core');
+const {CaliperUtils} = require('@hyperledger/caliper-core');
 
 const chai = require('chai');
 chai.should();

@@ -1,5 +1,5 @@
 {
-  "name": "caliper-core",
+  "name": "@hyperledger/caliper-core",
   "version": "0.1.0",
   "repository": {
     "type": "git",
@@ -51,14 +51,17 @@
     "exact_paths": [
       "node_modules",
       ".nyc_output",
-      "coverage"
+      "coverage",
+      ".gitignore",
+      "log"
     ],
     "file_type_method": "EXCLUDE",
     "file_types": [
       ".yml",
       ".md",
       ".html",
-      ".php"
+      ".php",
+      ".log"
     ],
     "insert_license": false,
     "license_formats": {

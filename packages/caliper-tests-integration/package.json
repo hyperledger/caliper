@@ -4,15 +4,15 @@
   "description": "Integration tests for Hyperledger Caliper",
   "scripts": {
     "cleanup": "./scripts/cleanup.sh",
-    "start_verdaccio": "./scripts/start-verdaccio.sh",
-    "publish_packages": "./scripts/publish-packages.sh",
-    "install_cli": "./scripts/install-packages.sh",
-    "e2e_install": "npm run cleanup && npm run start_verdaccio && npm run publish_packages && npm run install_cli && npm run cleanup",
-    "run_tests": "./scripts/run-tests.sh",
-    "run_tests_direct": "./scripts/run-tests-direct.sh",
+    "start_verdaccio": "npm run cleanup && ./scripts/start-verdaccio.sh",
     "stop_verdaccio": "PM2_HOME=.pm2 pm2 stop verdaccio || true",
     "pretest": "npm run licchk",
     "licchk": "license-check-and-add",
+    "npm_publish_local": "ARCH=`uname -m` npm_config_registry=http://localhost:4873 node ./scripts/publishNpmPackages.js http://localhost:4873",
+    "npm_publish": "node ./scripts/publishNpmPackages.js",
+    "docker_build_local": "node ./scripts/buildDockerImage.js current http://localhost:4873",
+    "docker_build": "node ./scripts/buildDockerImage.js current",
+    "run_tests": "./scripts/run-tests.sh",
     "test": "exit 0"
   },
   "repository": {
@@ -43,7 +43,10 @@
       "node_modules",
       ".nyc_output",
       "coverage",
-      ".pm2/touch"
+      ".pm2/touch",
+      "storage",
+      "scripts/storage",
+      "log"
     ],
     "file_type_method": "EXCLUDE",
     "file_types": [
@@ -63,7 +66,7 @@
           "prepend": "* "
         }
       },
-      "editorconfig|yaml": {
+      "editorconfig|yaml|Dockerfile|dockerignore": {
         "prepend": "#",
         "append": "#",
         "eachLine": {
