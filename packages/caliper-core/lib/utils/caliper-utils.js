@@ -96,6 +96,24 @@ class CaliperUtils {
     }
 
     /**
+     * Convert an object to YAML string.
+     * @param {object} obj The object to stringify.
+     * @return {string} The string YAML content.
+     */
+    static stringifyYaml(obj) {
+        if (!obj) {
+            throw new Error('Util.stringifyYaml: object to stringify is undefined');
+        }
+
+        try{
+            return yaml.safeDump(obj);
+        }
+        catch(err) {
+            throw new Error(`Failed to stringify object: ${(err.message || err)}`);
+        }
+    }
+
+    /**
      * Parse a YAML conform string into an object.
      * @param {string} stringContent The YAML content.
      * @return {object} The parsed object.

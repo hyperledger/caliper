@@ -14,10 +14,8 @@
 
 'use strict';
 
-const yaml = require('js-yaml');
 const fs = require('fs');
 const CaliperUtils = require('@hyperledger/caliper-core').CaliperUtils;
-const ConfigUtil = require('@hyperledger/caliper-core').ConfigUtil;
 
 /**
  * Utility class for accessing information in a Common Connection Profile configuration
@@ -40,13 +38,13 @@ class FabricNetwork {
     constructor(networkConfig, workspace_root) {
         CaliperUtils.assertDefined(networkConfig, '[FabricNetwork.constructor] Parameter \'networkConfig\' if undefined or null');
 
+        this.network = undefined;
         if (typeof networkConfig === 'string') {
             let configPath = CaliperUtils.resolvePath(networkConfig, workspace_root);
-            this.network = yaml.safeLoad(fs.readFileSync(configPath, 'utf-8'),
-                {schema: yaml.DEFAULT_SAFE_SCHEMA});
+            this.network = CaliperUtils.parseYaml(configPath);
         } else if (typeof networkConfig === 'object' && networkConfig !== null) {
             // clone the object to prevent modification by other objects
-            this.network = yaml.safeLoad(yaml.safeDump(networkConfig), {schema: yaml.DEFAULT_SAFE_SCHEMA});
+            this.network = CaliperUtils.parseYamlString(CaliperUtils.stringifyYaml(networkConfig));
         } else {
             throw new Error('[FabricNetwork.constructor] Parameter \'networkConfig\' is neither a file path nor an object');
         }
@@ -56,562 +54,132 @@ class FabricNetwork {
         this.tls = false;
         this.mutualTls = false;
         this.contractMapping = new Map();
-        this.workspaceRoot = workspace_root;
-        this._validateNetworkConfiguration();
+        this._processConfiguration(workspace_root);
     }
 
-    ////////////////////////////////
-    // INTERNAL UTILITY FUNCTIONS //
-    ////////////////////////////////
 
     /**
-     * Internal utility function for checking whether the given CA exists in the configuration.
-     * The function throws an error if it doesn't exist.
-     * @param {string} ca The name of the CA.
-     * @param {string} msg An optional error message that will be thrown in case of an invalid CA.
-     * @private
-     */
-    _assertCaExists(ca, msg) {
-        let cas = this.network.certificateAuthorities;
-        for (let c in cas) {
-            if (!cas.hasOwnProperty(c)) {
-                continue;
-            }
-
-            // we found the CA in the CAs section
-            if (c.toString() === ca) {
-                return;
-            }
-        }
-
-        // didn't find the CA
-        throw new Error(msg || `Couldn't find ${ca} in the 'certificateAuthorities' section`);
-    }
-
-    /**
-     * Internal utility function for checking whether the given orderer exists in the configuration.
-     * The function throws an error if it doesn't exist.
-     * @param {string} orderer The name of the orderer.
-     * @param {string} msg An optional error message that will be thrown in case of an invalid orderer.
-     * @private
-     */
-    _assertOrdererExists(orderer, msg) {
-        let orderers = this.network.orderers;
-        for (let ord in orderers) {
-            if (!orderers.hasOwnProperty(ord)) {
-                continue;
-            }
-
-            // we found the orderer in the orderers section
-            if (ord.toString() === orderer) {
-                return;
-            }
-        }
-
-        // didn't find the orderer
-        throw new Error(msg || `Couldn't find ${orderer} in the 'orderers' section`);
-    }
-
-    /**
-     * Internal utility function for checking whether the given peer exists in the configuration.
-     * The function throws an error if it doesn't exist.
-     * @param {string} peer The name of the peer.
-     * @param {string} msg An optional error message that will be thrown in case of an invalid peer.
-     * @private
-     */
-    _assertPeerExists(peer, msg) {
-        let peers = this.network.peers;
-        for (let p in peers) {
-            if (!peers.hasOwnProperty(p)) {
-                continue;
-            }
-
-            // we found the peer in the peers section
-            if (p.toString() === peer) {
-                return;
-            }
-        }
-
-        // didn't find the peer
-        throw new Error(msg || `Couldn't find ${peer} in the 'peers' section`);
-    }
-
-    /**
-     * Internal utility function for validating that the Common Connection Profile
-     * setting contains every required property.
+     * Internal utility function for retrieving key information from the network configuration.
+     * @param {string} workspaceRoot The path to the root of the workspace.
      *
      * @private
      */
-    _validateNetworkConfiguration() {
-        // Validation requirements are modified based on:
-        // - flow options
-        // - use of Fabric discovery service
-        const flowOptions = CaliperUtils.getFlowOptions();
-        const discovery = ConfigUtil.get(ConfigUtil.keys.Fabric.Discovery, false);
+    _processConfiguration(workspaceRoot) {
+        this.mutualTls = !!this.network['mutual-tls'];
 
-        // If only running start/end commands, we can return immediately
-        if (!flowOptions.performInit && !flowOptions.performInstall && !flowOptions.performTest) {
-            return;
+        if (this.network.wallet) {
+            this.network.wallet = CaliperUtils.resolvePath(this.network.wallet, workspaceRoot);
         }
 
-        // Current limitation is that default Caliper transactions do not work with discovery, since full network knowedge is required; it is required to use a gateway
-        if (discovery && !ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway, false)) {
-            throw new Error('Use of discovery is only supported through a gateway transaction');
-        }
+        if (this.network.clients) {
+            let clients = this.getClients();
+            for (let client of clients) {
+                this.clientConfigs[client] = this.network.clients[client];
 
-        // Not possible to use discovery to perform admin operations (init/install) since full knowledge is required
-        if (discovery && (flowOptions.performInit || flowOptions.performInstall)) {
-            throw new Error('Use of service discovery is only valid with a `caliper-flow-only-test` flag');
-        }
-
-        // Top level properties
-        // CAs are only needed when a user enrollment or registration is needed
-        let requiredCas = new Set();
-        let providedCas = new Set();
-
-        if (discovery) {
-            // Orderers requirement removed when using discovery
-            CaliperUtils.assertAllProperties(this.network, 'network',
-                'caliper', 'clients', 'channels', 'organizations', 'peers');
-        } else {
-            CaliperUtils.assertAllProperties(this.network, 'network',
-                'caliper', 'clients', 'channels', 'organizations', 'orderers', 'peers');
-        }
-
-        CaliperUtils.assertProperty(this.network.caliper, 'network.caliper', 'blockchain');
-
-        this.mutualTls = CaliperUtils.checkProperty(this.network, 'mutual-tls') ? this.network['mutual-tls'] : false;
-        this.fileWalletPath = CaliperUtils.checkProperty(this.network, 'wallet') ? this.network.wallet : false;
-
-        // ===========
-        // = CLIENTS =
-        // ===========
-
-        let clients = this.getClients();
-        if (clients.size < 1) {
-            throw new Error('Network configuration error: the \'clients\' section does not contain any entries');
-        }
-
-        for (let client of clients) {
-            let clientObjectName = `network.clients.${client}`;
-            let clientObject = this.network.clients[client];
-
-            CaliperUtils.assertProperty(clientObject, clientObjectName, 'client');
-            this.clientConfigs[client] = this.network.clients[client];
-
-            // include the client level for convenience
-            clientObject = this.network.clients[client].client;
-            clientObjectName = `network.clients.${client}.client`;
-
-            CaliperUtils.assertProperty(clientObject, clientObjectName, 'organization');
-
-            // Will be using either a wallet with existing identities, or keys/certs for the creation of new identities
-            if (!this.fileWalletPath) {
-                CaliperUtils.assertProperty(clientObject, clientObjectName, 'credentialStore');
-                CaliperUtils.assertAllProperties(clientObject.credentialStore, `${clientObjectName}.credentialStore`, 'path', 'cryptoStore');
-                CaliperUtils.assertProperty(clientObject.credentialStore.cryptoStore, `${clientObjectName}.credentialStore.cryptoStore`, 'path');
-
+                let cObj = this.network.clients[client].client;
                 // normalize paths
-                clientObject.credentialStore.path = CaliperUtils.resolvePath(clientObject.credentialStore.path, this.workspaceRoot);
-                clientObject.credentialStore.cryptoStore.path = CaliperUtils.resolvePath(clientObject.credentialStore.cryptoStore.path, this.workspaceRoot);
+                if (cObj.credentialStore) {
+                    cObj.credentialStore.path = CaliperUtils.resolvePath(cObj.credentialStore.path, workspaceRoot);
+                    cObj.credentialStore.cryptoStore.path = CaliperUtils.resolvePath(cObj.credentialStore.cryptoStore.path, workspaceRoot);
+                }
 
-                // user identity can be provided in multiple ways
-                // if there is any crypto content info, every crypto content info is needed
-                if (CaliperUtils.checkAnyProperty(clientObject, 'clientPrivateKey', 'clientSignedCert')) {
-                    CaliperUtils.assertAllProperties(clientObject, clientObjectName, 'clientPrivateKey', 'clientSignedCert');
+                if (cObj.clientPrivateKey && cObj.clientPrivateKey.path) {
+                    cObj.clientPrivateKey.path = CaliperUtils.resolvePath(cObj.clientPrivateKey.path, workspaceRoot);
+                }
 
-                    // either file path or pem content is needed
-                    CaliperUtils.assertAnyProperty(clientObject.clientPrivateKey, `${clientObjectName}.clientPrivateKey`, 'path', 'pem');
-                    CaliperUtils.assertAnyProperty(clientObject.clientSignedCert, `${clientObjectName}.clientSignedCert`, 'path', 'pem');
+                if (cObj.clientSignedCert && cObj.clientSignedCert.path) {
+                    cObj.clientSignedCert.path = CaliperUtils.resolvePath(cObj.clientSignedCert.path, workspaceRoot);
+                }
+            }
+        }
 
-                    // normalize the paths if provided
-                    if (CaliperUtils.checkProperty(clientObject.clientPrivateKey, 'path')) {
-                        clientObject.clientPrivateKey.path = CaliperUtils.resolvePath(clientObject.clientPrivateKey.path, this.workspaceRoot);
+        if (this.network.channels) {
+            let channels = this.getChannels();
+            for (let channel of channels) {
+                let cObj = this.network.channels[channel];
+
+                for (let cc of cObj.chaincodes) {
+                    if (!cc.contractID) {
+                        cc.contractID = cc.id;
                     }
 
-                    if (CaliperUtils.checkProperty(clientObject.clientSignedCert, 'path')) {
-                        clientObject.clientSignedCert.path = CaliperUtils.resolvePath(clientObject.clientSignedCert.path, this.workspaceRoot);
-                    }
-                } else if (CaliperUtils.checkProperty(clientObject, 'enrollSecret')) {
-                    // otherwise, enrollment info can also be specified and the CA will be needed
-                    // TODO: currently only one CA is supported
-                    requiredCas.add(this.getOrganizationOfClient(client));
-                } else {
-                    // if no crypto material or enrollment info is provided, then registration and CA info is needed
-                    CaliperUtils.assertProperty(clientObject, clientObjectName, 'affiliation');
-                    // TODO: currently only one CA is supported
-                    requiredCas.add(this.getOrganizationOfClient(client));
-                }
-            }
-        }
-
-        // ============
-        // = CHANNELS =
-        // ============
-        let channels = this.getChannels();
-        if (channels.size < 1) {
-            throw new Error('Network configuration error: the \'channels\' section does not contain any entries');
-        }
-        for (let channel of channels) {
-            let channelObj = this.network.channels[channel];
-            let channelObjName = `network.channels.${channel}`;
-
-            // mandatory top-level property for benchmark operation
-            CaliperUtils.assertAllProperties(channelObj, channelObjName, 'chaincodes');
-
-            if (flowOptions.performInit) {
-                // Init stage requires channel configuration artifacts
-                if (!CaliperUtils.checkProperty(channelObj, 'created') || !channelObj.created) {
-                    // one kind of config is needed - binary or definition
-                    if (!CaliperUtils.checkProperty(channelObj, 'configBinary')) {
-                        CaliperUtils.assertAllProperties(channelObj, channelObjName, 'definition');
+                    this.contractMapping.set(cc.contractID, {channel: channel, id: cc.id, version: cc.version});
+                    if (cc.language && cc.language !== 'golang' && cc.path) {
+                        cc.path = CaliperUtils.resolvePath(cc.path, workspaceRoot);
                     }
                 }
-
-                // mandatory top-level properties in order to create channels
-                CaliperUtils.assertAllProperties(channelObj, channelObjName, 'orderers', 'peers');
-
-                // ====================
-                // = CHANNEL ORDERERS =
-                // ====================
-                let ordererCollection = channelObj.orderers;
-
-                if (ordererCollection.length < 1) {
-                    throw new Error(`'channels.${channel}.orderers' does not contain any element`);
-                }
-
-                // check whether the orderer references are valid
-                ordererCollection.forEach((orderer) => {
-                    this._assertOrdererExists(orderer, `${orderer} is not a valid orderer reference in ${channel}`);
-                });
-
-                // =================
-                // = CHANNEL PEERS =
-                // =================
-                let peerCollection = channelObj.peers;
-                let peerPresent = false; // signal if we found a peer in the channel
-
-                // check whether the peer references are valid
-                for (let peer in peerCollection) {
-                    if (!peerCollection.hasOwnProperty(peer)) {
-                        continue;
-                    }
-
-                    this._assertPeerExists(peer,
-                        `${peer.toString()} is not a valid peer reference in ${channel}`);
-                    peerPresent = true;
-                }
-
-                if (!peerPresent) {
-                    throw new Error(`'channels.${channel}.peers' does not contain any element`);
-                }
-            }
-
-            // ======================
-            // = CHANNEL CHAINCODES =
-            // ======================
-            let chaincodesCollection = channelObj.chaincodes;
-            if (chaincodesCollection.size < 1) {
-                throw new Error(`'channels.${channel}.chaincodes' does not contain any elements`);
-            }
-
-            // to check that there's no duplication
-            let chaincodeSet = new Set();
-
-            chaincodesCollection.forEach((cc, index) => {
-                // 'metadataPath', 'targetPeers' and 'init' is optional
-                CaliperUtils.assertDefined(cc, `The element 'channels.${channel}.chaincodes[${index}]' is undefined or null`);
-
-                // other attributes are optional if the chaincode is already installed and instantiated
-                // this will be know at install/instantiate time
-                CaliperUtils.assertAllProperties(cc, `channels.${channel}.chaincodes[${index}]`, 'id', 'version');
-
-                let idAndVersion = `${cc.id}@${cc.version}`;
-                if (chaincodeSet.has(idAndVersion)) {
-                    throw new Error(`${idAndVersion} is defined more than once in the configuration`);
-                }
-
-                let contractID;
-                if (CaliperUtils.checkProperty(cc, 'contractID')) {
-                    contractID = cc.contractID;
-                } else {
-                    contractID = cc.id;
-                }
-
-                if (this.contractMapping.has(contractID)) {
-                    throw new Error(`Contract ID ${contractID} is used more than once in the configuration`);
-                }
-
-                // add the mapping for the contract ID
-                this.contractMapping.set(contractID, {channel: channel, id: cc.id, version: cc.version});
-
-                chaincodeSet.add(idAndVersion);
-
-                // if target peers are defined, then check the validity of the references
-                if (!CaliperUtils.checkProperty(cc, 'targetPeers')) {
-                    return;
-                }
-
-                for (let tp of cc.targetPeers) {
-                    this._assertPeerExists(tp,
-                        `${tp} is not a valid peer reference in 'channels.${channel}.chaincodes[${index}].targetPeers'`);
-                }
-            });
-        }
-
-        // =================
-        // = ORGANIZATIONS =
-        // =================
-        let orgs = this.getOrganizations();
-        if (orgs.size < 1) {
-            throw new Error('\'organizations\' section does not contain any entries');
-        }
-
-        for (let org of orgs) {
-            let orgObj = this.network.organizations[org];
-            let orgObjName = `network.organizations.${org}`;
-
-            // Caliper is a special client, it requires admin access to every org
-            // NOTE: because of the queries during the init phase, we can't avoid using admin profiles
-            // CAs are only needed if a user needs to be enrolled or registered
-            if (this.fileWalletPath) {
-                // Credentials exist within wallet
-                CaliperUtils.assertAllProperties(orgObj, orgObjName, 'mspid', 'peers');
-            } else {
-                CaliperUtils.assertAllProperties(orgObj, orgObjName, 'mspid', 'peers', 'adminPrivateKey', 'signedCert');
-                // either path or pem is required
-                CaliperUtils.assertAnyProperty(orgObj.adminPrivateKey, `${orgObjName}.adminPrivateKey`, 'path', 'pem');
-                CaliperUtils.assertAnyProperty(orgObj.signedCert, `${orgObjName}.signedCert`, 'path', 'pem');
-
-                // normalize paths if provided
-                if (CaliperUtils.checkProperty(orgObj.adminPrivateKey, 'path')) {
-                    orgObj.adminPrivateKey.path = CaliperUtils.resolvePath(orgObj.adminPrivateKey.path, this.workspaceRoot);
-                }
-
-                if (CaliperUtils.checkProperty(orgObj.signedCert, 'path')) {
-                    orgObj.signedCert.path = CaliperUtils.resolvePath(orgObj.signedCert.path, this.workspaceRoot);
-                }
-            }
-
-            // ======================
-            // = ORGANIZATION PEERS =
-            // ======================
-            if (orgObj.peers.length < 1) {
-                throw new Error(`'organizations.${org}.peers' does not contain any element`);
-            }
-
-            // verify peer references
-            for (let peer of orgObj.peers) {
-                this._assertPeerExists(peer, `${peer} is not a valid peer reference in 'organizations.${org}.peers'`);
-            }
-
-            // ===================
-            // = ORGANIZATION CA =
-            // ===================
-
-            // if CAs are specified, check their validity
-            if (!CaliperUtils.checkProperty(orgObj, 'certificateAuthorities')) {
-                continue;
-            }
-
-            let caCollection = orgObj.certificateAuthorities;
-            for (let ca of caCollection) {
-                this._assertCaExists(ca, `${ca} is not a valid CA reference in 'organizations.${org}'.certificateAuthorities`);
             }
         }
 
-        // ============
-        // = ORDERERS =
-        // ============
-        if (!discovery) {
+        if (this.network.organizations) {
+            let orgs = this.getOrganizations();
+            for (let org of orgs) {
+                let oObj = this.network.organizations[org];
+
+                if (oObj.adminPrivateKey && oObj.adminPrivateKey.path) {
+                    oObj.adminPrivateKey.path = CaliperUtils.resolvePath(oObj.adminPrivateKey.path, workspaceRoot);
+                }
+
+                if (oObj.signedCert && oObj.signedCert.path) {
+                    oObj.signedCert.path = CaliperUtils.resolvePath(oObj.signedCert.path, workspaceRoot);
+                }
+            }
+        }
+
+        if (this.network.orderers) {
             let orderers = this.getOrderers();
-            if (orderers.size < 1) {
-                throw new Error('\'orderers\' section does not contain any entries');
-            }
-
             for (let orderer of orderers) {
-                // 'grpcOptions' is optional
-                CaliperUtils.assertProperty(this.network.orderers, 'network.orderers', orderer);
-                let ordererObj = this.network.orderers[orderer];
-                let ordererObjName = `network.orderers.${orderer}`;
+                let oObj = this.network.orderers[orderer];
 
-                CaliperUtils.assertProperty(ordererObj, ordererObjName, 'url');
-                // tlsCACerts is needed only for TLS
-                if (ordererObj.url.startsWith('grpcs://')) {
-                    this.tls = true;
-                    // CaliperUtils.assertProperty(ordererObj, ordererObjName, 'tlsCACerts');
-                    // CaliperUtils.assertAnyProperty(ordererObj.tlsCACerts, `${ordererObjName}.tlsCACerts`, 'path', 'pem');
+                this.tls |= oObj.url.startsWith('grpcs://');
 
-                    // normalize path is provided
-                    if (CaliperUtils.checkProperty(ordererObj.tlsCACerts, 'path')) {
-                        ordererObj.tlsCACerts.path = CaliperUtils.resolvePath(ordererObj.tlsCACerts.path, this.workspaceRoot);
-                    }
+                if (oObj.tlsCACerts && oObj.tlsCACerts.path) {
+                    oObj.tlsCACerts.path = CaliperUtils.resolvePath(oObj.tlsCACerts.path, workspaceRoot);
                 }
             }
         }
 
-        // =========
-        // = PEERS =
-        // =========
-        let peers = this.getPeers();
-        if (peers.size < 1) {
-            throw new Error('\'peers\' section does not contain any entries');
-        }
-        for (let peer of peers) {
-            // 'grpcOptions' is optional
-            CaliperUtils.assertProperty(this.network.peers, 'network.peers', peer);
-            let peerObj = this.network.peers[peer];
-            let peerObjName = `network.peers.${peer}`;
-
-            CaliperUtils.assertProperty(peerObj, peerObjName, 'url');
-
-            // tlsCACerts is needed only for TLS
-            if (peerObj.url.startsWith('grpcs://')) {
-                this.tls = true;
-                if (!this.fileWalletPath) {
-                    CaliperUtils.assertProperty(peerObj, peerObjName, 'tlsCACerts');
-                    CaliperUtils.assertAnyProperty(peerObj.tlsCACerts, `${peerObjName}.tlsCACerts`, 'path', 'pem');
-
-                    // normalize path if provided
-                    if (CaliperUtils.checkProperty(peerObj.tlsCACerts, 'path')) {
-                        peerObj.tlsCACerts.path = CaliperUtils.resolvePath(peerObj.tlsCACerts.path, this.workspaceRoot);
-                    }
-                }
-            }
-
-            if (CaliperUtils.checkProperty(peerObj, 'eventUrl')) {
-                this.compatibilityMode = true;
-
-                // check if both URLS are using TLS or neither
-                if ((peerObj.url.startsWith('grpcs://') && peerObj.eventUrl.startsWith('grpc://')) ||
-                    (peerObj.url.startsWith('grpc://') && peerObj.eventUrl.startsWith('grpcs://'))) {
-                    throw new Error(`${peer} uses different protocols for the transaction and event services`);
-                }
-            }
-        }
-
-        // in case of compatibility mode, require event URLs from every peer
-        if (this.compatibilityMode) {
+        if (this.network.peers) {
+            let peers = this.getPeers();
             for (let peer of peers) {
-                if (!CaliperUtils.checkProperty(this.network.peers[peer], 'eventUrl')) {
-                    throw new Error(`${peer} doesn't provide an event URL in compatibility mode`);
+                let pObj = this.network.peers[peer];
+
+                this.tls |= pObj.url.startsWith('grpcs://');
+
+                if (pObj.tlsCACerts && pObj.tlsCACerts.path) {
+                    pObj.tlsCACerts.path = CaliperUtils.resolvePath(pObj.tlsCACerts.path, workspaceRoot);
+                }
+
+                if (pObj.eventUrl) {
+                    this.compatibilityMode = true;
                 }
             }
         }
 
-        // ===========================
-        // = CERTIFICATE AUTHORITIES =
-        // ===========================
-        if (CaliperUtils.checkProperty(this.network, 'certificateAuthorities')) {
+        if (this.network.certificateAuthorities) {
             let cas = this.getCertificateAuthorities();
             for (let ca of cas) {
-                // 'httpOptions' is optional
-                CaliperUtils.assertProperty(this.network.certificateAuthorities, 'network.certificateAuthorities', ca);
-
                 let caObj = this.network.certificateAuthorities[ca];
-                let caObjName = `network.certificateAuthorities.${ca}`;
 
-                // validate the registrars if provided
-                if (CaliperUtils.checkProperty(caObj, 'registrar')) {
-                    caObj.registrar.forEach((reg, index) => {
-                        CaliperUtils.assertAllProperties(caObj.registrar[index], `${caObjName}.registrar[${index}]`, 'enrollId', 'enrollSecret');
-                    });
+                this.tls |= caObj.url.startsWith('https://');
 
-                    // we actually need the registrar, not just the CA
-                    providedCas.add(this.getOrganizationOfCertificateAuthority(ca));
-                }
-
-                // tlsCACerts is needed only for TLS
-                if (caObj.url.startsWith('https://') && !this.fileWalletPath) {
-                    this.tls = true;
-                    CaliperUtils.assertProperty(caObj, caObjName, 'tlsCACerts');
-                    CaliperUtils.assertAnyProperty(caObj.tlsCACerts, `${caObjName}.tlsCACerts`, 'path', 'pem');
-
-                    //normalize path if provided
-                    if (CaliperUtils.checkProperty(caObj.tlsCACerts, 'path')) {
-                        caObj.tlsCACerts.path = CaliperUtils.resolvePath(caObj.tlsCACerts.path, this.workspaceRoot);
-                    }
+                if (caObj.tlsCACerts && caObj.tlsCACerts.path) {
+                    caObj.tlsCACerts.path = CaliperUtils.resolvePath(caObj.tlsCACerts.path, workspaceRoot);
                 }
             }
-        }
-
-        // find the not provided CAs, i.e., requiredCas \ providedCas set operation
-        let notProvidedCas = new Set([...requiredCas].filter(ca => !providedCas.has(ca)));
-        if (notProvidedCas.size > 0) {
-            throw new Error(`The following org's CAs and their registrars are required for user management, but are not provided: ${Array.from(notProvidedCas).join(', ')}`);
-        }
-
-        // ==============================
-        // = CHECK CONSISTENT TLS USAGE =
-        // ==============================
-
-        // if at least one node has TLS configured
-        if (this.tls) {
-            if (!discovery) {
-                // check every orderer
-                const orderers = this.getOrderers();
-                for (let orderer of orderers) {
-                    let ordererObj = this.network.orderers[orderer];
-                    let ordererObjName = `network.orderers.${orderer}`;
-
-                    CaliperUtils.assertProperty(ordererObj, ordererObjName, 'tlsCACerts');
-                    CaliperUtils.assertAnyProperty(ordererObj.tlsCACerts, `${ordererObjName}.tlsCACerts`, 'path', 'pem');
-
-                    if (!ordererObj.url.startsWith('grpcs://')) {
-                        throw new Error(`${orderer} doesn't use the grpcs protocol, but TLS is configured on other nodes`);
-                    }
-                }
-            }
-
-            // check every peer
-            for (let peer of peers) {
-                let peerObj = this.network.peers[peer];
-                let peerObjName = `network.peers.${peer}`;
-
-                if (!this.fileWalletPath) {
-                    CaliperUtils.assertProperty(peerObj, peerObjName, 'tlsCACerts');
-                    CaliperUtils.assertAnyProperty(peerObj.tlsCACerts, `${peerObjName}.tlsCACerts`, 'path', 'pem');
-                }
-
-                if (!peerObj.url.startsWith('grpcs://')) {
-                    throw new Error(`${peer} doesn't use the grpcs protocol, but TLS is configured on other nodes`);
-                }
-
-                // check peer URLs
-                if (this.compatibilityMode && !peerObj.eventUrl.startsWith('grpcs://')) {
-                    throw new Error(`${peer} doesn't use the grpcs protocol for eventing, but TLS is configured on other nodes`);
-                }
-            }
-
-            // check every CA
-            if (CaliperUtils.checkProperty(this.network, 'certificateAuthorities')) {
-                let cas = this.getCertificateAuthorities();
-                for (let ca of cas) {
-                    let caObj = this.network.certificateAuthorities[ca];
-                    let caObjName = `network.certificateAuthorities.${ca}`;
-
-                    if (!this.fileWalletPath) {
-                        CaliperUtils.assertProperty(caObj, caObjName, 'tlsCACerts');
-                        CaliperUtils.assertAnyProperty(caObj.tlsCACerts, `${caObjName}.tlsCACerts`, 'path', 'pem');
-                    }
-
-                    if (!caObj.url.startsWith('https://')) {
-                        throw new Error(`${ca} doesn't use the https protocol, but TLS is configured on other nodes`);
-                    }
-                }
-            }
-        }
-
-        // else: none of the nodes indicated TLS in their configuration/protocol, so nothing to check
-
-        // mutual TLS requires server-side TLS
-        if (this.mutualTls && !this.tls) {
-            throw new Error('Mutual TLS is configured without using TLS on network nodes');
         }
 
         if (this.mutualTls && this.compatibilityMode) {
             throw new Error('Mutual TLS is not supported for Fabric v1.0');
         }
+    }
+
+    /**
+     * Gets the configured file wallet path.
+     * @return {string} The file wallet path, or false if omitted.
+     */
+    getFileWalletPath() {
+        return this.network.wallet || false;
     }
 
     /**
@@ -634,13 +202,13 @@ class FabricNetwork {
         let signedCertPEM;
 
         if (CaliperUtils.checkProperty(privateKey, 'path')) {
-            privateKeyPEM = fs.readFileSync(CaliperUtils.resolvePath(privateKey.path, this.workspaceRoot));
+            privateKeyPEM = fs.readFileSync(privateKey.path);
         } else {
             privateKeyPEM = privateKey.pem;
         }
 
         if (CaliperUtils.checkProperty(signedCert, 'path')) {
-            signedCertPEM = fs.readFileSync(CaliperUtils.resolvePath(signedCert.path, this.workspaceRoot));
+            signedCertPEM = fs.readFileSync(signedCert.path);
         } else {
             signedCertPEM = signedCert.pem;
         }
@@ -655,10 +223,6 @@ class FabricNetwork {
             signedCertPEM: signedCertPEM
         };
     }
-
-    //////////////////////
-    // PUBLIC FUNCTIONS //
-    //////////////////////
 
     /**
      * Gets the affiliation of the given client.
@@ -809,13 +373,13 @@ class FabricNetwork {
         let signedCertPEM;
 
         if (CaliperUtils.checkProperty(privateKey, 'path')) {
-            privateKeyPEM = fs.readFileSync(CaliperUtils.resolvePath(privateKey.path, this.workspaceRoot));
+            privateKeyPEM = fs.readFileSync(privateKey.path);
         } else {
             privateKeyPEM = privateKey.pem;
         }
 
         if (CaliperUtils.checkProperty(signedCert, 'path')) {
-            signedCertPEM = fs.readFileSync(CaliperUtils.resolvePath(signedCert.path, this.workspaceRoot));
+            signedCertPEM = fs.readFileSync(signedCert.path);
         } else {
             signedCertPEM = signedCert.pem;
         }
@@ -976,7 +540,7 @@ class FabricNetwork {
      * @returns {object} The network configuration object.
      */
     getNewNetworkObject() {
-        return yaml.safeLoad(yaml.safeDump(this.network));
+        return CaliperUtils.parseYamlString(CaliperUtils.stringifyYaml(this.network));
     }
 
     /**
@@ -1268,7 +832,7 @@ class FabricNetwork {
         let tlsPEM;
 
         if (CaliperUtils.checkProperty(tlsCACert, 'path')) {
-            tlsPEM = fs.readFileSync(CaliperUtils.resolvePath(tlsCACert.path, this.workspaceRoot)).toString();
+            tlsPEM = fs.readFileSync(tlsCACert.path).toString();
         } else {
             tlsPEM = tlsCACert.pem;
         }
