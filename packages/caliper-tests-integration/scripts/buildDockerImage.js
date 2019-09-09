@@ -50,7 +50,7 @@ const registryArg = args[1];
             if (registryArg) {
                 dockerArgs = dockerArgs.concat(['--build-arg', `npm_registry=--registry=${registryArg}`, '.']);
             } else {
-                dockerArgs = dockerArgs.concat(['--build-arg', 'npm_registry=""', '.']);
+                dockerArgs = dockerArgs.concat(['--build-arg', 'npm_registry=', '.']);
             }
 
             // the command is executed from the caliper-tests-integration dir
