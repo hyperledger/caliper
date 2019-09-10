@@ -2,6 +2,7 @@
 layout: page
 title:  "Runtime Configuration"
 categories: reference
+permalink: /vLatest/runtime-config/
 ---
 
 Caliper relies on the [nconf](https://github.com/indexzero/nconf) package to provide a flexible and hierarchical configuration mechanism for runtime-related settings. Hierarchical configuration means that a runtime setting can be set or overridden from multiple sources/locations, and there is a priority order among them.
@@ -58,7 +59,7 @@ The above code also shows how a custom user module/code can easily leverage Cali
 
 If we wish to influence the behavior of a third-party code (e.g., Caliper or a user callback module), we usually can't (or don't want to) overwrite the setting in the source code. A standard way of modifying the behavior of third-party/pre-packaged applications is to provide the settings as commandline arguments.
 
-Starting Caliper through the [CLI]({{ site.baseurl }}{% link docs/1_Getting_Started.md %}#run-a-sample-benchmark), you can override runtime settings the following way:
+Starting Caliper through the [CLI](./Getting_Started.md#run-a-sample-benchmark), you can override runtime settings the following way:
 
 ```bash
 caliper benchmark run --caliper-workspace yourworkspace/ --caliper-benchconfig yourconfig.yaml --caliper-networkconfig yournetwork.yaml --mymodule-performance-shoudbefast=true

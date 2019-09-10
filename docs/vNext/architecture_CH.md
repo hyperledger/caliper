@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: pageNext
 title:  "Architecture (CH)"
 categories: docs
-order: 3
+permalink: /vNext/architecture-ch/
+order: 5
 ---
 
 ## Architecture
@@ -104,10 +105,10 @@ monitor:
   * **label** : 当前测试标签名称。例如，可以使用当前交易目的名称（如开户）作为标签名称，来说明当前性能测试的交易类型。该值还可用作blockchain.getContext()中的Context名称。又例如，开发人员可能希望测试不同Fabric通道的性能，在这种情况下，具有不同标签的测试可以绑定到不同的Fabric通道。 
   * **txNumber** : 定义一个子轮测试数组，每个轮次有不同的交易数量。例如, [5000,400] 表示在第一轮中将生成总共5000个交易，在第二轮中将生成400个交易。
   * **txDuration** : 定义基于时间测试的子轮数组。例如 [150,400] 表示将进行两次测试，第一次测试将运行150秒，第二次运行将运行400秒。如果当前配置文件中同时指定了txNumber和txDuration，系统将优先根据txDuration设置运行测试。
-  * **rateControl** : 定义每个子轮测试期间使用的速率控制数组。如果未指定，则默认为“固定速率”，将以1TPS速率发送交易开始测试。如果已定义，务必保证所选用的速率控制机制名称正确并且提供对应的发送速率及所需参数。在每一轮测试中,  **txNumber** 或 **txDuration** 在 **rateControl** 中具有相应的速率控制项。有关可用速率控制器以及如何实现自定义速率控制器的更多信息，请参阅 [速率控制部分]({{ site.baseurl }}{% link docs/Rate_Controllers.md %})。
+  * **rateControl** : 定义每个子轮测试期间使用的速率控制数组。如果未指定，则默认为“固定速率”，将以1TPS速率发送交易开始测试。如果已定义，务必保证所选用的速率控制机制名称正确并且提供对应的发送速率及所需参数。在每一轮测试中,  **txNumber** 或 **txDuration** 在 **rateControl** 中具有相应的速率控制项。有关可用速率控制器以及如何实现自定义速率控制器的更多信息，请参阅 [速率控制部分](./Rate_Controllers.md)。
   * **trim** : 对客户端结果执行修剪（trim）操作，以消除warm-up和cool-down阶段对于测试结果的影响。如果已指定修剪区间，该设置将被应用于该轮测试结果的修剪中。例如, 在`txNumber`测试模式中，值30表示每个客户端发送的最初和最后的30个交易结果将被修剪掉; 在`txDuration`模式下, 则从每个客户端发送的前30秒和后30秒的交易结果将会被忽略掉。
   * **arguments** : 用户自定义参数，将被传递到用户自定义的测试模块中。
-  * **callback** : 指明用户在该轮测试中定义的测试模块。请参阅[User defined test module]({{ site.baseurl }}{% link docs/Writing_Benchmarks.md %}) 获取更多信息。
+  * **callback** : 指明用户在该轮测试中定义的测试模块。请参阅[User defined test module](./Writing_Benchmarks.md) 获取更多信息。
 * **monitor** - 定义资源监视器和受监视对象的类型，以及监视的时间间隔。
   * docker : docker monitor用于监视本地或远程主机上的指定docker容器。Docker Remote API用于检索远程容器的统计信息。保留的容器名称“all”表示将监视主机上的所有容器。在上面的示例中，监视器将每秒检索两个容器的统计信息，一个是名为“peer0.org1.example.com”的本地容器，另一个是位于主机'192.168.1.100'上的名为“orderer.example.com”的远程容器。2375是该主机上Docker的侦听端口。
   * process : 进程监视器用于监视指定的本地进程。例如，用户可以使用此监视器来监视模拟区块链客户端的资源消耗。'command'和'arguments'属性用于指定进程。如果找到多个进程，'multiOutput'属性用于定义输出的含义。'avg'表示输出是这些过程的平均资源消耗，而'sum'表示输出是总和消耗。 
@@ -146,7 +147,7 @@ monitor:
 
 如上所述，zookeeper客户端还会创建多个子进程（本地客户端）来执行实际的测试工作。
 
-有关更多详细信息，请参阅 [Zookeper Client Design]({{ site.baseurl }}{% link docs/Zookeeper_Client_Design.md %})。
+有关更多详细信息，请参阅 [Zookeper Client Design](./Zookeeper_Client_Design.md)。
 
 ### User Defined Test Module
 

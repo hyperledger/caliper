@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: pageNext
 title:  "Fabric Configuration"
 categories: config
+permalink: /vNext/fabric-config/
 ---
 
 > The latest supported version of Hyperledger Fabric is v1.4
@@ -467,7 +468,7 @@ A client can have the following properties (some of it originating from the SDK'
 
 # Configuring the Adapter
 
-Some runtime properties of the adapter can be configured through Caliper's [runtime configuration mechanism]({{ site.baseurl }}{% link docs/Runtime_Configuration.md %}). For the available settings, see the `fabricccp` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/config/default.yaml) and its embedded documentation.
+Some runtime properties of the adapter can be configured through Caliper's [runtime configuration mechanism](./Runtime_Configuration.md). For the available settings, see the `fabricccp` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/config/default.yaml) and its embedded documentation.
 
 Additionally, the adapter provides a dynamic setting for skipping the creation of certain channels in case they already exist. If you wish to skip the creation of `mychannel`, for example, then you can signal this the following ways:
 
@@ -485,7 +486,7 @@ Additionally, the adapter provides a dynamic setting for skipping the creation o
 
 # Using the Adapter Interface
 
-The [user callback modules]({{ site.baseurl }}{% link docs/2_Architecture.md %}#user-defined-test-module) interact with the adapter at two phases of the tests: during the initialization of the user module (the `init` callback), and when submitting invoke or query transactions (the `run` callback).
+The [user callback modules](./Architecture.md#user-defined-test-module) interact with the adapter at two phases of the tests: during the initialization of the user module (the `init` callback), and when submitting invoke or query transactions (the `run` callback).
 
 ## The _init_ Callback
 

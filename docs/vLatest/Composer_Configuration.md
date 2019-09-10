@@ -2,6 +2,7 @@
 layout: page
 title:  "Composer Configuration"
 categories: config
+permalink: /vLatest/composer-config/
 ---
 
 > The latest supported version of Hyperledger Composer is v0.20
@@ -16,7 +17,7 @@ The Composer contribution to Caliper is contained within three folders:
 - `packages/caliper-samples/src/contract/composer`, contains the business network files to be used in tests
 
 ## Using Alternative Composer Versions
-If you wish to use a specific Composer version, it is necessary to modify the `composer-admin`, `composer-client`, and `composer-common` version levels listed as dependancies in `packages/caliper-composer/package.json`, and then rebuild the Caliper project and CLI as described in the [Getting Started]({{ site.baseurl }}{% link docs/1_Getting_Started.md %}#building-caliper) page.
+If you wish to use a specific Composer version, it is necessary to modify the `composer-admin`, `composer-client`, and `composer-common` version levels listed as dependancies in `packages/caliper-composer/package.json`, and then rebuild the Caliper project and CLI as described in the [Getting Started](./Getting_Started.md#building-caliper) page.
 
 ## Running a Composer Performance Test
 As per the Caliper framework, tests are run based on configuration files. These files are used to create a (Fabric) Blockchain topology and run a series of tests with a target tps.
@@ -29,7 +30,7 @@ The sample configuration file `/caliper/packages/caliper-samples/benchmark/compo
 Points to note:
 - The test `label` must match a corresponding `chaincodes` tag that is present within the network topology configuration file.
 
-To run a Composer based test, follow the usual [CLI approach]({{ site.baseurl }}{% link docs/1_Getting_Started.md %}#run-a-sample-benchmark):
+To run a Composer based test, follow the usual [CLI approach](./Getting_Started.md#run-a-sample-benchmark):
 ```bash
 # from the repository root directory
 caliper benchmark run --caliper-workspace ./packages/caliper-samples --caliper-benchconfig benchmark/composer/config.yaml --caliper-networkconfig network/fabric-v1.1/2org1peercouchdb/composer.json

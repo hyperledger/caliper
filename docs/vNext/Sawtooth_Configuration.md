@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: pageNext
 title:  "Sawtooth Configuration"
 categories: config
+permalink: /vNext/sawtooth-config/
 ---
 
 > The latest supported version of Hyperledger Sawtooth is v1.0

@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: pageNext
 title:  "Installing and Running Caliper"
 categories: docs
-order: 4
+permalink: /vNext/installing-caliper/
+order: 2
 ---
 
 ## Table of Contents
@@ -75,7 +76,7 @@ For more information on Hyperledger Caliper: https://hyperledger.github.io/calip
 
 You can also request the help page of a specific command, as demonstrated by the next subsections.
 
-> __Note:__ the command options can be set either through the command line, or from various other sources supported by the [configuration mechanism]({{ site.baseurl }}{% link docs/Runtime_Configuration.md %}) of Caliper. This flexibility makes it easy to embed the CLI in different environments.
+> __Note:__ the command options can be set either through the command line, or from various other sources supported by the [configuration mechanism](./Runtime_Configuration.md) of Caliper. This flexibility makes it easy to embed the CLI in different environments.
 
 ### The bind command
 
@@ -138,7 +139,7 @@ Options:
 
 The command requires the following parameters to be set:
 * __Workspace:__ the directory serving as the root of your project. Every relative path in other configuration files or settings will be resolved from this directory. The workspace concept was introduced to make Caliper projects portable across different machines.
-* __Benchmark configuration file:__ the path of the file containing the configuration of the test rounds, as detailed in the [Architecture page]({{ site.baseurl }}{% link docs/2_Architecture.md %}#configuration-file). _Should be relative_ to the workspace path. 
+* __Benchmark configuration file:__ the path of the file containing the configuration of the test rounds, as detailed in the [Architecture page](./Architecture.md#configuration-file). _Should be relative_ to the workspace path. 
 * __Network configuration file:__ the path of the file containing the network configuration/description for the selected SUT, detailed in the configuration pages of the respective adapters. _Should be relative_ to the workspace path.
 
 ## Installing from NPM
@@ -399,4 +400,4 @@ Now you can proceed with the Docker-based benchmarking as described in the previ
 > ```
 
 ## License
-The Caliper codebase is release under the [Apache 2.0 license]({{ site.baseurl }}{% link docs/LICENSE.md %}). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.
+The Caliper codebase is release under the [Apache 2.0 license](./LICENSE.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.
