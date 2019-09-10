@@ -15,12 +15,6 @@ coverage/
 # Ignore IDE files
 .vscode/
 
-# pm2 files
-**/.pm2/
-
-# Ignore any generted html files
-*.html
-
 # We prefer to not use lock files
 package-lock.json
 *.lock

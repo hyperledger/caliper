@@ -2,6 +2,7 @@
 layout: page
 title:  "Getting Started"
 categories: docs
+permalink: /vLatest/getting-started/
 order: 1
 ---
 
@@ -18,11 +19,11 @@ Caliper is a blockchain performance benchmark framework, which allows users to t
 
 Steps for configuring a benchmark that targets a supported blockchain technology are given in the following pages:
 
-- [Burrow]({{ site.baseurl }}{% link docs/Burrow_Configuration.md %})
-- [Composer]({{ site.baseurl }}{% link docs/Composer_Configuration.md %})
-- [Fabric]({{ site.baseurl }}{% link docs/Fabric_Configuration.md %})
-- [Iroha]({{ site.baseurl }}{% link docs/Iroha_Configuration.md %})
-- [Sawtooth]({{ site.baseurl }}{% link docs/Sawtooth_Configuration.md %})
+- [Burrow](./Burrow_Configuration.md)
+- [Composer](./Composer_Configuration.md)
+- [Fabric](./Fabric_Configuration.md)
+- [Iroha](./Iroha_Configuration.md)
+- [Sawtooth](./Sawtooth_Configuration.md)
 
 <br>
 
@@ -35,10 +36,10 @@ Steps for configuring a benchmark that targets a supported blockchain technology
 See [PSWG](https://wiki.hyperledger.org/groups/pswg/performance-and-scale-wg) to find out the definitions and corresponding measurement methods.  
 
 ## Architecture
-See the [Architecture Introduction]({{ site.baseurl }}{% link docs/2_Architecture.md %}) page.
+See the [Architecture Introduction](./Architecture.md) page.
 
 ## Installing Caliper
-See the [Installing and Running Caliper]({{ site.baseurl }}{% link docs/Installing_Caliper.md %}) page.
+See the [Installing and Running Caliper](./Installing_Caliper.md) page.
 
 ## Caliper Flow Control
 
@@ -108,7 +109,7 @@ caliper zooclient start -w ~/myCaliperProject -a <host-address>:<port>  -n my-su
 
 ## How to Contribute
 
-See [Contributing]({{ site.baseurl }}{% link docs/CONTRIBUTING.md %})
+See [Contributing](./CONTRIBUTING.md)
 
 ## License
-The Caliper codebase is release under the [Apache 2.0 license]({{ site.baseurl }}{% link docs/LICENSE.md %}). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.
+The Caliper codebase is release under the [Apache 2.0 license](./LICENSE.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.

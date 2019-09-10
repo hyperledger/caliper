@@ -2,6 +2,7 @@
 layout: page
 title:  "License"
 categories: opensource
+permalink: /vLatest/license/
 ---
 
                                  Apache License

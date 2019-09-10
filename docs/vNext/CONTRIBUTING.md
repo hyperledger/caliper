@@ -1,7 +1,8 @@
 ---
-layout: page
+layout: pageNext
 title:  "Contributing"
 categories: opensource
+permalink: /vNext/contributing/
 ---
 
 ## Contributing to Hyperledger Caliper
