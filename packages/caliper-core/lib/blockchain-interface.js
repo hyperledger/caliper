@@ -81,10 +81,22 @@ class BlockchainInterface {
      * @param {String} contractID identity of the contract
      * @param {String} contractVer version of the contract
      * @param {Array} args array of JSON formatted arguments for multiple transactions
-     * @param {Number} timeout request timeout, in second
+     * @param {Number} timeout request timeout, in seconds
      */
     async invokeSmartContract(context, contractID, contractVer, args, timeout) {
         throw new Error('invokeSmartContract is not implemented for this blockchain system');
+    }
+
+    /**
+     * Query state from the ledger using a smart contract
+     * @param {Object} context context object
+     * @param {String} contractID identity of the contract
+     * @param {String} contractVer version of the contract
+     * @param {Array} args array of JSON formatted arguments
+     * @param {Number} timeout request timeout, in seconds
+     */
+    async querySmartContract(context, contractID, contractVer, args, timeout) {
+        throw new Error('querySmartContract is not implemented for this blockchain system');
     }
 
     /**

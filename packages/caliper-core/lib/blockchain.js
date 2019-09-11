@@ -115,13 +115,44 @@ class Blockchain {
     }
 
     /**
+     * Query state from the ledger using a smart contract
+     * @param {Object} context context object
+     * @param {String} contractID identiy of the contract
+     * @param {String} contractVer version of the contract
+     * @param {Array} args array of JSON formatted arguments
+     * @param {Number} timeout request timeout, in seconds
+     * @return {Promise} query response object
+     */
+    async querySmartContract(context, contractID, contractVer, args, timeout) {
+        let arg, time;
+        if(Array.isArray(args)) {
+            arg = args;
+        }
+        else if(typeof args === 'object') {
+            arg = [args];
+        }
+        else {
+            throw new Error('Invalid args for querySmartContract()');
+        }
+
+        if(typeof timeout !== 'number' || timeout < 0) {
+            time = 120;
+        }
+        else {
+            time = timeout;
+        }
+
+        return await this.bcObj.querySmartContract(context, contractID, contractVer, arg, time);
+    }
+
+    /**
      * Query state from the ledger
      * @param {Object} context context object from getContext
      * @param {String} contractID identiy of the contract
      * @param {String} contractVer version of the contract
      * @param {String} key lookup key
      * @param {String=} [fcn] query function name
-     * @return {Promise} as invokeSmateContract()
+     * @return {Object} as invokeSmateContract()
      */
     async queryState(context, contractID, contractVer, key, fcn) {
         return await this.bcObj.queryState(context, contractID, contractVer, key, fcn);
