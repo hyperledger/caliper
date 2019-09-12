@@ -2,30 +2,22 @@
 layout: page
 title:  "Architecture"
 categories: docs
-order: 2
+permalink: /vLatest/architecture/
+order: 4
 ---
 
-## Architecture
+Hyperledger Caliper can be abstracted into two components:
+
+**Caliper Core**: The Core packages implement core functions for the running of a benchmark, including: 
+* *Caliper CLI:* A CLI package is also provided for convenience running of a benchmark
+* *Client load genration:* Clients interact via adaptors to drive a benchmark load, determined by a rate control mechanism.
+* *Resource Monitoring:* contains operations to start/stop a monitor and fetch resource consumption status of backend blockchain system, including CPU, memory, network IO, etc.
+* *Performance Analysis:* contains operations to read predefined performance statistics (including TPS, delay, success ratio, etc) and print benchmark results. Key metrics are recorded while invoking blockchain NBIs and are are used later to generate the statistics.
+* *Report Generation:* contains operations to generate a HTML format testing report
+
+**Caliper Adaptors**: Adaptors are used to integrate existing blockchain system into Caliper framework. Each adaptor implements the 'Caliper Blockchain Interface' by using corresponding blockchain's native SDK or RESTful API to map operations such as deploying smart contracts on backend blockchain, invoking contracts, querying states from the ledger etc.
 
 <img src="{{ site.baseurl }}/assets/img/architecture.png" alt="architecture">
-
-### Adaptation Layer
-
-The adaptation layer is used to integrate existing blockchain system into Caliper framework. Each adaptor implements the 'Caliper Blockchain NBIs' by using corresponding blockchain's native SDK or RESTful API. Hyperledger Fabric1.0 and Sawtooth are current supported now, while Ethereum and other blockchain systems are in the plan.
-
-### Interface & Core Layer
-
-The interface&Core layer implements core functions and provides north bound interfaces for up-applications. Four kinds of NBIs are provided:
-* *Blockchain operating interfaces:* contains operations such as deploying smart contracts on backend blockchain, invoking contracts, querying states from the ledger, etc.
-* *Resource Monitor:* contains operations to start/stop a monitor and fetch resource consumption status of backend blockchain system, including CPU, memory, network IO, etc. Two kinds of monitors are provided now, one is to watch local/remote docker container, and another is to watch local processes. More monitors will be implemented in the future.
-* *Performance Analyzer:* contains operations to read predefined performance statistics (including TPS, delay, success ratio, etc) and print benchmark results. Key metrics are recorded while invoking blockchain NBIs, e.g. created time and committed time of the transaction, result of the transaction, etc. Those metrics are used later to generate the statistics.
-* *Report Generator:* contains operations to generate a HTML format testing report
-
-### Application Layer
-
-The application layer contains the tests implemented for typical blockchain scenarios. Each test has a configuration file which defines the backend blockchain network and test arguments. These tests can be used directly to test the performance of the blockchain system.
-
-A default benchmark engine is implemented to help developers to understand the framework and implement their own test quickly. How to use the benchmark engine is explained in the latter part. Of course, developers can use NBIs directly to implement their test without the framework.
 
 
 ## Benchmark Engine
@@ -33,7 +25,6 @@ A default benchmark engine is implemented to help developers to understand the f
 <img src="{{ site.baseurl }}/assets/img/test-framework.png" alt="Benchmark Engine">
 
 ### Configuration File
-
 Two kinds of configuration files are used. One is the benchmark configuration file, which defines the arguments of the benchmark like workload. Another is the blockchain configuration file, which specify necessary information to help interacting with the SUT.  
 
 Below is a benchmark configuration file example:
@@ -104,10 +95,10 @@ monitor:
   * **label** : hint for the test. For example, you can use the transaction name as the label name to tell which transaction is mainly used to test the performance. The value is also used as the context name for *blockchain.getContext()*. For example, developers may want to test performance of different Fabric channels, in that case, tests with different label can be bound to different fabric channels.  
   * **txNumber** : defines an array of sub-rounds with different transaction numbers to be run in each round. For example, [5000,400] means totally 5000 transactions will be generated in the first round and 400 will be generated in the second.
   * **txDuration** : defines an array of sub-rounds with time based test runs. For example [150,400] means two runs will be made, the first test will run for 150 seconds, and the second will run for 400 seconds. If specified in addition to txNumber, the txDuration option will take precedence.
-  * **rateControl** : defines an array of custom rate controls to use during the benchmarking test sub-rounds. If not specified will default to 'fixed-rate' that will drive the benchmarking at a set 1 TPS rate. If defined, the rate control mechanism must exist, and may be provided with options to use to control the rate at which messages are sent, or to specify a message rate profile. Each round, specified within **txNumber** or **txDuration** must have a corresponding rate control item within the **rateControl** array. For more information on available rate controllers and how to implement custom rate controllers, refer to the [rate controllers section]({{ site.baseurl }}{% link docs/Rate_Controllers.md %})
+  * **rateControl** : defines an array of custom rate controls to use during the benchmarking test sub-rounds. If not specified will default to 'fixed-rate' that will drive the benchmarking at a set 1 TPS rate. If defined, the rate control mechanism must exist, and may be provided with options to use to control the rate at which messages are sent, or to specify a message rate profile. Each round, specified within **txNumber** or **txDuration** must have a corresponding rate control item within the **rateControl** array. For more information on available rate controllers and how to implement custom rate controllers, refer to the [rate controllers section](./Rate_Controllers.md)
   * **trim** : performs a trimming operation on the client results to eliminate the warm-up and cool-down phase being included within tests reports. If specified, the trim option will respect the round measurement. For example, if `txNumber` is the driving test mode the a value of 30 means the initial and final 30 transactions of the results from each client will be ignored when generating result statistics; if `txDuration` is being used, the the initial and final 30seconds of the the results from each client will be ignored.
   * **arguments** : user defined arguments which will be passed directly to the user defined test module.
-  * **callback** : specifies the user defined module used in this test round. Please see [User defined test module]({{ site.baseurl }}{% link docs/Writing_Benchmarks.md %}) to learn more details.
+  * **callback** : specifies the user defined module used in this test round. Please see [User defined test module](./Writing_Benchmarks.md) to learn more details.
 * **monitor** - defines the type of resource monitors and monitored objects, as well as the time interval for the monitoring.
   * docker : a docker monitor is used to monitor specified docker containers on local or remote hosts. Docker Remote API is used to retrieve remote container's stats. Reserved container name 'all' means all containers on the host will be watched. In above example, the monitor will retrieve the stats of two containers per second, one is a local container named 'peer0.org1.example.com' and another is a remote container named 'orderer.example.com' located on host '192.168.1.100', 2375 is the listening port of Docker on that host.
   * process : a process monitor is used to monitor specified local process. For example, users can use this monitor to watch the resource consumption of simulated blockchain clients. The 'command' and 'arguments' properties are used to specify the processes. The 'multiOutput' property is used to define the meaning of the output if multiple processes are found. 'avg' means the output is the average resource consumption of those processes, while 'sum' means the output is the summing consumption.  
@@ -146,7 +137,7 @@ In this mode, multiple zookeeper clients are launched independently. A zookeeper
 
 A zookeeper client also forks multiple child processes (local clients) to do the actual testing work as described above.
 
-For more details, please refer to [Zookeper Client Design]({{ site.baseurl }}{% link docs/Zookeeper_Client_Design.md %}).
+For more details, please refer to [Zookeper Client Design](./Zookeeper_Client_Design.md).
 
 ### User Defined Test Module
 

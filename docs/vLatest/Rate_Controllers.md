@@ -2,6 +2,7 @@
 layout: page
 title:  "Rate Controllers"
 categories: reference
+permalink: /vLatest/rate-controllers/
 ---
 
 The rate at which transactions are input to the blockchain system is a key factor within performance tests. It may be desired to send transactions at a specified rate or follow a specified profile. Caliper permits the specification of custom rate controllers to enable a user to perform testing under a custom loading mechanism. A user may specify their own rate controller or use one of the default options:
@@ -272,7 +273,7 @@ The recommended approach is to use transaction number-based round configurations
 
 ## Adding Custom Controllers
 
-It is possible to use rate controllers that are not built-in controllers of Caliper. When you specify the rate controller in the test configuration file (see the [architecture documentation]({{ site.baseurl }}{% link docs/2_Architecture.md %})), you must set the `type` and `opts` attributes.
+It is possible to use rate controllers that are not built-in controllers of Caliper. When you specify the rate controller in the test configuration file (see the [architecture documentation](./Architecture.md)), you must set the `type` and `opts` attributes.
 
 You can set the `type` attribute so that it points to your custom JS file that satisfies the following criteria:
 1. The file/module exports a `createRateController` function that takes the following parameters:

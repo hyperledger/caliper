@@ -1,20 +1,21 @@
 ---
-layout: page
+layout: pageNext
 title:  "Caliper FAQ"
 categories: opensource
+permalink: /vNext/caliper-faq/
 ---
 
 
 ### I. Environment, Platform & Version
 **Q:** How do I run Caliper to test a blockchain system?  
-**A:** Details for setting up Caliper to run benchmark tests on a blockchain system are provided in the [Getting Started](https://hyperledger.github.io/caliper/docs/1_Getting_Started.html) page of the site.  
+**A:** Details for setting up Caliper to run benchmark tests on a blockchain system are provided in the [Getting Started](./Getting_Started.md) page of the site.  
 When you run Caliper to test a blockchain network, you maybe encounter some errors. If so, first you should check the version of tools, SDKs and modules to make sure it is right.
  
 ### II.	Configuration Files of Caliper  
 **Q:** What kind of configuration files are needed to run Caliper?  
 **A:** There are two kinds of configuration files in Caliper: the benchmark configuration file, which defines the arguments of the benchmark, like workload and monitoring settings; the blockchain configuration file, which specifies the information needed to interact with the backend blockchain system.  
 
-a. **Benchmark configuration file**: The example benchmark configuration files are named like `config-xxx.yaml` and are located in the directories of the sample benchmarks. The configuration contains test round and monitoring settings. You can refer to the [Architecture documentation](https://hyperledger.github.io/caliper/docs/2_Architecture.html) for details.  
+a. **Benchmark configuration file**: The example benchmark configuration files are named like `config-xxx.yaml` and are located in the directories of the sample benchmarks. The configuration contains test round and monitoring settings. You can refer to the [Architecture documentation](./Architecture.md) for details.  
 
 b. **Blockchain configuration file**: The blockchain configuration file is named like `xxx-yyy.json/`, where `xxx` is the blockchain type (for example, `fabric`, `sawtooth`, `burrow` or `iroha`), and `yyy` is some deployment-specific information, like the language of the chaincodes (for example, `fabric-go.json` for a Fabric deployment). You can refer to the platform-specific configuration pages for more information.
 
@@ -36,7 +37,7 @@ c.	Modify the Fabric network configuration file according to your new Fabric net
 d.	Run Caliper to test your blockchain network.   
 
 **Q:** How can I test a blockchain system that Caliper does not support currently？  
-**A:** If you want to test the blockchain system that Caliper does not support now, you must write your own blockchain adapter that Caliper can use to inferface with the backend network. For details, you can refer to the [Writing Adapters](https://hyperledger.github.io/caliper/docs/Writing_Adapters.html) page. The Caliper-specific configurations remain unchanged. Take a look at the provided adapter implementations and example networks to gather some best-practices.  
+**A:** If you want to test the blockchain system that Caliper does not support now, you must write your own blockchain adapter that Caliper can use to inferface with the backend network. For details, you can refer to the [Writing Adapters](./Writing_Adapters.md) page. The Caliper-specific configurations remain unchanged. Take a look at the provided adapter implementations and example networks to gather some best-practices.  
 
 ### IV.	Other Questions Related to Caliper  
 **Q:** How can I calculate the throughput (TPS)?  

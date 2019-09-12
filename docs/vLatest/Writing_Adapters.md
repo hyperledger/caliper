@@ -2,6 +2,7 @@
 layout: page
 title:  "Writing Adapters"
 categories: reference
+permalink: /vLatest/writing-adaptors/
 ---
 
 ## How to write your own blockchain adapter
@@ -115,4 +116,4 @@ When the benchmark engine is running, the master process of benchmark engine wil
     }
   ```
 
-If you would like to define your test module, please use Blockchain NBI to write your own test script which should include 3 functions(init(), run()and end()) as the files in the directory `bechmark/simple/open.js` and  `bechmark/simple/query.js`, and change the callback property in the test configuration file into current test script's path. The whole flow of Benchmarks is referred to  [Writing Benchmarks]({{ site.baseurl }}{% link docs/Writing_Benchmarks.md %}).
+If you would like to define your test module, please use Blockchain NBI to write your own test script which should include 3 functions(init(), run()and end()) as the files in the directory `bechmark/simple/open.js` and  `bechmark/simple/query.js`, and change the callback property in the test configuration file into current test script's path. The whole flow of Benchmarks is referred to  [Writing Benchmarks](./Writing_Benchmarks.md).

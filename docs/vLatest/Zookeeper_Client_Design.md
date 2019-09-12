@@ -2,11 +2,12 @@
 layout: page
 title:  "Zookeeper Client Design"
 categories: reference
+permalink: /vLatest/zookeeper/
 ---
 
 <img src="{{ site.baseurl }}/assets/img/zk-arch.png" alt="architecture">
 
-The architecture is as shown in the figure. The concept of master, zookeeper client, as well as local client can be found in  [architecture]({{ site.baseurl }}{% link docs/2_Architecture.md %}) document.
+The architecture is as shown in the figure. The concept of master, zookeeper client, as well as local client can be found in  [architecture](./Architecture.md) document.
 
 Each zookeeper client creates three znodes under /caliper folder:
 * `/caliper/clients/client_id` which uniquely identifies this zookeeper client
