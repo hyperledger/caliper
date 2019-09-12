@@ -101,6 +101,7 @@ const keys = {
         OverwriteGopath: 'caliper-fabric-overwritegopath',
         LatencyThreshold: 'caliper-fabric-latencythreshold',
         CountQueryAsLoad: 'caliper-fabric-countqueryasload',
+        CountTransactionAsLoad: 'caliper-fabric-counttransactionasload',
         SkipCreateChannelPrefix: 'caliper-fabric-skipcreatechannel-',
         Gateway: 'caliper-fabric-usegateway',
         GatewayLocalHost: 'caliper-fabric-gatewaylocalhost',

@@ -178,6 +178,7 @@ class Fabric extends BlockchainInterface {
         this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.InvokeOrQuery, 60000);
         this.configClientBasedLoadBalancing = ConfigUtil.get(ConfigUtil.keys.Fabric.LoadBalancing, 'client') === 'client';
         this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountQueryAsLoad, true);
+        this.configCountTxnAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountTransactionAsLoad, true);
         this.configUseGateway = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway, false);
         this.configLocalHost = ConfigUtil.get(ConfigUtil.keys.Fabric.GatewayLocalHost, true);
         this.configDiscovery = ConfigUtil.get(ConfigUtil.keys.Fabric.Discovery, false);
@@ -1796,11 +1797,12 @@ class Fabric extends BlockchainInterface {
      * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
      */
     async _submitSingleTransaction(context, invokeSettings, timeout) {
-        // note start time to adjust the timeout parameter later
+        // NOTE: since this function is a hot path, there aren't any assertions for the sake of efficiency
+
+        // start time to adjust the timeout parameter later
         const startTime = Date.now();
         this.txIndex++; // increase the counter
-
-        // NOTE: since this function is a hot path, there aren't any assertions for the sake of efficiency
+        const countAsLoad = invokeSettings.countAsLoad === undefined ? this.configCountTxnAsLoad : invokeSettings.countAsLoad; // Optional counter on txn
 
         // retrieve the necessary client/admin profile
         let invoker;
@@ -1856,7 +1858,7 @@ class Fabric extends BlockchainInterface {
         // NOTE: everything happens inside a try-catch
         // no exception should escape, transaction failures have to be handled gracefully
         try {
-            if (context.engine) {
+            if (context.engine && countAsLoad) {
                 context.engine.submitCallback(1);
             }
             try {
@@ -2073,13 +2075,16 @@ class Fabric extends BlockchainInterface {
         const contract = await this._getUserContract(invokeSettings.invokerIdentity, invokeSettings.chaincodeId);
         const client = this.clientProfiles.get(invokeSettings.invokerIdentity);
 
+        // Optional counter on txn
+        const countAsLoad = invokeSettings.countAsLoad === this.configCountTxnAsLoad ? true : invokeSettings.countAsLoad;
+
         // Build the Caliper TxStatus, this is a reduced item when compared to the low level API capabilities
         const txIdObject = client.newTransactionID();
         const txId = txIdObject.getTransactionID();
         let invokeStatus = new TxStatus(txId);
         invokeStatus.Set('request_type', 'transaction');
 
-        if(context.engine) {
+        if(context.engine && countAsLoad) {
             context.engine.submitCallback(1);
         }
 
@@ -2110,13 +2115,16 @@ class Fabric extends BlockchainInterface {
         const contract = await this._getUserContract(querySettings.invokerIdentity, querySettings.chaincodeId);
         const client = this.clientProfiles.get(querySettings.invokerIdentity);
 
+        // Optional counter on txn
+        let countAsLoad = querySettings.countAsLoad === undefined ? this.configCountQueryAsLoad : querySettings.countAsLoad;
+
         // Build the Caliper TxStatus, this is a reduced item when compared to the low level API capabilities
         const txIdObject = client.newTransactionID();
         const txId = txIdObject.getTransactionID();
         let invokeStatus = new TxStatus(txId);
         invokeStatus.Set('request_type', 'query');
 
-        if(context.engine) {
+        if(context.engine && countAsLoad) {
             context.engine.submitCallback(1);
         }
 
