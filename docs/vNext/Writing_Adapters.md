@@ -3,6 +3,7 @@ layout: pageNext
 title:  "Writing Adapters"
 categories: reference
 permalink: /vNext/writing-adaptors/
+order: 2
 ---
 
 ## How to write your own blockchain adapter

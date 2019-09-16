@@ -3,6 +3,7 @@ layout: pageNext
 title:  "Logging Control"
 categories: reference
 permalink: /vNext/logging/
+order: 6
 ---
 
 Caliper builds on the [winston](https://github.com/winstonjs/winston) logger module to provide a flexible, multi-target logging mechanism. Using the logging functionality can be split into two aspects:

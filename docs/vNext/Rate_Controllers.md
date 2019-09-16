@@ -3,6 +3,7 @@ layout: pageNext
 title:  "Rate Controllers"
 categories: reference
 permalink: /vNext/rate-controllers/
+order: 4
 ---
 
 The rate at which transactions are input to the blockchain system is a key factor within performance tests. It may be desired to send transactions at a specified rate or follow a specified profile. Caliper permits the specification of custom rate controllers to enable a user to perform testing under a custom loading mechanism. A user may specify their own rate controller or use one of the default options:
