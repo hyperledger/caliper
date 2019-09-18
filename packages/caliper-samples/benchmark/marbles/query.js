@@ -44,7 +44,7 @@ module.exports.run = function() {
     }
 
     // TODO: until Fabric query is implemented, use invoke
-    return bc.invokeSmartContract(contx, 'marbles', 'v1', args, 120);
+    return bc.bcObj.querySmartContract(contx, 'marbles', 'v1', args, 120);
 };
 
 module.exports.end = function() {

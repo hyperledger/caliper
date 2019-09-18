@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hyperledger/caliper"
+    "url": "git+https://github.com/hyperledger/caliper.git"
   },
   "scripts": {
     "repoclean": "lerna clean",
@@ -22,7 +22,9 @@
     "*",
     "src/comm/template/report.html"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "@hyperledger/caliper-cli": "^0.1.0"
+  },
   "devDependencies": {
     "lerna": "2.0.0",
     "license-check-and-add": "2.3.6"
@@ -75,5 +77,12 @@
       "type": "Apache-2.0",
       "url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
     }
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/hyperledger/caliper/issues"
+  },
+  "homepage": "https://github.com/hyperledger/caliper#readme",
+  "main": "index.js",
+  "keywords": [],
+  "author": ""
 }

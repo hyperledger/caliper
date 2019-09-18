@@ -10,12 +10,12 @@
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
 * limitations under the License.
-*/
+ */
 
 /*
 * NOTE: This implementation is a replica of the following:
 * https://github.com/hyperledger/fabric-samples/blob/release-1.1/chaincode/marbles02/node/marbles_chaincode.js
-*/
+ */
 
 // ====CHAINCODE EXECUTION SAMPLES (CLI) ==================
 
@@ -507,9 +507,11 @@ func (t *SimpleChaincode) queryMarblesByOwner(stub shim.ChaincodeStubInterface, 
 
 	owner := strings.ToLower(args[0])
 
-	queryString := fmt.Sprintf("{\"selector\":{\"docType\":\"marble\",\"owner\":\"%s\"}}", owner)
+	// CouchDB mode
+	// queryString := fmt.Sprintf("{\"selector\":{\"docType\":\"marble\",\"owner\":\"%s\"}}", owner)
+	// queryResults, err := getQueryResultForQueryString(stub, queryString)
 
-	queryResults, err := getQueryResultForQueryString(stub, queryString)
+	queryResults, err := stub.GetState(owner)
 	if err != nil {
 		return shim.Error(err.Error())
 	}

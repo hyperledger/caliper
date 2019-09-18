@@ -44,7 +44,7 @@ test:
         tps: 5
     - type: fixed-rate
       opts:
-        tps: 5
+        tps: 15
     callback: benchmark/marbles/query.js
 monitor:
   type:

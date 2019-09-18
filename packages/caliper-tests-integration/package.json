@@ -34,7 +34,14 @@
     "verdaccio": "3.12.0",
     "license-check-and-add": "2.3.6"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@hyperledger/caliper-cli": "^0.1.0",
+    "fabric-ca-client": "^1.4.1",
+    "fabric-client": "^1.4.1",
+    "fabric-network": "^1.4.1",
+    "fabric-protos": "^2.0.0-snapshot.1",
+    "grpc": "^1.14.2"
+  },
   "license-check-and-add-config": {
     "folder": ".",
     "license": "../../LICENSE.txt",
@@ -74,5 +81,6 @@
         }
       }
     }
-  }
+  },
+  "main": "index.js"
 }
