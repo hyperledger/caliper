@@ -2,8 +2,8 @@
 
 # document: https://hyperledger.github.io/caliper/vLatest/installing-caliper/
 
-LEDGERSTATE=goleveldb # couchdb
-VERSION=1.4.1 # 1.1
+LEDGERSTATE=goleveldb  # couchdb
+VERSION=1.4.1          # 1.1
 FILE=fabric-go-tls-ibp # fabric-go, fabric-go-tls
 
 NODE_VER=$(node --version)
@@ -12,12 +12,20 @@ if [ $NODE_VER != "v8.16.1" ]; then
     exit 1
 fi
 
-set -v
-npm init -y
-npm install --only=prod @hyperledger/caliper-cli
-npx caliper bind --caliper-bind-sut fabric --caliper-bind-sdk $VERSION
-set +v
+if [ "$1" == "setup" ]; then
+    set -v
+    npm init -y
+    npm install --only=prod @hyperledger/caliper-cli
+    npx caliper bind --caliper-bind-sut fabric --caliper-bind-sdk $VERSION
+    set +v
+fi
 
-echo "* Start testing with ledger state as ${LEDGERSTATE}"
-set -v
-npx caliper benchmark run --caliper-workspace ../caliper-samples --caliper-benchconfig benchmark/marbles/config.yaml --caliper-networkconfig network/fabric-v$VERSION/2org1peer$LEDGERSTATE/$FILE.yaml
+if [ "$1" == "test" ]; then
+    echo "* Start testing with ledger state as ${LEDGERSTATE}"
+    set -v
+    npx caliper benchmark run --caliper-workspace ../caliper-samples --caliper-benchconfig benchmark/marbles/config.yaml --caliper-networkconfig network/fabric-v$VERSION/2org1peer$LEDGERSTATE/$FILE.yaml
+fi
+
+if [ "$1" == "" ]; then
+    echo "* Modes are required: ./caliper-start <setup|test>"
+fi
