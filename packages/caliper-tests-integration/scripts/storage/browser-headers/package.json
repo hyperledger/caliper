@@ -1,0 +1,1245 @@
+{
+	"name": "browser-headers",
+	"versions": {
+		"0.1.0": {
+			"name": "browser-headers",
+			"version": "0.1.0",
+			"main": "lib/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/improbable-eng/js-browser-headers.git"
+			},
+			"license": "MIT",
+			"keywords": [
+				"headers",
+				"fetch"
+			],
+			"scripts": {
+				"prepublish": "npm run clean && npm run build:lib",
+				"clean": "rm -rf build/*",
+				"build:test": "mkdir -p build && cd test && tsc && browserify ./build/test/*.spec.js -o ./build/integration-tests.js --debug -t [ babelify ]",
+				"build:lib": "mkdir -p lib && tsc && cp -R build/* lib",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts ./test/**/*.ts",
+				"test": "npm run build:test && karma start --single-run",
+				"test:dev": "karma start",
+				"release": "./release.sh ${npm_package_version}"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.5",
+				"assert": "^1.4.1",
+				"babel-cli": "^6.11.4",
+				"babel-preset-es2015": "^6.13.2",
+				"babelify": "^7.3.0",
+				"browserify": "^14.1.0",
+				"jasmine": "^2.4.1",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.2.0",
+				"karma-chrome-launcher": "^1.0.1",
+				"karma-jasmine": "^1.0.2",
+				"karma-sauce-launcher": "^1.0.0",
+				"tslint": "^4.4.2",
+				"typescript": "^2.2.1"
+			},
+			"dependencies": {},
+			"gitHead": "cf7bd2daa21b0cba94a40c453e6a87ddf80e0c5d",
+			"description": "> Compatibility Layer for the Headers class",
+			"bugs": {
+				"url": "https://github.com/improbable-eng/js-browser-headers/issues"
+			},
+			"homepage": "https://github.com/improbable-eng/js-browser-headers#readme",
+			"_id": "browser-headers@0.1.0",
+			"_shasum": "c134da76ac6757d6754b7dd97e8fb5d3649c6a3d",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.2",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "c134da76ac6757d6754b7dd97e8fb5d3649c6a3d",
+				"tarball": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/browser-headers-0.1.0.tgz_1488291552666_0.93882448063232"
+			},
+			"directories": {}
+		},
+		"0.1.1": {
+			"name": "browser-headers",
+			"version": "0.1.1",
+			"main": "lib/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/improbable-eng/js-browser-headers.git"
+			},
+			"license": "Apache-2.0",
+			"keywords": [
+				"headers",
+				"fetch"
+			],
+			"scripts": {
+				"prepublish": "npm run clean && npm run build:lib",
+				"clean": "rm -rf build/*",
+				"build:test": "mkdir -p build && cd test && tsc && browserify ./build/test/*.spec.js -o ./build/integration-tests.js --debug -t [ babelify ]",
+				"build:lib": "mkdir -p lib && tsc && cp -R build/* lib",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts ./test/**/*.ts",
+				"test": "npm run build:test && karma start --single-run",
+				"test:dev": "karma start",
+				"release": "./release.sh ${npm_package_version}"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.5",
+				"assert": "^1.4.1",
+				"babel-cli": "^6.11.4",
+				"babel-preset-es2015": "^6.13.2",
+				"babelify": "^7.3.0",
+				"browserify": "^14.1.0",
+				"jasmine": "^2.4.1",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.2.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-sauce-launcher": "^1.0.0",
+				"tslint": "^4.4.2",
+				"typescript": "^2.2.1"
+			},
+			"dependencies": {},
+			"gitHead": "959b725c9be9c3747473e324918711d5c8620adb",
+			"description": "> Compatibility Layer for the Headers class",
+			"bugs": {
+				"url": "https://github.com/improbable-eng/js-browser-headers/issues"
+			},
+			"homepage": "https://github.com/improbable-eng/js-browser-headers#readme",
+			"_id": "browser-headers@0.1.1",
+			"_shasum": "17f9126702d8f4f6c0d94fcd6ce1869db8e8e2db",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.2",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "17f9126702d8f4f6c0d94fcd6ce1869db8e8e2db",
+				"tarball": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/browser-headers-0.1.1.tgz_1488364450551_0.2949755312874913"
+			},
+			"directories": {}
+		},
+		"0.1.2": {
+			"name": "browser-headers",
+			"version": "0.1.2",
+			"main": "lib/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/improbable-eng/js-browser-headers.git"
+			},
+			"license": "Apache-2.0",
+			"keywords": [
+				"headers",
+				"fetch"
+			],
+			"scripts": {
+				"prepublish": "npm run clean && npm run build:lib",
+				"clean": "rm -rf build/*",
+				"build:test": "webpack",
+				"build:lib": "mkdir -p lib && tsc && cp -R build/* lib",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts ./test/**/*.ts",
+				"test": "npm run build:test && karma start --single-run",
+				"release": "./release.sh ${npm_package_version}"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.5",
+				"assert": "^1.4.1",
+				"babel-core": "^6.23.1",
+				"babel-loader": "^6.3.2",
+				"babel-preset-es2015": "^6.13.2",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.2.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sourcemap-loader": "^0.3.7",
+				"ts-loader": "^2.0.1",
+				"tslint": "^4.4.2",
+				"typescript": "^2.2.1",
+				"webpack": "^2.2.1"
+			},
+			"dependencies": {},
+			"gitHead": "579febb91f682513b823e6d78687cc311642b1eb",
+			"description": "> Compatibility Layer for the Headers class",
+			"bugs": {
+				"url": "https://github.com/improbable-eng/js-browser-headers/issues"
+			},
+			"homepage": "https://github.com/improbable-eng/js-browser-headers#readme",
+			"_id": "browser-headers@0.1.2",
+			"_shasum": "5fea606f7cdb3f4b7aaecb8024663e3bd0fcf101",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.2",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "5fea606f7cdb3f4b7aaecb8024663e3bd0fcf101",
+				"tarball": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/browser-headers-0.1.2.tgz_1488380444866_0.9235520241782069"
+			},
+			"directories": {}
+		},
+		"0.1.3": {
+			"name": "browser-headers",
+			"version": "0.1.3",
+			"main": "lib/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/improbable-eng/js-browser-headers.git"
+			},
+			"license": "Apache-2.0",
+			"keywords": [
+				"headers",
+				"fetch"
+			],
+			"scripts": {
+				"prepublish": "npm run clean && npm run build:lib",
+				"clean": "rm -rf build/*",
+				"build:test": "webpack",
+				"build:lib": "mkdir -p lib && tsc && cp -R build/* lib",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts ./test/**/*.ts",
+				"test": "npm run build:test && karma start --single-run",
+				"release": "./release.sh ${npm_package_version}"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.5",
+				"assert": "^1.4.1",
+				"babel-core": "^6.23.1",
+				"babel-loader": "^6.3.2",
+				"babel-preset-es2015": "^6.13.2",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.2.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sourcemap-loader": "^0.3.7",
+				"ts-loader": "^2.0.1",
+				"tslint": "^4.4.2",
+				"typescript": "^2.2.1",
+				"webpack": "^2.2.1"
+			},
+			"dependencies": {},
+			"browserify": {
+				"transform": [
+					"babelify"
+				]
+			},
+			"gitHead": "8456bf7721e9c7b987f072921fa73e946af49d5b",
+			"description": "> Compatibility Layer for the Headers class",
+			"bugs": {
+				"url": "https://github.com/improbable-eng/js-browser-headers/issues"
+			},
+			"homepage": "https://github.com/improbable-eng/js-browser-headers#readme",
+			"_id": "browser-headers@0.1.3",
+			"_shasum": "0fd26e062992af224e96bb7bf1ed71b6f27beccd",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.2",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "0fd26e062992af224e96bb7bf1ed71b6f27beccd",
+				"tarball": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/browser-headers-0.1.3.tgz_1488383925439_0.7733175989706069"
+			},
+			"directories": {}
+		},
+		"0.1.4": {
+			"name": "browser-headers",
+			"version": "0.1.4",
+			"main": "lib/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/improbable-eng/js-browser-headers.git"
+			},
+			"license": "Apache-2.0",
+			"keywords": [
+				"headers",
+				"fetch"
+			],
+			"scripts": {
+				"prepublish": "npm run clean && npm run build:lib",
+				"clean": "rm -rf build/* && rm -rf lib/*",
+				"build:test": "webpack",
+				"build:lib": "npm run clean && mkdir -p lib && tsc && mkdir -p build/js && cp -R src/js/*.js build/js && cp -R build/* lib",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts ./test/**/*.ts",
+				"test": "npm run build:test && karma start --single-run",
+				"release": "./release.sh ${npm_package_version}"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.5",
+				"assert": "^1.4.1",
+				"babel-core": "^6.23.1",
+				"babel-loader": "^6.3.2",
+				"babel-preset-es2015": "^6.13.2",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.2.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sourcemap-loader": "^0.3.7",
+				"ts-loader": "^2.0.1",
+				"tslint": "^4.4.2",
+				"typescript": "^2.2.1",
+				"webpack": "^2.2.1"
+			},
+			"dependencies": {},
+			"browserify": {
+				"transform": [
+					"babelify"
+				]
+			},
+			"gitHead": "c9676d4ed4531e4be63ad9486977ce7c9a581c39",
+			"description": "> Compatibility Layer for the Headers class",
+			"bugs": {
+				"url": "https://github.com/improbable-eng/js-browser-headers/issues"
+			},
+			"homepage": "https://github.com/improbable-eng/js-browser-headers#readme",
+			"_id": "browser-headers@0.1.4",
+			"_shasum": "70471a408445251aee6cfa1b6dc49c8795b18032",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.2",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "70471a408445251aee6cfa1b6dc49c8795b18032",
+				"tarball": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/browser-headers-0.1.4.tgz_1488451195075_0.5189423870760947"
+			},
+			"directories": {}
+		},
+		"0.1.5": {
+			"name": "browser-headers",
+			"version": "0.1.5",
+			"main": "lib/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/improbable-eng/js-browser-headers.git"
+			},
+			"license": "Apache-2.0",
+			"keywords": [
+				"headers",
+				"fetch"
+			],
+			"scripts": {
+				"prepublish": "npm run clean && npm run build:lib",
+				"clean": "rm -rf build/* && rm -rf lib/*",
+				"build:test": "webpack",
+				"build:lib": "npm run clean && mkdir -p lib && tsc && mkdir -p build/js && cp -R src/js/*.js build/js && cp -R build/* lib",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts ./test/**/*.ts",
+				"test": "npm run build:test && karma start --single-run",
+				"release": "./release.sh ${npm_package_version}"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.5",
+				"assert": "^1.4.1",
+				"babel-core": "^6.23.1",
+				"babel-loader": "^6.3.2",
+				"babel-preset-es2015": "^6.13.2",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.2.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sourcemap-loader": "^0.3.7",
+				"ts-loader": "^2.0.1",
+				"tslint": "^4.4.2",
+				"typescript": "^2.2.1",
+				"webpack": "^2.2.1"
+			},
+			"dependencies": {},
+			"browserify": {
+				"transform": [
+					"babelify"
+				]
+			},
+			"gitHead": "2a5e874892ae6a1a8c46713e71eab3f4842777a0",
+			"description": "> Compatibility Layer for the Headers class",
+			"bugs": {
+				"url": "https://github.com/improbable-eng/js-browser-headers/issues"
+			},
+			"homepage": "https://github.com/improbable-eng/js-browser-headers#readme",
+			"_id": "browser-headers@0.1.5",
+			"_shasum": "4b65a284972ad52dd56c576486799596150b616e",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.2",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "4b65a284972ad52dd56c576486799596150b616e",
+				"tarball": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/browser-headers-0.1.5.tgz_1488455499860_0.8876369805075228"
+			},
+			"directories": {}
+		},
+		"0.1.6": {
+			"name": "browser-headers",
+			"version": "0.1.6",
+			"main": "lib/index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/improbable-eng/js-browser-headers.git"
+			},
+			"license": "Apache-2.0",
+			"keywords": [
+				"headers",
+				"fetch"
+			],
+			"scripts": {
+				"prepublish": "npm run clean && npm run build:lib",
+				"clean": "rm -rf build/* && rm -rf lib/*",
+				"build:test": "webpack",
+				"build:lib": "npm run clean && mkdir -p lib && tsc && mkdir -p build/js && cp -R src/js/*.js build/js && cp -R build/* lib",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts ./test/**/*.ts",
+				"test": "npm run build:test && karma start --single-run",
+				"release": "./release.sh ${npm_package_version}"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.5",
+				"assert": "^1.4.1",
+				"babel-core": "^6.23.1",
+				"babel-loader": "^6.3.2",
+				"babel-preset-es2015": "^6.13.2",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.2.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sourcemap-loader": "^0.3.7",
+				"ts-loader": "^2.0.1",
+				"tslint": "^4.4.2",
+				"typescript": "^2.2.1",
+				"webpack": "^2.2.1"
+			},
+			"dependencies": {},
+			"browserify": {
+				"transform": [
+					"babelify"
+				]
+			},
+			"gitHead": "52a85eb91ce2f65db99b732582e272a67837628e",
+			"description": "> Compatibility Layer for the Headers class",
+			"bugs": {
+				"url": "https://github.com/improbable-eng/js-browser-headers/issues"
+			},
+			"homepage": "https://github.com/improbable-eng/js-browser-headers#readme",
+			"_id": "browser-headers@0.1.6",
+			"_shasum": "66cd965675b42aaad25825856fdb5732d9407bf7",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.2",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "66cd965675b42aaad25825856fdb5732d9407bf7",
+				"tarball": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/browser-headers-0.1.6.tgz_1488461614928_0.6321857983712107"
+			},
+			"directories": {}
+		},
+		"0.1.7": {
+			"name": "browser-headers",
+			"version": "0.1.7",
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/improbable-eng/js-browser-headers.git"
+			},
+			"license": "Apache-2.0",
+			"keywords": [
+				"headers",
+				"fetch"
+			],
+			"scripts": {
+				"prepublish": "npm run clean && npm run build:lib",
+				"clean": "rm -rf build/* && rm -rf lib/*",
+				"build:test": "webpack",
+				"build:lib": "npm run clean && mkdir -p lib && tsc && mkdir -p build/js && cp -R src/js/*.js build/js && cp -R build/* lib",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts ./test/**/*.ts",
+				"test": "npm run build:test && karma start --single-run",
+				"release": "./release.sh ${npm_package_version}"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.5",
+				"assert": "^1.4.1",
+				"babel-core": "^6.23.1",
+				"babel-loader": "^6.3.2",
+				"babel-preset-es2015": "^6.13.2",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.2.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sourcemap-loader": "^0.3.7",
+				"ts-loader": "^2.0.1",
+				"tslint": "^4.4.2",
+				"typescript": "^2.2.1",
+				"webpack": "^2.2.1"
+			},
+			"dependencies": {},
+			"browserify": {
+				"transform": [
+					"babelify"
+				]
+			},
+			"gitHead": "5ba60c0533f3b381bcf67d8e2c63987b8364399e",
+			"description": "> Compatibility Layer for the Headers class",
+			"bugs": {
+				"url": "https://github.com/improbable-eng/js-browser-headers/issues"
+			},
+			"homepage": "https://github.com/improbable-eng/js-browser-headers#readme",
+			"_id": "browser-headers@0.1.7",
+			"_shasum": "ba28127a5ceab8d5018b3baf4dda64169cc316f0",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.2",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "ba28127a5ceab8d5018b3baf4dda64169cc316f0",
+				"tarball": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/browser-headers-0.1.7.tgz_1488556723389_0.9668622475583106"
+			},
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "browser-headers",
+			"version": "0.2.0",
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/improbable-eng/js-browser-headers.git"
+			},
+			"license": "Apache-2.0",
+			"keywords": [
+				"headers",
+				"fetch"
+			],
+			"scripts": {
+				"prepublish": "npm run clean && npm run build:lib",
+				"clean": "rm -rf build/* && rm -rf lib/*",
+				"build:test": "webpack",
+				"build:lib": "npm run clean && mkdir -p lib && tsc && mkdir -p build/js && cp -R src/js/*.js build/js && cp -R build/* lib",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts ./test/**/*.ts",
+				"test": "npm run build:test && karma start --single-run",
+				"release": "./release.sh ${npm_package_version}"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.5",
+				"assert": "^1.4.1",
+				"babel-core": "^6.23.1",
+				"babel-loader": "^6.3.2",
+				"babel-preset-es2015": "^6.13.2",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.2.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sourcemap-loader": "^0.3.7",
+				"ts-loader": "^2.0.1",
+				"tslint": "^4.4.2",
+				"typescript": "^2.2.1",
+				"webpack": "^2.2.1"
+			},
+			"dependencies": {},
+			"browserify": {
+				"transform": [
+					"babelify"
+				]
+			},
+			"gitHead": "0f0a995a75a2de502c26366bf36ae05adb4741a1",
+			"description": "> Compatibility Layer for the Headers class",
+			"bugs": {
+				"url": "https://github.com/improbable-eng/js-browser-headers/issues"
+			},
+			"homepage": "https://github.com/improbable-eng/js-browser-headers#readme",
+			"_id": "browser-headers@0.2.0",
+			"_shasum": "294ea6e449ff3082247fb349e5acc90f2dac77d1",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.2",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "294ea6e449ff3082247fb349e5acc90f2dac77d1",
+				"tarball": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/browser-headers-0.2.0.tgz_1489063463329_0.9617491946555674"
+			},
+			"directories": {}
+		},
+		"0.2.1": {
+			"name": "browser-headers",
+			"version": "0.2.1",
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/improbable-eng/js-browser-headers.git"
+			},
+			"license": "Apache-2.0",
+			"keywords": [
+				"headers",
+				"fetch"
+			],
+			"scripts": {
+				"prepublish": "npm run clean && npm run build:lib",
+				"clean": "rm -rf build/* && rm -rf lib/*",
+				"build:test": "webpack",
+				"build:lib": "npm run clean && mkdir -p lib && tsc && mkdir -p build/js && cp -R src/js/*.js build/js && cp -R build/* lib",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts ./test/**/*.ts",
+				"test": "npm run build:test && karma start --single-run",
+				"release": "./release.sh ${npm_package_version}"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.5",
+				"assert": "^1.4.1",
+				"babel-core": "^6.23.1",
+				"babel-loader": "^6.3.2",
+				"babel-preset-es2015": "^6.13.2",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.2.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sourcemap-loader": "^0.3.7",
+				"ts-loader": "^2.0.1",
+				"tslint": "^4.4.2",
+				"typescript": "^2.2.1",
+				"webpack": "^2.2.1"
+			},
+			"dependencies": {},
+			"browserify": {
+				"transform": [
+					"babelify"
+				]
+			},
+			"gitHead": "342b1f0ddc3758c76c5c4613549ddfa4c306ef1a",
+			"description": "> Compatibility Layer for the Headers class",
+			"bugs": {
+				"url": "https://github.com/improbable-eng/js-browser-headers/issues"
+			},
+			"homepage": "https://github.com/improbable-eng/js-browser-headers#readme",
+			"_id": "browser-headers@0.2.1",
+			"_shasum": "35cb1caa56e758946fb4ddd80344b9dba48d0924",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.2",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "35cb1caa56e758946fb4ddd80344b9dba48d0924",
+				"tarball": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/browser-headers-0.2.1.tgz_1489082582834_0.609974566847086"
+			},
+			"directories": {}
+		},
+		"0.3.0": {
+			"name": "browser-headers",
+			"version": "0.3.0",
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/improbable-eng/js-browser-headers.git"
+			},
+			"license": "Apache-2.0",
+			"keywords": [
+				"headers",
+				"fetch"
+			],
+			"scripts": {
+				"prepublish": "npm run clean && npm run build:lib",
+				"clean": "rm -rf build/* && rm -rf lib/*",
+				"build:test": "webpack",
+				"build:lib": "npm run clean && mkdir -p lib && tsc && mkdir -p build/js && cp -R src/js/*.js build/js && cp -R build/* lib",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts ./test/**/*.ts",
+				"test": "npm run build:test && karma start --single-run",
+				"release": "./release.sh ${npm_package_version}"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.5",
+				"assert": "^1.4.1",
+				"babel-core": "^6.23.1",
+				"babel-loader": "^6.3.2",
+				"babel-preset-es2015": "^6.13.2",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.2.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sourcemap-loader": "^0.3.7",
+				"ts-loader": "^2.0.1",
+				"tslint": "^4.4.2",
+				"typescript": "^2.2.1",
+				"webpack": "^2.2.1"
+			},
+			"dependencies": {},
+			"browserify": {
+				"transform": [
+					"babelify"
+				]
+			},
+			"gitHead": "a5be3b2f9c85675c17b74a6fc02288679233d358",
+			"description": "> Compatibility Layer for the Headers class",
+			"bugs": {
+				"url": "https://github.com/improbable-eng/js-browser-headers/issues"
+			},
+			"homepage": "https://github.com/improbable-eng/js-browser-headers#readme",
+			"_id": "browser-headers@0.3.0",
+			"_shasum": "8429e8802745aae794a6cc4bc853c459e4a29299",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.2",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "8429e8802745aae794a6cc4bc853c459e4a29299",
+				"tarball": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/browser-headers-0.3.0.tgz_1489488653495_0.3742840616032481"
+			},
+			"directories": {}
+		},
+		"0.3.1": {
+			"name": "browser-headers",
+			"version": "0.3.1",
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/improbable-eng/js-browser-headers.git"
+			},
+			"license": "Apache-2.0",
+			"keywords": [
+				"headers",
+				"fetch"
+			],
+			"scripts": {
+				"prepublish": "npm run clean && npm run build:lib",
+				"clean": "rm -rf build/* && rm -rf lib/*",
+				"build:test": "webpack",
+				"build:lib": "npm run clean && mkdir -p lib && tsc && mkdir -p build/js && cp -R src/js/*.js build/js && cp -R build/* lib",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts ./test/**/*.ts",
+				"test": "npm run build:test && karma start --single-run",
+				"release": "./release.sh ${npm_package_version}"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.5",
+				"assert": "^1.4.1",
+				"babel-core": "^6.23.1",
+				"babel-loader": "^6.3.2",
+				"babel-preset-es2015": "^6.13.2",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.2.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sourcemap-loader": "^0.3.7",
+				"ts-loader": "^2.0.1",
+				"tslint": "^4.4.2",
+				"typescript": "^2.2.1",
+				"webpack": "^2.2.1"
+			},
+			"dependencies": {},
+			"browserify": {
+				"transform": [
+					"babelify"
+				]
+			},
+			"gitHead": "526d7a8153928a8174f5c5111822925739887907",
+			"description": "> Compatibility Layer for the Headers class",
+			"bugs": {
+				"url": "https://github.com/improbable-eng/js-browser-headers/issues"
+			},
+			"homepage": "https://github.com/improbable-eng/js-browser-headers#readme",
+			"_id": "browser-headers@0.3.1",
+			"_shasum": "f74e79f8c28f14c224525399439abd4b0b17b439",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.2",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "f74e79f8c28f14c224525399439abd4b0b17b439",
+				"tarball": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.3.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/browser-headers-0.3.1.tgz_1489489758855_0.06037666229531169"
+			},
+			"directories": {}
+		},
+		"0.3.2": {
+			"name": "browser-headers",
+			"version": "0.3.2",
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/improbable-eng/js-browser-headers.git"
+			},
+			"license": "Apache-2.0",
+			"keywords": [
+				"headers",
+				"fetch"
+			],
+			"scripts": {
+				"prepublish": "npm run clean && npm run build:lib",
+				"clean": "rm -rf build/* && rm -rf lib/*",
+				"build:test": "webpack",
+				"build:lib": "npm run clean && mkdir -p lib && tsc && mkdir -p build/js && cp -R src/js/*.js build/js && cp -R build/* lib",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts ./test/**/*.ts",
+				"test": "npm run build:test && karma start --single-run",
+				"release": "./release.sh ${npm_package_version}"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.5",
+				"assert": "^1.4.1",
+				"babel-core": "^6.23.1",
+				"babel-loader": "^6.3.2",
+				"babel-preset-es2015": "^6.13.2",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.2.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sourcemap-loader": "^0.3.7",
+				"ts-loader": "^2.0.1",
+				"tslint": "^4.4.2",
+				"typescript": "^2.2.1",
+				"webpack": "^2.2.1"
+			},
+			"dependencies": {},
+			"browserify": {
+				"transform": [
+					"babelify"
+				]
+			},
+			"gitHead": "6135d4c4ce36137d9f14c80cac78321f8f57648b",
+			"description": "> Compatibility Layer for the Headers class",
+			"bugs": {
+				"url": "https://github.com/improbable-eng/js-browser-headers/issues"
+			},
+			"homepage": "https://github.com/improbable-eng/js-browser-headers#readme",
+			"_id": "browser-headers@0.3.2",
+			"_shasum": "f6f36201a7e4c1cbe1e5a64c8bbca6cb632a1c04",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.2",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "f6f36201a7e4c1cbe1e5a64c8bbca6cb632a1c04",
+				"tarball": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.3.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/browser-headers-0.3.2.tgz_1490973049408_0.26169421384111047"
+			},
+			"directories": {}
+		},
+		"0.4.0": {
+			"name": "browser-headers",
+			"version": "0.4.0",
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/improbable-eng/js-browser-headers.git"
+			},
+			"license": "Apache-2.0",
+			"keywords": [
+				"headers",
+				"fetch"
+			],
+			"scripts": {
+				"prepublish": "npm run clean && npm run build:lib",
+				"clean": "rm -rf build/* && rm -rf lib/*",
+				"build:test": "webpack",
+				"build:lib": "npm run clean && mkdir -p lib && tsc && mkdir -p build/js && cp -R src/js/*.js build/js && cp -R build/* lib",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts ./test/**/*.ts",
+				"test": "npm run build:test && karma start --single-run",
+				"release": "./release.sh ${npm_package_version}"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.5",
+				"assert": "^1.4.1",
+				"babel-core": "^6.23.1",
+				"babel-loader": "^6.3.2",
+				"babel-preset-es2015": "^6.13.2",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.2.0",
+				"karma-browserstack-launcher": "^1.3.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-sourcemap-loader": "^0.3.7",
+				"ts-loader": "^2.0.1",
+				"tslint": "^4.4.2",
+				"typescript": "^2.2.1",
+				"webpack": "^2.2.1"
+			},
+			"dependencies": {},
+			"browserify": {
+				"transform": [
+					"babelify"
+				]
+			},
+			"gitHead": "8e60e7039f5297843366c4e3b334bd35563d0857",
+			"description": "> Compatibility Layer for the Headers class",
+			"bugs": {
+				"url": "https://github.com/improbable-eng/js-browser-headers/issues"
+			},
+			"homepage": "https://github.com/improbable-eng/js-browser-headers#readme",
+			"_id": "browser-headers@0.4.0",
+			"_shasum": "7b6b4d3cc0cecc9ddf503768147932105c421734",
+			"_from": ".",
+			"_npmVersion": "3.3.9",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "7b6b4d3cc0cecc9ddf503768147932105c421734",
+				"tarball": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jonnyreeves",
+					"email": "npm@jonnyreeves.co.uk"
+				},
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/browser-headers-0.4.0.tgz_1512306745264_0.11423280136659741"
+			},
+			"directories": {}
+		},
+		"0.4.1": {
+			"name": "browser-headers",
+			"version": "0.4.1",
+			"main": "dist/browser-headers.js",
+			"browser": "dist/browser-headers.umd.js",
+			"types": "dist/typings/index.d.ts",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/improbable-eng/js-browser-headers.git"
+			},
+			"license": "Apache-2.0",
+			"keywords": [
+				"headers",
+				"fetch"
+			],
+			"scripts": {
+				"prepublish": "npm run clean && npm run build:lib",
+				"clean": "rm -rf build && rm -rf lib && rm -rf dist",
+				"build:test": "webpack",
+				"build:lib": "npm run clean && webpack",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts ./test/**/*.ts",
+				"test": "npm run build:test && karma start --single-run",
+				"release": "./release.sh ${npm_package_version}"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.5",
+				"assert": "^1.4.1",
+				"babel-core": "^6.23.1",
+				"babel-loader": "^6.3.2",
+				"babel-preset-es2015": "^6.13.2",
+				"jasmine-core": "^2.4.1",
+				"karma": "^3.0.0",
+				"karma-browserstack-launcher": "^1.3.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-sourcemap-loader": "^0.3.7",
+				"ts-loader": "^2.0.1",
+				"tslint": "^4.4.2",
+				"typescript": "3.0.1",
+				"webpack": "^2.2.1"
+			},
+			"dependencies": {},
+			"browserify": {
+				"transform": [
+					"babelify"
+				]
+			},
+			"gitHead": "9bf3c47c8dcfee86eb17aa344ec4b724478e5b67",
+			"description": "> Compatibility Layer for the Headers class",
+			"bugs": {
+				"url": "https://github.com/improbable-eng/js-browser-headers/issues"
+			},
+			"homepage": "https://github.com/improbable-eng/js-browser-headers#readme",
+			"_id": "browser-headers@0.4.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "jonnyreeves",
+				"email": "npm@jonnyreeves.co.uk"
+			},
+			"dist": {
+				"integrity": "sha512-CA9hsySZVo9371qEHjHZtYxV2cFtVj5Wj/ZHi8ooEsrtm4vOnl9Y9HmyYWk9q+05d7K3rdoAE0j3MVEFVvtQtg==",
+				"shasum": "4308a7ad3b240f4203dbb45acedb38dc2d65dd02",
+				"tarball": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.4.1.tgz",
+				"fileCount": 19,
+				"unpackedSize": 55644,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb+Yv4CRA9TVsSAnZWagAA9FYP/3DJQbaqwg12IDzE4erD\nBHa7dJq6KFh+JMWY5dFHrAsZKOkg90zMwcO/+0uJRdWi0LFdtDMvp1Joj9jb\n1hTE92Unw+GKH1OyHoLee80G0LEcr8xqW8uIxcZ876KM9APHmu7RdjtvqZhC\nA9U40Nz4iDg+zH1KFHaJpu50wnak0AqZvqCKNQl3Nk2FtHw8Nncla3T+Wjfg\nGOHvK0u0yVyF2eirRrZ+IkKi1ZbtJPBGEY4i0mqAN9onbJPDwzR7XwwJl6sg\nXRDSLCcW+XWXh1kIFg1fozKAQm1LyQ8Z0ivxeWhVZd3nhNFthVo+uefKMgyJ\nR8Oc+UDm53AggTWpw7eO01pDZsvu1peBvong4gI254Rx4xrHACPgEjVT8eNE\nnzLmkHzR4UatAlYfzkplXd1w9C6pbcpeZg3sZTqbC9m5e+Sk4fSswjWYB0Eo\nvvqz9VpKOqs53JQL+ZSMKQy3K9oog4PLTKZPTJY0dkZg3aGfcspDVHmHRY9Y\n4ZWj7gZE1+LgnT0DYXKOKWo2SkCgxi+bUk3pEuTAnXOS8HEuU0y49LbqRHQO\nMU0+ZASa8VI5nYPWqH1RuK1ctKKUtRTP7lLfMyKUHhwh6EwD8fV/Rj/oL+ak\nR6rNqX5baD0weIaHf7yekLRzUu4/UNM9YOC+KJjYeoBmBBrQDBixUc7fOE8L\nRJP3\r\n=OWT+\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "jonnyreeves",
+					"email": "npm@jonnyreeves.co.uk"
+				},
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/browser-headers_0.4.1_1543080952037_0.11503127605571684"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2018-11-24T17:35:54.847Z",
+		"created": "2017-02-28T14:19:13.296Z",
+		"0.1.0": "2017-02-28T14:19:13.296Z",
+		"0.1.1": "2017-03-01T10:34:12.845Z",
+		"0.1.2": "2017-03-01T15:00:45.515Z",
+		"0.1.3": "2017-03-01T15:58:47.231Z",
+		"0.1.4": "2017-03-02T10:39:55.728Z",
+		"0.1.5": "2017-03-02T11:51:41.726Z",
+		"0.1.6": "2017-03-02T13:33:36.811Z",
+		"0.1.7": "2017-03-03T15:58:45.278Z",
+		"0.2.0": "2017-03-09T12:44:24.002Z",
+		"0.2.1": "2017-03-09T18:03:04.800Z",
+		"0.3.0": "2017-03-14T10:50:54.664Z",
+		"0.3.1": "2017-03-14T11:09:34.184Z",
+		"0.3.2": "2017-03-31T15:10:50.316Z",
+		"0.4.0": "2017-12-03T13:12:26.246Z",
+		"0.4.1": "2018-11-24T17:35:52.154Z"
+	},
+	"dist-tags": {
+		"latest": "0.4.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"e3b672858d66372ebb59b3bcd7df1c80\"",
+			"fetched": 1568994351423
+		}
+	},
+	"_distfiles": {
+		"browser-headers-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.0.tgz",
+			"sha": "c134da76ac6757d6754b7dd97e8fb5d3649c6a3d",
+			"registry": "npmjs"
+		},
+		"browser-headers-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.1.tgz",
+			"sha": "17f9126702d8f4f6c0d94fcd6ce1869db8e8e2db",
+			"registry": "npmjs"
+		},
+		"browser-headers-0.1.2.tgz": {
+			"url": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.2.tgz",
+			"sha": "5fea606f7cdb3f4b7aaecb8024663e3bd0fcf101",
+			"registry": "npmjs"
+		},
+		"browser-headers-0.1.3.tgz": {
+			"url": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.3.tgz",
+			"sha": "0fd26e062992af224e96bb7bf1ed71b6f27beccd",
+			"registry": "npmjs"
+		},
+		"browser-headers-0.1.4.tgz": {
+			"url": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.4.tgz",
+			"sha": "70471a408445251aee6cfa1b6dc49c8795b18032",
+			"registry": "npmjs"
+		},
+		"browser-headers-0.1.5.tgz": {
+			"url": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.5.tgz",
+			"sha": "4b65a284972ad52dd56c576486799596150b616e",
+			"registry": "npmjs"
+		},
+		"browser-headers-0.1.6.tgz": {
+			"url": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.6.tgz",
+			"sha": "66cd965675b42aaad25825856fdb5732d9407bf7",
+			"registry": "npmjs"
+		},
+		"browser-headers-0.1.7.tgz": {
+			"url": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.1.7.tgz",
+			"sha": "ba28127a5ceab8d5018b3baf4dda64169cc316f0",
+			"registry": "npmjs"
+		},
+		"browser-headers-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.2.0.tgz",
+			"sha": "294ea6e449ff3082247fb349e5acc90f2dac77d1",
+			"registry": "npmjs"
+		},
+		"browser-headers-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.2.1.tgz",
+			"sha": "35cb1caa56e758946fb4ddd80344b9dba48d0924",
+			"registry": "npmjs"
+		},
+		"browser-headers-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.3.0.tgz",
+			"sha": "8429e8802745aae794a6cc4bc853c459e4a29299",
+			"registry": "npmjs"
+		},
+		"browser-headers-0.3.1.tgz": {
+			"url": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.3.1.tgz",
+			"sha": "f74e79f8c28f14c224525399439abd4b0b17b439",
+			"registry": "npmjs"
+		},
+		"browser-headers-0.3.2.tgz": {
+			"url": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.3.2.tgz",
+			"sha": "f6f36201a7e4c1cbe1e5a64c8bbca6cb632a1c04",
+			"registry": "npmjs"
+		},
+		"browser-headers-0.4.0.tgz": {
+			"url": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.4.0.tgz",
+			"sha": "7b6b4d3cc0cecc9ddf503768147932105c421734",
+			"registry": "npmjs"
+		},
+		"browser-headers-0.4.1.tgz": {
+			"url": "https://registry.npmjs.org/browser-headers/-/browser-headers-0.4.1.tgz",
+			"sha": "4308a7ad3b240f4203dbb45acedb38dc2d65dd02",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-edc0c1b297f12fe7",
+	"_id": "browser-headers",
+	"readme": "# browser-headers\n> Compatibility Layer for the Headers class\n\n[![Master Build](https://travis-ci.org/improbable-eng/js-browser-headers.svg?branch=master)](https://travis-ci.org/improbable-eng/js-browser-headers)\n![BrowserStack Status](https://www.browserstack.com/automate/badge.svg?badge_key=MVZzVGFiVXpFRjFjRmZ2SUpJaWlGam9Xa2c0R1B6MnVBV25aZm43cDZtUT0tLXZaMDdRR0pVbVFyRVBmd0p1TUNlZVE9PQ==--8b1eb510ef6bde3d6d89b2d65b033a9030f75f6f%)\n[![NPM](https://img.shields.io/npm/v/browser-headers.svg)](https://www.npmjs.com/package/browser-headers)\n[![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)\n![quality: beta](https://img.shields.io/badge/quality-beta-yellow.svg)\n\nThe [Headers](https://fetch.spec.whatwg.org/#headers-class) class defined in the [fetch spec](https://fetch.spec.whatwg.org/) has been implemented slightly differently across browser vendors at the time of writing (Feb 2017).\n\nThis package intends to provide a wrapper for the `Headers` class to ensure a consistent API and provides headers parsing from CLRF-delimited strings.\n\nThis package is written in TypeScript, but is designed to be used just as easily by JavaScript projects.\n\n\n## Installation\nvia npm:\n\n```bash\n$ npm install browser-headers\n```\n\n## Browser Support\nThis library is tested against Chrome, Safari, Firefox, Opera, Edge, IE 10 and IE 9.\n\n## API\n\n```js\nimport BrowserHeaders from 'browser-headers';\n\nconst headers = new BrowserHeaders({\n  \"content-type\": \"application/json\",\n  \"my-header\": [\"value-one\",\"value-two\"]\n});\n\nheaders.forEach((key, values) => {\n  console.log(key, values);\n});\n\n// Output:\n// \"content-type\", [\"application/json\"]\n// \"my-header\", [\"value-one\",\"value-two\"]\n```\n\nThe `BrowserHeaders` class has the following methods:\n\n#### constructor(init: Headers | {[key: string]: string|string[]} | Map<string,string|string[]> | string | BrowserHeaders, options: {splitValues: boolean}): string[]\n`init` can be one of:\n* An instance of `Headers`\n* A CLRF-delimited string (e.g. `key-a: one\\r\\nkey-b: two`)\n* An instance of `BrowserHeaders`\n* An object consisting of `string->(string|string[])` (e.g. `{\"key-a\":[\"one\",\"two\"],\"key-b\":\"three\"}`) \n* A `Map<string, string|string[]>`\n\nThe constructor takes an additional optional `options` parameter of `{ splitValues: boolean = false }`, where \n`splitValues` defines whether the header values should be split by comma (`,`) into separate strings - this is useful \nto unify the `.append` functionality of `Headers` implementations (see the warning at the end of this README). \n`splitValues` should be used with caution and defaults to `false` because it might split what is actually a single \nlogical value that contained a `,`.\n\n#### .get(key: string): string[]\nReturns all of the values for that header `key` as an array\n\n#### .forEach(callback: (key: string, values: string[]) => void): void\nInvokes the provided callback with each key and it's associated values as an array\n\n#### .set(key: string, values: string|string[]): void\nOverwrites the `key` with the value(s) specified.\n\n#### .append(key: string, values: string|string[]): void\nAppends the value(s) to specified `key`.\n\n#### .delete(key: string, value: string): void\nIf the `value` is specified: \n    Removes the specified `value` from the `key` if it is present.\n\nOtherwise:\n    Removes all values for the `key` if it is present.\n\n#### .has(key: string, value?: string): boolean\nIf the value is specified: \n    Returns true if the `key` contains the corresponding `value`.\n\nOtherwise:\n    Returns true if the `key` has at least one value.\n\n#### .appendFromString(str: string): void\nAppends the headers defined in the provided CLRF-delimited string (e.g. `key-a: one\\r\\nkey-b: two`)\n\n#### .toHeaders(): Headers\nReturns an instance of the browser's `Headers` class. This will throw an exception if the current browser does not have\nthe `Headers` class.\n\n## Warning about `.append` in native `Headers`\nThe `.append` function of the `Headers` class differs significantly between browsers.\n\nSome browsers concatenate the values with `\", \"` or just `\",\"` and others actually maintain the individual values such that\nthey can return later return an array. There is a constructor option (see above: `splitValues`) that can be enabled to\nattempt to parse these concatenated strings back into individual values.\n```js\nconst headers = new Headers();\nheaders.append(\"key-A\", \"one\");\nheaders.append(\"key-A\", \"two\");\nconst keyA = headers.get(\"key-A\"); // or .getAll depending on the browser \nconsole.log(typeof keyA);\nconsole.log(keyA);\n\n// Output in Edge 14:\n// string\n// one, two\n\n// Output in Safari 10:\n// string\n// one,two\n\n// Output in Chrome 56:\n// object\n// [\"one\", \"two\"]\n```"
+}

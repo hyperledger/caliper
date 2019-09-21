@@ -1,0 +1,1525 @@
+{
+	"name": "file-stream-rotator",
+	"versions": {
+		"0.0.1": {
+			"name": "file-stream-rotator",
+			"version": "0.0.1",
+			"description": "Automated stream rotation",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/holidayextras/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"connect",
+				"rotate",
+				"file"
+			],
+			"author": {
+				"name": "Dan Jenkins"
+			},
+			"license": "MIT",
+			"_id": "file-stream-rotator@0.0.1",
+			"dist": {
+				"shasum": "15805779c1d3d2da07a435f1e77dac8eeba24512",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "danjenkins",
+					"email": "dan.jenkins@holidayextras.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.2": {
+			"name": "file-stream-rotator",
+			"version": "0.0.2",
+			"description": "Automated stream rotation",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/holidayextras/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"connect",
+				"rotate",
+				"file"
+			],
+			"author": {
+				"name": "Dan Jenkins"
+			},
+			"license": "MIT",
+			"_id": "file-stream-rotator@0.0.2",
+			"dist": {
+				"shasum": "13e10ffc77a0637f551e58279c1fb5f7e224f1dc",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "danjenkins",
+					"email": "dan.jenkins@holidayextras.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.3": {
+			"name": "file-stream-rotator",
+			"version": "0.0.3",
+			"description": "Automated stream rotation",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/holidayextras/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"connect",
+				"rotate",
+				"file"
+			],
+			"author": {
+				"name": "Dan Jenkins"
+			},
+			"license": "MIT",
+			"_id": "file-stream-rotator@0.0.3",
+			"dist": {
+				"shasum": "035773583164fca7112d08284192018703c9a436",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "danjenkins",
+					"email": "dan.jenkins@holidayextras.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.4": {
+			"name": "file-stream-rotator",
+			"version": "0.0.4",
+			"description": "Automated stream rotation",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/holidayextras/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"connect",
+				"rotate",
+				"file"
+			],
+			"author": {
+				"name": "Dan Jenkins"
+			},
+			"license": "MIT",
+			"_id": "file-stream-rotator@0.0.4",
+			"dist": {
+				"shasum": "c4a837e32f30c21899cef94a6f3d8ec7f4d6c4bc",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "danjenkins",
+					"email": "dan.jenkins@holidayextras.com"
+				},
+				{
+					"name": "viktort",
+					"email": "viktor.trako@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.5": {
+			"name": "file-stream-rotator",
+			"version": "0.0.5",
+			"description": "Automated stream rotation",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/holidayextras/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"restify",
+				"connect",
+				"rotate",
+				"file",
+				"minute",
+				"hourly",
+				"daily",
+				"logrotate"
+			],
+			"author": {
+				"name": "Roger Castells"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"moment": "2.3.1"
+			},
+			"_id": "file-stream-rotator@0.0.5",
+			"dist": {
+				"shasum": "ca99f6b42959b0b7f82c1e4b7c7c2d2b8de8be3a",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.0.5.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.12",
+			"_npmUser": {
+				"name": "viktort",
+				"email": "viktor.trako@holidayextras.com"
+			},
+			"maintainers": [
+				{
+					"name": "danjenkins",
+					"email": "dan.jenkins@holidayextras.com"
+				},
+				{
+					"name": "viktort",
+					"email": "viktor.trako@gmail.com"
+				},
+				{
+					"name": "rogerc",
+					"email": "rogerc@ataclick.net"
+				},
+				{
+					"name": "joezo",
+					"email": "joe.warren@holidayextras.com"
+				},
+				{
+					"name": "pauly",
+					"email": "pauly@clarkeology.com"
+				},
+				{
+					"name": "rahulpatel",
+					"email": "rahul.patel@holidayextras.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.6": {
+			"name": "file-stream-rotator",
+			"version": "0.0.6",
+			"description": "Automated stream rotation",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/holidayextras/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"restify",
+				"connect",
+				"rotate",
+				"file",
+				"minute",
+				"hourly",
+				"daily",
+				"logrotate"
+			],
+			"author": {
+				"name": "Roger Castells"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"moment": "2.3.1"
+			},
+			"gitHead": "fd071aaa32a20b91846b374b928911417cc4e995",
+			"bugs": {
+				"url": "https://github.com/holidayextras/file-stream-rotator/issues"
+			},
+			"homepage": "https://github.com/holidayextras/file-stream-rotator",
+			"_id": "file-stream-rotator@0.0.6",
+			"_shasum": "3493a61663e5ac95886e67884bb4f000c1e566ff",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "rahulpatel",
+				"email": "rahul.patel@holidayextras.com"
+			},
+			"maintainers": [
+				{
+					"name": "danjenkins",
+					"email": "dan.jenkins@holidayextras.com"
+				},
+				{
+					"name": "viktort",
+					"email": "viktor.trako@gmail.com"
+				},
+				{
+					"name": "rogerc",
+					"email": "rogerc@ataclick.net"
+				},
+				{
+					"name": "joezo",
+					"email": "joe.warren@holidayextras.com"
+				},
+				{
+					"name": "pauly",
+					"email": "pauly@clarkeology.com"
+				},
+				{
+					"name": "rahulpatel",
+					"email": "rahul.patel@holidayextras.com"
+				},
+				{
+					"name": "michaelcarter",
+					"email": "mike@mcarter.me"
+				},
+				{
+					"name": "hxmarkterry",
+					"email": "mark.terry@holidayextras.com"
+				},
+				{
+					"name": "hxoliverrumbelow",
+					"email": "oliver.rumbelow@holidayextras.com"
+				},
+				{
+					"name": "shackpank",
+					"email": "npm@olliebuck.com"
+				},
+				{
+					"name": "holidayextras",
+					"email": "ollie.buck@holidayextras.com"
+				}
+			],
+			"dist": {
+				"shasum": "3493a61663e5ac95886e67884bb4f000c1e566ff",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.0.6.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.7": {
+			"name": "file-stream-rotator",
+			"version": "0.0.7",
+			"description": "Automated stream rotation",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/holidayextras/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"restify",
+				"connect",
+				"rotate",
+				"file",
+				"minute",
+				"hourly",
+				"daily",
+				"logrotate"
+			],
+			"author": {
+				"name": "Roger Castells"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"moment": "^2.11.2"
+			},
+			"gitHead": "3c87e2fe8b4c40a88af696d36dd090cd4e3b6ed4",
+			"bugs": {
+				"url": "https://github.com/holidayextras/file-stream-rotator/issues"
+			},
+			"homepage": "https://github.com/holidayextras/file-stream-rotator#readme",
+			"_id": "file-stream-rotator@0.0.7",
+			"_shasum": "48c0e5820b6223e79cbc599f956222946b48fb4e",
+			"_from": ".",
+			"_npmVersion": "2.15.5",
+			"_nodeVersion": "4.4.5",
+			"_npmUser": {
+				"name": "hxmarkterry",
+				"email": "mark.terry@holidayextras.com"
+			},
+			"maintainers": [
+				{
+					"name": "danjenkins",
+					"email": "dan.jenkins@holidayextras.com"
+				},
+				{
+					"name": "viktort",
+					"email": "viktor.trako@gmail.com"
+				},
+				{
+					"name": "rogerc",
+					"email": "rogerc@ataclick.net"
+				},
+				{
+					"name": "joezo",
+					"email": "joe.warren@holidayextras.com"
+				},
+				{
+					"name": "pauly",
+					"email": "pauly@clarkeology.com"
+				},
+				{
+					"name": "rahulpatel",
+					"email": "rahul.patel@holidayextras.com"
+				},
+				{
+					"name": "michaelcarter",
+					"email": "mike@mcarter.me"
+				},
+				{
+					"name": "hxmarkterry",
+					"email": "mark.terry@holidayextras.com"
+				},
+				{
+					"name": "hxoliverrumbelow",
+					"email": "oliver.rumbelow@holidayextras.com"
+				},
+				{
+					"name": "shackpank",
+					"email": "npm@olliebuck.com"
+				},
+				{
+					"name": "holidayextras",
+					"email": "ollie.buck@holidayextras.com"
+				}
+			],
+			"dist": {
+				"shasum": "48c0e5820b6223e79cbc599f956222946b48fb4e",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.0.7.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/file-stream-rotator-0.0.7.tgz_1468407573547_0.07904674136079848"
+			},
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "file-stream-rotator",
+			"version": "0.1.0",
+			"description": "Automated stream rotation",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/holidayextras/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"restify",
+				"connect",
+				"rotate",
+				"file",
+				"minute",
+				"hourly",
+				"daily",
+				"logrotate"
+			],
+			"author": {
+				"name": "Roger Castells"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"moment": "^2.11.2"
+			},
+			"gitHead": "de1276ffadf26e23c2d71b115303267fe4f40b3c",
+			"bugs": {
+				"url": "https://github.com/holidayextras/file-stream-rotator/issues"
+			},
+			"homepage": "https://github.com/holidayextras/file-stream-rotator#readme",
+			"_id": "file-stream-rotator@0.1.0",
+			"_shasum": "28669790e0ca270fe6e8ad78b8654671dc90372b",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "7.4.0",
+			"_npmUser": {
+				"name": "rogerc",
+				"email": "rogerc@ataclick.net"
+			},
+			"dist": {
+				"shasum": "28669790e0ca270fe6e8ad78b8654671dc90372b",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "danjenkins",
+					"email": "dan.jenkins@holidayextras.com"
+				},
+				{
+					"name": "viktort",
+					"email": "viktor.trako@gmail.com"
+				},
+				{
+					"name": "rogerc",
+					"email": "rogerc@ataclick.net"
+				},
+				{
+					"name": "joezo",
+					"email": "joe.warren@holidayextras.com"
+				},
+				{
+					"name": "pauly",
+					"email": "pauly@clarkeology.com"
+				},
+				{
+					"name": "rahulpatel",
+					"email": "rahul.patel@holidayextras.com"
+				},
+				{
+					"name": "michaelcarter",
+					"email": "mike@mcarter.me"
+				},
+				{
+					"name": "hxmarkterry",
+					"email": "mark.terry@holidayextras.com"
+				},
+				{
+					"name": "hxoliverrumbelow",
+					"email": "oliver.rumbelow@holidayextras.com"
+				},
+				{
+					"name": "shackpank",
+					"email": "npm@olliebuck.com"
+				},
+				{
+					"name": "holidayextras",
+					"email": "ollie.buck@holidayextras.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/file-stream-rotator-0.1.0.tgz_1488912577550_0.22265871288254857"
+			},
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "file-stream-rotator",
+			"version": "0.2.0",
+			"description": "Automated stream rotation",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/rogerc/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"restify",
+				"connect",
+				"rotate",
+				"file",
+				"minute",
+				"hourly",
+				"daily",
+				"logrotate"
+			],
+			"author": {
+				"name": "Roger Castells"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"moment": "^2.11.2"
+			},
+			"gitHead": "577d2ccd904cf29f03ddf6cce3cc076ff11d8d36",
+			"bugs": {
+				"url": "https://github.com/rogerc/file-stream-rotator/issues"
+			},
+			"homepage": "https://github.com/rogerc/file-stream-rotator#readme",
+			"_id": "file-stream-rotator@0.2.0",
+			"_shasum": "9d7638306950ed83bd7586268784b1a9487e08ab",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "7.4.0",
+			"_npmUser": {
+				"name": "rogerc",
+				"email": "rogerc@ataclick.net"
+			},
+			"dist": {
+				"shasum": "9d7638306950ed83bd7586268784b1a9487e08ab",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "danjenkins",
+					"email": "dan.jenkins@holidayextras.com"
+				},
+				{
+					"name": "viktort",
+					"email": "viktor.trako@gmail.com"
+				},
+				{
+					"name": "rogerc",
+					"email": "rogerc@ataclick.net"
+				},
+				{
+					"name": "joezo",
+					"email": "joe.warren@holidayextras.com"
+				},
+				{
+					"name": "pauly",
+					"email": "pauly@clarkeology.com"
+				},
+				{
+					"name": "rahulpatel",
+					"email": "rahul.patel@holidayextras.com"
+				},
+				{
+					"name": "michaelcarter",
+					"email": "mike@mcarter.me"
+				},
+				{
+					"name": "hxmarkterry",
+					"email": "mark.terry@holidayextras.com"
+				},
+				{
+					"name": "hxoliverrumbelow",
+					"email": "oliver.rumbelow@holidayextras.com"
+				},
+				{
+					"name": "shackpank",
+					"email": "npm@olliebuck.com"
+				},
+				{
+					"name": "holidayextras",
+					"email": "ollie.buck@holidayextras.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/file-stream-rotator-0.2.0.tgz_1502645340194_0.9683649118524045"
+			},
+			"directories": {}
+		},
+		"0.2.1": {
+			"name": "file-stream-rotator",
+			"version": "0.2.1",
+			"description": "Automated stream rotation useful for log files",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/rogerc/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"restify",
+				"connect",
+				"rotate",
+				"file",
+				"minute",
+				"hourly",
+				"daily",
+				"logrotate"
+			],
+			"author": {
+				"name": "Roger Castells"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"moment": "^2.11.2"
+			},
+			"gitHead": "a968569ee44e21b9ce8ae48e383b8339f41133ca",
+			"bugs": {
+				"url": "https://github.com/rogerc/file-stream-rotator/issues"
+			},
+			"homepage": "https://github.com/rogerc/file-stream-rotator#readme",
+			"_id": "file-stream-rotator@0.2.1",
+			"_shasum": "0d6fea1a9a7aba25a87cfd31b6e269e44e8f0af2",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.12.2",
+			"_npmUser": {
+				"name": "rogerc",
+				"email": "rogerc@ataclick.net"
+			},
+			"dist": {
+				"shasum": "0d6fea1a9a7aba25a87cfd31b6e269e44e8f0af2",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.2.1.tgz",
+				"fileCount": 9,
+				"unpackedSize": 32554
+			},
+			"maintainers": [
+				{
+					"name": "danjenkins",
+					"email": "dan.jenkins@holidayextras.com"
+				},
+				{
+					"name": "holidayextras",
+					"email": "ollie.buck@holidayextras.com"
+				},
+				{
+					"name": "hxmarkterry",
+					"email": "mark.terry@holidayextras.com"
+				},
+				{
+					"name": "hxoliverrumbelow",
+					"email": "oliver.rumbelow@holidayextras.com"
+				},
+				{
+					"name": "joezo",
+					"email": "joe.warren@holidayextras.com"
+				},
+				{
+					"name": "michaelcarter",
+					"email": "mike@mcarter.me"
+				},
+				{
+					"name": "pauly",
+					"email": "pauly@clarkeology.com"
+				},
+				{
+					"name": "rahulpatel",
+					"email": "rahul.patel@holidayextras.com"
+				},
+				{
+					"name": "rogerc",
+					"email": "rogerc@ataclick.net"
+				},
+				{
+					"name": "shackpank",
+					"email": "npm@olliebuck.com"
+				},
+				{
+					"name": "viktort",
+					"email": "viktor.trako@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/file-stream-rotator_0.2.1_1518888770237_0.5475034677348125"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.3.0": {
+			"name": "file-stream-rotator",
+			"version": "0.3.0",
+			"description": "Automated stream rotation useful for log files",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/rogerc/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"restify",
+				"connect",
+				"rotate",
+				"file",
+				"minute",
+				"hourly",
+				"daily",
+				"logrotate"
+			],
+			"author": {
+				"name": "Roger Castells"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"moment": "^2.11.2"
+			},
+			"gitHead": "c0e5bee20fd7fd3a2811c6851fa3a29fad20542a",
+			"bugs": {
+				"url": "https://github.com/rogerc/file-stream-rotator/issues"
+			},
+			"homepage": "https://github.com/rogerc/file-stream-rotator#readme",
+			"_id": "file-stream-rotator@0.3.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "rogerc",
+				"email": "rogerc@ataclick.net"
+			},
+			"dist": {
+				"integrity": "sha512-8zQOBMOagg1U0slZ44zLtmo3Fh6NdzxoQuLPapLDMLH8cTrdTrP5XkqJyXlf/Ys68rf+XmySfyrd3cA9fZ9pxg==",
+				"shasum": "810c91bd205a19a32107e21b2cc16e412a3c7f16",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.3.0.tgz",
+				"fileCount": 9,
+				"unpackedSize": 37295,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbcuijCRA9TVsSAnZWagAAP9kP/3Q8R9cYzPvgZmk5dddC\n2ZhocbMcPyx0y4rXEGs4+SAfuyT4uqxdrZpMJgIT7kwpHmZsEF6PbQ6KG2LF\nwvDspe9EfTYGjeAbPF9gvST7Mm/o0KVV4DakeQhJVxCIA39PShWlnUB4rU3b\nolKQCrFOo0pF1/IaKxaSs7cLuTNPVFe4pQhevFqVOibiL1wuH3hPt2FMZkS/\nubu8qtSYBuy7aCzf4tbI0yPn/diE4eUk2g0iqo8HGc3q9L5KPdtCQ05dH23p\no02E/QPiVJ+A2ooyvycJUkN5kIwCqi76hAtWGWxV0tuAs6Z03w8hV/5qUE/O\ndpjYgD/xgdGZw8aakVdcN5cA2pgg/E4CH2uU++vPifi7qsUpq4IxUJorKs60\nES8oP+jU3+zAgK9Tapygq1n3ohB9u3boVaNU9kH6ZcHwAgCM8V0/NDuVL0Ri\nOu2NFSCDVCiYNzWfFmrF1+mAfHDGFIvqex54uOtZCirQiXJwkRPNRuugVVOw\nvjFgdQiko1lRQJftMmk/FwZk4w9QPFhNX1GoW0MaPP+L661w8haM99llgC7z\nahMFdV5qF7u1WmxlyFnwaZqPMLpk1KlxoSe25EQftOoyUyJzSCQGwjDN9b6f\npAbsTQOJ3PhJ/CA55tuMnw2cSHqfjN74GT8koVgemrrhvHBZcrj2/ouq383R\nOsbk\r\n=8Wvc\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "danjenkins",
+					"email": "dan.jenkins@holidayextras.com"
+				},
+				{
+					"name": "holidayextras",
+					"email": "ollie.buck@holidayextras.com"
+				},
+				{
+					"name": "hxmarkterry",
+					"email": "mark.terry@holidayextras.com"
+				},
+				{
+					"name": "hxoliverrumbelow",
+					"email": "oliver.rumbelow@holidayextras.com"
+				},
+				{
+					"name": "joezo",
+					"email": "joe.warren@holidayextras.com"
+				},
+				{
+					"name": "michaelcarter",
+					"email": "mike@mcarter.me"
+				},
+				{
+					"name": "pauly",
+					"email": "pauly@clarkeology.com"
+				},
+				{
+					"name": "rahulpatel",
+					"email": "rahul.patel@holidayextras.com"
+				},
+				{
+					"name": "rogerc",
+					"email": "rogerc@ataclick.net"
+				},
+				{
+					"name": "shackpank",
+					"email": "npm@olliebuck.com"
+				},
+				{
+					"name": "viktort",
+					"email": "viktor.trako@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/file-stream-rotator_0.3.0_1534257314656_0.9532065790507807"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.3.1": {
+			"name": "file-stream-rotator",
+			"version": "0.3.1",
+			"description": "Automated stream rotation useful for log files",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/rogerc/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"restify",
+				"connect",
+				"rotate",
+				"file",
+				"minute",
+				"hourly",
+				"daily",
+				"logrotate"
+			],
+			"author": {
+				"name": "Roger Castells"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"moment": "^2.11.2"
+			},
+			"gitHead": "88c173170a18cea0656c16e11f57312157710f25",
+			"bugs": {
+				"url": "https://github.com/rogerc/file-stream-rotator/issues"
+			},
+			"homepage": "https://github.com/rogerc/file-stream-rotator#readme",
+			"_id": "file-stream-rotator@0.3.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "rogerc",
+				"email": "rogerc@ataclick.net"
+			},
+			"dist": {
+				"integrity": "sha512-Vr6M5qmomoyJyjGEpvMJd74HWXe/6D1eB342QwJpb0WenGaBhe3IhzJQWzcKIEq5O3yYum45r4lYsQAm7cO1yA==",
+				"shasum": "605ffb1195814eab84cb57040e0ae401a77791f8",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.3.1.tgz",
+				"fileCount": 9,
+				"unpackedSize": 37581,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbeomeCRA9TVsSAnZWagAA8bQQAJXzG6/qrO1mlssZ6gKu\n+xa4vSpuWfyIqss87zs/QwLVoqL12qszefTTAk3l8UZ8JJoMHGN33ZQ3xEZa\nNur+UpjObLprk0tmqKbK0eo2geVH6krHKitk/Zsa9Jsw80PH/W6OHXWtj2t+\ntDoMd6RzPcnQB+CaL2hpnxKNZZvJzICrcGePvAoJ+B/jfJF3mvNKccNwHPRf\nq6pcDaHYwBl3JoFoUbg+eKG2ebZesCYcnFnv9dA1hM5IBneKUCL+A9M8CFiD\nGsorMd0+qC/hg4oqSZth7tCUoSBfipywquRUn6RPfi9nZLQv5xomgxyybrNU\n6s0g2mqgGlywiHAtJ4ypvvKUwOYygQZQPcP2gZq2fBbjwcng171Bckr8zQEx\nF2dsJEZWdxtin5UytxeKj5pf9AxaEuHHwN3F6kRybdoxSMm4xUUTbZY7E8ZF\nZQRkyMZLr03V1Luotjr9x61oCaqMK/XjDD/gLja2tgPId5gsKrnQ59phjcmf\nm8Mv0By38n9AvMG/I3cvFzFUeU1zRvA7kPUdwKsDx6lCIDtsKK4/0GlmThhn\n02Yj31UTl+Bix5lEb/uFfLPgg6yYpNdbXmdmov71rFJkeMrc0sfxnZBgOYR4\n2jXq8CGz+sFWtiQI8I4sMYZMKsKb6VHtRE1zsbKs6+/2SI9h/FRHFyzwS1/l\nc38I\r\n=Nujs\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "danjenkins",
+					"email": "dan.jenkins@holidayextras.com"
+				},
+				{
+					"name": "holidayextras",
+					"email": "ollie.buck@holidayextras.com"
+				},
+				{
+					"name": "hxmarkterry",
+					"email": "mark.terry@holidayextras.com"
+				},
+				{
+					"name": "hxoliverrumbelow",
+					"email": "oliver.rumbelow@holidayextras.com"
+				},
+				{
+					"name": "joezo",
+					"email": "joe.warren@holidayextras.com"
+				},
+				{
+					"name": "michaelcarter",
+					"email": "mike@mcarter.me"
+				},
+				{
+					"name": "pauly",
+					"email": "pauly@clarkeology.com"
+				},
+				{
+					"name": "rahulpatel",
+					"email": "rahul.patel@holidayextras.com"
+				},
+				{
+					"name": "rogerc",
+					"email": "rogerc@ataclick.net"
+				},
+				{
+					"name": "shackpank",
+					"email": "npm@olliebuck.com"
+				},
+				{
+					"name": "viktort",
+					"email": "viktor.trako@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/file-stream-rotator_0.3.1_1534757277982_0.2726225970297813"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.4.0": {
+			"name": "file-stream-rotator",
+			"version": "0.4.0",
+			"description": "Automated stream rotation useful for log files",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/rogerc/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"restify",
+				"connect",
+				"rotate",
+				"file",
+				"minute",
+				"hourly",
+				"daily",
+				"logrotate"
+			],
+			"author": {
+				"name": "Roger Castells"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"moment": "^2.11.2"
+			},
+			"gitHead": "0927e018c20a12ed62ee7efbc03f6c90329f84f7",
+			"bugs": {
+				"url": "https://github.com/rogerc/file-stream-rotator/issues"
+			},
+			"homepage": "https://github.com/rogerc/file-stream-rotator#readme",
+			"_id": "file-stream-rotator@0.4.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.12.0",
+			"_npmUser": {
+				"name": "rogerc",
+				"email": "rogerc@ataclick.net"
+			},
+			"dist": {
+				"integrity": "sha512-cQO3i2s5T6QgtrPcM/6cP30oSwqKymlhkYi/jTl6VCSi44q3UW8eb0zdqyU51tIzrbRe8zolU6Fb4a5e/90u4g==",
+				"shasum": "751a774bedb3facaa4ae691736e2ccb56d5bfd15",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.4.0.tgz",
+				"fileCount": 9,
+				"unpackedSize": 38797,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbycBSCRA9TVsSAnZWagAA0RYQAKFLYGi+Y5/S1cQjazvp\ncQuaWDZL3hGIGcN4GTbJLt3//MPXQgphYtMAISsr9+2ev3gzv61KVAzsAixT\nyiSIvjt3flGCkt/BPs4dqqzoo1y6NtFDym8rq+1msSyr5yf6XgWbSvDzxOdi\noMEK6fsvDvx2klSp6WiOLjhrnWhAD+FfyGQ5U1j6OzJ8M4h/HwhpVI8975pD\n24iK+aUsctCgBUOvsebsMDTrX7jZoJGVozgsS+cMwO5vFvWcBjkGQwkgYC0o\n73KlO2we/1WmDWRhGt9fUlfCpraGjtje7mbFglN2o/ykVYXPQ52zzsVnNLW0\n3oSvZGSOKXU1ZO9+jqpLtOsK69OaSK3JnQq66n8vf78qV7g8Y1TDcSgNK88F\nrTeZn1rBTrQAQZZIz4XvKmWIadof5k8+2ZYfKYJHnEl2i5Oml8yjsDMbLEBU\nR2GXju0pcC7qV0Xb47JJYqSX4ZYhiLFFUmwaIdtyda2N1UliJknubAWAOjS1\n/ArQkNEOyPGCO5inQVwewc65SsM5RwpTE0+opjR1PM2KxgPiqQEzQ1O8snGV\n1PrkMIqQ6QxQoQeqMqiPfV2zRQPhZ76EN/8Xtczl79viO3FSDKrvoNxZXhB4\n1S6FWlYE2x4Y7kG2F8Jq/gf5FJJYzcBpvUbPAcH0LEcG8uLn1Enf5++oJg05\n0DkI\r\n=dZYk\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "danjenkins",
+					"email": "dan.jenkins@holidayextras.com"
+				},
+				{
+					"name": "holidayextras",
+					"email": "ollie.buck@holidayextras.com"
+				},
+				{
+					"name": "hxmarkterry",
+					"email": "mark.terry@holidayextras.com"
+				},
+				{
+					"name": "hxoliverrumbelow",
+					"email": "oliver.rumbelow@holidayextras.com"
+				},
+				{
+					"name": "joezo",
+					"email": "joe.warren@holidayextras.com"
+				},
+				{
+					"name": "michaelcarter",
+					"email": "mike@mcarter.me"
+				},
+				{
+					"name": "pauly",
+					"email": "pauly@clarkeology.com"
+				},
+				{
+					"name": "rahulpatel",
+					"email": "rahul.patel@holidayextras.com"
+				},
+				{
+					"name": "rogerc",
+					"email": "rogerc@ataclick.net"
+				},
+				{
+					"name": "shackpank",
+					"email": "npm@olliebuck.com"
+				},
+				{
+					"name": "viktort",
+					"email": "viktor.trako@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/file-stream-rotator_0.4.0_1539948625760_0.34880962338414845"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.4.1": {
+			"name": "file-stream-rotator",
+			"version": "0.4.1",
+			"description": "Automated stream rotation useful for log files",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/rogerc/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"restify",
+				"connect",
+				"rotate",
+				"file",
+				"minute",
+				"hourly",
+				"daily",
+				"logrotate"
+			],
+			"author": {
+				"name": "Roger Castells"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"moment": "^2.11.2"
+			},
+			"gitHead": "822b8a5241335ddc01208df2d1c6f54250cc0491",
+			"bugs": {
+				"url": "https://github.com/rogerc/file-stream-rotator/issues"
+			},
+			"homepage": "https://github.com/rogerc/file-stream-rotator#readme",
+			"_id": "file-stream-rotator@0.4.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.12.0",
+			"_npmUser": {
+				"name": "rogerc",
+				"email": "rogerc@ataclick.net"
+			},
+			"dist": {
+				"integrity": "sha512-W3aa3QJEc8BS2MmdVpQiYLKHj3ijpto1gMDlsgCRSKfIUe6MwkcpODGPQ3vZfb0XvCeCqlu9CBQTN7oQri2TZQ==",
+				"shasum": "09f67b86d6ea589d20b7852c51c59de55d916d6d",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.4.1.tgz",
+				"fileCount": 9,
+				"unpackedSize": 39396,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb1FkjCRA9TVsSAnZWagAAOMcP/ijJNra0bl5ull+0x+gl\nILffhoiIHDBobo7iLwkp705S9LC6W4g0grquwBoiSJnmtVicu/oD41WsZCr9\nW6OTpwKaasoe/2Mk5v3xSDzpyhbsk2sxotC0rvWROeUB6RGOmvRilp3Fu601\nwwwo7tvkxSPe6/nkM72ztXc0FDZClbDqlFH979Ditm/+8KbMfHlGwo3HmT5k\n8+P7OHzi3lHjKWFIzNrCUhBvP3EyHT4GBJoBaREJGH1EJ1WWqyjkGsA6Ilx6\nUBwlwLucmvk254utAWEEGfT6AtwLocv6oUxHzOoxLd2wf9VCfpiuNtDpkEIr\nvVfsdJrk9tavMlHnpIginjPJ3OtPxZvcVVJrrLtDckzMvWW3navrOMxDe4Dq\nsdwJSdoXouxTjk2zVBPxhj4HRd05HfCQgrJDEqgWeLsHBYsuwLo8MzvyT4k3\n5uAxEh/yOy+aeZYbpBmKPzk36WfbM2+YW70a1E8m6C7QSdae0H40qTOb8k+5\nNbQzZCAkHoKb0FcU6EgRARMZJRGtzHaMkPTGX990HCiTwzz/c0B0P44m9sGf\nhThhaLa9o5O7a/Yi9vCfCJplne+NkzIwDdcdbD0iqqte1iu1LmlmgLBaoa7Y\n2wjX2RNLL2T+toDPa90XcW+clgrmueX7hIcSNxavW/QXMgwCA+VAFFGfpvCX\nysWQ\r\n=Yj3f\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "danjenkins",
+					"email": "dan.jenkins@holidayextras.com"
+				},
+				{
+					"name": "holidayextras",
+					"email": "ollie.buck@holidayextras.com"
+				},
+				{
+					"name": "hxmarkterry",
+					"email": "mark.terry@holidayextras.com"
+				},
+				{
+					"name": "hxoliverrumbelow",
+					"email": "oliver.rumbelow@holidayextras.com"
+				},
+				{
+					"name": "joezo",
+					"email": "joe.warren@holidayextras.com"
+				},
+				{
+					"name": "michaelcarter",
+					"email": "mike@mcarter.me"
+				},
+				{
+					"name": "pauly",
+					"email": "pauly@clarkeology.com"
+				},
+				{
+					"name": "rahulpatel",
+					"email": "rahul.patel@holidayextras.com"
+				},
+				{
+					"name": "rogerc",
+					"email": "rogerc@ataclick.net"
+				},
+				{
+					"name": "shackpank",
+					"email": "npm@olliebuck.com"
+				},
+				{
+					"name": "viktort",
+					"email": "viktor.trako@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/file-stream-rotator_0.4.1_1540643106595_0.4239781675873924"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.5.0": {
+			"name": "file-stream-rotator",
+			"version": "0.5.0",
+			"description": "Automated stream rotation useful for log files",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/rogerc/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"restify",
+				"connect",
+				"rotate",
+				"file",
+				"minute",
+				"hourly",
+				"daily",
+				"logrotate"
+			],
+			"author": {
+				"name": "Roger Castells"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"moment": "^2.11.2"
+			},
+			"gitHead": "ab749721b2d5292d250fb77ae26b11c62918e1c6",
+			"bugs": {
+				"url": "https://github.com/rogerc/file-stream-rotator/issues"
+			},
+			"homepage": "https://github.com/rogerc/file-stream-rotator#readme",
+			"_id": "file-stream-rotator@0.5.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "rogerc",
+				"email": "rogerc@ataclick.net"
+			},
+			"dist": {
+				"integrity": "sha512-4I2PzegraLQFGA7VU5GzD2iu3vFMtR57kgUhpMPs9gu06hCj3+zfNLc+BS4vs+opbKiVNtAMkMZrW3bH2idZ/w==",
+				"shasum": "a50959f8c9cb22b8f634ca75d907ba355c1bcb46",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.5.0.tgz",
+				"fileCount": 9,
+				"unpackedSize": 42146,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJda88JCRA9TVsSAnZWagAA8r4P/jrVW3kn/Nb4mYdiFQGC\nGdyRTo9IAGZDCKl3j+3cZ1wLSzmmNiBQqdTz0aLpXhS6jVE90Eg3rKieEOiF\n7nrgOfcRZ4GInUNQcDjkhU7I+OC1oeSsFE+9EGryK3ucIkMgvZipVUDa24yn\npSZ4LTQgTOCFxtvBdplf5gl1eNQ4kl7vSPA+QRwkgCw/DuQl0IAhq3aoFofy\nUUgLPP7S6WrSNpdp/soDTH4OzDwBu/2UUFRzS79uGylrNDEGm24lJV9SFcen\nEwl/6QX+fTismh/G0dw4OzkSxpdMIBlZ0Hb5RR2NV1aOxe34hCETc+mKHVlt\n9uIg70mygvwT9dwkezAaJTH17RqnNMPlKruD3SXDy3e3uKcg1jaLTd8Q0SER\nMnTH9KTqAHb5JWpAFtGH4pn9MF1rsKfipSCC4s6+desEB8gCyLnTnbSJleTT\ncrptfn6HbYquSh0Odd2DLhO+UEBbpufEmVFIC12ESoDuj4h8v1EjN1xTZNHf\n6QIkDtxA1l4rBuySZqMLKcwYaO5KQGi4nGeoiuaITlsSYUisi89FQIeZhD9o\nu7eJ4pjBZisNMrNVfvrFJkhRLniIrM1rW19Qq8KnNcIufzCuJB28dsANq7BQ\nffVLOl219Dq1QHftfnlbUFB7/lh1u+LndfkUvRwYLLSx1GT51WhNYNICNK9J\nYoaw\r\n=yYM2\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "rogerc@ataclick.net",
+					"name": "rogerc"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/file-stream-rotator_0.5.0_1567346440808_0.7819031885962664"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.5.3": {
+			"name": "file-stream-rotator",
+			"version": "0.5.3",
+			"description": "Automated stream rotation useful for log files",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/rogerc/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"restify",
+				"connect",
+				"rotate",
+				"file",
+				"minute",
+				"hourly",
+				"daily",
+				"logrotate"
+			],
+			"author": {
+				"name": "Roger Castells"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"moment": "^2.11.2"
+			},
+			"gitHead": "1e69bf6279ddce50aa2e010058641e8d71770e1a",
+			"bugs": {
+				"url": "https://github.com/rogerc/file-stream-rotator/issues"
+			},
+			"homepage": "https://github.com/rogerc/file-stream-rotator#readme",
+			"_id": "file-stream-rotator@0.5.3",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "rogerc",
+				"email": "rogerc@ataclick.net"
+			},
+			"dist": {
+				"integrity": "sha512-Di94420V8A0U/0fs4hxMD3naxN6IIeV6G2fQ2gCt5pjJfsH2xUtWKt4EGcy6xaNZ10705rSrqi4U3ijrreo3YQ==",
+				"shasum": "bd229e4e7e32ee884be33d00eab5a3df6b909390",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.5.3.tgz",
+				"fileCount": 10,
+				"unpackedSize": 44682,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdb9VwCRA9TVsSAnZWagAAy08P/ioVgRDmfAO9Th7N4QXe\nsm03A+RbtWnIqTZ/RGWmZPh6UZAohDLzt4r2mYHl5VGxuvwwRRLGNeqW8g2Q\nDxChCoJzZJ6iXIWk00AICrovdEOc4Km8jE1p5WILzJC8FqsWC1qE53TnshvQ\nOszjsrlW8oVEw4JoVwj+oZZGskx/pbrvif3lSpC+90TctiS7cCxO94KHE8Hj\n+jrhqV5eaQ/bl/Fam70yko+9bqQitHWGgzq4aLDAi7KvpFONm2h6fzFhlB4L\n8ClFfmEvv/T4f1drkDc+Giv93gonoqNAULFZUvVRBTVKCmc5qUHPjqMeMlJf\n2fQ97n0W8NpsSXmKbGwR5fiZjKpj+m50q0K7xJH6q+AnQKpGhOOPgZl1DY/t\nXmPKTGqYiniy2BfFbox1U9qvLxRpUlWzwH5XKJcA/Y+mfF2juKWsvZfWsow/\na2LLRSKTEqA534jNw9S8LtqiSAXjHBQrt1QPYrzW10mkWUlVGP+xIvKN9eKL\nyl0B+g49N51qHoX1YT8nHaQ97PJnxNe5WKM998r+hrSrNTP2/5x9SIVaGHg7\n/jnEsZ62kaaft6ap4jNdT/1DyxCg+XU/CKdpriytXk7yOcZ4BaibP5KmDehi\nnz/0on5p4C70EDaUzmiuRGETgRdDns5E81tKQ1bEJ6sQK6N1yOYMO4xsx4G8\n1MvN\r\n=fuyN\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "rogerc@ataclick.net",
+					"name": "rogerc"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/file-stream-rotator_0.5.3_1567610223541_0.3066195113623258"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.5.4": {
+			"name": "file-stream-rotator",
+			"version": "0.5.4",
+			"description": "Automated stream rotation useful for log files",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/rogerc/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"restify",
+				"connect",
+				"rotate",
+				"file",
+				"minute",
+				"hourly",
+				"daily",
+				"logrotate"
+			],
+			"author": {
+				"name": "Roger Castells"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"moment": "^2.11.2"
+			},
+			"gitHead": "77e8ba9d4bbdc09b0046c4cd984376875a791f64",
+			"bugs": {
+				"url": "https://github.com/rogerc/file-stream-rotator/issues"
+			},
+			"homepage": "https://github.com/rogerc/file-stream-rotator#readme",
+			"_id": "file-stream-rotator@0.5.4",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "rogerc",
+				"email": "rogerc@ataclick.net"
+			},
+			"dist": {
+				"integrity": "sha512-V/OHy0VhdDMEhvnlWqiRUYjO4JbIVNjKQ9lPlasJkR+bHWJdjbeVdFObdfme1C+7wfEJDjdLZfdzE+GMctOFAw==",
+				"shasum": "124ab985fc6f84cee06d18aeb0482b306fe0ac1c",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.5.4.tgz",
+				"fileCount": 11,
+				"unpackedSize": 46241,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdckJ2CRA9TVsSAnZWagAAQs8P/2s1XxhoqKyDMhFaodOW\ncO9GeDrZJkCF347rxB3TXzIhC9TAia5jTEneDrwh/Pt4qe7gMchAwGBeayW3\nTeltNca9UgOqVpq7mcZTQxbxgK5kbON9+QZwvAMYi4q2f4oeTuUcdUSxkR5f\n+/kEYwtzGsTxDxJXZFSKM9Euwvm5QIyoRGXVVWm/cSnKJkKlTQpLoAAvq7rQ\n2eX8Y3AobQFqDhMGO3bL5IkFcE1JacyNIUcfWwPpv58j51SFDO1JTkY0f5yK\nzVEqiEF5RcDY5utnwiRpyyioQ/1zkv924W3HotWJNGqo/EzghtgJ3d6aCTPI\ns08PVq95C/TYy7VwCNXiWw/d4BwnX8/4Ry0bkEn6+g0XqYFh8UcDxI3ykTAy\n2urIQDt2TLtiQ7OF7fhOu3YIt+sMvJllmCL03D/sl1YCI0aqBBLdokKPfrcN\nsCtdn8GZuB9RwAyh7T4NbadG7RkoD4L8xal7jplkimMB1bGJjrvIXMwotOmB\n85GWIf9x1K0Ol87mSKuADGNC29vPoKTxipPWWTijlYDlbdS/5Ih0/BZsWvbP\n5oRreA/dC2hN3ZiruHeInthuJ0e3jLbtBf6Vt8pUlJ8FyNZT+OPmaQO2CAGU\nYMRydKMfvaee9eGecoMvhdXOxytDUuY6rI/U/iLDOLtCw1DFR1+6d7FaDoLx\nJGbP\r\n=Cn6D\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "rogerc@ataclick.net",
+					"name": "rogerc"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/file-stream-rotator_0.5.4_1567769205775_0.20041754272453693"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.5.5": {
+			"name": "file-stream-rotator",
+			"version": "0.5.5",
+			"description": "Automated stream rotation useful for log files",
+			"main": "FileStreamRotator.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/rogerc/file-stream-rotator.git"
+			},
+			"keywords": [
+				"stream",
+				"express",
+				"restify",
+				"connect",
+				"rotate",
+				"file",
+				"minute",
+				"hourly",
+				"daily",
+				"logrotate"
+			],
+			"author": {
+				"name": "Roger Castells"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"moment": "^2.11.2"
+			},
+			"gitHead": "f0586179a31e975b37aef5184e12db255da88e52",
+			"bugs": {
+				"url": "https://github.com/rogerc/file-stream-rotator/issues"
+			},
+			"homepage": "https://github.com/rogerc/file-stream-rotator#readme",
+			"_id": "file-stream-rotator@0.5.5",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "rogerc",
+				"email": "rogerc@ataclick.net"
+			},
+			"dist": {
+				"integrity": "sha512-XzvE1ogpxUbARtZPZLICaDRAeWxoQLFMKS3ZwADoCQmurKEwuDD2jEfDVPm/R1HeKYsRYEl9PzVIezjQ3VTTPQ==",
+				"shasum": "61701413100ec866e302094f794304df535dbacb",
+				"tarball": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.5.5.tgz",
+				"fileCount": 10,
+				"unpackedSize": 46024,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJddmjECRA9TVsSAnZWagAAK2YP/RJaYtBHgVMiSrTatzvu\n/ez7smja9s3ucScGFi0wMLt2L5FtnftVstOE97e4qCU6Ytz6Vec/HmgQDQcP\nlldISE4z+J/Ofh9AQqwPp79LNJjiyfATq2CC4kQNyMjfcrlPrt00HnDlXQvo\noBaVDAF9aX5z528znx3RPqMmGsFz54By60s4oZ8MkKsiSLrmF4WpOyebuNUr\nuDCMJJv71wyYvqsAOyTaoc+BlxC3m5lPSQ1ecEFXvzaidKrQA38pEpSyNIUD\n18LNiKf1dvtT/OtHOH08baZ5zpJ8MW6ps3VFvB2k6aQ0WwKgtFY/30Lwq4vE\nOZIFc2qvAUv7MTEwtH58oQyFcHUamdRkG+tke/vjNrz7sB7MukOddzGdPeoj\nlltNuudTeuol4Y6yopKU7cuF6iQsoNegodO57dezp1SnH5ZQ00xUgR0sG/lr\nMbHveqAH4g+CYU4sgWvH2x0RqC1z6DArXm8FvQEAgpNM5cGvzAWVeEqPnjVQ\nyyf0f4G4/Z8VIl8lgrOlii7SAB4KPLefDHH3Zjtd4UbMbgdLZZ+M3ldQ6Fpp\n62xWr3xwXZASbYT3xUQP8qIt5BHp7IW2hdWC5ea4CyOlBHyWkxIah+mlVGhx\nF6U3xWdFKUO7R1QgiFRXqjEc09zmNQ3LQMRCwgcZk2JEUT/3iEA6BvJI++yG\nYnhd\r\n=RI+6\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "rogerc@ataclick.net",
+					"name": "rogerc"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/file-stream-rotator_0.5.5_1568041155605_0.2262804388925712"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-09-09T14:59:18.378Z",
+		"created": "2012-10-08T13:09:42.581Z",
+		"0.0.1": "2012-10-08T13:09:44.794Z",
+		"0.0.2": "2012-10-08T13:56:09.364Z",
+		"0.0.3": "2012-10-08T14:03:22.515Z",
+		"0.0.4": "2012-11-04T23:59:15.107Z",
+		"0.0.5": "2013-10-28T12:07:33.885Z",
+		"0.0.6": "2015-03-05T14:51:43.780Z",
+		"0.0.7": "2016-07-13T10:59:36.304Z",
+		"0.1.0": "2017-03-07T18:49:39.522Z",
+		"0.2.0": "2017-08-13T17:29:01.255Z",
+		"0.2.1": "2018-02-17T17:32:50.342Z",
+		"0.3.0": "2018-08-14T14:35:14.737Z",
+		"0.3.1": "2018-08-20T09:27:58.076Z",
+		"0.4.0": "2018-10-19T11:30:26.358Z",
+		"0.4.1": "2018-10-27T12:25:06.730Z",
+		"0.5.0": "2019-09-01T14:00:40.975Z",
+		"0.5.3": "2019-09-04T15:17:04.225Z",
+		"0.5.4": "2019-09-06T11:26:45.926Z",
+		"0.5.5": "2019-09-09T14:59:15.726Z"
+	},
+	"dist-tags": {
+		"latest": "0.5.5"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"52b2bf075b5ce1f73b4f45f4e017fc36\"",
+			"fetched": 1568994338768
+		}
+	},
+	"_distfiles": {
+		"file-stream-rotator-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.0.1.tgz",
+			"sha": "15805779c1d3d2da07a435f1e77dac8eeba24512",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.0.2.tgz",
+			"sha": "13e10ffc77a0637f551e58279c1fb5f7e224f1dc",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.0.3.tgz",
+			"sha": "035773583164fca7112d08284192018703c9a436",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.0.4.tgz",
+			"sha": "c4a837e32f30c21899cef94a6f3d8ec7f4d6c4bc",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.0.5.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.0.5.tgz",
+			"sha": "ca99f6b42959b0b7f82c1e4b7c7c2d2b8de8be3a",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.0.6.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.0.6.tgz",
+			"sha": "3493a61663e5ac95886e67884bb4f000c1e566ff",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.0.7.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.0.7.tgz",
+			"sha": "48c0e5820b6223e79cbc599f956222946b48fb4e",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.1.0.tgz",
+			"sha": "28669790e0ca270fe6e8ad78b8654671dc90372b",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.2.0.tgz",
+			"sha": "9d7638306950ed83bd7586268784b1a9487e08ab",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.2.1.tgz",
+			"sha": "0d6fea1a9a7aba25a87cfd31b6e269e44e8f0af2",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.3.0.tgz",
+			"sha": "810c91bd205a19a32107e21b2cc16e412a3c7f16",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.3.1.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.3.1.tgz",
+			"sha": "605ffb1195814eab84cb57040e0ae401a77791f8",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.4.0.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.4.0.tgz",
+			"sha": "751a774bedb3facaa4ae691736e2ccb56d5bfd15",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.4.1.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.4.1.tgz",
+			"sha": "09f67b86d6ea589d20b7852c51c59de55d916d6d",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.5.0.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.5.0.tgz",
+			"sha": "a50959f8c9cb22b8f634ca75d907ba355c1bcb46",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.5.3.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.5.3.tgz",
+			"sha": "bd229e4e7e32ee884be33d00eab5a3df6b909390",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.5.4.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.5.4.tgz",
+			"sha": "124ab985fc6f84cee06d18aeb0482b306fe0ac1c",
+			"registry": "npmjs"
+		},
+		"file-stream-rotator-0.5.5.tgz": {
+			"url": "https://registry.npmjs.org/file-stream-rotator/-/file-stream-rotator-0.5.5.tgz",
+			"sha": "61701413100ec866e302094f794304df535dbacb",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-070acdeff24f32b2",
+	"_id": "file-stream-rotator",
+	"readme": "file-stream-rotator\n===================\n\nNodeJS file stream rotator\n\n## Purpose\n\nTo provide an automated rotation of Express/Connect logs or anything else that writes to a file on a regular basis that needs to be rotated based on date, a size limit or combination and remove old log files based on count or elapsed days. \n\n## Install\n\n```\nnpm install file-stream-rotator\n```\n\n## Options\n\n - *filename*:       Filename including full path used by the stream\n - *frequency*:      How often to rotate. Options are 'daily', 'custom' and 'test'. 'test' rotates every minute.\n                     If frequency is set to none of the above, a YYYYMMDD string will be added to the end of the filename.\n - *verbose*:        If set, it will log to STDOUT when it rotates files and name of log file. Default is TRUE.\n - *date_format*:    Format as used in moment.js http://momentjs.com/docs/#/displaying/format/. The result is used to replace\n                     the '%DATE%' placeholder in the filename.\n                     If using 'custom' frequency, it is used to trigger file rotation when the string representation changes.\n - *size*:           Max size of the file after which it will rotate. It can be combined with frequency or date format.\n                     The size units are 'k', 'm' and 'g'. Units need to directly follow a number e.g. 1g, 100m, 20k.\n - *max_logs*        Max number of logs to keep. If not set, it won't remove past logs. It uses its own log audit file\n                     to keep track of the log files in a json format. It won't delete any file not contained in it.\n                     It can be a number of files or number of days. If using days, add 'd' as the suffix.\n - *audit_file*      Location to store the log audit file. If not set, it will be stored in the root of the application.\n - *end_stream*      End stream (true) instead of the destroy (default: false). Set value to true if when writing to the\n                     stream in a loop, if the application terminates or log rotates, data pending to be flushed might be lost.       \n - *file_options*    An object passed to the stream. This can be used to specify flags, encoding, and mode.\n                     See https://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options. Default `{ flags: 'a' }`.             \n - *utc*             Use UTC time for date in filename. Defaults to 'FALSE'\n - *extension*       File extension to be appended to the filename. This is useful when using size restrictions as the rotation\n                     adds a count (1,2,3,4,...) at the end of the filename when the required size is met.\n - *watch_log*       Watch the current file being written to and recreate it in case of accidental deletion. Defaults to 'FALSE'\n - *create_symlink*  Create a tailable symlink to the current active log file. Defaults to 'FALSE'\n - *symlink_name*    Name to use when creating the symbolic link. Defaults to 'current.log'\n \n\n## Example Usage\n```javascript\n    // Default date added at the end of the file\n    var rotatingLogStream = require('file-stream-rotator').getStream({filename:\"/tmp/test.log\", frequency:\"daily\", verbose: false});\n \n    // Default date added using file pattern\n    var rotatingLogStream = require('file-stream-rotator').getStream({filename:\"/tmp/test-%DATE%.log\", frequency:\"daily\", verbose: false});\n \n    // Custom date added using file pattern using moment.js formats\n    var rotatingLogStream = require('file-stream-rotator').getStream({filename:\"/tmp/test-%DATE%.log\", frequency:\"daily\", verbose: false, date_format: \"YYYY-MM-DD\"});\n \n    // Rotate when the date format as calculated by momentjs is different (e.g monthly)\n    var rotatingLogStream = require('file-stream-rotator').getStream({filename:\"/tmp/test-%DATE%.log\", frequency:\"custom\", verbose: false, date_format: \"YYYY-MM\"});\n \n    // Rotate when the date format as calculated by momentjs is different (e.g weekly)\n    var rotatingLogStream = require('file-stream-rotator').getStream({filename:\"/tmp/test-%DATE%.log\", frequency:\"custom\", verbose: false, date_format: \"YYYY-ww\"});\n \n    // Rotate when the date format as calculated by momentjs is different (e.g AM/PM)\n    var rotatingLogStream = require('file-stream-rotator').getStream({filename:\"/tmp/test-%DATE%.log\", frequency:\"custom\", verbose: false, date_format: \"YYYY-MM-DD-A\"});\n \n    // Rotate on given minutes using the 'm' option i.e. 5m or 30m\n    var rotatingLogStream = require('file-stream-rotator').getStream({filename:\"/tmp/test.log\", frequency:\"5m\", verbose: false});\n     \n    // Rotate on the hour or any specified number of hours\n    var rotatingLogStream = require('file-stream-rotator').getStream({filename:\"/tmp/test.log\", frequency:\"1h\", verbose: false});\n\n    // Rotate on the hour or any specified number of hours and keep 10 files\n    var rotatingLogStream = require('file-stream-rotator').getStream({filename:\"/tmp/test.log\", frequency:\"1h\", verbose: false, max_logs: 10});\n\n    // Rotate on the hour or any specified number of hours and keep 10 days\n    var rotatingLogStream = require('file-stream-rotator').getStream({filename:\"/tmp/test.log\", frequency:\"1h\", verbose: false, max_logs: \"10d\"});\n\n    // Rotate on the hour or any specified number of hours and keep 10 days and store the audit file in /tmp/log-audit.json\n    var rotatingLogStream = require('file-stream-rotator').getStream({filename:\"/tmp/test.log\", frequency:\"1h\", verbose: false, max_logs: \"10d\", audit_file: \"/tmp/log-audit.json\"});\n\n    //.....    \n    \n    // Use new stream in express\n    app.use(express.logger({stream: rotatingLogStream, format: \"default\"}));\n    \n    //.....\n\n```\n    \nYou can listen to the *open*, *close*, *error* and *finish* events generated by the open stream. You can also listen for custom events:\n\n  * *rotate*: that will pass two parameters to the callback: (*oldFilename*, *newFilename*)\n  * *new*: that will pass one parameter to the callback: *newFilename*\n  * *logRemoved*: that will pass one parameter to the callback: {*date*: unix_timestamp, *name*: filename_deleted, *hash*: log_file_unique_idenfifier} \n  \nYou can also limit the size of each file by adding the size option using \"k\", \"m\" and \"g\" to specify the size of the file in kiloybytes, megabytes or gigabytes. When it rotates a file based on size, it will add a number to the end and increment it for every time the file rotates in the given period as shown below.\n  \n```\n  3078  7 Mar 13:09:58 2017 testlog-2017-03-07.13.09.log.20\n  2052  7 Mar 13:10:00 2017 testlog-2017-03-07.13.09.log.21\n  3078  7 Mar 13:10:05 2017 testlog-2017-03-07.13.10.log.1\n  3078  7 Mar 13:10:08 2017 testlog-2017-03-07.13.10.log.2\n  3078  7 Mar 13:10:11 2017 testlog-2017-03-07.13.10.log.3\n  3078  7 Mar 13:10:14 2017 testlog-2017-03-07.13.10.log.4\n```  \n\n  The example below will rotate files daily but each file will be limited to 5MB.\n  \n```javascript\n    // Rotate every day or every 5 megabytes, whatever comes first.\n    var rotatingLogStream = require('file-stream-rotator').getStream(\n        {\n            filename:\"/tmp/test-%DATE%.log\", \n            frequency:\"custom\", \n            verbose: false, \n            date_format: \"YYYY-MM-DD\",\n            size: \"5M\" // its letter denominating the size is case insensitive\n        }\n    );\n    rotatingLogStream.on('rotate',function(oldFile,newFile){\n        // do something with old file like compression or delete older than X days.\n    })\n```\n\n## NPM Maintainers\n\nThe npm module for this library will be maintained by:\n\n* [Roger C](http://github.com/rogerc)\n\n## Contributors\n\nThanks to the contributors below for raising PRs and everyone else that has raised issues to make the module better.\n\n* [Matt Berther](https://github.com/mattberther)\n* [nickbug](https://github.com/nickbug)\n* [André Farzat](https://github.com/andrefarzat)\n* [Thibault.P](https://github.com/DrPlop)\n\n## License\n\nfile-stream-rotator is licensed under the MIT license."
+}

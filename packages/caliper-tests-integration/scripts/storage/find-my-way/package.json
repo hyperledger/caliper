@@ -1,0 +1,4030 @@
+{
+	"name": "find-my-way",
+	"versions": {
+		"0.0.1": {
+			"name": "find-my-way",
+			"version": "0.0.1",
+			"description": "",
+			"main": "index.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"keywords": [],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"_id": "find-my-way@0.0.1",
+			"_shasum": "b547c5e4973135fd515c4758ce3a4982f6f2f86d",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "b547c5e4973135fd515c4758ce3a4982f6f2f86d",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-0.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/find-my-way-0.0.1.tgz_1492372518150_0.2548990750219673"
+			},
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "find-my-way",
+			"version": "0.1.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "673450cdb9e5b5da4b677e3c7eb1bad238b50ce9",
+			"_id": "find-my-way@0.1.0",
+			"_shasum": "5717844965da546f794fc486906ae2a9c34ce907",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "5717844965da546f794fc486906ae2a9c34ce907",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-0.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/find-my-way-0.1.0.tgz_1492521683246_0.979330480331555"
+			},
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "find-my-way",
+			"version": "0.2.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "aae35c79dca24eb7345321276e6a810caac251ea",
+			"_id": "find-my-way@0.2.0",
+			"_shasum": "614117d98c3262f4a5beaef3f6542c4d50f60cbc",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "614117d98c3262f4a5beaef3f6542c4d50f60cbc",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-0.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/find-my-way-0.2.0.tgz_1492610672713_0.39931999146938324"
+			},
+			"directories": {}
+		},
+		"0.2.1": {
+			"name": "find-my-way",
+			"version": "0.2.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "6ab2be626933206590a501573cd2d9c24956ad18",
+			"_id": "find-my-way@0.2.1",
+			"_shasum": "7f61fbc86654955511ebac05a07c972e2db285ca",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "7f61fbc86654955511ebac05a07c972e2db285ca",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-0.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/find-my-way-0.2.1.tgz_1492778469381_0.7412096681073308"
+			},
+			"directories": {}
+		},
+		"0.2.2": {
+			"name": "find-my-way",
+			"version": "0.2.2",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "b04dcd5e99b995b740bc0eabec65358c7657f5b6",
+			"_id": "find-my-way@0.2.2",
+			"_shasum": "cbf8a1607792a3c2be77d70a0dc75d6023319bde",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "cbf8a1607792a3c2be77d70a0dc75d6023319bde",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-0.2.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/find-my-way-0.2.2.tgz_1493463226693_0.5412948557641357"
+			},
+			"directories": {}
+		},
+		"0.2.3": {
+			"name": "find-my-way",
+			"version": "0.2.3",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "8d5ab522f25c01655fd063a82e19109c62023446",
+			"_id": "find-my-way@0.2.3",
+			"_shasum": "4a8a7dbd8d283acdec0751dd67a9ded577f94c96",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "4a8a7dbd8d283acdec0751dd67a9ded577f94c96",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-0.2.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/find-my-way-0.2.3.tgz_1494248283148_0.3363629311788827"
+			},
+			"directories": {}
+		},
+		"0.2.4": {
+			"name": "find-my-way",
+			"version": "0.2.4",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "eef84693e2b5be59e5e0a953f10f228a51464cbe",
+			"_id": "find-my-way@0.2.4",
+			"_shasum": "1c5209c4bf9ab377305fc26be8d7232b0106e850",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "1c5209c4bf9ab377305fc26be8d7232b0106e850",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-0.2.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-0.2.4.tgz_1495287116291_0.5787457749247551"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "find-my-way",
+			"version": "1.0.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "8addacec70610b5211c2c13128ab77bfca1a4be2",
+			"_id": "find-my-way@1.0.0",
+			"_shasum": "06a5aabfb7bbe3d28a122a1f64b7ffde82eae33a",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "06a5aabfb7bbe3d28a122a1f64b7ffde82eae33a",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.0.0.tgz_1498547279410_0.6713110161945224"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "find-my-way",
+			"version": "1.0.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "6bd976667bfacb8cb2b9a8358a566ec5cdec7e70",
+			"_id": "find-my-way@1.0.1",
+			"_shasum": "1576abfe55926611b4ae39cbea8a9b61202e3547",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "1576abfe55926611b4ae39cbea8a9b61202e3547",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.0.1.tgz_1498555548642_0.3140567808877677"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "find-my-way",
+			"version": "1.1.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "7abd21d3522e7afd4be749c5674e593ad937fd72",
+			"_id": "find-my-way@1.1.0",
+			"_shasum": "84244519ffdd4fcf348eec2972098d68a72b6ab4",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "84244519ffdd4fcf348eec2972098d68a72b6ab4",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.1.0.tgz_1498721357810_0.9162312538828701"
+			},
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "find-my-way",
+			"version": "1.2.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "5734a603fde98cd016b01d6565364947133bc884",
+			"_id": "find-my-way@1.2.0",
+			"_shasum": "ba3aeb9b8ed69a128dadd333fa0db8587d9ab390",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "ba3aeb9b8ed69a128dadd333fa0db8587d9ab390",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.2.0.tgz_1499158861631_0.7852192684076726"
+			},
+			"directories": {}
+		},
+		"1.2.1": {
+			"name": "find-my-way",
+			"version": "1.2.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "41bdc50f823c47a6c716b746c7cf9dd0bb723ca7",
+			"_id": "find-my-way@1.2.1",
+			"_shasum": "cb97f88ea382e132f853b3ea8fd3a0bc13b97d78",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "cb97f88ea382e132f853b3ea8fd3a0bc13b97d78",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.2.1.tgz_1499237535397_0.0068083941005170345"
+			},
+			"directories": {}
+		},
+		"1.3.0": {
+			"name": "find-my-way",
+			"version": "1.3.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "a963dda4b2375fa6ea287fe136f783029355ff27",
+			"_id": "find-my-way@1.3.0",
+			"_shasum": "05d1d21432d00f5f988c692086e7c8b61a5126b5",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "05d1d21432d00f5f988c692086e7c8b61a5126b5",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.3.0.tgz_1499941929312_0.6453470978885889"
+			},
+			"directories": {}
+		},
+		"1.3.1": {
+			"name": "find-my-way",
+			"version": "1.3.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "0498afe88d9ef16b0c29628a3fb07dc810806df8",
+			"_id": "find-my-way@1.3.1",
+			"_shasum": "e65a02162be181dfa15531f7b510a423279ba20f",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "e65a02162be181dfa15531f7b510a423279ba20f",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.3.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.3.1.tgz_1499959932746_0.5419856994412839"
+			},
+			"directories": {}
+		},
+		"1.3.2": {
+			"name": "find-my-way",
+			"version": "1.3.2",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "eaa3415c0a4e76cda4c37dc1c89992a3f789329c",
+			"_id": "find-my-way@1.3.2",
+			"_shasum": "3df7aa679f785ba59cb613ae22decdefcfe5d3e5",
+			"_from": ".",
+			"_npmVersion": "4.6.1",
+			"_nodeVersion": "6.11.1",
+			"_npmUser": {
+				"name": "matteo.collina",
+				"email": "hello@matteocollina.com"
+			},
+			"dist": {
+				"shasum": "3df7aa679f785ba59cb613ae22decdefcfe5d3e5",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.3.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.3.2.tgz_1499962885565_0.6558501869440079"
+			},
+			"directories": {}
+		},
+		"1.4.0": {
+			"name": "find-my-way",
+			"version": "1.4.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "6e8f15c19d98ea3832cc017f320bd7e51d331602",
+			"_id": "find-my-way@1.4.0",
+			"_shasum": "31178a6157058dba1798e45c889a3347cfbcb2b7",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "31178a6157058dba1798e45c889a3347cfbcb2b7",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.4.0.tgz_1501433847661_0.7932263996917754"
+			},
+			"directories": {}
+		},
+		"1.4.1": {
+			"name": "find-my-way",
+			"version": "1.4.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.2",
+				"tap": "^10.3.2"
+			},
+			"gitHead": "e692b3918df48c8c0e77b5dc1f5dd284074e9e3e",
+			"_id": "find-my-way@1.4.1",
+			"_shasum": "9202fd14d1c9b6d07bd65a412333bff62c5c6164",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "9202fd14d1c9b6d07bd65a412333bff62c5c6164",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.4.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.4.1.tgz_1502194309928_0.6948848555330187"
+			},
+			"directories": {}
+		},
+		"1.5.0": {
+			"name": "find-my-way",
+			"version": "1.5.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.3",
+				"tap": "^10.7.2"
+			},
+			"gitHead": "ddc113ab11ddbef43148f9317a242553afd62fba",
+			"_id": "find-my-way@1.5.0",
+			"_shasum": "d69ec47b35c5be7250fafb7dc1a7cd786476da6d",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "d69ec47b35c5be7250fafb7dc1a7cd786476da6d",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.5.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.5.0.tgz_1505202144196_0.21717608906328678"
+			},
+			"directories": {}
+		},
+		"1.6.0": {
+			"name": "find-my-way",
+			"version": "1.6.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.3",
+				"tap": "^10.7.2"
+			},
+			"gitHead": "223a578d260fdd72dedd57ef369e66a4da98dcf4",
+			"_id": "find-my-way@1.6.0",
+			"_shasum": "e0699fa19f397fa30e257c0c6528ff6c0947c186",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "e0699fa19f397fa30e257c0c6528ff6c0947c186",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.6.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.6.0.tgz_1506532528224_0.5559156893286854"
+			},
+			"directories": {}
+		},
+		"1.6.1": {
+			"name": "find-my-way",
+			"version": "1.6.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.3",
+				"tap": "^10.7.2"
+			},
+			"gitHead": "7f9954ec1b6aa44c5f4fc888a2390669405036ac",
+			"_id": "find-my-way@1.6.1",
+			"_shasum": "16cc4aefce80c89f99f64b5771c9a010bd44a916",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "16cc4aefce80c89f99f64b5771c9a010bd44a916",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.6.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.6.1.tgz_1506670741589_0.5466194197069854"
+			},
+			"directories": {}
+		},
+		"1.6.2": {
+			"name": "find-my-way",
+			"version": "1.6.2",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.3",
+				"tap": "^10.7.2"
+			},
+			"gitHead": "c378eb5e42a20cb1891a296d49f338b359b5487b",
+			"_id": "find-my-way@1.6.2",
+			"_shasum": "784299ec918202b9468e6e5bbd692699bf280eeb",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "784299ec918202b9468e6e5bbd692699bf280eeb",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.6.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.6.2.tgz_1506847816426_0.760462400270626"
+			},
+			"directories": {}
+		},
+		"1.7.0": {
+			"name": "find-my-way",
+			"version": "1.7.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.3",
+				"tap": "^10.7.2"
+			},
+			"gitHead": "f2c2e80cfe59260dae4dd4f701e0d787ddb45f00",
+			"_id": "find-my-way@1.7.0",
+			"_shasum": "ca9aacbfd02e952415d4a6592b9f050be0bd0529",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "ca9aacbfd02e952415d4a6592b9f050be0bd0529",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.7.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.7.0.tgz_1507797345691_0.4189538925420493"
+			},
+			"directories": {}
+		},
+		"1.7.1": {
+			"name": "find-my-way",
+			"version": "1.7.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.3",
+				"tap": "^10.7.2"
+			},
+			"gitHead": "52c2eaab49097940aaef55b2333d14f167fa325b",
+			"_id": "find-my-way@1.7.1",
+			"_shasum": "8c3387bd63fc8d0eddadb66f0018909f95464cbb",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"shasum": "8c3387bd63fc8d0eddadb66f0018909f95464cbb",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.7.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.7.1.tgz_1508766421097_0.7193053455557674"
+			},
+			"directories": {}
+		},
+		"1.8.0": {
+			"name": "find-my-way",
+			"version": "1.8.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap test/*.test.js",
+				"coveralls": "tap test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^2.13.1",
+				"request": "^2.81.0",
+				"standard": "^10.0.3",
+				"tap": "^10.7.2"
+			},
+			"gitHead": "dc2293f3c6188e52d74ab3fa675e0f844f25b8af",
+			"_id": "find-my-way@1.8.0",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-6pWgCKJqBGXVyGIWBjV1oeNiXCjmU0/829CURQhHj8Cr9Htt37bC1ttEIODtKVTFFm1KuiM07ojIJ58e0SwLtg==",
+				"shasum": "91deed73f5d671e755c17791f2c2f3dd9c302a97",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.8.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.8.0.tgz_1510953634623_0.12286915071308613"
+			},
+			"directories": {}
+		},
+		"1.8.1": {
+			"name": "find-my-way",
+			"version": "1.8.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.0",
+				"request": "^2.83.0",
+				"standard": "^10.0.3",
+				"tap": "^11.0.0"
+			},
+			"gitHead": "6a8a9b2002e44ce2866dc4fae5c068ef2736fb6e",
+			"_id": "find-my-way@1.8.1",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-iPS6dqcwtgqDJb5U4FEq3iPH0gzfwzsQF2Fvm78O9sXROli7o8kI7L+4FXruvIhLfwXlwSJfCUkS2bf+fJqcAw==",
+				"shasum": "8bf912398c38db44081751a9cbfe70d485c43a02",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.8.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.8.1.tgz_1512469264579_0.6982607343234122"
+			},
+			"directories": {}
+		},
+		"1.8.2": {
+			"name": "find-my-way",
+			"version": "1.8.2",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.0",
+				"request": "^2.83.0",
+				"standard": "^10.0.3",
+				"tap": "^11.0.0"
+			},
+			"gitHead": "02cb232287da939d05765684c42079bdf6523a7c",
+			"_id": "find-my-way@1.8.2",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-RfJ75cVg1AD7OGez39M8rDFzbruCVV2xZk4FWOvXom3W3PHWl1BhOH3mazF+e52Agcxa+VEZu4X2tY8B1E3Ilw==",
+				"shasum": "9e108c7ef9765bc9b43e8d9355b62c3c1619f393",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.8.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.8.2.tgz_1513874210466_0.9016173952259123"
+			},
+			"directories": {}
+		},
+		"1.9.0": {
+			"name": "find-my-way",
+			"version": "1.9.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.0",
+				"request": "^2.83.0",
+				"standard": "^10.0.3",
+				"tap": "^11.0.0"
+			},
+			"gitHead": "d66b03d62129295b300b183f57a17c9c4e5e885b",
+			"_id": "find-my-way@1.9.0",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-QfFoUnIO29oYx0rxbRZvtbnbPxL6bkSbQYq3eyXz5d1MpBSI69H8+B056ExMY+v6iP4lox+ndEAERs4QSe0VPQ==",
+				"shasum": "407003854631017eff639b6e90992ee1db592749",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.9.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.9.0.tgz_1516295745256_0.6636127885431051"
+			},
+			"directories": {}
+		},
+		"1.9.1": {
+			"name": "find-my-way",
+			"version": "1.9.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.0",
+				"request": "^2.83.0",
+				"standard": "^10.0.3",
+				"tap": "^11.0.0"
+			},
+			"gitHead": "182868fb087270a2ac2fd17d149f78125bc96004",
+			"_id": "find-my-way@1.9.1",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-YNYfFEXXNuzROQvW6yzfAAaOMTKhUhsDhdqTgvtJxzbsgd6UHwEa4Lgj3RlAKGcBJhwPocKFqoHYPqeOSGUtmw==",
+				"shasum": "776d1946281cb24fd21d9f8924e083a6e9a1f307",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.9.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.9.1.tgz_1516707937018_0.37264280882664025"
+			},
+			"directories": {}
+		},
+		"1.10.0": {
+			"name": "find-my-way",
+			"version": "1.10.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.0",
+				"request": "^2.83.0",
+				"standard": "^10.0.3",
+				"tap": "^11.0.0"
+			},
+			"gitHead": "2b252815ce46e6d4b5924fe9ddfcb4095def2c04",
+			"_id": "find-my-way@1.10.0",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-7PoRg9HsXvLz9GZiu73k4s1ByDvRfkteGPHxvz1lpH5+kQSE234vYXXyKA9WosjIXKDcDM3YCBEgaPK3JimMAA==",
+				"shasum": "12589cb292ffb1991460cfc04cd07cd7ead7d1ba",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.10.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.10.0.tgz_1517148141512_0.9037005652207881"
+			},
+			"directories": {}
+		},
+		"1.10.1": {
+			"name": "find-my-way",
+			"version": "1.10.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.0",
+				"request": "^2.83.0",
+				"standard": "^10.0.3",
+				"tap": "^11.0.0"
+			},
+			"gitHead": "b2d8136f132ed5eaac29fc45a007c825a4c53c9c",
+			"_id": "find-my-way@1.10.1",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-N3SCui48+ZDvRT6cuarjrhaWP2H2zBXzMENu00G+gLqG0e9rgj2WM2tiVkVU2mRUyZzHZ/9CbzIncFziNLWCGQ==",
+				"shasum": "90ff8a4edcfe688bdc732c43466aba1a6ca7c005",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.10.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way-1.10.1.tgz_1517494037537_0.639101445209235"
+			},
+			"directories": {}
+		},
+		"1.10.2": {
+			"name": "find-my-way",
+			"version": "1.10.2",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.0",
+				"request": "^2.83.0",
+				"standard": "^10.0.3",
+				"tap": "^11.0.0"
+			},
+			"gitHead": "53ea1b488b48d4530319960562707d1680bf0425",
+			"_id": "find-my-way@1.10.2",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-vRV9fYe+YlHJ+e4eFwCqlRFEg8mDGVemh1SUeOl3jXo3g9xkkKszfgN72X6E9OU3H8OfnyKzsgW4BwHQ2sYhGA==",
+				"shasum": "28049b897d0835c4e018a10f542d5967c70d06b4",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.10.2.tgz",
+				"fileCount": 24,
+				"unpackedSize": 105629
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.10.2_1520027151958_0.6897535100627514"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.10.3": {
+			"name": "find-my-way",
+			"version": "1.10.3",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.0",
+				"request": "^2.83.0",
+				"standard": "^10.0.3",
+				"tap": "^11.0.0"
+			},
+			"gitHead": "65a7b1cbfcfbb55367aa6dc0f65d33433494a273",
+			"_id": "find-my-way@1.10.3",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-zmugKFVZF56L2PEHkY9awmKKi0KgXckj+xOw99YHYeEvXN2XwuIZ9mn7/P+CvA5r4s+KaE6vTYEHRmtGW4xcSQ==",
+				"shasum": "e66338e56018bda8ba522a5ab9f3a0528d21aa80",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.10.3.tgz",
+				"fileCount": 24,
+				"unpackedSize": 106666
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.10.3_1520076120095_0.5430586957771668"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.10.4": {
+			"name": "find-my-way",
+			"version": "1.10.4",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.0",
+				"request": "^2.83.0",
+				"standard": "^10.0.3",
+				"tap": "^11.0.0"
+			},
+			"gitHead": "cc6ac4e5a1b1617ca2d84cce33201f727ae12c8b",
+			"_id": "find-my-way@1.10.4",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-9Y1k71oQghpijH3D14D7HnsKXpwVlAVietW61OX9oMAUygdLvPyemt6Cwml0SC+SNlNogMwuEGDjXdKwhyB/SA==",
+				"shasum": "ae9cefd1b7fefce6779e2281fe14fae5251dea77",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.10.4.tgz",
+				"fileCount": 27,
+				"unpackedSize": 109353
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.10.4_1520934387332_0.055602822196859636"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.11.0": {
+			"name": "find-my-way",
+			"version": "1.11.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.0",
+				"pre-commit": "^1.2.2",
+				"request": "^2.83.0",
+				"standard": "^10.0.3",
+				"tap": "^11.0.0"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0"
+			},
+			"gitHead": "f476733b7321dad2f5d5232763b52742924bcc98",
+			"_id": "find-my-way@1.11.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-8a7UGQSiQSbekKPVQ9RLfUhoFLxdo6mdYbyIVypSgpWmwjaYSSdOnsq5DRDV3/k1EwPLsc3DFnMG/osj4nxVfg==",
+				"shasum": "deb2512b079afa1c032c9d36d823ffc6ffbdabbd",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.11.0.tgz",
+				"fileCount": 27,
+				"unpackedSize": 109574
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.11.0_1521530290906_0.16098696037350746"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.11.1": {
+			"name": "find-my-way",
+			"version": "1.11.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.0",
+				"pre-commit": "^1.2.2",
+				"request": "^2.83.0",
+				"standard": "^10.0.3",
+				"tap": "^11.0.0"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0"
+			},
+			"gitHead": "4caea1c15587e5fe929dd437dcfb2436003b7255",
+			"_id": "find-my-way@1.11.1",
+			"_npmVersion": "5.7.1",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "matteo.collina",
+				"email": "hello@matteocollina.com"
+			},
+			"dist": {
+				"integrity": "sha512-zoxshWkG1fSfinOqH0nsv9UQ1gGJ/8fsOTbkMDGwSOOVPOK3eStXYdYkngG01kMEPkbthO6g4F/1XXCfY5+Iqg==",
+				"shasum": "638ca077b01a52f3db344c4abec709483b2994a0",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.11.1.tgz",
+				"fileCount": 27,
+				"unpackedSize": 109610
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.11.1_1521644305342_0.14519421888563766"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.12.0": {
+			"name": "find-my-way",
+			"version": "1.12.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.0",
+				"pre-commit": "^1.2.2",
+				"request": "^2.83.0",
+				"standard": "^10.0.3",
+				"tap": "^11.0.0"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0"
+			},
+			"gitHead": "d4feb4717da23ff347a9b634bf7ce3d69c86c15b",
+			"_id": "find-my-way@1.12.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-d7wZ0IeijAZDA/gvHjCNxxRTDCn5j9hnugcgEbNzYhofbDfogGhyRu93mtcJoAxeB1zemWTz9JB2JzNOar/qbA==",
+				"shasum": "859ffe3cffd8dde04cec4e36833b3991dd5fa3cc",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.12.0.tgz",
+				"fileCount": 27,
+				"unpackedSize": 110173,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa10RpCRA9TVsSAnZWagAA2a0QAJpo2gEGQm6WsnvpRaMf\n8znEdcIzQJPY5iAcHrZm2HJe0sMwFliTXzHYOSxqFLxZJOasLzAknj0tyJOL\nAutETekkTQvV/Z1iYyv7Oa/PyEeEH97+av+GCMYkIgS8FA4NpShTHkdT6h6H\n6iDXb5BBc85XmvZ4Oz6gWBPdsQwaXjUkFHsa4JOCOVGIAJEwNrFuPiUglbne\nzYAJRvWyanClsHEWPxQJ7uw08joyQkEjRyiSRueZ5cYv/MBl6BffuXae4nmB\n5vHePgzr22cNzEDEw6Kono84VJ1Wa8RqV797fWO0KeiPCo+j26aH7YIxY7cr\nleiEfx49341Nefr3NGaNR/J3z7fiRyc3Y7xyR0g6EQ+XPPQseGzxguwIG7tV\nAY0SgvRgL1FdV9/10CmS+5TsbVhnpsdjas/IczxewK5HeiUVlguJ6aUluf44\n3MqLOpRliBxlT2oVMyUIRLZZGQ9Dh9q8p3/LpZGK6PlVyszz8ofTxhoXffc1\nN/tZB8h2KMpa5ZYrBNW2IzOLBW1MeCBV5B2n50ky3XxYO/CGJihdTpjnSPYy\nzUnn7s871BgNdIUCtzrWpwER0pOhXz6/mWKvd3EXRQEyxHEAVfXQY9xsRwiW\n8gtvbvviZjvbuidpNsPWFEUYtJqr7hT3uSBKSdm8lQbEU85MzAxV25CWO0Dy\nm8RV\r\n=CCWw\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.12.0_1524057192546_0.48158563210659655"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.13.0": {
+			"name": "find-my-way",
+			"version": "1.13.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.0",
+				"pre-commit": "^1.2.2",
+				"request": "^2.83.0",
+				"standard": "^10.0.3",
+				"tap": "^11.0.0"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex": "^1.1.0"
+			},
+			"gitHead": "59b731ebffb4c27cf9e4fce62b1408ef72299527",
+			"_id": "find-my-way@1.13.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-aIa4UTxZ3klfApaQEJJ5cQvNeqfrxVngcjMgy+G5ygkrOrDPkORhY/RMH6F8mLwBpPt3Z0F03CtzN7gs2Q5H1w==",
+				"shasum": "3a81184bc40b24fe69ea8d785263c9218be5c067",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.13.0.tgz",
+				"fileCount": 27,
+				"unpackedSize": 113018,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbAnxdCRA9TVsSAnZWagAA6YsP/RKqevuLwnmphbhQaS3y\nEDUoJu6k22Zlxw7qPITB/Sy8iZhAX0de55QnY25wcmgszcnge6qJEAjr5nPO\nnjVNyDCu6XdQoVnC9jvO39gbOpXKIB8TjcHfJWoLQOag3g38j7SrbEp7kS4E\nUmY/nuXJqMZIpHEMAvpP4X1p7ZIQ+keplh/NxmkcLPNr8RQBqve3r7Apqvvp\nWHuaphJkj6JUf36NtOvj7XK0xyTzLj679KHn6HubSHOy0gmzS6ssJcSt0cYI\nP+CoyosMOqQHCqttBYYv9JIC9YUnfzthi0HsnV5VT+Mbjt/rUlE/vOWnTTg9\nsQi+ikSV94Uf5Gz0QxJ4Mq9h86sjkcdrrBZy21cdrfN0xcaTzIZQdRI35c/C\nUVmNab7hcXtSXJwOHtF8Aa6wE3bHpwfnT6NV05YoFSv2Iy76Y8CHsb5GsWAp\ndDYHQKPw5Duy5z9TWhRe95hUuHCe7YFMeQlfX6tRnvhshTEMTSdF/dFcwzJ4\nHN8b8xQ58uz5FUyvVpGCY2N/tPuYnyz6kSY6iJnmhODCbaa5OUlTY4ggzTqG\nLxUwyLCORpujiro61yrEBNMl0GHDsnuL2iZcshHGQVffBwKcZnVCHByrs4ti\n/5PzVeDalw2Bz+l/d5c04PvqrppjbcGGPjIm+cgPxkaa+/xcr5vX1awyHIyZ\neB7b\r\n=sdC2\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.13.0_1526889563617_0.07108387448893794"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.14.0": {
+			"name": "find-my-way",
+			"version": "1.14.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.1",
+				"pre-commit": "^1.2.2",
+				"request": "^2.87.0",
+				"standard": "^11.0.1",
+				"tap": "^12.0.1"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex": "^1.1.0",
+				"semver-store": "^0.2.0"
+			},
+			"gitHead": "1ee4a4fd69f2a9b9a28a5451814a5f5386c22709",
+			"_id": "find-my-way@1.14.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-dYVjhSI/7WwM2tPXIpBp4YwPFpFEJOpNCPCTCq2vca/0t0OfqDOdynsWnMizanJ4tvmBpQbEek9ZKGmf24H3Ig==",
+				"shasum": "107b89780836fb9ca0f2d42d7390b27f648540c5",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.14.0.tgz",
+				"fileCount": 28,
+				"unpackedSize": 126246,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbHrpfCRA9TVsSAnZWagAA4EcQAIGidH60o0aOrz4dD9BJ\nZ3ucBI/4rdGuxVMrdlW52Gb+bGSTap64W0ET9xwCtJKNmm134PGkyF2J1/i5\n2nJh1On0OxoyvzAfHNE1tgiI82kY4LNo+pP0aT5QXM+K79oTOe2wI4UFMI36\nI90VEp2Y2gP5TnujkLmdJ7KsEyNTI8keRTrwEODdWPW2xn8P/kCjT91MZdmI\nBqRFNhYB8Tt5AKjYeYP2dlLc2NjCKbTwEOYuenlTCLkqX9IKhiJKkPvbdgDA\nA1T1Hc1EcMyunOlOKGvtZiXPcQJTqcbqejNwAUp7iYp65FTcOGnTAA7hC26x\nz+r7l32NSxdwgR3YqYtEbNCLf4FKA6zYndv3CSEI62WS071UeawPSAyU19pC\ngWpozvVhi9CejayaVahupNzydowdI+Y2TEWU44LdIB2lCkIJjjx+p81XG/hZ\nAGjsRPZUTvi3jUVbPxna9GGCiJtni9zTEU2lCBsFBu2RJz6HfApwY6ic+IUb\nyT5kQRpMEY92a8LeDpWgE1YnRnj+buUPm+D9h4BiDW2s18xmOctLJxciyMBQ\nn0j1ujq25eusg6jQE7B16Gq6MC2WnaAcDT7svKaCmtNnSaD/oucGvn3haVvb\nHgVSQVLqLdDtThgd3zNHhJxgmaU8IaDgJJsDKVMKqZOy0+e85JWQFpBfM5pz\nQVXN\r\n=hrNE\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.14.0_1528740446178_0.8913502281068459"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.14.1": {
+			"name": "find-my-way",
+			"version": "1.14.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.1",
+				"pre-commit": "^1.2.2",
+				"request": "^2.87.0",
+				"standard": "^11.0.1",
+				"tap": "^12.0.1"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex": "^1.1.0",
+				"semver-store": "^0.2.0"
+			},
+			"gitHead": "57b657773882155f6e76ac403757c6ba577d847f",
+			"_id": "find-my-way@1.14.1",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "8.11.3",
+			"_npmUser": {
+				"name": "matteo.collina",
+				"email": "hello@matteocollina.com"
+			},
+			"dist": {
+				"integrity": "sha512-RWMNkh+TgrrBjmFS0wJqD7Qc2mbW6l6DNtIUSdXkUwH5R5OUkj+P7M8XVonXtQ3wWk+vCFn5k2dJOo2j11gGbg==",
+				"shasum": "fce8a3d2095bb49e68a3e5b47b38536be6a49620",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.14.1.tgz",
+				"fileCount": 28,
+				"unpackedSize": 126264,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbNSCbCRA9TVsSAnZWagAAahcP+QDHKSL4ixWjBZ2E19iO\n9olqY97UFIHTmWzHr34Ld0y3ubfYkvfUicweufYAqjm96BWPUuF3Lj7TMSgy\nVMuQpty84IWGY2yCY22LZZQJsPQle3esk3u8yhaTtGVrzH3+rSS9JZOrSwz3\nXkIHwOq0n3zQo3b2sgD5GN/yxnDH4i2iiHjLGOu6l+EhWkQ4WbOeI+FYctqb\naat3DfMHDhf70Qkd6j8VHM3mRkvZRul2wI0qoJ5rR7tkjl/wfyB9Sbz6k6xx\nrOiXpXaptWgB1l2iI2ji4EMQGa9Z3wf0E42g6l76KyIEvEdqR9w2FskdCkX7\nN0NqVz4SS5f6cCH/KSV4tz2RTKJqazLy2DEz0GKkoMo1Ogsu5oQ0D/DLsv+B\nVDKF+tbNbjIKxe+IQPhQwNtvKafWRaLJMliHx2Pb0mI5w164ileRXzRUhGpU\nSfLM120OmF+/ikajysC/1shkJp8K4eUFI1l/p9vZHYPxeeW04RG/44jsLr5v\nHTQ6Bt2oJgnc7k+87169wS2gkP/lYkQmlLcBk4F8u+ObkS08QgUYZMVYYKKz\nnU6t6hTY6yjvLTJyZFwxwa7T+8ThulfPNmvkIg1H50cC5VD/cFmSNmvkaSpm\nZmxcgCRCkfayt9KCuKI2NYGh8bIGDByBbyU8VDpFrdpvtkH3jO+I+gPsaWJz\nZlJ+\r\n=HbkX\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.14.1_1530208411707_0.3295800159143345"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.15.0": {
+			"name": "find-my-way",
+			"version": "1.15.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.2",
+				"pre-commit": "^1.2.2",
+				"request": "^2.87.0",
+				"standard": "^11.0.1",
+				"tap": "^12.0.1"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex": "^1.1.0",
+				"semver-store": "^0.2.0"
+			},
+			"gitHead": "db375fe72a3efad181bce4f2c9ecd93ba34f84b8",
+			"_id": "find-my-way@1.15.0",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "8.11.3",
+			"_npmUser": {
+				"name": "matteo.collina",
+				"email": "hello@matteocollina.com"
+			},
+			"dist": {
+				"integrity": "sha512-SaCxI478M8lYhOU/icMFeZMlIhY0Wy0i5g0vgmFV4KYaZXjF+FhIGgMpfoWgzAyq+Si8hWraXwqeQ0KJT5kL+g==",
+				"shasum": "7d9dc3c3925ca438d04c4f4a349fc6dbd83f465e",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.15.0.tgz",
+				"fileCount": 29,
+				"unpackedSize": 129102,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbOjdBCRA9TVsSAnZWagAA2bQP/R0Z9gBj1e4bA82Jp6bG\nwSaK7qG099q0ojrxIlG+15SXSkx3VmbtLO72doOHwWHH8sNj1lnC932gHIYh\nHE5o2iOMOp3jo5iTQrDH9VfPOwv+awi1BBMJJqjGHwTCk9gv6lzdJ35ZbK7/\nWcUOCGE7+BEfFa+hkQNcHm9RVEMDRqLw95dSgnu3KLsHZ9JZszk7XCSa/8tB\nfDGs+JYzJbQt/VxVoGDRbYA7yXzriJo+XctwRtHvQiNCGBZlZpuUXOTDe1eM\ncb0oVfJ3WY4o27BnLp66yJKmaz9Ax6JO4OU+FsdkFQu1UKTexiH7Q067fpCt\nLTTEnLC/Vn8C/Th9nE/seZjoizZH/jL02hswtyeEvl2GnElkVQFq/XZbwYUI\n6AEpusnv2jRYTcKvMETW1RCppTcah6LKNauG8T4WslG7gUQGyvjFMJk0I5iq\nSqIEB7w2czbxO0nXXmUgc1Ndbw68p2m582gZzA6HIQXIf7TA3Kxhw2Ap7F/v\nig5tgmUTzDJatD4HSSg1eCxaeTBLxarITxvSjDF/9Q+0CMQTZVhEPX4Lr33H\nMrArA6gVYK4uc3r3PCAVJ0A6JRLDqsy9NLFNmu1FrM4e/RAkJV5LxNKBxdQy\n3t2n4cu9WMzDnnuUrIQVh13zia2lF/O5IcHMVoreBOn2DzSidDQNRTkUPhSM\nBFKq\r\n=CH+D\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.15.0_1530541889060_0.7193756169783234"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.15.1": {
+			"name": "find-my-way",
+			"version": "1.15.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.2",
+				"pre-commit": "^1.2.2",
+				"request": "^2.87.0",
+				"standard": "^11.0.1",
+				"tap": "^12.0.1"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex": "^1.1.0",
+				"semver-store": "^0.3.0"
+			},
+			"gitHead": "6f4af08394d3157e379df493c2987fd17eb4514f",
+			"_id": "find-my-way@1.15.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-cwR1IxkB1JIIGxWpX3TQC1U/51htT4dps536rno7fkszeSSevvZGkl1dpIANRNq+X6/VDSF/S4JAuDPSTepHBA==",
+				"shasum": "aa76b386be51ff528c548422544ffd91d8f3dec1",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.15.1.tgz",
+				"fileCount": 29,
+				"unpackedSize": 129397,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbOy/SCRA9TVsSAnZWagAAq/MP/0pcK/MFYRrtPGIxEdrm\n6UIxEeFDcr/uQRuvy8KVgO2beTTyhaWDW3IDigOGLSfsHmkcWy0TyRvGu5UR\nk9bS8hTHCdPARiQjv2u3N+BIaLSfB0QxEJvADipgOF1d4Rkj/UgLqquAxiJt\nvId6bMBxdV4MUUV93iglrAiLatdObsp06lIRjCPDzDAKbkFMJDfYGsO5irGw\nMOL0G96837kZoCY6OvurJ3S6uxBeKpuUT3c2DD3mdGvXY3ew7igJaZEQdntJ\nQwlfs3ixxOPyAoNTamV+QDaePfsPbcXdv5Ge4+UXGcBPZ1yTFT5JkWqc6mFi\nAnN5r0xpmmIT2Yax3rRkNf8anGOvymqgVEyoS7KMNpsr0f7BKLVTDraedbE5\nJ7gU2V/I6S/RWXXkGSG0LNoqqM7NmkKftiHiaUTTubcOYXxEo/MJV3NQrsVG\nbN+abWBCaTJYHJvq2N3FXZFbEKFJLBMXWcB7EYzk5iv/KFQRd7zBDhppvUrd\nkW4al5dcDpwah9JKCzmH3txddWbJ4f/Kr+wsc3qnYt+YIcYRm0cG4T5cqI4m\nNpxZA5QHSyN2I5lL9YMvMNUazF2ehwWDcXAyzmsGKcUmuq0lXc9EBV9pVPHt\nZx1rI5SppG+uPSQt4BBAwfs9/inEZ2dm8aRaFBTxBM/L981mBBRJ+5GZjdht\nOoPc\r\n=kVAH\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.15.1_1530605522434_0.3208127136445662"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.15.2": {
+			"name": "find-my-way",
+			"version": "1.15.2",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.2",
+				"pre-commit": "^1.2.2",
+				"request": "^2.87.0",
+				"standard": "^11.0.1",
+				"tap": "^12.0.1"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex": "^1.1.0",
+				"semver-store": "^0.3.0"
+			},
+			"gitHead": "12f5f6e595a732639b7607982c2fe3de6229c7e9",
+			"_id": "find-my-way@1.15.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.11.4",
+			"_npmUser": {
+				"name": "matteo.collina",
+				"email": "hello@matteocollina.com"
+			},
+			"dist": {
+				"integrity": "sha512-mngORPD+dxVhaZWB3nv2VE4J7ch1Mm4VcwNuYnixgZeHMfJujbOJ6CCWxDdI41WS4MykPYUA3aTCyux60sy4VQ==",
+				"shasum": "7e9a0627de03ad7a41959f37c9086ceb9a5f5090",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.15.2.tgz",
+				"fileCount": 30,
+				"unpackedSize": 129636,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJblPLWCRA9TVsSAnZWagAAidAQAJIvFRsEq6p/ae6iOVP1\nekUyepip0NtAKTikSiDbz0pEh4ztGSpXgKWnFBvjNZ1uQCb7jP5YL11dFmV1\nJIwBfdWD7DNOa2z2icbqBL97LusKhcyb1ea0U4Utw0mvqFXJ2f84+jhZdpAy\nQufOC64muQKHvQwTvmjFdKa9AyS/KZRVdRA9746NRrZjSEPjtLEzfvs+6N31\nrrmjKbyV76DNu67eJTzBbU0mbkEAsLFu2wXhhCfZKdCs1CJw1noIldBmn9c9\ndKzrdjH4I+KmAoGBTDVrDRi9USysPmopTa6nDNx+XEQLReXEBAHIoMuns0R8\n26eR0h1/qJHxykk+I+AobTIulterLkfOXsaJXOv5X4P0TUvTTISjAoMzUbOX\n5O1USHtjqEBRsagNaydHcd6F6cUTXwNsuKOkBbgl0CKT3BKjLkZ0ua7i2Ppu\nzgopKHsATqrgOqZ4f5klIVK5gXnT5mbKAPNf5UmoX3D0s4ZpEzN0TVJAF8jt\nygZBYPufjCDr0ss0sboi+t19wUgPEg+PYbA21YdA0QpLX8/TZH0onhShl7dN\nlYEk58h6XAvGZLOZvr245OaMqMJ4EumGz0bW/T3uX0EgZdLzPisi63aM5F0m\nyQYg15KQDv1xRk/Njiy2269p9iQ2r/RSd01/rW57Dsyo7SBU3QKRz9LSI9jj\nw4uE\r\n=Xccb\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.15.2_1536488149508_0.37681436499439114"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.15.3": {
+			"name": "find-my-way",
+			"version": "1.15.3",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.2",
+				"pre-commit": "^1.2.2",
+				"request": "^2.88.0",
+				"standard": "^12.0.1",
+				"tap": "^12.0.1"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex": "^1.1.0",
+				"semver-store": "^0.3.0"
+			},
+			"gitHead": "14ec21a769a61834378f2c0b03ebfcf86dfdbb47",
+			"_id": "find-my-way@1.15.3",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.4",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-W+9ZZcZZlk3jc69mNvLAYy01msIpUp45aAtD/AIRWc5T0voI4WmHzm6oy+F3/jeGjb7AEE7AU8Inq58/gd/E5g==",
+				"shasum": "fca6271fea10387d7f19f0c9ff3ea517d34f6fde",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.15.3.tgz",
+				"fileCount": 31,
+				"unpackedSize": 130683,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbn4ABCRA9TVsSAnZWagAASScP/3HYuXIK97+iiFDZN0uX\nniMkc7w5DoV0MyimuYlZzADyOoPf8V3UmNV+Abpgk3nj2wpKGkmWk3eMdmmY\nDnnkMMrJtUU2GxAj2GhOGtYqZkIPuemEiZu86BIgC6KG37+N++GQ2Ilc/7Z2\n41q6vCW4akKqLiq6GvHpQQ3xcKmaCShJrDtCRDgBwp/bKkWX2g8KUuCBDT5y\n06AIagtnCOxx/ARFnwjzZzxPxH0PlDKaJlqAckhomKBvGKLg1MvSa5iCzyR3\n82SQ0b7gLMy/ESaJfQA4Gd9ifrF7oIjFLtlumVqzUlijEnGSrsvDAXKuphZp\noQ+4EwNEIYNmZMNL/9cMwqiY25N6Uz3cimU/HBI5vIn2IYG+xp+lYp8e0vvO\nuA7YoH1Xg2jxqrtmyiP7S4amAnXEihmM5RATl/5V3jtTV3x6+ASKCjv61f+A\ni2I5bxHLtaCJ1d2vjxMeaJEyGPNDVAlWJi1GFSVKt9q0wmcwsO3fd+26J74d\nLLqnCd8PjkIc/q3nVvhjUyd4tzvf8UtcV8XV3dWwL4FzMb/kAmbrC4IVefhc\n0GYE4/38SucLN88EoeqjA00Mcw5uigcz5eCtjvbbz7RTn6EzA5+Q5xdUBKSc\n1UVfKJ99QvgzkNqP5gDvL5sRJ5Axm8ytwE7GsNpUHrIA80u3TRSRLXaO2o1W\nNAwF\r\n=jJz1\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.15.3_1537179648944_0.9905184868084722"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.15.4": {
+			"name": "find-my-way",
+			"version": "1.15.4",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"scripts": {
+				"bench": "node bench.js",
+				"test": "standard && tap -j4 test/*.test.js",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.2",
+				"pre-commit": "^1.2.2",
+				"request": "^2.88.0",
+				"standard": "^12.0.1",
+				"tap": "^12.0.1"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex": "^1.1.0",
+				"semver-store": "^0.3.0"
+			},
+			"gitHead": "90348f3e4b92e1c52bc6be77b1e17b68eb5b5040",
+			"_id": "find-my-way@1.15.4",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.4",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-3XPCOhoGMPK6ELgUHd5BuNxsL+fTNM0EIrTlcLwjT2uZq22UHL4IQt5N54PIQblk164ioZATRov9mcuA4RB3eA==",
+				"shasum": "3b1da909347022e0b5ed94ecaaabf6d99096edd6",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.15.4.tgz",
+				"fileCount": 31,
+				"unpackedSize": 132080,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbtnklCRA9TVsSAnZWagAAJgEP/Aw3Si9NnHc3bWpIAr7+\ntJaSgSIsSKAov5p+Y2n5JBWY/A2Dv18NgpOFaxRXD25jDhL0J1c7MsX1Nz4a\nEdW2zK/NsZbLgWIHyF7Cdh6O586NjdokjQlRjjpr8WLDkNtA5jhogRIgZpAd\nY8tpug7s1pqHxaxRgmLsjFGbpmxY6yN16izAiV1ZecRoX85L1z40n2Sc079C\non4LCQQDcCvPZf2Kl/n88Aho2pzAVXlmjOKTLGY8lTWTX+o2hDztV6aTfR9h\nl2o8P6kqbYkjxIW1FBzYkflzeBY4beDC7yzHsdkumxlOg4sff2/LQfGCIJwZ\ndohhK0jbdpOi/K8g+yA8o0Fd/Ta9J54TFNAIQhpQEwH4uUt/5V/3ny6Hsn2C\noVf+BvxVM2N7oclA5delIqArTimFjtgK1Yvtq+E45yNXCFQ8Y0u+y0j2JLfq\nc/hwxf+3Y1pPTlY45xNwEmY1QZdKhj3ues5APIRlc+6L7v/rg39PPKtFJEud\nhIUd8l1yJmZzIKmEc405+hM8FvsQIGWVu9f8DwDSy5RPuCpDCuvNoGsD7S4o\n24J2Y+AsKAwe+fUrJmA8Quitn/T1cMQeqNout/8QtkASvIcCnNXW/0X9dzXo\nHW9DxLiumY+HLINB5si9o1wGfHXqHoARkr5zUZqHZmirggIg94VatshYX8h1\n3TV/\r\n=2P8I\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.15.4_1538685220926_0.5839940193655093"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.16.0": {
+			"name": "find-my-way",
+			"version": "1.16.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"typings": "index.d.ts",
+			"scripts": {
+				"bench": "node bench.js",
+				"test:typescript": "tsc --project ./test/types/tsconfig.json",
+				"test": "standard && tap -j4 test/*.test.js && npm run test:typescript",
+				"coveralls": "if [[ $(node -v) != \"v4.9.1\" ]]; then tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls; fi"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"@types/node": "^10.12.12",
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.2",
+				"pre-commit": "^1.2.2",
+				"request": "^2.88.0",
+				"standard": "^12.0.1",
+				"tap": "^12.0.1",
+				"typescript": "^3.2.1"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex": "^1.1.0",
+				"semver-store": "^0.3.0"
+			},
+			"gitHead": "b597a2261ff7394af6e54c341a6a6c2f9b0a63eb",
+			"_id": "find-my-way@1.16.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Y9nEAVrgi33SJIGpzITdKQ0Z784/mqLzP7Y5r2Q0hTTXnrvoQJW9cYpt1JiOhFOQfwvxM4/LulwfGIWpugrBkA==",
+				"shasum": "9d10d76894bbb286d60ec74085f3c70277f891b6",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.16.0.tgz",
+				"fileCount": 34,
+				"unpackedSize": 139459,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcEjLFCRA9TVsSAnZWagAAvfYP/3Dl33IVAYNotmoeIH7m\n23G04UniaSTdbNUE4JhTGP+k5QH2SM2rGAttD23Rysg9A3KxvbbitBscdGU7\nm6rxw5pXfgmVoTzINFHNDPBH1Fous/0mL12tymSp+RCb9LjTqzL9Vq3MwQW3\nIOc9uxUPtsOt97z3HM6mLkCEc+4M+uezCx7EQdIhIKS4ybcys2ZrTpiKkexS\nBDMa56y79yP2sEhnaGzGWJ6SgRQ4Wdl3TO0XVF02DuIvx6GLdhDrFhV2YqcY\nwID4a4yQ7ZkFcJcNiqjtjNKjK9ilcJIlmayDFjOT6bXvX15t8WL7NEkE8Kci\njxot77u4VuofS9xPK788IFq0CEje8ZrNF0lLuUSkIiBGg+Gqbdy967/UxNsw\nIVzmQC/k0z8PKNFSFAGXG6h0NqWDCUiVEMUroSnZ9KIGpAgmkmEitfeXJz9+\nAoopH3jZekXY6MatStU/uRS1smYqxKyde37UJHmvukSzCgjH8RahN+lU3XE9\n/dV9w4Ns4gkvY5E54U0PTJqjorgTVo7huEcmxQjBshOTNg1EH15iUHOCMf+y\nTuVsHkHEBq/7I26QFuLYoJOS+5yG8QZq+btZFzAPFbQT0bRwNxsoSud7OjLv\n1W2aVGtUWQLYSqd7l90f7GkJKzhE8vJhD1A3pNwrprLO+n/b52J9Ie2CjaMA\nTGRB\r\n=31G7\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.16.0_1544696516506_0.10865838325028654"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.17.0": {
+			"name": "find-my-way",
+			"version": "1.17.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"typings": "index.d.ts",
+			"scripts": {
+				"bench": "node bench.js",
+				"test:typescript": "tsc --project ./test/types/tsconfig.json",
+				"test": "standard && tap -j4 test/*.test.js && npm run test:typescript",
+				"coveralls": "if [[ $(node -v) != \"v4.9.1\" ]]; then tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls; fi"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"@types/node": "^10.12.12",
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.2",
+				"pre-commit": "^1.2.2",
+				"request": "^2.88.0",
+				"standard": "^12.0.1",
+				"tap": "^12.0.1",
+				"typescript": "^3.2.1"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex": "^1.1.0",
+				"semver-store": "^0.3.0"
+			},
+			"gitHead": "d2b2099c2504a4e056a9820b0ec231bc724a66d0",
+			"_id": "find-my-way@1.17.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-V/ROUAESJakNZXmvgJmaCwhB8d4M79/RgWWiKn4tu/6FGjiySYfJuYXip1rV7fORWEzbL0pmfg9smkRQ+tmXjg==",
+				"shasum": "fc8f9eb34df1757f1c40a66d524095981a3d28ba",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.17.0.tgz",
+				"fileCount": 36,
+				"unpackedSize": 148024,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcGT6jCRA9TVsSAnZWagAAiFwP/i1fm3FceZjO2JrWKt9y\nn7HpOfQao7kpHsdI9W6/NlntUZsrgmva1a1B126tZ/oebq6tsqRwYFBPPpt4\nd9sufmd6ECK3ZutVUPhJCW33csKNco8Iud4XcnqzFEQyIB6z59QvD0b4ypyL\nMxOQJ/1apvHkFaExsSOJjDMn4yRG0ndOvyeL5v0DrKVuEr8bqLRaUuJBS812\nDnrQDHrvtuPjDmAoqbGb69gVKpyP1bjNCwEUbAv7hp9+2fwROREpwn5UewOu\nUi6fxb1D3gD1cII+bvNXnf0OnS0OMOfqKqbDrwldBhhtMe4FfDj7evTNfc8y\n2pJDJ1uCOb23kJ1qXeNV/M5Lm5CBGadhfLth48G3FSadHHcTwKQgETYHg27U\nh7KJhz2DiuHCwlDg+Eon7qNorGl/JL2hv8WhdWIy6Vm5zi6VZWhBVpsMFwBO\nRFaxyREs0ht9Q1APhvUoBd3xiYKGOBwD9uO+LBZP+KH6T8+rFYuBAYUTqyf4\n3WtSr0OJkrB1O2zgxOq/M8v/Q7kc8aEVC9HrNLm2a/fCo9s5u14ptWFWDCnc\n+9axUPyEuMyoMvyj1uWZlRFqGN+ZWzjjZSPtDl84ZqMe6VnYKYzKajup2cjt\nccPB7wO/sKst/ldix4xPlFw/S+mXtZnRpSJ6vnVUi6104HxE7hDkPpgFgamK\nyZBY\r\n=1v7b\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.17.0_1545158306627_0.4344215267960745"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.17.1": {
+			"name": "find-my-way",
+			"version": "1.17.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"typings": "index.d.ts",
+			"scripts": {
+				"bench": "node bench.js",
+				"test:typescript": "tsc --project ./test/types/tsconfig.json",
+				"test": "standard && tap -j4 test/*.test.js && npm run test:typescript",
+				"coveralls": "if [[ $(node -v) != \"v4.9.1\" ]]; then tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls; fi"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"@types/node": "^10.12.12",
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.2",
+				"pre-commit": "^1.2.2",
+				"request": "^2.88.0",
+				"standard": "^12.0.1",
+				"tap": "^12.0.1",
+				"typescript": "^3.2.1"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex": "^1.1.0",
+				"semver-store": "^0.3.0"
+			},
+			"gitHead": "6b9b2d5ea57c96fae98cc2eb8783facee9be91c1",
+			"_id": "find-my-way@1.17.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-La/ZNjDDkWMIHNTKWqh03GmzO7Sj1wAR+7vAuGEq86mpQ0gA9IRh1dgVT4wOKqXqOq+w8zPVcxKvlLv2vxOFQA==",
+				"shasum": "215218a14f55afa9c51cb7e3201b87bf6f280101",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.17.1.tgz",
+				"fileCount": 37,
+				"unpackedSize": 148840,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcNx0tCRA9TVsSAnZWagAA2m0P/R87cUMrLC1CwsleZ4MM\n2GT8YKOQWc5GNo0yuKNhUbxS9ZDRVDJQqKl1bIGcn3OaXnFeBLhyCFdDekt3\n8TvnMdTDIYGyBdcDYmcx9GLQMaiURxu+DojPqyQ55YYI+qf7bWPfY3JJtKdt\nIVr02EHiOOhbsrVVyflJrZZqdWx0YcnNDAcrT18e1PlTIiPu8Ms39Wp8h5cc\nvhE/C7aDMKG1A/3/52NoaP5E3i5EpkaZfGan+4eU+5sfJ21O00jrZopGDja9\no9KX43mTG6cunvmFbj6KN6fz0jXEHxfj3hjnDov3MGSwX44iE81XxjYfz3oZ\nm6lD65ta/2qXO5qpS+UGOHBbnZzmTmfh3gJS0epxkRWZ/VE0KNmZW1g+Q52b\n1PCV49OPksEjzwbGkBtKR0EVWu/SxI8hU+JKE0WFCla3XbAvWVTMzCfy0/dR\n6cGmb4ySHTt1E9FyMttq38MyG2UbTnf45UjcJkvmEfHIbNYr28Gd514S1XZW\nrFNiPk2Zkp39z6g+FC67uRluWg4jJyjtBoMnQMhftf3w6eUTzZayzh441Lhv\nXEsceYrklgJZtW/yDQ9jgR/pdPTJ4pU51/8ExsIPJQxc6vqNzn45PPtOrzj6\nUvHYUPbBwBOcBdS99lRuMafI6q2sK9wYTLOLQbxYIJxHaO1mBwTnAe/fcsyb\nM118\r\n=xweG\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.17.1_1547115820269_0.8156030083817263"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.18.0": {
+			"name": "find-my-way",
+			"version": "1.18.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"typings": "index.d.ts",
+			"scripts": {
+				"bench": "node bench.js",
+				"test:typescript": "tsc --project ./test/types/tsconfig.json",
+				"test": "standard && tap -j4 test/*.test.js && npm run test:typescript",
+				"coveralls": "if [[ $(node -v) != \"v4.9.1\" ]]; then tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls; fi"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"@types/node": "^10.12.12",
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.2",
+				"pre-commit": "^1.2.2",
+				"request": "^2.88.0",
+				"standard": "^12.0.1",
+				"tap": "^12.0.1",
+				"typescript": "^3.2.1"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex": "^1.1.0",
+				"semver-store": "^0.3.0"
+			},
+			"gitHead": "bba4e8a4fece33fb0caf9b0c25fbcaec224e7f8e",
+			"_id": "find-my-way@1.18.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-crxfbRd8Rssex2ZvCvPI1VmeB8t3SyFjwTLAGgr0t+Q1X/SHFYL5cIF7PpcoaUeDJeBkRBKLELopjjk/Ai6V/w==",
+				"shasum": "a21507071cce27e2ed54d7d487b871260f556197",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.18.0.tgz",
+				"fileCount": 39,
+				"unpackedSize": 152874,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcUDY8CRA9TVsSAnZWagAA52gP/2Ig11DfsKPWUGLSwlfc\nqF3iltVtNwUrR7353H5EdMgvJMg7InGLIaJg6ZP36UHQzwgGkp7gk8A0Qnne\nu4eN3A0gkdxBvfbYbTP3arT4Mi8kfrxEL0ZP8NgrF1OnTU5QN6VD5TJPf9Fu\nEGNpMUd3aLyB1LOnIP05XhLTFsVMmcjPS2rsP1L8ZO7lLtC1Bh7+1Ilg40vB\n3DYRehq4LECs+9EyBu2XVGENW1p6+Sbx2Xm+sr/TMoLUjYLgqdxKa5FF50qh\nVjHIQ470VZTVxqvC7Htbh6pvThhc/sygPu6GDojdId3V5KIHjV5csfCtfxgZ\nmQ1pfn9M2tHcj5DVW/2QoyEh/KWIgOdXHP+PWd2mrYn/RpltBgsxf+l2fcpu\nTUkBkP5cyGM85fvzPHS1PQw/GcL7Q0V8OA0qTBNrcrNNW+uGc9TbZQUBNwHE\n0L96T9pnbOmihmL090mCy1dKMJcDlrelZ0OfWDkwwbaRTpj8Xupq67n3+Q6d\ndF75h5k5Jd/IKoLKW7Rf70Q9suiWo/0lhjIN2AlRy9Kbd0RGyq/QcV2s9ffh\nDYWgUGgQZa7gT8LP73TCq/A4ymP4uDumUvSRFs8cFB6E194uAxQLpFgvNRqR\n3Hl8Lqqmp1JUGFYpQfeDgexZaNvmQJfhCBiJAoYZlAT3OOdV8zdBOvVmhjwv\nhnkC\r\n=osvV\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.18.0_1548760635705_0.5804950782778611"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.18.1": {
+			"name": "find-my-way",
+			"version": "1.18.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"typings": "index.d.ts",
+			"scripts": {
+				"bench": "node bench.js",
+				"test:typescript": "tsc --project ./test/types/tsconfig.json",
+				"test": "standard && tap -j4 test/*.test.js && npm run test:typescript",
+				"coveralls": "if [[ $(node -v) != \"v4.9.1\" ]]; then tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls; fi"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"@types/node": "^10.12.12",
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.2",
+				"pre-commit": "^1.2.2",
+				"request": "^2.88.0",
+				"standard": "^12.0.1",
+				"tap": "12.4.0",
+				"typescript": "^3.2.1"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex": "^1.1.0",
+				"semver-store": "^0.3.0"
+			},
+			"gitHead": "ed41cba04efb09471e232024c6a2e1db100bcdc9",
+			"_id": "find-my-way@1.18.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-5M9oQuUPNDxr7w7g65Rv2acToLUIjVUbnMsltXNQaSYWOwjf+2MBp7sMuY+pfO+OPCo2qwcxsr29VQQ09ouVMg==",
+				"shasum": "5db605eab7211ee6af7ab08eb4f568060aa8e9f6",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.18.1.tgz",
+				"fileCount": 40,
+				"unpackedSize": 153698,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcXpNQCRA9TVsSAnZWagAAigoP/RCzkwwZFt+Kj5kHZllu\nYUupH+MCaMNQvF+r7onNXiwVG5Lwn0ZXhi2hAmzZwXbhOR/W1Bi8GewTAL1b\n7DCnPtTmZUgNXjh8sHsTmAhugEAyHrHRAAGe8Dl6x+ugH110V+QO3yA17OK1\n01Mc7SjxdlneV6atwJHSha3TRPpyAXoJae3tcmaHKOfpDSBnu4146jaPmMv/\nLk6yfroLAZ58iudYtn8X3Os+nOS04WwTRBGNbe6WV7KOx6tb9RBZjPJOaASr\nJXSCVxis4s/bgBmm14C5e/BXLg9WpGKTY2vq1HyQF2lYSCAI1EVXZv/sYnkz\nqybl+SHTpZpDTnxU+vTsc6i7N+U7bYHJHUAbQfbAlZqEEsXnHbMYzgZnzwnk\nvhSKb3o/KXXMX8mie/RGVqUB7Fn/sezWG2cUATUbYSRPXA4ncadnqRDmqccm\nzbpEftDchd96PlbmYzA66oQqsqI4bdwl3/Pf0LPmQTFLKTYTdXmIOs7XKjoF\nwBkWuyn8TXy3JbjA6mNqEp9OyWmLgedM+cnX7NECQN1REPeWEUQCQdIPyGjh\nJO8s+nYaU1qiw6HOIbsPj9YnhHZn/1yZSFpxfJqAujAzdJBZfxgs9wbBg4sI\nVPKAy+Zb1lZbDZ9I4UQUJbDKGRQJ0+hiDD4HdqPuDNmELeDchT0qDNjp7NvC\nsz7b\r\n=ABOm\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_1.18.1_1549701967620_0.6436126617283779"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "find-my-way",
+			"version": "2.0.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"typings": "index.d.ts",
+			"scripts": {
+				"bench": "node bench.js",
+				"test:typescript": "tsc --project ./test/types/tsconfig.json",
+				"test": "standard && tap -j4 test/*.test.js && npm run test:typescript",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls;"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"engines": {
+				"node": ">=6"
+			},
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"@types/node": "^11.9.4",
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.2",
+				"pre-commit": "^1.2.2",
+				"request": "^2.88.0",
+				"standard": "^12.0.1",
+				"tap": "^12.5.3",
+				"typescript": "^3.3.3"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex": "^2.0.1",
+				"semver-store": "^0.3.0"
+			},
+			"gitHead": "f1d565109a4534cc0e8a702110855224d1f15f76",
+			"_id": "find-my-way@2.0.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-2sVtqe6PRyCAeZoIw2i1UGcysb6pr9CmbaYWeM0e7aTmHYu9oq2OUUFs8GZ7LjD5Y1cOM/yx05r3GDbWrh6wDw==",
+				"shasum": "f0cdeff091ba5ae72667fd75544520849f9e3435",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-2.0.0.tgz",
+				"fileCount": 40,
+				"unpackedSize": 156288,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcaaMoCRA9TVsSAnZWagAASOgQAIpip/xGiLCB5tBqKLMt\nBFnm5qf2i8TDbJi/M08K8735G4SEpjP5Fljl2Z8wiKEYPa8489i7UPx7sjHG\nJ9yXl7w8D4zzemzrQv/DaHAE6LNUrtx4Ob34T9cCPUnWWXeUU6O821xVSbMa\njnbH/k/MpIf1pHKgfa6Lju7KoQ+0mjnCptUM3r1pDON38+SF3S86nupsR/BP\niwn8FBNAY0vPK6wInW7VSmHGkcOwRKtUSh9nVYtYLPPqTBeID+doIqZ8zdaY\nIE2rJ4OOWL0qoKgGbuRXHWagitJbbsn4KzSVcjlio1U64hbci9PlUvSfA+wd\n8k5kpaH5zlzm2n1r4FIbVbTJkVpdmqKLnF4rFni/bNd3hpsm89DOFT+62sQp\nV5Z6KJa7/zd0ld/8jFkGFin1nVClcKvHmaALPezNh0V++5bW8yBFLk7i8L7Z\nphQfi9ebs0G+Qps1AoJ3aKEkW+IiBFZZYitvMYcfZfsxcLgXYZsHBSQ4mVBr\nmbFJVWNdgdBOwoRssAbdZEcTtBB2JA9TbiHvc5wQ3sMWV2vRpBimIPrJsIKZ\nf5+T5eZAMsf/3Nx58rPQFuvmGtqekku4yvAXMPgFBRT6JzZLVMROdd/COz75\nKxyQoQ3XlaXWD7ymUSr81qbj5OXUZTJDhQ0o/oOtv2C+1r6AUngYGskAQ2IU\nwdc6\r\n=nwCP\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_2.0.0_1550426919497_0.26685630442451846"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This version has a security vulnerability, please update to the latest version"
+		},
+		"2.0.1": {
+			"name": "find-my-way",
+			"version": "2.0.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"typings": "index.d.ts",
+			"scripts": {
+				"bench": "node bench.js",
+				"test:typescript": "tsc --project ./test/types/tsconfig.json",
+				"test": "standard && tap -j4 test/*.test.js && npm run test:typescript",
+				"coveralls": "tap -j4 test/*.test.js --cov --coverage-report=text-lcov | coveralls;"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"engines": {
+				"node": ">=6"
+			},
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"@types/node": "^11.9.4",
+				"benchmark": "^2.1.4",
+				"coveralls": "^3.0.2",
+				"pre-commit": "^1.2.2",
+				"request": "^2.88.0",
+				"standard": "^12.0.1",
+				"tap": "^12.5.3",
+				"typescript": "^3.3.3"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex2": "^2.0.0",
+				"semver-store": "^0.3.0"
+			},
+			"gitHead": "d9f67c70f900a137f6ed67549c6e84178d5a6f67",
+			"_id": "find-my-way@2.0.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-c+YnWk4LKcWSNu743wfoqNOZTYQ6kZ/kzZCjALGblLpzbEAv3INakGMZ1K/by+Wmf/NP3+3LpOQMOFw6/q52wQ==",
+				"shasum": "965aa7cacac2362d47d5d7ce219f51bf76216af7",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-2.0.1.tgz",
+				"fileCount": 40,
+				"unpackedSize": 156290,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcalxACRA9TVsSAnZWagAAzdkP/is7OG5B37luSRmwgAl4\nuOXqlBOdp+9KmqcQzY+Syo8pGClAGy8TrPMuqoWaJNxdI8mdJ7cpVM/yeyOa\nCBTdiLBhEVOm5RfvlGUQDhDtnacNfCNqvDtdkzjtjKUDFEJzj5XZOE36ZWNk\nApdVjpZ9PhPEBvOWSu+MnL8WjIxSUKvDXaf3V7rr9HW95yFJDmm24vxgJ6/M\n8MOmJPgd4lP2kTM0UGkZxqauJQ/cvf6eaHlWbYY131/ijqkB2fV45rjMHuYT\nToUwUS6XgnTc8eqL8DOEaI8gPn8066UVDKuvSFBvz5dMbb91khRzuf2yinzD\n6iANZRi6aU9jqhIM+Y9xaZBDrdbqI/VHBP86ggvbn3M+h5SW8lynhYP5VwRM\nPqrDbe457cWUBu6PyCLZ3C8qLdT7XP4XNz2JBmJ96RHdgBWaY8Uf4aba5lMw\nNp5UTs36EYTOHHg/bqF0psfnabtCZ8jHcr2lyWzMG3k0u0GAVSvSC/jr92iB\nRc+asau1rxUgM2bnvIwCghAFCSIpUjYJUuF+2BDkqCVrsfesIDmv/8oiMTS3\nIRH9lcQtVYJgWc14q7vLQKviTSxJjuUVThCGRuD6ASpM0T6C38uMj4syQvlq\nJD9WVkf/bcAkZVYbn1Hv2y00Y1ep89kEC4/7CGVanCm5NHmBtjJSDO2deJX6\nwyjS\r\n=SH8m\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_2.0.1_1550474303811_0.8078027010387996"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.1.0": {
+			"name": "find-my-way",
+			"version": "2.1.0",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"typings": "index.d.ts",
+			"scripts": {
+				"bench": "node bench.js",
+				"test:lint": "standard",
+				"test:typescript": "tsc --project ./test/types/tsconfig.json",
+				"test": "standard && tap -J test/*.test.js && npm run test:typescript",
+				"test:report": "tap -J test/*.test.js --cov --coverage-report=html --coverage-report=cobertura | tee out.tap",
+				"test:reporter": "tap-mocha-reporter xunit < out.tap > test/junit-testresults.xml"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"engines": {
+				"node": ">=6"
+			},
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"@types/node": "^11.9.4",
+				"benchmark": "^2.1.4",
+				"pre-commit": "^1.2.2",
+				"request": "^2.88.0",
+				"standard": "^12.0.1",
+				"tap": "^12.5.3",
+				"tap-mocha-reporter": "^3.0.9",
+				"typescript": "^3.3.3"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex2": "^2.0.0",
+				"semver-store": "^0.3.0"
+			},
+			"gitHead": "d3eaca140c5d0459c4afa8d47471fd468fcc0385",
+			"_id": "find-my-way@2.1.0",
+			"_nodeVersion": "10.15.3",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-Hdx6ctcrzkZH5y9EREHtXryXAgc5Bc8z5Cvoa61y9kaoYj2KU4yXD6h8b6u0NUkYPVmQQeRdf0AtG1kQxQ+ukQ==",
+				"shasum": "dc9bfe2ab12ce8f965f489794134789e8fd56881",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-2.1.0.tgz",
+				"fileCount": 41,
+				"unpackedSize": 159290,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdEOCoCRA9TVsSAnZWagAAkWkQAI8Rtmi+rKsX6EFtHk4W\nCjCBW3OlPnElzuyB2fZqHCaJv2B4BcKnnSbcShrBR05swIZ8Suf7O4iwegy5\nuuR9bNOSfk3E2CpxybV/X8XtsJWCjNiPedL47mjp4bVpcjsAfAZk8UIcr7MX\nyGZ+Hk/QFYo3653DHk4+CICFbyIkPSvEXYD+UptEOjhYpK10P/I1EZxsVIDx\nlah4szamuo5f6hUMmPE2csemZSXUckFKcteLXJNv+bAkef9Jns9OY16QYQAA\n6DO/6OGSFodLBxGmV+lHZtNL0QNnmTKkmMZCba8oKfbB+WpPkyc9S2oLZOHL\nE0xUOH+Z30+RZM8MY7R2E/jjeCKZ+ofyEy2CeE3Yn0VaY2/bqw9cI7DscoBW\nP9zwGlLMuYHn/mUe8UvKysCCqP/tw2wbrrLnKp8lDunygMN3Dn0Ta65hp/U7\nanGF3lK2D8cIM03hlZZVUq1e/xGGmgevF1lJMfztkFKHm/ve6iXRXYlbiDZt\n9VaQYwFIzJjxnnosGdlwH3zqwrbJfXXCXT4J1M/GLpCX1xqAxo66c5vNpSqv\ncJEDtjVFylFppdHNXc4G4c5507Fcyfh3cs/LfNrTZPpgwCo8K5i7XPde8/BA\nWyC9Hdk5uXmtyBzHeZqCmPv4NPTmXla5TjAao7t9i2eLrbWjE1ZU10LQ2n1i\nzLdL\r\n=FEl6\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_2.1.0_1561387176053_0.07151175913070884"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.1.1": {
+			"name": "find-my-way",
+			"version": "2.1.1",
+			"description": "Crazy fast http radix based router",
+			"main": "index.js",
+			"typings": "index.d.ts",
+			"scripts": {
+				"bench": "node bench.js",
+				"test:lint": "standard",
+				"test:typescript": "tsc --project ./test/types/tsconfig.json",
+				"test": "standard && tap -J test/*.test.js && npm run test:typescript",
+				"test:report": "tap -J test/*.test.js --cov --coverage-report=html --coverage-report=cobertura | tee out.tap",
+				"test:reporter": "tap-mocha-reporter xunit < out.tap > test/junit-testresults.xml"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/find-my-way.git"
+			},
+			"keywords": [
+				"http",
+				"router",
+				"radix",
+				"fast",
+				"speed"
+			],
+			"engines": {
+				"node": ">=6"
+			},
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/find-my-way/issues"
+			},
+			"homepage": "https://github.com/delvedor/find-my-way#readme",
+			"devDependencies": {
+				"@types/node": "^11.9.4",
+				"benchmark": "^2.1.4",
+				"pre-commit": "^1.2.2",
+				"request": "^2.88.0",
+				"standard": "^12.0.1",
+				"tap": "^12.5.3",
+				"tap-mocha-reporter": "^3.0.9",
+				"typescript": "^3.3.3"
+			},
+			"dependencies": {
+				"fast-decode-uri-component": "^1.0.0",
+				"safe-regex2": "^2.0.0",
+				"semver-store": "^0.3.0"
+			},
+			"gitHead": "3a80790b13ab7358837a53c0faaca894ee13bf8f",
+			"_id": "find-my-way@2.1.1",
+			"_nodeVersion": "10.15.3",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-yznKDx1xELFkTrV2Ke9x3IOr9zn5isdFA2Af/NKjU8kmQQhtn3TmqrVZ6OiLO5pj1dAScxe4dAo92ieG4nGcoA==",
+				"shasum": "df5e68c575de49e5de135bc2cbf59ef10cf77d90",
+				"tarball": "https://registry.npmjs.org/find-my-way/-/find-my-way-2.1.1.tgz",
+				"fileCount": 41,
+				"unpackedSize": 159986,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdaN60CRA9TVsSAnZWagAABlgP/04EyFXd3SwvYr4BaA45\nuzouwsl04Unh85FpWb2EpB6hRekz82vQW9eV//DvcObrCEEYC8nCO8BJGYlv\nVjt39Hf8s/WeWvx0EUS7MtgklhAt+9euRvk9vInoBCirZyZPZdX90b2zm3ET\nXMQlJwGm776UF50eMgofo1yOIM7Bx+u06s5z9jyVkkta6tu0u7gSpXc/H2rW\nUMS4pv6pfhzySm5go7iJ40zbmdHLaJIgGP4lVIFBsM5EjjI8Zn3jHBnjMic1\n8RpPU2kjXmEkw4wkLOlxcRmq6M3M/fCkl/PhamW+/StmzLgvf6mJWIxNCcQV\nPEOdQ49CJZALC6dt0pMAw3xmvPt+2N29dvCjWHo6DupKXPILK1t1lM3F9QP2\nvbuMtlrkEpkcUpnlXxY2+U2N01orE0TCUr+e02IRHYoKB1qQcvdqtM66W1hs\n24gzV6Y5n4288/Llr8rxgYJ+dAh/bHn7LJ4LjqiRmZLHqLAgqN3mwT1lmTYc\niStq1lP8udk7s+FUdRWsFI9XEdtAxwfQ95foESa3QByu5GQcqMix7FNu4wT3\nIY9EM+3E1/L0xKTZ9lOejHm5L4eLMyKjrouwSCKqkILYwIIIoT4R24OneXTu\nzCevyJ8pD8B5HJEpyeEygJv87bN/KdJ7KdUhks02YypYfAX/5AzCV8xD4R/e\nY3pP\r\n=knH8\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				},
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				}
+			],
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/find-my-way_2.1.1_1567153842633_0.7550826444219152"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-08-30T08:30:48.167Z",
+		"created": "2017-04-16T19:55:20.118Z",
+		"0.0.1": "2017-04-16T19:55:20.118Z",
+		"0.1.0": "2017-04-18T13:21:24.064Z",
+		"0.2.0": "2017-04-19T14:04:34.581Z",
+		"0.2.1": "2017-04-21T12:41:11.242Z",
+		"0.2.2": "2017-04-29T10:53:48.508Z",
+		"0.2.3": "2017-05-08T12:58:04.970Z",
+		"0.2.4": "2017-05-20T13:31:57.240Z",
+		"1.0.0": "2017-06-27T07:08:00.329Z",
+		"1.0.1": "2017-06-27T09:25:49.654Z",
+		"1.1.0": "2017-06-29T07:29:19.228Z",
+		"1.2.0": "2017-07-04T09:01:02.629Z",
+		"1.2.1": "2017-07-05T06:52:16.372Z",
+		"1.3.0": "2017-07-13T10:32:10.210Z",
+		"1.3.1": "2017-07-13T15:32:13.725Z",
+		"1.3.2": "2017-07-13T16:21:26.619Z",
+		"1.4.0": "2017-07-30T16:57:28.756Z",
+		"1.4.1": "2017-08-08T12:11:50.891Z",
+		"1.5.0": "2017-09-12T07:42:25.122Z",
+		"1.6.0": "2017-09-27T17:15:29.459Z",
+		"1.6.1": "2017-09-29T07:39:02.559Z",
+		"1.6.2": "2017-10-01T08:50:17.400Z",
+		"1.7.0": "2017-10-12T08:35:46.662Z",
+		"1.7.1": "2017-10-23T13:47:02.091Z",
+		"1.8.0": "2017-11-17T21:20:34.830Z",
+		"1.8.1": "2017-12-05T10:21:05.566Z",
+		"1.8.2": "2017-12-21T16:36:51.435Z",
+		"1.9.0": "2018-01-18T17:15:46.356Z",
+		"1.9.1": "2018-01-23T11:45:38.154Z",
+		"1.10.0": "2018-01-28T14:02:22.585Z",
+		"1.10.1": "2018-02-01T14:07:19.325Z",
+		"1.10.2": "2018-03-02T21:45:52.057Z",
+		"1.10.3": "2018-03-03T11:22:00.202Z",
+		"1.10.4": "2018-03-13T09:46:27.423Z",
+		"1.11.0": "2018-03-20T07:18:10.988Z",
+		"1.11.1": "2018-03-21T14:58:25.444Z",
+		"1.12.0": "2018-04-18T13:13:12.671Z",
+		"1.13.0": "2018-05-21T07:59:23.688Z",
+		"1.14.0": "2018-06-11T18:07:26.266Z",
+		"1.14.1": "2018-06-28T17:53:31.765Z",
+		"1.15.0": "2018-07-02T14:31:29.141Z",
+		"1.15.1": "2018-07-03T08:12:02.560Z",
+		"1.15.2": "2018-09-09T10:15:49.608Z",
+		"1.15.3": "2018-09-17T10:20:49.061Z",
+		"1.15.4": "2018-10-04T20:33:41.049Z",
+		"1.16.0": "2018-12-13T10:21:56.664Z",
+		"1.17.0": "2018-12-18T18:38:26.756Z",
+		"1.17.1": "2019-01-10T10:23:40.382Z",
+		"1.18.0": "2019-01-29T11:17:15.814Z",
+		"1.18.1": "2019-02-09T08:46:07.764Z",
+		"2.0.0": "2019-02-17T18:08:39.711Z",
+		"2.0.1": "2019-02-18T07:18:23.961Z",
+		"2.1.0": "2019-06-24T14:39:36.204Z",
+		"2.1.1": "2019-08-30T08:30:42.951Z"
+	},
+	"dist-tags": {
+		"latest": "2.1.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"4c38d171ed094df861665e6e46b2861a\"",
+			"fetched": 1568994345400
+		}
+	},
+	"_distfiles": {
+		"find-my-way-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-0.0.1.tgz",
+			"sha": "b547c5e4973135fd515c4758ce3a4982f6f2f86d",
+			"registry": "npmjs"
+		},
+		"find-my-way-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-0.1.0.tgz",
+			"sha": "5717844965da546f794fc486906ae2a9c34ce907",
+			"registry": "npmjs"
+		},
+		"find-my-way-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-0.2.0.tgz",
+			"sha": "614117d98c3262f4a5beaef3f6542c4d50f60cbc",
+			"registry": "npmjs"
+		},
+		"find-my-way-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-0.2.1.tgz",
+			"sha": "7f61fbc86654955511ebac05a07c972e2db285ca",
+			"registry": "npmjs"
+		},
+		"find-my-way-0.2.2.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-0.2.2.tgz",
+			"sha": "cbf8a1607792a3c2be77d70a0dc75d6023319bde",
+			"registry": "npmjs"
+		},
+		"find-my-way-0.2.3.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-0.2.3.tgz",
+			"sha": "4a8a7dbd8d283acdec0751dd67a9ded577f94c96",
+			"registry": "npmjs"
+		},
+		"find-my-way-0.2.4.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-0.2.4.tgz",
+			"sha": "1c5209c4bf9ab377305fc26be8d7232b0106e850",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.0.0.tgz",
+			"sha": "06a5aabfb7bbe3d28a122a1f64b7ffde82eae33a",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.0.1.tgz",
+			"sha": "1576abfe55926611b4ae39cbea8a9b61202e3547",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.1.0.tgz",
+			"sha": "84244519ffdd4fcf348eec2972098d68a72b6ab4",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.2.0.tgz",
+			"sha": "ba3aeb9b8ed69a128dadd333fa0db8587d9ab390",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.2.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.2.1.tgz",
+			"sha": "cb97f88ea382e132f853b3ea8fd3a0bc13b97d78",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.3.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.3.0.tgz",
+			"sha": "05d1d21432d00f5f988c692086e7c8b61a5126b5",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.3.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.3.1.tgz",
+			"sha": "e65a02162be181dfa15531f7b510a423279ba20f",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.3.2.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.3.2.tgz",
+			"sha": "3df7aa679f785ba59cb613ae22decdefcfe5d3e5",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.4.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.4.0.tgz",
+			"sha": "31178a6157058dba1798e45c889a3347cfbcb2b7",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.4.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.4.1.tgz",
+			"sha": "9202fd14d1c9b6d07bd65a412333bff62c5c6164",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.5.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.5.0.tgz",
+			"sha": "d69ec47b35c5be7250fafb7dc1a7cd786476da6d",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.6.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.6.0.tgz",
+			"sha": "e0699fa19f397fa30e257c0c6528ff6c0947c186",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.6.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.6.1.tgz",
+			"sha": "16cc4aefce80c89f99f64b5771c9a010bd44a916",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.6.2.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.6.2.tgz",
+			"sha": "784299ec918202b9468e6e5bbd692699bf280eeb",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.7.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.7.0.tgz",
+			"sha": "ca9aacbfd02e952415d4a6592b9f050be0bd0529",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.7.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.7.1.tgz",
+			"sha": "8c3387bd63fc8d0eddadb66f0018909f95464cbb",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.8.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.8.0.tgz",
+			"sha": "91deed73f5d671e755c17791f2c2f3dd9c302a97",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.8.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.8.1.tgz",
+			"sha": "8bf912398c38db44081751a9cbfe70d485c43a02",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.8.2.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.8.2.tgz",
+			"sha": "9e108c7ef9765bc9b43e8d9355b62c3c1619f393",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.9.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.9.0.tgz",
+			"sha": "407003854631017eff639b6e90992ee1db592749",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.9.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.9.1.tgz",
+			"sha": "776d1946281cb24fd21d9f8924e083a6e9a1f307",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.10.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.10.0.tgz",
+			"sha": "12589cb292ffb1991460cfc04cd07cd7ead7d1ba",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.10.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.10.1.tgz",
+			"sha": "90ff8a4edcfe688bdc732c43466aba1a6ca7c005",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.10.2.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.10.2.tgz",
+			"sha": "28049b897d0835c4e018a10f542d5967c70d06b4",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.10.3.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.10.3.tgz",
+			"sha": "e66338e56018bda8ba522a5ab9f3a0528d21aa80",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.10.4.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.10.4.tgz",
+			"sha": "ae9cefd1b7fefce6779e2281fe14fae5251dea77",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.11.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.11.0.tgz",
+			"sha": "deb2512b079afa1c032c9d36d823ffc6ffbdabbd",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.11.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.11.1.tgz",
+			"sha": "638ca077b01a52f3db344c4abec709483b2994a0",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.12.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.12.0.tgz",
+			"sha": "859ffe3cffd8dde04cec4e36833b3991dd5fa3cc",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.13.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.13.0.tgz",
+			"sha": "3a81184bc40b24fe69ea8d785263c9218be5c067",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.14.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.14.0.tgz",
+			"sha": "107b89780836fb9ca0f2d42d7390b27f648540c5",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.14.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.14.1.tgz",
+			"sha": "fce8a3d2095bb49e68a3e5b47b38536be6a49620",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.15.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.15.0.tgz",
+			"sha": "7d9dc3c3925ca438d04c4f4a349fc6dbd83f465e",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.15.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.15.1.tgz",
+			"sha": "aa76b386be51ff528c548422544ffd91d8f3dec1",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.15.2.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.15.2.tgz",
+			"sha": "7e9a0627de03ad7a41959f37c9086ceb9a5f5090",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.15.3.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.15.3.tgz",
+			"sha": "fca6271fea10387d7f19f0c9ff3ea517d34f6fde",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.15.4.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.15.4.tgz",
+			"sha": "3b1da909347022e0b5ed94ecaaabf6d99096edd6",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.16.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.16.0.tgz",
+			"sha": "9d10d76894bbb286d60ec74085f3c70277f891b6",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.17.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.17.0.tgz",
+			"sha": "fc8f9eb34df1757f1c40a66d524095981a3d28ba",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.17.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.17.1.tgz",
+			"sha": "215218a14f55afa9c51cb7e3201b87bf6f280101",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.18.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.18.0.tgz",
+			"sha": "a21507071cce27e2ed54d7d487b871260f556197",
+			"registry": "npmjs"
+		},
+		"find-my-way-1.18.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-1.18.1.tgz",
+			"sha": "5db605eab7211ee6af7ab08eb4f568060aa8e9f6",
+			"registry": "npmjs"
+		},
+		"find-my-way-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-2.0.0.tgz",
+			"sha": "f0cdeff091ba5ae72667fd75544520849f9e3435",
+			"registry": "npmjs"
+		},
+		"find-my-way-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-2.0.1.tgz",
+			"sha": "965aa7cacac2362d47d5d7ce219f51bf76216af7",
+			"registry": "npmjs"
+		},
+		"find-my-way-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-2.1.0.tgz",
+			"sha": "dc9bfe2ab12ce8f965f489794134789e8fd56881",
+			"registry": "npmjs"
+		},
+		"find-my-way-2.1.1.tgz": {
+			"url": "https://registry.npmjs.org/find-my-way/-/find-my-way-2.1.1.tgz",
+			"sha": "df5e68c575de49e5de135bc2cbf59ef10cf77d90",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-5a62006abe0bd51d",
+	"_id": "find-my-way",
+	"readme": "# find-my-way\n\n[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)  [![Build Status](https://dev.azure.com/delvedor/find-my-way/_apis/build/status/delvedor.find-my-way?branchName=master)](https://dev.azure.com/delvedor/find-my-way/_build/latest?definitionId=1&branchName=master) [![Coverage Status](https://img.shields.io/azure-devops/coverage/delvedor/find-my-way/1.svg)](https://dev.azure.com/delvedor/find-my-way) [![NPM downloads](https://img.shields.io/npm/dm/find-my-way.svg?style=flat)](https://www.npmjs.com/package/find-my-way)\n\nA crazy fast HTTP router, internally uses an highly performant [Radix Tree](https://en.wikipedia.org/wiki/Radix_tree) (aka compact [Prefix Tree](https://en.wikipedia.org/wiki/Trie)), supports route params, wildcards, and it's framework independent.\n\nIf you want to see a benchmark comparison with the most commonly used routers, see [here](https://github.com/delvedor/router-benchmark).<br>\nDo you need a real-world example that uses this router? Check out [Fastify](https://github.com/fastify/fastify) or [Restify](https://github.com/restify/node-restify).\n\n<a name=\"install\"></a>\n## Install\n```\nnpm i find-my-way --save\n```\n\n<a name=\"usage\"></a>\n## Usage\n```js\nconst http = require('http')\nconst router = require('find-my-way')()\n\nrouter.on('GET', '/', (req, res, params) => {\n  res.end('{\"message\":\"hello world\"}')\n})\n\nconst server = http.createServer((req, res) => {\n  router.lookup(req, res)\n})\n\nserver.listen(3000, err => {\n  if (err) throw err\n  console.log('Server listening on: http://localost:3000')\n})\n```\n\n<a name=\"api\"></a>\n## API\n<a name=\"constructor\"></a>\n#### FindMyway([options])\nInstance a new router.<br>\nYou can pass a default route with the option `defaultRoute`.\n```js\nconst router = require('find-my-way')({\n  defaultRoute: (req, res) => {\n    res.statusCode = 404\n    res.end()\n  }\n})\n```\n\nTrailing slashes can be ignored by supplying the `ignoreTrailingSlash` option:\n```js\nconst router = require('find-my-way')({\n  ignoreTrailingSlash: true\n})\nfunction handler (req, res, params) {\n  res.end('foo')\n}\n// maps \"/foo/\" and \"/foo\" to `handler`\nrouter.on('GET', '/foo/', handler)\n```\n\nYou can set a custom length for parameters in parametric *(standard, regex and multi)* routes by using `maxParamLength` option, the default value is 100 characters.<br/>\n*If the maximum length limit is reached, the default route will be invoked.*\n```js\nconst router = require('find-my-way')({\n  maxParamLength: 500\n})\n```\n\nIf you are using a regex based route, `find-my-way` will throw an error if detects potentially catastrophic exponential-time regular expressions *(internally uses [`safe-regex2`](https://github.com/fastify/safe-regex2))*.<br/>\nIf you want to disable this behavior, pass the option `allowUnsafeRegex`.\n```js\nconst router = require('find-my-way')({\n  allowUnsafeRegex: true\n})\n```\n\nAccording to [RFC3986](https://tools.ietf.org/html/rfc3986#section-6.2.2.1), find-my-way is case sensitive by default.\nYou can disable this by setting the `caseSensitive` option to `false`:\nin that case, all paths will be matched as lowercase, but the route parameters or wildcards will maintain their original letter casing. You can turn off case sensitivity with:\n\n```js\nconst router = require('find-my-way')({\n  caseSensitive: false\n})\n```\n\n<a name=\"custom-versioning\"></a>\nBy default `find-my-way` uses [accept-version](./lib/accept-version.js) strategy to match requests with different versions of the handlers. The matching logic of that strategy is explained [below](#semver). It is possible to define the alternative strategy:\n```js\nconst customVersioning = {\n  // storage factory\n  storage: function () {\n    let versions = {}\n    return {\n      get: (version) => { return versions[version] || null },\n      set: (version, store) => { versions[version] = store },\n      del: (version) => { delete versions[version] },\n      empty: () => { versions = {} }\n    }\n  },\n  deriveVersion: (req, ctx) => {\n    return req.headers['accept']\n  }\n}\n\nconst router = FindMyWay({ versioning: customVersioning });\n```\n\nThe custom strategy object should contain next properties:\n* `storage` - the factory function for the Storage of the handlers based on their version.\n* `deriveVersion` - the function to determine the version based on the request\n\nThe signature of the functions and objects must match the one from the example above.\n\n\n*Please, be aware, if you use custom versioning strategy - you use it on your own risk. This can lead both to the performance degradation and bugs which are not related to `find-my-way` itself*\n\n<a name=\"on\"></a>\n#### on(method, path, [opts], handler, [store])\nRegister a new route.\n```js\nrouter.on('GET', '/example', (req, res, params) => {\n  // your code\n})\n```\nLast argument, `store` is used to pass an object that you can access later inside the handler function. If needed, `store` can be updated.\n```js\nrouter.on('GET', '/example', (req, res, params, store) => {\n  assert.equal(store, { message: 'hello world' })\n}, { message: 'hello world' })\n```\n\n##### Versioned routes\n\nIf needed you can provide a `version` option, which will allow you to declare multiple versions of the same route.\n\n###### default\n<a name=\"semver\"></a>\nDefault versioning strategy is called `accept-version` and it follows the [semver](https://semver.org/) specification.<br/>\nWhen using `lookup`, `find-my-way` will automatically detect the `Accept-Version` header and route the request accordingly.<br/>\nInternally `find-my-way` uses the [`semver-store`](https://github.com/delvedor/semver-store) to get the correct version of the route; *advanced ranges* and *pre-releases* currently are not supported.<br/>\n*Be aware that using this feature will cause a degradation of the overall performances of the router.*\n```js\nrouter.on('GET', '/example', { version: '1.2.0' }, (req, res, params) => {\n  res.end('Hello from 1.2.0!')\n})\n\nrouter.on('GET', '/example', { version: '2.4.0' }, (req, res, params) => {\n  res.end('Hello from 2.4.0!')\n})\n\n// The 'Accept-Version' header could be '1.2.0' as well as '*', '2.x' or '2.4.x'\n```\nIf you declare multiple versions with the same *major* or *minor* `find-my-way` will always choose the highest compatible with the `Accept-Version` header value.\n\n###### custom\nIt's also possible to define a [custom versioning strategy](#custom-versioning) during the `find-my-way` initialization. In this case the logic of matching the request to the specific handler depends on the versioning strategy you use.\n\n##### on(methods[], path, [opts], handler, [store])\nRegister a new route for each method specified in the `methods` array.\nIt comes handy when you need to declare multiple routes with the same handler but different methods.\n```js\nrouter.on(['GET', 'POST'], '/example', (req, res, params) => {\n  // your code\n})\n```\n\n<a name=\"supported-path-formats\"></a>\n##### Supported path formats\nTo register a **parametric** path, use the *colon* before the parameter name. For **wildcard** use the *star*.\n*Remember that static routes are always inserted before parametric and wildcard.*\n\n```js\n// parametric\nrouter.on('GET', '/example/:userId', (req, res, params) => {}))\nrouter.on('GET', '/example/:userId/:secretToken', (req, res, params) => {}))\n\n// wildcard\nrouter.on('GET', '/example/*', (req, res, params) => {}))\n```\n\nRegular expression routes are supported as well, but pay attention, RegExp are very expensive in term of performance!<br>\nIf you want to declare a regular expression route, you must put the regular expression inside round parenthesis after the parameter name.\n```js\n// parametric with regexp\nrouter.on('GET', '/example/:file(^\\\\d+).png', () => {}))\n```\n\nIt's possible to define more than one parameter within the same couple of slash (\"/\"). Such as:\n```js\nrouter.on('GET', '/example/near/:lat-:lng/radius/:r', (req, res, params) => {}))\n```\n*Remember in this case to use the dash (\"-\") as parameters separator.*\n\nFinally it's possible to have multiple parameters with RegExp.\n```js\nrouter.on('GET', '/example/at/:hour(^\\\\d{2})h:minute(^\\\\d{2})m', (req, res, params) => {}))\n```\nIn this case as parameter separator it's possible to use whatever character is not matched by the regular expression.\n\nHaving a route with multiple parameters may affect negatively the performance, so prefer single parameter approach whenever possible, especially on routes which are on the hot path of your application.\n\n<a name=\"match-order\"></a>\n##### Match order\n\nThe routing algorithm matches one chunk at a time (where the chunk is a string between two slashes),\nthis means that it cannot know if a route is static or dynamic until it finishes to match the URL.\n\nThe chunks are matched in the following order:\n\n1. static\n1. parametric\n1. wildcards\n1. parametric(regex)\n1. multi parametric(regex)\n\nSo if you declare the following routes\n\n- `/:userId/foo/bar`\n- `/33/:a(^.*$)/:b`\n\nand the URL of the incoming request is /33/foo/bar,\nthe second route will be matched because the first chunk (33) matches the static chunk.\nIf the URL would have been /32/foo/bar, the first route would have been matched.\n\n<a name=\"supported-methods\"></a>\n##### Supported methods\nThe router is able to route all HTTP methods defined by [`http` core module](https://nodejs.org/api/http.html#http_http_methods).\n\n<a name=\"off\"></a>\n#### off(method, path)\nDeregister a route.\n```js\nrouter.off('GET', '/example')\n// => { handler: Function, params: Object, store: Object}\n// => null\n```\n\n##### off(methods[], path, handler, [store])\nDeregister a route for each method specified in the `methods` array.\nIt comes handy when you need to deregister multiple routes with the same path but different methods.\n```js\nrouter.off(['GET', 'POST'], '/example')\n// => [{ handler: Function, params: Object, store: Object}]\n// => null\n```\n\n<a name=\"reset\"></a>\n#### reset()\nEmpty router.\n```js\nrouter.reset()\n```\n\n##### Caveats\n* It's not possible to register two routes which differs only for their parameters, because internally they would be seen as the same route. In a such case you'll get an early error during the route registration phase. An example is worth thousand words:\n```js\nconst findMyWay = FindMyWay({\n  defaultRoute: (req, res) => {}\n})\n\nfindMyWay.on('GET', '/user/:userId(^\\\\d+)', (req, res, params) => {})\n\nfindMyWay.on('GET', '/user/:username(^[a-z]+)', (req, res, params) => {})\n// Method 'GET' already declared for route ':'\n```\n\n<a name=\"shorthand-methods\"></a>\n##### Shorthand methods\nIf you want an even nicer api, you can also use the shorthand methods to declare your routes.\n\nFor each HTTP supported method, there's the shorthand method. For example:\n```js\nrouter.get(path, handler [, store])\nrouter.delete(path, handler [, store])\nrouter.head(path, handler [, store])\nrouter.patch(path, handler [, store])\nrouter.post(path, handler [, store])\nrouter.put(path, handler [, store])\nrouter.options(path, handler [, store])\n// ...\n```\n\nIf you need a route that supports *all* methods you can use the `all` api.\n```js\nrouter.all(path, handler [, store])\n```\n\n<a name=\"lookup\"></a>\n#### lookup(request, response, [context])\nStart a new search, `request` and `response` are the server req/res objects.<br>\nIf a route is found it will automatically call the handler, otherwise the default route will be called.<br>\nThe url is sanitized internally, all the parameters and wildcards are decoded automatically.\n```js\nrouter.lookup(req, res)\n```\n\n`lookup` accepts an optional context which will be the value of `this` when executing a handler\n```js\nrouter.on('GET', '*', function(req, res) {\n  res.end(this.greeting);\n})\nrouter.lookup(req, res, { greeting: 'Hello, World!' })\n```\n\n<a name=\"find\"></a>\n#### find(method, path [, version])\nReturn (if present) the route registered in *method:path*.<br>\nThe path must be sanitized, all the parameters and wildcards are decoded automatically.<br/>\nYou can also pass an optional version string. In case of the default versioning strategy it should be conform to the [semver](https://semver.org/) specification.\n```js\nrouter.find('GET', '/example')\n// => { handler: Function, params: Object, store: Object}\n// => null\n\nrouter.find('GET', '/example', '1.x')\n// => { handler: Function, params: Object, store: Object}\n// => null\n```\n\n<a name=\"pretty-print\"></a>\n#### prettyPrint()\nPrints the representation of the internal radix tree, useful for debugging.\n```js\nfindMyWay.on('GET', '/test', () => {})\nfindMyWay.on('GET', '/test/hello', () => {})\nfindMyWay.on('GET', '/hello/world', () => {})\n\nconsole.log(findMyWay.prettyPrint())\n// └── /\n//   ├── test (GET)\n//   │   └── /hello (GET)\n//   └── hello/world (GET)\n```\n\n<a name=\"routes\"></a>\n#### routes\nReturn the all routes **registered** at moment, useful for debugging.\n\n```js\nconst findMyWay = require('find-my-way')()\n\nfindMyWay.on('GET', '/test', () => {})\nfindMyWay.on('GET', '/test/hello', () => {})\n\nconsole.log(findMyWay.routes)\n// Will print\n// [ \n//   { \n//     method: 'GET',\n//     path: '/test',\n//     opts: {},\n//     handler: [Function],\n//     store: undefined \n//   },\n//   { \n//     method: 'GET',\n//     path: '/test/hello',\n//     opts: {},\n//     handler: [Function],\n//     store: undefined \n//   } \n// ]\n```\n\n<a name=\"acknowledgements\"></a>\n## Acknowledgements\n\nIt is inspired by the [echo](https://github.com/labstack/echo) router, some parts have been extracted from [trekjs](https://github.com/trekjs) router.\n\n<a name=\"sponsor\"></a>\n#### Past sponsor\n\n- [LetzDoIt](http://www.letzdoitapp.com/)\n\n<a name=\"license\"></a>\n## License\n**[find-my-way - MIT](https://github.com/delvedor/find-my-way/blob/master/LICENSE)**<br>\n**[trekjs/router - MIT](https://github.com/trekjs/router/blob/master/LICENSE)**\n\nCopyright © 2017-2019 Tomas Della Vedova"
+}

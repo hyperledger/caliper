@@ -1,0 +1,140 @@
+{
+	"name": "delimit-stream",
+	"versions": {
+		"0.0.1": {
+			"name": "delimit-stream",
+			"version": "0.0.1",
+			"description": "Push messages from a stream partitioned by the given delimiter",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/.bin/mocha --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:jasonkuhrt/delimit-stream.git"
+			},
+			"keywords": [
+				"stream",
+				"streams2",
+				"delimit",
+				"frame",
+				"message"
+			],
+			"author": {
+				"name": "Jason Kuhrt",
+				"email": "jasonkuhrt@me.com",
+				"url": "http://jasonkuhrt.com/"
+			},
+			"license": "BSD-2-Clause",
+			"bugs": {
+				"url": "https://github.com/jasonkuhrt/delimit-stream/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.13.0",
+				"should": "~1.3.0"
+			},
+			"_id": "delimit-stream@0.0.1",
+			"dist": {
+				"shasum": "455533a8e16c57901b5939c47e773146d7900f4d",
+				"tarball": "https://registry.npmjs.org/delimit-stream/-/delimit-stream-0.0.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.8",
+			"_npmUser": {
+				"name": "jasonkuhrt",
+				"email": "jasonkuhrt@me.com"
+			},
+			"maintainers": [
+				{
+					"name": "jasonkuhrt",
+					"email": "jasonkuhrt@me.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "delimit-stream",
+			"version": "0.1.0",
+			"description": "Push messages from a stream partitioned by the given delimiter",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:jasonkuhrt/delimit-stream.git"
+			},
+			"keywords": [
+				"stream",
+				"streams2",
+				"delimit",
+				"frame",
+				"message"
+			],
+			"author": {
+				"name": "Jason Kuhrt",
+				"email": "jasonkuhrt@me.com",
+				"url": "http://jasonkuhrt.com/"
+			},
+			"license": "BSD-2-Clause",
+			"bugs": {
+				"url": "https://github.com/jasonkuhrt/delimit-stream/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.13.0",
+				"should": "~1.3.0"
+			},
+			"homepage": "https://github.com/jasonkuhrt/delimit-stream",
+			"_id": "delimit-stream@0.1.0",
+			"_shasum": "9b8319477c0e5f8aeb3ce357ae305fc25ea1cd2b",
+			"_from": ".",
+			"_npmVersion": "1.4.7",
+			"_npmUser": {
+				"name": "jasonkuhrt",
+				"email": "jasonkuhrt@me.com"
+			},
+			"maintainers": [
+				{
+					"name": "jasonkuhrt",
+					"email": "jasonkuhrt@me.com"
+				}
+			],
+			"dist": {
+				"shasum": "9b8319477c0e5f8aeb3ce357ae305fc25ea1cd2b",
+				"tarball": "https://registry.npmjs.org/delimit-stream/-/delimit-stream-0.1.0.tgz"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2014-09-22T22:10:14.582Z",
+		"created": "2013-09-17T16:39:43.962Z",
+		"0.0.1": "2013-09-17T16:39:46.510Z",
+		"0.1.0": "2014-09-22T22:10:14.582Z"
+	},
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"d866da00787fddad17dfb90fbfdbbb97\"",
+			"fetched": 1568994351735
+		}
+	},
+	"_distfiles": {
+		"delimit-stream-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/delimit-stream/-/delimit-stream-0.0.1.tgz",
+			"sha": "455533a8e16c57901b5939c47e773146d7900f4d",
+			"registry": "npmjs"
+		},
+		"delimit-stream-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/delimit-stream/-/delimit-stream-0.1.0.tgz",
+			"sha": "9b8319477c0e5f8aeb3ce357ae305fc25ea1cd2b",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-1aa2fd1780f5df6f",
+	"_id": "delimit-stream",
+	"readme": "# delimit-stream [![Build Status](https://travis-ci.org/jasonkuhrt/delimit-stream.png)](https://travis-ci.org/jasonkuhrt/delimit-stream) [![Dependency Status](https://gemnasium.com/jasonkuhrt/delimit-stream.png)](https://gemnasium.com/jasonkuhrt/delimit-stream) [![NPM version](https://badge.fury.io/js/delimit-stream.png)](http://badge.fury.io/js/delimit-stream)\n> Push messages from a stream partitioned by the given delimiter\n\n### Install\n```\nnpm install delimit-stream\n```\n\n### Example\n```js\nvar DelimitStream = require('delimit-stream')\nvar net = require('net')\n\nnet.createServer(function(socket){\n  var delimitStream = new DelimitStream('\\r\\n', { objectMode: true })\n  socket\n    .pipe(delimitStream)\n    .on('data', function(message){\n      console.log('Got message: %j', message)\n    })\n})\n```\n\n### API\n##### `DelimitStream(delimiter, [options])`\n> `delimiter` `<String>`\n  The character(s) that define the delimiter. DelimitStream will push its buffer every time this delimiter is found in the stream\n>\n  `options` `<Object>`\n  The stream.Transform [options](http://nodejs.org/api/stream.html#stream_class_stream_transform). DelimitStream does not add any new options.\n\n### Run Tests\n```\nnpm test\n```"
+}

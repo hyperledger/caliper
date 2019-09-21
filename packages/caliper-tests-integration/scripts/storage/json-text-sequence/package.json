@@ -1,0 +1,641 @@
+{
+	"name": "json-text-sequence",
+	"versions": {
+		"0.0.2": {
+			"name": "json-text-sequence",
+			"version": "0.0.2",
+			"description": "Parse and generate RS-delimited JSON sequences according to draft-ietf-json-text-sequence",
+			"main": "./lib/index.js",
+			"directories": {
+				"lib": "lib"
+			},
+			"scripts": {
+				"test": "grunt test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/hildjj/node-json-text-sequence"
+			},
+			"keywords": [
+				"json",
+				"sequence",
+				"stream",
+				"RS"
+			],
+			"author": {
+				"name": "Joe Hildebrand"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-json-text-sequence/issues"
+			},
+			"homepage": "https://github.com/hildjj/node-json-text-sequence",
+			"devDependencies": {
+				"grunt": "^0.4.5",
+				"grunt-codo": "^0.2.0",
+				"grunt-coffeelint": "0.0.13",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-coffee": "^0.11.1",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-contrib-watch": "^0.6.1",
+				"grunt-coveralls": "^1.0.0",
+				"grunt-express": "^1.4.1",
+				"grunt-release": "^0.7.0",
+				"grunt-shell": "^1.1.1",
+				"jit-grunt": "^0.8.0"
+			},
+			"dependencies": {
+				"delimit-stream": "0.0.1"
+			},
+			"gitHead": "92d9ccf1c5f651318e3615d446c95f8032d88ad0",
+			"_id": "json-text-sequence@0.0.2",
+			"_shasum": "8470537b174b99afa3e7185185404d59b971fce2",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			],
+			"dist": {
+				"shasum": "8470537b174b99afa3e7185185404d59b971fce2",
+				"tarball": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.0.2.tgz"
+			}
+		},
+		"0.0.3": {
+			"name": "json-text-sequence",
+			"version": "0.0.3",
+			"description": "Parse and generate RS-delimited JSON sequences according to draft-ietf-json-text-sequence",
+			"main": "./lib/index.js",
+			"directories": {
+				"lib": "lib"
+			},
+			"scripts": {
+				"test": "grunt test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/hildjj/json-text-sequence"
+			},
+			"keywords": [
+				"json",
+				"sequence",
+				"stream",
+				"RS"
+			],
+			"author": {
+				"name": "Joe Hildebrand"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/json-text-sequence/issues"
+			},
+			"homepage": "https://github.com/hildjj/json-text-sequence",
+			"devDependencies": {
+				"grunt": "^0.4.5",
+				"grunt-codo": "^0.2.0",
+				"grunt-coffeelint": "0.0.13",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-coffee": "^0.11.1",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-contrib-watch": "^0.6.1",
+				"grunt-coveralls": "^1.0.0",
+				"grunt-express": "^1.4.1",
+				"grunt-release": "^0.7.0",
+				"grunt-shell": "^1.1.1",
+				"jit-grunt": "^0.8.0"
+			},
+			"dependencies": {
+				"delimit-stream": "0.0.1"
+			},
+			"gitHead": "583b86ee7a1f65cb8936ec8a336414c4d86b5bcc",
+			"_id": "json-text-sequence@0.0.3",
+			"_shasum": "9ecf1c09a766fd37d6f70cedec414a30573cf1c6",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			],
+			"dist": {
+				"shasum": "9ecf1c09a766fd37d6f70cedec414a30573cf1c6",
+				"tarball": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.0.3.tgz"
+			}
+		},
+		"0.0.4": {
+			"name": "json-text-sequence",
+			"version": "0.0.4",
+			"description": "Parse and generate RS-delimited JSON sequences according to draft-ietf-json-text-sequence",
+			"main": "./lib/index.js",
+			"directories": {
+				"lib": "lib"
+			},
+			"scripts": {
+				"ci": "grunt ci",
+				"test": "grunt test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/hildjj/json-text-sequence"
+			},
+			"keywords": [
+				"json",
+				"sequence",
+				"stream",
+				"RS"
+			],
+			"author": {
+				"name": "Joe Hildebrand"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/json-text-sequence/issues"
+			},
+			"homepage": "https://github.com/hildjj/json-text-sequence",
+			"devDependencies": {
+				"coffee-script": "^1.8.0",
+				"grunt": "^0.4.5",
+				"grunt-codo": "^0.2.0",
+				"grunt-coffeelint": "0.0.13",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-coffee": "^0.11.1",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-contrib-watch": "^0.6.1",
+				"grunt-coveralls": "^1.0.0",
+				"grunt-express": "^1.4.1",
+				"grunt-release": "^0.7.0",
+				"grunt-shell": "^1.1.1",
+				"istanbul": "^0.3.2",
+				"jit-grunt": "^0.8.0",
+				"nodeunit": "^0.9.0"
+			},
+			"dependencies": {
+				"delimit-stream": "0.1.0"
+			},
+			"gitHead": "a069762f4716032e3b03e6cbbafd93bcd110445e",
+			"_id": "json-text-sequence@0.0.4",
+			"_shasum": "4006f063496ca2fb7721aceda59d6a50bd5bf0fb",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			],
+			"dist": {
+				"shasum": "4006f063496ca2fb7721aceda59d6a50bd5bf0fb",
+				"tarball": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.0.4.tgz"
+			}
+		},
+		"0.0.5": {
+			"name": "json-text-sequence",
+			"version": "0.0.5",
+			"description": "Parse and generate RS-delimited JSON sequences according to draft-ietf-json-text-sequence",
+			"main": "./lib/index.js",
+			"directories": {
+				"lib": "lib"
+			},
+			"scripts": {
+				"ci": "grunt ci",
+				"test": "grunt test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/hildjj/json-text-sequence"
+			},
+			"keywords": [
+				"json",
+				"sequence",
+				"stream",
+				"RS"
+			],
+			"author": {
+				"name": "Joe Hildebrand"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/json-text-sequence/issues"
+			},
+			"homepage": "https://github.com/hildjj/json-text-sequence",
+			"devDependencies": {
+				"coffee-script": "^1.8.0",
+				"grunt": "^0.4.5",
+				"grunt-codo": "^0.2.0",
+				"grunt-coffeelint": "0.0.13",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-coffee": "^0.11.1",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-contrib-watch": "^0.6.1",
+				"grunt-coveralls": "^1.0.0",
+				"grunt-express": "^1.4.1",
+				"grunt-release": "^0.7.0",
+				"grunt-shell": "^1.1.1",
+				"istanbul": "^0.3.2",
+				"jit-grunt": "^0.8.0",
+				"nodeunit": "^0.9.0"
+			},
+			"dependencies": {
+				"delimit-stream": "0.1.0"
+			},
+			"gitHead": "6ddcecc2d1ba29a44fcb966234c0e740d4c5ecb0",
+			"_id": "json-text-sequence@0.0.5",
+			"_shasum": "e63e38ae81d66378a58ffb18ad950db8eb085d7d",
+			"_from": ".",
+			"_npmVersion": "2.1.2",
+			"_nodeVersion": "0.10.32",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			],
+			"dist": {
+				"shasum": "e63e38ae81d66378a58ffb18ad950db8eb085d7d",
+				"tarball": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.0.5.tgz"
+			}
+		},
+		"0.0.6": {
+			"name": "json-text-sequence",
+			"version": "0.0.6",
+			"description": "Parse and generate RS-delimited JSON sequences according to draft-ietf-json-text-sequence",
+			"main": "./lib/index.js",
+			"directories": {
+				"lib": "lib"
+			},
+			"scripts": {
+				"ci": "grunt ci",
+				"test": "grunt test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/hildjj/json-text-sequence"
+			},
+			"keywords": [
+				"json",
+				"sequence",
+				"stream",
+				"RS"
+			],
+			"author": {
+				"name": "Joe Hildebrand"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/json-text-sequence/issues"
+			},
+			"homepage": "https://github.com/hildjj/json-text-sequence",
+			"devDependencies": {
+				"coffee-script": "^1.9.2",
+				"coffeelint": "^1.9.6",
+				"grunt": "^0.4.5",
+				"grunt-codo": "^0.2.0",
+				"grunt-coffeelint": "0.0.13",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-coffee": "^0.13.0",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-contrib-watch": "^0.6.1",
+				"grunt-coveralls": "^1.0.0",
+				"grunt-express": "^1.4.1",
+				"grunt-release": "^0.12.0",
+				"grunt-shell": "^1.1.2",
+				"istanbul": "^0.3.13",
+				"jit-grunt": "^0.9.1",
+				"nodeunit": "^0.9.1"
+			},
+			"dependencies": {
+				"delimit-stream": "0.1.0"
+			},
+			"gitHead": "ae57f21a3fb4d664f51fc5ac70b3d4bd6d4536b9",
+			"_id": "json-text-sequence@0.0.6",
+			"_shasum": "80ad9195871a61f3427b230e024932d994085529",
+			"_from": ".",
+			"_npmVersion": "2.7.5",
+			"_nodeVersion": "0.12.2",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			],
+			"dist": {
+				"shasum": "80ad9195871a61f3427b230e024932d994085529",
+				"tarball": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.0.6.tgz"
+			}
+		},
+		"0.0.7": {
+			"name": "json-text-sequence",
+			"version": "0.0.7",
+			"description": "Parse and generate RS-delimited JSON sequences according to draft-ietf-json-text-sequence",
+			"main": "./lib/index.js",
+			"directories": {
+				"lib": "lib"
+			},
+			"scripts": {
+				"ci": "grunt ci",
+				"test": "grunt test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hildjj/json-text-sequence.git"
+			},
+			"keywords": [
+				"json",
+				"sequence",
+				"stream",
+				"RS"
+			],
+			"author": {
+				"name": "Joe Hildebrand"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/json-text-sequence/issues"
+			},
+			"homepage": "https://github.com/hildjj/json-text-sequence",
+			"devDependencies": {
+				"coffee-script": "^1.9",
+				"coffeelint": "^1.10",
+				"grunt": "^0.4",
+				"grunt-codo": "^0.2",
+				"grunt-coffeelint": "0.0.13",
+				"grunt-contrib-clean": "^0.6",
+				"grunt-contrib-coffee": "^0.13",
+				"grunt-contrib-nodeunit": "^0.4",
+				"grunt-contrib-watch": "^0.6",
+				"grunt-coveralls": "^1.0",
+				"grunt-express": "^1.4",
+				"grunt-release": "^0.13",
+				"grunt-shell": "^1.1",
+				"istanbul": "^0.3",
+				"jit-grunt": "^0.9",
+				"nodeunit": "^0.9"
+			},
+			"dependencies": {
+				"delimit-stream": "0.1.0"
+			},
+			"gitHead": "5bf4e75f2de05ae4473daf73cf8b750e815cfd3f",
+			"_id": "json-text-sequence@0.0.7",
+			"_shasum": "eed4a6a7582947b9f754c0ec15da698b96cba6b3",
+			"_from": ".",
+			"_npmVersion": "2.12.1",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "eed4a6a7582947b9f754c0ec15da698b96cba6b3",
+				"tarball": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.0.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			]
+		},
+		"0.1.0": {
+			"name": "json-text-sequence",
+			"version": "0.1.0",
+			"description": "Parse and generate RS-delimited JSON sequences according to draft-ietf-json-text-sequence",
+			"main": "./lib/index.js",
+			"directories": {
+				"lib": "lib"
+			},
+			"scripts": {
+				"ci": "grunt ci",
+				"test": "grunt test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hildjj/json-text-sequence.git"
+			},
+			"keywords": [
+				"json",
+				"sequence",
+				"stream",
+				"RS"
+			],
+			"author": {
+				"name": "Joe Hildebrand"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/json-text-sequence/issues"
+			},
+			"homepage": "https://github.com/hildjj/json-text-sequence",
+			"devDependencies": {
+				"coffee-script": "^1.10",
+				"coffeelint": "^1.12",
+				"grunt": "^0.4",
+				"grunt-codo": "^0.2",
+				"grunt-coffeelint": "0.0.13",
+				"grunt-contrib-clean": "^0.6",
+				"grunt-contrib-coffee": "^0.13",
+				"grunt-contrib-nodeunit": "^0.4",
+				"grunt-contrib-watch": "^0.6",
+				"grunt-coveralls": "^1.0",
+				"grunt-express": "^1.4",
+				"grunt-release": "^0.13",
+				"grunt-shell": "^1.1",
+				"istanbul": "^0.3",
+				"jit-grunt": "^0.9",
+				"nodeunit": "^0.9"
+			},
+			"dependencies": {
+				"delimit-stream": "0.1.0"
+			},
+			"gitHead": "cf2a8caecc48e081e9bc60bc018a21ebf39043c8",
+			"_id": "json-text-sequence@0.1.0",
+			"_shasum": "4e1910813f63098429f0860966c19b71d61ba0b7",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.1",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "4e1910813f63098429f0860966c19b71d61ba0b7",
+				"tarball": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			]
+		},
+		"0.1.1": {
+			"name": "json-text-sequence",
+			"version": "0.1.1",
+			"description": "Parse and generate RS-delimited JSON sequences according to draft-ietf-json-text-sequence",
+			"main": "./lib/index.js",
+			"directories": {
+				"lib": "lib"
+			},
+			"scripts": {
+				"clean": "rm -rf coverage lib doc man",
+				"lint": "coffeelint src test",
+				"coffee": "coffee -cm -o lib/ src",
+				"coverage": "istanbul cover nodeunit test/*.coffee",
+				"precoverage": "npm run coffee -s",
+				"test": "nodeunit test/*.coffee",
+				"pretest": "npm run coffee -s",
+				"prepublish": "npm run coffee -s",
+				"watch": "watch 'npm run coverage' src/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"ci": "npm run coverage  -s && cat ./coverage/lcov.info | coveralls",
+				"live": "live-server --port=4001 --ignorePattern='(js|css|png)$' coverage/lcov-report",
+				"dev": "npm-run-all -p --silent watch live"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hildjj/json-text-sequence.git"
+			},
+			"keywords": [
+				"json",
+				"sequence",
+				"stream",
+				"RS"
+			],
+			"author": {
+				"name": "Joe Hildebrand"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/json-text-sequence/issues"
+			},
+			"homepage": "https://github.com/hildjj/json-text-sequence",
+			"devDependencies": {
+				"coffee-script": "latest",
+				"coffeelint": "latest",
+				"coveralls": "latest",
+				"istanbul": "latest",
+				"live-server": "latest",
+				"nodeunit": "latest",
+				"npm-run-all": "latest",
+				"source-map-support": "latest",
+				"watch": "latest"
+			},
+			"dependencies": {
+				"delimit-stream": "0.1.0"
+			},
+			"gitHead": "f23b7f84901749c12a08ed3ab0b0d6690fb1bb9e",
+			"_id": "json-text-sequence@0.1.1",
+			"_shasum": "a72f217dc4afc4629fff5feb304dc1bd51a2f3d2",
+			"_from": ".",
+			"_npmVersion": "3.8.8",
+			"_nodeVersion": "6.0.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "a72f217dc4afc4629fff5feb304dc1bd51a2f3d2",
+				"tarball": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/json-text-sequence-0.1.1.tgz_1462210657081_0.966913087759167"
+			}
+		}
+	},
+	"time": {
+		"modified": "2016-05-02T17:37:39.356Z",
+		"created": "2014-09-22T22:47:27.883Z",
+		"0.0.2": "2014-09-22T22:47:27.883Z",
+		"0.0.3": "2014-09-22T22:48:48.749Z",
+		"0.0.4": "2014-09-23T17:06:48.923Z",
+		"0.0.5": "2014-10-22T16:38:44.763Z",
+		"0.0.6": "2015-05-07T02:15:46.838Z",
+		"0.0.7": "2015-07-11T15:08:32.388Z",
+		"0.1.0": "2015-10-05T16:00:14.121Z",
+		"0.1.1": "2016-05-02T17:37:39.356Z"
+	},
+	"dist-tags": {
+		"latest": "0.1.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"255c8af9ca3f1ab076dc2d475ea84937\"",
+			"fetched": 1568994351655
+		}
+	},
+	"_distfiles": {
+		"json-text-sequence-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.0.2.tgz",
+			"sha": "8470537b174b99afa3e7185185404d59b971fce2",
+			"registry": "npmjs"
+		},
+		"json-text-sequence-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.0.3.tgz",
+			"sha": "9ecf1c09a766fd37d6f70cedec414a30573cf1c6",
+			"registry": "npmjs"
+		},
+		"json-text-sequence-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.0.4.tgz",
+			"sha": "4006f063496ca2fb7721aceda59d6a50bd5bf0fb",
+			"registry": "npmjs"
+		},
+		"json-text-sequence-0.0.5.tgz": {
+			"url": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.0.5.tgz",
+			"sha": "e63e38ae81d66378a58ffb18ad950db8eb085d7d",
+			"registry": "npmjs"
+		},
+		"json-text-sequence-0.0.6.tgz": {
+			"url": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.0.6.tgz",
+			"sha": "80ad9195871a61f3427b230e024932d994085529",
+			"registry": "npmjs"
+		},
+		"json-text-sequence-0.0.7.tgz": {
+			"url": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.0.7.tgz",
+			"sha": "eed4a6a7582947b9f754c0ec15da698b96cba6b3",
+			"registry": "npmjs"
+		},
+		"json-text-sequence-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.1.0.tgz",
+			"sha": "4e1910813f63098429f0860966c19b71d61ba0b7",
+			"registry": "npmjs"
+		},
+		"json-text-sequence-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/json-text-sequence/-/json-text-sequence-0.1.1.tgz",
+			"sha": "a72f217dc4afc4629fff5feb304dc1bd51a2f3d2",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-e0c60b3d57ac5f9b",
+	"_id": "json-text-sequence",
+	"readme": "Parse and generate JSON text sequences as defined in [RFC 7464](https://tools.ietf.org/html/rfc7464).\n\nJSON text sequences are nice for unambiguous JSON log files.  They are resilient\nto many forms of damage such as truncation, multiple writers incorrectly\nconfigured to write to the same file, corrupted JSON, etc.  An example sequence:\n\n    ␞{\"d\":\"2014-09-22T21:58:35.270Z\",\"value\":6}␤\n    ␞{\"d\":\"2014-09-22T21:59:15.117Z\",\"value\":12}␤\n\nWhere \"␞\" is the ASCII \"Record Separator\" character (U+001E), and \"␤\" is the\nASCII \"LINE FEED\" character (U+000A), otherwise known as \"\\n\".\n\nTo install:\n\n    npm install json-text-sequence\n\nTo parse the format, pipe an input source into a parser stream:\n\n    var parser = require('json-text-sequence').parser;\n    var fs = require('fs');\n\n    var p = new parser()\n      .on('json', function(obj) {\n        console.log('JSON:', obj);\n      })\n      .on('truncated', function(buf) {\n        console.log('Truncated:', buf);\n      })\n      .on('invalid', function(buf) {\n        console.log('Invalid:', buf);\n      })\n      .on('finish', function() {\n        console.log('DONE');\n      });\n\n    fs.createReadStream('example.log').pipe(p);\n\nTo generate the format, create a generator, pipe its output somewhere\ninteresting, then write objects to the generator:\n\n    var generator = require('json-text-sequence').generator;\n    var fs = require('fs');\n\n    var g = new generator();\n    g.pipe(fs.createWriteStream('example.log'));\n\n    g.write({\n      d: new Date(),\n      count: 0\n    });\n\n[![Build Status](https://travis-ci.org/hildjj/json-text-sequence.svg?branch=master)](https://travis-ci.org/hildjj/json-text-sequence)\n[![Coverage Status](https://coveralls.io/repos/hildjj/json-text-sequence/badge.png?branch=master)](https://coveralls.io/r/hildjj/json-text-sequence?branch=master)"
+}

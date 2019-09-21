@@ -1,0 +1,6005 @@
+{
+	"name": "docker-modem",
+	"versions": {
+		"0.1.0": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.0",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"querystring": "0.2.0",
+				"follow-redirects": "0.0.3"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.0",
+			"dist": {
+				"shasum": "94fb277e7cba724a2217af7314c73254e380f378",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.1.1": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.1",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"querystring": "0.2.0",
+				"follow-redirects": "0.0.3"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.1",
+			"dist": {
+				"shasum": "813298098bb2b99b39cab164c72a8bbe459f65bd",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.1.2": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.2",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"querystring": "0.2.0",
+				"follow-redirects": "0.0.3"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.2",
+			"dist": {
+				"shasum": "69a8a9ad267c2d1c9d372f92cb1d2c22dba73245",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.1.3": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.3",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"querystring": "0.2.0",
+				"follow-redirects": "0.0.3"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.3",
+			"dist": {
+				"shasum": "855db59681a6eea1d59e27b36bf01b98c455d218",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.21",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.1.4": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.4",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"querystring": "0.2.0",
+				"follow-redirects": "0.0.3"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.4",
+			"dist": {
+				"shasum": "85a0f05b0c8626cd5a009b19fc8aeba0b856d3df",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.4.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.21",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.1.5": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.5",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"querystring": "0.2.0",
+				"follow-redirects": "0.0.3"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.5",
+			"dist": {
+				"shasum": "ad6343dbda0fbe0fcb24f9062e9c89deea1618c4",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.5.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.21",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.1.6": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.6",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"querystring": "0.2.0",
+				"follow-redirects": "0.0.3"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.6",
+			"dist": {
+				"shasum": "a3282147bed64757cc8faa62c272fd14e9f9f407",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.6.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.21",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.1.7": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.7",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"querystring": "0.2.0",
+				"follow-redirects": "0.0.3"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.7",
+			"dist": {
+				"shasum": "7ad2a68299324609d7df481ed0ace9b33db3a5a3",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.7.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.21",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.1.8": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.8",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"querystring": "0.2.0",
+				"follow-redirects": "0.0.3"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0",
+				"debug": "~0.7.4"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.8",
+			"dist": {
+				"shasum": "aec02087400af9de92e0d397d88e1b68f8908d92",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.8.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.21",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.1.9": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.9",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"querystring": "0.2.0",
+				"follow-redirects": "0.0.3",
+				"debug": "~0.7.4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.9",
+			"dist": {
+				"shasum": "9121d23dca6c51c9aaac8182ca54f61f3776e036",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.9.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.21",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.1.10": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.10",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"querystring": "0.2.0",
+				"follow-redirects": "0.0.3",
+				"debug": "~0.7.4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.10",
+			"dist": {
+				"shasum": "b186be4ae0344cddfae94c94f130322be35fea24",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.10.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.24",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.1.11": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.11",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"querystring": "0.2.0",
+				"follow-redirects": "0.0.3",
+				"debug": "~0.7.4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.11",
+			"dist": {
+				"shasum": "54b40d54c2818af39f47c828db5ea628b6300583",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.11.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.24",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.1.12": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.12",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"querystring": "0.2.0",
+				"follow-redirects": "0.0.3",
+				"debug": "~0.7.4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.12",
+			"dist": {
+				"shasum": "e7fb54ff68df4cc50f1bc13776a6cf3a730e2819",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.12.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.1.13": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.13",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.13",
+			"dist": {
+				"shasum": "a9f94196d67e8ed806f99f02dbabd8296fa2911a",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.13.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.1.14": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.14",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "me@vincentwoo.com",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"url": "https://github.com/sreuter"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.14",
+			"dist": {
+				"shasum": "deb8e21e0d62f51580b4a7d439f746d80bfc6fd2",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.14.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.1.15": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.15",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "me@vincentwoo.com",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"url": "https://github.com/sreuter"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.15",
+			"_shasum": "d40f1de0d06ef47de6b0a08932c4a5778fc0d6a6",
+			"_from": ".",
+			"_npmVersion": "1.4.10",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "d40f1de0d06ef47de6b0a08932c4a5778fc0d6a6",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.15.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.16": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.16",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "me@vincentwoo.com",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"url": "https://github.com/sreuter"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.16",
+			"_shasum": "c2bd2bbf2e161b3a5ca253bac8559db9f8094a1e",
+			"_from": ".",
+			"_npmVersion": "1.4.10",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "c2bd2bbf2e161b3a5ca253bac8559db9f8094a1e",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.16.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.17": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.17",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "me@vincentwoo.com",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"url": "https://github.com/sreuter"
+				}
+			],
+			"gitHead": "eb6e162bb477f5f2a0bae4c1630e38f816118236",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.17",
+			"_shasum": "69fa0c8c66a471f592b90a21e1a365f0dba7aebc",
+			"_from": ".",
+			"_npmVersion": "1.4.19",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "69fa0c8c66a471f592b90a21e1a365f0dba7aebc",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.17.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.18": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.18",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "me@vincentwoo.com",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"url": "https://github.com/sreuter"
+				}
+			],
+			"gitHead": "bf0dac7d4ee845038f5ebbd8fb7d7169f931bd26",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.18",
+			"_shasum": "d66aad4944c035f507960279042baee8892d7acc",
+			"_from": ".",
+			"_npmVersion": "2.0.0-alpha-5",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "d66aad4944c035f507960279042baee8892d7acc",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.18.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.19": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.19",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "me@vincentwoo.com",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"url": "https://github.com/sreuter"
+				}
+			],
+			"gitHead": "54a514b57b775f7b5f31b56262c4ad3b752cde1f",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.19",
+			"_shasum": "3506984b4050814dcbfe6d8be8eda784880c7aac",
+			"_from": ".",
+			"_npmVersion": "2.0.0-alpha-5",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "3506984b4050814dcbfe6d8be8eda784880c7aac",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.19.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.20": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.20",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "me@vincentwoo.com",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"url": "https://github.com/sreuter"
+				}
+			],
+			"gitHead": "24373ba310dd07d6f10ff0510ae32d6125869c60",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.20",
+			"_shasum": "bd60401eab7a4b6b4910c8bc4c1deca4fb3b9aab",
+			"_from": ".",
+			"_npmVersion": "2.1.9",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "bd60401eab7a4b6b4910c8bc4c1deca4fb3b9aab",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.20.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.21": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.21",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "me@vincentwoo.com",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"url": "https://github.com/sreuter"
+				}
+			],
+			"gitHead": "858d28ef8b47a37f8acb5939efb5be5e0279373f",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.21",
+			"_shasum": "74d6911568d56ec754b32dd10a7b5165312352fe",
+			"_from": ".",
+			"_npmVersion": "2.1.9",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "74d6911568d56ec754b32dd10a7b5165312352fe",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.21.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.22": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.22",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "me@vincentwoo.com",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"url": "https://github.com/sreuter"
+				}
+			],
+			"gitHead": "4a124a94aef5b74b02c09d8f15a0a0c6db26169c",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.22",
+			"_shasum": "4c925476cc1a5e22ae7d298045e248d6b0b66b6f",
+			"_from": ".",
+			"_npmVersion": "2.1.14",
+			"_nodeVersion": "0.10.35",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "4c925476cc1a5e22ae7d298045e248d6b0b66b6f",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.22.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.23": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.1.23",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "me@vincentwoo.com",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"url": "https://github.com/sreuter"
+				}
+			],
+			"gitHead": "72ebc6098ebac08c9e461d21ad98d11802cde5d5",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.1.23",
+			"_shasum": "b0c92acbd20d4cdd826c82a80b5dc1d54210b164",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "b0c92acbd20d4cdd826c82a80b5dc1d54210b164",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.23.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.2.0",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4",
+				"JSONStream": "0.10.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "ce3c4f0c0fa2ec31838b925bf788277ea9a13e7a",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.2.0",
+			"_shasum": "3b4c52443ab7cb0b9d1d2bf53c8b901a92c2e6a7",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "3b4c52443ab7cb0b9d1d2bf53c8b901a92c2e6a7",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.1": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.2.1",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4",
+				"JSONStream": "0.10.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "2a28bb2e624894d105ada2735efcb6072c352925",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.2.1",
+			"_shasum": "a35c10c0f956e8d32cde361d0f2c6f02a0af7b44",
+			"_from": ".",
+			"_npmVersion": "2.7.3",
+			"_nodeVersion": "0.12.1",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "a35c10c0f956e8d32cde361d0f2c6f02a0af7b44",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.2": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.2.2",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4",
+				"JSONStream": "0.10.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "23f0255237f593f531c65fb606ab2b4625372fff",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.2.2",
+			"_shasum": "7a371b60bde7e68c8240237a96fd860f41ded947",
+			"_from": ".",
+			"_npmVersion": "2.7.4",
+			"_nodeVersion": "0.12.2",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "7a371b60bde7e68c8240237a96fd860f41ded947",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.3": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.2.3",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"jsonstream": "^1.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "eafa1689c5befa53dc6a86d5ec70005847116f3c",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.2.3",
+			"_shasum": "9e12ae650ca839bf22a5c5e6fc8902de97fb5af7",
+			"_from": ".",
+			"_npmVersion": "2.7.4",
+			"_nodeVersion": "0.12.2",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "9e12ae650ca839bf22a5c5e6fc8902de97fb5af7",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.3.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.4": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.2.4",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"jsonstream": "0.10.0",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "8e15116d36cfef9fde5800ce6d6c94dbcb7e4793",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@0.2.4",
+			"_shasum": "4e25b4dca5ee6190894790f8bf15479dae189a47",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "4e25b4dca5ee6190894790f8bf15479dae189a47",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.4.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.5": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.2.5",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"JSONStream": "0.10.0",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "d49df9de6d0f5b4308f16208e993f7f3654580bb",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@0.2.5",
+			"_shasum": "7ec13ff845226f563add177ab0e5820c0c345426",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "7ec13ff845226f563add177ab0e5820c0c345426",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.5.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.6": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.2.6",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"JSONStream": "0.10.0",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "f5c47890e7f42bd933074299d41481649d1b3641",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem",
+			"_id": "docker-modem@0.2.6",
+			"_shasum": "5bb2f9e6c255804d1765ed550b7ca08fddd648a9",
+			"_from": ".",
+			"_npmVersion": "2.7.4",
+			"_nodeVersion": "0.12.2",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "5bb2f9e6c255804d1765ed550b7ca08fddd648a9",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.6.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.7": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.2.7",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "0.10.0",
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "32e0bb750051a6d38e96ceb84b666e7d0985ec79",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@0.2.7",
+			"_shasum": "1c679b4462db01797f539c3da0143ce5ec1bf719",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "1c679b4462db01797f539c3da0143ce5ec1bf719",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.7.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.8": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.2.8",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "0.10.0",
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"querystring": "0.2.0",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "834acee675fc044e17e69e408ae9ba1bb269251a",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@0.2.8",
+			"_shasum": "8df4906017cccc513ea0fa642a9dfb5e0ff2eff3",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "8df4906017cccc513ea0fa642a9dfb5e0ff2eff3",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.8.tgz"
+			},
+			"directories": {}
+		},
+		"0.3.0": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.3.0",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "0.10.0",
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "f086f7c7f6cef7ab47f8d0855a3bedc947f25a09",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@0.3.0",
+			"_shasum": "57b2f2688f8f1961c71050e39fa2eaf98c455e0d",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "57b2f2688f8f1961c71050e39fa2eaf98c455e0d",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.3.1": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.3.1",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "0.10.0",
+				"debug": "~0.7.4",
+				"follow-redirects": "0.0.3",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "d21c2295aa2d5057f9d345dd045fce948d5e165e",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@0.3.1",
+			"_shasum": "43ac44bd14ff503c6fcb5d6620390dbd4a0691c6",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "43ac44bd14ff503c6fcb5d6620390dbd4a0691c6",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/docker-modem-0.3.1.tgz_1466706808882_0.2840668971184641"
+			},
+			"directories": {}
+		},
+		"0.3.2": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.3.2",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "0.10.0",
+				"debug": "~0.7.4",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "56419844f923ef757320cce5a7823f0053efe6d9",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@0.3.2",
+			"_shasum": "def17ef18b5e0b1c92fa3853547792c1895262bf",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "def17ef18b5e0b1c92fa3853547792c1895262bf",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/docker-modem-0.3.2.tgz_1478925961225_0.2109531683381647"
+			},
+			"directories": {}
+		},
+		"0.3.3": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.3.3",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "0.10.0",
+				"debug": "~0.7.4",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "554ddfcac0861045e113df96f37aff2bdc81b741",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@0.3.3",
+			"_shasum": "90a951f58109357a9d83ccbd906f8d4e26487963",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "7.4.0",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "90a951f58109357a9d83ccbd906f8d4e26487963",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.3.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/docker-modem-0.3.3.tgz_1485976878172_0.9154501953162253"
+			},
+			"directories": {}
+		},
+		"0.3.4": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.3.4",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "0.10.0",
+				"debug": "^2.6.0",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "79d386df6b0715a95f8225d754e215c7571db2b1",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@0.3.4",
+			"_shasum": "417c11a153c4db415c5fc8a46502d0096b32ca4e",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "7.4.0",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "417c11a153c4db415c5fc8a46502d0096b32ca4e",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.4.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/docker-modem-0.3.4.tgz_1486011346138_0.5338446022942662"
+			},
+			"directories": {}
+		},
+		"0.3.5": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.3.5",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "0.10.0",
+				"debug": "^2.6.0",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "cd0bc07ffa75e45892ddcb59d66b134d83baea4d",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@0.3.5",
+			"_shasum": "6ca2e9b6e46851e787583421d5a7f13914cf70b1",
+			"_from": ".",
+			"_npmVersion": "4.1.2",
+			"_nodeVersion": "7.5.0",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "6ca2e9b6e46851e787583421d5a7f13914cf70b1",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.5.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/docker-modem-0.3.5.tgz_1488303168533_0.9102141922339797"
+			},
+			"directories": {}
+		},
+		"0.3.6": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.3.6",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "0.10.0",
+				"debug": "^2.6.0",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "0147ea3731459ea4dffbb2b10a509fa29ef782dd",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@0.3.6",
+			"_shasum": "2502c3904ef4f65209ef13755dc50dc57427aeec",
+			"_from": ".",
+			"_npmVersion": "4.1.2",
+			"_nodeVersion": "7.5.0",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "2502c3904ef4f65209ef13755dc50dc57427aeec",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.6.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/docker-modem-0.3.6.tgz_1488304467700_0.5363208546768874"
+			},
+			"directories": {}
+		},
+		"0.3.7": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "0.3.7",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "0.10.0",
+				"debug": "^2.6.0",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "5dc2795ee3deff84584be7a58f8674ed3a6e6bc2",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@0.3.7",
+			"_shasum": "3f510d09f5d334dc2134228f92bd344671227df4",
+			"_from": ".",
+			"_npmVersion": "4.1.2",
+			"_nodeVersion": "7.5.0",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"shasum": "3f510d09f5d334dc2134228f92bd344671227df4",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.7.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/docker-modem-0.3.7.tgz_1488722545293_0.5115065218415111"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "1.0.0",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "0.10.0",
+				"debug": "^2.6.0",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "2c51d55cd2317f3ac0169cd3bb0e8e2c0b453427",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@1.0.0",
+			"_npmVersion": "5.0.3",
+			"_nodeVersion": "8.1.0",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-rYW/buK8mp70nLEudxqgR45CfmBYqZtDkQovLXPVreil0dLoO0mzuh0KLCVlvl94xRkzvi1I9cKv938dVhKu1Q==",
+				"shasum": "cd7f43e209d7a4cff28a2628bae6381414bd8b8b",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/docker-modem-1.0.0.tgz_1497466938346_0.2566666603088379"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "1.0.1",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "0.10.0",
+				"debug": "^2.6.0",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "a4bf8534377e9584ab57f00856c06ca832b00eaa",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@1.0.1",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.4.0",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-+3vQUrmIBhV2PWFFcTsU33U7qCoqSBtCdWH8+nC7H3X/lPBUaOtaDs5TrPo68h6jW3EbTFhdrvWtMrzuJVLB7w==",
+				"shasum": "a65aa694209e2b451544f8493cb313695ec20e77",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/docker-modem-1.0.1.tgz_1504281201262_0.47987398179247975"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "1.0.2",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "0.10.0",
+				"debug": "^2.6.0",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "e15cbfe11a78c713d27fed37bef44ab59fc4a1fc",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@1.0.2",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.4.0",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-ySYw2FoAIPpNNBYLvvoiwOXHfOVGpVCmXhgSM8gU8HnkGBnperNrm+R2NDgYL6hnUkGU4bIAQzOkwWfttELGRQ==",
+				"shasum": "004de0afd2e7b32894e18492fab05ba2dc5d63e3",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/docker-modem-1.0.2.tgz_1504870700830_0.24705773778259754"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "1.0.3",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "0.10.0",
+				"debug": "^2.6.0",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "8a60fd1c6bcc5200bb55d2806b90a1930b4a1e38",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@1.0.3",
+			"_npmVersion": "5.4.2",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-D55iUS6GrV7ohFurvAl1PYqEf8k/x3+xWxtOFoKOs8JM2xyT1yBbZ216Nxjk4F0TboR5iqVVITwPiH/AXeP9Ig==",
+				"shasum": "70ca9de640b2fc37e488596d11572cede60ac75a",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.3.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/docker-modem-1.0.3.tgz_1508847081457_0.21893699048087"
+			},
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "1.0.4",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "0.10.0",
+				"debug": "^2.6.0",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~1.7.0",
+				"mocha": "~1.12.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "81fb3a84647f40fe69f80a6244047aa4381528e1",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@1.0.4",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.1",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-pkXB9p7KWagegOXm2NsbVDBluQQLCBJzX9uYJzVbL6CHwe4d2sSbcACJ4K8ISX1l1JUUmFSiwNkBKc1uTiU4MA==",
+				"shasum": "244254b226b1d7f60225f82395bd85190cf755eb",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.4.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/docker-modem-1.0.4.tgz_1512575872727_0.8404998984187841"
+			},
+			"directories": {}
+		},
+		"1.0.5": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "1.0.5",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "1.3.2",
+				"debug": "^3.1.0",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~4.1.0",
+				"mocha": "~5.0.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec --exit"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "595a873937b303701f7f56381ea4aa88cc9d4f4f",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@1.0.5",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-i3J4TYW9iNp+nWzkgGvj9UwSmT6ZUFg2OsjRlUraHCaDCv8z6f0fN3q4ur0Qq27/1GPYXSjShGaE7fDznIJKUg==",
+				"shasum": "7053a732407c9ef05816f56f82c286bf28283198",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.5.tgz",
+				"fileCount": 10,
+				"unpackedSize": 33850
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/docker-modem_1.0.5_1519163375484_0.465427657999139"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.6": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "1.0.6",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "1.3.2",
+				"debug": "^3.1.0",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~4.1.0",
+				"mocha": "~5.0.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec --exit"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "01cac7434c1927a5ccd41dbe493ae661b1274815",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@1.0.6",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.6.1",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-kDwWa5QaiVMB8Orbb7nXdGdwEZHKfEm7iPwglXe1KorImMpmGNlhC7A5LG0p8rrCcz1J4kJhq/o63lFjDdj8rQ==",
+				"shasum": "0db8f585faad679e67625c27c83954e747ad0190",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.6.tgz",
+				"fileCount": 10,
+				"unpackedSize": 33850
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/docker-modem_1.0.6_1520162680661_0.12596629203436271"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.7": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "1.0.7",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "1.3.2",
+				"debug": "^3.2.5",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~4.1.0",
+				"mocha": "^5.2.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec --exit"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "951f96d3e4fb39a43723e94746f15a2d54ed39bc",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@1.0.7",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.10.0",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-PdcMwnPXgO4sN4BU+XPTjX6Ak4ZnoBwMKp+8DkDn477N/zQhk5jE1QiSAVpTn4j2TfPR5A6voVp8d5wa58iKEA==",
+				"shasum": "69702a95c060eeb6775f79ccdcc734e5946972a4",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.7.tgz",
+				"fileCount": 10,
+				"unpackedSize": 33854,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbn9K5CRA9TVsSAnZWagAAR/QQAKG1cttbI9Si9x4OLXNP\nE0Q7+UFsreN9OLG5WQji1QbF2LF4SzWtDSPe/nBp3Aib3CXrK/CN7J24smY6\nhvb+cYaJsGqRlcsp8fSCX5Eyf/PoZdENf6tvacmikBCrDMBmJVylurAjv8bS\ntbtkCxlimjZCZj2HvK0T5Me5FlF+pXfxWYY5IVu/2MALlgtYWORaJeGIedut\nXWQNxzrjCo3VIyFih8bECoRA2QDaSSPIF/KIWujBnh31HTWcSkGsX0xnmcJQ\nZKxY1Erab2WJdRUvEPVWl4k/qoP4yYJv909j+BxsQY1/k69TSpRoTMyHdQtU\nmz+2+R1l53Cf3WdDTT+UT6VE+Kbhxu29BbjAF7HeCRwXqyafzvMUNfQLXrLO\nyaq0b5vCmKSeKdtaZCYDOnIXZhVLmpGRnoU/iOh7+7M2u0xrEOH2avF9VdJW\ntkhjf/mDhUSzKLrHTlwjRSkbU3hct5uvdzeUWfHi0pwCFxXO77Cw2eEs5zzY\nAn09WtWxem07YTj5lZjmUnpKTWMJugbyGlYlpEhLGVxSqmMvmxneAR0Veo60\nptnSz8Z/MsFU/AivjZmOVxweXdTwNZSxo8KPYIx0KtbK4qMEdwWZEWc+VrDz\nO0L5y4V0KbLkiFOiHkDK2sUoYVvJcTxCj71qUDcQm68AA8Oz4+99M6uXk48h\nCrAh\r\n=rAYm\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/docker-modem_1.0.7_1537200824499_0.5893523142295922"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.8": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "1.0.8",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "1.3.2",
+				"debug": "^3.2.6",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~4.1.0",
+				"mocha": "^5.2.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec --exit"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "7ec7abeb6b0cf7192d29667b397d292fe9f6e3ca",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@1.0.8",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.5.0",
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-YQ2x9HUkJBxjPpppcLe34ucS9dRKkXq89dl1EZJU4DWJXkZHfjKVbOtfbi04RLC6Rgs7sfJGqS+s/ACKsOHKEw==",
+				"shasum": "465d3b42764e5c49289454ebc06950c169b7d1fa",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.8.tgz",
+				"fileCount": 10,
+				"unpackedSize": 34528,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcM0UHCRA9TVsSAnZWagAAoBgP/1Pv4mds12bOH3Zqnuq2\nGmCTzGgpYV817DNAaMShEvQIZFfMvyLh4O5bKYNsTTSN6XpFDANrjrx5T9fH\nsdg8wPG9EmTlpFRGjh+Yj7OK9tvfsNmtSM3o3Ovdxy9qKZWMTrQB1QIrqR9K\nuwg30aUB0FToSM87LF7Il3z9jlwemtBpodbPVAWpOv5Qhqy4MdZ9el4u+WpJ\nu9g6Ziw7BZps7zYjGHc780wX5rd3c+wuTV+Hb2+pURLkar1wyxwsOLqQovgR\nOBlg9/WIdR3rEajVRwRDHk8ILeEJiqYJ++vr/guxMsSto+QTCIwuaJrTb4/0\n9RHwOlyWAdHgZUP/QyOgdWCqgmoDlIKcguZjRm6YuFheagVmFZPL7SwFLHyv\nU7oVN7teZvcal3AFZ1/zPWC2Sqs+JCc9SKgoj9gX7Dyu5ZcVcakP6ibw58Ri\nDSepMfZs/9J0ZafXuYQuXrGzguBrLb9oCL5pnPikKdEcL/JeJXpmXwVsxZ/v\nj9/E9firJhKJw3Lm+Xa5NlSZb8T6aNH0txjz4rG4RxLpPpqw2hiDLj+zS29I\nSCJCK3gW8X9gfqyGG295eodB+PKgmNgtqO0B6olYRqKVMkUXmsG2CvI2Lk0V\nd3V20hUSfLJfZ2jSMvzUHwa7JYjdOkUznpMgeJ2fvdcC7RufAsit+S2ypfUg\nKwsp\r\n=/DMz\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/docker-modem_1.0.8_1546863878090_0.99358202523502"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.9": {
+			"name": "docker-modem",
+			"description": "Docker remote API network layer module.",
+			"version": "1.0.9",
+			"author": {
+				"name": "Pedro Dias",
+				"email": "petermdias@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "apocas",
+					"email": "petermdias@gmail.com"
+				}
+			],
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/apocas/docker-modem.git"
+			},
+			"keywords": [
+				"containers",
+				"api",
+				"docker"
+			],
+			"dependencies": {
+				"JSONStream": "1.3.2",
+				"debug": "^3.2.6",
+				"readable-stream": "~1.0.26-4",
+				"split-ca": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "~4.1.0",
+				"mocha": "^5.2.0"
+			},
+			"main": "./lib/modem",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha -R spec --exit"
+			},
+			"engines": {
+				"node": ">= 0.8"
+			},
+			"contributors": [
+				{
+					"name": "Pedro Dias",
+					"email": "petermdias@gmail.com",
+					"url": "https://github.com/apocas"
+				},
+				{
+					"name": "James Lal",
+					"email": "jlal@mozilla.com",
+					"url": "https://github.com/lightsofapollo"
+				},
+				{
+					"name": "Matteo Collina",
+					"email": "matteo.collina@gmail.com",
+					"url": "https://github.com/mcollina"
+				},
+				{
+					"name": "Thorsten Lorenz",
+					"email": "thlorenz@gmx.de",
+					"url": "https://github.com/thlorenz"
+				},
+				{
+					"name": "Vincent Woo",
+					"email": "vincent@coderpad.io",
+					"url": "https://github.com/vincentwoo"
+				},
+				{
+					"name": "Clemens Stolle",
+					"url": "https://github.com/klaemo"
+				},
+				{
+					"name": "Everton Ribeiro",
+					"email": "nuxlli@gmail.com",
+					"url": "https://github.com/nuxlli"
+				},
+				{
+					"name": "Lewis J Ellis",
+					"email": "me@lewisjellis.com",
+					"url": "https://github.com/LewisJEllis"
+				},
+				{
+					"name": "Ilya Radchenko",
+					"email": "ilya@burstcreations.com",
+					"url": "https://github.com/knownasilya"
+				},
+				{
+					"name": "Csaba Palfi",
+					"url": "https://github.com/csabapalfi"
+				},
+				{
+					"name": "Tejesh Mehta",
+					"url": "https://github.com/tjmehta"
+				},
+				{
+					"name": "Mike Dillon",
+					"url": "https://github.com/md5"
+				},
+				{
+					"name": "Sam Rijs",
+					"email": "srijs@airpost.net",
+					"url": "https://github.com/srijs"
+				},
+				{
+					"name": "Stuart Knightley",
+					"url": "https://github.com/Stuk"
+				},
+				{
+					"name": "Niclas Hoyer",
+					"url": "https://github.com/niclashoyer"
+				},
+				{
+					"name": "Sascha Reuter",
+					"url": "https://github.com/sreuter"
+				},
+				{
+					"name": "Tim Macfarlane",
+					"url": "https://github.com/refractalize"
+				}
+			],
+			"gitHead": "7bacb95c2ea5290a47a8c79f0c3b5d7c0de0aa2f",
+			"bugs": {
+				"url": "https://github.com/apocas/docker-modem/issues"
+			},
+			"homepage": "https://github.com/apocas/docker-modem#readme",
+			"_id": "docker-modem@1.0.9",
+			"_nodeVersion": "11.10.0",
+			"_npmVersion": "6.7.0",
+			"dist": {
+				"integrity": "sha512-lVjqCSCIAUDZPAZIeyM125HXfNvOmYYInciphNrLrylUtKyW66meAjSPXWchKVzoIYZx69TPnAepVSSkeawoIw==",
+				"shasum": "a1f13e50e6afb6cf3431b2d5e7aac589db6aaba8",
+				"tarball": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.9.tgz",
+				"fileCount": 10,
+				"unpackedSize": 34528,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcbHwBCRA9TVsSAnZWagAAfFQP/itiWsE5PF5T/zIFtURF\npTsodM1zDQmjmmETyoHtDhfCqmSakA6zeVLkF/Uz43KKT4YfgTgH+gncl+GF\nKwAFqhptdzRZ41j+HOOkS250DPfDIEF6fK39l95tDT2pcVymcXSLp97sZA0m\nleH9oQF7fBBBXtYAouhtkNdlr/DEt6Bppd4DL5NEac30yijtLjkasg+tmzHR\n1Ttnbj3XzmW/+Of/6IG9k2yDVFz7HQKqVH/4vawrkgAdcZWKNhoC5p45VUSj\nKTcd0aKM+LuJN9BSdZPi7mNlkk7nZL/Q1YKZrTC8bEXUnpiJBY+T0YZBL5qQ\n7hOT2sPQa8Ma9C1BiSufyTAfFuOiit1pvTI2B/4Z3PRHPcMhI8Oo6+JwjS1F\nSZ56ITfuUW4WIwByBUSPhpTSizuhL+L4ZY1/DlMlu9PbuB6GIEth3ZYPRT2d\nfXRrVOajRtEfhUe9+IGK7c386f9teOVRYEcgXRkVgXVZaWtByt44sXlvMV0y\n85ih7fAHl2eSMVwZENgzwKc6nsaKVacmwYWkEpHGIolqU1FbaWyT6odlxNto\neHX59cs86QYhs8EufqTcnJ1hW15ljI9I9qgEBuQS7TYivXlqgWVOZIyUUsZV\n0BjXMRse7FmtAwvrAW3JS4DuBGL6YFlOAinUmAzgQ3lbG3VxxunlZFBQTWPc\n2H9r\r\n=SCfh\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "apocas",
+				"email": "petermdias@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/docker-modem_1.0.9_1550613504651_0.1617745308453682"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-02-19T21:58:29.035Z",
+		"created": "2013-12-01T16:57:28.873Z",
+		"0.1.0": "2013-12-01T16:57:35.177Z",
+		"0.1.1": "2013-12-04T00:17:33.483Z",
+		"0.1.2": "2013-12-04T14:24:03.975Z",
+		"0.1.3": "2014-01-01T23:37:16.508Z",
+		"0.1.4": "2014-01-11T20:44:44.007Z",
+		"0.1.5": "2014-01-25T19:33:01.378Z",
+		"0.1.6": "2014-01-29T00:51:13.496Z",
+		"0.1.7": "2014-02-01T23:54:35.728Z",
+		"0.1.8": "2014-02-02T15:48:15.854Z",
+		"0.1.9": "2014-02-03T08:56:28.777Z",
+		"0.1.10": "2014-02-09T13:49:31.583Z",
+		"0.1.11": "2014-02-22T01:14:14.407Z",
+		"0.1.12": "2014-03-24T18:17:35.549Z",
+		"0.1.13": "2014-04-12T18:43:27.739Z",
+		"0.1.14": "2014-04-30T00:23:48.202Z",
+		"0.1.15": "2014-05-28T03:15:06.764Z",
+		"0.1.16": "2014-05-31T03:24:52.908Z",
+		"0.1.17": "2014-07-26T14:11:16.677Z",
+		"0.1.18": "2014-08-14T20:28:29.494Z",
+		"0.1.19": "2014-08-20T06:57:26.763Z",
+		"0.1.20": "2014-12-28T03:52:21.400Z",
+		"0.1.21": "2014-12-29T15:43:32.011Z",
+		"0.1.22": "2015-01-05T12:29:02.274Z",
+		"0.1.23": "2015-02-12T14:31:21.501Z",
+		"0.2.0": "2015-03-19T19:07:22.456Z",
+		"0.2.1": "2015-03-26T10:22:47.798Z",
+		"0.2.2": "2015-04-18T15:13:23.804Z",
+		"0.2.3": "2015-06-02T21:42:35.376Z",
+		"0.2.4": "2015-06-04T20:56:12.299Z",
+		"0.2.5": "2015-06-04T21:03:04.726Z",
+		"0.2.6": "2015-07-11T22:26:17.486Z",
+		"0.2.7": "2015-11-28T16:29:26.322Z",
+		"0.2.8": "2015-11-29T02:37:33.856Z",
+		"0.3.0": "2016-01-04T23:28:51.184Z",
+		"0.3.1": "2016-06-23T18:33:31.479Z",
+		"0.3.2": "2016-11-12T04:46:03.377Z",
+		"0.3.3": "2017-02-01T19:21:18.878Z",
+		"0.3.4": "2017-02-02T04:55:46.749Z",
+		"0.3.5": "2017-02-28T17:32:49.169Z",
+		"0.3.6": "2017-02-28T17:54:29.469Z",
+		"0.3.7": "2017-03-05T14:02:27.311Z",
+		"1.0.0": "2017-06-14T19:02:19.268Z",
+		"1.0.1": "2017-09-01T15:53:22.206Z",
+		"1.0.2": "2017-09-08T11:38:21.773Z",
+		"1.0.3": "2017-10-24T12:11:23.022Z",
+		"1.0.4": "2017-12-06T15:57:53.726Z",
+		"1.0.5": "2018-02-20T21:49:35.551Z",
+		"1.0.6": "2018-03-04T11:24:40.745Z",
+		"1.0.7": "2018-09-17T16:13:44.636Z",
+		"1.0.8": "2019-01-07T12:24:38.299Z",
+		"1.0.9": "2019-02-19T21:58:24.916Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.9"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"916b9e9f0daa3bea840519e38342769d\"",
+			"fetched": 1568994334878
+		}
+	},
+	"_distfiles": {
+		"docker-modem-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.0.tgz",
+			"sha": "94fb277e7cba724a2217af7314c73254e380f378",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.1.tgz",
+			"sha": "813298098bb2b99b39cab164c72a8bbe459f65bd",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.2.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.2.tgz",
+			"sha": "69a8a9ad267c2d1c9d372f92cb1d2c22dba73245",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.3.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.3.tgz",
+			"sha": "855db59681a6eea1d59e27b36bf01b98c455d218",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.4.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.4.tgz",
+			"sha": "85a0f05b0c8626cd5a009b19fc8aeba0b856d3df",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.5.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.5.tgz",
+			"sha": "ad6343dbda0fbe0fcb24f9062e9c89deea1618c4",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.6.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.6.tgz",
+			"sha": "a3282147bed64757cc8faa62c272fd14e9f9f407",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.7.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.7.tgz",
+			"sha": "7ad2a68299324609d7df481ed0ace9b33db3a5a3",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.8.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.8.tgz",
+			"sha": "aec02087400af9de92e0d397d88e1b68f8908d92",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.9.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.9.tgz",
+			"sha": "9121d23dca6c51c9aaac8182ca54f61f3776e036",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.10.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.10.tgz",
+			"sha": "b186be4ae0344cddfae94c94f130322be35fea24",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.11.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.11.tgz",
+			"sha": "54b40d54c2818af39f47c828db5ea628b6300583",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.12.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.12.tgz",
+			"sha": "e7fb54ff68df4cc50f1bc13776a6cf3a730e2819",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.13.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.13.tgz",
+			"sha": "a9f94196d67e8ed806f99f02dbabd8296fa2911a",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.14.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.14.tgz",
+			"sha": "deb8e21e0d62f51580b4a7d439f746d80bfc6fd2",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.15.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.15.tgz",
+			"sha": "d40f1de0d06ef47de6b0a08932c4a5778fc0d6a6",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.16.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.16.tgz",
+			"sha": "c2bd2bbf2e161b3a5ca253bac8559db9f8094a1e",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.17.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.17.tgz",
+			"sha": "69fa0c8c66a471f592b90a21e1a365f0dba7aebc",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.18.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.18.tgz",
+			"sha": "d66aad4944c035f507960279042baee8892d7acc",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.19.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.19.tgz",
+			"sha": "3506984b4050814dcbfe6d8be8eda784880c7aac",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.20.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.20.tgz",
+			"sha": "bd60401eab7a4b6b4910c8bc4c1deca4fb3b9aab",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.21.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.21.tgz",
+			"sha": "74d6911568d56ec754b32dd10a7b5165312352fe",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.22.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.22.tgz",
+			"sha": "4c925476cc1a5e22ae7d298045e248d6b0b66b6f",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.1.23.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.1.23.tgz",
+			"sha": "b0c92acbd20d4cdd826c82a80b5dc1d54210b164",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.0.tgz",
+			"sha": "3b4c52443ab7cb0b9d1d2bf53c8b901a92c2e6a7",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.1.tgz",
+			"sha": "a35c10c0f956e8d32cde361d0f2c6f02a0af7b44",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.2.2.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.2.tgz",
+			"sha": "7a371b60bde7e68c8240237a96fd860f41ded947",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.2.3.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.3.tgz",
+			"sha": "9e12ae650ca839bf22a5c5e6fc8902de97fb5af7",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.2.4.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.4.tgz",
+			"sha": "4e25b4dca5ee6190894790f8bf15479dae189a47",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.2.5.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.5.tgz",
+			"sha": "7ec13ff845226f563add177ab0e5820c0c345426",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.2.6.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.6.tgz",
+			"sha": "5bb2f9e6c255804d1765ed550b7ca08fddd648a9",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.2.7.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.7.tgz",
+			"sha": "1c679b4462db01797f539c3da0143ce5ec1bf719",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.2.8.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.2.8.tgz",
+			"sha": "8df4906017cccc513ea0fa642a9dfb5e0ff2eff3",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.0.tgz",
+			"sha": "57b2f2688f8f1961c71050e39fa2eaf98c455e0d",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.3.1.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.1.tgz",
+			"sha": "43ac44bd14ff503c6fcb5d6620390dbd4a0691c6",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.3.2.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.2.tgz",
+			"sha": "def17ef18b5e0b1c92fa3853547792c1895262bf",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.3.3.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.3.tgz",
+			"sha": "90a951f58109357a9d83ccbd906f8d4e26487963",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.3.4.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.4.tgz",
+			"sha": "417c11a153c4db415c5fc8a46502d0096b32ca4e",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.3.5.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.5.tgz",
+			"sha": "6ca2e9b6e46851e787583421d5a7f13914cf70b1",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.3.6.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.6.tgz",
+			"sha": "2502c3904ef4f65209ef13755dc50dc57427aeec",
+			"registry": "npmjs"
+		},
+		"docker-modem-0.3.7.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-0.3.7.tgz",
+			"sha": "3f510d09f5d334dc2134228f92bd344671227df4",
+			"registry": "npmjs"
+		},
+		"docker-modem-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.0.tgz",
+			"sha": "cd7f43e209d7a4cff28a2628bae6381414bd8b8b",
+			"registry": "npmjs"
+		},
+		"docker-modem-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.1.tgz",
+			"sha": "a65aa694209e2b451544f8493cb313695ec20e77",
+			"registry": "npmjs"
+		},
+		"docker-modem-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.2.tgz",
+			"sha": "004de0afd2e7b32894e18492fab05ba2dc5d63e3",
+			"registry": "npmjs"
+		},
+		"docker-modem-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.3.tgz",
+			"sha": "70ca9de640b2fc37e488596d11572cede60ac75a",
+			"registry": "npmjs"
+		},
+		"docker-modem-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.4.tgz",
+			"sha": "244254b226b1d7f60225f82395bd85190cf755eb",
+			"registry": "npmjs"
+		},
+		"docker-modem-1.0.5.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.5.tgz",
+			"sha": "7053a732407c9ef05816f56f82c286bf28283198",
+			"registry": "npmjs"
+		},
+		"docker-modem-1.0.6.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.6.tgz",
+			"sha": "0db8f585faad679e67625c27c83954e747ad0190",
+			"registry": "npmjs"
+		},
+		"docker-modem-1.0.7.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.7.tgz",
+			"sha": "69702a95c060eeb6775f79ccdcc734e5946972a4",
+			"registry": "npmjs"
+		},
+		"docker-modem-1.0.8.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.8.tgz",
+			"sha": "465d3b42764e5c49289454ebc06950c169b7d1fa",
+			"registry": "npmjs"
+		},
+		"docker-modem-1.0.9.tgz": {
+			"url": "https://registry.npmjs.org/docker-modem/-/docker-modem-1.0.9.tgz",
+			"sha": "a1f13e50e6afb6cf3431b2d5e7aac589db6aaba8",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-961cecd2877f2bc0",
+	"_id": "docker-modem",
+	"readme": "# docker-modem [![Build Status](https://travis-ci.org/apocas/docker-modem.svg?branch=master)](https://travis-ci.org/apocas/docker-modem)\n\n[Docker](https://www.docker.com/)'s Remote API network layer module.\n\n`docker-modem` will help you talking with `Docker`, since it already implements all the network strategies needed to support all `Docker`'s Remote API endpoints.\n\nIt is the module powering (network wise) [dockerode](https://github.com/apocas/dockerode) and other modules.\n\n## Tests\n\n * Tests are implemented using `mocha` and `chai`. Run them with `npm test`.\n * Check [dockerode](https://github.com/apocas/dockerode) tests, which is indirectly co-testing `docker-modem`.\n\n## License\n\nPedro Dias - [@pedromdias](https://twitter.com/pedromdias)\n\nLicensed under the Apache license, version 2.0 (the \"license\"); You may not use this file except in compliance with the license. You may obtain a copy of the license at:\n\nhttp://www.apache.org/licenses/LICENSE-2.0.html\n\nUnless required by applicable law or agreed to in writing, software distributed under the license is distributed on an \"as is\" basis, without warranties or conditions of any kind, either express or implied. See the license for the specific language governing permissions and limitations under the license."
+}

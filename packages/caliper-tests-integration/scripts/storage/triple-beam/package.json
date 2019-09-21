@@ -1,0 +1,366 @@
+{
+	"name": "triple-beam",
+	"versions": {
+		"1.0.0": {
+			"name": "triple-beam",
+			"version": "1.0.0",
+			"description": "Definitions of levels for logging purposes & shareable Symbol constants.",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/triple-beam.git"
+			},
+			"keywords": [
+				"winstonjs",
+				"winston",
+				"logging",
+				"logform",
+				"symbols",
+				"logs",
+				"levels"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/triple-beam/issues"
+			},
+			"homepage": "https://github.com/winstonjs/triple-beam#readme",
+			"devDependencies": {
+				"assume": "^1.5.1",
+				"mocha": "^3.5.3",
+				"nyc": "^11.2.1"
+			},
+			"gitHead": "7fc5e6626a84c29d4322a12b4e8a059e073cba4f",
+			"_id": "triple-beam@1.0.0",
+			"_shasum": "8ededf0bc406beb504e4b866ec687f981504b16a",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "8ededf0bc406beb504e4b866ec687f981504b16a",
+				"tarball": "https://registry.npmjs.org/triple-beam/-/triple-beam-1.0.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/triple-beam-1.0.0.tgz_1506674996460_0.9691026124637574"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "triple-beam",
+			"version": "1.0.1",
+			"description": "Definitions of levels for logging purposes & shareable Symbol constants.",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/triple-beam.git"
+			},
+			"keywords": [
+				"winstonjs",
+				"winston",
+				"logging",
+				"logform",
+				"symbols",
+				"logs",
+				"levels"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/triple-beam/issues"
+			},
+			"homepage": "https://github.com/winstonjs/triple-beam#readme",
+			"devDependencies": {
+				"assume": "^1.5.1",
+				"mocha": "^3.5.3",
+				"nyc": "^11.2.1"
+			},
+			"gitHead": "a30d9206e79faf3a37b57367230554125d2d752a",
+			"_id": "triple-beam@1.0.1",
+			"_shasum": "3229b2ae3b136024efef51a93bdae9d7fff35983",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "3229b2ae3b136024efef51a93bdae9d7fff35983",
+				"tarball": "https://registry.npmjs.org/triple-beam/-/triple-beam-1.0.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/triple-beam-1.0.1.tgz_1506679368477_0.4452955930028111"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "triple-beam",
+			"version": "1.1.0",
+			"description": "Definitions of levels for logging purposes & shareable Symbol constants.",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/triple-beam.git"
+			},
+			"keywords": [
+				"winstonjs",
+				"winston",
+				"logging",
+				"logform",
+				"symbols",
+				"logs",
+				"levels"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/triple-beam/issues"
+			},
+			"homepage": "https://github.com/winstonjs/triple-beam#readme",
+			"devDependencies": {
+				"assume": "^1.5.1",
+				"mocha": "^3.5.3",
+				"nyc": "^11.2.1"
+			},
+			"gitHead": "18d032a0454bbbcf804f602ef49acf213defd1e2",
+			"_id": "triple-beam@1.1.0",
+			"_shasum": "2ac387c8c4bd04bd26c61df891a6079f8592fe10",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "2ac387c8c4bd04bd26c61df891a6079f8592fe10",
+				"tarball": "https://registry.npmjs.org/triple-beam/-/triple-beam-1.1.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/triple-beam-1.1.0.tgz_1506737581999_0.7331350641325116"
+			},
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "triple-beam",
+			"version": "1.2.0",
+			"description": "Definitions of levels for logging purposes & shareable Symbol constants.",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/triple-beam.git"
+			},
+			"keywords": [
+				"winstonjs",
+				"winston",
+				"logging",
+				"logform",
+				"symbols",
+				"logs",
+				"levels"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/triple-beam/issues"
+			},
+			"homepage": "https://github.com/winstonjs/triple-beam#readme",
+			"devDependencies": {
+				"assume": "^2.0.0",
+				"mocha": "^3.5.3",
+				"nyc": "^11.2.1"
+			},
+			"gitHead": "1ccc180b8ed4522165ae2d48992033f8d2c7b6de",
+			"_id": "triple-beam@1.2.0",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-nw1CkXiwTt0sdF0i+MRTvslFK7pme9sPGY1MjuZV14HB/pLL3Srw9LsphR1Qo0SYDPMFetpcY/bA3DjPA+R+1g==",
+				"shasum": "8b5c1f3d491229bf6ddcf721c0ba84cef5ab51fa",
+				"tarball": "https://registry.npmjs.org/triple-beam/-/triple-beam-1.2.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 7816,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa4Kg5CRA9TVsSAnZWagAAz6cP/iXuTcwBuG4QRYf9q/++\nQrc+YkkEUVUWeTGGUHR5mdlzlLXLwEcw/WNNqIdO1Ft0H1y3AGNGY1R4XkaO\nEhuooxIBwDpQGq7K1wFph2lPyL5ZwsMVx3GzdKMtr8zlVW0cPrq3xMSvu0KH\n6k97gGI+3mDllxdMNdevuQPLlQXINXBQ0+CwtD1JfLKU+/aDNVOlGIe/YXZ4\nj02ur120n4qrjzoZjGpx9Vo/ZcumD6y3MK5iP2BXLg/Klr51zyaXrIZb56W6\no6YCNTaB7fEvvXgoal54+kAJE4Lu9cEOpg2XYD1DUcEHeBrtjHJECGgh/X+l\nmAllRpgidJ2WKSmAk7WfEOxkkJYB5XtfthcKaQdS+zhsDb8qATCst2M1/oGQ\n/Z19ru+2T4Pe4vZddtbDiHAagHd3H9R6SDPAkz2XsLN08PtXTEk/gHuErzlz\nHaQTCUMQsLwqgqH36gkRSJ428o3wBjE0hAidr6K1GNaQ54mWj+u/tI7s+7TR\nTd2OLkpMKKojofqPks8NDi78z4rbYOpuePUib+2GPMy71Tf8mVdC/XV+T0yV\nZThkj2E2ZYx3doqjyXy9gFENuCmq8w6jOAHFXGSQKoN8QI5j50uUC5VhUBqw\nKfT1afbNwMv6rz3Xw/+WHYeO8RUTi/OJppXiaJaPBd+d89sIoC0VQ2D7IHfU\nQ+ME\r\n=YRar\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/triple-beam_1.2.0_1524672568765_0.617234929948812"
+			}
+		},
+		"1.3.0": {
+			"name": "triple-beam",
+			"version": "1.3.0",
+			"description": "Definitions of levels for logging purposes & shareable Symbol constants.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "populist config/*.js index.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/triple-beam.git"
+			},
+			"keywords": [
+				"winstonjs",
+				"winston",
+				"logging",
+				"logform",
+				"symbols",
+				"logs",
+				"levels"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/triple-beam/issues"
+			},
+			"homepage": "https://github.com/winstonjs/triple-beam#readme",
+			"devDependencies": {
+				"assume": "^2.0.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^5.1.1",
+				"nyc": "^11.7.1"
+			},
+			"gitHead": "8f258391c4cd815d9e6fbe81023d657df374d054",
+			"_id": "triple-beam@1.3.0",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-XrHUvV5HpdLmIj4uVMxHggLbFSZYIn7HEWsqePZcI50pco+MPqJ50wMGY794X7AOOhxOBAjbkqfAbEe/QMp2Lw==",
+				"shasum": "a595214c7298db8339eeeee083e4d10bd8cb8dd9",
+				"tarball": "https://registry.npmjs.org/triple-beam/-/triple-beam-1.3.0.tgz",
+				"fileCount": 13,
+				"unpackedSize": 9211,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbBlhwCRA9TVsSAnZWagAAP7YP+QC8ihSu+2xy+R0iup4F\nc4woUL50zM+9AbP7yPwDVdCJK2YRn5zapqq68QCrtfgn2Fas+CW4Ps+yxtZl\nAJJJctUPnNL4961l+GThU7v2vVU6phYQK8adlDswzvlsipGHJGt7/TI5mFvc\npw0wP0CnRsEn2ETODD0k88+B4qoZX+MFQsFfare6vgZqMQl96ArNrajSOR29\nxt2/6NWDhHtnHv8I6uosXXmIuLySInAtIOlOJa51/VOd1B36hnbuR8xD8DNi\nUR7rmg2o/PWqlzZWhMpuzn3f5S0RBbE1bfgIw/wIVRTAgJzyrzqyetSfDrxU\nmIInpYs+pSTRewsbepEptmzy8Sj//e5jdWLbJQS2hzEWzH42AyzefIZrM59U\njkF466iLrPko3/gpFIw41lwom2SJzswdY6UszYavUl4xTfTeRnKRGW8gjgo+\nq8OtSKC1Hk7iBUUH/2g5/6GVkV06MXrRnmH2arj/qrxmUmOOi4wPQBQlgWst\nw1Q71Fj7ACuYc5PzRfadcnq9sBDEyEDaLru1/paRd56AEuesc0fbtoUWvUjT\nMjWDhD4eEoGYCmTpYR3w/w8hUe4SY0P8be5Vgrw8qOefLZ0BIC9lOpBcOGUT\nJs94kZtmqBhwu3rbxG1jTHNmI3ZDUZHVNCEP3vke4Oz7A24X3SCRholQkoq+\nkukE\r\n=bcD0\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/triple-beam_1.3.0_1527142511887_0.7576639762248991"
+			}
+		}
+	},
+	"time": {
+		"modified": "2018-05-24T06:15:16.029Z",
+		"created": "2017-09-29T08:49:57.325Z",
+		"1.0.0": "2017-09-29T08:49:57.325Z",
+		"1.0.1": "2017-09-29T10:02:49.319Z",
+		"1.1.0": "2017-09-30T02:13:03.284Z",
+		"1.2.0": "2018-04-25T16:09:28.899Z",
+		"1.3.0": "2018-05-24T06:15:12.095Z"
+	},
+	"dist-tags": {
+		"latest": "1.3.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"9bb836a9039db33323f08782fd8436fc\"",
+			"fetched": 1568994338759
+		}
+	},
+	"_distfiles": {
+		"triple-beam-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/triple-beam/-/triple-beam-1.0.0.tgz",
+			"sha": "8ededf0bc406beb504e4b866ec687f981504b16a",
+			"registry": "npmjs"
+		},
+		"triple-beam-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/triple-beam/-/triple-beam-1.0.1.tgz",
+			"sha": "3229b2ae3b136024efef51a93bdae9d7fff35983",
+			"registry": "npmjs"
+		},
+		"triple-beam-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/triple-beam/-/triple-beam-1.1.0.tgz",
+			"sha": "2ac387c8c4bd04bd26c61df891a6079f8592fe10",
+			"registry": "npmjs"
+		},
+		"triple-beam-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/triple-beam/-/triple-beam-1.2.0.tgz",
+			"sha": "8b5c1f3d491229bf6ddcf721c0ba84cef5ab51fa",
+			"registry": "npmjs"
+		},
+		"triple-beam-1.3.0.tgz": {
+			"url": "https://registry.npmjs.org/triple-beam/-/triple-beam-1.3.0.tgz",
+			"sha": "a595214c7298db8339eeeee083e4d10bd8cb8dd9",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-d9e4cf756633c790",
+	"_id": "triple-beam",
+	"readme": "# triple-beam\n\nDefinitions of levels for logging purposes & shareable Symbol constants.\n\n## Usage\n\n``` js\nconst { LEVEL } = require('triple-beam');\nconst colors = require('colors/safe');\n\nconst info = {\n  [LEVEL]: 'error',\n  level: 'error',\n  message: 'hey a logging message!'\n};\n\n// Colorize your log level!\ninfo.level = colors.green(info.level);\n\n// And still have an unmutated copy of your level!\nconsole.log(info.level === 'error');  // false\nconsole.log(info[LEVEL] === 'error'); // true\n```\n\n## Tests\n\nTests are written with `mocha`, `assume`, and `nyc`. They can be run with `npm`:\n\n```\nnpm test\n```\n\n##### LICENSE: MIT\n##### AUTHOR: [Charlie Robbins](https://github.com/indexzero)"
+}

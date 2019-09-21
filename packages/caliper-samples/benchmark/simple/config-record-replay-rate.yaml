@@ -1,0 +1,78 @@
+---
+test:
+  name: simple
+  description: This is an example benchmark for caliper, to test the backend DLT's
+    performance with simple account opening & querying transactions
+  clients:
+    type: local
+    number: 5
+  rounds:
+  - label: open
+    txDuration:
+    - 15
+    - 15
+    - 15
+    - 15
+    - 15
+    - 15
+    rateControl:
+    - type: record-rate
+      opts:
+        rateController:
+          type: fixed-rate
+          opts:
+            tps: 50
+        pathTemplate: "../tx_records_client<C>.txt"
+        outputFormat: TEXT
+        logEnd: true
+    - type: record-rate
+      opts:
+        rateController:
+          type: fixed-rate
+          opts:
+            tps: 50
+        pathTemplate: "../tx_records_client<C>.be.bin"
+        outputFormat: BIN_BE
+        logEnd: true
+    - type: record-rate
+      opts:
+        rateController:
+          type: fixed-rate
+          opts:
+            tps: 50
+        pathTemplate: "../tx_records_client<C>.le.bin"
+        outputFormat: BIN_LE
+        logEnd: true
+    - type: replay-rate
+      opts:
+        pathTemplate: "../tx_records_client<C>.txt"
+        inputFormat: TEXT
+        logWarnings: true
+        defaultSleepTime: 50
+    - type: replay-rate
+      opts:
+        pathTemplate: "../tx_records_client<C>.be.bin"
+        inputFormat: BIN_BE
+        logWarnings: true
+        defaultSleepTime: 50
+    - type: replay-rate
+      opts:
+        pathTemplate: "../tx_records_client<C>.le.bin"
+        inputFormat: BIN_LE
+        logWarnings: true
+        defaultSleepTime: 50
+    arguments:
+      money: 10000
+    callback: benchmark/simple/open.js
+monitor:
+  type:
+  - docker
+  - process
+  docker:
+    name:
+    - all
+  process:
+  - command: node
+    arguments: local-client.js
+    multiOutput: avg
+  interval: 1

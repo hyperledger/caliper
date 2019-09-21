@@ -1,0 +1,100 @@
+{
+	"name": "strip-hex-prefix",
+	"versions": {
+		"1.0.0": {
+			"name": "strip-hex-prefix",
+			"version": "1.0.0",
+			"description": "A simple method that will strip a valid hex prefix off a string, if present.",
+			"main": "src/index.js",
+			"scripts": {
+				"test": "mocha src/tests/**/**.js",
+				"test-travis": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- src/tests/**/*.js",
+				"coveralls": "npm run test-travis && cat ./coverage/lcov.info | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/SilentCicero/strip-hex-prefix.git"
+			},
+			"engines": {
+				"npm": ">=3",
+				"node": ">=6.5.0"
+			},
+			"keywords": [
+				"is",
+				"hex",
+				"prefixed",
+				"prefix",
+				"checker",
+				"method"
+			],
+			"author": {
+				"name": "Nick Dodson",
+				"email": "thenickdodson@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/SilentCicero/strip-hex-prefix/issues"
+			},
+			"homepage": "https://github.com/SilentCicero/strip-hex-prefix#readme",
+			"dependencies": {
+				"is-hex-prefixed": "1.0.0"
+			},
+			"devDependencies": {
+				"chai": "3.5.0",
+				"mocha": "3.2.0",
+				"istanbul": "0.4.5",
+				"coveralls": "2.11.9"
+			},
+			"gitHead": "a22cb5bb12095cac2b9684747b956de0ccaa725f",
+			"_id": "strip-hex-prefix@1.0.0",
+			"_shasum": "0c5f155fef1151373377de9dbb588da05500e36f",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "silentcicero",
+				"email": "thenickdodson@gmail.com"
+			},
+			"dist": {
+				"shasum": "0c5f155fef1151373377de9dbb588da05500e36f",
+				"tarball": "https://registry.npmjs.org/strip-hex-prefix/-/strip-hex-prefix-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "silentcicero",
+					"email": "thenickdodson@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/strip-hex-prefix-1.0.0.tgz_1481060457762_0.22122150496579707"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2016-12-06T21:40:58.394Z",
+		"created": "2016-12-06T21:40:58.394Z",
+		"1.0.0": "2016-12-06T21:40:58.394Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"3629e5feea725c6481aa53ffdc47c8df\"",
+			"fetched": 1568994331879
+		}
+	},
+	"_distfiles": {
+		"strip-hex-prefix-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/strip-hex-prefix/-/strip-hex-prefix-1.0.0.tgz",
+			"sha": "0c5f155fef1151373377de9dbb588da05500e36f",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-95d73f0df8e9475e",
+	"_id": "strip-hex-prefix",
+	"readme": "## strip-hex-prefix\n\n<div>\n  <!-- Dependency Status -->\n  <a href=\"https://david-dm.org/silentcicero/strip-hex-prefix\">\n    <img src=\"https://david-dm.org/silentcicero/strip-hex-prefix.svg\"\n    alt=\"Dependency Status\" />\n  </a>\n\n  <!-- devDependency Status -->\n  <a href=\"https://david-dm.org/silentcicero/strip-hex-prefix#info=devDependencies\">\n    <img src=\"https://david-dm.org/silentcicero/strip-hex-prefix/dev-status.svg\" alt=\"devDependency Status\" />\n  </a>\n\n  <!-- Build Status -->\n  <a href=\"https://travis-ci.org/SilentCicero/strip-hex-prefix\">\n    <img src=\"https://travis-ci.org/SilentCicero/strip-hex-prefix.svg\"\n    alt=\"Build Status\" />\n  </a>\n\n  <!-- NPM Version -->\n  <a href=\"https://www.npmjs.org/package/strip-hex-prefix\">\n    <img src=\"http://img.shields.io/npm/v/strip-hex-prefix.svg\"\n    alt=\"NPM version\" />\n  </a>\n\n  <a href=\"https://coveralls.io/r/SilentCicero/strip-hex-prefix\">\n    <img src=\"https://coveralls.io/repos/github/SilentCicero/strip-hex-prefix/badge.svg\" alt=\"Test Coverage\" />\n  </a>\n\n  <!-- Javascript Style -->\n  <a href=\"http://airbnb.io/javascript/\">\n    <img src=\"https://img.shields.io/badge/code%20style-airbnb-brightgreen.svg\" alt=\"js-airbnb-style\" />\n  </a>\n</div>\n\n<br />\n\nA simple method to strip the hex prefix of a string, if present.\n\nWill bypass if not a string.\n\n## Install\n\n```\nnpm install --save strip-hex-prefix\n```\n\n## Usage\n\n```js\nconst stripHexPrefix = require('strip-hex-prefix');\n\nconsole.log(stripHexPrefix('0x'));\n\n// result ''\n\nconsole.log(stripHexPrefix('0xhjsfdj'));\n\n// result 'hjsfdj'\n\nconsole.log(stripHexPrefix('0x87sf7373ds8sfsdhgs73y87ssgsdf89'));\n\n// result '87sf7373ds8sfsdhgs73y87ssgsdf89'\n\nconsole.log(stripHexPrefix({}));\n\n// result {}\n\nconsole.log(stripHexPrefix('-0x'));\n\n// result '-0x'\n```\n\n## Important documents\n\n- [Changelog](CHANGELOG.md)\n- [License](https://raw.githubusercontent.com/silentcicero/strip-hex-prefix/master/LICENSE)\n\n## Licence\n\nThis project is licensed under the MIT license, Copyright (c) 2016 Nick Dodson. For more information see LICENSE.md.\n\n```\nThe MIT License\n\nCopyright (c) 2016 Nick Dodson. nickdodson.com\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n```"
+}

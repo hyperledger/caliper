@@ -1,0 +1,253 @@
+{
+	"name": "path",
+	"versions": {
+		"0.4.9": {
+			"author": {
+				"name": "Joyent",
+				"url": "http://www.joyent.com"
+			},
+			"name": "path",
+			"description": "Node.JS path module",
+			"keywords": [
+				"ender",
+				"path"
+			],
+			"version": "0.4.9",
+			"homepage": "http://nodejs.org/docs/v0.4.9/api/path.html",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/coolaj86/nodejs-libs-4-browser.git"
+			},
+			"main": "./path.js",
+			"directories": {
+				"lib": "."
+			},
+			"engines": {
+				"node": ">= 0.2.0",
+				"ender": ">= 0.5.0"
+			},
+			"dependencies": {},
+			"devDependencies": {},
+			"_npmJsonOpts": {
+				"file": "/Users/coolaj86/.npm/path/0.4.9/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "path@0.4.9",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.15",
+			"_nodeVersion": "v0.4.8",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "380c68d01273e43f9368d7ad50fee5e3e8d477f0",
+				"tarball": "https://registry.npmjs.org/path/-/path-0.4.9.tgz"
+			},
+			"scripts": {}
+		},
+		"0.4.10": {
+			"author": {
+				"name": "Joyent",
+				"url": "http://www.joyent.com"
+			},
+			"name": "path",
+			"description": "Node.JS path module",
+			"keywords": [
+				"ender",
+				"path"
+			],
+			"license": "MIT",
+			"version": "0.4.10",
+			"homepage": "http://nodejs.org/docs/latest/api/path.html",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/jinder/path.git"
+			},
+			"main": "./path.js",
+			"gitHead": "c88a5778a572deb548fdb32fd141687fc1726b9a",
+			"bugs": {
+				"url": "https://github.com/jinder/path/issues"
+			},
+			"_id": "path@0.4.10",
+			"scripts": {},
+			"_shasum": "22fef27b7cd6eaf30fb13fc027801e956e518ef1",
+			"_from": "./",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "jinder",
+				"email": "jindersidhu@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "coolaj86",
+					"email": "coolaj86@gmail.com"
+				},
+				{
+					"name": "shtylman",
+					"email": "shtylman@gmail.com"
+				},
+				{
+					"name": "jinder",
+					"email": "jindersidhu@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "22fef27b7cd6eaf30fb13fc027801e956e518ef1",
+				"tarball": "https://registry.npmjs.org/path/-/path-0.4.10.tgz"
+			},
+			"directories": {}
+		},
+		"0.11.14": {
+			"author": {
+				"name": "Joyent",
+				"url": "http://www.joyent.com"
+			},
+			"name": "path",
+			"description": "Node.JS path module",
+			"keywords": [
+				"ender",
+				"path"
+			],
+			"license": "MIT",
+			"version": "0.11.14",
+			"homepage": "http://nodejs.org/docs/latest/api/path.html",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/jinder/path.git"
+			},
+			"main": "./path.js",
+			"gitHead": "a723663db8388017634a2d854aca09532b12befa",
+			"bugs": {
+				"url": "https://github.com/jinder/path/issues"
+			},
+			"_id": "path@0.11.14",
+			"scripts": {},
+			"_shasum": "cbc7569355cb3c83afeb4ace43ecff95231e5a7d",
+			"_from": "./",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "jinder",
+				"email": "jindersidhu@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "coolaj86",
+					"email": "coolaj86@gmail.com"
+				},
+				{
+					"name": "shtylman",
+					"email": "shtylman@gmail.com"
+				},
+				{
+					"name": "jinder",
+					"email": "jindersidhu@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "cbc7569355cb3c83afeb4ace43ecff95231e5a7d",
+				"tarball": "https://registry.npmjs.org/path/-/path-0.11.14.tgz"
+			},
+			"directories": {}
+		},
+		"0.12.7": {
+			"author": {
+				"name": "Joyent",
+				"url": "http://www.joyent.com"
+			},
+			"name": "path",
+			"description": "Node.JS path module",
+			"keywords": [
+				"ender",
+				"path"
+			],
+			"license": "MIT",
+			"version": "0.12.7",
+			"homepage": "http://nodejs.org/docs/latest/api/path.html",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/jinder/path.git"
+			},
+			"main": "./path.js",
+			"dependencies": {
+				"process": "^0.11.1",
+				"util": "^0.10.3"
+			},
+			"gitHead": "7fbaede3ca9d224494cbdd47d7ca803ee96d2055",
+			"bugs": {
+				"url": "https://github.com/jinder/path/issues"
+			},
+			"_id": "path@0.12.7",
+			"scripts": {},
+			"_shasum": "d4dc2a506c4ce2197eb481ebfcd5b36c0140b10f",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "jinder",
+				"email": "jindersidhu@gmail.com"
+			},
+			"dist": {
+				"shasum": "d4dc2a506c4ce2197eb481ebfcd5b36c0140b10f",
+				"tarball": "https://registry.npmjs.org/path/-/path-0.12.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "coolaj86",
+					"email": "coolaj86@gmail.com"
+				},
+				{
+					"name": "jinder",
+					"email": "jindersidhu@gmail.com"
+				},
+				{
+					"name": "defunctzombie",
+					"email": "shtylman@gmail.com"
+				}
+			],
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2018-04-25T09:16:58.730Z",
+		"created": "2011-06-29T23:52:16.174Z",
+		"0.4.9": "2011-06-29T23:52:16.548Z",
+		"0.4.10": "2015-01-07T21:17:05.282Z",
+		"0.11.14": "2015-01-07T21:18:43.564Z",
+		"0.12.7": "2015-09-13T15:17:56.689Z"
+	},
+	"dist-tags": {
+		"latest": "0.12.7"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"84776947ad4fdb086f59caf507bf0533\"",
+			"fetched": 1568994343857
+		}
+	},
+	"_distfiles": {
+		"path-0.4.9.tgz": {
+			"url": "https://registry.npmjs.org/path/-/path-0.4.9.tgz",
+			"sha": "380c68d01273e43f9368d7ad50fee5e3e8d477f0",
+			"registry": "npmjs"
+		},
+		"path-0.4.10.tgz": {
+			"url": "https://registry.npmjs.org/path/-/path-0.4.10.tgz",
+			"sha": "22fef27b7cd6eaf30fb13fc027801e956e518ef1",
+			"registry": "npmjs"
+		},
+		"path-0.11.14.tgz": {
+			"url": "https://registry.npmjs.org/path/-/path-0.11.14.tgz",
+			"sha": "cbc7569355cb3c83afeb4ace43ecff95231e5a7d",
+			"registry": "npmjs"
+		},
+		"path-0.12.7.tgz": {
+			"url": "https://registry.npmjs.org/path/-/path-0.12.7.tgz",
+			"sha": "d4dc2a506c4ce2197eb481ebfcd5b36c0140b10f",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-037636582832b5c1",
+	"_id": "path",
+	"readme": "# path\r\n\r\nThis is an exact copy of the NodeJS ’path’ module published to the NPM registry. \r\n\r\n[Documentation](http://nodejs.org/docs/latest/api/path.html)\r\n\r\n## Install\r\n\r\n```sh\r\n$ npm install --save path\r\n```\r\n\r\n## License\r\n\r\nMIT"
+}

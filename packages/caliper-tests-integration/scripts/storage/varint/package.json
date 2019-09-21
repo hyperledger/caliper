@@ -1,0 +1,690 @@
+{
+	"name": "varint",
+	"versions": {
+		"0.0.1": {
+			"name": "varint",
+			"version": "0.0.1",
+			"description": "use msb to create integer values of varying sizes",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisdickinson/varint.git"
+			},
+			"keywords": [
+				"varint",
+				"protobuf",
+				"encode",
+				"decode"
+			],
+			"author": {
+				"name": "Chris Dickinson",
+				"email": "chris@neversaw.us"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "~0.2.2"
+			},
+			"_id": "varint@0.0.1",
+			"dist": {
+				"shasum": "63de531ae11389ca9b5ea0ac9295133b6606d543",
+				"tarball": "https://registry.npmjs.org/varint/-/varint-0.0.1.tgz"
+			},
+			"_npmVersion": "1.1.69",
+			"_npmUser": {
+				"name": "chrisdickinson",
+				"email": "chris@neversaw.us"
+			},
+			"maintainers": [
+				{
+					"name": "chrisdickinson",
+					"email": "chris@neversaw.us"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.2": {
+			"name": "varint",
+			"version": "0.0.2",
+			"description": "use msb to create integer values of varying sizes",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisdickinson/varint.git"
+			},
+			"keywords": [
+				"varint",
+				"protobuf",
+				"encode",
+				"decode"
+			],
+			"author": {
+				"name": "Chris Dickinson",
+				"email": "chris@neversaw.us"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "~0.2.2"
+			},
+			"_id": "varint@0.0.2",
+			"dist": {
+				"shasum": "e89cfcddb3386be8ee4152712e4318584a3cf081",
+				"tarball": "https://registry.npmjs.org/varint/-/varint-0.0.2.tgz"
+			},
+			"_npmVersion": "1.1.69",
+			"_npmUser": {
+				"name": "chrisdickinson",
+				"email": "chris@neversaw.us"
+			},
+			"maintainers": [
+				{
+					"name": "chrisdickinson",
+					"email": "chris@neversaw.us"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.3": {
+			"name": "varint",
+			"version": "0.0.3",
+			"description": "use msb to create integer values of varying sizes",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisdickinson/varint.git"
+			},
+			"keywords": [
+				"varint",
+				"protobuf",
+				"encode",
+				"decode"
+			],
+			"author": {
+				"name": "Chris Dickinson",
+				"email": "chris@neversaw.us"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "~0.2.2"
+			},
+			"_id": "varint@0.0.3",
+			"dist": {
+				"shasum": "b821de9b04b38b3cd22f72c18d94a9fb72ab3518",
+				"tarball": "https://registry.npmjs.org/varint/-/varint-0.0.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.14",
+			"_npmUser": {
+				"name": "chrisdickinson",
+				"email": "chris@neversaw.us"
+			},
+			"maintainers": [
+				{
+					"name": "chrisdickinson",
+					"email": "chris@neversaw.us"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "varint",
+			"version": "1.0.0",
+			"description": "protobuf-style varint bytes - use msb to create integer values of varying sizes",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisdickinson/varint.git"
+			},
+			"keywords": [
+				"varint",
+				"protobuf",
+				"encode",
+				"decode"
+			],
+			"author": {
+				"name": "Chris Dickinson",
+				"email": "chris@neversaw.us"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "~0.2.2"
+			},
+			"bugs": {
+				"url": "https://github.com/chrisdickinson/varint/issues"
+			},
+			"_id": "varint@1.0.0",
+			"dist": {
+				"shasum": "583fa36ec55f28d442c58e877915cab7134f1e1a",
+				"tarball": "https://registry.npmjs.org/varint/-/varint-1.0.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.8",
+			"_npmUser": {
+				"name": "chrisdickinson",
+				"email": "chris@neversaw.us"
+			},
+			"maintainers": [
+				{
+					"name": "chrisdickinson",
+					"email": "chris@neversaw.us"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "varint",
+			"version": "1.1.0",
+			"description": "protobuf-style varint bytes - use msb to create integer values of varying sizes",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisdickinson/varint.git"
+			},
+			"keywords": [
+				"varint",
+				"protobuf",
+				"encode",
+				"decode"
+			],
+			"author": {
+				"name": "Chris Dickinson",
+				"email": "chris@neversaw.us"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "~0.2.2"
+			},
+			"bugs": {
+				"url": "https://github.com/chrisdickinson/varint/issues"
+			},
+			"homepage": "https://github.com/chrisdickinson/varint",
+			"_id": "varint@1.1.0",
+			"dist": {
+				"shasum": "702207650f1cdbbc05716a3c10f4ca88c32bc258",
+				"tarball": "https://registry.npmjs.org/varint/-/varint-1.1.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "chrisdickinson",
+				"email": "chris@neversaw.us"
+			},
+			"maintainers": [
+				{
+					"name": "chrisdickinson",
+					"email": "chris@neversaw.us"
+				}
+			],
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "varint",
+			"version": "1.2.0",
+			"description": "protobuf-style varint bytes - use msb to create integer values of varying sizes",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisdickinson/varint.git"
+			},
+			"keywords": [
+				"varint",
+				"protobuf",
+				"encode",
+				"decode"
+			],
+			"author": {
+				"name": "Chris Dickinson",
+				"email": "chris@neversaw.us"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "~2.12.3"
+			},
+			"bugs": {
+				"url": "https://github.com/chrisdickinson/varint/issues"
+			},
+			"homepage": "https://github.com/chrisdickinson/varint",
+			"_id": "varint@1.2.0",
+			"dist": {
+				"shasum": "e0a6a7df8424b6d81879e99def939a930e104116",
+				"tarball": "https://registry.npmjs.org/varint/-/varint-1.2.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "chrisdickinson",
+				"email": "chris@neversaw.us"
+			},
+			"maintainers": [
+				{
+					"name": "chrisdickinson",
+					"email": "chris@neversaw.us"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "varint",
+			"version": "2.0.0",
+			"description": "protobuf-style varint bytes - use msb to create integer values of varying sizes",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisdickinson/varint.git"
+			},
+			"keywords": [
+				"varint",
+				"protobuf",
+				"encode",
+				"decode"
+			],
+			"author": {
+				"name": "Chris Dickinson",
+				"email": "chris@neversaw.us"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "~2.12.3"
+			},
+			"bugs": {
+				"url": "https://github.com/chrisdickinson/varint/issues"
+			},
+			"homepage": "https://github.com/chrisdickinson/varint",
+			"_id": "varint@2.0.0",
+			"_shasum": "bd1129b48f6a48a6c893b07dc4138441fef4efff",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "chrisdickinson",
+				"email": "chris@neversaw.us"
+			},
+			"maintainers": [
+				{
+					"name": "chrisdickinson",
+					"email": "chris@neversaw.us"
+				}
+			],
+			"dist": {
+				"shasum": "bd1129b48f6a48a6c893b07dc4138441fef4efff",
+				"tarball": "https://registry.npmjs.org/varint/-/varint-2.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"3.0.0": {
+			"name": "varint",
+			"version": "3.0.0",
+			"description": "protobuf-style varint bytes - use msb to create integer values of varying sizes",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisdickinson/varint.git"
+			},
+			"keywords": [
+				"varint",
+				"protobuf",
+				"encode",
+				"decode"
+			],
+			"author": {
+				"name": "Chris Dickinson",
+				"email": "chris@neversaw.us"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "~2.12.3"
+			},
+			"bugs": {
+				"url": "https://github.com/chrisdickinson/varint/issues"
+			},
+			"homepage": "https://github.com/chrisdickinson/varint",
+			"_id": "varint@3.0.0",
+			"_shasum": "4d0b44cc4683992fc080dcf747807d3d6bf1fecb",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "chrisdickinson",
+				"email": "chris@neversaw.us"
+			},
+			"maintainers": [
+				{
+					"name": "chrisdickinson",
+					"email": "chris@neversaw.us"
+				}
+			],
+			"dist": {
+				"shasum": "4d0b44cc4683992fc080dcf747807d3d6bf1fecb",
+				"tarball": "https://registry.npmjs.org/varint/-/varint-3.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"3.0.1": {
+			"name": "varint",
+			"version": "3.0.1",
+			"description": "protobuf-style varint bytes - use msb to create integer values of varying sizes",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisdickinson/varint.git"
+			},
+			"keywords": [
+				"varint",
+				"protobuf",
+				"encode",
+				"decode"
+			],
+			"author": {
+				"name": "Chris Dickinson",
+				"email": "chris@neversaw.us"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "~2.12.3"
+			},
+			"gitHead": "32abc1e76505154f287c196086511fe26c49a3c9",
+			"bugs": {
+				"url": "https://github.com/chrisdickinson/varint/issues"
+			},
+			"homepage": "https://github.com/chrisdickinson/varint",
+			"_id": "varint@3.0.1",
+			"_shasum": "9d3f53e036c0ab12000a74bc2d24cbf093a581d9",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "chrisdickinson",
+				"email": "chris@neversaw.us"
+			},
+			"maintainers": [
+				{
+					"name": "chrisdickinson",
+					"email": "chris@neversaw.us"
+				}
+			],
+			"dist": {
+				"shasum": "9d3f53e036c0ab12000a74bc2d24cbf093a581d9",
+				"tarball": "https://registry.npmjs.org/varint/-/varint-3.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"4.0.0": {
+			"name": "varint",
+			"version": "4.0.0",
+			"description": "protobuf-style varint bytes - use msb to create integer values of varying sizes",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisdickinson/varint.git"
+			},
+			"keywords": [
+				"varint",
+				"protobuf",
+				"encode",
+				"decode"
+			],
+			"author": {
+				"name": "Chris Dickinson",
+				"email": "chris@neversaw.us"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "~2.12.3"
+			},
+			"gitHead": "455eca54c6669fd4d910ba62fafa529aae85732d",
+			"bugs": {
+				"url": "https://github.com/chrisdickinson/varint/issues"
+			},
+			"homepage": "https://github.com/chrisdickinson/varint",
+			"_id": "varint@4.0.0",
+			"_shasum": "2109a3485443e878e555fdb707108b0f8cfdd1bd",
+			"_from": ".",
+			"_npmVersion": "2.1.9",
+			"_nodeVersion": "0.10.34",
+			"_npmUser": {
+				"name": "chrisdickinson",
+				"email": "chris@neversaw.us"
+			},
+			"maintainers": [
+				{
+					"name": "chrisdickinson",
+					"email": "chris@neversaw.us"
+				}
+			],
+			"dist": {
+				"shasum": "2109a3485443e878e555fdb707108b0f8cfdd1bd",
+				"tarball": "https://registry.npmjs.org/varint/-/varint-4.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"4.0.1": {
+			"name": "varint",
+			"version": "4.0.1",
+			"description": "protobuf-style varint bytes - use msb to create integer values of varying sizes",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisdickinson/varint.git"
+			},
+			"keywords": [
+				"varint",
+				"protobuf",
+				"encode",
+				"decode"
+			],
+			"author": {
+				"name": "Chris Dickinson",
+				"email": "chris@neversaw.us"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "~2.12.3"
+			},
+			"gitHead": "a260948535e5b24a7e4562e3b8c690e2cc426aff",
+			"bugs": {
+				"url": "https://github.com/chrisdickinson/varint/issues"
+			},
+			"homepage": "https://github.com/chrisdickinson/varint#readme",
+			"_id": "varint@4.0.1",
+			"_shasum": "490829b942d248463b2b35097995c3bf737198e9",
+			"_from": ".",
+			"_npmVersion": "3.8.7",
+			"_nodeVersion": "5.4.1",
+			"_npmUser": {
+				"name": "chrisdickinson",
+				"email": "chris@neversaw.us"
+			},
+			"dist": {
+				"shasum": "490829b942d248463b2b35097995c3bf737198e9",
+				"tarball": "https://registry.npmjs.org/varint/-/varint-4.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisdickinson",
+					"email": "chris@neversaw.us"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/varint-4.0.1.tgz_1466277427894_0.5399024342186749"
+			},
+			"directories": {}
+		},
+		"5.0.0": {
+			"name": "varint",
+			"version": "5.0.0",
+			"description": "protobuf-style varint bytes - use msb to create integer values of varying sizes",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisdickinson/varint.git"
+			},
+			"keywords": [
+				"varint",
+				"protobuf",
+				"encode",
+				"decode"
+			],
+			"author": {
+				"name": "Chris Dickinson",
+				"email": "chris@neversaw.us"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "~2.12.3"
+			},
+			"gitHead": "30e24d424c278a4d4ee33d4a00910fc12af95e2b",
+			"bugs": {
+				"url": "https://github.com/chrisdickinson/varint/issues"
+			},
+			"homepage": "https://github.com/chrisdickinson/varint#readme",
+			"_id": "varint@5.0.0",
+			"_shasum": "d826b89f7490732fabc0c0ed693ed475dcb29ebf",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "chrisdickinson",
+				"email": "chris@neversaw.us"
+			},
+			"dist": {
+				"shasum": "d826b89f7490732fabc0c0ed693ed475dcb29ebf",
+				"tarball": "https://registry.npmjs.org/varint/-/varint-5.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisdickinson",
+					"email": "chris@neversaw.us"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/varint-5.0.0.tgz_1478286939731_0.956488419091329"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2016-11-04T19:15:54.903Z",
+		"created": "2013-02-14T01:06:43.966Z",
+		"0.0.1": "2013-02-14T01:06:44.829Z",
+		"0.0.2": "2013-02-14T02:48:27.238Z",
+		"0.0.3": "2013-05-27T22:57:22.423Z",
+		"1.0.0": "2013-10-10T21:47:55.032Z",
+		"1.1.0": "2014-05-03T08:38:24.532Z",
+		"1.2.0": "2014-05-12T17:24:48.837Z",
+		"2.0.0": "2014-05-29T21:49:34.077Z",
+		"3.0.0": "2014-06-21T19:20:25.460Z",
+		"3.0.1": "2014-08-08T20:21:05.896Z",
+		"4.0.0": "2015-01-06T21:09:03.555Z",
+		"4.0.1": "2016-06-18T19:17:10.367Z",
+		"5.0.0": "2016-11-04T19:15:39.948Z"
+	},
+	"dist-tags": {
+		"latest": "5.0.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"e1fbc5261adc4f12263440c415aef5dc\"",
+			"fetched": 1568994351824
+		}
+	},
+	"_distfiles": {
+		"varint-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/varint/-/varint-0.0.1.tgz",
+			"sha": "63de531ae11389ca9b5ea0ac9295133b6606d543",
+			"registry": "npmjs"
+		},
+		"varint-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/varint/-/varint-0.0.2.tgz",
+			"sha": "e89cfcddb3386be8ee4152712e4318584a3cf081",
+			"registry": "npmjs"
+		},
+		"varint-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/varint/-/varint-0.0.3.tgz",
+			"sha": "b821de9b04b38b3cd22f72c18d94a9fb72ab3518",
+			"registry": "npmjs"
+		},
+		"varint-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/varint/-/varint-1.0.0.tgz",
+			"sha": "583fa36ec55f28d442c58e877915cab7134f1e1a",
+			"registry": "npmjs"
+		},
+		"varint-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/varint/-/varint-1.1.0.tgz",
+			"sha": "702207650f1cdbbc05716a3c10f4ca88c32bc258",
+			"registry": "npmjs"
+		},
+		"varint-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/varint/-/varint-1.2.0.tgz",
+			"sha": "e0a6a7df8424b6d81879e99def939a930e104116",
+			"registry": "npmjs"
+		},
+		"varint-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/varint/-/varint-2.0.0.tgz",
+			"sha": "bd1129b48f6a48a6c893b07dc4138441fef4efff",
+			"registry": "npmjs"
+		},
+		"varint-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/varint/-/varint-3.0.0.tgz",
+			"sha": "4d0b44cc4683992fc080dcf747807d3d6bf1fecb",
+			"registry": "npmjs"
+		},
+		"varint-3.0.1.tgz": {
+			"url": "https://registry.npmjs.org/varint/-/varint-3.0.1.tgz",
+			"sha": "9d3f53e036c0ab12000a74bc2d24cbf093a581d9",
+			"registry": "npmjs"
+		},
+		"varint-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/varint/-/varint-4.0.0.tgz",
+			"sha": "2109a3485443e878e555fdb707108b0f8cfdd1bd",
+			"registry": "npmjs"
+		},
+		"varint-4.0.1.tgz": {
+			"url": "https://registry.npmjs.org/varint/-/varint-4.0.1.tgz",
+			"sha": "490829b942d248463b2b35097995c3bf737198e9",
+			"registry": "npmjs"
+		},
+		"varint-5.0.0.tgz": {
+			"url": "https://registry.npmjs.org/varint/-/varint-5.0.0.tgz",
+			"sha": "d826b89f7490732fabc0c0ed693ed475dcb29ebf",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-fe3433b02c640f89",
+	"_id": "varint",
+	"readme": "# varint\n\nencode whole numbers to an array of [protobuf-style varint bytes](https://developers.google.com/protocol-buffers/docs/encoding#varints) and also decode them.\n\n```javascript\nvar varint = require('varint')\n\nvar bytes = varint.encode(300) // === [0xAC, 0x02]\nvarint.decode(bytes) // 300\nvarint.decode.bytes // 2 (the last decode() call required 2 bytes)\n```\n\n## api\n\n### varint = require('varint')\n\n### varint.encode(num[, buffer=[], offset=0]) -> buffer\n\nEncodes `num` into `buffer` starting at `offset`. returns `buffer`, with the encoded varint written into it. If `buffer` is not provided, it will default to a new array.\n\n`varint.encode.bytes` will now be set to the number of bytes\nmodified.\n\n### varint.decode(data[, offset=0]) -> number\n\ndecodes `data`, which can be either a buffer or array of integers, from position `offset` or default 0 and returns the decoded original integer.\n\nThrows a `RangeError` when `data` does not represent a valid encoding.\n\n### varint.decode.bytes\n\nif you also require the length (number of bytes) that were required to decode the integer you can access it via `varint.decode.bytes`. this is an integer property that will tell you the number of bytes that the last .decode() call had to use to decode.\n\n### varint.encode.bytes\n\nsimilar to `decode.bytes` when encoding a number it can be useful to know how many bytes where written (especially if you pass an output array). you can access this via `varint.encode.bytes` which holds the number of bytes written in the last encode.\n\n\n### varint.encodingLength(num)\n\nreturns the number of bytes this number will be encoded as, up to a maximum of 8.\n\n## usage notes\n\nIf varint is passed a buffer that does not contain a valid end\nbyte, then `decode` will throw `RangeError`, and `decode.bytes` \nwill be set to 0. If you are reading from a streaming source,\nit's okay to pass an incomplete buffer into `decode`, detect this\ncase, and then concatenate the next buffer.\n\n# License\n\nMIT"
+}

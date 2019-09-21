@@ -1,0 +1,352 @@
+{
+	"name": "semver-store",
+	"versions": {
+		"0.1.0": {
+			"name": "semver-store",
+			"version": "0.1.0",
+			"description": "An extremely fast semver based store",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && tap test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/semver-store.git"
+			},
+			"keywords": [
+				"semver",
+				"store",
+				"tree"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/semver-store/issues"
+			},
+			"homepage": "https://github.com/delvedor/semver-store#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"semver": "^5.5.0",
+				"standard": "^11.0.1",
+				"tap": "^12.0.1"
+			},
+			"gitHead": "1ac262163419e91ca6be6a36f3aacb23d2b8144d",
+			"_id": "semver-store@0.1.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-/kwe+u/pHhkz11ZMJc9mxXugK4otm9n2PsHYfVSF/QTerZEAfD/HHtS10G4X60DKdjE+HDmVJj2sWtleHSInCg==",
+				"shasum": "3eebc35f14ad0eeb97e195c6336bb999283fe4a1",
+				"tarball": "https://registry.npmjs.org/semver-store/-/semver-store-0.1.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 8791,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbGp8FCRA9TVsSAnZWagAA0hYQAIobUQ078BS/aGKas/RA\nClBEw5ql3pC7V0tc6d/PW7ihbaUsinEzybW1ET2dP026h483Oo/kLFCOC5SF\nPpvARLQc7pdyLw3jjQMdAoJdf2ycN925qyNnt4jBZv5fu1gtCyCpL0ygP7vH\newIE5Bg5uhgWmo7/qbbKLlhCMyVU5NhhgAkPDdpEjB3u2RGNgRLgrWKbERhK\ngc5XnIN43cfdWXglPUVA7yhiojJNYVf+Ib0P+gONENivpUcoiHXWavk3sUp0\n7L3fe1x5U6jvFE21O1SZk9hRH5zdH0w83AmeOwfsFbOZ1ldqnskXOO4A++mI\n8W5iaPFqQQjUx2n0mQoZT+Ee6Hl7k/cDZ76LRrpWB20LPj4mUxCeGHZfQR8F\nyPm9DPgnzkXnia41sxCxaDQJGcCSuh6bqYFtnJuB0T2Q+6A3ZzDGcYutCLpF\nBtLCxPFz65IHUYqWDXJFNPrzLqJaECafvjtoXMYuL67NV7PZHCyRj9Xasof9\noZQZsz3IkyEq4IDkQHV21Xbz8Vr6g7I3C4dDkCwiSvzV/8SxoIphrF0xBTub\ncFGXQ8RVtA8SxZ0VsLYwRvUN/YPvHSWlo63jyFMahIDdO+FZLmHIQcxOL0M9\n65Ciha72tXJZnklQuYCcaZLYqW89e1+T7XB+osDmgl4NGzp+h++NJGvIuvH2\nyev8\r\n=wzge\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/semver-store_0.1.0_1528471300294_0.7894550318090641"
+			}
+		},
+		"0.2.0": {
+			"name": "semver-store",
+			"version": "0.2.0",
+			"description": "An extremely fast semver based store",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && tap test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/semver-store.git"
+			},
+			"keywords": [
+				"semver",
+				"store",
+				"tree"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/semver-store/issues"
+			},
+			"homepage": "https://github.com/delvedor/semver-store#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"standard": "^11.0.1",
+				"tap": "^12.0.1"
+			},
+			"gitHead": "ddd9b60126d15fe3fb7a24f557013ac0218f1a16",
+			"_id": "semver-store@0.2.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Ip9LoEMj6TanHes2FmJGwLrGEtD3P4sLPSoqBerdRx8lH0jEwYNZcoyB5N4ve6DaUPl3YkZjNdnTNQLdt2D4Qg==",
+				"shasum": "2c478b74f1a5d373d2d1f830c9872b06a16307ca",
+				"tarball": "https://registry.npmjs.org/semver-store/-/semver-store-0.2.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 16954,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbHBLuCRA9TVsSAnZWagAAXxUP/jzNk6CXXIwUcm3OLAWd\nw6fUm3FQ0BIKNjgk6TBOyQzxWCfkniSO1xOunv7dYA9MZqfYjb8RpJvfhx57\nEff5IX5hSGv2Qk9PttFgFvMl9qJo/xbUM9Wed6WUqP8mFnaXFheN1m0DC6O0\ns0lf0eVFWs9ZYxsffS92gCqXS/EKW5cjcRz7MBbfI0Wb+nZv4j2760IMLJcy\nq0WbGnD4NzVj9P0DQvh+2BJpTpgk3YXo/nswWvlFJl7lkMMR47B6FhNQNsnq\n3qS4AxCr37gb2rwm6s978Cacx9iQ977YDMiJm+mOVCDIxDGiEVI79I5WReYW\nh75lzMH276sfLAF1Dp/ymahPqg0EzV0MPBoMokldW8CDaozaV+g4dz/hrvWn\n+wRZJSQMprZNUf/lkEIYYPSeEVQ3pXLDuF+2H1PoeXR18Mn15OzAMtXiFLV6\njcB05C5ZC25LTvt0TpvKDNXljr6vu0hHKp4DvEyp8YLLEBLl0jQt5HMV3whd\nFTbv3k2fN2mdjYSC1rw0b4xb5f2gxRkaQjXbh8SllYjz9FjhdYVilx8LBD2B\n5y+/en1JeIVAfB9w7XLO0KQQ6SH/jOZUWwlzgeQJUjc2WkPb+jAqUO14tgI8\nsbZZcO8vI/8birfZZZwDKpHAp0j/ySGcbobnNzFZVFZ3rxhlLdZ2CUBL8d5q\nLpt5\r\n=QU6X\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/semver-store_0.2.0_1528566510309_0.3650151059920719"
+			}
+		},
+		"0.2.1": {
+			"name": "semver-store",
+			"version": "0.2.1",
+			"description": "An extremely fast semver based store",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && tap test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/semver-store.git"
+			},
+			"keywords": [
+				"semver",
+				"store",
+				"tree"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/semver-store/issues"
+			},
+			"homepage": "https://github.com/delvedor/semver-store#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"standard": "^11.0.1",
+				"tap": "^12.0.1"
+			},
+			"gitHead": "bd3b73419d320cf4a6dfc4d8e48b633d4bad2e15",
+			"_id": "semver-store@0.2.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-+/F6G1OpOIU82U6oBruSL24TfvF3rtTgP/3tiBktMNazXcr2qS+Zp1pPyBHMyXIhjlBzRhAfjck1wfVawxqPCQ==",
+				"shasum": "fdf86374052bb903251c5336ec1aa1d14cc93c13",
+				"tarball": "https://registry.npmjs.org/semver-store/-/semver-store-0.2.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 17748,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbIOD3CRA9TVsSAnZWagAAANQP/j1RlDXWhMDeyn0ioyMr\nq5vUa7vXxdVRNpA3sKq6hxyCVdaZayPZv9KY8yONvNAEmz70VhqQxp1iZ3Ki\nsy1x5vdQ9BFRhjv8ig+uRLGIDLzB3ymKgBbNNN0j8LYm38V6d8e7QWVYiHUE\nK5nphF8LF7jBpHo0iVDg31JL9+1kyPQB5PWMh9yMt71Qler3fIAPnO+JoUsN\nH8NT5fB8hsjo8DdqLQOLRu+Z5HhPn7yAGo2KAqlDKK1bl+LgILkjkYkwaQhG\ngVpS7VffK3F9Wksa9+NVErKc34oKIbN83EhHWz9CFo08G05nQBwy8HsawG0S\nmiDTZ5B/Z8309/DUiZFglHjARmIY2oYd0CLACNNxfDROECfBebF1M5VEtH6k\nXROljuWMyEp/Oy5yxF6CT14yMtravL39h1vHYn8YPzsW3c0ydb9uOpdc9l/i\nZOo1X5fQKsCXasEG9XgodrM3FQ+W98KtMtD55LtmFBF34KZaIQ0XXLSHK/rd\ncRe7wLdguyic3ou9aHnOtYeN57kS6787VlDs+qRZoNh37hU3xgrGpK9B+mBg\nt9MWKtOgHdeSE6zeoEX9SIEfnv/BFPsT66ORMQOR70q/nnjHkaM5rreLiecS\nNIC+juGzg4jQz7yU2lMzTqmVCojINMiNp8dwr+vuyzPZEg3s6Zc5MWW20Nvp\npM8Z\r\n=MmPU\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/semver-store_0.2.1_1528881399292_0.1886140673567953"
+			}
+		},
+		"0.2.2": {
+			"name": "semver-store",
+			"version": "0.2.2",
+			"description": "An extremely fast semver based store",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && tap test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/semver-store.git"
+			},
+			"keywords": [
+				"semver",
+				"store",
+				"tree"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/semver-store/issues"
+			},
+			"homepage": "https://github.com/delvedor/semver-store#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"pre-commit": "^1.2.2",
+				"standard": "^11.0.1",
+				"tap": "^12.0.1"
+			},
+			"gitHead": "7d060d3f7b1f76c5c2d2e662cf8a8f3cc7f01981",
+			"_id": "semver-store@0.2.2",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-+cXXIIkMjw1O6MJFlsQgHokDtz3PeCfY2YZVP3D6LmKjKotUOzAeRYGCjEPiR3QivM7Jkacme+66EqwptG1HMg==",
+				"shasum": "e6c65e4e94e2e5f662e1efaaa8112dae302cbdcf",
+				"tarball": "https://registry.npmjs.org/semver-store/-/semver-store-0.2.2.tgz",
+				"fileCount": 7,
+				"unpackedSize": 17927,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbIX9mCRA9TVsSAnZWagAAdZQP/j4cyC9Fwy5aS6cwGGm3\nWG5cACHT1E3vr7WeCO4STBfarehmpVoINPnZcgZDuhporH9IYu6fsS1I00AO\nPhmdVBCgFKuEF8t+6C9c8n0CYDvGc62DTcOfv3ehBWhl1clC36Jg2ZAB0cVr\nhfFKfYPRUEqx2irdX7uGk3flLBaMRjXJc1hbTe+LTDk2J8Bq427uAq+UbMHP\nowuGWKve1rD0ENnCHOTtvJnoLvlxWPeHtOLvgcb0CdxiZ4hqgyvGcn3NA6rT\nCZiAqLOc5dywg2rK7TqMoYln63TAsT8CNe0+b+xAluzOu8dDG0ignYxkJfdf\nET6FHOMx09+w1BAiD7fiejHinz8CuMDzphrfTcDDv3Xo0DfFmPdkji6C/gtX\nTokGclmKHIAZXGwvcsA7JoAmMqokdEjGzcIHH0pAMlLoYFLA3pnsLKzqEkiP\nqrlIldMdV4tAMuu5Jyx820RSnuRmIkP+2QkakRLPR/FA1OWhkbu2MXCbazas\n+9w08RkErMehxUGeJlKkAOefXr5LoxnOnjBti3RixN8FLTlrYxqygshBGXRi\n/oLvgre4wKKW5NTs4vTEgyW30CH1lioPDcCAQcRey/U7PZJqQ0LoWJAZv6Q1\njwlpxRBwz4QtaZhdZdq7xmYyp4kHbYyaDULYsuLH6CCRRTsG2Pc4QwoFbEpD\nqTmo\r\n=WgsW\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/semver-store_0.2.2_1528921957670_0.7061852014953718"
+			}
+		},
+		"0.3.0": {
+			"name": "semver-store",
+			"version": "0.3.0",
+			"description": "An extremely fast semver based store",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && tap test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/semver-store.git"
+			},
+			"keywords": [
+				"semver",
+				"store",
+				"tree"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/semver-store/issues"
+			},
+			"homepage": "https://github.com/delvedor/semver-store#readme",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"pre-commit": "^1.2.2",
+				"standard": "^11.0.1",
+				"tap": "^12.0.1"
+			},
+			"gitHead": "fc37430f3937da77021932dcabe42d03ab6f42f3",
+			"_id": "semver-store@0.3.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-TcZvGMMy9vodEFSse30lWinkj+JgOBvPn8wRItpQRSayhc+4ssDs335uklkfvQQJgL/WvmHLVj4Ycv2s7QCQMg==",
+				"shasum": "ce602ff07df37080ec9f4fb40b29576547befbe9",
+				"tarball": "https://registry.npmjs.org/semver-store/-/semver-store-0.3.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 18697,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbOo9yCRA9TVsSAnZWagAAhqcP/1eJGMPkaXHP8BeCtumL\n8kmUHTrLGAD9Mnl9NGRvyNfKGHcAQH0UiLTmCClRnNlKXr3Zytq2qXaQgxhP\niaF5aLBM+srkOxyTXhSLd7z7kR+bGmb0kohHUO6Tj/ps3xn5bFhtYZg8cfnN\nW+attWrVNtMuvasgyTwVxVhky6HK4Aj/Dd5YkyrNl+CUNLqRL4N4dMYJJsmb\ny/4u8W74r4XW3foHvfbUD/MtK3rpnPd3uWsYM2h81a5yFrAZUgFr/QlxA2Lp\nbDtYEvcVonkqhGTZ6yZxJgqDmOYz5+shntCwAcUwlx+gwlUTKfAQII4spNSK\noGYTzIyUDABBcvID5zqbUBsp3XJucnf2DHFhmPJFJQJmULOJAOfW9iWrc6NC\nZ9pqBUHHJfXg4eb7KHuupsnMblsUlvaVOGwHWNlKYW3xCdTxg940hDErAy7G\nVHIADwqpxnrQ1GMlu7epkrh6oG30QFU15MwpWQuyPlUrovre+LBKv+su/2+c\np2FxukQOr9pGQlERiKxb+sL6wHcj22j3sYLEgy2Fw1VuwY3KqO0QIRkR/SOF\nOYqMuBt9lH3zz9X3L0SoJACMU1qb/f8kvPgXPLb9/B/Ps1k1zTXMnzxy8Xr4\nkOn95iJg6W84sEJVIwihxhq/dzpK44qhA0gwHl9rrVRQQXtI2hMt7QX6pU9i\n4CTJ\r\n=6x6o\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/semver-store_0.3.0_1530564466633_0.02030655610187515"
+			}
+		}
+	},
+	"time": {
+		"created": "2018-06-08T15:21:40.293Z",
+		"0.1.0": "2018-06-08T15:21:40.347Z",
+		"modified": "2018-07-02T20:47:54.204Z",
+		"0.2.0": "2018-06-09T17:48:30.413Z",
+		"0.2.1": "2018-06-13T09:16:39.356Z",
+		"0.2.2": "2018-06-13T20:32:37.753Z",
+		"0.3.0": "2018-07-02T20:47:46.688Z"
+	},
+	"dist-tags": {
+		"latest": "0.3.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"f6f327ad85f0926d0fa61d6ffec37e68\"",
+			"fetched": 1568994346028
+		}
+	},
+	"_distfiles": {
+		"semver-store-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/semver-store/-/semver-store-0.1.0.tgz",
+			"sha": "3eebc35f14ad0eeb97e195c6336bb999283fe4a1",
+			"registry": "npmjs"
+		},
+		"semver-store-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/semver-store/-/semver-store-0.2.0.tgz",
+			"sha": "2c478b74f1a5d373d2d1f830c9872b06a16307ca",
+			"registry": "npmjs"
+		},
+		"semver-store-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/semver-store/-/semver-store-0.2.1.tgz",
+			"sha": "fdf86374052bb903251c5336ec1aa1d14cc93c13",
+			"registry": "npmjs"
+		},
+		"semver-store-0.2.2.tgz": {
+			"url": "https://registry.npmjs.org/semver-store/-/semver-store-0.2.2.tgz",
+			"sha": "e6c65e4e94e2e5f662e1efaaa8112dae302cbdcf",
+			"registry": "npmjs"
+		},
+		"semver-store-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/semver-store/-/semver-store-0.3.0.tgz",
+			"sha": "ce602ff07df37080ec9f4fb40b29576547befbe9",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-73a21f6745e59fcb",
+	"_id": "semver-store",
+	"readme": "# semver-store\n\n[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)  [![Build Status](https://travis-ci.org/delvedor/semver-store.svg?branch=master)](https://travis-ci.org/delvedor/semver-store)\n\nAn extremely fast semver based store.\n\n## Install\n```\nnpm i semver-store\n```\n## Usage\nUse it is very easy, you just need to require the library and start adding values.\n```js\nconst store = require('semver-store')()\n\nstore.set('1.2.0', { value: 42 })\n\nconsole.log(\n  store.get('1.2.0') // { value: 42 }\n)\n```\n\n## API\n#### `set(version, store)`\nAdd a document to the store with the specified version.<br/>\nThe version **must** be conform with the [semver](http://semver.org/) specification.\n\n#### `get(version)`\nGet a document from the store with the specified version.<br/>\nThe version string could be a full version string or specify a range, such as `1.x`, in which case the highest version compatible will be returned. Specify `*` to get the highest version available.\n\n#### `del(version)`\nDeletes a document from the store with the specified version.<br/>\nThe version string could be a full version string or specify a range, such as `1.x`, in which case all the compatible values will be deleted.\n\n#### `empty()`\nEmpties the store.\n\n### Why is fast?\n  Internally uses a [prefix tree](https://en.wikipedia.org/wiki/Trie), which allows the search to be extremely performant.\n\n## License\n\nLicensed under [MIT](./LICENSE)."
+}

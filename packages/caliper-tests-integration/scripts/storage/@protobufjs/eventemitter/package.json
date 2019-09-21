@@ -1,0 +1,402 @@
+{
+	"name": "@protobufjs/eventemitter",
+	"versions": {
+		"1.0.0": {
+			"name": "@protobufjs/eventemitter",
+			"description": "A minimal event emitter.",
+			"version": "1.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/eventemitter@1.0.0",
+			"scripts": {},
+			"_shasum": "4e3a8483bfe898a4b5db0275b2b49c871abdbda3",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "protobufjs",
+				"email": "dcode+npm-protobufjs@dcode.io"
+			},
+			"dist": {
+				"shasum": "4e3a8483bfe898a4b5db0275b2b49c871abdbda3",
+				"tarball": "https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/eventemitter-1.0.0.tgz_1481415054450_0.16603272524662316"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "@protobufjs/eventemitter",
+			"description": "A minimal event emitter.",
+			"version": "1.0.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/eventemitter@1.0.1",
+			"scripts": {},
+			"_shasum": "bed0f00a823060327839f2b1e8e2975f0e9567c0",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"dist": {
+				"shasum": "bed0f00a823060327839f2b1e8e2975f0e9567c0",
+				"tarball": "https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/eventemitter-1.0.1.tgz_1481417440367_0.7857571796048433"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "@protobufjs/eventemitter",
+			"description": "A minimal event emitter.",
+			"version": "1.0.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/eventemitter@1.0.2",
+			"scripts": {},
+			"_shasum": "03f61e44dc32888b80237894710fec74878aba1f",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "03f61e44dc32888b80237894710fec74878aba1f",
+				"tarball": "https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/eventemitter-1.0.2.tgz_1481582626144_0.40368389594368637"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "@protobufjs/eventemitter",
+			"description": "A minimal event emitter.",
+			"version": "1.0.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/eventemitter@1.0.3",
+			"scripts": {},
+			"_shasum": "10da7467c7f1bfebdafe4c52c1c8d2848f7e0d03",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "10da7467c7f1bfebdafe4c52c1c8d2848f7e0d03",
+				"tarball": "https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/eventemitter-1.0.3.tgz_1481824785342_0.4624300464056432"
+			},
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "@protobufjs/eventemitter",
+			"description": "A minimal event emitter.",
+			"version": "1.0.4",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/eventemitter@1.0.4",
+			"scripts": {},
+			"_shasum": "04bda2f7620a4c3746f26f932308aebb63ed896e",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "04bda2f7620a4c3746f26f932308aebb63ed896e",
+				"tarball": "https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/eventemitter-1.0.4.tgz_1482269688305_0.4484932597260922"
+			},
+			"directories": {}
+		},
+		"1.0.5": {
+			"name": "@protobufjs/eventemitter",
+			"description": "A minimal event emitter.",
+			"version": "1.0.5",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/eventemitter@1.0.5",
+			"scripts": {},
+			"_shasum": "f3702db33b418b681a9123a10b035173fcba31dc",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "f3702db33b418b681a9123a10b035173fcba31dc",
+				"tarball": "https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.0.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/eventemitter-1.0.5.tgz_1483457466702_0.4498201662208885"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "@protobufjs/eventemitter",
+			"description": "A minimal event emitter.",
+			"version": "1.1.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"istanbul": "^0.4.5",
+				"tape": "^4.6.3"
+			},
+			"scripts": {
+				"test": "tape tests/*.js",
+				"coverage": "istanbul cover node_modules/tape/bin/tape tests/*.js"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/eventemitter@1.1.0",
+			"_shasum": "355cbc98bafad5978f9ed095f397621f1d066b70",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "355cbc98bafad5978f9ed095f397621f1d066b70",
+				"tarball": "https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/eventemitter-1.1.0.tgz_1485367943950_0.18555008037947118"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2017-01-25T18:12:24.644Z",
+		"created": "2016-12-11T00:10:55.087Z",
+		"1.0.0": "2016-12-11T00:10:55.087Z",
+		"1.0.1": "2016-12-11T00:50:40.992Z",
+		"1.0.2": "2016-12-12T22:43:48.216Z",
+		"1.0.3": "2016-12-15T17:59:45.946Z",
+		"1.0.4": "2016-12-20T21:34:50.189Z",
+		"1.0.5": "2017-01-03T15:31:07.359Z",
+		"1.1.0": "2017-01-25T18:12:24.644Z"
+	},
+	"dist-tags": {
+		"latest": "1.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"5bca6be37c944cafc656563a5d552a42\"",
+			"fetched": 1568994331379
+		}
+	},
+	"_distfiles": {
+		"eventemitter-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.0.0.tgz",
+			"sha": "4e3a8483bfe898a4b5db0275b2b49c871abdbda3",
+			"registry": "npmjs"
+		},
+		"eventemitter-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.0.1.tgz",
+			"sha": "bed0f00a823060327839f2b1e8e2975f0e9567c0",
+			"registry": "npmjs"
+		},
+		"eventemitter-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.0.2.tgz",
+			"sha": "03f61e44dc32888b80237894710fec74878aba1f",
+			"registry": "npmjs"
+		},
+		"eventemitter-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.0.3.tgz",
+			"sha": "10da7467c7f1bfebdafe4c52c1c8d2848f7e0d03",
+			"registry": "npmjs"
+		},
+		"eventemitter-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.0.4.tgz",
+			"sha": "04bda2f7620a4c3746f26f932308aebb63ed896e",
+			"registry": "npmjs"
+		},
+		"eventemitter-1.0.5.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.0.5.tgz",
+			"sha": "f3702db33b418b681a9123a10b035173fcba31dc",
+			"registry": "npmjs"
+		},
+		"eventemitter-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/eventemitter/-/eventemitter-1.1.0.tgz",
+			"sha": "355cbc98bafad5978f9ed095f397621f1d066b70",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-58dfe8b6748e7d74",
+	"_id": "@protobufjs/eventemitter",
+	"readme": "@protobufjs/eventemitter\r\n========================\r\n[![npm](https://img.shields.io/npm/v/@protobufjs/eventemitter.svg)](https://www.npmjs.com/package/@protobufjs/eventemitter)\r\n\r\nA minimal event emitter.\r\n\r\nAPI\r\n---\r\n\r\n* **new EventEmitter()**<br />\r\n  Constructs a new event emitter instance.\r\n\r\n* **EventEmitter#on(evt: `string`, fn: `function`, [ctx: `Object`]): `EventEmitter`**<br />\r\n  Registers an event listener.\r\n\r\n* **EventEmitter#off([evt: `string`], [fn: `function`]): `EventEmitter`**<br />\r\n  Removes an event listener or any matching listeners if arguments are omitted.\r\n\r\n* **EventEmitter#emit(evt: `string`, ...args: `*`): `EventEmitter`**<br />\r\n  Emits an event by calling its listeners with the specified arguments.\r\n\r\n**License:** [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)"
+}

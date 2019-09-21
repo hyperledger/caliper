@@ -1,0 +1,1353 @@
+ warn --- config file  - /home/julien/bin/caliper/packages/caliper-tests-integration/scripts/config.yaml
+ warn --- Plugin successfully loaded: htpasswd
+ warn --- http address - http://0.0.0.0:4873/ - verdaccio/3.12.0
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-core' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-core', bytes: 0/3902
+ http <-- 409, user: null(127.0.0.1), req: 'PUT /caliper-core', error: this package is already present
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core?write=true', bytes: 0/2208
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core?write=true', bytes: 0/2208
+ http <-- 201, user: null(127.0.0.1), req: 'DELETE /caliper-core/-rev/2-0a39181dfdb0f09a', bytes: 0/30
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-core' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-core', bytes: 0/3902
+ http <-- 409, user: null(127.0.0.1), req: 'PUT /caliper-core', error: this package is already present
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core?write=true', bytes: 0/2209
+ http <-- 409, user: null(127.0.0.1), req: 'PUT /caliper-core', error: this package is already present
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core?write=true', bytes: 0/2209
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core?write=true', bytes: 0/2209
+ http <-- 201, user: null(127.0.0.1), req: 'DELETE /caliper-core/-rev/2-569b27b2c3ac15c3', bytes: 0/30
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-core' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-core', bytes: 0/3902
+ http <-- 409, user: null(127.0.0.1), req: 'PUT /caliper-core', error: this package is already present
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core?write=true', bytes: 0/2208
+ http <-- 409, user: null(127.0.0.1), req: 'PUT /caliper-core', error: this package is already present
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core?write=true', bytes: 0/2208
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core?write=true', bytes: 0/2208
+ http <-- 201, user: null(127.0.0.1), req: 'DELETE /caliper-core/-rev/2-f798294594c691ff', bytes: 0/30
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-core' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-core', bytes: 0/3902
+ http <-- 409, user: null(127.0.0.1), req: 'PUT /caliper-core', error: this package is already present
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core?write=true', bytes: 0/2208
+ http <-- 409, user: null(127.0.0.1), req: 'PUT /caliper-core', error: this package is already present
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core?write=true', bytes: 0/2208
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core?write=true', bytes: 0/2208
+ http <-- 201, user: null(127.0.0.1), req: 'DELETE /caliper-core/-rev/2-13ac5fcb81020342', bytes: 0/30
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-core' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-core', bytes: 0/3902
+ http <-- 409, user: null(127.0.0.1), req: 'PUT /caliper-core', error: this package is already present
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core?write=true', bytes: 0/2207
+ http <-- 409, user: null(127.0.0.1), req: 'PUT /caliper-core', error: this package is already present
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core?write=true', bytes: 0/2207
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core?write=true', bytes: 0/2207
+ http <-- 201, user: null(127.0.0.1), req: 'DELETE /caliper-core/-rev/2-7120042c858bf6d0', bytes: 0/30
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-core' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-core', bytes: 0/3902
+ http <-- 409, user: null(127.0.0.1), req: 'PUT /caliper-core', error: this package is already present
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core?write=true', bytes: 0/2208
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-cli' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-cli', bytes: 0/3705
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-cli', bytes: 0/2088
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core', bytes: 0/2208
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-sawtooth' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-fabric' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-fabric', bytes: 0/3663
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-sawtooth', bytes: 0/3634
+ http --> 200, req: 'GET https://registry.npmjs.org/yargs' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-iroha' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-sawtooth', bytes: 0/2071
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-fabric', bytes: 0/2078
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-composer' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-iroha', bytes: 0/3632
+ http --> 200, req: 'GET https://registry.npmjs.org/chalk' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-composer', bytes: 0/3639
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-iroha', bytes: 0/2066
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-composer', bytes: 0/2045
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-burrow' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/chalk', bytes: 0/68117
+ http --> 200, req: 'GET https://registry.npmjs.org/caliper-burrow', bytes: 0/3524
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-burrow', bytes: 0/2022
+ http <-- 200, user: null(127.0.0.1), req: 'GET /chalk', bytes: 0/12017
+ http --> 200, req: 'GET https://registry.npmjs.org/yargs', bytes: 0/378995
+ http <-- 200, user: null(127.0.0.1), req: 'GET /yargs', bytes: 0/37112
+ http --> 200, req: 'GET https://registry.npmjs.org/@monax%2Fburrow' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/@monax%2Fburrow', bytes: 0/102801
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@monax%2fburrow', bytes: 0/22591
+ http --> 200, req: 'GET https://registry.npmjs.org/grpc' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/crypto-js' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/crypto-js', bytes: 0/22540
+ http <-- 200, user: null(127.0.0.1), req: 'GET /crypto-js', bytes: 0/3403
+ http --> 200, req: 'GET https://registry.npmjs.org/grpc', bytes: 0/620500
+ http --> 200, req: 'GET https://registry.npmjs.org/ethereumjs-abi' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/protobufjs' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/utf8' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/utf8', bytes: 0/12434
+ http --> 200, req: 'GET https://registry.npmjs.org/ethereumjs-abi', bytes: 0/33490
+ http <-- 200, user: null(127.0.0.1), req: 'GET /utf8', bytes: 0/3809
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ethereumjs-abi', bytes: 0/8375
+ http --> 200, req: 'GET https://registry.npmjs.org/protobufjs', bytes: 0/362244
+ http <-- 200, user: null(127.0.0.1), req: 'GET /grpc', bytes: 0/88172
+ http <-- 200, user: null(127.0.0.1), req: 'GET /protobufjs', bytes: 0/35467
+ http --> 200, req: 'GET https://registry.npmjs.org/@grpc%2Fproto-loader' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/@grpc%2Fproto-loader', bytes: 0/20244
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@grpc%2fproto-loader', bytes: 0/6845
+ http --> 200, req: 'GET https://registry.npmjs.org/@types%2Flodash' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/@types%2Flodash', bytes: 0/215688
+ http --> 200, req: 'GET https://registry.npmjs.org/@types%2Fnode' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash', bytes: 0/194756
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@types%2flodash', bytes: 0/43526
+ http <-- 200, user: null(127.0.0.1), req: 'GET /lodash', bytes: 0/17574
+ http --> 200, req: 'GET https://registry.npmjs.org/@types%2Fnode', bytes: 0/1898386
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@types%2fnode', bytes: 0/343493
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Ffetch' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Ffetch', bytes: 0/8461
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@protobufjs%2ffetch', bytes: 0/1616
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Finquire' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Fpool' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Finquire', bytes: 0/5897
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Fpool', bytes: 0/8812
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@protobufjs%2finquire', bytes: 0/1303
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@protobufjs%2fpool', bytes: 0/1626
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Feventemitter' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Feventemitter', bytes: 0/9391
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@protobufjs%2feventemitter', bytes: 0/1735
+ http --> 200, req: 'GET https://registry.npmjs.org/@types%2Flong' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/@types%2Flong', bytes: 0/17953
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Ffloat' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Ffloat', bytes: 0/9147
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@types%2flong', bytes: 0/3738
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@protobufjs%2ffloat', bytes: 0/2041
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Fcodegen' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Fcodegen', bytes: 0/18269
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@protobufjs%2fcodegen', bytes: 0/2977
+ http --> 200, req: 'GET https://registry.npmjs.org/long' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/long', bytes: 0/47083
+ http <-- 200, user: null(127.0.0.1), req: 'GET /long', bytes: 0/6661
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Faspromise' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Faspromise', bytes: 0/9524
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@protobufjs%2faspromise', bytes: 0/1608
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Fpath' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Fpath', bytes: 0/8603
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@protobufjs%2fpath', bytes: 0/1590
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Futf8' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Futf8', bytes: 0/11284
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@protobufjs%2futf8', bytes: 0/1865
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Fbase64' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/@protobufjs%2Fbase64', bytes: 0/11820
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@protobufjs%2fbase64', bytes: 0/2009
+ http --> 200, req: 'GET https://registry.npmjs.org/bn.js' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ethereumjs-util' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/bn.js', bytes: 0/127588
+ http --> 200, req: 'GET https://registry.npmjs.org/ethereumjs-util', bytes: 0/123626
+ http <-- 200, user: null(127.0.0.1), req: 'GET /bn.js', bytes: 0/16050
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ethereumjs-util', bytes: 0/13768
+ http --> 200, req: 'GET https://registry.npmjs.org/create-hash' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/create-hash', bytes: 0/12177
+ http --> 200, req: 'GET https://registry.npmjs.org/rlp' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ethjs-util' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/keccak' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/keccak', bytes: 0/20970
+ http <-- 200, user: null(127.0.0.1), req: 'GET /create-hash', bytes: 0/2391
+ http --> 200, req: 'GET https://registry.npmjs.org/rlp', bytes: 0/47453
+ http --> 200, req: 'GET https://registry.npmjs.org/ethjs-util', bytes: 0/63287
+ http <-- 200, user: null(127.0.0.1), req: 'GET /keccak', bytes: 0/4917
+ http <-- 200, user: null(127.0.0.1), req: 'GET /rlp', bytes: 0/9201
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ethjs-util', bytes: 0/8671
+ http --> 200, req: 'GET https://registry.npmjs.org/safe-buffer' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/safe-buffer', bytes: 0/36161
+ http --> 200, req: 'GET https://registry.npmjs.org/secp256k1' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /safe-buffer', bytes: 0/10883
+ http --> 200, req: 'GET https://registry.npmjs.org/secp256k1', bytes: 0/117769
+ http <-- 200, user: null(127.0.0.1), req: 'GET /secp256k1', bytes: 0/15683
+ http --> 200, req: 'GET https://registry.npmjs.org/inherits' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/cipher-base' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ripemd160' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/inherits', bytes: 0/10981
+ http --> 200, req: 'GET https://registry.npmjs.org/cipher-base', bytes: 0/7439
+ http --> 200, req: 'GET https://registry.npmjs.org/ripemd160', bytes: 0/13693
+ http --> 200, req: 'GET https://registry.npmjs.org/sha.js' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /inherits', bytes: 0/3265
+ http <-- 200, user: null(127.0.0.1), req: 'GET /cipher-base', bytes: 0/1758
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ripemd160', bytes: 0/3386
+ http --> 200, req: 'GET https://registry.npmjs.org/sha.js', bytes: 0/54333
+ http <-- 200, user: null(127.0.0.1), req: 'GET /sha.js', bytes: 0/6345
+ http --> 200, req: 'GET https://registry.npmjs.org/md5.js' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/md5.js', bytes: 0/15859
+ http <-- 200, user: null(127.0.0.1), req: 'GET /md5.js', bytes: 0/3549
+ http --> 200, req: 'GET https://registry.npmjs.org/hash-base' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/hash-base', bytes: 0/18345
+ http <-- 200, user: null(127.0.0.1), req: 'GET /hash-base', bytes: 0/3050
+ http --> 200, req: 'GET https://registry.npmjs.org/strip-hex-prefix' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/strip-hex-prefix', bytes: 0/5767
+ http <-- 200, user: null(127.0.0.1), req: 'GET /strip-hex-prefix', bytes: 0/2221
+ http --> 200, req: 'GET https://registry.npmjs.org/is-hex-prefixed' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/is-hex-prefixed', bytes: 0/5522
+ http <-- 200, user: null(127.0.0.1), req: 'GET /is-hex-prefixed', bytes: 0/2140
+ http --> 200, req: 'GET https://registry.npmjs.org/nan' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/nan', bytes: 0/166976
+ http --> 200, req: 'GET https://registry.npmjs.org/bindings' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/bindings', bytes: 0/26157
+ http <-- 200, user: null(127.0.0.1), req: 'GET /bindings', bytes: 0/6504
+ http <-- 200, user: null(127.0.0.1), req: 'GET /nan', bytes: 0/23900
+ http --> 200, req: 'GET https://registry.npmjs.org/file-uri-to-path' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/file-uri-to-path', bytes: 0/6272
+ http <-- 200, user: null(127.0.0.1), req: 'GET /file-uri-to-path', bytes: 0/2059
+ http --> 200, req: 'GET https://registry.npmjs.org/bip66' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/bip66', bytes: 0/19269
+ http <-- 200, user: null(127.0.0.1), req: 'GET /bip66', bytes: 0/3364
+ http --> 200, req: 'GET https://registry.npmjs.org/drbg.js' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/drbg.js', bytes: 0/6229
+ http --> 200, req: 'GET https://registry.npmjs.org/elliptic' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /drbg.js', bytes: 0/1921
+ http --> 200, req: 'GET https://registry.npmjs.org/elliptic', bytes: 0/107755
+ http <-- 200, user: null(127.0.0.1), req: 'GET /elliptic', bytes: 0/14395
+ http --> 200, req: 'GET https://registry.npmjs.org/create-hmac' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/create-hmac', bytes: 0/16896
+ http --> 200, req: 'GET https://registry.npmjs.org/browserify-aes' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/browserify-aes', bytes: 0/34727
+ http <-- 200, user: null(127.0.0.1), req: 'GET /create-hmac', bytes: 0/2864
+ http <-- 200, user: null(127.0.0.1), req: 'GET /browserify-aes', bytes: 0/4606
+ http --> 200, req: 'GET https://registry.npmjs.org/buffer-xor' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/evp_bytestokey' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/buffer-xor', bytes: 0/10348
+ http --> 200, req: 'GET https://registry.npmjs.org/evp_bytestokey', bytes: 0/8933
+ http <-- 200, user: null(127.0.0.1), req: 'GET /buffer-xor', bytes: 0/2242
+ http <-- 200, user: null(127.0.0.1), req: 'GET /evp_bytestokey', bytes: 0/2594
+ http --> 200, req: 'GET https://registry.npmjs.org/hash.js' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/hash.js', bytes: 0/26635
+ http <-- 200, user: null(127.0.0.1), req: 'GET /hash.js', bytes: 0/6853
+ http --> 200, req: 'GET https://registry.npmjs.org/brorand' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/brorand', bytes: 0/12982
+ http <-- 200, user: null(127.0.0.1), req: 'GET /brorand', bytes: 0/2573
+ http --> 200, req: 'GET https://registry.npmjs.org/hmac-drbg' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/hmac-drbg', bytes: 0/5025
+ http <-- 200, user: null(127.0.0.1), req: 'GET /hmac-drbg', bytes: 0/1946
+ http --> 200, req: 'GET https://registry.npmjs.org/minimalistic-assert' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/minimalistic-assert', bytes: 0/2984
+ http <-- 200, user: null(127.0.0.1), req: 'GET /minimalistic-assert', bytes: 0/999
+ http --> 200, req: 'GET https://registry.npmjs.org/minimalistic-crypto-utils' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/minimalistic-crypto-utils', bytes: 0/5362
+ http <-- 200, user: null(127.0.0.1), req: 'GET /minimalistic-crypto-utils', bytes: 0/1895
+ http --> 200, req: 'GET https://registry.npmjs.org/@types%2Fbytebuffer' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash.camelcase' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash.camelcase', bytes: 0/14803
+ http --> 200, req: 'GET https://registry.npmjs.org/@types%2Fbytebuffer', bytes: 0/27721
+ http <-- 200, user: null(127.0.0.1), req: 'GET /lodash.camelcase', bytes: 0/2026
+ http <-- 200, user: null(127.0.0.1), req: 'GET /@types%2fbytebuffer', bytes: 0/6198
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash.clone' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash.clone', bytes: 0/42461
+ http <-- 200, user: null(127.0.0.1), req: 'GET /lodash.clone', bytes: 0/3805
+ http --> 200, req: 'GET https://registry.npmjs.org/bytebuffer' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/bytebuffer', bytes: 0/110438
+ http <-- 200, user: null(127.0.0.1), req: 'GET /bytebuffer', bytes: 0/8758
+ http --> 200, req: 'GET https://registry.npmjs.org/ascli' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ascli', bytes: 0/7677
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ascli', bytes: 0/2258
+ http --> 200, req: 'GET https://registry.npmjs.org/optjs' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/colour' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/optjs', bytes: 0/3652
+ http --> 200, req: 'GET https://registry.npmjs.org/colour', bytes: 0/13238
+ http <-- 200, user: null(127.0.0.1), req: 'GET /optjs', bytes: 0/1368
+ http <-- 200, user: null(127.0.0.1), req: 'GET /colour', bytes: 0/2211
+ http --> 200, req: 'GET https://registry.npmjs.org/decamelize' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/camelcase' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/decamelize', bytes: 0/19436
+ http --> 200, req: 'GET https://registry.npmjs.org/camelcase', bytes: 0/31453
+ http <-- 200, user: null(127.0.0.1), req: 'GET /decamelize', bytes: 0/5477
+ http <-- 200, user: null(127.0.0.1), req: 'GET /camelcase', bytes: 0/7178
+ http --> 200, req: 'GET https://registry.npmjs.org/window-size' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/window-size', bytes: 0/25140
+ http --> 200, req: 'GET https://registry.npmjs.org/y18n' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /window-size', bytes: 0/5760
+ http --> 200, req: 'GET https://registry.npmjs.org/y18n', bytes: 0/12848
+ http --> 200, req: 'GET https://registry.npmjs.org/cliui' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/cliui', bytes: 0/30773
+ http <-- 200, user: null(127.0.0.1), req: 'GET /y18n', bytes: 0/3015
+ http <-- 200, user: null(127.0.0.1), req: 'GET /cliui', bytes: 0/6458
+ http --> 200, req: 'GET https://registry.npmjs.org/os-locale' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/os-locale', bytes: 0/25190
+ http <-- 200, user: null(127.0.0.1), req: 'GET /os-locale', bytes: 0/6648
+ http --> 200, req: 'GET https://registry.npmjs.org/string-width' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/string-width', bytes: 0/21896
+ http --> 200, req: 'GET https://registry.npmjs.org/wrap-ansi' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/strip-ansi' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/wrap-ansi', bytes: 0/29233
+ http <-- 200, user: null(127.0.0.1), req: 'GET /string-width', bytes: 0/5886
+ http --> 200, req: 'GET https://registry.npmjs.org/strip-ansi', bytes: 0/25811
+ http <-- 200, user: null(127.0.0.1), req: 'GET /wrap-ansi', bytes: 0/7479
+ http <-- 200, user: null(127.0.0.1), req: 'GET /strip-ansi', bytes: 0/5867
+ http --> 200, req: 'GET https://registry.npmjs.org/code-point-at' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/code-point-at', bytes: 0/5422
+ http <-- 200, user: null(127.0.0.1), req: 'GET /code-point-at', bytes: 0/1459
+ http --> 200, req: 'GET https://registry.npmjs.org/is-fullwidth-code-point' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/is-fullwidth-code-point', bytes: 0/7225
+ http <-- 200, user: null(127.0.0.1), req: 'GET /is-fullwidth-code-point', bytes: 0/2446
+ http --> 200, req: 'GET https://registry.npmjs.org/number-is-nan' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/number-is-nan', bytes: 0/3927
+ http <-- 200, user: null(127.0.0.1), req: 'GET /number-is-nan', bytes: 0/1227
+ http --> 200, req: 'GET https://registry.npmjs.org/ansi-regex' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ansi-regex', bytes: 0/21139
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ansi-regex', bytes: 0/5381
+ http --> 200, req: 'GET https://registry.npmjs.org/lcid' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/lcid', bytes: 0/7775
+ http <-- 200, user: null(127.0.0.1), req: 'GET /lcid', bytes: 0/3218
+ http --> 200, req: 'GET https://registry.npmjs.org/invert-kv' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/invert-kv', bytes: 0/7122
+ http <-- 200, user: null(127.0.0.1), req: 'GET /invert-kv', bytes: 0/2437
+ http --> 200, req: 'GET https://registry.npmjs.org/fs-extra' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/js-yaml' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/compare-versions' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/js-yaml', bytes: 0/116039
+ http --> 200, req: 'GET https://registry.npmjs.org/compare-versions', bytes: 0/33562
+ http --> 200, req: 'GET https://registry.npmjs.org/fs-extra', bytes: 0/164048
+ http <-- 200, user: null(127.0.0.1), req: 'GET /js-yaml', bytes: 0/17529
+ http <-- 200, user: null(127.0.0.1), req: 'GET /compare-versions', bytes: 0/9347
+ http <-- 200, user: null(127.0.0.1), req: 'GET /fs-extra', bytes: 0/20713
+ http --> 200, req: 'GET https://registry.npmjs.org/nconf' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/moment' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/nconf', bytes: 0/56078
+ http --> 200, req: 'GET https://registry.npmjs.org/nconf-yaml' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/mustache' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/dockerode' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/nconf-yaml', bytes: 0/5308
+ http --> 200, req: 'GET https://registry.npmjs.org/node-zookeeper-client' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /nconf', bytes: 0/9512
+ http <-- 200, user: null(127.0.0.1), req: 'GET /nconf-yaml', bytes: 0/1411
+ http --> 200, req: 'GET https://registry.npmjs.org/node-zookeeper-client', bytes: 0/43790
+ http --> 200, req: 'GET https://registry.npmjs.org/mustache', bytes: 0/73346
+ http --> 200, req: 'GET https://registry.npmjs.org/pidusage' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/moment', bytes: 0/164109
+ http <-- 200, user: null(127.0.0.1), req: 'GET /node-zookeeper-client', bytes: 0/10392
+ http --> 200, req: 'GET https://registry.npmjs.org/dockerode', bytes: 0/216487
+ http <-- 200, user: null(127.0.0.1), req: 'GET /mustache', bytes: 0/16989
+ http <-- 200, user: null(127.0.0.1), req: 'GET /moment', bytes: 0/14650
+ http --> 200, req: 'GET https://registry.npmjs.org/pidusage', bytes: 0/73266
+ http --> 200, req: 'GET https://registry.npmjs.org/ps-node' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /dockerode', bytes: 0/20435
+ http --> 200, req: 'GET https://registry.npmjs.org/ps-node', bytes: 0/18104
+ http <-- 200, user: null(127.0.0.1), req: 'GET /pidusage', bytes: 0/16476
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ps-node', bytes: 0/4063
+ http --> 200, req: 'GET https://registry.npmjs.org/request' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/systeminformation' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/request', bytes: 0/254281
+ http --> 200, req: 'GET https://registry.npmjs.org/table' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/winston' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/table', bytes: 0/152031
+ http <-- 200, user: null(127.0.0.1), req: 'GET /request', bytes: 0/31876
+ http --> 200, req: 'GET https://registry.npmjs.org/winston', bytes: 0/142156
+ http --> 200, req: 'GET https://registry.npmjs.org/winston-daily-rotate-file' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /table', bytes: 0/29027
+ http --> 200, req: 'GET https://registry.npmjs.org/systeminformation', bytes: 0/690584
+ http --> 200, req: 'GET https://registry.npmjs.org/ajv' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /winston', bytes: 0/27008
+ http --> 200, req: 'GET https://registry.npmjs.org/winston-daily-rotate-file', bytes: 0/150711
+ http <-- 200, user: null(127.0.0.1), req: 'GET /winston-daily-rotate-file', bytes: 0/29826
+ http --> 200, req: 'GET https://registry.npmjs.org/ajv', bytes: 0/722316
+ http <-- 200, user: null(127.0.0.1), req: 'GET /systeminformation', bytes: 0/140347
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ajv', bytes: 0/70739
+ http --> 200, req: 'GET https://registry.npmjs.org/json-schema-traverse' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/json-schema-traverse', bytes: 0/15706
+ http <-- 200, user: null(127.0.0.1), req: 'GET /json-schema-traverse', bytes: 0/4396
+ http --> 200, req: 'GET https://registry.npmjs.org/fast-json-stable-stringify' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/fast-deep-equal' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/fast-json-stable-stringify', bytes: 0/7197
+ http --> 200, req: 'GET https://registry.npmjs.org/uri-js' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/fast-deep-equal', bytes: 0/28174
+ http <-- 200, user: null(127.0.0.1), req: 'GET /fast-json-stable-stringify', bytes: 0/2338
+ http --> 200, req: 'GET https://registry.npmjs.org/uri-js', bytes: 0/30009
+ http <-- 200, user: null(127.0.0.1), req: 'GET /fast-deep-equal', bytes: 0/6886
+ http <-- 200, user: null(127.0.0.1), req: 'GET /uri-js', bytes: 0/7076
+ http --> 200, req: 'GET https://registry.npmjs.org/punycode' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/punycode', bytes: 0/42166
+ http <-- 200, user: null(127.0.0.1), req: 'GET /punycode', bytes: 0/6940
+ http --> 200, req: 'GET https://registry.npmjs.org/tar-fs' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/concat-stream' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/concat-stream', bytes: 0/53473
+ http --> 200, req: 'GET https://registry.npmjs.org/docker-modem' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/tar-fs', bytes: 0/66665
+ http <-- 200, user: null(127.0.0.1), req: 'GET /concat-stream', bytes: 0/7472
+ http --> 200, req: 'GET https://registry.npmjs.org/docker-modem', bytes: 0/110477
+ http <-- 200, user: null(127.0.0.1), req: 'GET /tar-fs', bytes: 0/11244
+ http <-- 200, user: null(127.0.0.1), req: 'GET /docker-modem', bytes: 0/11227
+ http --> 200, req: 'GET https://registry.npmjs.org/readable-stream' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/typedarray' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/typedarray', bytes: 0/11311
+ http --> 200, req: 'GET https://registry.npmjs.org/readable-stream', bytes: 0/180805
+ http --> 200, req: 'GET https://registry.npmjs.org/buffer-from' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/buffer-from', bytes: 0/11745
+ http <-- 200, user: null(127.0.0.1), req: 'GET /typedarray', bytes: 0/1735
+ http <-- 200, user: null(127.0.0.1), req: 'GET /buffer-from', bytes: 0/4026
+ http <-- 200, user: null(127.0.0.1), req: 'GET /readable-stream', bytes: 0/26152
+ http --> 200, req: 'GET https://registry.npmjs.org/core-util-is' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/string_decoder' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/isarray' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/core-util-is', bytes: 0/3781
+ http --> 200, req: 'GET https://registry.npmjs.org/string_decoder', bytes: 0/24338
+ http --> 200, req: 'GET https://registry.npmjs.org/process-nextick-args' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/isarray', bytes: 0/15176
+ http --> 200, req: 'GET https://registry.npmjs.org/util-deprecate' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /core-util-is', bytes: 0/926
+ http --> 200, req: 'GET https://registry.npmjs.org/util-deprecate', bytes: 0/5863
+ http --> 200, req: 'GET https://registry.npmjs.org/process-nextick-args', bytes: 0/12718
+ http <-- 200, user: null(127.0.0.1), req: 'GET /string_decoder', bytes: 0/5465
+ http <-- 200, user: null(127.0.0.1), req: 'GET /isarray', bytes: 0/3641
+ http <-- 200, user: null(127.0.0.1), req: 'GET /util-deprecate', bytes: 0/1794
+ http <-- 200, user: null(127.0.0.1), req: 'GET /process-nextick-args', bytes: 0/3009
+ http --> 200, req: 'GET https://registry.npmjs.org/JSONStream' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/JSONStream', bytes: 0/77651
+ http --> 200, req: 'GET https://registry.npmjs.org/split-ca' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/debug' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/split-ca', bytes: 0/4897
+ http <-- 200, user: null(127.0.0.1), req: 'GET /split-ca', bytes: 0/1618
+ http <-- 200, user: null(127.0.0.1), req: 'GET /JSONStream', bytes: 0/11176
+ http --> 200, req: 'GET https://registry.npmjs.org/debug', bytes: 0/183674
+ http <-- 200, user: null(127.0.0.1), req: 'GET /debug', bytes: 0/23711
+ http --> 200, req: 'GET https://registry.npmjs.org/ms' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ms', bytes: 0/26344
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ms', bytes: 0/5763
+ http --> 200, req: 'GET https://registry.npmjs.org/through' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/jsonparse' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/through', bytes: 0/29951
+ http --> 200, req: 'GET https://registry.npmjs.org/jsonparse', bytes: 0/12775
+ http <-- 200, user: null(127.0.0.1), req: 'GET /through', bytes: 0/3599
+ http <-- 200, user: null(127.0.0.1), req: 'GET /jsonparse', bytes: 0/2566
+ http --> 200, req: 'GET https://registry.npmjs.org/chownr' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/chownr', bytes: 0/11011
+ http <-- 200, user: null(127.0.0.1), req: 'GET /chownr', bytes: 0/3853
+ http --> 200, req: 'GET https://registry.npmjs.org/tar-stream' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/pump' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/mkdirp' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/tar-stream', bytes: 0/87459
+ http --> 200, req: 'GET https://registry.npmjs.org/pump', bytes: 0/27581
+ http --> 200, req: 'GET https://registry.npmjs.org/mkdirp', bytes: 0/27092
+ http <-- 200, user: null(127.0.0.1), req: 'GET /tar-stream', bytes: 0/14715
+ http <-- 200, user: null(127.0.0.1), req: 'GET /pump', bytes: 0/4059
+ http <-- 200, user: null(127.0.0.1), req: 'GET /mkdirp', bytes: 0/3303
+ http --> 200, req: 'GET https://registry.npmjs.org/minimist' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/minimist', bytes: 0/31332
+ http <-- 200, user: null(127.0.0.1), req: 'GET /minimist', bytes: 0/3478
+ http --> 200, req: 'GET https://registry.npmjs.org/end-of-stream' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/end-of-stream', bytes: 0/15349
+ http <-- 200, user: null(127.0.0.1), req: 'GET /end-of-stream', bytes: 0/2443
+ http --> 200, req: 'GET https://registry.npmjs.org/once' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/once', bytes: 0/9716
+ http <-- 200, user: null(127.0.0.1), req: 'GET /once', bytes: 0/2192
+ http --> 200, req: 'GET https://registry.npmjs.org/wrappy' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/wrappy', bytes: 0/4454
+ http <-- 200, user: null(127.0.0.1), req: 'GET /wrappy', bytes: 0/1372
+ http --> 200, req: 'GET https://registry.npmjs.org/bl' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/bl', bytes: 0/68068
+ http --> 200, req: 'GET https://registry.npmjs.org/xtend' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/buffer-alloc' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/xtend', bytes: 0/23443
+ http <-- 200, user: null(127.0.0.1), req: 'GET /bl', bytes: 0/14463
+ http --> 200, req: 'GET https://registry.npmjs.org/fs-constants' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/buffer-alloc', bytes: 0/8957
+ http --> 200, req: 'GET https://registry.npmjs.org/fs-constants', bytes: 0/3334
+ http --> 200, req: 'GET https://registry.npmjs.org/to-buffer' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/to-buffer', bytes: 0/6913
+ http <-- 200, user: null(127.0.0.1), req: 'GET /xtend', bytes: 0/3722
+ http <-- 200, user: null(127.0.0.1), req: 'GET /buffer-alloc', bytes: 0/2821
+ http <-- 200, user: null(127.0.0.1), req: 'GET /fs-constants', bytes: 0/1788
+ http <-- 200, user: null(127.0.0.1), req: 'GET /to-buffer', bytes: 0/2290
+ http --> 200, req: 'GET https://registry.npmjs.org/buffer-alloc-unsafe' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/buffer-fill' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/buffer-fill', bytes: 0/6623
+ http --> 200, req: 'GET https://registry.npmjs.org/buffer-alloc-unsafe', bytes: 0/7938
+ http <-- 200, user: null(127.0.0.1), req: 'GET /buffer-fill', bytes: 0/2642
+ http <-- 200, user: null(127.0.0.1), req: 'GET /buffer-alloc-unsafe', bytes: 0/2591
+ http --> 200, req: 'GET https://registry.npmjs.org/universalify' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/universalify', bytes: 0/9156
+ http --> 200, req: 'GET https://registry.npmjs.org/jsonfile' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /universalify', bytes: 0/2791
+ http --> 200, req: 'GET https://registry.npmjs.org/jsonfile', bytes: 0/34222
+ http --> 200, req: 'GET https://registry.npmjs.org/graceful-fs' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /jsonfile', bytes: 0/5695
+ http --> 200, req: 'GET https://registry.npmjs.org/graceful-fs', bytes: 0/84169
+ http <-- 200, user: null(127.0.0.1), req: 'GET /graceful-fs', bytes: 0/15639
+ http --> 200, req: 'GET https://registry.npmjs.org/argparse' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/argparse', bytes: 0/42062
+ http <-- 200, user: null(127.0.0.1), req: 'GET /argparse', bytes: 0/7140
+ http --> 200, req: 'GET https://registry.npmjs.org/esprima' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/esprima', bytes: 0/105144
+ http <-- 200, user: null(127.0.0.1), req: 'GET /esprima', bytes: 0/9829
+ http --> 200, req: 'GET https://registry.npmjs.org/sprintf-js' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/sprintf-js', bytes: 0/16860
+ http <-- 200, user: null(127.0.0.1), req: 'GET /sprintf-js', bytes: 0/5219
+ http --> 200, req: 'GET https://registry.npmjs.org/async' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/secure-keys' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ini' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/secure-keys', bytes: 0/2493
+ http --> 200, req: 'GET https://registry.npmjs.org/async', bytes: 0/172599
+ http --> 200, req: 'GET https://registry.npmjs.org/ini', bytes: 0/17118
+ http <-- 200, user: null(127.0.0.1), req: 'GET /secure-keys', bytes: 0/1153
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ini', bytes: 0/3581
+ http <-- 200, user: null(127.0.0.1), req: 'GET /async', bytes: 0/17820
+ http --> 200, req: 'GET https://registry.npmjs.org/underscore' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/underscore', bytes: 0/52200
+ http <-- 200, user: null(127.0.0.1), req: 'GET /underscore', bytes: 0/6675
+ http --> 200, req: 'GET https://registry.npmjs.org/table-parser' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/table-parser', bytes: 0/12589
+ http <-- 200, user: null(127.0.0.1), req: 'GET /table-parser', bytes: 0/2876
+ http --> 200, req: 'GET https://registry.npmjs.org/connected-domain' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/connected-domain', bytes: 0/3841
+ http <-- 200, user: null(127.0.0.1), req: 'GET /connected-domain', bytes: 0/1489
+ http --> 200, req: 'GET https://registry.npmjs.org/caseless' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/caseless', bytes: 0/14425
+ http --> 200, req: 'GET https://registry.npmjs.org/forever-agent' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/aws4' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/aws-sign2' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/forever-agent', bytes: 0/8041
+ http --> 200, req: 'GET https://registry.npmjs.org/extend' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/har-validator' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/form-data' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/http-signature' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/aws-sign2', bytes: 0/4993
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caseless', bytes: 0/2352
+ http --> 200, req: 'GET https://registry.npmjs.org/extend', bytes: 0/22338
+ http --> 200, req: 'GET https://registry.npmjs.org/combined-stream' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /forever-agent', bytes: 0/1297
+ http --> 200, req: 'GET https://registry.npmjs.org/http-signature', bytes: 0/27476
+ http <-- 200, user: null(127.0.0.1), req: 'GET /aws-sign2', bytes: 0/1082
+ http --> 200, req: 'GET https://registry.npmjs.org/aws4', bytes: 0/75118
+ http --> 200, req: 'GET https://registry.npmjs.org/is-typedarray' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/is-typedarray', bytes: 0/3458
+ http <-- 200, user: null(127.0.0.1), req: 'GET /extend', bytes: 0/4151
+ http --> 200, req: 'GET https://registry.npmjs.org/combined-stream', bytes: 0/35576
+ http <-- 200, user: null(127.0.0.1), req: 'GET /http-signature', bytes: 0/3954
+ http --> 200, req: 'GET https://registry.npmjs.org/har-validator', bytes: 0/99092
+ http <-- 200, user: null(127.0.0.1), req: 'GET /aws4', bytes: 0/11122
+ http --> 200, req: 'GET https://registry.npmjs.org/form-data', bytes: 0/94562
+ http <-- 200, user: null(127.0.0.1), req: 'GET /is-typedarray', bytes: 0/1041
+ http <-- 200, user: null(127.0.0.1), req: 'GET /combined-stream', bytes: 0/6583
+ http <-- 200, user: null(127.0.0.1), req: 'GET /har-validator', bytes: 0/10661
+ http <-- 200, user: null(127.0.0.1), req: 'GET /form-data', bytes: 0/14212
+ http --> 200, req: 'GET https://registry.npmjs.org/isstream' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/isstream', bytes: 0/8028
+ http <-- 200, user: null(127.0.0.1), req: 'GET /isstream', bytes: 0/1827
+ http --> 200, req: 'GET https://registry.npmjs.org/json-stringify-safe' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/json-stringify-safe', bytes: 0/7359
+ http <-- 200, user: null(127.0.0.1), req: 'GET /json-stringify-safe', bytes: 0/1746
+ http --> 200, req: 'GET https://registry.npmjs.org/mime-types' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/mime-types', bytes: 0/86134
+ http <-- 200, user: null(127.0.0.1), req: 'GET /mime-types', bytes: 0/12835
+ http --> 200, req: 'GET https://registry.npmjs.org/oauth-sign' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/oauth-sign', bytes: 0/13090
+ http <-- 200, user: null(127.0.0.1), req: 'GET /oauth-sign', bytes: 0/2819
+ http --> 200, req: 'GET https://registry.npmjs.org/qs' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/performance-now' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/performance-now', bytes: 0/16688
+ http --> 200, req: 'GET https://registry.npmjs.org/tough-cookie' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/tunnel-agent' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/tunnel-agent', bytes: 0/10503
+ http <-- 200, user: null(127.0.0.1), req: 'GET /performance-now', bytes: 0/3000
+ http <-- 200, user: null(127.0.0.1), req: 'GET /tunnel-agent', bytes: 0/1693
+ http --> 200, req: 'GET https://registry.npmjs.org/qs', bytes: 0/118296
+ http --> 200, req: 'GET https://registry.npmjs.org/tough-cookie', bytes: 0/87004
+ http --> 200, req: 'GET https://registry.npmjs.org/uuid' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /qs', bytes: 0/20100
+ http --> 200, req: 'GET https://registry.npmjs.org/uuid', bytes: 0/42989
+ http <-- 200, user: null(127.0.0.1), req: 'GET /tough-cookie', bytes: 0/19308
+ http <-- 200, user: null(127.0.0.1), req: 'GET /uuid', bytes: 0/9344
+ http --> 200, req: 'GET https://registry.npmjs.org/delayed-stream' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/delayed-stream', bytes: 0/13354
+ http <-- 200, user: null(127.0.0.1), req: 'GET /delayed-stream', bytes: 0/3001
+ http --> 200, req: 'GET https://registry.npmjs.org/asynckit' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/asynckit', bytes: 0/16271
+ http <-- 200, user: null(127.0.0.1), req: 'GET /asynckit', bytes: 0/3686
+ http --> 200, req: 'GET https://registry.npmjs.org/mime-db' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/mime-db', bytes: 0/109109
+ http <-- 200, user: null(127.0.0.1), req: 'GET /mime-db', bytes: 0/16170
+ http --> 200, req: 'GET https://registry.npmjs.org/har-schema' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/har-schema', bytes: 0/20194
+ http <-- 200, user: null(127.0.0.1), req: 'GET /har-schema', bytes: 0/3098
+ http --> 200, req: 'GET https://registry.npmjs.org/assert-plus' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/jsprim' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/assert-plus', bytes: 0/13776
+ http --> 200, req: 'GET https://registry.npmjs.org/sshpk' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/jsprim', bytes: 0/33779
+ http <-- 200, user: null(127.0.0.1), req: 'GET /assert-plus', bytes: 0/3497
+ http --> 200, req: 'GET https://registry.npmjs.org/sshpk', bytes: 0/113315
+ http <-- 200, user: null(127.0.0.1), req: 'GET /jsprim', bytes: 0/7425
+ http <-- 200, user: null(127.0.0.1), req: 'GET /sshpk', bytes: 0/19464
+ http --> 200, req: 'GET https://registry.npmjs.org/extsprintf' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/extsprintf', bytes: 0/10197
+ http --> 200, req: 'GET https://registry.npmjs.org/json-schema' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /extsprintf', bytes: 0/2219
+ http --> 200, req: 'GET https://registry.npmjs.org/json-schema', bytes: 0/8710
+ http <-- 200, user: null(127.0.0.1), req: 'GET /json-schema', bytes: 0/3089
+ http --> 200, req: 'GET https://registry.npmjs.org/verror' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/verror', bytes: 0/40432
+ http <-- 200, user: null(127.0.0.1), req: 'GET /verror', bytes: 0/9994
+ http --> 200, req: 'GET https://registry.npmjs.org/safer-buffer' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/jsbn' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/getpass' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/jsbn', bytes: 0/7083
+ http --> 200, req: 'GET https://registry.npmjs.org/asn1' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/getpass', bytes: 0/10999
+ http --> 200, req: 'GET https://registry.npmjs.org/safer-buffer', bytes: 0/17303
+ http --> 200, req: 'GET https://registry.npmjs.org/asn1', bytes: 0/21779
+ http <-- 200, user: null(127.0.0.1), req: 'GET /jsbn', bytes: 0/1918
+ http <-- 200, user: null(127.0.0.1), req: 'GET /getpass', bytes: 0/2140
+ http --> 200, req: 'GET https://registry.npmjs.org/ecc-jsbn' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /safer-buffer', bytes: 0/5541
+ http --> 200, req: 'GET https://registry.npmjs.org/ecc-jsbn', bytes: 0/7670
+ http <-- 200, user: null(127.0.0.1), req: 'GET /asn1', bytes: 0/4050
+ http --> 200, req: 'GET https://registry.npmjs.org/bcrypt-pbkdf' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ecc-jsbn', bytes: 0/2086
+ http --> 200, req: 'GET https://registry.npmjs.org/bcrypt-pbkdf', bytes: 0/5803
+ http <-- 200, user: null(127.0.0.1), req: 'GET /bcrypt-pbkdf', bytes: 0/1915
+ http --> 200, req: 'GET https://registry.npmjs.org/tweetnacl' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/dashdash' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/tweetnacl', bytes: 0/66727
+ http --> 200, req: 'GET https://registry.npmjs.org/dashdash', bytes: 0/52954
+ http <-- 200, user: null(127.0.0.1), req: 'GET /tweetnacl', bytes: 0/10479
+ http <-- 200, user: null(127.0.0.1), req: 'GET /dashdash', bytes: 0/9993
+ http --> 200, req: 'GET https://registry.npmjs.org/psl' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/psl', bytes: 0/87493
+ http <-- 200, user: null(127.0.0.1), req: 'GET /psl', bytes: 0/19310
+ http --> 200, req: 'GET https://registry.npmjs.org/ajv-keywords' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ajv-keywords', bytes: 0/81318
+ http --> 200, req: 'GET https://registry.npmjs.org/slice-ansi' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/slice-ansi', bytes: 0/17283
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ajv-keywords', bytes: 0/15391
+ http <-- 200, user: null(127.0.0.1), req: 'GET /slice-ansi', bytes: 0/5373
+ http --> 200, req: 'GET https://registry.npmjs.org/ansi-styles' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ansi-styles', bytes: 0/29246
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ansi-styles', bytes: 0/6684
+ http --> 200, req: 'GET https://registry.npmjs.org/supports-color' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/escape-string-regexp' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/escape-string-regexp', bytes: 0/12104
+ http --> 200, req: 'GET https://registry.npmjs.org/supports-color', bytes: 0/59453
+ http <-- 200, user: null(127.0.0.1), req: 'GET /escape-string-regexp', bytes: 0/2851
+ http <-- 200, user: null(127.0.0.1), req: 'GET /supports-color', bytes: 0/11011
+ http --> 200, req: 'GET https://registry.npmjs.org/color-convert' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/color-convert', bytes: 0/52375
+ http <-- 200, user: null(127.0.0.1), req: 'GET /color-convert', bytes: 0/9930
+ http --> 200, req: 'GET https://registry.npmjs.org/color-name' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/color-name', bytes: 0/11211
+ http <-- 200, user: null(127.0.0.1), req: 'GET /color-name', bytes: 0/2839
+ http --> 200, req: 'GET https://registry.npmjs.org/has-flag' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/has-flag', bytes: 0/9189
+ http <-- 200, user: null(127.0.0.1), req: 'GET /has-flag', bytes: 0/3113
+ http --> 200, req: 'GET https://registry.npmjs.org/colors' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/eyes' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/stack-trace' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/eyes', bytes: 0/8980
+ http --> 200, req: 'GET https://registry.npmjs.org/stack-trace', bytes: 0/15024
+ http <-- 200, user: null(127.0.0.1), req: 'GET /eyes', bytes: 0/2196
+ http <-- 200, user: null(127.0.0.1), req: 'GET /stack-trace', bytes: 0/3119
+ http --> 200, req: 'GET https://registry.npmjs.org/colors', bytes: 0/51238
+ http <-- 200, user: null(127.0.0.1), req: 'GET /colors', bytes: 0/11347
+ http --> 200, req: 'GET https://registry.npmjs.org/cycle' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/cycle', bytes: 0/7579
+ http <-- 200, user: null(127.0.0.1), req: 'GET /cycle', bytes: 0/1826
+ http --> 200, req: 'GET https://registry.npmjs.org/triple-beam' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/triple-beam', bytes: 0/10097
+ http --> 200, req: 'GET https://registry.npmjs.org/winston-transport' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/winston-transport', bytes: 0/29053
+ http --> 200, req: 'GET https://registry.npmjs.org/file-stream-rotator' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /triple-beam', bytes: 0/3331
+ http --> 200, req: 'GET https://registry.npmjs.org/object-hash' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/semver' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /winston-transport', bytes: 0/7995
+ http --> 200, req: 'GET https://registry.npmjs.org/file-stream-rotator', bytes: 0/42831
+ http --> 200, req: 'GET https://registry.npmjs.org/winston-compat' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/object-hash', bytes: 0/65395
+ http --> 200, req: 'GET https://registry.npmjs.org/winston-compat', bytes: 0/13649
+ http <-- 200, user: null(127.0.0.1), req: 'GET /file-stream-rotator', bytes: 0/11639
+ http <-- 200, user: null(127.0.0.1), req: 'GET /object-hash', bytes: 0/9068
+ http <-- 200, user: null(127.0.0.1), req: 'GET /winston-compat', bytes: 0/4723
+ http --> 200, req: 'GET https://registry.npmjs.org/semver', bytes: 0/104062
+ http <-- 200, user: null(127.0.0.1), req: 'GET /semver', bytes: 0/16827
+ http --> 200, req: 'GET https://registry.npmjs.org/logform' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/logform', bytes: 0/62040
+ http <-- 200, user: null(127.0.0.1), req: 'GET /logform', bytes: 0/17908
+ http --> 200, req: 'GET https://registry.npmjs.org/fast-safe-stringify' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/fecha' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/fecha', bytes: 0/30363
+ http --> 200, req: 'GET https://registry.npmjs.org/fast-safe-stringify', bytes: 0/58378
+ http <-- 200, user: null(127.0.0.1), req: 'GET /fecha', bytes: 0/7286
+ http <-- 200, user: null(127.0.0.1), req: 'GET /fast-safe-stringify', bytes: 0/10382
+ http --> 200, req: 'GET https://registry.npmjs.org/composer-client' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/composer-admin' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/fabric-ca-client' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/fabric-client' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ora' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ora', bytes: 0/47133
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ora', bytes: 0/11458
+ http --> 200, req: 'GET https://registry.npmjs.org/fabric-ca-client', bytes: 0/2351327
+ http --> 200, req: 'GET https://registry.npmjs.org/composer-common' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/fabric-client', bytes: 0/2513968
+ http --> 200, req: 'GET https://registry.npmjs.org/composer-client', bytes: 0/6619617
+ http --> 200, req: 'GET https://registry.npmjs.org/composer-admin', bytes: 0/6597296
+ http <-- 200, user: null(127.0.0.1), req: 'GET /fabric-ca-client', bytes: 0/355388
+ http <-- 200, user: null(127.0.0.1), req: 'GET /fabric-client', bytes: 0/359181
+ http --> 200, req: 'GET https://registry.npmjs.org/composer-common', bytes: 0/9113153
+ http <-- 200, user: null(127.0.0.1), req: 'GET /composer-client', bytes: 0/606794
+ http <-- 200, user: null(127.0.0.1), req: 'GET /composer-admin', bytes: 0/611240
+ http <-- 200, user: null(127.0.0.1), req: 'GET /composer-common', bytes: 0/637343
+ http --> 200, req: 'GET https://registry.npmjs.org/composer-wallet-inmemory' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/composer-connector-proxy' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/composer-connector-hlfv1' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/composer-wallet-filesystem' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/composer-wallet-inmemory', bytes: 0/2059457
+ http --> 200, req: 'GET https://registry.npmjs.org/composer-wallet-filesystem', bytes: 0/2085330
+ http --> 200, req: 'GET https://registry.npmjs.org/composer-connector-proxy', bytes: 0/6088737
+ http --> 200, req: 'GET https://registry.npmjs.org/composer-connector-hlfv1', bytes: 0/6095189
+ http <-- 200, user: null(127.0.0.1), req: 'GET /composer-wallet-inmemory', bytes: 0/352551
+ http <-- 200, user: null(127.0.0.1), req: 'GET /composer-wallet-filesystem', bytes: 0/353662
+ http <-- 200, user: null(127.0.0.1), req: 'GET /composer-connector-proxy', bytes: 0/586628
+ http <-- 200, user: null(127.0.0.1), req: 'GET /composer-connector-hlfv1', bytes: 0/587373
+ http --> 200, req: 'GET https://registry.npmjs.org/axios' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/axios', bytes: 0/139994
+ http --> 200, req: 'GET https://registry.npmjs.org/config' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/doctrine' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/comment-parser' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /axios', bytes: 0/16585
+ http --> 200, req: 'GET https://registry.npmjs.org/acorn' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/doctrine', bytes: 0/54637
+ http --> 200, req: 'GET https://registry.npmjs.org/comment-parser', bytes: 0/51408
+ http --> 200, req: 'GET https://registry.npmjs.org/jsrsasign' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/config', bytes: 0/145032
+ http --> 200, req: 'GET https://registry.npmjs.org/jszip' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /doctrine', bytes: 0/9267
+ http <-- 200, user: null(127.0.0.1), req: 'GET /comment-parser', bytes: 0/12307
+ http --> 200, req: 'GET https://registry.npmjs.org/jsrsasign', bytes: 0/105900
+ http --> 200, req: 'GET https://registry.npmjs.org/jszip', bytes: 0/48338
+ http <-- 200, user: null(127.0.0.1), req: 'GET /config', bytes: 0/21213
+ http --> 200, req: 'GET https://registry.npmjs.org/lorem-ipsum' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /jsrsasign', bytes: 0/10203
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash.clonedeep' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/acorn', bytes: 0/246667
+ http <-- 200, user: null(127.0.0.1), req: 'GET /jszip', bytes: 0/7911
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash.padstart' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash.padstart', bytes: 0/19107
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash.clonedeep', bytes: 0/41178
+ http --> 200, req: 'GET https://registry.npmjs.org/minimatch' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /lodash.padstart', bytes: 0/2285
+ http --> 200, req: 'GET https://registry.npmjs.org/minimatch', bytes: 0/53933
+ http --> 200, req: 'GET https://registry.npmjs.org/lorem-ipsum', bytes: 0/158260
+ http <-- 200, user: null(127.0.0.1), req: 'GET /lodash.clonedeep', bytes: 0/3692
+ http <-- 200, user: null(127.0.0.1), req: 'GET /acorn', bytes: 0/35102
+ http <-- 200, user: null(127.0.0.1), req: 'GET /minimatch', bytes: 0/7737
+ http <-- 200, user: null(127.0.0.1), req: 'GET /lorem-ipsum', bytes: 0/20811
+ http --> 200, req: 'GET https://registry.npmjs.org/npm-paths' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/npm-paths', bytes: 0/16685
+ http <-- 200, user: null(127.0.0.1), req: 'GET /npm-paths', bytes: 0/4503
+ http --> 200, req: 'GET https://registry.npmjs.org/thenify' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/thenify', bytes: 0/16329
+ http <-- 200, user: null(127.0.0.1), req: 'GET /thenify', bytes: 0/3059
+ http --> 200, req: 'GET https://registry.npmjs.org/thenify-all' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/urijs' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/thenify-all', bytes: 0/15812
+ http --> 200, req: 'GET https://registry.npmjs.org/urijs', bytes: 0/48852
+ http <-- 200, user: null(127.0.0.1), req: 'GET /thenify-all', bytes: 0/2426
+ http <-- 200, user: null(127.0.0.1), req: 'GET /urijs', bytes: 0/8252
+ http --> 200, req: 'GET https://registry.npmjs.org/follow-redirects' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/is-buffer' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/is-buffer', bytes: 0/24653
+ http --> 200, req: 'GET https://registry.npmjs.org/follow-redirects', bytes: 0/92283
+ http <-- 200, user: null(127.0.0.1), req: 'GET /is-buffer', bytes: 0/4782
+ http <-- 200, user: null(127.0.0.1), req: 'GET /follow-redirects', bytes: 0/21264
+ http --> 200, req: 'GET https://registry.npmjs.org/json5' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/json5', bytes: 0/50693
+ http <-- 200, user: null(127.0.0.1), req: 'GET /json5', bytes: 0/10903
+ http --> 200, req: 'GET https://registry.npmjs.org/esutils' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/esutils', bytes: 0/25804
+ http <-- 200, user: null(127.0.0.1), req: 'GET /esutils', bytes: 0/4998
+ http --> 200, req: 'GET https://registry.npmjs.org/klaw' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/klaw', bytes: 0/26474
+ http <-- 200, user: null(127.0.0.1), req: 'GET /klaw', bytes: 0/6186
+ http --> 200, req: 'GET https://registry.npmjs.org/es6-promise' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/es6-promise', bytes: 0/87983
+ http <-- 200, user: null(127.0.0.1), req: 'GET /es6-promise', bytes: 0/11706
+ http --> 200, req: 'GET https://registry.npmjs.org/pako' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/lie' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/lie', bytes: 0/80318
+ http --> 200, req: 'GET https://registry.npmjs.org/pako', bytes: 0/45417
+ http --> 200, req: 'GET https://registry.npmjs.org/core-js' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /lie', bytes: 0/7549
+ http <-- 200, user: null(127.0.0.1), req: 'GET /pako', bytes: 0/9726
+ http --> 200, req: 'GET https://registry.npmjs.org/core-js', bytes: 0/367581
+ http <-- 200, user: null(127.0.0.1), req: 'GET /core-js', bytes: 0/48797
+ http --> 200, req: 'GET https://registry.npmjs.org/immediate' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/immediate', bytes: 0/54370
+ http <-- 200, user: null(127.0.0.1), req: 'GET /immediate', bytes: 0/6388
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash._basetostring' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash._baseslice' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash.tostring' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash._basetostring', bytes: 0/6400
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash._baseslice', bytes: 0/9545
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash.tostring', bytes: 0/14156
+ http <-- 200, user: null(127.0.0.1), req: 'GET /lodash._basetostring', bytes: 0/1370
+ http <-- 200, user: null(127.0.0.1), req: 'GET /lodash._baseslice', bytes: 0/1483
+ http <-- 200, user: null(127.0.0.1), req: 'GET /lodash.tostring', bytes: 0/1882
+ http --> 200, req: 'GET https://registry.npmjs.org/optimist' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/optimist', bytes: 0/47290
+ http <-- 200, user: null(127.0.0.1), req: 'GET /optimist', bytes: 0/7561
+ http --> 200, req: 'GET https://registry.npmjs.org/wordwrap' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/wordwrap', bytes: 0/6943
+ http <-- 200, user: null(127.0.0.1), req: 'GET /wordwrap', bytes: 0/1782
+ http --> 200, req: 'GET https://registry.npmjs.org/brace-expansion' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/brace-expansion', bytes: 0/28526
+ http <-- 200, user: null(127.0.0.1), req: 'GET /brace-expansion', bytes: 0/5130
+ http --> 200, req: 'GET https://registry.npmjs.org/concat-map' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/concat-map', bytes: 0/3898
+ http <-- 200, user: null(127.0.0.1), req: 'GET /concat-map', bytes: 0/1409
+ http --> 200, req: 'GET https://registry.npmjs.org/balanced-match' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/balanced-match', bytes: 0/18285
+ http <-- 200, user: null(127.0.0.1), req: 'GET /balanced-match', bytes: 0/3570
+ http --> 200, req: 'GET https://registry.npmjs.org/global-modules' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/global-modules', bytes: 0/16901
+ http <-- 200, user: null(127.0.0.1), req: 'GET /global-modules', bytes: 0/4350
+ http --> 200, req: 'GET https://registry.npmjs.org/is-windows' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/is-windows', bytes: 0/15231
+ http <-- 200, user: null(127.0.0.1), req: 'GET /is-windows', bytes: 0/3589
+ http --> 200, req: 'GET https://registry.npmjs.org/global-prefix' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/global-prefix', bytes: 0/24313
+ http <-- 200, user: null(127.0.0.1), req: 'GET /global-prefix', bytes: 0/5395
+ http --> 200, req: 'GET https://registry.npmjs.org/homedir-polyfill' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/homedir-polyfill', bytes: 0/12977
+ http <-- 200, user: null(127.0.0.1), req: 'GET /homedir-polyfill', bytes: 0/4453
+ http --> 200, req: 'GET https://registry.npmjs.org/which' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/which', bytes: 0/35257
+ http <-- 200, user: null(127.0.0.1), req: 'GET /which', bytes: 0/5888
+ http --> 200, req: 'GET https://registry.npmjs.org/parse-passwd' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/parse-passwd', bytes: 0/4820
+ http <-- 200, user: null(127.0.0.1), req: 'GET /parse-passwd', bytes: 0/1884
+ http --> 200, req: 'GET https://registry.npmjs.org/isexe' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/isexe', bytes: 0/8553
+ http <-- 200, user: null(127.0.0.1), req: 'GET /isexe', bytes: 0/2112
+ http --> 200, req: 'GET https://registry.npmjs.org/any-promise' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/any-promise', bytes: 0/18043
+ http <-- 200, user: null(127.0.0.1), req: 'GET /any-promise', bytes: 0/4310
+ http --> 200, req: 'GET https://registry.npmjs.org/temp' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/temp', bytes: 0/22003
+ http <-- 200, user: null(127.0.0.1), req: 'GET /temp', bytes: 0/6057
+ http --> 200, req: 'GET https://registry.npmjs.org/js-sha3' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/js-sha3', bytes: 0/33155
+ http <-- 200, user: null(127.0.0.1), req: 'GET /js-sha3', bytes: 0/7520
+ http --> 200, req: 'GET https://registry.npmjs.org/jssha' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/jssha', bytes: 0/20964
+ http <-- 200, user: null(127.0.0.1), req: 'GET /jssha', bytes: 0/4308
+ http --> 200, req: 'GET https://registry.npmjs.org/url' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/url', bytes: 0/12485
+ http --> 200, req: 'GET https://registry.npmjs.org/sjcl' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/util' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/sjcl', bytes: 0/11883
+ http --> 200, req: 'GET https://registry.npmjs.org/util', bytes: 0/26931
+ http <-- 200, user: null(127.0.0.1), req: 'GET /url', bytes: 0/3029
+ http <-- 200, user: null(127.0.0.1), req: 'GET /sjcl', bytes: 0/3523
+ http <-- 200, user: null(127.0.0.1), req: 'GET /util', bytes: 0/7878
+ http --> 200, req: 'GET https://registry.npmjs.org/querystring' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/querystring', bytes: 0/6242
+ http <-- 200, user: null(127.0.0.1), req: 'GET /querystring', bytes: 0/1492
+ http --> 200, req: 'GET https://registry.npmjs.org/fs' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/hoek' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/fs', bytes: 0/3589
+ http <-- 200, user: null(127.0.0.1), req: 'GET /fs', bytes: 0/1013
+ http --> 200, req: 'GET https://registry.npmjs.org/hoek', bytes: 0/177310
+ http --> 200, req: 'GET https://registry.npmjs.org/ignore-walk' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/path' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/nano' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/path', bytes: 0/6294
+ http <-- 200, user: null(127.0.0.1), req: 'GET /hoek', bytes: 0/19753
+ http --> 200, req: 'GET https://registry.npmjs.org/ignore-walk', bytes: 0/23356
+ http <-- 200, user: null(127.0.0.1), req: 'GET /path', bytes: 0/1363
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ignore-walk', bytes: 0/5332
+ http --> 200, req: 'GET https://registry.npmjs.org/nano', bytes: 0/309477
+ http <-- 200, user: null(127.0.0.1), req: 'GET /nano', bytes: 0/32482
+ http --> 200, req: 'GET https://registry.npmjs.org/pkcs11js' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/pkcs11js', bytes: 0/56609
+ http --> 200, req: 'GET https://registry.npmjs.org/promise-settle' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/stream-buffers' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/promise-settle', bytes: 0/6257
+ http <-- 200, user: null(127.0.0.1), req: 'GET /pkcs11js', bytes: 0/12259
+ http --> 200, req: 'GET https://registry.npmjs.org/restify' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/stream-buffers', bytes: 0/27040
+ http <-- 200, user: null(127.0.0.1), req: 'GET /promise-settle', bytes: 0/1539
+ http <-- 200, user: null(127.0.0.1), req: 'GET /stream-buffers', bytes: 0/6054
+ http --> 200, req: 'GET https://registry.npmjs.org/restify', bytes: 0/417432
+ http <-- 200, user: null(127.0.0.1), req: 'GET /restify', bytes: 0/42922
+ http --> 200, req: 'GET https://registry.npmjs.org/callsite' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/callsite', bytes: 0/3441
+ http <-- 200, user: null(127.0.0.1), req: 'GET /callsite', bytes: 0/1083
+ http --> 200, req: 'GET https://registry.npmjs.org/glob' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/glob', bytes: 0/137034
+ http <-- 200, user: null(127.0.0.1), req: 'GET /glob', bytes: 0/19084
+ http --> 200, req: 'GET https://registry.npmjs.org/path-is-absolute' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/inflight' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/path-is-absolute', bytes: 0/7483
+ http --> 200, req: 'GET https://registry.npmjs.org/inflight', bytes: 0/9914
+ http --> 200, req: 'GET https://registry.npmjs.org/fs.realpath' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/fs.realpath', bytes: 0/4219
+ http <-- 200, user: null(127.0.0.1), req: 'GET /path-is-absolute', bytes: 0/2482
+ http <-- 200, user: null(127.0.0.1), req: 'GET /inflight', bytes: 0/2032
+ http <-- 200, user: null(127.0.0.1), req: 'GET /fs.realpath', bytes: 0/1382
+ http --> 200, req: 'GET https://registry.npmjs.org/errs' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/errs', bytes: 0/15846
+ http --> 200, req: 'GET https://registry.npmjs.org/cloudant-follow' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /errs', bytes: 0/4164
+ http --> 200, req: 'GET https://registry.npmjs.org/cloudant-follow', bytes: 0/614144
+ http <-- 200, user: null(127.0.0.1), req: 'GET /cloudant-follow', bytes: 0/38381
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash.isempty' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash.isempty', bytes: 0/37567
+ http <-- 200, user: null(127.0.0.1), req: 'GET /lodash.isempty', bytes: 0/3545
+ http --> 200, req: 'GET https://registry.npmjs.org/browser-request' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/browser-request', bytes: 0/15150
+ http <-- 200, user: null(127.0.0.1), req: 'GET /browser-request', bytes: 0/3326
+ http --> 200, req: 'GET https://registry.npmjs.org/process' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/process', bytes: 0/25120
+ http <-- 200, user: null(127.0.0.1), req: 'GET /process', bytes: 0/4048
+ http --> 200, req: 'GET https://registry.npmjs.org/ewma' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ewma', bytes: 0/6277
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ewma', bytes: 0/2228
+ http --> 200, req: 'GET https://registry.npmjs.org/find-my-way' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/lru-cache' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/escape-regexp-component' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/escape-regexp-component', bytes: 0/1465
+ http --> 200, req: 'GET https://registry.npmjs.org/formidable' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/find-my-way', bytes: 0/114031
+ http --> 200, req: 'GET https://registry.npmjs.org/lru-cache', bytes: 0/74687
+ http --> 200, req: 'GET https://registry.npmjs.org/negotiator' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/restify-errors' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/csv' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/mime' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /escape-regexp-component', bytes: 0/598
+ http --> 200, req: 'GET https://registry.npmjs.org/formidable', bytes: 0/43772
+ http --> 200, req: 'GET https://registry.npmjs.org/negotiator', bytes: 0/38583
+ http <-- 200, user: null(127.0.0.1), req: 'GET /lru-cache', bytes: 0/11877
+ http <-- 200, user: null(127.0.0.1), req: 'GET /find-my-way', bytes: 0/26822
+ http --> 200, req: 'GET https://registry.npmjs.org/restify-errors', bytes: 0/55612
+ http <-- 200, user: null(127.0.0.1), req: 'GET /formidable', bytes: 0/8377
+ http --> 200, req: 'GET https://registry.npmjs.org/mime', bytes: 0/64895
+ http <-- 200, user: null(127.0.0.1), req: 'GET /negotiator', bytes: 0/5775
+ http --> 200, req: 'GET https://registry.npmjs.org/csv', bytes: 0/93943
+ http <-- 200, user: null(127.0.0.1), req: 'GET /restify-errors', bytes: 0/13775
+ http <-- 200, user: null(127.0.0.1), req: 'GET /mime', bytes: 0/13454
+ http <-- 200, user: null(127.0.0.1), req: 'GET /csv', bytes: 0/14351
+ http --> 200, req: 'GET https://registry.npmjs.org/vasync' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/vasync', bytes: 0/47266
+ http <-- 200, user: null(127.0.0.1), req: 'GET /vasync', bytes: 0/10682
+ http --> 200, req: 'GET https://registry.npmjs.org/dtrace-provider' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/spdy' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/dtrace-provider', bytes: 0/50037
+ http --> 200, req: 'GET https://registry.npmjs.org/bunyan' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/spdy', bytes: 0/295639
+ http <-- 200, user: null(127.0.0.1), req: 'GET /dtrace-provider', bytes: 0/10040
+ http --> 200, req: 'GET https://registry.npmjs.org/bunyan', bytes: 0/265288
+ http <-- 200, user: null(127.0.0.1), req: 'GET /spdy', bytes: 0/24246
+ http <-- 200, user: null(127.0.0.1), req: 'GET /bunyan', bytes: 0/29008
+ http --> 200, req: 'GET https://registry.npmjs.org/mv' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/mv', bytes: 0/12939
+ http <-- 200, user: null(127.0.0.1), req: 'GET /mv', bytes: 0/2177
+ http --> 200, req: 'GET https://registry.npmjs.org/safe-json-stringify' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/safe-json-stringify', bytes: 0/15594
+ http <-- 200, user: null(127.0.0.1), req: 'GET /safe-json-stringify', bytes: 0/4898
+ http --> 200, req: 'GET https://registry.npmjs.org/ncp' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ncp', bytes: 0/26921
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ncp', bytes: 0/4078
+ http --> 200, req: 'GET https://registry.npmjs.org/rimraf' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/rimraf', bytes: 0/70202
+ http <-- 200, user: null(127.0.0.1), req: 'GET /rimraf', bytes: 0/11060
+ http --> 200, req: 'GET https://registry.npmjs.org/csv-generate' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/csv-generate', bytes: 0/50834
+ http --> 200, req: 'GET https://registry.npmjs.org/stream-transform' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/csv-stringify' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /csv-generate', bytes: 0/12383
+ http --> 200, req: 'GET https://registry.npmjs.org/csv-parse' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/stream-transform', bytes: 0/47587
+ http --> 200, req: 'GET https://registry.npmjs.org/csv-stringify', bytes: 0/85387
+ http <-- 200, user: null(127.0.0.1), req: 'GET /stream-transform', bytes: 0/11527
+ http --> 200, req: 'GET https://registry.npmjs.org/csv-parse', bytes: 0/219985
+ http <-- 200, user: null(127.0.0.1), req: 'GET /csv-stringify', bytes: 0/20117
+ http <-- 200, user: null(127.0.0.1), req: 'GET /csv-parse', bytes: 0/32226
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash.get' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/lodash.get', bytes: 0/22012
+ http <-- 200, user: null(127.0.0.1), req: 'GET /lodash.get', bytes: 0/2565
+ http --> 200, req: 'GET https://registry.npmjs.org/fast-decode-uri-component' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/fast-decode-uri-component', bytes: 0/6679
+ http <-- 200, user: null(127.0.0.1), req: 'GET /fast-decode-uri-component', bytes: 0/2695
+ http --> 200, req: 'GET https://registry.npmjs.org/semver-store' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/semver-store', bytes: 0/13421
+ http <-- 200, user: null(127.0.0.1), req: 'GET /semver-store', bytes: 0/5503
+ http --> 200, req: 'GET https://registry.npmjs.org/safe-regex' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/safe-regex', bytes: 0/14485
+ http <-- 200, user: null(127.0.0.1), req: 'GET /safe-regex', bytes: 0/4644
+ http --> 200, req: 'GET https://registry.npmjs.org/ret' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ret', bytes: 0/36323
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ret', bytes: 0/7441
+ http --> 200, req: 'GET https://registry.npmjs.org/pseudomap' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/pseudomap', bytes: 0/6249
+ http <-- 200, user: null(127.0.0.1), req: 'GET /pseudomap', bytes: 0/1988
+ http --> 200, req: 'GET https://registry.npmjs.org/yallist' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/yallist', bytes: 0/21570
+ http <-- 200, user: null(127.0.0.1), req: 'GET /yallist', bytes: 0/5092
+ http --> 200, req: 'GET https://registry.npmjs.org/handle-thing' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/handle-thing', bytes: 0/15307
+ http <-- 200, user: null(127.0.0.1), req: 'GET /handle-thing', bytes: 0/3877
+ http --> 200, req: 'GET https://registry.npmjs.org/spdy-transport' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/spdy-transport', bytes: 0/75353
+ http <-- 200, user: null(127.0.0.1), req: 'GET /spdy-transport', bytes: 0/9923
+ http --> 200, req: 'GET https://registry.npmjs.org/select-hose' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/http-deceiver' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/select-hose', bytes: 0/4591
+ http --> 200, req: 'GET https://registry.npmjs.org/http-deceiver', bytes: 0/13783
+ http <-- 200, user: null(127.0.0.1), req: 'GET /select-hose', bytes: 0/1663
+ http <-- 200, user: null(127.0.0.1), req: 'GET /http-deceiver', bytes: 0/2646
+ http --> 200, req: 'GET https://registry.npmjs.org/obuf' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/obuf', bytes: 0/11199
+ http <-- 200, user: null(127.0.0.1), req: 'GET /obuf', bytes: 0/2042
+ http --> 200, req: 'GET https://registry.npmjs.org/detect-node' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/wbuf' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/hpack.js' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/detect-node', bytes: 0/8207
+ http --> 200, req: 'GET https://registry.npmjs.org/hpack.js', bytes: 0/12887
+ http --> 200, req: 'GET https://registry.npmjs.org/wbuf', bytes: 0/16250
+ http <-- 200, user: null(127.0.0.1), req: 'GET /detect-node', bytes: 0/2525
+ http <-- 200, user: null(127.0.0.1), req: 'GET /hpack.js', bytes: 0/2773
+ http <-- 200, user: null(127.0.0.1), req: 'GET /wbuf', bytes: 0/3134
+ http --> 200, req: 'GET https://registry.npmjs.org/os-tmpdir' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/os-tmpdir', bytes: 0/7765
+ http <-- 200, user: null(127.0.0.1), req: 'GET /os-tmpdir', bytes: 0/2562
+ http --> 200, req: 'GET https://registry.npmjs.org/socket.io-client' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/socket.io-client', bytes: 0/157497
+ http <-- 200, user: null(127.0.0.1), req: 'GET /socket.io-client', bytes: 0/14994
+ http --> 200, req: 'GET https://registry.npmjs.org/backo2' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/engine.io-client' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/has-binary' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/component-bind' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/backo2', bytes: 0/2943
+ http --> 200, req: 'GET https://registry.npmjs.org/has-binary', bytes: 0/2985
+ http --> 200, req: 'GET https://registry.npmjs.org/component-bind', bytes: 0/3902
+ http --> 200, req: 'GET https://registry.npmjs.org/component-emitter' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/component-emitter', bytes: 0/16460
+ http <-- 200, user: null(127.0.0.1), req: 'GET /backo2', bytes: 0/1003
+ http <-- 200, user: null(127.0.0.1), req: 'GET /has-binary', bytes: 0/862
+ http <-- 200, user: null(127.0.0.1), req: 'GET /component-bind', bytes: 0/926
+ http <-- 200, user: null(127.0.0.1), req: 'GET /component-emitter', bytes: 0/3749
+ http --> 200, req: 'GET https://registry.npmjs.org/engine.io-client', bytes: 0/211789
+ http --> 200, req: 'GET https://registry.npmjs.org/object-component' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/socket.io-parser' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/parseuri' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/object-component', bytes: 0/3680
+ http --> 200, req: 'GET https://registry.npmjs.org/parseuri', bytes: 0/6723
+ http --> 200, req: 'GET https://registry.npmjs.org/socket.io-parser', bytes: 0/38187
+ http <-- 200, user: null(127.0.0.1), req: 'GET /object-component', bytes: 0/831
+ http <-- 200, user: null(127.0.0.1), req: 'GET /parseuri', bytes: 0/2247
+ http <-- 200, user: null(127.0.0.1), req: 'GET /engine.io-client', bytes: 0/22215
+ http --> 200, req: 'GET https://registry.npmjs.org/to-array' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/to-array', bytes: 0/7080
+ http <-- 200, user: null(127.0.0.1), req: 'GET /socket.io-parser', bytes: 0/6699
+ http <-- 200, user: null(127.0.0.1), req: 'GET /to-array', bytes: 0/1115
+ http --> 200, req: 'GET https://registry.npmjs.org/indexof' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/indexof', bytes: 0/1059
+ http <-- 200, user: null(127.0.0.1), req: 'GET /indexof', bytes: 0/561
+ http --> 200, req: 'GET https://registry.npmjs.org/component-inherit' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/component-inherit', bytes: 0/1448
+ http <-- 200, user: null(127.0.0.1), req: 'GET /component-inherit', bytes: 0/656
+ http --> 200, req: 'GET https://registry.npmjs.org/parseqs' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/has-cors' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/has-cors', bytes: 0/3319
+ http --> 200, req: 'GET https://registry.npmjs.org/parseqs', bytes: 0/4990
+ http --> 200, req: 'GET https://registry.npmjs.org/yeast' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/yeast', bytes: 0/7392
+ http <-- 200, user: null(127.0.0.1), req: 'GET /has-cors', bytes: 0/1042
+ http <-- 200, user: null(127.0.0.1), req: 'GET /parseqs', bytes: 0/1148
+ http --> 200, req: 'GET https://registry.npmjs.org/ws' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /yeast', bytes: 0/2428
+ http --> 200, req: 'GET https://registry.npmjs.org/ws', bytes: 0/193377
+ http --> 200, req: 'GET https://registry.npmjs.org/xmlhttprequest-ssl' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/xmlhttprequest-ssl', bytes: 0/12759
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ws', bytes: 0/30980
+ http <-- 200, user: null(127.0.0.1), req: 'GET /xmlhttprequest-ssl', bytes: 0/3549
+ http --> 200, req: 'GET https://registry.npmjs.org/engine.io-parser' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/engine.io-parser', bytes: 0/47137
+ http <-- 200, user: null(127.0.0.1), req: 'GET /engine.io-parser', bytes: 0/8432
+ http --> 200, req: 'GET https://registry.npmjs.org/parsejson' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/parsejson', bytes: 0/3171
+ http <-- 200, user: null(127.0.0.1), req: 'GET /parsejson', bytes: 0/946
+ http --> 200, req: 'GET https://registry.npmjs.org/after' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/blob' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/base64-arraybuffer' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/blob', bytes: 0/6554
+ http --> 200, req: 'GET https://registry.npmjs.org/base64-arraybuffer', bytes: 0/10145
+ http --> 200, req: 'GET https://registry.npmjs.org/after', bytes: 0/21938
+ http --> 200, req: 'GET https://registry.npmjs.org/wtf-8' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/wtf-8', bytes: 0/5925
+ http --> 200, req: 'GET https://registry.npmjs.org/arraybuffer.slice' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /base64-arraybuffer', bytes: 0/2584
+ http <-- 200, user: null(127.0.0.1), req: 'GET /blob', bytes: 0/2224
+ http <-- 200, user: null(127.0.0.1), req: 'GET /after', bytes: 0/3491
+ http --> 200, req: 'GET https://registry.npmjs.org/arraybuffer.slice', bytes: 0/7891
+ http <-- 200, user: null(127.0.0.1), req: 'GET /wtf-8', bytes: 0/2133
+ http <-- 200, user: null(127.0.0.1), req: 'GET /arraybuffer.slice', bytes: 0/1964
+ http --> 200, req: 'GET https://registry.npmjs.org/better-assert' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/better-assert', bytes: 0/7546
+ http <-- 200, user: null(127.0.0.1), req: 'GET /better-assert', bytes: 0/2223
+ http --> 200, req: 'GET https://registry.npmjs.org/options' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/options', bytes: 0/8167
+ http --> 200, req: 'GET https://registry.npmjs.org/ultron' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ultron', bytes: 0/13863
+ http <-- 200, user: null(127.0.0.1), req: 'GET /options', bytes: 0/2166
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ultron', bytes: 0/3505
+ http --> 200, req: 'GET https://registry.npmjs.org/json3' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/json3', bytes: 0/25656
+ http <-- 200, user: null(127.0.0.1), req: 'GET /json3', bytes: 0/6354
+ http --> 200, req: 'GET https://registry.npmjs.org/cli-cursor' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/cli-cursor', bytes: 0/13071
+ http --> 200, req: 'GET https://registry.npmjs.org/cli-spinners' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/cli-spinners', bytes: 0/26519
+ http <-- 200, user: null(127.0.0.1), req: 'GET /cli-cursor', bytes: 0/3855
+ http <-- 200, user: null(127.0.0.1), req: 'GET /cli-spinners', bytes: 0/6148
+ http --> 200, req: 'GET https://registry.npmjs.org/log-symbols' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/log-symbols', bytes: 0/13427
+ http <-- 200, user: null(127.0.0.1), req: 'GET /log-symbols', bytes: 0/3432
+ http --> 200, req: 'GET https://registry.npmjs.org/restore-cursor' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/restore-cursor', bytes: 0/10196
+ http <-- 200, user: null(127.0.0.1), req: 'GET /restore-cursor', bytes: 0/3273
+ http --> 200, req: 'GET https://registry.npmjs.org/signal-exit' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/signal-exit', bytes: 0/19533
+ http <-- 200, user: null(127.0.0.1), req: 'GET /signal-exit', bytes: 0/3230
+ http --> 200, req: 'GET https://registry.npmjs.org/onetime' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/onetime', bytes: 0/18675
+ http <-- 200, user: null(127.0.0.1), req: 'GET /onetime', bytes: 0/5737
+ http --> 200, req: 'GET https://registry.npmjs.org/mimic-fn' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/mimic-fn', bytes: 0/14153
+ http <-- 200, user: null(127.0.0.1), req: 'GET /mimic-fn', bytes: 0/5085
+ http --> 200, req: 'GET https://registry.npmjs.org/fabric-protos' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/fabric-network' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/fabric-protos', bytes: 0/488971
+ http --> 200, req: 'GET https://registry.npmjs.org/fabric-network', bytes: 0/1262400
+ http <-- 200, user: null(127.0.0.1), req: 'GET /fabric-protos', bytes: 0/96531
+ http <-- 200, user: null(127.0.0.1), req: 'GET /fabric-network', bytes: 0/236156
+ http --> 200, req: 'GET https://registry.npmjs.org/iroha-helpers' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/iroha-helpers', bytes: 0/547917
+ http <-- 200, user: null(127.0.0.1), req: 'GET /iroha-helpers', bytes: 0/69243
+ http --> 200, req: 'GET https://registry.npmjs.org/buffer' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/buffer', bytes: 0/204555
+ http --> 200, req: 'GET https://registry.npmjs.org/ed25519.js' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/grpc-web-client' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/google-protobuf' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/grpc-web-client', bytes: 0/34944
+ http --> 200, req: 'GET https://registry.npmjs.org/ed25519.js', bytes: 0/38701
+ http --> 200, req: 'GET https://registry.npmjs.org/google-protobuf', bytes: 0/53293
+ http <-- 200, user: null(127.0.0.1), req: 'GET /buffer', bytes: 0/22704
+ http <-- 200, user: null(127.0.0.1), req: 'GET /grpc-web-client', bytes: 0/7943
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ed25519.js', bytes: 0/9872
+ http <-- 200, user: null(127.0.0.1), req: 'GET /google-protobuf', bytes: 0/15062
+ http --> 200, req: 'GET https://registry.npmjs.org/base64-js' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/base64-js', bytes: 0/29904
+ http --> 200, req: 'GET https://registry.npmjs.org/ieee754' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/ieee754', bytes: 0/25446
+ http <-- 200, user: null(127.0.0.1), req: 'GET /base64-js', bytes: 0/5819
+ http <-- 200, user: null(127.0.0.1), req: 'GET /ieee754', bytes: 0/5360
+ http --> 200, req: 'GET https://registry.npmjs.org/browser-headers' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/browser-headers', bytes: 0/35929
+ http <-- 200, user: null(127.0.0.1), req: 'GET /browser-headers', bytes: 0/6382
+ http --> 200, req: 'GET https://registry.npmjs.org/protocol-buffers' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/protocol-buffers', bytes: 0/81918
+ http <-- 200, user: null(127.0.0.1), req: 'GET /protocol-buffers', bytes: 0/10551
+ http --> 200, req: 'GET https://registry.npmjs.org/cbor' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/cbor', bytes: 0/104136
+ http --> 200, req: 'GET https://registry.npmjs.org/request-promise' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/request-promise', bytes: 0/101883
+ http <-- 200, user: null(127.0.0.1), req: 'GET /cbor', bytes: 0/18093
+ http <-- 200, user: null(127.0.0.1), req: 'GET /request-promise', bytes: 0/18331
+ http --> 200, req: 'GET https://registry.npmjs.org/sawtooth-sdk' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/sawtooth-sdk', bytes: 0/51804
+ http <-- 200, user: null(127.0.0.1), req: 'GET /sawtooth-sdk', bytes: 0/6565
+ http --> 200, req: 'GET https://registry.npmjs.org/json-text-sequence' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/json-text-sequence', bytes: 0/15187
+ http --> 200, req: 'GET https://registry.npmjs.org/bignumber.js' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/nofilter' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/commander' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/nofilter', bytes: 0/18380
+ http <-- 200, user: null(127.0.0.1), req: 'GET /json-text-sequence', bytes: 0/3029
+ http --> 200, req: 'GET https://registry.npmjs.org/bignumber.js', bytes: 0/88861
+ http <-- 200, user: null(127.0.0.1), req: 'GET /nofilter', bytes: 0/5769
+ http --> 200, req: 'GET https://registry.npmjs.org/commander', bytes: 0/140161
+ http <-- 200, user: null(127.0.0.1), req: 'GET /bignumber.js', bytes: 0/18095
+ http <-- 200, user: null(127.0.0.1), req: 'GET /commander', bytes: 0/21911
+ http --> 200, req: 'GET https://registry.npmjs.org/delimit-stream' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/delimit-stream', bytes: 0/4105
+ http <-- 200, user: null(127.0.0.1), req: 'GET /delimit-stream', bytes: 0/1269
+ http --> 200, req: 'GET https://registry.npmjs.org/protocol-buffers-encodings' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/protocol-buffers-encodings', bytes: 0/5942
+ http <-- 200, user: null(127.0.0.1), req: 'GET /protocol-buffers-encodings', bytes: 0/1826
+ http --> 200, req: 'GET https://registry.npmjs.org/generate-function' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/generate-function', bytes: 0/19507
+ http <-- 200, user: null(127.0.0.1), req: 'GET /generate-function', bytes: 0/5803
+ http --> 200, req: 'GET https://registry.npmjs.org/generate-object-property' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/generate-object-property', bytes: 0/5467
+ http --> 200, req: 'GET https://registry.npmjs.org/signed-varint' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/protocol-buffers-schema' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/signed-varint', bytes: 0/4713
+ http --> 200, req: 'GET https://registry.npmjs.org/protocol-buffers-schema', bytes: 0/21575
+ http <-- 200, user: null(127.0.0.1), req: 'GET /generate-object-property', bytes: 0/1185
+ http <-- 200, user: null(127.0.0.1), req: 'GET /signed-varint', bytes: 0/1236
+ http --> 200, req: 'GET https://registry.npmjs.org/varint' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /protocol-buffers-schema', bytes: 0/3342
+ http --> 200, req: 'GET https://registry.npmjs.org/varint', bytes: 0/14318
+ http <-- 200, user: null(127.0.0.1), req: 'GET /varint', bytes: 0/2670
+ http --> 200, req: 'GET https://registry.npmjs.org/is-property' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/is-property', bytes: 0/5591
+ http <-- 200, user: null(127.0.0.1), req: 'GET /is-property', bytes: 0/1259
+ http --> 200, req: 'GET https://registry.npmjs.org/bluebird' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/bluebird', bytes: 0/413117
+ http <-- 200, user: null(127.0.0.1), req: 'GET /bluebird', bytes: 0/29998
+ http --> 200, req: 'GET https://registry.npmjs.org/stealthy-require' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/request-promise-core' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/request-promise-core', bytes: 0/11790
+ http --> 200, req: 'GET https://registry.npmjs.org/stealthy-require', bytes: 0/15742
+ http <-- 200, user: null(127.0.0.1), req: 'GET /request-promise-core', bytes: 0/4453
+ http <-- 200, user: null(127.0.0.1), req: 'GET /stealthy-require', bytes: 0/4401
+ http --> 200, req: 'GET https://registry.npmjs.org/zeromq' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/zeromq', bytes: 0/53116
+ http <-- 200, user: null(127.0.0.1), req: 'GET /zeromq', bytes: 0/10156
+ http --> 200, req: 'GET https://registry.npmjs.org/prebuild-install' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/prebuild-install', bytes: 0/103904
+ http <-- 200, user: null(127.0.0.1), req: 'GET /prebuild-install', bytes: 0/19292
+ http --> 200, req: 'GET https://registry.npmjs.org/detect-libc' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/detect-libc', bytes: 0/22262
+ http --> 200, req: 'GET https://registry.npmjs.org/github-from-package' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/github-from-package', bytes: 0/3426
+ http --> 200, req: 'GET https://registry.npmjs.org/npmlog' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /detect-libc', bytes: 0/3845
+ http <-- 200, user: null(127.0.0.1), req: 'GET /github-from-package', bytes: 0/946
+ http --> 200, req: 'GET https://registry.npmjs.org/npmlog', bytes: 0/37595
+ http --> 200, req: 'GET https://registry.npmjs.org/node-abi' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /npmlog', bytes: 0/6770
+ http --> 200, req: 'GET https://registry.npmjs.org/node-abi', bytes: 0/66945
+ http --> 200, req: 'GET https://registry.npmjs.org/noop-logger' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/noop-logger', bytes: 0/3946
+ http --> 200, req: 'GET https://registry.npmjs.org/rc' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /node-abi', bytes: 0/16755
+ http --> 200, req: 'GET https://registry.npmjs.org/os-homedir' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/os-homedir', bytes: 0/9127
+ http <-- 200, user: null(127.0.0.1), req: 'GET /noop-logger', bytes: 0/1176
+ http --> 200, req: 'GET https://registry.npmjs.org/rc', bytes: 0/62407
+ http <-- 200, user: null(127.0.0.1), req: 'GET /os-homedir', bytes: 0/2712
+ http --> 200, req: 'GET https://registry.npmjs.org/which-pm-runs' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/which-pm-runs', bytes: 0/2652
+ http <-- 200, user: null(127.0.0.1), req: 'GET /rc', bytes: 0/9943
+ http <-- 200, user: null(127.0.0.1), req: 'GET /which-pm-runs', bytes: 0/1058
+ http --> 200, req: 'GET https://registry.npmjs.org/simple-get' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/simple-get', bytes: 0/69564
+ http <-- 200, user: null(127.0.0.1), req: 'GET /simple-get', bytes: 0/14198
+ http --> 200, req: 'GET https://registry.npmjs.org/expand-template' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/expand-template', bytes: 0/20750
+ http <-- 200, user: null(127.0.0.1), req: 'GET /expand-template', bytes: 0/6394
+ http --> 200, req: 'GET https://registry.npmjs.org/are-we-there-yet' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/are-we-there-yet', bytes: 0/23241
+ http <-- 200, user: null(127.0.0.1), req: 'GET /are-we-there-yet', bytes: 0/5537
+ http --> 200, req: 'GET https://registry.npmjs.org/console-control-strings' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/set-blocking' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/gauge' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/console-control-strings', bytes: 0/8667
+ http --> 200, req: 'GET https://registry.npmjs.org/set-blocking', bytes: 0/5229
+ http <-- 200, user: null(127.0.0.1), req: 'GET /set-blocking', bytes: 0/1758
+ http --> 200, req: 'GET https://registry.npmjs.org/gauge', bytes: 0/56667
+ http <-- 200, user: null(127.0.0.1), req: 'GET /console-control-strings', bytes: 0/2464
+ http <-- 200, user: null(127.0.0.1), req: 'GET /gauge', bytes: 0/10720
+ http --> 200, req: 'GET https://registry.npmjs.org/delegates' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/delegates', bytes: 0/7469
+ http <-- 200, user: null(127.0.0.1), req: 'GET /delegates', bytes: 0/1694
+ http --> 200, req: 'GET https://registry.npmjs.org/aproba' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/aproba', bytes: 0/16196
+ http --> 200, req: 'GET https://registry.npmjs.org/object-assign' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/has-unicode' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/has-unicode', bytes: 0/6393
+ http --> 200, req: 'GET https://registry.npmjs.org/object-assign', bytes: 0/24020
+ http --> 200, req: 'GET https://registry.npmjs.org/wide-align' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /aproba', bytes: 0/4599
+ http --> 200, req: 'GET https://registry.npmjs.org/wide-align', bytes: 0/12323
+ http <-- 200, user: null(127.0.0.1), req: 'GET /has-unicode', bytes: 0/1856
+ http <-- 200, user: null(127.0.0.1), req: 'GET /object-assign', bytes: 0/3263
+ http <-- 200, user: null(127.0.0.1), req: 'GET /wide-align', bytes: 0/3343
+ http --> 200, req: 'GET https://registry.npmjs.org/deep-extend' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/deep-extend', bytes: 0/28492
+ http <-- 200, user: null(127.0.0.1), req: 'GET /deep-extend', bytes: 0/5242
+ http --> 200, req: 'GET https://registry.npmjs.org/strip-json-comments' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/strip-json-comments', bytes: 0/22845
+ http <-- 200, user: null(127.0.0.1), req: 'GET /strip-json-comments', bytes: 0/4722
+ http --> 200, req: 'GET https://registry.npmjs.org/simple-concat' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/decompress-response' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/simple-concat', bytes: 0/3156
+ http --> 200, req: 'GET https://registry.npmjs.org/decompress-response', bytes: 0/16874
+ http <-- 200, user: null(127.0.0.1), req: 'GET /simple-concat', bytes: 0/1170
+ http <-- 200, user: null(127.0.0.1), req: 'GET /decompress-response', bytes: 0/5536
+ http --> 200, req: 'GET https://registry.npmjs.org/mimic-response' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/mimic-response', bytes: 0/7971
+ http <-- 200, user: null(127.0.0.1), req: 'GET /mimic-response', bytes: 0/3115
+ http --> 200, req: 'GET https://registry.npmjs.org/has-ansi' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/has-ansi', bytes: 0/14411
+ http <-- 200, user: null(127.0.0.1), req: 'GET /has-ansi', bytes: 0/3525
+ http --> 200, req: 'GET https://registry.npmjs.org/require-directory' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/get-caller-file' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/find-up' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/require-main-filename' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/require-main-filename', bytes: 0/6702
+ http --> 200, req: 'GET https://registry.npmjs.org/get-caller-file', bytes: 0/24277
+ http --> 200, req: 'GET https://registry.npmjs.org/require-directory', bytes: 0/23368
+ http --> 200, req: 'GET https://registry.npmjs.org/which-module' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/find-up', bytes: 0/20956
+ http --> 200, req: 'GET https://registry.npmjs.org/which-module', bytes: 0/5587
+ http --> 200, req: 'GET https://registry.npmjs.org/yargs-parser' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /require-main-filename', bytes: 0/2469
+ http <-- 200, user: null(127.0.0.1), req: 'GET /get-caller-file', bytes: 0/7555
+ http <-- 200, user: null(127.0.0.1), req: 'GET /require-directory', bytes: 0/3563
+ http <-- 200, user: null(127.0.0.1), req: 'GET /find-up', bytes: 0/6109
+ http <-- 200, user: null(127.0.0.1), req: 'GET /which-module', bytes: 0/1784
+ http --> 200, req: 'GET https://registry.npmjs.org/yargs-parser', bytes: 0/93428
+ http <-- 200, user: null(127.0.0.1), req: 'GET /yargs-parser', bytes: 0/17709
+ http --> 200, req: 'GET https://registry.npmjs.org/locate-path' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/locate-path', bytes: 0/14394
+ http <-- 200, user: null(127.0.0.1), req: 'GET /locate-path', bytes: 0/4703
+ http --> 200, req: 'GET https://registry.npmjs.org/path-exists' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/p-locate' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/path-exists', bytes: 0/9678
+ http --> 200, req: 'GET https://registry.npmjs.org/p-locate', bytes: 0/13820
+ http <-- 200, user: null(127.0.0.1), req: 'GET /path-exists', bytes: 0/3026
+ http <-- 200, user: null(127.0.0.1), req: 'GET /p-locate', bytes: 0/4921
+ http --> 200, req: 'GET https://registry.npmjs.org/p-limit' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/p-limit', bytes: 0/20592
+ http <-- 200, user: null(127.0.0.1), req: 'GET /p-limit', bytes: 0/6875
+ http --> 200, req: 'GET https://registry.npmjs.org/p-try' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/p-try', bytes: 0/10405
+ http <-- 200, user: null(127.0.0.1), req: 'GET /p-try', bytes: 0/4299
+ http --> 200, req: 'GET https://registry.npmjs.org/mem' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/mem', bytes: 0/33191
+ http --> 200, req: 'GET https://registry.npmjs.org/execa' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/execa', bytes: 0/81007
+ http <-- 200, user: null(127.0.0.1), req: 'GET /mem', bytes: 0/10247
+ http <-- 200, user: null(127.0.0.1), req: 'GET /execa', bytes: 0/16086
+ http --> 200, req: 'GET https://registry.npmjs.org/get-stream' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/get-stream', bytes: 0/27683
+ http --> 200, req: 'GET https://registry.npmjs.org/is-stream' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/is-stream', bytes: 0/8266
+ http --> 200, req: 'GET https://registry.npmjs.org/cross-spawn' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /get-stream', bytes: 0/7570
+ http --> 200, req: 'GET https://registry.npmjs.org/strip-eof' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/p-finally' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/strip-eof', bytes: 0/5005
+ http --> 200, req: 'GET https://registry.npmjs.org/p-finally', bytes: 0/8492
+ http <-- 200, user: null(127.0.0.1), req: 'GET /is-stream', bytes: 0/2620
+ http <-- 200, user: null(127.0.0.1), req: 'GET /strip-eof', bytes: 0/2166
+ http --> 200, req: 'GET https://registry.npmjs.org/cross-spawn', bytes: 0/80694
+ http --> 200, req: 'GET https://registry.npmjs.org/npm-run-path' (streaming)
+ http <-- 200, user: null(127.0.0.1), req: 'GET /p-finally', bytes: 0/3401
+ http --> 200, req: 'GET https://registry.npmjs.org/npm-run-path', bytes: 0/13314
+ http <-- 200, user: null(127.0.0.1), req: 'GET /npm-run-path', bytes: 0/4005
+ http <-- 200, user: null(127.0.0.1), req: 'GET /cross-spawn', bytes: 0/10863
+ http --> 200, req: 'GET https://registry.npmjs.org/shebang-command' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/shebang-command', bytes: 0/7444
+ http <-- 200, user: null(127.0.0.1), req: 'GET /shebang-command', bytes: 0/2408
+ http --> 200, req: 'GET https://registry.npmjs.org/shebang-regex' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/shebang-regex', bytes: 0/6086
+ http <-- 200, user: null(127.0.0.1), req: 'GET /shebang-regex', bytes: 0/2271
+ http --> 200, req: 'GET https://registry.npmjs.org/path-key' (streaming)
+ http --> 200, req: 'GET https://registry.npmjs.org/path-key', bytes: 0/10328
+ http <-- 200, user: null(127.0.0.1), req: 'GET /path-key', bytes: 0/3482
+ http <-- 200, user: null(127.0.0.1), req: 'GET /caliper-core/-/caliper-core-0.1.0.tgz', bytes: 0/48637
+ http <-- 304, user: null(127.0.0.1), req: 'GET /caliper-cli', bytes: 0/0

@@ -1,0 +1,64 @@
+{
+	"name": "escape-regexp-component",
+	"versions": {
+		"1.0.2": {
+			"name": "escape-regexp-component",
+			"description": "Escape regular expression special characters",
+			"version": "1.0.2",
+			"keywords": [
+				"escape",
+				"regexp",
+				"utility"
+			],
+			"dependencies": {},
+			"component": {
+				"scripts": {
+					"escape-regexp/index.js": "index.js"
+				}
+			},
+			"readmeFilename": "Readme.md",
+			"_id": "escape-regexp-component@1.0.2",
+			"dist": {
+				"shasum": "9c63b6d0b25ff2a88c3adbd18c5b61acc3b9faa2",
+				"tarball": "https://registry.npmjs.org/escape-regexp-component/-/escape-regexp-component-1.0.2.tgz"
+			},
+			"_npmVersion": "1.1.65",
+			"_npmUser": {
+				"name": "tjholowaychuk",
+				"email": "tj@vision-media.ca"
+			},
+			"maintainers": [
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2012-11-28T22:00:12.569Z",
+		"created": "2012-11-28T22:00:07.898Z",
+		"1.0.2": "2012-11-28T22:00:12.569Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.2"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"0c18ff76f4d282bd33d34eccdbfafbe6\"",
+			"fetched": 1568994345397
+		}
+	},
+	"_distfiles": {
+		"escape-regexp-component-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/escape-regexp-component/-/escape-regexp-component-1.0.2.tgz",
+			"sha": "9c63b6d0b25ff2a88c3adbd18c5b61acc3b9faa2",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-2c75ae659473bf30",
+	"_id": "escape-regexp-component",
+	"readme": "# escape-regexp\n\n  Escape regular expression special characters.\n\n## Example\n\n```js\nvar escape = require('escape-regexp');\nescape(str);\n```\n\n## License\n\n  MIT"
+}

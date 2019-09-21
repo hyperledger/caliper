@@ -1,0 +1,1730 @@
+{
+	"name": "csv-generate",
+	"versions": {
+		"0.0.0": {
+			"version": "0.0.0",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-generate"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv-generate@0.0.0",
+			"dist": {
+				"shasum": "85a1524025482ab7556308ba0dbfec7f84455db3",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-0.0.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.4",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.1": {
+			"version": "0.0.1",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-generate"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv-generate@0.0.1",
+			"dist": {
+				"shasum": "28bace66d74d2c9d3e57e79aab7eee2d65d92652",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-0.0.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.4",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.2": {
+			"version": "0.0.2",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-generate"
+			},
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv-generate@0.0.2",
+			"dist": {
+				"shasum": "ea1f9642ebe788ed5856369e7f30a2bc075b3f38",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-0.0.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.3": {
+			"version": "0.0.3",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-generate"
+			},
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv-generate@0.0.3",
+			"dist": {
+				"shasum": "2e9f6510735cd2625562fe2241a6526b0c13814b",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-0.0.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.4",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.4": {
+			"version": "0.0.4",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-generate"
+			},
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv-generate@0.0.4",
+			"dist": {
+				"shasum": "6d0329b847ba0e12e24b82f4cf949c38c6f84d2f",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-0.0.4.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.4",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.5": {
+			"version": "0.0.5",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"licenses": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-generate"
+			},
+			"homepage": "http://csv.adaltas.com/generate/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter dot"
+			},
+			"gitHead": "aab66aaccb3c2974c88149a6e3ea6ad45d882cee",
+			"_id": "csv-generate@0.0.5",
+			"_shasum": "a315e63f9072eb2d2874612e184a33fccd015981",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "a315e63f9072eb2d2874612e184a33fccd015981",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-0.0.5.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.6": {
+			"version": "0.0.6",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-generate"
+			},
+			"homepage": "http://csv.adaltas.com/generate/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter dot"
+			},
+			"gitHead": "8672307581954dd819297d2d54264fce69fa6d0b",
+			"_id": "csv-generate@0.0.6",
+			"_shasum": "97e4e63ae46b21912cd9475bc31469d26f5ade66",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "97e4e63ae46b21912cd9475bc31469d26f5ade66",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-0.0.6.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"version": "1.0.0",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-generate"
+			},
+			"homepage": "http://csv.adaltas.com/generate/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter dot"
+			},
+			"gitHead": "152723c50b1bec71e9c00b818761fd3c2fb55202",
+			"_id": "csv-generate@1.0.0",
+			"_shasum": "bd52886859d0c925f3e51f60f3abed262fa15caf",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "bd52886859d0c925f3e51f60f3abed262fa15caf",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"version": "1.1.0",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-generate"
+			},
+			"homepage": "http://csv.adaltas.com/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"coffeescript": "~2.0.1",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha test/**/*.coffee"
+			},
+			"gitHead": "d8304e082a676f539b59faf61143d9b29f970292",
+			"_id": "csv-generate@1.1.0",
+			"_shasum": "6c5fa693f5f0f19c48070fc045dc43b386d99325",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"shasum": "6c5fa693f5f0f19c48070fc045dc43b386d99325",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate-1.1.0.tgz_1508495323520_0.11614887788891792"
+			},
+			"directories": {}
+		},
+		"1.1.1": {
+			"version": "1.1.1",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-generate"
+			},
+			"homepage": "http://csv.adaltas.com/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "~1.12.7",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha test/**/*.coffee"
+			},
+			"gitHead": "9317339d83af9f9f73eddea9e547fbba0ece685e",
+			"_id": "csv-generate@1.1.1",
+			"_shasum": "8455229fbb8771710f3b21834bfb10e07261d637",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"shasum": "8455229fbb8771710f3b21834bfb10e07261d637",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-1.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate-1.1.1.tgz_1508499893323_0.5440335776656866"
+			},
+			"directories": {}
+		},
+		"1.1.2": {
+			"version": "1.1.2",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-generate"
+			},
+			"homepage": "http://csv.adaltas.com/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "~1.12.7",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha test/**/*.coffee"
+			},
+			"gitHead": "fa0101ed42606cee07e7fc28ddbd743e105446bc",
+			"_id": "csv-generate@1.1.2",
+			"_shasum": "ec6b00edaed6e59ad9c20582f4c364e28b146240",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"shasum": "ec6b00edaed6e59ad9c20582f4c364e28b146240",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-1.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate-1.1.2.tgz_1508499973046_0.669215593021363"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"version": "2.0.0",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-generate"
+			},
+			"homepage": "http://csv.adaltas.com/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"coffeescript": "~2.0.1",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha test/**/*.coffee"
+			},
+			"gitHead": "08f635afe1264b826edcd9c5d5ebca2891126546",
+			"_id": "csv-generate@2.0.0",
+			"_shasum": "ab4fdc30db5ce678b07d53884c69fa545618b25c",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"shasum": "ab4fdc30db5ce678b07d53884c69fa545618b25c",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-2.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate-2.0.0.tgz_1508501033525_0.29057155339978635"
+			},
+			"directories": {}
+		},
+		"2.0.1": {
+			"version": "2.0.1",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-generate"
+			},
+			"homepage": "http://csv.adaltas.com/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"dependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1"
+			},
+			"devDependencies": {
+				"coffeescript": "~2.0.1",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "bc7cd25bcd9936e641888609c42c9cc7eaaab353",
+			"_id": "csv-generate@2.0.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-+V4YaHd91Iu7YjZHWcbnp1AfgCtMmu/I8XCi8McCmgBdyGz9ec32n5P87dJnHucevG3wP4ocLTlwsCABOYPYAw==",
+				"shasum": "829148901e2a4b77ac980f65de08f0b32f32a2e4",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-2.0.1.tgz",
+				"fileCount": 11,
+				"unpackedSize": 80046
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate_2.0.1_1518643099776_0.4777687128450163"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.2": {
+			"version": "2.0.2",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-generate"
+			},
+			"homepage": "http://csv.adaltas.com/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1",
+				"coffeescript": "~2.0.1",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "aff356b78a28036584ae15c6eb648f889f63c7fa",
+			"dependencies": {},
+			"_id": "csv-generate@2.0.2",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-oyidhQ/sQcqKOyt+hRnL9oiqFFWsEkOwBE7tEV3pwku6dSuFUQqTGfhYXH/HZ3rKy8xBtcrwsspmXVo+LPijuA==",
+				"shasum": "1c26c52be318f1f0b6435f8df3d1249fb1503f4b",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-2.0.2.tgz",
+				"fileCount": 11,
+				"unpackedSize": 80083
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate_2.0.2_1518699203691_0.18908082399390858"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.1.0": {
+			"version": "2.1.0",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-generate"
+			},
+			"homepage": "http://csv.adaltas.com/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1",
+				"coffeescript": "~2.0.1",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "009c15c0ec9b830212b8a10476d7345930e1d8d2",
+			"dependencies": {},
+			"_id": "csv-generate@2.1.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "10.0.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-avXXdQMta14DhePrX3yvzJHV5VEAhJQwBCwgqcZE7xyNTYGpxcUxmYvOSKQw+CisAjdpfn6/ZUNEJa2W6jDzNg==",
+				"shasum": "ba4bea4aa06858eae78fe16a403ef20e7cde6374",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-2.1.0.tgz",
+				"fileCount": 13,
+				"unpackedSize": 82345,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbVjZACRA9TVsSAnZWagAAfHkP/RF2n6WfM7AcERp3yBjK\nAohVOEAYg5xbKhgOqnN4p106Xm8cnmZR6m2lI7o2gEyAOU39/RRNtw7Gktst\nNZzi8zRNJpgtShkeet57mrCWVYjwm/SOG8Wa3k5pFQLhc/40MnOgKKvKhlyX\negntbP6FZWGrq/+38FLYqBYVttL8c0XjaSZk2uSFcoLXM6+Xj5nGg31ff5qV\nEphWiT250R1KRqegj7ULH0BbI1Sd3nsrDccmEzC++XcylBPzftfMnIsCRrZl\nLx+OttI6Bjl5YUwFSOn1MqGEjlFrcIMp0rvcsEug4KWNdReCHPrfoK5DVeSB\nu1vJpw6iAc3nmPsJdgLD1/BV6NVQI15jaZxOV/co9DGReXF0Qha3SVhiCWz4\nDOjx3+teMIotWKstQ1uiZfIepOWfZ2qLiDW53dUmLOPkqW1U55yY8mO5ROQb\nbNMuXR9qrMJIPmakvSzf7sjeE4lt0fQZKG2x8ArrgNfQ2FccOKYCmUbf3mKQ\nLExC3MLtTnpD7dk21OzPVb21lBUOahFe707rjUtnfTFX9Y3L9pnA5Y7BIAUF\nwm9yaFUrLFmbgBq0vKMc0z/9dQlUEfJmTgtNAjwTtAgYZ8wfRiAYg3WB2Bh0\n7dwoZj+sKaCWXjZQ9d16aVfsA9EcPfuY0/ydUpE6i6ZJ3PmPA5L2DZ7TJavM\npdG8\r\n=KS/F\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate_2.1.0_1532376640100_0.7946535507210275"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.2.0": {
+			"version": "2.2.0",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-generate.git"
+			},
+			"homepage": "https://csv.js.org/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"coffeescript": "~2.3.2",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "9187dcb368dd22a8be8b6f28debae7a8947b7def",
+			"dependencies": {},
+			"_id": "csv-generate@2.2.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.11.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-FUZhVmMAcVGuBz8Z63TV5HMwVCTYYr2wu7vA64kOTt2A6PdyovjTg9r21nm68IosRiHip2p9y0IWO6jDpmx2gg==",
+				"shasum": "937b219febe2a21f95f6abb33b2fa49f7b36c006",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-2.2.0.tgz",
+				"fileCount": 15,
+				"unpackedSize": 23529,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbrpl7CRA9TVsSAnZWagAAgUUP/0XXAtZqnodHNMzYg8Dc\nMjHdGI8i72N08Dm4s1g+u6Qec7OuOK44pKfc093oIkt0E1AIWwFRB5IW+yMv\naSxqa6K73fzNNwC57/5Igzm2cdqf9X1FHYciBrn5u9F6NiIa88WbLsNjqW8L\nfymW5NUDZN1348lsnaDJw351SCO8Y8s4uyjucf49vukme/lzojbf2IcSSaxf\n+vR5sfZE5xn55ySPKjdfdc0hWdLKeY2M76Dz30gqRNT6XYxrqBSPOy2n08Xj\nluAXnQ/cnntiTYK8TAFN8oq6iLkJgbxQTYqPrX7IoQUM5YYO0LmD2ZMj5zvh\nG8dCOFHEaY7cSNr6Bcq1aQ3Nw+yeR9Ac+t+VJqEqhhAYkcnhQ9yBf7l5MwOB\nUcljMc8WUjBTPninx0tAUfyYquZfZ1mA+wyKr9yVZgJe+Y2zbhmcnRJYu1z+\nt3ZYRS/AjjI/9lHSjg+D7z6R+AFmTDbr3ak8kh0usx/jI6ozWyZAhJtqiLMT\neR01f5BaGV7Rg+XPXH8CJVrlwzsbBKZe+Hre+DG+qxQ0pom8y8MXHm+TRjnO\nyA4Z1RjDviyR3FRkO/rWG6nhJq1hYxu2gsBTtVKMW0fhDXvDErPaDgKwnr0t\nJdkPUi9Jlo/yLHyOU6znxIu6fqIjRMMPhJHYJ7B9xyxrooMSCTMVIGTgHC+K\nohN0\r\n=eFJN\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate_2.2.0_1538169210766_0.4040555133869397"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.2.1": {
+			"version": "2.2.1",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-generate.git"
+			},
+			"homepage": "https://csv.js.org/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"coffeescript": "~2.3.2",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "24bf78314b6e74b82d39b780a6102848035f428c",
+			"dependencies": {},
+			"_id": "csv-generate@2.2.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.11.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-Or7vRm3pGasnU1wPwDEfpbpqfsqF4g2j9U6GUoJkv+hCvFjt0gaaGhjmxlZ2SyN5E7Nkb4I+5f3EO8B29G1GFQ==",
+				"shasum": "f7a12878f1d1bfa2f0e4d04d435a1013659a285a",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-2.2.1.tgz",
+				"fileCount": 15,
+				"unpackedSize": 23571,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbrp19CRA9TVsSAnZWagAA4tAQAJhuL41rcQcKmjb5MY61\ngrn/2kpm7bRlZpmQp4/psJKH/EE6hOqvjhUPjFrxNDXlFTxjt46PU/WjTtbK\nHqVwmzFjQrQqfReg/AGP+o156a9fmhBDCIXHw5qCbcmP9xaE0EIq6pcLMWha\nm7ZkvixEarmtOqqQn/LA2VMIpLZlwcpt8m+I28lwUKEh2g1FG4qQNHGv7fI5\nwU5jTsv/0ycCg8Y4KPy9DUHAjNxa6XH6w0osfauyUMtJD+6hica2SCrhOiF2\nA1jSrdEq+Y0HCuFMKreW9OHHYCUCidevjKRqpdz8xNQxwioFLrq80QHdBNaH\nZ1ZG2tL1sPdNC6IAegS18ndEwubFJqA8xsDAMOxxEx30F1O6bxjVrip7htgS\nmmgiKv5BSHzB2nNCWW1/SEqP4af6zG0BMlq1M/ER1J+y45cUo3M8h55Zz2QT\nDIIdOqVFcqElZC4coVzFfORGKcrULlQOaCO1EXTwDrC4pyDsIvI1LP14f1WB\nZZwUW56+5YK3m4ZkqhpbyfKyd3nnIEPxN4rhMxoZglwcgVu+SNaPkSQ+k3s5\npxXywBxhGkQEjZPtsN7E2MXLRP9MVwwD5ddPZN1x2FBk2luXxwjbUSjc99WT\n9dvQ2YXURxMCyNj9StvNxmsCjWsAUneNl+C47jup1GX7abs30aH1BmtybRqd\n8JoK\r\n=5SLq\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate_2.2.1_1538170236752_0.7131905212085676"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.2.2": {
+			"version": "2.2.2",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-generate.git"
+			},
+			"homepage": "https://csv.js.org/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"coffeescript": "~2.3.2",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "b10a25ab3749790649bde2a7941acc8c1d2b720d",
+			"dependencies": {},
+			"_id": "csv-generate@2.2.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.11.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-ETG8JGG0xOt2f1JzxrAcQONVc4+7srUdXeyLnow60ntBr+qiNCFTqi+ME6g0vZ4hMCbrwNrDPJPOYVznAeDDHQ==",
+				"shasum": "c37808c5f3ead2deec940794073dd32d492adfd1",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-2.2.2.tgz",
+				"fileCount": 15,
+				"unpackedSize": 23613,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbr9BpCRA9TVsSAnZWagAAbpUP/Av8lUxziZWCen9Cdfnv\nmqFFkKpBdIWGyy7Yf9pLV86RZ+OrKzBr90iUhvIus5URAr/wrCGFUx5qjqlS\nWq63Qqy7j50UEKdMLDH1DWPX0JAts4z1/sxbsu+cPtEXALRjwgEDWanHxaoq\nbrqIl4b54MLLSLpLqzOqSgg4RN5Qeq6TO9nq0AarMAXNRx1GETClEDhghCky\ntgfsCwTRl4X7lJn2LbVasfVkLKYQLBNrD1T7pMaNjuzNGJD6BduN56WZpRmL\nuM02HDPgzXvpnPwfXz0v0O6aaqQQPItvAFMMtj6RMVv3SDaWUWyRbco3Idig\nMvvFY+ccHT5TzZxNSlvV1FiKapmbYWZhGuNHF9EfbuP7FQGvHnqBV+UUODZv\ni7nrunRs8uyJxqwL8cLiPcsuoYgSQkRB2RtkeUKBugibq/HG7IuX1FBF/6+A\nXmx5p32MlghfejbFCFZshlzgJRSDunwIpRx2AazNKc7TrUisJsLJkZH8MgAU\nB+6p5Wmr3fhvsxyKHOWdo+k52OcfNvG1Ut1zCy8znKTce7VVQHi2TeDCfpw+\nVjFB9ivHzMePa/pIYnZnkM6GSwyT+0gB61d7aBJ6J13NobmVckQg0OlT4Dip\nRlwZrSw/M+pkf2Bv/GyGWyeUJn57vfruKQ6qA/FxZRIs2/OtHA4FMlpb1jJc\nqKBI\r\n=dwPO\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate_2.2.2_1538248809196_0.28467327037158596"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"version": "3.0.0",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-generate.git"
+			},
+			"homepage": "https://csv.js.org/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"coffeescript": "~2.3.2",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "14fb29f06d55400d7991d23d68eb1cff9b5a5175",
+			"dependencies": {},
+			"_id": "csv-generate@3.0.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-ZgnKvqmjz9B8MCW1nLHxzfbJ6MUchPgJ5hlRorVYsxk4LmjM41CafnZR9EV731zChehW3S9ox5CDJc4ZQXnQ7A==",
+				"shasum": "354bc4c6d007960075cdeab935f54025ea70fba5",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-3.0.0.tgz",
+				"fileCount": 15,
+				"unpackedSize": 25397,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb0PlsCRA9TVsSAnZWagAAaWsP/AtvDy+ut29dbx+aankw\ncrSLIIFuoUJ/biIhvyiTuEjIuYQh0LurJ1TErWoOFdAe+dKQXGAH6IyRJBmV\nkgwynhHanlGsUmKsvvI3oscoTOWNNmq5d/B5sjVWgwcRJPQz9TdkE85OER1V\nM2tPiu75KxwwvA6VAg2ASuP91Itv6xcbTZjHJ2ZiaJXRjpCnmKPmKzETpjJ0\nP5enFEn2dlaIbaNov1EzvPvL6WSwyc8Xdkp5lwglMUAcndFoPSS8/FD2BYrP\na8PDGlgim1qPt5Ykxa6SwuxgU2cqloC4JePDOdgxGKh1fjUyR8rdqfZQvDQo\nIHcLV7kXJgyD29xFMCLuo5RGs9NM9qJQ/GadQVHkHB/XPMUtujv/swFi8WvM\n1RFeApx0V+VPryNHXV2KM1xTf0aMSZbipj2Z/Fk9cDX72qlnQkh7u9N0zfu9\n3FEdAZx8Ipz09OYyVJ4Ft20lyWxgzTWHUyfH/Dm8OOuK6PFXdml2uzqMiPiS\nOzhSLYJdDI0tTmeMgXahOJQ8FWAXI9qs7W62Z7r6CtmACfasV1Rv+NoDgTaM\nPsEcJvgbfe6WPC4VGNt7777C0R+NvN3XLckI8M2f04cA1eUEXHok2fjcmJE6\na3uhHGpJw3LNgTkwcIZR5JUdmatDwxsCm5G/yzKgJvS7jqPLaJooSOYDsG40\nLBf1\r\n=wRhS\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate_3.0.0_1540421995513_0.48761994900865857"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.1.0": {
+			"version": "3.1.0",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-generate.git"
+			},
+			"homepage": "https://csv.js.org/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"coffeescript": "~2.3.2",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "4a1dec951f5f32db0da85796e76f391385e549a5",
+			"dependencies": {},
+			"_id": "csv-generate@3.1.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-k6xFK2e9JU4h1n4gSQKdZJSUQP+J130vSQ5cTtanhJX45r2kHtltJqe67DhEvNP8fVkJ6ShRn1gT0ZNRcb4nBA==",
+				"shasum": "c0512f1009fb943b311191b7552d8131339919c7",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-3.1.0.tgz",
+				"fileCount": 15,
+				"unpackedSize": 25684,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb8pUmCRA9TVsSAnZWagAAq7kQAI/0UAmA6NSydLuBZPbf\nL1MyqIkylr/PCBGqMPZAhMxtAL1X8aVHK+9stcuDi5nrqbsVJbs2ahCYRJM6\nWzTdZknxe0eiS8nm6x6H2aeFYg0KOuCtJqNhTXcneOa+SIoOu2iYOsng33Lt\nfyGPmMde8Zw1+KDhhgAt44lLgmBKQNi1v6ctZXv29qndyBjD1GvvAKICEqXg\n4v8mWrk1XmzMJWr0Q9GcPxhAHMvQuMPE7bJjK8kuiBYW+gM3U0r+ASCIyfD1\ntBERuJ+bq6OLcAIXSXPvnR5XN1mVF8omXXjH5dWkX6Ev3XHDDs03kKmZBewj\nQIT5v0m9Ajuxt24zZtBPqQtglPYbseFXYljIn130+MrGntmJ6zVtY9ogLaFI\nWKjJuvpp4q4OMGNxI1PmlJXqjcOl0JZ03Fda6waP6jhsK0OuNPQA4YY27sIS\nT6FA1OszAwzdu1hxW9EX9a/Zthnmg0k/IdBAkrr2+f4TdRpgpwrsNc4zubvn\naguMfJ8zV+JIGZWGbmaUaC7WMCkQr4Zw9kKadIVE7UPnZoKQpByhef656iwP\nXDBghcdauu4q1P2eiN+L9CeOUZlhIGZdn0CiCF2SY+igAXOSDBk6QiM4C9/8\nOvhez+3NiN3riiem82Kl1TDj4RvzxlgWRfugoTAD7k4Wtvj+Ai8k2s35iFGu\n5z8f\r\n=0fGT\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate_3.1.0_1542624549943_0.4638573988653436"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.2.0": {
+			"version": "3.2.0",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-generate.git"
+			},
+			"homepage": "https://csv.js.org/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"@types/mocha": "^5.2.5",
+				"@types/node": "^10.12.10",
+				"@types/should": "^13.0.0",
+				"coffeescript": "~2.3.2",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3",
+				"ts-node": "^7.0.1",
+				"typescript": "^3.1.6"
+			},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib/*.js && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "d90fc95502da22ad35da611f864fb4ec106558c3",
+			"_id": "csv-generate@3.2.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-ZdS2KrgoLxm1guL9XhuaZX223Tiorldvl9QC0M/gihcrJavNDokAp/rX3CyyRHpK+rImxEE3L47cHe7npQMkkg==",
+				"shasum": "17c0defbad71bfe63182cd3c41c972138ce0b300",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-3.2.0.tgz",
+				"fileCount": 16,
+				"unpackedSize": 29509,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb/l2uCRA9TVsSAnZWagAAxXUQAIJ1QhreXkL8xBgKenYz\nqQE3fHdJExFBYmKtmjEGNKeoBQs1hd91xhCZVeq8nbAxowbPm7ZGV1qjOfWy\nf52GFKE7DJErcWwUgTd6LxGtsu7wYxcxg7FiOCQTQb3/TV8ak56ZVZ6w2qp4\nc1pMExf+g0NFYCG/uG2e2XX/AYHzVALfmfA+nbVV2/b+AzKusXdzKW40oVVH\noPM1oZityY1L8vu3OIhCbM1kT1D5Gaf9cBgxatC5mcgoxjOgJiKdTrbcGOky\nQ7bc4s/ChaoeUWiWGI8CACntl6JcHZV2UeCh9GCiBURcgxzFzVjjXHyEe+zU\njQy06ZBWRW1pS4E6VSW6T7AnDiFdtuL9b3HL2AC6iNBltmMZnH8zm/kNRKhu\nGyv6q6jCw4N/9PAGMiR4UU3WGNZujPaGV7QNGl9ulv7R/OWyEEb+9QTrg4RG\nZqI4eZacFfwzfsJ51rqsVY/gfe4MxHW9jK1+DatD+BJ3Iione28+JVOFsDu/\no1z8XYhiqqXy89Pnq1MiTJrXqUYQ2LoRgkKse83FDEW7QBML6ejtCvAbCpGn\nq2ahsAwN+Jd40zfl9bFX8lm2TdKWjLQnxNT+RRoWE34d15ztp24HKkxcbcru\nZ6YD8tDxf8nc2DejpeRVZ2wCsRFLfvVuZwR+BvciBXIj0dVXf80nK9ELTBuD\nYWvn\r\n=KeJh\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate_3.2.0_1543396782214_0.17054630742494425"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.2.1": {
+			"version": "3.2.1",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-generate.git"
+			},
+			"homepage": "https://csv.js.org/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"coffeelintConfig": {
+				"indentation": {
+					"level": "error",
+					"value": 2
+				},
+				"line_endings": {
+					"level": "error",
+					"value": "unix"
+				},
+				"max_line_length": {
+					"level": "ignore"
+				}
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"@types/mocha": "^5.2.5",
+				"@types/node": "^10.12.10",
+				"@types/should": "^13.0.0",
+				"coffeescript": "~2.3.2",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3",
+				"ts-node": "^7.0.1",
+				"typescript": "^3.1.6"
+			},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib/*.js && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "e67ba8cc4ab952c977842d44e5342ee9c63d9d5c",
+			"_id": "csv-generate@3.2.1",
+			"_nodeVersion": "11.13.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-WuZSu1YXs/VgyG5ZCekOBr9b+l99iVsqVMatxy8UqEeTA8hsLzc011dHNJZ9ST7LDN02OROOEIA7BzbuV85esw==",
+				"shasum": "6e7b7a44506e407f63f0cf74a17c0b2e4d0ebfc1",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-3.2.1.tgz",
+				"fileCount": 4,
+				"unpackedSize": 6585,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc2TOxCRA9TVsSAnZWagAAlU8P/A6GTzWlA+5TZ6pSqwGU\nXLLTNwGLOHlfkB6yMmvEfjyo5R+7SXNtoFHfMeQq5KqgiSfC5DXqVnDLRYh/\nI4LQkVxkDj95a4etipgSJX4s3laEPKVm6gbzMMAb2qIWIVLcnbpgLpJoPyE2\nSB/qBpuN2t+BkF7ZqZsLhybenNbC3PwX4GKVEPN0VbRXgTFBBDhoN1xn717Y\nw2HTLe9HxXfgSDAnqb1AbBmHkZypFy2GduBK9KQcPJuIiTzE2oB6vM4DnuBf\nsAAENTyCu5V3tMCX9Vv1G+mGH6J6ENFsrAy9cRSxp/KqSAs1pNSVABgtu97F\nCCkAMFBrwDOe0lhpAQwLBZrSS5MVoum5dCt4k7iFBLf79GI5tR5gtgj+ixWN\n8+eHZELa8Mpnxje9EuoGYzMWWS2B0Goo4XDKJMbUHOQPwPPwVSSxF76zNCLT\nO6dkhVlzMq5q2g0UC45Jp0S8au1PxOQ1ewaG6Qll9K4V5qaQo2knyfdVK3Px\neLGtwti2NB/m//cMAq7dNeR1TIYXENOTUX2wP6NG91V8lIIfI1hJkK0AUHjo\n9M52FD6Ui7kgBFuWpGFqV6V8dfq0a9BxU5RICafCuQF69my21W1IJfmVSob3\nqGEWV55CAryqzpzOekR80LFtO0bKFLREdY0InMXsGLXlnIaAbL6/cMQ6v5pd\nygU7\r\n=j7Bc\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate_3.2.1_1557738416907_0.015232659821443173"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.2.2": {
+			"version": "3.2.2",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-generate.git"
+			},
+			"homepage": "https://csv.js.org/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"coffeelintConfig": {
+				"indentation": {
+					"level": "error",
+					"value": 2
+				},
+				"line_endings": {
+					"level": "error",
+					"value": "unix"
+				},
+				"max_line_length": {
+					"level": "ignore"
+				}
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"@types/mocha": "^5.2.5",
+				"@types/node": "^10.12.10",
+				"@types/should": "^13.0.0",
+				"coffeescript": "~2.3.2",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3",
+				"ts-node": "^7.0.1",
+				"typescript": "^3.1.6"
+			},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && rm -rf lib/*.js && npm test && cp lib/*.ts lib/es5 && git add lib/es5/*.ts",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js -d es5 && cd ..",
+				"test": "mocha test/**/*.{coffee,ts}"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "e0b7611b60c2b6157e5bfa8e52102c6b726a70cc",
+			"_id": "csv-generate@3.2.2",
+			"_nodeVersion": "11.13.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-SUt34tfKcxr8cNGAAJQBzapucT3ALxkN+p7Jz1kC6bGq/pI0coa5t75WPq5IAR/wSxksyU4w5VDFht8yG/jZog==",
+				"shasum": "a1d446e831f2f0401d769ab5e32db8c00fff7bc8",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-3.2.2.tgz",
+				"fileCount": 4,
+				"unpackedSize": 6706,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc2W7JCRA9TVsSAnZWagAAgEwP/1I0hs3T3lYrs5C9WEpq\njXHpJLacYo7yWoNBxQfbBrHH1MPR4beEgBt/eh06K0wlf2gqKq570RmIpFpz\nltVKO1vZTqw/ro8UIZx/MUGy8yalNQQInWo9fv27Z/Hyr9KZEy4vxHUpmjNm\nrJM7PTFpNlrsBgQAinInLYvyZY3Lr3Cb6vPui+DvpXoUgPOT3wkWN29PqFrU\nRnhBftk4Vwc6f4l7lMjwlaXgLJxSEf2O8C5vuZ/IdTPkIaDo97ETA3vqTYuW\n4jL6yc5mAqTjzLEW7gL9mosSUF/Xpb3TpweLeK009wMrOUrUI3eM9vIddBLi\nGE8CmsgRUxs2Y+GyqcuC0EWUbxRniePewgtyaNUHjXkm/Cku27vhySJ/Fn1I\ne7/sPm+YpIFWFDcre07LGQRL1CFybSCVl4OYrh7HBrs7Fy3tl/VC1CxN8L5m\n+HmOp8dhUW2nf7H1hIr+gQuAk/9zhn3mBWttqhxU2+gCcj2naFwbQnBnjBfF\nQ0wzKl4K5j07+6dpWm4JXopxlNWrwA9Sj1oEzvc10cbK7JjndSAWZqtbP2lj\nMcV8+9HyZjmq/DGfyI60PjuLg3TGGAbaa1+PymklaBnWW4+tplGX9FCi6+28\nKNZYbmSNpFYzgSvEo46TSzWkbUJ7osOv6kHmzjgQP4+ZSCVnRQx1whdKwis9\nd4fC\r\n=LfUh\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate_3.2.2_1557753544823_0.3536527376748795"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.2.3": {
+			"version": "3.2.3",
+			"name": "csv-generate",
+			"description": "CSV and object generation implementing the Node.js `stream.Readable` API",
+			"keywords": [
+				"stream",
+				"generate",
+				"csv",
+				"object"
+			],
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-generate.git"
+			},
+			"homepage": "https://csv.js.org/generate/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-generate/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"coffeelintConfig": {
+				"indentation": {
+					"level": "error",
+					"value": 2
+				},
+				"line_endings": {
+					"level": "error",
+					"value": "unix"
+				},
+				"max_line_length": {
+					"level": "ignore"
+				}
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"@types/mocha": "^5.2.5",
+				"@types/node": "^10.12.10",
+				"@types/should": "^13.0.0",
+				"coffeescript": "~2.3.2",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3",
+				"ts-node": "^7.0.1",
+				"typescript": "^3.1.6"
+			},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && rm -rf lib/*.js && npm test && cp lib/*.ts lib/es5 && git add lib/es5/*.ts",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"build": "coffee -b -o lib src && cd lib && babel *.js -d es5 && cd ..",
+				"pretest": "npm run build",
+				"test": "mocha test/**/*.{coffee,ts}"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "932bcc7db94abb0f18143a8121e11ae0c279038d",
+			"_id": "csv-generate@3.2.3",
+			"_nodeVersion": "11.13.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-IcR3K0Nx+nJAkcU2eAglVR7DuHnxcuhUM2w2cR+aHOW7bZp2S5LyN2HF3zTkp6BV/DjR6ykoKznUm+AjnWcOKg==",
+				"shasum": "24004f21de61c2ea1c4474d3e65a18261f638a80",
+				"tarball": "https://registry.npmjs.org/csv-generate/-/csv-generate-3.2.3.tgz",
+				"fileCount": 10,
+				"unpackedSize": 30861,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc2XNXCRA9TVsSAnZWagAAfDYQAI5aKH3R41SY6ny5/mke\nNBWzMcqWwYUq7TxiRCJz4672QX1ttliYCvaJT2ktAHbe54mjCc8OaNx8LGnn\nHwND2yfcmSodNA9opqzZ1xNb8YNdbntvsc9xa6L4N1hlXNZyPLpCCH6ScC9K\nJGUDXRYKsw7RzGEbBwfIt99KGWYHbDoB/DhY13yIuTgeJ2e7aYNf24wyLCkn\nXL+iCRTB4yDbMIB7DtI25afF35jVK3yJuM6PJlbmxv3xJlmo0qg6aqcAZl+y\nqM3mReIOyQA2Tw2OIW4TJsfqb7WczZJAimWRT8cOUeIWXP/rubmkSZmjo63R\nnuxdzIbsL1aHQ/WpU3IFR/yUmxe6QoIZwZ9FSTtW2ZqqSQAkuXOCYEbwR43H\npMhEnQdbuXVPOkGYKmYsJVyrglNeo+sf1f0JlGQ/PkgbsmNn5z1YfchzshC/\nY4JVHWj4+LT2PW+5jg7bJgcRNHjpOseQHk+QGG8b+15nDy3W+y0+a0J9ITX1\nOR8beLTAXrVTzZjZFsPPucn69GNU8Ij2dqqjHTmpwGwK4NON+5LAfc5vgrPM\npToo55cyMLy7fg4gZRZwqmcoCgW0iO0xOXdCJdeO0sHu6hldINOLtykeJQ29\npjvxd2m9N1PjWJ8sFsZgeYsPNRKAUlHHVqxe6GKCJWxRkcMc0C1/Er7nXgIm\nR/r8\r\n=67mM\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-generate_3.2.3_1557754711262_0.7246075144967912"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-05-13T13:38:35.091Z",
+		"created": "2014-03-17T23:17:16.947Z",
+		"0.0.0": "2014-03-17T23:17:16.947Z",
+		"0.0.1": "2014-03-22T20:11:42.755Z",
+		"0.0.2": "2014-05-01T15:33:44.082Z",
+		"0.0.3": "2014-05-02T21:08:48.032Z",
+		"0.0.4": "2014-05-09T21:36:06.736Z",
+		"0.0.5": "2015-05-29T09:27:33.474Z",
+		"0.0.6": "2015-06-09T10:13:56.275Z",
+		"1.0.0": "2015-10-07T14:26:59.004Z",
+		"1.1.0": "2017-10-20T10:28:44.420Z",
+		"1.1.1": "2017-10-20T11:44:54.210Z",
+		"1.1.2": "2017-10-20T11:46:14.001Z",
+		"2.0.0": "2017-10-20T12:03:54.541Z",
+		"2.0.1": "2018-02-14T21:18:20.607Z",
+		"2.0.2": "2018-02-15T12:53:24.422Z",
+		"2.1.0": "2018-07-23T20:10:40.189Z",
+		"2.2.0": "2018-09-28T21:13:30.936Z",
+		"2.2.1": "2018-09-28T21:30:36.888Z",
+		"2.2.2": "2018-09-29T19:20:09.354Z",
+		"3.0.0": "2018-10-24T22:59:55.690Z",
+		"3.1.0": "2018-11-19T10:49:10.077Z",
+		"3.2.0": "2018-11-28T09:19:42.325Z",
+		"3.2.1": "2019-05-13T09:06:57.019Z",
+		"3.2.2": "2019-05-13T13:19:04.981Z",
+		"3.2.3": "2019-05-13T13:38:31.423Z"
+	},
+	"dist-tags": {
+		"latest": "3.2.3"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"f8e9eb34b73582dc07f86681e664bf27\"",
+			"fetched": 1568994345824
+		}
+	},
+	"_distfiles": {
+		"csv-generate-0.0.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-0.0.0.tgz",
+			"sha": "85a1524025482ab7556308ba0dbfec7f84455db3",
+			"registry": "npmjs"
+		},
+		"csv-generate-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-0.0.1.tgz",
+			"sha": "28bace66d74d2c9d3e57e79aab7eee2d65d92652",
+			"registry": "npmjs"
+		},
+		"csv-generate-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-0.0.2.tgz",
+			"sha": "ea1f9642ebe788ed5856369e7f30a2bc075b3f38",
+			"registry": "npmjs"
+		},
+		"csv-generate-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-0.0.3.tgz",
+			"sha": "2e9f6510735cd2625562fe2241a6526b0c13814b",
+			"registry": "npmjs"
+		},
+		"csv-generate-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-0.0.4.tgz",
+			"sha": "6d0329b847ba0e12e24b82f4cf949c38c6f84d2f",
+			"registry": "npmjs"
+		},
+		"csv-generate-0.0.5.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-0.0.5.tgz",
+			"sha": "a315e63f9072eb2d2874612e184a33fccd015981",
+			"registry": "npmjs"
+		},
+		"csv-generate-0.0.6.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-0.0.6.tgz",
+			"sha": "97e4e63ae46b21912cd9475bc31469d26f5ade66",
+			"registry": "npmjs"
+		},
+		"csv-generate-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-1.0.0.tgz",
+			"sha": "bd52886859d0c925f3e51f60f3abed262fa15caf",
+			"registry": "npmjs"
+		},
+		"csv-generate-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-1.1.0.tgz",
+			"sha": "6c5fa693f5f0f19c48070fc045dc43b386d99325",
+			"registry": "npmjs"
+		},
+		"csv-generate-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-1.1.1.tgz",
+			"sha": "8455229fbb8771710f3b21834bfb10e07261d637",
+			"registry": "npmjs"
+		},
+		"csv-generate-1.1.2.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-1.1.2.tgz",
+			"sha": "ec6b00edaed6e59ad9c20582f4c364e28b146240",
+			"registry": "npmjs"
+		},
+		"csv-generate-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-2.0.0.tgz",
+			"sha": "ab4fdc30db5ce678b07d53884c69fa545618b25c",
+			"registry": "npmjs"
+		},
+		"csv-generate-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-2.0.1.tgz",
+			"sha": "829148901e2a4b77ac980f65de08f0b32f32a2e4",
+			"registry": "npmjs"
+		},
+		"csv-generate-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-2.0.2.tgz",
+			"sha": "1c26c52be318f1f0b6435f8df3d1249fb1503f4b",
+			"registry": "npmjs"
+		},
+		"csv-generate-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-2.1.0.tgz",
+			"sha": "ba4bea4aa06858eae78fe16a403ef20e7cde6374",
+			"registry": "npmjs"
+		},
+		"csv-generate-2.2.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-2.2.0.tgz",
+			"sha": "937b219febe2a21f95f6abb33b2fa49f7b36c006",
+			"registry": "npmjs"
+		},
+		"csv-generate-2.2.1.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-2.2.1.tgz",
+			"sha": "f7a12878f1d1bfa2f0e4d04d435a1013659a285a",
+			"registry": "npmjs"
+		},
+		"csv-generate-2.2.2.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-2.2.2.tgz",
+			"sha": "c37808c5f3ead2deec940794073dd32d492adfd1",
+			"registry": "npmjs"
+		},
+		"csv-generate-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-3.0.0.tgz",
+			"sha": "354bc4c6d007960075cdeab935f54025ea70fba5",
+			"registry": "npmjs"
+		},
+		"csv-generate-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-3.1.0.tgz",
+			"sha": "c0512f1009fb943b311191b7552d8131339919c7",
+			"registry": "npmjs"
+		},
+		"csv-generate-3.2.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-3.2.0.tgz",
+			"sha": "17c0defbad71bfe63182cd3c41c972138ce0b300",
+			"registry": "npmjs"
+		},
+		"csv-generate-3.2.1.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-3.2.1.tgz",
+			"sha": "6e7b7a44506e407f63f0cf74a17c0b2e4d0ebfc1",
+			"registry": "npmjs"
+		},
+		"csv-generate-3.2.2.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-3.2.2.tgz",
+			"sha": "a1d446e831f2f0401d769ab5e32db8c00fff7bc8",
+			"registry": "npmjs"
+		},
+		"csv-generate-3.2.3.tgz": {
+			"url": "https://registry.npmjs.org/csv-generate/-/csv-generate-3.2.3.tgz",
+			"sha": "24004f21de61c2ea1c4474d3e65a18261f638a80",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-f059da36784405b0",
+	"_id": "csv-generate",
+	"readme": "[![Build Status](https://api.travis-ci.org/adaltas/node-csv-generate.svg)](https://travis-ci.org/#!/adaltas/node-csv-generate)\n\n# CSV and object generation\n\nThis package provides a flexible generator of CSV strings and Javascript objects\nimplementing the Node.js `stream.Readable` API.\n\n[Documentation for the \"csv-generate\" package is available here](https://csv.js.org/generate/).\n\n## Documentation\n\n* [Project homepage](http://csv.js.org/generate/)\n* [API](http://csv.js.org/generate/api/)\n* [Options](http://csv.js.org/generate/options/)\n* [Examples](http://csv.js.org/generate/examples/)\n\n## Main features\n\n* Scalable `stream.Readable` implementation\n* random or pseudo-random seed based generation\n* Idempotence with the \"seed\" option\n* User-defined value generation\n* Multiple types of values (integer, boolean, dates, ...)\n* MIT License\n\n## Usage\n\nRun `npm install csv` to install the full csv module or run `npm install csv-generate` if you are only interested by the CSV generator.\n\nUse the callback style API for simplicity or the stream based API for scalability.\n\n## Development\n\nTests are executed with [Mocha](https://mochajs.org/). To install it, simple run `npm install` followed by `npm test`. It will install mocha and its dependencies in your project \"node_modules\" directory and run the test suite. The tests run  against the CoffeeScript source files.\n\nTo generate the JavaScript files, run `npm run coffee`.\n\nThe test suite is run online with [Travis](https://travis-ci.org/#!/adaltas/node-csv-generate). See the [Travis definition file](https://github.com/adaltas/node-csv-generate/blob/master/.travis.yml) to view the tested Node.js version.\n\n## Contributors\n\n*   David Worms: <https://github.com/wdavidw>"
+}

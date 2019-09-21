@@ -1,0 +1,151 @@
+{
+	"name": "caliper-sawtooth",
+	"versions": {
+		"0.1.0": {
+			"name": "caliper-sawtooth",
+			"version": "0.1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/caliper.git"
+			},
+			"scripts": {
+				"pretest": "npm run licchk",
+				"licchk": "license-check-and-add",
+				"test": "npm run lint && npm run nyc",
+				"lint": "npx eslint .",
+				"list": "node ./scripts/list.js",
+				"nyc": "nyc mocha --recursive -t 10000"
+			},
+			"engineStrict": true,
+			"engines": {
+				"node": ">=8.10.0",
+				"npm": ">=5.6.0"
+			},
+			"dependencies": {
+				"caliper-core": "0.1.0",
+				"protocol-buffers": "^4.1.0",
+				"sawtooth-sdk": "^1.0.5",
+				"cbor": "^3.0.3",
+				"request-promise": "^4.2.1"
+			},
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"eslint": "^4.19.1",
+				"mocha": "3.4.2",
+				"nyc": "11.1.0",
+				"rewire": "^4.0.0",
+				"sinon": "2.3.8",
+				"license-check-and-add": "2.3.6"
+			},
+			"license-check-and-add-config": {
+				"folder": ".",
+				"license": "../../LICENSE.txt",
+				"exact_paths_method": "EXCLUDE",
+				"exact_paths": [
+					"node_modules",
+					".nyc_output",
+					"coverage"
+				],
+				"file_type_method": "EXCLUDE",
+				"file_types": [
+					".yml"
+				],
+				"insert_license": false,
+				"license_formats": {
+					"js": {
+						"prepend": "/*",
+						"append": "*/",
+						"eachLine": {
+							"prepend": "* "
+						}
+					},
+					"editorconfig": {
+						"prepend": "#",
+						"append": "#",
+						"eachLine": {
+							"prepend": "# "
+						}
+					}
+				}
+			},
+			"nyc": {
+				"exclude": [
+					"lib/**"
+				],
+				"reporter": [
+					"text-summary",
+					"html"
+				],
+				"all": true,
+				"check-coverage": false,
+				"statements": 5,
+				"branches": 8,
+				"functions": 7,
+				"lines": 5
+			},
+			"license": "Apache-2.0",
+			"licenses": [
+				{
+					"type": "Apache-2.0",
+					"url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/hyperledger/caliper/issues"
+			},
+			"homepage": "https://github.com/hyperledger/caliper#readme",
+			"_id": "caliper-sawtooth@0.1.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.16.1",
+			"_npmUser": {
+				"name": "luizah",
+				"email": "luizaherback@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-ZDOZ3giP0RJ5CzHxZgn44zZ3a+84uHTf90SD5MMYUHjgSLD8Dh4+DJlk0/EQI5/Pi5KT1NMwZ+1hL1orFietgA==",
+				"shasum": "3c22cbc66f0dfc66ef041b3240d6504b9fdfed74",
+				"tarball": "https://registry.npmjs.org/caliper-sawtooth/-/caliper-sawtooth-0.1.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 31735,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdWWnoCRA9TVsSAnZWagAAl7kQAJfjIRA1syuoIzz11WYE\nSbl97lzTtKB5fgkWvo7aDUEik6wPNOVVrGCu09LiNQfpRnDWhT87FNwK6Ckc\nNnBwvmYubuZwB9qt8KXDB4bkVaoczVPVYYUCVhiFf1sEMdlH7iwyRq/Bd6a+\nPZ4Rrx0t6ZlsDMlbFEo2M31Fk8etDmV+Kubo1kSLGlISGz6G+8uhw2YxAos/\nwnCCeV+i+eeAXbEIL32TmfcVgsPHG/Vt3aQrZgP04ica/iGMNFa5pfts7SJh\nmuEwYcFOxg+TVYAsFNLixngN49hxKi1CAISYFns0JqWItC5CvRpgmgL34vio\ncP3YIU8pYeiGbo3UYSO885MgnH0NyBYd/RzcHevvNh1XMv368+iY2coztQ06\nvZhsM/Q+tSbnvUV5lcvUvhhlTptuum6Tw5mlTX6vHS13U+5vEFYdry5r+ch5\ncX1R1xDTXs8Z+u1w8Dkq29mPVHi9PFb/umC8XqInISXNRAP0h2O4SiDuEmW6\nNbIjpGe7TGlnX1RsJh/2MBsWgSEiD3j5SHTUpqZXh9ruMfRiSdvW/phFUKnA\nchjnp1JV1tP4yPVb/FfhdFbQz+esZnYZ9WdslUj1Ko9OApxOi4clATNYOEGa\ntg5h68F0CxApu+uYXGDSTULdjWPUKyiyOT8c7y63LwU3suZmmXJ2bXeafH7l\nVqnp\r\n=q/NH\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "luizah",
+					"email": "luizaherback@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/caliper-sawtooth_0.1.0_1566140904047_0.8130163344162706"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2019-08-18T15:08:24.046Z",
+		"0.1.0": "2019-08-18T15:08:24.188Z",
+		"modified": "2019-08-18T15:08:27.064Z"
+	},
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"d71868f4b090cdf573cc5fab603d3fc5\"",
+			"fetched": 1568994329331
+		}
+	},
+	"_distfiles": {
+		"caliper-sawtooth-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/caliper-sawtooth/-/caliper-sawtooth-0.1.0.tgz",
+			"sha": "3c22cbc66f0dfc66ef041b3240d6504b9fdfed74",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-ed1e0f1ee09bb93a",
+	"_id": "caliper-sawtooth",
+	"readme": "ERROR: No README data found!"
+}

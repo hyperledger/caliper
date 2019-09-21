@@ -1,0 +1,1224 @@
+{
+	"name": "ethereumjs-abi",
+	"versions": {
+		"0.1.0": {
+			"name": "ethereumjs-abi",
+			"version": "0.1.0",
+			"description": "Decoder and encoder for the Ethereum ABI",
+			"main": "index.js",
+			"dependencies": {
+				"bn.js": "^4.3.0",
+				"es6-shim": "^0.33.6",
+				"ethereumjs-util": "^2.2.0",
+				"utf8": "2.1.1"
+			},
+			"scripts": {
+				"test": "mocha ./test/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axic/ethereumjs-abi.git"
+			},
+			"keywords": [
+				"ethereum",
+				"ABI"
+			],
+			"author": {
+				"name": "Alex Beregszaszi",
+				"email": "alex@rtfs.hu"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axic/ethereumjs-abi/issues"
+			},
+			"homepage": "https://github.com/axic/ethereumjs-abi",
+			"gitHead": "3af68a983f742dd25fbc82c509a2eed2ef43a863",
+			"_id": "ethereumjs-abi@0.1.0",
+			"_shasum": "84adea9faec77aac1c1d1959bfbaea9ad45ef33d",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "axic",
+				"email": "alex@rtfs.hu"
+			},
+			"dist": {
+				"shasum": "84adea9faec77aac1c1d1959bfbaea9ad45ef33d",
+				"tarball": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "ethereumjs-abi",
+			"version": "0.2.0",
+			"description": "Decoder and encoder for the Ethereum ABI",
+			"main": "index.js",
+			"dependencies": {
+				"bn.js": "^4.3.0",
+				"es6-shim": "^0.33.6",
+				"ethereumjs-util": "^2.3.1",
+				"utf8": "2.1.1"
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"scripts": {
+				"test": "mocha ./test/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axic/ethereumjs-abi.git"
+			},
+			"keywords": [
+				"ethereum",
+				"ABI"
+			],
+			"author": {
+				"name": "Alex Beregszaszi",
+				"email": "alex@rtfs.hu"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axic/ethereumjs-abi/issues"
+			},
+			"homepage": "https://github.com/axic/ethereumjs-abi",
+			"gitHead": "aae8d766ac9a1bff2b28b5a1f41e6d11e37e8781",
+			"_id": "ethereumjs-abi@0.2.0",
+			"_shasum": "a9f4792a84d032384d92dc2d81b36b540081f4ec",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.0",
+			"_npmUser": {
+				"name": "axic",
+				"email": "alex@rtfs.hu"
+			},
+			"dist": {
+				"shasum": "a9f4792a84d032384d92dc2d81b36b540081f4ec",
+				"tarball": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.0": {
+			"name": "ethereumjs-abi",
+			"version": "0.3.0",
+			"description": "Decoder and encoder for the Ethereum ABI",
+			"main": "index.js",
+			"dependencies": {
+				"bn.js": "^4.4.0",
+				"es6-shim": "^0.33.6",
+				"ethereumjs-util": "^2.3.1",
+				"utf8": "2.1.1"
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0",
+				"browserify": "12.0.1"
+			},
+			"scripts": {
+				"build": "browserify index.js -s EthAbi -o ethereumjs-abi.js",
+				"test": "mocha ./test/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axic/ethereumjs-abi.git"
+			},
+			"keywords": [
+				"ethereum",
+				"ABI"
+			],
+			"author": {
+				"name": "Alex Beregszaszi",
+				"email": "alex@rtfs.hu"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axic/ethereumjs-abi/issues"
+			},
+			"homepage": "https://github.com/axic/ethereumjs-abi",
+			"gitHead": "4113b28819d71210e5e1d9ff1b5856bbbbb013a5",
+			"_id": "ethereumjs-abi@0.3.0",
+			"_shasum": "12177d9f66a3e07df6df94686aa71f18d03cbd32",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.0",
+			"_npmUser": {
+				"name": "axic",
+				"email": "alex@rtfs.hu"
+			},
+			"dist": {
+				"shasum": "12177d9f66a3e07df6df94686aa71f18d03cbd32",
+				"tarball": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.0": {
+			"name": "ethereumjs-abi",
+			"version": "0.4.0",
+			"description": "Decoder and encoder for the Ethereum ABI",
+			"main": "index.js",
+			"dependencies": {
+				"bn.js": "^4.5.2",
+				"es6-shim": "^0.33.6",
+				"ethereumjs-util": "^2.3.1",
+				"utf8": "2.1.1"
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0",
+				"browserify": "12.0.1"
+			},
+			"scripts": {
+				"build": "browserify index.js -s EthAbi -o ethereumjs-abi.js",
+				"test": "mocha ./test/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axic/ethereumjs-abi.git"
+			},
+			"keywords": [
+				"ethereum",
+				"ABI"
+			],
+			"author": {
+				"name": "Alex Beregszaszi",
+				"email": "alex@rtfs.hu"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axic/ethereumjs-abi/issues"
+			},
+			"homepage": "https://github.com/axic/ethereumjs-abi",
+			"gitHead": "b6e8062cea9217fef9b0a0360f31050e7b23c35f",
+			"_id": "ethereumjs-abi@0.4.0",
+			"_shasum": "f5b3304f6e3a7bdeffb7398b3843699b786719d0",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.0",
+			"_npmUser": {
+				"name": "axic",
+				"email": "alex@rtfs.hu"
+			},
+			"dist": {
+				"shasum": "f5b3304f6e3a7bdeffb7398b3843699b786719d0",
+				"tarball": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.0": {
+			"name": "ethereumjs-abi",
+			"version": "0.5.0",
+			"description": "Decoder and encoder for the Ethereum ABI",
+			"main": "index.js",
+			"dependencies": {
+				"bn.js": "^4.10.0",
+				"ethereumjs-util": "^2.3.1",
+				"utf8": "2.1.1"
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0",
+				"browserify": "12.0.1"
+			},
+			"scripts": {
+				"build": "browserify index.js -s EthAbi -o ethereumjs-abi.js",
+				"test": "mocha ./test/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axic/ethereumjs-abi.git"
+			},
+			"keywords": [
+				"ethereum",
+				"ABI"
+			],
+			"author": {
+				"name": "Alex Beregszaszi",
+				"email": "alex@rtfs.hu"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axic/ethereumjs-abi/issues"
+			},
+			"homepage": "https://github.com/axic/ethereumjs-abi",
+			"gitHead": "f3e12f9a95f5ac5f8728d8a8d06261918c7e3fbd",
+			"_id": "ethereumjs-abi@0.5.0",
+			"_shasum": "863cf9460e56f8e3f9e5e919a07f372d62f6b128",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.0",
+			"_npmUser": {
+				"name": "axic",
+				"email": "alex@rtfs.hu"
+			},
+			"dist": {
+				"shasum": "863cf9460e56f8e3f9e5e919a07f372d62f6b128",
+				"tarball": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.5.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-abi-0.5.0.tgz_1458945362459_0.9754725589882582"
+			},
+			"directories": {}
+		},
+		"0.5.1": {
+			"name": "ethereumjs-abi",
+			"version": "0.5.1",
+			"description": "Decoder and encoder for the Ethereum ABI",
+			"main": "index.js",
+			"dependencies": {
+				"bn.js": "^4.10.0",
+				"ethereumjs-util": "^4.3.0",
+				"utf8": "2.1.1"
+			},
+			"devDependencies": {
+				"browserify": "12.0.1",
+				"coveralls": "^2.11.4",
+				"istanbul": "^0.4.1",
+				"mocha": "^2.1.0",
+				"standard": "^5.4.1"
+			},
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"build": "browserify index.js -s EthAbi -o ethereumjs-abi.js",
+				"test": "istanbul test _mocha -- --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axic/ethereumjs-abi.git"
+			},
+			"keywords": [
+				"ethereum",
+				"ABI"
+			],
+			"author": {
+				"name": "Alex Beregszaszi",
+				"email": "alex@rtfs.hu"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axic/ethereumjs-abi/issues"
+			},
+			"homepage": "https://github.com/axic/ethereumjs-abi",
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "ed6919f038eea6afd00de84b6da06bf81f8cf0a2",
+			"_id": "ethereumjs-abi@0.5.1",
+			"_shasum": "a18775b6ff9edcd8484f17eeabd38154f9b5a3f4",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.0",
+			"_npmUser": {
+				"name": "axic",
+				"email": "alex@rtfs.hu"
+			},
+			"dist": {
+				"shasum": "a18775b6ff9edcd8484f17eeabd38154f9b5a3f4",
+				"tarball": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.5.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-abi-0.5.1.tgz_1460475477446_0.3437769787851721"
+			},
+			"directories": {}
+		},
+		"0.6.0": {
+			"name": "ethereumjs-abi",
+			"version": "0.6.0",
+			"description": "Decoder and encoder for the Ethereum ABI",
+			"main": "index.js",
+			"dependencies": {
+				"bn.js": "^4.10.0",
+				"ethereumjs-util": "^4.3.0",
+				"utf8": "2.1.1"
+			},
+			"devDependencies": {
+				"browserify": "12.0.1",
+				"coveralls": "^2.11.4",
+				"istanbul": "^0.4.1",
+				"mocha": "^2.1.0",
+				"standard": "^5.4.1"
+			},
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"build": "browserify index.js -s EthAbi -o ethereumjs-abi.js",
+				"test": "istanbul test _mocha -- --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axic/ethereumjs-abi.git"
+			},
+			"keywords": [
+				"ethereum",
+				"ABI"
+			],
+			"author": {
+				"name": "Alex Beregszaszi",
+				"email": "alex@rtfs.hu"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axic/ethereumjs-abi/issues"
+			},
+			"homepage": "https://github.com/axic/ethereumjs-abi",
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "6048bc1d2d6501b55775971846ebc8b0582e494e",
+			"_id": "ethereumjs-abi@0.6.0",
+			"_shasum": "04d3e42cf0d843133906990f475e7375ef500ede",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.0",
+			"_npmUser": {
+				"name": "axic",
+				"email": "alex@rtfs.hu"
+			},
+			"dist": {
+				"shasum": "04d3e42cf0d843133906990f475e7375ef500ede",
+				"tarball": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-abi-0.6.0.tgz_1461632381021_0.7263347716070712"
+			},
+			"directories": {}
+		},
+		"0.6.1": {
+			"name": "ethereumjs-abi",
+			"version": "0.6.1",
+			"description": "Decoder and encoder for the Ethereum ABI",
+			"main": "index.js",
+			"dependencies": {
+				"bn.js": "^4.10.0",
+				"ethereumjs-util": "^4.3.0",
+				"utf8": "2.1.1"
+			},
+			"devDependencies": {
+				"browserify": "12.0.1",
+				"coveralls": "^2.11.4",
+				"istanbul": "^0.4.1",
+				"mocha": "^2.1.0",
+				"standard": "^5.4.1"
+			},
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"build": "browserify index.js -s EthAbi -o ethereumjs-abi.js",
+				"test": "istanbul test _mocha -- --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axic/ethereumjs-abi.git"
+			},
+			"keywords": [
+				"ethereum",
+				"ABI"
+			],
+			"author": {
+				"name": "Alex Beregszaszi",
+				"email": "alex@rtfs.hu"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axic/ethereumjs-abi/issues"
+			},
+			"homepage": "https://github.com/axic/ethereumjs-abi",
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "75b8f2fe866fe37e6444fadd69e6eb77e5a6bd15",
+			"_id": "ethereumjs-abi@0.6.1",
+			"_shasum": "4a4e528f3af56610e561ed0f04a504dcdb10af79",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.0",
+			"_npmUser": {
+				"name": "axic",
+				"email": "alex@rtfs.hu"
+			},
+			"dist": {
+				"shasum": "4a4e528f3af56610e561ed0f04a504dcdb10af79",
+				"tarball": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-abi-0.6.1.tgz_1463616116500_0.45941749517805874"
+			},
+			"directories": {}
+		},
+		"0.6.2": {
+			"name": "ethereumjs-abi",
+			"version": "0.6.2",
+			"description": "Decoder and encoder for the Ethereum ABI",
+			"main": "index.js",
+			"dependencies": {
+				"bn.js": "^4.10.0",
+				"ethereumjs-util": "^4.3.0"
+			},
+			"devDependencies": {
+				"browserify": "12.0.1",
+				"coveralls": "^2.11.4",
+				"istanbul": "^0.4.1",
+				"mocha": "^2.1.0",
+				"standard": "^5.4.1"
+			},
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"build": "browserify index.js -s EthAbi -o ethereumjs-abi.js",
+				"test": "istanbul test _mocha -- --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axic/ethereumjs-abi.git"
+			},
+			"keywords": [
+				"ethereum",
+				"ABI"
+			],
+			"author": {
+				"name": "Alex Beregszaszi",
+				"email": "alex@rtfs.hu"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axic/ethereumjs-abi/issues"
+			},
+			"homepage": "https://github.com/axic/ethereumjs-abi",
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "0d17bad020c397f25bc94b16a09af2fc9eb96032",
+			"_id": "ethereumjs-abi@0.6.2",
+			"_shasum": "9ffa54403d9255540c6cc9a8ff7d32705c1f3373",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.0",
+			"_npmUser": {
+				"name": "axic",
+				"email": "alex@rtfs.hu"
+			},
+			"dist": {
+				"shasum": "9ffa54403d9255540c6cc9a8ff7d32705c1f3373",
+				"tarball": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-abi-0.6.2.tgz_1464745479210_0.25621897960081697"
+			},
+			"directories": {}
+		},
+		"0.6.3": {
+			"name": "ethereumjs-abi",
+			"version": "0.6.3",
+			"description": "Decoder and encoder for the Ethereum ABI",
+			"main": "index.js",
+			"dependencies": {
+				"bn.js": "^4.10.0",
+				"ethereumjs-util": "^4.3.0"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"istanbul": "^0.4.1",
+				"mocha": "^2.1.0",
+				"standard": "^5.4.1"
+			},
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "istanbul test _mocha -- --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axic/ethereumjs-abi.git"
+			},
+			"keywords": [
+				"ethereum",
+				"ABI"
+			],
+			"author": {
+				"name": "Alex Beregszaszi",
+				"email": "alex@rtfs.hu"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axic/ethereumjs-abi/issues"
+			},
+			"homepage": "https://github.com/axic/ethereumjs-abi",
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "5f4117a35be6ff79865e05b122915303516ba0c2",
+			"_id": "ethereumjs-abi@0.6.3",
+			"_shasum": "44207916f302dceb2badbeff5cb84536fc09b742",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.1",
+			"_npmUser": {
+				"name": "axic",
+				"email": "alex@rtfs.hu"
+			},
+			"dist": {
+				"shasum": "44207916f302dceb2badbeff5cb84536fc09b742",
+				"tarball": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-abi-0.6.3.tgz_1470817387690_0.9203775529749691"
+			},
+			"directories": {}
+		},
+		"0.6.4": {
+			"name": "ethereumjs-abi",
+			"version": "0.6.4",
+			"description": "Decoder and encoder for the Ethereum ABI",
+			"main": "index.js",
+			"dependencies": {
+				"bn.js": "^4.10.0",
+				"ethereumjs-util": "^4.3.0"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"istanbul": "^0.4.1",
+				"mocha": "^2.1.0",
+				"standard": "^5.4.1"
+			},
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "istanbul test _mocha -- --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axic/ethereumjs-abi.git"
+			},
+			"keywords": [
+				"ethereum",
+				"ABI"
+			],
+			"author": {
+				"name": "Alex Beregszaszi",
+				"email": "alex@rtfs.hu"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axic/ethereumjs-abi/issues"
+			},
+			"homepage": "https://github.com/axic/ethereumjs-abi",
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "4a33f233cc6a2f50c9a8ae59684ba631c4b91825",
+			"_id": "ethereumjs-abi@0.6.4",
+			"_shasum": "9ba1bb056492d00c27279f6eccd4d58275912c1a",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.1",
+			"_npmUser": {
+				"name": "axic",
+				"email": "alex@rtfs.hu"
+			},
+			"dist": {
+				"shasum": "9ba1bb056492d00c27279f6eccd4d58275912c1a",
+				"tarball": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-abi-0.6.4.tgz_1472472556987_0.06291807815432549"
+			},
+			"directories": {}
+		},
+		"0.6.5": {
+			"name": "ethereumjs-abi",
+			"version": "0.6.5",
+			"description": "Decoder and encoder for the Ethereum ABI",
+			"main": "index.js",
+			"dependencies": {
+				"bn.js": "^4.10.0",
+				"ethereumjs-util": "^4.3.0"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"istanbul": "^0.4.1",
+				"mocha": "^2.1.0",
+				"standard": "^5.4.1"
+			},
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "istanbul test _mocha -- --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axic/ethereumjs-abi.git"
+			},
+			"keywords": [
+				"ethereum",
+				"ABI"
+			],
+			"author": {
+				"name": "Alex Beregszaszi",
+				"email": "alex@rtfs.hu"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axic/ethereumjs-abi/issues"
+			},
+			"homepage": "https://github.com/axic/ethereumjs-abi",
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "71f123b676f2b2d81bc20f343670d90045a3d3d8",
+			"_id": "ethereumjs-abi@0.6.5",
+			"_shasum": "5a637ef16ab43473fa72a29ad90871405b3f5241",
+			"_from": ".",
+			"_npmVersion": "4.2.0",
+			"_nodeVersion": "7.10.1",
+			"_npmUser": {
+				"name": "axic",
+				"email": "alex@rtfs.hu"
+			},
+			"dist": {
+				"shasum": "5a637ef16ab43473fa72a29ad90871405b3f5241",
+				"tarball": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ethereumjs-abi-0.6.5.tgz_1512531458092_0.9711169216316193"
+			},
+			"directories": {}
+		},
+		"0.6.6": {
+			"name": "ethereumjs-abi",
+			"version": "0.6.6",
+			"description": "Decoder and encoder for the Ethereum ABI",
+			"main": "index.js",
+			"dependencies": {
+				"bn.js": "^4.10.0",
+				"ethereumjs-util": "^5.0.0"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"istanbul": "^0.4.1",
+				"mocha": "^2.1.0",
+				"standard": "^5.4.1"
+			},
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "istanbul test _mocha -- --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axic/ethereumjs-abi.git"
+			},
+			"keywords": [
+				"ethereum",
+				"ABI"
+			],
+			"author": {
+				"name": "Alex Beregszaszi",
+				"email": "alex@rtfs.hu"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axic/ethereumjs-abi/issues"
+			},
+			"homepage": "https://github.com/axic/ethereumjs-abi",
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "5117e5188375c7befe1484059ee45d82ecb7846a",
+			"_id": "ethereumjs-abi@0.6.6",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.12.0",
+			"_npmUser": {
+				"name": "holgerd77",
+				"email": "Holger.Drewes@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-w8KubDsA/+OAuqtIR9RGsMcoZ5nhM8vxwjJAJvEIY+clhxA3BHoLG3+ClYQaQhD0n3mlDt3U5rBrmSVJvI3c8A==",
+				"shasum": "f8ba3413a98478173f5a00f7f1316819db1d09ec",
+				"tarball": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.6.tgz",
+				"fileCount": 8,
+				"unpackedSize": 61600,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcRZC3CRA9TVsSAnZWagAAl1kP/imyj4Ju3UXhCqRCPFph\nvlCF1giVFsYL/anWW09Nt3GGOUy4ox69vmw/KKVpfGGJs2IKwvUMhX94bO6I\nS4tOLXwJdjO1U4V5MtBInGJ2I49kIlQbJKiUrR0fUgTVjvprplsyjREA6hxw\nOFRsjB2NXRp2Rgoid+2MjHbBrS8kh+P79nsD9GxLhIaM380B2TDCOlaQeWKi\nAzkK/VBMKB/zLEiFVzmIhYsqa3fWskRUp+QQzKT6Q0Hb0ACwlPi+vIpr8ZUf\n7qVjpE01PVq1SLpHrTvAvGR+q8hjvDU4bbB65LQl4V+pIjBYYL5mZqdKCklZ\n1BjkrBILCVmsORGYUcSzCZDJeBRRnsahSLm54UPBbbHVi8gkQqpzpiI4pQTN\nOooQdoAe+WyDAj7Q2Jq+w6I86Vapmi1j96NgdyW22fQ7hHGjKChW2tKuYv5W\nVk0AxDVVNl77NQbffLjY/gPYLFCl28/u8Jau6fp0SfP4TvbT3C4x7AYjErzi\nQX1M8Vtf88QsB96g0Ojcd1y0dJ6DFVxp6P9Igd6Nca9sc+7v2JXbJ3dXokUq\nGe3DwH8aSQHHhVsdGKHrcssLuhYfx3dLEME+Pq690+OZqXITccRNmdP32vy7\nXJXckc6I0C5jkl6XlurM3hQDCirNYNi7bOYdEpJgwB8jzFS0cMIEbpy5bO6T\n2Qb1\r\n=rY0C\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "alextsg@gmail.com",
+					"name": "alextsg"
+				},
+				{
+					"email": "alex@rtfs.hu",
+					"name": "axic"
+				},
+				{
+					"email": "danjm.com@gmail.com",
+					"name": "danjm"
+				},
+				{
+					"email": "francois.guezengar@hotmail.fr",
+					"name": "grandschtroumpf"
+				},
+				{
+					"email": "Holger.Drewes@gmail.com",
+					"name": "holgerd77"
+				},
+				{
+					"email": "krzkaczor@gmail.com",
+					"name": "krzkaczor"
+				},
+				{
+					"email": "itz.s1na@gmail.com",
+					"name": "sinamahmoodi"
+				},
+				{
+					"email": "v@pulim.com",
+					"name": "vpulim"
+				},
+				{
+					"email": "whymarrh.whitby@gmail.com",
+					"name": "whymarrh"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ethereumjs-abi_0.6.6_1548062903167_0.44035925793345276"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.6.7": {
+			"name": "ethereumjs-abi",
+			"version": "0.6.7",
+			"description": "Decoder and encoder for the Ethereum ABI",
+			"main": "index.js",
+			"dependencies": {
+				"bn.js": "^4.11.8",
+				"ethereumjs-util": "^6.0.0"
+			},
+			"devDependencies": {
+				"coveralls": "^3.0.3",
+				"istanbul": "^0.4.5",
+				"mocha": "^6.0.2",
+				"standard": "^12.0.1"
+			},
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "istanbul test _mocha -- --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axic/ethereumjs-abi.git"
+			},
+			"keywords": [
+				"ethereum",
+				"ABI"
+			],
+			"author": {
+				"name": "Alex Beregszaszi",
+				"email": "alex@rtfs.hu"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axic/ethereumjs-abi/issues"
+			},
+			"homepage": "https://github.com/axic/ethereumjs-abi",
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "572d4bafe08a8a231137e1f9daeb0f8a23f197d2",
+			"_id": "ethereumjs-abi@0.6.7",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.15.1",
+			"_npmUser": {
+				"name": "holgerd77",
+				"email": "Holger.Drewes@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-EMLOA8ICO5yAaXDhjVEfYjsJIXYutY8ufTE93eEKwsVtp2usQreKwsDTJ9zvam3omYqNuffr8IONIqb2uUslGQ==",
+				"shasum": "d1d1c5cdb8d910a7d97645ba9e93be5d153bba2e",
+				"tarball": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.7.tgz",
+				"fileCount": 8,
+				"unpackedSize": 64276,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJckVL/CRA9TVsSAnZWagAAgT4P/24BiBHJ7INUb+gvCGTt\nFs9uI1labYDrFdVHVBVM1ZHZnCXmVDfR0uDOngxaLZ8O6muPM5SgPmklNjWN\nZEW/sSVccAVur43KjwujLFIGoWfTqqCGheRampW02A40Sm5inrnCe2UUeMf9\nl7pl/IcXpNzw4al/arV2CRK5qY3Owlc2zCnEzPdmQ+va9E2m/ubnKPX1QF1p\nSHO2BZYkLzn6xhVDLS8eBPgunL0Fz6k040awJxr+GoUuLr8/uci3VjLLJPdl\nk6/hoLK/Tmc/LYqz1odLicYhoQR8XAz137LCL4OSq8BW/hizfogqnWfr2Ami\nqCj2BYjw3FacxrjhQ35WQkDK7YFUXGV6MSNSTewOgX8lEQpzaubFl/R/BAQi\nJRXzG/3KQJIwfqNxdcI2qnXVMEiEs0sIg8HMmw3OYM1LuxQDp2ZutR5M4orx\nytnsDZWyds7ad7yKv1jhd400rtvNaXA8DWonVCrZ1iuX1ci95+IvzCbzEjpG\nCwW8pTsL/9iGDfLoh8qoEg/OcP8an+SZ2n+jWW+4woTo1kybX//FzhI1OZMj\nboYKab38DhsShlbim0BQua7dj29OwIwYzgurMSHOKCOy9jybO8hoWWGlW1eL\nHFrSWXnIO3JN6+p38ltFs4Lvnn3tWa528wkAk9VTlgc6RMvgLfz8r0dU5CPm\nALA3\r\n=VHFM\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "alextsg@gmail.com",
+					"name": "alextsg"
+				},
+				{
+					"email": "alex@rtfs.hu",
+					"name": "axic"
+				},
+				{
+					"email": "danjm.com@gmail.com",
+					"name": "danjm"
+				},
+				{
+					"email": "francois.guezengar@hotmail.fr",
+					"name": "grandschtroumpf"
+				},
+				{
+					"email": "Holger.Drewes@gmail.com",
+					"name": "holgerd77"
+				},
+				{
+					"email": "krzkaczor@gmail.com",
+					"name": "krzkaczor"
+				},
+				{
+					"email": "itz.s1na@gmail.com",
+					"name": "sinamahmoodi"
+				},
+				{
+					"email": "v@pulim.com",
+					"name": "vpulim"
+				},
+				{
+					"email": "whymarrh.whitby@gmail.com",
+					"name": "whymarrh"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ethereumjs-abi_0.6.7_1553027838696_0.3837721371673344"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.6.8": {
+			"name": "ethereumjs-abi",
+			"version": "0.6.8",
+			"description": "Decoder and encoder for the Ethereum ABI",
+			"main": "index.js",
+			"dependencies": {
+				"bn.js": "^4.11.8",
+				"ethereumjs-util": "^6.0.0"
+			},
+			"devDependencies": {
+				"coveralls": "^3.0.3",
+				"husky": "^2.1.0",
+				"istanbul": "^0.4.5",
+				"mocha": "^6.0.2",
+				"standard": "^12.0.1"
+			},
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "istanbul test _mocha -- --reporter spec"
+			},
+			"husky": {
+				"hooks": {
+					"pre-push": "npm run lint"
+				}
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axic/ethereumjs-abi.git"
+			},
+			"keywords": [
+				"ethereum",
+				"ABI"
+			],
+			"author": {
+				"name": "Alex Beregszaszi",
+				"email": "alex@rtfs.hu"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axic/ethereumjs-abi/issues"
+			},
+			"homepage": "https://github.com/axic/ethereumjs-abi",
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "1cfbb13862f90f0b391d8a699544d5fe4dfb8c7b",
+			"_id": "ethereumjs-abi@0.6.8",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.15.1",
+			"_npmUser": {
+				"name": "holgerd77",
+				"email": "Holger.Drewes@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Tx0r/iXI6r+lRsdvkFDlut0N08jWMnKRZ6Gkq+Nmw75lZe4e6o3EkSnkaBP5NF6+m5PTGAr9JP43N3LyeoglsA==",
+				"shasum": "71bc152db099f70e62f108b7cdfca1b362c6fcae",
+				"tarball": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.8.tgz",
+				"fileCount": 9,
+				"unpackedSize": 68437,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdUpE9CRA9TVsSAnZWagAAEHQP/042JrH/1yeEehcmKW2D\nJ6I4j5eAj4BsrzbDseJt7bK26+otcdhajl2kWSGpGX+BbE0Pl7+JJ+wxsDXo\naRyJ6utwd+95SM52lD9tlx6e4kdhl9uMqJ46UDaNtQY1QSaQH/C1AmG6aAeZ\n7SVsUJRYdiX3KQxZsZ8nQHpkqjbOl791CkouLiVururv1eSfgnD0tPyS6T4M\njZBuIKqA8mQFWll2/WVRKPrqt1rKPT3REDYifsBMHVupa/z52LNJSRmhUbX7\nE+ksGLjk2HIoYIzbDhxMbVE8cPlttJgRgdr4IACiPKlxTLpT/4e+AHE6QIDH\nxis7X5oMzCHwB7oWXQQbJyYaE8sofv2UiZvPl9NXkYE9L0ypqvjeZNnedrrH\n9veBt6HJexYtkuTvL34OFhx9XBL2kWAwarr9qDlGWLlKGgjXdLxHqZcI5OQJ\n7XEYO0jJ28kPv00MngMB2ttB1rQ4e81aPOp9LFAv6NxSbAhUNcGVU52+uBQ/\n/oL4EX+9rrFrzGQMIikgxX+KYmMzsvY8o0mDK00EJcrhljI5WTaAnECr/DhZ\nXTRhNGhDGdG91rKUGvR7X2esKeJpDd8NryGtE+iZ80d+gZpRGlvDa7wEOfse\nY38DEKZ5Z6WtH9zxXRfL+zz4GHlm3XYGnZS+h9Bn5MkU3LFcqvgaH/PI170o\nLNjt\r\n=G2OS\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "alex@rtfs.hu",
+					"name": "axic"
+				},
+				{
+					"email": "danjm.com@gmail.com",
+					"name": "danjm"
+				},
+				{
+					"email": "Holger.Drewes@gmail.com",
+					"name": "holgerd77"
+				},
+				{
+					"email": "krzkaczor@gmail.com",
+					"name": "krzkaczor"
+				},
+				{
+					"email": "itz.s1na@gmail.com",
+					"name": "sinamahmoodi"
+				},
+				{
+					"email": "v@pulim.com",
+					"name": "vpulim"
+				},
+				{
+					"email": "whymarrh.whitby@gmail.com",
+					"name": "whymarrh"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ethereumjs-abi_0.6.8_1565692221334_0.29187545792456837"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-08-13T10:30:23.996Z",
+		"created": "2015-11-23T21:22:39.120Z",
+		"0.1.0": "2015-11-23T21:22:39.120Z",
+		"0.2.0": "2015-11-25T21:23:13.824Z",
+		"0.3.0": "2015-11-30T10:59:28.938Z",
+		"0.4.0": "2015-12-17T02:32:16.600Z",
+		"0.5.0": "2016-03-25T22:36:03.357Z",
+		"0.5.1": "2016-04-12T15:37:58.927Z",
+		"0.6.0": "2016-04-26T00:59:45.030Z",
+		"0.6.1": "2016-05-19T00:01:59.081Z",
+		"0.6.2": "2016-06-01T01:44:41.659Z",
+		"0.6.3": "2016-08-10T08:23:09.300Z",
+		"0.6.4": "2016-08-29T12:09:18.172Z",
+		"0.6.5": "2017-12-06T03:37:39.173Z",
+		"0.6.6": "2019-01-21T09:28:23.289Z",
+		"0.6.7": "2019-03-19T20:37:18.907Z",
+		"0.6.8": "2019-08-13T10:30:21.462Z"
+	},
+	"dist-tags": {
+		"latest": "0.6.8"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"d149ddbd9f4e4dab19ea13572ccaf7f0\"",
+			"fetched": 1568994329940
+		}
+	},
+	"_distfiles": {
+		"ethereumjs-abi-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.1.0.tgz",
+			"sha": "84adea9faec77aac1c1d1959bfbaea9ad45ef33d",
+			"registry": "npmjs"
+		},
+		"ethereumjs-abi-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.2.0.tgz",
+			"sha": "a9f4792a84d032384d92dc2d81b36b540081f4ec",
+			"registry": "npmjs"
+		},
+		"ethereumjs-abi-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.3.0.tgz",
+			"sha": "12177d9f66a3e07df6df94686aa71f18d03cbd32",
+			"registry": "npmjs"
+		},
+		"ethereumjs-abi-0.4.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.4.0.tgz",
+			"sha": "f5b3304f6e3a7bdeffb7398b3843699b786719d0",
+			"registry": "npmjs"
+		},
+		"ethereumjs-abi-0.5.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.5.0.tgz",
+			"sha": "863cf9460e56f8e3f9e5e919a07f372d62f6b128",
+			"registry": "npmjs"
+		},
+		"ethereumjs-abi-0.5.1.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.5.1.tgz",
+			"sha": "a18775b6ff9edcd8484f17eeabd38154f9b5a3f4",
+			"registry": "npmjs"
+		},
+		"ethereumjs-abi-0.6.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.0.tgz",
+			"sha": "04d3e42cf0d843133906990f475e7375ef500ede",
+			"registry": "npmjs"
+		},
+		"ethereumjs-abi-0.6.1.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.1.tgz",
+			"sha": "4a4e528f3af56610e561ed0f04a504dcdb10af79",
+			"registry": "npmjs"
+		},
+		"ethereumjs-abi-0.6.2.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.2.tgz",
+			"sha": "9ffa54403d9255540c6cc9a8ff7d32705c1f3373",
+			"registry": "npmjs"
+		},
+		"ethereumjs-abi-0.6.3.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.3.tgz",
+			"sha": "44207916f302dceb2badbeff5cb84536fc09b742",
+			"registry": "npmjs"
+		},
+		"ethereumjs-abi-0.6.4.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.4.tgz",
+			"sha": "9ba1bb056492d00c27279f6eccd4d58275912c1a",
+			"registry": "npmjs"
+		},
+		"ethereumjs-abi-0.6.5.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.5.tgz",
+			"sha": "5a637ef16ab43473fa72a29ad90871405b3f5241",
+			"registry": "npmjs"
+		},
+		"ethereumjs-abi-0.6.6.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.6.tgz",
+			"sha": "f8ba3413a98478173f5a00f7f1316819db1d09ec",
+			"registry": "npmjs"
+		},
+		"ethereumjs-abi-0.6.7.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.7.tgz",
+			"sha": "d1d1c5cdb8d910a7d97645ba9e93be5d153bba2e",
+			"registry": "npmjs"
+		},
+		"ethereumjs-abi-0.6.8.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.8.tgz",
+			"sha": "71bc152db099f70e62f108b7cdfca1b362c6fcae",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-521d67030908ed08",
+	"_id": "ethereumjs-abi",
+	"readme": "# ethereumjs-abi\n\n[![NPM Package](https://img.shields.io/npm/v/ethereumjs-abi.svg?style=flat-square)](https://www.npmjs.org/package/ethereumjs-abi)\n[![Build Status](https://img.shields.io/travis/ethereumjs/ethereumjs-abi.svg?branch=master&style=flat-square)](https://travis-ci.org/ethereumjs/ethereumjs-abi)\n[![Coverage Status](https://img.shields.io/coveralls/ethereumjs/ethereumjs-abi.svg?style=flat-square)](https://coveralls.io/r/ethereumjs/ethereumjs-abi)\n[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)\n[![Gitter](https://img.shields.io/gitter/room/ethereum/ethereumjs-lib.svg?style=flat-square)](https://gitter.im/ethereum/ethereumjs-lib) or #ethereumjs on freenode\n\n\nModule implementing the [Ethereum ABI](https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI) in Javascript. Can be used with RPC libraries for communication or with ethereumjs-vm to implement a fully fledged simulator.\n\n## Usage\n\n#### Manual encoding and decoding\n\nThere are three methods of interest:\n- ```methodID``` to create a function signature\n- ```rawEncode``` to encode fields and\n- ```rawDecode``` to decode fields\n\nExample code:\n```js\nvar abi = require('ethereumjs-abi')\n\n// returns the encoded binary (as a Buffer) data to be sent\nvar encoded = abi.rawEncode([ \"address\" ], [ \"0x0000000000000000000000000000000000000000\" ])\n\n// returns the decoded array of arguments\nvar decoded = abi.rawDecode([ \"address\" ], data)\n```\n\n#### Encoding and decoding aided by the JSON ABI definition\n\nPlanned for the future is supporting the JSON ABI definition:\n\n```js\nvar abi = require('ethereumjs-abi')\n\n// need to have the ABI definition in JSON as per specification\nvar tokenAbi = [{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"_to\",\"type\":\"address\"},{\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"name\":\"success\",\"type\":\"bool\"}],\"type\":\"function\"},{\"inputs\":[],\"type\":\"constructor\"}]\n\nvar encoded = abi.encode(tokenAbi, \"balanceOf(uint256 address)\", [ \"0x0000000000000000000000000000000000000000\" ])\n\nvar decoded = abi.decode(tokenAbi, \"balanceOf(uint256 address)\", data)\n```\n\n#### Simple encoding and decoding\n\n```js\nvar abi = require('ethereumjs-abi')\n\n// returns the encoded binary (as a Buffer) data to be sent\nvar encoded = abi.simpleEncode(\"balanceOf(address):(uint256)\", \"0x0000000000000000000000000000000000000000\")\n\n// returns the decoded array of arguments\nvar decoded = abi.simpleDecode(\"balanceOf(address):(uint256)\", data)\n```\n\n#### Solidity *tightly packed* formats\n\nThis library also supports creating Solidity's tightly packed data constructs, which are used together with ```sha3```, ```sha256``` and ```ripemd160``` to create hashes.\n\nSolidity code:\n```js\ncontract HashTest {\n  function testSha3() returns (bytes32) {\n   address addr1 = 0x43989fb883ba8111221e89123897538475893837;\n   address addr2 = 0;\n   uint val = 10000;\n   uint timestamp = 1448075779;\n\n   return sha3(addr1, addr2, val, timestamp); // will return 0xc3ab5ca31a013757f26a88561f0ff5057a97dfcc33f43d6b479abc3ac2d1d595\n }\n}\n```\n\nCreating the same hash using this library:\n```js\nvar abi = require('ethereumjs-abi')\nvar BN = require('bn.js')\n\nabi.soliditySHA3(\n    [ \"address\", \"address\", \"uint\", \"uint\" ],\n    [ new BN(\"43989fb883ba8111221e89123897538475893837\", 16), 0, 10000, 1448075779 ]\n).toString('hex')\n```\n\nFor the same data structure:\n* sha3 will return ```0xc3ab5ca31a013757f26a88561f0ff5057a97dfcc33f43d6b479abc3ac2d1d595```\n* sha256 will return ```0x344d8cb0711672efbdfe991f35943847c1058e1ecf515ff63ad936b91fd16231```\n* ripemd160 will return ```0x000000000000000000000000a398cc72490f72048efa52c4e92067e8499672e7``` (NOTE: it is 160bits, left padded to 256bits)\n\nNote that ```ripemd160()``` in Solidity returns bytes20 and if you cast it to bytes32, it will be right padded with zeroes.\n\n#### Using Serpent types\n\nSerpent uses a different notation for the types, even though it will serialize to the same ABI.\n\nWe provide two helpers to convert between these notations:\n* ```fromSerpent```: convert a Serpent notation to the ABI notation\n* ```toSerpent```: the other way around\n\nExample usage:\n```js\nabi.fromSerpent('s')    // [ 'bytes' ]\nabi.fromSerpent('i')    // [ 'int256' ]\nabi.fromSerpent('a')    // [ 'int256[]' ]\nabi.fromSerpent('b8')   // [ 'bytes8' ]\nabi.fromSerpent('b8i')  // [ 'bytes8', 'int256' ]\n\nabi.toSerpent([ 'bytes' ])             // 's'\nabi.toSerpent([ 'int256' ])            // 'i'\nabi.toSerpent([ 'int256[]' ])          // 'a'\nabi.toSerpent([ 'bytes8' ])            // 'b8'\nabi.toSerpent([ 'bytes8', 'int256' ])  // 'b8i'\n```\n\nIt is to be used in conjunction with ```rawEncode``` and ```rawDecode```:\n\n```js\nvar encoded = abi.rawEncode(abi.fromSerpent(\"i\"), [ \"0x0000000000000000000000000000000000000000\" ])\n\nvar decoded = abi.rawDecode([...abi.fromSerpent(\"i\"), ...abi.fromSerpent(\"i\")], data)\n```\n\nNote: Serpent uses arbitary binary fields. If you want to store strings it is preferable to ensure it is stored as UTF8. `Buffer.from(<string>, 'utf8')` can be used to ensure it is properly encoded.\n\n## Contributing\n\nI am more than happy to receive improvements. Please send me a pull request or reach out on email or twitter.\n\nThere is a lot missing, grep for *FIXME* in the source code to find inspiration.\n\n## EthereumJS\n\nSee our organizational [documentation](https://ethereumjs.readthedocs.io) for an introduction to `EthereumJS` as well as information on current standards and best practices.\n\nIf you want to join for work or do improvements on the libraries have a look at our [contribution guidelines](https://ethereumjs.readthedocs.io/en/latest/contributing.html).\n\n## License\n\n    Copyright (C) 2015 Alex Beregszaszi\n\n    Permission is hereby granted, free of charge, to any person obtaining a copy of\n    this software and associated documentation files (the \"Software\"), to deal in\n    the Software without restriction, including without limitation the rights to\n    use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\n    the Software, and to permit persons to whom the Software is furnished to do so,\n    subject to the following conditions:\n\n    The above copyright notice and this permission notice shall be included in all\n    copies or substantial portions of the Software.\n\n    THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\n    FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\n    COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\n    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\n    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+}

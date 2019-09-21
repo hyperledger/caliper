@@ -1,0 +1,986 @@
+{
+	"name": "crypto-js",
+	"versions": {
+		"3.1.2": {
+			"name": "crypto-js",
+			"title": "crypto-js",
+			"description": "Modularized port of googlecode project crypto-js.",
+			"version": "3.1.2",
+			"homepage": "http://github.com/evanvosberg/crypto-js",
+			"author": {
+				"name": "Evan Vosberg",
+				"url": "http://github.com/evanvosberg"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/evanvosberg/crypto-js.git"
+			},
+			"bugs": {
+				"url": "http://github.com/evanvosberg/crypto-js/issues"
+			},
+			"licenses": [
+				{
+					"type": "New BSD",
+					"url": "http://opensource.org/licenses/BSD-3-Clause"
+				}
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"underscore": "~1.4.4",
+				"handlebars": "~1.0.10",
+				"uglify-js": "~2.2.5",
+				"js-yaml": "~2.0.4",
+				"fs.extra": "~1.2.0",
+				"tar.gz": "~0.1.1",
+				"fmd": "~0.0.1"
+			},
+			"keywords": [
+				"Hash",
+				"MD5",
+				"SHA1",
+				"SHA-1",
+				"SHA256",
+				"SHA-256",
+				"RC4",
+				"Rabbit",
+				"AES",
+				"DES",
+				"PBKDF2",
+				"HMAC",
+				"OFB",
+				"CFB",
+				"CTR",
+				"CBC",
+				"Base64"
+			],
+			"_id": "crypto-js@3.1.2",
+			"dist": {
+				"shasum": "b9fe778e8e0df6882e75dc4382f69b6e541872d1",
+				"tarball": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.2.tgz"
+			},
+			"scripts": {},
+			"_npmVersion": "1.1.63",
+			"_npmUser": {
+				"name": "evanvosberg",
+				"email": "evanvosberg@inext.me"
+			},
+			"maintainers": [
+				{
+					"name": "evanvosberg",
+					"email": "evanvosberg@inext.me"
+				}
+			],
+			"directories": {}
+		},
+		"3.1.2-1": {
+			"name": "crypto-js",
+			"title": "crypto-js",
+			"description": "Modularized port of googlecode project crypto-js.",
+			"version": "3.1.2-1",
+			"homepage": "http://github.com/evanvosberg/crypto-js",
+			"author": {
+				"name": "Evan Vosberg",
+				"url": "http://github.com/evanvosberg"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/evanvosberg/crypto-js.git"
+			},
+			"bugs": {
+				"url": "http://github.com/evanvosberg/crypto-js/issues"
+			},
+			"licenses": [
+				{
+					"type": "New BSD",
+					"url": "http://opensource.org/licenses/BSD-3-Clause"
+				}
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"underscore": "~1.4.4",
+				"handlebars": "~1.0.10",
+				"uglify-js": "~2.2.5",
+				"js-yaml": "~2.0.4",
+				"fs.extra": "~1.2.0",
+				"tar.gz": "~0.1.1",
+				"fmd": "~0.0.1"
+			},
+			"keywords": [
+				"Hash",
+				"MD5",
+				"SHA1",
+				"SHA-1",
+				"SHA256",
+				"SHA-256",
+				"RC4",
+				"Rabbit",
+				"AES",
+				"DES",
+				"PBKDF2",
+				"HMAC",
+				"OFB",
+				"CFB",
+				"CTR",
+				"CBC",
+				"Base64"
+			],
+			"_id": "crypto-js@3.1.2-1",
+			"dist": {
+				"shasum": "fd16cb4e290447c481652821c271384a6cc32a45",
+				"tarball": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.2-1.tgz"
+			},
+			"scripts": {},
+			"_npmVersion": "1.1.63",
+			"_npmUser": {
+				"name": "evanvosberg",
+				"email": "evanvosberg@inext.me"
+			},
+			"maintainers": [
+				{
+					"name": "evanvosberg",
+					"email": "evanvosberg@inext.me"
+				}
+			],
+			"directories": {}
+		},
+		"3.1.2-2": {
+			"name": "crypto-js",
+			"title": "crypto-js",
+			"description": "Modularized port of googlecode project crypto-js.",
+			"version": "3.1.2-2",
+			"homepage": "http://github.com/evanvosberg/crypto-js",
+			"author": {
+				"name": "Evan Vosberg",
+				"url": "http://github.com/evanvosberg"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/evanvosberg/crypto-js.git"
+			},
+			"bugs": {
+				"url": "http://github.com/evanvosberg/crypto-js/issues"
+			},
+			"licenses": [
+				{
+					"type": "New BSD",
+					"url": "http://opensource.org/licenses/BSD-3-Clause"
+				}
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"underscore": "~1.4.4",
+				"handlebars": "~1.0.10",
+				"uglify-js": "~2.2.5",
+				"js-yaml": "~2.0.4",
+				"fs.extra": "~1.2.0",
+				"tar.gz": "~0.1.1",
+				"fmd": "~0.0.1"
+			},
+			"keywords": [
+				"Hash",
+				"MD5",
+				"SHA1",
+				"SHA-1",
+				"SHA256",
+				"SHA-256",
+				"RC4",
+				"Rabbit",
+				"AES",
+				"DES",
+				"PBKDF2",
+				"HMAC",
+				"OFB",
+				"CFB",
+				"CTR",
+				"CBC",
+				"Base64"
+			],
+			"_id": "crypto-js@3.1.2-2",
+			"dist": {
+				"shasum": "93274f1748eca82e444074536e833c223c28f0e9",
+				"tarball": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.2-2.tgz"
+			},
+			"scripts": {},
+			"_npmVersion": "1.1.63",
+			"_npmUser": {
+				"name": "evanvosberg",
+				"email": "evanvosberg@inext.me"
+			},
+			"maintainers": [
+				{
+					"name": "evanvosberg",
+					"email": "evanvosberg@inext.me"
+				}
+			],
+			"directories": {}
+		},
+		"3.1.2-3": {
+			"name": "crypto-js",
+			"title": "crypto-js",
+			"description": "Modularized port of googlecode project crypto-js.",
+			"version": "3.1.2-3",
+			"homepage": "http://github.com/evanvosberg/crypto-js",
+			"author": {
+				"name": "Evan Vosberg",
+				"url": "http://github.com/evanvosberg"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/evanvosberg/crypto-js.git"
+			},
+			"bugs": {
+				"url": "http://github.com/evanvosberg/crypto-js/issues"
+			},
+			"licenses": [
+				{
+					"type": "New BSD",
+					"url": "http://opensource.org/licenses/BSD-3-Clause"
+				}
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"underscore": "~1.4.4",
+				"handlebars": "~1.0.10",
+				"uglify-js": "~2.2.5",
+				"js-yaml": "~2.0.4",
+				"fs.extra": "~1.2.0",
+				"tar.gz": "~0.1.1",
+				"fmd": "~0.0.1"
+			},
+			"keywords": [
+				"Hash",
+				"MD5",
+				"SHA1",
+				"SHA-1",
+				"SHA256",
+				"SHA-256",
+				"RC4",
+				"Rabbit",
+				"AES",
+				"DES",
+				"PBKDF2",
+				"HMAC",
+				"OFB",
+				"CFB",
+				"CTR",
+				"CBC",
+				"Base64"
+			],
+			"_id": "crypto-js@3.1.2-3",
+			"dist": {
+				"shasum": "d41bb0cbae7997762335b0805ff27b07a87785b4",
+				"tarball": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.2-3.tgz"
+			},
+			"_resolved": "build/crypto-js-npm.tar.gz",
+			"_from": "build/crypto-js-npm.tar.gz",
+			"scripts": {},
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "evanvosberg",
+				"email": "evanvosberg@inext.me"
+			},
+			"maintainers": [
+				{
+					"name": "evanvosberg",
+					"email": "evanvosberg@inext.me"
+				}
+			],
+			"directories": {}
+		},
+		"3.1.2-4": {
+			"name": "crypto-js",
+			"title": "crypto-js",
+			"description": "Modularized port of googlecode project crypto-js.",
+			"version": "3.1.2-4",
+			"homepage": "http://github.com/evanvosberg/crypto-js",
+			"author": {
+				"name": "Evan Vosberg",
+				"url": "http://github.com/evanvosberg"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/evanvosberg/crypto-js.git"
+			},
+			"bugs": {
+				"url": "http://github.com/evanvosberg/crypto-js/issues"
+			},
+			"licenses": [
+				{
+					"type": "New BSD",
+					"url": "http://opensource.org/licenses/BSD-3-Clause"
+				}
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"underscore": "~1.4.4",
+				"handlebars": "~1.0.10",
+				"uglify-js": "~2.2.5",
+				"js-yaml": "~2.0.4",
+				"fs.extra": "~1.2.0",
+				"tar.gz": "~0.1.1",
+				"fmd": "~0.0.1"
+			},
+			"keywords": [
+				"Hash",
+				"MD5",
+				"SHA1",
+				"SHA-1",
+				"SHA256",
+				"SHA-256",
+				"RC4",
+				"Rabbit",
+				"AES",
+				"DES",
+				"PBKDF2",
+				"HMAC",
+				"OFB",
+				"CFB",
+				"CTR",
+				"CBC",
+				"Base64"
+			],
+			"_id": "crypto-js@3.1.2-4",
+			"dist": {
+				"shasum": "dbcd4fd36b7d9f6a0ffee4e41b3d04ca27b8a086",
+				"tarball": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.2-4.tgz"
+			},
+			"_resolved": "crypto-js-npm.tar.gz",
+			"_from": "crypto-js-npm.tar.gz",
+			"scripts": {},
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "evanvosberg",
+				"email": "evanvosberg@inext.me"
+			},
+			"maintainers": [
+				{
+					"name": "evanvosberg",
+					"email": "evanvosberg@inext.me"
+				}
+			],
+			"directories": {}
+		},
+		"3.1.2-5": {
+			"name": "crypto-js",
+			"title": "crypto-js",
+			"description": "Modularized port of googlecode project crypto-js.",
+			"version": "3.1.2-5",
+			"homepage": "http://github.com/evanvosberg/crypto-js",
+			"author": {
+				"name": "Evan Vosberg",
+				"url": "http://github.com/evanvosberg"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/evanvosberg/crypto-js.git"
+			},
+			"bugs": {
+				"url": "http://github.com/evanvosberg/crypto-js/issues"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "http://opensource.org/licenses/MIT"
+				}
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"underscore": "~1.4.4",
+				"handlebars": "~1.0.10",
+				"uglify-js": "~2.2.5",
+				"js-yaml": "~2.0.4",
+				"fs.extra": "~1.2.0",
+				"tar.gz": "~0.1.1",
+				"fmd": "~0.0.1"
+			},
+			"keywords": [
+				"Hash",
+				"MD5",
+				"SHA1",
+				"SHA-1",
+				"SHA256",
+				"SHA-256",
+				"RC4",
+				"Rabbit",
+				"AES",
+				"DES",
+				"PBKDF2",
+				"HMAC",
+				"OFB",
+				"CFB",
+				"CTR",
+				"CBC",
+				"Base64"
+			],
+			"_id": "crypto-js@3.1.2-5",
+			"dist": {
+				"shasum": "8bda4cdadd27f36b1b8ee08989700195c9ab2a0a",
+				"tarball": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.2-5.tgz"
+			},
+			"_resolved": "build/crypto-js-npm.tar.gz",
+			"_from": "build/crypto-js-npm.tar.gz",
+			"scripts": {},
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "evanvosberg",
+				"email": "evanvosberg@inext.me"
+			},
+			"maintainers": [
+				{
+					"name": "evanvosberg",
+					"email": "evanvosberg@inext.me"
+				}
+			],
+			"directories": {}
+		},
+		"3.1.2-6": {
+			"name": "crypto-js",
+			"version": "3.1.2-6",
+			"description": "Modularized port of googlecode project crypto-js.",
+			"author": {
+				"name": "Evan Vosberg",
+				"url": "http://github.com/evanvosberg"
+			},
+			"homepage": "http://github.com/evanvosberg/crypto-js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/evanvosberg/crypto-js.git"
+			},
+			"keywords": [
+				"security",
+				"crypto",
+				"Hash",
+				"MD5",
+				"SHA1",
+				"SHA-1",
+				"SHA256",
+				"SHA-256",
+				"RC4",
+				"Rabbit",
+				"AES",
+				"DES",
+				"PBKDF2",
+				"HMAC",
+				"OFB",
+				"CFB",
+				"CTR",
+				"CBC",
+				"Base64"
+			],
+			"main": "index.js",
+			"dependencies": {},
+			"gitHead": "ce1f4dbaa0ec5ae17674c1d8e81224eec5adfa8e",
+			"bugs": {
+				"url": "https://github.com/evanvosberg/crypto-js/issues"
+			},
+			"_id": "crypto-js@3.1.2-6",
+			"scripts": {},
+			"_shasum": "ce86640409e498bacc4de72478685cd6b153bfe6",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "evanvosberg",
+				"email": "evanvosberg@inext.me"
+			},
+			"maintainers": [
+				{
+					"name": "evanvosberg",
+					"email": "evanvosberg@inext.me"
+				}
+			],
+			"dist": {
+				"shasum": "ce86640409e498bacc4de72478685cd6b153bfe6",
+				"tarball": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.2-6.tgz"
+			},
+			"directories": {}
+		},
+		"3.1.4": {
+			"name": "crypto-js",
+			"version": "3.1.4",
+			"description": "Modularized port of googlecode project crypto-js.",
+			"author": {
+				"name": "Evan Vosberg",
+				"url": "http://github.com/evanvosberg"
+			},
+			"homepage": "http://github.com/evanvosberg/crypto-js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/evanvosberg/crypto-js.git"
+			},
+			"keywords": [
+				"security",
+				"crypto",
+				"Hash",
+				"MD5",
+				"SHA1",
+				"SHA-1",
+				"SHA256",
+				"SHA-256",
+				"RC4",
+				"Rabbit",
+				"AES",
+				"DES",
+				"PBKDF2",
+				"HMAC",
+				"OFB",
+				"CFB",
+				"CTR",
+				"CBC",
+				"Base64"
+			],
+			"main": "index.js",
+			"dependencies": {},
+			"gitHead": "7ed8a08ceac45093aacbcc5aed11e28bcbb7c58e",
+			"bugs": {
+				"url": "https://github.com/evanvosberg/crypto-js/issues"
+			},
+			"_id": "crypto-js@3.1.4",
+			"scripts": {},
+			"_shasum": "2164f16de2f291510b652d746bce37d3649830ad",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.1",
+			"_npmUser": {
+				"name": "evanvosberg",
+				"email": "evanvosberg@inext.me"
+			},
+			"maintainers": [
+				{
+					"name": "evanvosberg",
+					"email": "evanvosberg@inext.me"
+				}
+			],
+			"dist": {
+				"shasum": "2164f16de2f291510b652d746bce37d3649830ad",
+				"tarball": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.4.tgz"
+			},
+			"directories": {}
+		},
+		"3.1.5": {
+			"name": "crypto-js",
+			"version": "3.1.5",
+			"description": "JavaScript library of crypto standards.",
+			"license": "MIT",
+			"author": {
+				"name": "Evan Vosberg",
+				"url": "http://github.com/evanvosberg"
+			},
+			"homepage": "http://github.com/brix/crypto-js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/brix/crypto-js.git"
+			},
+			"keywords": [
+				"security",
+				"crypto",
+				"Hash",
+				"MD5",
+				"SHA1",
+				"SHA-1",
+				"SHA256",
+				"SHA-256",
+				"RC4",
+				"Rabbit",
+				"AES",
+				"DES",
+				"PBKDF2",
+				"HMAC",
+				"OFB",
+				"CFB",
+				"CTR",
+				"CBC",
+				"Base64"
+			],
+			"main": "index.js",
+			"dependencies": {},
+			"gitHead": "a94ba57c7a77edfff50ff037498b83f1cd3cb3eb",
+			"bugs": {
+				"url": "https://github.com/brix/crypto-js/issues"
+			},
+			"_id": "crypto-js@3.1.5",
+			"scripts": {},
+			"_shasum": "da75cf3b2ac19a7b791703ebb95d0a2c932a98d8",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.1",
+			"_npmUser": {
+				"name": "evanvosberg",
+				"email": "evanvosberg@inext.me"
+			},
+			"maintainers": [
+				{
+					"name": "evanvosberg",
+					"email": "evanvosberg@inext.me"
+				}
+			],
+			"dist": {
+				"shasum": "da75cf3b2ac19a7b791703ebb95d0a2c932a98d8",
+				"tarball": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.5.tgz"
+			},
+			"directories": {}
+		},
+		"3.1.6": {
+			"name": "crypto-js",
+			"version": "3.1.6",
+			"description": "JavaScript library of crypto standards.",
+			"license": "MIT",
+			"author": {
+				"name": "Evan Vosberg",
+				"url": "http://github.com/evanvosberg"
+			},
+			"homepage": "http://github.com/brix/crypto-js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/brix/crypto-js.git"
+			},
+			"keywords": [
+				"security",
+				"crypto",
+				"Hash",
+				"MD5",
+				"SHA1",
+				"SHA-1",
+				"SHA256",
+				"SHA-256",
+				"RC4",
+				"Rabbit",
+				"AES",
+				"DES",
+				"PBKDF2",
+				"HMAC",
+				"OFB",
+				"CFB",
+				"CTR",
+				"CBC",
+				"Base64"
+			],
+			"main": "index.js",
+			"dependencies": {},
+			"gitHead": "6362ada6faea779c3eb1f814257d885bb888e776",
+			"bugs": {
+				"url": "https://github.com/brix/crypto-js/issues"
+			},
+			"_id": "crypto-js@3.1.6",
+			"scripts": {},
+			"_shasum": "6142651b232dbb8ebdfa9716a70a2888359da6c9",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.1",
+			"_npmUser": {
+				"name": "evanvosberg",
+				"email": "evanvosberg@inext.me"
+			},
+			"maintainers": [
+				{
+					"name": "evanvosberg",
+					"email": "evanvosberg@inext.me"
+				}
+			],
+			"dist": {
+				"shasum": "6142651b232dbb8ebdfa9716a70a2888359da6c9",
+				"tarball": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.6.tgz"
+			},
+			"directories": {}
+		},
+		"3.1.7": {
+			"name": "crypto-js",
+			"version": "3.1.7",
+			"description": "JavaScript library of crypto standards.",
+			"license": "MIT",
+			"author": {
+				"name": "Evan Vosberg",
+				"url": "http://github.com/evanvosberg"
+			},
+			"homepage": "http://github.com/brix/crypto-js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/brix/crypto-js.git"
+			},
+			"keywords": [
+				"security",
+				"crypto",
+				"Hash",
+				"MD5",
+				"SHA1",
+				"SHA-1",
+				"SHA256",
+				"SHA-256",
+				"RC4",
+				"Rabbit",
+				"AES",
+				"DES",
+				"PBKDF2",
+				"HMAC",
+				"OFB",
+				"CFB",
+				"CTR",
+				"CBC",
+				"Base64"
+			],
+			"main": "index.js",
+			"dependencies": {},
+			"gitHead": "67d2e996e25e00f66118b3b8ab7f7fc8eae6e8d6",
+			"bugs": {
+				"url": "https://github.com/brix/crypto-js/issues"
+			},
+			"_id": "crypto-js@3.1.7",
+			"scripts": {},
+			"_shasum": "ad29d364401d2dbafc271cbbe4ca3304b477c777",
+			"_from": ".",
+			"_npmVersion": "3.6.0",
+			"_nodeVersion": "5.7.0",
+			"_npmUser": {
+				"name": "evanvosberg",
+				"email": "evanvosberg@inext.me"
+			},
+			"maintainers": [
+				{
+					"name": "evanvosberg",
+					"email": "evanvosberg@inext.me"
+				}
+			],
+			"dist": {
+				"shasum": "ad29d364401d2dbafc271cbbe4ca3304b477c777",
+				"tarball": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.7.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/crypto-js-3.1.7.tgz_1475872409527_0.5406671592500061"
+			},
+			"directories": {}
+		},
+		"3.1.8": {
+			"name": "crypto-js",
+			"version": "3.1.8",
+			"description": "JavaScript library of crypto standards.",
+			"license": "MIT",
+			"author": {
+				"name": "Evan Vosberg",
+				"url": "http://github.com/evanvosberg"
+			},
+			"homepage": "http://github.com/brix/crypto-js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/brix/crypto-js.git"
+			},
+			"keywords": [
+				"security",
+				"crypto",
+				"Hash",
+				"MD5",
+				"SHA1",
+				"SHA-1",
+				"SHA256",
+				"SHA-256",
+				"RC4",
+				"Rabbit",
+				"AES",
+				"DES",
+				"PBKDF2",
+				"HMAC",
+				"OFB",
+				"CFB",
+				"CTR",
+				"CBC",
+				"Base64"
+			],
+			"main": "index.js",
+			"dependencies": {},
+			"gitHead": "be8d44d18736f438ca480664d7d8bea46f117b5a",
+			"bugs": {
+				"url": "https://github.com/brix/crypto-js/issues"
+			},
+			"_id": "crypto-js@3.1.8",
+			"scripts": {},
+			"_shasum": "715f070bf6014f2ae992a98b3929258b713f08d5",
+			"_from": ".",
+			"_npmVersion": "3.6.0",
+			"_nodeVersion": "5.7.0",
+			"_npmUser": {
+				"name": "evanvosberg",
+				"email": "evanvosberg@inext.me"
+			},
+			"maintainers": [
+				{
+					"name": "evanvosberg",
+					"email": "evanvosberg@inext.me"
+				}
+			],
+			"dist": {
+				"shasum": "715f070bf6014f2ae992a98b3929258b713f08d5",
+				"tarball": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.8.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/crypto-js-3.1.8.tgz_1477571728581_0.9875451645348221"
+			},
+			"directories": {}
+		},
+		"3.1.9-1": {
+			"name": "crypto-js",
+			"version": "3.1.9-1",
+			"description": "JavaScript library of crypto standards.",
+			"license": "MIT",
+			"author": {
+				"name": "Evan Vosberg",
+				"url": "http://github.com/evanvosberg"
+			},
+			"homepage": "http://github.com/brix/crypto-js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/brix/crypto-js.git"
+			},
+			"keywords": [
+				"security",
+				"crypto",
+				"Hash",
+				"MD5",
+				"SHA1",
+				"SHA-1",
+				"SHA256",
+				"SHA-256",
+				"RC4",
+				"Rabbit",
+				"AES",
+				"DES",
+				"PBKDF2",
+				"HMAC",
+				"OFB",
+				"CFB",
+				"CTR",
+				"CBC",
+				"Base64"
+			],
+			"main": "index.js",
+			"dependencies": {},
+			"bugs": {
+				"url": "https://github.com/brix/crypto-js/issues"
+			},
+			"_id": "crypto-js@3.1.9-1",
+			"scripts": {},
+			"_shasum": "fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "evanvosberg",
+				"email": "evanvosberg@inext.me"
+			},
+			"maintainers": [
+				{
+					"name": "evanvosberg",
+					"email": "evanvosberg@urban.to"
+				}
+			],
+			"dist": {
+				"shasum": "fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8",
+				"tarball": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.9-1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/crypto-js-3.1.9-1.tgz_1481717192265_0.6456991981249303"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2019-06-27T05:42:42.759Z",
+		"created": "2013-05-07T22:32:59.356Z",
+		"3.1.2": "2013-05-07T22:33:01.482Z",
+		"3.1.2-1": "2013-07-23T14:23:58.138Z",
+		"3.1.2-2": "2013-11-22T20:36:39.273Z",
+		"3.1.2-3": "2014-03-22T11:15:21.431Z",
+		"3.1.2-4": "2014-06-19T02:48:38.815Z",
+		"3.1.2-5": "2014-07-02T19:36:11.146Z",
+		"3.1.2-6": "2015-03-21T03:41:39.323Z",
+		"3.1.3": "2015-03-21T04:05:57.692Z",
+		"3.1.4": "2015-04-01T13:18:56.632Z",
+		"3.1.5": "2015-05-28T20:22:21.694Z",
+		"3.1.6": "2016-01-04T07:36:49.464Z",
+		"3.1.7": "2016-10-07T20:33:31.151Z",
+		"3.1.8": "2016-10-27T12:35:31.143Z",
+		"3.1.9": "2016-12-14T11:49:01.175Z",
+		"3.1.9-0": "2016-12-14T12:03:01.044Z",
+		"3.1.9-1": "2016-12-14T12:06:34.381Z"
+	},
+	"dist-tags": {
+		"latest": "3.1.9-1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"6a60a2a594b827c6fa8823b163085ce5\"",
+			"fetched": 1568994329909
+		}
+	},
+	"_distfiles": {
+		"crypto-js-3.1.2.tgz": {
+			"url": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.2.tgz",
+			"sha": "b9fe778e8e0df6882e75dc4382f69b6e541872d1",
+			"registry": "npmjs"
+		},
+		"crypto-js-3.1.2-1.tgz": {
+			"url": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.2-1.tgz",
+			"sha": "fd16cb4e290447c481652821c271384a6cc32a45",
+			"registry": "npmjs"
+		},
+		"crypto-js-3.1.2-2.tgz": {
+			"url": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.2-2.tgz",
+			"sha": "93274f1748eca82e444074536e833c223c28f0e9",
+			"registry": "npmjs"
+		},
+		"crypto-js-3.1.2-3.tgz": {
+			"url": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.2-3.tgz",
+			"sha": "d41bb0cbae7997762335b0805ff27b07a87785b4",
+			"registry": "npmjs"
+		},
+		"crypto-js-3.1.2-4.tgz": {
+			"url": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.2-4.tgz",
+			"sha": "dbcd4fd36b7d9f6a0ffee4e41b3d04ca27b8a086",
+			"registry": "npmjs"
+		},
+		"crypto-js-3.1.2-5.tgz": {
+			"url": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.2-5.tgz",
+			"sha": "8bda4cdadd27f36b1b8ee08989700195c9ab2a0a",
+			"registry": "npmjs"
+		},
+		"crypto-js-3.1.2-6.tgz": {
+			"url": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.2-6.tgz",
+			"sha": "ce86640409e498bacc4de72478685cd6b153bfe6",
+			"registry": "npmjs"
+		},
+		"crypto-js-3.1.4.tgz": {
+			"url": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.4.tgz",
+			"sha": "2164f16de2f291510b652d746bce37d3649830ad",
+			"registry": "npmjs"
+		},
+		"crypto-js-3.1.5.tgz": {
+			"url": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.5.tgz",
+			"sha": "da75cf3b2ac19a7b791703ebb95d0a2c932a98d8",
+			"registry": "npmjs"
+		},
+		"crypto-js-3.1.6.tgz": {
+			"url": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.6.tgz",
+			"sha": "6142651b232dbb8ebdfa9716a70a2888359da6c9",
+			"registry": "npmjs"
+		},
+		"crypto-js-3.1.7.tgz": {
+			"url": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.7.tgz",
+			"sha": "ad29d364401d2dbafc271cbbe4ca3304b477c777",
+			"registry": "npmjs"
+		},
+		"crypto-js-3.1.8.tgz": {
+			"url": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.8.tgz",
+			"sha": "715f070bf6014f2ae992a98b3929258b713f08d5",
+			"registry": "npmjs"
+		},
+		"crypto-js-3.1.9-1.tgz": {
+			"url": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.9-1.tgz",
+			"sha": "fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-8fcf99f9face686a",
+	"_id": "crypto-js",
+	"readme": "# crypto-js\n\nJavaScript library of crypto standards.\n\n## Node.js (Install)\n\nRequirements:\n\n- Node.js\n- npm (Node.js package manager)\n\n```bash\nnpm install crypto-js\n```\n\n### Usage\n\nModular include:\n\n```javascript\nvar AES = require(\"crypto-js/aes\");\nvar SHA256 = require(\"crypto-js/sha256\");\n...\nconsole.log(SHA256(\"Message\"));\n```\n\nIncluding all libraries, for access to extra methods:\n\n```javascript\nvar CryptoJS = require(\"crypto-js\");\nconsole.log(CryptoJS.HmacSHA1(\"Message\", \"Key\"));\n```\n\n## Client (browser)\n\nRequirements:\n\n- Node.js\n- Bower (package manager for frontend)\n\n```bash\nbower install crypto-js\n```\n\n### Usage\n\nModular include:\n\n```javascript\nrequire.config({\n    packages: [\n        {\n            name: 'crypto-js',\n            location: 'path-to/bower_components/crypto-js',\n            main: 'index'\n        }\n    ]\n});\n\nrequire([\"crypto-js/aes\", \"crypto-js/sha256\"], function (AES, SHA256) {\n    console.log(SHA256(\"Message\"));\n});\n```\n\nIncluding all libraries, for access to extra methods:\n\n```javascript\n// Above-mentioned will work or use this simple form\nrequire.config({\n    paths: {\n        'crypto-js': 'path-to/bower_components/crypto-js/crypto-js'\n    }\n});\n\nrequire([\"crypto-js\"], function (CryptoJS) {\n    console.log(CryptoJS.HmacSHA1(\"Message\", \"Key\"));\n});\n```\n\n### Usage without RequireJS\n\n```html\n<script type=\"text/javascript\" src=\"path-to/bower_components/crypto-js/crypto-js.js\"></script>\n<script type=\"text/javascript\">\n    var encrypted = CryptoJS.AES(...);\n    var encrypted = CryptoJS.SHA256(...);\n</script>\n```\n\n## API\n\nSee: https://code.google.com/p/crypto-js\n\n### AES Encryption\n\n#### Plain text encryption\n\n```javascript\nvar CryptoJS = require(\"crypto-js\");\n\n// Encrypt\nvar ciphertext = CryptoJS.AES.encrypt('my message', 'secret key 123');\n\n// Decrypt\nvar bytes  = CryptoJS.AES.decrypt(ciphertext.toString(), 'secret key 123');\nvar plaintext = bytes.toString(CryptoJS.enc.Utf8);\n\nconsole.log(plaintext);\n```\n\n#### Object encryption\n\n```javascript\nvar CryptoJS = require(\"crypto-js\");\n\nvar data = [{id: 1}, {id: 2}]\n\n// Encrypt\nvar ciphertext = CryptoJS.AES.encrypt(JSON.stringify(data), 'secret key 123');\n\n// Decrypt\nvar bytes  = CryptoJS.AES.decrypt(ciphertext.toString(), 'secret key 123');\nvar decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));\n\nconsole.log(decryptedData);\n```\n\n### List of modules\n\n\n- ```crypto-js/core```\n- ```crypto-js/x64-core```\n- ```crypto-js/lib-typedarrays```\n\n---\n\n- ```crypto-js/md5```\n- ```crypto-js/sha1```\n- ```crypto-js/sha256```\n- ```crypto-js/sha224```\n- ```crypto-js/sha512```\n- ```crypto-js/sha384```\n- ```crypto-js/sha3```\n- ```crypto-js/ripemd160```\n\n---\n\n- ```crypto-js/hmac-md5```\n- ```crypto-js/hmac-sha1```\n- ```crypto-js/hmac-sha256```\n- ```crypto-js/hmac-sha224```\n- ```crypto-js/hmac-sha512```\n- ```crypto-js/hmac-sha384```\n- ```crypto-js/hmac-sha3```\n- ```crypto-js/hmac-ripemd160```\n\n---\n\n- ```crypto-js/pbkdf2```\n\n---\n\n- ```crypto-js/aes```\n- ```crypto-js/tripledes```\n- ```crypto-js/rc4```\n- ```crypto-js/rabbit```\n- ```crypto-js/rabbit-legacy```\n- ```crypto-js/evpkdf```\n\n---\n\n- ```crypto-js/format-openssl```\n- ```crypto-js/format-hex```\n\n---\n\n- ```crypto-js/enc-latin1```\n- ```crypto-js/enc-utf8```\n- ```crypto-js/enc-hex```\n- ```crypto-js/enc-utf16```\n- ```crypto-js/enc-base64```\n\n---\n\n- ```crypto-js/mode-cfb```\n- ```crypto-js/mode-ctr```\n- ```crypto-js/mode-ctr-gladman```\n- ```crypto-js/mode-ofb```\n- ```crypto-js/mode-ecb```\n\n---\n\n- ```crypto-js/pad-pkcs7```\n- ```crypto-js/pad-ansix923```\n- ```crypto-js/pad-iso10126```\n- ```crypto-js/pad-iso97971```\n- ```crypto-js/pad-zeropadding```\n- ```crypto-js/pad-nopadding```"
+}

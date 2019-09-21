@@ -1,0 +1,88 @@
+{
+	"name": "simple-concat",
+	"versions": {
+		"1.0.0": {
+			"name": "simple-concat",
+			"description": "Super-minimalist version of `concat-stream`. Less than 15 lines!",
+			"version": "1.0.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-concat/issues"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"standard": "^6.0.8",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-concat",
+			"keywords": [
+				"concat",
+				"concat-stream",
+				"concat stream"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-concat.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "7ea5b5aecfbbbf554c66474dd43a2271373640ed",
+			"_id": "simple-concat@1.0.0",
+			"_shasum": "7344cbb8b6e26fb27d66b2fc86f9f6d5997521c6",
+			"_from": ".",
+			"_npmVersion": "2.14.20",
+			"_nodeVersion": "4.4.1",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"shasum": "7344cbb8b6e26fb27d66b2fc86f9f6d5997521c6",
+				"tarball": "https://registry.npmjs.org/simple-concat/-/simple-concat-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/simple-concat-1.0.0.tgz_1461229969789_0.8977642937097698"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2017-03-24T14:44:58.098Z",
+		"created": "2016-04-21T09:12:52.546Z",
+		"1.0.0": "2016-04-21T09:12:52.546Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"ab85e6d611ee59aed6f2fab9ce7e003b\"",
+			"fetched": 1568994353498
+		}
+	},
+	"_distfiles": {
+		"simple-concat-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-concat/-/simple-concat-1.0.0.tgz",
+			"sha": "7344cbb8b6e26fb27d66b2fc86f9f6d5997521c6",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-7be4ddc48783f1ce",
+	"_id": "simple-concat",
+	"readme": "# simple-concat [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url]\n\n[travis-image]: https://img.shields.io/travis/feross/simple-concat/master.svg\n[travis-url]: https://travis-ci.org/feross/simple-concat\n[npm-image]: https://img.shields.io/npm/v/simple-concat.svg\n[npm-url]: https://npmjs.org/package/simple-concat\n[downloads-image]: https://img.shields.io/npm/dm/simple-concat.svg\n[downloads-url]: https://npmjs.org/package/simple-concat\n\n### Super-minimalist version of `concat-stream`. Less than 15 lines!\n\n## install\n\n```\nnpm install simple-concat\n```\n\n## usage\n\nThis example is longer than the implementation.\n\n```js\nvar s = new stream.PassThrough()\nconcat(s, function (err, buf) {\n  if (err) throw err\n  console.error(buf)\n})\ns.write('abc')\nsetTimeout(function () {\n  s.write('123')\n}, 10)\nsetTimeout(function () {\n  s.write('456')\n}, 20)\nsetTimeout(function () {\n  s.end('789')\n}, 30)\n```\n\n## license\n\nMIT. Copyright (c) [Feross Aboukhadijeh](http://feross.org)."
+}

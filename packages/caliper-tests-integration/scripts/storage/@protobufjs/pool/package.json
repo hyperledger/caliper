@@ -1,0 +1,402 @@
+{
+	"name": "@protobufjs/pool",
+	"versions": {
+		"1.0.0": {
+			"name": "@protobufjs/pool",
+			"description": "A general purpose buffer pool.",
+			"version": "1.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/pool@1.0.0",
+			"scripts": {},
+			"_shasum": "55c0ed75c870477fb229c85b8c8bb870fd1a330f",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "protobufjs",
+				"email": "dcode+npm-protobufjs@dcode.io"
+			},
+			"dist": {
+				"shasum": "55c0ed75c870477fb229c85b8c8bb870fd1a330f",
+				"tarball": "https://registry.npmjs.org/@protobufjs/pool/-/pool-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/pool-1.0.0.tgz_1481414578074_0.6489827367477119"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "@protobufjs/pool",
+			"description": "A general purpose buffer pool.",
+			"version": "1.0.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/pool@1.0.1",
+			"scripts": {},
+			"_shasum": "55e5a82d668bd85af6a8da1fd0459445685b152b",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"dist": {
+				"shasum": "55e5a82d668bd85af6a8da1fd0459445685b152b",
+				"tarball": "https://registry.npmjs.org/@protobufjs/pool/-/pool-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/pool-1.0.1.tgz_1481417450887_0.10420173080638051"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "@protobufjs/pool",
+			"description": "A general purpose buffer pool.",
+			"version": "1.0.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/pool@1.0.2",
+			"scripts": {},
+			"_shasum": "961886a4b6298e09bb1c31ceabb935ce8cd0a279",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "961886a4b6298e09bb1c31ceabb935ce8cd0a279",
+				"tarball": "https://registry.npmjs.org/@protobufjs/pool/-/pool-1.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/pool-1.0.2.tgz_1482072182425_0.768914709566161"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "@protobufjs/pool",
+			"description": "A general purpose buffer pool.",
+			"version": "1.0.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/pool@1.0.3",
+			"scripts": {},
+			"_shasum": "efe7781f15949bb603aefeeb1d42ea68b52da2df",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "efe7781f15949bb603aefeeb1d42ea68b52da2df",
+				"tarball": "https://registry.npmjs.org/@protobufjs/pool/-/pool-1.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/pool-1.0.3.tgz_1482073895338_0.8515932594891638"
+			},
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "@protobufjs/pool",
+			"description": "A general purpose buffer pool.",
+			"version": "1.0.4",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/pool@1.0.4",
+			"scripts": {},
+			"_shasum": "8e4d78bb6acd13107cfa5f944d3cedc4769f2e44",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "8e4d78bb6acd13107cfa5f944d3cedc4769f2e44",
+				"tarball": "https://registry.npmjs.org/@protobufjs/pool/-/pool-1.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/pool-1.0.4.tgz_1482269807133_0.38969398848712444"
+			},
+			"directories": {}
+		},
+		"1.0.5": {
+			"name": "@protobufjs/pool",
+			"description": "A general purpose buffer pool.",
+			"version": "1.0.5",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/pool@1.0.5",
+			"scripts": {},
+			"_shasum": "c08a7ac8b703bc2532e15542ecb6d84ad3662366",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "c08a7ac8b703bc2532e15542ecb6d84ad3662366",
+				"tarball": "https://registry.npmjs.org/@protobufjs/pool/-/pool-1.0.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/pool-1.0.5.tgz_1483457507949_0.42353440448641777"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "@protobufjs/pool",
+			"description": "A general purpose buffer pool.",
+			"version": "1.1.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"istanbul": "^0.4.5",
+				"tape": "^4.6.3"
+			},
+			"scripts": {
+				"test": "tape tests/*.js",
+				"coverage": "istanbul cover node_modules/tape/bin/tape tests/*.js"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/pool@1.1.0",
+			"_shasum": "09fd15f2d6d3abfa9b65bc366506d6ad7846ff54",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "09fd15f2d6d3abfa9b65bc366506d6ad7846ff54",
+				"tarball": "https://registry.npmjs.org/@protobufjs/pool/-/pool-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/pool-1.1.0.tgz_1485367998862_0.3938121625687927"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2017-01-25T18:13:19.548Z",
+		"created": "2016-12-11T00:03:00.015Z",
+		"1.0.0": "2016-12-11T00:03:00.015Z",
+		"1.0.1": "2016-12-11T00:50:51.498Z",
+		"1.0.2": "2016-12-18T14:43:02.948Z",
+		"1.0.3": "2016-12-18T15:11:35.870Z",
+		"1.0.4": "2016-12-20T21:36:47.795Z",
+		"1.0.5": "2017-01-03T15:31:48.605Z",
+		"1.1.0": "2017-01-25T18:13:19.548Z"
+	},
+	"dist-tags": {
+		"latest": "1.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"41850b6c58b2fce7be0306ae1703a4db\"",
+			"fetched": 1568994331363
+		}
+	},
+	"_distfiles": {
+		"pool-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/pool/-/pool-1.0.0.tgz",
+			"sha": "55c0ed75c870477fb229c85b8c8bb870fd1a330f",
+			"registry": "npmjs"
+		},
+		"pool-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/pool/-/pool-1.0.1.tgz",
+			"sha": "55e5a82d668bd85af6a8da1fd0459445685b152b",
+			"registry": "npmjs"
+		},
+		"pool-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/pool/-/pool-1.0.2.tgz",
+			"sha": "961886a4b6298e09bb1c31ceabb935ce8cd0a279",
+			"registry": "npmjs"
+		},
+		"pool-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/pool/-/pool-1.0.3.tgz",
+			"sha": "efe7781f15949bb603aefeeb1d42ea68b52da2df",
+			"registry": "npmjs"
+		},
+		"pool-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/pool/-/pool-1.0.4.tgz",
+			"sha": "8e4d78bb6acd13107cfa5f944d3cedc4769f2e44",
+			"registry": "npmjs"
+		},
+		"pool-1.0.5.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/pool/-/pool-1.0.5.tgz",
+			"sha": "c08a7ac8b703bc2532e15542ecb6d84ad3662366",
+			"registry": "npmjs"
+		},
+		"pool-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/pool/-/pool-1.1.0.tgz",
+			"sha": "09fd15f2d6d3abfa9b65bc366506d6ad7846ff54",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-0781a8d55d83c33e",
+	"_id": "@protobufjs/pool",
+	"readme": "@protobufjs/pool\r\n================\r\n[![npm](https://img.shields.io/npm/v/@protobufjs/pool.svg)](https://www.npmjs.com/package/@protobufjs/pool)\r\n\r\nA general purpose buffer pool.\r\n\r\nAPI\r\n---\r\n\r\n* **pool(alloc: `function(size: number): Uint8Array`, slice: `function(this: Uint8Array, start: number, end: number): Uint8Array`, [size=8192: `number`]): `function(size: number): Uint8Array`**<br />\r\n  Creates a pooled allocator.\r\n\r\n**License:** [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)"
+}

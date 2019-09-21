@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<project default="main">
+	<property name="base.dir" location="." />
+	<property name="src.dir" location="src" />
+	<property name="test.dir" location="src" />
+	<property name="build.dir" location="bin" />
+	<property name="dist.dir" location="bin" />
+	<property name="lib.dir" location="lib" />
+	<property name="lib" location="lib" />
+	<target name="main" depends="compile, jar" description="Main target">
+		<echo>
+            Building the .jar file.
+        </echo>
+	</target>
+	<path id="libs">
+		<fileset dir="${lib}" includes="*.jar" />
+	</path>
+	<path id="classpath.test">
+			<fileset dir="${lib.dir}" includes="*.jar" />
+		    <pathelement location="${dist.dir}" />
+  </path>
+	<target name="compile" description="Compilation target">
+		<javac classpathref="libs" source="1.8" target="1.8" destdir="${build.dir}" nowarn="on" debug="true">
+			<src path="${src.dir}" />
+			<src path="${test.dir}" />
+		</javac>
+	</target>
+	<target name="jar" description="Compression target">
+		<jar jarfile="${dist.dir}/BFT-SMaRt.jar">
+			<fileset dir="${build.dir}">
+				<include name="**/*.class" />
+			</fileset>
+			<fileset dir="${base.dir}">
+				<include name="config/*" />
+			</fileset>
+		</jar>
+	</target>
+	<target name="test" depends="compile, jar">
+	    <junit>
+	      <classpath refid="classpath.test" />
+	      <formatter type="brief" usefile="false" />
+	      <test name="bftsmart.demo.keyvalue.KVClientTest" />
+	    </junit>
+	  </target>
+</project>

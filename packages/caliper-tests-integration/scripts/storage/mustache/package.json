@@ -1,0 +1,2571 @@
+{
+	"name": "mustache",
+	"versions": {
+		"0.3.1-dev": {
+			"name": "mustache",
+			"author": {
+				"name": "http://mustache.github.com/"
+			},
+			"description": "{{ mustache }} in JavaScript — Logic-less templates.",
+			"keywords": [
+				"template"
+			],
+			"version": "0.3.1-dev",
+			"main": "./mustache",
+			"_id": "mustache@0.3.1-dev",
+			"engines": {
+				"node": "*"
+			},
+			"_nodeSupported": true,
+			"_npmVersion": "0.2.7-2",
+			"_nodeVersion": "v0.3.1-pre",
+			"_npmUser": {
+				"name": "nathan",
+				"email": "nrstott@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				}
+			],
+			"dist": {
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-0.3.1-dev.tgz",
+				"shasum": "2576329dc46c16f3b02291c9f5a072ccc6e70324"
+			},
+			"directories": {}
+		},
+		"0.4.0": {
+			"name": "mustache",
+			"author": {
+				"name": "Jan Lehnardt",
+				"email": "jan@apache.org"
+			},
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"keywords": [
+				"template",
+				"templates",
+				"mustache"
+			],
+			"version": "0.4.0",
+			"main": "./mustache",
+			"_npmUser": {
+				"name": "nathan",
+				"email": "nrstott@gmail.com"
+			},
+			"_id": "mustache@0.4.0",
+			"dependencies": {},
+			"devDependencies": {},
+			"engines": {
+				"node": "*"
+			},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.0-beta-10",
+			"_nodeVersion": "v0.6.7",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "49eb3bc60fd41119c50c87aa7067ef63d1592bdd",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-0.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.1-dev": {
+			"name": "mustache",
+			"version": "0.5.1-dev",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"devDependencies": {
+				"vows": "0.6.x",
+				"uglify-js": "1.3.0"
+			},
+			"scripts": {
+				"test": "vows --spec"
+			},
+			"_npmUser": {
+				"name": "mjackson",
+				"email": "mjijackson@gmail.com"
+			},
+			"_id": "mustache@0.5.1-dev",
+			"dependencies": {},
+			"optionalDependencies": {},
+			"engines": {
+				"node": "*"
+			},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.24",
+			"_nodeVersion": "v0.6.19",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "d709fa12baaae22025e6a440ac9af5b3cb5a1f1a",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-0.5.1-dev.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.2": {
+			"name": "mustache",
+			"version": "0.5.2",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"devDependencies": {
+				"vows": "0.6.x",
+				"uglify-js": "1.3.0"
+			},
+			"scripts": {
+				"test": "vows --spec"
+			},
+			"_npmUser": {
+				"name": "mjackson",
+				"email": "mjijackson@gmail.com"
+			},
+			"_id": "mustache@0.5.2",
+			"dependencies": {},
+			"optionalDependencies": {},
+			"engines": {
+				"node": "*"
+			},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.24",
+			"_nodeVersion": "v0.6.19",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "f1f95a2eacc69318a1dc515da755c45e79a182a3",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-0.5.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.6.0": {
+			"name": "mustache",
+			"version": "0.6.0",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"devDependencies": {
+				"vows": "0.6.x"
+			},
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/0.6.0/mustache.js"
+			},
+			"scripts": {
+				"test": "vows --spec"
+			},
+			"_npmUser": {
+				"name": "mjackson",
+				"email": "mjijackson@gmail.com"
+			},
+			"_id": "mustache@0.6.0",
+			"dependencies": {},
+			"optionalDependencies": {},
+			"engines": {
+				"node": "*"
+			},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.24",
+			"_nodeVersion": "v0.6.19",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "08f1c9713e8fe277b02d878caa721da80dc569ab",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-0.6.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.7.0": {
+			"name": "mustache",
+			"version": "0.7.0",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"devDependencies": {
+				"vows": "0.6.x"
+			},
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/0.7.0/mustache.js"
+			},
+			"scripts": {
+				"test": "vows --spec"
+			},
+			"_npmUser": {
+				"name": "mjackson",
+				"email": "mjijackson@gmail.com"
+			},
+			"_id": "mustache@0.7.0",
+			"dependencies": {},
+			"optionalDependencies": {},
+			"engines": {
+				"node": "*"
+			},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.24",
+			"_nodeVersion": "v0.6.19",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "fca750fb3ebde6377f77498c71cf9fd23a502ee9",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-0.7.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.7.1": {
+			"name": "mustache",
+			"version": "0.7.1",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"devDependencies": {
+				"vows": "0.6.x"
+			},
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/0.7.1/mustache.js"
+			},
+			"scripts": {
+				"test": "vows --spec"
+			},
+			"_id": "mustache@0.7.1",
+			"dist": {
+				"shasum": "2576a00c885f8fc6fcc34f46c953ffb39f65a793",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-0.7.1.tgz"
+			},
+			"_npmVersion": "1.1.59",
+			"_npmUser": {
+				"name": "mjackson",
+				"email": "mjijackson@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.7.2": {
+			"name": "mustache",
+			"version": "0.7.2",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"devDependencies": {
+				"mocha": "1.5.0"
+			},
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/0.7.2/mustache.js"
+			},
+			"scripts": {
+				"test": "mocha test"
+			},
+			"_id": "mustache@0.7.2",
+			"dist": {
+				"shasum": "bae32cb81816488ab1ffd04777b1bb070e6d63eb",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-0.7.2.tgz"
+			},
+			"_npmVersion": "1.1.59",
+			"_npmUser": {
+				"name": "mjackson",
+				"email": "mjijackson@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.7.3": {
+			"name": "mustache",
+			"version": "0.7.3",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"devDependencies": {
+				"mocha": "1.5.0"
+			},
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/0.7.3/mustache.js"
+			},
+			"scripts": {
+				"test": "mocha test"
+			},
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"_id": "mustache@0.7.3",
+			"dist": {
+				"shasum": "248d68d0b1050397848fa634c2446c18f30490e9",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-0.7.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.5",
+			"_npmUser": {
+				"name": "mjackson",
+				"email": "mjijackson@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.8.0": {
+			"name": "mustache",
+			"version": "0.8.0",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"devDependencies": {
+				"mocha": "1.5.0"
+			},
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/0.7.3/mustache.js"
+			},
+			"scripts": {
+				"test": "mocha test"
+			},
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"_id": "mustache@0.8.0",
+			"dist": {
+				"shasum": "429aeab0eacb29170e0d3146f33d8bb8c188ac76",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-0.8.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.5",
+			"_npmUser": {
+				"name": "mjackson",
+				"email": "mjijackson@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.8.1": {
+			"name": "mustache",
+			"version": "0.8.1",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"devDependencies": {
+				"mocha": "1.5.0"
+			},
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/0.7.3/mustache.js"
+			},
+			"scripts": {
+				"test": "mocha test"
+			},
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"_id": "mustache@0.8.1",
+			"dist": {
+				"shasum": "deba29cc9274cf98289877e0c625663882398ee7",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-0.8.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.2",
+			"_npmUser": {
+				"name": "mjackson",
+				"email": "mjijackson@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.8.2": {
+			"name": "mustache",
+			"version": "0.8.2",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"devDependencies": {
+				"mocha": "1.5.0"
+			},
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/0.7.3/mustache.js"
+			},
+			"scripts": {
+				"test": "mocha test"
+			},
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"_id": "mustache@0.8.2",
+			"dist": {
+				"shasum": "bf5b922b8f40cdcfb91c035dcd916110d1621f9b",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-0.8.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.4",
+			"_npmUser": {
+				"name": "mjackson",
+				"email": "mjijackson@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "mustache",
+			"version": "1.0.0",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"scripts": {
+				"test": "mocha --reporter spec test"
+			},
+			"devDependencies": {
+				"mocha": "2.0.1"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"gitHead": "2ba7481d41e356869dc2db695ccc4a0cf3ce38cd",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"_id": "mustache@1.0.0",
+			"_shasum": "8f5b8f68041dbead10997e0ba1d024771a03e15a",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "dasilvacontin",
+				"email": "daviddasilvacontin@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				},
+				{
+					"name": "jan",
+					"email": "jan@apache.org"
+				},
+				{
+					"name": "dasilvacontin",
+					"email": "daviddasilvacontin@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "8f5b8f68041dbead10997e0ba1d024771a03e15a",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "mustache",
+			"version": "1.1.0",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "jshint mustache.js",
+				"test": "mocha --reporter spec",
+				"test-render": "mocha  --reporter spec test/render-test"
+			},
+			"devDependencies": {
+				"jshint": "~2.4.4",
+				"mocha": "~2.1.0"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"gitHead": "d4ba5a19d4d04b139bbf7840fe342bb43930aee3",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"_id": "mustache@1.1.0",
+			"_shasum": "0d9a554b4b3f9e248e6c2742c2579d618d2ff00f",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "dasilvacontin",
+				"email": "daviddasilvacontin@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				},
+				{
+					"name": "jan",
+					"email": "jan@apache.org"
+				},
+				{
+					"name": "dasilvacontin",
+					"email": "daviddasilvacontin@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "0d9a554b4b3f9e248e6c2742c2579d618d2ff00f",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-1.1.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "mustache",
+			"version": "1.2.0",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"files": [
+				"mustache.js",
+				"mustache.min.js",
+				"bin",
+				"wrappers",
+				"LICENSE"
+			],
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "jshint mustache.js",
+				"test": "mocha --reporter spec",
+				"test-render": "mocha  --reporter spec test/render-test"
+			},
+			"devDependencies": {
+				"jshint": "~2.4.4",
+				"mocha": "~2.1.0"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"gitHead": "85b940801c3e511a2520b058849001f7a8584948",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"_id": "mustache@1.2.0",
+			"_shasum": "6cdec1cb03798792a948f8cc53ad69da0d0dd5c8",
+			"_from": ".",
+			"_npmVersion": "2.7.3",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "dasilvacontin",
+				"email": "daviddasilvacontin@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				},
+				{
+					"name": "jan",
+					"email": "jan@apache.org"
+				},
+				{
+					"name": "dasilvacontin",
+					"email": "daviddasilvacontin@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "6cdec1cb03798792a948f8cc53ad69da0d0dd5c8",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-1.2.0.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "mustache",
+			"version": "2.0.0",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"files": [
+				"mustache.js",
+				"mustache.min.js",
+				"bin",
+				"wrappers",
+				"LICENSE"
+			],
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "jshint mustache.js",
+				"test": "mocha --reporter spec",
+				"test-render": "mocha  --reporter spec test/render-test"
+			},
+			"devDependencies": {
+				"jshint": "~2.4.4",
+				"mocha": "~2.1.0"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"gitHead": "c52df34ee05ed9b0ffac945eb86e814c84b29b07",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"_id": "mustache@2.0.0",
+			"_shasum": "b86a7157cc85c6e18c03afef8a671f03069890f3",
+			"_from": ".",
+			"_npmVersion": "2.7.3",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "dasilvacontin",
+				"email": "daviddasilvacontin@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				},
+				{
+					"name": "jan",
+					"email": "jan@apache.org"
+				},
+				{
+					"name": "dasilvacontin",
+					"email": "daviddasilvacontin@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "b86a7157cc85c6e18c03afef8a671f03069890f3",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-2.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"2.1.0": {
+			"name": "mustache",
+			"version": "2.1.0",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"files": [
+				"mustache.js",
+				"mustache.min.js",
+				"bin",
+				"wrappers",
+				"LICENSE"
+			],
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "eslint mustache.js",
+				"test": "mocha --reporter spec test/*-test.js",
+				"test-render": "mocha  --reporter spec test/render-test",
+				"pre-test-browser": "node test/create-browser-suite.js",
+				"test-browser": "npm run pre-test-browser && zuul -- test/context-test.js test/parse-test.js test/scanner-test.js test/render-test-browser.js",
+				"test-browser-local": "npm run pre-test-browser && zuul --local 8080 -- test/context-test.js test/scanner-test.js test/parse-test.js test/render-test-browser.js"
+			},
+			"devDependencies": {
+				"chai": "^2.3.0",
+				"eslint": "^0.20.0",
+				"mocha": "^2.1.0",
+				"zuul": "^2.1.1"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"license": "MIT",
+			"gitHead": "b479bb8fb8c2b5b26fe9479f826f82fa7d768c4e",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"homepage": "https://github.com/janl/mustache.js#readme",
+			"_id": "mustache@2.1.0",
+			"_shasum": "00ae3d7757c68e4c997485c6728947e77f354b26",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "dasilvacontin",
+				"email": "daviddasilvacontin@gmail.com"
+			},
+			"dist": {
+				"shasum": "00ae3d7757c68e4c997485c6728947e77f354b26",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-2.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				},
+				{
+					"name": "jan",
+					"email": "jan@apache.org"
+				},
+				{
+					"name": "dasilvacontin",
+					"email": "daviddasilvacontin@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.1.1": {
+			"name": "mustache",
+			"version": "2.1.1",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"files": [
+				"mustache.js",
+				"mustache.min.js",
+				"bin",
+				"wrappers",
+				"LICENSE"
+			],
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "eslint mustache.js",
+				"test": "mocha --reporter spec test/*-test.js",
+				"test-render": "mocha  --reporter spec test/render-test",
+				"pre-test-browser": "node test/create-browser-suite.js",
+				"test-browser": "npm run pre-test-browser && zuul -- test/context-test.js test/parse-test.js test/scanner-test.js test/render-test-browser.js",
+				"test-browser-local": "npm run pre-test-browser && zuul --local 8080 -- test/context-test.js test/scanner-test.js test/parse-test.js test/render-test-browser.js"
+			},
+			"devDependencies": {
+				"chai": "^2.3.0",
+				"eslint": "^0.20.0",
+				"mocha": "^2.1.0",
+				"zuul": "^2.1.1"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"license": "MIT",
+			"gitHead": "aef96817ae53c44db248ddae530a0c7a18786e9b",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"homepage": "https://github.com/janl/mustache.js#readme",
+			"_id": "mustache@2.1.1",
+			"_shasum": "cc2bfbf698654b8c7130c72608f013d17804614c",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "dasilvacontin",
+				"email": "daviddasilvacontin@gmail.com"
+			},
+			"dist": {
+				"shasum": "cc2bfbf698654b8c7130c72608f013d17804614c",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-2.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				},
+				{
+					"name": "jan",
+					"email": "jan@apache.org"
+				},
+				{
+					"name": "dasilvacontin",
+					"email": "daviddasilvacontin@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.1.2": {
+			"name": "mustache",
+			"version": "2.1.2",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"files": [
+				"mustache.js",
+				"mustache.min.js",
+				"bin",
+				"wrappers",
+				"LICENSE"
+			],
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "eslint mustache.js",
+				"test": "mocha --reporter spec test/*-test.js",
+				"test-render": "mocha  --reporter spec test/render-test",
+				"pre-test-browser": "node test/create-browser-suite.js",
+				"test-browser": "npm run pre-test-browser && zuul -- test/context-test.js test/parse-test.js test/scanner-test.js test/render-test-browser.js",
+				"test-browser-local": "npm run pre-test-browser && zuul --local 8080 -- test/context-test.js test/scanner-test.js test/parse-test.js test/render-test-browser.js"
+			},
+			"devDependencies": {
+				"chai": "^2.3.0",
+				"eslint": "^0.20.0",
+				"mocha": "^2.1.0",
+				"zuul": "^2.1.1"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"license": "MIT",
+			"gitHead": "55c1370a11a34403e804903f713ff76a0c549a40",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"_id": "mustache@2.1.2",
+			"_shasum": "aff2960bc59720e4db7f6a7a758cae39994aab77",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "dasilvacontin",
+				"email": "daviddasilvacontin@gmail.com"
+			},
+			"dist": {
+				"shasum": "aff2960bc59720e4db7f6a7a758cae39994aab77",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-2.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				},
+				{
+					"name": "jan",
+					"email": "jan@apache.org"
+				},
+				{
+					"name": "dasilvacontin",
+					"email": "daviddasilvacontin@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.1.3": {
+			"name": "mustache",
+			"version": "2.1.3",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"files": [
+				"mustache.js",
+				"mustache.min.js",
+				"bin",
+				"wrappers",
+				"LICENSE"
+			],
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "eslint mustache.js",
+				"test": "mocha --reporter spec test/*-test.js",
+				"test-render": "mocha  --reporter spec test/render-test",
+				"pre-test-browser": "node test/create-browser-suite.js",
+				"test-browser": "npm run pre-test-browser && zuul -- test/context-test.js test/parse-test.js test/scanner-test.js test/render-test-browser.js",
+				"test-browser-local": "npm run pre-test-browser && zuul --local 8080 -- test/context-test.js test/scanner-test.js test/parse-test.js test/render-test-browser.js"
+			},
+			"devDependencies": {
+				"chai": "^2.3.0",
+				"eslint": "^0.20.0",
+				"mocha": "^2.1.0",
+				"zuul": "^2.1.1"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"license": "MIT",
+			"gitHead": "20c089392ef1c23b47a25b62f3ff99843d140f22",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"_id": "mustache@2.1.3",
+			"_shasum": "25b90b4204a454c898e8bb2e38d26de223abbd56",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "dasilvacontin",
+				"email": "daviddasilvacontin@gmail.com"
+			},
+			"dist": {
+				"shasum": "25b90b4204a454c898e8bb2e38d26de223abbd56",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-2.1.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				},
+				{
+					"name": "jan",
+					"email": "jan@apache.org"
+				},
+				{
+					"name": "dasilvacontin",
+					"email": "daviddasilvacontin@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.2.0": {
+			"name": "mustache",
+			"version": "2.2.0",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"files": [
+				"mustache.js",
+				"mustache.min.js",
+				"bin",
+				"wrappers",
+				"LICENSE"
+			],
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "eslint mustache.js bin/mustache",
+				"test": "mocha --reporter spec test/*-test.js",
+				"test-render": "mocha  --reporter spec test/render-test",
+				"pre-test-browser": "node test/create-browser-suite.js",
+				"test-browser": "npm run pre-test-browser && zuul -- test/context-test.js test/parse-test.js test/scanner-test.js test/render-test-browser.js",
+				"test-browser-local": "npm run pre-test-browser && zuul --local 8080 -- test/context-test.js test/scanner-test.js test/parse-test.js test/render-test-browser.js"
+			},
+			"devDependencies": {
+				"chai": "3.3.0",
+				"eslint": "1.6.0",
+				"mocha": "^2.1.0",
+				"zuul": "^2.1.1"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"license": "MIT",
+			"gitHead": "aac23a542c6cb7cd17a8b995fdc0406486cd3a23",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"_id": "mustache@2.2.0",
+			"_shasum": "d29813b499b8067712b503347eac342c616727c7",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "dasilvacontin",
+				"email": "dasilvacontin@gmail.com"
+			},
+			"dist": {
+				"shasum": "d29813b499b8067712b503347eac342c616727c7",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-2.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				},
+				{
+					"name": "jan",
+					"email": "jan@apache.org"
+				},
+				{
+					"name": "dasilvacontin",
+					"email": "daviddasilvacontin@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.2.1": {
+			"name": "mustache",
+			"version": "2.2.1",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"files": [
+				"mustache.js",
+				"mustache.min.js",
+				"bin",
+				"wrappers",
+				"LICENSE"
+			],
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "eslint mustache.js bin/mustache",
+				"test": "mocha --reporter spec test/*-test.js",
+				"test-render": "mocha  --reporter spec test/render-test",
+				"pre-test-browser": "node test/create-browser-suite.js",
+				"test-browser": "npm run pre-test-browser && zuul -- test/context-test.js test/parse-test.js test/scanner-test.js test/render-test-browser.js",
+				"test-browser-local": "npm run pre-test-browser && zuul --local 8080 -- test/context-test.js test/scanner-test.js test/parse-test.js test/render-test-browser.js"
+			},
+			"devDependencies": {
+				"chai": "^3.4.0",
+				"eslint": "^1.7.3",
+				"mocha": "^2.1.0",
+				"zuul": "^3.7.0"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"license": "MIT",
+			"gitHead": "cd06b22dabdaeffe3e4c74ee02bd492a11bbb740",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"_id": "mustache@2.2.1",
+			"_shasum": "2c40ca21c278f53150682bcf9090e41a3339b876",
+			"_from": ".",
+			"_npmVersion": "2.14.8",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "dasilvacontin",
+				"email": "dasilvacontin@gmail.com"
+			},
+			"dist": {
+				"shasum": "2c40ca21c278f53150682bcf9090e41a3339b876",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-2.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				},
+				{
+					"name": "jan",
+					"email": "jan@apache.org"
+				},
+				{
+					"name": "dasilvacontin",
+					"email": "daviddasilvacontin@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.3.0": {
+			"name": "mustache",
+			"version": "2.3.0",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"files": [
+				"mustache.js",
+				"mustache.min.js",
+				"bin",
+				"wrappers",
+				"LICENSE"
+			],
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "eslint mustache.js bin/mustache",
+				"test": "mocha --reporter spec test/*-test.js",
+				"test-render": "mocha  --reporter spec test/render-test",
+				"pre-test-browser": "node test/create-browser-suite.js",
+				"test-browser": "npm run pre-test-browser && zuul -- test/context-test.js test/parse-test.js test/scanner-test.js test/render-test-browser.js",
+				"test-browser-local": "npm run pre-test-browser && zuul --local 8080 -- test/context-test.js test/scanner-test.js test/parse-test.js test/render-test-browser.js"
+			},
+			"devDependencies": {
+				"chai": "^3.4.0",
+				"eslint": "^2.5.1",
+				"mocha": "^3.0.2",
+				"zuul": "^3.11.0"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"greenkeeper": {
+				"ignore": [
+					"eslint"
+				]
+			},
+			"license": "MIT",
+			"gitHead": "23beb3a8805c9a857e3ea777431481599fab503e",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"_id": "mustache@2.3.0",
+			"_shasum": "4028f7778b17708a489930a6e52ac3bca0da41d0",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "7.0.0",
+			"_npmUser": {
+				"name": "dasilvacontin",
+				"email": "dasilvacontin@gmail.com"
+			},
+			"dist": {
+				"shasum": "4028f7778b17708a489930a6e52ac3bca0da41d0",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-2.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dasilvacontin",
+					"email": "dasilvacontin@gmail.com"
+				},
+				{
+					"name": "flipp",
+					"email": "johphi@gmail.com"
+				},
+				{
+					"name": "jan",
+					"email": "jan@apache.org"
+				},
+				{
+					"name": "mjackson",
+					"email": "mjijackson@gmail.com"
+				},
+				{
+					"name": "nathan",
+					"email": "nrstott@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/mustache-2.3.0.tgz_1478622318106_0.5297125231008977"
+			},
+			"directories": {}
+		},
+		"2.3.1": {
+			"name": "mustache",
+			"version": "2.3.1",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"files": [
+				"mustache.js",
+				"mustache.min.js",
+				"bin",
+				"wrappers",
+				"LICENSE"
+			],
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "eslint mustache.js bin/mustache",
+				"test": "mocha --reporter spec test/*-test.js",
+				"test-render": "mocha  --reporter spec test/render-test",
+				"pre-test-browser": "node test/create-browser-suite.js",
+				"test-browser": "npm run pre-test-browser && zuul -- test/context-test.js test/parse-test.js test/scanner-test.js test/render-test-browser.js",
+				"test-browser-local": "npm run pre-test-browser && zuul --local 8080 -- test/context-test.js test/scanner-test.js test/parse-test.js test/render-test-browser.js"
+			},
+			"devDependencies": {
+				"chai": "^3.4.0",
+				"eslint": "^2.5.1",
+				"jshint": "^2.9.5",
+				"mocha": "^3.0.2",
+				"uglify-js": "^3.4.6",
+				"zuul": "^3.11.0",
+				"zuul-ngrok": "github:nolanlawson/zuul-ngrok#patch-1"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"greenkeeper": {
+				"ignore": [
+					"eslint"
+				]
+			},
+			"license": "MIT",
+			"gitHead": "9e8035ddd2e4ea9b177614660bde86018f027be8",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"_id": "mustache@2.3.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.3",
+			"_npmUser": {
+				"name": "flipp",
+				"email": "johphi@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-20dW38oeiTzauvbxs1YxQbr3gbu/Lfo15J4V0EqbspYnn/GwSeTSDNtESy2nak28BW0k8qp7dnrFhrsejLPUtw==",
+				"shasum": "ef5db3c0d11f1640e9baa47f4e65ba0c3fcd82b9",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-2.3.1.tgz",
+				"fileCount": 17,
+				"unpackedSize": 71582,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbaeBECRA9TVsSAnZWagAAwQkP/jKC2B2W24CnNsSePh3L\nQuKJiG6esN/z8On7XA0Kdr3jeYhVq5//8PCxgezQL1uIWVLbgUZE3S7fnAqm\n+HJq3Bo0K0ndKFuuWJBOIX+IsP45R6zo4Q8E3F+Crqu1ELz5qOGV+jhq1fEa\nedanU2+ZKN9Eb3E6eHwd0e5hgt+/0u7txjvx84lTIbT4lPkPLEFOUh+WM9p0\nYoxZC4p/G2+biYPZVUH4eJ5lAxdSLhvZoY67bGA/8EIbGO59rceaIeSv7l8A\nwitrqIxiEQEEx17ZdhtwMJJblB8P4y0OrN+SsFepelqDSksECAR9+x0+Oj/9\nSzlAwcI6dNAsH+ijguH2+eIGNoCFi6zIcUhTH5fzJpeQaBeOL26/hTjpS9Sq\nUrjisu0ui+AHcscxicfZjspEkNkkk4Oem8khpS8CXc+6yt9nSe6DPzOEtyID\nYwqrsW8wiNsc3GjjOmoYe8DkbpLc18Tu3rYb4OCsAdaRZZvAYDHwTZ0E29/P\nymEd23PbX1cufSCIKWrKUvu5mUC4NNIT145fEKB8amUa9gP5oeNoY5wG/P02\nQgELNttj+pi+5hKQ5751OsNiFtPcBckcGehFS5X1N4NfexbjmVSjh5X7Jrr5\nD2WJs+ubZydshUnpCncsFAsr1iyBCgP1/OPjwCkoUoQGVhR+tn7IzNbgGX6q\nBEHC\r\n=6TRQ\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "dasilvacontin@gmail.com",
+					"name": "dasilvacontin"
+				},
+				{
+					"email": "johphi@gmail.com",
+					"name": "flipp"
+				},
+				{
+					"email": "jan@apache.org",
+					"name": "jan"
+				},
+				{
+					"email": "mjijackson@gmail.com",
+					"name": "mjackson"
+				},
+				{
+					"email": "nrstott@gmail.com",
+					"name": "nathan"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/mustache_2.3.1_1533665348768_0.4074625022246561"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.3.2": {
+			"name": "mustache",
+			"version": "2.3.2",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"files": [
+				"mustache.js",
+				"mustache.min.js",
+				"bin",
+				"wrappers",
+				"LICENSE"
+			],
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "eslint mustache.js bin/mustache",
+				"test": "mocha --reporter spec test/*-test.js",
+				"test-render": "mocha  --reporter spec test/render-test",
+				"pre-test-browser": "node test/create-browser-suite.js",
+				"test-browser": "npm run pre-test-browser && zuul -- test/context-test.js test/parse-test.js test/scanner-test.js test/render-test-browser.js",
+				"test-browser-local": "npm run pre-test-browser && zuul --local 8080 -- test/context-test.js test/scanner-test.js test/parse-test.js test/render-test-browser.js"
+			},
+			"devDependencies": {
+				"chai": "^3.4.0",
+				"eslint": "^2.5.1",
+				"jshint": "^2.9.5",
+				"mocha": "^3.0.2",
+				"uglify-js": "^3.4.6",
+				"zuul": "^3.11.0",
+				"zuul-ngrok": "github:nolanlawson/zuul-ngrok#patch-1"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"greenkeeper": {
+				"ignore": [
+					"eslint"
+				]
+			},
+			"license": "MIT",
+			"gitHead": "49714ba8ae0035ee5461eac42ba5f53ff5c0f86a",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"_id": "mustache@2.3.2",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.3",
+			"_npmUser": {
+				"name": "flipp",
+				"email": "johphi@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-KpMNwdQsYz3O/SBS1qJ/o3sqUJ5wSb8gb0pul8CO0S56b9Y2ALm8zCfsjPXsqGFfoNBkDwZuZIAjhsZI03gYVQ==",
+				"shasum": "a6d4d9c3f91d13359ab889a812954f9230a3d0c5",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-2.3.2.tgz",
+				"fileCount": 17,
+				"unpackedSize": 71816,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbdr1KCRA9TVsSAnZWagAAVdcP/j1zBH5EG0i2cWriTb11\nSiOGdbB3wsln3CgMWisn2d5LbV7PzGTwDkbUdUeKwJGTNqJJiiV+KGoNwwqA\ngmbwvt88LsWLg27VwaSH0kO8/wX5QIa5WwDcrFOcWXB2a0AGhvqoMVdsAeaT\njX44TYDc4ROCVE4aIIkkrU4K6c++ll/WVlL+yb6xsB5OY56waXtw2s3uCQNZ\nUwzvJ8mw+A0U/tCYS8dIfSuqsOceY/makJSk/YWs5FIlcWdIdh+62elQ3uSO\nHDuFzikqnsQB3610ws2MEy4xeFzvilaaXdtVivvw0Ars/z5/bx9rAeu4Wmqh\n6JgYVg412WWCug9Qs3Yj7AHDP4WMOvgG/ilZ/gOSFDaiyAMwvwK1+Xra+vUY\noCZ8v9cwhmay561EW5rH2Abh+dAZtsqD4xMXGmnclF36fB/aZY8zgJg4jzl5\nrkW8DK7hAVQ9PKYuOT0jPbRRMBTEZ7NVysvt+jk/4x0EfbghDQvKKRCsVC4O\n1XpZUJ2VD3GsKQZKZJTVVj2BIbChbS8RplCmNRpX1bCeaQSvjph+w95UPUp+\n7Mbq1Dm3z2Ls7OW1xKNdz4Cyz0BPmOyfyl6YyRbctgnfiUhaXaYAHi1qgO8G\nmGhvwu5r5S2pHJKwJy7F6ocw4wfj4F5ZvziiCwWFVBS9GmH2XIXyhrSIHQO0\nHSQ+\r\n=G/8e\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "dasilvacontin@gmail.com",
+					"name": "dasilvacontin"
+				},
+				{
+					"email": "johphi@gmail.com",
+					"name": "flipp"
+				},
+				{
+					"email": "jan@apache.org",
+					"name": "jan"
+				},
+				{
+					"email": "mjijackson@gmail.com",
+					"name": "mjackson"
+				},
+				{
+					"email": "nrstott@gmail.com",
+					"name": "nathan"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/mustache_2.3.2_1534508361710_0.6629104457769521"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"name": "mustache",
+			"version": "3.0.0",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "eslint mustache.js bin/mustache",
+				"test": "mocha --reporter spec test/*-test.js",
+				"test-render": "mocha  --reporter spec test/render-test",
+				"pre-test-browser": "node test/create-browser-suite.js",
+				"test-browser": "npm run pre-test-browser && zuul -- test/context-test.js test/parse-test.js test/scanner-test.js test/render-test-browser.js",
+				"test-browser-local": "npm run pre-test-browser && zuul --local 8080 -- test/context-test.js test/scanner-test.js test/parse-test.js test/render-test-browser.js"
+			},
+			"devDependencies": {
+				"chai": "^3.4.0",
+				"eslint": "^2.5.1",
+				"jshint": "^2.9.5",
+				"mocha": "^3.0.2",
+				"uglify-js": "^3.4.6",
+				"zuul": "^3.11.0",
+				"zuul-ngrok": "github:nolanlawson/zuul-ngrok#patch-1"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"greenkeeper": {
+				"ignore": [
+					"eslint"
+				]
+			},
+			"license": "MIT",
+			"gitHead": "17510f07d12ed3fb09866fec8226cf34cff90339",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"_id": "mustache@3.0.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.12.0",
+			"_npmUser": {
+				"name": "flipp",
+				"email": "johphi@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-bhBDkK/PioIbtQzRIbGUGypvc3MC4c389QnJt8KDIEJ666OidRPoXAQAHPivikfS3JkMEaWoPvcDL7YrQxtSwg==",
+				"shasum": "3de22dd9ba38152f7355399a953dd4528c403338",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-3.0.0.tgz",
+				"fileCount": 17,
+				"unpackedSize": 77817,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbnsADCRA9TVsSAnZWagAASD4P/1J11huU95SWcC3Z3a0S\nK8DfTHC2wwr0AyPQgGU3rp48e0YZf15ovjVhg9kz7LthgGTtC8Y/+NXXvqOK\n6SmzuZDit2m0trf1dd8SdcI2c2bhE5+EUK/NxcZ0sJloDajNXsCbwUxsh6qG\nedjBEQu5MC8kalHNqlEMZIwOYM+qs60aQq+q3B3QOOQuIm8FsRo+9GvVo9YC\nltYQjqkc72x2+W5IhQgkZyRnJEhbV0NymjFyymsLPH/NRc7bbdtubIPUP67I\nkvXddKGwiQxHLfx/enwx15IHPmtqbu4Mps+kuSO/pRgMxmeMzgCUYurBnh3L\nzWUZdvPj6lT1acYBZZQng1/oxHZ6Vo3OJOqKn7KMKTs/9mA5g0JnHR8G1RN/\n7F3500u5vOIjmIsknBdLOJ7Fx8sPyFifb0w5DOVyoQiZlE4nSKDH17DvUTgq\nlL8BMlzmSlV0xPheCRJnd1FAZw4ozX8c0qvk5IMw4/EqPYGEduRBMFf3rY1F\nVATxN4y1kd1Jb9WU4Fp8+tTb4ag0STsJKNGw+BQ2aAZ27UEZjNK+xaa8+VQp\nwcsIGtPlvjOT6bFg4BLd7pP6Jgx0FxK408HvXbUonxaNVPE7StFkFyvJPnMC\nTy3y8yTiEkWm1ZKWOU4LOLn5mqAqR1IHPc+ilhvabuBPKletGLakgR5KM5iG\ngiO4\r\n=89wt\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "dasilvacontin@gmail.com",
+					"name": "dasilvacontin"
+				},
+				{
+					"email": "johphi@gmail.com",
+					"name": "flipp"
+				},
+				{
+					"email": "jan@apache.org",
+					"name": "jan"
+				},
+				{
+					"email": "mjijackson@gmail.com",
+					"name": "mjackson"
+				},
+				{
+					"email": "nrstott@gmail.com",
+					"name": "nathan"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/mustache_3.0.0_1537130498756_0.8487409639182437"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.1": {
+			"name": "mustache",
+			"version": "3.0.1",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "eslint mustache.js bin/mustache",
+				"test": "mocha --reporter spec test/*-test.js",
+				"test-render": "mocha  --reporter spec test/render-test",
+				"pre-test-browser": "node test/create-browser-suite.js",
+				"test-browser": "npm run pre-test-browser && zuul -- test/context-test.js test/parse-test.js test/scanner-test.js test/render-test-browser.js",
+				"test-browser-local": "npm run pre-test-browser && zuul --local 8080 -- test/context-test.js test/scanner-test.js test/parse-test.js test/render-test-browser.js"
+			},
+			"devDependencies": {
+				"chai": "^3.4.0",
+				"eslint": "2.5.1",
+				"jshint": "^2.9.5",
+				"mocha": "^3.0.2",
+				"uglify-js": "^3.4.6",
+				"zuul": "^3.11.0",
+				"zuul-ngrok": "github:nolanlawson/zuul-ngrok#patch-1"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"greenkeeper": {
+				"ignore": [
+					"eslint"
+				]
+			},
+			"license": "MIT",
+			"gitHead": "38b1448e65f1d4716c3e3ad792ae6ab3aaf487ab",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"_id": "mustache@3.0.1",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "10.9.0",
+			"_npmUser": {
+				"name": "flipp",
+				"email": "johphi@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-jFI/4UVRsRYdUbuDTKT7KzfOp7FiD5WzYmmwNwXyUVypC0xjoTL78Fqc0jHUPIvvGD+6DQSPHIt1NE7D1ArsqA==",
+				"shasum": "873855f23aa8a95b150fb96d9836edbc5a1d248a",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-3.0.1.tgz",
+				"fileCount": 17,
+				"unpackedSize": 78123,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb6J6ACRA9TVsSAnZWagAAEO8P/3a57ni3sBUWa316HZT4\nOajxiFqLLWaN11OWCHQolaOyNflh7aGdvUQWYI61vlgFeQ2avfN14fbG84xr\nggwsyMaRvnmrRKB4F0eOhp7t8CTxEqEMy+n30G/6ZPxgLC0imautJHdkshyl\nvOcQNq6xyi7EhurKXgEKSI4pEg2humg2JRcONb/z7eohP1MheJSbD6Ck59ft\nJy6se60A8qGORtTq/E2wMOt3Uqn5uEWuHUrKwduoDebvZsONzO1KhWgXPlU1\nt13PCIU2LO+0FrbZcHZGzoMG2btto5ElzaVhipoPaUNU1Oup68CH2Rp+mpCv\nHt+t5GhOc/UwPWDBryLt92y12twMY6PFi2IMdwDTZTY77/W6810ptUqPu4oC\nQeVg+xKCpc+fZYvpIpzPKJ/Rqx5OrXhGbDlc270ZGkk1rxtvp53JZjy2AdUo\nibh/1HnKpBBgk5SymSlx36KZrPOOJh7EbIxd2WAUx1vRZCD74S9XR7Cb698l\n64fibO3diB3LSMKelvH+zHzsqzwkkq3zO42AhxjTjv7maV5M590zmdnZ4u6d\nuZIuFMNKQsQFRkPNcT0j2rusrPfZCRy8xXrJaqfjELUV8FVNPUZG0ZspKPAh\nrQRgsNYFUzf2DxuGb0RSFrCimwKDtzId2zlG7rr0xI4yQM2SRc4ruu8rX/g/\n425t\r\n=OuJG\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "dasilvacontin@gmail.com",
+					"name": "dasilvacontin"
+				},
+				{
+					"email": "johphi@gmail.com",
+					"name": "flipp"
+				},
+				{
+					"email": "jan@apache.org",
+					"name": "jan"
+				},
+				{
+					"email": "mjijackson@gmail.com",
+					"name": "mjackson"
+				},
+				{
+					"email": "nrstott@gmail.com",
+					"name": "nathan"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/mustache_3.0.1_1541971583996_0.16125326264588447"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.2": {
+			"name": "mustache",
+			"version": "3.0.2",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "eslint mustache.js bin/mustache test/**/*.js",
+				"test": "mocha --reporter spec test/*-test.js",
+				"test-render": "mocha  --reporter spec test/render-test",
+				"pre-test-browser": "node test/create-browser-suite.js",
+				"test-browser": "npm run pre-test-browser && zuul -- test/context-test.js test/parse-test.js test/scanner-test.js test/render-test-browser.js",
+				"test-browser-local": "npm run pre-test-browser && zuul --local 8080 -- test/context-test.js test/scanner-test.js test/parse-test.js test/render-test-browser.js"
+			},
+			"devDependencies": {
+				"chai": "^3.4.0",
+				"eslint": "2.5.1",
+				"jshint": "^2.9.5",
+				"mocha": "^3.0.2",
+				"uglify-js": "^3.4.6",
+				"zuul": "^3.11.0",
+				"zuul-ngrok": "github:nolanlawson/zuul-ngrok#patch-1"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"greenkeeper": {
+				"ignore": [
+					"eslint"
+				]
+			},
+			"license": "MIT",
+			"gitHead": "6c3608bfb9fa74684cd9e22f5bb4c097f87484ef",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"_id": "mustache@3.0.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "flipp",
+				"email": "johphi@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-64neoEgmozb8e/ecGBOSE+RfnevLSFzCI0UKPcrWmjv953/8fXhYO9+EQFtfbi6hwoFxcTA+Fp5mRiOiI9eTuA==",
+				"shasum": "35bb886a1e5baad0a8f192258fe9a904f711868c",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-3.0.2.tgz",
+				"fileCount": 17,
+				"unpackedSize": 80818,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdXaZ+CRA9TVsSAnZWagAAXYsQAKOzxC3AmC30VwbE2A3P\nHZSyD7DEJY8pysGTqjCxEMSaEG/skfrBS2OhFyGOaqnq8bh694hi3fTwYG0M\nZz/MA/dMcOsmsb4/YsLyH/Pr91ZUk5Z1P2BHO7VEzQwbYIx/6Zr4xv84erf9\nwaUk7GHEReTobobrYUke8/1O468J0wXO8H+fWe11gSo/xh97/5RkrApxbnul\nI1eafjkM4uzaaaoYRqjDRLR/rwfLYEn+PO8muuIXvu+T4IZldZ6wGkHfNp/r\n+uGXY+WE1017sWMXLXNqZNYCsEibu8UdUD9+kwOSqpTjS86Fyfc3nBmRAt1J\nM9HdF81SIcuFFcjWZUd6cNkDanVUm/igwFPdJLWcqprA1zduIJxtxH9flIMF\n0Wl17+6chONylPyjLHk17n4iZKnlauNaNGKB9ItfrYiaL2nPsNhEw1JosDYT\niD6Gwk/3KttZehQrPB2UzKDWia9EoLgNxqtO3mz9i6ao/9YJi1AC8+Y7G8ey\nfoPYwUptTEkIB99PgXET3ZGOQSiByKa7CG9uoqHsUDTBWzMMJqmPymhuPIf9\n4kN6PzyF0ygCP7fPlbX2gChNDhosyPA1f1mw7W2LXpQPrYlJ3G0b8yksyfoJ\nFpups48nLe5AVG4ydkYRajY0FR6iNGRHZi1XCpPTSYTveFLfB+IilinJ2SAd\nJWuw\r\n=axzt\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "dasilvacontin@gmail.com",
+					"name": "dasilvacontin"
+				},
+				{
+					"email": "johphi@gmail.com",
+					"name": "flipp"
+				},
+				{
+					"email": "jan@apache.org",
+					"name": "jan"
+				},
+				{
+					"email": "mjijackson@gmail.com",
+					"name": "mjackson"
+				},
+				{
+					"email": "nrstott@gmail.com",
+					"name": "nathan"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/mustache_3.0.2_1566418557391_0.6264722547909329"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.3": {
+			"name": "mustache",
+			"version": "3.0.3",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "eslint mustache.js bin/mustache test/**/*.js",
+				"test": "mocha --reporter spec test/*-test.js",
+				"test-render": "mocha  --reporter spec test/render-test",
+				"pre-test-browser": "node test/create-browser-suite.js",
+				"test-browser": "npm run pre-test-browser && zuul -- test/context-test.js test/parse-test.js test/scanner-test.js test/render-test-browser.js",
+				"test-browser-local": "npm run pre-test-browser && zuul --local 8080 -- test/context-test.js test/scanner-test.js test/parse-test.js test/render-test-browser.js"
+			},
+			"devDependencies": {
+				"chai": "^3.4.0",
+				"eslint": "2.5.1",
+				"jshint": "^2.9.5",
+				"mocha": "^3.0.2",
+				"uglify-js": "^3.4.6",
+				"zuul": "^3.11.0",
+				"zuul-ngrok": "github:nolanlawson/zuul-ngrok#patch-1"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"greenkeeper": {
+				"ignore": [
+					"eslint"
+				]
+			},
+			"license": "MIT",
+			"gitHead": "96cb5ef372becfbf6beea1998bbe41f8eac75000",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"_id": "mustache@3.0.3",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "flipp",
+				"email": "johphi@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-vM5FkMHamTYmVYeAujypihuPrJQDtaUIlKeeVb1AMJ73OZLtWiF7GprqrjxD0gJWT53W9JfqXxf97nXQjMQkqA==",
+				"shasum": "ee4fb971887fa6cc1b6b6d219a74b5e3c7535f32",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-3.0.3.tgz",
+				"fileCount": 17,
+				"unpackedSize": 81273,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdZO/SCRA9TVsSAnZWagAAbvoP/j+DNTIxOkXPV877jOqh\nj6hbcjku+QVk40FxUKc9RbKS23zJ2Wdv6n4wWHhSbidbWZqtPrF0XPwLKdUQ\nmqe9TmSy6Zk7NyImpRyRLZ7g+YuK32liZWiMUs4jVBwHCOYS5DVngsYOM9Sc\nZJks1Pj/2iemY8KePmeoPwGcEGhXjuIu9gncSDMUVF1Srisfv2M5BvCyaVmC\nv/81ggFv+/cHRt3s34ca4yW4Qo0jqCbriWKG8S2aGbmFlLr2m2HFwar5FhJk\nDSb507NMNnPjPau/aoEgiW0FVHuQ/VmZkOcG6M0GUWXYo38bG9KoVGPexnzj\n//D0rNJZa2oy0HIAFS+0Z1xw7GkZsi1u5WJmBHVyCSVaxpZvlTj8Ll5sqdIr\n3FEPlfiKp1lOUIvNqSpBdEsR3HCGbdlIwmDmFuoT7gQYPL0p9JVbKzOsuYwr\nc/+tSAKJTXWLJPfBxLN3awO1MRYgKPczy6PHKUFSO6lGtzgLkCWoRujntVTZ\nFrfmQSTIg35Np1eTzA/Hjm5lYbl2rPtE6nx2uHFoBubBMUuSw3GadVj2+ooU\n/Cfn+uR8feBg7AP4HhZpm0J5+exhu41vdJzk03iJsgUXxoNZw0CjE3GZMmV4\nMGPFE/pnIpOnyYt/aYonmsnEoLGC6WhWlv/aS7w+Ayhz7voPDVzkh4pT3nue\ncaZO\r\n=va27\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "dasilvacontin@gmail.com",
+					"name": "dasilvacontin"
+				},
+				{
+					"email": "johphi@gmail.com",
+					"name": "flipp"
+				},
+				{
+					"email": "jan@apache.org",
+					"name": "jan"
+				},
+				{
+					"email": "mjijackson@gmail.com",
+					"name": "mjackson"
+				},
+				{
+					"email": "nrstott@gmail.com",
+					"name": "nathan"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/mustache_3.0.3_1566896081872_0.9651318791665673"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.1.0": {
+			"name": "mustache",
+			"version": "3.1.0",
+			"description": "Logic-less {{mustache}} templates with JavaScript",
+			"author": {
+				"name": "mustache.js Authors",
+				"email": "http://github.com/janl/mustache.js"
+			},
+			"homepage": "https://github.com/janl/mustache.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/janl/mustache.js.git"
+			},
+			"keywords": [
+				"mustache",
+				"template",
+				"templates",
+				"ejs"
+			],
+			"main": "./mustache.js",
+			"bin": {
+				"mustache": "./bin/mustache"
+			},
+			"volo": {
+				"url": "https://raw.github.com/janl/mustache.js/{version}/mustache.js"
+			},
+			"engines": {
+				"npm": ">=1.4.0"
+			},
+			"scripts": {
+				"pretest": "eslint mustache.js bin/mustache test/**/*.js",
+				"test": "mocha --reporter spec test/*-test.js",
+				"test-render": "mocha  --reporter spec test/render-test",
+				"pre-test-browser": "node test/create-browser-suite.js",
+				"test-browser": "npm run pre-test-browser && zuul -- test/context-test.js test/parse-test.js test/scanner-test.js test/render-test-browser.js",
+				"test-browser-local": "npm run pre-test-browser && zuul --local 8080 -- test/context-test.js test/scanner-test.js test/parse-test.js test/render-test-browser.js"
+			},
+			"devDependencies": {
+				"chai": "^3.4.0",
+				"eslint": "2.5.1",
+				"jshint": "^2.9.5",
+				"mocha": "^3.0.2",
+				"uglify-js": "^3.4.6",
+				"zuul": "^3.11.0",
+				"zuul-ngrok": "github:nolanlawson/zuul-ngrok#patch-1"
+			},
+			"spm": {
+				"main": "mustache.js",
+				"ignore": [
+					"test",
+					"wrappers"
+				]
+			},
+			"greenkeeper": {
+				"ignore": [
+					"eslint"
+				]
+			},
+			"license": "MIT",
+			"gitHead": "b28bf2c46ba3bbf7eff44742fc421a9974b27cc5",
+			"bugs": {
+				"url": "https://github.com/janl/mustache.js/issues"
+			},
+			"_id": "mustache@3.1.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "flipp",
+				"email": "johphi@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-3Bxq1R5LBZp7fbFPZzFe5WN4s0q3+gxZaZuZVY+QctYJiCiVgXHOTIC0/HgZuOPFt/6BQcx5u0H2CUOxT/RoGQ==",
+				"shasum": "9fba26e7aefc5709f07ff585abb7e0abced6c372",
+				"tarball": "https://registry.npmjs.org/mustache/-/mustache-3.1.0.tgz",
+				"fileCount": 17,
+				"unpackedSize": 82348,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJde3syCRA9TVsSAnZWagAABuMP/j6xapMOKcp0I3Lq+Jtm\n2Z8gWAFbkt/EY6hFrn6HAWpPb5puTOHjUc3/4hPSbBfNX5gkxEMjrmboG/h0\nd73kmQjy9EBhylq49eJXiK5crKZ1kG64G4ZBexeFPa4PMsr8itmfosAr9O5v\n4IYGyaIJaUMVyw9K8uiO8UmxQrc645vfEFZfwUDYz+D2Jz/0B2Vt48fSt08Y\nJer7GozNWQ43WV3X8PNNM4mDWLyusxSlF3QWpZFFfsV+V11+6Y2OGnJT77tV\nExg/nPl0Ay+9f4Y86UDzPAa+hx4oRxB/OD3uHM8Zkc9kX2RRXtq2iudhYhSa\nTBkNVGbxZrkm86U0a1QBRx1/gYU4IKvR+3yWdoP+Qm42owzj1uAR4fOaAfoC\nNGzzSD2R6vGksjggaBCV6kmioCL+Y7neOS3BsTEICVq3oJZKcP84N4DV+Fe9\n9GbJKkK5i1QxHh/Go9WEEUf7KLRQTo1si/xxYeDR5lzTKLA0yinxX1KzZmKE\nUU2vNG7rayzLEMsMsMuw1yEQMqydFy5ZJvtfmhBA/Nj0BMzi8tA9mshk5xiy\nl7h85iP3XQzSrD5Sf1t35JmeiEm1PvPMaEUueo2GS7p4enLDQR2jJJQz+sJp\nbsYfGAFVnEPiE0x+TCuqZer0KMGCGdhuWGXBeFPvKbXCCSn83ZQz1AWJZ+PE\nsiMf\r\n=Ykox\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "dasilvacontin@gmail.com",
+					"name": "dasilvacontin"
+				},
+				{
+					"email": "johphi@gmail.com",
+					"name": "flipp"
+				},
+				{
+					"email": "jan@apache.org",
+					"name": "jan"
+				},
+				{
+					"email": "mjijackson@gmail.com",
+					"name": "mjackson"
+				},
+				{
+					"email": "nrstott@gmail.com",
+					"name": "nathan"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/mustache_3.1.0_1568373553930_0.17435981503909703"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"0.4.0": "2012-01-09T18:34:02.818Z",
+		"modified": "2019-09-13T11:19:16.827Z",
+		"created": "2012-01-09T18:34:02.818Z",
+		"0.3.1-dev": "2012-01-09T18:34:02.818Z",
+		"0.5.1-dev": "2012-08-02T05:56:32.864Z",
+		"0.5.2": "2012-08-02T05:58:11.369Z",
+		"0.6.0": "2012-08-31T22:43:14.499Z",
+		"0.7.0": "2012-09-10T22:48:28.533Z",
+		"0.7.1": "2012-12-06T16:20:19.022Z",
+		"0.7.2": "2012-12-27T20:09:59.953Z",
+		"0.7.3": "2013-11-05T15:45:08.995Z",
+		"0.8.0": "2013-12-02T23:23:48.971Z",
+		"0.8.1": "2014-01-03T15:00:27.972Z",
+		"0.8.2": "2014-06-13T14:49:39.219Z",
+		"1.0.0": "2014-12-20T16:01:49.128Z",
+		"1.1.0": "2015-02-18T11:10:06.532Z",
+		"1.2.0": "2015-03-24T09:37:28.497Z",
+		"2.0.0": "2015-03-27T09:33:01.850Z",
+		"2.1.0": "2015-06-04T22:22:32.711Z",
+		"2.1.1": "2015-06-11T08:57:09.228Z",
+		"2.1.2": "2015-06-17T20:17:28.930Z",
+		"2.1.3": "2015-07-23T16:35:18.400Z",
+		"2.2.0": "2015-10-15T10:16:46.996Z",
+		"2.2.1": "2015-12-13T11:06:56.462Z",
+		"2.3.0": "2016-11-08T16:25:18.753Z",
+		"2.3.1": "2018-08-07T18:09:08.987Z",
+		"2.3.2": "2018-08-17T12:19:21.803Z",
+		"3.0.0": "2018-09-16T20:41:38.967Z",
+		"3.0.1": "2018-11-11T21:26:24.169Z",
+		"3.0.2": "2019-08-21T20:15:57.623Z",
+		"3.0.3": "2019-08-27T08:54:42.020Z",
+		"3.1.0": "2019-09-13T11:19:14.062Z"
+	},
+	"dist-tags": {
+		"latest": "3.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"c5a12b799deafb4ae171e0656c6fb976\"",
+			"fetched": 1568994334287
+		}
+	},
+	"_distfiles": {
+		"mustache-0.3.1-dev.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-0.3.1-dev.tgz",
+			"sha": "2576329dc46c16f3b02291c9f5a072ccc6e70324",
+			"registry": "npmjs"
+		},
+		"mustache-0.4.0.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-0.4.0.tgz",
+			"sha": "49eb3bc60fd41119c50c87aa7067ef63d1592bdd",
+			"registry": "npmjs"
+		},
+		"mustache-0.5.1-dev.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-0.5.1-dev.tgz",
+			"sha": "d709fa12baaae22025e6a440ac9af5b3cb5a1f1a",
+			"registry": "npmjs"
+		},
+		"mustache-0.5.2.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-0.5.2.tgz",
+			"sha": "f1f95a2eacc69318a1dc515da755c45e79a182a3",
+			"registry": "npmjs"
+		},
+		"mustache-0.6.0.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-0.6.0.tgz",
+			"sha": "08f1c9713e8fe277b02d878caa721da80dc569ab",
+			"registry": "npmjs"
+		},
+		"mustache-0.7.0.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-0.7.0.tgz",
+			"sha": "fca750fb3ebde6377f77498c71cf9fd23a502ee9",
+			"registry": "npmjs"
+		},
+		"mustache-0.7.1.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-0.7.1.tgz",
+			"sha": "2576a00c885f8fc6fcc34f46c953ffb39f65a793",
+			"registry": "npmjs"
+		},
+		"mustache-0.7.2.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-0.7.2.tgz",
+			"sha": "bae32cb81816488ab1ffd04777b1bb070e6d63eb",
+			"registry": "npmjs"
+		},
+		"mustache-0.7.3.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-0.7.3.tgz",
+			"sha": "248d68d0b1050397848fa634c2446c18f30490e9",
+			"registry": "npmjs"
+		},
+		"mustache-0.8.0.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-0.8.0.tgz",
+			"sha": "429aeab0eacb29170e0d3146f33d8bb8c188ac76",
+			"registry": "npmjs"
+		},
+		"mustache-0.8.1.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-0.8.1.tgz",
+			"sha": "deba29cc9274cf98289877e0c625663882398ee7",
+			"registry": "npmjs"
+		},
+		"mustache-0.8.2.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-0.8.2.tgz",
+			"sha": "bf5b922b8f40cdcfb91c035dcd916110d1621f9b",
+			"registry": "npmjs"
+		},
+		"mustache-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-1.0.0.tgz",
+			"sha": "8f5b8f68041dbead10997e0ba1d024771a03e15a",
+			"registry": "npmjs"
+		},
+		"mustache-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-1.1.0.tgz",
+			"sha": "0d9a554b4b3f9e248e6c2742c2579d618d2ff00f",
+			"registry": "npmjs"
+		},
+		"mustache-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-1.2.0.tgz",
+			"sha": "6cdec1cb03798792a948f8cc53ad69da0d0dd5c8",
+			"registry": "npmjs"
+		},
+		"mustache-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-2.0.0.tgz",
+			"sha": "b86a7157cc85c6e18c03afef8a671f03069890f3",
+			"registry": "npmjs"
+		},
+		"mustache-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-2.1.0.tgz",
+			"sha": "00ae3d7757c68e4c997485c6728947e77f354b26",
+			"registry": "npmjs"
+		},
+		"mustache-2.1.1.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-2.1.1.tgz",
+			"sha": "cc2bfbf698654b8c7130c72608f013d17804614c",
+			"registry": "npmjs"
+		},
+		"mustache-2.1.2.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-2.1.2.tgz",
+			"sha": "aff2960bc59720e4db7f6a7a758cae39994aab77",
+			"registry": "npmjs"
+		},
+		"mustache-2.1.3.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-2.1.3.tgz",
+			"sha": "25b90b4204a454c898e8bb2e38d26de223abbd56",
+			"registry": "npmjs"
+		},
+		"mustache-2.2.0.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-2.2.0.tgz",
+			"sha": "d29813b499b8067712b503347eac342c616727c7",
+			"registry": "npmjs"
+		},
+		"mustache-2.2.1.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-2.2.1.tgz",
+			"sha": "2c40ca21c278f53150682bcf9090e41a3339b876",
+			"registry": "npmjs"
+		},
+		"mustache-2.3.0.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-2.3.0.tgz",
+			"sha": "4028f7778b17708a489930a6e52ac3bca0da41d0",
+			"registry": "npmjs"
+		},
+		"mustache-2.3.1.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-2.3.1.tgz",
+			"sha": "ef5db3c0d11f1640e9baa47f4e65ba0c3fcd82b9",
+			"registry": "npmjs"
+		},
+		"mustache-2.3.2.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-2.3.2.tgz",
+			"sha": "a6d4d9c3f91d13359ab889a812954f9230a3d0c5",
+			"registry": "npmjs"
+		},
+		"mustache-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-3.0.0.tgz",
+			"sha": "3de22dd9ba38152f7355399a953dd4528c403338",
+			"registry": "npmjs"
+		},
+		"mustache-3.0.1.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-3.0.1.tgz",
+			"sha": "873855f23aa8a95b150fb96d9836edbc5a1d248a",
+			"registry": "npmjs"
+		},
+		"mustache-3.0.2.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-3.0.2.tgz",
+			"sha": "35bb886a1e5baad0a8f192258fe9a904f711868c",
+			"registry": "npmjs"
+		},
+		"mustache-3.0.3.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-3.0.3.tgz",
+			"sha": "ee4fb971887fa6cc1b6b6d219a74b5e3c7535f32",
+			"registry": "npmjs"
+		},
+		"mustache-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/mustache/-/mustache-3.1.0.tgz",
+			"sha": "9fba26e7aefc5709f07ff585abb7e0abced6c372",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-dd604ba644e5b5b5",
+	"_id": "mustache",
+	"readme": "# mustache.js - Logic-less {{mustache}} templates with JavaScript\n\n> What could be more logical awesome than no logic at all?\n\n[![Build Status](https://travis-ci.org/janl/mustache.js.svg?branch=master)](https://travis-ci.org/janl/mustache.js) [![Gitter chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/janl/mustache.js)\n\n[mustache.js](http://github.com/janl/mustache.js) is an implementation of the [mustache](http://mustache.github.com/) template system in JavaScript.\n\n[Mustache](http://mustache.github.com/) is a logic-less template syntax. It can be used for HTML, config files, source code - anything. It works by expanding tags in a template using values provided in a hash or object.\n\nWe call it \"logic-less\" because there are no if statements, else clauses, or for loops. Instead there are only tags. Some tags are replaced with a value, some nothing, and others a series of values.\n\nFor a language-agnostic overview of mustache's template syntax, see the `mustache(5)` [manpage](http://mustache.github.com/mustache.5.html).\n\n## Where to use mustache.js?\n\nYou can use mustache.js to render mustache templates anywhere you can use JavaScript. This includes web browsers, server-side environments such as [node](http://nodejs.org/), and [CouchDB](http://couchdb.apache.org/) views.\n\nmustache.js ships with support for both the [CommonJS](http://www.commonjs.org/) module API and the [Asynchronous Module Definition](https://github.com/amdjs/amdjs-api/wiki/AMD) API, or AMD.\n\nAnd this will be your templates after you use Mustache:\n\n!['stache](https://cloud.githubusercontent.com/assets/288977/8779228/a3cf700e-2f02-11e5-869a-300312fb7a00.gif)\n\n## Install\n\nYou can get Mustache via npm.\n\n```bash\n$ npm install mustache --save\n```\nor install with bower:\n\n```bash\n$ bower install --save mustache\n```\n\n## Command line tool\n\nmustache.js is shipped with a node based command line tool. It might be installed as a global tool on your computer to render a mustache template of some kind\n\n```bash\n$ npm install -g mustache\n\n$ mustache dataView.json myTemplate.mustache > output.html\n```\n\nalso supports stdin.\n\n```bash\n$ cat dataView.json | mustache - myTemplate.mustache > output.html\n```\n\nor as a package.json `devDependency` in a build process maybe?\n\n```bash\n$ npm install mustache --save-dev\n```\n\n```json\n{\n  \"scripts\": {\n    \"build\": \"mustache dataView.json myTemplate.mustache > public/output.html\"\n  }\n}\n```\n```bash\n$ npm run build\n```\n\nThe command line tool is basically a wrapper around `Mustache.render` so you get all the features.\n\nIf your templates use partials you should pass paths to partials using `-p` flag:\n\n```bash\n$ mustache -p path/to/partial1.mustache -p path/to/partial2.mustache dataView.json myTemplate.mustache\n```\n\n## Who uses mustache.js?\n\nAn updated list of mustache.js users is kept [on the Github wiki](https://github.com/janl/mustache.js/wiki/Beard-Competition). Add yourself or your company if you use mustache.js!\n\n## Contributing\n\nmustache.js is a mature project, but it continues to actively invite maintainers. You can help out a high-profile project that is used in a lot of places on the web. There is [plenty](https://github.com/janl/mustache.js/issues) of [work](https://github.com/janl/mustache.js/pulls) to do. No big commitment required, if all you do is review a single [Pull Request](https://github.com/janl/mustache.js/pulls), you are a maintainer. And a hero.\n\n### Your First Contribution\n\n- review a [Pull Request](https://github.com/janl/mustache.js/pulls)\n- fix an [Issue](https://github.com/janl/mustache.js/issues)\n- update the [documentation](https://github.com/janl/mustache.js#usage)\n- make a website\n- write a tutorial\n\n* * *\n\n## Usage\n\nBelow is a quick example how to use mustache.js:\n\n```js\nvar view = {\n  title: \"Joe\",\n  calc: function () {\n    return 2 + 4;\n  }\n};\n\nvar output = Mustache.render(\"{{title}} spends {{calc}}\", view);\n```\n\nIn this example, the `Mustache.render` function takes two parameters: 1) the [mustache](http://mustache.github.com/) template and 2) a `view` object that contains the data and code needed to render the template.\n\n## API\n\nFollowing is an [rtype](https://git.io/rtype) signature of the most commonly used functions.\n\n```js\nMustache.render(\n  template            : String,\n  view                : Object,\n  partials?           : Object,\n  tags = ['{{', '}}'] : Tags,\n) => String\n\nMustache.parse(\n  template              : String,\n  tags = ['{{', '}}']   : Tags,\n) => Token[]\n\ninterface Token [String, String, Number, Number, Token[]?, Number?]\n\ninterface Tags [String, String]\n\n```\n\n## Templates\n\nA [mustache](http://mustache.github.com/) template is a string that contains any number of mustache tags. Tags are indicated by the double mustaches that surround them. `{{person}}` is a tag, as is `{{#person}}`. In both examples we refer to `person` as the tag's key. There are several types of tags available in mustache.js, described below.\n\nThere are several techniques that can be used to load templates and hand them to mustache.js, here are two of them:\n\n#### Include Templates\n\nIf you need a template for a dynamic part in a static website, you can consider including the template in the static HTML file to avoid loading templates separately. Here's a small example using `jQuery`:\n\n```html\n<!DOCTYPE HTML>\n<html>\n<body onload=\"loadUser()\">\n<div id=\"target\">Loading...</div>\n<script id=\"template\" type=\"x-tmpl-mustache\">\nHello {{ name }}!\n</script>\n</body>\n</html>\n```\n\n```js\nfunction loadUser() {\n  var template = $('#template').html();\n  Mustache.parse(template);   // optional, speeds up future uses\n  var rendered = Mustache.render(template, {name: \"Luke\"});\n  $('#target').html(rendered);\n}\n```\n\n#### Load External Templates\n\nIf your templates reside in individual files, you can load them asynchronously and render them when they arrive. Another example using `jQuery`:\n\n```js\nfunction loadUser() {\n  $.get('template.mst', function(template) {\n    var rendered = Mustache.render(template, {name: \"Luke\"});\n    $('#target').html(rendered);\n  });\n}\n```\n\n### Variables\n\nThe most basic tag type is a simple variable. A `{{name}}` tag renders the value of the `name` key in the current context. If there is no such key, nothing is rendered.\n\nAll variables are HTML-escaped by default. If you want to render unescaped HTML, use the triple mustache: `{{{name}}}`. You can also use `&` to unescape a variable.\n\nIf you'd like to change HTML-escaping behavior globally (for example, to template non-HTML formats), you can override Mustache's escape function. For example, to disable all escaping: `Mustache.escape = function(text) {return text;};`.\n\nIf you want `{{name}}` _not_ to be interpreted as a mustache tag, but rather to appear exactly as `{{name}}` in the output, you must change and then restore the default delimiter. See the [Custom Delimiters](#custom-delimiters) section for more information.\n\nView:\n\n```json\n{\n  \"name\": \"Chris\",\n  \"company\": \"<b>GitHub</b>\"\n}\n```\n\nTemplate:\n\n```\n* {{name}}\n* {{age}}\n* {{company}}\n* {{{company}}}\n* {{&company}}\n{{=<% %>=}}\n* {{company}}\n<%={{ }}=%>\n```\n\nOutput:\n\n```html\n* Chris\n*\n* &lt;b&gt;GitHub&lt;/b&gt;\n* <b>GitHub</b>\n* <b>GitHub</b>\n* {{company}}\n```\n\nJavaScript's dot notation may be used to access keys that are properties of objects in a view.\n\nView:\n\n```json\n{\n  \"name\": {\n    \"first\": \"Michael\",\n    \"last\": \"Jackson\"\n  },\n  \"age\": \"RIP\"\n}\n```\n\nTemplate:\n\n```html\n* {{name.first}} {{name.last}}\n* {{age}}\n```\n\nOutput:\n\n```html\n* Michael Jackson\n* RIP\n```\n\n### Sections\n\nSections render blocks of text one or more times, depending on the value of the key in the current context.\n\nA section begins with a pound and ends with a slash. That is, `{{#person}}` begins a `person` section, while `{{/person}}` ends it. The text between the two tags is referred to as that section's \"block\".\n\nThe behavior of the section is determined by the value of the key.\n\n#### False Values or Empty Lists\n\nIf the `person` key does not exist, or exists and has a value of `null`, `undefined`, `false`, `0`, or `NaN`, or is an empty string or an empty list, the block will not be rendered.\n\nView:\n\n```json\n{\n  \"person\": false\n}\n```\n\nTemplate:\n\n```html\nShown.\n{{#person}}\nNever shown!\n{{/person}}\n```\n\nOutput:\n\n```html\nShown.\n```\n\n#### Non-Empty Lists\n\nIf the `person` key exists and is not `null`, `undefined`, or `false`, and is not an empty list the block will be rendered one or more times.\n\nWhen the value is a list, the block is rendered once for each item in the list. The context of the block is set to the current item in the list for each iteration. In this way we can loop over collections.\n\nView:\n\n```json\n{\n  \"stooges\": [\n    { \"name\": \"Moe\" },\n    { \"name\": \"Larry\" },\n    { \"name\": \"Curly\" }\n  ]\n}\n```\n\nTemplate:\n\n```html\n{{#stooges}}\n<b>{{name}}</b>\n{{/stooges}}\n```\n\nOutput:\n\n```html\n<b>Moe</b>\n<b>Larry</b>\n<b>Curly</b>\n```\n\nWhen looping over an array of strings, a `.` can be used to refer to the current item in the list.\n\nView:\n\n```json\n{\n  \"musketeers\": [\"Athos\", \"Aramis\", \"Porthos\", \"D'Artagnan\"]\n}\n```\n\nTemplate:\n\n```html\n{{#musketeers}}\n* {{.}}\n{{/musketeers}}\n```\n\nOutput:\n\n```html\n* Athos\n* Aramis\n* Porthos\n* D'Artagnan\n```\n\nIf the value of a section variable is a function, it will be called in the context of the current item in the list on each iteration.\n\nView:\n\n```js\n{\n  \"beatles\": [\n    { \"firstName\": \"John\", \"lastName\": \"Lennon\" },\n    { \"firstName\": \"Paul\", \"lastName\": \"McCartney\" },\n    { \"firstName\": \"George\", \"lastName\": \"Harrison\" },\n    { \"firstName\": \"Ringo\", \"lastName\": \"Starr\" }\n  ],\n  \"name\": function () {\n    return this.firstName + \" \" + this.lastName;\n  }\n}\n```\n\nTemplate:\n\n```html\n{{#beatles}}\n* {{name}}\n{{/beatles}}\n```\n\nOutput:\n\n```html\n* John Lennon\n* Paul McCartney\n* George Harrison\n* Ringo Starr\n```\n\n#### Functions\n\nIf the value of a section key is a function, it is called with the section's literal block of text, un-rendered, as its first argument. The second argument is a special rendering function that uses the current view as its view argument. It is called in the context of the current view object.\n\nView:\n\n```js\n{\n  \"name\": \"Tater\",\n  \"bold\": function () {\n    return function (text, render) {\n      return \"<b>\" + render(text) + \"</b>\";\n    }\n  }\n}\n```\n\nTemplate:\n\n```html\n{{#bold}}Hi {{name}}.{{/bold}}\n```\n\nOutput:\n\n```html\n<b>Hi Tater.</b>\n```\n\n### Inverted Sections\n\nAn inverted section opens with `{{^section}}` instead of `{{#section}}`. The block of an inverted section is rendered only if the value of that section's tag is `null`, `undefined`, `false`, *falsy* or an empty list.\n\nView:\n\n```json\n{\n  \"repos\": []\n}\n```\n\nTemplate:\n\n```html\n{{#repos}}<b>{{name}}</b>{{/repos}}\n{{^repos}}No repos :({{/repos}}\n```\n\nOutput:\n\n```html\nNo repos :(\n```\n\n### Comments\n\nComments begin with a bang and are ignored. The following template:\n\n```html\n<h1>Today{{! ignore me }}.</h1>\n```\n\nWill render as follows:\n\n```html\n<h1>Today.</h1>\n```\n\nComments may contain newlines.\n\n### Partials\n\nPartials begin with a greater than sign, like {{> box}}.\n\nPartials are rendered at runtime (as opposed to compile time), so recursive partials are possible. Just avoid infinite loops.\n\nThey also inherit the calling context. Whereas in ERB you may have this:\n\n```html+erb\n<%= partial :next_more, :start => start, :size => size %>\n```\n\nMustache requires only this:\n\n```html\n{{> next_more}}\n```\n\nWhy? Because the `next_more.mustache` file will inherit the `size` and `start` variables from the calling context. In this way you may want to think of partials as includes, imports, template expansion, nested templates, or subtemplates, even though those aren't literally the case here.\n\n\nFor example, this template and partial:\n\n    base.mustache:\n    <h2>Names</h2>\n    {{#names}}\n      {{> user}}\n    {{/names}}\n\n    user.mustache:\n    <strong>{{name}}</strong>\n\nCan be thought of as a single, expanded template:\n\n```html\n<h2>Names</h2>\n{{#names}}\n  <strong>{{name}}</strong>\n{{/names}}\n```\n\nIn mustache.js an object of partials may be passed as the third argument to `Mustache.render`. The object should be keyed by the name of the partial, and its value should be the partial text.\n\n```js\nMustache.render(template, view, {\n  user: userTemplate\n});\n```\n\n### Custom Delimiters\n\nCustom delimiters can be used in place of `{{` and `}}` by setting the new values in JavaScript or in templates.\n\n#### Setting in JavaScript\n\nThe `Mustache.tags` property holds an array consisting of the opening and closing tag values. Set custom values by passing a new array of tags to `render()`, which gets honored over the default values, or by overriding the `Mustache.tags` property itself:\n\n```js\nvar customTags = [ '<%', '%>' ];\n```\n\n##### Pass Value into Render Method\n```js\nMustache.render(template, view, {}, customTags);\n```\n\n##### Override Tags Property\n```js\nMustache.tags = customTags;\n// Subsequent parse() and render() calls will use customTags\n```\n\n#### Setting in Templates\n\nSet Delimiter tags start with an equals sign and change the tag delimiters from `{{` and `}}` to custom strings.\n\nConsider the following contrived example:\n\n```html+erb\n* {{ default_tags }}\n{{=<% %>=}}\n* <% erb_style_tags %>\n<%={{ }}=%>\n* {{ default_tags_again }}\n```\n\nHere we have a list with three items. The first item uses the default tag style, the second uses ERB style as defined by the Set Delimiter tag, and the third returns to the default style after yet another Set Delimiter declaration.\n\nAccording to [ctemplates](https://htmlpreview.github.io/?https://raw.githubusercontent.com/OlafvdSpek/ctemplate/master/doc/howto.html), this \"is useful for languages like TeX, where double-braces may occur in the text and are awkward to use for markup.\"\n\nCustom delimiters may not contain whitespace or the equals sign.\n\n## Pre-parsing and Caching Templates\n\nBy default, when mustache.js first parses a template it keeps the full parsed token tree in a cache. The next time it sees that same template it skips the parsing step and renders the template much more quickly. If you'd like, you can do this ahead of time using `mustache.parse`.\n\n```js\nMustache.parse(template);\n\n// Then, sometime later.\nMustache.render(template, view);\n```\n\n## Plugins for JavaScript Libraries\n\nmustache.js may be built specifically for several different client libraries, including the following:\n\n  - [jQuery](http://jquery.com/)\n  - [MooTools](http://mootools.net/)\n  - [Dojo](http://www.dojotoolkit.org/)\n  - [YUI](http://developer.yahoo.com/yui/)\n  - [qooxdoo](http://qooxdoo.org/)\n\nThese may be built using [Rake](http://rake.rubyforge.org/) and one of the following commands:\n```bash\n$ rake jquery\n$ rake mootools\n$ rake dojo\n$ rake yui3\n$ rake qooxdoo\n```\n## Testing\n\nIn order to run the tests you'll need to install [node](http://nodejs.org/).\n\nYou also need to install the sub module containing [Mustache specifications](http://github.com/mustache/spec) in the project root.\n```bash\n$ git submodule init\n$ git submodule update\n```\nInstall dependencies.\n```bash\n$ npm install\n```\nThen run the tests.\n```bash\n$ npm test\n```\nThe test suite consists of both unit and integration tests. If a template isn't rendering correctly for you, you can make a test for it by doing the following:\n\n  1. Create a template file named `mytest.mustache` in the `test/_files`\n     directory. Replace `mytest` with the name of your test.\n  2. Create a corresponding view file named `mytest.js` in the same directory.\n     This file should contain a JavaScript object literal enclosed in\n     parentheses. See any of the other view files for an example.\n  3. Create a file with the expected output in `mytest.txt` in the same\n     directory.\n\nThen, you can run the test with:\n```bash\n$ TEST=mytest npm run test-render\n```\n### Browser tests\n\nBrowser tests are not included in `npm test` as they run for too long, although they are ran automatically on Travis when merged into master. Run browser tests locally in any browser:\n```bash\n$ npm run test-browser-local\n```\nthen point your browser to `http://localhost:8080/__zuul`\n\n### Troubleshooting\n\n#### npm install fails\n\nEnsure to have a recent version of npm installed. While developing this project requires npm with support for `^` version ranges.\n```bash\n$ npm install -g npm\n```\n## Thanks\n\nmustache.js wouldn't kick ass if it weren't for these fine souls:\n\n  * Chris Wanstrath / defunkt\n  * Alexander Lang / langalex\n  * Sebastian Cohnen / tisba\n  * J Chris Anderson / jchris\n  * Tom Robinson / tlrobinson\n  * Aaron Quint / quirkey\n  * Douglas Crockford\n  * Nikita Vasilyev / NV\n  * Elise Wood / glytch\n  * Damien Mathieu / dmathieu\n  * Jakub Kuźma / qoobaa\n  * Will Leinweber / will\n  * dpree\n  * Jason Smith / jhs\n  * Aaron Gibralter / agibralter\n  * Ross Boucher / boucher\n  * Matt Sanford / mzsanford\n  * Ben Cherry / bcherry\n  * Michael Jackson / mjackson\n  * Phillip Johnsen / phillipj\n  * David da Silva Contín / dasilvacontin"
+}

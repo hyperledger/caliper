@@ -1,0 +1,258 @@
+{
+	"name": "to-buffer",
+	"versions": {
+		"1.0.0": {
+			"name": "to-buffer",
+			"version": "1.0.0",
+			"description": "WIP - nothing to see here",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"standard": "^6.0.5",
+				"tape": "^4.4.0"
+			},
+			"scripts": {
+				"test": "standard && tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/to-buffer.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/to-buffer/issues"
+			},
+			"homepage": "https://github.com/mafintosh/to-buffer",
+			"gitHead": "b57a85697b94dfd17ffc2d8c90484ece06ff5e7f",
+			"_id": "to-buffer@1.0.0",
+			"_shasum": "9a3d84bc3418679add0251ae92d3e4c41b38af32",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.3",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "9a3d84bc3418679add0251ae92d3e4c41b38af32",
+				"tarball": "https://registry.npmjs.org/to-buffer/-/to-buffer-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/to-buffer-1.0.0.tgz_1455566673200_0.9151617083698511"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "to-buffer",
+			"version": "1.0.1",
+			"description": "Pass in a string, get a buffer back. Pass in a buffer, get the same buffer back",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"standard": "^6.0.5",
+				"tape": "^4.4.0"
+			},
+			"scripts": {
+				"test": "standard && tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/to-buffer.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/to-buffer/issues"
+			},
+			"homepage": "https://github.com/mafintosh/to-buffer",
+			"gitHead": "8b7b0403ce3ea12a20c53d154c28082918a310bc",
+			"_id": "to-buffer@1.0.1",
+			"_shasum": "91283f91a2a1935200dcb32a6aaeab5828955612",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.3",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "91283f91a2a1935200dcb32a6aaeab5828955612",
+				"tarball": "https://registry.npmjs.org/to-buffer/-/to-buffer-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-5-east.internal.npmjs.com",
+				"tmp": "tmp/to-buffer-1.0.1.tgz_1455566751907_0.7123836160171777"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "to-buffer",
+			"version": "1.1.0",
+			"description": "Pass in a string, get a buffer back. Pass in a buffer, get the same buffer back",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"standard": "^6.0.5",
+				"tape": "^4.4.0"
+			},
+			"scripts": {
+				"test": "standard && tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/to-buffer.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/to-buffer/issues"
+			},
+			"homepage": "https://github.com/mafintosh/to-buffer",
+			"gitHead": "e70eedf2492df123ea19d1c52bf07bf2e590b080",
+			"_id": "to-buffer@1.1.0",
+			"_shasum": "375bc03edae5c35a8fa0b3fe95a1f3985db1dcfa",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.9.5",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "375bc03edae5c35a8fa0b3fe95a1f3985db1dcfa",
+				"tarball": "https://registry.npmjs.org/to-buffer/-/to-buffer-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/to-buffer-1.1.0.tgz_1492026371375_0.07645408087410033"
+			},
+			"directories": {}
+		},
+		"1.1.1": {
+			"name": "to-buffer",
+			"version": "1.1.1",
+			"description": "Pass in a string, get a buffer back. Pass in a buffer, get the same buffer back",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"standard": "^6.0.5",
+				"tape": "^4.4.0"
+			},
+			"scripts": {
+				"test": "standard && tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/to-buffer.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/to-buffer/issues"
+			},
+			"homepage": "https://github.com/mafintosh/to-buffer",
+			"gitHead": "17a1aa27bfce0218979472cfe4776b50438e8857",
+			"_id": "to-buffer@1.1.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.11.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-lx9B5iv7msuFYE3dytT+KE5tap+rNYw+K4jVkb9R/asAb+pbBSM17jtunHplhBe6RRJdZx3Pn2Jph24O32mOVg==",
+				"shasum": "493bd48f62d7c43fcded313a03dcadb2e1213a80",
+				"tarball": "https://registry.npmjs.org/to-buffer/-/to-buffer-1.1.1.tgz",
+				"fileCount": 6,
+				"unpackedSize": 3254,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa4eiZCRA9TVsSAnZWagAA8LgQAJ5GG58jcIfPKs/HYLqA\n2YKCnomJUKJyazkUHaKhm+0yHLfQosxFnWM0W+GrIYtotUunuoczOX1Ba1dc\nqC5QVRUg2/Zvwu/TC9d6QVc+To8bQaGexp6rG9F6MX0GcUD2Huv6JdFyT9Wu\nC88fRK8QCNQNP0BUOI5KkYZ/bsq3U8iXi1zDW9WmNORPrjM4pJhK+phzENM4\nuHXzCfVbF17mnIMIcqdA6+cORHHRCirs6oUruxgTgUmbXUG0mGgsIjfCzDdx\nPhrXNvqXzclxRxaoDYoGefa0gT0m08exrfOu7h9RAjHOYyGoXNzHyF9vkeZm\nc/2GnUgjVM3r7kugexMMqJ0dq6eJ/BmmgNJT42vDXXsvTRa1Q9qWzyJBMXvs\nZ/ssrllUspBAOAPFfDuKJ1n0nNl/MZg7HXFgwDDdmn2/ySm+XEDSM8xV0OJJ\nFkOhOu8jn5nZT22aaum21fvI63TStuiOC/tO01rT2xSuPf2i4pHgzxJoLPnq\nRaEig4ylwnT5nHLGwYr6kSYo7l0yneSIEpcxIUuLXj3GlcJMwHz77zXJsppu\nxtpHZjgEwQ+8jK0HJ8tDCE++W/v7p+klws17GBLZQl4YDQVqIJvFy+6YkuML\n/QVKEWXR59xUA/thIXtcyLC4ZIsZqjefE0EtRtNTpYNocMl76+o1Re5vwTbb\ntxDk\r\n=QAFc\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/to-buffer_1.1.1_1524754584618_0.8258302631612433"
+			}
+		}
+	},
+	"time": {
+		"modified": "2018-04-26T14:56:28.197Z",
+		"created": "2016-02-15T20:04:36.934Z",
+		"1.0.0": "2016-02-15T20:04:36.934Z",
+		"1.0.1": "2016-02-15T20:05:54.031Z",
+		"1.1.0": "2017-04-12T19:46:13.233Z",
+		"1.1.1": "2018-04-26T14:56:24.701Z"
+	},
+	"dist-tags": {
+		"latest": "1.1.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"56bc182a791bebbe176713bdf9845b5c\"",
+			"fetched": 1568994335628
+		}
+	},
+	"_distfiles": {
+		"to-buffer-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/to-buffer/-/to-buffer-1.0.0.tgz",
+			"sha": "9a3d84bc3418679add0251ae92d3e4c41b38af32",
+			"registry": "npmjs"
+		},
+		"to-buffer-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/to-buffer/-/to-buffer-1.0.1.tgz",
+			"sha": "91283f91a2a1935200dcb32a6aaeab5828955612",
+			"registry": "npmjs"
+		},
+		"to-buffer-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/to-buffer/-/to-buffer-1.1.0.tgz",
+			"sha": "375bc03edae5c35a8fa0b3fe95a1f3985db1dcfa",
+			"registry": "npmjs"
+		},
+		"to-buffer-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/to-buffer/-/to-buffer-1.1.1.tgz",
+			"sha": "493bd48f62d7c43fcded313a03dcadb2e1213a80",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-c8db80d100bc547c",
+	"_id": "to-buffer",
+	"readme": "# to-buffer\n\nPass in a string, get a buffer back. Pass in a buffer, get the same buffer back.\n\n```\nnpm install to-buffer\n```\n\n[![build status](https://travis-ci.org/mafintosh/to-buffer.svg?branch=master)](https://travis-ci.org/mafintosh/to-buffer)\n\n## Usage\n\n``` js\nvar toBuffer = require('to-buffer')\nconsole.log(toBuffer('hi')) // <Buffer 68 69>\nconsole.log(toBuffer(Buffer('hi'))) // <Buffer 68 69>\nconsole.log(toBuffer('6869', 'hex')) // <Buffer 68 69>\nconsole.log(toBuffer(43)) // throws\n```\n\n## License\n\nMIT"
+}

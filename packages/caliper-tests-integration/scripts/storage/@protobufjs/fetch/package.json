@@ -1,0 +1,373 @@
+{
+	"name": "@protobufjs/fetch",
+	"versions": {
+		"1.0.0": {
+			"name": "@protobufjs/fetch",
+			"description": "Fetches the contents of a file accross node and browsers.",
+			"version": "1.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"dependencies": {
+				"@protobufjs/aspromise": "^1.0.0",
+				"@protobufjs/fs": "^1.0.0"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/fetch@1.0.0",
+			"scripts": {},
+			"_shasum": "a8d0dd9269a7f417c6dde4b90d0f648e28326184",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "protobufjs",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"dist": {
+				"shasum": "a8d0dd9269a7f417c6dde4b90d0f648e28326184",
+				"tarball": "https://registry.npmjs.org/@protobufjs/fetch/-/fetch-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/fetch-1.0.0.tgz_1481551063520_0.639708592556417"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "@protobufjs/fetch",
+			"description": "Fetches the contents of a file accross node and browsers.",
+			"version": "1.0.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"dependencies": {
+				"@protobufjs/aspromise": "^1.0.0",
+				"@protobufjs/fs": "^1.0.0"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/fetch@1.0.1",
+			"scripts": {},
+			"_shasum": "42cafca63962200d62614596adfe473026d2b273",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "42cafca63962200d62614596adfe473026d2b273",
+				"tarball": "https://registry.npmjs.org/@protobufjs/fetch/-/fetch-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/fetch-1.0.1.tgz_1481582711590_0.2621838618069887"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "@protobufjs/fetch",
+			"description": "Fetches the contents of a file accross node and browsers.",
+			"version": "1.0.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"dependencies": {
+				"@protobufjs/aspromise": "^1.0.0",
+				"@protobufjs/inquire": "^1.0.0"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/fetch@1.0.2",
+			"scripts": {},
+			"_shasum": "d955646ad1b3c186e96d9c8e113cec085ab1c73d",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "d955646ad1b3c186e96d9c8e113cec085ab1c73d",
+				"tarball": "https://registry.npmjs.org/@protobufjs/fetch/-/fetch-1.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/fetch-1.0.2.tgz_1482081765011_0.9189071871805936"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "@protobufjs/fetch",
+			"description": "Fetches the contents of a file accross node and browsers.",
+			"version": "1.0.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"dependencies": {
+				"@protobufjs/aspromise": "^1.0.4",
+				"@protobufjs/inquire": "^1.0.1"
+			},
+			"license": "BSD-3-Clause",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/fetch@1.0.3",
+			"scripts": {},
+			"_shasum": "d6a2aad5bbefe2ce941427b8e00f331fef93712c",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "d6a2aad5bbefe2ce941427b8e00f331fef93712c",
+				"tarball": "https://registry.npmjs.org/@protobufjs/fetch/-/fetch-1.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/fetch-1.0.3.tgz_1482269756320_0.22236744756810367"
+			},
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "@protobufjs/fetch",
+			"description": "Fetches the contents of a file accross node and browsers.",
+			"version": "1.0.4",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"dependencies": {
+				"@protobufjs/aspromise": "^1.0.5",
+				"@protobufjs/inquire": "^1.0.2"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/fetch@1.0.4",
+			"scripts": {},
+			"_shasum": "9f48faa1f9fc01ea4c6d61133ef5af75491f8298",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "9f48faa1f9fc01ea4c6d61133ef5af75491f8298",
+				"tarball": "https://registry.npmjs.org/@protobufjs/fetch/-/fetch-1.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/fetch-1.0.4.tgz_1483457482865_0.1876099812798202"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "@protobufjs/fetch",
+			"description": "Fetches the contents of a file accross node and browsers.",
+			"version": "1.1.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"dependencies": {
+				"@protobufjs/aspromise": "^1.1.1",
+				"@protobufjs/inquire": "^1.1.0"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"istanbul": "^0.4.5",
+				"tape": "^4.6.3"
+			},
+			"scripts": {
+				"test": "tape tests/*.js",
+				"coverage": "istanbul cover node_modules/tape/bin/tape tests/*.js"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/fetch@1.1.0",
+			"_shasum": "ba99fb598614af65700c1619ff06d454b0d84c45",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "ba99fb598614af65700c1619ff06d454b0d84c45",
+				"tarball": "https://registry.npmjs.org/@protobufjs/fetch/-/fetch-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/fetch-1.1.0.tgz_1485532253082_0.3777743794489652"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2017-01-27T15:50:55.061Z",
+		"created": "2016-12-12T13:57:44.108Z",
+		"1.0.0": "2016-12-12T13:57:44.108Z",
+		"1.0.1": "2016-12-12T22:45:12.316Z",
+		"1.0.2": "2016-12-18T17:22:46.881Z",
+		"1.0.3": "2016-12-20T21:35:58.201Z",
+		"1.0.4": "2017-01-03T15:31:23.572Z",
+		"1.1.0": "2017-01-27T15:50:55.061Z"
+	},
+	"dist-tags": {
+		"latest": "1.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"3030dba557eb50ac015dbb3c3af2d1c7\"",
+			"fetched": 1568994331348
+		}
+	},
+	"_distfiles": {
+		"fetch-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/fetch/-/fetch-1.0.0.tgz",
+			"sha": "a8d0dd9269a7f417c6dde4b90d0f648e28326184",
+			"registry": "npmjs"
+		},
+		"fetch-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/fetch/-/fetch-1.0.1.tgz",
+			"sha": "42cafca63962200d62614596adfe473026d2b273",
+			"registry": "npmjs"
+		},
+		"fetch-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/fetch/-/fetch-1.0.2.tgz",
+			"sha": "d955646ad1b3c186e96d9c8e113cec085ab1c73d",
+			"registry": "npmjs"
+		},
+		"fetch-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/fetch/-/fetch-1.0.3.tgz",
+			"sha": "d6a2aad5bbefe2ce941427b8e00f331fef93712c",
+			"registry": "npmjs"
+		},
+		"fetch-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/fetch/-/fetch-1.0.4.tgz",
+			"sha": "9f48faa1f9fc01ea4c6d61133ef5af75491f8298",
+			"registry": "npmjs"
+		},
+		"fetch-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/fetch/-/fetch-1.1.0.tgz",
+			"sha": "ba99fb598614af65700c1619ff06d454b0d84c45",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-88a8df08b469e161",
+	"_id": "@protobufjs/fetch",
+	"readme": "@protobufjs/fetch\r\n=================\r\n[![npm](https://img.shields.io/npm/v/@protobufjs/fetch.svg)](https://www.npmjs.com/package/@protobufjs/fetch)\r\n\r\nFetches the contents of a file accross node and browsers.\r\n\r\nAPI\r\n---\r\n\r\n* **fetch(path: `string`, [options: { binary: boolean } ], [callback: `function(error: ?Error, [contents: string])`]): `Promise<string|Uint8Array>|undefined`**\r\n  Fetches the contents of a file.\r\n\r\n**License:** [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)"
+}

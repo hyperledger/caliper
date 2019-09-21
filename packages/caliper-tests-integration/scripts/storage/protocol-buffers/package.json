@@ -1,0 +1,4246 @@
+{
+	"name": "protocol-buffers",
+	"versions": {
+		"0.1.0": {
+			"name": "protocol-buffers",
+			"version": "0.1.0",
+			"description": "encode/decode protocol buffers in node with stream support",
+			"dependencies": {
+				"proto2json": "^0.1.0",
+				"varint": "^1.1.0"
+			},
+			"devDependencies": {
+				"tape": "^2.12.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"_id": "protocol-buffers@0.1.0",
+			"dist": {
+				"shasum": "ab94050f5c45d5ce1314d05c9fa4e9902ae86ae1",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.1.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "protocol-buffers",
+			"version": "0.2.0",
+			"description": "encode/decode protocol buffers in node with stream support",
+			"dependencies": {
+				"proto2json": "^0.1.0",
+				"varint": "^1.1.0"
+			},
+			"devDependencies": {
+				"tape": "^2.12.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"_id": "protocol-buffers@0.2.0",
+			"_shasum": "f6f115de1321a0b0bc08636d8a549d830c3ae505",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "f6f115de1321a0b0bc08636d8a549d830c3ae505",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.2.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.1": {
+			"name": "protocol-buffers",
+			"version": "0.2.1",
+			"description": "encode/decode protocol buffers in node with stream support",
+			"dependencies": {
+				"proto2json": "^0.1.0",
+				"varint": "^1.1.0"
+			},
+			"devDependencies": {
+				"tape": "^2.12.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"_id": "protocol-buffers@0.2.1",
+			"_shasum": "60a28cb8ffb2754993e507ef00a878b91ef6322e",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "60a28cb8ffb2754993e507ef00a878b91ef6322e",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.2.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.2": {
+			"name": "protocol-buffers",
+			"version": "0.2.2",
+			"description": "encode/decode protocol buffers in node with stream support",
+			"dependencies": {
+				"proto2json": "^0.1.0",
+				"varint": "^1.1.0"
+			},
+			"devDependencies": {
+				"tape": "^2.12.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"_id": "protocol-buffers@0.2.2",
+			"_shasum": "15a3c8710651270bec7cdee4bdc5c4cef5fbd16b",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "15a3c8710651270bec7cdee4bdc5c4cef5fbd16b",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.2.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.3": {
+			"name": "protocol-buffers",
+			"version": "0.2.3",
+			"description": "encode/decode protocol buffers in node with stream support",
+			"dependencies": {
+				"proto2json": "^0.1.0",
+				"varint": "^1.1.0"
+			},
+			"devDependencies": {
+				"tape": "^2.12.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"_id": "protocol-buffers@0.2.3",
+			"_shasum": "3d4010a14d650f2bd2befe3d8dd9bbafbdc0c911",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "3d4010a14d650f2bd2befe3d8dd9bbafbdc0c911",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.2.3.tgz"
+			},
+			"directories": {}
+		},
+		"0.3.0": {
+			"name": "protocol-buffers",
+			"version": "0.3.0",
+			"description": "encode/decode protocol buffers in node with stream support",
+			"dependencies": {
+				"proto2json": "^0.1.0",
+				"varint": "^1.1.0"
+			},
+			"devDependencies": {
+				"tape": "^2.12.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"_id": "protocol-buffers@0.3.0",
+			"_shasum": "9ac2c446d51d571268dd2e47a898e88efe0ccdfd",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "9ac2c446d51d571268dd2e47a898e88efe0ccdfd",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.3.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.0": {
+			"name": "protocol-buffers",
+			"version": "0.4.0",
+			"description": "encode/decode protocol buffers in node with stream support",
+			"dependencies": {
+				"proto2json": "^0.1.0",
+				"varint": "^1.1.0"
+			},
+			"devDependencies": {
+				"tape": "^2.12.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"_id": "protocol-buffers@0.4.0",
+			"_shasum": "d3ebee091886ef4b9c8630d643639ef1eaf4b410",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "d3ebee091886ef4b9c8630d643639ef1eaf4b410",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.4.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.1": {
+			"name": "protocol-buffers",
+			"version": "0.4.1",
+			"description": "encode/decode protocol buffers in node with stream support",
+			"dependencies": {
+				"proto2json": "^0.1.0",
+				"varint": "^1.1.0"
+			},
+			"devDependencies": {
+				"tape": "^2.12.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"_id": "protocol-buffers@0.4.1",
+			"_shasum": "c6922c0097cb6df8ebbc25d51c73f9b33c90aa80",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "c6922c0097cb6df8ebbc25d51c73f9b33c90aa80",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.4.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.2": {
+			"name": "protocol-buffers",
+			"version": "0.4.2",
+			"description": "encode/decode protocol buffers in node with stream support",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"proto2json": "^0.1.0",
+				"varint": "^1.1.0"
+			},
+			"devDependencies": {
+				"tape": "^2.12.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"_id": "protocol-buffers@0.4.2",
+			"_shasum": "1e9fc2efc116d812de2b246912337b75c03f78c2",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "1e9fc2efc116d812de2b246912337b75c03f78c2",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.4.2.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "protocol-buffers",
+			"version": "1.0.0",
+			"description": "encode/decode protocol buffers in node with stream support",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"varint": "^1.1.0"
+			},
+			"devDependencies": {
+				"tape": "^2.12.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"_id": "protocol-buffers@1.0.0",
+			"_shasum": "fb2f4ffe918d7b23afeaade8516e8482e11a05bd",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "fb2f4ffe918d7b23afeaade8516e8482e11a05bd",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "protocol-buffers",
+			"version": "1.0.1",
+			"description": "encode/decode protocol buffers in node with stream support",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"varint": "^1.1.0"
+			},
+			"devDependencies": {
+				"tape": "^2.12.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"gitHead": "8dcf81beb8e4a36933f1a1d56602548441b8379e",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"_id": "protocol-buffers@1.0.1",
+			"_shasum": "a010aab0d0e87b816f781c64d90fee4f025628ca",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "a010aab0d0e87b816f781c64d90fee4f025628ca",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-1.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "protocol-buffers",
+			"version": "2.0.0",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.1",
+				"signed-varint": "git://github.com/mafintosh/signed-varint#bytes",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "d27bebc8017949efa6a54224afdf2b4bc63a504a",
+			"_id": "protocol-buffers@2.0.0",
+			"_shasum": "45f89670d20596976349822d39325f0dfbcc9c23",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "45f89670d20596976349822d39325f0dfbcc9c23",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.0.0.tgz"
+			}
+		},
+		"2.0.1": {
+			"name": "protocol-buffers",
+			"version": "2.0.1",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.1",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "git://github.com/mafintosh/signed-varint#bytes",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "ed1532f460e016700dd94c1bc2b6233923bedf48",
+			"_id": "protocol-buffers@2.0.1",
+			"_shasum": "2e2e68150e9423464d251f77a3ca6376240a2fe0",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "2e2e68150e9423464d251f77a3ca6376240a2fe0",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.0.1.tgz"
+			}
+		},
+		"2.0.2": {
+			"name": "protocol-buffers",
+			"version": "2.0.2",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.1",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "d54528897c629a87bb3ab2de2b24c6e972e582d1",
+			"_id": "protocol-buffers@2.0.2",
+			"_shasum": "8440ca0c8c37c4c0da6bdccf46da216a7da96cf5",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "8440ca0c8c37c4c0da6bdccf46da216a7da96cf5",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.0.2.tgz"
+			}
+		},
+		"2.0.3": {
+			"name": "protocol-buffers",
+			"version": "2.0.3",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.1",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "8c8351d0606625a2ebd81bec30afc7c7de5af2d3",
+			"_id": "protocol-buffers@2.0.3",
+			"_shasum": "cef8bb077f405616b79b612d9c8ec574d9728d15",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "cef8bb077f405616b79b612d9c8ec574d9728d15",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.0.3.tgz"
+			}
+		},
+		"2.0.4": {
+			"name": "protocol-buffers",
+			"version": "2.0.4",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "a2ac6c63b6614a995b5d02c11fb109f2c227ba07",
+			"_id": "protocol-buffers@2.0.4",
+			"_shasum": "cecd3d7e535daff0f05c0031d870bbc729955a76",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "cecd3d7e535daff0f05c0031d870bbc729955a76",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.0.4.tgz"
+			}
+		},
+		"2.1.0": {
+			"name": "protocol-buffers",
+			"version": "2.1.0",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "016c00a587fdaf650315dfbc70b76ea6054b19fe",
+			"_id": "protocol-buffers@2.1.0",
+			"_shasum": "02ddf32b323df36e436182c35903a69af86b37fd",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "02ddf32b323df36e436182c35903a69af86b37fd",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.1.0.tgz"
+			}
+		},
+		"2.1.1": {
+			"name": "protocol-buffers",
+			"version": "2.1.1",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "78bb5d91e6458cc8a72fb6b78516e45bf7d34668",
+			"_id": "protocol-buffers@2.1.1",
+			"_shasum": "eb9af49927b4642bda210562acc407ec1e6935d5",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "eb9af49927b4642bda210562acc407ec1e6935d5",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.1.1.tgz"
+			}
+		},
+		"2.1.2": {
+			"name": "protocol-buffers",
+			"version": "2.1.2",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "b6c08b23a8f6ba14de578f3a4c71d76eeb3cebc6",
+			"_id": "protocol-buffers@2.1.2",
+			"_shasum": "14102a42b6905942a2495a7c0cc7f7f5e2a10ed3",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "14102a42b6905942a2495a7c0cc7f7f5e2a10ed3",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.1.2.tgz"
+			}
+		},
+		"2.1.3": {
+			"name": "protocol-buffers",
+			"version": "2.1.3",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "8290b550cc816680226695e5feb6019000295d76",
+			"_id": "protocol-buffers@2.1.3",
+			"_shasum": "e4c1dec75a50ef3ab8608c5495f4e4462e4f2d84",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "e4c1dec75a50ef3ab8608c5495f4e4462e4f2d84",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.1.3.tgz"
+			}
+		},
+		"2.1.4": {
+			"name": "protocol-buffers",
+			"version": "2.1.4",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "48e417f02715126be4d6181b8e090c265ad7ae95",
+			"_id": "protocol-buffers@2.1.4",
+			"_shasum": "dba2e5225e39d123d41d9dd3572d2b74e117c7ec",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "dba2e5225e39d123d41d9dd3572d2b74e117c7ec",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.1.4.tgz"
+			}
+		},
+		"2.2.0": {
+			"name": "protocol-buffers",
+			"version": "2.2.0",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "10428bf44ba4e02d9a6cebc6fa51fb4ca723fcc1",
+			"_id": "protocol-buffers@2.2.0",
+			"_shasum": "39e5a23a515bbbbcb12e4167ca01bba7870681df",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "39e5a23a515bbbbcb12e4167ca01bba7870681df",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.2.0.tgz"
+			}
+		},
+		"2.2.1": {
+			"name": "protocol-buffers",
+			"version": "2.2.1",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "b7a3ed0009a2b83860659cde729af2e27d2e3c11",
+			"_id": "protocol-buffers@2.2.1",
+			"_shasum": "8d77341c1cc2ea62adbe752e8478da5a38a5ddce",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "8d77341c1cc2ea62adbe752e8478da5a38a5ddce",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.2.1.tgz"
+			}
+		},
+		"2.3.0": {
+			"name": "protocol-buffers",
+			"version": "2.3.0",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "32d1c2a6176d79c3bd76ca81a3ebf932bb0da301",
+			"_id": "protocol-buffers@2.3.0",
+			"_shasum": "e3806fb743353c619a319b1c15da1da1136e9f38",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "e3806fb743353c619a319b1c15da1da1136e9f38",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.3.0.tgz"
+			}
+		},
+		"2.3.1": {
+			"name": "protocol-buffers",
+			"version": "2.3.1",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "3240e2b3b5edd1c9f91e7e455cff16357934331e",
+			"_id": "protocol-buffers@2.3.1",
+			"_shasum": "d73cde3d6d4aae8288fdc609b067a0931f353ffb",
+			"_from": ".",
+			"_npmVersion": "2.0.0-alpha-5",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "d73cde3d6d4aae8288fdc609b067a0931f353ffb",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.3.1.tgz"
+			}
+		},
+		"2.3.2": {
+			"name": "protocol-buffers",
+			"version": "2.3.2",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "0f0034a65d19ce70c3448b5ff7ea3801c2f06fb6",
+			"_id": "protocol-buffers@2.3.2",
+			"_shasum": "b0dab207a39b580a213504d463a5690aba2fcbae",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "b0dab207a39b580a213504d463a5690aba2fcbae",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.3.2.tgz"
+			}
+		},
+		"2.3.3": {
+			"name": "protocol-buffers",
+			"version": "2.3.3",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "4d4a8865a7f9d60b1046854d519c59ff76fc6c63",
+			"_id": "protocol-buffers@2.3.3",
+			"_shasum": "6dbc299d658aef3017be53b8f2529f27e8307de2",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "6dbc299d658aef3017be53b8f2529f27e8307de2",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.3.3.tgz"
+			}
+		},
+		"2.3.4": {
+			"name": "protocol-buffers",
+			"version": "2.3.4",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "55d8251b6514a0439a302ab2df053d4afc84c085",
+			"_id": "protocol-buffers@2.3.4",
+			"_shasum": "0d8ef3f3a77b5c2e531c09770d13b55e11b526ee",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "0d8ef3f3a77b5c2e531c09770d13b55e11b526ee",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.3.4.tgz"
+			}
+		},
+		"2.3.6": {
+			"name": "protocol-buffers",
+			"version": "2.3.6",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "ab7802c02e3e3b48ed0657000b554e2a552f5254",
+			"_id": "protocol-buffers@2.3.6",
+			"_shasum": "32a86fe422fd948a1289ff2c013b5f618f041910",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "32a86fe422fd948a1289ff2c013b5f618f041910",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.3.6.tgz"
+			}
+		},
+		"2.4.0": {
+			"name": "protocol-buffers",
+			"version": "2.4.0",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.2.0",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "97c15f842e574f9409c308699cbb163f26c502fe",
+			"_id": "protocol-buffers@2.4.0",
+			"_shasum": "bf7e7611926ea7e097675912676ec7f34c5dd004",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "bf7e7611926ea7e097675912676ec7f34c5dd004",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.0.tgz"
+			}
+		},
+		"2.4.1": {
+			"name": "protocol-buffers",
+			"version": "2.4.1",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.2.0",
+				"resolve-protobuf-schema": "^1.0.2",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "c3e461785eddf906efd169d47bbdd53e23d9343f",
+			"_id": "protocol-buffers@2.4.1",
+			"_shasum": "21f1e63f2a2a4dc7d4502c60b762af90b6f2504b",
+			"_from": ".",
+			"_npmVersion": "2.1.7",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "21f1e63f2a2a4dc7d4502c60b762af90b6f2504b",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.1.tgz"
+			}
+		},
+		"2.4.2": {
+			"name": "protocol-buffers",
+			"version": "2.4.2",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.2.0",
+				"resolve-protobuf-schema": "^1.0.2",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "ea052d136164cfc110bc74e8b3af0dfc317eed57",
+			"_id": "protocol-buffers@2.4.2",
+			"_shasum": "78a142bf55c9bd1a148dd6d2eb91d23f22f922ab",
+			"_from": ".",
+			"_npmVersion": "2.1.8",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "78a142bf55c9bd1a148dd6d2eb91d23f22f922ab",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.2.tgz"
+			}
+		},
+		"2.4.3": {
+			"name": "protocol-buffers",
+			"version": "2.4.3",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.4.1",
+				"resolve-protobuf-schema": "^1.0.2",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "d7a901197159e7246559fac13dd27a52d1b61014",
+			"_id": "protocol-buffers@2.4.3",
+			"_shasum": "91ee71a5938bc5a0b09050c20dd859507531b8c7",
+			"_from": ".",
+			"_npmVersion": "2.1.8",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "91ee71a5938bc5a0b09050c20dd859507531b8c7",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.3.tgz"
+			}
+		},
+		"2.4.4": {
+			"name": "protocol-buffers",
+			"version": "2.4.4",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.4.1",
+				"resolve-protobuf-schema": "^1.0.2",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "0be823a194870b767280b6a9ade899695c231008",
+			"_id": "protocol-buffers@2.4.4",
+			"_shasum": "75f07875e2e83fe7747fb053cf3695ad6bb47ed7",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "75f07875e2e83fe7747fb053cf3695ad6bb47ed7",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.4.tgz"
+			}
+		},
+		"2.4.5": {
+			"name": "protocol-buffers",
+			"version": "2.4.5",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^1.0.2",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.4.1",
+				"resolve-protobuf-schema": "^1.0.2",
+				"signed-varint": "^2.0.0",
+				"varint": "^3.0.0"
+			},
+			"devDependencies": {
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "ccea5dd55e6fcae51a8a9c8ba0f1e8cccc0d4e21",
+			"_id": "protocol-buffers@2.4.5",
+			"_shasum": "793b619cd1cac4d3dbfa6332959b3a442490420e",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "793b619cd1cac4d3dbfa6332959b3a442490420e",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.5.tgz"
+			}
+		},
+		"2.4.6": {
+			"name": "protocol-buffers",
+			"version": "2.4.6",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.4.2",
+				"resolve-protobuf-schema": "^1.0.2",
+				"signed-varint": "^2.0.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "2486605a125e930d5cb7d486668d7671139faa04",
+			"_id": "protocol-buffers@2.4.6",
+			"_shasum": "ca5bfbc705884b413b16dd3a9c0e2882ef424815",
+			"_from": ".",
+			"_npmVersion": "2.1.17",
+			"_nodeVersion": "0.10.35",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "ca5bfbc705884b413b16dd3a9c0e2882ef424815",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.6.tgz"
+			}
+		},
+		"2.4.7": {
+			"name": "protocol-buffers",
+			"version": "2.4.7",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.4.2",
+				"resolve-protobuf-schema": "^1.0.2",
+				"signed-varint": "^2.0.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "eeb491f2b8caefb92faa29a76d6ac859a52b17f8",
+			"_id": "protocol-buffers@2.4.7",
+			"_shasum": "a5804b035c156b1bd4365e2a6b189fb59114fc47",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "a5804b035c156b1bd4365e2a6b189fb59114fc47",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.7.tgz"
+			}
+		},
+		"2.5.0": {
+			"name": "protocol-buffers",
+			"version": "2.5.0",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.4.2",
+				"resolve-protobuf-schema": "^1.0.2",
+				"signed-varint": "^2.0.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "d699c8c4bce62706eb675a67e4defb50808b7204",
+			"_id": "protocol-buffers@2.5.0",
+			"_shasum": "8ed4499df40c2aedff3e641cb81d7bb0420f10a4",
+			"_from": ".",
+			"_npmVersion": "2.4.1",
+			"_nodeVersion": "0.10.36",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "8ed4499df40c2aedff3e641cb81d7bb0420f10a4",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.5.0.tgz"
+			}
+		},
+		"2.5.1": {
+			"name": "protocol-buffers",
+			"version": "2.5.1",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.5.0",
+				"resolve-protobuf-schema": "^1.0.2",
+				"signed-varint": "^2.0.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "2dc79df0da15fc9a4ad7f33b2749d19fd3e6a37e",
+			"_id": "protocol-buffers@2.5.1",
+			"_shasum": "d7b32db4d31d3578de3ddd0ce3cefe62395a1059",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "1.2.0",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "d7b32db4d31d3578de3ddd0ce3cefe62395a1059",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.5.1.tgz"
+			}
+		},
+		"2.6.0": {
+			"name": "protocol-buffers",
+			"version": "2.6.0",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.5.0",
+				"resolve-protobuf-schema": "^1.0.2",
+				"signed-varint": "^2.0.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"brfs": "^1.4.0",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"browserify": {
+				"transform": [
+					"brfs"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "d2332bcd859b207c7ec73c771c9862fee831b294",
+			"_id": "protocol-buffers@2.6.0",
+			"_shasum": "bc0fc5b4d603a7b93b8b1cdfa0656fe9dca0aa6e",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "1.3.0",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "bc0fc5b4d603a7b93b8b1cdfa0656fe9dca0aa6e",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.6.0.tgz"
+			}
+		},
+		"2.6.1": {
+			"name": "protocol-buffers",
+			"version": "2.6.1",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.5.0",
+				"resolve-protobuf-schema": "^1.0.2",
+				"signed-varint": "^2.0.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"brfs": "^1.4.0",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"browserify": {
+				"transform": [
+					"brfs"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "a724644223cd1f566ce2c6bfcc137f2d38283d64",
+			"_id": "protocol-buffers@2.6.1",
+			"_shasum": "03294a36c305baded7c5b47f2d0c78377aad51a1",
+			"_from": ".",
+			"_npmVersion": "2.7.0",
+			"_nodeVersion": "1.5.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "03294a36c305baded7c5b47f2d0c78377aad51a1",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.6.1.tgz"
+			}
+		},
+		"2.7.0": {
+			"name": "protocol-buffers",
+			"version": "2.7.0",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.1.0",
+				"protobuf-schema": "^1.5.0",
+				"resolve-protobuf-schema": "^1.0.2",
+				"signed-varint": "^2.0.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"brfs": "^1.4.0",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"browserify": {
+				"transform": [
+					"brfs"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "de23f3784fb90be05f2ec8125119ee10c94953e9",
+			"_id": "protocol-buffers@2.7.0",
+			"_shasum": "fb9d6aa4c31bdb5cbf702ebf4bd41ccdad7f7824",
+			"_from": ".",
+			"_npmVersion": "2.7.5",
+			"_nodeVersion": "1.6.4",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "fb9d6aa4c31bdb5cbf702ebf4bd41ccdad7f7824",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.7.0.tgz"
+			}
+		},
+		"3.0.0": {
+			"name": "protocol-buffers",
+			"version": "3.0.0",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.1.0",
+				"protocol-buffers-schema": "^2.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"brfs": "^1.4.0",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"browserify": {
+				"transform": [
+					"brfs"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "c747266a8a7e4e47a6ed1a5f938d1fd098846d7c",
+			"_id": "protocol-buffers@3.0.0",
+			"_shasum": "978d6d12ecb704d222d19ede697a1279a6520482",
+			"_from": ".",
+			"_npmVersion": "2.7.5",
+			"_nodeVersion": "1.6.4",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "978d6d12ecb704d222d19ede697a1279a6520482",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.0.0.tgz"
+			}
+		},
+		"3.1.0": {
+			"name": "protocol-buffers",
+			"version": "3.1.0",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.1.0",
+				"protocol-buffers-schema": "^2.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"brfs": "^1.4.0",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"browserify": {
+				"transform": [
+					"brfs"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "38c02d8aa471c13535978e25e4f28d4d6bc3959b",
+			"_id": "protocol-buffers@3.1.0",
+			"_shasum": "3a69031c9580a80db339fa015de2f1fffa45810e",
+			"_from": ".",
+			"_npmVersion": "2.9.0",
+			"_nodeVersion": "2.0.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "3a69031c9580a80db339fa015de2f1fffa45810e",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.0.tgz"
+			}
+		},
+		"3.1.1": {
+			"name": "protocol-buffers",
+			"version": "3.1.1",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-schema": "^2.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"brfs": "^1.4.0",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"browserify": {
+				"transform": [
+					"brfs"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "b2c98df7cb1ee6ae0b02cba7326114b3166ff767",
+			"_id": "protocol-buffers@3.1.1",
+			"_shasum": "2f269e658322166da02447a56c6f979f077158ed",
+			"_from": ".",
+			"_npmVersion": "2.9.0",
+			"_nodeVersion": "2.0.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "2f269e658322166da02447a56c6f979f077158ed",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.1.tgz"
+			}
+		},
+		"3.1.2": {
+			"name": "protocol-buffers",
+			"version": "3.1.2",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers.git"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-schema": "^2.0.1",
+				"signed-varint": "^2.0.0",
+				"brfs": "^1.4.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"browserify": {
+				"transform": [
+					"brfs"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "4f1f6fdc483c89a0d8742588789576b3ddc742cd",
+			"_id": "protocol-buffers@3.1.2",
+			"_shasum": "1d5f00b8eb7660c6f135b07045a8ce9a19893393",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "2.1.0",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "1d5f00b8eb7660c6f135b07045a8ce9a19893393",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			]
+		},
+		"3.1.3": {
+			"name": "protocol-buffers",
+			"version": "3.1.3",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers.git"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-schema": "^2.0.1",
+				"signed-varint": "^2.0.0",
+				"brfs": "^1.4.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"browserify": {
+				"transform": [
+					"brfs"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "5540680b2848ca4584b97d2ffb5dba67891f5b38",
+			"_id": "protocol-buffers@3.1.3",
+			"_shasum": "2c2eb75572b24cdcac78511fbb4fac64dab9220c",
+			"_from": ".",
+			"_npmVersion": "2.13.4",
+			"_nodeVersion": "2.5.0",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "2c2eb75572b24cdcac78511fbb4fac64dab9220c",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			]
+		},
+		"3.1.4": {
+			"name": "protocol-buffers",
+			"version": "3.1.4",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-schema": "^2.0.1",
+				"signed-varint": "^2.0.0",
+				"brfs": "^1.4.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js",
+				"bench": "node bench"
+			},
+			"browserify": {
+				"transform": [
+					"brfs"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "4f29705a45ab93e8ce2479c8961541d8fbd05417",
+			"_id": "protocol-buffers@3.1.4",
+			"_shasum": "87825a94b8d440c22c5733179fada9dd3a27a034",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "87825a94b8d440c22c5733179fada9dd3a27a034",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			]
+		},
+		"3.1.5": {
+			"name": "protocol-buffers",
+			"version": "3.1.5",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-schema": "^2.0.1",
+				"signed-varint": "^2.0.0",
+				"brfs": "^1.4.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"standard": "^5.4.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js",
+				"bench": "node bench"
+			},
+			"browserify": {
+				"transform": [
+					"brfs"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "6e72c4a1fbe994b5214596ad449300d23e7dbb32",
+			"_id": "protocol-buffers@3.1.5",
+			"_shasum": "4521a2ce7944cd827ede4d5515ebc3ae2873a020",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.3",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "4521a2ce7944cd827ede4d5515ebc3ae2873a020",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/protocol-buffers-3.1.5.tgz_1454763657006_0.05528539954684675"
+			}
+		},
+		"3.1.6": {
+			"name": "protocol-buffers",
+			"version": "3.1.6",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-schema": "^2.0.1",
+				"signed-varint": "^2.0.0",
+				"brfs": "^1.4.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"standard": "^5.4.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js",
+				"bench": "node bench"
+			},
+			"browserify": {
+				"transform": [
+					"brfs"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "6e2b1a8ad7b0c5f76cbb0f1161328e799a5c5cae",
+			"_id": "protocol-buffers@3.1.6",
+			"_shasum": "fee1af7d4c4f35dfa126c33a1b6f579c5b54fc70",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.3",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "fee1af7d4c4f35dfa126c33a1b6f579c5b54fc70",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-6-west.internal.npmjs.com",
+				"tmp": "tmp/protocol-buffers-3.1.6.tgz_1456243689557_0.5036885451991111"
+			}
+		},
+		"3.1.7": {
+			"name": "protocol-buffers",
+			"version": "3.1.7",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-schema": "^2.0.1",
+				"signed-varint": "^2.0.0",
+				"brfs": "^1.4.0",
+				"varint": "^4.0.0"
+			},
+			"devDependencies": {
+				"standard": "^5.4.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js",
+				"bench": "node bench"
+			},
+			"browserify": {
+				"transform": [
+					"brfs"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "f6aa4fb86d871483bc84e0f059276da9427cf2cc",
+			"_id": "protocol-buffers@3.1.7",
+			"_shasum": "6d651c6f0b2f1f7128a838cc9e6a6d32ff0d1ee9",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.6.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "6d651c6f0b2f1f7128a838cc9e6a6d32ff0d1ee9",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/protocol-buffers-3.1.7.tgz_1478210592821_0.7942595144268125"
+			}
+		},
+		"3.1.8": {
+			"name": "protocol-buffers",
+			"version": "3.1.8",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"brfs": "^1.4.0",
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-schema": "^2.0.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^5.0.0"
+			},
+			"devDependencies": {
+				"standard": "^5.4.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js",
+				"bench": "node bench"
+			},
+			"browserify": {
+				"transform": [
+					"brfs"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "a267c9821a7d6c719c69d3140d6a14e0b35259cf",
+			"_id": "protocol-buffers@3.1.8",
+			"_shasum": "927a89c0e10125318f6acb751eff24e577c645cd",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.6.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "927a89c0e10125318f6acb751eff24e577c645cd",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.8.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/protocol-buffers-3.1.8.tgz_1478287425143_0.12898853328078985"
+			}
+		},
+		"3.2.0": {
+			"name": "protocol-buffers",
+			"version": "3.2.0",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"brfs": "^1.4.0",
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-schema": "^3.1.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^5.0.0"
+			},
+			"devDependencies": {
+				"standard": "^5.4.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js",
+				"bench": "node bench"
+			},
+			"browserify": {
+				"transform": [
+					"brfs"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "62fc94d486dd896b143cec61686d04e3da903c05",
+			"_id": "protocol-buffers@3.2.0",
+			"_shasum": "a044b0f6a19e0689dbe826a1e5c12933381ffe63",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "4.6.2",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "a044b0f6a19e0689dbe826a1e5c12933381ffe63",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/protocol-buffers-3.2.0.tgz_1480087513535_0.23998762387782335"
+			}
+		},
+		"3.2.1": {
+			"name": "protocol-buffers",
+			"version": "3.2.1",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers"
+			},
+			"dependencies": {
+				"brfs": "^1.4.0",
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-schema": "^3.1.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^5.0.0"
+			},
+			"devDependencies": {
+				"standard": "^5.4.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js",
+				"bench": "node bench"
+			},
+			"browserify": {
+				"transform": [
+					"brfs"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "1583634bda4b04a9a101ec5aace1953f3788449b",
+			"_id": "protocol-buffers@3.2.1",
+			"_shasum": "37258e17e24a082f06ebb17731e92851d1c76889",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "4.6.2",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "37258e17e24a082f06ebb17731e92851d1c76889",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/protocol-buffers-3.2.1.tgz_1480136711296_0.46220208751037717"
+			}
+		},
+		"4.0.0": {
+			"name": "protocol-buffers",
+			"version": "4.0.0",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers.git"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-encodings": "^1.1.0",
+				"protocol-buffers-schema": "^3.1.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^5.0.0"
+			},
+			"devDependencies": {
+				"standard": "^10.0.3",
+				"tape": "^4.8.0"
+			},
+			"bin": {
+				"protocol-buffers": "./bin.js"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "f8ac4ca5484b069c226dfa41ad6124f44026a36e",
+			"_id": "protocol-buffers@4.0.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Dkc6fkJemGFwC8zmZmHnPz6sGwqJjSR9Zj5GnZ2sZ2gV4pVJNcGyvjAphCaagNPvpx6ahXliaTdiJGn8FNNJ7A==",
+				"shasum": "db35ff02ad15585bd8727b1ceba0a3e229b5099f",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-4.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/protocol-buffers-4.0.0.tgz_1516199551705_0.5145776316057891"
+			}
+		},
+		"4.0.1": {
+			"name": "protocol-buffers",
+			"version": "4.0.1",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers.git"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-encodings": "^1.1.0",
+				"protocol-buffers-schema": "^3.1.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^5.0.0"
+			},
+			"devDependencies": {
+				"standard": "^10.0.3",
+				"tape": "^4.8.0"
+			},
+			"bin": {
+				"protocol-buffers": "./bin.js"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "40e624c5e34c5cd0315a0238d5d1016aa975e2c1",
+			"_id": "protocol-buffers@4.0.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-GChO7jjlgYf/mHwTHXc2237/NZUwSueCJafiKfgte/qXsBIzKHveZduTutYtlWecgFj4J8sZYP4K57mNCs14aQ==",
+				"shasum": "4ed572fd683f3a25cc115c6edaf91c124cd052a1",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-4.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/protocol-buffers-4.0.1.tgz_1516203161008_0.9077800263185054"
+			}
+		},
+		"4.0.2": {
+			"name": "protocol-buffers",
+			"version": "4.0.2",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers.git"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-encodings": "^1.1.0",
+				"protocol-buffers-schema": "^3.1.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^5.0.0"
+			},
+			"devDependencies": {
+				"standard": "^10.0.3",
+				"tape": "^4.8.0"
+			},
+			"bin": {
+				"protocol-buffers": "./bin.js"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "0a721607dad4d15d9c6689de99807d738b72347b",
+			"_id": "protocol-buffers@4.0.2",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Onh66gJncQiz1ThkkOHT45lzGWdP79lqccAz7IFD8V4U+3vDZtQuz7eROf+xViOmSz8JGosWF2/zZToL2HL3pQ==",
+				"shasum": "0b261caa8710f537e95408f7e124598218e8ff15",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-4.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/protocol-buffers-4.0.2.tgz_1516215766218_0.263020311947912"
+			}
+		},
+		"4.0.3": {
+			"name": "protocol-buffers",
+			"version": "4.0.3",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers.git"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-encodings": "^1.1.0",
+				"protocol-buffers-schema": "^3.1.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^5.0.0"
+			},
+			"devDependencies": {
+				"standard": "^10.0.3",
+				"tape": "^4.8.0"
+			},
+			"bin": {
+				"protocol-buffers": "./bin.js"
+			},
+			"scripts": {
+				"test": "standard && npm run test-generated && npm run test-compiled",
+				"test-generated": "tape test/*.js",
+				"test-compiled": "protocol-buffers test/test.proto -o test/helpers/compiled.js && COMPILED=true tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "3edeb012bf965e457c4b52684ef6257423249628",
+			"_id": "protocol-buffers@4.0.3",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.4.0",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-xWaAoe49f/7xXGipFaRgxWGWE9KeO4o9yNkUp/aGVjxeQPkYRs58bZvPkeGsswu9mvCd9NOR5XqxsQtXkpaIEA==",
+				"shasum": "43f3fed56efd6368fbbab50ea4b441edd4ba7f33",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-4.0.3.tgz",
+				"fileCount": 27,
+				"unpackedSize": 42599
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/protocol-buffers_4.0.3_1518711392422_0.7401484481326752"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.0.4": {
+			"name": "protocol-buffers",
+			"version": "4.0.4",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers.git"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-encodings": "^1.1.0",
+				"protocol-buffers-schema": "^3.1.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^5.0.0"
+			},
+			"devDependencies": {
+				"standard": "^10.0.3",
+				"tape": "^4.8.0"
+			},
+			"bin": {
+				"protocol-buffers": "./bin.js"
+			},
+			"scripts": {
+				"test": "standard && npm run test-generated && npm run test-compiled",
+				"test-generated": "tape test/*.js",
+				"test-compiled": "protocol-buffers test/test.proto -o test/helpers/compiled.js && COMPILED=true tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "a95aace5bf25afaa5cd603e5f1d1b09ae71d9abc",
+			"_id": "protocol-buffers@4.0.4",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.4.0",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-NkNk4jdcTR/0+bTMfacy89aveinsTeerW2uaNhsekg4FqlXOYRqcY5s1x7sX4N16f/88JiI6tPVQko0xJMpZew==",
+				"shasum": "80720b7112af6e317472fd7e26f930e2621781a5",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-4.0.4.tgz",
+				"fileCount": 27,
+				"unpackedSize": 42857
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/protocol-buffers_4.0.4_1518711947776_0.696516555747299"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.1.0": {
+			"name": "protocol-buffers",
+			"version": "4.1.0",
+			"description": "Protocol Buffers for Node.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers.git"
+			},
+			"dependencies": {
+				"generate-function": "^2.0.0",
+				"generate-object-property": "^1.2.0",
+				"protocol-buffers-encodings": "^1.1.0",
+				"protocol-buffers-schema": "^3.1.1",
+				"signed-varint": "^2.0.0",
+				"varint": "^5.0.0"
+			},
+			"devDependencies": {
+				"standard": "^10.0.3",
+				"tape": "^4.8.0"
+			},
+			"bin": {
+				"protocol-buffers": "./bin.js"
+			},
+			"scripts": {
+				"test": "standard && npm run test-generated && npm run test-compiled",
+				"test-generated": "tape test/*.js",
+				"test-compiled": "./bin.js test/test.proto -o test/helpers/compiled.js && COMPILED=true tape test/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"protocolbuffers",
+				"encode",
+				"decode",
+				"google",
+				"serialize",
+				"parse",
+				"levelup",
+				"encodings",
+				"encoding"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"gitHead": "d3b2b43635fffb2826e1bcda2c948774ca76095f",
+			"_id": "protocol-buffers@4.1.0",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "10.9.0",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-9erS5oyfb5vzLCO1pJfSujA03md3MzaR6zP77lcHobH3tb6Z3S/mMDzCxpRrGnmsPb/6o5RLZ5wpVEM2UMlgvw==",
+				"shasum": "c5ba3762123d5960229a2d585c8767a08a6861dc",
+				"tarball": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-4.1.0.tgz",
+				"fileCount": 28,
+				"unpackedSize": 43333,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJboQdtCRA9TVsSAnZWagAA6SUP/iX4tmqn/UVyiMmby9+1\n0iHB56WyqjU7NfAtZ1LiXQWCM3eWJa8lnB7pYlOERMvpnK3q1FHs4itKTMVT\nRrnNk3cyQbAYUTQLZcil3RMo80qLhMfrkp4JuhuVCvzvHO797klw18LeLZmd\nGOABzy0aO7R5kbPgALAZfJRChypu1Rr9osERz5gioGGg7b0WDnsgOp7rL9/P\n3jl+YTSjHsLQEFovXS9kaXP9pSHAr122lrIvI/6ekVtitaRrmO9Ke5mjlZBM\nDu/5uNuZHoMT0WKZf+fQjSBH3HHObxq8QYfIfRI4bvlThIfXY4Bfok1ijLCd\nnlcOoh2buJNaFUb+UhrI4yv4yM2vKKGr5ozfNSEtC7rO0glgBujoUicV2VxC\nwHTWUkO0gibpJVVwzxqPeQvCArygp95S6bU/unoMRew+Y4xXB/6CjPcdZhum\nDxnYhhAKSZvDinI0PCLJ+iyLNw3qFxD4KQbC69M7OAmN9WNsFd1Iouk6XwaJ\ntBD0ncdw9WP4Yo4DmLZwGt6fPLAsqVkrOWG6l5XpPsxPV4tLrYn3AISNcWSq\nm0oXih9c8RcS2pm4wv2J7sVTddCHV+aEubJoDgLR0CB7Ne8x9jy0MOhw/VNT\n2Ft5L0pjcvQW9dY+hjkAmiqimthhjubobWrkWWab0Z1v+8xPQDQSeW/UeAEO\npW56\r\n=z4oz\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/protocol-buffers_4.1.0_1537279853010_0.38731995548488674"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-01-05T05:18:56.298Z",
+		"created": "2014-05-05T23:13:20.269Z",
+		"0.1.0": "2014-05-05T23:13:20.269Z",
+		"0.2.0": "2014-05-11T14:04:34.563Z",
+		"0.2.1": "2014-05-12T20:50:45.950Z",
+		"0.2.2": "2014-05-12T20:52:06.946Z",
+		"0.2.3": "2014-05-13T16:27:24.951Z",
+		"0.3.0": "2014-05-13T19:16:08.286Z",
+		"0.4.0": "2014-05-16T21:08:21.184Z",
+		"0.4.1": "2014-05-16T21:15:28.552Z",
+		"0.4.2": "2014-05-17T21:54:25.801Z",
+		"1.0.0": "2014-05-21T11:08:11.686Z",
+		"1.0.1": "2014-07-27T22:08:48.167Z",
+		"2.0.0": "2014-07-30T19:22:38.248Z",
+		"2.0.1": "2014-07-30T19:32:43.638Z",
+		"2.0.2": "2014-07-30T20:08:56.082Z",
+		"2.0.3": "2014-07-30T20:47:18.944Z",
+		"2.0.4": "2014-07-30T21:40:16.476Z",
+		"2.1.0": "2014-07-30T23:06:04.352Z",
+		"2.1.1": "2014-07-31T06:37:25.336Z",
+		"2.1.2": "2014-07-31T08:50:33.178Z",
+		"2.1.3": "2014-07-31T09:04:53.135Z",
+		"2.1.4": "2014-07-31T15:41:12.466Z",
+		"2.2.0": "2014-08-02T21:47:33.011Z",
+		"2.2.1": "2014-08-02T21:50:25.283Z",
+		"2.3.0": "2014-08-05T12:12:55.298Z",
+		"2.3.1": "2014-08-07T17:23:55.200Z",
+		"2.3.2": "2014-08-07T23:06:51.363Z",
+		"2.3.3": "2014-08-08T10:37:24.528Z",
+		"2.3.4": "2014-08-15T00:30:09.403Z",
+		"2.3.6": "2014-08-25T11:42:05.868Z",
+		"2.4.0": "2014-10-12T01:56:00.406Z",
+		"2.4.1": "2014-11-07T21:15:18.951Z",
+		"2.4.2": "2014-11-21T00:19:16.024Z",
+		"2.4.3": "2014-12-09T18:58:35.980Z",
+		"2.4.4": "2014-12-30T13:39:26.396Z",
+		"2.4.5": "2014-12-31T01:25:32.619Z",
+		"2.4.6": "2015-01-06T21:19:28.255Z",
+		"2.4.7": "2015-01-26T14:46:42.005Z",
+		"2.5.0": "2015-02-04T22:40:04.335Z",
+		"2.5.1": "2015-02-19T11:46:42.694Z",
+		"2.6.0": "2015-02-24T01:11:49.962Z",
+		"2.6.1": "2015-03-11T10:03:51.994Z",
+		"2.7.0": "2015-04-22T15:54:49.746Z",
+		"3.0.0": "2015-04-24T02:35:44.671Z",
+		"3.1.0": "2015-05-17T21:15:11.686Z",
+		"3.1.1": "2015-05-18T12:00:28.736Z",
+		"3.1.2": "2015-06-01T08:31:44.405Z",
+		"3.1.3": "2015-09-01T17:39:23.878Z",
+		"3.1.4": "2015-12-05T12:44:39.090Z",
+		"3.1.5": "2016-02-06T13:00:59.476Z",
+		"3.1.6": "2016-02-23T16:08:13.819Z",
+		"3.1.7": "2016-11-03T22:03:13.355Z",
+		"3.1.8": "2016-11-04T19:23:45.366Z",
+		"3.2.0": "2016-11-25T15:25:14.065Z",
+		"3.2.1": "2016-11-26T05:05:13.119Z",
+		"4.0.0": "2018-01-17T14:32:31.794Z",
+		"4.0.1": "2018-01-17T15:32:41.943Z",
+		"4.0.2": "2018-01-17T19:02:47.127Z",
+		"4.0.3": "2018-02-15T16:16:33.130Z",
+		"4.0.4": "2018-02-15T16:25:48.495Z",
+		"4.1.0": "2018-09-18T14:10:53.122Z"
+	},
+	"dist-tags": {
+		"latest": "4.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"6aaa040ebc09066aa0edbf7701610786\"",
+			"fetched": 1568994351498
+		}
+	},
+	"_distfiles": {
+		"protocol-buffers-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.1.0.tgz",
+			"sha": "ab94050f5c45d5ce1314d05c9fa4e9902ae86ae1",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.2.0.tgz",
+			"sha": "f6f115de1321a0b0bc08636d8a549d830c3ae505",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.2.1.tgz",
+			"sha": "60a28cb8ffb2754993e507ef00a878b91ef6322e",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-0.2.2.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.2.2.tgz",
+			"sha": "15a3c8710651270bec7cdee4bdc5c4cef5fbd16b",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-0.2.3.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.2.3.tgz",
+			"sha": "3d4010a14d650f2bd2befe3d8dd9bbafbdc0c911",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.3.0.tgz",
+			"sha": "9ac2c446d51d571268dd2e47a898e88efe0ccdfd",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-0.4.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.4.0.tgz",
+			"sha": "d3ebee091886ef4b9c8630d643639ef1eaf4b410",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-0.4.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.4.1.tgz",
+			"sha": "c6922c0097cb6df8ebbc25d51c73f9b33c90aa80",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-0.4.2.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-0.4.2.tgz",
+			"sha": "1e9fc2efc116d812de2b246912337b75c03f78c2",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-1.0.0.tgz",
+			"sha": "fb2f4ffe918d7b23afeaade8516e8482e11a05bd",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-1.0.1.tgz",
+			"sha": "a010aab0d0e87b816f781c64d90fee4f025628ca",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.0.0.tgz",
+			"sha": "45f89670d20596976349822d39325f0dfbcc9c23",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.0.1.tgz",
+			"sha": "2e2e68150e9423464d251f77a3ca6376240a2fe0",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.0.2.tgz",
+			"sha": "8440ca0c8c37c4c0da6bdccf46da216a7da96cf5",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.0.3.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.0.3.tgz",
+			"sha": "cef8bb077f405616b79b612d9c8ec574d9728d15",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.0.4.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.0.4.tgz",
+			"sha": "cecd3d7e535daff0f05c0031d870bbc729955a76",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.1.0.tgz",
+			"sha": "02ddf32b323df36e436182c35903a69af86b37fd",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.1.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.1.1.tgz",
+			"sha": "eb9af49927b4642bda210562acc407ec1e6935d5",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.1.2.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.1.2.tgz",
+			"sha": "14102a42b6905942a2495a7c0cc7f7f5e2a10ed3",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.1.3.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.1.3.tgz",
+			"sha": "e4c1dec75a50ef3ab8608c5495f4e4462e4f2d84",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.1.4.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.1.4.tgz",
+			"sha": "dba2e5225e39d123d41d9dd3572d2b74e117c7ec",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.2.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.2.0.tgz",
+			"sha": "39e5a23a515bbbbcb12e4167ca01bba7870681df",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.2.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.2.1.tgz",
+			"sha": "8d77341c1cc2ea62adbe752e8478da5a38a5ddce",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.3.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.3.0.tgz",
+			"sha": "e3806fb743353c619a319b1c15da1da1136e9f38",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.3.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.3.1.tgz",
+			"sha": "d73cde3d6d4aae8288fdc609b067a0931f353ffb",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.3.2.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.3.2.tgz",
+			"sha": "b0dab207a39b580a213504d463a5690aba2fcbae",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.3.3.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.3.3.tgz",
+			"sha": "6dbc299d658aef3017be53b8f2529f27e8307de2",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.3.4.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.3.4.tgz",
+			"sha": "0d8ef3f3a77b5c2e531c09770d13b55e11b526ee",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.3.6.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.3.6.tgz",
+			"sha": "32a86fe422fd948a1289ff2c013b5f618f041910",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.4.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.0.tgz",
+			"sha": "bf7e7611926ea7e097675912676ec7f34c5dd004",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.4.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.1.tgz",
+			"sha": "21f1e63f2a2a4dc7d4502c60b762af90b6f2504b",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.4.2.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.2.tgz",
+			"sha": "78a142bf55c9bd1a148dd6d2eb91d23f22f922ab",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.4.3.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.3.tgz",
+			"sha": "91ee71a5938bc5a0b09050c20dd859507531b8c7",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.4.4.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.4.tgz",
+			"sha": "75f07875e2e83fe7747fb053cf3695ad6bb47ed7",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.4.5.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.5.tgz",
+			"sha": "793b619cd1cac4d3dbfa6332959b3a442490420e",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.4.6.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.6.tgz",
+			"sha": "ca5bfbc705884b413b16dd3a9c0e2882ef424815",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.4.7.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.4.7.tgz",
+			"sha": "a5804b035c156b1bd4365e2a6b189fb59114fc47",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.5.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.5.0.tgz",
+			"sha": "8ed4499df40c2aedff3e641cb81d7bb0420f10a4",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.5.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.5.1.tgz",
+			"sha": "d7b32db4d31d3578de3ddd0ce3cefe62395a1059",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.6.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.6.0.tgz",
+			"sha": "bc0fc5b4d603a7b93b8b1cdfa0656fe9dca0aa6e",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.6.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.6.1.tgz",
+			"sha": "03294a36c305baded7c5b47f2d0c78377aad51a1",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-2.7.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-2.7.0.tgz",
+			"sha": "fb9d6aa4c31bdb5cbf702ebf4bd41ccdad7f7824",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.0.0.tgz",
+			"sha": "978d6d12ecb704d222d19ede697a1279a6520482",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.0.tgz",
+			"sha": "3a69031c9580a80db339fa015de2f1fffa45810e",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-3.1.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.1.tgz",
+			"sha": "2f269e658322166da02447a56c6f979f077158ed",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-3.1.2.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.2.tgz",
+			"sha": "1d5f00b8eb7660c6f135b07045a8ce9a19893393",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-3.1.3.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.3.tgz",
+			"sha": "2c2eb75572b24cdcac78511fbb4fac64dab9220c",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-3.1.4.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.4.tgz",
+			"sha": "87825a94b8d440c22c5733179fada9dd3a27a034",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-3.1.5.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.5.tgz",
+			"sha": "4521a2ce7944cd827ede4d5515ebc3ae2873a020",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-3.1.6.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.6.tgz",
+			"sha": "fee1af7d4c4f35dfa126c33a1b6f579c5b54fc70",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-3.1.7.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.7.tgz",
+			"sha": "6d651c6f0b2f1f7128a838cc9e6a6d32ff0d1ee9",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-3.1.8.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.1.8.tgz",
+			"sha": "927a89c0e10125318f6acb751eff24e577c645cd",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-3.2.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.2.0.tgz",
+			"sha": "a044b0f6a19e0689dbe826a1e5c12933381ffe63",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-3.2.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-3.2.1.tgz",
+			"sha": "37258e17e24a082f06ebb17731e92851d1c76889",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-4.0.0.tgz",
+			"sha": "db35ff02ad15585bd8727b1ceba0a3e229b5099f",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-4.0.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-4.0.1.tgz",
+			"sha": "4ed572fd683f3a25cc115c6edaf91c124cd052a1",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-4.0.2.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-4.0.2.tgz",
+			"sha": "0b261caa8710f537e95408f7e124598218e8ff15",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-4.0.3.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-4.0.3.tgz",
+			"sha": "43f3fed56efd6368fbbab50ea4b441edd4ba7f33",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-4.0.4.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-4.0.4.tgz",
+			"sha": "80720b7112af6e317472fd7e26f930e2621781a5",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-4.1.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers/-/protocol-buffers-4.1.0.tgz",
+			"sha": "c5ba3762123d5960229a2d585c8767a08a6861dc",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-87f55f84b1aea512",
+	"_id": "protocol-buffers",
+	"readme": "# protocol-buffers\n\n[Protocol Buffers](https://developers.google.com/protocol-buffers/) for Node.js\n\n```\nnpm install protocol-buffers\n```\n\n[![build status](https://travis-ci.org/mafintosh/protocol-buffers.svg?branch=master)](https://travis-ci.org/mafintosh/protocol-buffers)\n![dat](http://img.shields.io/badge/Development%20sponsored%20by-dat-green.svg?style=flat)\n\n## Usage\n\nAssuming the following `test.proto` file exists\n\n```proto\nenum FOO {\n  BAR = 1;\n}\n\nmessage Test {\n  required float num  = 1;\n  required string payload = 2;\n}\n\nmessage AnotherOne {\n  repeated FOO list = 1;\n}\n```\n\nUse the above proto file to encode/decode messages by doing\n\n``` js\nvar protobuf = require('protocol-buffers')\n\n// pass a proto file as a buffer/string or pass a parsed protobuf-schema object\nvar messages = protobuf(fs.readFileSync('test.proto'))\n\nvar buf = messages.Test.encode({\n  num: 42,\n  payload: 'hello world'\n})\n\nconsole.log(buf) // should print a buffer\n```\n\nTo decode a message use `Test.decode`\n\n``` js\nvar obj = messages.Test.decode(buf)\nconsole.log(obj) // should print an object similar to above\n```\n\nEnums are accessed in the same way as messages\n\n``` js\nvar buf = messages.AnotherOne.encode({\n  list: [\n    messages.FOO.BAR\n  ]\n})\n```\n\nNested emums are accessed as properties on the corresponding message\n\n``` js\nvar buf = message.SomeMessage.encode({\n  list: [\n    messages.SomeMessage.NESTED_ENUM.VALUE\n  ]\n})\n```\n\nSee the [Google Protocol Buffers docs](https://developers.google.com/protocol-buffers/) for more information about the\navailable types etc.\n\n## Compile to a file\n\nSince v4 you can now compile your schemas to a JavaScript file you can require from Node.\nThis means you do not have runtime parse the schemas, which is useful if using in the browser or on embedded devices.\nIt also makes the dependency footprint a lot smaller.\n\n``` sh\n# first install the cli tool\nnpm install -g protocol-buffers\n\n# compile the schema\nprotocol-buffers test.proto -o messages.js\n\n# then install the runtime dependency in the project\nnpm install --save protocol-buffers-encodings\n```\n\nThat's it! Then in your application you can simply do\n\n``` js\nvar messages = require('./messages')\n\nvar buf = messages.Test.encode({\n  num: 42\n})\n```\n\nThe compilation functionality is also available as a JavaScript API for programmatic use:\n\n``` js\nvar protobuf = require('protocol-buffers')\n\n// protobuf.toJS() takes the same arguments as protobuf()\nvar js = protobuf.toJS(fs.readFileSync('test.proto'))\nfs.writeFileSync('messages.js', js)\n```\n\n## Performance\n\nThis module is fast.\n\nIt uses code generation to build as fast as possible encoders/decoders for the protobuf schema.\nYou can run the benchmarks yourself by doing `npm run bench`.\n\nOn my Macbook Air it gives the following results\n\n```\nBenchmarking JSON (baseline)\n  Running object encoding benchmark...\n  Encoded 1000000 objects in 2142 ms (466853 enc/s)\n\n  Running object decoding benchmark...\n  Decoded 1000000 objects in 970 ms (1030928 dec/s)\n\n  Running object encoding+decoding benchmark...\n  Encoded+decoded 1000000 objects in 3131 ms (319387 enc+dec/s)\n\nBenchmarking protocol-buffers\n  Running object encoding benchmark...\n  Encoded 1000000 objects in 2089 ms (478698 enc/s)\n\n  Running object decoding benchmark...\n  Decoded 1000000 objects in 735 ms (1360544 dec/s)\n\n  Running object encoding+decoding benchmark...\n  Encoded+decoded 1000000 objects in 2826 ms (353857 enc+dec/s)\n```\n\nNote that JSON parsing/serialization in node is a native function that is *really* fast.\n\n## Leveldb encoding compatibility\n\nCompiled protocol buffers messages are valid levelup encodings.\nThis means you can pass them as `valueEncoding` and `keyEncoding`.\n\n``` js\nvar level = require('level')\nvar db = level('db')\n\ndb.put('hello', {payload:'world'}, {valueEncoding:messages.Test}, function(err) {\n  db.get('hello', {valueEncoding:messages.Test}, function(err, message) {\n    console.log(message)\n  })\n})\n```\n\n## License\n\nMIT"
+}

@@ -1,0 +1,35 @@
+---
+test:
+  name: simple
+  description: This is an example benchmark for caliper
+  clients:
+    type: local
+    number: 1
+  rounds:
+  - label: open
+    txNumber:
+    - 2000
+    rateControl:
+    - type: fixed-feedback-rate
+      opts:
+        tps: 30
+        sleep_time: 200
+        unfinished_per_client: 5
+    arguments:
+      money: 10000
+      txnPerBatch: 1
+    callback: benchmark/simple/open.js
+  - label: query
+    txNumber:
+    - 5
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 1
+    callback: benchmark/simple/query.js
+monitor:
+  type: docker
+  docker:
+    name:
+    - all
+  interval: 1

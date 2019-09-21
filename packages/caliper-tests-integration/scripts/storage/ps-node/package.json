@@ -1,0 +1,679 @@
+{
+	"name": "ps-node",
+	"versions": {
+		"0.0.1": {
+			"name": "ps-node",
+			"version": "0.0.1",
+			"description": "A process lookup utility",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/neekey/ps.git"
+			},
+			"keywords": [
+				"ps",
+				"process",
+				"lookup",
+				"pid"
+			],
+			"_id": "ps-node@0.0.1",
+			"dist": {
+				"shasum": "a4127503035e2e07d43d3a7e41edea6fdc4c8b69",
+				"tarball": "https://registry.npmjs.org/ps-node/-/ps-node-0.0.1.tgz"
+			},
+			"_npmVersion": "1.1.65",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.2": {
+			"name": "ps-node",
+			"version": "0.0.2",
+			"description": "A process lookup utility",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/neekey/ps.git"
+			},
+			"keywords": [
+				"ps",
+				"process",
+				"lookup",
+				"pid"
+			],
+			"_id": "ps-node@0.0.2",
+			"dist": {
+				"shasum": "f1bef5ac6aa1965c138284948fffb7cbe938367b",
+				"tarball": "https://registry.npmjs.org/ps-node/-/ps-node-0.0.2.tgz"
+			},
+			"_npmVersion": "1.1.65",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.3": {
+			"name": "ps-node",
+			"version": "0.0.3",
+			"description": "A process lookup utility",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/neekey/ps.git"
+			},
+			"keywords": [
+				"ps",
+				"process",
+				"lookup",
+				"pid"
+			],
+			"dependencies": {
+				"table-parser": "*"
+			},
+			"_id": "ps-node@0.0.3",
+			"dist": {
+				"shasum": "d608843cfd693dc16604fbd90a8b804827508fee",
+				"tarball": "https://registry.npmjs.org/ps-node/-/ps-node-0.0.3.tgz"
+			},
+			"_npmVersion": "1.1.65",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.4": {
+			"name": "ps-node",
+			"version": "0.0.4",
+			"description": "A process lookup utility",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/neekey/ps.git"
+			},
+			"keywords": [
+				"ps",
+				"process",
+				"lookup",
+				"pid"
+			],
+			"dependencies": {
+				"table-parser": "*"
+			},
+			"gitHead": "fe5aacceefe5a1f85f655c2b5df1dad36a4e642a",
+			"bugs": {
+				"url": "https://github.com/neekey/ps/issues"
+			},
+			"homepage": "https://github.com/neekey/ps",
+			"_id": "ps-node@0.0.4",
+			"scripts": {},
+			"_shasum": "d19326345c782b4cb3c3ab81722b6096e40fee91",
+			"_from": ".",
+			"_npmVersion": "2.7.6",
+			"_nodeVersion": "0.10.26",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "d19326345c782b4cb3c3ab81722b6096e40fee91",
+				"tarball": "https://registry.npmjs.org/ps-node/-/ps-node-0.0.4.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.5": {
+			"name": "ps-node",
+			"version": "0.0.5",
+			"description": "A process lookup utility",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/neekey/ps.git"
+			},
+			"keywords": [
+				"ps",
+				"process",
+				"lookup",
+				"pid"
+			],
+			"dependencies": {
+				"table-parser": "*"
+			},
+			"license": "MIT",
+			"gitHead": "e941903643ff6d568924e9248c28a7bd0845050a",
+			"bugs": {
+				"url": "https://github.com/neekey/ps/issues"
+			},
+			"homepage": "https://github.com/neekey/ps",
+			"_id": "ps-node@0.0.5",
+			"scripts": {},
+			"_shasum": "8567bc54a5f831b45dd9e00e5a9c0956aaf9f196",
+			"_from": ".",
+			"_npmVersion": "2.7.6",
+			"_nodeVersion": "0.10.26",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "8567bc54a5f831b45dd9e00e5a9c0956aaf9f196",
+				"tarball": "https://registry.npmjs.org/ps-node/-/ps-node-0.0.5.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "ps-node",
+			"version": "0.1.0",
+			"description": "A process lookup utility",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/neekey/ps.git"
+			},
+			"scripts": {
+				"test": "mocha -t 0 -R spec test/test.js"
+			},
+			"keywords": [
+				"ps",
+				"process",
+				"lookup",
+				"pid"
+			],
+			"dependencies": {
+				"table-parser": "^0.1.0"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"mocha": "^2.4.5"
+			},
+			"gitHead": "3da5940c6281462a4933796eb4cf0598b2c0fdd6",
+			"bugs": {
+				"url": "https://github.com/neekey/ps/issues"
+			},
+			"homepage": "https://github.com/neekey/ps#readme",
+			"_id": "ps-node@0.1.0",
+			"_shasum": "534658cd1bd36b53726e76da4bcc30371aa868e7",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.2",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"dist": {
+				"shasum": "534658cd1bd36b53726e76da4bcc30371aa868e7",
+				"tarball": "https://registry.npmjs.org/ps-node/-/ps-node-0.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ps-node-0.1.0.tgz_1462355373188_0.6523811670485884"
+			},
+			"directories": {}
+		},
+		"0.1.1": {
+			"name": "ps-node",
+			"version": "0.1.1",
+			"description": "A process lookup utility",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/neekey/ps.git"
+			},
+			"scripts": {
+				"test": "node ./node_modules/mocha/bin/mocha -t 0 -R spec test/test.js"
+			},
+			"keywords": [
+				"ps",
+				"process",
+				"lookup",
+				"pid"
+			],
+			"dependencies": {
+				"table-parser": "^0.1.1"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"mocha": "^2.4.5"
+			},
+			"gitHead": "19c8b99843ec0df60ef02458058441ecb5a82f70",
+			"bugs": {
+				"url": "https://github.com/neekey/ps/issues"
+			},
+			"homepage": "https://github.com/neekey/ps#readme",
+			"_id": "ps-node@0.1.1",
+			"_shasum": "c8a58969edeb7ca61d7c84e8d343d4f355d97f1a",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.2",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"dist": {
+				"shasum": "c8a58969edeb7ca61d7c84e8d343d4f355d97f1a",
+				"tarball": "https://registry.npmjs.org/ps-node/-/ps-node-0.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ps-node-0.1.1.tgz_1462437814456_0.8363921823911369"
+			},
+			"directories": {}
+		},
+		"0.1.2": {
+			"name": "ps-node",
+			"version": "0.1.2",
+			"description": "A process lookup utility",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/neekey/ps.git"
+			},
+			"scripts": {
+				"test": "node ./node_modules/mocha/bin/mocha -t 0 -R spec test/test.js"
+			},
+			"keywords": [
+				"ps",
+				"process",
+				"lookup",
+				"pid"
+			],
+			"dependencies": {
+				"table-parser": "^0.1.1"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"mocha": "^2.4.5"
+			},
+			"gitHead": "16fc314b6b259d92a58749147a6b4defdae09396",
+			"bugs": {
+				"url": "https://github.com/neekey/ps/issues"
+			},
+			"homepage": "https://github.com/neekey/ps#readme",
+			"_id": "ps-node@0.1.2",
+			"_shasum": "e88e8a51dec3c10d8e9c1105f0e933e131d9ade8",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.2",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"dist": {
+				"shasum": "e88e8a51dec3c10d8e9c1105f0e933e131d9ade8",
+				"tarball": "https://registry.npmjs.org/ps-node/-/ps-node-0.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ps-node-0.1.2.tgz_1466653807572_0.5940647751558572"
+			},
+			"directories": {}
+		},
+		"0.1.3": {
+			"name": "ps-node",
+			"version": "0.1.3",
+			"description": "A process lookup utility",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/neekey/ps.git"
+			},
+			"scripts": {
+				"test": "node ./node_modules/mocha/bin/mocha -t 0 -R spec test/test.js",
+				"testWatch": "node ./node_modules/mocha/bin/mocha -t 0 -R spec --watch test/test.js"
+			},
+			"keywords": [
+				"ps",
+				"process",
+				"lookup",
+				"pid"
+			],
+			"dependencies": {
+				"table-parser": "^0.1.2"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"mocha": "^2.4.5"
+			},
+			"gitHead": "a3430ee4acaef30daa1058d55a582de42a983f26",
+			"bugs": {
+				"url": "https://github.com/neekey/ps/issues"
+			},
+			"homepage": "https://github.com/neekey/ps#readme",
+			"_id": "ps-node@0.1.3",
+			"_shasum": "c981d99ab7860d4e4a3fd6b6054fe8e2bbe85ea1",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.1.0",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"dist": {
+				"shasum": "c981d99ab7860d4e4a3fd6b6054fe8e2bbe85ea1",
+				"tarball": "https://registry.npmjs.org/ps-node/-/ps-node-0.1.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/ps-node-0.1.3.tgz_1476612777242_0.7823113980703056"
+			},
+			"directories": {}
+		},
+		"0.1.4": {
+			"name": "ps-node",
+			"version": "0.1.4",
+			"description": "A process lookup utility",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/neekey/ps.git"
+			},
+			"scripts": {
+				"test": "node ./node_modules/mocha/bin/mocha -t 0 -R spec test/test.js",
+				"testWatch": "node ./node_modules/mocha/bin/mocha -t 0 -R spec --watch test/test.js"
+			},
+			"keywords": [
+				"ps",
+				"process",
+				"lookup",
+				"pid"
+			],
+			"dependencies": {
+				"table-parser": "^0.1.3"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"mocha": "^2.4.5"
+			},
+			"gitHead": "d261ed90f87ddce13d22570a60b73745d580d684",
+			"bugs": {
+				"url": "https://github.com/neekey/ps/issues"
+			},
+			"homepage": "https://github.com/neekey/ps#readme",
+			"_id": "ps-node@0.1.4",
+			"_shasum": "85e5673ce84e94e91a5da01c40af3cfb5a24fc21",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.1.0",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"dist": {
+				"shasum": "85e5673ce84e94e91a5da01c40af3cfb5a24fc21",
+				"tarball": "https://registry.npmjs.org/ps-node/-/ps-node-0.1.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/ps-node-0.1.4.tgz_1476792013367_0.052620387403294444"
+			},
+			"directories": {}
+		},
+		"0.1.5": {
+			"name": "ps-node",
+			"version": "0.1.5",
+			"description": "A process lookup utility",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/neekey/ps.git"
+			},
+			"scripts": {
+				"test": "node ./node_modules/mocha/bin/mocha -t 0 -R spec test/test.js",
+				"testWatch": "node ./node_modules/mocha/bin/mocha -t 0 -R spec --watch test/test.js"
+			},
+			"keywords": [
+				"ps",
+				"process",
+				"lookup",
+				"pid"
+			],
+			"dependencies": {
+				"table-parser": "^0.1.3"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"mocha": "^2.4.5"
+			},
+			"gitHead": "720798dc1d59be6dd2558da5b41229ada5de8c42",
+			"bugs": {
+				"url": "https://github.com/neekey/ps/issues"
+			},
+			"homepage": "https://github.com/neekey/ps#readme",
+			"_id": "ps-node@0.1.5",
+			"_shasum": "b51e5dd5650fe12ab4785d76ac4770dfbc56f986",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "5.12.0",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"dist": {
+				"shasum": "b51e5dd5650fe12ab4785d76ac4770dfbc56f986",
+				"tarball": "https://registry.npmjs.org/ps-node/-/ps-node-0.1.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ps-node-0.1.5.tgz_1490496223554_0.7572478034999222"
+			},
+			"directories": {}
+		},
+		"0.1.6": {
+			"name": "ps-node",
+			"version": "0.1.6",
+			"description": "A process lookup utility",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/neekey/ps.git"
+			},
+			"scripts": {
+				"test": "node ./node_modules/mocha/bin/mocha -t 0 -R spec test/test.js",
+				"testWatch": "node ./node_modules/mocha/bin/mocha -t 0 -R spec --watch test/test.js"
+			},
+			"keywords": [
+				"ps",
+				"process",
+				"lookup",
+				"pid"
+			],
+			"dependencies": {
+				"table-parser": "^0.1.3"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"sinon": "^2.1.0",
+				"mocha": "^2.4.5"
+			},
+			"gitHead": "6dede59f1e2c2a10c803cc6e8b2f6d095fd3e271",
+			"bugs": {
+				"url": "https://github.com/neekey/ps/issues"
+			},
+			"homepage": "https://github.com/neekey/ps#readme",
+			"_id": "ps-node@0.1.6",
+			"_shasum": "9af67a99d7b1d0132e51a503099d38a8d2ace2c3",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.2",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"dist": {
+				"shasum": "9af67a99d7b1d0132e51a503099d38a8d2ace2c3",
+				"tarball": "https://registry.npmjs.org/ps-node/-/ps-node-0.1.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/ps-node-0.1.6.tgz_1492753159105_0.4148642315994948"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2018-01-04T09:18:54.804Z",
+		"created": "2012-12-28T02:21:02.418Z",
+		"0.0.1": "2012-12-28T02:21:05.749Z",
+		"0.0.2": "2012-12-28T03:58:49.508Z",
+		"0.0.3": "2013-03-25T10:44:30.687Z",
+		"0.0.4": "2015-04-16T15:16:00.780Z",
+		"0.0.5": "2015-09-20T05:18:59.245Z",
+		"0.1.0": "2016-05-04T09:49:35.876Z",
+		"0.1.1": "2016-05-05T08:43:37.151Z",
+		"0.1.2": "2016-06-23T03:50:08.132Z",
+		"0.1.3": "2016-10-16T10:12:59.915Z",
+		"0.1.4": "2016-10-18T12:00:16.457Z",
+		"0.1.5": "2017-03-26T02:43:45.686Z",
+		"0.1.6": "2017-04-21T05:39:19.894Z"
+	},
+	"dist-tags": {
+		"latest": "0.1.6"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"968e065d705abc10a2f04b3eba0d8ce3\"",
+			"fetched": 1568994334330
+		}
+	},
+	"_distfiles": {
+		"ps-node-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/ps-node/-/ps-node-0.0.1.tgz",
+			"sha": "a4127503035e2e07d43d3a7e41edea6fdc4c8b69",
+			"registry": "npmjs"
+		},
+		"ps-node-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/ps-node/-/ps-node-0.0.2.tgz",
+			"sha": "f1bef5ac6aa1965c138284948fffb7cbe938367b",
+			"registry": "npmjs"
+		},
+		"ps-node-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/ps-node/-/ps-node-0.0.3.tgz",
+			"sha": "d608843cfd693dc16604fbd90a8b804827508fee",
+			"registry": "npmjs"
+		},
+		"ps-node-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/ps-node/-/ps-node-0.0.4.tgz",
+			"sha": "d19326345c782b4cb3c3ab81722b6096e40fee91",
+			"registry": "npmjs"
+		},
+		"ps-node-0.0.5.tgz": {
+			"url": "https://registry.npmjs.org/ps-node/-/ps-node-0.0.5.tgz",
+			"sha": "8567bc54a5f831b45dd9e00e5a9c0956aaf9f196",
+			"registry": "npmjs"
+		},
+		"ps-node-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/ps-node/-/ps-node-0.1.0.tgz",
+			"sha": "534658cd1bd36b53726e76da4bcc30371aa868e7",
+			"registry": "npmjs"
+		},
+		"ps-node-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/ps-node/-/ps-node-0.1.1.tgz",
+			"sha": "c8a58969edeb7ca61d7c84e8d343d4f355d97f1a",
+			"registry": "npmjs"
+		},
+		"ps-node-0.1.2.tgz": {
+			"url": "https://registry.npmjs.org/ps-node/-/ps-node-0.1.2.tgz",
+			"sha": "e88e8a51dec3c10d8e9c1105f0e933e131d9ade8",
+			"registry": "npmjs"
+		},
+		"ps-node-0.1.3.tgz": {
+			"url": "https://registry.npmjs.org/ps-node/-/ps-node-0.1.3.tgz",
+			"sha": "c981d99ab7860d4e4a3fd6b6054fe8e2bbe85ea1",
+			"registry": "npmjs"
+		},
+		"ps-node-0.1.4.tgz": {
+			"url": "https://registry.npmjs.org/ps-node/-/ps-node-0.1.4.tgz",
+			"sha": "85e5673ce84e94e91a5da01c40af3cfb5a24fc21",
+			"registry": "npmjs"
+		},
+		"ps-node-0.1.5.tgz": {
+			"url": "https://registry.npmjs.org/ps-node/-/ps-node-0.1.5.tgz",
+			"sha": "b51e5dd5650fe12ab4785d76ac4770dfbc56f986",
+			"registry": "npmjs"
+		},
+		"ps-node-0.1.6.tgz": {
+			"url": "https://registry.npmjs.org/ps-node/-/ps-node-0.1.6.tgz",
+			"sha": "9af67a99d7b1d0132e51a503099d38a8d2ace2c3",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-df5e42ae75e0d1a2",
+	"_id": "ps-node",
+	"readme": "# ps [![Build Status](https://travis-ci.org/neekey/ps.svg?branch=master)](https://travis-ci.org/neekey/ps) [![Build status](https://ci.appveyor.com/api/projects/status/fhom8ot12b6jxeyt?svg=true)](https://ci.appveyor.com/project/neekey/ps)\n\nA Node.js module for looking up running processes. This module uses [Table-Parser](https://github.com/neekey/table-parser) to parse the output.\n\nBefore using this module, you should take look at section [Existing Bugs You Should Know](https://github.com/neekey/ps#user-content-existing-bugs-you-should-know) at the bottom of this doc.\n\n## Install\n\n```bash\n$ npm install ps-node\n```\n\n## How Does It Work\n\nThis module uses different tools to get process list:\n\n- Linux / Mac: use `ps` command. Since the default result from shell command `$ ps` will not contain \"command arguments\" in linux like \"ubuntu\", ps-node add arguments `lx` as default. Which means, the default value for option `psargs` is `lx`.\n- Win: use command `wmic process get ProcessId,CommandLine` through \"cmd\", more info about wmic is [here](https://social.technet.microsoft.com/Forums/windowsserver/en-US/ab6c7e6e-4ad4-4237-bab3-0349cd76c094/wmic-command-line-utilities?forum=winservercore). Anyway, there is also another tool name [tasklist](https://technet.microsoft.com/en-us/library/bb491010.aspx) in windows, which can also list all the running processes, but lack of command arguments infomation. But compared to wmic, I think this tool should have a higher performance. You should take a look at the wrapper for this tool [tasklist](https://github.com/sindresorhus/tasklist) by @sindresorhs if you are interested.\n\n## Compatibility\n\n- Should work great in most *nix system.\n- Should work on Win10/7 more system versions need to be test.  \n\nAny compatibility issue is welcomed.\n\n## Usage\n\nLookup process with specified `pid`:\n\n```javascript\nvar ps = require('ps-node');\n\n// A simple pid lookup\nps.lookup({ pid: 12345 }, function(err, resultList ) {\n    if (err) {\n        throw new Error( err );\n    }\n\n    var process = resultList[ 0 ];\n\n    if( process ){\n\n        console.log( 'PID: %s, COMMAND: %s, ARGUMENTS: %s', process.pid, process.command, process.arguments );\n    }\n    else {\n        console.log( 'No such process found!' );\n    }\n});\n\n```\n\nOr use RegExp to filter `command` and `arguments`:\n\n```javascript\nvar ps = require('ps-node');\n\n// A simple pid lookup\nps.lookup({\n    command: 'node',\n    arguments: '--debug',\n    }, function(err, resultList ) {\n    if (err) {\n        throw new Error( err );\n    }\n\n    resultList.forEach(function( process ){\n        if( process ){\n\n            console.log( 'PID: %s, COMMAND: %s, ARGUMENTS: %s', process.pid, process.command, process.arguments );\n        }\n    });\n});\n\n```\n\nAlso, you can use `kill` to kill process by `pid`:\n\n```javascript\nvar ps = require('ps-node');\n\n// A simple pid lookup\nps.kill( '12345', function( err ) {\n    if (err) {\n        throw new Error( err );\n    }\n    else {\n        console.log( 'Process %s has been killed!', pid );\n    }\n});\n```\n\nMethod `kill` also supports a `signal` option to be passed. It's only a wrapper of `process.kill()` with checking of that killing is finished after the method is called.\n\n```javascript\nvar ps = require('ps-node');\n\n// Pass signal SIGKILL for killing the process without allowing it to clean up\nps.kill( '12345', 'SIGKILL', function( err ) {\n    if (err) {\n        throw new Error( err );\n    }\n    else {\n        console.log( 'Process %s has been killed without a clean-up!', pid );\n    }\n});\n```\n\nyou can use object as the second parameter to pass more options:\n\n```js\nps.kill( '12345', { \n    signal: 'SIGKILL',\n    timeout: 10,  // will set up a ten seconds timeout if the killing is not successful\n}, function(){});\n\n```\n\nNotice that the nodejs build-in `process.kill()` does not accept number as the signal, you will have to use string format.\n\n\nYou can also pass arguments to `lookup` with `psargs` as arguments for `ps` command（Note that `psargs` is not available in windows):\n\n```javascript\nvar ps = require('ps-node');\n\n// A simple pid lookup\nps.lookup({\n    command: 'node',\n    psargs: 'ux'\n    }, function(err, resultList ) {\n    if (err) {\n        throw new Error( err );\n    }\n\n    resultList.forEach(function( process ){\n        if( process ){\n            console.log( 'PID: %s, COMMAND: %s, ARGUMENTS: %s', process.pid, process.command, process.arguments );\n        }\n    });\n});\n\n```\n\nLastly, you can filter a list of items by their PPID by passing a PPID to filter on. You will need to pass in a `psarg` that provides the PPID in the results (`-l` or `-j` for instance).\n\n```javascript\nvar ps = require('ps-node');\n\n// A simple pid lookup\nps.lookup({\n    command: 'mongod',\n    psargs: '-l',\n    ppid: 82292\n    }, function(err, resultList ) {\n    if (err) {\n        throw new Error( err );\n    }\n\n    resultList.forEach(function( process ){\n        if( process ){\n            console.log( 'PID: %s, COMMAND: %s, ARGUMENTS: %s', process.pid, process.command, process.arguments );\n        }\n    });\n});\n\n```\n\n## Existing Bugs You Should Know\n\nI'm still working on these bugs at the moment, before using this module in any serious way, please take a look at them, and take your own risk.\n\n- [multiple-bytes characters may cause parse error](https://github.com/neekey/table-parser/issues/4)."
+}

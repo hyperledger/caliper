@@ -1,0 +1,1562 @@
+{
+	"name": "logform",
+	"versions": {
+		"1.0.0": {
+			"name": "logform",
+			"version": "1.0.0",
+			"description": "An mutable object format designed for chaining & objectMode streams",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.1.2"
+			},
+			"devDependencies": {
+				"assume": "^1.5.1",
+				"mocha": "^3.5.3",
+				"nyc": "^11.2.1"
+			},
+			"gitHead": "7365fbd67686a588959e4c64d48f98e2c6fc7c9a",
+			"_id": "logform@1.0.0",
+			"_shasum": "97eeaa9aa3be72a730d54e9074e7b40244825e4a",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "97eeaa9aa3be72a730d54e9074e7b40244825e4a",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.0.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform-1.0.0.tgz_1506481831147_0.4174273645039648"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "logform",
+			"version": "1.1.0",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.1.2",
+				"date-fns": "^1.28.5"
+			},
+			"devDependencies": {
+				"assume": "^1.5.1",
+				"mocha": "^3.5.3",
+				"nyc": "^11.2.1"
+			},
+			"gitHead": "9b2bacc08fa34055628f811e2f61d836685a361b",
+			"_id": "logform@1.1.0",
+			"_shasum": "a79a6612c3604a82dca23539e95b7a5ff2e9b975",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "a79a6612c3604a82dca23539e95b7a5ff2e9b975",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.1.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform-1.1.0.tgz_1506676525157_0.7979935994371772"
+			},
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "logform",
+			"version": "1.2.0",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.1.2",
+				"date-fns": "^1.28.5"
+			},
+			"devDependencies": {
+				"assume": "^1.5.1",
+				"mocha": "^3.5.3",
+				"nyc": "^11.2.1"
+			},
+			"gitHead": "0651ef4e880ca17ffa36c7f351ecb44fc9bf95ab",
+			"_id": "logform@1.2.0",
+			"_shasum": "8553ec47ba1a01a31e62d334e3816549f453dcbf",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "8553ec47ba1a01a31e62d334e3816549f453dcbf",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.2.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform-1.2.0.tgz_1506753370011_0.1328010845463723"
+			},
+			"directories": {}
+		},
+		"1.2.1": {
+			"name": "logform",
+			"version": "1.2.1",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "populist *.js",
+				"pretest": "populist *.js test/*.js examples/*.js",
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.1.2",
+				"date-fns": "^1.28.5"
+			},
+			"devDependencies": {
+				"assume": "^1.5.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^3.5.3",
+				"nyc": "^11.2.1"
+			},
+			"gitHead": "fe0a624854b0aa7fe630644ac4134a8f42c5c77b",
+			"_id": "logform@1.2.1",
+			"_shasum": "e707ef7b3f3a9f16c248ae57f1d015074fc66bf5",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "e707ef7b3f3a9f16c248ae57f1d015074fc66bf5",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.2.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform-1.2.1.tgz_1506912813293_0.6339723719283938"
+			},
+			"directories": {}
+		},
+		"1.2.2": {
+			"name": "logform",
+			"version": "1.2.2",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.1.2",
+				"fecha": "^2.3.2"
+			},
+			"devDependencies": {
+				"assume": "^1.5.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^3.5.3",
+				"nyc": "^11.2.1"
+			},
+			"gitHead": "b44a1ccb409efd5e4069a54e5ed5031fe3e6aaf2",
+			"_id": "logform@1.2.2",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.1",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-a0TCbuqQWYhVdLie9f0tEP33bMxniAuw2StG1c5KhiTANm+RBRNpbSiGrNGpaiTZeoCiVWVsL+V5F0fpy7Q2Og==",
+				"shasum": "7be8847684de07185029ed09c65b11d06191ef93",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.2.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform-1.2.2.tgz_1512602163327_0.5667281579226255"
+			},
+			"directories": {}
+		},
+		"1.3.0": {
+			"name": "logform",
+			"version": "1.3.0",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"browser": "browser.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.2.0",
+				"fecha": "^2.3.2"
+			},
+			"devDependencies": {
+				"assume": "^1.5.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^3.5.3",
+				"nyc": "^11.2.1"
+			},
+			"gitHead": "06d4cf36b55e5252f4624e4aa86ad953c437ca2c",
+			"_id": "logform@1.3.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.1",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-U0BBmCbktfbJvQ/q/3JbgGuNi5v0OajbEtuzgUYcxBVtYk6nC1EsNBrEdDQild558PeRRW6q3FcecY6fYVW52Q==",
+				"shasum": "7fc8d03d7d5b1314353cc8a6d7223f51fe8b31e5",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.3.0.tgz",
+				"fileCount": 29,
+				"unpackedSize": 27297
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform_1.3.0_1521221977344_0.825974626867892"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.4.0": {
+			"name": "logform",
+			"version": "1.4.0",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"browser": "browser.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.2.0",
+				"fecha": "^2.3.2"
+			},
+			"devDependencies": {
+				"assume": "^1.5.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^3.5.3",
+				"nyc": "^11.2.1"
+			},
+			"gitHead": "8b7af6bb0f8fd56d458520e19632403b05de7f1e",
+			"_id": "logform@1.4.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.1",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-1NT2VkhmDcVZD8+IHz0tEwymjEQCbY5YFHPani8t5Lo5ZO2fI2a448gIZ+kWIzk69EBfC1S1u/TZ5AjcWW/NFA==",
+				"shasum": "ef987003101d4efcc2644ed21af137449a592596",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.4.0.tgz",
+				"fileCount": 31,
+				"unpackedSize": 30846
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform_1.4.0_1521823394057_0.29062681366353393"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.4.1": {
+			"name": "logform",
+			"version": "1.4.1",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"browser": "browser.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.2.0",
+				"fecha": "^2.3.2"
+			},
+			"devDependencies": {
+				"assume": "^1.5.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^3.5.3",
+				"nyc": "^11.2.1"
+			},
+			"gitHead": "6ecbeb598c3024a554f3180910ae931f7415a5c8",
+			"_id": "logform@1.4.1",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-TqMUuHczYMtiK/lyvQMoAeW29XSbN3sR0+/HBudyTCnn1FjPTqQOV7k73aG2KkKbFtz+LJi6IKgKJvmTraGdGA==",
+				"shasum": "372a84eedb01dbace3bfbcd32b78d556b5ea8333",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.4.1.tgz",
+				"fileCount": 32,
+				"unpackedSize": 31304
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform_1.4.1_1523034755731_0.666526990188876"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.4.2": {
+			"name": "logform",
+			"version": "1.4.2",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"browser": "browser.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.2.0",
+				"fecha": "^2.3.2"
+			},
+			"devDependencies": {
+				"assume": "^2.0.0",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^3.5.3",
+				"nyc": "^11.2.1"
+			},
+			"gitHead": "eb7d8e8285f2d429b20c231aa37ec6a347f0cfa2",
+			"_id": "logform@1.4.2",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-6fk2qTAHUpUAQ6Gzlly3v8KzdCjsN9T8tMW6aRpoNYjfE9na+DY6Bg3T31j28GloqcSl2VmkvZ8t6BjOdCfP6w==",
+				"shasum": "4d303a396707a06f366eedd63375b0c347fd4e00",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.4.2.tgz",
+				"fileCount": 32,
+				"unpackedSize": 31394,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa2LT8CRA9TVsSAnZWagAANesP+wY6VbCUjlxCUf2xRSrN\nhutnuFEhdeFykewURNKD5RVvR3XoCx9U9QkSw+soWqIt8U2a4LRSTT6CWXpe\n7fzk1qpmJLMePVhWrBXu2CQfK2CSR8kGvOP5ma6hEJYjkZ6wX2lR9YCksVUu\nkQf6P6lZ0catyOvuW5+O4c9sKh8CfVj44gaYXVXeQT36ZCPnYuBk+9LXS6uL\npQdC/8VVYl6DuTlAvfwbiWddnBzAmsPtJYe5YRUJQ7N8V0kPLPYEZVWkCDCL\nA8i064RHqSdXkiMTv1pOltiA4KlgPh2Pbuof3l6Z/F4MU1aqX2eLwhramlrO\nIubr7Z7Yhj9bf/Eutva+OZNXmuO/nufTsCaobk5hOre/OwEDC9QaNFjEShQh\n8irSp6U8vIuWLmWpKruZglON4h+TPD9Id1YUG7kodMJ74u/ufsGUX+CNzKMX\nr6/4t97ULtge0NplzUmnBJpeKmkV+Qh8MOYefRXJ02an8vG/En12O929LEMl\n2/HK3YG03xxqvS7GRiKfviDzh6zezbyRojXwpjXKyd8kjijDwha/qTWes+ZC\nJsrrZHVMV2fniJTrbj2tl7nO3fHm4GFLoBe28WdIS9772l8g5tNe7tkN65ay\nKAGvYWDr5BQxDR7AdTFcoo5V8iOV0+MBZbdcbJpk1HbH0BqHfAdmTRkQwuuI\n5Zbt\r\n=4ZDo\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform_1.4.2_1524151547468_0.5851437068916299"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.5.0": {
+			"name": "logform",
+			"version": "1.5.0",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"browser": "browser.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.2.0",
+				"fecha": "^2.3.2",
+				"ms": "^2.1.1"
+			},
+			"devDependencies": {
+				"assume": "^2.0.0",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^3.5.3",
+				"nyc": "^11.2.1"
+			},
+			"gitHead": "c9ab2b102640f6fdee9d7160fd23a0e7341d738b",
+			"_id": "logform@1.5.0",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-bETVdc4NchCSUpcKD8/N7QGWr2DS7KRzUzhQg6JjpSqkYO+tFkXTyTk5p5VuUyeuMYFppljqSLqAqycZb3fXww==",
+				"shasum": "1fe8ef7ceea6c33e21cbda16dcbf3a91bbcb9dc6",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.5.0.tgz",
+				"fileCount": 34,
+				"unpackedSize": 32302,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa3NFLCRA9TVsSAnZWagAAe1kP/311gYzS2oRS9vnWT5UJ\nLWjI77VvBLaUk+VCCzOBgn7wcDTsUf6xlL6BQuAUJmPNS8VvRJhqKmdSMONW\nWtjBNJ7yJJ8SRoS/Qv37abacB1y1+ofELrqJLevQ9lgQEicV71XaX/kS1NLL\nOwO+rpYi4DFj9Ma9rxwe6X86VXoiTlE9xYAqbugyYy4vunkrM097Nwu7yRuK\ncCa+edM7CBZbqXi6f2ewOIbRaAfJfjF4751FWkNeV+QhN8GxPo17Py1+9ifv\npMrxvhAP/wSjpIetOzRkctWR05ORTy+zZsSgvKobe4f9/2jo5KPxzOlFPMf/\nIvErM9Yl7bdyFaf4rj9ixsJytXjjlOKJXx4sWBKqQGEueUyn1z17sUTf/tfo\nF3HQpURuwJOvYP1nQGM9v7E0fghNHw63WYLeQrU0R6HtzxvTgOssA78rJsQc\n6hmKrlR7bugkVwbs9sLsqvKnB9TXI/C/XcNRJOkgNBtym3JN6iD4p+5hNBdY\nypqGlnXLsmUud/8F6HinFiQsi3tBDO8M7098A+LLkWKFIsS2o/eu4mBmst0t\n/Iom+m2fk2+wGc6YH+1a6iRtYUc6ZWIAxcxo24+hbamHuMJ4nli45NqMvWom\nCPZ2ER67N8qp8CdiE4Yc4cXKoAOMs8W8NC++UHQZtIr6fgYE6YSjgz1SvzNY\nJJf2\r\n=r6Ss\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform_1.5.0_1524420938026_0.6676446743842561"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.6.0": {
+			"name": "logform",
+			"version": "1.6.0",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"browser": "browser.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.2.1",
+				"fecha": "^2.3.3",
+				"ms": "^2.1.1",
+				"triple-beam": "^1.2.0"
+			},
+			"devDependencies": {
+				"assume": "^2.0.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^5.1.1",
+				"nyc": "^11.7.1"
+			},
+			"gitHead": "d91c581f830d1ad5afaebb78e875a47a48bca26f",
+			"_id": "logform@1.6.0",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-mW+96uQYDbZDInnO/iby9v3MG19Ei5LYuRGc/iCF2L8KmYveGhvVWQewHOsG/eBBukTUVRv83P4mQQEbqvKC4Q==",
+				"shasum": "1104c93af10269864f2d98e7661abbea3690d83f",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.6.0.tgz",
+				"fileCount": 35,
+				"unpackedSize": 34673,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa4UYpCRA9TVsSAnZWagAAGSIP/1CYP7aV24+o2fP1UwS4\nwzyvlQoqlDQnZeD1jDJCiSnxvPBFqhrutdwbzVB1vrtgwgO3vt1JjUb6K0Mk\nW/t7LpbnXGPXaIIEYUpnR5lRcXHk1rLME4JPaEE8nkRZ4faG7rjwmmzlj0/A\n/K7BMKMZ6olKCNcHqO7EC8J33S2hgHfeOHUU8MKEmRAldkio8MrOC4ltNB0q\nfX6VSVMSudnGjqX7/6Ydp/MrXyXgMjuf43DOYYmZhm3F/U10B2sXIv6AD5KS\n+u5hliy8EGUFaUqonT7sLM+3Gt2YSMEcUJpxQn7M9mgDWZzqIvz649LgQNXs\nSi8EYYM739o4YmWQU2Apu1w2SzHmT8edLh+Q8t2wVnIwJAtT1y7RxhHYe88h\ngrSztrl5nt8jiotmzidUdWENJL0kvNC0mPNpmAKLubws1Gupc5PwVJbU1a0Z\nAteBbUV3FMWA87/Xp9taPSqg95j3D77ypJSEWQjwjxaPZOKlFSHQ5Z33LO4v\nuI2G4TaM8qaAjSot11LE9S/w9aaquts+jYcPIuGT1a467x+wSweD2kCnnke7\nz5glJUaZ/JbO4wzXqNl54SirB6H69Fma5pWkhEMnaWPAecdX6qo3GaZH7cna\nD5jX6Gu+ZPhsF3+woOBGL1QZ7afQK9kZN8IiYiSxsvsODquEnVw0/wjBmKm/\nBOp4\r\n=GHb1\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform_1.6.0_1524713000923_0.32314021452136044"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.7.0": {
+			"name": "logform",
+			"version": "1.7.0",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"browser": "browser.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.2.1",
+				"fecha": "^2.3.3",
+				"ms": "^2.1.1",
+				"triple-beam": "^1.2.0"
+			},
+			"devDependencies": {
+				"assume": "^2.0.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^5.1.1",
+				"nyc": "^11.7.1"
+			},
+			"gitHead": "28c9bcf68e5a485185c9d7ca6d25c885035799b7",
+			"_id": "logform@1.7.0",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-IyyAkQiA0I3LEar69J0bR5kg7204883jsWW4os9ypXiEsHueuPwfEClC3aSelhG+pIbMD0l23nAkz5VRXZYMWA==",
+				"shasum": "53f7f6f012960c79368f84531fce716cd47b2b8e",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.7.0.tgz",
+				"fileCount": 35,
+				"unpackedSize": 34628,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbBlh/CRA9TVsSAnZWagAAZ/AP/3EWY5KW9/lJv/IOmbVE\n5XCImU+oKXD7gWjDDJm6dq3HS0HllJn7fH5jgUVgpTRAt6qFGiPksPmbpLot\nf2cP61EWi1SY/b3gSJ1Wv8SKQCE4Cp9J4J4c768i2doTrch6+QISrGtpDNxX\n8khuqHsOSx8l119Bcsw9uBA1sLJYXseNRf83jCPsBRFKcYW4QFpYcynlUxK4\nkCuJodKh2oz+20Vj+e2qlEhXkFxtC573cchfmWCTawuycSz7DvBQt8SxNMD/\naTdeS1HdNQX2lzn6+8+lr0pnHrJelHysSMyQGz4pMz/Ub/dbQJDy+26aVYBy\nu+SFBPd7K4bVuBmQRNtnoY8hAF7Tb42HJbGGjkTm0msXrw2IuV6yYZdUmhTe\nGZc9snTTdtopdlOK62JwZT3SlgoEiE9GPeTKDe3mDIvnP4vu2df0WkCymU4+\nZTW49gREL7cZXDRBbkWtNyfzI8lJJMo7wgIBW2Qa20WAenMltMydK/ikMcU7\nzs6YrJTqUFe6kLrD3iMsZIrjfx2VbxJKbnr79GgTwOAu5zJf7MUT43jxWKJa\nyAQsxuAlKLKI5U+udHNqyMEgikwYC6etm+akXV+xlqCU/yM5zE6ktNZgGc3d\n112NxAM5FaIBbj6PiWYdWg0MRgdlzPr0VADqsQHJr9AGJAaPspuqLEBp7+ub\nW+/a\r\n=7STr\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform_1.7.0_1527142526359_0.1570381074083289"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.8.0": {
+			"name": "logform",
+			"version": "1.8.0",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"browser": "browser.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.2.1",
+				"fast-safe-stringify": "^2.0.4",
+				"fecha": "^2.3.3",
+				"ms": "^2.1.1",
+				"triple-beam": "^1.2.0"
+			},
+			"devDependencies": {
+				"assume": "^2.0.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^5.1.1",
+				"nyc": "^11.7.1"
+			},
+			"gitHead": "012eac9755e1fb30fddf3fa3712992b2ca0d9f00",
+			"_id": "logform@1.8.0",
+			"_npmVersion": "5.10.0",
+			"_nodeVersion": "10.3.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-p4DLdKsDTtXdaUvMmUnlWBBa4qV/Blsa2nNWh8xwCvxso57i3ADvxebDjlFbbjnHfwK4CvxJvYdq0sgm149QRg==",
+				"shasum": "011e7c04444eb5ee2b0beb47089f6c086368fb66",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.8.0.tgz",
+				"fileCount": 35,
+				"unpackedSize": 35025,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbHzcACRA9TVsSAnZWagAAJKMQAJmNXHHAsr3D/zVF+QPK\nxSAWg8fsI+ztxhbgq8ecQIQaBB6bXzVQ9ZbNw4CkmDmQ38pdzn/+JKK7/LEd\nhryPMM+m1HYLOB2VjuxVHvmwU7ZXv/xeIXKasvx7ZUttA416R865LF/HYQtl\nQLvehiWGhbGf6yeo7haM8ojh7cVFHgATT4fslbS13uvEv4vqdP9+RHBGd8Xv\nqyx/wu65BM1fu4aaeXDTxRsun1HS2FL8HhYqGMJ/5jkP0rT73muXMml2/1cK\niByCh9DE2jqIsZLfPC4HIT/zPqPV6Rww+wjSfBixhSYn0p2GwZwvbiKP7pqf\nv8qcSSoCvjCzWglk1HaA6jksK2RJ8CSps2YEduFCFyie3vMYv9bm1qwDmOE8\nlPmU5qldYOBtqfjKYF9jgIgPcVj9QxDulEiVt7VkjMirK8UPSKnALjEx23eo\nOZ3iNUd4U46Eh+1rPEYjKzzuPSUF7jvzdwQEtkzawLRTfhc6Gn2uQB/cU1zl\nMZMmNv1ucJVycDiioFu+Jff33RQOlmoiDHKOLOOKwEph0bYLCfeSJcsKol8e\nvzTLlu8r4U/6HuXGzPUHFg/RY1Qud7FgcqCNdLzdyq+RKm/sVsff1gSoB8JT\neEcNVQxuqPI7O5SawaxycwKVLLn3NEPIIr/tJDvsNiEB84WYNH810SkPg4Sl\nz14y\r\n=1/RS\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform_1.8.0_1528772350719_0.7361065105773155"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.9.0": {
+			"name": "logform",
+			"version": "1.9.0",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"browser": "browser.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.2.1",
+				"fast-safe-stringify": "^2.0.4",
+				"fecha": "^2.3.3",
+				"ms": "^2.1.1",
+				"triple-beam": "^1.2.0"
+			},
+			"devDependencies": {
+				"assume": "^2.0.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^5.1.1",
+				"nyc": "^11.7.1"
+			},
+			"gitHead": "b413d31e60f4097feea04c38c63fc6bf30cc0f8c",
+			"_id": "logform@1.9.0",
+			"_npmVersion": "5.10.0",
+			"_nodeVersion": "10.3.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-H1gneJlqo1dwmXq52p/X57SztuX20aWQArp69u4x7DDmCkMZgMLtBTm2LMoTz0+wu7HdkICiPj6vBbX8WJFRig==",
+				"shasum": "7e02f7d6b7f70dcc8ae56fcd2d060f9547afbac2",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.9.0.tgz",
+				"fileCount": 35,
+				"unpackedSize": 40589,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbH4GkCRA9TVsSAnZWagAAZo8P/ingoXbu7yiwqr5CN+Qb\nhSLljBpu3oMJWHpDmSKOEVUvJeCwdK0cOZZ5JBapxIKQ4Vu34WaPfAemY9HE\nmKYojBMGy657aQpeoDDZ7eEBCXPVVNf9um1ymCovSdS9TyC+foIgCOr77tXU\nNPe+jJ5DGVHTWkOC250BcOSzPYx3XqWhMjZ2wLtLFnxsQtNCVrpMSobzMWqH\nU1GYzPP1oh6mTQ8cxK+l2AxyX6OBql03RWqLoOnOnBiTIm7o7t0DVkrTmqUZ\nvH9PTJ1oYDb+E93e6QjP0TLRTsHtP8Uqc0Z2yE2faxfilTqJxAGMnIL4HXyN\nqlMcrG5RD0QKOeU3ors4l+3InFHXnlnQZk/OiZCESWePG3zfSEd8QoVZziJL\nSLJYk40ru+29zng1tyWKRr/UdsBJZg/cebCjuUO7Kq5YySDU9bFfrJq5Ht/U\n1qQjmgvb/LlOCbhdY+7qZ4PP2xctcEfyGMmprw2kVuPy7mKkzsDzJnBJ2z7L\npezJJQ6fSzAazB19BQWzlnCZxa3ScGkMYrDfIMKM/kMPbpGvzelvTzv38Mxi\nWssEhcwAJamn3A+CPL8Niw/edaaoORrqYhdI9XTW1y9rhURzfEYqWO/mMF33\nZjdbChsAurETSdI/UHr//aPIc7r+0rm2OvYvargjrDr78/wJT+rCIcSXS/B3\nzulr\r\n=w4xZ\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform_1.9.0_1528791460212_0.9897608946196388"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.9.1": {
+			"name": "logform",
+			"version": "1.9.1",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"browser": "browser.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.2.1",
+				"fast-safe-stringify": "^2.0.4",
+				"fecha": "^2.3.3",
+				"ms": "^2.1.1",
+				"triple-beam": "^1.2.0"
+			},
+			"devDependencies": {
+				"assume": "^2.0.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^5.1.1",
+				"nyc": "^11.7.1"
+			},
+			"gitHead": "7c9b20c2640257d50a0e45d73c3efbdc1b97dcac",
+			"_id": "logform@1.9.1",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-ZHrZE8VSf7K3xKxJiQ1aoTBp2yK+cEbFcgarsjzI3nt3nE/3O0heNSppoOQMUJVMZo/xiVwCxiXIabaZApsKNQ==",
+				"shasum": "58b29d7b11c332456d7a217e17b48a13ad69d60a",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.9.1.tgz",
+				"fileCount": 35,
+				"unpackedSize": 40898,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbMlE8CRA9TVsSAnZWagAAzcIP/15BuCX59VRrv+0stFx1\nakW0dQEThEPBRbij2PywIvPnhdLTAz7zx0YQmELBAiyH1e7/sDJk3YWEW+tq\nk0Sni02DbyQQIeSpYOA1g0eijU8cCa8Y2YiGepkoMjFpSUzI5YARmVvZD4sD\ndbT9NZ2R6LW9BMMKwSc4IEgzlrsV8093fHmTILSUCv3vqUUHu2Y6SXoJqoie\ngnvG8vv31KhZAzE37UbXM94NSbEHBopMS3lZtbPeY2iGbVB8CyWg5GKvhdBl\nq5k0bSKdnlOUVZCa6qm+mxD17DK2KgyIj2KQGaf8f7GRa8zy17PR5ZsopTAB\nO1JqStuzbsXp3zekYKLaIrsVXqAczBjuZN3XQondEdVAxYL+eiCbvILzVp5K\nFIqe5YdBDcbFT5snoguL5LnTd5LiBPGoqMBy485k8QjL2dQVOPplV1W08EeU\niwNBVERb8N1Ea5dGQfeqHNojnzHatrELXuGlOKmVwpbN33ORijsg/McEV9TU\nc5uLnQz7B/6TZ/pBfxURBnveUf9Me+RZoqPNkI69s9WVkkEPTSy+VL/gMjGP\nSXY1wcs1pUYcxvrDXebx06oIsLyDlHB39/qFVFTyq8SckhNQ9CWIXbVpNg8y\nP68fjvrlrYHnkOWX3YK47OZz45RnFsrMHkIBek3BY3jBbwIifHLIyBjCq1Bh\nYeTX\r\n=WOCx\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform_1.9.1_1530024252652_0.7316658889297454"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.10.0": {
+			"name": "logform",
+			"version": "1.10.0",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"browser": "dist/browser.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint && npm run build",
+				"test": "nyc mocha test/*.test.js",
+				"build": "rimraf dist && babel *.js -d ./dist",
+				"prepublishOnly": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.2.1",
+				"fast-safe-stringify": "^2.0.4",
+				"fecha": "^2.3.3",
+				"ms": "^2.1.1",
+				"triple-beam": "^1.2.0"
+			},
+			"devDependencies": {
+				"assume": "^2.0.1",
+				"babel-cli": "^6.26.0",
+				"babel-preset-env": "^1.7.0",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^5.1.1",
+				"nyc": "^11.7.1",
+				"rimraf": "^2.6.2"
+			},
+			"types": "./index.d.ts",
+			"gitHead": "9c826a2d8a95a0379bcbf1954ff3c363002fb215",
+			"_id": "logform@1.10.0",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-em5ojIhU18fIMOw/333mD+ZLE2fis0EzXl1ZwHx4iQzmpQi6odNiY/t+ITNr33JZhT9/KEaH+UPIipr6a9EjWg==",
+				"shasum": "c9d5598714c92b546e23f4e78147c40f1e02012e",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-1.10.0.tgz",
+				"fileCount": 56,
+				"unpackedSize": 74400,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbn/2VCRA9TVsSAnZWagAACOgP/3I4cUH64msMxGwIEF1+\nKZtOptxs9FuZCysMb1bgA0CxcdP+w6r7mm0BkUkLWMju1rnFSgkXH9zUkuT8\nod6HnbvqT+RoKu9SH0SzRV2pQy0+pGCJ7dbWlrDmkCAJBvUIU7hY9GN4btQE\nqzf74rkCncy0nExVG0dTZaFQP9kqEyTk1olU/x+4LEFMYeZ87898J8xU21hI\nSM12i9gacCLwNqhzqcqRalDEWBuv4uUZMmAwERPOpg+fl8JicxFfcqpM9/hq\nAHj3pO8lf0Kje0SiJWv4JIWwNgCoFlP7D1XYzlX6RHvieeRm+5rV3pU1imY/\nuBmPWTZMSGQHpkRsDcPHl3F8IRjBA1CJRMdid5d/8MGUmSRs7Batf4tLUVdg\nZnq7qJD1jWyNQ/fc0DATpOZQiJdc8s6ELqnIdZizrxcgleSwYYVa240YGfOq\nHAPLSDpfrEdyxLVwffu+2HpH6NAACjNrdpHQ3xIVQ/OKGnBA4xzYvCqJ4A1Z\nyBvuV00AM85i08MnAnEW5rTS3J2jrCZcfGglojaK+hOKAtilqxi/Jw0qakMW\nYRgly7y9aU4JDaD7BshicnqUWWshFNEDtdr+lKHGVbfVCLpFene7XNt6nMOY\nJdhvRkle1IowZ6aW1AsJR4O7q9AWu5ZrUT0oxo/G/g3yVNCdaeiduDyP828r\nTp4D\r\n=nloT\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform_1.10.0_1537211796351_0.3360486975627197"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "logform",
+			"version": "2.0.0",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"browser": "dist/browser.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint && npm run build",
+				"test": "nyc mocha test/*.test.js",
+				"build": "rimraf dist && babel *.js -d ./dist",
+				"prepublishOnly": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.2.1",
+				"fast-safe-stringify": "^2.0.4",
+				"fecha": "^2.3.3",
+				"ms": "^2.1.1",
+				"triple-beam": "^1.2.0"
+			},
+			"devDependencies": {
+				"assume": "^2.0.1",
+				"babel-cli": "^6.26.0",
+				"babel-preset-env": "^1.7.0",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^5.1.1",
+				"nyc": "^11.7.1",
+				"rimraf": "^2.6.2"
+			},
+			"types": "./index.d.ts",
+			"gitHead": "98f5846c6f6f851aa863fd1e900347aefae6073a",
+			"_id": "logform@2.0.0",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-Yk0RJmD9ps/EPR9dLKC88CHzMyLn/H0XS4hLmqOFRRyrHpfH49RaMAuyldJWGWMizpVJBRXBmZk9j/lQ8ZilUg==",
+				"shasum": "3fa8d1562f2db52e798a46827456567c463f8185",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-2.0.0.tgz",
+				"fileCount": 56,
+				"unpackedSize": 91654,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcIAvUCRA9TVsSAnZWagAA8ZUP/i65hnQMSNTrTtOkpMVM\nXuw8N2/kgCWYEbrDnbGboxKv5SWbcVCqIo6SPDbUoIYDmFT0mZ/Po5Ux3q0j\nRJ3s3JJEa+/bCNek1Jr14ni/EbnSTnrMRLNml4LYq3GdmeKVKI9Rp1fqo7tw\nmmgzY9nD0uevGGLe73n9e6vZ6KrUhPPdM+9j9lyAOIH5Gk/E0ARASLNDWbJ2\nO4aSwlPjzVjEyHGI3TV5uI/jqA3n0o6fu2cx2zV0FrTC/uCfErEbcTqS2dbH\nHviRPlqPV01e0c8sLMu/wE0fCK6bwlOI+VnFHNfBxk35lmN6cbJov4rVTKQ+\n75RcqUcgGmduXXTfKc7lFJgytTjCU/22FsiYoPBGWLHVlX05GLYmMRbW9/jG\n28ddVkJLeplo2Nl/1Km8JlYNe1737w1VnEnrqO9MMFXl3CqyCbTa/X66xifn\nNvN52o2m9eBae+R0DlFxMkSQXsim03dnUjjITD8bRPYurJ3A6hzLluiWD5bR\nYFqX4RvUqsZm26CfWlnR0utIMmNqwbESdv3ovgyHk1ZTNVDs/dyx9PufQYuT\n+rH/qdSmwZi/jvsRJEFCtmlc4a+Y1szjLtvcMwBwPqcsSbmEwh/hmUC+y6Yk\nFMTzlyFqKijypKvFIXt/AlqyGnZmzDjGec0XvAKKdhZzMw2L7urJsjlGa5Zf\nHjHD\r\n=nDjZ\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform_2.0.0_1545604051676_0.05432436563843823"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.1.0": {
+			"name": "logform",
+			"version": "2.1.0",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"browser": "dist/browser.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint && npm run build",
+				"test": "nyc mocha test/*.test.js",
+				"build": "rimraf dist && babel *.js -d ./dist",
+				"prepublishOnly": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.2.1",
+				"fast-safe-stringify": "^2.0.4",
+				"fecha": "^2.3.3",
+				"ms": "^2.1.1",
+				"triple-beam": "^1.2.0"
+			},
+			"devDependencies": {
+				"assume": "^2.0.1",
+				"babel-cli": "^6.26.0",
+				"babel-preset-env": "^1.7.0",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^5.1.1",
+				"nyc": "^11.7.1",
+				"rimraf": "^2.6.2"
+			},
+			"types": "./index.d.ts",
+			"gitHead": "7b63089e278f20594eb16c9bf65536c621982b86",
+			"_id": "logform@2.1.0",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "10.3.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "dabh@stanford.edu",
+					"name": "dabh"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-srZ6qfWCHLX0HVBuWiBC9CPWh61PFrj/akMSQTEqVOgik8fbpg849VU/kepesr6kBZ42Jsk8Duuabim6hAh27w==",
+				"shasum": "eb769f7f98f285a4ed5dc7905cac89be5a1f7c04",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-2.1.0.tgz",
+				"fileCount": 58,
+				"unpackedSize": 96570,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcNEciCRA9TVsSAnZWagAA/tkP/iOTJTIO11O1gniWGQg9\n3ugLf57tEGfatqnHx6h2YpvOH21A4UTdu9v0qPc+32VWPozqPyuS/TWVLU2d\nL6fXxKMVSeLWd15PyUyhoDEskwraZJTTj7n0UT0uvc+jMVbOAaZntaj4jFMC\nlGxYjodK3CHGmz/c7XHIbjDirHOfH8bbC6TFTglyMDRMICMUMNgdb9f/IPOS\nBtJ3A+0NsaIgweyvyGmH6tRKUG6wt1vN9IN6YuaflVrw7rHEYX+cJe2b1Ns3\nndvuvOW9mQ7Iqyw21mTPp9mGh++PwMbtVSSl4HzqPz5xfwK6OqzWFQbba4wP\n2zzOVrUi2JDhc1ARkpNKdt0yETPRcMKj0D2H7yx7tf+mf5Yv9QUDJxPHFdd+\nH5Y108GWdpj3oOEgv2ITjbyVV4KxWvc0KWC6rLxLCbKe6MNOuo0vPsTAjGfa\nUnA/TtxAniQy1QM/O1nkhxhMFFdMDCBRxbGpF2zHvNqKAIsoKRogBkBP6crq\nPuLaQqJjuYSvKe3vcdScCzPHCtJfBolFnm4rQKHlSqYfdqxdko1R7wTB08VU\nSUpPNw1C9QrAhQpp+17hXEIqZVOI8O0DPfgqcI0qZq9Oh/BO628VQ+FM++Ts\npypARXHnLoSDtqjz4dXF+BMec1kQQK2ZsDRyUHy7Qa7Smfg1uYlqIZ9fzBOj\nG95v\r\n=7aDb\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform_2.1.0_1546929953289_0.44762765259867154"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.1.1": {
+			"name": "logform",
+			"version": "2.1.1",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"browser": "dist/browser.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint && npm run build",
+				"test": "nyc mocha test/*.test.js",
+				"build": "rimraf dist && babel *.js -d ./dist",
+				"prepublishOnly": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.2.1",
+				"fast-safe-stringify": "^2.0.4",
+				"fecha": "^2.3.3",
+				"ms": "^2.1.1",
+				"triple-beam": "^1.3.0"
+			},
+			"devDependencies": {
+				"assume": "^2.0.1",
+				"babel-cli": "^6.26.0",
+				"babel-preset-env": "^1.7.0",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^5.1.1",
+				"nyc": "^11.7.1",
+				"rimraf": "^2.6.2"
+			},
+			"types": "./index.d.ts",
+			"gitHead": "c4f66df93d29b5d98f5341575991540fd89d1b58",
+			"_id": "logform@2.1.1",
+			"_nodeVersion": "10.15.0",
+			"_npmVersion": "6.7.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "dabh@stanford.edu",
+					"name": "dabh"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-PARKXBrI4Mf3FTB7yDW/CPAHbbtqTYbzBVk58F8wXX3q3sGbmbkLjksbAxkKCh4GNtq0En1YMJYzMeeyxOKUBg==",
+				"shasum": "7461e8445c1528adb4e9ae2cf277ba3b64b84ff1",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-2.1.1.tgz",
+				"fileCount": 58,
+				"unpackedSize": 97623,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcUIBaCRA9TVsSAnZWagAAf9gQAIy19zrk8VSaHkxQ/tpw\nGFVUNz6edCwBbfKQ2bi9hTH4YBlYORYfmcLsfdYI+ehQD0IZ4NRFukebMlxU\nXb4eERdkfrjFB2j4hssZguYJubS/WSqDUXu5M5cLLxFT0Xt8weJN0GWIlJCw\nhNZ2sqyRtN/hhgNKa9x2v0W5Sj2xYK81oENJIoDZZXyabcTrv32yeZNjLWYK\nBW3vORGwnakRM/rmmW8Xf+fKt3HnIfs0aB1ODWgvwK/RssZbxZKUVGsuIERc\nfEhIgULqW/5qthRt6V9Bvs4MLR7YQ4/FVjR9lzMB9t8JqklQySFWWLc6tIoM\nZMdywegquqqCOAhgcqxjQXSUGeri5h3El7Qf9lYI2RqqtQlRvQ43r+0dJDVT\nQ/krg3lVR1xjO+xDSNA5a1hva5vE1FGpT2gG2/vob3itbMHmW5T789XjGblT\nsJ+VRDvVgKxMFiV0FCPNSmGZSjPDcKoE3WMYH98/XZAzBE1W/5DWeU4y0Sub\nJXLGyr1/Qa75DFILMTIIYNptFeoSi1hZFX9eZcLv9qXHbJ+kI4E+aJ68V0yQ\n2liRN/wmoncgc0Gml1A8/NUNCrIVB60jmcHqnJDtzEWK3ieXzYGmmPdEs0bX\njSJy2n2IUMdIRx5R2DgOwoUwsZHVKouY/eiwlmnJEwFYHD+pKaaRKC+gz2Ur\nQd99\r\n=5eO/\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform_2.1.1_1548779609280_0.22016014802118522"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.1.2": {
+			"name": "logform",
+			"version": "2.1.2",
+			"description": "An mutable object-based log format designed for chaining & objectMode streams.",
+			"main": "index.js",
+			"browser": "dist/browser.js",
+			"scripts": {
+				"lint": "populist *.js test/*.js examples/*.js",
+				"pretest": "npm run lint && npm run build",
+				"test": "nyc mocha test/*.test.js",
+				"build": "rimraf dist && babel *.js -d ./dist",
+				"prepublishOnly": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/logform.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"format",
+				"winstonjs"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/logform/issues"
+			},
+			"homepage": "https://github.com/winstonjs/logform#readme",
+			"dependencies": {
+				"colors": "^1.2.1",
+				"fast-safe-stringify": "^2.0.4",
+				"fecha": "^2.3.3",
+				"ms": "^2.1.1",
+				"triple-beam": "^1.3.0"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.3",
+				"@babel/core": "^7.2.2",
+				"@babel/preset-env": "^7.3.1",
+				"assume": "^2.0.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "^5.1.1",
+				"nyc": "^11.7.1",
+				"rimraf": "^2.6.2"
+			},
+			"types": "./index.d.ts",
+			"gitHead": "cb58d29f9e64035560398de32a95d34c76f4224d",
+			"_id": "logform@2.1.2",
+			"_nodeVersion": "10.15.0",
+			"_npmVersion": "6.7.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-+lZh4OpERDBLqjiwDLpAWNQu6KMjnlXH2ByZwCuSqVPJletw0kTWJf5CgSNAUKn1KUkv3m2cUz/LK8zyEy7wzQ==",
+				"shasum": "957155ebeb67a13164069825ce67ddb5bb2dd360",
+				"tarball": "https://registry.npmjs.org/logform/-/logform-2.1.2.tgz",
+				"fileCount": 58,
+				"unpackedSize": 101501,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcVISKCRA9TVsSAnZWagAANuUP/2qDdn/hbsF0ULYwWRfR\naDB6BsPhoEJJko91EXHbYA/LV0zmdR7wNzbaqfKs0vrSHcLnwczAhAFCqGAQ\nnMwsUM3LC8O89FovfgHNURGsWAeD+k77xwm5HgdQJRPe7ce6tpFS3iK3pdxj\nHC3kH2JM7fFnZmBSAuwweDzIM+DaP6ssNmHG05FxgFBqP/iX8JzcrxTfD7M5\ndQoQ0LpRRYRJ3CepUgxdCEhk3DM+YdYTpImR/TgtSn9Tgwnru2e+XbDOZtfy\n59ap2XQdbEkN0CPa7jrUdyzX3r8QUPCY6XMKWlMhuzw+9AGupbbOlahf7FLq\noYIPp9wzeNO0qe3TVIPXGPbSrw7KmjVUdEPAyK46ihf8IeyltnJ6UyudD7oA\n0nUgCN994f20o2TA//uG1fvFCpJ1QHB5t9KwgqCu2DrC9eYGcbbCGJg3T35E\naEi2gPAc0f8+aco+y/fopstabFIcbj09JXKJ4zubFy2xG/lUg74XiQsTb38b\nXdvLMEW4C4TpkwI3oJCsi5EIvnXD7b0OU36AJspmQlCE5He5mWxcOZJY/kpg\nEHi/gyyocGwjJKLivHgF/38oLcnMUzPMfc8TRwAHHeyatD5UV97xCoVfHFMg\nRm7wx8ruSqFXygFIvs+z3nIHLZlENEWhTwjDOTBlAAhJZqbEd7N8eQ7uLq14\nCdY+\r\n=mUni\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "dabh@stanford.edu",
+					"name": "dabh"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/logform_2.1.2_1549042826050_0.2670880624494709"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-02-01T17:40:28.830Z",
+		"created": "2017-09-27T03:10:32.052Z",
+		"1.0.0": "2017-09-27T03:10:32.052Z",
+		"1.1.0": "2017-09-29T09:15:26.060Z",
+		"1.2.0": "2017-09-30T06:36:10.936Z",
+		"1.2.1": "2017-10-02T02:53:34.691Z",
+		"1.2.2": "2017-12-06T23:16:03.446Z",
+		"1.3.0": "2018-03-16T17:39:37.481Z",
+		"1.4.0": "2018-03-23T16:43:14.172Z",
+		"1.4.1": "2018-04-06T17:12:36.044Z",
+		"1.4.2": "2018-04-19T15:25:47.527Z",
+		"1.5.0": "2018-04-22T18:15:38.105Z",
+		"1.6.0": "2018-04-26T03:23:21.032Z",
+		"1.7.0": "2018-05-24T06:15:26.526Z",
+		"1.8.0": "2018-06-12T02:59:10.788Z",
+		"1.9.0": "2018-06-12T08:17:40.283Z",
+		"1.9.1": "2018-06-26T14:44:12.750Z",
+		"1.10.0": "2018-09-17T19:16:36.486Z",
+		"2.0.0": "2018-12-23T22:27:31.841Z",
+		"2.1.0": "2019-01-08T06:45:53.455Z",
+		"2.1.1": "2019-01-29T16:33:29.410Z",
+		"2.1.2": "2019-02-01T17:40:26.177Z"
+	},
+	"dist-tags": {
+		"latest": "2.1.2"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"9aca9049bb90d567f74a6a49b1f8b9fc\"",
+			"fetched": 1568994338845
+		}
+	},
+	"_distfiles": {
+		"logform-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.0.0.tgz",
+			"sha": "97eeaa9aa3be72a730d54e9074e7b40244825e4a",
+			"registry": "npmjs"
+		},
+		"logform-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.1.0.tgz",
+			"sha": "a79a6612c3604a82dca23539e95b7a5ff2e9b975",
+			"registry": "npmjs"
+		},
+		"logform-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.2.0.tgz",
+			"sha": "8553ec47ba1a01a31e62d334e3816549f453dcbf",
+			"registry": "npmjs"
+		},
+		"logform-1.2.1.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.2.1.tgz",
+			"sha": "e707ef7b3f3a9f16c248ae57f1d015074fc66bf5",
+			"registry": "npmjs"
+		},
+		"logform-1.2.2.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.2.2.tgz",
+			"sha": "7be8847684de07185029ed09c65b11d06191ef93",
+			"registry": "npmjs"
+		},
+		"logform-1.3.0.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.3.0.tgz",
+			"sha": "7fc8d03d7d5b1314353cc8a6d7223f51fe8b31e5",
+			"registry": "npmjs"
+		},
+		"logform-1.4.0.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.4.0.tgz",
+			"sha": "ef987003101d4efcc2644ed21af137449a592596",
+			"registry": "npmjs"
+		},
+		"logform-1.4.1.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.4.1.tgz",
+			"sha": "372a84eedb01dbace3bfbcd32b78d556b5ea8333",
+			"registry": "npmjs"
+		},
+		"logform-1.4.2.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.4.2.tgz",
+			"sha": "4d303a396707a06f366eedd63375b0c347fd4e00",
+			"registry": "npmjs"
+		},
+		"logform-1.5.0.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.5.0.tgz",
+			"sha": "1fe8ef7ceea6c33e21cbda16dcbf3a91bbcb9dc6",
+			"registry": "npmjs"
+		},
+		"logform-1.6.0.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.6.0.tgz",
+			"sha": "1104c93af10269864f2d98e7661abbea3690d83f",
+			"registry": "npmjs"
+		},
+		"logform-1.7.0.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.7.0.tgz",
+			"sha": "53f7f6f012960c79368f84531fce716cd47b2b8e",
+			"registry": "npmjs"
+		},
+		"logform-1.8.0.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.8.0.tgz",
+			"sha": "011e7c04444eb5ee2b0beb47089f6c086368fb66",
+			"registry": "npmjs"
+		},
+		"logform-1.9.0.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.9.0.tgz",
+			"sha": "7e02f7d6b7f70dcc8ae56fcd2d060f9547afbac2",
+			"registry": "npmjs"
+		},
+		"logform-1.9.1.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.9.1.tgz",
+			"sha": "58b29d7b11c332456d7a217e17b48a13ad69d60a",
+			"registry": "npmjs"
+		},
+		"logform-1.10.0.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-1.10.0.tgz",
+			"sha": "c9d5598714c92b546e23f4e78147c40f1e02012e",
+			"registry": "npmjs"
+		},
+		"logform-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-2.0.0.tgz",
+			"sha": "3fa8d1562f2db52e798a46827456567c463f8185",
+			"registry": "npmjs"
+		},
+		"logform-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-2.1.0.tgz",
+			"sha": "eb769f7f98f285a4ed5dc7905cac89be5a1f7c04",
+			"registry": "npmjs"
+		},
+		"logform-2.1.1.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-2.1.1.tgz",
+			"sha": "7461e8445c1528adb4e9ae2cf277ba3b64b84ff1",
+			"registry": "npmjs"
+		},
+		"logform-2.1.2.tgz": {
+			"url": "https://registry.npmjs.org/logform/-/logform-2.1.2.tgz",
+			"sha": "957155ebeb67a13164069825ce67ddb5bb2dd360",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-5569f5b79913bce0",
+	"_id": "logform",
+	"readme": "# logform\n\nA mutable object-based log format designed for chaining & objectMode streams.\n\n``` js\nconst { format } = require('logform');\n\nconst alignedWithColorsAndTime = format.combine(\n  format.colorize(),\n  format.timestamp(),\n  format.align(),\n  format.printf(info => `${info.timestamp} ${info.level}: ${info.message}`)\n);\n```\n\n- [`info` Objects](#info-objects)\n- [Understanding formats](#understanding-formats)\n  - [Combining formats](#combining-formats)\n  - [Filtering `info` objects](#filtering-info-objects)\n- [Formats](#formats)\n  - [Align](#align)\n  - [CLI](#cli)\n  - [Colorize](#colorize)\n  - [Combine](#combine)\n  - [Errors](#errors)\n  - [JSON](#json)\n  - [Label](#label)\n  - [Logstash](#logstash)\n  - [Metadata](#metadata)\n  - [PadLevels](#padlevels)\n  - [PrettyPrint](#prettyprint)\n  - [Printf](#printf)\n  - [Simple](#simple)\n  - [Splat](#splat)\n  - [Timestamp](#timestamp)\n  - [Uncolorize](#uncolorize)\n\n## `info` Objects\n\nThe `info` parameter provided to a given format represents a single log\nmessage. The object itself is mutable. Every `info` must have at least the\n`level` and `message` properties:\n\n``` js\nconst info = {\n  level: 'info',                 // Level of the logging message  \n  message: 'Hey! Log something?' // Descriptive message being logged.\n}\n```\n\nProperties **besides level and message** are considered as \"`meta`\". i.e.:\n\n``` js\nconst { level, message, ...meta } = info;\n```\n\nSeveral of the formats in `logform` itself add additional properties:\n\n| Property    | Format added by | Description |\n| ----------- | --------------- | ----------- | \n| `splat`     | `splat()`       | String interpolation splat for `%d %s`-style messages. |\n| `timestamp` | `timestamp()`   |  timestamp the message was received. |\n| `label`     | `label()`       | Custom label associated with each message. | \n| `ms`        | `ms()`          | Number of milliseconds since the previous log message. |\n\nAs a consumer you may add whatever properties you wish – _internal state is\nmaintained by `Symbol` properties:_\n\n- `Symbol.for('level')` _**(READ-ONLY)**:_ equal to `level` property.\n  **Is treated as immutable by all code.**\n- `Symbol.for('message'):` complete string message set by \"finalizing formats\":\n  - `json`\n  - `logstash`\n  - `printf`\n  - `prettyPrint`\n  - `simple`\n- `Symbol.for('splat')`: additional string interpolation arguments. _Used\n  exclusively by `splat()` format._\n\nThese Symbols are stored in another package: `triple-beam` so that all\nconsumers of `logform` can have the same Symbol reference. i.e.:\n\n``` js\nconst { LEVEL, MESSAGE, SPLAT } = require('triple-beam');\n\nconsole.log(LEVEL === Symbol.for('level'));\n// true\n\nconsole.log(MESSAGE === Symbol.for('message'));\n// true\n\nconsole.log(SPLAT === Symbol.for('splat'));\n// true\n```\n\n## Understanding formats\n\nFormats are prototypal objects (i.e. class instances) that define a single method: `transform(info, opts)` and return the mutated `info`\n\n- `info`: an object representing the log message.\n- `opts`: setting specific to the current instance of the format.\n\nThey are expected to return one of two things:\n\n- **An `info` Object** representing the modified `info` argument. Object references need not be preserved if immutability is preferred. All current built-in formats consider `info` mutable, but [immutablejs] is being considered for future releases.\n- **A falsey value** indicating that the `info` argument should be ignored by the caller. (See: [Filtering `info` Objects](#filtering-info-objects)) below.\n\n`logform.format`  is designed to be as simple as possible. To define a new format simple pass it a `transform(info, opts)` function to get a new `Format`. \n\nThe named `Format` returned can be used to create as many copies of the given `Format` as desired:\n\n``` js\nconst { format } = require('logform');\n\nconst volume = format((info, opts) => {\n  if (opts.yell) {\n    info.message = info.message.toUpperCase(); \n  } else if (opts.whisper) {\n    info.message = info.message.toLowerCase();\n  }\n\n  return info;\n});\n\n// `volume` is now a function that returns instances of the format.\nconst scream = volume({ yell: true });\nconsole.dir(scream.transform({\n  level: 'info',\n  message: `sorry for making you YELL in your head!`\n}, scream.options));\n// {\n//   level: 'info'\n//   message: 'SORRY FOR MAKING YOU YELL IN YOUR HEAD!'\n// }\n\n// `volume` can be used multiple times to create different formats.\nconst whisper = volume({ whisper: true });\nconsole.dir(whisper.transform({ \n  level: 'info', \n  message: `WHY ARE THEY MAKING US YELL SO MUCH!` \n}), whisper.options);\n// {\n//   level: 'info'\n//   message: 'why are they making us yell so much!'\n// }\n```\n\n### Combining formats\n\nAny number of formats may be combined into a single format using `format.combine`. Since `format.combine` takes no `opts`, as a convenience it returns pre-created instance of the combined format.\n\n``` js\nconst { format } = require('logform');\nconst { combine, timestamp, label } = format;\n\nconst labelTimestamp = combine(\n  label({ label: 'right meow!' }),\n  timestamp()\n);\n\nconst info = labelTimestamp.transform({\n  level: 'info',\n  message: 'What time is the testing at?'\n});\n\nconsole.dir(info);\n// { level: 'info',\n//   message: 'What time is the testing at?',\n//   label: 'right meow!',\n//   timestamp: '2017-09-30T03:57:26.875Z' }\n```\n\n### Filtering `info` Objects\n\nIf you wish to filter out a given `info` Object completely then simply return a falsey value.\n\n``` js\nconst ignorePrivate = format((info, opts) => {\n  if (info.private) { return false; }\n  return info;\n});\n\nconsole.dir(ignorePrivate.transform({\n  level: 'error',\n  message: 'Public error to share'\n}));\n// { level: 'error', message: 'Public error to share' }\n\nconsole.dir(ignorePrivate.transform({\n  level: 'error',\n  private: true,\n  message: 'This is super secret - hide it.'\n}));\n// false\n```\n\nUse of `format.combine` will respect any falsey values return and stop evaluation of later formats in the series. For example:\n\n``` js\nconst { format } = require('logform');\nconst { combine, timestamp, label } = format;\n\nconst willNeverThrow = format.combine(\n  format(info => { return false })(), // Ignores everything\n  format(info => { throw new Error('Never reached') })()\n);\n\nconsole.dir(willNeverThrow.transform({\n  level: 'info',\n  message: 'wow such testing'\n}))\n```\n\n## Formats\n\n### Align\n\nThe `align` format adds a `\\t` delimiter before the message to align it in the same place.\n\n```js\nconst { format } = require('logform');\n\nconst alignFormat = format.align();\n\nconst info = alignFormat.transform({\n  level: 'info',\n  message: 'my message'\n});\n\nconsole.log(info);\n// { level: 'info', message: '\\tmy message' }\n```\n\nThis was previously exposed as `{ align: true }` in `winston < 3.0.0`.\n\n### CLI\n\nThe `cli` format is a combination of the `colorize` and the `padLevels` formats. It turns a log  `info` object into the same format previously available in `winston.cli()` in `winston < 3.0.0`.\n\n```js\nconst { format } = require('logform');\nconst LEVEL = Symbol.for('level');\n\nconst cliFormat = format.cli({ colors: { info: 'blue' }});\n\nconst info = cliFormat.transform({\n  [LEVEL]: 'info',\n  level: 'info',\n  message: 'my message'\n}, { all: true });\n\nconsole.log(info);\n// { level: '\\u001b[34minfo\\u001b[39m',\n//   message: '\\u001b[34m    my message\\u001b[39m',\n//   [Symbol(level)]: 'info',\n//   [Symbol(message)]:\n//    '\\u001b[34minfo\\u001b[39m:\\u001b[34m    my message\\u001b[39m' }\n```\n\n### Colorize\n\nThe `colorize` format adds different colors depending on the log level to the message and/or level.\nIt accepts the following options:\n\n* **level**: If set to `true` the color will be applied to the `level`.\n* **all**: If set to `true` the color will be applied to the `message` and `level`.\n* **message**: If set to `true` the color will be applied to the `message`.\n* **colors**: An object containing the colors for the log levels. For example: `{ info: 'blue', error: 'red' }`\n\n```js\nconst { format } = require('logform');\nconst LEVEL = Symbol.for('level');\n\nconst colorizeFormat = format.colorize({ colors: { info: 'blue' }});\n\nconst info = colorizeFormat.transform({\n  [LEVEL]: 'info',\n  level: 'info',\n  message: 'my message'\n}, { all: true });\n\nconsole.log(info);\n// { level: '\\u001b[34minfo\\u001b[39m',\n//   message: '\\u001b[34mmy message\\u001b[39m',\n//   [Symbol(level)]: 'info' }\n```\n\nThis was previously exposed as `{ colorize: true }` to transports in `winston < 3.0.0`.\n\n### Combine\n\nThe `combine` Format allows to combine multiple formats:\n\n```js\nconst { format } = require('logform');\nconst { combine, timestamp, json } = format;\n\nconst jsonWithTimestamp = combine(\n  timestamp(),\n  json()\n);\n\nconst info = jsonWithTimestamp.transform({\n  level: 'info',\n  message: 'my message'\n});\n\nconsole.log(info);\n// { level: 'info',\n//   message: 'my message',\n//   timestamp: '2018-10-02T15:03:14.230Z',\n//   [Symbol(message)]:\n//    '{\"level\":\"info\",\"message\":\"my message\",\"timestamp\":\"2018-10-02T15:03:14.230Z\"}' }\n```\n\n### Errors\n\nThe `errors` format allows you to pass in an instance of a JavaScript `Error`\ndirectly to the logger. It allows you to specify whether not to include the\nstack-trace.\n\n```js\nconst { format } = require('logform');\nconst { errors } = format;\n\nconst errorsFormat = errors({ stack: true })\n\nconst info = errorsFormat.transform(new Error('Oh no!'));\n\nconsole.log(info);\n// Error: Oh no!\n//     at repl:1:13\n//     at ContextifyScript.Script.runInThisContext (vm.js:50:33)\n//     at REPLServer.defaultEval (repl.js:240:29)\n//     at bound (domain.js:301:14)\n//     at REPLServer.runBound [as eval] (domain.js:314:12)\n//     at REPLServer.onLine (repl.js:468:10)\n//     at emitOne (events.js:121:20)\n//     at REPLServer.emit (events.js:211:7)\n//     at REPLServer.Interface._onLine (readline.js:282:10)\n//     at REPLServer.Interface._line (readline.js:631:8)\n```\n\nIt will also handle `{ message }` properties as `Error` instances:\n\n```js\nconst { format } = require('logform');\nconst { errors } = format;\n\nconst errorsFormat = errors({ stack: true })\n\nconst info = errorsFormat.transform({\n  message: new Error('Oh no!')\n});\n\nconsole.log(info);\n// Error: Oh no!\n//     at repl:1:13\n//     at ContextifyScript.Script.runInThisContext (vm.js:50:33)\n//     at REPLServer.defaultEval (repl.js:240:29)\n//     at bound (domain.js:301:14)\n//     at REPLServer.runBound [as eval] (domain.js:314:12)\n//     at REPLServer.onLine (repl.js:468:10)\n//     at emitOne (events.js:121:20)\n//     at REPLServer.emit (events.js:211:7)\n//     at REPLServer.Interface._onLine (readline.js:282:10)\n//     at REPLServer.Interface._line (readline.js:631:8)\n```\n\n### JSON\n\nThe `json` format uses `fast-safe-stringify` to finalize the message.\nIt accepts the following options:\n\n* **replacer**: A function that influences how the `info` is stringified.\n* **space**: The number of white space used to format the json.\n\n```js\nconst { format } = require('logform');\n\nconst jsonFormat = format.json();\n\nconst info = jsonFormat.transform({\n  level: 'info',\n  message: 'my message',\n});\nconsole.log(info);\n// { level: 'info',\n//   message: 'my message',\n//   [Symbol(message)]: '{\"level\":\"info\",\"message\":\"my message\"}' }\n```\n\nThis was previously exposed as `{ json: true }` to transports in `winston < 3.0.0`.\n\n### Label\n\nThe `label` format adds the specified `label` before the message or adds it to the `info` object.\nIt accepts the following options:\n\n* **label**: A label to be added before the message.\n* **message**: If set to `true` the `label` will be added to `info.message`. If set to `false` the `label` will be added as `info.label`.\n\n```js\nconst { format } = require('logform');\n\nconst labelFormat = format.label();\n\nconst info = labelFormat.transform({\n  level: 'info',\n  message: 'my message'\n}, { label: 'my label', message: true });\n\nconsole.log(info);\n// { level: 'info', message: '[my label] my message' }\n```\n\nThis was previously exposed as `{ label: 'my label' }` to transports in `winston < 3.0.0`.\n\n### Logstash\n\nThe `logstash` Format turns a log `info` object into pure JSON with the appropriate logstash options.\n\n```js\nconst { format } = require('logform');\nconst { logstash, combine, timestamp } = format;\n\nconst logstashFormat = combine(\n  timestamp(),\n  logstash()\n);\n\nconst info = logstashFormat.transform({\n  level: 'info',\n  message: 'my message'\n});\n\nconsole.log(info);\n// { level: 'info',\n//   [Symbol(message)]:\n//    '{\"@message\":\"my message\",\"@timestamp\":\"2018-10-02T11:04:52.915Z\",\"@fields\":{\"level\":\"info\"}}' }\n```\n\nThis was previously exposed as `{ logstash: true }` to transports in `winston < 3.0.0`.\n\n### Metadata\n\nThe `metadata` format adds a metadata object to collect extraneous data, similar to the metadata object in winston 2.x.\nIt accepts the following options:\n\n* **key**: The name of the key used for the metadata object. Defaults to `metadata`.\n* **fillExcept**: An array of keys that should not be added to the metadata object.\n* **fillWith**: An array of keys that will be added to the metadata object.\n\n```js\nconst { format } = require('logform');\n\nconst metadataFormat = format.metadata();\n\nconst info = metadataFormat.transform({\n  level: 'info',\n  message: 'my message',\n  meta: 42\n});\n\nconsole.log(info);\n// { level: 'info', message: 'my message', metadata: { meta: 42 } }\n```\n\n### PadLevels\n\nThe `padLevels` format pads levels to be the same length.\n\n```js\nconst { format } = require('logform');\nconst LEVEL = Symbol.for('level');\n\nconst padLevelsFormat = format.padLevels();\n\nconst info = padLevelsFormat.transform({\n  [LEVEL]: 'info',\n  message: 'my message'\n});\n\nconsole.log(info);\n// { message: '    my message', [Symbol(level)]: 'info' }\n```\n\nThis was previously exposed as `{ padLevels: true }` to transports in `winston < 3.0.0`.\n\n### PrettyPrint\n\nThe `prettyPrint` format finalizes the message using `util.inspect`.\nIt accepts the following options:\n\n* **depth**: A `number` that specifies the maximum depth of the `info` object being stringified by `util.inspect`. Defaults to `2`.  \n* **colorize**: Colorizes the message if set to `true`. Defaults to `false`.\n\nThe `prettyPrint` format should not be used in production because it may impact performance negatively and block the event loop.\n\n> **NOTE:** the `LEVEL`, `MESSAGE`, and `SPLAT` symbols are stripped from the\n> output message _by design._\n\nThis was previously exposed as `{ prettyPrint: true }` to transports in `winston < 3.0.0`.\n\n```js\nconst { format } = require('logform');\n\nconst prettyPrintFormat = format.prettyPrint();\n\nconst info = prettyPrintFormat.transform({\n  [LEVEL]: 'info',\n  level: 'info',\n  message: 'my message'\n});\n\nconsole.log(info);\n// { level: 'info',\n//   message: 'my message',\n//   [Symbol(level)]: 'info',\n//   [Symbol(message)]: '{ level: \\'info\\', message: \\'my message\\' }' }\n```\n\n### Printf\n\nThe `printf` format allows to create a custom logging format:\n\n```js\nconst { format } = require('logform');\n\nconst myFormat = format.printf((info) => {\n  return `${info.level} ${info.message}`;\n})\n\nconst info = myFormat.transform({\n  level: 'info',\n  message: 'my message'\n});\n\nconsole.log(info);\n// { level: 'info',\n//   message: 'my message',\n//   [Symbol(message)]: 'info my message' }\n```\n\n### Simple\n\nThe `simple` format finalizes the `info` object using the format: `level: message stringifiedRest`.\n```js\nconst { format } = require('logform');\nconst MESSAGE = Symbol.for('message');\n\nconst simpleFormat = format.simple();\n\nconst info = simpleFormat.transform({\n  level: 'info',\n  message: 'my message',\n  number: 123\n});\nconsole.log(info[MESSAGE]);\n// info: my message {number:123}\n```\n\n### Splat\n\nThe `splat` format transforms the message by using `util.format` to complete any `info.message` provided it has string interpolation tokens.\n\n```js\nconst { format } = require('logform');\n\nconst splatFormat = format.splat();\n\nconst info = splatFormat.transform({\n  level: 'info',\n  message: 'my message %s',\n  splat: ['test']\n});\n\nconsole.log(info);\n// { level: 'info', message: 'my message test', splat: [ 'test' ] }\n```\n\nAny additional splat parameters beyond those needed for the `%` tokens\n(aka \"metas\") are assumed to be objects. Their enumerable properties are\nmerged into the `info`.\n\n```js\nconst { format } = require('logform');\n\nconst splatFormat = format.splat();\n\nconst info = splatFormat.transform({\n  level: 'info',\n  message: 'my message %s',\n  splat: ['test', { thisIsMeta: true }]\n});\n\nconsole.log(info);\n// { level: 'info',\n//   message: 'my message test',\n//   thisIsMeta: true,\n//   splat: [ 'test' ] }\n```\n\nThis was previously exposed implicitly in `winston < 3.0.0`.\n\n### Timestamp\n\nThe `timestamp` format adds a timestamp to the info. \nIt accepts the following options:\n\n* **format**: Either the format as a string accepted by the [fecha](https://github.com/taylorhakes/fecha) module or a function that returns a formatted date. If no format is provided `new Date().toISOString()` will be used.\n* **alias**: The name of an alias for the timestamp property, that will be added to the `info` object. \n\n```js\nconst { format } = require('logform');\n\nconst timestampFormat = format.timestamp();\n\nconst info = timestampFormat.transform({\n  level: 'info',\n  message: 'my message'\n});\n\nconsole.log(info);\n// { level: 'info',\n//   message: 'my message',\n//   timestamp: '2018-10-02T11:47:02.682Z' }\n```\n\nIt was previously available in `winston < 3.0.0` as `{ timestamp: true }` and `{ timestamp: function:String }`.\n\n\n### Uncolorize\n\nThe `uncolorize` format strips colors from `info` objects.\nIt accepts the following options:\n\n* **level**: Disables the uncolorize format for `info.level` if set to `false`. \n* **message**: Disables the uncolorize format for `info.message` if set to `false`. \n* **raw**: Disables the uncolorize format for `info[MESSAGE]` if set to `false`. \n\nThis was previously exposed as `{ stripColors: true }` to transports in `winston < 3.0.0`.\n\n## Tests\n\nTests are written with `mocha`, `assume`, and `nyc`. They can be run with `npm`:\n\n```\nnpm test\n```\n\n##### LICENSE: MIT\n##### AUTHOR: [Charlie Robbins](https://github.com/indexzero)"
+}

@@ -1,0 +1,84 @@
+{
+	"name": "connected-domain",
+	"versions": {
+		"1.0.0": {
+			"name": "connected-domain",
+			"version": "1.0.0",
+			"description": "calculate all the connected domains based on the given two-dimensional array",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha  -t 0 -R spec test/spec.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/neekey/connected-domain.git"
+			},
+			"keywords": [
+				"connected-domain"
+			],
+			"author": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/neekey/connected-domain/issues"
+			},
+			"homepage": "https://github.com/neekey/connected-domain#readme",
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"mocha": "^2.4.5"
+			},
+			"gitHead": "a7166a4e478c38f60567fb0802bafe4e64be79d1",
+			"_id": "connected-domain@1.0.0",
+			"_shasum": "bfe77238c74be453a79f0cb6058deeb4f2358e93",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.2",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"dist": {
+				"shasum": "bfe77238c74be453a79f0cb6058deeb4f2358e93",
+				"tarball": "https://registry.npmjs.org/connected-domain/-/connected-domain-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/connected-domain-1.0.0.tgz_1461404128454_0.27459916356019676"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2016-04-23T09:35:29.014Z",
+		"created": "2016-04-23T09:35:29.014Z",
+		"1.0.0": "2016-04-23T09:35:29.014Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"d03282aebf8024d7c365a2b6901600b9\"",
+			"fetched": 1568994336238
+		}
+	},
+	"_distfiles": {
+		"connected-domain-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/connected-domain/-/connected-domain-1.0.0.tgz",
+			"sha": "bfe77238c74be453a79f0cb6058deeb4f2358e93",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-7fa2a4c6c4af3b86",
+	"_id": "connected-domain",
+	"readme": "# connected-domain\n\nCalculate all the connected domains based on the given two-dimensional array\n\n## How To Use\n\nvariable `samples` in the following code is a two-dimensional array parsed from file separate.txt\n\n```javascript\nvar ConnectedDomain = require( 'connected-domain' );\nvar samples = [ ... ];\n\nconsole.log( ConnectedDomain( samples, function( value ){\n    return value;\n});\n```\n\n## Details\n\nConnectedDomain( `twoDimensionalArray`, `indicator`, `ifHardLink` ):\n\n- `twoDimensionalArray`: A two-dimensional array for ConnectedDomain to parse\n- `indicator`: Function to decide what identifier each point should have to decide which domain it belongs to. The first parameter will be given as the point value. The return value of this function will be used as the identifier.\n- `ifHardLink`: Boolean. If use hard-link to decide connected domains. ( see section `Hard Link` for details )\n\nThe result of invocation of `ConnectedDomain` is a object:\n\n```js\n{\n    domains: [ {}, {}, ... ],\n    totalDomains: 10,\n    groupByIdentifier: {\n        id1: {},\n        id2: {},\n        ...\n    },\n    totalIdentifiers: 5\n}\n```\n\nThe structure of every domain:\n\n```js\n{ \n    bounding: { \n        w: 12, \n        h: 19, \n        x: 0, \n        y: 1\n    }, \n    points: [ { x: 1, y: 2, value: 'a' }, {}, ... ], \n    identifier: 'blue', \n    domainId: 1 \n} \n```\n\n## Hard Link\n\nConnectedDomains use soft-link as default. Below is how soft-link think two domains are connected( all the 0 zones are connected as a domain ):\n\n```\n0011\n0011\n1100\n1100\n```\n\nIf you use hard-link, the upper-left and bottom-right \"0\" zones are not connected, they become 2 separate domains. Below shows how a hard-link connection can be formed:\n\n```\n0011\n0001\n1000\n1100\n```"
+}

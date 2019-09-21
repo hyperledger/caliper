@@ -1,0 +1,524 @@
+{
+	"name": "table-parser",
+	"versions": {
+		"0.0.1": {
+			"name": "table-parser",
+			"description": "Simple parser for shell-style data output",
+			"version": "0.0.1",
+			"author": {
+				"name": "Neekey ni184775761@gmail.com"
+			},
+			"keywords": [
+				"table parser shell"
+			],
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:Neekey/table-parser.git"
+			},
+			"_id": "table-parser@0.0.1",
+			"dist": {
+				"shasum": "3993e374127b2b8e0c0ec446f10a04d9933b62fb",
+				"tarball": "https://registry.npmjs.org/table-parser/-/table-parser-0.0.1.tgz"
+			},
+			"_npmVersion": "1.1.65",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.2": {
+			"name": "table-parser",
+			"description": "Simple parser for shell-style data output",
+			"version": "0.0.2",
+			"author": {
+				"name": "Neekey ni184775761@gmail.com"
+			},
+			"keywords": [
+				"table parser shell"
+			],
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:Neekey/table-parser.git"
+			},
+			"_id": "table-parser@0.0.2",
+			"dist": {
+				"shasum": "89d6cadd3e501f6c9ec7adc1380056357692a4cd",
+				"tarball": "https://registry.npmjs.org/table-parser/-/table-parser-0.0.2.tgz"
+			},
+			"_npmVersion": "1.1.65",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.3": {
+			"name": "table-parser",
+			"description": "Simple parser for shell-style data output",
+			"version": "0.0.3",
+			"author": {
+				"name": "Neekey ni184775761@gmail.com"
+			},
+			"keywords": [
+				"table parser shell"
+			],
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:Neekey/table-parser.git"
+			},
+			"_id": "table-parser@0.0.3",
+			"dist": {
+				"shasum": "35640443edc327f9b763d31af9b2ac7ddb5fb6bd",
+				"tarball": "https://registry.npmjs.org/table-parser/-/table-parser-0.0.3.tgz"
+			},
+			"_npmVersion": "1.1.65",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "table-parser",
+			"description": "Simple parser for shell-style data output",
+			"version": "0.1.0",
+			"author": {
+				"name": "Neekey ni184775761@gmail.com"
+			},
+			"keywords": [
+				"table parser shell"
+			],
+			"scripts": {
+				"test": "mocha  -t 0 -R spec test/spec.js"
+			},
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/Neekey/table-parser.git"
+			},
+			"dependencies": {
+				"connected-domain": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"mocha": "^2.4.5"
+			},
+			"gitHead": "98b870313040589ece66fbb5fb2aad5160d1dac5",
+			"bugs": {
+				"url": "https://github.com/Neekey/table-parser/issues"
+			},
+			"homepage": "https://github.com/Neekey/table-parser#readme",
+			"_id": "table-parser@0.1.0",
+			"_shasum": "3595e76b6e498b7d1927aebdd5d8d35cd089314d",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.2",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"dist": {
+				"shasum": "3595e76b6e498b7d1927aebdd5d8d35cd089314d",
+				"tarball": "https://registry.npmjs.org/table-parser/-/table-parser-0.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/table-parser-0.1.0.tgz_1461684652527_0.15535437245853245"
+			},
+			"directories": {}
+		},
+		"0.1.1": {
+			"name": "table-parser",
+			"description": "Simple parser for shell-style data output",
+			"version": "0.1.1",
+			"author": {
+				"name": "Neekey ni184775761@gmail.com"
+			},
+			"keywords": [
+				"table parser shell"
+			],
+			"scripts": {
+				"test": "node ./node_modules/mocha/bin/mocha  -t 0 -R spec test/spec.js"
+			},
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/Neekey/table-parser.git"
+			},
+			"dependencies": {
+				"connected-domain": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"mocha": "^2.4.5"
+			},
+			"gitHead": "3b51ccc99549c2ceb319af8b7e8c6c14f3ff0553",
+			"bugs": {
+				"url": "https://github.com/Neekey/table-parser/issues"
+			},
+			"homepage": "https://github.com/Neekey/table-parser#readme",
+			"_id": "table-parser@0.1.1",
+			"_shasum": "3f9718499ff9632d4438dccc8cf95851326071ef",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.2",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"dist": {
+				"shasum": "3f9718499ff9632d4438dccc8cf95851326071ef",
+				"tarball": "https://registry.npmjs.org/table-parser/-/table-parser-0.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/table-parser-0.1.1.tgz_1462427969306_0.9875912354327738"
+			},
+			"directories": {}
+		},
+		"0.1.2": {
+			"name": "table-parser",
+			"description": "Simple parser for shell-style data output",
+			"version": "0.1.2",
+			"author": {
+				"name": "Neekey ni184775761@gmail.com"
+			},
+			"keywords": [
+				"table parser shell"
+			],
+			"scripts": {
+				"test": "node ./node_modules/mocha/bin/mocha  -t 0 -R spec test/spec.js"
+			},
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/Neekey/table-parser.git"
+			},
+			"dependencies": {
+				"connected-domain": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"mocha": "^2.4.5"
+			},
+			"gitHead": "e7ee9a97273ac89467f3349fead1c1a4f107a452",
+			"bugs": {
+				"url": "https://github.com/Neekey/table-parser/issues"
+			},
+			"homepage": "https://github.com/Neekey/table-parser#readme",
+			"_id": "table-parser@0.1.2",
+			"_shasum": "b756af37bd96f7da9276fee837d203dddd547cbf",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.1.0",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"dist": {
+				"shasum": "b756af37bd96f7da9276fee837d203dddd547cbf",
+				"tarball": "https://registry.npmjs.org/table-parser/-/table-parser-0.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/table-parser-0.1.2.tgz_1476594942340_0.6434801020659506"
+			},
+			"directories": {}
+		},
+		"0.1.3": {
+			"name": "table-parser",
+			"description": "Simple parser for shell-style data output",
+			"version": "0.1.3",
+			"author": {
+				"name": "Neekey ni184775761@gmail.com"
+			},
+			"keywords": [
+				"table parser shell"
+			],
+			"scripts": {
+				"test": "node ./node_modules/mocha/bin/mocha  -t 0 -R spec test/spec.js"
+			},
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/Neekey/table-parser.git"
+			},
+			"dependencies": {
+				"connected-domain": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"mocha": "^2.4.5"
+			},
+			"gitHead": "16939597f251ff8244b98b0675689a7e188aff2e",
+			"bugs": {
+				"url": "https://github.com/Neekey/table-parser/issues"
+			},
+			"homepage": "https://github.com/Neekey/table-parser#readme",
+			"_id": "table-parser@0.1.3",
+			"_shasum": "0441cfce16a59481684c27d1b5a67ff15a43c7b0",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.1.0",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"dist": {
+				"shasum": "0441cfce16a59481684c27d1b5a67ff15a43c7b0",
+				"tarball": "https://registry.npmjs.org/table-parser/-/table-parser-0.1.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/table-parser-0.1.3.tgz_1476779479900_0.34371836320497096"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "table-parser",
+			"description": "Simple parser for shell-style data output",
+			"version": "1.0.0",
+			"author": {
+				"name": "Neekey ni184775761@gmail.com"
+			},
+			"keywords": [
+				"table parser shell"
+			],
+			"scripts": {
+				"test": "node ./node_modules/mocha/bin/mocha  -t 0 -R spec test/spec.js",
+				"semantic-release": "semantic-release",
+				"travis-deploy-once": "travis-deploy-once"
+			},
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/neekey/table-parser.git"
+			},
+			"dependencies": {
+				"connected-domain": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"mocha": "^2.4.5",
+				"semantic-release": "^15.1.5",
+				"travis-deploy-once": "^4.4.1"
+			},
+			"gitHead": "bb7428d4c0e7d424ad77574f5c2f68ece0da8e4f",
+			"bugs": {
+				"url": "https://github.com/neekey/table-parser/issues"
+			},
+			"homepage": "https://github.com/neekey/table-parser#readme",
+			"_id": "table-parser@1.0.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.11.1",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-chtgWl5u6PiGDVu4Ap91f7xVFAfJMPJkYHkT6M91oY3NRVT7fSaqFI0sMJ3Mj7p3HIN6ME/3109iYgkaYJbI6g==",
+				"shasum": "18fea7dbbdff266eef48d8093d4d3bbdcb6bd30b",
+				"tarball": "https://registry.npmjs.org/table-parser/-/table-parser-1.0.0.tgz",
+				"fileCount": 13,
+				"unpackedSize": 270294
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/table-parser_1.0.0_1523095896205_0.9510624136069767"
+			}
+		},
+		"1.0.1": {
+			"name": "table-parser",
+			"description": "Simple parser for shell-style data output",
+			"version": "1.0.1",
+			"author": {
+				"name": "Neekey ni184775761@gmail.com"
+			},
+			"keywords": [
+				"table parser shell"
+			],
+			"scripts": {
+				"test": "node ./node_modules/mocha/bin/mocha  -t 0 -R spec test/spec.js",
+				"semantic-release": "semantic-release",
+				"travis-deploy-once": "travis-deploy-once"
+			},
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/neekey/table-parser.git"
+			},
+			"dependencies": {
+				"@semantic-release/git": "^4.0.1",
+				"connected-domain": "^1.0.0"
+			},
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"mocha": "^2.4.5",
+				"semantic-release": "^15.1.5",
+				"travis-deploy-once": "^4.4.1"
+			},
+			"gitHead": "826e1142855bde21ee8d70df0c283da9b4a25459",
+			"bugs": {
+				"url": "https://github.com/neekey/table-parser/issues"
+			},
+			"homepage": "https://github.com/neekey/table-parser#readme",
+			"_id": "table-parser@1.0.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.11.1",
+			"_npmUser": {
+				"name": "neekey",
+				"email": "ni184775761@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-LtOZVj3mBWk9ChtZmYy1NCSgWshClqoCzgcj0r0VRY+xm9N4ii2NZyLHVbFhGrWsxVt5uPiVeaZDePoD3krrGA==",
+				"shasum": "7c471b8053c54ad5655ec2c3cf676d2b2165d4fb",
+				"tarball": "https://registry.npmjs.org/table-parser/-/table-parser-1.0.1.tgz",
+				"fileCount": 14,
+				"unpackedSize": 270607
+			},
+			"maintainers": [
+				{
+					"name": "neekey",
+					"email": "ni184775761@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/table-parser_1.0.1_1523100022656_0.5437338869352497"
+			}
+		}
+	},
+	"time": {
+		"modified": "2018-04-07T11:20:23.457Z",
+		"created": "2013-01-27T08:27:03.452Z",
+		"0.0.1": "2013-01-27T08:27:07.600Z",
+		"0.0.2": "2013-01-28T07:23:04.260Z",
+		"0.0.3": "2013-01-28T15:18:52.708Z",
+		"0.1.0": "2016-04-26T15:30:55.931Z",
+		"0.1.1": "2016-05-05T05:59:30.659Z",
+		"0.1.2": "2016-10-16T05:15:42.576Z",
+		"0.1.3": "2016-10-18T08:31:23.260Z",
+		"1.0.0": "2018-04-07T10:11:36.282Z",
+		"1.0.1": "2018-04-07T11:20:22.841Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"8590e1afba7c434303e736c83da659ff\"",
+			"fetched": 1568994336163
+		}
+	},
+	"_distfiles": {
+		"table-parser-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/table-parser/-/table-parser-0.0.1.tgz",
+			"sha": "3993e374127b2b8e0c0ec446f10a04d9933b62fb",
+			"registry": "npmjs"
+		},
+		"table-parser-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/table-parser/-/table-parser-0.0.2.tgz",
+			"sha": "89d6cadd3e501f6c9ec7adc1380056357692a4cd",
+			"registry": "npmjs"
+		},
+		"table-parser-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/table-parser/-/table-parser-0.0.3.tgz",
+			"sha": "35640443edc327f9b763d31af9b2ac7ddb5fb6bd",
+			"registry": "npmjs"
+		},
+		"table-parser-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/table-parser/-/table-parser-0.1.0.tgz",
+			"sha": "3595e76b6e498b7d1927aebdd5d8d35cd089314d",
+			"registry": "npmjs"
+		},
+		"table-parser-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/table-parser/-/table-parser-0.1.1.tgz",
+			"sha": "3f9718499ff9632d4438dccc8cf95851326071ef",
+			"registry": "npmjs"
+		},
+		"table-parser-0.1.2.tgz": {
+			"url": "https://registry.npmjs.org/table-parser/-/table-parser-0.1.2.tgz",
+			"sha": "b756af37bd96f7da9276fee837d203dddd547cbf",
+			"registry": "npmjs"
+		},
+		"table-parser-0.1.3.tgz": {
+			"url": "https://registry.npmjs.org/table-parser/-/table-parser-0.1.3.tgz",
+			"sha": "0441cfce16a59481684c27d1b5a67ff15a43c7b0",
+			"registry": "npmjs"
+		},
+		"table-parser-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/table-parser/-/table-parser-1.0.0.tgz",
+			"sha": "18fea7dbbdff266eef48d8093d4d3bbdcb6bd30b",
+			"registry": "npmjs"
+		},
+		"table-parser-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/table-parser/-/table-parser-1.0.1.tgz",
+			"sha": "7c471b8053c54ad5655ec2c3cf676d2b2165d4fb",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-f22e36609feed326",
+	"_id": "table-parser",
+	"readme": "TableParser [![Build Status](https://travis-ci.org/neekey/table-parser.svg)](https://travis-ci.org/neekey/table-parser)\n================\n\nA parser to parse table style output from shell\n\n## Install\n\n```\nnpm install table-parser\n```\n\n## Usage\n\nWe have some kind of log below as `test/ps.log`:\n\n```bash\n  PID TTY           TIME CMD\n49692 ttys000    0:00.06 login -pfl neekey /bin/bash -c exec -la bash /bin/bash\n49693 ttys000    0:00.06 -bash\n54195 ttys000    0:00.09 node run\n\n...\n\n56266 ttys005    0:00.06 login -pfl neekey /bin/bash -c exec -la bash /bin/bash\n56269 ttys005    0:00.04 -bash\n56463 ttys005    0:00.09 node test.js\n56464 ttys005    0:00.01 ps -a\n```\n\nUse table-parser to parse it into object:\n\n```\nvar FS = require( 'fs' );\nvar Parser = require('table-parser');\n\nvar linux_ps = './ps.log';\n\ndata = FS.readFileSync( linux_ps ).toString();\nvar parsedData = Parser.parse( data );\n\nconsole.log( parsedData );\n\n```\n\nWhich will output:\n\n```bash\n[ { PID: [ '49692' ],\n    TTY: [ 'ttys000' ],\n    TIME: [ '0:00.06' ],\n    CMD:\n     [ 'login',\n       '-pfl',\n       'neekey',\n       '/bin/bash',\n       '-c',\n       'exec',\n       '-la',\n       'bash',\n       '/bin/bash' ] },\n  ...\n\n  { PID: [ '56464' ],\n    TTY: [ 'ttys005' ],\n    TIME: [ '0:00.01' ],\n    CMD: [ 'ps', '-a' ] } ]\n```\n\n## Double quotation marks\n\nNormally, all the values will be transformed into array using `split( /\\s+/ )`, but string wrapped with `\"` will be treated as a continuous string. \n\nFor example, the CommandLine below:\n\n```\n\"C:\\Program Files\\Internet Explorer\\iexplore.exe\" --name=\"Jack Neekey\" --sex=male otherargs\n```\n\nwill be split into:\n\n- `C:\\Program Files\\Internet Explorer\\iexplore.exe` ( `\"` will be removed, if `\"` is at the beginning )\n- `--name=\"Jack Neekey\"`    ( `\"` is reserved )\n- `--sex=male`\n- `otherargs`"
+}

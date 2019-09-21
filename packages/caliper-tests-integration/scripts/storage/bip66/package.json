@@ -1,0 +1,991 @@
+{
+	"name": "bip66",
+	"versions": {
+		"1.0.0": {
+			"name": "bip66",
+			"version": "1.0.0",
+			"description": ".",
+			"author": {
+				"name": "Daniel Cousens"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitcoinjs/bip69.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bitcoinjs/bip69/issues"
+			},
+			"homepage": "https://github.com/bitcoinjs/bip69",
+			"keywords": [
+				"bip69",
+				"bitcoin"
+			],
+			"main": "index.js",
+			"scripts": {
+				"coverage": "mocha --require blanket -R travis-cov",
+				"coverage-local": "mocha --require blanket -R html-cov",
+				"standard": "standard",
+				"test": "npm run standard && npm run unit",
+				"unit": "mocha"
+			},
+			"config": {
+				"blanket": {
+					"pattern": [
+						""
+					],
+					"data-cover-never": [
+						"node_modules",
+						"test"
+					]
+				},
+				"travis-cov": {
+					"threshold": 100
+				}
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"blanket": "*",
+				"mocha": "*",
+				"standard": "*",
+				"travis-cov": "*"
+			},
+			"gitHead": "ddbfb3d665fafa4775e9100fb6b44b146a709e3d",
+			"_id": "bip66@1.0.0",
+			"_shasum": "bfa3a54120d268c4fe18ed37b4066dacc5c38413",
+			"_from": ".",
+			"_npmVersion": "2.13.5",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "dcousens",
+				"email": "email@dcousens.com"
+			},
+			"dist": {
+				"shasum": "bfa3a54120d268c4fe18ed37b4066dacc5c38413",
+				"tarball": "https://registry.npmjs.org/bip66/-/bip66-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "bip66",
+			"version": "1.0.1",
+			"description": ".",
+			"author": {
+				"name": "Daniel Cousens"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitcoinjs/bip69.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bitcoinjs/bip69/issues"
+			},
+			"homepage": "https://github.com/bitcoinjs/bip69",
+			"keywords": [
+				"bip69",
+				"bitcoin"
+			],
+			"main": "index.js",
+			"scripts": {
+				"coverage": "mocha --require blanket -R travis-cov",
+				"coverage-local": "mocha --require blanket -R html-cov",
+				"standard": "standard",
+				"test": "npm run standard && npm run unit",
+				"unit": "mocha"
+			},
+			"config": {
+				"blanket": {
+					"pattern": [
+						""
+					],
+					"data-cover-never": [
+						"node_modules",
+						"test"
+					]
+				},
+				"travis-cov": {
+					"threshold": 100
+				}
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"blanket": "*",
+				"mocha": "*",
+				"standard": "*",
+				"travis-cov": "*"
+			},
+			"gitHead": "708633e587d366e24daa1e435fe6035cc3399cad",
+			"_id": "bip66@1.0.1",
+			"_shasum": "43aa7aa86d559fde192ddb819551a03512108e33",
+			"_from": ".",
+			"_npmVersion": "2.13.5",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "dcousens",
+				"email": "email@dcousens.com"
+			},
+			"dist": {
+				"shasum": "43aa7aa86d559fde192ddb819551a03512108e33",
+				"tarball": "https://registry.npmjs.org/bip66/-/bip66-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "bip66",
+			"version": "1.0.2",
+			"description": ".",
+			"author": {
+				"name": "Daniel Cousens"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitcoinjs/bip69.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bitcoinjs/bip69/issues"
+			},
+			"homepage": "https://github.com/bitcoinjs/bip69",
+			"keywords": [
+				"bip69",
+				"bitcoin"
+			],
+			"main": "index.js",
+			"scripts": {
+				"coverage": "mocha --require blanket -R travis-cov",
+				"coverage-local": "mocha --require blanket -R html-cov",
+				"standard": "standard",
+				"test": "npm run standard && npm run unit",
+				"unit": "mocha"
+			},
+			"config": {
+				"blanket": {
+					"pattern": [
+						""
+					],
+					"data-cover-never": [
+						"node_modules",
+						"test"
+					]
+				},
+				"travis-cov": {
+					"threshold": 100
+				}
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"blanket": "*",
+				"mocha": "*",
+				"standard": "*",
+				"travis-cov": "*"
+			},
+			"gitHead": "8bb41f9fca4c096f74a7d10b25ce6d624ef24dd0",
+			"_id": "bip66@1.0.2",
+			"_shasum": "7e8dc854001a881e87e8535d711738df5a6daf8a",
+			"_from": ".",
+			"_npmVersion": "2.13.5",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "dcousens",
+				"email": "email@dcousens.com"
+			},
+			"dist": {
+				"shasum": "7e8dc854001a881e87e8535d711738df5a6daf8a",
+				"tarball": "https://registry.npmjs.org/bip66/-/bip66-1.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "bip66",
+			"version": "1.0.3",
+			"description": ".",
+			"author": {
+				"name": "Daniel Cousens"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitcoinjs/bip69.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bitcoinjs/bip69/issues"
+			},
+			"homepage": "https://github.com/bitcoinjs/bip69",
+			"keywords": [
+				"bip69",
+				"bitcoin"
+			],
+			"main": "index.js",
+			"scripts": {
+				"coverage": "mocha --require blanket -R travis-cov",
+				"coverage-local": "mocha --require blanket -R html-cov",
+				"standard": "standard",
+				"test": "npm run standard && npm run unit",
+				"unit": "mocha"
+			},
+			"config": {
+				"blanket": {
+					"pattern": [
+						""
+					],
+					"data-cover-never": [
+						"node_modules",
+						"test"
+					]
+				},
+				"travis-cov": {
+					"threshold": 100
+				}
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"blanket": "*",
+				"mocha": "*",
+				"standard": "*",
+				"travis-cov": "*"
+			},
+			"gitHead": "24803fb224c9747966ffec3cced765718f455e43",
+			"_id": "bip66@1.0.3",
+			"_shasum": "d7785b25078a13b2ee8c5a1b14edcf959d73c29d",
+			"_from": ".",
+			"_npmVersion": "2.13.5",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "dcousens",
+				"email": "email@dcousens.com"
+			},
+			"dist": {
+				"shasum": "d7785b25078a13b2ee8c5a1b14edcf959d73c29d",
+				"tarball": "https://registry.npmjs.org/bip66/-/bip66-1.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "bip66",
+			"version": "1.0.4",
+			"description": ".",
+			"author": {
+				"name": "Daniel Cousens"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitcoinjs/bip69.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bitcoinjs/bip69/issues"
+			},
+			"homepage": "https://github.com/bitcoinjs/bip69",
+			"keywords": [
+				"bip69",
+				"bitcoin"
+			],
+			"main": "index.js",
+			"scripts": {
+				"coverage": "mocha --require blanket -R travis-cov",
+				"coverage-local": "mocha --require blanket -R html-cov",
+				"standard": "standard",
+				"test": "npm run standard && npm run unit",
+				"unit": "mocha"
+			},
+			"config": {
+				"blanket": {
+					"pattern": [
+						""
+					],
+					"data-cover-never": [
+						"node_modules",
+						"test"
+					]
+				},
+				"travis-cov": {
+					"threshold": 100
+				}
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"blanket": "*",
+				"mocha": "*",
+				"standard": "*",
+				"travis-cov": "*"
+			},
+			"gitHead": "151dd38e0cbd28e8fc33916c7732d63c4536c0f5",
+			"_id": "bip66@1.0.4",
+			"_shasum": "4c8944eae2ce68ce2fd9e754bb7f2ef2248537ed",
+			"_from": ".",
+			"_npmVersion": "2.13.5",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "dcousens",
+				"email": "email@dcousens.com"
+			},
+			"dist": {
+				"shasum": "4c8944eae2ce68ce2fd9e754bb7f2ef2248537ed",
+				"tarball": "https://registry.npmjs.org/bip66/-/bip66-1.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.8": {
+			"name": "bip66",
+			"version": "1.0.8",
+			"description": ".",
+			"author": {
+				"name": "Daniel Cousens"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitcoinjs/bip69.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bitcoinjs/bip69/issues"
+			},
+			"homepage": "https://github.com/bitcoinjs/bip69",
+			"keywords": [
+				"bip69",
+				"bitcoin"
+			],
+			"main": "index.js",
+			"scripts": {
+				"coverage": "mocha --require blanket -R travis-cov",
+				"coverage-local": "mocha --require blanket -R html-cov",
+				"standard": "standard",
+				"test": "npm run standard && npm run unit",
+				"unit": "mocha"
+			},
+			"config": {
+				"blanket": {
+					"pattern": [
+						""
+					],
+					"data-cover-never": [
+						"node_modules",
+						"test"
+					]
+				},
+				"travis-cov": {
+					"threshold": 100
+				}
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"blanket": "*",
+				"mocha": "*",
+				"standard": "*",
+				"travis-cov": "*"
+			},
+			"gitHead": "181a87fd3ceb4e43e9b753fb9fdfca8c5440eb2d",
+			"_id": "bip66@1.0.8",
+			"_shasum": "e1934595cd9cd97847bc3303ad4e1888a5671a9b",
+			"_from": ".",
+			"_npmVersion": "2.13.5",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "dcousens",
+				"email": "email@dcousens.com"
+			},
+			"dist": {
+				"shasum": "e1934595cd9cd97847bc3303ad4e1888a5671a9b",
+				"tarball": "https://registry.npmjs.org/bip66/-/bip66-1.0.8.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.9": {
+			"name": "bip66",
+			"version": "1.0.9",
+			"description": "Strict DER signature encoding/decoding.",
+			"author": {
+				"name": "Daniel Cousens"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitcoinjs/bip69.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bitcoinjs/bip69/issues"
+			},
+			"homepage": "https://github.com/bitcoinjs/bip69",
+			"keywords": [
+				"bip69",
+				"bitcoin"
+			],
+			"main": "index.js",
+			"scripts": {
+				"coverage": "mocha --require blanket -R travis-cov",
+				"coverage-local": "mocha --require blanket -R html-cov",
+				"standard": "standard",
+				"test": "npm run standard && npm run unit",
+				"unit": "mocha"
+			},
+			"config": {
+				"blanket": {
+					"pattern": [
+						""
+					],
+					"data-cover-never": [
+						"node_modules",
+						"test"
+					]
+				},
+				"travis-cov": {
+					"threshold": 100
+				}
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"blanket": "*",
+				"mocha": "*",
+				"standard": "*",
+				"travis-cov": "*"
+			},
+			"gitHead": "407fe55e3dc9bcb1be677a6c20eb77f182e2586f",
+			"_id": "bip66@1.0.9",
+			"_shasum": "53934a633fce2d77b17a52ad9b42595d304b5260",
+			"_from": ".",
+			"_npmVersion": "2.13.5",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "dcousens",
+				"email": "email@dcousens.com"
+			},
+			"dist": {
+				"shasum": "53934a633fce2d77b17a52ad9b42595d304b5260",
+				"tarball": "https://registry.npmjs.org/bip66/-/bip66-1.0.9.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.10": {
+			"name": "bip66",
+			"version": "1.0.10",
+			"description": "Strict DER signature encoding/decoding.",
+			"author": {
+				"name": "Daniel Cousens"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitcoinjs/bip69.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bitcoinjs/bip69/issues"
+			},
+			"homepage": "https://github.com/bitcoinjs/bip69",
+			"keywords": [
+				"bip69",
+				"bitcoin"
+			],
+			"main": "index.js",
+			"scripts": {
+				"coverage": "mocha --require blanket -R travis-cov",
+				"coverage-local": "mocha --require blanket -R html-cov",
+				"standard": "standard",
+				"test": "npm run standard && npm run unit",
+				"unit": "mocha"
+			},
+			"config": {
+				"blanket": {
+					"pattern": [
+						""
+					],
+					"data-cover-never": [
+						"node_modules",
+						"test"
+					]
+				},
+				"travis-cov": {
+					"threshold": 100
+				}
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"blanket": "*",
+				"mocha": "*",
+				"standard": "*",
+				"travis-cov": "*"
+			},
+			"gitHead": "50f119947473d6b57a8efa12eabfff3adbff2908",
+			"_id": "bip66@1.0.10",
+			"_shasum": "1e77c820cda154dcaa0d65b38026677e4255b8d8",
+			"_from": ".",
+			"_npmVersion": "2.13.5",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "dcousens",
+				"email": "email@dcousens.com"
+			},
+			"dist": {
+				"shasum": "1e77c820cda154dcaa0d65b38026677e4255b8d8",
+				"tarball": "https://registry.npmjs.org/bip66/-/bip66-1.0.10.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "bip66",
+			"version": "1.1.0",
+			"description": "Strict DER signature encoding/decoding.",
+			"author": {
+				"name": "Daniel Cousens"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitcoinjs/bip69.git"
+			},
+			"bugs": {
+				"url": "https://github.com/bitcoinjs/bip69/issues"
+			},
+			"homepage": "https://github.com/bitcoinjs/bip69",
+			"keywords": [
+				"bip69",
+				"bitcoin"
+			],
+			"main": "index.js",
+			"scripts": {
+				"coverage": "mocha --require blanket -R travis-cov",
+				"coverage-local": "mocha --require blanket -R html-cov",
+				"standard": "standard",
+				"test": "npm run standard && npm run unit",
+				"unit": "mocha"
+			},
+			"config": {
+				"blanket": {
+					"pattern": [
+						""
+					],
+					"data-cover-never": [
+						"node_modules",
+						"test"
+					]
+				},
+				"travis-cov": {
+					"threshold": 100
+				}
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"blanket": "*",
+				"mocha": "*",
+				"standard": "*",
+				"travis-cov": "*"
+			},
+			"gitHead": "74446416688f9c5972833634a521c1a7c7c48304",
+			"_id": "bip66@1.1.0",
+			"_shasum": "c5551d49d1696d78211be047e997fe7aac8820c5",
+			"_from": ".",
+			"_npmVersion": "2.14.0",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "dcousens",
+				"email": "email@dcousens.com"
+			},
+			"dist": {
+				"shasum": "c5551d49d1696d78211be047e997fe7aac8820c5",
+				"tarball": "https://registry.npmjs.org/bip66/-/bip66-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.2": {
+			"name": "bip66",
+			"version": "1.1.2",
+			"description": "Strict DER signature encoding/decoding.",
+			"keywords": [
+				"bip66",
+				"bitcoin"
+			],
+			"homepage": "https://github.com/bitcoinjs/bip66",
+			"bugs": {
+				"url": "https://github.com/bitcoinjs/bip66/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Daniel Cousens"
+			},
+			"files": [
+				"index.js"
+			],
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitcoinjs/bip66.git"
+			},
+			"scripts": {
+				"coverage": "nyc --check-coverage --branches 100 --functions 100 tape test/*.js",
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/*.js"
+			},
+			"devDependencies": {
+				"nyc": "^6.4.0",
+				"standard": "^6.0.8",
+				"tape": "^4.5.1"
+			},
+			"gitHead": "c18fa46b871d88129c992f9de732ec2732514e6d",
+			"_id": "bip66@1.1.2",
+			"_shasum": "5a96668b6efc9fb50a2c3d02794144077592c116",
+			"_from": ".",
+			"_npmVersion": "3.8.7",
+			"_nodeVersion": "5.11.0",
+			"_npmUser": {
+				"name": "dcousens",
+				"email": "email@dcousens.com"
+			},
+			"dist": {
+				"shasum": "5a96668b6efc9fb50a2c3d02794144077592c116",
+				"tarball": "https://registry.npmjs.org/bip66/-/bip66-1.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/bip66-1.1.2.tgz_1461651644544_0.18885084707289934"
+			},
+			"directories": {}
+		},
+		"1.1.3": {
+			"name": "bip66",
+			"version": "1.1.3",
+			"description": "Strict DER signature encoding/decoding.",
+			"keywords": [
+				"bip66",
+				"bitcoin"
+			],
+			"homepage": "https://github.com/bitcoinjs/bip66",
+			"bugs": {
+				"url": "https://github.com/bitcoinjs/bip66/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Daniel Cousens"
+			},
+			"files": [
+				"index.js"
+			],
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitcoinjs/bip66.git"
+			},
+			"scripts": {
+				"coverage": "nyc --check-coverage --branches 100 --functions 100 tape test/*.js",
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/*.js"
+			},
+			"devDependencies": {
+				"nyc": "^6.4.0",
+				"standard": "^6.0.8",
+				"tape": "^4.5.1"
+			},
+			"gitHead": "196bcead610a321671ee742d27a232fff4ebfbe1",
+			"_id": "bip66@1.1.3",
+			"_shasum": "9d2056c9b515f27c71f282095de024478e61b8f7",
+			"_from": ".",
+			"_npmVersion": "3.8.7",
+			"_nodeVersion": "5.11.0",
+			"_npmUser": {
+				"name": "dcousens",
+				"email": "email@dcousens.com"
+			},
+			"dist": {
+				"shasum": "9d2056c9b515f27c71f282095de024478e61b8f7",
+				"tarball": "https://registry.npmjs.org/bip66/-/bip66-1.1.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/bip66-1.1.3.tgz_1461651779437_0.7905431850813329"
+			},
+			"directories": {}
+		},
+		"1.1.4": {
+			"name": "bip66",
+			"version": "1.1.4",
+			"description": "Strict DER signature encoding/decoding.",
+			"keywords": [
+				"bip66",
+				"bitcoin"
+			],
+			"homepage": "https://github.com/bitcoinjs/bip66",
+			"bugs": {
+				"url": "https://github.com/bitcoinjs/bip66/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Daniel Cousens"
+			},
+			"files": [
+				"index.js"
+			],
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitcoinjs/bip66.git"
+			},
+			"scripts": {
+				"coverage": "nyc --check-coverage --branches 100 --functions 100 tape test/*.js",
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/*.js"
+			},
+			"devDependencies": {
+				"nyc": "^6.4.0",
+				"standard": "^6.0.8",
+				"tape": "^4.5.1"
+			},
+			"gitHead": "52147a4b365ac24bb3d77d5af50d300498dda0ff",
+			"_id": "bip66@1.1.4",
+			"_shasum": "8a59f8ae16eccb94681c3c2a7b224774605aadfb",
+			"_from": ".",
+			"_npmVersion": "3.8.7",
+			"_nodeVersion": "5.11.0",
+			"_npmUser": {
+				"name": "dcousens",
+				"email": "email@dcousens.com"
+			},
+			"dist": {
+				"shasum": "8a59f8ae16eccb94681c3c2a7b224774605aadfb",
+				"tarball": "https://registry.npmjs.org/bip66/-/bip66-1.1.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bip66-1.1.4.tgz_1461738558360_0.0511821040417999"
+			},
+			"directories": {}
+		},
+		"1.1.5": {
+			"name": "bip66",
+			"version": "1.1.5",
+			"description": "Strict DER signature encoding/decoding.",
+			"keywords": [
+				"bip66",
+				"bitcoin"
+			],
+			"homepage": "https://github.com/bitcoinjs/bip66",
+			"bugs": {
+				"url": "https://github.com/bitcoinjs/bip66/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Daniel Cousens"
+			},
+			"files": [
+				"index.js"
+			],
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitcoinjs/bip66.git"
+			},
+			"scripts": {
+				"coverage": "nyc --check-coverage --branches 100 --functions 100 tape test/*.js",
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/*.js"
+			},
+			"devDependencies": {
+				"nyc": "^6.4.0",
+				"standard": "^10.0.2",
+				"tape": "^4.5.1"
+			},
+			"dependencies": {
+				"safe-buffer": "^5.0.1"
+			},
+			"gitHead": "9d71107e16878d87605dd2460342119d36d72fb4",
+			"_id": "bip66@1.1.5",
+			"_shasum": "01fa8748785ca70955d5011217d1b3139969ca22",
+			"_from": ".",
+			"_npmVersion": "4.6.1",
+			"_nodeVersion": "7.10.0",
+			"_npmUser": {
+				"name": "dcousens",
+				"email": "email@dcousens.com"
+			},
+			"dist": {
+				"shasum": "01fa8748785ca70955d5011217d1b3139969ca22",
+				"tarball": "https://registry.npmjs.org/bip66/-/bip66-1.1.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bip66-1.1.5.tgz_1496026396335_0.4553557578474283"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2019-07-30T12:04:25.953Z",
+		"created": "2015-08-21T05:11:56.183Z",
+		"1.0.0": "2015-08-21T05:11:56.183Z",
+		"1.0.1": "2015-08-21T05:25:31.430Z",
+		"1.0.2": "2015-08-21T07:53:03.605Z",
+		"1.0.3": "2015-08-21T10:49:54.142Z",
+		"1.0.4": "2015-08-21T11:04:10.125Z",
+		"1.0.5": "2015-08-21T11:07:11.829Z",
+		"1.0.6": "2015-08-21T11:10:08.962Z",
+		"1.0.7": "2015-08-21T11:11:56.909Z",
+		"1.0.8": "2015-08-21T11:15:24.774Z",
+		"1.0.9": "2015-08-21T11:32:21.174Z",
+		"1.0.10": "2015-08-21T11:34:07.026Z",
+		"1.1.0": "2015-08-22T01:36:01.176Z",
+		"1.1.2": "2016-04-26T06:20:47.827Z",
+		"1.1.3": "2016-04-26T06:23:02.831Z",
+		"1.1.4": "2016-04-27T06:29:18.777Z",
+		"1.1.5": "2017-05-29T02:53:16.426Z"
+	},
+	"dist-tags": {
+		"latest": "1.1.5"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"24163c8f721c881838f7b5d7cbffc00e\"",
+			"fetched": 1568994332117
+		}
+	},
+	"_distfiles": {
+		"bip66-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bip66/-/bip66-1.0.0.tgz",
+			"sha": "bfa3a54120d268c4fe18ed37b4066dacc5c38413",
+			"registry": "npmjs"
+		},
+		"bip66-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/bip66/-/bip66-1.0.1.tgz",
+			"sha": "43aa7aa86d559fde192ddb819551a03512108e33",
+			"registry": "npmjs"
+		},
+		"bip66-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/bip66/-/bip66-1.0.2.tgz",
+			"sha": "7e8dc854001a881e87e8535d711738df5a6daf8a",
+			"registry": "npmjs"
+		},
+		"bip66-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/bip66/-/bip66-1.0.3.tgz",
+			"sha": "d7785b25078a13b2ee8c5a1b14edcf959d73c29d",
+			"registry": "npmjs"
+		},
+		"bip66-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/bip66/-/bip66-1.0.4.tgz",
+			"sha": "4c8944eae2ce68ce2fd9e754bb7f2ef2248537ed",
+			"registry": "npmjs"
+		},
+		"bip66-1.0.8.tgz": {
+			"url": "https://registry.npmjs.org/bip66/-/bip66-1.0.8.tgz",
+			"sha": "e1934595cd9cd97847bc3303ad4e1888a5671a9b",
+			"registry": "npmjs"
+		},
+		"bip66-1.0.9.tgz": {
+			"url": "https://registry.npmjs.org/bip66/-/bip66-1.0.9.tgz",
+			"sha": "53934a633fce2d77b17a52ad9b42595d304b5260",
+			"registry": "npmjs"
+		},
+		"bip66-1.0.10.tgz": {
+			"url": "https://registry.npmjs.org/bip66/-/bip66-1.0.10.tgz",
+			"sha": "1e77c820cda154dcaa0d65b38026677e4255b8d8",
+			"registry": "npmjs"
+		},
+		"bip66-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/bip66/-/bip66-1.1.0.tgz",
+			"sha": "c5551d49d1696d78211be047e997fe7aac8820c5",
+			"registry": "npmjs"
+		},
+		"bip66-1.1.2.tgz": {
+			"url": "https://registry.npmjs.org/bip66/-/bip66-1.1.2.tgz",
+			"sha": "5a96668b6efc9fb50a2c3d02794144077592c116",
+			"registry": "npmjs"
+		},
+		"bip66-1.1.3.tgz": {
+			"url": "https://registry.npmjs.org/bip66/-/bip66-1.1.3.tgz",
+			"sha": "9d2056c9b515f27c71f282095de024478e61b8f7",
+			"registry": "npmjs"
+		},
+		"bip66-1.1.4.tgz": {
+			"url": "https://registry.npmjs.org/bip66/-/bip66-1.1.4.tgz",
+			"sha": "8a59f8ae16eccb94681c3c2a7b224774605aadfb",
+			"registry": "npmjs"
+		},
+		"bip66-1.1.5.tgz": {
+			"url": "https://registry.npmjs.org/bip66/-/bip66-1.1.5.tgz",
+			"sha": "01fa8748785ca70955d5011217d1b3139969ca22",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-eead0dbdf62204f0",
+	"_id": "bip66",
+	"readme": "# bip66\n\n[![NPM Package](https://img.shields.io/npm/v/bip66.svg?style=flat-square)](https://www.npmjs.org/package/bip66)\n[![Build Status](https://img.shields.io/travis/bitcoinjs/bip66.svg?branch=master&style=flat-square)](https://travis-ci.org/bitcoinjs/bip66)\n\n[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)\n\nStrict DER signature encoding/decoding.\n\nSee [bip66](https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki).\n\n- This module **works only with [two's complement](https://en.wikipedia.org/wiki/Two's_complement) numbers**.\n- BIP66 doesn't check that `r` or `s` are fully valid.\n  - `check`/`decode` doesn't check that `r` or `s` great than 33 bytes or that this number represent valid point on elliptic curve.\n  - `encode` doesn't check that `r`/`s` represent valid point on elliptic curve.\n\n## Example\n\n``` javascript\nvar bip66 = require('bip66')\nvar r = new Buffer('1ea1fdff81b3a271659df4aad19bc4ef83def389131a36358fe64b245632e777', 'hex')\nvar s = new Buffer('29e164658be9ce810921bf81d6b86694785a79ea1e52dbfa5105148d1f0bc1', 'hex')\n\nbip66.encode(r, s)\n// Buffer <30 43 02 20 1e a1 fd ff 81 b3 a2 71 65 9d f4 aa d1 9b c4 ef 83 de f3 89 13 1a 36 35 8f e6 4b 24 56 32 e7 77 02 1f 29 e1 64 65 8b e9 ce 81 09 21 bf 81 d6 b8 66 94 78 5a 79 ea 1e 52 db fa 51 05 14 8d 1f 0b c1>\n\nvar signature = new Buffer('304302201ea1fdff81b3a271659df4aad19bc4ef83def389131a36358fe64b245632e777021f29e164658be9ce810921bf81d6b86694785a79ea1e52dbfa5105148d1f0bc1', 'hex')\nbip66.decode(signature)\n// => {\n//\tr: Buffer <1e a1 fd ff 81 b3 a2 71 65 9d f4 aa d1 9b c4 ef 83 de f3 89 13 1a 36 35 8f e6 4b 24 56 32 e7 77>,\n//\ts: Buffer <29 e1 64 65 8b e9 ce 81 09 21 bf 81 d6 b8 66 94 78 5a 79 ea 1e 52 db fa 51 05 14 8d 1f 0b c1>\n// }\n```\n\nA catch-all exception regex:\n``` javascript\n/Expected DER (integer|sequence)|(R|S) value (excessively padded|is negative)|(R|S|DER sequence) length is (zero|too short|too long|invalid)/\n```\n\n## LICENSE [MIT](LICENSE)"
+}

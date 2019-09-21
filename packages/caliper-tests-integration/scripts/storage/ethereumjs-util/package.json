@@ -1,0 +1,6165 @@
+{
+	"name": "ethereumjs-util",
+	"versions": {
+		"0.0.2": {
+			"name": "ethereumjs-util",
+			"version": "0.0.2",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bignum": "^0.9.1",
+				"rlp": "0.0.12",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js",
+				"bignum": "bignum-browserify"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "09e86f40636ac86b9e53d13a1c4e263a3d3f28e2",
+			"_id": "ethereumjs-util@0.0.2",
+			"_shasum": "03c4139d59d110729c634704d093825c6e11a9d2",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "03c4139d59d110729c634704d093825c6e11a9d2",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.3": {
+			"name": "ethereumjs-util",
+			"version": "0.0.3",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bignum": "^0.9.1",
+				"rlp": "0.0.12",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js",
+				"bignum": "bignum-browserify"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "200ed288b4db4d3b00b45a267fd4db9b01107b51",
+			"_id": "ethereumjs-util@0.0.3",
+			"_shasum": "a889b392b755587bfc48261d782d6f1768f4b6c3",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "a889b392b755587bfc48261d782d6f1768f4b6c3",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.3.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.4": {
+			"name": "ethereumjs-util",
+			"version": "0.0.4",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bignum": "^0.9.1",
+				"bignum-browserify": "0.0.1",
+				"rlp": "0.0.12",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js",
+				"bignum": "bignum-browserify"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "5859e164e53e2fc3251a004f43d20c1558190535",
+			"_id": "ethereumjs-util@0.0.4",
+			"_shasum": "8e1657e1acac0d42171101b7e3cd10588530d3aa",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "8e1657e1acac0d42171101b7e3cd10588530d3aa",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.4.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.5": {
+			"name": "ethereumjs-util",
+			"version": "0.0.5",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bignum": "^0.9.1",
+				"bignum-browserify": "0.0.1",
+				"rlp": "0.0.12",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js",
+				"bignum": "bignum-browserify"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "b1a59fa1da00aeafe1f9f09a4a4c5a921e48196d",
+			"_id": "ethereumjs-util@0.0.5",
+			"_shasum": "60f95e3ab05ba7e57caabc20a9ee27b37c418008",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "60f95e3ab05ba7e57caabc20a9ee27b37c418008",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.5.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.6": {
+			"name": "ethereumjs-util",
+			"version": "0.0.6",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bignum": "^0.9.1",
+				"bignum-browserify": "0.0.1",
+				"rlp": "0.0.12",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js",
+				"bignum": "bignum-browserify"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "68860e5adbdd5fa4bf93934c9266f043a036e7e8",
+			"_id": "ethereumjs-util@0.0.6",
+			"_shasum": "2b225ca90ef18f8f856741b272c73e596e0800e5",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "2b225ca90ef18f8f856741b272c73e596e0800e5",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.6.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.7": {
+			"name": "ethereumjs-util",
+			"version": "0.0.7",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bignum": "^0.9.1",
+				"bignum-browserify": "0.0.1",
+				"rlp": "0.0.12",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js",
+				"bignum": "bignum-browserify"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "68860e5adbdd5fa4bf93934c9266f043a036e7e8",
+			"_id": "ethereumjs-util@0.0.7",
+			"_shasum": "97e89e0891895ee485ab16c6f89565a28e67b550",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "97e89e0891895ee485ab16c6f89565a28e67b550",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.7.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.8": {
+			"name": "ethereumjs-util",
+			"version": "0.0.8",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^2.0.1",
+				"crypto-js": "^3.1.2-5",
+				"rlp": "0.0.12",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "9b8ad0eb673668453fe851352fe4e116fbf40e8d",
+			"_id": "ethereumjs-util@0.0.8",
+			"_shasum": "8bb99b27eaa38993222cef764ce3969f41df5ddd",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "8bb99b27eaa38993222cef764ce3969f41df5ddd",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.8.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.9": {
+			"name": "ethereumjs-util",
+			"version": "0.0.9",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^2.0.1",
+				"crypto-js": "^3.1.2-5",
+				"rlp": "^0.0.14",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "b588826beb55e47bc30eae1f47dba554a43e66d5",
+			"_id": "ethereumjs-util@0.0.9",
+			"_shasum": "65b1d0a3797d10b35b69e95607213ecd53861154",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "65b1d0a3797d10b35b69e95607213ecd53861154",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.9.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.10": {
+			"name": "ethereumjs-util",
+			"version": "0.0.10",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^2.0.1",
+				"crypto-js": "^3.1.2-5",
+				"rlp": "^0.0.14",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "003348f77bf9c342d602a28e1b4401472b555b90",
+			"_id": "ethereumjs-util@0.0.10",
+			"_shasum": "9717325a779460c58e5426b7efeea0f51578b531",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "9717325a779460c58e5426b7efeea0f51578b531",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.10.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "ethereumjs-util",
+			"version": "0.1.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^2.0.1",
+				"crypto-js": "^3.1.2-5",
+				"rlp": "^0.0.14",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "23ea798be86d31452b81de66498e19e65682414d",
+			"_id": "ethereumjs-util@0.1.0",
+			"_shasum": "6621b5c28557737d1405faa1f6841fbde2008d45",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "6621b5c28557737d1405faa1f6841fbde2008d45",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.1.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "ethereumjs-util",
+			"version": "1.0.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^2.0.5",
+				"crypto-js": "^3.1.5",
+				"rlp": "^1.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "28a1dd23c5a3996f13174e5bdfb46e43c6456141",
+			"_id": "ethereumjs-util@1.0.0",
+			"_shasum": "f0219b9f3f95b7237f082c9d7f92bae4fd833cfe",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "f0219b9f3f95b7237f082c9d7f92bae4fd833cfe",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "ethereumjs-util",
+			"version": "1.0.1",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^2.0.5",
+				"crypto-js": "^3.1.5",
+				"rlp": "^1.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "751e6dc2b4ee00a8895026374688018ba82f6464",
+			"_id": "ethereumjs-util@1.0.1",
+			"_shasum": "b9ac4b3e73422f840f26aefa140d73ff5f7669cc",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "b9ac4b3e73422f840f26aefa140d73ff5f7669cc",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "ethereumjs-util",
+			"version": "1.0.2",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^2.0.5",
+				"crypto-js": "^3.1.5",
+				"elliptic": "^3.1.0",
+				"rlp": "^1.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "c07ae42613753e20e9da0ee6b574fa644efc9164",
+			"_id": "ethereumjs-util@1.0.2",
+			"_shasum": "d04199e992204972ca21f96f8a850c667058e0cf",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "d04199e992204972ca21f96f8a850c667058e0cf",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.0.2.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "ethereumjs-util",
+			"version": "1.0.3",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^2.0.5",
+				"crypto-js": "^3.1.5",
+				"elliptic": "^3.1.0",
+				"rlp": "^1.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "1653fcf8089d363ca79c3013dbb59a55a9a5c73b",
+			"_id": "ethereumjs-util@1.0.3",
+			"_shasum": "98014cd9b6ddc6e650bbd6071ae2962fce29bd0b",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "98014cd9b6ddc6e650bbd6071ae2962fce29bd0b",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.0.3.tgz"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "ethereumjs-util",
+			"version": "1.1.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^2.0.5",
+				"crypto-js": "^3.1.5",
+				"elliptic": "^3.1.0",
+				"rlp": "^1.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "70c482232b6d69bdcce5691923750090d57d5ed6",
+			"_id": "ethereumjs-util@1.1.0",
+			"_shasum": "c0a4b3c450ee7ec01018d7c25812d6be6e09ef57",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "c0a4b3c450ee7ec01018d7c25812d6be6e09ef57",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.1.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "ethereumjs-util",
+			"version": "1.2.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^2.0.5",
+				"crypto-js": "^3.1.5",
+				"elliptic": "^3.1.0",
+				"rlp": "^1.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "458a998abefc92c7bb88d047acc86dc7417d6f18",
+			"_id": "ethereumjs-util@1.2.0",
+			"_shasum": "c89744a65e090b04fb8ce44881e197ddb43b2ec8",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "c89744a65e090b04fb8ce44881e197ddb43b2ec8",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.2.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.3.0": {
+			"name": "ethereumjs-util",
+			"version": "1.3.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^2.0.5",
+				"crypto-js": "^3.1.5",
+				"elliptic": "^3.1.0",
+				"rlp": "^1.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "782409f56cf702e49ffa98729e9be2b10dcf46ba",
+			"_id": "ethereumjs-util@1.3.0",
+			"_shasum": "ac8eb7130a1e4a88979e657fe6042805d058d14f",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "ac8eb7130a1e4a88979e657fe6042805d058d14f",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.3.1": {
+			"name": "ethereumjs-util",
+			"version": "1.3.1",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^2.0.5",
+				"crypto-js": "^3.1.5",
+				"elliptic": "^3.1.0",
+				"rlp": "^1.0.1",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "27c166160f9cfb53afb2d577df46c77e56386fff",
+			"_id": "ethereumjs-util@1.3.1",
+			"_shasum": "80a3281328e0a2bdf1dd07b1fbb4b440039d82c3",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "80a3281328e0a2bdf1dd07b1fbb4b440039d82c3",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.1.tgz"
+			},
+			"directories": {}
+		},
+		"1.3.2": {
+			"name": "ethereumjs-util",
+			"version": "1.3.2",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^2.1.0",
+				"crypto-js": "^3.1.5",
+				"elliptic": "^4.0.0",
+				"rlp": "^1.0.1",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "b6e4dec28ee58b3051622a48fa49a1dd26468a03",
+			"_id": "ethereumjs-util@1.3.2",
+			"_shasum": "df66b6360e5e865313d6cbb640f9025003de5fc3",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "df66b6360e5e865313d6cbb640f9025003de5fc3",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.2.tgz"
+			},
+			"directories": {}
+		},
+		"1.3.3": {
+			"name": "ethereumjs-util",
+			"version": "1.3.3",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.0.1",
+				"crypto-js": "^3.1.5",
+				"elliptic": "^4.0.0",
+				"rlp": "^1.0.1",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "4b5d53c6728b2b86edb3232b17ce02e0ccd51dfc",
+			"_id": "ethereumjs-util@1.3.3",
+			"_shasum": "6daf19b9c22eb91349d30727d20870c3adde10c1",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "6daf19b9c22eb91349d30727d20870c3adde10c1",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.3.tgz"
+			},
+			"directories": {}
+		},
+		"1.3.4": {
+			"name": "ethereumjs-util",
+			"version": "1.3.4",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.0.1",
+				"crypto-js": "^3.1.5",
+				"elliptic": "^5.0.0",
+				"rlp": "^1.0.1",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "./browser/sha3.js"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "d57e6f245481515196836a24bef253936ed78e8b",
+			"_id": "ethereumjs-util@1.3.4",
+			"_shasum": "0d0115fe3fb0236fb8e68d45a1d6e97793145f4a",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "0d0115fe3fb0236fb8e68d45a1d6e97793145f4a",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.4.tgz"
+			},
+			"directories": {}
+		},
+		"1.3.5": {
+			"name": "ethereumjs-util",
+			"version": "1.3.5",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.0.1",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^5.0.0",
+				"rlp": "^1.0.1",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "78d5c5d1818344dbead8762136820779bd9e817f",
+			"_id": "ethereumjs-util@1.3.5",
+			"_shasum": "7747ecc367ee2beeb53a598f8a356566c984009a",
+			"_from": ".",
+			"_npmVersion": "2.13.2",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "7747ecc367ee2beeb53a598f8a356566c984009a",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.3.6": {
+			"name": "ethereumjs-util",
+			"version": "1.3.6",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.0.1",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^5.0.0",
+				"rlp": "^1.0.1",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "959ed66355598683d0caac1b441cc2b51121f7ea",
+			"_id": "ethereumjs-util@1.3.6",
+			"_shasum": "0a8aa36843a97e8e79d88df4d8656593bcf9e2c3",
+			"_from": ".",
+			"_npmVersion": "2.13.2",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "0a8aa36843a97e8e79d88df4d8656593bcf9e2c3",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.3.7": {
+			"name": "ethereumjs-util",
+			"version": "1.3.7",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.0.1",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^5.0.0",
+				"rlp": "^1.0.1",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "b0cdabd7247e0094df906418192c10998df4e6b3",
+			"_id": "ethereumjs-util@1.3.7",
+			"_shasum": "501e024c51b1e3574e0cb88e112aac26ef6d88ce",
+			"_from": ".",
+			"_npmVersion": "2.13.5",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "501e024c51b1e3574e0cb88e112aac26ef6d88ce",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.3.8": {
+			"name": "ethereumjs-util",
+			"version": "1.3.8",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha ./test/index.js",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.0.1",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^5.0.0",
+				"rlp": "^1.0.1",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "c56c788b0bf663830eee3c9dab6cae4da651fee3",
+			"_id": "ethereumjs-util@1.3.8",
+			"_shasum": "0174ecfb5ae272b2f08113537458ac5cb0e018a5",
+			"_from": ".",
+			"_npmVersion": "2.14.0",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "0174ecfb5ae272b2f08113537458ac5cb0e018a5",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.8.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.4.0": {
+			"name": "ethereumjs-util",
+			"version": "1.4.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && mocha ./test/",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.1.2",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^5.0.0",
+				"rlp": "^1.0.1",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0",
+				"standard": "^5.2.2"
+			},
+			"gitHead": "9f26cb6f2275886b757a757704ece34e1e5c26a3",
+			"_id": "ethereumjs-util@1.4.0",
+			"_shasum": "7807927ebba75654fcdd30fea7b5c7a9cd7684be",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "7807927ebba75654fcdd30fea7b5c7a9cd7684be",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.5.0": {
+			"name": "ethereumjs-util",
+			"version": "1.5.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && mocha ./test/",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.1.2",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^5.0.0",
+				"rlp": "^1.0.1",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0",
+				"standard": "^5.2.2"
+			},
+			"gitHead": "1d5ba99b597de4f814abfc8a56a486096b2787d8",
+			"_id": "ethereumjs-util@1.5.0",
+			"_shasum": "454cb0b8d62c64b72d603d5b6205abc6d844233e",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "454cb0b8d62c64b72d603d5b6205abc6d844233e",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.5.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.5.1": {
+			"name": "ethereumjs-util",
+			"version": "1.5.1",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && mocha ./test/",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.1.2",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^5.0.0",
+				"rlp": "^1.1.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0",
+				"standard": "^5.2.2"
+			},
+			"gitHead": "ec14ffc59618f26cc72df51f0d201367bca0b10b",
+			"_id": "ethereumjs-util@1.5.1",
+			"_shasum": "39ef770c9d2b16b206d75f4dc5722a28f03c34ec",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "39ef770c9d2b16b206d75f4dc5722a28f03c34ec",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.5.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "ethereumjs-util",
+			"version": "2.0.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && mocha ./test/",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.1.2",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^5.0.0",
+				"rlp": "^1.1.2",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0",
+				"standard": "^5.3.1"
+			},
+			"gitHead": "3dab96f5a7a5c4efbee6f1bec2e8ff9f4f1c8e34",
+			"_id": "ethereumjs-util@2.0.0",
+			"_shasum": "859d1411aaea5aaeae642cfdc7991540d2f881c7",
+			"_from": ".",
+			"_npmVersion": "3.3.3",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "859d1411aaea5aaeae642cfdc7991540d2f881c7",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.1": {
+			"name": "ethereumjs-util",
+			"version": "2.0.1",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && mocha ./test/",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.1.2",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^5.0.0",
+				"rlp": "^2.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0",
+				"standard": "^5.3.1"
+			},
+			"gitHead": "91cc7630e766756145d252a9dbc1e6fed254885d",
+			"_id": "ethereumjs-util@2.0.1",
+			"_shasum": "3e378a0a22333c3c72506ee8cee9c0f2d71e6666",
+			"_from": ".",
+			"_npmVersion": "3.3.3",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "3e378a0a22333c3c72506ee8cee9c0f2d71e6666",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.2": {
+			"name": "ethereumjs-util",
+			"version": "2.0.2",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && mocha ./test/",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.1.2",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^5.0.0",
+				"rlp": "^2.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0",
+				"standard": "^5.3.1"
+			},
+			"gitHead": "26100a34ce4c33896d02786e902ef7d11684529a",
+			"_id": "ethereumjs-util@2.0.2",
+			"_shasum": "13d832a0e4a46f1158f75384ee72187d13849fd6",
+			"_from": ".",
+			"_npmVersion": "3.3.3",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "13d832a0e4a46f1158f75384ee72187d13849fd6",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.3": {
+			"name": "ethereumjs-util",
+			"version": "2.0.3",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && mocha ./test/",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.1.2",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^5.0.0",
+				"rlp": "^2.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0",
+				"standard": "^5.3.1"
+			},
+			"gitHead": "fe853d400890c581da2a9cb640743f92bb2721a0",
+			"_id": "ethereumjs-util@2.0.3",
+			"_shasum": "c447b15906b2b119c0d3d696211c288ff2b09019",
+			"_from": ".",
+			"_npmVersion": "3.3.5",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "c447b15906b2b119c0d3d696211c288ff2b09019",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.4": {
+			"name": "ethereumjs-util",
+			"version": "2.0.4",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && mocha ./test/",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.1.2",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^5.0.0",
+				"rlp": "^2.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0",
+				"standard": "^5.3.1"
+			},
+			"gitHead": "5d7f9b04e16a078ba91f2d604813500517e00b4e",
+			"_id": "ethereumjs-util@2.0.4",
+			"_shasum": "d2cc459d0eb2c03877e4ffea8317c253662ea3b1",
+			"_from": ".",
+			"_npmVersion": "3.3.8",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "d2cc459d0eb2c03877e4ffea8317c253662ea3b1",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.1.0": {
+			"name": "ethereumjs-util",
+			"version": "2.1.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && mocha ./test/",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.1.2",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^5.0.0",
+				"rlp": "^2.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0",
+				"standard": "^5.3.1"
+			},
+			"gitHead": "9b4d2969dc670231b2a740a0d24f47c31871d93d",
+			"_id": "ethereumjs-util@2.1.0",
+			"_shasum": "189f64b9e6f1a3e2b175e29058df71aec4659e7d",
+			"_from": ".",
+			"_npmVersion": "3.3.8",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "189f64b9e6f1a3e2b175e29058df71aec4659e7d",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.2.0": {
+			"name": "ethereumjs-util",
+			"version": "2.2.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && mocha ./test/",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.1.2",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^5.0.0",
+				"rlp": "^2.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0",
+				"standard": "^5.3.1"
+			},
+			"gitHead": "e93285ed00b022ad4ee24a3bfdfc0f7d094d011f",
+			"_id": "ethereumjs-util@2.2.0",
+			"_shasum": "f9c782a8f877510aaf3f60cec4deda87c4deb4f5",
+			"_from": ".",
+			"_npmVersion": "3.3.8",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "f9c782a8f877510aaf3f60cec4deda87c4deb4f5",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.3.0": {
+			"name": "ethereumjs-util",
+			"version": "2.3.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && mocha ./test/",
+				"compile": "browserify index.js -s ethUtils > ethUtils.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^3.1.2",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^5.0.0",
+				"rlp": "^2.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"mocha": "^2.1.0",
+				"standard": "^5.3.1"
+			},
+			"gitHead": "0dbde95a2c40a69def40010b9e6be087b13315ec",
+			"_id": "ethereumjs-util@2.3.0",
+			"_shasum": "a010ee3edddc4f59a1a3c8d3820642d8adcf329c",
+			"_from": ".",
+			"_npmVersion": "3.3.8",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "a010ee3edddc4f59a1a3c8d3820642d8adcf329c",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.3.1": {
+			"name": "ethereumjs-util",
+			"version": "2.3.1",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^4.3.0",
+				"browserify-sha3": "0.0.0",
+				"elliptic": "^6.0.2",
+				"rlp": "^2.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.1",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "c08b4bb0ca833d4040ff66ac764e436120d272f4",
+			"_id": "ethereumjs-util@2.3.1",
+			"_shasum": "3ca7a4be35b3b697e099a558fb6f4875fa627bf6",
+			"_from": ".",
+			"_npmVersion": "3.3.8",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "3ca7a4be35b3b697e099a558fb6f4875fa627bf6",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.3.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.3.2": {
+			"name": "ethereumjs-util",
+			"version": "2.3.2",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^4.4.0",
+				"browserify-sha3": "^0.0.1",
+				"elliptic": "^6.0.2",
+				"rlp": "^2.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "2121d2d2d98e5ef914c9365918bb2e3afd1b3edc",
+			"_id": "ethereumjs-util@2.3.2",
+			"_shasum": "e3d3145cdc0041db8c009986f76d2bf33edc8a1b",
+			"_from": ".",
+			"_npmVersion": "3.3.8",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "e3d3145cdc0041db8c009986f76d2bf33edc8a1b",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.3.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.4.0": {
+			"name": "ethereumjs-util",
+			"version": "2.4.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereum/ethereumjs-utils.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereum/ethereumjs-utils/issues"
+			},
+			"homepage": "https://github.com/ethereum/ethereumjs-utils",
+			"dependencies": {
+				"bn.js": "^4.4.0",
+				"browserify-sha3": "^0.0.1",
+				"elliptic": "^6.0.2",
+				"rlp": "^2.0.0",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "9f84c46daa444db5c1704b61c6bc2ed8bdace78f",
+			"_id": "ethereumjs-util@2.4.0",
+			"_shasum": "f3e606f20ec1638c86c796a593f86fac03794e65",
+			"_from": ".",
+			"_npmVersion": "3.5.2",
+			"_nodeVersion": "5.2.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "f3e606f20ec1638c86c796a593f86fac03794e65",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.5.0": {
+			"name": "ethereumjs-util",
+			"version": "2.5.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.6.2",
+				"browserify-sha3": "^0.0.1",
+				"rlp": "^2.0.0",
+				"secp256k1": "^2.0.7",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "c4193c8ddb90628d95f6aff30fd3a512165956ee",
+			"_id": "ethereumjs-util@2.5.0",
+			"_shasum": "7a70803b48e931c5cf9a5ce15e0be3a1450a3e8d",
+			"_from": ".",
+			"_npmVersion": "3.5.2",
+			"_nodeVersion": "5.2.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "7a70803b48e931c5cf9a5ce15e0be3a1450a3e8d",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.5.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.6.0": {
+			"name": "ethereumjs-util",
+			"version": "2.6.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.6.2",
+				"browserify-sha3": "^0.0.1",
+				"rlp": "^2.0.0",
+				"secp256k1": "^2.0.7",
+				"sha3": "^1.1.0"
+			},
+			"browser": {
+				"sha3": "browserify-sha3"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "fc79e1d1057f678ff31e857cd37ecfe4401ff845",
+			"_id": "ethereumjs-util@2.6.0",
+			"_shasum": "a1d79559460b5bf98daa500f606b08d306084b38",
+			"_from": ".",
+			"_npmVersion": "3.5.3",
+			"_nodeVersion": "5.4.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "a1d79559460b5bf98daa500f606b08d306084b38",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.6.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"3.0.0": {
+			"name": "ethereumjs-util",
+			"version": "3.0.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.6.4",
+				"keccakjs": "^0.1.0",
+				"rlp": "^2.0.0",
+				"secp256k1": "^2.0.10"
+			},
+			"testling": {
+				"browsers": [
+					"ie/9..latest",
+					"firefox/15..latest",
+					"chrome/22..latest"
+				],
+				"harness": "mocha-bdd",
+				"files": [
+					"test/index.js"
+				]
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "ce93c5f5e3e3497845766b8a1435f18a81da2409",
+			"_id": "ethereumjs-util@3.0.0",
+			"_shasum": "c29d6c7a8038729d302bad659d72346b02e68164",
+			"_from": ".",
+			"_npmVersion": "3.5.3",
+			"_nodeVersion": "5.4.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "c29d6c7a8038729d302bad659d72346b02e68164",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-3.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.0.0": {
+			"name": "ethereumjs-util",
+			"version": "4.0.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.8.0",
+				"keccakjs": "^0.1.0",
+				"rlp": "^2.0.0",
+				"secp256k1": "^3.0.0"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "5a35c3811429a6ec8edeb20846acf9c408da9d5a",
+			"_id": "ethereumjs-util@4.0.0",
+			"_shasum": "2ee94ecaf459016969c0525d041933017ea4c22b",
+			"_from": ".",
+			"_npmVersion": "3.5.3",
+			"_nodeVersion": "5.4.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "2ee94ecaf459016969c0525d041933017ea4c22b",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-6-west.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-util-4.0.0.tgz_1454451595494_0.6575519104953855"
+			},
+			"directories": {}
+		},
+		"4.0.1": {
+			"name": "ethereumjs-util",
+			"version": "4.0.1",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test node_modules/mocha/bin/_mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.8.0",
+				"keccakjs": "^0.1.0",
+				"rlp": "^2.0.0",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "c704a6323e8393c55b78ac192e37901a63f836ca",
+			"_id": "ethereumjs-util@4.0.1",
+			"_shasum": "fb63ec151e03302ef45def2564ce65c9560c6dca",
+			"_from": ".",
+			"_npmVersion": "3.7.5",
+			"_nodeVersion": "5.7.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "fb63ec151e03302ef45def2564ce65c9560c6dca",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-5-east.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-util-4.0.1.tgz_1456849465831_0.25926936650648713"
+			},
+			"directories": {}
+		},
+		"4.0.2": {
+			"name": "ethereumjs-util",
+			"version": "4.0.2",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test node_modules/mocha/bin/_mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.8.0",
+				"keccakjs": "^0.1.0",
+				"rlp": "^2.0.0",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "8da8b5f25f4bec8b18b4c239e81d9d82cd18af27",
+			"_id": "ethereumjs-util@4.0.2",
+			"_shasum": "aef8c1d0309758c6af7a7a18130c7f6efe29d8b7",
+			"_from": ".",
+			"_npmVersion": "3.8.0",
+			"_nodeVersion": "5.7.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "aef8c1d0309758c6af7a7a18130c7f6efe29d8b7",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-13-west.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-util-4.0.2.tgz_1457406258571_0.7653349947649986"
+			},
+			"directories": {}
+		},
+		"4.1.0": {
+			"name": "ethereumjs-util",
+			"version": "4.1.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test node_modules/mocha/bin/_mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.8.0",
+				"keccakjs": "^0.1.0",
+				"rlp": "^2.0.0",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "18b6027fcfd16b1f325830c42e7bb5afcd70be83",
+			"_id": "ethereumjs-util@4.1.0",
+			"_shasum": "e1ec542c5d65463a6aeeaada036bd798ed1a5f4c",
+			"_from": ".",
+			"_npmVersion": "3.8.0",
+			"_nodeVersion": "5.7.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "e1ec542c5d65463a6aeeaada036bd798ed1a5f4c",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-util-4.1.0.tgz_1457469735889_0.5615692369174212"
+			},
+			"directories": {}
+		},
+		"4.2.0": {
+			"name": "ethereumjs-util",
+			"version": "4.2.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test node_modules/mocha/bin/_mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.8.0",
+				"keccakjs": "^0.1.0",
+				"rlp": "^2.0.0",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "b05baee216df0acb0f6ca1d2269d6ef0baab9a79",
+			"_id": "ethereumjs-util@4.2.0",
+			"_shasum": "a7620094d8ebd5ac5299f34bdfbec971fc0a3e8e",
+			"_from": ".",
+			"_npmVersion": "3.8.0",
+			"_nodeVersion": "6.0.0-pre",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "a7620094d8ebd5ac5299f34bdfbec971fc0a3e8e",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-util-4.2.0.tgz_1458309729496_0.9290835543069988"
+			},
+			"directories": {}
+		},
+		"4.3.0": {
+			"name": "ethereumjs-util",
+			"version": "4.3.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test node_modules/mocha/bin/_mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.8.0",
+				"keccakjs": "^0.1.0",
+				"rlp": "^2.0.0",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "5bbbbd7d8068defe030255d282995cb486942241",
+			"_id": "ethereumjs-util@4.3.0",
+			"_shasum": "97daa8bb09c2f84e3c51325654c073647b768344",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.0",
+			"_npmUser": {
+				"name": "axic",
+				"email": "alex@rtfs.hu"
+			},
+			"dist": {
+				"shasum": "97daa8bb09c2f84e3c51325654c073647b768344",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-util-4.3.0.tgz_1458700274540_0.49009874695912004"
+			},
+			"directories": {}
+		},
+		"4.3.1": {
+			"name": "ethereumjs-util",
+			"version": "4.3.1",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.8.0",
+				"keccakjs": "^0.2.0",
+				"rlp": "^2.0.0",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "b49714a857a02772ee1060fa58b8e2fa15cf2b68",
+			"_id": "ethereumjs-util@4.3.1",
+			"_shasum": "47bba8b5d764cf596a52ea7f4c62ccde0f4dab35",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.0",
+			"_npmUser": {
+				"name": "axic",
+				"email": "alex@rtfs.hu"
+			},
+			"dist": {
+				"shasum": "47bba8b5d764cf596a52ea7f4c62ccde0f4dab35",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.3.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-util-4.3.1.tgz_1461608570958_0.5056060142815113"
+			},
+			"directories": {}
+		},
+		"4.4.0": {
+			"name": "ethereumjs-util",
+			"version": "4.4.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.8.0",
+				"keccakjs": "^0.2.0",
+				"rlp": "^2.0.0",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "b8abcadd71b829164f1f00e9b72632eaa43f9b94",
+			"_id": "ethereumjs-util@4.4.0",
+			"_shasum": "30e8735fb904d94f53ee9d218b1a16fe74dd6313",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.0",
+			"_npmUser": {
+				"name": "axic",
+				"email": "alex@rtfs.hu"
+			},
+			"dist": {
+				"shasum": "30e8735fb904d94f53ee9d218b1a16fe74dd6313",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-util-4.4.0.tgz_1461679254064_0.8270321334712207"
+			},
+			"directories": {}
+		},
+		"4.4.1": {
+			"name": "ethereumjs-util",
+			"version": "4.4.1",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.8.0",
+				"create-hash": "^1.1.2",
+				"keccakjs": "^0.2.0",
+				"rlp": "^2.0.0",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "66effd62d980180ae74cdd8cf5b89e7c19706abe",
+			"_id": "ethereumjs-util@4.4.1",
+			"_shasum": "6316bfbc8a01c8767a78620928ed79ef424c3f92",
+			"_from": ".",
+			"_npmVersion": "3.9.0",
+			"_nodeVersion": "6.2.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"dist": {
+				"shasum": "6316bfbc8a01c8767a78620928ed79ef424c3f92",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.4.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-util-4.4.1.tgz_1463703828143_0.5236820739228278"
+			},
+			"directories": {}
+		},
+		"4.5.0": {
+			"name": "ethereumjs-util",
+			"version": "4.5.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.8.0",
+				"create-hash": "^1.1.2",
+				"keccakjs": "^0.2.0",
+				"rlp": "^2.0.0",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "^5.4.1"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "884cf09b08967e75cd8130077fb64e5d4e561d27",
+			"_id": "ethereumjs-util@4.5.0",
+			"_shasum": "3e9428b317eebda3d7260d854fddda954b1f1bc6",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "7.0.0-pre",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"dist": {
+				"shasum": "3e9428b317eebda3d7260d854fddda954b1f1bc6",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.5.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-util-4.5.0.tgz_1468346848362_0.7674490883946419"
+			},
+			"directories": {}
+		},
+		"5.0.0": {
+			"name": "ethereumjs-util",
+			"version": "5.0.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md && contributor"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Tim Coulter",
+					"email": "tim@timothyjcoulter.com",
+					"url": "https://github.com/tcoulter"
+				},
+				{
+					"name": "Nick Dodson",
+					"url": "https://github.com/SilentCicero"
+				},
+				{
+					"url": "https://github.com/MrChico"
+				},
+				{
+					"name": "Dũng Trần",
+					"email": "tad88.dev@gmail.com",
+					"url": "https://github.com/tad88dev"
+				},
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu",
+					"url": "https://github.com/axic"
+				},
+				{
+					"name": "Taylor Gerring",
+					"url": "https://github.com/tgerring"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				},
+				{
+					"name": "kumavis",
+					"email": "aaron@kumavis.me",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Alexander Sinyagin",
+					"email": "sinyagin.alexander@gmail.com",
+					"url": "https://github.com/asinyagin"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.8.0",
+				"create-hash": "^1.1.2",
+				"keccakjs": "^0.2.0",
+				"rlp": "^2.0.0",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"contributor": "^0.1.25",
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "*"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "ed316cf383e5e05a3973886880b1ec4482ff52c9",
+			"_id": "ethereumjs-util@5.0.0",
+			"_shasum": "7cbc946e616105673e0b1081c6ee6ef30aa25936",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "8.0.0-pre",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"dist": {
+				"shasum": "7cbc946e616105673e0b1081c6ee6ef30aa25936",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-util-5.0.0.tgz_1478561846432_0.8582489350810647"
+			},
+			"directories": {}
+		},
+		"5.0.1": {
+			"name": "ethereumjs-util",
+			"version": "5.0.1",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md && contributor"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Tim Coulter",
+					"email": "tim@timothyjcoulter.com",
+					"url": "https://github.com/tcoulter"
+				},
+				{
+					"name": "Nick Dodson",
+					"url": "https://github.com/SilentCicero"
+				},
+				{
+					"url": "https://github.com/MrChico"
+				},
+				{
+					"name": "Dũng Trần",
+					"email": "tad88.dev@gmail.com",
+					"url": "https://github.com/tad88dev"
+				},
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu",
+					"url": "https://github.com/axic"
+				},
+				{
+					"name": "Taylor Gerring",
+					"url": "https://github.com/tgerring"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				},
+				{
+					"name": "kumavis",
+					"email": "aaron@kumavis.me",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Alexander Sinyagin",
+					"email": "sinyagin.alexander@gmail.com",
+					"url": "https://github.com/asinyagin"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.8.0",
+				"create-hash": "^1.1.2",
+				"keccakjs": "^0.2.0",
+				"rlp": "^2.0.0",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"contributor": "^0.1.25",
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^0.13.15",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-mocha": "^0.2.1",
+				"mocha": "^2.3.4",
+				"standard": "*"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "cadd456ad235b99006eff919d6430a95d7709dbc",
+			"_id": "ethereumjs-util@5.0.1",
+			"_shasum": "7d5f1182febd83c1bbb1305b65ac0a5df3c6a43e",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "8.0.0-pre",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"dist": {
+				"shasum": "7d5f1182febd83c1bbb1305b65ac0a5df3c6a43e",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-util-5.0.1.tgz_1478623601527_0.8834505665581673"
+			},
+			"directories": {}
+		},
+		"5.1.0": {
+			"name": "ethereumjs-util",
+			"version": "5.1.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md && contributor"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Tim Coulter",
+					"email": "tim@timothyjcoulter.com",
+					"url": "https://github.com/tcoulter"
+				},
+				{
+					"name": "Nick Dodson",
+					"url": "https://github.com/SilentCicero"
+				},
+				{
+					"name": "Mr. Chico",
+					"url": "https://github.com/MrChico"
+				},
+				{
+					"name": "Dũng Trần",
+					"email": "tad88.dev@gmail.com",
+					"url": "https://github.com/tad88dev"
+				},
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu",
+					"url": "https://github.com/axic"
+				},
+				{
+					"name": "Taylor Gerring",
+					"url": "https://github.com/tgerring"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				},
+				{
+					"name": "kumavis",
+					"email": "aaron@kumavis.me",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Alexander Sinyagin",
+					"email": "sinyagin.alexander@gmail.com",
+					"url": "https://github.com/asinyagin"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.8.0",
+				"create-hash": "^1.1.2",
+				"keccak": "^1.0.2",
+				"rlp": "^2.0.0",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"contributor": "^0.1.25",
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^1.3.0",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "2.2.4",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-mocha": "^1.3.0",
+				"mocha": "^3.1.2",
+				"standard": "*"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "499732851ba03109bf8bf89311b00038a6c89580",
+			"_id": "ethereumjs-util@5.1.0",
+			"_shasum": "8e9646c13322e75a9c593cf705d27d4a51c991c0",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "8.0.0-pre",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"dist": {
+				"shasum": "8e9646c13322e75a9c593cf705d27d4a51c991c0",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-util-5.1.0.tgz_1486171595321_0.982041000155732"
+			},
+			"directories": {}
+		},
+		"5.1.1": {
+			"name": "ethereumjs-util",
+			"version": "5.1.1",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md && contributor"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Tim Coulter",
+					"email": "tim@timothyjcoulter.com",
+					"url": "https://github.com/tcoulter"
+				},
+				{
+					"name": "Nick Dodson",
+					"url": "https://github.com/SilentCicero"
+				},
+				{
+					"name": "Mr. Chico",
+					"url": "https://github.com/MrChico"
+				},
+				{
+					"name": "Dũng Trần",
+					"email": "tad88.dev@gmail.com",
+					"url": "https://github.com/tad88dev"
+				},
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu",
+					"url": "https://github.com/axic"
+				},
+				{
+					"name": "Taylor Gerring",
+					"url": "https://github.com/tgerring"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				},
+				{
+					"name": "kumavis",
+					"email": "aaron@kumavis.me",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Alexander Sinyagin",
+					"email": "sinyagin.alexander@gmail.com",
+					"url": "https://github.com/asinyagin"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.8.0",
+				"create-hash": "^1.1.2",
+				"ethjs-util": "^0.1.3",
+				"keccak": "^1.0.2",
+				"rlp": "^2.0.0",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"browserify": "^14.0.0",
+				"contributor": "^0.1.25",
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^1.3.0",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "2.2.4",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-mocha": "^1.3.0",
+				"mocha": "^3.1.2",
+				"standard": "*"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "7f7b4cb28e33c96b904cf82c6e391ad343448706",
+			"_id": "ethereumjs-util@5.1.1",
+			"_shasum": "122fb38dea747dc62b3aebfc365d1bd48be4b73e",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "8.0.0-pre",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"dist": {
+				"shasum": "122fb38dea747dc62b3aebfc365d1bd48be4b73e",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ethereumjs-util-5.1.1.tgz_1486690501275_0.7723685579840094"
+			},
+			"directories": {}
+		},
+		"5.1.2": {
+			"name": "ethereumjs-util",
+			"version": "5.1.2",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test mocha -- --reporter spec",
+				"build:docs": "documentation --github  -f md ./index.js > ./docs/index.md && contributor"
+			},
+			"browserify": {
+				"transform": [
+					[
+						"babelify",
+						{
+							"presets": [
+								"es2015"
+							]
+						}
+					]
+				]
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Tim Coulter",
+					"email": "tim@timothyjcoulter.com",
+					"url": "https://github.com/tcoulter"
+				},
+				{
+					"name": "Nick Dodson",
+					"url": "https://github.com/SilentCicero"
+				},
+				{
+					"name": "Mr. Chico",
+					"url": "https://github.com/MrChico"
+				},
+				{
+					"name": "Dũng Trần",
+					"email": "tad88.dev@gmail.com",
+					"url": "https://github.com/tad88dev"
+				},
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu",
+					"url": "https://github.com/axic"
+				},
+				{
+					"name": "Taylor Gerring",
+					"url": "https://github.com/tgerring"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				},
+				{
+					"name": "kumavis",
+					"email": "aaron@kumavis.me",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Alexander Sinyagin",
+					"email": "sinyagin.alexander@gmail.com",
+					"url": "https://github.com/asinyagin"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"babel-preset-es2015": "^6.24.0",
+				"babelify": "^7.3.0",
+				"bn.js": "^4.8.0",
+				"create-hash": "^1.1.2",
+				"ethjs-util": "^0.1.3",
+				"keccak": "^1.0.2",
+				"rlp": "^2.0.0",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"browserify": "^14.0.0",
+				"contributor": "^0.1.25",
+				"coveralls": "^2.11.4",
+				"documentation": "^3.0.4",
+				"istanbul": "^0.4.1",
+				"karma": "^1.3.0",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "2.2.5",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-mocha": "^1.3.0",
+				"mocha": "^3.1.2",
+				"standard": "*"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "b01a58cbaa6d13e61970d5c9d1f7a9967de6ed7e",
+			"_id": "ethereumjs-util@5.1.2",
+			"_shasum": "25ba0215cbb4c2f0b108a6f96af2a2e62e45921f",
+			"_from": ".",
+			"_npmVersion": "4.3.0",
+			"_nodeVersion": "8.0.0-pre",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"dist": {
+				"shasum": "25ba0215cbb4c2f0b108a6f96af2a2e62e45921f",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ethereumjs-util-5.1.2.tgz_1496263741844_0.9803529481869191"
+			},
+			"directories": {}
+		},
+		"5.1.3": {
+			"name": "ethereumjs-util",
+			"version": "5.1.3",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "index.js",
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublish": "npm run lint && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test mocha -- --reporter spec",
+				"build:docs": "documentation build ./index.js --github --sort-order='alpha' -f md > ./docs/index.md"
+			},
+			"browserify": {
+				"transform": [
+					[
+						"babelify",
+						{
+							"presets": [
+								"env"
+							]
+						}
+					]
+				]
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Tim Coulter",
+					"email": "tim@timothyjcoulter.com",
+					"url": "https://github.com/tcoulter"
+				},
+				{
+					"name": "Nick Dodson",
+					"url": "https://github.com/SilentCicero"
+				},
+				{
+					"name": "Mr. Chico",
+					"url": "https://github.com/MrChico"
+				},
+				{
+					"name": "Dũng Trần",
+					"email": "tad88.dev@gmail.com",
+					"url": "https://github.com/tad88dev"
+				},
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu",
+					"url": "https://github.com/axic"
+				},
+				{
+					"name": "Taylor Gerring",
+					"url": "https://github.com/tgerring"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				},
+				{
+					"name": "kumavis",
+					"email": "aaron@kumavis.me",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Alexander Sinyagin",
+					"email": "sinyagin.alexander@gmail.com",
+					"url": "https://github.com/asinyagin"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.8.0",
+				"create-hash": "^1.1.2",
+				"ethjs-util": "^0.1.3",
+				"keccak": "^1.0.2",
+				"rlp": "^2.0.0",
+				"safe-buffer": "^5.1.1",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"babel-preset-env": "^1.6.1",
+				"babelify": "^8.0.0",
+				"browserify": "^14.0.0",
+				"contributor": "^0.1.25",
+				"coveralls": "^3.0.0",
+				"documentation": "^5.2.0",
+				"istanbul": "^0.4.1",
+				"karma": "^2.0.0",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "2.2.6",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-mocha": "^1.3.0",
+				"mocha": "^4.0.0",
+				"standard": "*"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "3e729476f944006c39a5137ab199ecff6d396355",
+			"_id": "ethereumjs-util@5.1.3",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.4.0",
+			"_npmUser": {
+				"name": "holgerd77",
+				"email": "Holger.Drewes@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-U/wmHagElZVxnpo3bFsvk5beFADegUcEzqtA/NfQbitAPOs6JoYq8M4SY9NfH4HD8236i63UOkkXafd7bqBL9A==",
+				"shasum": "0c1f6efb1da9c5b6720a65697859fc0be6672df0",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.1.3.tgz"
+			},
+			"maintainers": [
+				{
+					"email": "j-wasinger@hotmail.com",
+					"name": "jwasinger"
+				},
+				{
+					"email": "Holger.Drewes@gmail.com",
+					"name": "holgerd77"
+				},
+				{
+					"email": "alex@rtfs.hu",
+					"name": "axic"
+				},
+				{
+					"email": "null_radix@riseup.net",
+					"name": "null_radix"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ethereumjs-util-5.1.3.tgz_1515139148300_0.9941978882998228"
+			},
+			"directories": {}
+		},
+		"5.1.4": {
+			"name": "ethereumjs-util",
+			"version": "5.1.4",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "dist/index.js",
+			"files": [
+				"dist"
+			],
+			"scripts": {
+				"coverage": "npm run build:dist && istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublishOnly": "npm run lint && npm run build:dist && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "npm run build:dist && karma start karma.conf.js",
+				"test:node": "npm run build:dist && istanbul test mocha -- --reporter spec",
+				"build:dist": "babel index.js --source-root ./ -d ./dist",
+				"build:docs": "documentation build ./index.js --github --sort-order='alpha' -f md > ./docs/index.md"
+			},
+			"browserify": {
+				"transform": [
+					[
+						"babelify",
+						{
+							"presets": [
+								"env"
+							]
+						}
+					]
+				]
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Tim Coulter",
+					"email": "tim@timothyjcoulter.com",
+					"url": "https://github.com/tcoulter"
+				},
+				{
+					"name": "Nick Dodson",
+					"url": "https://github.com/SilentCicero"
+				},
+				{
+					"name": "Mr. Chico",
+					"url": "https://github.com/MrChico"
+				},
+				{
+					"name": "Dũng Trần",
+					"email": "tad88.dev@gmail.com",
+					"url": "https://github.com/tad88dev"
+				},
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu",
+					"url": "https://github.com/axic"
+				},
+				{
+					"name": "Taylor Gerring",
+					"url": "https://github.com/tgerring"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				},
+				{
+					"name": "kumavis",
+					"email": "aaron@kumavis.me",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Alexander Sinyagin",
+					"email": "sinyagin.alexander@gmail.com",
+					"url": "https://github.com/asinyagin"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.11.0",
+				"create-hash": "^1.1.2",
+				"ethjs-util": "^0.1.3",
+				"keccak": "^1.0.2",
+				"rlp": "^2.0.0",
+				"safe-buffer": "^5.1.1",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-env": "^1.6.1",
+				"babelify": "^8.0.0",
+				"browserify": "^14.0.0",
+				"contributor": "^0.1.25",
+				"coveralls": "^3.0.0",
+				"documentation": "^5.2.0",
+				"istanbul": "^0.4.1",
+				"karma": "^2.0.0",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "2.2.6",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-mocha": "^1.3.0",
+				"mocha": "^4.0.0",
+				"standard": "*"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				],
+				"ignore": [
+					"dist/**"
+				]
+			},
+			"gitHead": "cf511cc0a16ebd3a026b99b46b33adcfa13217c9",
+			"_id": "ethereumjs-util@5.1.4",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.4.0",
+			"_npmUser": {
+				"name": "holgerd77",
+				"email": "Holger.Drewes@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-wbeTc5prEzIWFSQUcEsCAZbqubtJKy6yS+oZMY1cGG6GLYzLjm4YhC2RNrWIg8hRYnclWpnZmx2zkiufQkmd3w==",
+				"shasum": "d1a4a9be31eaf8b33aad399894f854fdafda2469",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.1.4.tgz",
+				"fileCount": 5,
+				"unpackedSize": 44062
+			},
+			"maintainers": [
+				{
+					"email": "alex@rtfs.hu",
+					"name": "axic"
+				},
+				{
+					"email": "Holger.Drewes@gmail.com",
+					"name": "holgerd77"
+				},
+				{
+					"email": "j-wasinger@hotmail.com",
+					"name": "jwasinger"
+				},
+				{
+					"email": "null_radix@riseup.net",
+					"name": "null_radix"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ethereumjs-util_5.1.4_1518010686982_0.29541117204269285"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.1.5": {
+			"name": "ethereumjs-util",
+			"version": "5.1.5",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "dist/index.js",
+			"files": [
+				"dist"
+			],
+			"scripts": {
+				"coverage": "npm run build:dist && istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublishOnly": "npm run lint && npm run build:dist && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "npm run build:dist && karma start karma.conf.js",
+				"test:node": "npm run build:dist && istanbul test mocha -- --reporter spec",
+				"build:dist": "babel index.js --source-root ./ -d ./dist",
+				"build:docs": "documentation build ./index.js --github --sort-order='alpha' -f md > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Tim Coulter",
+					"email": "tim@timothyjcoulter.com",
+					"url": "https://github.com/tcoulter"
+				},
+				{
+					"name": "Nick Dodson",
+					"url": "https://github.com/SilentCicero"
+				},
+				{
+					"name": "Mr. Chico",
+					"url": "https://github.com/MrChico"
+				},
+				{
+					"name": "Dũng Trần",
+					"email": "tad88.dev@gmail.com",
+					"url": "https://github.com/tad88dev"
+				},
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu",
+					"url": "https://github.com/axic"
+				},
+				{
+					"name": "Taylor Gerring",
+					"url": "https://github.com/tgerring"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				},
+				{
+					"name": "kumavis",
+					"email": "aaron@kumavis.me",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Alexander Sinyagin",
+					"email": "sinyagin.alexander@gmail.com",
+					"url": "https://github.com/asinyagin"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.11.0",
+				"create-hash": "^1.1.2",
+				"ethjs-util": "^0.1.3",
+				"keccak": "^1.0.2",
+				"rlp": "^2.0.0",
+				"safe-buffer": "^5.1.1",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-env": "^1.6.1",
+				"babelify": "^8.0.0",
+				"browserify": "^14.0.0",
+				"contributor": "^0.1.25",
+				"coveralls": "^3.0.0",
+				"documentation": "^5.2.0",
+				"istanbul": "^0.4.1",
+				"karma": "^2.0.0",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "2.2.6",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-mocha": "^1.3.0",
+				"mocha": "^4.0.0",
+				"standard": "*"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				],
+				"ignore": [
+					"dist/**"
+				]
+			},
+			"gitHead": "523432fa8d6dd8078a638558193a85768c4f6997",
+			"_id": "ethereumjs-util@5.1.5",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.4.0",
+			"_npmUser": {
+				"name": "holgerd77",
+				"email": "Holger.Drewes@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-xPaSEATYJpMTCGowIt0oMZwFP4R1bxd6QsWgkcDvFL0JtXsr39p32WEcD14RscCjfP41YXZPCVWA4yAg0nrJmw==",
+				"shasum": "2f02575852627d45622426f25ee4a0b5f377f27a",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.1.5.tgz",
+				"fileCount": 5,
+				"unpackedSize": 44140
+			},
+			"maintainers": [
+				{
+					"email": "alex@rtfs.hu",
+					"name": "axic"
+				},
+				{
+					"email": "Holger.Drewes@gmail.com",
+					"name": "holgerd77"
+				},
+				{
+					"email": "j-wasinger@hotmail.com",
+					"name": "jwasinger"
+				},
+				{
+					"email": "null_radix@riseup.net",
+					"name": "null_radix"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ethereumjs-util_5.1.5_1519644684232_0.28121386717367947"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.2.0": {
+			"name": "ethereumjs-util",
+			"version": "5.2.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "dist/index.js",
+			"files": [
+				"dist"
+			],
+			"scripts": {
+				"coverage": "npm run build:dist && istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublishOnly": "npm run lint && npm run build:dist && npm run test",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "npm run build:dist && karma start karma.conf.js",
+				"test:node": "npm run build:dist && istanbul test mocha -- --reporter spec",
+				"build:dist": "babel index.js --source-root ./ -d ./dist",
+				"build:docs": "documentation build ./index.js --github --sort-order='alpha' -f md > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Tim Coulter",
+					"email": "tim@timothyjcoulter.com",
+					"url": "https://github.com/tcoulter"
+				},
+				{
+					"name": "Nick Dodson",
+					"url": "https://github.com/SilentCicero"
+				},
+				{
+					"name": "Mr. Chico",
+					"url": "https://github.com/MrChico"
+				},
+				{
+					"name": "Dũng Trần",
+					"email": "tad88.dev@gmail.com",
+					"url": "https://github.com/tad88dev"
+				},
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu",
+					"url": "https://github.com/axic"
+				},
+				{
+					"name": "Taylor Gerring",
+					"url": "https://github.com/tgerring"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				},
+				{
+					"name": "kumavis",
+					"email": "aaron@kumavis.me",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Alexander Sinyagin",
+					"email": "sinyagin.alexander@gmail.com",
+					"url": "https://github.com/asinyagin"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.11.0",
+				"create-hash": "^1.1.2",
+				"ethjs-util": "^0.1.3",
+				"keccak": "^1.0.2",
+				"rlp": "^2.0.0",
+				"safe-buffer": "^5.1.1",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-env": "^1.6.1",
+				"babelify": "^8.0.0",
+				"browserify": "^14.0.0",
+				"contributor": "^0.1.25",
+				"coveralls": "^3.0.0",
+				"documentation": "^5.2.0",
+				"istanbul": "^0.4.1",
+				"karma": "^2.0.0",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "2.2.6",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-mocha": "^1.3.0",
+				"mocha": "^4.0.0",
+				"standard": "*"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				],
+				"ignore": [
+					"dist/**"
+				]
+			},
+			"gitHead": "7e3be1d97b4e11fbc4924836b8c444e644f643ac",
+			"_id": "ethereumjs-util@5.2.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.4.0",
+			"_npmUser": {
+				"name": "holgerd77",
+				"email": "Holger.Drewes@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-CJAKdI0wgMbQFLlLRtZKGcy/L6pzVRgelIZqRqNbuVFM3K9VEnyfbcvz0ncWMRNCe4kaHWjwRYQcYMucmwsnWA==",
+				"shasum": "3e0c0d1741471acf1036052d048623dee54ad642",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.2.0.tgz",
+				"fileCount": 5,
+				"unpackedSize": 45935,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa4vweCRA9TVsSAnZWagAAcEwP+wSij3OfMRgjU57C4Jy6\nfw4A7TzTgTHuGrw+0TbSoeD7IgBv4HI7ZFuhpefTRYZ3yWlbDDO71Y9LzlMf\n0aCqqBX8ZxCsHyPk6BW/INUVpvjayT9NxKOMnGghu4MII+utgKx8QmDoXbhg\nPNfOdOUTWdB69h/eYG8oBF2/azl24EH/A8OkfOW0NDVumw3CNbR6NvHvGs3z\nswoTDbmcwNtBRauXna2Sbyu+/P/koDt1yC9LAGSisg+eejIainx302gPtBn9\n3Ly3Krv886HP/y91M4FYj6oPmbOid6zp8N595R/XkO5uB196dYCRVut75cr1\n2FQf0NYbqZ3OJ/PSquh8kZjpoIILqRi6TcbFo5fMY2580FHFhphaya24X6vt\ntn3mOu+uCMafpOHtAzry+Tfplm3cUgXnnySVIM03aBLocFWND6bwSFMZIHCY\nsX3zGLkEwn3j6WAud/b3qp/5j0FLh7dUu/iF6GXOUeK/1d3MB/WWMdn/pC/w\nlWBvTnPJ4LxMY3gBRtSwLE/h3vygdSpXog87IJj0YQtp1n/3xHGYx5eowdQH\nv32AEaKtaQE+HrOhHGUDDh0twyF1rfpCbecEnu7ok9w92PG6bjsj5gVb3kEG\noI1TvpesZdWAAA86Ol1qdu5XV7OwKBPxOMDlWDv1Px4/lRI/I13Teu4gTbeR\nxt9J\r\n=Bv+N\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "alex@rtfs.hu",
+					"name": "axic"
+				},
+				{
+					"email": "Holger.Drewes@gmail.com",
+					"name": "holgerd77"
+				},
+				{
+					"email": "j-wasinger@hotmail.com",
+					"name": "jwasinger"
+				},
+				{
+					"email": "null_radix@riseup.net",
+					"name": "null_radix"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ethereumjs-util_5.2.0_1524825117629_0.9863938933547465"
+			},
+			"_hasShrinkwrap": false
+		},
+		"6.0.0": {
+			"name": "ethereumjs-util",
+			"version": "6.0.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "dist/index.js",
+			"scripts": {
+				"coverage": "npm run build:dist && istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"prepublishOnly": "npm run test && npm run build:dist",
+				"test": "npm run lint && npm run test:node && npm run test:browser",
+				"test:browser": "npm run build:dist && karma start karma.conf.js",
+				"test:node": "npm run build:dist && istanbul test mocha -- --reporter spec",
+				"build:dist": "babel index.js --source-root ./ -d ./dist",
+				"build:docs": "documentation build ./index.js --github --sort-order='alpha' -f md > ./docs/index.md"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Tim Coulter",
+					"email": "tim@timothyjcoulter.com",
+					"url": "https://github.com/tcoulter"
+				},
+				{
+					"name": "Nick Dodson",
+					"url": "https://github.com/SilentCicero"
+				},
+				{
+					"name": "Mr. Chico",
+					"url": "https://github.com/MrChico"
+				},
+				{
+					"name": "Dũng Trần",
+					"email": "tad88.dev@gmail.com",
+					"url": "https://github.com/tad88dev"
+				},
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu",
+					"url": "https://github.com/axic"
+				},
+				{
+					"name": "Taylor Gerring",
+					"url": "https://github.com/tgerring"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				},
+				{
+					"name": "kumavis",
+					"email": "aaron@kumavis.me",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Alexander Sinyagin",
+					"email": "sinyagin.alexander@gmail.com",
+					"url": "https://github.com/asinyagin"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.11.0",
+				"create-hash": "^1.1.2",
+				"ethjs-util": "^0.1.6",
+				"keccak": "^1.0.2",
+				"rlp": "^2.0.0",
+				"safe-buffer": "^5.1.1",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-env": "^1.6.1",
+				"babelify": "^8.0.0",
+				"browserify": "^14.0.0",
+				"contributor": "^0.1.25",
+				"coveralls": "^3.0.0",
+				"documentation": "^5.2.0",
+				"istanbul": "^0.4.1",
+				"karma": "^2.0.0",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "2.2.6",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-mocha": "^1.3.0",
+				"mocha": "^4.0.0",
+				"standard": "^10.0.0"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				],
+				"ignore": [
+					"dist/**"
+				]
+			},
+			"gitHead": "5347bdbaddca06ab29554b9a38b43596a18de12a",
+			"_id": "ethereumjs-util@6.0.0",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "10.9.0",
+			"_npmUser": {
+				"name": "holgerd77",
+				"email": "Holger.Drewes@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-E3yKUyl0Fs95nvTFQZe/ZSNcofhDzUsDlA5y2uoRmf1+Ec7gpGhNCsgKkZBRh7Br5op8mJcYF/jFbmjj909+nQ==",
+				"shasum": "f14841c182b918615afefd744207c7932c8536c0",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-6.0.0.tgz",
+				"fileCount": 5,
+				"unpackedSize": 47391,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbvc0vCRA9TVsSAnZWagAAD7MP/3kTJGhswsjrplnx74MV\n0BT0vOHXjKN1H6LgjThoUdZ7wkq74D1tZmtBF8MnDFI6aWFkfYWs76C4Icf2\n2vlCa0JVpjZ7RwNdyKB0iJG2AfSsE16ZtDmZsNX3Qd0WsPKPuhSj3bMiuD8A\nPXUT1oZbUvvyrGfmeVOtdljps64uaAIZxjB/myV3w0nt8LdUQlvSMf1MyZ5H\nQf+Fpl4SwgXalNBgYdHXQSqegI1PKAwBPRjKkWr0VY+d3iNwnlgGE5nRJnbk\nxHM2ajM4mptBCMJRg/g2wiiqQP6jy8pfDK73CCutEttVDlZDXbEY+fgE/nUw\nGhTHtbi+pIuWtsfioXPGnAWOzcbN0y3YfBzpbWOkm1R6FcK/dfK0OBeO27xe\nFKbRNgxHCz5jaYpLt+DvVgnSIQOQNl0691ykhr5ugqJCV4VVU15GBUB+grkS\nTpYp0t11HDBYLTrUm+ZZnPEJcvuGV3WLShsWtJJueWxiuyoz4fxuXFFNjz2L\nwJH/7Ztw8uEeuVQFdZettRdz4E+e3Z2w1eDmVgd6FKd0PD8d6OxopOIdRPMC\nOYIDNRqf/iOBpL7+9m8V/wag/OnxU86+GAHAFlJrv1P6dtFH04+i1alce2UY\njsWfpbGm6srEeFyEd7SXJbeRm8DYjyiYM1s1aWXHeXRt9hXgX/kC110NeDa1\nbCra\r\n=8otE\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "alex@rtfs.hu",
+					"name": "axic"
+				},
+				{
+					"email": "Holger.Drewes@gmail.com",
+					"name": "holgerd77"
+				},
+				{
+					"email": "j-wasinger@hotmail.com",
+					"name": "jwasinger"
+				},
+				{
+					"email": "null_radix@riseup.net",
+					"name": "null_radix"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ethereumjs-util_6.0.0_1539165486655_0.14728427780296793"
+			},
+			"_hasShrinkwrap": false
+		},
+		"6.1.0": {
+			"name": "ethereumjs-util",
+			"version": "6.1.0",
+			"description": "a collection of utility functions for Ethereum",
+			"main": "dist/index.js",
+			"types": "./dist/index.d.ts",
+			"scripts": {
+				"build": "ethereumjs-config-build",
+				"prepublishOnly": "npm run test && npm run build",
+				"coverage": "npm run build && istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"docs:build": "typedoc --out docs --mode file --readme none --theme markdown --mdEngine github --excludeNotExported src",
+				"format": "ethereumjs-config-format",
+				"format:fix": "ethereumjs-config-format-fix",
+				"lint": "ethereumjs-config-lint",
+				"lint:fix": "ethereumjs-config-lint-fix",
+				"test": "npm run lint && npm run test:node && npm run test:browser",
+				"test:browser": "npm run build && karma start karma.conf.js",
+				"test:node": "npm run build && istanbul test mocha -- --reporter spec",
+				"tsc": "ethereumjs-config-tsc",
+				"tslint": "ethereumjs-config-tslint",
+				"tslint:fix": "ethereumjs-config-tslint-fix"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/ethereumjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"utilties"
+			],
+			"author": {
+				"name": "mjbecze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Tim Coulter",
+					"email": "tim@timothyjcoulter.com",
+					"url": "https://github.com/tcoulter"
+				},
+				{
+					"name": "Nick Dodson",
+					"url": "https://github.com/SilentCicero"
+				},
+				{
+					"name": "Mr. Chico",
+					"url": "https://github.com/MrChico"
+				},
+				{
+					"name": "Dũng Trần",
+					"email": "tad88.dev@gmail.com",
+					"url": "https://github.com/tad88dev"
+				},
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu",
+					"url": "https://github.com/axic"
+				},
+				{
+					"name": "Taylor Gerring",
+					"url": "https://github.com/tgerring"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				},
+				{
+					"name": "kumavis",
+					"email": "aaron@kumavis.me",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Alexander Sinyagin",
+					"email": "sinyagin.alexander@gmail.com",
+					"url": "https://github.com/asinyagin"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/ethereumjs-util/issues"
+			},
+			"homepage": "https://github.com/ethereumjs/ethereumjs-util",
+			"dependencies": {
+				"bn.js": "^4.11.0",
+				"create-hash": "^1.1.2",
+				"ethjs-util": "0.1.6",
+				"keccak": "^1.0.2",
+				"rlp": "^2.0.0",
+				"safe-buffer": "^5.1.1",
+				"secp256k1": "^3.0.1"
+			},
+			"devDependencies": {
+				"@ethereumjs/config-prettier": "^1.1.0",
+				"@ethereumjs/config-tsc": "^1.1.0",
+				"@ethereumjs/config-tslint": "^1.1.0",
+				"@types/bn.js": "^4.11.3",
+				"@types/node": "^11.9.0",
+				"babel-cli": "^6.26.0",
+				"babel-preset-env": "^1.6.1",
+				"babelify": "^8.0.0",
+				"browserify": "^14.0.0",
+				"contributor": "^0.1.25",
+				"coveralls": "^3.0.0",
+				"istanbul": "^0.4.1",
+				"karma": "^2.0.0",
+				"karma-browserify": "^5.0.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "2.2.6",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-mocha": "^1.3.0",
+				"mocha": "^4.0.0",
+				"prettier": "^1.15.3",
+				"tslint": "^5.12.0",
+				"typedoc": "^0.14.0",
+				"typedoc-plugin-markdown": "^1.1.21",
+				"typescript": "^3.2.2",
+				"typestrict": "^1.0.2"
+			},
+			"gitHead": "46ed31db75aacaa3c124ee251229d09ffe0534c8",
+			"_id": "ethereumjs-util@6.1.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.12.0",
+			"_npmUser": {
+				"name": "holgerd77",
+				"email": "Holger.Drewes@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-URESKMFbDeJxnAxPppnk2fN6Y3BIatn9fwn76Lm8bQlt+s52TpG8dN9M66MLPuRAiAOIqL3dfwqWJf0sd0fL0Q==",
+				"shasum": "e9c51e5549e8ebd757a339cc00f5380507e799c8",
+				"tarball": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-6.1.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 72520,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcYsn7CRA9TVsSAnZWagAAtqEQAIhuWmMTnfgaMbymkStb\nfchec0tv89sWEN8gl2gCQxeO0qbaEGhTloZCDeceAYJviRfzBmww2aG1Aa1/\nqHq8zBSrSf3PJ0sxsWJQlqbJrX8iwbbH+78IdclMSCb9ba/dfVwSl9KNt2pv\nDiPaiOF1gjgEX+mV+k+AXReCWgu+3pBjX0P7NgWPQCf+iYRSRanXiiKjNxDd\nzVbDOEGjFxJtMJaRIMPYlGHmEITCqdDaAnHZGc2fGiQMCX5uJ3cb7wZ8H7h3\nQXn2EjijDN3aK5zGBb6DrF4+/vgVIiyBid9nhXosrMiMshYjOBrVoHsXgsPD\na/qRh4SvWQeXXBH6182aTkrAYY2dtCEwccySnhU9jD5BDRqcH9BbgMkzgYn0\nILuL1u/73VXIgbbAM5Qgle7wM59SNsTAxP0EfGf9tNpdjX/nsENdTsG+iq/f\n7yqTxxOFsFCJWSnUyhtDYpyou5zkuH/8XlHHd09xC0uVpuuH8GBEwhMPyTqZ\nT84YDVXuOW5kGV2ZM7fFSZiiwrI1xOe8vMIMy3CZ/Zt6xwDi3ldXcB5DQTkP\njxKI6Y1s1uKt9MiFy2HrSYRPeg4yRRjHgJM5Eq/m9GdtmvBsCx16DorAc56/\n8JoF/cdvWKew10Jc5fU9Uh/qB6kyMj5N1wmXD0YQ8d+1Fi3lR6pnmU+Ovkt0\nl9un\r\n=VqXe\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "alex@rtfs.hu",
+					"name": "axic"
+				},
+				{
+					"email": "Holger.Drewes@gmail.com",
+					"name": "holgerd77"
+				},
+				{
+					"email": "j-wasinger@hotmail.com",
+					"name": "jwasinger"
+				},
+				{
+					"email": "null_radix@riseup.net",
+					"name": "null_radix"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ethereumjs-util_6.1.0_1549978106813_0.897908564404585"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-02-12T13:28:29.582Z",
+		"created": "2015-01-28T04:37:09.430Z",
+		"0.0.2": "2015-01-28T04:37:09.430Z",
+		"0.0.3": "2015-01-28T21:18:05.770Z",
+		"0.0.4": "2015-01-28T21:30:39.763Z",
+		"0.0.5": "2015-01-30T02:06:27.036Z",
+		"0.0.6": "2015-02-05T19:57:32.721Z",
+		"0.0.7": "2015-02-06T22:53:04.107Z",
+		"0.0.8": "2015-03-04T22:44:51.376Z",
+		"0.0.9": "2015-04-14T03:43:31.142Z",
+		"0.0.10": "2015-04-14T05:21:55.339Z",
+		"0.1.0": "2015-04-22T06:31:47.041Z",
+		"1.0.0": "2015-06-09T16:22:09.265Z",
+		"1.0.1": "2015-06-09T23:03:50.106Z",
+		"1.0.2": "2015-06-15T15:51:14.420Z",
+		"1.0.3": "2015-06-18T22:22:23.819Z",
+		"1.1.0": "2015-06-20T10:27:31.698Z",
+		"1.2.0": "2015-06-20T10:54:39.556Z",
+		"1.3.0": "2015-06-26T20:21:06.456Z",
+		"1.3.1": "2015-06-27T16:13:46.394Z",
+		"1.3.2": "2015-06-28T12:16:19.464Z",
+		"1.3.3": "2015-07-17T01:47:49.421Z",
+		"1.3.4": "2015-07-17T03:34:09.214Z",
+		"1.3.5": "2015-07-29T13:35:00.981Z",
+		"1.3.6": "2015-08-07T23:33:42.922Z",
+		"1.3.7": "2015-08-19T18:55:07.361Z",
+		"1.3.8": "2015-09-10T01:03:57.462Z",
+		"1.4.0": "2015-09-18T05:45:33.148Z",
+		"1.5.0": "2015-09-20T17:16:00.574Z",
+		"1.5.1": "2015-09-21T17:04:10.792Z",
+		"2.0.0": "2015-09-23T01:14:59.295Z",
+		"2.0.1": "2015-09-24T01:04:22.596Z",
+		"2.0.2": "2015-10-01T02:23:51.895Z",
+		"2.0.3": "2015-10-06T05:27:11.126Z",
+		"2.0.4": "2015-11-03T08:34:43.304Z",
+		"2.1.0": "2015-11-14T18:25:24.547Z",
+		"2.2.0": "2015-11-20T17:09:21.961Z",
+		"2.3.0": "2015-11-25T00:53:18.231Z",
+		"2.3.1": "2015-11-25T21:02:32.410Z",
+		"2.3.2": "2015-12-01T22:39:31.495Z",
+		"2.4.0": "2015-12-17T15:34:39.074Z",
+		"2.5.0": "2016-01-06T02:22:53.137Z",
+		"2.6.0": "2016-01-15T05:08:11.877Z",
+		"2.7.0": "2016-01-20T04:01:58.607Z",
+		"3.0.0": "2016-01-20T16:53:55.873Z",
+		"4.0.0": "2016-02-02T22:19:58.043Z",
+		"4.0.1": "2016-03-01T16:24:27.802Z",
+		"4.0.2": "2016-03-08T03:04:22.496Z",
+		"4.1.0": "2016-03-08T20:42:20.660Z",
+		"4.2.0": "2016-03-18T14:02:12.031Z",
+		"4.3.0": "2016-03-23T02:31:16.923Z",
+		"4.3.1": "2016-04-25T18:22:52.940Z",
+		"4.4.0": "2016-04-26T14:00:56.112Z",
+		"4.4.1": "2016-05-20T00:23:50.529Z",
+		"4.5.0": "2016-07-12T18:07:31.489Z",
+		"5.0.0": "2016-11-07T23:37:28.300Z",
+		"5.0.1": "2016-11-08T16:46:43.719Z",
+		"5.1.0": "2017-02-04T01:26:35.981Z",
+		"5.1.1": "2017-02-10T01:35:01.536Z",
+		"5.1.2": "2017-05-31T20:49:02.015Z",
+		"5.1.3": "2018-01-05T07:59:09.315Z",
+		"5.1.4": "2018-02-07T13:38:07.626Z",
+		"5.1.5": "2018-02-26T11:31:25.168Z",
+		"5.2.0": "2018-04-27T10:31:57.819Z",
+		"6.0.0": "2018-10-10T09:58:06.797Z",
+		"6.1.0": "2019-02-12T13:28:27.021Z"
+	},
+	"dist-tags": {
+		"latest": "6.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"b880fd6d0e6cfc363e667396e99eb001\"",
+			"fetched": 1568994331579
+		}
+	},
+	"_distfiles": {
+		"ethereumjs-util-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.2.tgz",
+			"sha": "03c4139d59d110729c634704d093825c6e11a9d2",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.3.tgz",
+			"sha": "a889b392b755587bfc48261d782d6f1768f4b6c3",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.4.tgz",
+			"sha": "8e1657e1acac0d42171101b7e3cd10588530d3aa",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-0.0.5.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.5.tgz",
+			"sha": "60f95e3ab05ba7e57caabc20a9ee27b37c418008",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-0.0.6.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.6.tgz",
+			"sha": "2b225ca90ef18f8f856741b272c73e596e0800e5",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-0.0.7.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.7.tgz",
+			"sha": "97e89e0891895ee485ab16c6f89565a28e67b550",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-0.0.8.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.8.tgz",
+			"sha": "8bb99b27eaa38993222cef764ce3969f41df5ddd",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-0.0.9.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.9.tgz",
+			"sha": "65b1d0a3797d10b35b69e95607213ecd53861154",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-0.0.10.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.0.10.tgz",
+			"sha": "9717325a779460c58e5426b7efeea0f51578b531",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-0.1.0.tgz",
+			"sha": "6621b5c28557737d1405faa1f6841fbde2008d45",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.0.0.tgz",
+			"sha": "f0219b9f3f95b7237f082c9d7f92bae4fd833cfe",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.0.1.tgz",
+			"sha": "b9ac4b3e73422f840f26aefa140d73ff5f7669cc",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.0.2.tgz",
+			"sha": "d04199e992204972ca21f96f8a850c667058e0cf",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.0.3.tgz",
+			"sha": "98014cd9b6ddc6e650bbd6071ae2962fce29bd0b",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.1.0.tgz",
+			"sha": "c0a4b3c450ee7ec01018d7c25812d6be6e09ef57",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.2.0.tgz",
+			"sha": "c89744a65e090b04fb8ce44881e197ddb43b2ec8",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.3.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.0.tgz",
+			"sha": "ac8eb7130a1e4a88979e657fe6042805d058d14f",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.3.1.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.1.tgz",
+			"sha": "80a3281328e0a2bdf1dd07b1fbb4b440039d82c3",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.3.2.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.2.tgz",
+			"sha": "df66b6360e5e865313d6cbb640f9025003de5fc3",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.3.3.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.3.tgz",
+			"sha": "6daf19b9c22eb91349d30727d20870c3adde10c1",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.3.4.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.4.tgz",
+			"sha": "0d0115fe3fb0236fb8e68d45a1d6e97793145f4a",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.3.5.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.5.tgz",
+			"sha": "7747ecc367ee2beeb53a598f8a356566c984009a",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.3.6.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.6.tgz",
+			"sha": "0a8aa36843a97e8e79d88df4d8656593bcf9e2c3",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.3.7.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.7.tgz",
+			"sha": "501e024c51b1e3574e0cb88e112aac26ef6d88ce",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.3.8.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.3.8.tgz",
+			"sha": "0174ecfb5ae272b2f08113537458ac5cb0e018a5",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.4.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.4.0.tgz",
+			"sha": "7807927ebba75654fcdd30fea7b5c7a9cd7684be",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.5.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.5.0.tgz",
+			"sha": "454cb0b8d62c64b72d603d5b6205abc6d844233e",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-1.5.1.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-1.5.1.tgz",
+			"sha": "39ef770c9d2b16b206d75f4dc5722a28f03c34ec",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.0.0.tgz",
+			"sha": "859d1411aaea5aaeae642cfdc7991540d2f881c7",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.0.1.tgz",
+			"sha": "3e378a0a22333c3c72506ee8cee9c0f2d71e6666",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.0.2.tgz",
+			"sha": "13d832a0e4a46f1158f75384ee72187d13849fd6",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-2.0.3.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.0.3.tgz",
+			"sha": "c447b15906b2b119c0d3d696211c288ff2b09019",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-2.0.4.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.0.4.tgz",
+			"sha": "d2cc459d0eb2c03877e4ffea8317c253662ea3b1",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.1.0.tgz",
+			"sha": "189f64b9e6f1a3e2b175e29058df71aec4659e7d",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-2.2.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.2.0.tgz",
+			"sha": "f9c782a8f877510aaf3f60cec4deda87c4deb4f5",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-2.3.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.3.0.tgz",
+			"sha": "a010ee3edddc4f59a1a3c8d3820642d8adcf329c",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-2.3.1.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.3.1.tgz",
+			"sha": "3ca7a4be35b3b697e099a558fb6f4875fa627bf6",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-2.3.2.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.3.2.tgz",
+			"sha": "e3d3145cdc0041db8c009986f76d2bf33edc8a1b",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-2.4.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.4.0.tgz",
+			"sha": "f3e606f20ec1638c86c796a593f86fac03794e65",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-2.5.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.5.0.tgz",
+			"sha": "7a70803b48e931c5cf9a5ce15e0be3a1450a3e8d",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-2.6.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-2.6.0.tgz",
+			"sha": "a1d79559460b5bf98daa500f606b08d306084b38",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-3.0.0.tgz",
+			"sha": "c29d6c7a8038729d302bad659d72346b02e68164",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.0.0.tgz",
+			"sha": "2ee94ecaf459016969c0525d041933017ea4c22b",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-4.0.1.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.0.1.tgz",
+			"sha": "fb63ec151e03302ef45def2564ce65c9560c6dca",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-4.0.2.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.0.2.tgz",
+			"sha": "aef8c1d0309758c6af7a7a18130c7f6efe29d8b7",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-4.1.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.1.0.tgz",
+			"sha": "e1ec542c5d65463a6aeeaada036bd798ed1a5f4c",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-4.2.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.2.0.tgz",
+			"sha": "a7620094d8ebd5ac5299f34bdfbec971fc0a3e8e",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-4.3.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.3.0.tgz",
+			"sha": "97daa8bb09c2f84e3c51325654c073647b768344",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-4.3.1.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.3.1.tgz",
+			"sha": "47bba8b5d764cf596a52ea7f4c62ccde0f4dab35",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-4.4.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.4.0.tgz",
+			"sha": "30e8735fb904d94f53ee9d218b1a16fe74dd6313",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-4.4.1.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.4.1.tgz",
+			"sha": "6316bfbc8a01c8767a78620928ed79ef424c3f92",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-4.5.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-4.5.0.tgz",
+			"sha": "3e9428b317eebda3d7260d854fddda954b1f1bc6",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-5.0.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.0.0.tgz",
+			"sha": "7cbc946e616105673e0b1081c6ee6ef30aa25936",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-5.0.1.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.0.1.tgz",
+			"sha": "7d5f1182febd83c1bbb1305b65ac0a5df3c6a43e",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-5.1.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.1.0.tgz",
+			"sha": "8e9646c13322e75a9c593cf705d27d4a51c991c0",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-5.1.1.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.1.1.tgz",
+			"sha": "122fb38dea747dc62b3aebfc365d1bd48be4b73e",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-5.1.2.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.1.2.tgz",
+			"sha": "25ba0215cbb4c2f0b108a6f96af2a2e62e45921f",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-5.1.3.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.1.3.tgz",
+			"sha": "0c1f6efb1da9c5b6720a65697859fc0be6672df0",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-5.1.4.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.1.4.tgz",
+			"sha": "d1a4a9be31eaf8b33aad399894f854fdafda2469",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-5.1.5.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.1.5.tgz",
+			"sha": "2f02575852627d45622426f25ee4a0b5f377f27a",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-5.2.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-5.2.0.tgz",
+			"sha": "3e0c0d1741471acf1036052d048623dee54ad642",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-6.0.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-6.0.0.tgz",
+			"sha": "f14841c182b918615afefd744207c7932c8536c0",
+			"registry": "npmjs"
+		},
+		"ethereumjs-util-6.1.0.tgz": {
+			"url": "https://registry.npmjs.org/ethereumjs-util/-/ethereumjs-util-6.1.0.tgz",
+			"sha": "e9c51e5549e8ebd757a339cc00f5380507e799c8",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-d4d0e5ea0617d4de",
+	"_id": "ethereumjs-util",
+	"readme": "# SYNOPSIS\n\n[![NPM Package](https://img.shields.io/npm/v/ethereumjs-util.svg?style=flat-square)](https://www.npmjs.org/package/ethereumjs-util)\n[![Build Status](https://img.shields.io/travis/ethereumjs/ethereumjs-util.svg?branch=master&style=flat-square)](https://travis-ci.org/ethereumjs/ethereumjs-util)\n[![Coverage Status](https://img.shields.io/coveralls/ethereumjs/ethereumjs-util.svg?style=flat-square)](https://coveralls.io/r/ethereumjs/ethereumjs-util)\n[![Gitter](https://img.shields.io/gitter/room/ethereum/ethereumjs-lib.svg?style=flat-square)](https://gitter.im/ethereum/ethereumjs-lib) or #ethereumjs on freenode\n\n[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)\n\nA collection of utility functions for ethereum. It can be used in node.js or can be in the browser with browserify.\n\n# API\n\n[./docs/](./docs/README.md)\n\nMost of the string manipulation methods are provided by [ethjs-util](https://github.com/ethjs/ethjs-util)\n\n---\n\nAdditionally ethereumjs-util re-exports a few commonly-used libraries. These include:\n\n- `BN` ([bn.js](https://github.com/indutny/bn.js))\n- `rlp` ([rlp](https://github.com/ethereumjs/rlp))\n- `secp256k1` ([secp256k1](https://github.com/cryptocoinjs/secp256k1-node/))\n\n# LICENSE\n\nMPL-2.0"
+}

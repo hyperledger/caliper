@@ -1,0 +1,207 @@
+{
+	"name": "drbg.js",
+	"versions": {
+		"1.0.0": {
+			"name": "drbg.js",
+			"version": "1.0.0",
+			"description": "Deterministic Random Bit Generators",
+			"keywords": [
+				"drbg",
+				"nist sp 800-90a",
+				"ctrdrbg",
+				"hashdrbg",
+				"hmacdrbg"
+			],
+			"bugs": {
+				"url": "https://github.com/fanatid/drbg.js/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Kirill Fomichev",
+				"email": "fanatid@yandex.ru",
+				"url": "https://github.com/fanatid"
+			},
+			"files": [
+				"lib",
+				"hash.js",
+				"hmac.js",
+				"index.js",
+				"package.json",
+				"LICENSE",
+				"README.md"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/fanatid/drbg.js.git"
+			},
+			"scripts": {
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "npm run unit:node && npm run unit:browser",
+				"unit:node": "tap --cov test/**/*.js",
+				"unit:browser": "karma start karma.conf.js"
+			},
+			"dependencies": {
+				"browserify-aes": "^1.0.6",
+				"create-hash": "^1.1.2",
+				"create-hmac": "^1.1.4"
+			},
+			"devDependencies": {
+				"browserify": "^12.0.0",
+				"karma": "^0.13.19",
+				"karma-browserify": "^5.0.1",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-tap": "^1.0.3",
+				"tap": "^5.4.4",
+				"standard": "^6.0.4"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"gitHead": "635a9734c0aae90a18229d332aff85c72d536c96",
+			"homepage": "https://github.com/fanatid/drbg.js#readme",
+			"_id": "drbg.js@1.0.0",
+			"_shasum": "86542ef907fb1f4c073cad48d91a0877be18beca",
+			"_from": ".",
+			"_npmVersion": "3.6.0",
+			"_nodeVersion": "5.6.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"dist": {
+				"shasum": "86542ef907fb1f4c073cad48d91a0877be18beca",
+				"tarball": "https://registry.npmjs.org/drbg.js/-/drbg.js-1.0.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-6-west.internal.npmjs.com",
+				"tmp": "tmp/drbg.js-1.0.0.tgz_1455442688091_0.9145354691427201"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "drbg.js",
+			"version": "1.0.1",
+			"description": "Deterministic Random Bit Generators",
+			"keywords": [
+				"drbg",
+				"nist sp 800-90a",
+				"ctrdrbg",
+				"hashdrbg",
+				"hmacdrbg"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/drbg.js/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Kirill Fomichev",
+				"email": "fanatid@yandex.ru",
+				"url": "https://github.com/fanatid"
+			},
+			"files": [
+				"lib",
+				"hash.js",
+				"hmac.js",
+				"index.js"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/drbg.js.git"
+			},
+			"scripts": {
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "npm run unit:node && npm run unit:browser",
+				"unit:node": "tap --cov test/**/*.js",
+				"unit:browser": "karma start karma.conf.js"
+			},
+			"dependencies": {
+				"browserify-aes": "^1.0.6",
+				"create-hash": "^1.1.2",
+				"create-hmac": "^1.1.4"
+			},
+			"devDependencies": {
+				"browserify": "^12.0.0",
+				"karma": "^0.13.19",
+				"karma-browserify": "^5.0.1",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-tap": "^1.0.3",
+				"tap": "^5.4.4",
+				"standard": "^6.0.4"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"gitHead": "4dc077f2c87bccaf0092f949d6c8cbfdc33e658d",
+			"homepage": "https://github.com/cryptocoinjs/drbg.js#readme",
+			"_id": "drbg.js@1.0.1",
+			"_shasum": "3e36b6c42b37043823cdbc332d58f31e2445480b",
+			"_from": ".",
+			"_npmVersion": "3.6.0",
+			"_nodeVersion": "5.6.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"dist": {
+				"shasum": "3e36b6c42b37043823cdbc332d58f31e2445480b",
+				"tarball": "https://registry.npmjs.org/drbg.js/-/drbg.js-1.0.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-5-east.internal.npmjs.com",
+				"tmp": "tmp/drbg.js-1.0.1.tgz_1455717225406_0.8058471388649195"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2016-02-17T13:54:29.289Z",
+		"created": "2016-02-14T09:38:11.902Z",
+		"1.0.0": "2016-02-14T09:38:11.902Z",
+		"1.0.1": "2016-02-17T13:53:48.060Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"c7e2f5e0e5ea7aa022f4cc484e038a62\"",
+			"fetched": 1568994332128
+		}
+	},
+	"_distfiles": {
+		"drbg.js-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/drbg.js/-/drbg.js-1.0.0.tgz",
+			"sha": "86542ef907fb1f4c073cad48d91a0877be18beca",
+			"registry": "npmjs"
+		},
+		"drbg.js-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/drbg.js/-/drbg.js-1.0.1.tgz",
+			"sha": "3e36b6c42b37043823cdbc332d58f31e2445480b",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-db21dd563e15c516",
+	"_id": "drbg.js",
+	"readme": "# drbg.js\n\n[![NPM Package](https://img.shields.io/npm/v/drbg.js.svg?style=flat-square)](https://www.npmjs.org/package/drbg.js)\n[![Build Status](https://img.shields.io/travis/cryptocoinjs/drbg.js.svg?branch=master&style=flat-square)](https://travis-ci.org/cryptocoinjs/drbg.js)\n[![Dependency status](https://img.shields.io/david/cryptocoinjs/drbg.js.svg?style=flat-square)](https://david-dm.org/cryptocoinjs/drbg.js#info=dependencies)\n\n[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)\n\nDeterministic Random Bits Generators\n\nBased on NIST Recommended DRBG from [NIST SP800-90A](https://en.wikipedia.org/wiki/NIST_SP_800-90A) with the following properties:\n  * <s>CTR DRBG with DF with AES-128, AES-192, AES-256 cores</s> see [issue #1](https://github.com/cryptocoinjs/drbg.js/issues/1)\n  * Hash DRBG with DF with SHA-1, SHA-224, SHA-256, SHA-384, SHA-512 cores\n  * HMAC DRBG with SHA-1, SHA-224, SHA-256, SHA-384, SHA-512 cores\n  * <s>with</s> and without prediction resistance\n\n## Installation\n\n```shell\nnpm install drbg.js\n```\n\n## Usage\n\n```javascript\nvar drbgs = require('drbg.js') // import HashDRBG and HmacDRBG\nvar HashDRBG = drbgs.HashDRBG // or require('drbg.js/hash')\nvar HmacDRBG = drbgs.HmacDRBG // or require('drbg.js/hmac')\n\nvar drbg2 = new HashDRBG('sha256', entropy, nonce, personalization_data)\ndrbg2.generate(5, additional_data) // <Buffer qq qq qq qq qq>\ndrbg2.reseed(entropy, personalization_data)\ndrbg2.generate(5, additional_data) // <Buffer ww ww ww ww ww>\n\nvar drbg3 = new HmacDRBG('sha256', entropy, nonce, personalization_data)\ndrbg3.generate(5, additional_data) // <Buffer ee ee ee ee ee>\ndrbg3.reseed(entropy, personalization_data)\ndrbg3.generate(5, additional_data) // <Buffer rr rr rr rr rr>\n```\n\n## LICENSE\n\nThis library is free and open-source software released under the MIT license."
+}

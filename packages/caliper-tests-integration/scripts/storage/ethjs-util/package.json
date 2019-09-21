@@ -1,0 +1,2616 @@
+{
+	"name": "ethjs-util",
+	"versions": {
+		"0.0.1": {
+			"name": "ethjs-util",
+			"version": "0.0.1",
+			"description": "A simple set of Ethereum JS utilties.",
+			"main": "./src/index.js",
+			"scripts": {
+				"start": "npm test",
+				"test": "mocha src/tests/**/*.js -R spec --timeout 2000000",
+				"release": "npmpub",
+				"pretest": "npm run lint",
+				"lint": "npm run lint:js",
+				"lint:eslint": "eslint --ignore-path .gitignore",
+				"lint:js": "npm run lint:eslint -- . ",
+				"lint:staged": "lint-staged",
+				"coveralls": "cat ./coverage/lcov/lcov.info | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/silentcicero/ethjs-format.git"
+			},
+			"keywords": [
+				"ethereum",
+				"rpc",
+				"formatter",
+				"format",
+				"ethereum",
+				"encoding",
+				"decoding"
+			],
+			"authors": [
+				"Nick Dodson <nick.dodson@consensys.net>"
+			],
+			"engines": {
+				"npm": ">=3",
+				"node": ">=6.5.0"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/silentcicero/ethjs-format/issues"
+			},
+			"homepage": "https://github.com/silentcicero/ethjs-format#readme",
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"mocha": "^3.1.2",
+				"babel-eslint": "7.1.0",
+				"coveralls": "2.11.9",
+				"eslint": "2.10.1",
+				"eslint-config-airbnb": "9.0.1",
+				"eslint-import-resolver-webpack": "0.2.4",
+				"eslint-plugin-import": "1.8.0",
+				"eslint-plugin-jsx-a11y": "1.2.0",
+				"eslint-plugin-react": "5.1.1",
+				"eventsource-polyfill": "0.9.6",
+				"lint-staged": "1.0.1",
+				"pre-commit": "1.1.3"
+			},
+			"dependencies": {
+				"assert": "1.4.1",
+				"utf8": "^2.1.2"
+			},
+			"babel": {
+				"presets": [
+					"es2015"
+				],
+				"plugins": [
+					[
+						"module-resolver",
+						{
+							"root": [
+								"./src"
+							]
+						}
+					]
+				]
+			},
+			"lint-staged": {
+				"lint:eslint": "*.js"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"extends": "airbnb",
+				"env": {
+					"node": true,
+					"mocha": true,
+					"es6": true
+				},
+				"parserOptions": {
+					"ecmaVersion": 6,
+					"sourceType": "module"
+				},
+				"rules": {
+					"import/no-unresolved": 2,
+					"comma-dangle": [
+						2,
+						"always-multiline"
+					],
+					"indent": [
+						2,
+						2,
+						{
+							"SwitchCase": 1
+						}
+					],
+					"no-console": 1,
+					"max-len": 0,
+					"prefer-template": 2,
+					"no-use-before-define": 0,
+					"newline-per-chained-call": 0,
+					"arrow-body-style": [
+						2,
+						"as-needed"
+					]
+				}
+			},
+			"pre-commit": "lint:staged",
+			"gitHead": "77a9b389e78903e94ca80a1e7cb291ab6e80344e",
+			"_id": "ethjs-util@0.0.1",
+			"_shasum": "1fe14cc4f1774607d07d1272774b9f39fe503925",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "silentcicero",
+				"email": "thenickdodson@gmail.com"
+			},
+			"dist": {
+				"shasum": "1fe14cc4f1774607d07d1272774b9f39fe503925",
+				"tarball": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "silentcicero",
+					"email": "thenickdodson@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ethjs-util-0.0.1.tgz_1480096475984_0.47268255497328937"
+			},
+			"directories": {}
+		},
+		"0.0.2": {
+			"name": "ethjs-util",
+			"version": "0.0.2",
+			"description": "A simple set of Ethereum JS utilties.",
+			"main": "./src/index.js",
+			"scripts": {
+				"start": "npm test",
+				"test": "mocha src/tests/**/*.js -R spec --timeout 2000000",
+				"release": "npmpub",
+				"pretest": "npm run lint",
+				"lint": "npm run lint:js",
+				"lint:eslint": "eslint --ignore-path .gitignore",
+				"lint:js": "npm run lint:eslint -- . ",
+				"lint:staged": "lint-staged",
+				"coveralls": "cat ./coverage/lcov/lcov.info | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/silentcicero/ethjs-format.git"
+			},
+			"keywords": [
+				"ethereum",
+				"rpc",
+				"formatter",
+				"format",
+				"ethereum",
+				"encoding",
+				"decoding"
+			],
+			"authors": [
+				"Nick Dodson <nick.dodson@consensys.net>"
+			],
+			"engines": {
+				"npm": ">=3",
+				"node": ">=6.5.0"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/silentcicero/ethjs-util/issues"
+			},
+			"homepage": "https://github.com/silentcicero/ethjs-util#readme",
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"mocha": "^3.1.2",
+				"babel-eslint": "7.1.0",
+				"coveralls": "2.11.9",
+				"eslint": "2.10.1",
+				"eslint-config-airbnb": "9.0.1",
+				"eslint-import-resolver-webpack": "0.2.4",
+				"eslint-plugin-import": "1.8.0",
+				"eslint-plugin-jsx-a11y": "1.2.0",
+				"eslint-plugin-react": "5.1.1",
+				"eventsource-polyfill": "0.9.6",
+				"lint-staged": "1.0.1",
+				"pre-commit": "1.1.3"
+			},
+			"dependencies": {
+				"assert": "1.4.1",
+				"utf8": "^2.1.2"
+			},
+			"babel": {
+				"presets": [
+					"es2015"
+				],
+				"plugins": [
+					[
+						"module-resolver",
+						{
+							"root": [
+								"./src"
+							]
+						}
+					]
+				]
+			},
+			"lint-staged": {
+				"lint:eslint": "*.js"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"extends": "airbnb",
+				"env": {
+					"node": true,
+					"mocha": true,
+					"es6": true
+				},
+				"parserOptions": {
+					"ecmaVersion": 6,
+					"sourceType": "module"
+				},
+				"rules": {
+					"import/no-unresolved": 2,
+					"comma-dangle": [
+						2,
+						"always-multiline"
+					],
+					"indent": [
+						2,
+						2,
+						{
+							"SwitchCase": 1
+						}
+					],
+					"no-console": 1,
+					"max-len": 0,
+					"prefer-template": 2,
+					"no-use-before-define": 0,
+					"newline-per-chained-call": 0,
+					"arrow-body-style": [
+						2,
+						"as-needed"
+					]
+				}
+			},
+			"pre-commit": "lint:staged",
+			"gitHead": "422d5a7769e2298e16f9c5f3b2e603732dca2b45",
+			"_id": "ethjs-util@0.0.2",
+			"_shasum": "27e40c9669c6dd59f62baf99f04280a71d6faefc",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "silentcicero",
+				"email": "thenickdodson@gmail.com"
+			},
+			"dist": {
+				"shasum": "27e40c9669c6dd59f62baf99f04280a71d6faefc",
+				"tarball": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "silentcicero",
+					"email": "thenickdodson@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/ethjs-util-0.0.2.tgz_1480217201882_0.6125464690849185"
+			},
+			"directories": {}
+		},
+		"0.0.3": {
+			"name": "ethjs-util",
+			"version": "0.0.3",
+			"description": "A simple set of Ethereum JS utilties.",
+			"main": "./src/index.js",
+			"scripts": {
+				"start": "npm test",
+				"test": "mocha src/tests/**/*.js -R spec --timeout 2000000",
+				"release": "npmpub",
+				"pretest": "npm run lint",
+				"lint": "npm run lint:js",
+				"lint:eslint": "eslint --ignore-path .gitignore",
+				"lint:js": "npm run lint:eslint -- . ",
+				"lint:staged": "lint-staged",
+				"coveralls": "cat ./coverage/lcov/lcov.info | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/silentcicero/ethjs-format.git"
+			},
+			"keywords": [
+				"ethereum",
+				"rpc",
+				"formatter",
+				"format",
+				"ethereum",
+				"encoding",
+				"decoding"
+			],
+			"authors": [
+				"Nick Dodson <nick.dodson@consensys.net>"
+			],
+			"engines": {
+				"npm": ">=3",
+				"node": ">=6.5.0"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/silentcicero/ethjs-util/issues"
+			},
+			"homepage": "https://github.com/silentcicero/ethjs-util#readme",
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"mocha": "^3.1.2",
+				"babel-eslint": "7.1.0",
+				"coveralls": "2.11.9",
+				"eslint": "2.10.1",
+				"eslint-config-airbnb": "9.0.1",
+				"eslint-import-resolver-webpack": "0.2.4",
+				"eslint-plugin-import": "1.8.0",
+				"eslint-plugin-jsx-a11y": "1.2.0",
+				"eslint-plugin-react": "5.1.1",
+				"eventsource-polyfill": "0.9.6",
+				"lint-staged": "1.0.1",
+				"pre-commit": "1.1.3"
+			},
+			"dependencies": {
+				"assert": "1.4.1",
+				"ethjs-filter": "0.0.1",
+				"utf8": "^2.1.2"
+			},
+			"babel": {
+				"presets": [
+					"es2015"
+				],
+				"plugins": [
+					[
+						"module-resolver",
+						{
+							"root": [
+								"./src"
+							]
+						}
+					]
+				]
+			},
+			"lint-staged": {
+				"lint:eslint": "*.js"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"extends": "airbnb",
+				"env": {
+					"node": true,
+					"mocha": true,
+					"es6": true
+				},
+				"parserOptions": {
+					"ecmaVersion": 6,
+					"sourceType": "module"
+				},
+				"rules": {
+					"import/no-unresolved": 2,
+					"comma-dangle": [
+						2,
+						"always-multiline"
+					],
+					"indent": [
+						2,
+						2,
+						{
+							"SwitchCase": 1
+						}
+					],
+					"no-console": 1,
+					"max-len": 0,
+					"prefer-template": 2,
+					"no-use-before-define": 0,
+					"newline-per-chained-call": 0,
+					"arrow-body-style": [
+						2,
+						"as-needed"
+					]
+				}
+			},
+			"pre-commit": "lint:staged",
+			"gitHead": "480eb3298fe2f2af62a2802d461f0f8c1b94cde3",
+			"_id": "ethjs-util@0.0.3",
+			"_shasum": "398aeb096188c098abc36b9bb070d5824c18494c",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "silentcicero",
+				"email": "thenickdodson@gmail.com"
+			},
+			"dist": {
+				"shasum": "398aeb096188c098abc36b9bb070d5824c18494c",
+				"tarball": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "silentcicero",
+					"email": "thenickdodson@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/ethjs-util-0.0.3.tgz_1480267101524_0.2838127254508436"
+			},
+			"directories": {}
+		},
+		"0.0.4": {
+			"name": "ethjs-util",
+			"version": "0.0.4",
+			"description": "A simple set of Ethereum JS utilties.",
+			"main": "./src/index.js",
+			"scripts": {
+				"start": "npm test",
+				"test": "mocha src/tests/**/*.js -R spec --timeout 2000000",
+				"release": "npmpub",
+				"pretest": "npm run lint",
+				"lint": "npm run lint:js",
+				"lint:eslint": "eslint --ignore-path .gitignore",
+				"lint:js": "npm run lint:eslint -- . ",
+				"lint:staged": "lint-staged",
+				"test-travis": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- src/tests/**/*.js -R spec --timeout 2000000",
+				"coveralls": "npm run test-travis && cat ./coverage/lcov.info | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/ethjs/ethjs-format.git"
+			},
+			"keywords": [
+				"ethereum",
+				"rpc",
+				"formatter",
+				"format",
+				"ethereum",
+				"encoding",
+				"decoding"
+			],
+			"authors": [
+				"Nick Dodson <nick.dodson@consensys.net>"
+			],
+			"engines": {
+				"npm": ">=3",
+				"node": ">=6.5.0"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/ethjs/ethjs-util/issues"
+			},
+			"homepage": "https://github.com/ethjs/ethjs-util#readme",
+			"devDependencies": {
+				"babel-eslint": "7.1.0",
+				"bignumber.js": "3.0.1",
+				"bn.js": "4.11.6",
+				"chai": "3.5.0",
+				"coveralls": "2.11.9",
+				"eslint": "2.10.1",
+				"eslint-config-airbnb": "9.0.1",
+				"eslint-import-resolver-webpack": "0.2.4",
+				"eslint-plugin-import": "1.8.0",
+				"eslint-plugin-jsx-a11y": "1.2.0",
+				"eslint-plugin-react": "5.1.1",
+				"eventsource-polyfill": "0.9.6",
+				"istanbul": "0.4.5",
+				"lint-staged": "1.0.1",
+				"mocha": "3.1.2",
+				"pre-commit": "1.1.3"
+			},
+			"dependencies": {
+				"assert": "1.4.1",
+				"utf8": "2.1.2"
+			},
+			"babel": {
+				"presets": [
+					"es2015"
+				],
+				"plugins": [
+					[
+						"module-resolver",
+						{
+							"root": [
+								"./src"
+							]
+						}
+					]
+				]
+			},
+			"lint-staged": {
+				"lint:eslint": "*.js"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"extends": "airbnb",
+				"env": {
+					"node": true,
+					"mocha": true,
+					"es6": true
+				},
+				"parserOptions": {
+					"ecmaVersion": 6,
+					"sourceType": "module"
+				},
+				"rules": {
+					"import/no-unresolved": 2,
+					"comma-dangle": [
+						2,
+						"always-multiline"
+					],
+					"indent": [
+						2,
+						2,
+						{
+							"SwitchCase": 1
+						}
+					],
+					"no-console": 1,
+					"max-len": 0,
+					"prefer-template": 2,
+					"no-use-before-define": 0,
+					"newline-per-chained-call": 0,
+					"arrow-body-style": [
+						2,
+						"as-needed"
+					]
+				}
+			},
+			"pre-commit": "lint:staged",
+			"gitHead": "87143ed48002266c71e9268355d715dcb98eee01",
+			"_id": "ethjs-util@0.0.4",
+			"_shasum": "6acb865ab163568251add0c22e8cbc7970b3bfd7",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "silentcicero",
+				"email": "thenickdodson@gmail.com"
+			},
+			"dist": {
+				"shasum": "6acb865ab163568251add0c22e8cbc7970b3bfd7",
+				"tarball": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "silentcicero",
+					"email": "thenickdodson@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ethjs-util-0.0.4.tgz_1480474501856_0.80925721838139"
+			},
+			"directories": {}
+		},
+		"0.0.5": {
+			"name": "ethjs-util",
+			"version": "0.0.5",
+			"description": "A simple set of Ethereum JS utilties.",
+			"main": "./lib/index.js",
+			"scripts": {
+				"start": "npm test",
+				"release": "npmpub",
+				"pretest": "npm run lint",
+				"prepublish": "npm run build",
+				"prebuild": "npm run build:clean && npm run test",
+				"build:clean": "npm run test:clean && rimraf ./dist",
+				"build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --copy-files",
+				"build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack --config ./internals/webpack/webpack.config.js ./lib/index.js ./dist/ethjs-util.js",
+				"build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack --config ./internals/webpack/webpack.config.js ./lib/index.js ./dist/ethjs-util.min.js",
+				"build": "npm run build:commonjs && npm run test:lib && npm run build:umd && npm run build:umd:min",
+				"lint": "npm run lint:js",
+				"lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern **/**.min.js",
+				"lint:js": "npm run lint:eslint -- . ",
+				"lint:staged": "lint-staged",
+				"test:clean": "rimraf ./coverage",
+				"test": "mocha ./src/tests/**/*.js -R spec --timeout 2000000",
+				"test:lib": "mocha ./lib/tests/**/*.js -R spec --timeout 2000000",
+				"test-travis": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- src/tests/**/*.js -R spec --timeout 2000000",
+				"coveralls": "npm run test-travis && cat ./coverage/lcov.info | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/ethjs/ethjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"rpc",
+				"formatter",
+				"format",
+				"ethereum",
+				"encoding",
+				"decoding"
+			],
+			"authors": [
+				"Nick Dodson <nick.dodson@consensys.net>"
+			],
+			"engines": {
+				"npm": ">=3",
+				"node": ">=6.5.0"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/ethjs/ethjs-util/issues"
+			},
+			"homepage": "https://github.com/ethjs/ethjs-util#readme",
+			"babel": {
+				"plugins": [
+					[
+						"transform-es2015-template-literals",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-literals",
+					"transform-es2015-function-name",
+					"transform-es2015-arrow-functions",
+					"transform-es2015-block-scoped-functions",
+					[
+						"transform-es2015-classes",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-object-super",
+					"transform-es2015-shorthand-properties",
+					[
+						"transform-es2015-computed-properties",
+						{
+							"loose": true
+						}
+					],
+					[
+						"transform-es2015-for-of",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-sticky-regex",
+					"transform-es2015-unicode-regex",
+					"check-es2015-constants",
+					[
+						"transform-es2015-spread",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-parameters",
+					[
+						"transform-es2015-destructuring",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-block-scoping",
+					"transform-object-rest-spread",
+					"transform-es3-member-expression-literals",
+					"transform-es3-property-literals"
+				],
+				"env": {
+					"commonjs": {
+						"plugins": [
+							[
+								"transform-es2015-modules-commonjs",
+								{
+									"loose": true
+								}
+							]
+						]
+					}
+				}
+			},
+			"devDependencies": {
+				"babel-cli": "6.18.0",
+				"babel-core": "6.18.2",
+				"babel-eslint": "7.1.0",
+				"babel-loader": "6.2.8",
+				"babel-plugin-check-es2015-constants": "6.8.0",
+				"babel-plugin-transform-es2015-arrow-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoped-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoping": "6.18.0",
+				"babel-plugin-transform-es2015-classes": "6.18.0",
+				"babel-plugin-transform-es2015-computed-properties": "6.8.0",
+				"babel-plugin-transform-es2015-destructuring": "6.19.0",
+				"babel-plugin-transform-es2015-for-of": "6.18.0",
+				"babel-plugin-transform-es2015-function-name": "6.9.0",
+				"babel-plugin-transform-es2015-literals": "6.8.0",
+				"babel-plugin-transform-es2015-modules-commonjs": "6.18.0",
+				"babel-plugin-transform-es2015-object-super": "6.8.0",
+				"babel-plugin-transform-es2015-parameters": "6.18.0",
+				"babel-plugin-transform-es2015-shorthand-properties": "6.18.0",
+				"babel-plugin-transform-es2015-spread": "6.8.0",
+				"babel-plugin-transform-es2015-sticky-regex": "6.8.0",
+				"babel-plugin-transform-es2015-template-literals": "6.8.0",
+				"babel-plugin-transform-es2015-unicode-regex": "6.11.0",
+				"babel-plugin-transform-es3-member-expression-literals": "6.5.0",
+				"babel-plugin-transform-es3-property-literals": "6.5.0",
+				"babel-plugin-transform-object-rest-spread": "6.19.0",
+				"babel-register": "6.18.0",
+				"check-es3-syntax-cli": "0.1.3",
+				"webpack": "2.1.0-beta.15",
+				"json-loader": "0.5.4",
+				"rimraf": "2.3.4",
+				"cross-env": "1.0.7",
+				"bignumber.js": "3.0.1",
+				"bn.js": "4.11.6",
+				"chai": "3.5.0",
+				"coveralls": "2.11.9",
+				"eslint": "2.10.1",
+				"eslint-config-airbnb": "9.0.1",
+				"eslint-import-resolver-webpack": "0.2.4",
+				"eslint-plugin-import": "1.8.0",
+				"eslint-plugin-jsx-a11y": "1.2.0",
+				"eslint-plugin-react": "5.1.1",
+				"eventsource-polyfill": "0.9.6",
+				"istanbul": "0.4.5",
+				"lint-staged": "1.0.1",
+				"mocha": "3.1.2",
+				"pre-commit": "1.1.3"
+			},
+			"dependencies": {
+				"utf8": "2.1.2"
+			},
+			"lint-staged": {
+				"lint:eslint": "*.js"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"extends": "airbnb",
+				"env": {
+					"node": true,
+					"mocha": true,
+					"es6": true
+				},
+				"parserOptions": {
+					"ecmaVersion": 6,
+					"sourceType": "module"
+				},
+				"rules": {
+					"import/no-unresolved": 2,
+					"comma-dangle": [
+						2,
+						"always-multiline"
+					],
+					"indent": [
+						2,
+						2,
+						{
+							"SwitchCase": 1
+						}
+					],
+					"no-console": 1,
+					"max-len": 0,
+					"prefer-template": 2,
+					"no-use-before-define": 0,
+					"newline-per-chained-call": 0,
+					"arrow-body-style": [
+						2,
+						"as-needed"
+					]
+				}
+			},
+			"pre-commit": "lint:staged",
+			"gitHead": "3921082b2766e87ea631ef1edc062fe5dceb1a42",
+			"_id": "ethjs-util@0.0.5",
+			"_shasum": "d53cb21e0150146fa03de9d844d9198b2e82618e",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "silentcicero",
+				"email": "thenickdodson@gmail.com"
+			},
+			"dist": {
+				"shasum": "d53cb21e0150146fa03de9d844d9198b2e82618e",
+				"tarball": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.0.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "silentcicero",
+					"email": "thenickdodson@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/ethjs-util-0.0.5.tgz_1480827411241_0.4500627799425274"
+			},
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "ethjs-util",
+			"version": "0.1.0",
+			"description": "A simple set of Ethereum JS utilties.",
+			"main": "./lib/index.js",
+			"scripts": {
+				"start": "npm test",
+				"release": "npmpub",
+				"pretest": "npm run lint",
+				"prepublish": "npm run build",
+				"prebuild": "npm run build:clean && npm run test",
+				"build:clean": "npm run test:clean && rimraf ./dist",
+				"build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --copy-files",
+				"build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",
+				"build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",
+				"build": "npm run build:commonjs && npm run test:lib && npm run build:umd && npm run build:umd:min",
+				"lint": "npm run lint:js",
+				"lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern **/**.min.js",
+				"lint:js": "npm run lint:eslint -- . ",
+				"lint:staged": "lint-staged",
+				"test:clean": "rimraf ./coverage",
+				"test": "mocha ./src/tests/**/*.js -R spec --timeout 2000000",
+				"test:lib": "mocha ./lib/tests/**/*.js -R spec --timeout 2000000",
+				"test-travis": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- src/tests/**/*.js -R spec --timeout 2000000",
+				"coveralls": "npm run test-travis && cat ./coverage/lcov.info | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/ethjs/ethjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"rpc",
+				"formatter",
+				"format",
+				"ethereum",
+				"encoding",
+				"decoding"
+			],
+			"authors": [
+				"Nick Dodson <nick.dodson@consensys.net>"
+			],
+			"engines": {
+				"npm": ">=3",
+				"node": ">=6.5.0"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/ethjs/ethjs-util/issues"
+			},
+			"homepage": "https://github.com/ethjs/ethjs-util#readme",
+			"babel": {
+				"plugins": [
+					[
+						"transform-es2015-template-literals",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-literals",
+					"transform-es2015-function-name",
+					"transform-es2015-arrow-functions",
+					"transform-es2015-block-scoped-functions",
+					[
+						"transform-es2015-classes",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-object-super",
+					"transform-es2015-shorthand-properties",
+					[
+						"transform-es2015-computed-properties",
+						{
+							"loose": true
+						}
+					],
+					[
+						"transform-es2015-for-of",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-sticky-regex",
+					"transform-es2015-unicode-regex",
+					"check-es2015-constants",
+					[
+						"transform-es2015-spread",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-parameters",
+					[
+						"transform-es2015-destructuring",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-block-scoping",
+					"transform-object-rest-spread",
+					"transform-es3-member-expression-literals",
+					"transform-es3-property-literals"
+				],
+				"env": {
+					"commonjs": {
+						"plugins": [
+							[
+								"transform-es2015-modules-commonjs",
+								{
+									"loose": true
+								}
+							]
+						]
+					}
+				}
+			},
+			"devDependencies": {
+				"babel-cli": "6.18.0",
+				"babel-core": "6.18.2",
+				"babel-eslint": "7.1.0",
+				"babel-loader": "6.2.8",
+				"babel-plugin-check-es2015-constants": "6.8.0",
+				"babel-plugin-transform-es2015-arrow-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoped-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoping": "6.18.0",
+				"babel-plugin-transform-es2015-classes": "6.18.0",
+				"babel-plugin-transform-es2015-computed-properties": "6.8.0",
+				"babel-plugin-transform-es2015-destructuring": "6.19.0",
+				"babel-plugin-transform-es2015-for-of": "6.18.0",
+				"babel-plugin-transform-es2015-function-name": "6.9.0",
+				"babel-plugin-transform-es2015-literals": "6.8.0",
+				"babel-plugin-transform-es2015-modules-commonjs": "6.18.0",
+				"babel-plugin-transform-es2015-object-super": "6.8.0",
+				"babel-plugin-transform-es2015-parameters": "6.18.0",
+				"babel-plugin-transform-es2015-shorthand-properties": "6.18.0",
+				"babel-plugin-transform-es2015-spread": "6.8.0",
+				"babel-plugin-transform-es2015-sticky-regex": "6.8.0",
+				"babel-plugin-transform-es2015-template-literals": "6.8.0",
+				"babel-plugin-transform-es2015-unicode-regex": "6.11.0",
+				"babel-plugin-transform-es3-member-expression-literals": "6.5.0",
+				"babel-plugin-transform-es3-property-literals": "6.5.0",
+				"babel-plugin-transform-object-rest-spread": "6.19.0",
+				"babel-register": "6.18.0",
+				"check-es3-syntax-cli": "0.1.3",
+				"webpack": "2.1.0-beta.15",
+				"json-loader": "0.5.4",
+				"rimraf": "2.3.4",
+				"cross-env": "1.0.7",
+				"bignumber.js": "3.0.1",
+				"bn.js": "4.11.6",
+				"chai": "3.5.0",
+				"eslint": "2.10.1",
+				"coveralls": "2.11.9",
+				"eslint-config-airbnb": "9.0.1",
+				"eslint-import-resolver-webpack": "0.2.4",
+				"eslint-plugin-import": "1.8.0",
+				"eslint-plugin-jsx-a11y": "1.2.0",
+				"eslint-plugin-react": "5.1.1",
+				"eventsource-polyfill": "0.9.6",
+				"istanbul": "0.4.5",
+				"lint-staged": "1.0.1",
+				"mocha": "3.1.2",
+				"pre-commit": "1.1.3"
+			},
+			"dependencies": {
+				"utf8": "2.1.2"
+			},
+			"lint-staged": {
+				"lint:eslint": "*.js"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"extends": "airbnb",
+				"env": {
+					"node": true,
+					"mocha": true,
+					"es6": true
+				},
+				"parserOptions": {
+					"ecmaVersion": 6,
+					"sourceType": "module"
+				},
+				"rules": {
+					"import/no-unresolved": 2,
+					"comma-dangle": [
+						2,
+						"always-multiline"
+					],
+					"indent": [
+						2,
+						2,
+						{
+							"SwitchCase": 1
+						}
+					],
+					"no-console": 1,
+					"max-len": 0,
+					"prefer-template": 2,
+					"no-use-before-define": 0,
+					"newline-per-chained-call": 0,
+					"arrow-body-style": [
+						2,
+						"as-needed"
+					]
+				}
+			},
+			"pre-commit": "lint:staged",
+			"gitHead": "c324a45f1945a6c40601dda765148397001b636e",
+			"_id": "ethjs-util@0.1.0",
+			"_shasum": "e918db67556e34cd73e1d3183fc05014f4cd2d2a",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "silentcicero",
+				"email": "thenickdodson@gmail.com"
+			},
+			"dist": {
+				"shasum": "e918db67556e34cd73e1d3183fc05014f4cd2d2a",
+				"tarball": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "silentcicero",
+					"email": "thenickdodson@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/ethjs-util-0.1.0.tgz_1480890273498_0.6948032185900956"
+			},
+			"directories": {}
+		},
+		"0.1.1": {
+			"name": "ethjs-util",
+			"version": "0.1.1",
+			"description": "A simple set of Ethereum JS utilties.",
+			"main": "lib/index.js",
+			"browser": "dist/ethjs-util.js",
+			"files": [
+				"dist",
+				"internals",
+				"lib",
+				"src"
+			],
+			"scripts": {
+				"start": "npm test",
+				"release": "npmpub",
+				"pretest": "npm run lint",
+				"prepublish": "npm run build",
+				"prebuild": "npm run build:clean && npm run test",
+				"build:clean": "npm run test:clean && rimraf ./dist",
+				"build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --copy-files",
+				"build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",
+				"build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",
+				"build": "npm run build:commonjs && npm run test:lib && npm run build:umd && npm run build:umd:min",
+				"lint": "npm run lint:js",
+				"lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern **/**.min.js",
+				"lint:js": "npm run lint:eslint -- . ",
+				"lint:staged": "lint-staged",
+				"test:clean": "rimraf ./coverage",
+				"test": "mocha ./src/tests/**/*.js -R spec --timeout 2000000",
+				"test:lib": "mocha ./lib/tests/**/*.js -R spec --timeout 2000000",
+				"test-travis": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- src/tests/**/*.js -R spec --timeout 2000000",
+				"coveralls": "npm run test-travis && cat ./coverage/lcov.info | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/ethjs/ethjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"rpc",
+				"formatter",
+				"format",
+				"ethereum",
+				"encoding",
+				"decoding"
+			],
+			"authors": [
+				"Nick Dodson <nick.dodson@consensys.net>"
+			],
+			"engines": {
+				"npm": ">=3",
+				"node": ">=6.5.0"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/ethjs/ethjs-util/issues"
+			},
+			"homepage": "https://github.com/ethjs/ethjs-util#readme",
+			"babel": {
+				"plugins": [
+					[
+						"transform-es2015-template-literals",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-literals",
+					"transform-es2015-function-name",
+					"transform-es2015-arrow-functions",
+					"transform-es2015-block-scoped-functions",
+					[
+						"transform-es2015-classes",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-object-super",
+					"transform-es2015-shorthand-properties",
+					[
+						"transform-es2015-computed-properties",
+						{
+							"loose": true
+						}
+					],
+					[
+						"transform-es2015-for-of",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-sticky-regex",
+					"transform-es2015-unicode-regex",
+					"check-es2015-constants",
+					[
+						"transform-es2015-spread",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-parameters",
+					[
+						"transform-es2015-destructuring",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-block-scoping",
+					"transform-object-rest-spread",
+					"transform-es3-member-expression-literals",
+					"transform-es3-property-literals"
+				],
+				"env": {
+					"commonjs": {
+						"plugins": [
+							[
+								"transform-es2015-modules-commonjs",
+								{
+									"loose": true
+								}
+							]
+						]
+					}
+				}
+			},
+			"devDependencies": {
+				"babel-cli": "6.18.0",
+				"babel-core": "6.18.2",
+				"babel-eslint": "7.1.0",
+				"babel-loader": "6.2.8",
+				"babel-plugin-check-es2015-constants": "6.8.0",
+				"babel-plugin-transform-es2015-arrow-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoped-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoping": "6.18.0",
+				"babel-plugin-transform-es2015-classes": "6.18.0",
+				"babel-plugin-transform-es2015-computed-properties": "6.8.0",
+				"babel-plugin-transform-es2015-destructuring": "6.19.0",
+				"babel-plugin-transform-es2015-for-of": "6.18.0",
+				"babel-plugin-transform-es2015-function-name": "6.9.0",
+				"babel-plugin-transform-es2015-literals": "6.8.0",
+				"babel-plugin-transform-es2015-modules-commonjs": "6.18.0",
+				"babel-plugin-transform-es2015-object-super": "6.8.0",
+				"babel-plugin-transform-es2015-parameters": "6.18.0",
+				"babel-plugin-transform-es2015-shorthand-properties": "6.18.0",
+				"babel-plugin-transform-es2015-spread": "6.8.0",
+				"babel-plugin-transform-es2015-sticky-regex": "6.8.0",
+				"babel-plugin-transform-es2015-template-literals": "6.8.0",
+				"babel-plugin-transform-es2015-unicode-regex": "6.11.0",
+				"babel-plugin-transform-es3-member-expression-literals": "6.5.0",
+				"babel-plugin-transform-es3-property-literals": "6.5.0",
+				"babel-plugin-transform-object-rest-spread": "6.19.0",
+				"babel-register": "6.18.0",
+				"check-es3-syntax-cli": "0.1.3",
+				"webpack": "2.1.0-beta.15",
+				"json-loader": "0.5.4",
+				"rimraf": "2.3.4",
+				"cross-env": "1.0.7",
+				"bignumber.js": "3.0.1",
+				"bn.js": "4.11.6",
+				"chai": "3.5.0",
+				"eslint": "2.10.1",
+				"coveralls": "2.11.9",
+				"eslint-config-airbnb": "9.0.1",
+				"eslint-import-resolver-webpack": "0.2.4",
+				"eslint-plugin-import": "1.8.0",
+				"eslint-plugin-jsx-a11y": "1.2.0",
+				"eslint-plugin-react": "5.1.1",
+				"eventsource-polyfill": "0.9.6",
+				"istanbul": "0.4.5",
+				"lint-staged": "1.0.1",
+				"mocha": "3.1.2",
+				"pre-commit": "1.1.3"
+			},
+			"dependencies": {
+				"utf8": "2.1.2"
+			},
+			"lint-staged": {
+				"lint:eslint": "*.js"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"extends": "airbnb",
+				"env": {
+					"node": true,
+					"mocha": true,
+					"es6": true
+				},
+				"parserOptions": {
+					"ecmaVersion": 6,
+					"sourceType": "module"
+				},
+				"rules": {
+					"import/no-unresolved": 2,
+					"comma-dangle": [
+						2,
+						"always-multiline"
+					],
+					"indent": [
+						2,
+						2,
+						{
+							"SwitchCase": 1
+						}
+					],
+					"no-console": 1,
+					"max-len": 0,
+					"prefer-template": 2,
+					"no-use-before-define": 0,
+					"newline-per-chained-call": 0,
+					"arrow-body-style": [
+						2,
+						"as-needed"
+					]
+				}
+			},
+			"pre-commit": "build",
+			"gitHead": "c324a45f1945a6c40601dda765148397001b636e",
+			"_id": "ethjs-util@0.1.1",
+			"_shasum": "3b1e93677ef0b8ef34885eb19b9a3cd08bb6e2d5",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "silentcicero",
+				"email": "thenickdodson@gmail.com"
+			},
+			"dist": {
+				"shasum": "3b1e93677ef0b8ef34885eb19b9a3cd08bb6e2d5",
+				"tarball": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "silentcicero",
+					"email": "thenickdodson@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/ethjs-util-0.1.1.tgz_1480900227881_0.3725043502636254"
+			},
+			"directories": {}
+		},
+		"0.1.2": {
+			"name": "ethjs-util",
+			"version": "0.1.2",
+			"description": "A simple set of Ethereum JS utilties.",
+			"main": "lib/index.js",
+			"browser": "dist/ethjs-util.js",
+			"files": [
+				"dist",
+				"internals",
+				"lib",
+				"src"
+			],
+			"scripts": {
+				"start": "npm test",
+				"release": "npmpub",
+				"pretest": "npm run lint",
+				"prepublish": "npm run build",
+				"prebuild": "npm run build:clean && npm run test",
+				"build:clean": "npm run test:clean && rimraf ./dist",
+				"build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --copy-files",
+				"build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",
+				"build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",
+				"build": "npm run build:commonjs && npm run test:lib && npm run build:umd && npm run build:umd:min",
+				"lint": "npm run lint:js",
+				"lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern **/**.min.js",
+				"lint:js": "npm run lint:eslint -- . ",
+				"lint:staged": "lint-staged",
+				"test:clean": "rimraf ./coverage",
+				"test": "mocha ./src/tests/**/*.js -R spec --timeout 2000000",
+				"test:lib": "mocha ./lib/tests/**/*.js -R spec --timeout 2000000",
+				"test-travis": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- src/tests/**/*.js -R spec --timeout 2000000",
+				"coveralls": "npm run test-travis && cat ./coverage/lcov.info | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/ethjs/ethjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"rpc",
+				"formatter",
+				"format",
+				"ethereum",
+				"encoding",
+				"decoding"
+			],
+			"authors": [
+				"Nick Dodson <nick.dodson@consensys.net>"
+			],
+			"engines": {
+				"npm": ">=3",
+				"node": ">=6.5.0"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/ethjs/ethjs-util/issues"
+			},
+			"homepage": "https://github.com/ethjs/ethjs-util#readme",
+			"babel": {
+				"plugins": [
+					[
+						"transform-es2015-template-literals",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-literals",
+					"transform-es2015-function-name",
+					"transform-es2015-arrow-functions",
+					"transform-es2015-block-scoped-functions",
+					[
+						"transform-es2015-classes",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-object-super",
+					"transform-es2015-shorthand-properties",
+					[
+						"transform-es2015-computed-properties",
+						{
+							"loose": true
+						}
+					],
+					[
+						"transform-es2015-for-of",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-sticky-regex",
+					"transform-es2015-unicode-regex",
+					"check-es2015-constants",
+					[
+						"transform-es2015-spread",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-parameters",
+					[
+						"transform-es2015-destructuring",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-block-scoping",
+					"transform-object-rest-spread",
+					"transform-es3-member-expression-literals",
+					"transform-es3-property-literals"
+				],
+				"env": {
+					"commonjs": {
+						"plugins": [
+							[
+								"transform-es2015-modules-commonjs",
+								{
+									"loose": true
+								}
+							]
+						]
+					}
+				}
+			},
+			"devDependencies": {
+				"babel-cli": "6.18.0",
+				"babel-core": "6.18.2",
+				"babel-eslint": "7.1.0",
+				"babel-loader": "6.2.8",
+				"babel-plugin-check-es2015-constants": "6.8.0",
+				"babel-plugin-transform-es2015-arrow-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoped-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoping": "6.18.0",
+				"babel-plugin-transform-es2015-classes": "6.18.0",
+				"babel-plugin-transform-es2015-computed-properties": "6.8.0",
+				"babel-plugin-transform-es2015-destructuring": "6.19.0",
+				"babel-plugin-transform-es2015-for-of": "6.18.0",
+				"babel-plugin-transform-es2015-function-name": "6.9.0",
+				"babel-plugin-transform-es2015-literals": "6.8.0",
+				"babel-plugin-transform-es2015-modules-commonjs": "6.18.0",
+				"babel-plugin-transform-es2015-object-super": "6.8.0",
+				"babel-plugin-transform-es2015-parameters": "6.18.0",
+				"babel-plugin-transform-es2015-shorthand-properties": "6.18.0",
+				"babel-plugin-transform-es2015-spread": "6.8.0",
+				"babel-plugin-transform-es2015-sticky-regex": "6.8.0",
+				"babel-plugin-transform-es2015-template-literals": "6.8.0",
+				"babel-plugin-transform-es2015-unicode-regex": "6.11.0",
+				"babel-plugin-transform-es3-member-expression-literals": "6.5.0",
+				"babel-plugin-transform-es3-property-literals": "6.5.0",
+				"babel-plugin-transform-object-rest-spread": "6.19.0",
+				"babel-register": "6.18.0",
+				"check-es3-syntax-cli": "0.1.3",
+				"webpack": "2.1.0-beta.15",
+				"json-loader": "0.5.4",
+				"rimraf": "2.3.4",
+				"cross-env": "1.0.7",
+				"bignumber.js": "3.0.1",
+				"bn.js": "4.11.6",
+				"chai": "3.5.0",
+				"eslint": "2.10.1",
+				"coveralls": "2.11.9",
+				"eslint-config-airbnb": "9.0.1",
+				"eslint-import-resolver-webpack": "0.2.4",
+				"eslint-plugin-import": "1.8.0",
+				"eslint-plugin-jsx-a11y": "1.2.0",
+				"eslint-plugin-react": "5.1.1",
+				"eventsource-polyfill": "0.9.6",
+				"istanbul": "0.4.5",
+				"lint-staged": "1.0.1",
+				"mocha": "3.1.2",
+				"pre-commit": "1.1.3"
+			},
+			"dependencies": {
+				"is-hex-prefixed": "1.0.0",
+				"strip-hex-prefix": "1.0.0"
+			},
+			"lint-staged": {
+				"lint:eslint": "*.js"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"extends": "airbnb",
+				"env": {
+					"node": true,
+					"mocha": true,
+					"es6": true
+				},
+				"parserOptions": {
+					"ecmaVersion": 6,
+					"sourceType": "module"
+				},
+				"rules": {
+					"import/no-unresolved": 2,
+					"comma-dangle": [
+						2,
+						"always-multiline"
+					],
+					"indent": [
+						2,
+						2,
+						{
+							"SwitchCase": 1
+						}
+					],
+					"no-console": 1,
+					"max-len": 0,
+					"prefer-template": 2,
+					"no-use-before-define": 0,
+					"newline-per-chained-call": 0,
+					"arrow-body-style": [
+						2,
+						"as-needed"
+					]
+				}
+			},
+			"pre-commit": "build",
+			"gitHead": "d97f4786f3cdffba2fea9ec168393ab75aa59a91",
+			"_id": "ethjs-util@0.1.2",
+			"_shasum": "71828d607c9df3d659d40666982e3fae02a94e73",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "silentcicero",
+				"email": "thenickdodson@gmail.com"
+			},
+			"dist": {
+				"shasum": "71828d607c9df3d659d40666982e3fae02a94e73",
+				"tarball": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "silentcicero",
+					"email": "thenickdodson@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/ethjs-util-0.1.2.tgz_1481087328993_0.27817580266855657"
+			},
+			"directories": {}
+		},
+		"0.1.3": {
+			"name": "ethjs-util",
+			"version": "0.1.3",
+			"description": "A simple set of Ethereum JS utilties.",
+			"main": "lib/index.js",
+			"files": [
+				"dist",
+				"internals",
+				"lib",
+				"src"
+			],
+			"scripts": {
+				"start": "npm test",
+				"release": "npmpub",
+				"pretest": "npm run lint",
+				"prepublish": "npm run build",
+				"prebuild": "npm run build:clean && npm run test",
+				"build:clean": "npm run test:clean && rimraf ./dist",
+				"build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --copy-files",
+				"build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",
+				"build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",
+				"build": "npm run build:commonjs && npm run test:lib && npm run build:umd && npm run build:umd:min",
+				"lint": "npm run lint:js",
+				"lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern **/**.min.js",
+				"lint:js": "npm run lint:eslint -- . ",
+				"lint:staged": "lint-staged",
+				"test:clean": "rimraf ./coverage",
+				"test": "mocha ./src/tests/**/*.js -R spec --timeout 2000000",
+				"test:lib": "mocha ./lib/tests/**/*.js -R spec --timeout 2000000",
+				"test-travis": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- src/tests/**/*.js -R spec --timeout 2000000",
+				"coveralls": "npm run test-travis && cat ./coverage/lcov.info | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/ethjs/ethjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"rpc",
+				"formatter",
+				"format",
+				"ethereum",
+				"encoding",
+				"decoding"
+			],
+			"authors": [
+				"Nick Dodson <nick.dodson@consensys.net>"
+			],
+			"contributors": [
+				{
+					"name": "Richard Moore",
+					"email": "me@ricmoo.com",
+					"url": "https://ethers.io"
+				}
+			],
+			"engines": {
+				"npm": ">=3",
+				"node": ">=6.5.0"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/ethjs/ethjs-util/issues"
+			},
+			"homepage": "https://github.com/ethjs/ethjs-util#readme",
+			"babel": {
+				"plugins": [
+					[
+						"transform-es2015-template-literals",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-literals",
+					"transform-es2015-function-name",
+					"transform-es2015-arrow-functions",
+					"transform-es2015-block-scoped-functions",
+					[
+						"transform-es2015-classes",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-object-super",
+					"transform-es2015-shorthand-properties",
+					[
+						"transform-es2015-computed-properties",
+						{
+							"loose": true
+						}
+					],
+					[
+						"transform-es2015-for-of",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-sticky-regex",
+					"transform-es2015-unicode-regex",
+					"check-es2015-constants",
+					[
+						"transform-es2015-spread",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-parameters",
+					[
+						"transform-es2015-destructuring",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-block-scoping",
+					"transform-object-rest-spread",
+					"transform-es3-member-expression-literals",
+					"transform-es3-property-literals"
+				],
+				"env": {
+					"commonjs": {
+						"plugins": [
+							[
+								"transform-es2015-modules-commonjs",
+								{
+									"loose": true
+								}
+							]
+						]
+					}
+				}
+			},
+			"devDependencies": {
+				"babel-cli": "6.18.0",
+				"babel-core": "6.18.2",
+				"babel-eslint": "7.1.0",
+				"babel-loader": "6.2.8",
+				"babel-plugin-check-es2015-constants": "6.8.0",
+				"babel-plugin-transform-es2015-arrow-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoped-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoping": "6.18.0",
+				"babel-plugin-transform-es2015-classes": "6.18.0",
+				"babel-plugin-transform-es2015-computed-properties": "6.8.0",
+				"babel-plugin-transform-es2015-destructuring": "6.19.0",
+				"babel-plugin-transform-es2015-for-of": "6.18.0",
+				"babel-plugin-transform-es2015-function-name": "6.9.0",
+				"babel-plugin-transform-es2015-literals": "6.8.0",
+				"babel-plugin-transform-es2015-modules-commonjs": "6.18.0",
+				"babel-plugin-transform-es2015-object-super": "6.8.0",
+				"babel-plugin-transform-es2015-parameters": "6.18.0",
+				"babel-plugin-transform-es2015-shorthand-properties": "6.18.0",
+				"babel-plugin-transform-es2015-spread": "6.8.0",
+				"babel-plugin-transform-es2015-sticky-regex": "6.8.0",
+				"babel-plugin-transform-es2015-template-literals": "6.8.0",
+				"babel-plugin-transform-es2015-unicode-regex": "6.11.0",
+				"babel-plugin-transform-es3-member-expression-literals": "6.5.0",
+				"babel-plugin-transform-es3-property-literals": "6.5.0",
+				"babel-plugin-transform-object-rest-spread": "6.19.0",
+				"babel-register": "6.18.0",
+				"check-es3-syntax-cli": "0.1.3",
+				"webpack": "2.1.0-beta.15",
+				"json-loader": "0.5.4",
+				"rimraf": "2.3.4",
+				"cross-env": "1.0.7",
+				"bignumber.js": "3.0.1",
+				"bn.js": "4.11.6",
+				"chai": "3.5.0",
+				"eslint": "2.10.1",
+				"coveralls": "2.11.9",
+				"eslint-config-airbnb": "9.0.1",
+				"eslint-import-resolver-webpack": "0.2.4",
+				"eslint-plugin-import": "1.8.0",
+				"eslint-plugin-jsx-a11y": "1.2.0",
+				"eslint-plugin-react": "5.1.1",
+				"eventsource-polyfill": "0.9.6",
+				"istanbul": "0.4.5",
+				"lint-staged": "1.0.1",
+				"mocha": "3.1.2",
+				"pre-commit": "1.1.3"
+			},
+			"dependencies": {
+				"is-hex-prefixed": "1.0.0",
+				"strip-hex-prefix": "1.0.0"
+			},
+			"lint-staged": {
+				"lint:eslint": "*.js"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"extends": "airbnb",
+				"env": {
+					"node": true,
+					"mocha": true,
+					"es6": true
+				},
+				"parserOptions": {
+					"ecmaVersion": 6,
+					"sourceType": "module"
+				},
+				"rules": {
+					"import/no-unresolved": 2,
+					"comma-dangle": [
+						2,
+						"always-multiline"
+					],
+					"indent": [
+						2,
+						2,
+						{
+							"SwitchCase": 1
+						}
+					],
+					"no-console": 1,
+					"max-len": 0,
+					"prefer-template": 2,
+					"no-use-before-define": 0,
+					"newline-per-chained-call": 0,
+					"arrow-body-style": [
+						2,
+						"as-needed"
+					]
+				}
+			},
+			"pre-commit": "build",
+			"gitHead": "d97f4786f3cdffba2fea9ec168393ab75aa59a91",
+			"_id": "ethjs-util@0.1.3",
+			"_shasum": "dfd5ea4a400dc5e421a889caf47e081ada78bb55",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "silentcicero",
+				"email": "thenickdodson@gmail.com"
+			},
+			"dist": {
+				"shasum": "dfd5ea4a400dc5e421a889caf47e081ada78bb55",
+				"tarball": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.1.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "silentcicero",
+					"email": "thenickdodson@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ethjs-util-0.1.3.tgz_1481403406036_0.7245013825595379"
+			},
+			"directories": {}
+		},
+		"0.1.4": {
+			"name": "ethjs-util",
+			"version": "0.1.4",
+			"description": "A simple set of Ethereum JS utilties.",
+			"main": "lib/index.js",
+			"files": [
+				"dist",
+				"internals",
+				"lib",
+				"src"
+			],
+			"scripts": {
+				"start": "npm test",
+				"release": "npmpub",
+				"pretest": "npm run lint",
+				"prepublish": "npm run build",
+				"prebuild": "npm run build:clean && npm run test",
+				"build:clean": "npm run test:clean && rimraf ./dist",
+				"build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --copy-files",
+				"build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",
+				"build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",
+				"build": "npm run build:commonjs && npm run test:lib && npm run build:umd && npm run build:umd:min",
+				"lint": "npm run lint:js",
+				"lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern **/**.min.js",
+				"lint:js": "npm run lint:eslint -- . ",
+				"lint:staged": "lint-staged",
+				"test:clean": "rimraf ./coverage",
+				"test": "mocha ./src/tests/**/*.js -R spec --timeout 2000000",
+				"test:lib": "mocha ./lib/tests/**/*.js -R spec --timeout 2000000",
+				"test-travis": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- src/tests/**/*.js -R spec --timeout 2000000",
+				"coveralls": "npm run test-travis && cat ./coverage/lcov.info | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/ethjs/ethjs-util.git"
+			},
+			"keywords": [
+				"ethereum",
+				"rpc",
+				"formatter",
+				"format",
+				"ethereum",
+				"encoding",
+				"decoding"
+			],
+			"authors": [
+				"Nick Dodson <nick.dodson@consensys.net>"
+			],
+			"contributors": [
+				{
+					"name": "Richard Moore",
+					"email": "me@ricmoo.com",
+					"url": "https://ethers.io"
+				}
+			],
+			"engines": {
+				"npm": ">=3",
+				"node": ">=6.5.0"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/ethjs/ethjs-util/issues"
+			},
+			"homepage": "https://github.com/ethjs/ethjs-util#readme",
+			"babel": {
+				"plugins": [
+					[
+						"transform-es2015-template-literals",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-literals",
+					"transform-es2015-function-name",
+					"transform-es2015-arrow-functions",
+					"transform-es2015-block-scoped-functions",
+					[
+						"transform-es2015-classes",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-object-super",
+					"transform-es2015-shorthand-properties",
+					[
+						"transform-es2015-computed-properties",
+						{
+							"loose": true
+						}
+					],
+					[
+						"transform-es2015-for-of",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-sticky-regex",
+					"transform-es2015-unicode-regex",
+					"check-es2015-constants",
+					[
+						"transform-es2015-spread",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-parameters",
+					[
+						"transform-es2015-destructuring",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-block-scoping",
+					"transform-object-rest-spread",
+					"transform-es3-member-expression-literals",
+					"transform-es3-property-literals"
+				],
+				"env": {
+					"commonjs": {
+						"plugins": [
+							[
+								"transform-es2015-modules-commonjs",
+								{
+									"loose": true
+								}
+							]
+						]
+					}
+				}
+			},
+			"devDependencies": {
+				"babel-cli": "6.18.0",
+				"babel-core": "6.18.2",
+				"babel-eslint": "7.1.0",
+				"babel-loader": "6.2.8",
+				"babel-plugin-check-es2015-constants": "6.8.0",
+				"babel-plugin-transform-es2015-arrow-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoped-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoping": "6.18.0",
+				"babel-plugin-transform-es2015-classes": "6.18.0",
+				"babel-plugin-transform-es2015-computed-properties": "6.8.0",
+				"babel-plugin-transform-es2015-destructuring": "6.19.0",
+				"babel-plugin-transform-es2015-for-of": "6.18.0",
+				"babel-plugin-transform-es2015-function-name": "6.9.0",
+				"babel-plugin-transform-es2015-literals": "6.8.0",
+				"babel-plugin-transform-es2015-modules-commonjs": "6.18.0",
+				"babel-plugin-transform-es2015-object-super": "6.8.0",
+				"babel-plugin-transform-es2015-parameters": "6.18.0",
+				"babel-plugin-transform-es2015-shorthand-properties": "6.18.0",
+				"babel-plugin-transform-es2015-spread": "6.8.0",
+				"babel-plugin-transform-es2015-sticky-regex": "6.8.0",
+				"babel-plugin-transform-es2015-template-literals": "6.8.0",
+				"babel-plugin-transform-es2015-unicode-regex": "6.11.0",
+				"babel-plugin-transform-es3-member-expression-literals": "6.5.0",
+				"babel-plugin-transform-es3-property-literals": "6.5.0",
+				"babel-plugin-transform-object-rest-spread": "6.19.0",
+				"babel-register": "6.18.0",
+				"check-es3-syntax-cli": "0.1.3",
+				"webpack": "2.1.0-beta.15",
+				"json-loader": "0.5.4",
+				"rimraf": "2.3.4",
+				"cross-env": "1.0.7",
+				"bignumber.js": "3.0.1",
+				"bn.js": "4.11.6",
+				"chai": "3.5.0",
+				"eslint": "2.10.1",
+				"coveralls": "2.11.9",
+				"eslint-config-airbnb": "9.0.1",
+				"eslint-import-resolver-webpack": "0.2.4",
+				"eslint-plugin-import": "1.8.0",
+				"eslint-plugin-jsx-a11y": "1.2.0",
+				"eslint-plugin-react": "5.1.1",
+				"eventsource-polyfill": "0.9.6",
+				"istanbul": "0.4.5",
+				"lint-staged": "1.0.1",
+				"mocha": "3.1.2",
+				"pre-commit": "1.1.3"
+			},
+			"dependencies": {
+				"is-hex-prefixed": "1.0.0",
+				"strip-hex-prefix": "1.0.0"
+			},
+			"lint-staged": {
+				"lint:eslint": "*.js"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"extends": "airbnb",
+				"env": {
+					"node": true,
+					"mocha": true,
+					"es6": true
+				},
+				"parserOptions": {
+					"ecmaVersion": 6,
+					"sourceType": "module"
+				},
+				"rules": {
+					"import/no-unresolved": 2,
+					"comma-dangle": [
+						2,
+						"always-multiline"
+					],
+					"indent": [
+						2,
+						2,
+						{
+							"SwitchCase": 1
+						}
+					],
+					"no-console": 1,
+					"max-len": 0,
+					"prefer-template": 2,
+					"no-use-before-define": 0,
+					"newline-per-chained-call": 0,
+					"arrow-body-style": [
+						2,
+						"as-needed"
+					]
+				}
+			},
+			"pre-commit": "build",
+			"gitHead": "040b69d60a9df488f1d68e4a5fa9da0ab1cbf647",
+			"_id": "ethjs-util@0.1.4",
+			"_shasum": "1c8b6879257444ef4d3f3fbbac2ded12cd997d93",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "silentcicero",
+				"email": "thenickdodson@gmail.com"
+			},
+			"dist": {
+				"shasum": "1c8b6879257444ef4d3f3fbbac2ded12cd997d93",
+				"tarball": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.1.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "silentcicero",
+					"email": "thenickdodson@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ethjs-util-0.1.4.tgz_1486700637833_0.6589746454264969"
+			},
+			"directories": {}
+		},
+		"0.1.5": {
+			"authors": [
+				"Nick Dodson <nick.dodson@consensys.net>"
+			],
+			"babel": {
+				"plugins": [
+					[
+						"transform-es2015-template-literals",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-literals",
+					"transform-es2015-function-name",
+					"transform-es2015-arrow-functions",
+					"transform-es2015-block-scoped-functions",
+					[
+						"transform-es2015-classes",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-object-super",
+					"transform-es2015-shorthand-properties",
+					[
+						"transform-es2015-computed-properties",
+						{
+							"loose": true
+						}
+					],
+					[
+						"transform-es2015-for-of",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-sticky-regex",
+					"transform-es2015-unicode-regex",
+					"check-es2015-constants",
+					[
+						"transform-es2015-spread",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-parameters",
+					[
+						"transform-es2015-destructuring",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-block-scoping",
+					"transform-object-rest-spread",
+					"transform-es3-member-expression-literals",
+					"transform-es3-property-literals"
+				],
+				"env": {
+					"commonjs": {
+						"plugins": [
+							[
+								"transform-es2015-modules-commonjs",
+								{
+									"loose": true
+								}
+							]
+						]
+					}
+				}
+			},
+			"bugs": {
+				"url": "https://github.com/ethjs/ethjs-util/issues"
+			},
+			"bundleDependencies": false,
+			"contributors": [
+				{
+					"name": "Richard Moore",
+					"email": "me@ricmoo.com",
+					"url": "https://ethers.io"
+				}
+			],
+			"dependencies": {
+				"is-hex-prefixed": "1.0.0",
+				"strip-hex-prefix": "1.0.0"
+			},
+			"deprecated": "crticial",
+			"description": "A simple set of Ethereum JS utilties.",
+			"devDependencies": {
+				"babel-cli": "6.18.0",
+				"babel-core": "6.18.2",
+				"babel-eslint": "7.1.0",
+				"babel-loader": "6.2.8",
+				"babel-plugin-check-es2015-constants": "6.8.0",
+				"babel-plugin-transform-es2015-arrow-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoped-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoping": "6.18.0",
+				"babel-plugin-transform-es2015-classes": "6.18.0",
+				"babel-plugin-transform-es2015-computed-properties": "6.8.0",
+				"babel-plugin-transform-es2015-destructuring": "6.19.0",
+				"babel-plugin-transform-es2015-for-of": "6.18.0",
+				"babel-plugin-transform-es2015-function-name": "6.9.0",
+				"babel-plugin-transform-es2015-literals": "6.8.0",
+				"babel-plugin-transform-es2015-modules-commonjs": "6.18.0",
+				"babel-plugin-transform-es2015-object-super": "6.8.0",
+				"babel-plugin-transform-es2015-parameters": "6.18.0",
+				"babel-plugin-transform-es2015-shorthand-properties": "6.18.0",
+				"babel-plugin-transform-es2015-spread": "6.8.0",
+				"babel-plugin-transform-es2015-sticky-regex": "6.8.0",
+				"babel-plugin-transform-es2015-template-literals": "6.8.0",
+				"babel-plugin-transform-es2015-unicode-regex": "6.11.0",
+				"babel-plugin-transform-es3-member-expression-literals": "6.5.0",
+				"babel-plugin-transform-es3-property-literals": "6.5.0",
+				"babel-plugin-transform-object-rest-spread": "6.19.0",
+				"babel-register": "6.18.0",
+				"bignumber.js": "3.0.1",
+				"bn.js": "4.11.6",
+				"chai": "3.5.0",
+				"check-es3-syntax-cli": "0.1.3",
+				"coveralls": "2.11.9",
+				"cross-env": "1.0.7",
+				"eslint": "2.10.1",
+				"eslint-config-airbnb": "9.0.1",
+				"eslint-import-resolver-webpack": "0.2.4",
+				"eslint-plugin-import": "1.8.0",
+				"eslint-plugin-jsx-a11y": "1.2.0",
+				"eslint-plugin-react": "5.1.1",
+				"eventsource-polyfill": "0.9.6",
+				"istanbul": "0.4.5",
+				"json-loader": "0.5.4",
+				"lint-staged": "1.0.1",
+				"mocha": "3.1.2",
+				"pre-commit": "1.1.3",
+				"rimraf": "2.3.4",
+				"webpack": "2.1.0-beta.15"
+			},
+			"engines": {
+				"node": ">=6.5.0",
+				"npm": ">=3"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"extends": "airbnb",
+				"env": {
+					"node": true,
+					"mocha": true,
+					"es6": true
+				},
+				"parserOptions": {
+					"ecmaVersion": 6,
+					"sourceType": "module"
+				},
+				"rules": {
+					"import/no-unresolved": 2,
+					"comma-dangle": [
+						2,
+						"always-multiline"
+					],
+					"indent": [
+						2,
+						2,
+						{
+							"SwitchCase": 1
+						}
+					],
+					"no-console": 1,
+					"max-len": 0,
+					"prefer-template": 2,
+					"no-use-before-define": 0,
+					"newline-per-chained-call": 0,
+					"arrow-body-style": [
+						2,
+						"as-needed"
+					]
+				}
+			},
+			"files": [
+				"dist",
+				"internals",
+				"lib",
+				"src"
+			],
+			"homepage": "https://github.com/ethjs/ethjs-util#readme",
+			"keywords": [
+				"ethereum",
+				"rpc",
+				"formatter",
+				"format",
+				"ethereum",
+				"encoding",
+				"decoding"
+			],
+			"license": "MIT",
+			"lint-staged": {
+				"lint:eslint": "*.js"
+			},
+			"main": "lib/index.js",
+			"name": "ethjs-util",
+			"pre-commit": "build",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/ethjs/ethjs-util.git"
+			},
+			"scripts": {
+				"build": "npm run build:commonjs && npm run test:lib && npm run build:umd && npm run build:umd:min",
+				"build:clean": "npm run test:clean && rimraf ./dist",
+				"build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --copy-files",
+				"build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",
+				"build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",
+				"coveralls": "npm run test-travis && cat ./coverage/lcov.info | coveralls",
+				"lint": "npm run lint:js",
+				"lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern **/**.min.js",
+				"lint:js": "npm run lint:eslint -- . ",
+				"lint:staged": "lint-staged",
+				"prebuild": "npm run build:clean && npm run test",
+				"prepublish": "npm run build",
+				"pretest": "npm run lint",
+				"release": "npmpub",
+				"start": "npm test",
+				"test": "mocha ./src/tests/**/*.js -R spec --timeout 2000000",
+				"test-travis": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- src/tests/**/*.js -R spec --timeout 2000000",
+				"test:clean": "rimraf ./coverage",
+				"test:lib": "mocha ./lib/tests/**/*.js -R spec --timeout 2000000"
+			},
+			"version": "0.1.5",
+			"gitHead": "e1ea8873e9465d93f2607d7bd84091c80b797b5b",
+			"_id": "ethjs-util@0.1.5",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "silentcicero",
+				"email": "thenickdodson@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-no39KWWT6yELU9HU+BMuEXUCzzQoiBqdXmCNB6HebXD2u+XJKV5XoI0DarEz7E28Ve0voGKztxaEChOcYa62XA==",
+				"shasum": "50caa98c97397d15cdd983fbf4e7b3fe5594ccfd",
+				"tarball": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.1.5.tgz",
+				"fileCount": 12,
+				"unpackedSize": 224543,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbGY3aCRA9TVsSAnZWagAA1joP/izXKFQyvJRsbJRUrSQe\n3eVrDvNnubPfx+3H9F3ytWTNqdIuj93NMsTKYpGLhUbIEydm1SQaYghzSa1e\nziCkkV/PMjJ77SajR5/3YceXAvu7eU5EMzhcK47NEPyJ+ACkw2xQLaWZu9Fz\nrBBY4r4JqEn1WPu0yt4gCksRb6OmKp9ehtVdTrkjGX6p6UtQesyRByJnCLk8\nWFc/LHjgsQvx94EEM0GNEwv6fT327od0Xo50khGcAApJQyF6hLxSXmp5aKiD\nNSdMOjDQXOT80CHaPqgh+KypBTWyrei4pTDBUXLb4Ix+d4M/JtOn+eTwkFce\nl6Gm8eCToNAcIbX1u7Cx2kFQz/iLUx6CDDCrY69Y9shhLFgG6e3Fbhfkuu/a\nm7SC1++XfMqSKWYBtjTWCOp+6ybckwvLXLPMpH3UYVchjN6zPq28CgzE7ltO\nuG6jPGOuEblsmkVlqJtD5ky6UtHq7bZOBV/Ox3HuupHzumayEwuVBG6I4FNn\nrkal6NMUyCKRBNT35JAjFL7Rlep5ewVsSW4SQbpMqP3cyKszkVWikSfJtUS7\n6EWMZBnZ47b3vm122dVaBRHx5tZ1oYtCpMtZAggGM2oLKGNgOXil78R8jRE4\nQe55UU9ZcTSGmgv3cbHscGQ5NZhiLBU4bRYOB3pV9QcMATvKWcDHsE9lqZoP\nrc8B\r\n=BQox\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "silentcicero",
+					"email": "thenickdodson@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ethjs-util_0.1.5_1528401368635_0.3228136621312887"
+			}
+		},
+		"0.1.6": {
+			"authors": [
+				"Nick Dodson <nick.dodson@consensys.net>"
+			],
+			"babel": {
+				"plugins": [
+					[
+						"transform-es2015-template-literals",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-literals",
+					"transform-es2015-function-name",
+					"transform-es2015-arrow-functions",
+					"transform-es2015-block-scoped-functions",
+					[
+						"transform-es2015-classes",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-object-super",
+					"transform-es2015-shorthand-properties",
+					[
+						"transform-es2015-computed-properties",
+						{
+							"loose": true
+						}
+					],
+					[
+						"transform-es2015-for-of",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-sticky-regex",
+					"transform-es2015-unicode-regex",
+					"check-es2015-constants",
+					[
+						"transform-es2015-spread",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-parameters",
+					[
+						"transform-es2015-destructuring",
+						{
+							"loose": true
+						}
+					],
+					"transform-es2015-block-scoping",
+					"transform-object-rest-spread",
+					"transform-es3-member-expression-literals",
+					"transform-es3-property-literals"
+				],
+				"env": {
+					"commonjs": {
+						"plugins": [
+							[
+								"transform-es2015-modules-commonjs",
+								{
+									"loose": true
+								}
+							]
+						]
+					}
+				}
+			},
+			"bugs": {
+				"url": "https://github.com/ethjs/ethjs-util/issues"
+			},
+			"bundleDependencies": false,
+			"contributors": [
+				{
+					"name": "Richard Moore",
+					"email": "me@ricmoo.com",
+					"url": "https://ethers.io"
+				}
+			],
+			"dependencies": {
+				"is-hex-prefixed": "1.0.0",
+				"strip-hex-prefix": "1.0.0"
+			},
+			"deprecated": false,
+			"description": "A simple set of Ethereum JS utilties.",
+			"devDependencies": {
+				"babel-cli": "6.18.0",
+				"babel-core": "6.18.2",
+				"babel-eslint": "7.1.0",
+				"babel-loader": "6.2.8",
+				"babel-plugin-check-es2015-constants": "6.8.0",
+				"babel-plugin-transform-es2015-arrow-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoped-functions": "6.8.0",
+				"babel-plugin-transform-es2015-block-scoping": "6.18.0",
+				"babel-plugin-transform-es2015-classes": "6.18.0",
+				"babel-plugin-transform-es2015-computed-properties": "6.8.0",
+				"babel-plugin-transform-es2015-destructuring": "6.19.0",
+				"babel-plugin-transform-es2015-for-of": "6.18.0",
+				"babel-plugin-transform-es2015-function-name": "6.9.0",
+				"babel-plugin-transform-es2015-literals": "6.8.0",
+				"babel-plugin-transform-es2015-modules-commonjs": "6.18.0",
+				"babel-plugin-transform-es2015-object-super": "6.8.0",
+				"babel-plugin-transform-es2015-parameters": "6.18.0",
+				"babel-plugin-transform-es2015-shorthand-properties": "6.18.0",
+				"babel-plugin-transform-es2015-spread": "6.8.0",
+				"babel-plugin-transform-es2015-sticky-regex": "6.8.0",
+				"babel-plugin-transform-es2015-template-literals": "6.8.0",
+				"babel-plugin-transform-es2015-unicode-regex": "6.11.0",
+				"babel-plugin-transform-es3-member-expression-literals": "6.5.0",
+				"babel-plugin-transform-es3-property-literals": "6.5.0",
+				"babel-plugin-transform-object-rest-spread": "6.19.0",
+				"babel-register": "6.18.0",
+				"bignumber.js": "3.0.1",
+				"bn.js": "4.11.6",
+				"chai": "3.5.0",
+				"check-es3-syntax-cli": "0.1.3",
+				"coveralls": "2.11.9",
+				"cross-env": "1.0.7",
+				"eslint": "2.10.1",
+				"eslint-config-airbnb": "9.0.1",
+				"eslint-import-resolver-webpack": "0.2.4",
+				"eslint-plugin-import": "1.8.0",
+				"eslint-plugin-jsx-a11y": "1.2.0",
+				"eslint-plugin-react": "5.1.1",
+				"eventsource-polyfill": "0.9.6",
+				"istanbul": "0.4.5",
+				"json-loader": "0.5.4",
+				"lint-staged": "1.0.1",
+				"mocha": "3.1.2",
+				"pre-commit": "1.1.3",
+				"rimraf": "2.3.4",
+				"webpack": "2.1.0-beta.15"
+			},
+			"engines": {
+				"node": ">=6.5.0",
+				"npm": ">=3"
+			},
+			"eslintConfig": {
+				"parser": "babel-eslint",
+				"extends": "airbnb",
+				"env": {
+					"node": true,
+					"mocha": true,
+					"es6": true
+				},
+				"parserOptions": {
+					"ecmaVersion": 6,
+					"sourceType": "module"
+				},
+				"rules": {
+					"import/no-unresolved": 2,
+					"comma-dangle": [
+						2,
+						"always-multiline"
+					],
+					"indent": [
+						2,
+						2,
+						{
+							"SwitchCase": 1
+						}
+					],
+					"no-console": 1,
+					"max-len": 0,
+					"prefer-template": 2,
+					"no-use-before-define": 0,
+					"newline-per-chained-call": 0,
+					"arrow-body-style": [
+						2,
+						"as-needed"
+					]
+				}
+			},
+			"files": [
+				"dist",
+				"internals",
+				"lib",
+				"src"
+			],
+			"homepage": "https://github.com/ethjs/ethjs-util#readme",
+			"keywords": [
+				"ethereum",
+				"rpc",
+				"formatter",
+				"format",
+				"ethereum",
+				"encoding",
+				"decoding"
+			],
+			"license": "MIT",
+			"lint-staged": {
+				"lint:eslint": "*.js"
+			},
+			"main": "lib/index.js",
+			"name": "ethjs-util",
+			"pre-commit": "build",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/ethjs/ethjs-util.git"
+			},
+			"scripts": {
+				"build": "npm run build:commonjs && npm run test:lib && npm run build:umd && npm run build:umd:min",
+				"build:clean": "npm run test:clean && rimraf ./dist",
+				"build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --copy-files",
+				"build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",
+				"build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack --config ./internals/webpack/webpack.config.js ./lib/index.js --progress",
+				"coveralls": "npm run test-travis && cat ./coverage/lcov.info | coveralls",
+				"lint": "npm run lint:js",
+				"lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern **/**.min.js",
+				"lint:js": "npm run lint:eslint -- . ",
+				"lint:staged": "lint-staged",
+				"prebuild": "npm run build:clean && npm run test",
+				"prepublish": "npm run build",
+				"pretest": "npm run lint",
+				"release": "npmpub",
+				"start": "npm test",
+				"test": "mocha ./src/tests/**/*.js -R spec --timeout 2000000",
+				"test-travis": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- src/tests/**/*.js -R spec --timeout 2000000",
+				"test:clean": "rimraf ./coverage",
+				"test:lib": "mocha ./lib/tests/**/*.js -R spec --timeout 2000000"
+			},
+			"version": "0.1.6",
+			"gitHead": "e9aede668177b6d1ea62d741ba1c19402bc337b3",
+			"_id": "ethjs-util@0.1.6",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "silentcicero",
+				"email": "thenickdodson@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-CUnVOQq7gSpDHZVVrQW8ExxUETWrnrvXYvYz55wOU8Uj4VCgw56XC2B/fVqQN+f7gmrnRHSLVnFAwsCuNwji8w==",
+				"shasum": "f308b62f185f9fe6237132fb2a9818866a5cd536",
+				"tarball": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.1.6.tgz",
+				"fileCount": 12,
+				"unpackedSize": 224858,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbHW+4CRA9TVsSAnZWagAAY5wP/Rgs5QGHVNt24xpwjITX\nPwO0jbnf38lAKHHdIclODkRhvYtTq3MUeNEfqfBmIJO8gYhrQAWWQpHotCT8\nDDXbgOEW6iPyRcKaM9OC+FHkeQny4q/1q/mXlnkT/Dy2bQQedC4+N0PNogKI\nyW5zLE3pHjcQ7PV878k8FLI6K4gH9xB9VHVhiOdj1iDijddHK5WaSD0D5KMi\niLrBnBPsrdYpye36OoAy1leN5q0VH+PbWbYgOp/YbMAeXujlhwbw9JLul33m\nUUzU6qQIMdyeXkQuvywmZinxX8al8PhyxZUXjiaVspJLD1LrYYOnz+iXuW+W\n/ycXoN9kqZU7YN9ba0b2c9oMcrboTMonksKX7wZmnlWLjffOpVmJLgxna0cu\nelPI4NwD3XQIr3TM/CpjtXwxAwlTS7NrsnQ+ox7eQC/di834ABjP87E+Y2lo\ntlyoIY2QfM+VME1hCV/+5CgKE3Q4a6KKV/uzZ69VAEmqJsd5eHPW3+MOT3ao\nkEZkwApReT/JZP2pVrg14uSgur3+/sDumkob3E+3QKJTBY99ab/0MgxWsJHH\ncs3cPZrat2vTCv+KDGsINpwA5LfFVcHRv7RG2a8SZc77iSg/MzjDq0hPI5Ao\nCLm7yod9JJnZ+COjIcpL9Mq6T0JJ12r+YziWdS84WEEIOFWeTEuvHFyR8QOt\n7C69\r\n=kIvi\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "silentcicero",
+					"email": "thenickdodson@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ethjs-util_0.1.6_1528655798398_0.33680116122375603"
+			}
+		}
+	},
+	"time": {
+		"modified": "2018-06-10T20:50:18.913Z",
+		"created": "2016-11-25T17:54:36.220Z",
+		"0.0.1": "2016-11-25T17:54:36.220Z",
+		"0.0.2": "2016-11-27T03:26:42.424Z",
+		"0.0.3": "2016-11-27T17:18:23.342Z",
+		"0.0.4": "2016-11-30T02:55:03.736Z",
+		"0.0.5": "2016-12-04T04:56:53.385Z",
+		"0.1.0": "2016-12-04T22:24:35.789Z",
+		"0.1.1": "2016-12-05T01:10:29.799Z",
+		"0.1.2": "2016-12-07T05:08:49.760Z",
+		"0.1.3": "2016-12-10T20:56:46.264Z",
+		"0.1.4": "2017-02-10T04:23:58.073Z",
+		"0.1.5": "2018-06-07T19:56:08.771Z",
+		"0.1.6": "2018-06-10T18:36:38.504Z"
+	},
+	"dist-tags": {
+		"latest": "0.1.6"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"7b937770139feaa9a215d3d96b8de136\"",
+			"fetched": 1568994331673
+		}
+	},
+	"_distfiles": {
+		"ethjs-util-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.0.1.tgz",
+			"sha": "1fe14cc4f1774607d07d1272774b9f39fe503925",
+			"registry": "npmjs"
+		},
+		"ethjs-util-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.0.2.tgz",
+			"sha": "27e40c9669c6dd59f62baf99f04280a71d6faefc",
+			"registry": "npmjs"
+		},
+		"ethjs-util-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.0.3.tgz",
+			"sha": "398aeb096188c098abc36b9bb070d5824c18494c",
+			"registry": "npmjs"
+		},
+		"ethjs-util-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.0.4.tgz",
+			"sha": "6acb865ab163568251add0c22e8cbc7970b3bfd7",
+			"registry": "npmjs"
+		},
+		"ethjs-util-0.0.5.tgz": {
+			"url": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.0.5.tgz",
+			"sha": "d53cb21e0150146fa03de9d844d9198b2e82618e",
+			"registry": "npmjs"
+		},
+		"ethjs-util-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.1.0.tgz",
+			"sha": "e918db67556e34cd73e1d3183fc05014f4cd2d2a",
+			"registry": "npmjs"
+		},
+		"ethjs-util-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.1.1.tgz",
+			"sha": "3b1e93677ef0b8ef34885eb19b9a3cd08bb6e2d5",
+			"registry": "npmjs"
+		},
+		"ethjs-util-0.1.2.tgz": {
+			"url": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.1.2.tgz",
+			"sha": "71828d607c9df3d659d40666982e3fae02a94e73",
+			"registry": "npmjs"
+		},
+		"ethjs-util-0.1.3.tgz": {
+			"url": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.1.3.tgz",
+			"sha": "dfd5ea4a400dc5e421a889caf47e081ada78bb55",
+			"registry": "npmjs"
+		},
+		"ethjs-util-0.1.4.tgz": {
+			"url": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.1.4.tgz",
+			"sha": "1c8b6879257444ef4d3f3fbbac2ded12cd997d93",
+			"registry": "npmjs"
+		},
+		"ethjs-util-0.1.5.tgz": {
+			"url": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.1.5.tgz",
+			"sha": "50caa98c97397d15cdd983fbf4e7b3fe5594ccfd",
+			"registry": "npmjs"
+		},
+		"ethjs-util-0.1.6.tgz": {
+			"url": "https://registry.npmjs.org/ethjs-util/-/ethjs-util-0.1.6.tgz",
+			"sha": "f308b62f185f9fe6237132fb2a9818866a5cd536",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-91980146d0d129c0",
+	"_id": "ethjs-util",
+	"readme": "## ethjs-util\n\n<div>\n  <!-- Dependency Status -->\n  <a href=\"https://david-dm.org/ethjs/ethjs-util\">\n    <img src=\"https://david-dm.org/ethjs/ethjs-util.svg\"\n    alt=\"Dependency Status\" />\n  </a>\n\n  <!-- devDependency Status -->\n  <a href=\"https://david-dm.org/ethjs/ethjs-util#info=devDependencies\">\n    <img src=\"https://david-dm.org/ethjs/ethjs-util/dev-status.svg\" alt=\"devDependency Status\" />\n  </a>\n\n  <!-- Build Status -->\n  <a href=\"https://travis-ci.org/ethjs/ethjs-util\">\n    <img src=\"https://travis-ci.org/ethjs/ethjs-util.svg\"\n    alt=\"Build Status\" />\n  </a>\n\n  <!-- NPM Version -->\n  <a href=\"https://www.npmjs.org/package/ethjs-util\">\n    <img src=\"http://img.shields.io/npm/v/ethjs-util.svg\"\n    alt=\"NPM version\" />\n  </a>\n\n  <!-- Test Coverage -->\n  <a href=\"https://coveralls.io/r/ethjs/ethjs-util\">\n    <img src=\"https://coveralls.io/repos/github/ethjs/ethjs-util/badge.svg\" alt=\"Test Coverage\" />\n  </a>\n\n  <!-- Javascript Style -->\n  <a href=\"http://airbnb.io/javascript/\">\n    <img src=\"https://img.shields.io/badge/code%20style-airbnb-brightgreen.svg\" alt=\"js-airbnb-style\" />\n  </a>\n</div>\n\n<br />\n\nA simple set of Ethereum JS utilities such as `toBuffer` and `isHexPrefixed`.\n\n## Install\n\n```\nnpm install --save ethjs-util\n```\n\n## Usage\n\n```js\nconst util = require('ethjs-util');\n\nconst value = util.intToBuffer(38272);\n\n// returns <Buffer ...>\n```\n\n## About\n\nA simple set of Ethereum JS utilties, mainly for frontend dApps.\n\n## Available Methods\n\n```\ngetBinarySize        <Function (String) : (Number)>\nintToBuffer          <Function (Number) : (Buffer)>\nintToHex             <Function (Number) : (String)>\n\npadToEven            <Function (String) : (String)>\nisHexPrefixed        <Function (String) : (Boolean)>\nisHexString          <Function (Value, Length) : (Boolean)>\nstripHexPrefix       <Function (String) : (String)>\naddHexPrefix         <Function (String) : (String)>\n\ngetKeys              <Function (Params, Key, Empty) : (Array)>\narrayContainsArray   <Function (Array, Array) : (Boolean)>\n\nfromAscii            <Function (String) : (String)>\nfromUtf8             <Function (String) : (String)>\ntoAscii              <Function (String) : (String)>\ntoUtf8               <Function (String) : (String)>\n```\n\n## Contributing\n\nPlease help better the ecosystem by submitting issues and pull requests to default. We need all the help we can get to build the absolute best linting standards and utilities. We follow the AirBNB linting standard and the unix philosophy.\n\n## Guides\n\nYou'll find more detailed information on using `ethjs-util` and tailoring it to your needs in our guides:\n\n- [User guide](docs/user-guide.md) - Usage, configuration, FAQ and complementary tools.\n- [Developer guide](docs/developer-guide.md) - Contributing to `ethjs-util` and writing your own code and coverage.\n\n## Help out\n\nThere is always a lot of work to do, and will have many rules to maintain. So please help out in any way that you can:\n\n- Create, enhance, and debug ethjs rules (see our guide to [\"Working on rules\"](./github/CONTRIBUTING.md)).\n- Improve documentation.\n- Chime in on any open issue or pull request.\n- Open new issues about your ideas for making `ethjs-util` better, and pull requests to show us how your idea works.\n- Add new tests to *absolutely anything*.\n- Create or contribute to ecosystem tools, like modules for encoding or contracts.\n- Spread the word.\n\nPlease consult our [Code of Conduct](CODE_OF_CONDUCT.md) docs before helping out.\n\nWe communicate via [issues](https://github.com/ethjs/ethjs-util/issues) and [pull requests](https://github.com/ethjs/ethjs-util/pulls).\n\n## Important documents\n\n- [Changelog](CHANGELOG.md)\n- [Code of Conduct](CODE_OF_CONDUCT.md)\n- [License](https://raw.githubusercontent.com/ethjs/ethjs-util/master/LICENSE)\n\n## Licence\n\nThis project is licensed under the MIT license, Copyright (c) 2016 Nick Dodson. For more information see LICENSE.md.\n\n```\nThe MIT License\n\nCopyright (c) 2016 Nick Dodson. nickdodson.com\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n```"
+}

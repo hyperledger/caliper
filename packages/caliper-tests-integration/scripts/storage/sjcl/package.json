@@ -1,0 +1,529 @@
+{
+	"name": "sjcl",
+	"versions": {
+		"1.0.0": {
+			"name": "sjcl",
+			"version": "1.0.0",
+			"description": "Stanford Javascript Crypto Library",
+			"main": "sjcl.js",
+			"author": {
+				"name": "bitwiseshiftleft"
+			},
+			"keywords": [
+				"encryption",
+				"high-level",
+				"crypto"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/bitwiseshiftleft/sjcl.git"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"_npmUser": {
+				"name": "Nilos",
+				"email": "nk@ovt.me"
+			},
+			"_id": "sjcl@1.0.0",
+			"dependencies": {},
+			"devDependencies": {},
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.4",
+			"_nodeVersion": "v0.6.12",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "47f3b7c7d87aa58e14f89f5fbc0b44613a129af7",
+				"tarball": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "Nilos",
+					"email": "nk@ovt.me"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "sjcl",
+			"version": "1.0.1",
+			"description": "Stanford Javascript Crypto Library",
+			"main": "sjcl.js",
+			"author": {
+				"name": "bitwiseshiftleft"
+			},
+			"keywords": [
+				"encryption",
+				"high-level",
+				"crypto"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/bitwiseshiftleft/sjcl.git"
+			},
+			"scripts": {
+				"test": "make test"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"bugs": {
+				"url": "https://github.com/bitwiseshiftleft/sjcl/issues"
+			},
+			"homepage": "https://github.com/bitwiseshiftleft/sjcl",
+			"_id": "sjcl@1.0.1",
+			"_shasum": "b02787aab10ec6b3b77870f20fcd7b68949c9483",
+			"_from": ".",
+			"_npmVersion": "1.4.7",
+			"_npmUser": {
+				"name": "nilos",
+				"email": "nk@ovt.me"
+			},
+			"maintainers": [
+				{
+					"name": "Nilos",
+					"email": "nk@ovt.me"
+				},
+				{
+					"name": "nilos",
+					"email": "nk@ovt.me"
+				}
+			],
+			"dist": {
+				"shasum": "b02787aab10ec6b3b77870f20fcd7b68949c9483",
+				"tarball": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "sjcl",
+			"version": "1.0.2",
+			"description": "Stanford Javascript Crypto Library",
+			"main": "sjcl.js",
+			"author": {
+				"name": "bitwiseshiftleft"
+			},
+			"keywords": [
+				"encryption",
+				"high-level",
+				"crypto"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/bitwiseshiftleft/sjcl.git"
+			},
+			"scripts": {
+				"test": "make test"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"gitHead": "7d1eeb360a2fc6ce94abc8b5df8b1767eb69844b",
+			"bugs": {
+				"url": "https://github.com/bitwiseshiftleft/sjcl/issues"
+			},
+			"homepage": "https://github.com/bitwiseshiftleft/sjcl",
+			"_id": "sjcl@1.0.2",
+			"_shasum": "5283eecc74ae5fa7709d88e3b0cd6692c817b2d2",
+			"_from": ".",
+			"_npmVersion": "2.1.11",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "nilos",
+				"email": "nk@ovt.me"
+			},
+			"maintainers": [
+				{
+					"name": "Nilos",
+					"email": "nk@ovt.me"
+				},
+				{
+					"name": "nilos",
+					"email": "nk@ovt.me"
+				}
+			],
+			"dist": {
+				"shasum": "5283eecc74ae5fa7709d88e3b0cd6692c817b2d2",
+				"tarball": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.2.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "sjcl",
+			"version": "1.0.3",
+			"description": "Stanford Javascript Crypto Library",
+			"main": "sjcl.js",
+			"author": {
+				"name": "bitwiseshiftleft"
+			},
+			"keywords": [
+				"encryption",
+				"high-level",
+				"crypto"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/bitwiseshiftleft/sjcl.git"
+			},
+			"scripts": {
+				"test": "make test"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"gitHead": "fb1ba931a46d41a7c238717492b66201b2995840",
+			"bugs": {
+				"url": "https://github.com/bitwiseshiftleft/sjcl/issues"
+			},
+			"homepage": "https://github.com/bitwiseshiftleft/sjcl",
+			"_id": "sjcl@1.0.3",
+			"_shasum": "4ed486498ed6b742b5d4a21902268116f054a709",
+			"_from": ".",
+			"_npmVersion": "2.7.5",
+			"_nodeVersion": "0.10.36",
+			"_npmUser": {
+				"name": "nilos",
+				"email": "nk@ovt.me"
+			},
+			"maintainers": [
+				{
+					"name": "Nilos",
+					"email": "nk@ovt.me"
+				},
+				{
+					"name": "nilos",
+					"email": "nk@ovt.me"
+				}
+			],
+			"dist": {
+				"shasum": "4ed486498ed6b742b5d4a21902268116f054a709",
+				"tarball": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.3.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.5": {
+			"name": "sjcl",
+			"version": "1.0.5",
+			"description": "Stanford Javascript Crypto Library",
+			"main": "sjcl.js",
+			"author": {
+				"name": "bitwiseshiftleft"
+			},
+			"keywords": [
+				"encryption",
+				"high-level",
+				"crypto"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitwiseshiftleft/sjcl.git"
+			},
+			"scripts": {
+				"test": "make test",
+				"jsdoc": "jsdoc -c jsdoc.conf.json",
+				"lint": "eslint . || true"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"devDependencies": {
+				"eslint": "^2.11.1",
+				"jsdoc": "3.4.0"
+			},
+			"gitHead": "c9d263aef3f65b9ca55763a28d9ad9cf9adcd37a",
+			"bugs": {
+				"url": "https://github.com/bitwiseshiftleft/sjcl/issues"
+			},
+			"homepage": "https://github.com/bitwiseshiftleft/sjcl#readme",
+			"_id": "sjcl@1.0.5",
+			"_shasum": "dcc49f768c0a1461e8d645001a041b64e75629b7",
+			"_from": ".",
+			"_npmVersion": "3.5.3",
+			"_nodeVersion": "5.4.1",
+			"_npmUser": {
+				"name": "nilos",
+				"email": "nk@ovt.me"
+			},
+			"maintainers": [
+				{
+					"name": "Nilos",
+					"email": "nk@ovt.me"
+				},
+				{
+					"name": "nilos",
+					"email": "nk@ovt.me"
+				}
+			],
+			"dist": {
+				"shasum": "dcc49f768c0a1461e8d645001a041b64e75629b7",
+				"tarball": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.5.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/sjcl-1.0.5.tgz_1473408826835_0.4313890936318785"
+			},
+			"directories": {}
+		},
+		"1.0.6": {
+			"name": "sjcl",
+			"version": "1.0.6",
+			"description": "Stanford Javascript Crypto Library",
+			"main": "sjcl.js",
+			"author": {
+				"name": "bitwiseshiftleft"
+			},
+			"keywords": [
+				"encryption",
+				"high-level",
+				"crypto"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitwiseshiftleft/sjcl.git"
+			},
+			"scripts": {
+				"test": "make test",
+				"jsdoc": "jsdoc -c jsdoc.conf.json",
+				"lint": "eslint . || true"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"devDependencies": {
+				"eslint": "^2.11.1",
+				"jsdoc": "3.4.0"
+			},
+			"gitHead": "00bd42dae9ebc3a28708db2053ffa2e88f99ad1e",
+			"bugs": {
+				"url": "https://github.com/bitwiseshiftleft/sjcl/issues"
+			},
+			"homepage": "https://github.com/bitwiseshiftleft/sjcl#readme",
+			"_id": "sjcl@1.0.6",
+			"_shasum": "6415462a63cc0d4215c49baec9d3fa0c1b53520f",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "nilos",
+				"email": "nk@ovt.me"
+			},
+			"maintainers": [
+				{
+					"name": "Nilos",
+					"email": "nk@ovt.me"
+				},
+				{
+					"name": "nilos",
+					"email": "nk@ovt.me"
+				}
+			],
+			"dist": {
+				"shasum": "6415462a63cc0d4215c49baec9d3fa0c1b53520f",
+				"tarball": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.6.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/sjcl-1.0.6.tgz_1473504270844_0.44625794840976596"
+			},
+			"directories": {}
+		},
+		"1.0.7": {
+			"name": "sjcl",
+			"version": "1.0.7",
+			"description": "Stanford Javascript Crypto Library",
+			"main": "sjcl.js",
+			"author": {
+				"name": "bitwiseshiftleft"
+			},
+			"keywords": [
+				"encryption",
+				"high-level",
+				"crypto"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitwiseshiftleft/sjcl.git"
+			},
+			"scripts": {
+				"test": "make test",
+				"jsdoc": "jsdoc -c jsdoc.conf.json",
+				"lint": "eslint . || true"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"devDependencies": {
+				"eslint": "^2.11.1",
+				"jsdoc": "3.4.0"
+			},
+			"gitHead": "84aff6ab39cf93ef55508e7dcb1826c912032e58",
+			"bugs": {
+				"url": "https://github.com/bitwiseshiftleft/sjcl/issues"
+			},
+			"homepage": "https://github.com/bitwiseshiftleft/sjcl#readme",
+			"_id": "sjcl@1.0.7",
+			"_shasum": "32b365a50dc9bba26b88ba3c9df8ea34217d9f45",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "7.3.0",
+			"_npmUser": {
+				"name": "nilos",
+				"email": "nk@ovt.me"
+			},
+			"maintainers": [
+				{
+					"name": "Nilos",
+					"email": "nk@ovt.me"
+				},
+				{
+					"name": "nilos",
+					"email": "nk@ovt.me"
+				}
+			],
+			"dist": {
+				"shasum": "32b365a50dc9bba26b88ba3c9df8ea34217d9f45",
+				"tarball": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.7.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sjcl-1.0.7.tgz_1499158698138_0.06296913977712393"
+			},
+			"directories": {}
+		},
+		"1.0.8": {
+			"name": "sjcl",
+			"version": "1.0.8",
+			"description": "Stanford Javascript Crypto Library",
+			"main": "sjcl.js",
+			"author": {
+				"name": "bitwiseshiftleft"
+			},
+			"license": "(BSD-2-Clause OR GPL-2.0-only)",
+			"homepage": "https://github.com/bitwiseshiftleft/sjcl",
+			"keywords": [
+				"encryption",
+				"high-level",
+				"crypto"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/bitwiseshiftleft/sjcl.git"
+			},
+			"scripts": {
+				"test": "make test",
+				"jsdoc": "jsdoc -c jsdoc.conf.json",
+				"lint": "eslint . || true"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"devDependencies": {
+				"eslint": "^2.11.1",
+				"jsdoc": "3.4.0"
+			},
+			"gitHead": "2a6ed4a22449334de2dd9b4e960af679e0e87303",
+			"bugs": {
+				"url": "https://github.com/bitwiseshiftleft/sjcl/issues"
+			},
+			"_id": "sjcl@1.0.8",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.10.0",
+			"_npmUser": {
+				"name": "nilos",
+				"email": "nk@ovt.me"
+			},
+			"dist": {
+				"integrity": "sha512-LzIjEQ0S0DpIgnxMEayM1rq9aGwGRG4OnZhCdjx7glTaJtf4zRfpg87ImfjSJjoW9vKpagd82McDOwbRT5kQKQ==",
+				"shasum": "f2ec8d7dc1f0f21b069b8914a41a8f236b0e252a",
+				"tarball": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.8.tgz",
+				"fileCount": 128,
+				"unpackedSize": 2241545,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb5vG6CRA9TVsSAnZWagAAg5AQAKGXu0Q3tkxN7sfs+TLA\nHrIqdoG9JHDLtH0qCWt2yO/2oDGkCxJF6uVBYOazsaAFDWa5knPBCEb33a0s\nsQwv2w1dYUCt3O0gJhsV/svwHsu3cmkkKlPrl9fiiYxO39OUr/sbOs+zBpCq\n2PEuQLXZqxqHb/o0kO8MTwHw2t5kL4b9r3C4rU6C3GqVovs6fvz6YgjPQFUd\nFpAICnz5mgIcLfKAlY22ie+tFQAeurh2w2uzj//OkPotoOVQQok8BVo2/Qe3\npYSATKFtgDUXIvcNUxdO0v+6xNrcv3qOaa87MHUn1HbbCLcA7123oOn+/KqO\n0+SW9YiXYTWLVuT+OnCWdEABEEAOYV0AcoJS+/D7mBZDKYz5TgiN7jgYiDEC\nq1YSNFKbc9Wxs8IfWKEkgUAb86pKQnW882P4W5QjFkRMMlu1b0Cu2XUm3Bpt\nn9ijiZU3By7Ac3FGaaX31SpQiVFPOMZ/xnBRyFsiubpOmkMmKs6VCe8KVyrm\njdS2ZWcjqlRyPemOBKqtJo2P4ufa5mNu7CLHkwIX0M4KiXaPTVO5BB07FxZr\nAmJRB39ggJlM+ZCH3N0ZPD5iDWlKC57I6Hu6zWIyLA9WfWDACUOWThH6tcZj\n4QEUVFFzm6BqDyl/QQDnE3vQeOsq5u6XWmBnJlLe4XsuuemaUc27C0bX7BD4\n7b/O\r\n=sQiz\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "nilos",
+					"email": "nk@ovt.me"
+				},
+				{
+					"name": "Nilos",
+					"email": "nk@ovt.me"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sjcl_1.0.8_1541861818366_0.1466344192195368"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-01-05T12:23:28.803Z",
+		"created": "2013-09-10T11:14:05.584Z",
+		"1.0.0": "2013-09-10T11:14:07.771Z",
+		"1.0.1": "2014-04-30T07:51:49.992Z",
+		"1.0.2": "2015-01-25T13:14:25.384Z",
+		"1.0.3": "2015-05-20T14:55:51.463Z",
+		"1.0.5": "2016-09-09T08:13:48.334Z",
+		"1.0.6": "2016-09-10T10:44:32.450Z",
+		"1.0.7": "2017-07-04T08:58:20.008Z",
+		"1.0.8": "2018-11-10T14:56:58.577Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.8"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"4a8db6e8bb6e98d9243c74a977ab7e8f\"",
+			"fetched": 1568994343500
+		}
+	},
+	"_distfiles": {
+		"sjcl-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.0.tgz",
+			"sha": "47f3b7c7d87aa58e14f89f5fbc0b44613a129af7",
+			"registry": "npmjs"
+		},
+		"sjcl-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.1.tgz",
+			"sha": "b02787aab10ec6b3b77870f20fcd7b68949c9483",
+			"registry": "npmjs"
+		},
+		"sjcl-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.2.tgz",
+			"sha": "5283eecc74ae5fa7709d88e3b0cd6692c817b2d2",
+			"registry": "npmjs"
+		},
+		"sjcl-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.3.tgz",
+			"sha": "4ed486498ed6b742b5d4a21902268116f054a709",
+			"registry": "npmjs"
+		},
+		"sjcl-1.0.5.tgz": {
+			"url": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.5.tgz",
+			"sha": "dcc49f768c0a1461e8d645001a041b64e75629b7",
+			"registry": "npmjs"
+		},
+		"sjcl-1.0.6.tgz": {
+			"url": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.6.tgz",
+			"sha": "6415462a63cc0d4215c49baec9d3fa0c1b53520f",
+			"registry": "npmjs"
+		},
+		"sjcl-1.0.7.tgz": {
+			"url": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.7.tgz",
+			"sha": "32b365a50dc9bba26b88ba3c9df8ea34217d9f45",
+			"registry": "npmjs"
+		},
+		"sjcl-1.0.8.tgz": {
+			"url": "https://registry.npmjs.org/sjcl/-/sjcl-1.0.8.tgz",
+			"sha": "f2ec8d7dc1f0f21b069b8914a41a8f236b0e252a",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-1fef540e7c79db9d",
+	"_id": "sjcl",
+	"readme": "sjcl\n====\n\n[![Build Status](https://travis-ci.org/bitwiseshiftleft/sjcl.png)](https://travis-ci.org/bitwiseshiftleft/sjcl)\n\n[![Join the chat at https://gitter.im/bitwiseshiftleft/sjcl](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bitwiseshiftleft/sjcl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\n\nStanford Javascript Crypto Library\n\nSecurity Advisories\n===\n\n* 12.02.2014: the current development version has a paranoia bug in the ecc module. The bug was introduced in commit [ac0b3fe0](https://github.com/bitwiseshiftleft/sjcl/commit/ac0b3fe0) and might affect ecc key generation on platforms without a platform random number generator.\n\nSecurity Contact\n====\nSecurity Mail: sjcl@ovt.me  \nOpenPGP-Key Fingerprint: 0D54 3E52 87B4 EC06 3FA9 0115 72ED A6C7 7AAF 48ED  \nKeyserver: pool.sks-keyservers.net  \n\nUpgrade Guide\n====\n\n## 1.0.3 -> 1.0.4\n\n`codecBase32` has been re-enabled with changes to conform to [RFC 4648](http://tools.ietf.org/html/rfc4648#section-6):\n\n* Padding with `=` is now applied to the output of `fromBits`. If you don't want that padding, you can disable it by calling `fromBits` with a second parameter of `true` or anything that evaluates as \"truthy\" in JS\n* The encoding alphabet for `sjcl.codec.base32` now matches that specified by the RFC, rather than the extended hex alphabet.\n* The former extended hex alphabet is now available through `sjcl.codec.base32hex` (also matching the RFC). So if you encoded something with `base32` before, you'll want to decode it with `base32hex` now.\n\nDocumentation\n====\nThe documentation is available [here](http://bitwiseshiftleft.github.io/sjcl/doc/)"
+}

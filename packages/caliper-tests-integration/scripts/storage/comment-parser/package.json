@@ -1,0 +1,1896 @@
+{
+	"name": "comment-parser",
+	"versions": {
+		"0.1.0": {
+			"name": "comment-parser",
+			"version": "0.1.0",
+			"description": "Generic JSDoc-like comment parser.",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {
+				"event-stream": "~3.1.0",
+				"lodash": "~2.4.1"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"chai": "~1.9.0"
+			},
+			"scripts": {
+				"test": "mocha tests/*"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"_id": "comment-parser@0.1.0",
+			"dist": {
+				"shasum": "e00ca1f468c5334877fb4ee75c9971f462b94048",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.1.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "yavorskiy.s@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			]
+		},
+		"0.1.1": {
+			"name": "comment-parser",
+			"version": "0.1.1",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {
+				"lodash": "~2.4.1"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"chai": "~1.9.0"
+			},
+			"scripts": {
+				"test": "mocha tests/*"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"_id": "comment-parser@0.1.1",
+			"dist": {
+				"shasum": "4da06f600d0fd5622d4813be242c1490b24a151d",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.1.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "yavorskiy.s@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			]
+		},
+		"0.1.2": {
+			"name": "comment-parser",
+			"version": "0.1.2",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {
+				"lodash": "~2.4.1"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"chai": "~1.9.0"
+			},
+			"scripts": {
+				"test": "mocha tests/*"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"_id": "comment-parser@0.1.2",
+			"dist": {
+				"shasum": "43420460369d723963142f13c457a4d81c2facf7",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.1.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "yavorskiy.s@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			]
+		},
+		"0.2.0": {
+			"name": "comment-parser",
+			"version": "0.2.0",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {
+				"lodash": "~2.4.1"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"chai": "~1.9.0"
+			},
+			"scripts": {
+				"test": "mocha tests/*"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "6fbf854082e875b6f54ef3611938a5ac30630e1b",
+			"_id": "comment-parser@0.2.0",
+			"_shasum": "da18efa028982f41d112cac64a191c4a4b77a164",
+			"_from": ".",
+			"_npmVersion": "1.4.13",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "yavorskiy.s@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "da18efa028982f41d112cac64a191c4a4b77a164",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.2.0.tgz"
+			}
+		},
+		"0.2.1": {
+			"name": "comment-parser",
+			"version": "0.2.1",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {
+				"lodash": "~2.4.1"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"chai": "~1.9.0"
+			},
+			"scripts": {
+				"test": "mocha tests/*"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "a885ae3580dfc9f9fb4ff886c11c363b2f4b9c65",
+			"_id": "comment-parser@0.2.1",
+			"_shasum": "48c296c5bddc3d716ece79381f31bbd20867c3f2",
+			"_from": ".",
+			"_npmVersion": "1.4.13",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "yavorskiy.s@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "48c296c5bddc3d716ece79381f31bbd20867c3f2",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.2.1.tgz"
+			}
+		},
+		"0.2.2": {
+			"name": "comment-parser",
+			"version": "0.2.2",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {
+				"lodash": "~2.4.1"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"chai": "~1.9.0"
+			},
+			"scripts": {
+				"test": "mocha tests/*"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "bc8a7822f03eba1d38c4779989c0590f0fe87aaa",
+			"_id": "comment-parser@0.2.2",
+			"_shasum": "59ee350cfe837021831235c711bd7874ad4ddb4a",
+			"_from": ".",
+			"_npmVersion": "1.4.13",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "yavorskiy.s@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "59ee350cfe837021831235c711bd7874ad4ddb4a",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.2.2.tgz"
+			}
+		},
+		"0.2.3": {
+			"name": "comment-parser",
+			"version": "0.2.3",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"chai": "~1.9.0"
+			},
+			"scripts": {
+				"test": "mocha tests/*"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "2b221cd9d9f0e6230304e2da9c9136e73ee8984f",
+			"_id": "comment-parser@0.2.3",
+			"_shasum": "8d91ef5b748dc147a2209da214e186b28f0ea87a",
+			"_from": ".",
+			"_npmVersion": "1.4.13",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "yavorskiy.s@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "8d91ef5b748dc147a2209da214e186b28f0ea87a",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.2.3.tgz"
+			}
+		},
+		"0.2.4": {
+			"name": "comment-parser",
+			"version": "0.2.4",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"chai": "~1.9.0"
+			},
+			"scripts": {
+				"test": "mocha tests/*"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "cc52b71ae3233493e4e1df813b978d25dea5cb1a",
+			"_id": "comment-parser@0.2.4",
+			"_shasum": "ba753c7e08e4d50ab4011cb1d4be5831ec17be99",
+			"_from": ".",
+			"_npmVersion": "2.1.10",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "yavorskiy.s@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "ba753c7e08e4d50ab4011cb1d4be5831ec17be99",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.2.4.tgz"
+			}
+		},
+		"0.3.0": {
+			"name": "comment-parser",
+			"version": "0.3.0",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~1.9.0",
+				"jshint": "^2.5.10",
+				"jshint-stylish": "^1.0.0",
+				"mocha": "~1.17.1",
+				"nodemon": "^1.2.1"
+			},
+			"scripts": {
+				"test": "jshint --reporter node_modules/jshint-stylish/stylish.js index.js && mocha tests/*",
+				"watch": "nodemon -q -w index.js -w tests/ -x npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "49f191f066f6d57bc5239ce9a1d39149f0143884",
+			"_id": "comment-parser@0.3.0",
+			"_shasum": "797f2b86628915a5ad045b6aa57d42720509e657",
+			"_from": ".",
+			"_npmVersion": "2.1.10",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "yavorskiy.s@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "797f2b86628915a5ad045b6aa57d42720509e657",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.3.0.tgz"
+			}
+		},
+		"0.3.1": {
+			"name": "comment-parser",
+			"version": "0.3.1",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {
+				"readable-stream": "^2.0.4"
+			},
+			"devDependencies": {
+				"chai": "~1.9.0",
+				"jshint": "^2.5.10",
+				"jshint-stylish": "^1.0.0",
+				"mocha": "~1.17.1",
+				"nodemon": "^1.2.1"
+			},
+			"scripts": {
+				"test": "jshint --reporter node_modules/jshint-stylish/stylish.js index.js && mocha tests/*",
+				"watch": "nodemon -q -w index.js -w tests/ -x npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "a4c62837c1a2bf2399379de23268b442ccc51db5",
+			"_id": "comment-parser@0.3.1",
+			"_shasum": "fd657aac8c1492d308c9a6100fc9b49d2435aba1",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "yavorskiy.s@gmail.com"
+			},
+			"dist": {
+				"shasum": "fd657aac8c1492d308c9a6100fc9b49d2435aba1",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.3.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			]
+		},
+		"0.4.0": {
+			"name": "comment-parser",
+			"version": "0.4.0",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {
+				"readable-stream": "^2.0.4"
+			},
+			"devDependencies": {
+				"chai": "~1.9.0",
+				"jshint": "^2.5.10",
+				"jshint-stylish": "^1.0.0",
+				"mocha": "~1.17.1",
+				"nodemon": "^1.2.1"
+			},
+			"scripts": {
+				"test": "jshint --reporter node_modules/jshint-stylish/stylish.js index.js && mocha tests/*",
+				"watch": "nodemon -q -w index.js -w parser.js -w tests/ -x npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "7fa0cd73f9ed23c5b7e9f0258301a776c663b521",
+			"_id": "comment-parser@0.4.0",
+			"_shasum": "b274a3c924b6b2e55768f712acd3e3003cb55f57",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "yavorskiy.s@gmail.com"
+			},
+			"dist": {
+				"shasum": "b274a3c924b6b2e55768f712acd3e3003cb55f57",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-6-west.internal.npmjs.com",
+				"tmp": "tmp/comment-parser-0.4.0.tgz_1454957370745_0.3444726690649986"
+			}
+		},
+		"0.3.2": {
+			"name": "comment-parser",
+			"version": "0.3.2",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {
+				"readable-stream": "^2.0.4"
+			},
+			"devDependencies": {
+				"chai": "~1.9.0",
+				"jshint": "^2.5.10",
+				"jshint-stylish": "^1.0.0",
+				"mocha": "~1.17.1",
+				"nodemon": "^1.2.1"
+			},
+			"scripts": {
+				"test": "jshint --reporter node_modules/jshint-stylish/stylish.js index.js && mocha tests/*",
+				"watch": "nodemon -q -w index.js -w parser.js -w tests/ -x npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "3ead3322c1b782d1d6f776fa1e20664ef57632bb",
+			"_id": "comment-parser@0.3.2",
+			"_shasum": "3c03f0776b86a36dfd9a0a2c97c6307f332082fe",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "yavorskiy.s@gmail.com"
+			},
+			"dist": {
+				"shasum": "3c03f0776b86a36dfd9a0a2c97c6307f332082fe",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.3.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/comment-parser-0.3.2.tgz_1499877573474_0.9505084389820695"
+			}
+		},
+		"0.4.1": {
+			"name": "comment-parser",
+			"version": "0.4.1",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {
+				"readable-stream": "^2.0.4"
+			},
+			"devDependencies": {
+				"chai": "~1.9.0",
+				"eslint": "^4.7.1",
+				"eslint-config-standard": "^10.2.1",
+				"eslint-plugin-import": "^2.7.0",
+				"eslint-plugin-node": "^5.1.1",
+				"eslint-plugin-promise": "^3.5.0",
+				"eslint-plugin-standard": "^3.0.1",
+				"mocha": "^3.5.3",
+				"nodemon": "^1.2.1"
+			},
+			"scripts": {
+				"pretest": "eslint .",
+				"test": "mocha tests",
+				"watch": "nodemon -q -i node_modules -x npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "18c957ce4664aac2d6e8140be74ecfb84fa27fd4",
+			"_id": "comment-parser@0.4.1",
+			"_shasum": "cec7a6c3e3137aba3e04d8f7b65145597f66188f",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "yavorskiy.s@gmail.com"
+			},
+			"dist": {
+				"shasum": "cec7a6c3e3137aba3e04d8f7b65145597f66188f",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.4.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/comment-parser-0.4.1.tgz_1505805629521_0.029222230659797788"
+			}
+		},
+		"0.4.2": {
+			"name": "comment-parser",
+			"version": "0.4.2",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {
+				"readable-stream": "^2.0.4"
+			},
+			"devDependencies": {
+				"chai": "~1.9.0",
+				"eslint": "^4.7.1",
+				"eslint-config-standard": "^10.2.1",
+				"eslint-plugin-import": "^2.7.0",
+				"eslint-plugin-node": "^5.1.1",
+				"eslint-plugin-promise": "^3.5.0",
+				"eslint-plugin-standard": "^3.0.1",
+				"mocha": "^3.5.3",
+				"nodemon": "^1.2.1"
+			},
+			"scripts": {
+				"pretest": "eslint .",
+				"test": "mocha tests",
+				"watch": "nodemon -q -i node_modules -x npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "7f706901a0aa3ac39ec3d8613b85df5220fbc6d4",
+			"_id": "comment-parser@0.4.2",
+			"_shasum": "fa5a3f78013070114866dc7b8e9cf317a9635f74",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.3",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "yavorskiy.s@gmail.com"
+			},
+			"dist": {
+				"shasum": "fa5a3f78013070114866dc7b8e9cf317a9635f74",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.4.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/comment-parser-0.4.2.tgz_1506212774449_0.9942353118676692"
+			}
+		},
+		"0.5.0": {
+			"name": "comment-parser",
+			"version": "0.5.0",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {
+				"readable-stream": "^2.0.4"
+			},
+			"devDependencies": {
+				"chai": "~1.9.0",
+				"eslint": "^4.7.1",
+				"eslint-config-standard": "^10.2.1",
+				"eslint-plugin-import": "^2.7.0",
+				"eslint-plugin-node": "^5.1.1",
+				"eslint-plugin-promise": "^3.5.0",
+				"eslint-plugin-standard": "^3.0.1",
+				"mocha": "^3.5.3",
+				"nodemon": "^1.2.1"
+			},
+			"scripts": {
+				"pretest": "eslint .",
+				"test": "mocha tests",
+				"watch": "nodemon -q -i node_modules -x npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "55e2f22c21a7bfb58c5810d0d50cb2ab7df9ce3d",
+			"_id": "comment-parser@0.5.0",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "6.11.3",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "yavorskiy.s@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-sNM+U6+Kme4WDxjVJ+1N92BQm5SC0RbFD4TLXLJ+hThX3crW1q+7ObjUhylMYAjR/rWdB+7ZNLPjujVbGruHGQ==",
+				"shasum": "e833701804308eedef96c0b5029375b07f4eba1e",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.5.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/comment-parser-0.5.0.tgz_1510197046990_0.21625039563514292"
+			}
+		},
+		"0.5.1": {
+			"name": "comment-parser",
+			"version": "0.5.1",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {
+				"readable-stream": "^2.0.4"
+			},
+			"devDependencies": {
+				"chai": "~1.9.0",
+				"eslint": "^4.7.1",
+				"eslint-config-standard": "^10.2.1",
+				"eslint-plugin-import": "^2.7.0",
+				"eslint-plugin-node": "^5.1.1",
+				"eslint-plugin-promise": "^3.5.0",
+				"eslint-plugin-standard": "^3.0.1",
+				"mocha": "^3.5.3",
+				"nodemon": "^1.2.1"
+			},
+			"scripts": {
+				"pretest": "eslint .",
+				"test": "mocha tests",
+				"watch": "nodemon -q -i node_modules -x npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"contributors": [
+				{
+					"name": "Alexej Yaroshevich",
+					"url": "https://github.com/zxqfox"
+				},
+				{
+					"name": "Dieter Oberkofler",
+					"url": "https://github.com/doberkofler"
+				},
+				{
+					"name": "Evgeny Reznichenko",
+					"url": "https://github.com/zxcabs"
+				},
+				{
+					"name": "Jordan Harband",
+					"url": "https://github.com/ljharb"
+				},
+				{
+					"name": "tengattack",
+					"url": "https://github.com/tengattack"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "f507a98e3a0dbae132188cf4a8ef048ad004aeae",
+			"_id": "comment-parser@0.5.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.12.0",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "sergiy@yavorsky.me"
+			},
+			"dist": {
+				"integrity": "sha512-6RIp9+7yxmrTjwa1S+fv2eZ2x/ta81pdhOBmRtkY+0o+3tdquvPWqARAv6djmk0YSsAzpx7UgeHcvSv7bHQYCA==",
+				"shasum": "041fb38d943ba99b700aff44c13958681eb89adc",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.5.1.tgz",
+				"fileCount": 15,
+				"unpackedSize": 46130,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcDY8sCRA9TVsSAnZWagAAfL4P/26E92JIHwXBhAs/s9W4\nZS3nVybaR3ha3C9O4ae/FT3dQf/94YdXpV+xeXt2jFYpGlkHTn9N0fAsqsuk\nZURZCcOk54EfnDdf9rJCEudsm+OopC7GzBDubY/orGq09X8lVa+/hjMcaH/v\n3t/+dil3MYfvpwW5waonIXFCbtRvflYKJ5RJGa6fQ0aX1vo4I/pq+Bw58m6W\ng4ZfCrz1JVKnhh5lzbR0gixEZNJ7svRSJKjrVtGFO6qQd7UVs7942slY/5n5\nUuTe0hpZZYVNY1c4V4/cq1dKus5LLoYG0MQdlYx2JJK3zMwBMl34c8brAYI1\nQi1fYEHdqoU3SfNZX6s6pxQINhzj/Wp1BrBRXODZP7hF+uNjfVyNUyNdWV7P\nezF+hHnplLaSG/P/2j2K0VjlLZSQWRl9sJ73GlOkeQSneaj1GumhMvn8YpIe\nA+GmsOgnUeeXcgR1iFtMl2qCVVZY01ZMN4p9soXXU/kxPrkD9/bwpkpv+LP2\nzbXAIZ4L+SFM+eiWfOBoE909uQw5b1ADNyUuNM+0+zQr1D6t4noHmLJJX4fX\nLn6wFxoM7m44UM0VphJ1sFsWdRjStwIhaOgIXATclV/HSeYVx/EFHbTY8FzW\ntQSgVAK8bbL/z+pQ6w2Oao9ZV3GoUjq9OcprFTHfBcmNRc0zzb5Q6vvIJZcf\nAvro\r\n=MyMm\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/comment-parser_0.5.1_1544392491742_0.42352785595869746"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.5.2": {
+			"name": "comment-parser",
+			"version": "0.5.2",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "^4.2.0",
+				"eslint": "^4.7.1",
+				"eslint-config-standard": "^10.2.1",
+				"eslint-plugin-import": "^2.7.0",
+				"eslint-plugin-node": "^5.1.1",
+				"eslint-plugin-promise": "^3.5.0",
+				"eslint-plugin-standard": "^3.0.1",
+				"mocha": "^5.2.0",
+				"nodemon": "^1.18.9"
+			},
+			"scripts": {
+				"pretest": "eslint .",
+				"test": "mocha tests",
+				"watch": "nodemon -q -i node_modules -x npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"contributors": [
+				{
+					"name": "Alexej Yaroshevich",
+					"url": "https://github.com/zxqfox"
+				},
+				{
+					"name": "Dieter Oberkofler",
+					"url": "https://github.com/doberkofler"
+				},
+				{
+					"name": "Evgeny Reznichenko",
+					"url": "https://github.com/zxcabs"
+				},
+				{
+					"name": "Javier \"Ciberma\" Mora",
+					"url": "https://github.com/jhm-ciberman"
+				},
+				{
+					"name": "Jordan Harband",
+					"url": "https://github.com/ljharb"
+				},
+				{
+					"name": "tengattack",
+					"url": "https://github.com/tengattack"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "061940fb63f3b10fbd9073da4c02e98c6435bf0c",
+			"_id": "comment-parser@0.5.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.3.0",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "sergiy@yavorsky.me"
+			},
+			"dist": {
+				"integrity": "sha512-eM49LIvTHTBZWD53DTs+VYdsnCZRhLaqC4M2pQVVwkXsiZQ9i/axb+F7uyMQ0RQG1cRytan1V29Y6ir59CwnGw==",
+				"shasum": "97366ee0e282289806d9ed7c18f61c1614aa8235",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.5.2.tgz",
+				"fileCount": 16,
+				"unpackedSize": 48716,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcLJH3CRA9TVsSAnZWagAAiiEQAIa9zUBbPHBiUWe5lwae\nHQd55+A11kxxKyTvwTmvBVwGOblRZ9gfDoUbc/pUYhG3xykLFXavc/mTkDrV\nlczN9xqSh++/xr41cLA0f3Kg0+zayg84oesLXq/1QpaHVtWNpgN+AKsmyfR1\nz+A1g/+intNTmRjn03/KIPW/6cJ397FUMq8lypnh8xCiOQ2FViQ0vDsLHK1m\nFez9jTRPVOVkDZn8l8r1ziWlmz5v0YgYq0ZNaN4giv+u7ssqskyiGdrTqg6D\nZveHYTtj1CsDWgG5uE8hHsBaYFFgdNWhOc5yw6jjIxQWgK+Fq/iMFFuBotC5\nqWEIDKuDccAA3/3QDSo/443VVCkjvZT3msG7bZH+y7eo2OHsX32Wwjb53O5R\nMHQoXoT2b59kPddrI9X46TMoQ+QO0Eudd5ptPpKCQ1lXzsDWA/daz95mcFuV\nfzZOXuXFFA+vkXzXowEDFxHo0dfwnqrxpik+Yg+7mmIYUMLUPXFWrZAheJlE\njVM1piHq6Mbsp9PPes8QxAaZ44pvEnzTa7A3yD6N1XEFcZ79LH+t7K8cLIXy\neqr8AQnwWudMt4NeCaoPmnZKq2cvUdd7naPBcg6FicQ2A7OGiIHQtTVWQoOp\njjq1I3VpIiVsMcBr0VuJhBmuPaxKiJROOfGm8v6AQmf07tklVdM16QmEy1Ov\ncG73\r\n=3huC\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/comment-parser_0.5.2_1546424822528_0.2607447312606832"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.5.3": {
+			"name": "comment-parser",
+			"version": "0.5.3",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "^4.2.0",
+				"eslint": "^4.7.1",
+				"eslint-config-standard": "^10.2.1",
+				"eslint-plugin-import": "^2.7.0",
+				"eslint-plugin-node": "^5.1.1",
+				"eslint-plugin-promise": "^3.5.0",
+				"eslint-plugin-standard": "^3.0.1",
+				"mocha": "^5.2.0",
+				"nodemon": "^1.18.9"
+			},
+			"scripts": {
+				"pretest": "eslint .",
+				"test": "mocha tests",
+				"watch": "nodemon -q -i node_modules -x npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"contributors": [
+				{
+					"name": "Alexej Yaroshevich",
+					"url": "https://github.com/zxqfox"
+				},
+				{
+					"name": "Dieter Oberkofler",
+					"url": "https://github.com/doberkofler"
+				},
+				{
+					"name": "Evgeny Reznichenko",
+					"url": "https://github.com/zxcabs"
+				},
+				{
+					"name": "Javier \"Ciberma\" Mora",
+					"url": "https://github.com/jhm-ciberman"
+				},
+				{
+					"name": "Jordan Harband",
+					"url": "https://github.com/ljharb"
+				},
+				{
+					"name": "tengattack",
+					"url": "https://github.com/tengattack"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "1ee2815231b5592680094098ce9641f0efc77e5d",
+			"_id": "comment-parser@0.5.3",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.3.0",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "sergiy@yavorsky.me"
+			},
+			"dist": {
+				"integrity": "sha512-PNUSG0TTJSgJ60mCo4YLNtI/Sl+dLSru1jQjagjVldQJijUuC/gk79CVyQYb9FX/9Sv1bKy8vnadr5b7WNIZBA==",
+				"shasum": "9faf401d63f0d526c79a8417ceab171259795912",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.5.3.tgz",
+				"fileCount": 16,
+				"unpackedSize": 48969,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcMkRVCRA9TVsSAnZWagAAbHEP/Reh+QwpM+ldpkcosOAP\nh8wsUkANnMEA/fO/cg2UaAXYW0cpCUk8E9ytaZXRtoPZSZMHvMKGflhbU255\nQuKIlpU6ZAaIAamAK6KhknKjKCgo90fqaPsxc2m5UNSW1J/swwBN7RZXeSkV\nPLqTAFNbHEPiHIJV65cj4xk6rWu093uVvlUMVb8Ss3UZwiI3lwkb+R8e4gSU\n9uOwYcxJvURNKQtF1amShMfxd0rnbn6UX7sAioaV36hjSd7SqC8F1sQQncMZ\nyyh3QbIdxrdLlH/VAVRq9ZAIfffvuD3F4/UEAUiG3u69hxBp81VzpKE6hv9E\nejLjaogtADyyJ3yA4wWZojnMtsfqx5vPRv+uZAt18TqtzfQZ9PbgOqGVectm\ntsMrYktFNBVStlhdX6MICx7IZrY5/b8X/8HSdFlajfDWBHTZqH84zTDRE6xY\nuxcqLAQ1cjXunrmz6nA28FLk0m/1qMrkaUe7/4jCUz0bgiM0BTrFyqBIGaVT\nhA8eSEInnfpG4ltiu1IdpJx8Wm7Eo14kRsDxsCARS9kOPkzIW2zGAVbMZxIM\nm3GX2V1WHmlRpwQ3sZr7kK1vqguL3sMPlpjMYNM0d7phNicTAYa8XGCp9XuN\nMqFLPBGMd6x/I96Lmg+FbRnsxU5Oimu5R47AQwa+9GVIz8JY1trBdd+5HiR5\n3AOZ\r\n=lMq6\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/comment-parser_0.5.3_1546798164531_0.7300579034599246"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.5.4": {
+			"name": "comment-parser",
+			"version": "0.5.4",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "^4.2.0",
+				"eslint": "^4.7.1",
+				"eslint-config-standard": "^10.2.1",
+				"eslint-plugin-import": "^2.7.0",
+				"eslint-plugin-node": "^5.1.1",
+				"eslint-plugin-promise": "^3.5.0",
+				"eslint-plugin-standard": "^3.0.1",
+				"mocha": "^5.2.0",
+				"nodemon": "^1.18.9"
+			},
+			"scripts": {
+				"pretest": "eslint .",
+				"test": "mocha tests",
+				"watch": "nodemon -q -i node_modules -x npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"contributors": [
+				{
+					"name": "Alexej Yaroshevich",
+					"url": "https://github.com/zxqfox"
+				},
+				{
+					"name": "Dieter Oberkofler",
+					"url": "https://github.com/doberkofler"
+				},
+				{
+					"name": "Evgeny Reznichenko",
+					"url": "https://github.com/zxcabs"
+				},
+				{
+					"name": "Javier \"Ciberma\" Mora",
+					"url": "https://github.com/jhm-ciberman"
+				},
+				{
+					"name": "Jordan Harband",
+					"url": "https://github.com/ljharb"
+				},
+				{
+					"name": "tengattack",
+					"url": "https://github.com/tengattack"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "afd22382dcec49ce71f8bd9863d431d2291485a8",
+			"_id": "comment-parser@0.5.4",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.3.0",
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "sergiy@yavorsky.me"
+			},
+			"dist": {
+				"integrity": "sha512-0h7W6Y1Kb6zKQMJqdX41C5qf9ITCVIsD2qP2RaqDF3GFkXFrmuAuv5zUOuo19YzyC9scjBNpqzuaRQ2Sy5pxMQ==",
+				"shasum": "089840b9cccacad2b769b231ed43081d501b9487",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.5.4.tgz",
+				"fileCount": 16,
+				"unpackedSize": 52110,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcMyyaCRA9TVsSAnZWagAAwjwQAJACjqvq42N2ggKrh3WB\n5C/Tfr2JQ9DOp9571ftMRWaaXvS3Fo8LuHWIIxtBIiwGhCkMC/U65XLSDzdH\nW3UadJEOObmmm7aPn332lv8C3Y3nCu5YcwA4uOiow56R1IdWJBwo1yHTAXXO\nJR4UP2D4GEVz09Kv+f6Fx5injSb2OXlTsIihiy57QlQhrFTlt+17k2LsBE4x\n9r6ljqug9DaLMVJqcIeUufv4mpM/RyU1C8SruwWa4XbXVuQVsjMOSnA/6X6z\n59oHuKQbkgry+iFdP5QcSqgs135qiv4xipmq1AZwML5KJwxMRhiTzac7aBH9\nyA7qShAeHPRfVOxN/nnmzcCeYF0Mvkq8LL+OdmBZ6X9AeD+dBeWf4GUK9B9r\n8PL7zyvtDMFRxLkzIFc2brFgUSwFcCqtJadYvCOa2ocqk2wJjCy3WcxWA7aS\neFpirBpazadQHyS4NjlLN81q61DIeT6ko+KfiHyExozkU1ZSfXHt2z2pgRNq\n78xvZmYZCPiv2yYQicWfWgCHV2Q+saa3WxbfwbCOpk36x6Cyb4HI6/iRsfi/\nUeKoFMiAmryzkR279X4AEon+CClJ7ieP+KUO+uBBFMvp6ajGRP/IOX03E2uA\nk7tCPdYgtJzpmPJYZeihMelezrmawpTvUjWCqZIKZFxWrjlnH1X5kGus5kOV\n5o5D\r\n=PuUG\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/comment-parser_0.5.4_1546857625714_0.7279094778375019"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.5.5": {
+			"name": "comment-parser",
+			"version": "0.5.5",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "^4.2.0",
+				"eslint": "^5.16.0",
+				"eslint-config-standard": "^10.2.1",
+				"eslint-plugin-import": "^2.7.0",
+				"eslint-plugin-node": "^5.1.1",
+				"eslint-plugin-promise": "^3.5.0",
+				"eslint-plugin-standard": "^3.0.1",
+				"mocha": "^5.2.0",
+				"nodemon": "^1.18.9"
+			},
+			"scripts": {
+				"test:lint": "eslint .",
+				"test:unit": "mocha tests",
+				"test": "npm run test:lint && npm run test:unit",
+				"watch": "nodemon -q -i node_modules -x npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"contributors": [
+				{
+					"name": "Alexej Yaroshevich",
+					"url": "https://github.com/zxqfox"
+				},
+				{
+					"name": "Dieter Oberkofler",
+					"url": "https://github.com/doberkofler"
+				},
+				{
+					"name": "Evgeny Reznichenko",
+					"url": "https://github.com/zxcabs"
+				},
+				{
+					"name": "Javier \"Ciberma\" Mora",
+					"url": "https://github.com/jhm-ciberman"
+				},
+				{
+					"name": "Jordan Harband",
+					"url": "https://github.com/ljharb"
+				},
+				{
+					"name": "tengattack",
+					"url": "https://github.com/tengattack"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "52b04db625e7386bd0da8c9bdf17d7c80d581ec1",
+			"_id": "comment-parser@0.5.5",
+			"_nodeVersion": "8.12.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-oB3TinFT+PV3p8UwDQt71+HkG03+zwPwikDlKU6ZDmql6QX2zFlQ+G0GGSDqyJhdZi4PSlzFBm+YJ+ebOX3Vgw==",
+				"shasum": "c2584cae7c2f0afc773e96b2ee98f8c10cbd693d",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.5.5.tgz",
+				"fileCount": 16,
+				"unpackedSize": 53439,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdCxkJCRA9TVsSAnZWagAAUCMP/i8pZI/0OKK4MUOekgJk\niVeqAqFpNzmFLxt7yfspFpkLXgBHzX9TpPpTvjL2ID9eTsGb1YkspRuG1UiL\neW9EKKE12I4l/Lq5UHhndw6t0vvTcN+s//zTOUm0F3LNQ42makC9TuLMC2p2\nPfcHc0OSWu5Zv/VWmgHXa/xg6v2zyGkA1oIzQkBPEGsYJlg6HGZfmTgn/iqt\nB7a29wRKmFzCR+klHzkwadnWIaxAHw8S66TJ3OXJvYX1Ka+SroI+hUlFOHDS\nqen+s54O8zyWdlPaajkH21STxptjEL+xVGY5yypwpDyUCvtW9cohfWX9eiQg\nlV7tEyODypVvaIfWfhA80yCDEK2VPj7pBGRcjuZaycqwNuAYxuHWid3SQduC\n654Zag7eRBbIKpYy7hChvsQhLM0X0Kd2vlssbcQlN/wRWVvPIG+1/hn8b2KY\n5A7U12wuM268vVG/vNAb9VFecv3z+AdvbXFwNd/I55+DRRIi6snZQF6vno8e\nTI8MuC8EcNFGxmkgkGA4KqfRZLkBwrJ3t/XDTvVoZwQVmkT5sB5BnnhOj474\n7JI6POiRbXt+pTwzIR6VjOEhGS2g4SLgmXLZInBpE6ezItJIaN4UWiC/pM25\nMmQOaXwEmKc3tJ16Ece+jajaxRwOn2JLUNyZMlvBCH8O8ck9J16LYEt87ZoT\n5dsI\r\n=zNlk\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "sergiy@yavorsky.me"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/comment-parser_0.5.5_1561008392201_0.7851366932131965"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.6.0": {
+			"name": "comment-parser",
+			"version": "0.6.0",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "^4.2.0",
+				"eslint": "^6.0.1",
+				"eslint-config-standard": "^13.0.1",
+				"eslint-plugin-import": "^2.18.0",
+				"eslint-plugin-node": "^9.1.0",
+				"eslint-plugin-promise": "^4.2.1",
+				"eslint-plugin-standard": "^4.0.0",
+				"mocha": "^6.1.4",
+				"nodemon": "^1.19.1"
+			},
+			"engines": {
+				"node": ">= 6.0.0"
+			},
+			"scripts": {
+				"lint:fix": "eslint --fix .",
+				"test:lint": "eslint .",
+				"test:unit": "mocha tests",
+				"test": "npm run test:lint && npm run test:unit",
+				"watch": "nodemon -q -i node_modules -x npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"contributors": [
+				{
+					"name": "Alexej Yaroshevich",
+					"url": "https://github.com/zxqfox"
+				},
+				{
+					"name": "Brett Zamir",
+					"url": "https://github.com/brettz9"
+				},
+				{
+					"name": "Dieter Oberkofler",
+					"url": "https://github.com/doberkofler"
+				},
+				{
+					"name": "Evgeny Reznichenko",
+					"url": "https://github.com/zxcabs"
+				},
+				{
+					"name": "Javier \"Ciberma\" Mora",
+					"url": "https://github.com/jhm-ciberman"
+				},
+				{
+					"name": "Jordan Harband",
+					"url": "https://github.com/ljharb"
+				},
+				{
+					"name": "tengattack",
+					"url": "https://github.com/tengattack"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "d334eda74376847afbaf6ff9fef74fd3231010b9",
+			"_id": "comment-parser@0.6.0",
+			"_nodeVersion": "8.12.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-Vjmfk6XSibJ/0gSIfKYI9lMr34Z+rwDYoX79Miy8m+WgUtYmFLVKqZv116NTBuLgdH/e9WUMXecZYWa8T3eyyQ==",
+				"shasum": "bcde52dc26a4bd317b609146b75b55b7cc3ddf68",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.6.0.tgz",
+				"fileCount": 18,
+				"unpackedSize": 57306,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdLPKzCRA9TVsSAnZWagAAVnAP/1YpdSlC7BHbn6pOzB/G\nshIZQaWmHZBM1pjF3pN0dy2xd+7uHP2yJTF5opOIm6EiJi2KBFrQ4ehQBfb+\nF6MrYV0UeZ1mGP2j2TPFk6QLJ2HomXOAhXj4lW5aM5ZH/HMlTEAF5KG1AGjX\nsuZr3zn8MM7EJcSDEz0BL/e5IvG0KBh0HREGbijIpSQ1WaS6Cr7pzjteiZml\n7G7GSYl325x+ZIXyUY1OpKYcXREggC5ZbafGnXXeki/V6ZSRZbK6XY6fr8+P\nLFNIXTh1lkH9D3akB64D3FSbo3WaALtY8yZTxw7MbFqhZ3bDQdXG5UQSgpim\n7azLEJrnIx7KNL2B6BMZ1pl2MVzFuHxuo/0xPeuTqtmaEbaw1G0PG8Ou6eVw\n5JcAdd5Tti4s6mTFUohuqO0FvXBmaYWRtJZd3Rnpf2q/4oa3cAUM8GlkoQd4\n/rAQy7VQsm0asDBEsL8ly06oHqH+2MJvAH0WYrfW+vpRj1b87ZDkgqjkUopW\ny9E30cKOz74fmorZO1Hz2/PCuQUdTupROqeDUV0nx4RVgSg2xbrOSmVEG1er\nSeaAYpNleS+jkLEEM2uaW7uDVZl+Sjbc+eV+hgsOwtqAeGNCyBoPiNjQ0n82\ndGIhyfWGUrdkPx+D6Ep6sIuA5fzPvxeQjmObvJTY89G8ftp77SoaPsTLdnSo\no+T+\r\n=LDjX\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "sergiy@yavorsky.me"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/comment-parser_0.6.0_1563226802883_0.7413080578914921"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.6.1": {
+			"name": "comment-parser",
+			"version": "0.6.1",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "^4.2.0",
+				"eslint": "^6.0.1",
+				"eslint-config-standard": "^13.0.1",
+				"eslint-plugin-import": "^2.18.0",
+				"eslint-plugin-node": "^9.1.0",
+				"eslint-plugin-promise": "^4.2.1",
+				"eslint-plugin-standard": "^4.0.0",
+				"mocha": "^6.1.4",
+				"nodemon": "^1.19.1"
+			},
+			"engines": {
+				"node": ">= 6.0.0"
+			},
+			"scripts": {
+				"lint:fix": "eslint --fix .",
+				"test:lint": "eslint .",
+				"test:unit": "mocha tests",
+				"test": "npm run test:lint && npm run test:unit",
+				"watch": "nodemon -q -i node_modules -x npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"contributors": [
+				{
+					"name": "Alexej Yaroshevich",
+					"url": "https://github.com/zxqfox"
+				},
+				{
+					"name": "Brett Zamir",
+					"url": "https://github.com/brettz9"
+				},
+				{
+					"name": "Dieter Oberkofler",
+					"url": "https://github.com/doberkofler"
+				},
+				{
+					"name": "Evgeny Reznichenko",
+					"url": "https://github.com/zxcabs"
+				},
+				{
+					"name": "Javier \"Ciberma\" Mora",
+					"url": "https://github.com/jhm-ciberman"
+				},
+				{
+					"name": "Jordan Harband",
+					"url": "https://github.com/ljharb"
+				},
+				{
+					"name": "tengattack",
+					"url": "https://github.com/tengattack"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "942ed98e892e2b18688bb6ebeec09f10e9fe01ea",
+			"_id": "comment-parser@0.6.1",
+			"_nodeVersion": "8.12.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-Putzd7Ilyvknmb1KxGf5el9uw0sPx9gEVnDrm8tlvXGN1i8Uaa2VBxB32hUhfzTlrEhhxNQ+pKq4ZNe8wNxjmw==",
+				"shasum": "88040c7c0a57c62e64962c3e888518620a42e7c9",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.6.1.tgz",
+				"fileCount": 18,
+				"unpackedSize": 58454,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdLk0/CRA9TVsSAnZWagAAipwP/3p3Kqd0C0VaVV2LpCrg\nwRc3Vu3TaS4P76iMyte/fEfGvCOyvLtyhVxxRiStSy2ZLxjhMY0CHsJ66ixx\n5YeFday97q0wclus1HFh10mt8C7eirM8NF0bESyOoQZijv/qxY+ylcedQaFL\n/jrSw4NtdN9jPWxMAxk9Yu5mWYbG9VkDjZrzMYB+S8HkPX054HVu6ayuGrC9\nYNemdlbrOyAQekLnlXYaMTXh1GYba1upDsKG2xCvav+NsD9OfkEPIBkvZJua\nQgUgUq9rDvXQwDEtShX1yC3B8nrHbycSoSLPfYECY2mr/05dFlpcTNA7cClY\nynFIZEiXCvV117S4+VYSIt5Sw1xVF1f27ibQhTo2N40grw9RfVY84Eyil5m1\npkaYgOxl6vON2IKjP+BGXa3CrlHO8M6c0abW0EZWyXt16/S5k3lOIWJWu5Bo\neHDT/0hf+RzQO+ZGdl3VY7/bYdaeDxu/4Ff3fpYRFqTUeTrZ2d/PNyz7+fKq\nQriG4vEGaaFgZetTjNqZ6M0lDwMYLMUH+BwKSGjEARpsdWXKTBe582V0hOz9\nmf9iKj+lJxra1PQMnZ82KKFkuVZqgcMM3BesF/XQyeaFCGHgpyf+uuB9/tx1\nMXAJ5lRkMvx4pNfeOIOgYB4eSJ9j2mzj0RgYZFS7LZVyo6GIXeWKs3xHHhwx\nYM+9\r\n=vhyZ\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "sergiy@yavorsky.me"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/comment-parser_0.6.1_1563315518605_0.39357142558607383"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.6.2": {
+			"name": "comment-parser",
+			"version": "0.6.2",
+			"description": "Generic JSDoc-like comment parser. ",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"directories": {
+				"test": "tests"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "^4.2.0",
+				"eslint": "^6.0.1",
+				"eslint-config-standard": "^13.0.1",
+				"eslint-plugin-import": "^2.18.0",
+				"eslint-plugin-node": "^9.1.0",
+				"eslint-plugin-promise": "^4.2.1",
+				"eslint-plugin-standard": "^4.0.0",
+				"mocha": "^6.1.4",
+				"nodemon": "^1.19.1"
+			},
+			"engines": {
+				"node": ">= 6.0.0"
+			},
+			"scripts": {
+				"lint:fix": "eslint --fix .",
+				"test:lint": "eslint .",
+				"test:unit": "mocha tests",
+				"test": "npm run test:lint && npm run test:unit",
+				"watch": "nodemon -q -i node_modules -x npm test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/yavorskiy/comment-parser.git"
+			},
+			"keywords": [
+				"jsdoc",
+				"comments",
+				"parser"
+			],
+			"author": {
+				"name": "Sergii Iavorskyi",
+				"email": "yavorskiy.s@gmail.com",
+				"url": "https://github.com/yavorskiy"
+			},
+			"contributors": [
+				{
+					"name": "Alexej Yaroshevich",
+					"url": "https://github.com/zxqfox"
+				},
+				{
+					"name": "Andre Wachsmuth",
+					"url": "https://github.com/blutorange"
+				},
+				{
+					"name": "Brett Zamir",
+					"url": "https://github.com/brettz9"
+				},
+				{
+					"name": "Dieter Oberkofler",
+					"url": "https://github.com/doberkofler"
+				},
+				{
+					"name": "Evgeny Reznichenko",
+					"url": "https://github.com/zxcabs"
+				},
+				{
+					"name": "Javier \"Ciberma\" Mora",
+					"url": "https://github.com/jhm-ciberman"
+				},
+				{
+					"name": "Jordan Harband",
+					"url": "https://github.com/ljharb"
+				},
+				{
+					"name": "tengattack",
+					"url": "https://github.com/tengattack"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/yavorskiy/comment-parser/issues"
+			},
+			"homepage": "https://github.com/yavorskiy/comment-parser",
+			"gitHead": "e7d81084ca6533661abf48617c40fa5336ba163e",
+			"_id": "comment-parser@0.6.2",
+			"_nodeVersion": "8.12.0",
+			"_npmVersion": "6.10.1",
+			"dist": {
+				"integrity": "sha512-Wdms0Q8d4vvb2Yk72OwZjwNWtMklbC5Re7lD9cjCP/AG1fhocmc0TrxGBBAXPLy8fZQPrfHGgyygwI0lA7pbzA==",
+				"shasum": "b71e8fcacad954bea616779391838150d0096dcb",
+				"tarball": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.6.2.tgz",
+				"fileCount": 18,
+				"unpackedSize": 64509,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdWjyUCRA9TVsSAnZWagAA0i0QAJuO2LNFsdd+tvLG62mg\nxLRH2HuA80I0muKm4E3t/IAFyw8UOw0pQ7i0OH5rrruRJxN0Jfdxw79gReSs\n+RvFoezlq5Zq8dhsU6JyZ+uHfBJr5MnI0MpqlNA1UPcA8KRDYAQ0S371wPG0\nJ7DiU9saLipztRUvx3NMULFa56Yd1jIECjqp/VsgA3eqUrkVgFwiE+3Y65mD\nV1BnBbTIhhkzIMyZZI1nuU4CiqhKif5Xht6ssoJ4PJluUGorZeObiF4xGSfw\nIkhUSgMF1nk9FLkZR/nnsxPpVFxnQ+5IOSezSg6NcD3RIkW39iuC2uKRqIbg\nZhMZdwByiexDc2xZiNHOD1x4kEs0ozWKngRsSgGR3mVEq65nl0Fx4uVJTVzq\n1L0aSF2MMATlwx7FvW7q3wJXkklm2ACyXwnsupIFVJlr8B0a90Yp5rMox/vP\npbd8cqy64SNYhNGEh9SBeQ1pPItadXZhK9nmB3rtceBZTFcBTyyLODOof3aF\n0yQ47j28bWl3G1XDAalPekBzUZOn7e9VzBhzM5d6eH590UY8YQgcaatASMlo\nywUn5xKQwYRj5APX6cls582/i4TBnOcwM8TDvqJdMx98dKtYEzXwYES9gj1b\nTsU26hd/8MYP32zwV4vqNwKxfsWMni5chRTC2Fm1OFtuhoFjv/GEsMhmzAoD\nlT3h\r\n=ASAn\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "yavorskiys",
+					"email": "yavorskiy.s@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "yavorskiys",
+				"email": "sergiy@yavorsky.me"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/comment-parser_0.6.2_1566194835852_0.1452977785142262"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-08-19T06:07:19.610Z",
+		"created": "2014-03-09T08:30:52.879Z",
+		"0.1.0": "2014-03-09T08:30:54.041Z",
+		"0.1.1": "2014-03-10T07:59:49.575Z",
+		"0.1.2": "2014-03-12T06:14:06.201Z",
+		"0.2.0": "2014-09-21T21:52:56.952Z",
+		"0.2.1": "2014-11-02T18:37:21.828Z",
+		"0.2.2": "2014-11-04T03:47:59.057Z",
+		"0.2.3": "2014-11-26T20:12:59.536Z",
+		"0.2.4": "2015-01-06T20:21:50.801Z",
+		"0.3.0": "2015-01-26T08:30:09.604Z",
+		"0.3.1": "2015-11-25T16:50:08.959Z",
+		"0.4.0": "2016-02-08T18:49:31.695Z",
+		"0.3.2": "2017-07-12T16:39:33.649Z",
+		"0.4.1": "2017-09-19T07:20:29.649Z",
+		"0.4.2": "2017-09-24T00:26:14.581Z",
+		"0.5.0": "2017-11-09T03:10:47.088Z",
+		"0.5.1": "2018-12-09T21:54:51.871Z",
+		"0.5.2": "2019-01-02T10:27:02.752Z",
+		"0.5.3": "2019-01-06T18:09:24.679Z",
+		"0.5.4": "2019-01-07T10:40:25.952Z",
+		"0.5.5": "2019-06-20T05:26:32.347Z",
+		"0.6.0": "2019-07-15T21:40:03.103Z",
+		"0.6.1": "2019-07-16T22:18:38.735Z",
+		"0.6.2": "2019-08-19T06:07:15.987Z"
+	},
+	"dist-tags": {
+		"latest": "0.6.2"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"9553dfc98c29d35e23a49d58ec191b9f\"",
+			"fetched": 1568994341824
+		}
+	},
+	"_distfiles": {
+		"comment-parser-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.1.0.tgz",
+			"sha": "e00ca1f468c5334877fb4ee75c9971f462b94048",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.1.1.tgz",
+			"sha": "4da06f600d0fd5622d4813be242c1490b24a151d",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.1.2.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.1.2.tgz",
+			"sha": "43420460369d723963142f13c457a4d81c2facf7",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.2.0.tgz",
+			"sha": "da18efa028982f41d112cac64a191c4a4b77a164",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.2.1.tgz",
+			"sha": "48c296c5bddc3d716ece79381f31bbd20867c3f2",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.2.2.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.2.2.tgz",
+			"sha": "59ee350cfe837021831235c711bd7874ad4ddb4a",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.2.3.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.2.3.tgz",
+			"sha": "8d91ef5b748dc147a2209da214e186b28f0ea87a",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.2.4.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.2.4.tgz",
+			"sha": "ba753c7e08e4d50ab4011cb1d4be5831ec17be99",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.3.0.tgz",
+			"sha": "797f2b86628915a5ad045b6aa57d42720509e657",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.3.1.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.3.1.tgz",
+			"sha": "fd657aac8c1492d308c9a6100fc9b49d2435aba1",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.4.0.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.4.0.tgz",
+			"sha": "b274a3c924b6b2e55768f712acd3e3003cb55f57",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.3.2.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.3.2.tgz",
+			"sha": "3c03f0776b86a36dfd9a0a2c97c6307f332082fe",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.4.1.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.4.1.tgz",
+			"sha": "cec7a6c3e3137aba3e04d8f7b65145597f66188f",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.4.2.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.4.2.tgz",
+			"sha": "fa5a3f78013070114866dc7b8e9cf317a9635f74",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.5.0.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.5.0.tgz",
+			"sha": "e833701804308eedef96c0b5029375b07f4eba1e",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.5.1.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.5.1.tgz",
+			"sha": "041fb38d943ba99b700aff44c13958681eb89adc",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.5.2.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.5.2.tgz",
+			"sha": "97366ee0e282289806d9ed7c18f61c1614aa8235",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.5.3.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.5.3.tgz",
+			"sha": "9faf401d63f0d526c79a8417ceab171259795912",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.5.4.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.5.4.tgz",
+			"sha": "089840b9cccacad2b769b231ed43081d501b9487",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.5.5.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.5.5.tgz",
+			"sha": "c2584cae7c2f0afc773e96b2ee98f8c10cbd693d",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.6.0.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.6.0.tgz",
+			"sha": "bcde52dc26a4bd317b609146b75b55b7cc3ddf68",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.6.1.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.6.1.tgz",
+			"sha": "88040c7c0a57c62e64962c3e888518620a42e7c9",
+			"registry": "npmjs"
+		},
+		"comment-parser-0.6.2.tgz": {
+			"url": "https://registry.npmjs.org/comment-parser/-/comment-parser-0.6.2.tgz",
+			"sha": "b71e8fcacad954bea616779391838150d0096dcb",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-f5d7070ea5991560",
+	"_id": "comment-parser",
+	"readme": "# comment-parser\n\n\nGeneric JSDoc-like comment parser. This library is not intended to be documentation generator, but rather composite unit for it.\n\n`npm install comment-parser`\n\nModule provides `parse(s:String[, opts:Object]):Object` function which takes `/** ... */` comment string and returns array  of objects with parsed data.\n\nIt is not trying to detect relations between tags or somehow recognize their meaning. Any tag can be used, as long as it satisfies the format.\n\n```javascript\n/**\n * Singleline or multiline description text. Line breaks are preserved.\n *\n * @some-tag {Type} name Singleline or multiline description text\n * @some-tag {Type} name.subname Singleline or multiline description text\n * @some-tag {Type} name.subname.subsubname Singleline or\n * multiline description text\n * @some-tag {Type} [optionalName=someDefault]\n * @another-tag\n */\n```\n\nthis would be parsed into following\n\n```json\n[{\n  \"tags\": [{\n    \"tag\": \"some-tag\",\n    \"type\": \"Type\",\n    \"name\": \"name\",\n    \"optional\": false,\n    \"description\": \"Singleline or multiline description text\",\n    \"line\": 3,\n    \"source\": \"@some-tag {Type} name Singleline or multiline description text\"\n  }, {\n    \"tag\": \"some-tag\",\n    \"type\": \"Type\",\n    \"name\": \"name.subname\",\n    \"optional\": false,\n    \"description\": \"Singleline or multiline description text\",\n    \"line\": 4,\n    \"source\": \"@some-tag {Type} name.subname Singleline or multiline description text\"\n  }, {\n    \"tag\": \"some-tag\",\n    \"type\": \"Type\",\n    \"name\": \"name.subname.subsubname\",\n    \"optional\": false,\n    \"description\": \"Singleline or\\nmultiline description text\",\n    \"line\": 5,\n    \"source\": \"@some-tag {Type} name.subname.subsubname Singleline or\\nmultiline description text\"\n  }, {\n    \"tag\": \"some-tag\",\n    \"type\": \"Type\",\n    \"name\": \"optionalName\",\n    \"optional\": true,\n    \"description\": \"\",\n    \"line\": 7,\n    \"default\": \"someDefault\",\n    \"source\": \"@some-tag {Type} [optionalName=someDefault]\"\n  }, {\n    \"tag\": \"another-tag\",\n    \"name\": \"\",\n    \"optional\": false,\n    \"type\": \"\",\n    \"description\": \"\",\n    \"line\": 8,\n    \"source\": \"@another-tag\"\n  }],\n  \"line\": 0,\n  \"description\": \"Singleline or multiline description text. Line breaks are preserved.\",\n  \"source\": \"Singleline or multiline description text. Line breaks are preserved.\\n\\n@some-tag {Type} name Singleline or multiline description text\\n@some-tag {Type} name.subname Singleline or multiline description text\\n@some-tag {Type} name.subname.subsubname Singleline or\\nmultiline description text\\n@another-tag\"\n}]\n```\n\nBy default dotted names like `name.subname.subsubname` will be expanded into nested sections, this can be prevented by passing `opts.dotted_names = false`.\n\nBelow are examples of acceptable comment formats\n\n```javascript\n/** online comment */\n\n/** first line\n * second line */\n\n/**\n   No *s on middle lines is acceptable too\n   which might be convenient for writing big\n   chunks of text.\n\n * keeping *s on some lines\n * would work either\n\n   left bound is dermined by opening marker position\n   and white space will be trimmed as there was '* '\n */\n\n```\n\nComments starting with `/***` and `/*` are ignored.\n\nAlso you can parse entire file with `parse.file('path/to/file', callback)` or acquire an instance of [Transform](http://nodejs.org/api/stream.html#stream_class_stream_transform) stream with `parse.stream()`.\n\n## Custom parsers\n\n\nIn case you need to parse tags in different way you can pass `opts.parsers = [parser1, ..., parserN]`, where each parser is `function name(str:String, data:Object):{source:String, data:Object}`.\n\nEach parser function takes string left after previous parsers applied and data produced by them. And returns `null` or `{source: '', data:{}}` where `source` is consumed substring and `data` is a payload with tag node fields.\n\nTag node data is build by merging result bits from all parsers. Here is some example that is not doing actual parsing but is demonstrating the flow:\n\n```javascript\n/**\n * Source to be parsed below\n * @tag {type} name Description\n */\nparse(source, {parsers: [\n\t// takes entire string\n\tfunction parse_tag(str, data) {\n\t\treturn {source: ' @tag', data: {tag: 'tag'}};\n\t},\n\t// parser throwing exception\n\tfunction check_tag(str, data) {\n\t\tif (allowed_tags.indexOf(data.tag) === -1) {\n\t\t\tthrow new Error('Unrecognized tag \"' + data.tag + '\"');\n\t\t}\t\t\t\n\t},\n\t// takes the rest of the string after ' @tag''\n\tfunction parse_name1(str, data) {\n\t\treturn {source: ' name', data: {name: 'name1'}};\n\t},\n\t// alternative name parser\n\tfunction parse_name2(str, data) {\n\t\treturn {source: ' name', data: {name: 'name2'}};\n\t}\n]});\n```\n\nThis would produce following:\n\n```json\n[{\n  \"tags\": [{\n    \"tag\": \"tag\",\n    \"errors\": [\n      \"check_tag: Unrecognized tag \\\"tag\\\"\"\n    ],\n    \"name\": \"name2\",\n    \"optional\": false,\n    \"type\": \"\",\n    \"description\": \"\",\n    \"line\": 2,\n    \"source\": \"@tag {type} name Description\"\n  }],\n  \"line\": 0,\n  \"description\": \"Source to be parsed below\",\n  \"source\": \"Source to be parsed below\\n@tag {type} name Description\"\n}]\n```\n\n## Stringifying\n\nOne may also convert `comment-parser` JSON structures back into strings using\nthe `stringify` method (`stringify(o:(Object|Array) [, opts:Object]):String`).\n\nThis method accepts the JSON as its first argument and an optional options\nobject with an `indent` property set to either a string or a number that\nwill be used to determine the number of spaces of indent. The indent of the\nstart of the doc block will be one space less than the indent of each line of\nasterisks for the sake of alignment as per usual practice.\n\nThe `stringify` export delegates to the specialized methods `stringifyBlocks`,\n`stringifyBlock`, and `stringifyTag`, which are available on the `stringify`\nfunction object.\n\n## Packaging\n\n`comment-parser` is CommonJS module and was primarely designed to be used with Node. Module `index.js` includes stream and file functionality. Use prser-only module in browser `comment-parser/parse.js`\n\n## Contributors\n\n```\n> npm info --registry https://registry.npmjs.org comment-parser contributors\n```"
+}

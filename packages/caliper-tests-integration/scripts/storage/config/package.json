@@ -1,0 +1,6980 @@
+{
+	"name": "config",
+	"versions": {
+		"0.2.3": {
+			"name": "config",
+			"version": "0.2.3",
+			"main": "./lib/config",
+			"description": "Runtime configuration for node.js modules",
+			"modules": {
+				"test": "./test"
+			},
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"underscore": ">=1.1.1",
+				"vows": ">=0.5.1",
+				"eyes": ">=0.1.6"
+			},
+			"engines": {
+				"node": ">=0.2.4"
+			},
+			"scripts": {
+				"test": "vows test/*.js --spec"
+			},
+			"_id": "config@0.2.3",
+			"_nodeSupported": true,
+			"_npmVersion": "0.2.8-1",
+			"_nodeVersion": "v0.2.5",
+			"dist": {
+				"tarball": "https://registry.npmjs.org/config/-/config-0.2.3.tgz",
+				"shasum": "8058f324379497b8a5ebad22537faf07de945612"
+			}
+		},
+		"0.2.4": {
+			"name": "config",
+			"version": "0.2.4",
+			"main": "./lib/config",
+			"description": "Runtime configuration for node.js modules",
+			"modules": {
+				"test": "./test"
+			},
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"underscore": ">=1.1.3",
+				"vows": ">=0.5.2",
+				"eyes": ">=0.1.6"
+			},
+			"engines": {
+				"node": ">=0.2.4"
+			},
+			"scripts": {
+				"test": "vows test/*.js --spec"
+			},
+			"_id": "config@0.2.4",
+			"_nodeSupported": true,
+			"_npmVersion": "0.2.10-1",
+			"_nodeVersion": "v0.2.4",
+			"dist": {
+				"shasum": "c8bf166172610e770e6f2fe528de00460be4dd4c",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.2.4.tgz"
+			}
+		},
+		"0.2.5": {
+			"name": "config",
+			"version": "0.2.5",
+			"main": "./lib/config",
+			"description": "Runtime configuration for node.js deployment",
+			"modules": {
+				"test": "./test"
+			},
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"underscore": ">=1.1.3",
+				"vows": ">=0.5.2",
+				"eyes": ">=0.1.6"
+			},
+			"engines": {
+				"node": ">=0.2.4"
+			},
+			"scripts": {
+				"test": "vows test/*.js --spec"
+			},
+			"_id": "config@0.2.5",
+			"_engineSupported": true,
+			"_npmVersion": "0.2.13-3",
+			"_nodeVersion": "v0.2.6",
+			"dist": {
+				"shasum": "4ba2a4d81ac3d44ad8918b907e3d30e9559c7134",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.2.5.tgz"
+			}
+		},
+		"0.2.7": {
+			"name": "config",
+			"version": "0.2.7",
+			"main": "./lib/config",
+			"description": "Runtime configuration for node.js deployment",
+			"modules": {
+				"test": "./test"
+			},
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"underscore": "1.1.4",
+				"vows": "0.5.3",
+				"eyes": "0.1.6",
+				"yaml": "0.1.1"
+			},
+			"engines": {
+				"node": ">=0.2.4"
+			},
+			"scripts": {
+				"test": "vows test/*.js --spec"
+			},
+			"_id": "config@0.2.7",
+			"_engineSupported": true,
+			"_npmVersion": "0.2.14-3",
+			"_nodeVersion": "v0.2.6",
+			"files": [
+				""
+			],
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "4c58e739a77f0f944fffe007ed0d431e842c934e",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.2.7.tgz"
+			}
+		},
+		"0.2.8": {
+			"name": "config",
+			"version": "0.2.8",
+			"main": "./lib/config",
+			"description": "Runtime configuration for node.js deployment",
+			"modules": {
+				"test": "./test"
+			},
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"underscore": "1.1.4",
+				"vows": ">=0.5.3",
+				"eyes": ">=0.1.6",
+				"yaml": ">=0.1.1"
+			},
+			"engines": {
+				"node": ">=0.2.4"
+			},
+			"scripts": {
+				"test": "vows test/*.js --spec"
+			},
+			"_id": "config@0.2.8",
+			"_nodeSupported": true,
+			"_npmVersion": "0.2.12-1",
+			"_nodeVersion": "v0.2.5",
+			"dist": {
+				"shasum": "ddc40b3b219812edfbca0ca0237d3f677018f22a",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.2.8.tgz"
+			}
+		},
+		"0.2.9": {
+			"name": "config",
+			"version": "0.2.9",
+			"main": "./lib/config",
+			"description": "Runtime configuration for node.js deployment",
+			"modules": {
+				"test": "./test"
+			},
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"underscore": "1.1.4",
+				"vows": ">=0.5.3",
+				"eyes": ">=0.1.6",
+				"yaml": ">=0.1.1"
+			},
+			"engines": {
+				"node": ">=0.2.4"
+			},
+			"scripts": {
+				"test": "vows test/*.js --spec"
+			},
+			"_id": "config@0.2.9",
+			"_engineSupported": true,
+			"_npmVersion": "0.2.16",
+			"_nodeVersion": "v0.4.1",
+			"files": [
+				""
+			],
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "53841c333cbb0d64cd665ddc89dbf6ce1929cb26",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.2.9.tgz"
+			}
+		},
+		"0.4.0": {
+			"name": "config",
+			"version": "0.4.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"yaml": "0.1.x",
+				"vows": "0.5.x"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"devDependencies": {},
+			"_id": "config@0.4.0",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.6",
+			"_nodeVersion": "v0.4.8",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "95f7cdf56a1c07adb9e01a27440cec903ac1dd1a",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.0.tgz"
+			}
+		},
+		"0.4.1": {
+			"name": "config",
+			"version": "0.4.1",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"yaml": "0.1.x",
+				"vows": "0.5.x"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"devDependencies": {},
+			"_id": "config@0.4.1",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.6",
+			"_nodeVersion": "v0.4.8",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "3321c051655eb414d6c9ca928b83b0863512a496",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.1.tgz"
+			}
+		},
+		"0.4.2": {
+			"name": "config",
+			"version": "0.4.2",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"yaml": "0.1.x",
+				"vows": "0.5.x"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"devDependencies": {},
+			"_id": "config@0.4.2",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.6",
+			"_nodeVersion": "v0.4.8",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "d29c7caf1cf51d9bd4304d103d87d4823a012eba",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.2.tgz"
+			}
+		},
+		"0.4.3": {
+			"name": "config",
+			"version": "0.4.3",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"yaml": "0.1.x",
+				"vows": "0.5.x"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/loren/.npm/config/0.4.3/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "config@0.4.3",
+			"devDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.0.22",
+			"_nodeVersion": "v0.4.8",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "b43e623e7cab68c7a58e3ddda5df538596faa3d1",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.4": {
+			"name": "config",
+			"version": "0.4.4",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"yaml": "0.1.x",
+				"vows": "0.5.x"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"_id": "config@0.4.4",
+			"devDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.0.104",
+			"_nodeVersion": "v0.4.8",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "4969365508bddd04d65494daaa0ab4aac90d831e",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.5": {
+			"name": "config",
+			"version": "0.4.5",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"yaml": "0.2.x",
+				"vows": "0.5.x"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"_id": "config@0.4.5",
+			"devDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.0.104",
+			"_nodeVersion": "v0.4.8",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "6f0abbd25335d97e3799ea34a97be956002d9d78",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.6": {
+			"name": "config",
+			"version": "0.4.6",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"yaml": "0.2.x",
+				"vows": "0.5.x"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"_id": "config@0.4.6",
+			"devDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.0.106",
+			"_nodeVersion": "v0.4.8",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "e8c03ab9dea7f069a222048e5f56eaf1cb5cc67e",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.7": {
+			"name": "config",
+			"version": "0.4.7",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"yaml": "0.2.x",
+				"vows": "0.5.x"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"_id": "config@0.4.7",
+			"devDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.0.106",
+			"_nodeVersion": "v0.4.8",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "a87bb40a7b8ede24f80613cd11dce3f92a8ab7e7",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.8": {
+			"name": "config",
+			"version": "0.4.8",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"yaml": "0.2.x",
+				"vows": "0.5.x"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"_id": "config@0.4.8",
+			"devDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.0.106",
+			"_nodeVersion": "v0.4.8",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "13c0ed8e312e0572bf1f0b6f5fb01c1a0ac68c8b",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.8.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.9": {
+			"name": "config",
+			"version": "0.4.9",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"yaml": "0.2.x",
+				"vows": "0.5.x",
+				"coffee-script": ">=1.2.0"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"_id": "config@0.4.9",
+			"devDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.0.106",
+			"_nodeVersion": "v0.4.8",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "a2980217ab8b7dc74594b53064c4fa32bde2d632",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.9.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.10": {
+			"name": "config",
+			"version": "0.4.10",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"yaml": "0.2.x",
+				"vows": "0.5.x",
+				"coffee-script": ">=1.2.0"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"_id": "config@0.4.10",
+			"devDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.0.106",
+			"_nodeVersion": "v0.4.8",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "d57be473e074792706103d4240cc0c8a17d30c64",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.10.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.11": {
+			"name": "config",
+			"version": "0.4.11",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"yaml": "0.2.x",
+				"vows": "0.5.x",
+				"coffee-script": ">=1.2.0"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"_id": "config@0.4.11",
+			"devDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.0.106",
+			"_nodeVersion": "v0.4.8",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "bbf5d9370fb2e8ef015f3812924ba488c5d87eb9",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.11.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.12": {
+			"name": "config",
+			"version": "0.4.12",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"vows": "0.5.x",
+				"yaml": "0.2.x",
+				"coffee-script": ">=1.2.0"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"_id": "config@0.4.12",
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.12",
+			"_nodeVersion": "v0.6.14",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "cdfb2ef80101a7a218aac1ae7d773909bc819763",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.12.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.13": {
+			"name": "config",
+			"version": "0.4.13",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"vows": ">=0.5.13"
+			},
+			"devDependencies": {
+				"yaml": "0.2.x",
+				"coffee-script": ">=1.2.0"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"_id": "config@0.4.13",
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.12",
+			"_nodeVersion": "v0.6.14",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "886f6467150f1e73ff57517d7be49e1cfa4251de",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.13.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.14": {
+			"name": "config",
+			"version": "0.4.14",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"vows": ">=0.5.13"
+			},
+			"devDependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"_id": "config@0.4.14",
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.12",
+			"_nodeVersion": "v0.6.14",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "5f45c62e8902e872e9ab1cb18286e355519874e6",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.14.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.15": {
+			"name": "config",
+			"version": "0.4.15",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"devDependencies": {},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"_id": "config@0.4.15",
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.12",
+			"_nodeVersion": "v0.6.14",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "d43ddf58b8df5637fdd1314fc816ccae7bfbcd18",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.15.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.16": {
+			"name": "config",
+			"version": "0.4.16",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"devDependencies": {},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"_id": "config@0.4.16",
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.12",
+			"_nodeVersion": "v0.6.14",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "c2535a5d0d14ab7be23f900651b088fb3ae23aee",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.16.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.17": {
+			"name": "config",
+			"version": "0.4.17",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0"
+			},
+			"optionalDependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0"
+			},
+			"devDependencies": {
+				"vows": ">=0.5.13"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"_id": "config@0.4.17",
+			"_engineSupported": true,
+			"_npmVersion": "1.1.12",
+			"_nodeVersion": "v0.6.14",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "b99290d8a876f11170e70176ae9c62bd40f7a2d8",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.17.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.18": {
+			"name": "config",
+			"version": "0.4.18",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"_id": "config@0.4.18",
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.12",
+			"_nodeVersion": "v0.6.14",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "1ae056d2bd8dcf1dc6e18cf2d19848462b45a6cd",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.18.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.19": {
+			"name": "config",
+			"version": "0.4.19",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_id": "config@0.4.19",
+			"dist": {
+				"shasum": "21801f8652a2daa18191cdcf2ac4a3e4bb1e2bbd",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.19.tgz"
+			},
+			"_npmVersion": "1.1.69",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.20": {
+			"name": "config",
+			"version": "0.4.20",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_id": "config@0.4.20",
+			"dist": {
+				"shasum": "14ea93ba3345cb956885d94f78a96eb90c3cabae",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.20.tgz"
+			},
+			"_npmVersion": "1.1.69",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.21": {
+			"name": "config",
+			"version": "0.4.21",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_id": "config@0.4.21",
+			"dist": {
+				"shasum": "e021bdfcb3db9a60dbd79bf9396814fcbd061bbe",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.21.tgz"
+			},
+			"_npmVersion": "1.1.69",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.22": {
+			"name": "config",
+			"version": "0.4.22",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_id": "config@0.4.22",
+			"dist": {
+				"shasum": "8725e2227a1105e3b6898ee836d1a358ae641cd1",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.22.tgz"
+			},
+			"_npmVersion": "1.1.69",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.23": {
+			"name": "config",
+			"version": "0.4.23",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_id": "config@0.4.23",
+			"dist": {
+				"shasum": "1d08eda04cb3675e4a09fe841722fa8b008e6b37",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.23.tgz"
+			},
+			"_npmVersion": "1.1.69",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.24": {
+			"name": "config",
+			"version": "0.4.24",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_id": "config@0.4.24",
+			"dist": {
+				"shasum": "78c8c7c71d84bcc32324b41489e8943d3beaf995",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.24.tgz"
+			},
+			"_npmVersion": "1.1.69",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.25": {
+			"name": "config",
+			"version": "0.4.25",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_id": "config@0.4.25",
+			"dist": {
+				"shasum": "bd482b8dc6b3ab6b59bed36c9223856cb5fe5de2",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.25.tgz"
+			},
+			"_npmVersion": "1.1.69",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.26": {
+			"name": "config",
+			"version": "0.4.26",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_id": "config@0.4.26",
+			"dist": {
+				"shasum": "362da6ef909882529055ef64b18e5b3a57d588a6",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.26.tgz"
+			},
+			"_npmVersion": "1.1.69",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.27": {
+			"name": "config",
+			"version": "0.4.27",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_id": "config@0.4.27",
+			"dist": {
+				"shasum": "2cc71c2a9949a9aedeaa24b547cfd8625f375f09",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.27.tgz"
+			},
+			"_npmVersion": "1.1.69",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.28": {
+			"name": "config",
+			"version": "0.4.28",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_id": "config@0.4.28",
+			"dist": {
+				"shasum": "c04bd2b01f7f993658e96a1afd2f31f15083c5df",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.28.tgz"
+			},
+			"_npmVersion": "1.1.69",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.29": {
+			"name": "config",
+			"version": "0.4.29",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_id": "config@0.4.29",
+			"dist": {
+				"shasum": "353b3a55e0ddc64eba5a6256bd3694d59d8986bf",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.29.tgz"
+			},
+			"_npmVersion": "1.1.69",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.30": {
+			"name": "config",
+			"version": "0.4.30",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "0.3.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@0.4.30",
+			"dist": {
+				"shasum": "fa87e75e6b3ffe245be018b5a461c53585504b1e",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.30.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.5",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.31": {
+			"name": "config",
+			"version": "0.4.31",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@0.4.31",
+			"dist": {
+				"shasum": "043be26e53f17fc2278ab5eb7d8dfaa59aa69edd",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.31.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.5",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.32": {
+			"name": "config",
+			"version": "0.4.32",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@0.4.32",
+			"dist": {
+				"shasum": "a235499ea818f204b06556e903ef687c4c4c91a7",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.32.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.5",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.33": {
+			"name": "config",
+			"version": "0.4.33",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@0.4.33",
+			"dist": {
+				"shasum": "86294ad487e48794e49917ad4601a57055d5eb89",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.33.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.5",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.34": {
+			"name": "config",
+			"version": "0.4.34",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@0.4.34",
+			"dist": {
+				"shasum": "1673a3d223ae07b52dd018d20f1bd4f7726dfc90",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.34.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.35": {
+			"name": "config",
+			"version": "0.4.35",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config/",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.2.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@0.4.35",
+			"dist": {
+				"shasum": "acfcc382f46181f2200c6a501134b111700b93b6",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.35.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.36": {
+			"name": "config",
+			"version": "0.4.36",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.2.0 <1.7.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@0.4.36",
+			"dist": {
+				"shasum": "02af1237f519c00f1e3aac22f9a034148fc3e786",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.36.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"0.4.37": {
+			"name": "config",
+			"version": "0.4.37",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.2.0 <1.7.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@0.4.37",
+			"dist": {
+				"shasum": "98a70b99811b1e284f6d3053d9f1e970398e4df9",
+				"tarball": "https://registry.npmjs.org/config/-/config-0.4.37.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"1.0.0": {
+			"name": "config",
+			"version": "1.0.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"directories": {
+				"lib": "./lib",
+				"config": "./config",
+				"test": "./test"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.2.0 <1.7.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.0.0",
+			"dist": {
+				"shasum": "be8205e64a5b451615d71c3035ac427c82149fd3",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.0.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"1.0.1": {
+			"name": "config",
+			"version": "1.0.1",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.2.0 <1.7.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.0.1",
+			"dist": {
+				"shasum": "f075f428a8e3b9ff84aeb5f172aeb38021ff7f40",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.0.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"1.0.2": {
+			"name": "config",
+			"version": "1.0.2",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.2.0 <1.7.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_id": "config@1.0.2",
+			"dist": {
+				"shasum": "f80ba9d7998f217eff649990f70a03892fd838da",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.0.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.18",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"1.1.0": {
+			"name": "config",
+			"version": "1.1.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.2.0 <1.7.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "7a3979e2d0b00b458df8fd8f4577b7e28b593fbd",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.1.0",
+			"_shasum": "7d9b65f093eeccd7ac5d15548687ac9848cc0545",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "7d9b65f093eeccd7ac5d15548687ac9848cc0545",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.1.0.tgz"
+			}
+		},
+		"1.2.0": {
+			"name": "config",
+			"version": "1.2.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.7.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "e354a8c51209d91c22b8d3952a6eed342aaad773",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.2.0",
+			"_shasum": "b7158af7977112c67e790de2b3bf7e455614f0c1",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "b7158af7977112c67e790de2b3bf7e455614f0c1",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.2.0.tgz"
+			}
+		},
+		"1.2.1": {
+			"name": "config",
+			"version": "1.2.1",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.7.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "75cceafd8c789fb9ff543aae95fd68fa7d19f2e5",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.2.1",
+			"_shasum": "2defd83262cbf888b10d20c258de8fb51c424429",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "2defd83262cbf888b10d20c258de8fb51c424429",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.2.1.tgz"
+			}
+		},
+		"1.2.2": {
+			"name": "config",
+			"version": "1.2.2",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.7.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "225565fde8ca9bae5498ada022feb5cb313609eb",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.2.2",
+			"_shasum": "7b2232c7cd385c67bb24518ce135366c58f2eeb2",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "7b2232c7cd385c67bb24518ce135366c58f2eeb2",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.2.2.tgz"
+			}
+		},
+		"1.2.3": {
+			"name": "config",
+			"version": "1.2.3",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.7.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"_id": "config@1.2.3",
+			"dist": {
+				"shasum": "7180c863d1050e09a967307a6f7b3cd368b93221",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.2.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.18",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			]
+		},
+		"1.2.4": {
+			"name": "config",
+			"version": "1.2.4",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.7.0",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "a70ccddf6cb8c9fc8463dba7da97c1326f53964f",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.2.4",
+			"_shasum": "3ef059282287021b9e3dc019d7856358fa39290c",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "3ef059282287021b9e3dc019d7856358fa39290c",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.2.4.tgz"
+			}
+		},
+		"1.3.0": {
+			"name": "config",
+			"version": "1.3.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.7.0",
+				"vows": ">=0.5.13",
+				"cson": "1.4.0"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "92e1cc0a274981a3b292da6b4e47edfdf704fc3e",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.3.0",
+			"_shasum": "80c6e5f402d76bf6afb0e1a77d9014550aa927aa",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "80c6e5f402d76bf6afb0e1a77d9014550aa927aa",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.3.0.tgz"
+			}
+		},
+		"1.4.0": {
+			"name": "config",
+			"version": "1.4.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.7.0",
+				"vows": ">=0.5.13",
+				"cson": "~1.4.0",
+				"properties": "~1.2.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "ae3f0bdc83e28a8017c19e83b4baa7515a91d2ca",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.4.0",
+			"_shasum": "c4c1712be7ca32d1a91daf9c4f17d38a3768c378",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "c4c1712be7ca32d1a91daf9c4f17d38a3768c378",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.4.0.tgz"
+			}
+		},
+		"1.5.0": {
+			"name": "config",
+			"version": "1.5.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.7.0",
+				"vows": ">=0.5.13",
+				"cson": "~1.4.0",
+				"properties": "~1.2.1",
+				"json5": "~0.2.0"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "f604239234b03de7770b6f90e872cca7ad5a51d0",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.5.0",
+			"_shasum": "040daaeebb1e934ddf5019c081484ff0ddbf352a",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "040daaeebb1e934ddf5019c081484ff0ddbf352a",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.5.0.tgz"
+			}
+		},
+		"1.6.0": {
+			"name": "config",
+			"version": "1.6.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.7.0",
+				"vows": ">=0.5.13",
+				"cson": "~1.4.0",
+				"properties": "~1.2.1",
+				"json5": "~0.2.0"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "0dc22591271e48cc10d49ff8c3eec895b6f6a19a",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.6.0",
+			"_shasum": "377c95cb419f32698c427e6f95b1d71f08de6623",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "377c95cb419f32698c427e6f95b1d71f08de6623",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.6.0.tgz"
+			}
+		},
+		"1.7.0": {
+			"name": "config",
+			"version": "1.7.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"js-yaml": "2.1.x",
+				"coffee-script": ">=1.7.0",
+				"vows": ">=0.5.13",
+				"cson": "~1.4.0",
+				"properties": "~1.2.1",
+				"json5": "~0.2.0"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "2a412ec7ddebb5da1e9005a55f295e2930a6c453",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.7.0",
+			"_shasum": "239dd1245b87a672e8b8e09a81aac8244bb24b62",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "239dd1245b87a672e8b8e09a81aac8244bb24b62",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.7.0.tgz"
+			}
+		},
+		"1.8.0": {
+			"name": "config",
+			"version": "1.8.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "~1.4.0",
+				"js-yaml": "^3.2.2",
+				"json5": "~0.2.0",
+				"properties": "~1.2.1",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "06ad80ac83665491831f3f8244ac9b9459ab0d12",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.8.0",
+			"_shasum": "3283a44c9557590e4263cbea2a9b4e86907ed9fe",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "3283a44c9557590e4263cbea2a9b4e86907ed9fe",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.8.0.tgz"
+			}
+		},
+		"1.8.1": {
+			"name": "config",
+			"version": "1.8.1",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^1.6.1",
+				"js-yaml": "^3.2.2",
+				"json5": "~0.2.0",
+				"properties": "~1.2.1",
+				"vows": ">=0.5.13"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "68e84853ec2c7d2340c40942f08d0f5ca64b8d9a",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.8.1",
+			"_shasum": "cd3b59c83cccb9e1d454da7e36e16252e1371f5a",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "cd3b59c83cccb9e1d454da7e36e16252e1371f5a",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.8.1.tgz"
+			}
+		},
+		"1.9.0": {
+			"name": "config",
+			"version": "1.9.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^1.6.1",
+				"js-yaml": "^3.2.2",
+				"json5": "~0.2.0",
+				"properties": "~1.2.1",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "e3daeb4bd0bd9bb713f0e7456d0265dfb43232a6",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.9.0",
+			"_shasum": "c4c1b9ee357aa23bbe131b64a1ed6b5fcbb2b8b6",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "c4c1b9ee357aa23bbe131b64a1ed6b5fcbb2b8b6",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.9.0.tgz"
+			}
+		},
+		"1.10.0": {
+			"name": "config",
+			"version": "1.10.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^1.6.1",
+				"js-yaml": "^3.2.2",
+				"json5": "~0.2.0",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "681f7861ebdc84d27aaa4733fba60c458717e32d",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.10.0",
+			"_shasum": "81d6346ff3199949db430ecd80eab727dda3b57d",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "81d6346ff3199949db430ecd80eab727dda3b57d",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.10.0.tgz"
+			}
+		},
+		"1.11.0": {
+			"name": "config",
+			"version": "1.11.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^1.6.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"json5": "~0.2.0",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "d8225c5d64347398c300dd0cd068f63230d13fd7",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.11.0",
+			"_shasum": "5c5fa09249dfa4d43358ee2e227b5c36d49678a7",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "5c5fa09249dfa4d43358ee2e227b5c36d49678a7",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.11.0.tgz"
+			}
+		},
+		"1.12.0": {
+			"name": "config",
+			"version": "1.12.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^1.6.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"json5": "~0.2.0",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "10620d516932ceda9141a62c68c9f5fc2321c94a",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.12.0",
+			"_shasum": "02ad1d816c92d6dab1c713d734dd5e993944e418",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "02ad1d816c92d6dab1c713d734dd5e993944e418",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.12.0.tgz"
+			}
+		},
+		"1.13.0": {
+			"name": "config",
+			"version": "1.13.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"licenses": [
+				"MIT"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"json5": "~0.2.0",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "4b7d6b7f437cb4131f210c58e968af2d3969e056",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.13.0",
+			"_shasum": "af33f0a7458e4e495fc6de9067a82164de178b78",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "af33f0a7458e4e495fc6de9067a82164de178b78",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.13.0.tgz"
+			}
+		},
+		"1.14.0": {
+			"name": "config",
+			"version": "1.14.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"json5": "~0.2.0",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "57370185705e6d0b0381d8c0429cdb254175dafc",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.14.0",
+			"_shasum": "e3ae8313c3a304fbbca56790c395899826d7365f",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "e3ae8313c3a304fbbca56790c395899826d7365f",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.14.0.tgz"
+			}
+		},
+		"1.15.0": {
+			"name": "config",
+			"version": "1.15.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"json5": "~0.2.0",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "cb11dd8fc413729958bbd5422e2cbcfd2dbb0f9b",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.15.0",
+			"_shasum": "ebb41fa66bdd5c6243a09cab26359d97bd8d912c",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "ebb41fa66bdd5c6243a09cab26359d97bd8d912c",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.15.0.tgz"
+			}
+		},
+		"1.16.0": {
+			"name": "config",
+			"version": "1.16.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"json5": "~0.2.0",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "dbd7a0947fc76c89c95af70fd03c3a880d4da267",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.16.0",
+			"_shasum": "4d8afb1c786eb8d341325985210e5460fd41e892",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "4d8afb1c786eb8d341325985210e5460fd41e892",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.16.0.tgz"
+			}
+		},
+		"1.17.0": {
+			"name": "config",
+			"version": "1.17.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"json5": "~0.2.0",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "577e66f2a5cf190de8fb05c6aca0d6fd045859c5",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.17.0",
+			"_shasum": "bc4d26a1a586052a1ef7948b5cadd34409d10fa4",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "bc4d26a1a586052a1ef7948b5cadd34409d10fa4",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.17.0.tgz"
+			}
+		},
+		"1.17.1": {
+			"name": "config",
+			"version": "1.17.1",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"json5": "~0.2.0",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "01b8d1576f5a4a97124d2e2dbf6c15fd7cf81463",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.17.1",
+			"_shasum": "4303465419890dad989b586413eeee51be0acb34",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "4303465419890dad989b586413eeee51be0acb34",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.17.1.tgz"
+			}
+		},
+		"1.19.0": {
+			"name": "config",
+			"version": "1.19.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0"
+			},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "c77d2b84e6bbcd0d295676ea1ed69647f1eaaedc",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.19.0",
+			"_shasum": "07a1585d6b94938b0ce206080ffc30d777047af0",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "07a1585d6b94938b0ce206080ffc30d777047af0",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.19.0.tgz"
+			}
+		},
+		"1.20.0": {
+			"name": "config",
+			"version": "1.20.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0"
+			},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "8faac90aa23d66a3b3e7538cb6e20587c20eb3cb",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.20.0",
+			"_shasum": "d709599c2e679fe95316e54d4afc8e9a06878b19",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "d709599c2e679fe95316e54d4afc8e9a06878b19",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.20.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/config-1.20.0.tgz_1459988927775_0.1393617109861225"
+			}
+		},
+		"1.20.1": {
+			"name": "config",
+			"version": "1.20.1",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0"
+			},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "47b60a49ebca2d4816fb57ea9b9c6b6b5537dd13",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.20.1",
+			"_shasum": "cc7ac2934481f1ef4450ea6a5fc3fd33ac4d268b",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "cc7ac2934481f1ef4450ea6a5fc3fd33ac4d268b",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.20.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/config-1.20.1.tgz_1460126036224_0.7934431042522192"
+			}
+		},
+		"1.20.2": {
+			"name": "config",
+			"version": "1.20.2",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0"
+			},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "01138f24ca8def8a7ad71c7a00edd18c1a0a25c4",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.20.2",
+			"_shasum": "81b8038a99131844adfce67ab5528c07a9e0b20c",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "81b8038a99131844adfce67ab5528c07a9e0b20c",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.20.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/config-1.20.2.tgz_1463507663759_0.7824273521546274"
+			}
+		},
+		"1.20.3": {
+			"name": "config",
+			"version": "1.20.3",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0"
+			},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "7aec91f08aacb950bcef144ce5260c931c904be3",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.20.3",
+			"_shasum": "c8382832e0eb7a62e66700c14551f006248f3406",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "c8382832e0eb7a62e66700c14551f006248f3406",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.20.3.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/config-1.20.3.tgz_1463601137987_0.5916911328677088"
+			}
+		},
+		"1.20.4": {
+			"name": "config",
+			"version": "1.20.4",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0"
+			},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "2611cefcdd0d4d8b91306bec448a1d1e6bf1c0fa",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.20.4",
+			"_shasum": "1a41d26cecb7ae38e2a34d16d148201a040c311e",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "1a41d26cecb7ae38e2a34d16d148201a040c311e",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.20.4.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/config-1.20.4.tgz_1464055248192_0.4276980278082192"
+			}
+		},
+		"1.21.0": {
+			"name": "config",
+			"version": "1.21.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0"
+			},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "14c39cceac974533e36e5e2b95bcc4db501a2917",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.21.0",
+			"_shasum": "83719c0263a669e4bc4cc9c9e5818cd996a32cb9",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "83719c0263a669e4bc4cc9c9e5818cd996a32cb9",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.21.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/config-1.21.0.tgz_1464823602378_0.8276554537005723"
+			}
+		},
+		"1.23.0": {
+			"name": "config",
+			"version": "1.23.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0"
+			},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "5aed595d2f27f0a202e1b2cfb066184f3677698a",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.23.0",
+			"_shasum": "265b771785507829a0785d6881be84bd1f9e5f42",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "265b771785507829a0785d6881be84bd1f9e5f42",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.23.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/config-1.23.0.tgz_1478097829992_0.8510113910306245"
+			}
+		},
+		"1.24.0": {
+			"name": "config",
+			"version": "1.24.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0"
+			},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "540a38958900a8189803cc021ca7fb8e7a6ac1a2",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.24.0",
+			"_shasum": "553bc4d77637d6630a305b52c33cb6da2b9f42f0",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				}
+			],
+			"dist": {
+				"shasum": "553bc4d77637d6630a305b52c33cb6da2b9f42f0",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.24.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/config-1.24.0.tgz_1478098659063_0.677828565472737"
+			}
+		},
+		"1.25.0": {
+			"name": "config",
+			"version": "1.25.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0"
+			},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "129a51d619276abbadf801d90128ce4be55031f9",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.25.0",
+			"_shasum": "05456c0c0663d3336b7e0762e2e3595fe966af0a",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"shasum": "05456c0c0663d3336b7e0762e2e3595fe966af0a",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.25.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/config-1.25.0.tgz_1485895941797_0.7898906017653644"
+			}
+		},
+		"1.25.1": {
+			"name": "config",
+			"version": "1.25.1",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0"
+			},
+			"devDependencies": {
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"toml": "^2.0.6",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "c226283619b2f759ff236d5e1f65055a3c39ba54",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.25.1",
+			"_shasum": "72ac51cde81e2c77c6b3b66d0130dae527a19c92",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"dist": {
+				"shasum": "72ac51cde81e2c77c6b3b66d0130dae527a19c92",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.25.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/config-1.25.1.tgz_1485982653257_0.24003130197525024"
+			}
+		},
+		"1.26.1": {
+			"name": "config",
+			"version": "1.26.1",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0",
+				"os-homedir": "1.0.2"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^2.1.0",
+				"typescript": "^2.2.1",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">0.4.x"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "d093b5cb89dc931d22b7bc810c40a2da81330bfc",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.26.1",
+			"_shasum": "f647ce32c345e80ba73a8eaa7a9a4b4e5b290ca1",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"shasum": "f647ce32c345e80ba73a8eaa7a9a4b4e5b290ca1",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.26.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/config-1.26.1.tgz_1493822943351_0.7289563119411469"
+			}
+		},
+		"1.26.2": {
+			"name": "config",
+			"version": "1.26.2",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0",
+				"os-homedir": "1.0.2"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 4.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "716c931622786a2f10f1ae75794924354a07ed58",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.26.2",
+			"_shasum": "2466291168d8afae0aae8ab99ea4d4272f520cae",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"shasum": "2466291168d8afae0aae8ab99ea4d4272f520cae",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.26.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config-1.26.2.tgz_1502504312862_0.7517012250609696"
+			}
+		},
+		"1.27.0": {
+			"name": "config",
+			"version": "1.27.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0",
+				"os-homedir": "1.0.2"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 4.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "e588a31fcc428dadf94da82eedadd8cd29c31d5e",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.27.0",
+			"_shasum": "3ab30d0080ff76f407c2f47ac1326adfd908af5f",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"shasum": "3ab30d0080ff76f407c2f47ac1326adfd908af5f",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.27.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config-1.27.0.tgz_1508251444081_0.05435302201658487"
+			}
+		},
+		"1.28.0": {
+			"name": "config",
+			"version": "1.28.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0",
+				"os-homedir": "1.0.2"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 4.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "91da3fb1d743db1752075ba1223e43925b8a171e",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.28.0",
+			"_shasum": "666740053a81489905f26087c8656394c193507d",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"shasum": "666740053a81489905f26087c8656394c193507d",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.28.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config-1.28.0.tgz_1510067915896_0.9773474587127566"
+			}
+		},
+		"1.28.1": {
+			"name": "config",
+			"version": "1.28.1",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0",
+				"os-homedir": "1.0.2"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 4.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "d0786a2a5b0ca203daa6927e33856e332f1664ca",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.28.1",
+			"_shasum": "7625d2a1e4c90f131d8a73347982d93c3873282d",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"shasum": "7625d2a1e4c90f131d8a73347982d93c3873282d",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.28.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config-1.28.1.tgz_1510234833948_0.4610609814990312"
+			}
+		},
+		"1.29.0": {
+			"name": "config",
+			"version": "1.29.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0",
+				"os-homedir": "1.0.2"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 4.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "f45ebe1cb20b3404bbed409263438db4fe1f634b",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.29.0",
+			"_shasum": "f89190095ec8cfe886ea52b7d3d96cadfa577b7f",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"shasum": "f89190095ec8cfe886ea52b7d3d96cadfa577b7f",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.29.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config-1.29.0.tgz_1514310730510_0.6689133008476347"
+			}
+		},
+		"1.29.1": {
+			"name": "config",
+			"version": "1.29.1",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0",
+				"os-homedir": "1.0.2"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 4.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "e052e4ee45429aa2dc79ddd0435153d89b75e7d3",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.29.1",
+			"_shasum": "155c9fbc5a8636120e9eb5c183c212add3b7fe18",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"shasum": "155c9fbc5a8636120e9eb5c183c212add3b7fe18",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.29.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config-1.29.1.tgz_1515351806340_0.10614584269933403"
+			}
+		},
+		"1.29.2": {
+			"name": "config",
+			"version": "1.29.2",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0",
+				"os-homedir": "1.0.2"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 4.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "fd08311ee795dc7cf2ff5ef0a2d2631843c9c345",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.29.2",
+			"_shasum": "2ebdc92639eb9d06fffd302f1ee32e2ad0e94e11",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"shasum": "2ebdc92639eb9d06fffd302f1ee32e2ad0e94e11",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.29.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config-1.29.2.tgz_1515805503508_0.16548139113001525"
+			}
+		},
+		"1.29.3": {
+			"name": "config",
+			"version": "1.29.3",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0",
+				"os-homedir": "1.0.2"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 4.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "f4a40b9d74c73430c59229b98a2c3ddeda76e7ad",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.29.3",
+			"_shasum": "a344eb690d279cb314533ae8550839509d90f7e0",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"shasum": "a344eb690d279cb314533ae8550839509d90f7e0",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.29.3.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config-1.29.3.tgz_1517699817142_0.5884339245967567"
+			}
+		},
+		"1.29.4": {
+			"name": "config",
+			"version": "1.29.4",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0",
+				"os-homedir": "1.0.2"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 4.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "27a155a744411c3ec8c730403486d46fc111b53e",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.29.4",
+			"_shasum": "1b42752ed86b363fc4025960569fd74978862a92",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"shasum": "1b42752ed86b363fc4025960569fd74978862a92",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.29.4.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config-1.29.4.tgz_1517730420609_0.6567042341921479"
+			}
+		},
+		"1.30.0": {
+			"name": "config",
+			"version": "1.30.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "0.4.0",
+				"os-homedir": "1.0.2"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffee-script": ">=1.7.0",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 4.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "955db09ca5cb5be81406d2ef1709648e2b6b9dce",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.30.0",
+			"_shasum": "1d60a9f35348a13c175798d384e81a5a16c3ba6e",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"shasum": "1d60a9f35348a13c175798d384e81a5a16c3ba6e",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.30.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 85817
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config_1.30.0_1519678945444_0.7168567981571419"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.31.0": {
+			"name": "config",
+			"version": "1.31.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "^1.0.1"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffeescript": "2.2.4",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 4.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "a6d49e5f5ce2d9f434677a508374a5721366d541",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@1.31.0",
+			"_npmVersion": "6.0.0",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-Ep/l9Rd1J9IPueztJfpbOqVzuKHQh4ZODMNt9xqTYdBBNRXbV4oTu34kCkkfdRVcDq0ohtpaeXGgb+c0LQxFRA==",
+				"shasum": "ab08aeba6536015d220cd0afe14b3e0501082542",
+				"tarball": "https://registry.npmjs.org/config/-/config-1.31.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 85356,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbVhr3CRA9TVsSAnZWagAApGEQAJnpOVGoEpZ31YIjtuh9\nznRghQspAwHbk73GBkWGRle2vV9yz+2S7JOXdF6dLeka90wFaFvqPgk5Zg3x\nN8ev+Bb8ga7z0306ODPClkTkIUd5B/QvXcZNw0yLOinKddbRVTiBmvvMPMId\nS4Uy6qELFrxZTFmSQQg18AzdHOIcqgw28J0VjS3TKeQdZUGmrdu1W+vCRVOs\nfsoMn1C5+2fgwN8sK85Rr0sT8Vj/DOjb/p/qPu0fXcL2ruSmu1hLxWgkmJTd\n4Sz6PT4XIXh176Bc9nBJezUl3Dn8fQ3HVre9YTEBCdpay4BlMKlH7nIkTdmu\nwBYtQetWZPrxQLH1ejxOT7gT0KBe1wuu6q+4M3MVljoAkWCMJ6R+6ni/ySxW\nsFOT6QC0rUHfDCv+qhOHHwnYYvP5wCZVD7Dm5G6g2e19s37vOLb2kHBHfDkp\n6OfqTHBQ28y42VcEIg1kwJmufx1pQJLmBTVxGXerMjIxSTSZedlLoaw+JVT3\nEjQAUbU4OlmQ+e1ouNiRoZ+6zSoEc+KyQMs0xwTVnjw7OFpwHkMRAQKDSWJa\nIW522iU6ncb+0AhvZpa5yD26/qURoJqbYThK05Fodgt0sw3JzMfW1IzirNLh\n6iFdLBgSXkzKHHl0yAadyxjiCXBDs/597zyu3SCMeo/RfsyONQ6TyXUWCL5F\numPQ\r\n=0wi1\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config_1.31.0_1532369655277_0.18212216380097712"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "config",
+			"version": "2.0.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "^1.0.1"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffeescript": "2.2.4",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 6.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "669afd9cbc426195861ea1d727aa118fb358e0d1",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@2.0.0",
+			"_npmVersion": "6.0.0",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-OYszsWP8J+ia+avCKR5xjYV8nWLLvkLi4DF77o+s1P7JkUqb7cIehRH8dc0cEMyIraBVLq+mi4cg04Q2WJz5+Q==",
+				"shasum": "f9f079477f3e07a3c118fa3adfccc36f5d3adff1",
+				"tarball": "https://registry.npmjs.org/config/-/config-2.0.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 85799,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbWmcTCRA9TVsSAnZWagAArOIP/3mOTSuYkZUvAmuM9gnT\nTbchIQFxvcWKQ4g3NdLW8WlJz+BS8wQapuHTVDnnPTwJe50Yzg61votuM9B7\nrdtLjcf6/vfQCO0t+EPcSG5J0MTVGdMb3jYBu0D2Xan/8mEp4eSIQpob+qym\nnkT3NXVS7wlIuOrauVQQjVGjiYe+tnWWAzD8Hlb0BwGXiaFvaWyck0gGdgAI\nqJNO+MDuI7iRjyt89E/ZDMoSyXORjy/2+Y7Xngt5Ut9lLBVnw0ErbbArp2WP\nn54qi/+8p24sSKwV6PlHpyNS3LgJsrJ2JRnx/2g0s+x5NA4rxG0JOaPWaVoN\n2piEjYOi4YEB6gCV/nnQOYi99W2TTli+10GVHKLAHC7LJc72CUcbyMLzJ69Z\nzwN4i/Kxxtq/pYUxz4FtJUjEiBjDK0rdmQpUg7EibeyaYki7j+l2fYpXHCkp\n+MYYO7kzkzuCBViP8fnVh+YvzIeAo92jgXm65PYdcClUVrweYRd/+HQdh9Fg\nm4ID3VA/ZZKeUfsB6z9wdSJGCjYR6NNyFarwxWvrfRAes60JMpdjlVD7IqDq\n1S0qoJZ7qdZsnoqVJDgDIV6aeYZ890H0GDonw50nIUthrGyNbKxu/dpZhDOT\nML8wruJGQSulINMQROEM+f9dk47WQYjtv6uG115Hp7edDsPWicHQ2USnF1eW\nB9ie\r\n=4ph8\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config_2.0.0_1532651283695_0.008158004275260922"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.1": {
+			"name": "config",
+			"version": "2.0.1",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "^1.0.1"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffeescript": "2.2.4",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 6.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "3b92726def234279e270eb48c959fb5ef5442922",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@2.0.1",
+			"_npmVersion": "6.0.0",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-aTaviJnC8ZjQYx8kQf4u6tWqIxWolyQQ3LqXgnCLAsIb78JrUshHG0YuzIarzTaVVe1Pazms3TXImfYra8UsyQ==",
+				"shasum": "995ccc8175460578d646ac0a2e4018ffa44ca046",
+				"tarball": "https://registry.npmjs.org/config/-/config-2.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 79884,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbX1ZHCRA9TVsSAnZWagAAG/oP/02hoM/0wj6CM8PT8FLR\nh4TLYNbmlh8qS5+gRsCDEj75VxwjsfzjVxwPUvCmiL1hoDfJnInkDYBCGy7t\nVxro6dcvFkjur9V384+QV18GH6pZkXLVkk9qRdY2FTzlE84dI4m+hb+jQ50b\ntXnckukiRXpQa76dVm0yBRwDQvP0eZa4HXZ+5zPocwn5PRgM3bw0Y2WgU1NI\nVxu119a4ERWvaAkhmgDF4aogZZSMs3oVJewPdDlSuBmcya/L7vpEqW28cHin\ntUZCkGAJJSCy28SgubDQRnn9+xR15/n1BtLU/HeLFCwue1VJO2/GrrpNpM5z\nAOS63J7e+QDLhI69RI3LuqwgRJW6CvUyldkDOw88jvOCFX/sc9DJuqLj5uaO\nKoLyE73s131lf2/abTi6uGPNqYe1/HLW6bldp2BBgy0/NVIrazQDdIGylQj0\n0EWHKiYWXfjTk3Z8qacRyT9ZkMCA2Oydqet8GOhR/4DsmGnrR4MPJsqUFRrS\nUCrEqvGX7SkXZUvm2jyY2d/OkH5Z3qgzwxxC1z14WY/I17qmptur+aeKGOAn\nWm8BFra9kccOnXqvlhR2jrMPr5zZSjCzMMdX6JrqkjWJbGIhR+YcnZg2Qgu4\nzoBl1pnPrSUEDzssHYVdZDkTxFJafZ1HUtEqZEmDc4LO2dO8jgctFeiMEFm8\ndBYy\r\n=jz2d\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config_2.0.1_1532974663009_0.6235920596965094"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.2": {
+			"name": "config",
+			"version": "2.0.2",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "^1.0.1"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffeescript": "2.2.4",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 6.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "12c62deecd075da3377d5d57adf02fa795b32333",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@2.0.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-duIbkKb0gls0bOtGwd1vaD4236MwepQlZcrMheOGrn3/9Px7oYFh8G4LB3ylGOlPr5wGoJRm8Grb2RihJZxuHQ==",
+				"shasum": "b81c8f4e05203e1da7752864c19a11604ca923d7",
+				"tarball": "https://registry.npmjs.org/config/-/config-2.0.2.tgz",
+				"fileCount": 7,
+				"unpackedSize": 80209,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb9D4FCRA9TVsSAnZWagAAtkQP/jUTp/PEfFyxDYLFMQSJ\nGDNYdeVlOpOs2cqGEFUdMLxclfHid9WtzBU5WGCT8XRRO+EafX5ld+s/lh+Y\ntQ4YI4WnCXYYlTtwj+8d1b9gBuR3g1m8iX7vnbIN2NKOSxRyrFjypihUzPSK\nDb3dT3U9TEYK4GWWCWu/R8cPtuR21Wu3CX1ILNoSOIQ9/aEGRF8mxjn53tA5\nL6XPfeD4/AAY0ePLM/hipaXbe14hdt84VEYwEd+l6SNkMtkg8Txy+XkZYpbV\n+iiWR0aN3cG9qUnc//azmb2MwOdqWlzedNDngDPUSawaok3WdxAQbTUHZbHV\n8A9fXq3dlhbj2UMo4nC7kIZ5jr7MlV5kwhHMQMKM3ALKvdFllb0sSBVpgbtC\nnyjhnoDqhdc3wimXudt0Qd9FMB0jMcKU51NOUuohyyf41J7y401NqCOIfn3C\nZW7Ywm5XWSmX2JNXLy8+1lzDWor2bTYqPe1seBRVlU8v6vgAiW8Y3HJUwVPj\nH0K+YzfL4NLQWiaZhAL2UmUjwL25HyGFt0AP7VAig3QfqkoNWmoTgN+A2P14\nAm40c1PiuiUsXKJM3A/RthAvpv8qUz5cOp0pCyoPGE2p/snvJaF1hMR+VZHK\nZ1Uz0pZWeSkVd9T9XuJ660gqoLctQrZN+LNxc5qBg91JDvXz7nBawO+tSiD5\nvX2+\r\n=QDXu\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config_2.0.2_1542733317104_0.3375453698199191"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"name": "config",
+			"version": "3.0.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "^1.0.1"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffeescript": "2.2.4",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 6.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "78f88fbd9855131dea0aea23258abb9f992716cb",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@3.0.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-QMr3BCOcHdgXx8t8cLfBhWtHcIAAMikaxUc2XASuH2A93g9kOIRch7sXFQdSvdMxhQobnctWm2y68YJYRttJlw==",
+				"shasum": "a71cdbb22d225df9eff20b95178d65a63c452367",
+				"tarball": "https://registry.npmjs.org/config/-/config-3.0.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 80697,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb9D9nCRA9TVsSAnZWagAATnEP/i9Xqoe5gIWlP0e1hIxk\nxem9qPpkMbs+GflbaNz8wbFP0FlJZkec3WSh8hB6+RzNlaodmJtz9454VSur\nsbKJ9aI7h5vP4ZR0mWn5kmezQThOiMtxo5aAtB1qOuaE8mpoPQVLAmtF38uH\ncsznK4y/eEtCmZgHTMXBZKo8zgZED44f5cnbf6e5CJWHXt7FeDd/Fy4v30a1\nS8+QeBwf5hZhwc6Ciy0EhQsUMCCBaYK7H28vqrNyEqPh3D/TI4o6eIdDpBNb\nNUQdOF1SW/fV7r6KgLoErsRimsqyY3uE8ofsId7Nc/2cCTYJiqrdbCjQsx9N\nXTYX3pJiIfuRRaHAAqpIUanQH12TLtRPcGv5HvKuw5A6zBiLTW8L6d9pZ8o3\nV37s7fCLRnlBeRM2offuZA8XkAsYQy31Zlw2crS8wi2qSdxaocSpcJxyLt+r\nonzwwTLzRLF3kWlHtL9FdyEeqfoeXukPEdrQH/O+PJyhOTYO9UpbonkyaSYo\nQkVOYnac+UHfmZOKh4Gjiveth2EIUiFrKjoXc4GZazzKz0lKcUDut5lYntTy\ny3X5CBNjFlJmCG+YtGuX0hWz+LB0g8PxVfWr+apnatTy1NMWBab/UYN9bcx5\ndl3cuZ5KieaR+LpkJuui+8ZAG869F7lhQB6liUpR0QF7Mc37FJqrmV8TzeLF\n98vC\r\n=Ti9/\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config_3.0.0_1542733670635_0.8101136047283803"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.1": {
+			"name": "config",
+			"version": "3.0.1",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "^1.0.1"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffeescript": "2.2.4",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 6.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "7cae415c2d6c611077aad43eaad754d622358031",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@3.0.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-TBNrrk2b6AybUohqXw2AydglFBL9b/+1GG93Di6Fm6x1SyVJ5PYgo+mqY2X0KpU9m0PJDSbFaC5H95utSphtLw==",
+				"shasum": "c3118e2eb45fdfd135277339f87e2492559cb147",
+				"tarball": "https://registry.npmjs.org/config/-/config-3.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 80702,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcFyx9CRA9TVsSAnZWagAAbTkP/1UHG/PIiCM+pUm9m3Y9\nijStpBTDE0F6ZXxoJRCSUC0NQNTsgMlvZp1KpSs19MFxwisQwo7y43QeNQl0\ny9cPuwcGP4mHsMsMROEKNAFuJKr19lo58IIP4I4Sk6Zq8hOoVbK17IUK39vr\n3WyY7ZVfBjEEvbB3YNtEDpX56Z8mq5F/o6D/HsrnaBhCfK9dDGD5binVt614\nKOgpzYslouPiRAjxBFwxCoaTPwWC/YHTmumPK98JiSU9k9pg4PlrBtjUbBxI\ntyVo88jhNqRpFzESaJ5YwDHNUc2gqYin14QXnYH6fNLCBiVa29nRMdyeXxSi\ndtPtgbXE8f9AVYsRiHz7N6xEAJt2T8/hcSVtP45vBWXur2I8VWK3STDUWvSX\nZH8/LLyia1c/RbOJDxixLp1tVt9oQkYEw/7pAvl8pnA3w57pU5Aq6PzRRzY4\nnfnzi4i7tJUGZIGbVj4oDaRi51t7CLUXAiCKnrlvN7VWMuiMHOsfDvoVJvIO\nGUVlKYYij/dk9PJQP2dmidpq+zyGHipmz/+ehaXBB0tGcLYzONT1Aai/hEyh\n2T1QCoQtPk+bTyB4fUzJ+S/vh6PvspWBKbRDrgvH86g0FxMd3Yrhjcf3vGJv\nR+dN11oOPk3xXmX4FqROqN/PJoZesujJs0wmqxKjB5GUs9GRyT7DdTKOwo03\nU27A\r\n=t7pS\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config_3.0.1_1545022588420_0.3616125599300646"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.1.0": {
+			"name": "config",
+			"version": "3.1.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "^1.0.1"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffeescript": "2.2.4",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 6.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "40e79b6aeac60da8344d6f72b1a721116180c6c6",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@3.1.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-t6oDeNQbsIWa+D/KF4959TANzjSHLv1BA/hvL8tHEA3OUSWgBXELKaONSI6nr9oanbKs0DXonjOWLcrtZ3yTAA==",
+				"shasum": "c7d49c4171e8f6cb61c1d69e22647ffd60492548",
+				"tarball": "https://registry.npmjs.org/config/-/config-3.1.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 81025,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcqhq7CRA9TVsSAnZWagAAzLwP/2/OewPA9oC66VKsHD03\n+3tl1PBQ25w0EgwQBG7nLWtigFf4jcxtH8GdaE7siRBpZWZe2MpQb8d1PW2T\n/esIuzRXx5Uv/moWiBsHuqFi1yXCZUjax6ndbcY9FtNMTuzLvMCvi8Bl5nzH\n0k+Q6N7i3yZI/M2xlIV+8FvewDai8IKYKDAg5rfaSncl5qh1LqghHyeE3n4i\nM0oNQBQqBwqumfcgaDrYXOLK+1+cWNDci30vNdMHh+yWxaH/BJBqN6t4WGDS\ngIk9+gTLdHpIcOr7cNRWrCmT8BHbvG+43+TDMJI8hRGef/MHpbd57+vLKWwY\nJdai3Fr+dMHOxS/0FPUM2S5C3j+HQ98AXZNTuMURZHeoG9m5po5oGAe6c90r\nwFHDjOyNjYpb5ZjedwH5PfIDCQEiV6gITckQS2Qcfhk1YuRgN8UldaBw3HCl\nrQ4FNC7qAiqfoA8qQKWjI2Mg5MEu+25ul/ndEmhNjH2Kt4X8r49UP7tv4xI8\nq7sbd/ZIa1QiJPeyZacIG4IcCeXhffq7w7tY/1vPkre4dOv7lwEkd7OncCMG\n/FpS0kd75AtyC2zf7IbTWMR80F/woYz1VgjXGboB3EhHIOX6Dv1zTVLUbWm1\nd+gD6t6O893n957G1SfuRV5U2gI88aSPsjftgLjHA3GbUAxjUEZ3kDlQ/3YX\nDzpD\r\n=ES2D\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config_3.1.0_1554651834995_0.2482588189736794"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.2.0": {
+			"name": "config",
+			"version": "3.2.0",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "^1.0.1"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffeescript": "2.2.4",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 6.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "f1ee76382c574b9ae1f9a27367dc3092d9a17ec0",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@3.2.0",
+			"_nodeVersion": "10.15.3",
+			"_npmVersion": "6.9.0",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-ypYPOVvqIVklcu0jNXn8J5CImhaYyX/+JNN60y/rV5bfBD2YAKl1DeFstB4WlYu/TOH/VOo14MjyU5R5QpR9Qw==",
+				"shasum": "9dc4f74770657b583f47a1209e52f3b0d0e531db",
+				"tarball": "https://registry.npmjs.org/config/-/config-3.2.0.tgz",
+				"fileCount": 9,
+				"unpackedSize": 87283,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdJ7JkCRA9TVsSAnZWagAAy7oQAKBTfjFkfe+UnYz9Odgb\nnG7cYDA7RX3uZO0XpClRYrAQGQYNqRK3ZRBUOR9O0l6h0LzHII1nPlN4EJzc\nj1GXrthmHXwnD0u0JOC+A3oMMLMpb5FOL+et2X0CCMC3COPviSpqpk9szX2p\nEQP9V1LzdW/pFSICK9XNGFyUryKHsWW04Syt1YJf7CxQGbFGiYhxKd4cJOQO\nBDk1KoiLuUqpMflPytOAbHcICliMQpwZzKnXFRIk+YohzSbSQbRVgnjNXL2/\n5oiQQ3z/5EzK16L3veFgr6hSXbbQLalGlmnMedIpDlNUzq6gxq6NwyEIaTvs\nqetmiCIgfZoHD+guvyEurk4lIfWqH9A9gvWqrJCXwM4o863mYCQZc4Q+ovDG\n66cJBQQ7DMoTYEkv/V9BcDv4KhJqQxVPLNlRfxU1N/hFt43zenv3hwZ7YFKw\nj3Ku2U8OSrzQd3MUSGM1HdbVLsb+TJzv85EL2GLhvhjSogrV+fh6KQ4/k44+\nfy0HZ0pcQplLy0/WDT5IbnoVBN+G43D1A0RhCe1Cr6ErkQ7EuvTD0kAAfvTu\nD2Ivt8LchSbfKaSeMkzRo88zqvAKd3PwqcKy3TKvxlx4a8k/XR1V5UGFFI4r\nso8e1Q2inFy2JL8onCOV3JmwFkWUPDNN25jqSOehkt4xP3w6/HRB6kA2VXNC\nApaF\r\n=FLKp\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config_3.2.0_1562882659370_0.21168463077563016"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.2.1": {
+			"name": "config",
+			"version": "3.2.1",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "^1.0.1"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffeescript": "2.2.4",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 6.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "9b73f6a26b47e5ea675ee825a34b21e59cde4805",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@3.2.1",
+			"_nodeVersion": "10.15.3",
+			"_npmVersion": "6.9.0",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-EMA/IU0gBI3OZHi41B2JaosXEc6tJMN8RT3Pm5cHuRfbtfAQbNmYB6bFq0JK8tRu8F2WZ8s+5tnUX7acEy37xw==",
+				"shasum": "c687cdd0ba22433422ff4f6e3edffbe3930aa141",
+				"tarball": "https://registry.npmjs.org/config/-/config-3.2.1.tgz",
+				"fileCount": 9,
+				"unpackedSize": 87390,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdMPHYCRA9TVsSAnZWagAAe8YP/1tx+DK3o2KWINoA4/lx\nrGXpHsUPrk9RLXQuT3L7f8rWFhz5KlURSmxI4KduJ5/b0/cmn9TegPIB1+7n\n/+JhZBXC0MHKVLomDOMOZLw7iw/kfVZKNCl4r9KVFxblb4kN4ygf+Kn1y8+M\ncM75TtF97A/aNv6gGT76a0B6EhsFTh/CP1NAOSfqYSzfnAE8Ly8W6IKkH0wd\nykCsyagroLXKtVh9m6iOC5/Li8XiTpHq3Pp44s853aCOSGbF2CmfcKYbim7l\nX8aERKAvZi5ql64QclRorgZpVZfZNdGu9QZNaZtm57Hwz+HTzK/q3JzVJ6jB\nvbD7p7etB4Vn8pEY+4T21FKchc79Oclc4BG9YvdRVD1yOTiSI58pLfPKC6dJ\nKUhFjtChUsON52u0e04LHlAEXf+vYhBoVr1E0OK+oQtHFXHtTcDLN+6NvrxO\nNDKeHb8C+1LOnkotNuY+8Qh1in4jZ6vWwHPkMxKDqPX9/NLxtJVLC2GijMLs\nldEAFFclsFzTGSyael2KvpWP/b3laMg1SAtlm0+2RPWrwE25czgkVjvBjGim\ni5IxlD+PxX4KvWv7QOkRCLV4S8EvTZ6Ty5T7APQrY7GghXFvtVEdPX8WL8qy\nGmuz/xxGh/NRqKUNL/9WK4EnlVhh4PcwUx7aT1xfpVTZ01SVrpv9UYwDeQLj\nDjaB\r\n=mEF5\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config_3.2.1_1563488727428_0.09259780375201543"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.2.2": {
+			"name": "config",
+			"version": "3.2.2",
+			"main": "./lib/config.js",
+			"description": "Configuration control for production node deployments",
+			"author": {
+				"name": "Loren West",
+				"email": "open_source@lorenwest.com"
+			},
+			"homepage": "http://lorenwest.github.com/node-config",
+			"keywords": [
+				"conf",
+				"config",
+				"configuration",
+				"node-config",
+				"config-node",
+				"env",
+				"environment"
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"json5": "^1.0.1"
+			},
+			"devDependencies": {
+				"@types/node": "^7.0.8",
+				"coffeescript": "2.2.4",
+				"cson": "^3.0.1",
+				"hjson": "^1.2.0",
+				"js-yaml": "^3.2.2",
+				"properties": "~1.2.1",
+				"semver": "5.3.0",
+				"toml": "^2.0.6",
+				"ts-node": "^3.3.0",
+				"typescript": "^2.4.2",
+				"underscore": "^1.8.3",
+				"vows": ">=0.8.1",
+				"x2js": "^2.0.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/lorenwest/node-config.git"
+			},
+			"engines": {
+				"node": ">= 6.0.0"
+			},
+			"scripts": {
+				"test": "./node_modules/vows/bin/vows test/*.js --spec"
+			},
+			"gitHead": "2565a3f373992219bf8031b493f3b15a961e82c2",
+			"bugs": {
+				"url": "https://github.com/lorenwest/node-config/issues"
+			},
+			"_id": "config@3.2.2",
+			"_nodeVersion": "10.15.3",
+			"_npmVersion": "6.9.0",
+			"_npmUser": {
+				"name": "lorenwest",
+				"email": "npm@lorenwest.com"
+			},
+			"maintainers": [
+				{
+					"name": "lorenwest",
+					"email": "npm@lorenwest.com"
+				},
+				{
+					"name": "markstos",
+					"email": "mark@rideamigos.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-rOsfIOAcG82AWouK4/vBS/OKz3UPl2T/kP0irExmXJJOoWg2CmdfPLdx56bCoMUMFNh+7soQkQWCUC8DyemiwQ==",
+				"shasum": "c7d31bb2a9d30013a905ff420101e3b1ba58eead",
+				"tarball": "https://registry.npmjs.org/config/-/config-3.2.2.tgz",
+				"fileCount": 9,
+				"unpackedSize": 87512,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdM+nsCRA9TVsSAnZWagAAZQoQAIeanI69YMT/iWz9gL1E\nugXM6QDXzxYa04fUvKdlwt3YZFHvy06SBy0NrVJEYacI4uufTTF4h7j7A3IC\nj/Ky6jj4vVsBuhrqCG29ybdfkm/VpsmFe2XKiiVfRsNFZEQkchipjxe/V9ty\nOvFYyyvHiAZzIqIWQJh84RwJnNVH1WpVP1voBPGzwMj0HVy4eStNA7pzPvi3\nxUyqeE0XQjKUBbsYOyNiw8IyWaEs0+tuwLNXbQIy7lVR+juBb+Msbs1otZw8\nFlQ2mF+CAdYKIz/NIZGGVBKexU4ij6/sZd6zvWSzz2wxmu/sHmcOwpp6u2LE\n69tM6YPuQD68lBUwdkm8cevGziQ9dC0p5xZk7rVfC+h4n5FmKiIcByGcRnCM\npOMqiQMM4chxw+5zhlDFW47oUbLa0JXwcNQKr+VWkrS8lHGBxa3wEE7Wk2yK\n3uci7de8tvN/ERz5kTcVJaO3ZsyCIIft7MA0TtdLkjvaG1xq+0T76fDtECUu\nYNr+ubxJcQCmUCZXlPIhQ2oXtMygBj5DDaTtsQAea/hqE1t6MMXgCPSXM7at\nd4gFGdg9GqusbtmjnWwdIqBVIjAwY+9prihz9hu/A7hzsNJvfLogy0Sc2NTM\nmd9yTG5t1XWWW2Hl8rf0TcYrGgsjggxhnmnWsy+mweoB2i+50DyR0zzi+/0i\n3gXG\r\n=hHbr\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/config_3.2.2_1563683308316_0.27874139476706694"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-07-21T04:28:31.011Z",
+		"created": "2011-01-03T03:59:19.388Z",
+		"0.2.3": "2011-01-03T03:59:19.388Z",
+		"0.2.4": "2011-01-03T03:59:19.388Z",
+		"0.2.5": "2011-01-03T03:59:19.388Z",
+		"0.2.7": "2011-01-12T06:37:57.495Z",
+		"0.2.8": "2011-02-09T15:40:16.431Z",
+		"0.2.9": "2011-02-22T07:03:08.111Z",
+		"0.4.0": "2011-07-06T17:43:55.612Z",
+		"0.4.1": "2011-07-07T14:41:42.207Z",
+		"0.4.2": "2011-07-12T00:20:11.320Z",
+		"0.4.3": "2011-08-02T09:22:22.634Z",
+		"0.4.4": "2011-11-09T15:43:27.638Z",
+		"0.4.5": "2011-11-16T23:45:29.695Z",
+		"0.4.6": "2011-11-29T16:57:15.297Z",
+		"0.4.7": "2011-12-16T09:51:15.805Z",
+		"0.4.8": "2011-12-20T09:47:10.614Z",
+		"0.4.9": "2012-01-07T06:47:55.302Z",
+		"0.4.10": "2012-01-17T17:07:53.211Z",
+		"0.4.11": "2012-02-16T03:25:20.700Z",
+		"0.4.12": "2012-04-25T15:37:28.852Z",
+		"0.4.13": "2012-04-26T00:44:48.206Z",
+		"0.4.14": "2012-06-01T07:27:27.166Z",
+		"0.4.15": "2012-06-04T14:46:07.854Z",
+		"0.4.16": "2012-08-10T03:12:59.079Z",
+		"0.4.17": "2012-09-26T20:46:42.380Z",
+		"0.4.18": "2012-11-09T05:19:21.421Z",
+		"0.4.19": "2013-02-21T16:30:04.596Z",
+		"0.4.20": "2013-02-21T16:57:16.066Z",
+		"0.4.21": "2013-03-07T07:55:07.106Z",
+		"0.4.22": "2013-03-30T04:42:39.061Z",
+		"0.4.23": "2013-04-13T17:16:44.821Z",
+		"0.4.24": "2013-04-26T21:39:02.903Z",
+		"0.4.25": "2013-05-25T03:06:52.937Z",
+		"0.4.26": "2013-06-11T00:42:25.192Z",
+		"0.4.27": "2013-06-18T15:26:00.312Z",
+		"0.4.28": "2013-07-31T15:22:17.907Z",
+		"0.4.29": "2013-08-07T16:42:39.134Z",
+		"0.4.30": "2013-09-13T05:27:47.961Z",
+		"0.4.31": "2013-10-19T03:16:22.375Z",
+		"0.4.32": "2013-10-24T15:37:52.467Z",
+		"0.4.33": "2013-11-08T06:09:23.735Z",
+		"0.4.34": "2014-01-06T16:00:25.233Z",
+		"0.4.35": "2014-01-17T06:03:35.049Z",
+		"0.4.36": "2014-05-27T16:20:01.563Z",
+		"0.4.37": "2014-07-22T22:21:09.749Z",
+		"1.0.0": "2014-07-23T08:31:34.436Z",
+		"1.0.1": "2014-07-25T15:03:44.637Z",
+		"1.0.2": "2014-07-31T02:53:34.361Z",
+		"1.0.3": "2014-09-03T17:23:41.545Z",
+		"1.1.0": "2014-09-03T17:37:53.953Z",
+		"1.1.1": "2014-09-03T18:49:34.125Z",
+		"1.2.0": "2014-09-16T00:35:26.390Z",
+		"1.2.1": "2014-09-23T15:01:31.240Z",
+		"1.2.2": "2014-10-04T00:20:19.666Z",
+		"1.2.3": "2014-10-07T02:14:54.582Z",
+		"1.2.4": "2014-10-11T04:28:43.831Z",
+		"1.3.0": "2014-10-16T00:10:35.530Z",
+		"1.4.0": "2014-10-17T01:15:56.843Z",
+		"1.5.0": "2014-10-21T02:43:00.071Z",
+		"1.6.0": "2014-10-22T15:44:04.367Z",
+		"1.7.0": "2014-10-30T15:51:33.466Z",
+		"1.8.0": "2014-11-14T02:43:47.930Z",
+		"1.8.2": "2014-11-15T00:22:59.015Z",
+		"1.8.1": "2014-11-15T00:23:44.061Z",
+		"1.9.0": "2014-12-08T15:42:52.224Z",
+		"1.10.0": "2015-01-07T01:47:39.075Z",
+		"1.11.0": "2015-02-12T21:58:50.697Z",
+		"1.12.0": "2015-02-20T06:02:05.990Z",
+		"1.13.0": "2015-05-06T00:33:19.805Z",
+		"1.14.0": "2015-06-02T20:22:35.867Z",
+		"1.15.0": "2015-07-30T14:52:15.702Z",
+		"1.16.0": "2015-09-03T15:19:45.952Z",
+		"1.17.0": "2015-11-17T15:23:07.393Z",
+		"1.17.1": "2015-11-18T00:09:21.536Z",
+		"1.19.0": "2016-01-12T00:10:51.058Z",
+		"1.20.0": "2016-04-07T00:28:48.250Z",
+		"1.20.1": "2016-04-08T14:33:56.835Z",
+		"1.20.2": "2016-05-17T17:54:27.927Z",
+		"1.20.3": "2016-05-18T19:52:22.500Z",
+		"1.20.4": "2016-05-24T02:00:50.572Z",
+		"1.21.0": "2016-06-01T23:26:45.112Z",
+		"1.23.0": "2016-11-02T14:43:50.219Z",
+		"1.24.0": "2016-11-02T14:57:40.867Z",
+		"1.25.0": "2017-01-31T20:52:23.857Z",
+		"1.25.1": "2017-02-01T20:57:35.159Z",
+		"1.26.1": "2017-05-03T14:49:03.616Z",
+		"1.26.2": "2017-08-12T02:18:32.981Z",
+		"1.27.0": "2017-10-17T14:44:04.272Z",
+		"1.28.0": "2017-11-07T15:18:36.019Z",
+		"1.28.1": "2017-11-09T13:40:34.024Z",
+		"1.29.0": "2017-12-26T17:52:10.639Z",
+		"1.29.1": "2018-01-07T19:03:26.562Z",
+		"1.29.2": "2018-01-13T01:05:03.786Z",
+		"1.29.3": "2018-02-03T23:16:57.270Z",
+		"1.29.4": "2018-02-04T07:47:00.702Z",
+		"1.30.0": "2018-02-26T21:02:25.696Z",
+		"1.31.0": "2018-07-23T18:14:15.415Z",
+		"2.0.0": "2018-07-27T00:28:03.800Z",
+		"2.0.1": "2018-07-30T18:17:43.112Z",
+		"2.0.2": "2018-11-20T17:01:57.239Z",
+		"3.0.0": "2018-11-20T17:07:50.743Z",
+		"3.0.1": "2018-12-17T04:56:28.616Z",
+		"3.1.0": "2019-04-07T15:43:55.101Z",
+		"3.2.0": "2019-07-11T22:04:19.471Z",
+		"3.2.1": "2019-07-18T22:25:27.594Z",
+		"3.2.2": "2019-07-21T04:28:28.448Z"
+	},
+	"dist-tags": {
+		"latest": "3.2.2"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"e0117d3ff71203038dbebcbd706cda36\"",
+			"fetched": 1568994341831
+		}
+	},
+	"_distfiles": {
+		"config-0.2.3.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.2.3.tgz",
+			"sha": "8058f324379497b8a5ebad22537faf07de945612",
+			"registry": "npmjs"
+		},
+		"config-0.2.4.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.2.4.tgz",
+			"sha": "c8bf166172610e770e6f2fe528de00460be4dd4c",
+			"registry": "npmjs"
+		},
+		"config-0.2.5.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.2.5.tgz",
+			"sha": "4ba2a4d81ac3d44ad8918b907e3d30e9559c7134",
+			"registry": "npmjs"
+		},
+		"config-0.2.7.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.2.7.tgz",
+			"sha": "4c58e739a77f0f944fffe007ed0d431e842c934e",
+			"registry": "npmjs"
+		},
+		"config-0.2.8.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.2.8.tgz",
+			"sha": "ddc40b3b219812edfbca0ca0237d3f677018f22a",
+			"registry": "npmjs"
+		},
+		"config-0.2.9.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.2.9.tgz",
+			"sha": "53841c333cbb0d64cd665ddc89dbf6ce1929cb26",
+			"registry": "npmjs"
+		},
+		"config-0.4.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.0.tgz",
+			"sha": "95f7cdf56a1c07adb9e01a27440cec903ac1dd1a",
+			"registry": "npmjs"
+		},
+		"config-0.4.1.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.1.tgz",
+			"sha": "3321c051655eb414d6c9ca928b83b0863512a496",
+			"registry": "npmjs"
+		},
+		"config-0.4.2.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.2.tgz",
+			"sha": "d29c7caf1cf51d9bd4304d103d87d4823a012eba",
+			"registry": "npmjs"
+		},
+		"config-0.4.3.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.3.tgz",
+			"sha": "b43e623e7cab68c7a58e3ddda5df538596faa3d1",
+			"registry": "npmjs"
+		},
+		"config-0.4.4.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.4.tgz",
+			"sha": "4969365508bddd04d65494daaa0ab4aac90d831e",
+			"registry": "npmjs"
+		},
+		"config-0.4.5.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.5.tgz",
+			"sha": "6f0abbd25335d97e3799ea34a97be956002d9d78",
+			"registry": "npmjs"
+		},
+		"config-0.4.6.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.6.tgz",
+			"sha": "e8c03ab9dea7f069a222048e5f56eaf1cb5cc67e",
+			"registry": "npmjs"
+		},
+		"config-0.4.7.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.7.tgz",
+			"sha": "a87bb40a7b8ede24f80613cd11dce3f92a8ab7e7",
+			"registry": "npmjs"
+		},
+		"config-0.4.8.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.8.tgz",
+			"sha": "13c0ed8e312e0572bf1f0b6f5fb01c1a0ac68c8b",
+			"registry": "npmjs"
+		},
+		"config-0.4.9.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.9.tgz",
+			"sha": "a2980217ab8b7dc74594b53064c4fa32bde2d632",
+			"registry": "npmjs"
+		},
+		"config-0.4.10.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.10.tgz",
+			"sha": "d57be473e074792706103d4240cc0c8a17d30c64",
+			"registry": "npmjs"
+		},
+		"config-0.4.11.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.11.tgz",
+			"sha": "bbf5d9370fb2e8ef015f3812924ba488c5d87eb9",
+			"registry": "npmjs"
+		},
+		"config-0.4.12.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.12.tgz",
+			"sha": "cdfb2ef80101a7a218aac1ae7d773909bc819763",
+			"registry": "npmjs"
+		},
+		"config-0.4.13.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.13.tgz",
+			"sha": "886f6467150f1e73ff57517d7be49e1cfa4251de",
+			"registry": "npmjs"
+		},
+		"config-0.4.14.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.14.tgz",
+			"sha": "5f45c62e8902e872e9ab1cb18286e355519874e6",
+			"registry": "npmjs"
+		},
+		"config-0.4.15.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.15.tgz",
+			"sha": "d43ddf58b8df5637fdd1314fc816ccae7bfbcd18",
+			"registry": "npmjs"
+		},
+		"config-0.4.16.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.16.tgz",
+			"sha": "c2535a5d0d14ab7be23f900651b088fb3ae23aee",
+			"registry": "npmjs"
+		},
+		"config-0.4.17.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.17.tgz",
+			"sha": "b99290d8a876f11170e70176ae9c62bd40f7a2d8",
+			"registry": "npmjs"
+		},
+		"config-0.4.18.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.18.tgz",
+			"sha": "1ae056d2bd8dcf1dc6e18cf2d19848462b45a6cd",
+			"registry": "npmjs"
+		},
+		"config-0.4.19.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.19.tgz",
+			"sha": "21801f8652a2daa18191cdcf2ac4a3e4bb1e2bbd",
+			"registry": "npmjs"
+		},
+		"config-0.4.20.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.20.tgz",
+			"sha": "14ea93ba3345cb956885d94f78a96eb90c3cabae",
+			"registry": "npmjs"
+		},
+		"config-0.4.21.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.21.tgz",
+			"sha": "e021bdfcb3db9a60dbd79bf9396814fcbd061bbe",
+			"registry": "npmjs"
+		},
+		"config-0.4.22.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.22.tgz",
+			"sha": "8725e2227a1105e3b6898ee836d1a358ae641cd1",
+			"registry": "npmjs"
+		},
+		"config-0.4.23.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.23.tgz",
+			"sha": "1d08eda04cb3675e4a09fe841722fa8b008e6b37",
+			"registry": "npmjs"
+		},
+		"config-0.4.24.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.24.tgz",
+			"sha": "78c8c7c71d84bcc32324b41489e8943d3beaf995",
+			"registry": "npmjs"
+		},
+		"config-0.4.25.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.25.tgz",
+			"sha": "bd482b8dc6b3ab6b59bed36c9223856cb5fe5de2",
+			"registry": "npmjs"
+		},
+		"config-0.4.26.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.26.tgz",
+			"sha": "362da6ef909882529055ef64b18e5b3a57d588a6",
+			"registry": "npmjs"
+		},
+		"config-0.4.27.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.27.tgz",
+			"sha": "2cc71c2a9949a9aedeaa24b547cfd8625f375f09",
+			"registry": "npmjs"
+		},
+		"config-0.4.28.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.28.tgz",
+			"sha": "c04bd2b01f7f993658e96a1afd2f31f15083c5df",
+			"registry": "npmjs"
+		},
+		"config-0.4.29.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.29.tgz",
+			"sha": "353b3a55e0ddc64eba5a6256bd3694d59d8986bf",
+			"registry": "npmjs"
+		},
+		"config-0.4.30.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.30.tgz",
+			"sha": "fa87e75e6b3ffe245be018b5a461c53585504b1e",
+			"registry": "npmjs"
+		},
+		"config-0.4.31.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.31.tgz",
+			"sha": "043be26e53f17fc2278ab5eb7d8dfaa59aa69edd",
+			"registry": "npmjs"
+		},
+		"config-0.4.32.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.32.tgz",
+			"sha": "a235499ea818f204b06556e903ef687c4c4c91a7",
+			"registry": "npmjs"
+		},
+		"config-0.4.33.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.33.tgz",
+			"sha": "86294ad487e48794e49917ad4601a57055d5eb89",
+			"registry": "npmjs"
+		},
+		"config-0.4.34.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.34.tgz",
+			"sha": "1673a3d223ae07b52dd018d20f1bd4f7726dfc90",
+			"registry": "npmjs"
+		},
+		"config-0.4.35.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.35.tgz",
+			"sha": "acfcc382f46181f2200c6a501134b111700b93b6",
+			"registry": "npmjs"
+		},
+		"config-0.4.36.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.36.tgz",
+			"sha": "02af1237f519c00f1e3aac22f9a034148fc3e786",
+			"registry": "npmjs"
+		},
+		"config-0.4.37.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-0.4.37.tgz",
+			"sha": "98a70b99811b1e284f6d3053d9f1e970398e4df9",
+			"registry": "npmjs"
+		},
+		"config-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.0.0.tgz",
+			"sha": "be8205e64a5b451615d71c3035ac427c82149fd3",
+			"registry": "npmjs"
+		},
+		"config-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.0.1.tgz",
+			"sha": "f075f428a8e3b9ff84aeb5f172aeb38021ff7f40",
+			"registry": "npmjs"
+		},
+		"config-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.0.2.tgz",
+			"sha": "f80ba9d7998f217eff649990f70a03892fd838da",
+			"registry": "npmjs"
+		},
+		"config-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.1.0.tgz",
+			"sha": "7d9b65f093eeccd7ac5d15548687ac9848cc0545",
+			"registry": "npmjs"
+		},
+		"config-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.2.0.tgz",
+			"sha": "b7158af7977112c67e790de2b3bf7e455614f0c1",
+			"registry": "npmjs"
+		},
+		"config-1.2.1.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.2.1.tgz",
+			"sha": "2defd83262cbf888b10d20c258de8fb51c424429",
+			"registry": "npmjs"
+		},
+		"config-1.2.2.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.2.2.tgz",
+			"sha": "7b2232c7cd385c67bb24518ce135366c58f2eeb2",
+			"registry": "npmjs"
+		},
+		"config-1.2.3.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.2.3.tgz",
+			"sha": "7180c863d1050e09a967307a6f7b3cd368b93221",
+			"registry": "npmjs"
+		},
+		"config-1.2.4.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.2.4.tgz",
+			"sha": "3ef059282287021b9e3dc019d7856358fa39290c",
+			"registry": "npmjs"
+		},
+		"config-1.3.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.3.0.tgz",
+			"sha": "80c6e5f402d76bf6afb0e1a77d9014550aa927aa",
+			"registry": "npmjs"
+		},
+		"config-1.4.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.4.0.tgz",
+			"sha": "c4c1712be7ca32d1a91daf9c4f17d38a3768c378",
+			"registry": "npmjs"
+		},
+		"config-1.5.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.5.0.tgz",
+			"sha": "040daaeebb1e934ddf5019c081484ff0ddbf352a",
+			"registry": "npmjs"
+		},
+		"config-1.6.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.6.0.tgz",
+			"sha": "377c95cb419f32698c427e6f95b1d71f08de6623",
+			"registry": "npmjs"
+		},
+		"config-1.7.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.7.0.tgz",
+			"sha": "239dd1245b87a672e8b8e09a81aac8244bb24b62",
+			"registry": "npmjs"
+		},
+		"config-1.8.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.8.0.tgz",
+			"sha": "3283a44c9557590e4263cbea2a9b4e86907ed9fe",
+			"registry": "npmjs"
+		},
+		"config-1.8.1.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.8.1.tgz",
+			"sha": "cd3b59c83cccb9e1d454da7e36e16252e1371f5a",
+			"registry": "npmjs"
+		},
+		"config-1.9.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.9.0.tgz",
+			"sha": "c4c1b9ee357aa23bbe131b64a1ed6b5fcbb2b8b6",
+			"registry": "npmjs"
+		},
+		"config-1.10.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.10.0.tgz",
+			"sha": "81d6346ff3199949db430ecd80eab727dda3b57d",
+			"registry": "npmjs"
+		},
+		"config-1.11.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.11.0.tgz",
+			"sha": "5c5fa09249dfa4d43358ee2e227b5c36d49678a7",
+			"registry": "npmjs"
+		},
+		"config-1.12.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.12.0.tgz",
+			"sha": "02ad1d816c92d6dab1c713d734dd5e993944e418",
+			"registry": "npmjs"
+		},
+		"config-1.13.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.13.0.tgz",
+			"sha": "af33f0a7458e4e495fc6de9067a82164de178b78",
+			"registry": "npmjs"
+		},
+		"config-1.14.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.14.0.tgz",
+			"sha": "e3ae8313c3a304fbbca56790c395899826d7365f",
+			"registry": "npmjs"
+		},
+		"config-1.15.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.15.0.tgz",
+			"sha": "ebb41fa66bdd5c6243a09cab26359d97bd8d912c",
+			"registry": "npmjs"
+		},
+		"config-1.16.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.16.0.tgz",
+			"sha": "4d8afb1c786eb8d341325985210e5460fd41e892",
+			"registry": "npmjs"
+		},
+		"config-1.17.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.17.0.tgz",
+			"sha": "bc4d26a1a586052a1ef7948b5cadd34409d10fa4",
+			"registry": "npmjs"
+		},
+		"config-1.17.1.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.17.1.tgz",
+			"sha": "4303465419890dad989b586413eeee51be0acb34",
+			"registry": "npmjs"
+		},
+		"config-1.19.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.19.0.tgz",
+			"sha": "07a1585d6b94938b0ce206080ffc30d777047af0",
+			"registry": "npmjs"
+		},
+		"config-1.20.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.20.0.tgz",
+			"sha": "d709599c2e679fe95316e54d4afc8e9a06878b19",
+			"registry": "npmjs"
+		},
+		"config-1.20.1.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.20.1.tgz",
+			"sha": "cc7ac2934481f1ef4450ea6a5fc3fd33ac4d268b",
+			"registry": "npmjs"
+		},
+		"config-1.20.2.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.20.2.tgz",
+			"sha": "81b8038a99131844adfce67ab5528c07a9e0b20c",
+			"registry": "npmjs"
+		},
+		"config-1.20.3.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.20.3.tgz",
+			"sha": "c8382832e0eb7a62e66700c14551f006248f3406",
+			"registry": "npmjs"
+		},
+		"config-1.20.4.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.20.4.tgz",
+			"sha": "1a41d26cecb7ae38e2a34d16d148201a040c311e",
+			"registry": "npmjs"
+		},
+		"config-1.21.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.21.0.tgz",
+			"sha": "83719c0263a669e4bc4cc9c9e5818cd996a32cb9",
+			"registry": "npmjs"
+		},
+		"config-1.23.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.23.0.tgz",
+			"sha": "265b771785507829a0785d6881be84bd1f9e5f42",
+			"registry": "npmjs"
+		},
+		"config-1.24.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.24.0.tgz",
+			"sha": "553bc4d77637d6630a305b52c33cb6da2b9f42f0",
+			"registry": "npmjs"
+		},
+		"config-1.25.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.25.0.tgz",
+			"sha": "05456c0c0663d3336b7e0762e2e3595fe966af0a",
+			"registry": "npmjs"
+		},
+		"config-1.25.1.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.25.1.tgz",
+			"sha": "72ac51cde81e2c77c6b3b66d0130dae527a19c92",
+			"registry": "npmjs"
+		},
+		"config-1.26.1.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.26.1.tgz",
+			"sha": "f647ce32c345e80ba73a8eaa7a9a4b4e5b290ca1",
+			"registry": "npmjs"
+		},
+		"config-1.26.2.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.26.2.tgz",
+			"sha": "2466291168d8afae0aae8ab99ea4d4272f520cae",
+			"registry": "npmjs"
+		},
+		"config-1.27.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.27.0.tgz",
+			"sha": "3ab30d0080ff76f407c2f47ac1326adfd908af5f",
+			"registry": "npmjs"
+		},
+		"config-1.28.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.28.0.tgz",
+			"sha": "666740053a81489905f26087c8656394c193507d",
+			"registry": "npmjs"
+		},
+		"config-1.28.1.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.28.1.tgz",
+			"sha": "7625d2a1e4c90f131d8a73347982d93c3873282d",
+			"registry": "npmjs"
+		},
+		"config-1.29.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.29.0.tgz",
+			"sha": "f89190095ec8cfe886ea52b7d3d96cadfa577b7f",
+			"registry": "npmjs"
+		},
+		"config-1.29.1.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.29.1.tgz",
+			"sha": "155c9fbc5a8636120e9eb5c183c212add3b7fe18",
+			"registry": "npmjs"
+		},
+		"config-1.29.2.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.29.2.tgz",
+			"sha": "2ebdc92639eb9d06fffd302f1ee32e2ad0e94e11",
+			"registry": "npmjs"
+		},
+		"config-1.29.3.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.29.3.tgz",
+			"sha": "a344eb690d279cb314533ae8550839509d90f7e0",
+			"registry": "npmjs"
+		},
+		"config-1.29.4.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.29.4.tgz",
+			"sha": "1b42752ed86b363fc4025960569fd74978862a92",
+			"registry": "npmjs"
+		},
+		"config-1.30.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.30.0.tgz",
+			"sha": "1d60a9f35348a13c175798d384e81a5a16c3ba6e",
+			"registry": "npmjs"
+		},
+		"config-1.31.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-1.31.0.tgz",
+			"sha": "ab08aeba6536015d220cd0afe14b3e0501082542",
+			"registry": "npmjs"
+		},
+		"config-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-2.0.0.tgz",
+			"sha": "f9f079477f3e07a3c118fa3adfccc36f5d3adff1",
+			"registry": "npmjs"
+		},
+		"config-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-2.0.1.tgz",
+			"sha": "995ccc8175460578d646ac0a2e4018ffa44ca046",
+			"registry": "npmjs"
+		},
+		"config-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-2.0.2.tgz",
+			"sha": "b81c8f4e05203e1da7752864c19a11604ca923d7",
+			"registry": "npmjs"
+		},
+		"config-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-3.0.0.tgz",
+			"sha": "a71cdbb22d225df9eff20b95178d65a63c452367",
+			"registry": "npmjs"
+		},
+		"config-3.0.1.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-3.0.1.tgz",
+			"sha": "c3118e2eb45fdfd135277339f87e2492559cb147",
+			"registry": "npmjs"
+		},
+		"config-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-3.1.0.tgz",
+			"sha": "c7d49c4171e8f6cb61c1d69e22647ffd60492548",
+			"registry": "npmjs"
+		},
+		"config-3.2.0.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-3.2.0.tgz",
+			"sha": "9dc4f74770657b583f47a1209e52f3b0d0e531db",
+			"registry": "npmjs"
+		},
+		"config-3.2.1.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-3.2.1.tgz",
+			"sha": "c687cdd0ba22433422ff4f6e3edffbe3930aa141",
+			"registry": "npmjs"
+		},
+		"config-3.2.2.tgz": {
+			"url": "https://registry.npmjs.org/config/-/config-3.2.2.tgz",
+			"sha": "c7d31bb2a9d30013a905ff420101e3b1ba58eead",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-3ebfab0dca7d929c",
+	"_id": "config",
+	"readme": "Configure your Node.js Applications\n===================================\n\n[![NPM](https://nodei.co/npm/config.svg?downloads=true&downloadRank=true)](https://nodei.co/npm/config/)&nbsp;&nbsp;\n[![Build Status](https://secure.travis-ci.org/lorenwest/node-config.svg?branch=master)](https://travis-ci.org/lorenwest/node-config)&nbsp;&nbsp;\n[release notes](https://github.com/lorenwest/node-config/blob/master/History.md)\n\nIntroduction\n------------\n\nNode-config organizes hierarchical configurations for your app deployments.\n\nIt lets you define a set of default parameters,\nand extend them for different deployment environments (development, qa,\nstaging, production, etc.).\n\nConfigurations are stored in [configuration files](https://github.com/lorenwest/node-config/wiki/Configuration-Files) within your application, and can be overridden and extended by [environment variables](https://github.com/lorenwest/node-config/wiki/Environment-Variables),\n [command line parameters](https://github.com/lorenwest/node-config/wiki/Command-Line-Overrides), or [external sources](https://github.com/lorenwest/node-config/wiki/Configuring-from-an-External-Source).\n\nThis gives your application a consistent configuration interface shared among a\n[growing list of npm modules](https://www.npmjs.org/browse/depended/config) also using node-config.\n\nProject Guidelines\n------------------\n\n* *Simple* - Get started fast\n* *Powerful* - For multi-node enterprise deployment\n* *Flexible* - Supporting multiple config file formats\n* *Lightweight* - Small file and memory footprint\n* *Predictable* - Well tested foundation for module and app developers\n\nQuick Start\n---------------\nThe following examples are in JSON format, but configurations can be in other [file formats](https://github.com/lorenwest/node-config/wiki/Configuration-Files#file-formats).\n\n**Install in your app directory, and edit the default config file.**\n\n```shell\n$ npm install config\n$ mkdir config\n$ vi config/default.json\n```\n```js\n{\n  // Customer module configs\n  \"Customer\": {\n    \"dbConfig\": {\n      \"host\": \"localhost\",\n      \"port\": 5984,\n      \"dbName\": \"customers\"\n    },\n    \"credit\": {\n      \"initialLimit\": 100,\n      // Set low for development\n      \"initialDays\": 1\n    }\n  }\n}\n```\n\n**Edit config overrides for production deployment:**\n\n```shell\n $ vi config/production.json\n```\n\n```json\n{\n  \"Customer\": {\n    \"dbConfig\": {\n      \"host\": \"prod-db-server\"\n    },\n    \"credit\": {\n      \"initialDays\": 30\n    }\n  }\n}\n```\n\n**Use configs in your code:**\n\n```js\nconst config = require('config');\n//...\nconst dbConfig = config.get('Customer.dbConfig');\ndb.connect(dbConfig, ...);\n\nif (config.has('optionalFeature.detail')) {\n  const detail = config.get('optionalFeature.detail');\n  //...\n}\n```\n\n`config.get()` will throw an exception for undefined keys to help catch typos and missing values.\nUse `config.has()` to test if a configuration value is defined.\n\n**Start your app server:**\n\n```shell\n$ export NODE_ENV=production\n$ node my-app.js\n```\n\nRunning in this configuration, the `port` and `dbName` elements of `dbConfig`\nwill come from the `default.json` file, and the `host` element will\ncome from the `production.json` override file.\n\nArticles\n--------\n\n* [Configuration Files](https://github.com/lorenwest/node-config/wiki/Configuration-Files)\n  * [Special features for JavaScript configuration files](https://github.com/lorenwest/node-config/wiki/Special-features-for-JavaScript-configuration-files)\n* [Common Usage](https://github.com/lorenwest/node-config/wiki/Common-Usage)\n* [Environment Variables](https://github.com/lorenwest/node-config/wiki/Environment-Variables)\n* [Reserved Words](https://github.com/lorenwest/node-config/wiki/Reserved-Words)\n* [Command Line Overrides](https://github.com/lorenwest/node-config/wiki/Command-Line-Overrides)\n* [Multiple Node Instances](https://github.com/lorenwest/node-config/wiki/Multiple-Node-Instances)\n* [Sub-Module Configuration](https://github.com/lorenwest/node-config/wiki/Sub-Module-Configuration)\n* [Configuring from a DB / External Source](https://github.com/lorenwest/node-config/wiki/Configuring-from-an-External-Source)\n* [Securing Production Config Files](https://github.com/lorenwest/node-config/wiki/Securing-Production-Config-Files)\n* [External Configuration Management Tools](https://github.com/lorenwest/node-config/wiki/External-Configuration-Management-Tools)\n* [Examining Configuration Sources](https://github.com/lorenwest/node-config/wiki/Examining-Configuration-Sources)\n* [Using Config Utilities](https://github.com/lorenwest/node-config/wiki/Using-Config-Utilities)\n* [Upgrading from Config 0.x](https://github.com/lorenwest/node-config/wiki/Upgrading-From-Config-0.x)\n* [Webpack usage](https://github.com/lorenwest/node-config/wiki/Webpack-Usage)\n\nFurther Information\n---------------------\nIf you still don't see what you are looking for, here more resources to check: \n\n * The [wiki may have more pages](https://github.com/lorenwest/node-config/wiki) which are not directly linked from here.\n * Review [questions tagged with node-config](https://stackexchange.com/filters/207096/node-config) on StackExchange. These are monitored by `node-config` contributors.\n * [Search the issue tracker](https://github.com/lorenwest/node-config/issues). Hundreds of issues have already been discussed and resolved there.\n\nContributors\n------------\n<table id=\"contributors\"><tr><td><img src=https://avatars2.githubusercontent.com/u/373538?v=4><a href=\"https://github.com/lorenwest\">lorenwest</a></td>\n<td><img src=https://avatars1.githubusercontent.com/u/25829?v=4><a href=\"https://github.com/markstos\">markstos</a></td>\n<td><img src=https://avatars3.githubusercontent.com/u/447151?v=4><a href=\"https://github.com/elliotttf\">elliotttf</a></td>\n<td><img src=https://avatars1.githubusercontent.com/u/8839447?v=4><a href=\"https://github.com/jfelege\">jfelege</a></td>\n<td><img src=https://avatars0.githubusercontent.com/u/66902?v=4><a href=\"https://github.com/leachiM2k\">leachiM2k</a></td>\n<td><img src=https://avatars1.githubusercontent.com/u/791137?v=4><a href=\"https://github.com/josx\">josx</a></td>\n</tr><tr><td><img src=https://avatars2.githubusercontent.com/u/133277?v=4><a href=\"https://github.com/enyo\">enyo</a></td>\n<td><img src=https://avatars1.githubusercontent.com/u/4307697?v=4><a href=\"https://github.com/leosuncin\">leosuncin</a></td>\n<td><img src=https://avatars3.githubusercontent.com/u/1077378?v=4><a href=\"https://github.com/arthanzel\">arthanzel</a></td>\n<td><img src=https://avatars2.githubusercontent.com/u/1656140?v=4><a href=\"https://github.com/eheikes\">eheikes</a></td>\n<td><img src=https://avatars3.githubusercontent.com/u/138707?v=4><a href=\"https://github.com/th507\">th507</a></td>\n<td><img src=https://avatars2.githubusercontent.com/u/506460?v=4><a href=\"https://github.com/Osterjour\">Osterjour</a></td>\n</tr><tr><td><img src=https://avatars0.githubusercontent.com/u/842998?v=4><a href=\"https://github.com/nsabovic\">nsabovic</a></td>\n<td><img src=https://avatars0.githubusercontent.com/u/5138570?v=4><a href=\"https://github.com/BadgerBadgerBadgerBadger\">BadgerBadgerBadgerBadger</a></td>\n<td><img src=https://avatars2.githubusercontent.com/u/2529835?v=4><a href=\"https://github.com/simon-scherzinger\">simon-scherzinger</a></td>\n<td><img src=https://avatars1.githubusercontent.com/u/175627?v=4><a href=\"https://github.com/axelhzf\">axelhzf</a></td>\n<td><img src=https://avatars3.githubusercontent.com/u/7782055?v=4><a href=\"https://github.com/benkroeger\">benkroeger</a></td>\n<td><img src=https://avatars3.githubusercontent.com/u/1872824?v=4><a href=\"https://github.com/fgheorghe\">fgheorghe</a></td>\n</tr><tr><td><img src=https://avatars3.githubusercontent.com/u/1443067?v=4><a href=\"https://github.com/IvanVergiliev\">IvanVergiliev</a></td>\n<td><img src=https://avatars0.githubusercontent.com/u/1736957?v=4><a href=\"https://github.com/jpwilliams\">jpwilliams</a></td>\n<td><img src=https://avatars2.githubusercontent.com/u/1246875?v=4><a href=\"https://github.com/jaylynch\">jaylynch</a></td>\n<td><img src=https://avatars1.githubusercontent.com/u/145742?v=4><a href=\"https://github.com/jberrisch\">jberrisch</a></td>\n<td><img src=https://avatars1.githubusercontent.com/u/9355665?v=4><a href=\"https://github.com/kgoerlitz\">kgoerlitz</a></td>\n<td><img src=https://avatars0.githubusercontent.com/u/8525267?v=4><a href=\"https://github.com/bertho-zero\">bertho-zero</a></td>\n</tr><tr><td><img src=https://avatars3.githubusercontent.com/u/8650543?v=4><a href=\"https://github.com/leonardovillela\">leonardovillela</a></td>\n<td><img src=https://avatars3.githubusercontent.com/u/1918551?v=4><a href=\"https://github.com/nitzan-shaked\">nitzan-shaked</a></td>\n<td><img src=https://avatars3.githubusercontent.com/u/3058150?v=4><a href=\"https://github.com/robertrossmann\">robertrossmann</a></td>\n<td><img src=https://avatars2.githubusercontent.com/u/498929?v=4><a href=\"https://github.com/roncli\">roncli</a></td>\n<td><img src=https://avatars2.githubusercontent.com/u/1355559?v=4><a href=\"https://github.com/superoven\">superoven</a></td>\n<td><img src=https://avatars2.githubusercontent.com/u/54934?v=4><a href=\"https://github.com/wmertens\">wmertens</a></td>\n</tr></table>\n\nLicense\n-------\n\nMay be freely distributed under the [MIT license](https://raw.githubusercontent.com/lorenwest/node-config/master/LICENSE).\n\nCopyright (c) 2010-2018 Loren West \n[and other contributors](https://github.com/lorenwest/node-config/graphs/contributors)"
+}

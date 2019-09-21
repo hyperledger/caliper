@@ -1,0 +1,2183 @@
+{
+	"name": "urijs",
+	"versions": {
+		"1.16.1": {
+			"name": "urijs",
+			"version": "1.16.1",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "f4068082df9ed42f4a9834d82392f5df5bea7185",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.16.1",
+			"scripts": {},
+			"_shasum": "859ad31890f5f9528727be89f1932c94fb4731e2",
+			"_from": ".",
+			"_npmVersion": "2.14.2",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"dist": {
+				"shasum": "859ad31890f5f9528727be89f1932c94fb4731e2",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.16.1.tgz"
+			},
+			"directories": {}
+		},
+		"1.17.0": {
+			"name": "urijs",
+			"version": "1.17.0",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "5aa9d186a9fa93e9dd08ff1fc42de12abdd70cec",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.17.0",
+			"scripts": {},
+			"_shasum": "20fcd32bcf60e0e9007c2415c2c9b8bdc43b33b1",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"dist": {
+				"shasum": "20fcd32bcf60e0e9007c2415c2c9b8bdc43b33b1",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.17.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.17.1": {
+			"name": "urijs",
+			"version": "1.17.1",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "59db7be63cccc85bdc5ba8435153b1c6711c7751",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.17.1",
+			"scripts": {},
+			"_shasum": "0a28bf2e00dfc24eeb0974feb8268a238c7bac2d",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"dist": {
+				"shasum": "0a28bf2e00dfc24eeb0974feb8268a238c7bac2d",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.17.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/urijs-1.17.1.tgz_1456394792283_0.010660857195034623"
+			},
+			"directories": {}
+		},
+		"1.18.0": {
+			"name": "urijs",
+			"version": "1.18.0",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "761a1c67ffb51f0c25d91abe917abe6a5e76bffd",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.18.0",
+			"scripts": {},
+			"_shasum": "091cbb7f6d60401b2e5e35c57a04177b9bbd12f2",
+			"_from": ".",
+			"_npmVersion": "2.15.0",
+			"_nodeVersion": "4.4.2",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"dist": {
+				"shasum": "091cbb7f6d60401b2e5e35c57a04177b9bbd12f2",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.18.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/urijs-1.18.0.tgz_1462008431095_0.998899286147207"
+			},
+			"directories": {}
+		},
+		"1.18.1": {
+			"name": "urijs",
+			"version": "1.18.1",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "6ed94b3b4e2b3b3d16eb945e57b6f9642ceae79e",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.18.1",
+			"scripts": {},
+			"_shasum": "a062818daae923efc20aa266b03de15aae0a89c4",
+			"_from": ".",
+			"_npmVersion": "2.15.0",
+			"_nodeVersion": "4.4.2",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"dist": {
+				"shasum": "a062818daae923efc20aa266b03de15aae0a89c4",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.18.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/urijs-1.18.1.tgz_1464540207335_0.6588761147577316"
+			},
+			"directories": {}
+		},
+		"1.18.2": {
+			"name": "urijs",
+			"version": "1.18.2",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "b77c167bc201575956ad409333ff032e504b8044",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.18.2",
+			"scripts": {},
+			"_shasum": "c2791fa9fb52f4603caf36032d9666432a1dda33",
+			"_from": ".",
+			"_npmVersion": "2.15.0",
+			"_nodeVersion": "4.4.2",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"dist": {
+				"shasum": "c2791fa9fb52f4603caf36032d9666432a1dda33",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.18.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/urijs-1.18.2.tgz_1474833582331_0.7711478180717677"
+			},
+			"directories": {}
+		},
+		"1.18.3": {
+			"name": "urijs",
+			"version": "1.18.3",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "a1e89141088787a67efc457ef895c433cc7c4d12",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.18.3",
+			"scripts": {},
+			"_shasum": "48cf665c631fca92690fc76a081cc96ff9673566",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "7.1.0",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"dist": {
+				"shasum": "48cf665c631fca92690fc76a081cc96ff9673566",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.18.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/urijs-1.18.3.tgz_1479420792799_0.676727217854932"
+			},
+			"directories": {}
+		},
+		"1.18.4": {
+			"name": "urijs",
+			"version": "1.18.4",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "b2ff01deeaef7bde62cee7539aad143a8df2a2be",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.18.4",
+			"scripts": {},
+			"_shasum": "0c97a17a0b0e4a2e635a565c2f16c0f180605e28",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"dist": {
+				"shasum": "0c97a17a0b0e4a2e635a565c2f16c0f180605e28",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.18.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/urijs-1.18.4.tgz_1480875281869_0.6384272514842451"
+			},
+			"directories": {}
+		},
+		"1.18.5": {
+			"name": "urijs",
+			"version": "1.18.5",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "dfc50a0a10cffa20ed4afc1319c3c0e904b3a020",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.18.5",
+			"scripts": {},
+			"_shasum": "d709e2238c549f65230f4fc3535806a589689ac5",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "7.3.0",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"dist": {
+				"shasum": "d709e2238c549f65230f4fc3535806a589689ac5",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.18.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/urijs-1.18.5.tgz_1485770739369_0.8185616238042712"
+			},
+			"directories": {}
+		},
+		"1.18.6": {
+			"name": "urijs",
+			"version": "1.18.6",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "f14ed33e4b4704f323db4322fe658c757edca9a3",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.18.6",
+			"scripts": {},
+			"_shasum": "333ad964ff6ef951fea8d04bec342641550c6125",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "7.3.0",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"dist": {
+				"shasum": "333ad964ff6ef951fea8d04bec342641550c6125",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.18.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/urijs-1.18.6.tgz_1486727871894_0.7134614840615541"
+			},
+			"directories": {}
+		},
+		"1.18.7": {
+			"name": "urijs",
+			"version": "1.18.7",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "039629172caa4fd1a75665650eac6a8d3cafbf7e",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.18.7",
+			"scripts": {},
+			"_shasum": "613ee4194452fe66b872d62468946df93a941492",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "7.3.0",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"dist": {
+				"shasum": "613ee4194452fe66b872d62468946df93a941492",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.18.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/urijs-1.18.7.tgz_1487007747646_0.33717353851534426"
+			},
+			"directories": {}
+		},
+		"1.18.8": {
+			"name": "urijs",
+			"version": "1.18.8",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "d6691b3c601cc27acb990ab8eeef3138c12f5453",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.18.8",
+			"scripts": {},
+			"_shasum": "9d8e4c57f2568b870523ae4ad75a5d3a5678ecd0",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "7.3.0",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"dist": {
+				"shasum": "9d8e4c57f2568b870523ae4ad75a5d3a5678ecd0",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.18.8.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/urijs-1.18.8.tgz_1488227514541_0.9912362170871347"
+			},
+			"directories": {}
+		},
+		"1.18.9": {
+			"name": "urijs",
+			"version": "1.18.9",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "230da879bb3c80d58c216193ccd2b07cdd07354e",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.18.9",
+			"scripts": {},
+			"_shasum": "06d503d4f1907dcbd906fbd808b38457ec40dee6",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "7.3.0",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"dist": {
+				"shasum": "06d503d4f1907dcbd906fbd808b38457ec40dee6",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.18.9.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/urijs-1.18.9.tgz_1488797916263_0.07422688836231828"
+			},
+			"directories": {}
+		},
+		"1.18.10": {
+			"name": "urijs",
+			"version": "1.18.10",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "d6f596ce5dd463289ddd0ecf994503461b5f1894",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.18.10",
+			"scripts": {},
+			"_shasum": "b94463eaba59a1a796036a467bb633c667f221ab",
+			"_from": ".",
+			"_npmVersion": "4.1.2",
+			"_nodeVersion": "7.7.4",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"dist": {
+				"shasum": "b94463eaba59a1a796036a467bb633c667f221ab",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.18.10.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/urijs-1.18.10.tgz_1490864980502_0.8994926016312093"
+			},
+			"directories": {}
+		},
+		"1.18.11": {
+			"name": "urijs",
+			"version": "1.18.11",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "8043e13921a836584e417820e9ab0fd8422cc721",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.18.11",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.2.1",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"dist": {
+				"integrity": "sha512-eLUNiNiK4anTRt6fzwbhu4V88Yy3HdeYCc5jCf5UUHa7O4kW50a+IGwi0kZE2qoZ5dcEPW0TEOzz/FW5FNOe7g==",
+				"shasum": "6d9a31427d35569c745d7fdfbd59974bb31d9e59",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.18.11.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/urijs-1.18.11.tgz_1502226172050_0.07836414105258882"
+			},
+			"directories": {}
+		},
+		"1.18.12": {
+			"name": "urijs",
+			"version": "1.18.12",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "61cd727e65b8103110c6e207188e2250f5677213",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.18.12",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.2.1",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"dist": {
+				"integrity": "sha512-WlvUkocbQ+GYhi8zkcbecbGYq7YLSd2I3InxAfqeh6mWvWalBE7bISDHcAL3J7STrWFfizuJ709srHD+RuABPQ==",
+				"shasum": "f04d91e1fabb29c16fc842f9a14ee8ddc3fda64e",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.18.12.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/urijs-1.18.12.tgz_1502390281597_0.43379976274445653"
+			},
+			"directories": {}
+		},
+		"1.19.0": {
+			"name": "urijs",
+			"version": "1.19.0",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "fde82ec36c9ac99b053582f19fa051dad8ae37d5",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.19.0",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.5.0",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"dist": {
+				"integrity": "sha512-Qs2odXn0hST5VSPVjpi73CMqtbAoanahaqWBujGU+IyMrMqpWcIhDewxQRhCkmqYxuyvICDcSuLdv2O7ncWBGw==",
+				"shasum": "d8aa284d0e7469703a6988ad045c4cbfdf08ada0",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.19.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/urijs-1.19.0.tgz_1506864193156_0.684913023840636"
+			},
+			"directories": {}
+		},
+		"1.19.1": {
+			"name": "urijs",
+			"version": "1.19.1",
+			"title": "URI.js - Mutating URLs",
+			"author": {
+				"name": "Rodney Rehm",
+				"url": "http://rodneyrehm.de"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/medialize/URI.js.git"
+			},
+			"license": "MIT",
+			"description": "URI.js is a Javascript library for working with URLs.",
+			"keywords": [
+				"uri",
+				"url",
+				"urn",
+				"uri mutation",
+				"url mutation",
+				"uri manipulation",
+				"url manipulation",
+				"uri template",
+				"url template",
+				"unified resource locator",
+				"unified resource identifier",
+				"query string",
+				"RFC 3986",
+				"RFC3986",
+				"RFC 6570",
+				"RFC6570",
+				"jquery-plugin",
+				"ecosystem:jquery"
+			],
+			"categories": [
+				"Parsers & Compilers",
+				"Utilities"
+			],
+			"main": "./src/URI",
+			"homepage": "http://medialize.github.io/URI.js/",
+			"contributors": [
+				{
+					"name": "Francois-Guillaume Ribreau",
+					"email": "npm@fgribreau.com",
+					"url": "http://fgribreau.com"
+				},
+				{
+					"name": "Justin Chase",
+					"email": "justin.m.chase@gmail.com",
+					"url": "http://justinmchase.com"
+				}
+			],
+			"files": [
+				"src/URI.js",
+				"src/IPv6.js",
+				"src/SecondLevelDomains.js",
+				"src/punycode.js",
+				"src/URITemplate.js",
+				"src/jquery.URI.js",
+				"src/URI.min.js",
+				"src/jquery.URI.min.js",
+				"src/URI.fragmentQuery.js",
+				"src/URI.fragmentURI.js",
+				"LICENSE.txt"
+			],
+			"npmName": "urijs",
+			"npmFileMap": [
+				{
+					"basePath": "/src/",
+					"files": [
+						"*.js"
+					]
+				},
+				{
+					"basePath": "/",
+					"files": [
+						"LICENSE.txt"
+					]
+				}
+			],
+			"devDependencies": {
+				"jshint-stylish": "~0.1.5",
+				"grunt": "~0.4.2",
+				"grunt-contrib-jshint": "~0.8.0"
+			},
+			"gitHead": "fa46615b9934217a971edd482b59b9f88303db00",
+			"bugs": {
+				"url": "https://github.com/medialize/URI.js/issues"
+			},
+			"_id": "urijs@1.19.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.5.0",
+			"_npmUser": {
+				"name": "rodneyrehm",
+				"email": "rodney.rehm@medialize.de"
+			},
+			"dist": {
+				"integrity": "sha512-xVrGVi94ueCJNrBSTjWqjvtgvl3cyOTThp2zaMaFNGp3F542TR6sM3f2o8RqZl+AwteClSVmoCyt0ka4RjQOQg==",
+				"shasum": "5b0ff530c0cbde8386f6342235ba5ca6e995d25a",
+				"tarball": "https://registry.npmjs.org/urijs/-/urijs-1.19.1.tgz",
+				"fileCount": 14,
+				"unpackedSize": 221709
+			},
+			"maintainers": [
+				{
+					"name": "rodneyrehm",
+					"email": "rodney.rehm@medialize.de"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/urijs_1.19.1_1518276830651_0.8133727084268436"
+			}
+		}
+	},
+	"time": {
+		"modified": "2018-02-10T15:33:53.490Z",
+		"created": "2015-09-19T15:21:45.201Z",
+		"1.16.1": "2015-09-19T15:21:45.201Z",
+		"1.17.0": "2015-11-13T10:20:50.915Z",
+		"1.17.1": "2016-02-25T10:06:35.269Z",
+		"1.18.0": "2016-04-30T09:27:13.484Z",
+		"1.18.1": "2016-05-29T16:43:29.257Z",
+		"1.18.2": "2016-09-25T19:59:43.684Z",
+		"1.18.3": "2016-11-17T22:13:15.243Z",
+		"1.18.4": "2016-12-04T18:14:43.996Z",
+		"1.18.5": "2017-01-30T10:05:40.066Z",
+		"1.18.6": "2017-02-10T11:57:52.565Z",
+		"1.18.7": "2017-02-13T17:42:29.741Z",
+		"1.18.8": "2017-02-27T20:31:55.332Z",
+		"1.18.9": "2017-03-06T10:58:38.377Z",
+		"1.18.10": "2017-03-30T09:09:41.345Z",
+		"1.18.11": "2017-08-08T21:02:53.263Z",
+		"1.18.12": "2017-08-10T18:38:02.719Z",
+		"1.19.0": "2017-10-01T13:23:14.285Z",
+		"1.19.1": "2018-02-10T15:33:51.542Z"
+	},
+	"dist-tags": {
+		"latest": "1.19.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"1095eca4e9dfe69778c539c54dab781a\"",
+			"fetched": 1568994341912
+		}
+	},
+	"_distfiles": {
+		"urijs-1.16.1.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.16.1.tgz",
+			"sha": "859ad31890f5f9528727be89f1932c94fb4731e2",
+			"registry": "npmjs"
+		},
+		"urijs-1.17.0.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.17.0.tgz",
+			"sha": "20fcd32bcf60e0e9007c2415c2c9b8bdc43b33b1",
+			"registry": "npmjs"
+		},
+		"urijs-1.17.1.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.17.1.tgz",
+			"sha": "0a28bf2e00dfc24eeb0974feb8268a238c7bac2d",
+			"registry": "npmjs"
+		},
+		"urijs-1.18.0.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.18.0.tgz",
+			"sha": "091cbb7f6d60401b2e5e35c57a04177b9bbd12f2",
+			"registry": "npmjs"
+		},
+		"urijs-1.18.1.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.18.1.tgz",
+			"sha": "a062818daae923efc20aa266b03de15aae0a89c4",
+			"registry": "npmjs"
+		},
+		"urijs-1.18.2.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.18.2.tgz",
+			"sha": "c2791fa9fb52f4603caf36032d9666432a1dda33",
+			"registry": "npmjs"
+		},
+		"urijs-1.18.3.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.18.3.tgz",
+			"sha": "48cf665c631fca92690fc76a081cc96ff9673566",
+			"registry": "npmjs"
+		},
+		"urijs-1.18.4.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.18.4.tgz",
+			"sha": "0c97a17a0b0e4a2e635a565c2f16c0f180605e28",
+			"registry": "npmjs"
+		},
+		"urijs-1.18.5.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.18.5.tgz",
+			"sha": "d709e2238c549f65230f4fc3535806a589689ac5",
+			"registry": "npmjs"
+		},
+		"urijs-1.18.6.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.18.6.tgz",
+			"sha": "333ad964ff6ef951fea8d04bec342641550c6125",
+			"registry": "npmjs"
+		},
+		"urijs-1.18.7.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.18.7.tgz",
+			"sha": "613ee4194452fe66b872d62468946df93a941492",
+			"registry": "npmjs"
+		},
+		"urijs-1.18.8.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.18.8.tgz",
+			"sha": "9d8e4c57f2568b870523ae4ad75a5d3a5678ecd0",
+			"registry": "npmjs"
+		},
+		"urijs-1.18.9.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.18.9.tgz",
+			"sha": "06d503d4f1907dcbd906fbd808b38457ec40dee6",
+			"registry": "npmjs"
+		},
+		"urijs-1.18.10.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.18.10.tgz",
+			"sha": "b94463eaba59a1a796036a467bb633c667f221ab",
+			"registry": "npmjs"
+		},
+		"urijs-1.18.11.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.18.11.tgz",
+			"sha": "6d9a31427d35569c745d7fdfbd59974bb31d9e59",
+			"registry": "npmjs"
+		},
+		"urijs-1.18.12.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.18.12.tgz",
+			"sha": "f04d91e1fabb29c16fc842f9a14ee8ddc3fda64e",
+			"registry": "npmjs"
+		},
+		"urijs-1.19.0.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.19.0.tgz",
+			"sha": "d8aa284d0e7469703a6988ad045c4cbfdf08ada0",
+			"registry": "npmjs"
+		},
+		"urijs-1.19.1.tgz": {
+			"url": "https://registry.npmjs.org/urijs/-/urijs-1.19.1.tgz",
+			"sha": "5b0ff530c0cbde8386f6342235ba5ca6e995d25a",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-c1ce9e3cbd1c0893",
+	"_id": "urijs",
+	"readme": "# URI.js #\n\n[![CDNJS](https://img.shields.io/cdnjs/v/URI.js.svg)](https://cdnjs.com/libraries/URI.js)\n* [About](http://medialize.github.io/URI.js/)\n* [Understanding URIs](http://medialize.github.io/URI.js/about-uris.html)\n* [Documentation](http://medialize.github.io/URI.js/docs.html)\n* [jQuery URI Plugin](http://medialize.github.io/URI.js/jquery-uri-plugin.html)\n* [Author](http://rodneyrehm.de/en/)\n* [Changelog](./CHANGELOG.md)\n\n---\n\n> **NOTE:** The npm package name changed to `urijs`\n\n---\n\nI always want to shoot myself in the head when looking at code like the following:\n\n```javascript\nvar url = \"http://example.org/foo?bar=baz\";\nvar separator = url.indexOf('?') > -1 ? '&' : '?';\n\nurl += separator + encodeURIComponent(\"foo\") + \"=\" + encodeURIComponent(\"bar\");\n```\n\nThings are looking up with [URL](https://developer.mozilla.org/en/docs/Web/API/URL) and the [URL spec](http://url.spec.whatwg.org/) but until we can safely rely on that API, have a look at URI.js for a clean and simple API for mutating URIs:\n\n```javascript\nvar url = new URI(\"http://example.org/foo?bar=baz\");\nurl.addQuery(\"foo\", \"bar\");\n```\n\nURI.js is here to help with that.\n\n\n## API Example ##\n\n```javascript\n// mutating URLs\nURI(\"http://example.org/foo.html?hello=world\")\n  .username(\"rodneyrehm\")\n    // -> http://rodneyrehm@example.org/foo.html?hello=world\n  .username(\"\")\n    // -> http://example.org/foo.html?hello=world\n  .directory(\"bar\")\n    // -> http://example.org/bar/foo.html?hello=world\n  .suffix(\"xml\")\n    // -> http://example.org/bar/foo.xml?hello=world\n  .query(\"\")\n    // -> http://example.org/bar/foo.xml\n  .tld(\"com\")\n    // -> http://example.com/bar/foo.xml\n  .query({ foo: \"bar\", hello: [\"world\", \"mars\"] });\n    // -> http://example.com/bar/foo.xml?foo=bar&hello=world&hello=mars\n\n// cleaning things up\nURI(\"?&foo=bar&&foo=bar&foo=baz&\")\n  .normalizeQuery();\n    // -> ?foo=bar&foo=baz\n\n// working with relative paths\nURI(\"/foo/bar/baz.html\")\n  .relativeTo(\"/foo/bar/world.html\");\n    // -> ./baz.html\n\nURI(\"/foo/bar/baz.html\")\n  .relativeTo(\"/foo/bar/sub/world.html\")\n    // -> ../baz.html\n  .absoluteTo(\"/foo/bar/sub/world.html\");\n    // -> /foo/bar/baz.html\n\n// URI Templates\nURI.expand(\"/foo/{dir}/{file}\", {\n  dir: \"bar\",\n  file: \"world.html\"\n});\n// -> /foo/bar/world.html\n```\n\nSee the [About Page](http://medialize.github.io/URI.js/) and [API Docs](http://medialize.github.io/URI.js/docs.html) for more stuff.\n\n## Using URI.js ##\n\nURI.js (without plugins) has a gzipped weight of about 7KB - if you include all extensions you end up at about 13KB. So unless you *need* second level domain support and use URI templates, we suggest you don't include them in your build. If you don't need a full featured URI mangler, it may be worth looking into the much smaller parser-only alternatives [listed below](#alternatives).\n\nURI.js is available through [npm](https://www.npmjs.com/package/urijs), [bower](http://bower.io/search/?q=urijs), [bowercdn](http://bowercdn.net/package/urijs), [cdnjs](https://cdnjs.com/libraries/URI.js) and manually from the [build page](http://medialize.github.io/URI.js/build.html):\n\n```bash\n# using bower\nbower install uri.js\n\n# using npm\nnpm install urijs\n```\n\n### Browser ###\n\nI guess you'll manage to use the [build tool](http://medialize.github.io/URI.js/build.html) or follow the [instructions below](#minify) to combine and minify the various files into URI.min.js - and I'm fairly certain you know how to `<script src=\".../URI.min.js\"></script>` that sucker, too.\n\n### Node.js and NPM ###\n\nInstall with `npm install urijs` or add `\"urijs\"` to the dependencies in your `package.json`.\n\n```javascript\n// load URI.js\nvar URI = require('urijs');\n// load an optional module (e.g. URITemplate)\nvar URITemplate = require('urijs/src/URITemplate');\n\nURI(\"/foo/bar/baz.html\")\n  .relativeTo(\"/foo/bar/sub/world.html\")\n    // -> ../baz.html\n```\n\n### RequireJS ###\n\nClone the URI.js repository or use a package manager to get URI.js into your project. \n\n```javascript\nrequire.config({\n  paths: {\n    urijs: 'where-you-put-uri.js/src'\n  }\n});\n\nrequire(['urijs/URI'], function(URI) {\n  console.log(\"URI.js and dependencies: \", URI(\"//amazon.co.uk\").is('sld') ? 'loaded' : 'failed');\n});\nrequire(['urijs/URITemplate'], function(URITemplate) {\n  console.log(\"URITemplate.js and dependencies: \", URITemplate._cache ? 'loaded' : 'failed');\n});\n```\n\n## Minify ##\n\nSee the [build tool](http://medialize.github.io/URI.js/build.html) or use [Google Closure Compiler](http://closure-compiler.appspot.com/home):\n\n```\n// ==ClosureCompiler==\n// @compilation_level SIMPLE_OPTIMIZATIONS\n// @output_file_name URI.min.js\n// @code_url http://medialize.github.io/URI.js/src/IPv6.js\n// @code_url http://medialize.github.io/URI.js/src/punycode.js\n// @code_url http://medialize.github.io/URI.js/src/SecondLevelDomains.js\n// @code_url http://medialize.github.io/URI.js/src/URI.js\n// @code_url http://medialize.github.io/URI.js/src/URITemplate.js\n// ==/ClosureCompiler==\n```\n\n\n## Resources ##\n\nDocuments specifying how URLs work:\n\n* [URL - Living Standard](http://url.spec.whatwg.org/)\n* [RFC 3986 - Uniform Resource Identifier (URI): Generic Syntax](http://tools.ietf.org/html/rfc3986)\n* [RFC 3987 - Internationalized Resource Identifiers (IRI)](http://tools.ietf.org/html/rfc3987)\n* [RFC 2732 - Format for Literal IPv6 Addresses in URL's](http://tools.ietf.org/html/rfc2732)\n* [RFC 2368 - The `mailto:` URL Scheme](https://www.ietf.org/rfc/rfc2368.txt)\n* [RFC 2141 - URN Syntax](https://www.ietf.org/rfc/rfc2141.txt)\n* [IANA URN Namespace Registry](http://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml)\n* [Punycode: A Bootstring encoding of Unicode for Internationalized Domain Names in Applications (IDNA)](http://tools.ietf.org/html/rfc3492)\n* [application/x-www-form-urlencoded](http://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type) (Query String Parameters) and [application/x-www-form-urlencoded encoding algorithm](http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#application/x-www-form-urlencoded-encoding-algorithm)\n* [What every web developer must know about URL encoding](http://blog.lunatech.com/2009/02/03/what-every-web-developer-must-know-about-url-encoding)\n\nInformal stuff\n\n* [Parsing URLs for Fun and Profit](http://tools.ietf.org/html/draft-abarth-url-01)\n* [Naming URL components](http://tantek.com/2011/238/b1/many-ways-slice-url-name-pieces)\n\nHow other environments do things\n\n* [Java URI Class](http://docs.oracle.com/javase/7/docs/api/java/net/URI.html)\n* [Java Inet6Address Class](http://docs.oracle.com/javase/1.5.0/docs/api/java/net/Inet6Address.html)\n* [Node.js URL API](http://nodejs.org/docs/latest/api/url.html)\n\n[Discussion on Hacker News](https://news.ycombinator.com/item?id=3398837)\n\n### Forks / Code-borrow ###\n\n* [node-dom-urls](https://github.com/passy/node-dom-urls) passy's partial implementation of the W3C URL Spec Draft for Node\n* [urlutils](https://github.com/cofounders/urlutils) cofounders' `window.URL` constructor for Node\n\n### Alternatives ###\n\nIf you don't like URI.js, you may like one of the following libraries. (If yours is not listed, drop me a line…)\n\n#### Polyfill ####\n\n* [DOM-URL-Polyfill](https://github.com/arv/DOM-URL-Polyfill/) arv's polyfill of the [DOM URL spec](https://dvcs.w3.org/hg/url/raw-file/tip/Overview.html#interface-urlutils) for browsers\n* [inexorabletash](https://github.com/inexorabletash/polyfill/#whatwg-url-api) inexorabletash's [WHATWG URL API](http://url.spec.whatwg.org/)\n\n#### URL Manipulation ####\n\n* [The simple <a> URL Mutation \"Hack\"](http://jsfiddle.net/rodneyrehm/KkGUJ/) ([jsPerf comparison](http://jsperf.com/idl-attributes-vs-uri-js))\n* [URL.js](https://github.com/ericf/urljs)\n* [furl (Python)](https://github.com/gruns/furl)\n* [mediawiki Uri](https://svn.wikimedia.org/viewvc/mediawiki/trunk/phase3/resources/mediawiki/mediawiki.Uri.js?view=markup) (needs mw and jQuery)\n* [jurlp](https://github.com/tombonner/jurlp)\n* [jsUri](https://github.com/derek-watson/jsUri)\n\n#### URL Parsers ####\n\n* [The simple <a> URL Mutation \"Hack\"](http://jsfiddle.net/rodneyrehm/KkGUJ/) ([jsPerf comparison](http://jsperf.com/idl-attributes-vs-uri-js))\n* [URI Parser](http://blog.stevenlevithan.com/archives/parseuri)\n* [jQuery-URL-Parser](https://github.com/allmarkedup/jQuery-URL-Parser)\n* [Google Closure Uri](https://google.github.io/closure-library/api/class_goog_Uri.html)\n* [URI.js by Gary Court](https://github.com/garycourt/uri-js)\n\n#### URI Template ####\n\n* [uri-template](https://github.com/rezigned/uri-template.js) (supporting extraction as well) by Rezigne\n* [uri-templates](https://github.com/geraintluff/uri-templates) (supporting extraction as well) by Geraint Luff\n* [uri-templates](https://github.com/marc-portier/uri-templates) by Marc Portier\n* [uri-templates](https://github.com/geraintluff/uri-templates) by Geraint Luff (including reverse operation)\n* [URI Template JS](https://github.com/fxa/uritemplate-js) by Franz Antesberger\n* [Temple](https://github.com/brettstimmerman/temple) by Brett Stimmerman\n* ([jsperf comparison](http://jsperf.com/uri-templates/2))\n\n#### Various ####\n\n* [TLD.js](https://github.com/oncletom/tld.js) - second level domain names\n* [Public Suffix](http://mxr.mozilla.org/mozilla-central/source/netwerk/dns/effective_tld_names.dat?raw=1) - second level domain names\n* [uri-collection](https://github.com/scivey/uri-collection) - underscore based utility for working with many URIs\n\n## Authors ##\n\n* [Rodney Rehm](https://github.com/rodneyrehm)\n* [Various Contributors](https://github.com/medialize/URI.js/graphs/contributors)\n\n\n## Contains Code From ##\n\n* [punycode.js](http://mths.be/punycode) - Mathias Bynens\n* [IPv6.js](http://intermapper.com/support/tools/IPV6-Validator.aspx) - Rich Brown - (rewrite of the original)\n\n\n## License ##\n\nURI.js is published under the [MIT license](http://www.opensource.org/licenses/mit-license). Until version 1.13.2 URI.js was also published under the [GPL v3](http://opensource.org/licenses/GPL-3.0) license - but as this dual-licensing causes more questions than helps anyone, it was dropped with version 1.14.0.\n\n\n## Changelog ##\n\nmoved to [Changelog](./CHANGELOG.md)"
+}

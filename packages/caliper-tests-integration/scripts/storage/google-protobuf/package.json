@@ -1,0 +1,1730 @@
+{
+	"name": "google-protobuf",
+	"versions": {
+		"1.0.0": {
+			"name": "google-protobuf",
+			"version": "1.0.0",
+			"description": "",
+			"main": "index.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"author": "",
+			"license": "ISC",
+			"_id": "google-protobuf@1.0.0",
+			"_shasum": "c73ceb3a593d4478b4296edfe577fd43c68e843b",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "npm.dhanalakshmi.user",
+				"email": "dhanalakshmi@zendynamix.com"
+			},
+			"dist": {
+				"shasum": "c73ceb3a593d4478b4296edfe577fd43c68e843b",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "npm.dhanalakshmi.user",
+					"email": "dhanalakshmi@zendynamix.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/google-protobuf-1.0.0.tgz_1459837752488_0.9817841483745724"
+			},
+			"directories": {}
+		},
+		"3.0.0-alpha.5": {
+			"name": "google-protobuf",
+			"version": "3.0.0-alpha.5",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20151216.2.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"_id": "google-protobuf@3.0.0-alpha.5",
+			"_shasum": "3f902f19dc1841d488014ac85886c35a9b943097",
+			"_from": ".",
+			"_npmVersion": "2.11.2",
+			"_nodeVersion": "0.12.5",
+			"_npmUser": {
+				"name": "haberman",
+				"email": "jhaberman@gmail.com"
+			},
+			"dist": {
+				"shasum": "3f902f19dc1841d488014ac85886c35a9b943097",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.0.0-alpha.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "haberman",
+					"email": "jhaberman@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/google-protobuf-3.0.0-alpha.5.tgz_1460501115079_0.5553163336589932"
+			},
+			"directories": {}
+		},
+		"3.0.0-alpha.6": {
+			"name": "google-protobuf",
+			"version": "3.0.0-alpha.6",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"dependencies": {
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"devDependencies": {
+				"google-closure-compiler": "~20151216.2.0",
+				"glob": "~6.0.4"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"_id": "google-protobuf@3.0.0-alpha.6",
+			"_shasum": "4906b4e3ec22c375e24b8a5b6a7b9de73842a39c",
+			"_from": ".",
+			"_npmVersion": "2.11.2",
+			"_nodeVersion": "0.12.5",
+			"_npmUser": {
+				"name": "haberman",
+				"email": "jhaberman@gmail.com"
+			},
+			"dist": {
+				"shasum": "4906b4e3ec22c375e24b8a5b6a7b9de73842a39c",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.0.0-alpha.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "haberman",
+					"email": "jhaberman@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/google-protobuf-3.0.0-alpha.6.tgz_1463534570344_0.8125565890222788"
+			},
+			"directories": {}
+		},
+		"3.0.0-alpha.6.1": {
+			"name": "google-protobuf",
+			"version": "3.0.0-alpha.6.1",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"dependencies": {
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"devDependencies": {
+				"google-closure-compiler": "~20151216.2.0",
+				"glob": "~6.0.4"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"_id": "google-protobuf@3.0.0-alpha.6.1",
+			"_shasum": "5b69a1b6a208e3a22ef46fd68f6bf2cacaca3bd2",
+			"_from": ".",
+			"_npmVersion": "3.9.6",
+			"_nodeVersion": "0.10.25",
+			"_npmUser": {
+				"name": "haberman",
+				"email": "jhaberman@gmail.com"
+			},
+			"dist": {
+				"shasum": "5b69a1b6a208e3a22ef46fd68f6bf2cacaca3bd2",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.0.0-alpha.6.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "haberman",
+					"email": "jhaberman@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/google-protobuf-3.0.0-alpha.6.1.tgz_1466637399417_0.9837416806258261"
+			},
+			"directories": {}
+		},
+		"3.0.0-alpha.6.2": {
+			"name": "google-protobuf",
+			"version": "3.0.0-alpha.6.2",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"files": [
+				"google"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "Apache-2.0",
+			"_id": "google-protobuf@3.0.0-alpha.6.2",
+			"_shasum": "782a16ce9171038b18662cbee4c2ebb63de1d9b9",
+			"_from": ".",
+			"_npmVersion": "3.9.6",
+			"_nodeVersion": "0.10.25",
+			"_npmUser": {
+				"name": "haberman",
+				"email": "jhaberman@gmail.com"
+			},
+			"dist": {
+				"shasum": "782a16ce9171038b18662cbee4c2ebb63de1d9b9",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.0.0-alpha.6.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "haberman",
+					"email": "jhaberman@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/google-protobuf-3.0.0-alpha.6.2.tgz_1466719945943_0.7356982519850135"
+			},
+			"directories": {}
+		},
+		"3.0.0": {
+			"name": "google-protobuf",
+			"version": "3.0.0",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"files": [
+				"google"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "Apache-2.0",
+			"_id": "google-protobuf@3.0.0",
+			"_shasum": "405b64c0650dbd6eadd68186df0c12af9cb03b95",
+			"_from": ".",
+			"_npmVersion": "3.9.6",
+			"_nodeVersion": "0.10.25",
+			"_npmUser": {
+				"name": "haberman",
+				"email": "jhaberman@gmail.com"
+			},
+			"dist": {
+				"shasum": "405b64c0650dbd6eadd68186df0c12af9cb03b95",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "haberman",
+					"email": "jhaberman@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/google-protobuf-3.0.0.tgz_1469755199865_0.1355642518028617"
+			},
+			"directories": {}
+		},
+		"3.0.2": {
+			"name": "google-protobuf",
+			"version": "3.0.2",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"files": [
+				"google"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "Apache-2.0",
+			"_id": "google-protobuf@3.0.2",
+			"_shasum": "7db7190161398cab991ba5c339b2b79aa247120e",
+			"_from": ".",
+			"_npmVersion": "3.9.6",
+			"_nodeVersion": "0.10.25",
+			"_npmUser": {
+				"name": "haberman",
+				"email": "jhaberman@gmail.com"
+			},
+			"dist": {
+				"shasum": "7db7190161398cab991ba5c339b2b79aa247120e",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "haberman",
+					"email": "jhaberman@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/google-protobuf-3.0.2.tgz_1473900724843_0.29957265104167163"
+			},
+			"directories": {}
+		},
+		"3.1.0": {
+			"name": "google-protobuf",
+			"version": "3.1.0",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"files": [
+				"google"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "Apache-2.0",
+			"_id": "google-protobuf@3.1.0",
+			"_shasum": "ade3c8108ad332382309dbbebc4b55566dcd2e0b",
+			"_from": ".",
+			"_npmVersion": "3.9.6",
+			"_nodeVersion": "0.10.25",
+			"_npmUser": {
+				"name": "haberman",
+				"email": "jhaberman@gmail.com"
+			},
+			"dist": {
+				"shasum": "ade3c8108ad332382309dbbebc4b55566dcd2e0b",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "haberman",
+					"email": "jhaberman@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/google-protobuf-3.1.0.tgz_1475002739173_0.6630609787534922"
+			},
+			"directories": {}
+		},
+		"3.1.1-pre.1": {
+			"name": "google-protobuf",
+			"version": "3.1.1-pre.1",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"files": [
+				"google"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "Apache-2.0",
+			"_id": "google-protobuf@3.1.1-pre.1",
+			"_shasum": "0490eb097a7fe99df67bae4cdc37179739b32698",
+			"_from": ".",
+			"_npmVersion": "3.9.6",
+			"_nodeVersion": "0.10.25",
+			"_npmUser": {
+				"name": "haberman",
+				"email": "jhaberman@gmail.com"
+			},
+			"dist": {
+				"shasum": "0490eb097a7fe99df67bae4cdc37179739b32698",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.1.1-pre.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "haberman",
+					"email": "jhaberman@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/google-protobuf-3.1.1-pre.1.tgz_1475182802848_0.4251584280282259"
+			},
+			"directories": {}
+		},
+		"3.1.1": {
+			"name": "google-protobuf",
+			"version": "3.1.1",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"files": [
+				"google"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "Apache-2.0",
+			"_id": "google-protobuf@3.1.1",
+			"_shasum": "4f07e5265571e2aa5bcb49c3fa53bb97e91c230a",
+			"_from": ".",
+			"_npmVersion": "3.9.6",
+			"_nodeVersion": "0.10.25",
+			"_npmUser": {
+				"name": "haberman",
+				"email": "jhaberman@gmail.com"
+			},
+			"dist": {
+				"shasum": "4f07e5265571e2aa5bcb49c3fa53bb97e91c230a",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "haberman",
+					"email": "jhaberman@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/google-protobuf-3.1.1.tgz_1475274323400_0.3443134017288685"
+			},
+			"directories": {}
+		},
+		"3.2.0-rc.2": {
+			"name": "google-protobuf",
+			"version": "3.2.0-rc.2",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"files": [
+				"google"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.2.0-rc.2",
+			"_shasum": "1bcf78c30d3d9a8d3e2b4db461d9cdc15d29c32a",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.9.4",
+			"_npmUser": {
+				"name": "haberman",
+				"email": "jhaberman@gmail.com"
+			},
+			"dist": {
+				"shasum": "1bcf78c30d3d9a8d3e2b4db461d9cdc15d29c32a",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.2.0-rc.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "haberman",
+					"email": "jhaberman@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/google-protobuf-3.2.0-rc.2.tgz_1485471182746_0.6186649037990719"
+			},
+			"directories": {}
+		},
+		"3.2.0": {
+			"name": "google-protobuf",
+			"version": "3.2.0",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"files": [
+				"google"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.2.0",
+			"_shasum": "0909ec6a4594799906df81098c6ee402c885216f",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.9.4",
+			"_npmUser": {
+				"name": "haberman",
+				"email": "jhaberman@gmail.com"
+			},
+			"dist": {
+				"shasum": "0909ec6a4594799906df81098c6ee402c885216f",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "haberman",
+					"email": "jhaberman@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/google-protobuf-3.2.0.tgz_1486417285412_0.5674333102069795"
+			},
+			"directories": {}
+		},
+		"3.3.0": {
+			"name": "google-protobuf",
+			"version": "3.3.0",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"files": [
+				"google"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.3.0",
+			"_shasum": "21c15ec2fbd57c236eb684d2e18bcaeca9759b77",
+			"_from": ".",
+			"_npmVersion": "4.3.0",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "acozzette",
+				"email": "acozzette@gmail.com"
+			},
+			"dist": {
+				"shasum": "21c15ec2fbd57c236eb684d2e18bcaeca9759b77",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "acozzette",
+					"email": "acozzette@gmail.com"
+				},
+				{
+					"name": "haberman",
+					"email": "jhaberman@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/google-protobuf-3.3.0.tgz_1494007127821_0.2143705862108618"
+			},
+			"directories": {}
+		},
+		"3.4.0": {
+			"name": "google-protobuf",
+			"version": "3.4.0",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"files": [
+				"google"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.4.0",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.4.0",
+			"_npmUser": {
+				"name": "liujisi",
+				"email": "liujisi@google.com"
+			},
+			"dist": {
+				"integrity": "sha512-8gq3CyAZFyHJ5dZ0Du/OztbwxEHhHTNOtfr1cSUQYuW6lsrKjMU2DETvOlxPpYNKZ7zAW4xEE7UWqrTxH7bG6Q==",
+				"shasum": "58fbe51555a0a56b2dd3fc6f6d869fa21d57ab0a",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "acozzette",
+					"email": "acozzette@gmail.com"
+				},
+				{
+					"name": "haberman",
+					"email": "jhaberman@gmail.com"
+				},
+				{
+					"name": "liujisi",
+					"email": "liujisi@google.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/google-protobuf-3.4.0.tgz_1502920291869_0.9478134643286467"
+			},
+			"directories": {}
+		},
+		"3.5.0": {
+			"name": "google-protobuf",
+			"version": "3.5.0",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"files": [
+				"google"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.5.0",
+			"_shasum": "b8cc63c74d83457bd8a9a904503c8efb26bca339",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "6.11.2",
+			"_npmUser": {
+				"name": "liujisi",
+				"email": "liujisi@google.com"
+			},
+			"dist": {
+				"shasum": "b8cc63c74d83457bd8a9a904503c8efb26bca339",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.5.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "acozzette",
+					"email": "acozzette@gmail.com"
+				},
+				{
+					"name": "haberman",
+					"email": "jhaberman@gmail.com"
+				},
+				{
+					"name": "liujisi",
+					"email": "liujisi@google.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/google-protobuf-3.5.0.tgz_1510866547745_0.5536946675274521"
+			},
+			"directories": {}
+		},
+		"3.6.0": {
+			"name": "google-protobuf",
+			"version": "3.6.0",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"files": [
+				"google"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.6.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.3",
+			"_npmUser": {
+				"name": "teboring",
+				"email": "teboring@google.com"
+			},
+			"dist": {
+				"integrity": "sha512-/n7jg+R0g7AM4zuweKPG43+ucu1qvW4WVu6v7kwyq5kD5tFNxgYVX0EYZVSv/oXnM+cTrPi83y4cakgtUXSK6Q==",
+				"shasum": "e2bafb00c20a8734174d8f89e0a842709e2ceed0",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.6.0.tgz",
+				"fileCount": 27,
+				"unpackedSize": 1163243,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbLWI9CRA9TVsSAnZWagAAVAYP+wRxSuWhGWTFDRciBiHP\n4Gn6FZAyoeZ2yT96/04ZJQTsBy8a5e5zB2iydzZosGnwC6nytQpyb3wHR6tR\nbPuqk90aJP1ES2g9fkB1V0hvvs2meNgYi1EQwbEpIbUm3Jx6Q3fevRfUfAIB\ng8KT251trJjn6lL040ud2Retl2eHPBajM2r5pTxDCQ2g9jMCce+/QjYIzEoo\nZlbV+KdYfT/CAujUs3Z8Yq5cV/0Nd8UmZbjaHLKCpe2iy7YYCQuHerGNbfqd\nidPJ32ugelJIrvBlnm8nkcWQdfEDYYVWStJ+kADCpmmjpCPgqBz50qyYmScX\nKlmEKEenmwilgfuCoJJ8oDnGRcb0JeWLxaeii6ktrmH/C49miUX9SoiUfAEm\nOBs/T3KMkx0ENRDfkdTpVW5eOW/1PTBup3vrm4lQlbEJJTCu17mD2bOND1sh\nbMIonrY3/5116f59KlaBMnHgmiO+gZaWEaMuv3gbj2W522Gb+RfA1/5rYB0L\n0uYflHjyAYYI68jurHEc5RcyPdG40dY1/eNHnY+ZMv7KSdcfQBvxxMrVgKkV\nuWXfpOuqomENx3dUIA/pNUbPIlvDZdbpRw2BroD8k9ORxOWKtbADACSdYvzk\nw0OTWARPN7JTqhPWiTIaSI/JwCCAN5OoQWv6W5ciZr48cOf9faAmPKjJf3AS\nItjC\r\n=605e\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "acozzette@gmail.com",
+					"name": "acozzette"
+				},
+				{
+					"email": "jhaberman@gmail.com",
+					"name": "haberman"
+				},
+				{
+					"email": "liujisi@google.com",
+					"name": "liujisi"
+				},
+				{
+					"email": "teboring@google.com",
+					"name": "teboring"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/google-protobuf_3.6.0_1529700925546_0.7415020539536863"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.6.1": {
+			"name": "google-protobuf",
+			"version": "3.6.1",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"files": [
+				"google"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/google/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.6.1",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "8.11.0",
+			"_npmUser": {
+				"name": "acozzette",
+				"email": "acozzette@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-SJYemeX5GjDLPnadcmCNQePQHCS4Hl5fOcI/JawqDIYFhCmrtYAjcx/oTQx/Wi8UuCuZQhfvftbmPePPAYHFtA==",
+				"shasum": "7ef58e2bea137a93cdaf5cfd5afa5f6abdd92025",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.6.1.tgz",
+				"fileCount": 15,
+				"unpackedSize": 661637,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbYKN7CRA9TVsSAnZWagAA5bkQAIN8YvqI5DCBrG+XEdyV\noMab3eV+VKk8YoM+XIHgI2Tpjpw3IXpABeN72ujj/pMeOxbIp6uhNuOwzRq2\nSFZNWcVCBcGaqoigM7v+QyI8auWNdqUE4+xDHp2jetpbJcGvHG0G1tJFhhaR\nEbN/A7pqymICW+Mx2YFbe6kmvsbIHrhPgNs/h6mCUqArrTcyGlB/VCZv+taR\nyV4qT1bqg06NAgFz6ew1JHz7BnxGSZ4sNZu1Wf7OyciX3QsbZ1GtovtzLv38\nkj9Zs8SjUGFCOUx2PtRf31XBDHwxE3t0txwAFdoRvikrvyZkL6afYO1Rub1r\nMZ401ftSb2FZi7OmgFJnpxcOWu7HS3mkSBMIT9ES+kKr6BHYjCIBIfGKezK7\nfCJsE6b2Uxj5htNF6mO4s13PFOmw6BPlsnPNPY0nCn1XjBKn82Jp7iQxQjke\n2LNvlSNQ8wWIge1gkx79fngi4lx1zcJBt3SV1PAhIMM9KMYoULtYHW5f084t\n8nRAFrcdp/5PwnIqJDN2E904Zarv47I2semziM2BPX+sKldwTOG7oz+zh3Ay\nSLcHfy5Dk72W/UBRCBf66e6j/vedcf1RICf1MzWi6H2rV6Qt0rM3+1qD3tgj\n6e4XRvrdW+cc4NJd2u9isQUaZsW/gOfRwqx5u5EFp7XposY9jKYUVwWtIAvt\nMLMh\r\n=qO7b\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "acozzette@gmail.com",
+					"name": "acozzette"
+				},
+				{
+					"email": "jhaberman@gmail.com",
+					"name": "haberman"
+				},
+				{
+					"email": "liujisi@google.com",
+					"name": "liujisi"
+				},
+				{
+					"email": "teboring@google.com",
+					"name": "teboring"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/google-protobuf_3.6.1_1533059963234_0.9443937092919754"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.7.0-rc.2": {
+			"name": "google-protobuf",
+			"version": "3.7.0-rc.2",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/protocolbuffers/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.7.0-rc.2",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.3",
+			"_npmUser": {
+				"name": "teboring",
+				"email": "teboring@google.com"
+			},
+			"dist": {
+				"integrity": "sha512-mHl4c23RGm7PakQ7OODtWa0H3tpm78we9JE23GkcrTL8rbD/7jpX6p5977quPdr9bLa0yJSst4tDDyXl8wwW3Q==",
+				"shasum": "a65e9216825065099c4ff243eee9e16e764cc2c9",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.7.0-rc.2.tgz",
+				"fileCount": 15,
+				"unpackedSize": 673439,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcVLppCRA9TVsSAnZWagAAwh8P/RAdvqXOdrm4XTf6fzXs\nrAThmqZsPLJppRRT5o6weiN/yuz8QyfMbkD7IzBmHXR9/Zsbem5gPgz2AqUC\nLMd1DiLfcwias1/B7r5wyfXzqRqyKPKjW+HEqmO64kvcxFQYoJl/iQ2cCcfT\nIoQjltkKCmiaLY/HwW04O8fIdAcGlxhRuTiI9K7wbvMDhd3uEY1+oRJfJk4M\nh5rkUymaqcXgwhC4X/qyry/++tYmaetjNrjnDbF5bHW0ka9+4U4s5fzUmSYk\nCIuv6OHrmlS9oWMHfY/XkRoslXbXD307xe5XEr/LPEg11hqOI1fiN0rNTMI9\nEgcTO9EFAwyTjPYQzWq06GFUudfozJddZ+eEi8ojgaitGLkKoTZVynD4Tedr\nhykhGRXinoeV1JP//ew5z+B3Ybh+er4h2PlsyP2/HJZjHVURoW6WlJoOqp0Z\nWCDfF/9TmC7jElSZBMIOx+8vr/qvZUcdpMeX+s2bRTvYi7m5XKv5NX0vANJ7\nB+xfV/9tz+7OlL+Hgm6O4vBqIgPHv6ZbAsrELEG0xq2LTAM1orSlkG7usW94\nxOBB3GOvNwkjeCNDDreQ52bcE694YvxqmAf3JLKo3raIcgmjWgsrBUeSAfNx\nhx5iGGu7WH/vMT1lpIWmGgjH4fIHZBxMPjNMPRtH+s9/e9F68Ki3fASozIj1\nf5Do\r\n=XBup\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "acozzette@gmail.com",
+					"name": "acozzette"
+				},
+				{
+					"email": "jhaberman@gmail.com",
+					"name": "haberman"
+				},
+				{
+					"email": "teboring@google.com",
+					"name": "teboring"
+				},
+				{
+					"email": "xfxyjwf@gmail.com",
+					"name": "xfxyjwf"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/google-protobuf_3.7.0-rc.2_1549056616673_0.6997798277373064"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.7.0-rc.3": {
+			"name": "google-protobuf",
+			"version": "3.7.0-rc.3",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/protocolbuffers/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.7.0-rc.3",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.3",
+			"_npmUser": {
+				"name": "teboring",
+				"email": "teboring@google.com"
+			},
+			"dist": {
+				"integrity": "sha512-NxMBVtkD2n3Ug+T/Rq/HgRTQdunfqOFSsi6zsIGqniXvMaOqSYi0Vec4B3bkOv4Pj/d1bxKCFtEeL8uI2gV4tA==",
+				"shasum": "5e592a2eea8c4c65e345875f3b0c039d27137acc",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.7.0-rc.3.tgz",
+				"fileCount": 15,
+				"unpackedSize": 673439,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcdIQ3CRA9TVsSAnZWagAAw2wP/1gaHzfMQ69LfmDq+pru\npLQ3TgaWwdWb8V9A9vvE/+hSbsHknz6oqEJjr94y1LAe/xXkNyB+s/mvYjYE\nSRFudWp26Wl9cjy/oioKwucWVdUzK9vig8p+gQPwx6DTvQRz3m+slscdWVUu\nRNfBlgTQOTrU7L+0taBzFX69/NIbptKOnTqy0C6IHWwwmDhrfLnF75Tg3W0E\nAonGHbSQFnPiwg4ITccpvCjNFreQWeoKc1yTEkePY0EhOJrjWoM6tfecoAr5\n9w0liUsoBQL1eQOrx62HwSgecaVvhJsZkQzC3UZ0/P4rlR9SHqbOizthNgOR\njIgm8rbYraaeWkqeO5SbT29bS16ctGQkWLqFc2aJcIEteZeSnhYA37ftWlwD\nUeh1WpgMcfSxIGUuYs+NJGj6QR8eixqfelOKYJYADwBUKWzvHZLhD+HS+bWH\nIN02gkD2BLPjGh9k86FcrHMvXeQvGacbLmXH3x29HuZB7JIviNaW6g5iy9Dc\nRnPGQUYhKiwiX+AJ1zBAQq3P+8tJKGZcU0HzIHgXLf+pL5iQz2hwCF3zEPPx\nQzChCBuohusxs6um+0PWo7vM0qgMF/fa7gm/4T7pl0Y2KwzpMS9Ngdmj323+\nwoP193sz9/E6uuwLq8OX1XzPXRiNEIak5GQFvkemhFAFDymWjrsGpHyowbMG\nY4c7\r\n=JUGI\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "acozzette@gmail.com",
+					"name": "acozzette"
+				},
+				{
+					"email": "jhaberman@gmail.com",
+					"name": "haberman"
+				},
+				{
+					"email": "teboring@google.com",
+					"name": "teboring"
+				},
+				{
+					"email": "xfxyjwf@gmail.com",
+					"name": "xfxyjwf"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/google-protobuf_3.7.0-rc.3_1551139894566_0.5632182266088823"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.7.0": {
+			"name": "google-protobuf",
+			"version": "3.7.0",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/protocolbuffers/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.7.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.3",
+			"_npmUser": {
+				"name": "teboring",
+				"email": "teboring@google.com"
+			},
+			"dist": {
+				"integrity": "sha512-QZwgOBPfvnAdnYA+tizEs9CbE42mMXFPGCmYAh0podfJbGPkBIEC6vR9gMSGxjaSB8t2GCGLhOHiX9OrseOWCA==",
+				"shasum": "5c7228b68d24a7c93706c1a44efdb8ee883cea43",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.7.0.tgz",
+				"fileCount": 15,
+				"unpackedSize": 673434,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcfWn9CRA9TVsSAnZWagAANOsQAIAlJbkmOq9LINCt/WCv\nrV95mgTh4OBAdcykgl+2N317Nc8L6H6RNCUDVJ3tiKbp7088mqMs+aSi74Ws\nZww9QptlNmBg2Mr0KGbHU6tcsJR2qgLdV8LcvaX29MfA4Z9eiSD4hSBywIPd\nXatxt1X70qkmKcKuEUPFMy4Jxwa5GIDLAHChd6GG/vowVrnvypWIp/O+Cm1U\nHX84aQsPpiW1RlnwyOjqh6iFP5K9eLQhsrYw1HHlDeT4Q1DNYDO38spSRFJE\nHx2CsVyTqHIjHuuvf/kswj61mgIoTS9RXXkIXBUCN+ryCgv+Nv4d11x0QY7B\ngglwSjvLqhTuAuwhVz3sbROTeYG/sAqPi28JLJ4bSgFzRkM7JP0+hhR6B4G5\n9Tbi9Hc7iGsDtmn+iCgkxiZ70fsd96KQtvuM2+RzjescoFrQTNBfUinoERjW\n16V3HlBaBAtF+fUxARg9wckvQn9ioU6phIgm/+fYzsLvOlbgYyIM7wovSQtl\nqmL1obLEeUkA8DS4EHFJD2HpDPTd/mz/JJdyWf1K37fc5d1ENLp7ZbG++amx\no2lf+0T0n6mTGPbaakYbIYct0xMq2plBews9LIlM1GXfSph2RGvuV4R10OEV\nLQL96O6CbVlTp0YeRcgDvQNAryW1yuEX1gR0IwwmvJYmTCqoecf02LfU2HJu\nCPk8\r\n=XL8n\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "acozzette@gmail.com",
+					"name": "acozzette"
+				},
+				{
+					"email": "jhaberman@gmail.com",
+					"name": "haberman"
+				},
+				{
+					"email": "teboring@google.com",
+					"name": "teboring"
+				},
+				{
+					"email": "xfxyjwf@gmail.com",
+					"name": "xfxyjwf"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/google-protobuf_3.7.0_1551723005018_0.32211567458010215"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "Critical bug fixed in 3.7.1, see https://github.com/protocolbuffers/protobuf/issues/5931"
+		},
+		"3.7.1": {
+			"name": "google-protobuf",
+			"version": "3.7.1",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20160619.0.0",
+				"google-closure-library": "~20160125.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/protocolbuffers/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.7.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.13.0",
+			"_npmUser": {
+				"name": "acozzette",
+				"email": "adam@acozzette.net"
+			},
+			"dist": {
+				"integrity": "sha512-6fvlUey6cNKtWSEn1bt4CT4wc2EID1fVluHS1dOnqIlxyIu3cBid2BvWE8Rwl6wN+hRTgiAKhfyydAGV/weZYQ==",
+				"shasum": "9ef0fa3bc9ee416ba3fbe32b21ec6b7626f898e2",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.7.1.tgz",
+				"fileCount": 15,
+				"unpackedSize": 673595,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJclBu5CRA9TVsSAnZWagAARvQP/2znWkBAMUGjxMNdJxX9\nPnr13wBbuky7FcYkqU1FiQUzZsA7WlnHoex9AwN28ZEvI61tr0Jg5Kd2lHVF\nZJbwEykpDNkYpiUyMURXoV/268LncncfvCeJ2fLP9RiBKuIFHLO+TvVUOx5F\nbMVk9EXLHt5RbzOo1qi9Nst08U77wFK/C/4JiqE/REamIKptMGVUTAuo9gzb\n+oWbbJyT72nzd+84rSsfV6kVEdsLeVqop/G3U4+uOarJLN367PR83aWpT3AG\n6dCIW5VrTu+cVdSGRa9eqpd0LM1RCLQy5B2eqtcCDpJMGfTYQnXbCa5v2dSH\nm1vY5ySl0f8/6fgsOuwyI4gS6D+K4cChRI7RKPVWA3vo8vOU4dq6ZWaq6SqX\npCkDW1wptTuvV/vZ9hggtSP7ziBAyxC1OFGAOoCwvThZqyHH2MHJ9T9sm0C/\nWe0fB4yX0vVESeY11dWVJ7nX6XPrX2DUt4gogTZ8oV+EtQGVcKC9yuNiKAKg\n2ZXB+xEicqozCsU3VMjyCYdGZGlrsO6y6U2GKlRUAtpzBt+8HLiRONFYqrhL\nI2KsiK282tWxed7FSD6+1I1jOtI7J+gxre5tOX2w001fb4d3lzm1wn5U92tg\n8r0x13qDBb4VwJyUX1wJMcfw5GL3eKCeH+y2tpJKO/zzxt32u/J1OoxPT1Br\nRMfi\r\n=CAk3\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "acozzette@gmail.com",
+					"name": "acozzette"
+				},
+				{
+					"email": "jhaberman@gmail.com",
+					"name": "haberman"
+				},
+				{
+					"email": "teboring@google.com",
+					"name": "teboring"
+				},
+				{
+					"email": "xfxyjwf@gmail.com",
+					"name": "xfxyjwf"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/google-protobuf_3.7.1_1553210296051_0.4404932353089144"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.8.0-rc.1": {
+			"name": "google-protobuf",
+			"version": "3.8.0-rc.1",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20190301.0.0",
+				"google-closure-library": "~20190301.0.0",
+				"gulp": "~3.9.0",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/protocolbuffers/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.8.0-rc.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "protobuf-js",
+				"email": "haon@google.com"
+			},
+			"dist": {
+				"integrity": "sha512-4GDqS1fsxtXqDJoISikYWJqxRcUu7421Tp58//Qzog+aK5u0KHqsNw1dZC1TebMbyaOCHL0CfsBr2/t+e9QBFg==",
+				"shasum": "cd22a63ff8c16d46d872ba84b61f0882e270a005",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.8.0-rc.1.tgz",
+				"fileCount": 15,
+				"unpackedSize": 682227,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJczM6NCRA9TVsSAnZWagAAUHkQAJDPWVaFiQxNpcSmSkJQ\nvDLEpKshEYBf0ep5GEjUKPm5VNTr5SgLyMIQRH7zfTaCyfADoO5ZY9Dg84b2\nAX+wE6dDrsQX9VgUb3bWMbgWaeSj3HfRS0eDp9OmxRz/txjFWXVGC8IzBreD\n71sWodtuGaP4/KyNGRnDK34Axw6cc68DZoOo+K0chbpkshM4OCGT+qlxy5xB\nHi0WDFWp31NerppWQ37YX2bCwfoeid29AEhFIStROwgOzQt5IzgNsaiJWBl4\nfJQl7hdvvud00AHfcjHi/cZ27yPpiOiwDHJELL48+Q2I4Zb5sjOX1FGMGTHj\nMRl1/BmClZI+JJhfiPyAX1skCMBomyN31PpTbXwHk/Y8jv0jCCHxbtOJmH7P\nSI87ZzN1ElTit2t1g2FTcQo6kAd397xzpc4//BVHvGhFJuDS//eI1ZPDXBVx\nghpoMa4nhFR+NP8NvdxNZT79wCAYaK62YhC2ItyArjXkS5zgd1VwXfd19jvC\nXozD2vwUZTt1AORbe4hKCTtWbgAZlbq8jDAjVTm2+MmLkb82xYAV3sZL6By8\nIDMGfUoSuiTMIdKjGKkaHQTt7cDzbMDXLHdVRb/Skdj4W03RPnHifSIcCWoa\nMtqBgWsYFsZMFTLYswUoV7/XsPhYXkKosiAC/PgPB6pw7XRJUOzcRtUP50oi\n15sg\r\n=pz1X\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "acozzette@gmail.com",
+					"name": "acozzette"
+				},
+				{
+					"email": "jhaberman@gmail.com",
+					"name": "haberman"
+				},
+				{
+					"email": "teboring@google.com",
+					"name": "teboring"
+				},
+				{
+					"email": "xfxyjwf@gmail.com",
+					"name": "xfxyjwf"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/google-protobuf_3.8.0-rc.1_1556926093284_0.39728350817611147"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.8.0": {
+			"name": "google-protobuf",
+			"version": "3.8.0",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20190301.0.0",
+				"google-closure-library": "~20190301.0.0",
+				"gulp": "~4.0.1",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/protocolbuffers/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.8.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "protobuf-js",
+				"email": "haon@google.com"
+			},
+			"dist": {
+				"integrity": "sha512-tx39PTc//HaIT7K/baUF/8JYLGDozEi1e4xwPP1qSx3InP78cNpbSJpxiDsDMwj77qNOndVBDXnn7oi9zKxZew==",
+				"shasum": "4fd2ee3a97751cb543dc5de85ffd264aff9f4980",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.8.0.tgz",
+				"fileCount": 15,
+				"unpackedSize": 682222,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc7cipCRA9TVsSAnZWagAAmo0P/2hNLsOmeJLTH9vWi6qs\nRS6ZP1qODkAeLjYxVjwiIZ7PVNsvB+u0/kaFPsA/CSnxTxYWvhLFPoxHDgcS\nlHk1WI/4mM1RhbJqP8A9wpHdIaobXJPsfBvCX8NAW2izuonn5uc9n5HpLAgI\nsM3KYAh1r7mePEAQjEb9CMvYUWA5hZpxJOgwmQfImIHZ24FVBGmo/bcWcHk1\n+crmzcmR1cH8lhdqwVvLkxBoXBN67HBwSO11D39fBezvJVVA0wWDxq4j/phr\n6PBH62ccXpQmrabWms6CfiL2JQtxuxgmzzgDeDj56lJuwHBgdaOkkt9ks4zS\nARvGXsfd+rQPoglewZPWiHktkRgItFr7malrY8SjUhKCZWPO7G7kKbVsiLsl\nUljoBB+rADSn5wOfPU+WBYgJu5IM3/9ePQOostVLjWKrgei4/f9JRNCEdwN+\nTJvn74yZlTwQdRWqTIQk8EZWcgSyBJFUsinGR+EIRpuXNOKrMLsMu8w1Azbm\nUnbFkTxijQ85eSGYRt2QQXFJ8X1y2ogoAOidI96XWjISUQ9UZkqelMxbikhv\n4HaJRQ6bMcXt8OnkGRt0pNeELy79k/WWfpOrbtWfySWGoS8GxXbtCzcLbjN3\nweGczRc2CaF/GwSU25M2oySfqW8lHbdall0i5OUvnvchylaWQtaUYdvrtkVb\neb0C\r\n=ocl0\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "acozzette@gmail.com",
+					"name": "acozzette"
+				},
+				{
+					"email": "jhaberman@gmail.com",
+					"name": "haberman"
+				},
+				{
+					"email": "teboring@google.com",
+					"name": "teboring"
+				},
+				{
+					"email": "xfxyjwf@gmail.com",
+					"name": "xfxyjwf"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/google-protobuf_3.8.0_1559087272997_0.4117687570352895"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.9.0-rc.1": {
+			"name": "google-protobuf",
+			"version": "3.9.0-rc.1",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20190301.0.0",
+				"google-closure-library": "~20190301.0.0",
+				"gulp": "~4.0.1",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/protocolbuffers/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.9.0-rc.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "protobuf-js",
+				"email": "haon@google.com"
+			},
+			"dist": {
+				"integrity": "sha512-89ldj84zM2qm1F74/d/xXq/EpRwxox6uLtp3oHK/JSFZ6cTMWhMssgc5CdyxXd5eITaaOyAnB1Fv2TC1K6RO6g==",
+				"shasum": "99217fb9d72c0c8f93a04c42834d914188a4093f",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.9.0-rc.1.tgz",
+				"fileCount": 15,
+				"unpackedSize": 682815,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdE795CRA9TVsSAnZWagAA5QcQAJGbCOSkZii2FTBNRZQE\nR9EgM6Vo9FiFBdbqTeDimFBjwAfYhiEh0bW0ux3yXsxCDEa6DgtlJ1lGB/SP\nher4Bnsj7pDagi9LXitMXOC5Q03vITCYi3k9Jb5rduoqZJAt3opnuoC7Frq1\nvvr6/xgcH9qaPLlSnKQM84ri7TEy40ALgJpTzBKuogXy/qy/ntn1hR/jUgfF\n1hugdcYGR/t5sYEPSAhBHCiEcIupbymWLqN0hbxA5h4WbS06gOy9d/D1OC5M\n5G+P5VvhD6+fTCBimibPYW2o0SY9K64QDSvC7TfRK/Kdi7rx+PXv0XBgT+Nc\nfIK80CKfw3kY3J8Z/DrQk3Qk5fSoN0pCGUwJRwbYng6XcsZ1/Ut6NQ0OBZej\nIG8RHHtWTdo1aueoUOQ+xh6UvndPhoPzCSU4ES3xsdkI5hkCbEQLM4VOinuV\nhPwZLIb/qAmQMBy4GEhlzlYjhvGogaGAA2NYRPhf9ru7tr87aK0D81yIjSxF\nn6I6+lCFRpfxaHUQRB9uuFYAfhigNHR/wam6Mbxhf1F8meCba+caolMP4c8v\nfrnFQ+TigCHaJKBCvTRKdTXmkU8ljv4V/n3jQZQHPWRpveiO9CpWbF0zX+Bz\ntOU2UItv+mCW+xPvJ7xqYwpQke/ozb3hDd4wvsoY6eHumKrWuQ309kPiQf7P\nMkF4\r\n=Yb6o\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "acozzette@gmail.com",
+					"name": "acozzette"
+				},
+				{
+					"email": "jhaberman@gmail.com",
+					"name": "haberman"
+				},
+				{
+					"email": "teboring@google.com",
+					"name": "teboring"
+				},
+				{
+					"email": "xfxyjwf@gmail.com",
+					"name": "xfxyjwf"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/google-protobuf_3.9.0-rc.1_1561575288642_0.8205059409052706"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.9.0": {
+			"name": "google-protobuf",
+			"version": "3.9.0",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20190301.0.0",
+				"google-closure-library": "~20190301.0.0",
+				"gulp": "~4.0.1",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/protocolbuffers/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.9.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "10.15.2",
+			"_npmUser": {
+				"name": "protobuf-js",
+				"email": "haon@google.com"
+			},
+			"dist": {
+				"integrity": "sha512-/t/7NvL9jAmfXLdqJG7Nv2c5Z2GTdZSKi/T6kI3hpIS4yA6rXqBAMF4Yx39xbICWDgRv+R+Z79n7ZxuvoUQU4w==",
+				"shasum": "1f33e51e7993ea51e758a82650ad4347273b9bc6",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.9.0.tgz",
+				"fileCount": 15,
+				"unpackedSize": 682810,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdJ9E4CRA9TVsSAnZWagAAArUP/1/JRhv8Srq+C5bknbfg\nUJgw0CAMUuNLCKNR20joZ9Jy7QKY5K1sGrtcdDmeCbV301ab/ESd0m8yDUSW\n56BktVx9/pz3QoWbW2tYPWePHApAyIa6tBrwZ8QgY4vn6f4aJoshVbWKRjmm\nh6Db734xR/pbFCJXIL0yaLWcZQIK9CYqehe217birUEIUYPaxbY8Lz8CdSoq\n6KIUpeF5RfAU8l60AloGnqDFKWEsbax5heMXjdq5RhSW+Dk36Hwqft+Skevx\nCSoO68o3kp6ZSc1+iO6RaQ+JZkWULydADDsSgv6hUKNOjdRC0D9Z5tUOBNct\nA6HLgKp88LPCbDfBBgEjlu8KGlXBZuwhI00MW9r0CnxpAoLTXQKs73e/eirN\nVVNT1IpWy4iKf/gJFFzQ5PN7zyC0TV+0g35WIqFCRoIu+fOvylZ4OMBZigGF\nxe797JtvLEEW8W2zgggQ2P1JPosY4Is1VeFEvm4IdswS7/ZNqEtD7W3io3cg\nl9fbwwcnr3NZG49K1awd2M7oaXPjpfsBi4l10k/jNHA6qNGlZKIlvVNjuOm3\nHQJrjKT7NfYqNjYEqI71ysk1jukPybtZdHm+LXIClnR91ooYy/BQfL4w8JU7\njOK0AyCi8xitT3nN+bEXXRtCMRx8VTcBdYViFpzfs5UhxL9PKWBKDVUz7oDS\nojuR\r\n=NIfX\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "acozzette@gmail.com",
+					"name": "acozzette"
+				},
+				{
+					"email": "jhaberman@gmail.com",
+					"name": "haberman"
+				},
+				{
+					"email": "teboring@google.com",
+					"name": "teboring"
+				},
+				{
+					"email": "xfxyjwf@gmail.com",
+					"name": "xfxyjwf"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/google-protobuf_3.9.0_1562890552026_0.6157408139067115"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.9.1": {
+			"name": "google-protobuf",
+			"version": "3.9.1",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~6.0.4",
+				"google-closure-compiler": "~20190301.0.0",
+				"google-closure-library": "~20190301.0.0",
+				"gulp": "~4.0.1",
+				"jasmine": "~2.4.1"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/protocolbuffers/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.9.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "protobuf-js",
+				"email": "haon@google.com"
+			},
+			"dist": {
+				"integrity": "sha512-tkz7SVwBktFbqFK3teXFUY/VM57+mbUgV9bSD+sZH1ocHJ7uk7BfEWMRdU24dd0ciUDokreA7ghH2fYFIczQdw==",
+				"shasum": "87e6a16b7fb16405b515a6c6622d5ace45578d86",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.9.1.tgz",
+				"fileCount": 15,
+				"unpackedSize": 682810,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdSMjdCRA9TVsSAnZWagAA8X8P/1s4df3r6QEcGj3lBDZi\ndKUaCvqsKFVRCuR78cGS3exChb+tCP+HoHu+e86AcU7KPL7oubNMlp+Cy2Yw\n5NPtGcvfQPRMpLC3S/kp9bjRBzvZncDrO3r281Z1XyZVx2OSc6aRChUeWxDS\nptFOGJzqA4guDtRzk7eL+jgn1CPWqGWIbcgkxC0ErQ5xKoGjfh54H+DaSYhF\nxBulKuwivpWpY4QDfnRnqRyUTX1w9ZMldYnXgCGwsI8iaqv71mzFuTVK05uV\nWuvQyB3w+J4guZhu5OSRnUBDTJq+hWPUgIzladhgRMzcjPhy5pypsgZ1jl5V\nOdlvQfrqUpzhj9LblbXvSNo9KYxzTOr2gYzWM0trXSOvE1qonmYCxcmW8/ji\nCRXwQdv7p0nmzVZ473Mgs7VX+EgiJwuF8/YZmZp+xRj6Z0EMAp/UlPTCD3n9\nKqBny4u76QmZLerR6q6Vt3nrIbbX3tg59pACFJpvIs8IWdZnl+KiI7Q5O1f2\nFcYBe9RW+rxsU/lsIwZfgSmatoALIVdQAqVqvreK3fbNHAvES5Qg2d0ydc36\nwAxrJE2KYEvTz0zinu3+sxu3+FeVVrVP1najJZ2eQrY/ffHXmC2dPLgesALc\nFdI8WuAyV98EsjMp4snEaklncfJvUM3bAYQxT6ajBDf2FY+77n9U+/f1UOFL\nyQPf\r\n=I2PF\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "acozzette@gmail.com",
+					"name": "acozzette"
+				},
+				{
+					"email": "jhaberman@gmail.com",
+					"name": "haberman"
+				},
+				{
+					"email": "teboring@google.com",
+					"name": "teboring"
+				},
+				{
+					"email": "xfxyjwf@gmail.com",
+					"name": "xfxyjwf"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/google-protobuf_3.9.1_1565051100467_0.44735874064176206"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.10.0-rc.1": {
+			"name": "google-protobuf",
+			"version": "3.10.0-rc.1",
+			"description": "Protocol Buffers for JavaScript",
+			"main": "google-protobuf.js",
+			"dependencies": {},
+			"devDependencies": {
+				"glob": "~7.1.4",
+				"google-closure-compiler": "~20190819.0.0",
+				"google-closure-library": "~20190819.0.0",
+				"gulp": "~4.0.2",
+				"jasmine": "~3.4.0"
+			},
+			"scripts": {
+				"test": "node ./node_modules/gulp/bin/gulp.js test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/protocolbuffers/protobuf/tree/master/js"
+			},
+			"author": {
+				"name": "Google Protocol Buffers Team"
+			},
+			"license": "BSD-3-Clause",
+			"_id": "google-protobuf@3.10.0-rc.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "protobuf-js",
+				"email": "haon@google.com"
+			},
+			"dist": {
+				"integrity": "sha512-tgpGwjqSYtHGpTaYBWUnf+T4CE+cjzLLFtouU4Y4iZn3VPiwwQfl/BGq3NzoGQnDqvFTqP9OE68lPwcUNwgdwQ==",
+				"shasum": "801b5716241a0b93f12e72d722160e3e8cfaba9e",
+				"tarball": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.10.0-rc.1.tgz",
+				"fileCount": 15,
+				"unpackedSize": 778459,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdcWaPCRA9TVsSAnZWagAAhZMP/1JOoELEfgtNVyzpojbF\nrcjImtGnm8zZEgla6FiLkMG3iPOA7D1jEfHTMM+DB1y/FbB9VJzMyacue4o8\n7dqLQvWoNU+3MCkwhM6DA4GaEqrRgpt+9uSQCImh++BGQJLkRAPRGklThbnC\nSRQgGEpAbilf61rCeDnN018ecfn8317n/wijAAHU3tDuqkCsMQrBJGnLwuj9\nUIiVCnNhqZZCY2M6cEQ5h7tWopMT53gqw6f2Jf5ibTIUEQUFMHDiYbeZ0gZv\noPhvCX1xh5vjzrlfw9ggkInG+Zpi196T7r1HGT2p6VNEyBTCaM++e8SvQeQm\nTCAnXbQLIomArjcWQhl3SvSEn06ZI7gfD6eyQ0kJwIqgb3gQhwGkSMd51T4/\nXa/HpOQy4wEk8VSQvV1C0Ch0HXxt75lgkCfU81wk+2k7KogomBl3U8EvQZYy\neePctwcU6LWoLsWhEYvx5as4aGlpG8PoLxFa+sENW1/SsG3dWLRqUQlZo6RO\nZInO1oCekjvV/wJTalVvPGbkGwZbChCghB4K8j0MJmdZW0PVpXNtORPXMOm+\nj2axgtuXTZJBUYMIXBk6JQuOiYmb2ieQjhD5D69FDQgJTux+9SWBfaYyz24w\nrR+N+YJ6qpbVopG3wggyNAKQl2T3gK8UbOnu7RLCZJaL6nerj7BgBDb69sYu\np+m2\r\n=yv0r\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "acozzette@gmail.com",
+					"name": "acozzette"
+				},
+				{
+					"email": "jhaberman@gmail.com",
+					"name": "haberman"
+				},
+				{
+					"email": "teboring@google.com",
+					"name": "teboring"
+				},
+				{
+					"email": "xfxyjwf@gmail.com",
+					"name": "xfxyjwf"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/google-protobuf_3.10.0-rc.1_1567712911253_0.1302920535226313"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-09-05T19:48:33.886Z",
+		"created": "2016-04-05T06:29:13.754Z",
+		"1.0.0": "2016-04-05T06:29:13.754Z",
+		"3.0.0-alpha.5": "2016-04-12T22:45:17.728Z",
+		"3.0.0-alpha.6": "2016-05-18T01:22:53.092Z",
+		"3.0.0-alpha.6.1": "2016-06-22T23:16:41.437Z",
+		"3.0.0-alpha.6.2": "2016-06-23T22:12:28.230Z",
+		"3.0.0": "2016-07-29T01:20:03.292Z",
+		"3.0.2": "2016-09-15T00:52:05.901Z",
+		"3.1.0": "2016-09-27T18:59:00.996Z",
+		"3.1.1-pre.1": "2016-09-29T21:00:03.072Z",
+		"3.1.1": "2016-09-30T22:25:24.631Z",
+		"3.2.0-rc.2": "2017-01-26T22:53:04.684Z",
+		"3.2.0": "2017-02-06T21:41:27.432Z",
+		"3.3.0": "2017-05-05T17:58:50.349Z",
+		"3.4.0": "2017-08-16T21:51:32.730Z",
+		"3.5.0": "2017-11-16T21:09:07.968Z",
+		"3.6.0": "2018-06-22T20:55:25.712Z",
+		"3.6.1": "2018-07-31T17:59:23.297Z",
+		"3.7.0-rc.2": "2019-02-01T21:30:16.874Z",
+		"3.7.0-rc.3": "2019-02-26T00:11:34.686Z",
+		"3.7.0": "2019-03-04T18:10:05.176Z",
+		"3.7.1": "2019-03-21T23:18:16.235Z",
+		"3.8.0-rc.1": "2019-05-03T23:28:13.464Z",
+		"3.8.0": "2019-05-28T23:47:53.202Z",
+		"3.9.0-rc.1": "2019-06-26T18:54:48.842Z",
+		"3.9.0": "2019-07-12T00:15:52.126Z",
+		"3.9.1": "2019-08-06T00:25:00.742Z",
+		"3.10.0-rc.1": "2019-09-05T19:48:31.382Z"
+	},
+	"dist-tags": {
+		"latest": "3.10.0-rc.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"543b65108a8c19d09e62aa47dcc9aa99\"",
+			"fetched": 1568994351301
+		}
+	},
+	"_distfiles": {
+		"google-protobuf-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-1.0.0.tgz",
+			"sha": "c73ceb3a593d4478b4296edfe577fd43c68e843b",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.0.0-alpha.5.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.0.0-alpha.5.tgz",
+			"sha": "3f902f19dc1841d488014ac85886c35a9b943097",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.0.0-alpha.6.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.0.0-alpha.6.tgz",
+			"sha": "4906b4e3ec22c375e24b8a5b6a7b9de73842a39c",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.0.0-alpha.6.1.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.0.0-alpha.6.1.tgz",
+			"sha": "5b69a1b6a208e3a22ef46fd68f6bf2cacaca3bd2",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.0.0-alpha.6.2.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.0.0-alpha.6.2.tgz",
+			"sha": "782a16ce9171038b18662cbee4c2ebb63de1d9b9",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.0.0.tgz",
+			"sha": "405b64c0650dbd6eadd68186df0c12af9cb03b95",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.0.2.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.0.2.tgz",
+			"sha": "7db7190161398cab991ba5c339b2b79aa247120e",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.1.0.tgz",
+			"sha": "ade3c8108ad332382309dbbebc4b55566dcd2e0b",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.1.1-pre.1.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.1.1-pre.1.tgz",
+			"sha": "0490eb097a7fe99df67bae4cdc37179739b32698",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.1.1.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.1.1.tgz",
+			"sha": "4f07e5265571e2aa5bcb49c3fa53bb97e91c230a",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.2.0-rc.2.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.2.0-rc.2.tgz",
+			"sha": "1bcf78c30d3d9a8d3e2b4db461d9cdc15d29c32a",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.2.0.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.2.0.tgz",
+			"sha": "0909ec6a4594799906df81098c6ee402c885216f",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.3.0.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.3.0.tgz",
+			"sha": "21c15ec2fbd57c236eb684d2e18bcaeca9759b77",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.4.0.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.4.0.tgz",
+			"sha": "58fbe51555a0a56b2dd3fc6f6d869fa21d57ab0a",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.5.0.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.5.0.tgz",
+			"sha": "b8cc63c74d83457bd8a9a904503c8efb26bca339",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.6.0.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.6.0.tgz",
+			"sha": "e2bafb00c20a8734174d8f89e0a842709e2ceed0",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.6.1.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.6.1.tgz",
+			"sha": "7ef58e2bea137a93cdaf5cfd5afa5f6abdd92025",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.7.0-rc.2.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.7.0-rc.2.tgz",
+			"sha": "a65e9216825065099c4ff243eee9e16e764cc2c9",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.7.0-rc.3.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.7.0-rc.3.tgz",
+			"sha": "5e592a2eea8c4c65e345875f3b0c039d27137acc",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.7.0.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.7.0.tgz",
+			"sha": "5c7228b68d24a7c93706c1a44efdb8ee883cea43",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.7.1.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.7.1.tgz",
+			"sha": "9ef0fa3bc9ee416ba3fbe32b21ec6b7626f898e2",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.8.0-rc.1.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.8.0-rc.1.tgz",
+			"sha": "cd22a63ff8c16d46d872ba84b61f0882e270a005",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.8.0.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.8.0.tgz",
+			"sha": "4fd2ee3a97751cb543dc5de85ffd264aff9f4980",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.9.0-rc.1.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.9.0-rc.1.tgz",
+			"sha": "99217fb9d72c0c8f93a04c42834d914188a4093f",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.9.0.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.9.0.tgz",
+			"sha": "1f33e51e7993ea51e758a82650ad4347273b9bc6",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.9.1.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.9.1.tgz",
+			"sha": "87e6a16b7fb16405b515a6c6622d5ace45578d86",
+			"registry": "npmjs"
+		},
+		"google-protobuf-3.10.0-rc.1.tgz": {
+			"url": "https://registry.npmjs.org/google-protobuf/-/google-protobuf-3.10.0-rc.1.tgz",
+			"sha": "801b5716241a0b93f12e72d722160e3e8cfaba9e",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-8e8bc33c4c9ca8d8",
+	"_id": "google-protobuf",
+	"readme": "Protocol Buffers - Google's data interchange format\n===================================================\n\n[![Build status](https://storage.googleapis.com/protobuf-kokoro-results/status-badge/linux-javascript.png)](https://fusion.corp.google.com/projectanalysis/current/KOKORO/prod:protobuf%2Fgithub%2Fmaster%2Fubuntu%2Fjavascript%2Fcontinuous) [![Build status](https://storage.googleapis.com/protobuf-kokoro-results/status-badge/macos-javascript.png)](https://fusion.corp.google.com/projectanalysis/current/KOKORO/prod:protobuf%2Fgithub%2Fmaster%2Fmacos%2Fjavascript%2Fcontinuous)\n\nCopyright 2008 Google Inc.\n\nThis directory contains the JavaScript Protocol Buffers runtime library.\n\nThe library is currently compatible with:\n\n1. CommonJS-style imports (eg. `var protos = require('my-protos');`)\n2. Closure-style imports (eg. `goog.require('my.package.MyProto');`)\n\nSupport for ES6-style imports is not implemented yet.  Browsers can\nbe supported by using Browserify, webpack, Closure Compiler, etc. to\nresolve imports at compile time.\n\nTo use Protocol Buffers with JavaScript, you need two main components:\n\n1. The protobuf runtime library.  You can install this with\n   `npm install google-protobuf`, or use the files in this directory.\n    If npm is not being used, as of 3.3.0, the files needed are located in binary subdirectory;\n    arith.js, constants.js, decoder.js, encoder.js, map.js, message.js, reader.js, utils.js, writer.js\n2. The Protocol Compiler `protoc`.  This translates `.proto` files\n   into `.js` files.  The compiler is not currently available via\n   npm, but you can download a pre-built binary\n   [on GitHub](https://github.com/protocolbuffers/protobuf/releases)\n   (look for the `protoc-*.zip` files under **Downloads**).\n\n\nSetup\n=====\n\nFirst, obtain the Protocol Compiler.  The easiest way is to download\na pre-built binary from [https://github.com/protocolbuffers/protobuf/releases](https://github.com/protocolbuffers/protobuf/releases).\n\nIf you want, you can compile `protoc` from source instead.  To do this\nfollow the instructions in [the top-level\nREADME](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md).\n\nOnce you have `protoc` compiled, you can run the tests by typing:\n\n    $ cd js\n    $ npm install\n    $ npm test\n\n    # If your protoc is somewhere else than ../src/protoc, instead do this.\n    # But make sure your protoc is the same version as this (or compatible)!\n    $ PROTOC=/usr/local/bin/protoc npm test\n\nThis will run two separate copies of the tests: one that uses\nClosure Compiler style imports and one that uses CommonJS imports.\nYou can see all the CommonJS files in `commonjs_out/`.\nIf all of these tests pass, you know you have a working setup.\n\n\nUsing Protocol Buffers in your own project\n==========================================\n\nTo use Protocol Buffers in your own project, you need to integrate\nthe Protocol Compiler into your build system.  The details are a\nlittle different depending on whether you are using Closure imports\nor CommonJS imports:\n\nClosure Imports\n---------------\n\nIf you want to use Closure imports, your build should run a command\nlike this:\n\n    $ protoc --js_out=library=myproto_libs,binary:. messages.proto base.proto\n\nFor Closure imports, `protoc` will generate a single output file\n(`myproto_libs.js` in this example).  The generated file will `goog.provide()`\nall of the types defined in your .proto files.  For example, for the unit\ntests the generated files contain many `goog.provide` statements like:\n\n    goog.provide('proto.google.protobuf.DescriptorProto');\n    goog.provide('proto.google.protobuf.DescriptorProto.ExtensionRange');\n    goog.provide('proto.google.protobuf.DescriptorProto.ReservedRange');\n    goog.provide('proto.google.protobuf.EnumDescriptorProto');\n    goog.provide('proto.google.protobuf.EnumOptions');\n\nThe generated code will also `goog.require()` many types in the core library,\nand they will require many types in the Google Closure library.  So make sure\nthat your `goog.provide()` / `goog.require()` setup can find all of your\ngenerated code, the core library `.js` files in this directory, and the\nGoogle Closure library itself.\n\nOnce you've done this, you should be able to import your types with\nstatements like:\n\n    goog.require('proto.my.package.MyMessage');\n\n    var message = proto.my.package.MyMessage();\n\nIf unfamiliar with Closure or it's compiler, consider reviewing Closure documentation\nhttps://developers.google.com/closure/library/docs/tutorial\nhttps://developers.google.com/closure/library/docs/closurebuilder\nhttps://developers.google.com/closure/library/docs/depswriter\nAt a high level, closurebuilder.py can walk dependencies, and compile your code, and all dependencies for Protobuf into a single .js file.  Using depsbuilder.py to generate a dependency file can also be considered for non-production dev environments.\n\nCommonJS imports\n----------------\n\nIf you want to use CommonJS imports, your build should run a command\nlike this:\n\n    $ protoc --js_out=import_style=commonjs,binary:. messages.proto base.proto\n\nFor CommonJS imports, `protoc` will spit out one file per input file\n(so `messages_pb.js` and `base_pb.js` in this example).  The generated\ncode will depend on the core runtime, which should be in a file called\n`google-protobuf.js`.  If you are installing from `npm`, this file should\nalready be built and available.  If you are running from GitHub, you need\nto build it first by running:\n\n    $ gulp dist\n\nOnce you've done this, you should be able to import your types with\nstatements like:\n\n    var messages = require('./messages_pb');\n\n    var message = new messages.MyMessage();\n\nThe `--js_out` flag\n-------------------\n\nThe syntax of the `--js_out` flag is:\n\n    --js_out=[OPTIONS:]output_dir\n\nWhere `OPTIONS` are separated by commas.  Options are either `opt=val` or\njust `opt` (for options that don't take a value).  The available options\nare specified and documented in the `GeneratorOptions` struct in\n[src/google/protobuf/compiler/js/js_generator.h](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/compiler/js/js_generator.h#L53).\n\nSome examples:\n\n- `--js_out=library=myprotos_lib.js,binary:.`: this contains the options\n  `library=myprotos.lib.js` and `binary` and outputs to the current directory.\n  The `import_style` option is left to the default, which is `closure`.\n- `--js_out=import_style=commonjs,binary:protos`: this contains the options\n  `import_style=commonjs` and `binary` and outputs to the directory `protos`.\n  `import_style=commonjs_strict` doesn't expose the output on the global scope.\n\nAPI\n===\n\nThe API is not well-documented yet.  Here is a quick example to give you an\nidea of how the library generally works:\n\n    var message = new MyMessage();\n\n    message.setName(\"John Doe\");\n    message.setAge(25);\n    message.setPhoneNumbers([\"800-555-1212\", \"800-555-0000\"]);\n\n    // Serializes to a UInt8Array.\n    var bytes = message.serializeBinary();\n\n    var message2 = MyMessage.deserializeBinary(bytes);\n\nFor more examples, see the tests.  You can also look at the generated code\nto see what methods are defined for your generated messages."
+}

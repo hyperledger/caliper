@@ -1,0 +1,2128 @@
+{
+	"name": "nconf",
+	"versions": {
+		"0.1.14": {
+			"name": "nconf",
+			"description": "A hybrid local / remote configuration storage library for node.js.",
+			"version": "0.1.14",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"redis"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"pkginfo": "0.2.x",
+				"redis": "0.6.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/nconf/0.1.14/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "nconf@0.1.14",
+			"devDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.0.13",
+			"_nodeVersion": "v0.4.8",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "6ac16e3cde93ab0739502a4bef3cffe615d9cd65",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.1.14.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "nconf",
+			"description": "A hybrid local / remote configuration storage library for node.js.",
+			"version": "0.2.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"pkginfo": "0.2.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/nconf/0.2.0/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "nconf@0.2.0",
+			"devDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.0.13",
+			"_nodeVersion": "v0.4.9",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "615e59cab591f73c77e7f5d126f540f0f87280d3",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.2.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.3.1": {
+			"name": "nconf",
+			"description": "A hybrid local / remote configuration storage library for node.js.",
+			"version": "0.3.1",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"ini": "1.x.x",
+				"optimist": "0.2.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/nconf/0.3.1/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "nconf@0.3.1",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.23",
+			"_nodeVersion": "v0.4.11",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "c36579f720d6fca4ac8b7f40461ded9bc6c19a9c",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.3.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.3": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.4.3",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"ini": "1.x.x",
+				"optimist": "0.2.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/nconf/0.4.3/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "nconf@0.4.3",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.23",
+			"_nodeVersion": "v0.4.11",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "95eef62a67c2b1e48570276054f01a0b13d4fded",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.4.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.4": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.4.4",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"ini": "1.x.x",
+				"optimist": "0.2.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/nconf/0.4.4/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "nconf@0.4.4",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.23",
+			"_nodeVersion": "v0.4.11",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "5b28fba17a4ddfc146a40af5225bb2aee29e5d1e",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.4.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.5": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.4.5",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"ini": "1.x.x",
+				"optimist": "0.2.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"_id": "nconf@0.4.5",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.103",
+			"_nodeVersion": "v0.4.12",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "4252dde2e469f3667a492714d39096e163e4cc05",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.4.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.6": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.4.6",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"ini": "1.x.x",
+				"optimist": "0.2.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"_id": "nconf@0.4.6",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.106",
+			"_nodeVersion": "v0.4.12",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "af013090b22ee085886885bf706341c8abbcf851",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.4.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.0": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.5.0",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"contributors": [
+				{
+					"name": "Charlie Robbins",
+					"email": "charlie@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"ini": "1.x.x",
+				"optimist": "0.2.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"_id": "nconf@0.5.0",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.106",
+			"_nodeVersion": "v0.4.12",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "a54b595d03f7e283fd6850938a96fa548a468d6a",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.5.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.1": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.5.1",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"contributors": [
+				{
+					"name": "Charlie Robbins",
+					"email": "charlie@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"ini": "1.x.x",
+				"optimist": "0.3.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.6.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"_id": "nconf@0.5.1",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.106",
+			"_nodeVersion": "v0.4.12",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "bb3058ea45a39f26a6dbf00f9809143f0b878176",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.5.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.6.0": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.6.0",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "marak",
+					"email": "marak.squires@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"ini": "1.x.x",
+				"optimist": "0.3.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.6.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"_id": "nconf@0.6.0",
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.2",
+			"_nodeVersion": "v0.6.18",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "243d59ea9e386641330f758119dbe8649ec57670",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.6.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.6.1": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.6.1",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "marak",
+					"email": "marak.squires@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"ini": "1.x.x",
+				"optimist": "0.3.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.6.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"_id": "nconf@0.6.1",
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.2",
+			"_nodeVersion": "v0.8.1",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "305ec1ab075d4ae0720a6d2209f89d0e723ffe8d",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.6.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.6.3": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.6.3",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "marak",
+					"email": "marak.squires@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"ini": "1.x.x",
+				"optimist": "0.3.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.6.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"_id": "nconf@0.6.3",
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.2",
+			"_nodeVersion": "v0.8.1",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "216435eff9fb0ff84428414af5c085cb53dd260b",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.6.3.tgz"
+			},
+			"directories": {}
+		},
+		"0.6.4": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.6.4",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "marak",
+					"email": "marak.squires@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"ini": "1.x.x",
+				"optimist": "0.3.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.6.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"_id": "nconf@0.6.4",
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.2",
+			"_nodeVersion": "v0.8.1",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "f762d0b2f982e5788e41dd995086c07e44af509e",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.6.4.tgz"
+			},
+			"directories": {}
+		},
+		"0.6.5": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.6.5",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"ini": "1.x.x",
+				"optimist": "0.3.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.6.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_id": "nconf@0.6.5",
+			"dist": {
+				"shasum": "53e9cb472a3e1e09e93421647b8aa5c3d606898f",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.6.5.tgz"
+			},
+			"directories": {}
+		},
+		"0.6.6": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.6.6",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"ini": "1.x.x",
+				"optimist": "0.3.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.6.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_id": "nconf@0.6.6",
+			"dist": {
+				"shasum": "600951c048dc2295990feea403f4e01df1b54070",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.6.6.tgz"
+			},
+			"_npmVersion": "1.1.66",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.6.7": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.6.7",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"ini": "1.x.x",
+				"optimist": "0.3.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.6.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_id": "nconf@0.6.7",
+			"dist": {
+				"shasum": "f2ffce75f4573857429c719d9f6ed0a9a231a47c",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.6.7.tgz"
+			},
+			"_npmVersion": "1.1.66",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.6.8": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.6.8",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"ini": "1.x.x",
+				"optimist": "0.3.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.7.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"bugs": {
+				"url": "https://github.com/flatiron/nconf/issues"
+			},
+			"_id": "nconf@0.6.8",
+			"dist": {
+				"shasum": "bb54b5f660eb3f44d8b2cdccaa5d60453973ffb0",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.6.8.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.8",
+			"_npmUser": {
+				"name": "jcrugzz",
+				"email": "jcrugzz@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.6.9": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.6.9",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "0.2.9",
+				"ini": "1.x.x",
+				"optimist": "0.6.0"
+			},
+			"devDependencies": {
+				"vows": "0.7.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"bugs": {
+				"url": "https://github.com/flatiron/nconf/issues"
+			},
+			"_id": "nconf@0.6.9",
+			"dist": {
+				"shasum": "9570ef15ed6f9ae6b2b3c8d5e71b66d3193cd661",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.6.9.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.8",
+			"_npmUser": {
+				"name": "jcrugzz",
+				"email": "jcrugzz@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.7.0": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.7.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "~0.9.0",
+				"ini": "1.x.x",
+				"optimist": "~0.6.0"
+			},
+			"devDependencies": {
+				"vows": "0.8.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"gitHead": "a2a132181a2697ef425faf0f49c6df34c02eee43",
+			"bugs": {
+				"url": "https://github.com/flatiron/nconf/issues"
+			},
+			"homepage": "https://github.com/flatiron/nconf",
+			"_id": "nconf@0.7.0",
+			"_shasum": "952f2c72fe9e0bd46ba657a982f3d44aa2e957cb",
+			"_from": ".",
+			"_npmVersion": "2.1.9",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "952f2c72fe9e0bd46ba657a982f3d44aa2e957cb",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.7.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.7.1": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.7.1",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "~0.9.0",
+				"ini": "1.x.x",
+				"optimist": "~0.6.0"
+			},
+			"devDependencies": {
+				"vows": "0.8.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"gitHead": "dc6aed205088c79700020969e2743cdd2e7f95d4",
+			"bugs": {
+				"url": "https://github.com/flatiron/nconf/issues"
+			},
+			"homepage": "https://github.com/flatiron/nconf",
+			"_id": "nconf@0.7.1",
+			"_shasum": "ee4b561dd979a3c58db122e38f196d49d61aeb5b",
+			"_from": ".",
+			"_npmVersion": "2.1.6",
+			"_nodeVersion": "0.10.32",
+			"_npmUser": {
+				"name": "jcrugzz",
+				"email": "jcrugzz@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "ee4b561dd979a3c58db122e38f196d49d61aeb5b",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.7.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.7.2": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.7.2",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "~0.9.0",
+				"ini": "1.x.x",
+				"yargs": "~3.15.0"
+			},
+			"devDependencies": {
+				"vows": "0.8.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"gitHead": "c2b8b97778f45b22242b1d6cc9352528ca2384c4",
+			"bugs": {
+				"url": "https://github.com/flatiron/nconf/issues"
+			},
+			"homepage": "https://github.com/flatiron/nconf",
+			"_id": "nconf@0.7.2",
+			"_shasum": "a05fdf22dc01c378dd5c4df27f2dc90b9aa8bb00",
+			"_from": ".",
+			"_npmVersion": "2.6.1",
+			"_nodeVersion": "0.10.40",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "a05fdf22dc01c378dd5c4df27f2dc90b9aa8bb00",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.7.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.8.0": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.8.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "^1.4.0",
+				"ini": "^1.3.0",
+				"yargs": "^3.19.0"
+			},
+			"devDependencies": {
+				"vows": "0.8.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"license": "MIT",
+			"gitHead": "ebd8e4834263bfc85f5def78c7ed5d4289970dc5",
+			"bugs": {
+				"url": "https://github.com/flatiron/nconf/issues"
+			},
+			"homepage": "https://github.com/flatiron/nconf#readme",
+			"_id": "nconf@0.8.0",
+			"_shasum": "b6ca1cac321a77a99d1737ac2a9cec60c763f3d1",
+			"_from": ".",
+			"_npmVersion": "2.14.2",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "b6ca1cac321a77a99d1737ac2a9cec60c763f3d1",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.8.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.8.1": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.8.1",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "^1.4.0",
+				"ini": "^1.3.0",
+				"yargs": "^3.19.0"
+			},
+			"devDependencies": {
+				"vows": "0.8.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"license": "MIT",
+			"gitHead": "ff0f1745202c3a95198d9d59e23687801be2d8ae",
+			"bugs": {
+				"url": "https://github.com/flatiron/nconf/issues"
+			},
+			"homepage": "https://github.com/flatiron/nconf#readme",
+			"_id": "nconf@0.8.1",
+			"_shasum": "aaff6c521ccc1265f8e986ae0c3a45a41f8cc1ec",
+			"_from": ".",
+			"_npmVersion": "2.14.5",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "aaff6c521ccc1265f8e986ae0c3a45a41f8cc1ec",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.8.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.8.2": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.8.2",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "^1.4.0",
+				"ini": "^1.3.0",
+				"yargs": "^3.19.0"
+			},
+			"devDependencies": {
+				"vows": "0.8.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"license": "MIT",
+			"gitHead": "ddee9bc8f5344335b8ab1ae3cc258d01ed8f618a",
+			"bugs": {
+				"url": "https://github.com/flatiron/nconf/issues"
+			},
+			"homepage": "https://github.com/flatiron/nconf#readme",
+			"_id": "nconf@0.8.2",
+			"_shasum": "04d9d6835bcba5250db1c08dd8db27de2d9bfba9",
+			"_from": ".",
+			"_npmVersion": "2.14.5",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "04d9d6835bcba5250db1c08dd8db27de2d9bfba9",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.8.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.8.3": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.8.3",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "^1.4.0",
+				"ini": "^1.3.0",
+				"secure-keys": "^1.0.0",
+				"yargs": "^3.19.0"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"istanbul": "^0.4.1",
+				"vows": "0.8.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec",
+				"cover": "istanbul cover vows -- test/*-test.js test/**/*-test.js  --spec",
+				"coveralls": "cat coverage/lcov.info | coveralls"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"license": "MIT",
+			"gitHead": "54cab2059ac26fa80f00897275ac23d233271be7",
+			"bugs": {
+				"url": "https://github.com/flatiron/nconf/issues"
+			},
+			"homepage": "https://github.com/flatiron/nconf#readme",
+			"_id": "nconf@0.8.3",
+			"_shasum": "c878529bcfcfc13802341662b762dfd50c5fb000",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.3",
+			"_npmUser": {
+				"name": "jcrugzz",
+				"email": "jcrugzz@gmail.com"
+			},
+			"dist": {
+				"shasum": "c878529bcfcfc13802341662b762dfd50c5fb000",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.8.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-6-west.internal.npmjs.com",
+				"tmp": "tmp/nconf-0.8.3.tgz_1454394377673_0.38457938889041543"
+			},
+			"directories": {}
+		},
+		"0.8.4": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.8.4",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "^1.4.0",
+				"ini": "^1.3.0",
+				"secure-keys": "^1.0.0",
+				"yargs": "^3.19.0"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"istanbul": "^0.4.1",
+				"vows": "0.8.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec",
+				"cover": "istanbul cover vows -- test/*-test.js test/**/*-test.js  --spec",
+				"coveralls": "cat coverage/lcov.info | coveralls"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"license": "MIT",
+			"gitHead": "3d4e58957878fab80fb3125784c04b615cf2f52e",
+			"bugs": {
+				"url": "https://github.com/flatiron/nconf/issues"
+			},
+			"homepage": "https://github.com/flatiron/nconf#readme",
+			"_id": "nconf@0.8.4",
+			"_shasum": "9502234f7ad6238cab7f92d7c068c20434d3ff93",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.3",
+			"_npmUser": {
+				"name": "jcrugzz",
+				"email": "jcrugzz@gmail.com"
+			},
+			"dist": {
+				"shasum": "9502234f7ad6238cab7f92d7c068c20434d3ff93",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.8.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/nconf-0.8.4.tgz_1454488758244_0.9802679584827274"
+			},
+			"directories": {}
+		},
+		"0.8.5": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.8.5",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "^1.4.0",
+				"ini": "^1.3.0",
+				"secure-keys": "^1.0.0",
+				"yargs": "^3.19.0"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"istanbul": "^0.4.1",
+				"vows": "0.8.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec",
+				"cover": "istanbul cover vows -- test/*-test.js test/**/*-test.js  --spec",
+				"coveralls": "cat coverage/lcov.info | coveralls"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"license": "MIT",
+			"gitHead": "f46c449a9e32af34bdbd5d05934b2b39cb25adb2",
+			"bugs": {
+				"url": "https://github.com/flatiron/nconf/issues"
+			},
+			"homepage": "https://github.com/flatiron/nconf#readme",
+			"_id": "nconf@0.8.5",
+			"_shasum": "f2941e1561952fa906bbb32328cf88d4c635e794",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "f2941e1561952fa906bbb32328cf88d4c635e794",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.8.5.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/nconf-0.8.5.tgz_1506475164066_0.7527547413483262"
+			},
+			"directories": {}
+		},
+		"0.9.0": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.9.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matt Hamann",
+					"email": "matthew.hamann@gmail.com"
+				},
+				{
+					"name": "Maciej Małecki",
+					"email": "me@mmalecki.com"
+				},
+				{
+					"name": "Jarrett Cruger",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "Adrien Becchis"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "^1.4.0",
+				"ini": "^1.3.0",
+				"secure-keys": "^1.0.0",
+				"yargs": "^3.19.0"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"eslint": "^4.9.0",
+				"istanbul": "^0.4.1",
+				"nconf-yaml": "^1.0.2",
+				"vows": "0.8.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec",
+				"cover": "istanbul cover vows -- test/*-test.js test/**/*-test.js  --spec",
+				"coveralls": "cat coverage/lcov.info | coveralls",
+				"lint": "eslint ."
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"license": "MIT",
+			"gitHead": "81ce0be01e2185b7eff6f54f354cdcdbf7bf33d7",
+			"bugs": {
+				"url": "https://github.com/flatiron/nconf/issues"
+			},
+			"homepage": "https://github.com/flatiron/nconf#readme",
+			"_id": "nconf@0.9.0",
+			"_npmVersion": "5.4.2",
+			"_nodeVersion": "8.1.4",
+			"_npmUser": {
+				"name": "mhamann",
+				"email": "matthew.hamann@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-q30iJYTC6xaBjjl+OVapW7uiwoTyWEwgNvcMHdfnhYi3r5wWXDMecOZ5GSiCC2Si/axu9dwADjdTZxEItGYkXQ==",
+				"shasum": "32ecd1fd2240cf60021d9e7bdbaf37fd50ccbade",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.9.0.tgz"
+			},
+			"maintainers": [
+				{
+					"email": "matthew.hamann@gmail.com",
+					"name": "mhamann"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/nconf-0.9.0.tgz_1509756657598_0.9178779805079103"
+			},
+			"directories": {}
+		},
+		"0.9.1": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.9.1",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matt Hamann",
+					"email": "matthew.hamann@gmail.com"
+				},
+				{
+					"name": "Maciej Małecki",
+					"email": "me@mmalecki.com"
+				},
+				{
+					"name": "Jarrett Cruger",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "Adrien Becchis"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "^1.4.0",
+				"ini": "^1.3.0",
+				"secure-keys": "^1.0.0",
+				"yargs": "^3.19.0"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"eslint": "^4.9.0",
+				"istanbul": "^0.4.1",
+				"nconf-yaml": "^1.0.2",
+				"vows": "0.8.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec",
+				"cover": "istanbul cover vows -- test/*-test.js test/**/*-test.js  --spec",
+				"coveralls": "cat coverage/lcov.info | coveralls",
+				"lint": "eslint ."
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"license": "MIT",
+			"gitHead": "bac910a6dffda6628cd722cb947ab04031a15c6a",
+			"bugs": {
+				"url": "https://github.com/flatiron/nconf/issues"
+			},
+			"homepage": "https://github.com/flatiron/nconf#readme",
+			"_id": "nconf@0.9.1",
+			"_npmVersion": "5.4.2",
+			"_nodeVersion": "8.1.4",
+			"_npmUser": {
+				"name": "mhamann",
+				"email": "matthew.hamann@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-PdbVtjpTkCjGXRXgeKaz5lM/wq3i7RpYTinjXdMRaR8jnOLhonDY5SvB9jPt7NlqO3NFNC+v1XCYdqScMElDrw==",
+				"shasum": "f11baf90f418aecef0cb484974b479fb4803fa6c",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.9.1.tgz"
+			},
+			"maintainers": [
+				{
+					"email": "matthew.hamann@gmail.com",
+					"name": "mhamann"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/nconf-0.9.1.tgz_1509767592884_0.5460493052378297"
+			},
+			"directories": {}
+		},
+		"0.10.0": {
+			"name": "nconf",
+			"description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+			"version": "0.10.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matt Hamann",
+					"email": "matthew.hamann@gmail.com"
+				},
+				{
+					"name": "Maciej Małecki",
+					"email": "me@mmalecki.com"
+				},
+				{
+					"name": "Jarrett Cruger",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "Adrien Becchis"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/flatiron/nconf.git"
+			},
+			"keywords": [
+				"configuration",
+				"key value store",
+				"plugabble"
+			],
+			"dependencies": {
+				"async": "^1.4.0",
+				"ini": "^1.3.0",
+				"secure-keys": "^1.0.0",
+				"yargs": "^3.19.0"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.4",
+				"eslint": "^4.9.0",
+				"istanbul": "^0.4.1",
+				"nconf-yaml": "^1.0.2",
+				"vows": "0.8.x"
+			},
+			"main": "./lib/nconf",
+			"scripts": {
+				"test": "vows test/*-test.js test/**/*-test.js --spec",
+				"cover": "istanbul cover vows -- test/*-test.js test/**/*-test.js  --spec",
+				"coveralls": "cat coverage/lcov.info | coveralls",
+				"lint": "eslint ."
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"license": "MIT",
+			"gitHead": "1392ac4141bd1970de869d2f3df08593a91fdba5",
+			"bugs": {
+				"url": "https://github.com/flatiron/nconf/issues"
+			},
+			"homepage": "https://github.com/flatiron/nconf#readme",
+			"_id": "nconf@0.10.0",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.2",
+			"_npmUser": {
+				"name": "mhamann",
+				"email": "matthew.hamann@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-fKiXMQrpP7CYWJQzKkPPx9hPgmq+YLDyxcG9N8RpiE9FoCkCbzD0NyW0YhE3xn3Aupe7nnDeIx4PFzYehpHT9Q==",
+				"shasum": "da1285ee95d0a922ca6cee75adcf861f48205ad2",
+				"tarball": "https://registry.npmjs.org/nconf/-/nconf-0.10.0.tgz"
+			},
+			"maintainers": [
+				{
+					"email": "matthew.hamann@gmail.com",
+					"name": "mhamann"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/nconf-0.10.0.tgz_1513614154222_0.8494380170013756"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2018-08-03T00:32:38.631Z",
+		"created": "2011-04-02T09:13:51.898Z",
+		"0.1.0": "2011-04-02T09:13:52.082Z",
+		"0.1.1": "2011-04-02T23:17:46.000Z",
+		"0.1.2": "2011-04-03T18:20:33.731Z",
+		"0.1.3": "2011-04-05T04:11:00.953Z",
+		"0.1.4": "2011-04-05T07:54:13.651Z",
+		"0.1.5": "2011-04-13T22:50:12.983Z",
+		"0.1.6": "2011-04-19T21:35:09.523Z",
+		"0.1.7": "2011-04-20T05:59:10.105Z",
+		"0.1.8": "2011-05-16T18:15:19.525Z",
+		"0.1.9": "2011-05-17T02:45:15.155Z",
+		"0.1.10": "2011-06-05T05:40:43.690Z",
+		"0.1.11": "2011-06-08T03:46:08.960Z",
+		"0.1.12": "2011-06-08T04:07:46.450Z",
+		"0.1.13": "2011-06-24T07:32:04.814Z",
+		"0.1.14": "2011-06-25T04:34:41.470Z",
+		"0.2.0": "2011-07-08T19:51:56.099Z",
+		"0.3.0": "2011-08-28T14:46:48.158Z",
+		"0.3.1": "2011-08-29T19:21:17.427Z",
+		"0.4.0": "2011-09-19T01:46:21.196Z",
+		"0.4.1": "2011-09-19T20:51:51.140Z",
+		"0.4.2": "2011-09-25T04:22:06.643Z",
+		"0.4.3": "2011-09-25T04:47:26.907Z",
+		"0.4.4": "2011-10-22T06:38:44.406Z",
+		"0.4.5": "2011-11-20T19:34:42.914Z",
+		"0.4.6": "2011-11-22T14:49:58.206Z",
+		"0.5.0": "2011-11-24T05:33:40.906Z",
+		"0.5.1": "2012-01-02T22:20:49.020Z",
+		"0.6.0": "2012-06-14T16:07:10.108Z",
+		"0.6.1": "2012-07-08T05:40:49.553Z",
+		"0.6.3": "2012-07-10T05:51:12.807Z",
+		"0.6.4": "2012-07-10T07:21:39.918Z",
+		"0.6.5": "2012-11-02T17:18:15.034Z",
+		"0.6.6": "2012-12-20T23:06:42.448Z",
+		"0.6.7": "2012-12-20T23:13:10.571Z",
+		"0.6.8": "2013-10-29T18:50:15.282Z",
+		"0.6.9": "2013-12-02T06:23:51.201Z",
+		"0.7.0": "2014-11-26T06:33:05.446Z",
+		"0.7.1": "2014-11-26T17:52:53.265Z",
+		"0.7.2": "2015-08-04T17:31:58.180Z",
+		"0.8.0": "2015-09-20T08:39:53.742Z",
+		"0.8.1": "2015-10-02T08:01:53.831Z",
+		"0.8.2": "2015-10-07T19:33:08.275Z",
+		"0.8.3": "2016-02-02T06:26:18.373Z",
+		"0.8.4": "2016-02-03T08:39:18.997Z",
+		"0.8.5": "2017-09-27T01:19:25.233Z",
+		"0.9.0": "2017-11-04T00:50:58.979Z",
+		"0.9.1": "2017-11-04T03:53:14.149Z",
+		"0.10.0": "2017-12-18T16:22:35.351Z"
+	},
+	"dist-tags": {
+		"latest": "0.10.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"799672a76e3a2d5f50d9956278e51b4c\"",
+			"fetched": 1568994334275
+		}
+	},
+	"_distfiles": {
+		"nconf-0.1.14.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.1.14.tgz",
+			"sha": "6ac16e3cde93ab0739502a4bef3cffe615d9cd65",
+			"registry": "npmjs"
+		},
+		"nconf-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.2.0.tgz",
+			"sha": "615e59cab591f73c77e7f5d126f540f0f87280d3",
+			"registry": "npmjs"
+		},
+		"nconf-0.3.1.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.3.1.tgz",
+			"sha": "c36579f720d6fca4ac8b7f40461ded9bc6c19a9c",
+			"registry": "npmjs"
+		},
+		"nconf-0.4.3.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.4.3.tgz",
+			"sha": "95eef62a67c2b1e48570276054f01a0b13d4fded",
+			"registry": "npmjs"
+		},
+		"nconf-0.4.4.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.4.4.tgz",
+			"sha": "5b28fba17a4ddfc146a40af5225bb2aee29e5d1e",
+			"registry": "npmjs"
+		},
+		"nconf-0.4.5.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.4.5.tgz",
+			"sha": "4252dde2e469f3667a492714d39096e163e4cc05",
+			"registry": "npmjs"
+		},
+		"nconf-0.4.6.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.4.6.tgz",
+			"sha": "af013090b22ee085886885bf706341c8abbcf851",
+			"registry": "npmjs"
+		},
+		"nconf-0.5.0.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.5.0.tgz",
+			"sha": "a54b595d03f7e283fd6850938a96fa548a468d6a",
+			"registry": "npmjs"
+		},
+		"nconf-0.5.1.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.5.1.tgz",
+			"sha": "bb3058ea45a39f26a6dbf00f9809143f0b878176",
+			"registry": "npmjs"
+		},
+		"nconf-0.6.0.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.6.0.tgz",
+			"sha": "243d59ea9e386641330f758119dbe8649ec57670",
+			"registry": "npmjs"
+		},
+		"nconf-0.6.1.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.6.1.tgz",
+			"sha": "305ec1ab075d4ae0720a6d2209f89d0e723ffe8d",
+			"registry": "npmjs"
+		},
+		"nconf-0.6.3.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.6.3.tgz",
+			"sha": "216435eff9fb0ff84428414af5c085cb53dd260b",
+			"registry": "npmjs"
+		},
+		"nconf-0.6.4.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.6.4.tgz",
+			"sha": "f762d0b2f982e5788e41dd995086c07e44af509e",
+			"registry": "npmjs"
+		},
+		"nconf-0.6.5.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.6.5.tgz",
+			"sha": "53e9cb472a3e1e09e93421647b8aa5c3d606898f",
+			"registry": "npmjs"
+		},
+		"nconf-0.6.6.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.6.6.tgz",
+			"sha": "600951c048dc2295990feea403f4e01df1b54070",
+			"registry": "npmjs"
+		},
+		"nconf-0.6.7.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.6.7.tgz",
+			"sha": "f2ffce75f4573857429c719d9f6ed0a9a231a47c",
+			"registry": "npmjs"
+		},
+		"nconf-0.6.8.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.6.8.tgz",
+			"sha": "bb54b5f660eb3f44d8b2cdccaa5d60453973ffb0",
+			"registry": "npmjs"
+		},
+		"nconf-0.6.9.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.6.9.tgz",
+			"sha": "9570ef15ed6f9ae6b2b3c8d5e71b66d3193cd661",
+			"registry": "npmjs"
+		},
+		"nconf-0.7.0.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.7.0.tgz",
+			"sha": "952f2c72fe9e0bd46ba657a982f3d44aa2e957cb",
+			"registry": "npmjs"
+		},
+		"nconf-0.7.1.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.7.1.tgz",
+			"sha": "ee4b561dd979a3c58db122e38f196d49d61aeb5b",
+			"registry": "npmjs"
+		},
+		"nconf-0.7.2.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.7.2.tgz",
+			"sha": "a05fdf22dc01c378dd5c4df27f2dc90b9aa8bb00",
+			"registry": "npmjs"
+		},
+		"nconf-0.8.0.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.8.0.tgz",
+			"sha": "b6ca1cac321a77a99d1737ac2a9cec60c763f3d1",
+			"registry": "npmjs"
+		},
+		"nconf-0.8.1.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.8.1.tgz",
+			"sha": "aaff6c521ccc1265f8e986ae0c3a45a41f8cc1ec",
+			"registry": "npmjs"
+		},
+		"nconf-0.8.2.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.8.2.tgz",
+			"sha": "04d9d6835bcba5250db1c08dd8db27de2d9bfba9",
+			"registry": "npmjs"
+		},
+		"nconf-0.8.3.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.8.3.tgz",
+			"sha": "c878529bcfcfc13802341662b762dfd50c5fb000",
+			"registry": "npmjs"
+		},
+		"nconf-0.8.4.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.8.4.tgz",
+			"sha": "9502234f7ad6238cab7f92d7c068c20434d3ff93",
+			"registry": "npmjs"
+		},
+		"nconf-0.8.5.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.8.5.tgz",
+			"sha": "f2941e1561952fa906bbb32328cf88d4c635e794",
+			"registry": "npmjs"
+		},
+		"nconf-0.9.0.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.9.0.tgz",
+			"sha": "32ecd1fd2240cf60021d9e7bdbaf37fd50ccbade",
+			"registry": "npmjs"
+		},
+		"nconf-0.9.1.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.9.1.tgz",
+			"sha": "f11baf90f418aecef0cb484974b479fb4803fa6c",
+			"registry": "npmjs"
+		},
+		"nconf-0.10.0.tgz": {
+			"url": "https://registry.npmjs.org/nconf/-/nconf-0.10.0.tgz",
+			"sha": "da1285ee95d0a922ca6cee75adcf861f48205ad2",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-0b165b3b42bb0f0e",
+	"_id": "nconf",
+	"readme": "# nconf\n\n[![Version npm](https://img.shields.io/npm/v/nconf.svg?style=flat-square)](https://www.npmjs.com/package/nconf)[![npm Downloads](https://img.shields.io/npm/dm/nconf.svg?style=flat-square)](https://www.npmjs.com/package/nconf)[![Build Status](https://img.shields.io/travis/indexzero/nconf/master.svg?style=flat-square)](https://travis-ci.org/indexzero/nconf)[![Coverage](https://img.shields.io/coveralls/indexzero/nconf.svg?style=flat-square)](https://coveralls.io/github/indexzero/nconf)[![Dependencies](https://img.shields.io/david/indexzero/nconf.svg?style=flat-square)](https://david-dm.org/indexzero/nconf)\n\nHierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.\n\n## Example\nUsing nconf is easy; it is designed to be a simple key-value store with support for both local and remote storage. Keys are namespaced and delimited by `:`. Let's dive right into sample usage:\n\n``` js\n  var fs    = require('fs'),\n      nconf = require('nconf');\n\n  //\n  // Setup nconf to use (in-order):\n  //   1. Command-line arguments\n  //   2. Environment variables\n  //   3. A file located at 'path/to/config.json'\n  //\n  nconf.argv()\n   .env()\n   .file({ file: 'path/to/config.json' });\n\n  //\n  // Set a few variables on `nconf`.\n  //\n  nconf.set('database:host', '127.0.0.1');\n  nconf.set('database:port', 5984);\n\n  //\n  // Get the entire database object from nconf. This will output\n  // { host: '127.0.0.1', port: 5984 }\n  //\n  console.log('foo: ' + nconf.get('foo'));\n  console.log('NODE_ENV: ' + nconf.get('NODE_ENV'));\n  console.log('database: ' + nconf.get('database'));\n\n  //\n  // Save the configuration object to disk\n  //\n  nconf.save(function (err) {\n    fs.readFile('path/to/your/config.json', function (err, data) {\n      console.dir(JSON.parse(data.toString()))\n    });\n  });\n```\n\nIf you run the above script:\n\n``` bash\n  $ NODE_ENV=production sample.js --foo bar\n```\n\nThe output will be:\n\n```\n  foo: bar\n  NODE_ENV: production\n  database: { host: '127.0.0.1', port: 5984 }\n```\n\n## Hierarchical configuration\n\nConfiguration management can get complicated very quickly for even trivial applications running in production. `nconf` addresses this problem by enabling you to setup a hierarchy for different sources of configuration with no defaults. **The order in which you attach these configuration sources determines their priority in the hierarchy.** Let's take a look at the options available to you\n\n  1. **nconf.argv(options)** Loads `process.argv` using yargs. If `options` is supplied it is passed along to yargs.\n  2. **nconf.env(options)** Loads `process.env` into the hierarchy.\n  3. **nconf.file(options)** Loads the configuration data at options.file into the hierarchy.\n  4. **nconf.defaults(options)** Loads the data in options.store into the hierarchy.\n  5. **nconf.overrides(options)** Loads the data in options.store into the hierarchy.\n\nA sane default for this could be:\n\n``` js\n  var nconf = require('nconf');\n\n  //\n  // 1. any overrides\n  //\n  nconf.overrides({\n    'always': 'be this value'\n  });\n\n  //\n  // 2. `process.env`\n  // 3. `process.argv`\n  //\n  nconf.env().argv();\n\n  //\n  // 4. Values in `config.json`\n  //\n  nconf.file('/path/to/config.json');\n\n  //\n  // Or with a custom name\n  // Note: A custom key must be supplied for hierarchy to work if multiple files are used.\n  //\n  nconf.file('custom', '/path/to/config.json');\n\n  //\n  // Or searching from a base directory.\n  // Note: `name` is optional.\n  //\n  nconf.file(name, {\n    file: 'config.json',\n    dir: 'search/from/here',\n    search: true\n  });\n\n  //\n  // 5. Any default values\n  //\n  nconf.defaults({\n    'if nothing else': 'use this value'\n  });\n```\n\n## API Documentation\n\nThe top-level of `nconf` is an instance of the `nconf.Provider` abstracts this all for you into a simple API.\n\n### nconf.add(name, options)\nAdds a new store with the specified `name` and `options`. If `options.type` is not set, then `name` will be used instead:\n\n``` js\n  nconf.add('supplied', { type: 'literal', store: { 'some': 'config' });\n  nconf.add('user', { type: 'file', file: '/path/to/userconf.json' });\n  nconf.add('global', { type: 'file', file: '/path/to/globalconf.json' });\n```\n\n### nconf.any(names, callback)\nGiven a set of key names, gets the value of the first key found to be truthy. The key names can be given as separate arguments \nor as an array. If the last argument is a function, it will be called with the result; otherwise, the value is returned.\n\n``` js\n  //\n  // Get one of 'NODEJS_PORT' and 'PORT' as a return value\n  //\n  var port = nconf.any('NODEJS_PORT', 'PORT');\n\n  //\n  // Get one of 'NODEJS_IP' and 'IPADDRESS' using a callback\n  //\n  nconf.any(['NODEJS_IP', 'IPADDRESS'], function(err, value) {\n    console.log('Connect to IP address ' + value);\n  });\n```\n\n### nconf.use(name, options)\nSimilar to `nconf.add`, except that it can replace an existing store if new options are provided\n\n``` js\n  //\n  // Load a file store onto nconf with the specified settings\n  //\n  nconf.use('file', { file: '/path/to/some/config-file.json' });\n\n  //\n  // Replace the file store with new settings\n  //\n  nconf.use('file', { file: 'path/to/a-new/config-file.json' });\n```\n\n### nconf.remove(name)\nRemoves the store with the specified `name.` The configuration stored at that level will no longer be used for lookup(s).\n\n``` js\n  nconf.remove('file');\n```\n\n### nconf.required(keys)\nDeclares a set of string keys to be mandatory, and throw an error if any are missing.\n\n``` js\n  nconf.defaults({\n    keya: 'a',\n  });\n\n  nconf.required(['keya', 'keyb']);\n  // Error: Missing required keys: keyb\n```\n\n## Storage Engines\n\n### Memory\nA simple in-memory storage engine that stores a nested JSON representation of the configuration. To use this engine, just call `.use()` with the appropriate arguments. All calls to `.get()`, `.set()`, `.clear()`, `.reset()` methods are synchronous since we are only dealing with an in-memory object.\n\n``` js\n  nconf.use('memory');\n```\n\n### Argv\nResponsible for loading the values parsed from `process.argv` by `yargs` into the configuration hierarchy. See the [yargs option docs](https://github.com/bcoe/yargs#optionskey-opt) for more on the option format.\n\n#### Options\n\n##### `parseValues: {true|false}` (default: `false`)\nAttempt to parse well-known values (e.g. 'false', 'true', 'null', 'undefined', '3', '5.1' and JSON values)\ninto their proper types. If a value cannot be parsed, it will remain a string.\n\n##### `transform: function(obj)`\nPass each key/value pair to the specified function for transformation.\n\nThe input `obj` contains two properties passed in the following format:\n```\n{\n  key: '<string>',\n  value: '<string>'\n}\n```\n\nThe transformation function may alter both the key and the value.\n\nThe function may return either an object in the asme format as the input or a value that evaluates to false.\nIf the return value is falsey, the entry will be dropped from the store, otherwise it will replace the original key/value.\n\n*Note: If the return value doesn't adhere to the above rules, an exception will be thrown.*\n\n#### Examples\n\n``` js\n  //\n  // Can optionally also be an object literal to pass to `yargs`.\n  //\n  nconf.argv({\n    \"x\": {\n      alias: 'example',\n      describe: 'Example description for usage generation',\n      demand: true,\n      default: 'some-value',\n      parseValues: true,\n      transform: function(obj) {\n        if (obj.key === 'foo') {\n          obj.value = 'baz';\n        }\n        return obj;\n      }\n    }\n  });\n```\n\nIt's also possible to pass a configured yargs instance\n\n``` js\n  nconf.argv(require('yargs')\n    .version('1.2.3')\n    .usage('My usage definition')\n    .strict()\n    .options({\n      \"x\": {\n        alias: 'example',\n        describe: 'Example description for usage generation',\n        demand: true,\n        default: 'some-value'\n      }\n    }));\n```\n\n### Env\nResponsible for loading the values parsed from `process.env` into the configuration hierarchy.\nBy default, the env variables values are loaded into the configuration as strings.\n\n#### Options\n\n##### `lowerCase: {true|false}` (default: `false`)\nConvert all input keys to lower case. Values are not modified.\n\nIf this option is enabled, all calls to `nconf.get()` must pass in a lowercase string (e.g. `nconf.get('port')`)\n\n##### `parseValues: {true|false}` (default: `false`)\nAttempt to parse well-known values (e.g. 'false', 'true', 'null', 'undefined', '3', '5.1' and JSON values)\ninto their proper types. If a value cannot be parsed, it will remain a string.\n\n##### `transform: function(obj)`\nPass each key/value pair to the specified function for transformation.\n\nThe input `obj` contains two properties passed in the following format:\n```\n{\n  key: '<string>',\n  value: '<string>'\n}\n```\n\nThe transformation function may alter both the key and the value.\n\nThe function may return either an object in the asme format as the input or a value that evaluates to false.\nIf the return value is falsey, the entry will be dropped from the store, otherwise it will replace the original key/value.\n\n*Note: If the return value doesn't adhere to the above rules, an exception will be thrown.*\n\n#### Examples\n\n``` js\n  //\n  // Can optionally also be an Array of values to limit process.env to.\n  //\n  nconf.env(['only', 'load', 'these', 'values', 'from', 'process.env']);\n\n  //\n  // Can also specify a separator for nested keys (instead of the default ':')\n  //\n  nconf.env('__');\n  // Get the value of the env variable 'database__host'\n  var dbHost = nconf.get('database:host');\n\n  //\n  // Can also lowerCase keys. \n  // Especially handy when dealing with environment variables which are usually \n  // uppercased while argv are lowercased.\n  //\n\n  // Given an environment variable PORT=3001\n  nconf.env();\n  var port = nconf.get('port') // undefined\n\n  nconf.env({ lowerCase: true });\n  var port = nconf.get('port') // 3001\n\n  //\n  // Or use all options\n  //\n  nconf.env({\n    separator: '__',\n    match: /^whatever_matches_this_will_be_whitelisted/\n    whitelist: ['database__host', 'only', 'load', 'these', 'values', 'if', 'whatever_doesnt_match_but_is_whitelisted_gets_loaded_too'],\n    lowerCase: true,\n    parseValues: true,\n    transform: function(obj) {\n      if (obj.key === 'foo') {\n        obj.value = 'baz';\n      }\n      return obj;\n    }\n  });\n  var dbHost = nconf.get('database:host');\n```\n\n### Literal\nLoads a given object literal into the configuration hierarchy. Both `nconf.defaults()` and `nconf.overrides()` use the Literal store.\n\n``` js\n  nconf.defaults({\n    'some': 'default value'\n  });\n```\n\n### File\nBased on the Memory store, but provides additional methods `.save()` and `.load()` which allow you to read your configuration to and from file. As with the Memory store, all method calls are synchronous with the exception of `.save()` and `.load()` which take callback functions.\n\nIt is important to note that setting keys in the File engine will not be persisted to disk until a call to `.save()` is made. Note a custom key must be supplied as the first parameter for hierarchy to work if multiple files are used.\n\n``` js\n  nconf.file('path/to/your/config.json');\n  // add multiple files, hierarchically. notice the unique key for each file\n  nconf.file('user', 'path/to/your/user.json');\n  nconf.file('global', 'path/to/your/global.json');\n```\n\nThe file store is also extensible for multiple file formats, defaulting to `JSON`. To use a custom format, simply pass a format object to the `.use()` method. This object must have `.parse()` and `.stringify()` methods just like the native `JSON` object.\n\nIf the file does not exist at the provided path, the store will simply be empty.\n\n#### Encrypting file contents\n\nAs of `nconf@0.8.0` it is now possible to encrypt and decrypt file contents using the `secure` option:\n\n``` js\nnconf.file('secure-file', {\n  file: 'path/to/secure-file.json',\n  secure: {\n    secret: 'super-secretzzz-keyzz',\n    alg: 'aes-256-ctr'\n  }\n})\n```\n\nThis will encrypt each key using [`crypto.createCipher`](https://nodejs.org/api/crypto.html#crypto_crypto_createcipher_algorithm_password), defaulting to `aes-256-ctr`. The encrypted file contents will look like this:\n\n```\n{\n  \"config-key-name\": {\n    \"alg\": \"aes-256-ctr\", // cipher used\n    \"value\": \"af07fbcf\"   // encrypted contents\n  },\n  \"another-config-key\": {\n    \"alg\": \"aes-256-ctr\",   // cipher used\n    \"value\": \"e310f6d94f13\" // encrypted contents\n  },\n}\n```\n\n### Redis\nThere is a separate Redis-based store available through [nconf-redis][0]. To install and use this store simply:\n\n``` bash\n  $ npm install nconf\n  $ npm install nconf-redis\n```\n\nOnce installing both `nconf` and `nconf-redis`, you must require both modules to use the Redis store:\n\n``` js\n  var nconf = require('nconf');\n\n  //\n  // Requiring `nconf-redis` will extend the `nconf`\n  // module.\n  //\n  require('nconf-redis');\n\n  nconf.use('redis', { host: 'localhost', port: 6379, ttl: 60 * 60 * 1000 });\n```\n\n## Installation\n``` bash\n  npm install nconf --save\n```\n\n## Run Tests\nTests are written in vows and give complete coverage of all APIs and storage engines.\n\n``` bash\n  $ npm test\n```\n\n#### Author: [Charlie Robbins](http://nodejitsu.com)\n#### License: MIT\n\n[0]: http://github.com/indexzero/nconf-redis"
+}

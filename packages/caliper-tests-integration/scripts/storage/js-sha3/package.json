@@ -1,0 +1,1124 @@
+{
+	"name": "js-sha3",
+	"versions": {
+		"0.1.0": {
+			"name": "js-sha3",
+			"version": "0.1.0",
+			"description": "A simple SHA-3 / Keccak hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"jscoverage": "~0.5.9"
+			},
+			"scripts": {
+				"test": "mocha tests/node-test.js -r jscoverage",
+				"coveralls": "mocha tests/node-test.js -R mocha-lcov-reporter -r jscoverage | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"gitHead": "b249e417a75b47199caaaf94239b2b0d2f073485",
+			"_id": "js-sha3@0.1.0",
+			"_shasum": "29aaf6a5e4ae7c17a96a2154379a38646b12d9e9",
+			"_from": ".",
+			"_npmVersion": "2.1.18",
+			"_nodeVersion": "0.10.35",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "29aaf6a5e4ae7c17a96a2154379a38646b12d9e9",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.1.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.2": {
+			"name": "js-sha3",
+			"version": "0.1.2",
+			"description": "A simple SHA-3 / Keccak hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"jscoverage": "~0.5.9"
+			},
+			"scripts": {
+				"test": "mocha test/node-test.js -r jscoverage",
+				"coveralls": "mocha test/node-test.js -R mocha-lcov-reporter -r jscoverage | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"gitHead": "e686ac6177edccdcf05138a3a18efed9a4268ee1",
+			"_id": "js-sha3@0.1.2",
+			"_shasum": "9f01fb512f6e7c98e28ba5f707ea46a91bebe803",
+			"_from": ".",
+			"_npmVersion": "2.1.18",
+			"_nodeVersion": "0.10.35",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "9f01fb512f6e7c98e28ba5f707ea46a91bebe803",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.1.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "js-sha3",
+			"version": "0.2.0",
+			"description": "A simple SHA-3 / Keccak hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"jscoverage": "~0.5.9"
+			},
+			"scripts": {
+				"test": "mocha tests/node-test.js -r jscoverage",
+				"coveralls": "mocha tests/node-test.js -R mocha-lcov-reporter -r jscoverage | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"gitHead": "372541684a30023385bad53560b47bb4d0905559",
+			"_id": "js-sha3@0.2.0",
+			"_shasum": "2a4d23f9701583b5b81c48b3e2c0e517e1418f18",
+			"_from": ".",
+			"_npmVersion": "2.1.18",
+			"_nodeVersion": "0.10.35",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "2a4d23f9701583b5b81c48b3e2c0e517e1418f18",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.2.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.3.1": {
+			"name": "js-sha3",
+			"version": "0.3.1",
+			"description": "A simple SHA-3 / Keccak hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"jscoverage": "~0.5.9"
+			},
+			"scripts": {
+				"test": "mocha tests/node-test.js -r jscoverage",
+				"coveralls": "mocha tests/node-test.js -R mocha-lcov-reporter -r jscoverage | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"gitHead": "0d1753fd8dd6ed9ac6be5ab1d046ca2bee6b2573",
+			"_id": "js-sha3@0.3.1",
+			"_shasum": "86122802142f0828502a0d1dee1d95e253bb0243",
+			"_from": ".",
+			"_npmVersion": "2.1.18",
+			"_nodeVersion": "0.10.35",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "86122802142f0828502a0d1dee1d95e253bb0243",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.3.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.1": {
+			"name": "js-sha3",
+			"version": "0.4.1",
+			"description": "A simple SHA-3 / Keccak / Shake hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"jscoverage": "~0.5.9",
+				"mocha": "~2.3.2"
+			},
+			"scripts": {
+				"test": "mocha tests/node-test.js -r jscoverage",
+				"coveralls": "mocha tests/node-test.js -R mocha-lcov-reporter -r jscoverage | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"gitHead": "ca56f2ac21c4e7565bd30a513f27a3f0d8961b73",
+			"_id": "js-sha3@0.4.1",
+			"_shasum": "19465066e4bb2c6b93fadfcd40ab054afa2e673d",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"dist": {
+				"shasum": "19465066e4bb2c6b93fadfcd40ab054afa2e673d",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.4.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.1": {
+			"name": "js-sha3",
+			"version": "0.5.1",
+			"description": "A simple SHA-3 / Keccak / Shake hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"jscoverage": "~0.5.9",
+				"mocha": "~2.3.2"
+			},
+			"scripts": {
+				"test": "mocha tests/node-test.js -r jscoverage",
+				"coveralls": "mocha tests/node-test.js -R mocha-lcov-reporter -r jscoverage | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"gitHead": "f22d720caa594dc18525c8fe3c220ddb8878649b",
+			"_id": "js-sha3@0.5.1",
+			"_shasum": "7c71ed5c128f9c72277cb14caace84cce6256883",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"dist": {
+				"shasum": "7c71ed5c128f9c72277cb14caace84cce6256883",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.2": {
+			"name": "js-sha3",
+			"version": "0.5.2",
+			"description": "A simple SHA-3 / Keccak / Shake hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"jscoverage": "~0.5.9",
+				"mocha": "~2.3.2"
+			},
+			"scripts": {
+				"test": "mocha tests/node-test.js -r jscoverage",
+				"coveralls": "mocha tests/node-test.js -R mocha-lcov-reporter -r jscoverage | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"shake",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Chen, Yi-Cyuan",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"gitHead": "06a3fa8f52563acae2716c68dbc9937c12a4229d",
+			"_id": "js-sha3@0.5.2",
+			"_shasum": "0ae1df73b93c629bf07d2e2d055c706fd15431df",
+			"_from": ".",
+			"_npmVersion": "2.14.2",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"dist": {
+				"shasum": "0ae1df73b93c629bf07d2e2d055c706fd15431df",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/js-sha3-0.5.2.tgz_1465261501905_0.44053814304061234"
+			},
+			"directories": {}
+		},
+		"0.5.3": {
+			"name": "js-sha3",
+			"version": "0.5.3",
+			"description": "A simple SHA-3 / Keccak / Shake hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"jscoverage": "~0.5.9",
+				"mocha": "~2.3.2"
+			},
+			"scripts": {
+				"test": "mocha tests/node-test.js -r jscoverage",
+				"coveralls": "mocha tests/node-test.js -R mocha-lcov-reporter -r jscoverage | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"shake",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Chen, Yi-Cyuan",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"gitHead": "f0ff77ca47c2bfad626529197126edaaeffbbc98",
+			"_id": "js-sha3@0.5.3",
+			"_shasum": "889eceb1c34e95a60a9170e225703e295d98b329",
+			"_from": ".",
+			"_npmVersion": "3.10.6",
+			"_nodeVersion": "4.5.0",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"dist": {
+				"shasum": "889eceb1c34e95a60a9170e225703e295d98b329",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/js-sha3-0.5.3.tgz_1473302985014_0.4255439050029963"
+			},
+			"directories": {}
+		},
+		"0.5.4": {
+			"name": "js-sha3",
+			"version": "0.5.4",
+			"description": "A simple SHA-3 / Keccak / Shake hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"jscoverage": "~0.5.9",
+				"mocha": "~2.3.2"
+			},
+			"scripts": {
+				"test": "mocha tests/node-test.js -r jscoverage",
+				"coveralls": "mocha tests/node-test.js -R mocha-lcov-reporter -r jscoverage | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"shake",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Chen, Yi-Cyuan",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"gitHead": "bb08d1fc64bde87cc359372e77a9a628a741cde1",
+			"_id": "js-sha3@0.5.4",
+			"_shasum": "3898e04a618940e5467f43f1295dc736e2019fe8",
+			"_from": ".",
+			"_npmVersion": "2.1.18",
+			"_nodeVersion": "0.10.35",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "3898e04a618940e5467f43f1295dc736e2019fe8",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.4.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/js-sha3-0.5.4.tgz_1473683522366_0.833025096450001"
+			},
+			"directories": {}
+		},
+		"0.5.5": {
+			"name": "js-sha3",
+			"version": "0.5.5",
+			"description": "A simple SHA-3 / Keccak / Shake hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"typings": "index",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"jscoverage": "~0.5.9",
+				"mocha": "~2.3.2"
+			},
+			"scripts": {
+				"test": "mocha tests/node-test.js -r jscoverage",
+				"coveralls": "mocha tests/node-test.js -R mocha-lcov-reporter -r jscoverage | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"shake",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Chen, Yi-Cyuan",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"gitHead": "97e70fed9747e0df09a033c62c82030d7f4eb69a",
+			"_id": "js-sha3@0.5.5",
+			"_shasum": "baf0c0e8c54ad5903447df96ade7a4a1bca79a4a",
+			"_from": ".",
+			"_npmVersion": "3.10.6",
+			"_nodeVersion": "4.5.0",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"dist": {
+				"shasum": "baf0c0e8c54ad5903447df96ade7a4a1bca79a4a",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/js-sha3-0.5.5.tgz_1474858369780_0.013108359882608056"
+			},
+			"directories": {}
+		},
+		"0.5.6": {
+			"name": "js-sha3",
+			"version": "0.5.6",
+			"description": "A simple SHA-3 / Keccak / Shake hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"typings": "index",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"jscoverage": "~0.5.9",
+				"mocha": "~2.3.2"
+			},
+			"scripts": {
+				"test": "mocha tests/node-test.js -r jscoverage",
+				"coveralls": "mocha tests/node-test.js -R mocha-lcov-reporter -r jscoverage | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"shake",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Chen, Yi-Cyuan",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"gitHead": "8ae70989aeadb03af48c0db001dba7d32cc86e96",
+			"_id": "js-sha3@0.5.6",
+			"_shasum": "c7f906ce0bd5a2042c9f88c52f5d872fccacc252",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"dist": {
+				"shasum": "c7f906ce0bd5a2042c9f88c52f5d872fccacc252",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/js-sha3-0.5.6.tgz_1482975204792_0.6850170742254704"
+			},
+			"directories": {}
+		},
+		"0.5.7": {
+			"name": "js-sha3",
+			"version": "0.5.7",
+			"description": "A simple SHA-3 / Keccak / Shake hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"typings": "index",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"jscoverage": "~0.5.9",
+				"mocha": "~2.3.2",
+				"uglifyjs": "~2.4.10"
+			},
+			"scripts": {
+				"test": "mocha tests/node-test.js -r jscoverage",
+				"report": "mocha tests/node-test.js -r jscoverage --covout=html",
+				"coveralls": "mocha tests/node-test.js -R mocha-lcov-reporter -r jscoverage | coveralls",
+				"build": "uglifyjs src/sha3.js --compress --mangle --comments --output build/sha3.min.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"shake",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Chen, Yi-Cyuan",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"gitHead": "5d6193d7f2cc0426c4732ca69a24f2520b3f4c80",
+			"_id": "js-sha3@0.5.7",
+			"_shasum": "0d4ffd8002d5333aabaf4a23eed2f6374c9f28e7",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"dist": {
+				"shasum": "0d4ffd8002d5333aabaf4a23eed2f6374c9f28e7",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/js-sha3-0.5.7.tgz_1483066018781_0.1653305368963629"
+			},
+			"directories": {}
+		},
+		"0.6.0": {
+			"name": "js-sha3",
+			"version": "0.6.0",
+			"description": "A simple SHA-3 / Keccak / Shake hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"typings": "index",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"jscoverage": "~0.5.9",
+				"mocha": "~2.3.2",
+				"uglifyjs": "~2.4.10"
+			},
+			"scripts": {
+				"test": "mocha tests/node-test.js -r jscoverage",
+				"report": "mocha tests/node-test.js -r jscoverage --covout=html",
+				"coveralls": "mocha tests/node-test.js -R mocha-lcov-reporter -r jscoverage | coveralls",
+				"build": "uglifyjs src/sha3.js --compress --mangle --comments --output build/sha3.min.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"shake",
+				"cshake",
+				"kmac",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Chen, Yi-Cyuan",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"gitHead": "e9084afbdf21d6bda27f35a7aa66574b43da9f30",
+			"_id": "js-sha3@0.6.0",
+			"_shasum": "7f7b9c2696e39c386883c8c1e12712c0b67d7381",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"dist": {
+				"shasum": "7f7b9c2696e39c386883c8c1e12712c0b67d7381",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.6.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/js-sha3-0.6.0.tgz_1498453705693_0.6519462175201625"
+			},
+			"directories": {}
+		},
+		"0.6.1": {
+			"name": "js-sha3",
+			"version": "0.6.1",
+			"description": "A simple SHA-3 / Keccak / Shake hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"typings": "index",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"jscoverage": "~0.5.9",
+				"mocha": "~2.3.2",
+				"uglifyjs": "~2.4.10"
+			},
+			"scripts": {
+				"test": "mocha tests/node-test.js -r jscoverage",
+				"report": "mocha tests/node-test.js -r jscoverage --covout=html",
+				"coveralls": "mocha tests/node-test.js -R mocha-lcov-reporter -r jscoverage | coveralls",
+				"build": "uglifyjs src/sha3.js --compress --mangle --comments --output build/sha3.min.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"shake",
+				"cshake",
+				"kmac",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Chen, Yi-Cyuan",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"gitHead": "c43f9d1d18f9bd220d77c05926122711cb41ad41",
+			"_id": "js-sha3@0.6.1",
+			"_shasum": "5b89f77a7477679877f58c4a075240934b1f95c0",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"dist": {
+				"shasum": "5b89f77a7477679877f58c4a075240934b1f95c0",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.6.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/js-sha3-0.6.1.tgz_1499043717968_0.5960234687663615"
+			},
+			"directories": {}
+		},
+		"0.7.0": {
+			"name": "js-sha3",
+			"version": "0.7.0",
+			"description": "A simple SHA-3 / Keccak / Shake hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"mocha": "~2.3.4",
+				"nyc": "^11.3.0",
+				"uglify-js": "^3.1.9",
+				"webworker-threads": "^0.7.13"
+			},
+			"scripts": {
+				"test": "nyc mocha tests/node-test.js",
+				"report": "nyc --reporter=html --reporter=text mocha tests/node-test.js",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"build": "uglifyjs src/sha3.js -c -m --comments --output build/sha3.min.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"shake",
+				"cshake",
+				"kmac",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Chen, Yi-Cyuan",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"nyc": {
+				"exclude": [
+					"tests"
+				]
+			},
+			"gitHead": "fb7e6403d947c3e8fa164190df015b975572f9f1",
+			"_id": "js-sha3@0.7.0",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.2.1",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Wpks3yBDm0UcL5qlVhwW9Jr9n9i4FfeWBFOOXP5puDS/SiudJGhw7DPyBqn3487qD4F0lsC0q3zxink37f7zeA==",
+				"shasum": "0a5c57b36f79882573b2d84051f8bb85dd1bd63a",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.7.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/js-sha3-0.7.0.tgz_1512133712206_0.4423179808072746"
+			},
+			"directories": {}
+		},
+		"0.8.0": {
+			"name": "js-sha3",
+			"version": "0.8.0",
+			"description": "A simple SHA-3 / Keccak / Shake hash function for JavaScript supports UTF-8 encoding.",
+			"main": "src/sha3.js",
+			"devDependencies": {
+				"expect.js": "~0.3.1",
+				"mocha": "~2.3.4",
+				"nyc": "^11.3.0",
+				"uglify-js": "^3.1.9",
+				"webworker-threads": "^0.7.13"
+			},
+			"scripts": {
+				"test": "nyc mocha tests/node-test.js",
+				"report": "nyc --reporter=html --reporter=text mocha tests/node-test.js",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"build": "uglifyjs src/sha3.js -c -m --comments --output build/sha3.min.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/emn178/js-sha3.git"
+			},
+			"keywords": [
+				"sha3",
+				"keccak",
+				"shake",
+				"cshake",
+				"kmac",
+				"hash",
+				"encryption",
+				"cryptography",
+				"HMAC"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Chen, Yi-Cyuan",
+				"email": "emn178@gmail.com"
+			},
+			"homepage": "https://github.com/emn178/js-sha3",
+			"bugs": {
+				"url": "https://github.com/emn178/js-sha3/issues"
+			},
+			"nyc": {
+				"exclude": [
+					"tests"
+				]
+			},
+			"gitHead": "b39d0910cb4cce54a6060c21e1491d55f70269bf",
+			"_id": "js-sha3@0.8.0",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.2.1",
+			"_npmUser": {
+				"name": "emn178",
+				"email": "emn178@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q==",
+				"shasum": "b9b7a5da73afad7dedd0f8c463954cbde6818840",
+				"tarball": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.8.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 52897,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbZqkACRA9TVsSAnZWagAATjMP/jyyfQKwFZ5QOjS4p1aJ\n4SR34n3ieird5zIFvb3EUhpiQ1ZHund/7i3mxpVM9fJd7rL1gocTnYZL5sie\nOQ+L0g1tkR2tB28bKJgKnlldAwKyu7IXdaUUsWhbbiE4QE8hLZwbCqhitHD8\nmsPPfwS9OBNzBcte/+CQOqsd6AKO0unnChp0FA2vYxzomnZKI4k+5VZToPr/\nvfXYD0y5HjLOdBS47nAPRrd5mcJRVwzY+7uZVG1RAvnp6PgpgLBTzn7WsCci\nU3jyJmCB/DRsId27akXnvB8Y110GgGNBtR+hO6iH9+U+ngqfyOEwlx8HzBlV\nSoY6/SANg21Vg4GCu6lOu7K+B+K2hYwBX5x4ViioHtJspAF9Hdfut+az1r2U\neZJ2ncqGiVlxbT55zSxPo9xkiYXgJ9pQDZ6YJoKyRT6auabrpMhY6RYkTBAE\n4WY4VuU0GrJqT2Zck74TAl9qvAQ8GhXbfDjrwdhaN6AIrYzLDr1rCohDZhTE\nndl20ET23L5czky+Qd6ka/ok/vUuIE43Hu0r1Lmfa1UuSqfb9pU7RWbervHx\nJHc6kG+ptKwcYiD4XmgFcCLF5eXb3xpHAvSRY++ZLc02VW26nepRHovfcxWh\n3V0LSd5THiZhqkbZCOGRou3GXtXTs7e797Nh/Ur91z36exNDHclYJPnUd7xh\nn3CL\r\n=rK02\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "emn178",
+					"email": "emn178@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/js-sha3_0.8.0_1533454591818_0.4021806041731979"
+			}
+		}
+	},
+	"time": {
+		"modified": "2018-08-05T07:36:34.829Z",
+		"created": "2015-02-23T10:28:51.090Z",
+		"0.1.0": "2015-02-23T10:28:51.090Z",
+		"0.1.2": "2015-02-27T08:51:59.695Z",
+		"0.2.0": "2015-04-04T14:15:54.766Z",
+		"0.3.0": "2015-05-21T11:30:20.681Z",
+		"0.3.1": "2015-05-22T10:17:17.557Z",
+		"0.4.0": "2015-09-17T07:32:58.630Z",
+		"0.4.1": "2015-09-18T08:31:59.270Z",
+		"0.5.1": "2015-10-27T06:36:54.387Z",
+		"0.5.2": "2016-06-07T01:05:02.375Z",
+		"0.5.3": "2016-09-08T02:49:47.133Z",
+		"0.5.4": "2016-09-12T12:32:02.602Z",
+		"0.5.5": "2016-09-26T02:52:50.024Z",
+		"0.5.6": "2016-12-29T01:33:26.628Z",
+		"0.5.7": "2016-12-30T02:47:00.705Z",
+		"0.6.0": "2017-06-26T05:08:26.122Z",
+		"0.6.1": "2017-07-03T01:01:58.095Z",
+		"0.7.0": "2017-12-01T13:08:32.277Z",
+		"0.8.0": "2018-08-05T07:36:31.950Z"
+	},
+	"dist-tags": {
+		"latest": "0.8.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"15875c4878a34a53bfa90b8150e1287a\"",
+			"fetched": 1568994343465
+		}
+	},
+	"_distfiles": {
+		"js-sha3-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.1.0.tgz",
+			"sha": "29aaf6a5e4ae7c17a96a2154379a38646b12d9e9",
+			"registry": "npmjs"
+		},
+		"js-sha3-0.1.2.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.1.2.tgz",
+			"sha": "9f01fb512f6e7c98e28ba5f707ea46a91bebe803",
+			"registry": "npmjs"
+		},
+		"js-sha3-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.2.0.tgz",
+			"sha": "2a4d23f9701583b5b81c48b3e2c0e517e1418f18",
+			"registry": "npmjs"
+		},
+		"js-sha3-0.3.1.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.3.1.tgz",
+			"sha": "86122802142f0828502a0d1dee1d95e253bb0243",
+			"registry": "npmjs"
+		},
+		"js-sha3-0.4.1.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.4.1.tgz",
+			"sha": "19465066e4bb2c6b93fadfcd40ab054afa2e673d",
+			"registry": "npmjs"
+		},
+		"js-sha3-0.5.1.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.1.tgz",
+			"sha": "7c71ed5c128f9c72277cb14caace84cce6256883",
+			"registry": "npmjs"
+		},
+		"js-sha3-0.5.2.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.2.tgz",
+			"sha": "0ae1df73b93c629bf07d2e2d055c706fd15431df",
+			"registry": "npmjs"
+		},
+		"js-sha3-0.5.3.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.3.tgz",
+			"sha": "889eceb1c34e95a60a9170e225703e295d98b329",
+			"registry": "npmjs"
+		},
+		"js-sha3-0.5.4.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.4.tgz",
+			"sha": "3898e04a618940e5467f43f1295dc736e2019fe8",
+			"registry": "npmjs"
+		},
+		"js-sha3-0.5.5.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.5.tgz",
+			"sha": "baf0c0e8c54ad5903447df96ade7a4a1bca79a4a",
+			"registry": "npmjs"
+		},
+		"js-sha3-0.5.6.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.6.tgz",
+			"sha": "c7f906ce0bd5a2042c9f88c52f5d872fccacc252",
+			"registry": "npmjs"
+		},
+		"js-sha3-0.5.7.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.7.tgz",
+			"sha": "0d4ffd8002d5333aabaf4a23eed2f6374c9f28e7",
+			"registry": "npmjs"
+		},
+		"js-sha3-0.6.0.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.6.0.tgz",
+			"sha": "7f7b9c2696e39c386883c8c1e12712c0b67d7381",
+			"registry": "npmjs"
+		},
+		"js-sha3-0.6.1.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.6.1.tgz",
+			"sha": "5b89f77a7477679877f58c4a075240934b1f95c0",
+			"registry": "npmjs"
+		},
+		"js-sha3-0.7.0.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.7.0.tgz",
+			"sha": "0a5c57b36f79882573b2d84051f8bb85dd1bd63a",
+			"registry": "npmjs"
+		},
+		"js-sha3-0.8.0.tgz": {
+			"url": "https://registry.npmjs.org/js-sha3/-/js-sha3-0.8.0.tgz",
+			"sha": "b9b7a5da73afad7dedd0f8c463954cbde6818840",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-f162090e99be4370",
+	"_id": "js-sha3",
+	"readme": "# js-sha3\n\n[![Build Status](https://travis-ci.org/emn178/js-sha3.svg?branch=master)](https://travis-ci.org/emn178/js-sha3)\n[![Coverage Status](https://coveralls.io/repos/emn178/js-sha3/badge.svg?branch=master)](https://coveralls.io/r/emn178/js-sha3?branch=master)  \n[![NPM](https://nodei.co/npm/js-sha3.png?stars&downloads)](https://nodei.co/npm/js-sha3/)\n\nA simple SHA-3 / Keccak / Shake hash function for JavaScript supports UTF-8 encoding.\n\n## Notice\n* v0.8.0+ will throw an error if try to update hash after finalize.\n* Sha3 methods has been renamed to keccak since v0.2.0. It means that sha3 methods of v0.1.x are equal to keccak methods of v0.2.x and later.\n* `buffer` method is deprecated. This maybe confuse with Buffer in node.js. Please use `arrayBuffer` instead.\n\n## Demo\n[SHA3-512 Online](http://emn178.github.io/online-tools/sha3_512.html)  \n[SHA3-384 Online](http://emn178.github.io/online-tools/sha3_384.html)  \n[SHA3-256 Online](http://emn178.github.io/online-tools/sha3_256.html)  \n[SHA3-224 Online](http://emn178.github.io/online-tools/sha3_224.html)  \n[Keccak-512 Online](http://emn178.github.io/online-tools/keccak_512.html)  \n[Keccak-384 Online](http://emn178.github.io/online-tools/keccak_384.html)  \n[Keccak-256 Online](http://emn178.github.io/online-tools/keccak_256.html)  \n[Keccak-224 Online](http://emn178.github.io/online-tools/keccak_224.html)  \n[Shake128 Online](http://emn178.github.io/online-tools/shake_128.html)  \n[Shake256 Online](http://emn178.github.io/online-tools/shake_256.html)  \n\n## Download\n[Compress](https://raw.github.com/emn178/js-sha3/master/build/sha3.min.js)  \n[Uncompress](https://raw.github.com/emn178/js-sha3/master/src/sha3.js)\n\n## Installation\nYou can also install js-sha3 by using Bower.\n\n    bower install js-sha3\n\nFor node.js, you can use this command to install:\n\n    npm install js-sha3\n\n## Usage\nYou could use like this:\n```JavaScript\nsha3_512('Message to hash');\nsha3_384('Message to hash');\nsha3_256('Message to hash');\nsha3_224('Message to hash');\nkeccak512('Message to hash');\nkeccak384('Message to hash');\nkeccak256('Message to hash');\nkeccak224('Message to hash');\nshake128('Message to hash', 256);\nshake256('Message to hash', 512);\ncshake128('Message to hash', 256, 'function name', 'customization');\ncshake256('Message to hash', 512, 'function name', 'customization');\nkmac128('key', 'Message to hash', 256, 'customization');\nkmac256('key', 'Message to hash', 512, 'customization');\n\n// Support ArrayBuffer output\nvar arrayBuffer = keccak224.arrayBuffer('Message to hash');\n\n// Support Array output\nvar bytes = keccak224.digest('Message to hash');\nvar bytes = keccak224.array('Message to hash');\n\n// update hash\nsha3_512.update('Message ').update('to ').update('hash').hex();\n// specify shake output bits at first update\nshake128.update('Message ', 256).update('to ').update('hash').hex();\n\n// or to use create\nvar hash = sha3_512.create();\nhash.update('...');\nhash.update('...');\nhash.hex();\n\n// specify shake output bits when creating\nvar hash = shake128.create(256);\nhash.update('...');\nhash.update('...');\nhash.hex();\n\n// specify cshake output bits, function name and customization when creating\nvar hash = cshake128.create(256, 'function name', 'customization');\n\n// specify kmac key, output bits and customization when creating\nvar hash = kmac128.create('key', 256, 'customization');\n```\nIf you use node.js, you should require the module first:\n```JavaScript\nsha3_512 = require('js-sha3').sha3_512;\nsha3_384 = require('js-sha3').sha3_384;\nsha3_256 = require('js-sha3').sha3_256;\nsha3_224 = require('js-sha3').sha3_224;\nkeccak512 = require('js-sha3').keccak512;\nkeccak384 = require('js-sha3').keccak384;\nkeccak256 = require('js-sha3').keccak256;\nkeccak224 = require('js-sha3').keccak224;\nshake128 = require('js-sha3').shake128;\nshake256 = require('js-sha3').shake256;\ncshake128 = require('js-sha3').cshake128;\ncshake256 = require('js-sha3').cshake256;\nkmac128 = require('js-sha3').kmac128;\nkmac256 = require('js-sha3').kmac256;\n```\nIf you use TypeScript, you can import like this:\n```TypeScript\nimport { sha3_512 } from 'js-sha3';\n```\n\n## Example\nCode\n```JavaScript\nsha3_512('');\n// a69f73cca23a9ac5c8b567dc185a756e97c982164fe25859e0d1dcc1475c80a615b2123af1f5f94c11e3e9402c3ac558f500199d95b6d3e301758586281dcd26\n\nsha3_512('The quick brown fox jumps over the lazy dog');\n// 01dedd5de4ef14642445ba5f5b97c15e47b9ad931326e4b0727cd94cefc44fff23f07bf543139939b49128caf436dc1bdee54fcb24023a08d9403f9b4bf0d450\n\nsha3_512('The quick brown fox jumps over the lazy dog.');\n// 18f4f4bd419603f95538837003d9d254c26c23765565162247483f65c50303597bc9ce4d289f21d1c2f1f458828e33dc442100331b35e7eb031b5d38ba6460f8\n\nsha3_384('');\n// 0c63a75b845e4f7d01107d852e4c2485c51a50aaaa94fc61995e71bbee983a2ac3713831264adb47fb6bd1e058d5f004\n\nsha3_384('The quick brown fox jumps over the lazy dog');\n// 7063465e08a93bce31cd89d2e3ca8f602498696e253592ed26f07bf7e703cf328581e1471a7ba7ab119b1a9ebdf8be41\n\nsha3_384('The quick brown fox jumps over the lazy dog.');\n// 1a34d81695b622df178bc74df7124fe12fac0f64ba5250b78b99c1273d4b080168e10652894ecad5f1f4d5b965437fb9\n\nsha3_256('');\n// a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a\n\nsha3_256('The quick brown fox jumps over the lazy dog');\n// 69070dda01975c8c120c3aada1b282394e7f032fa9cf32f4cb2259a0897dfc04\n\nsha3_256('The quick brown fox jumps over the lazy dog.');\n// a80f839cd4f83f6c3dafc87feae470045e4eb0d366397d5c6ce34ba1739f734d\n\nsha3_224('');\n// 6b4e03423667dbb73b6e15454f0eb1abd4597f9a1b078e3f5b5a6bc7\n\nsha3_224('The quick brown fox jumps over the lazy dog');\n// d15dadceaa4d5d7bb3b48f446421d542e08ad8887305e28d58335795\n\nsha3_224('The quick brown fox jumps over the lazy dog.');\n// 2d0708903833afabdd232a20201176e8b58c5be8a6fe74265ac54db0\n\nkeccak512('');\n// 0eab42de4c3ceb9235fc91acffe746b29c29a8c366b7c60e4e67c466f36a4304c00fa9caf9d87976ba469bcbe06713b435f091ef2769fb160cdab33d3670680e\n\nkeccak512('The quick brown fox jumps over the lazy dog');\n// d135bb84d0439dbac432247ee573a23ea7d3c9deb2a968eb31d47c4fb45f1ef4422d6c531b5b9bd6f449ebcc449ea94d0a8f05f62130fda612da53c79659f609\n\nkeccak512('The quick brown fox jumps over the lazy dog.');\n// ab7192d2b11f51c7dd744e7b3441febf397ca07bf812cceae122ca4ded6387889064f8db9230f173f6d1ab6e24b6e50f065b039f799f5592360a6558eb52d760\n\nkeccak384('');\n// 2c23146a63a29acf99e73b88f8c24eaa7dc60aa771780ccc006afbfa8fe2479b2dd2b21362337441ac12b515911957ff\n\nkeccak384('The quick brown fox jumps over the lazy dog');\n// 283990fa9d5fb731d786c5bbee94ea4db4910f18c62c03d173fc0a5e494422e8a0b3da7574dae7fa0baf005e504063b3\n\nkeccak384('The quick brown fox jumps over the lazy dog.');\n// 9ad8e17325408eddb6edee6147f13856ad819bb7532668b605a24a2d958f88bd5c169e56dc4b2f89ffd325f6006d820b\n\nkeccak256('');\n// c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470\n\nkeccak256('The quick brown fox jumps over the lazy dog');\n// 4d741b6f1eb29cb2a9b9911c82f56fa8d73b04959d3d9d222895df6c0b28aa15\n\nkeccak256('The quick brown fox jumps over the lazy dog.');\n// 578951e24efd62a3d63a86f7cd19aaa53c898fe287d2552133220370240b572d\n\nkeccak224('');\n// f71837502ba8e10837bdd8d365adb85591895602fc552b48b7390abd\n\nkeccak224('The quick brown fox jumps over the lazy dog');\n// 310aee6b30c47350576ac2873fa89fd190cdc488442f3ef654cf23fe\n\nkeccak224('The quick brown fox jumps over the lazy dog.');\n// c59d4eaeac728671c635ff645014e2afa935bebffdb5fbd207ffdeab\n\nshake128('', 256);\n// 7f9c2ba4e88f827d616045507605853ed73b8093f6efbc88eb1a6eacfa66ef26\n\nshake256('', 512);\n// 46b9dd2b0ba88d13233b3feb743eeb243fcd52ea62b81b82b50c27646ed5762fd75dc4ddd8c0f200cb05019d67b592f6fc821c49479ab48640292eacb3b7c4be\n```\nIt also supports UTF-8 encoding:\n\nCode\n```JavaScript\nsha3_512('中文');\n// 059bbe2efc50cc30e4d8ec5a96be697e2108fcbf9193e1296192eddabc13b143c0120d059399a13d0d42651efe23a6c1ce2d1efb576c5b207fa2516050505af7\n\nsha3_384('中文');\n// 9fb5b99e3c546f2738dcd50a14e9aef9c313800c1bf8cf76bc9b2c3a23307841364c5a2d0794702662c5796fb72f5432\n\nsha3_256('中文');\n// ac5305da3d18be1aed44aa7c70ea548da243a59a5fd546f489348fd5718fb1a0\n\nsha3_224('中文');\n// 106d169e10b61c2a2a05554d3e631ec94467f8316640f29545d163ee\n\nkeccak512('中文');\n// 2f6a1bd50562230229af34b0ccf46b8754b89d23ae2c5bf7840b4acfcef86f87395edc0a00b2bfef53bafebe3b79de2e3e01cbd8169ddbb08bde888dcc893524\n\nkeccak384('中文');\n// 743f64bb7544c6ed923be4741b738dde18b7cee384a3a09c4e01acaaac9f19222cdee137702bd3aa05dc198373d87d6c\n\nkeccak256('中文');\n// 70a2b6579047f0a977fcb5e9120a4e07067bea9abb6916fbc2d13ffb9a4e4eee\n\nkeccak224('中文');\n// f71837502ba8e10837bdd8d365adb85591895602fc552b48b7390abd\n```\n\nIt also supports byte `Array`, `Uint8Array`, `ArrayBuffer` input:\n\nCode\n```JavaScript\nsha3_512([]);\n// a69f73cca23a9ac5c8b567dc185a756e97c982164fe25859e0d1dcc1475c80a615b2123af1f5f94c11e3e9402c3ac558f500199d95b6d3e301758586281dcd26\n\nsha3_512(new Uint8Array([]));\n// a69f73cca23a9ac5c8b567dc185a756e97c982164fe25859e0d1dcc1475c80a615b2123af1f5f94c11e3e9402c3ac558f500199d95b6d3e301758586281dcd26\n\n// ...\n```\n\n## Benchmark\n[UTF8](http://jsperf.com/sha3/5)  \n[ASCII](http://jsperf.com/sha3/4)\n\n## License\nThe project is released under the [MIT license](http://www.opensource.org/licenses/MIT).\n\n## Contact\nThe project's website is located at https://github.com/emn178/js-sha3  \nAuthor: Chen, Yi-Cyuan (emn178@gmail.com)"
+}

@@ -1,0 +1,171 @@
+{
+	"name": "noop-logger",
+	"versions": {
+		"0.0.1": {
+			"name": "noop-logger",
+			"description": "A logger that does exactly nothing.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/segmentio/noop-logger.git"
+			},
+			"version": "0.0.1",
+			"license": "MIT",
+			"main": "lib/index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "1.x"
+			},
+			"bugs": {
+				"url": "https://github.com/segmentio/noop-logger/issues"
+			},
+			"homepage": "https://github.com/segmentio/noop-logger",
+			"_id": "noop-logger@0.0.1",
+			"dist": {
+				"shasum": "1b9fab422b6d1754e38a8e7e79910512b6998750",
+				"tarball": "https://registry.npmjs.org/noop-logger/-/noop-logger-0.0.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.25",
+			"_npmUser": {
+				"name": "segmentio",
+				"email": "team@segment.io"
+			},
+			"maintainers": [
+				{
+					"name": "segmentio",
+					"email": "team@segment.io"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "noop-logger",
+			"description": "A logger that does exactly nothing.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/segmentio/noop-logger.git"
+			},
+			"version": "0.1.0",
+			"license": "MIT",
+			"main": "lib/index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "1.x"
+			},
+			"bugs": {
+				"url": "https://github.com/segmentio/noop-logger/issues"
+			},
+			"homepage": "https://github.com/segmentio/noop-logger",
+			"_id": "noop-logger@0.1.0",
+			"dist": {
+				"shasum": "03cc5bef781cb8bb02fd8a67c82f69b4e9c75625",
+				"tarball": "https://registry.npmjs.org/noop-logger/-/noop-logger-0.1.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.22",
+			"_npmUser": {
+				"name": "segment",
+				"email": "tj@segment.io"
+			},
+			"maintainers": [
+				{
+					"name": "segmentio",
+					"email": "team@segment.io"
+				},
+				{
+					"name": "segment",
+					"email": "tj@segment.io"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.1": {
+			"name": "noop-logger",
+			"description": "A logger that does exactly nothing.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/segmentio/noop-logger.git"
+			},
+			"version": "0.1.1",
+			"license": "MIT",
+			"main": "lib/index.js",
+			"dependencies": {},
+			"scripts": {
+				"test": "mocha"
+			},
+			"devDependencies": {
+				"mocha": "1.x"
+			},
+			"gitHead": "992174718b157fdfd6f9fd065b53ff7aa4696cf5",
+			"bugs": {
+				"url": "https://github.com/segmentio/noop-logger/issues"
+			},
+			"homepage": "https://github.com/segmentio/noop-logger#readme",
+			"_id": "noop-logger@0.1.1",
+			"_shasum": "94a2b1633c4f1317553007d8966fd0e841b6a4c2",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.2.4",
+			"_npmUser": {
+				"name": "segment",
+				"email": "tools+npm@segment.com"
+			},
+			"dist": {
+				"shasum": "94a2b1633c4f1317553007d8966fd0e841b6a4c2",
+				"tarball": "https://registry.npmjs.org/noop-logger/-/noop-logger-0.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "segmentio",
+					"email": "team@segment.io"
+				},
+				{
+					"name": "segment",
+					"email": "tj@segment.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-6-west.internal.npmjs.com",
+				"tmp": "tmp/noop-logger-0.1.1.tgz_1455640849747_0.5082028021570295"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2016-08-15T18:35:48.000Z",
+		"created": "2014-02-28T03:58:21.111Z",
+		"0.0.1": "2014-02-28T03:58:21.111Z",
+		"0.1.0": "2014-04-05T00:23:34.931Z",
+		"0.1.1": "2016-02-16T16:40:51.794Z"
+	},
+	"dist-tags": {
+		"latest": "0.1.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"5c0f10eafdee35da228f6333da1bf9df\"",
+			"fetched": 1568994353078
+		}
+	},
+	"_distfiles": {
+		"noop-logger-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/noop-logger/-/noop-logger-0.0.1.tgz",
+			"sha": "1b9fab422b6d1754e38a8e7e79910512b6998750",
+			"registry": "npmjs"
+		},
+		"noop-logger-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/noop-logger/-/noop-logger-0.1.0.tgz",
+			"sha": "03cc5bef781cb8bb02fd8a67c82f69b4e9c75625",
+			"registry": "npmjs"
+		},
+		"noop-logger-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/noop-logger/-/noop-logger-0.1.1.tgz",
+			"sha": "94a2b1633c4f1317553007d8966fd0e841b6a4c2",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-327f144d8c526a31",
+	"_id": "noop-logger",
+	"readme": "[![Build Status](https://circleci.com/gh/segmentio/noop-logger.png?circle-token=3281390270513cae0e50fd18b8d972eb48a56879)](https://circleci.com/gh/segmentio/noop-logger)\n\n# noop-logger\n\n  A logger that does exactly nothing, useful when you want to test modules that require a logger to be passed in.\n\n## Installation\n\n    $ npm install noop-logger\n\n## API\n\n  Exposes the following noops:\n\n  - `logger.debug`\n  - `logger.info`\n  - `logger.warn`\n  - `logger.error`\n  - `logger.critical`\n  - `logger.alert`\n  - `logger.emergency`\n  - `logger.notice`\n  - `logger.fatal`\n\n## License\n\n  MIT"
+}

@@ -1,0 +1,2359 @@
+{
+	"name": "sawtooth-sdk",
+	"versions": {
+		"0.0.1": {
+			"name": "sawtooth-sdk",
+			"version": "0.0.1",
+			"description": "An SDK for interacting with the Sawtooth Lake distributed ledger",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"_id": "sawtooth-sdk@0.0.1",
+			"_shasum": "acaba05916e324b95622114c2189dbe379be37ae",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "acaba05916e324b95622114c2189dbe379be37ae",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.0.1.tgz_1498675057111_0.8193572156596929"
+			},
+			"directories": {}
+		},
+		"0.0.2": {
+			"name": "sawtooth-sdk",
+			"version": "0.0.2",
+			"description": "An SDK for interacting with the Sawtooth Lake distributed ledger",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"_id": "sawtooth-sdk@0.0.2",
+			"_shasum": "703dc602b053b4329fa3a2884c89124050f48dd5",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "703dc602b053b4329fa3a2884c89124050f48dd5",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.0.2.tgz_1498675637435_0.2865938125178218"
+			},
+			"directories": {}
+		},
+		"0.0.3": {
+			"name": "sawtooth-sdk",
+			"version": "0.0.3",
+			"description": "An SDK for interacting with the Sawtooth Lake distributed ledger",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"_id": "sawtooth-sdk@0.0.3",
+			"_shasum": "82395999588a301ae5d2cf94c0bbe571a997cfcd",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "82395999588a301ae5d2cf94c0bbe571a997cfcd",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.0.3.tgz_1498675810603_0.5906992189120501"
+			},
+			"directories": {}
+		},
+		"0.0.4": {
+			"name": "sawtooth-sdk",
+			"version": "0.0.4",
+			"description": "An SDK for interacting with the Sawtooth Lake distributed ledger",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"_id": "sawtooth-sdk@0.0.4",
+			"_shasum": "75035a36b6b7155b4de41be49c3c93262a74da9c",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "75035a36b6b7155b4de41be49c3c93262a74da9c",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.0.4.tgz_1498676484572_0.7160079614259303"
+			},
+			"directories": {}
+		},
+		"0.0.5": {
+			"name": "sawtooth-sdk",
+			"version": "0.0.5",
+			"description": "An SDK for interacting with the Sawtooth Lake distributed ledger",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"_id": "sawtooth-sdk@0.0.5",
+			"_shasum": "a30f4609121e7dbc904e1fafe135e13479c27bcd",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "a30f4609121e7dbc904e1fafe135e13479c27bcd",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.0.5.tgz_1498677512291_0.7882683153729886"
+			},
+			"directories": {}
+		},
+		"0.0.6": {
+			"name": "sawtooth-sdk",
+			"version": "0.0.6",
+			"description": "An SDK for interacting with the Sawtooth Lake distributed ledger",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"_id": "sawtooth-sdk@0.0.6",
+			"_shasum": "e471441443359d951ea615aca899f436ce38349c",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "e471441443359d951ea615aca899f436ce38349c",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.0.6.tgz_1498677632801_0.9272908279672265"
+			},
+			"directories": {}
+		},
+		"0.0.7": {
+			"name": "sawtooth-sdk",
+			"version": "0.0.7",
+			"description": "An SDK for interacting with the Sawtooth Lake distributed ledger",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"_id": "sawtooth-sdk@0.0.7",
+			"_shasum": "3e046c9dbb3d6ff1c70883461c98e456aaca9c50",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "3e046c9dbb3d6ff1c70883461c98e456aaca9c50",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.0.7.tgz_1498680261375_0.15684010926634073"
+			},
+			"directories": {}
+		},
+		"0.0.8": {
+			"name": "sawtooth-sdk",
+			"version": "0.0.8",
+			"description": "An SDK for interacting with the Sawtooth Lake distributed ledger",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"_id": "sawtooth-sdk@0.0.8",
+			"_shasum": "e22c040d3c920add54fbceda3411b9507fc7cd88",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "e22c040d3c920add54fbceda3411b9507fc7cd88",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.8.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.0.8.tgz_1498680528566_0.4395485846325755"
+			},
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "sawtooth-sdk",
+			"version": "0.1.0",
+			"description": "An SDK for interacting with the Sawtooth Lake distributed ledger",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"_id": "sawtooth-sdk@0.1.0",
+			"_shasum": "9b8311b21b56be19d21ad722baa88bd40508dd1a",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "9b8311b21b56be19d21ad722baa88bd40508dd1a",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.1.0.tgz_1498683225536_0.9483769689686596"
+			},
+			"directories": {}
+		},
+		"0.1.1": {
+			"name": "sawtooth-sdk",
+			"version": "0.1.1",
+			"description": "An SDK for interacting with the Sawtooth Lake distributed ledger",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"_id": "sawtooth-sdk@0.1.1",
+			"_shasum": "2f19cea18870ef731b7c1f5bbae5fb844a704bfd",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "2f19cea18870ef731b7c1f5bbae5fb844a704bfd",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.1.1.tgz_1498683386977_0.32037171977572143"
+			},
+			"directories": {}
+		},
+		"0.1.2": {
+			"name": "sawtooth-sdk",
+			"version": "0.1.2",
+			"description": "An SDK for interacting with the Sawtooth Lake distributed ledger",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf --unsafe-perm && npm test --unsafe-perm"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"_id": "sawtooth-sdk@0.1.2",
+			"_shasum": "5bbb44e2d673bac8ea360f54e69074c1734e60c7",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "5bbb44e2d673bac8ea360f54e69074c1734e60c7",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.1.2.tgz_1498685225631_0.6999614350497723"
+			},
+			"directories": {}
+		},
+		"0.1.5": {
+			"name": "sawtooth-sdk",
+			"version": "0.1.5",
+			"description": "An SDK for interacting with the Sawtooth Lake distributed ledger",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"_id": "sawtooth-sdk@0.1.5",
+			"_shasum": "6fadc2405652950ab3523901ce86d908c84e2c9e",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "6fadc2405652950ab3523901ce86d908c84e2c9e",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.1.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.1.5.tgz_1498688322889_0.08865985670126975"
+			},
+			"directories": {}
+		},
+		"0.1.7": {
+			"name": "sawtooth-sdk",
+			"version": "0.1.7",
+			"description": "An SDK for interacting with the Sawtooth Lake distributed ledger",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"_id": "sawtooth-sdk@0.1.7",
+			"_shasum": "ce84d6883cf6598dea3fb845bb3dbc6283d6eb80",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "ce84d6883cf6598dea3fb845bb3dbc6283d6eb80",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.1.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.1.7.tgz_1498688867873_0.2423463126178831"
+			},
+			"directories": {}
+		},
+		"0.3.0": {
+			"name": "sawtooth-sdk",
+			"version": "0.3.0",
+			"description": "An SDK for interacting with the Sawtooth Lake distributed ledger",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"_id": "sawtooth-sdk@0.3.0",
+			"_shasum": "3340e3c338ce6be6fa53d7bb1581cc02a47aa621",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "3340e3c338ce6be6fa53d7bb1581cc02a47aa621",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.3.0.tgz_1498697346637_0.04183040768839419"
+			},
+			"directories": {}
+		},
+		"0.0.0": {
+			"name": "sawtooth-sdk",
+			"version": "0.0.0",
+			"description": "An SDK for interacting with the Sawtooth Lake distributed ledger",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"_id": "sawtooth-sdk@0.0.0",
+			"_shasum": "db9b2c15dd5bd0b89354cac604aa059f300890e4",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "db9b2c15dd5bd0b89354cac604aa059f300890e4",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.0.0.tgz_1498698644490_0.18848569155670702"
+			},
+			"directories": {}
+		},
+		"0.8.1": {
+			"name": "sawtooth-sdk",
+			"version": "0.8.1",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "http://intelledger.github.io/",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@0.8.1",
+			"_shasum": "c30fa37bf320e810bbc76f3aaefee225d08024aa",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "c30fa37bf320e810bbc76f3aaefee225d08024aa",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.8.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.8.1.tgz_1498760292189_0.7170588441658765"
+			},
+			"directories": {}
+		},
+		"0.8.2": {
+			"name": "sawtooth-sdk",
+			"version": "0.8.2",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@0.8.2",
+			"_shasum": "15744b4655059f0f04bc1afe2a336854ab94646d",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.2",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "15744b4655059f0f04bc1afe2a336854ab94646d",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.8.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.8.2.tgz_1503878715149_0.5755923066753894"
+			},
+			"directories": {}
+		},
+		"0.8.10": {
+			"name": "sawtooth-sdk",
+			"version": "0.8.10",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@0.8.10",
+			"_shasum": "2580180d81a7ae23e0b29e306d221be5a7d454ef",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.11.5",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "2580180d81a7ae23e0b29e306d221be5a7d454ef",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.8.10.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.8.10.tgz_1509732204489_0.41857000067830086"
+			},
+			"directories": {}
+		},
+		"0.8.11": {
+			"name": "sawtooth-sdk",
+			"version": "0.8.11",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@0.8.11",
+			"_shasum": "ad187bc8cd9d1b5d2145821d61c58e6cf2dd7689",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.12.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "ad187bc8cd9d1b5d2145821d61c58e6cf2dd7689",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.8.11.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.8.11.tgz_1510097231053_0.7797164793591946"
+			},
+			"directories": {}
+		},
+		"0.8.12": {
+			"name": "sawtooth-sdk",
+			"version": "0.8.12",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@0.8.12",
+			"_shasum": "2740b57d4e5b4c40c043fd364a144ebd35f537a4",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.12.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "2740b57d4e5b4c40c043fd364a144ebd35f537a4",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.8.12.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.8.12.tgz_1510961956198_0.8712644639890641"
+			},
+			"directories": {}
+		},
+		"1.0.0-rc1": {
+			"name": "sawtooth-sdk",
+			"version": "1.0.0-rc1",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@1.0.0-rc1",
+			"_shasum": "450a9b71d237a4b27d2d9e4c878e956cef82a245",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.12.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "450a9b71d237a4b27d2d9e4c878e956cef82a245",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0-rc1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-1.0.0-rc1.tgz_1511286084408_0.5872443243861198"
+			},
+			"directories": {}
+		},
+		"1.0.0-rc2": {
+			"name": "sawtooth-sdk",
+			"version": "1.0.0-rc2",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@1.0.0-rc2",
+			"_shasum": "8dc8dff9d7ebf85063e2a2fc629f810ac8db8e05",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.12.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "8dc8dff9d7ebf85063e2a2fc629f810ac8db8e05",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0-rc2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-1.0.0-rc2.tgz_1511386483704_0.5625836062245071"
+			},
+			"directories": {}
+		},
+		"1.0.0-rc3": {
+			"name": "sawtooth-sdk",
+			"version": "1.0.0-rc3",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@1.0.0-rc3",
+			"_shasum": "6e44e2d5f78de10a3ea82bfbe1afd6e03fe9cdc1",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.12.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "6e44e2d5f78de10a3ea82bfbe1afd6e03fe9cdc1",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0-rc3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-1.0.0-rc3.tgz_1511977053045_0.38975520292297006"
+			},
+			"directories": {}
+		},
+		"0.8.13": {
+			"name": "sawtooth-sdk",
+			"version": "0.8.13",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@0.8.13",
+			"_shasum": "6c3517394694ce8a2620a17de062f96e4d4f22f7",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.12.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "6c3517394694ce8a2620a17de062f96e4d4f22f7",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.8.13.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-0.8.13.tgz_1511993373248_0.7720677009783685"
+			},
+			"directories": {}
+		},
+		"1.0.0-rc4": {
+			"name": "sawtooth-sdk",
+			"version": "1.0.0-rc4",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@1.0.0-rc4",
+			"_shasum": "b5cb0f91bf87bee66df983d72c0ff51a96d2f01c",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.12.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "b5cb0f91bf87bee66df983d72c0ff51a96d2f01c",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0-rc4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-1.0.0-rc4.tgz_1512504402037_0.24282460333779454"
+			},
+			"directories": {}
+		},
+		"1.0.0-rc5": {
+			"name": "sawtooth-sdk",
+			"version": "1.0.0-rc5",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@1.0.0-rc5",
+			"_shasum": "bc3e5f4a3984974da4ec2144ef1185c04f034ea8",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.12.0",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "bc3e5f4a3984974da4ec2144ef1185c04f034ea8",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0-rc5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-1.0.0-rc5.tgz_1513286117631_0.4311294932849705"
+			},
+			"directories": {}
+		},
+		"1.0.0-rc6": {
+			"name": "sawtooth-sdk",
+			"version": "1.0.0-rc6",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@1.0.0-rc6",
+			"_shasum": "0f6ea1a350befd09733510ed3a86bf01dbc4ed49",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.12.3",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "0f6ea1a350befd09733510ed3a86bf01dbc4ed49",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0-rc6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-1.0.0-rc6.tgz_1515015712698_0.7012176855932921"
+			},
+			"directories": {}
+		},
+		"1.0.0-rc7": {
+			"name": "sawtooth-sdk",
+			"version": "1.0.0-rc7",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@1.0.0-rc7",
+			"_shasum": "708b03a2dae7e6df1bc6cbae3ecec8aa093a9bf5",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.12.3",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "708b03a2dae7e6df1bc6cbae3ecec8aa093a9bf5",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0-rc7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-1.0.0-rc7.tgz_1517006517358_0.5017595775425434"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "sawtooth-sdk",
+			"version": "1.0.0",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@1.0.0",
+			"_shasum": "0ce9a51fcdf2742466f0c3387c483f87682112ac",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.12.3",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "0ce9a51fcdf2742466f0c3387c483f87682112ac",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-1.0.0.tgz_1517261990114_0.839598132763058"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "sawtooth-sdk",
+			"version": "1.0.1",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@1.0.1",
+			"_shasum": "00780d89e71b69bdef0ea643bf2ba9e1683a6ec9",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.12.3",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "00780d89e71b69bdef0ea643bf2ba9e1683a6ec9",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk-1.0.1.tgz_1517266568186_0.10961448960006237"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "sawtooth-sdk",
+			"version": "1.0.2",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@1.0.2",
+			"_shasum": "fe97d45e12951babe0abd19847efc6dbe723c1cd",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.12.3",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "fe97d45e12951babe0abd19847efc6dbe723c1cd",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.2.tgz",
+				"fileCount": 18,
+				"unpackedSize": 88499
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk_1.0.2_1522444594604_0.7537532537986782"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.4": {
+			"name": "sawtooth-sdk",
+			"version": "1.0.4",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@1.0.4",
+			"_shasum": "269f828f7be96cfd9cc038b823a8f6c0e26f1ad2",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.14.2",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "269f828f7be96cfd9cc038b823a8f6c0e26f1ad2",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.4.tgz",
+				"fileCount": 18,
+				"unpackedSize": 88499,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa54RzCRA9TVsSAnZWagAAPn8P/1uyCE7KWxdnosMv9x8r\nbZ725tiQdO0Lioz0j6o6PjV8TfxtTneUIISeRhXSmr3I1OXmHTvM6gG8LhRC\ntQKnwo+9U9pSTJgKBL7rkORW2nA89fFNi/aIPxqGfNuikz8MDRH0GRgxoB5H\nK7wqA1NLOm2HdWO7a3VIeusU0f0+Q62I8wUNvrchKAkIFvCUwQAUAyrAIe9p\net5G38TsLxjn5fMD7POVnDBg4DoUCkadyocQnuqA+dg+5KooJJfRew3ufloy\nv6GV+Ahwi/2KEMG+LGim/KiS2D6AigeXBl7hBAEM5rSzXMK9gWBX9t0uCI3X\ntSlurkLbiaNb9rUfPWsxupFNbi3zC6aDoYlNVDwhz9FvemGAMXUlfrNWiE3a\nfqZEaeQQmp024j3swvQgRGJRmUGq50dPPb/8GAQomzE4m4OoUw0ar6SVUFNw\nUakPspzRCwZk3otYTHKaXYGih8A7ujumfuMPRc7tjH6xkMBMQbDQHWGGKevQ\nKhHmNzfzJ7NfnyTNVuOEXfALIVv5ytULY8luN6uDoT+WLie3wBCPVLhztDcz\naUYtbUiyANH3Jy36IusbZWq4S2pU9zDX46fq3bdrNI73iItZqLt39Wr1A07q\noXSFHyNmWpetqEd4qRjKG+A8jMvy31NAFFYCp40vL2xffR4ctX+hAKJtsYpa\nwL8+\r\n=8Vpa\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk_1.0.4_1525122162389_0.25873385156473017"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.5": {
+			"name": "sawtooth-sdk",
+			"version": "1.0.5",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-core.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-core/issues"
+			},
+			"_id": "sawtooth-sdk@1.0.5",
+			"_shasum": "b966a24261a4872f1400ba5aec1503e43bd173c1",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.14.3",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "b966a24261a4872f1400ba5aec1503e43bd173c1",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.5.tgz",
+				"fileCount": 18,
+				"unpackedSize": 88574
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk_1.0.5_1532987755184_0.18520516386528363"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.1.1": {
+			"name": "sawtooth-sdk",
+			"version": "1.1.1",
+			"description": "An SDK for interacting with the Hyperledger Sawtooth distributed ledger.",
+			"keywords": [
+				"hyperledger",
+				"blockchain",
+				"signing",
+				"crypto",
+				"protobuf"
+			],
+			"homepage": "https://www.hyperledger.org/projects/sawtooth",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/sawtooth-sdk-javascript.git"
+			},
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && node_modules/mocha/bin/mocha --recursive spec",
+				"compile_protobuf": "node compile_protobuf.js > protobuf/protobuf_bundle.json",
+				"prepublish": "npm run compile_protobuf && npm test"
+			},
+			"author": "",
+			"license": "Apache-2.0",
+			"dependencies": {
+				"protobufjs": "^6.7.3",
+				"secp256k1": "^3.2.5",
+				"uuid": "^3.0.1",
+				"zeromq": "^4.2.1"
+			},
+			"devDependencies": {
+				"mocha": "^3.2.0",
+				"standard": "^8.6.0",
+				"underscore": "^1.8.3"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "c310a5b7636056cff21a112030aa9ec6943136d6",
+			"bugs": {
+				"url": "https://github.com/hyperledger/sawtooth-sdk-javascript/issues"
+			},
+			"_id": "sawtooth-sdk@1.1.1",
+			"_shasum": "29fa658871aeb15963f1809974b728938d7cc03f",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.14.4",
+			"_npmUser": {
+				"name": "hyperledger-sawtooth",
+				"email": "distributedledger@intel.com"
+			},
+			"dist": {
+				"shasum": "29fa658871aeb15963f1809974b728938d7cc03f",
+				"tarball": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.1.1.tgz",
+				"integrity": "sha512-w3/CrrFfbq/Ruvxde9UFUS7k/GyhVZN58UdkdJBtfARP/NpDaX+P+PVD+fjgmkRyKIUgVRPu1/rdltYSn4x9bA==",
+				"fileCount": 47,
+				"unpackedSize": 197448,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb7E18CRA9TVsSAnZWagAAOzwP/1xl1C50IE2WyjlQH8ic\ngSyIdwyeB+/JtEdzwfVv+opW01ZHGDgIXktpSol4o1zTn1lzoPlJ4Z56j73k\n2DvBv02I6YYkS4pxTI9J2Ccm1Cm7tYtWqnttaa9pfaPLzBcF+/XcMq78CBZF\nrYN2Q0LsSLIeOwYcnXAv+cASSSGzEKBpU8/0aOsOvVO/r6VuJydavoMTbnZB\nKUGgJbZbXn58t9Eg7hY5QwWNgAcAtwOQrfkR5BTUADvgRW/q7NsF7GRWMS9U\nCU4+jHJ75E9/5+JB4/N4ov2G6wQESmfO2sepeIkFwMS0P1vKmH65mcPGYXrq\nWWxX2PxBvvgJHv+4zgclzT4eb0NiKrwhAKqCynZJ1tk1Zn1VZl0Tt0G56xf8\nXIiflHq2SxdHqJo0PsZ7nBBuDeVPj1roKHIT/qpGGmn1ebXD/QTP9aTmA9vg\ne3H6dfzVwYCh4JrOha2reC3GHYhGhx14jD3vGmo4H7lgRYg8264dtRrr03nU\nHhezDfMAa1VV1mFux9mneMuvtvg/yZ+5e2xfqfXmXBrf0Eyu7yEgGHN5VoMD\naYAVtU8y1NSkgOnX5dnDG9nv6UHZJMMDnsNf48l0yO01ZbBX57mXm3dIlb9z\n81mgW5V+qc8vlBF0DutTt5HSL+hVfmBOeBnxC6Izno+ktaTvp990u4evRuLt\nzRXu\r\n=nQH4\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "hyperledger-sawtooth",
+					"email": "distributedledger@intel.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/sawtooth-sdk_1.1.1_1542212987705_0.3695207915674539"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-01-05T10:46:20.687Z",
+		"created": "2017-06-28T18:37:38.068Z",
+		"0.0.1": "2017-06-28T18:37:38.068Z",
+		"0.0.2": "2017-06-28T18:47:18.649Z",
+		"0.0.3": "2017-06-28T18:50:11.558Z",
+		"0.0.4": "2017-06-28T19:01:25.550Z",
+		"0.0.5": "2017-06-28T19:18:33.291Z",
+		"0.0.6": "2017-06-28T19:20:33.714Z",
+		"0.0.7": "2017-06-28T20:04:22.427Z",
+		"0.0.8": "2017-06-28T20:08:49.530Z",
+		"0.1.0": "2017-06-28T20:53:46.443Z",
+		"0.1.1": "2017-06-28T20:56:28.066Z",
+		"0.1.2": "2017-06-28T21:27:06.650Z",
+		"0.1.5": "2017-06-28T22:18:43.941Z",
+		"0.1.7": "2017-06-28T22:27:48.793Z",
+		"0.3.0": "2017-06-29T00:49:07.771Z",
+		"0.0.0": "2017-06-29T01:10:45.417Z",
+		"0.8.1": "2017-06-29T18:18:13.172Z",
+		"0.8.2": "2017-08-28T00:05:16.276Z",
+		"0.0.9": "2017-11-01T18:52:35.242Z",
+		"0.8.10": "2017-11-03T18:03:25.572Z",
+		"0.8.11": "2017-11-07T23:27:12.158Z",
+		"0.8.12": "2017-11-17T23:39:16.284Z",
+		"1.0.0-rc1": "2017-11-21T17:41:25.357Z",
+		"1.0.0-rc2": "2017-11-22T21:34:44.709Z",
+		"1.0.0-rc3": "2017-11-29T17:37:34.026Z",
+		"0.8.13": "2017-11-29T22:09:35.180Z",
+		"1.0.0-rc4": "2017-12-05T20:06:43.038Z",
+		"1.0.0-rc5": "2017-12-14T21:15:18.734Z",
+		"1.0.0-rc6": "2018-01-03T21:41:52.761Z",
+		"1.0.0-rc7": "2018-01-26T22:41:58.625Z",
+		"1.0.0": "2018-01-29T21:39:51.114Z",
+		"1.0.1": "2018-01-29T22:56:09.243Z",
+		"1.0.2": "2018-03-30T21:16:34.746Z",
+		"1.0.4": "2018-04-30T21:02:42.476Z",
+		"1.0.5": "2018-07-30T21:55:55.307Z",
+		"1.1.1": "2018-11-14T16:29:47.808Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.5"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"670868458c4cdb510b2fc25b1d9236e7\"",
+			"fetched": 1568994351557
+		}
+	},
+	"_distfiles": {
+		"sawtooth-sdk-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.1.tgz",
+			"sha": "acaba05916e324b95622114c2189dbe379be37ae",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.2.tgz",
+			"sha": "703dc602b053b4329fa3a2884c89124050f48dd5",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.3.tgz",
+			"sha": "82395999588a301ae5d2cf94c0bbe571a997cfcd",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.4.tgz",
+			"sha": "75035a36b6b7155b4de41be49c3c93262a74da9c",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.0.5.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.5.tgz",
+			"sha": "a30f4609121e7dbc904e1fafe135e13479c27bcd",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.0.6.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.6.tgz",
+			"sha": "e471441443359d951ea615aca899f436ce38349c",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.0.7.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.7.tgz",
+			"sha": "3e046c9dbb3d6ff1c70883461c98e456aaca9c50",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.0.8.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.8.tgz",
+			"sha": "e22c040d3c920add54fbceda3411b9507fc7cd88",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.1.0.tgz",
+			"sha": "9b8311b21b56be19d21ad722baa88bd40508dd1a",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.1.1.tgz",
+			"sha": "2f19cea18870ef731b7c1f5bbae5fb844a704bfd",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.1.2.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.1.2.tgz",
+			"sha": "5bbb44e2d673bac8ea360f54e69074c1734e60c7",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.1.5.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.1.5.tgz",
+			"sha": "6fadc2405652950ab3523901ce86d908c84e2c9e",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.1.7.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.1.7.tgz",
+			"sha": "ce84d6883cf6598dea3fb845bb3dbc6283d6eb80",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.3.0.tgz",
+			"sha": "3340e3c338ce6be6fa53d7bb1581cc02a47aa621",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.0.0.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.0.0.tgz",
+			"sha": "db9b2c15dd5bd0b89354cac604aa059f300890e4",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.8.1.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.8.1.tgz",
+			"sha": "c30fa37bf320e810bbc76f3aaefee225d08024aa",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.8.2.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.8.2.tgz",
+			"sha": "15744b4655059f0f04bc1afe2a336854ab94646d",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.8.10.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.8.10.tgz",
+			"sha": "2580180d81a7ae23e0b29e306d221be5a7d454ef",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.8.11.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.8.11.tgz",
+			"sha": "ad187bc8cd9d1b5d2145821d61c58e6cf2dd7689",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.8.12.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.8.12.tgz",
+			"sha": "2740b57d4e5b4c40c043fd364a144ebd35f537a4",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-1.0.0-rc1.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0-rc1.tgz",
+			"sha": "450a9b71d237a4b27d2d9e4c878e956cef82a245",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-1.0.0-rc2.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0-rc2.tgz",
+			"sha": "8dc8dff9d7ebf85063e2a2fc629f810ac8db8e05",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-1.0.0-rc3.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0-rc3.tgz",
+			"sha": "6e44e2d5f78de10a3ea82bfbe1afd6e03fe9cdc1",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-0.8.13.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-0.8.13.tgz",
+			"sha": "6c3517394694ce8a2620a17de062f96e4d4f22f7",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-1.0.0-rc4.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0-rc4.tgz",
+			"sha": "b5cb0f91bf87bee66df983d72c0ff51a96d2f01c",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-1.0.0-rc5.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0-rc5.tgz",
+			"sha": "bc3e5f4a3984974da4ec2144ef1185c04f034ea8",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-1.0.0-rc6.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0-rc6.tgz",
+			"sha": "0f6ea1a350befd09733510ed3a86bf01dbc4ed49",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-1.0.0-rc7.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0-rc7.tgz",
+			"sha": "708b03a2dae7e6df1bc6cbae3ecec8aa093a9bf5",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.0.tgz",
+			"sha": "0ce9a51fcdf2742466f0c3387c483f87682112ac",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.1.tgz",
+			"sha": "00780d89e71b69bdef0ea643bf2ba9e1683a6ec9",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.2.tgz",
+			"sha": "fe97d45e12951babe0abd19847efc6dbe723c1cd",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.4.tgz",
+			"sha": "269f828f7be96cfd9cc038b823a8f6c0e26f1ad2",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-1.0.5.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.0.5.tgz",
+			"sha": "b966a24261a4872f1400ba5aec1503e43bd173c1",
+			"registry": "npmjs"
+		},
+		"sawtooth-sdk-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/sawtooth-sdk/-/sawtooth-sdk-1.1.1.tgz",
+			"sha": "29fa658871aeb15963f1809974b728938d7cc03f",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-7f9805150144cc21",
+	"_id": "sawtooth-sdk",
+	"readme": "![Hyperledger Sawtooth](https://raw.githubusercontent.com/hyperledger/sawtooth-core/master/images/sawtooth_logo_light_blue-small.png)\n\n# Hyperledger Sawtooth SDK\n\n*Hyperledger Sawtooth* is an enterprise solution for building, deploying, and running distributed ledgers (also called blockchains). It provides an extremely modular and flexible platform for implementing transaction-based updates to shared state between untrusted parties coordinated by consensus algorithms.\n\nThe *Sawtooth SDK* provides a number of useful components that simplify developing JavaScript applications which interface with the Sawtooth platform. These include modules to sign Transactions, read state, and  create Transaction Processors. For full usage and installation instructions please reference the official Sawtooth documentation below:\n\n  * [Hyperledger Sawtooth Official Documentation](https://sawtooth.hyperledger.org/docs/)\n  * [Sawtooth Application Developer's Guide](https://sawtooth.hyperledger.org/docs/core/releases/latest/app_developers_guide.html)\n  * [Sawtooth JavaScript SDK Guide](https://sawtooth.hyperledger.org/docs/core/releases/latest/app_developers_guide/javascript_sdk.html)\n\nLicense\n-------\nHyperledger Sawtooth software is licensed under the [Apache License Version 2.0](LICENSE) software license."
+}

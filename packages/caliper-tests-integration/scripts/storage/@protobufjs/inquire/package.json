@@ -1,0 +1,243 @@
+{
+	"name": "@protobufjs/inquire",
+	"versions": {
+		"1.0.0": {
+			"name": "@protobufjs/inquire",
+			"description": "Requires a module only if available and hides the require call from bundlers.",
+			"version": "1.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/inquire@1.0.0",
+			"scripts": {},
+			"_shasum": "cf3dcb823c4b348b040709ec1352da2318ac88cc",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "protobufjs",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"dist": {
+				"shasum": "cf3dcb823c4b348b040709ec1352da2318ac88cc",
+				"tarball": "https://registry.npmjs.org/@protobufjs/inquire/-/inquire-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/inquire-1.0.0.tgz_1482081684107_0.23712577810510993"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "@protobufjs/inquire",
+			"description": "Requires a module only if available and hides the require call from bundlers.",
+			"version": "1.0.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/inquire@1.0.1",
+			"scripts": {},
+			"_shasum": "56d200366ac42c8d89c77238965d8d74a02409c9",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "56d200366ac42c8d89c77238965d8d74a02409c9",
+				"tarball": "https://registry.npmjs.org/@protobufjs/inquire/-/inquire-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/inquire-1.0.1.tgz_1482269790287_0.35018409113399684"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "@protobufjs/inquire",
+			"description": "Requires a module only if available and hides the require call from bundlers.",
+			"version": "1.0.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/inquire@1.0.2",
+			"scripts": {},
+			"_shasum": "0e7b553558270c10a63117452c21ef61ca4a5b43",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "0e7b553558270c10a63117452c21ef61ca4a5b43",
+				"tarball": "https://registry.npmjs.org/@protobufjs/inquire/-/inquire-1.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/inquire-1.0.2.tgz_1483457491565_0.910038591362536"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "@protobufjs/inquire",
+			"description": "Requires a module only if available and hides the require call from bundlers.",
+			"version": "1.1.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"istanbul": "^0.4.5",
+				"tape": "^4.6.3"
+			},
+			"scripts": {
+				"test": "tape tests/*.js",
+				"coverage": "istanbul cover node_modules/tape/bin/tape tests/*.js"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/inquire@1.1.0",
+			"_shasum": "ff200e3e7cf2429e2dcafc1140828e8cc638f089",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "ff200e3e7cf2429e2dcafc1140828e8cc638f089",
+				"tarball": "https://registry.npmjs.org/@protobufjs/inquire/-/inquire-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/inquire-1.1.0.tgz_1485367981156_0.06349746254272759"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2017-01-25T18:13:02.936Z",
+		"created": "2016-12-18T17:21:26.041Z",
+		"1.0.0": "2016-12-18T17:21:26.041Z",
+		"1.0.1": "2016-12-20T21:36:32.418Z",
+		"1.0.2": "2017-01-03T15:31:33.523Z",
+		"1.1.0": "2017-01-25T18:13:02.936Z"
+	},
+	"dist-tags": {
+		"latest": "1.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"7bebff469f9aa6e17166f6f26c301627\"",
+			"fetched": 1568994331362
+		}
+	},
+	"_distfiles": {
+		"inquire-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/inquire/-/inquire-1.0.0.tgz",
+			"sha": "cf3dcb823c4b348b040709ec1352da2318ac88cc",
+			"registry": "npmjs"
+		},
+		"inquire-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/inquire/-/inquire-1.0.1.tgz",
+			"sha": "56d200366ac42c8d89c77238965d8d74a02409c9",
+			"registry": "npmjs"
+		},
+		"inquire-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/inquire/-/inquire-1.0.2.tgz",
+			"sha": "0e7b553558270c10a63117452c21ef61ca4a5b43",
+			"registry": "npmjs"
+		},
+		"inquire-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/inquire/-/inquire-1.1.0.tgz",
+			"sha": "ff200e3e7cf2429e2dcafc1140828e8cc638f089",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-f646c23b596d438d",
+	"_id": "@protobufjs/inquire",
+	"readme": "@protobufjs/inquire\r\n===================\r\n[![npm](https://img.shields.io/npm/v/@protobufjs/inquire.svg)](https://www.npmjs.com/package/@protobufjs/inquire)\r\n\r\nRequires a module only if available and hides the require call from bundlers.\r\n\r\nAPI\r\n---\r\n\r\n* **inquire(moduleName: `string`): `?Object`**<br />\r\n  Requires a module only if available.\r\n\r\n**License:** [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)"
+}

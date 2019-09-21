@@ -1,0 +1,510 @@
+{
+	"name": "@protobufjs/utf8",
+	"versions": {
+		"1.0.0": {
+			"name": "@protobufjs/utf8",
+			"description": "A minimal UTF8 implementation for number arrays.",
+			"version": "1.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/utf8@1.0.0",
+			"scripts": {},
+			"_shasum": "f5df4580ce51bd881e9cc5f910904c4f4b90f493",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "protobufjs",
+				"email": "dcode+npm-protobufjs@dcode.io"
+			},
+			"dist": {
+				"shasum": "f5df4580ce51bd881e9cc5f910904c4f4b90f493",
+				"tarball": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/utf8-1.0.0.tgz_1481415090780_0.6191886160522699"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "@protobufjs/utf8",
+			"description": "A minimal UTF8 implementation for number arrays.",
+			"version": "1.0.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/utf8@1.0.1",
+			"scripts": {},
+			"_shasum": "7aeb47e8a52af722a7295db44547da74fcd113f7",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"dist": {
+				"shasum": "7aeb47e8a52af722a7295db44547da74fcd113f7",
+				"tarball": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/utf8-1.0.1.tgz_1481417469319_0.9068995991256088"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "@protobufjs/utf8",
+			"description": "A minimal UTF8 implementation for number arrays.",
+			"version": "1.0.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/utf8@1.0.2",
+			"scripts": {},
+			"_shasum": "8ca2dfc134649433859a2155af0761e47f00b32b",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "8ca2dfc134649433859a2155af0761e47f00b32b",
+				"tarball": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/utf8-1.0.2.tgz_1481481211541_0.6269788458012044"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "@protobufjs/utf8",
+			"description": "A minimal UTF8 implementation for number arrays.",
+			"version": "1.0.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/utf8@1.0.3",
+			"scripts": {},
+			"_shasum": "898c714aec3d45e0ba35f231b92ab83fee90bb91",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "898c714aec3d45e0ba35f231b92ab83fee90bb91",
+				"tarball": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/utf8-1.0.3.tgz_1481667553904_0.24491426814347506"
+			},
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "@protobufjs/utf8",
+			"description": "A minimal UTF8 implementation for number arrays.",
+			"version": "1.0.4",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/utf8@1.0.4",
+			"scripts": {},
+			"_shasum": "f098093ef35afbb7502de7834a1482de9d0fb8c7",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "f098093ef35afbb7502de7834a1482de9d0fb8c7",
+				"tarball": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/utf8-1.0.4.tgz_1482269814805_0.8343407525680959"
+			},
+			"directories": {}
+		},
+		"1.0.5": {
+			"name": "@protobufjs/utf8",
+			"description": "A minimal UTF8 implementation for number arrays.",
+			"version": "1.0.5",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/utf8@1.0.5",
+			"scripts": {},
+			"_shasum": "3c12e486fa1fdf46e97ee884f84330600f67cd4c",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "3c12e486fa1fdf46e97ee884f84330600f67cd4c",
+				"tarball": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/utf8-1.0.5.tgz_1482775027389_0.86257638852112"
+			},
+			"directories": {}
+		},
+		"1.0.6": {
+			"name": "@protobufjs/utf8",
+			"description": "A minimal UTF8 implementation for number arrays.",
+			"version": "1.0.6",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/utf8@1.0.6",
+			"scripts": {},
+			"_shasum": "09a56b5715b3767fc50d6005928309db13b491ff",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "09a56b5715b3767fc50d6005928309db13b491ff",
+				"tarball": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/utf8-1.0.6.tgz_1483457516347_0.014881361741572618"
+			},
+			"directories": {}
+		},
+		"1.0.7": {
+			"name": "@protobufjs/utf8",
+			"description": "A minimal UTF8 implementation for number arrays.",
+			"version": "1.0.7",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/utf8@1.0.7",
+			"scripts": {},
+			"_shasum": "827e0393275a4eef808ce3345ae7a470c4d1749d",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "827e0393275a4eef808ce3345ae7a470c4d1749d",
+				"tarball": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/utf8-1.0.7.tgz_1483799989150_0.5782537956256419"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "@protobufjs/utf8",
+			"description": "A minimal UTF8 implementation for number arrays.",
+			"version": "1.1.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"istanbul": "^0.4.5",
+				"tape": "^4.6.3"
+			},
+			"scripts": {
+				"test": "tape tests/*.js",
+				"coverage": "istanbul cover node_modules/tape/bin/tape tests/*.js"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/utf8@1.1.0",
+			"_shasum": "a777360b5b39a1a2e5106f8e858f2fd2d060c570",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "a777360b5b39a1a2e5106f8e858f2fd2d060c570",
+				"tarball": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/utf8-1.1.0.tgz_1485368134514_0.7150300552602857"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2017-01-25T18:15:35.362Z",
+		"created": "2016-12-11T00:11:31.458Z",
+		"1.0.0": "2016-12-11T00:11:31.458Z",
+		"1.0.1": "2016-12-11T00:51:09.973Z",
+		"1.0.2": "2016-12-11T18:33:32.202Z",
+		"1.0.3": "2016-12-13T22:19:15.790Z",
+		"1.0.4": "2016-12-20T21:36:56.764Z",
+		"1.0.5": "2016-12-26T17:57:09.614Z",
+		"1.0.6": "2017-01-03T15:31:58.315Z",
+		"1.0.7": "2017-01-07T14:39:50.929Z",
+		"1.1.0": "2017-01-25T18:15:35.362Z"
+	},
+	"dist-tags": {
+		"latest": "1.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"09cb87a5dda1cfcd7a911c12d698593f\"",
+			"fetched": 1568994331486
+		}
+	},
+	"_distfiles": {
+		"utf8-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.0.tgz",
+			"sha": "f5df4580ce51bd881e9cc5f910904c4f4b90f493",
+			"registry": "npmjs"
+		},
+		"utf8-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.1.tgz",
+			"sha": "7aeb47e8a52af722a7295db44547da74fcd113f7",
+			"registry": "npmjs"
+		},
+		"utf8-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.2.tgz",
+			"sha": "8ca2dfc134649433859a2155af0761e47f00b32b",
+			"registry": "npmjs"
+		},
+		"utf8-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.3.tgz",
+			"sha": "898c714aec3d45e0ba35f231b92ab83fee90bb91",
+			"registry": "npmjs"
+		},
+		"utf8-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.4.tgz",
+			"sha": "f098093ef35afbb7502de7834a1482de9d0fb8c7",
+			"registry": "npmjs"
+		},
+		"utf8-1.0.5.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.5.tgz",
+			"sha": "3c12e486fa1fdf46e97ee884f84330600f67cd4c",
+			"registry": "npmjs"
+		},
+		"utf8-1.0.6.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.6.tgz",
+			"sha": "09a56b5715b3767fc50d6005928309db13b491ff",
+			"registry": "npmjs"
+		},
+		"utf8-1.0.7.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.0.7.tgz",
+			"sha": "827e0393275a4eef808ce3345ae7a470c4d1749d",
+			"registry": "npmjs"
+		},
+		"utf8-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.1.0.tgz",
+			"sha": "a777360b5b39a1a2e5106f8e858f2fd2d060c570",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-7b2f5af5c0faa1a4",
+	"_id": "@protobufjs/utf8",
+	"readme": "@protobufjs/utf8\r\n================\r\n[![npm](https://img.shields.io/npm/v/@protobufjs/utf8.svg)](https://www.npmjs.com/package/@protobufjs/utf8)\r\n\r\nA minimal UTF8 implementation for number arrays.\r\n\r\nAPI\r\n---\r\n\r\n* **utf8.length(string: `string`): `number`**<br />\r\n  Calculates the UTF8 byte length of a string.\r\n\r\n* **utf8.read(buffer: `Uint8Array`, start: `number`, end: `number`): `string`**<br />\r\n  Reads UTF8 bytes as a string.\r\n\r\n* **utf8.write(string: `string`, buffer: `Uint8Array`, offset: `number`): `number`**<br />\r\n  Writes a string as UTF8 bytes.\r\n\r\n\r\n**License:** [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)"
+}

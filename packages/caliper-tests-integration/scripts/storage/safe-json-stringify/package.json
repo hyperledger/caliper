@@ -1,0 +1,475 @@
+{
+	"name": "safe-json-stringify",
+	"versions": {
+		"1.0.0": {
+			"name": "safe-json-stringify",
+			"version": "1.0.0",
+			"description": "Prevent defined property getters from throwing errors",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test/*-test.js"
+			},
+			"author": {
+				"name": "E-conomic"
+			},
+			"license": "MIT",
+			"gitHead": "1e76436319a4b77851dc3c3b97aada6d192f786c",
+			"_id": "safe-json-stringify@1.0.0",
+			"_shasum": "9fca5bf37b33ad43d7d51f619852e5769059ca0d",
+			"_from": ".",
+			"_npmVersion": "2.1.3",
+			"_nodeVersion": "0.10.26",
+			"_npmUser": {
+				"name": "gausby",
+				"email": "martin@gausby.dk"
+			},
+			"maintainers": [
+				{
+					"name": "gausby",
+					"email": "martin@gausby.dk"
+				}
+			],
+			"dist": {
+				"shasum": "9fca5bf37b33ad43d7d51f619852e5769059ca0d",
+				"tarball": "https://registry.npmjs.org/safe-json-stringify/-/safe-json-stringify-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "safe-json-stringify",
+			"version": "1.0.1",
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:e-conomic/safe-json-stringify.git"
+			},
+			"bugs": {
+				"url": "https://github.com/e-conomic/safe-json-stringify/issues"
+			},
+			"homepage": "https://github.com/e-conomic/safe-json-stringify",
+			"description": "Prevent defined property getters from throwing errors",
+			"main": "index.js",
+			"scripts": {
+				"test": "node test/*-test.js"
+			},
+			"author": {
+				"name": "E-conomic"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "3.0.1"
+			},
+			"gitHead": "7a8ced52eb7214400c4bff81a1fa4af9067dcdca",
+			"_id": "safe-json-stringify@1.0.1",
+			"_shasum": "c8fb18ffb9341aa0a6fbb1ec1a29e0947e0ab80c",
+			"_from": ".",
+			"_npmVersion": "2.1.3",
+			"_nodeVersion": "0.10.26",
+			"_npmUser": {
+				"name": "gausby",
+				"email": "martin@gausby.dk"
+			},
+			"maintainers": [
+				{
+					"name": "gausby",
+					"email": "martin@gausby.dk"
+				},
+				{
+					"name": "muscula",
+					"email": "allan@muscula.com"
+				}
+			],
+			"dist": {
+				"shasum": "c8fb18ffb9341aa0a6fbb1ec1a29e0947e0ab80c",
+				"tarball": "https://registry.npmjs.org/safe-json-stringify/-/safe-json-stringify-1.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "safe-json-stringify",
+			"version": "1.0.3",
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:e-conomic/safe-json-stringify.git"
+			},
+			"bugs": {
+				"url": "https://github.com/e-conomic/safe-json-stringify/issues"
+			},
+			"homepage": "https://github.com/e-conomic/safe-json-stringify",
+			"description": "Prevent defined property getters from throwing errors",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test/safe-json-stringify-test.js"
+			},
+			"author": {
+				"name": "E-conomic"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "3.5.0"
+			},
+			"gitHead": "f299fda39691b6021211e3babd6ff4073314c2f6",
+			"_id": "safe-json-stringify@1.0.3",
+			"_shasum": "3cb6717660a086d07cb5bd9b7a6875bcf67bd05e",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "gausby",
+				"email": "martin@gausby.dk"
+			},
+			"maintainers": [
+				{
+					"name": "gausby",
+					"email": "martin@gausby.dk"
+				},
+				{
+					"name": "ebdrup",
+					"email": "allan@878.dk"
+				},
+				{
+					"name": "bubenshchykov",
+					"email": "a.bubenshchykov@gmail.com"
+				},
+				{
+					"name": "eagleeye",
+					"email": "eagleeyes91@gmail.com"
+				},
+				{
+					"name": "kapetan",
+					"email": "mirza.kapetanovic@gmail.com"
+				},
+				{
+					"name": "wtfil",
+					"email": "evgen.filatov@gmail.com"
+				},
+				{
+					"name": "bifrost",
+					"email": "dan@steenbjerg.com"
+				}
+			],
+			"dist": {
+				"shasum": "3cb6717660a086d07cb5bd9b7a6875bcf67bd05e",
+				"tarball": "https://registry.npmjs.org/safe-json-stringify/-/safe-json-stringify-1.0.3.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "safe-json-stringify",
+			"version": "1.0.4",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/debitoor/safe-json-stringify.git"
+			},
+			"bugs": {
+				"url": "https://github.com/debitoor/safe-json-stringify/issues"
+			},
+			"homepage": "https://github.com/debitoor/safe-json-stringify",
+			"description": "Prevent defined property getters from throwing errors",
+			"main": "index.js",
+			"scripts": {
+				"postversion": "git push && git push --tags",
+				"preversion": "npm test",
+				"test": "tape test/safe-json-stringify-test.js"
+			},
+			"author": {
+				"name": "Debitoor"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "4.6.3"
+			},
+			"gitHead": "a757cb33c792531b9c04635e3c995aed2a5691bf",
+			"_id": "safe-json-stringify@1.0.4",
+			"_shasum": "81a098f447e4bbc3ff3312a243521bc060ef5911",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.7.0",
+			"_npmUser": {
+				"name": "jonatanpedersen",
+				"email": "jp@jonatanpedersen.com"
+			},
+			"dist": {
+				"shasum": "81a098f447e4bbc3ff3312a243521bc060ef5911",
+				"tarball": "https://registry.npmjs.org/safe-json-stringify/-/safe-json-stringify-1.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "gausby",
+					"email": "martin@gausby.dk"
+				},
+				{
+					"name": "ebdrup",
+					"email": "allan@878.dk"
+				},
+				{
+					"name": "bubenshchykov",
+					"email": "a.bubenshchykov@gmail.com"
+				},
+				{
+					"name": "eagleeye",
+					"email": "eagleeyes91@gmail.com"
+				},
+				{
+					"name": "kapetan",
+					"email": "mirza.kapetanovic@gmail.com"
+				},
+				{
+					"name": "wtfil",
+					"email": "evgen.filatov@gmail.com"
+				},
+				{
+					"name": "bifrost",
+					"email": "dan@steenbjerg.com"
+				},
+				{
+					"name": "mpushkin",
+					"email": "mfbeast@mail.ru"
+				},
+				{
+					"name": "jonatanpedersen",
+					"email": "jp@jonatanpedersen.com"
+				},
+				{
+					"name": "fizker",
+					"email": "benjamin@fizkerinc.dk"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/safe-json-stringify-1.0.4.tgz_1488293228348_0.7028744479175657"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "safe-json-stringify",
+			"version": "1.1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/debitoor/safe-json-stringify.git"
+			},
+			"bugs": {
+				"url": "https://github.com/debitoor/safe-json-stringify/issues"
+			},
+			"homepage": "https://github.com/debitoor/safe-json-stringify",
+			"description": "Prevent defined property getters from throwing errors",
+			"main": "index.js",
+			"scripts": {
+				"postversion": "git push && git push --tags",
+				"preversion": "npm test",
+				"test": "tape test/safe-json-stringify-test.js"
+			},
+			"author": {
+				"name": "Debitoor"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "4.6.3"
+			},
+			"gitHead": "37460b370425c5c4eef8922f071fd75e0a9dbc99",
+			"_id": "safe-json-stringify@1.1.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "jonatanpedersen",
+				"email": "jp@jonatanpedersen.com"
+			},
+			"dist": {
+				"integrity": "sha512-EzBtUaFH9bHYPc69wqjp0efJI/DPNHdFbGE3uIMn4sVbO0zx8vZ8cG4WKxQfOpUOKsQyGBiT2mTqnCw+6nLswA==",
+				"shasum": "bd2b6dad1ebafab3c24672a395527f01804b7e19",
+				"tarball": "https://registry.npmjs.org/safe-json-stringify/-/safe-json-stringify-1.1.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 6902
+			},
+			"maintainers": [
+				{
+					"email": "dan@steenbjerg.com",
+					"name": "bifrost"
+				},
+				{
+					"email": "a.bubenshchykov@gmail.com",
+					"name": "bubenshchykov"
+				},
+				{
+					"email": "eagleeyes91@gmail.com",
+					"name": "eagleeye"
+				},
+				{
+					"email": "allan@878.dk",
+					"name": "ebdrup"
+				},
+				{
+					"email": "npm@fizkerinc.dk",
+					"name": "fizker"
+				},
+				{
+					"email": "martin@gausby.dk",
+					"name": "gausby"
+				},
+				{
+					"email": "jp@jonatanpedersen.com",
+					"name": "jonatanpedersen"
+				},
+				{
+					"email": "mirza.kapetanovic@gmail.com",
+					"name": "kapetan"
+				},
+				{
+					"email": "mfbeast@mail.ru",
+					"name": "mpushkin"
+				},
+				{
+					"email": "evgen.filatov@gmail.com",
+					"name": "wtfil"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/safe-json-stringify_1.1.0_1519137150923_0.05520754577502274"
+			}
+		},
+		"1.2.0": {
+			"name": "safe-json-stringify",
+			"version": "1.2.0",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/debitoor/safe-json-stringify.git"
+			},
+			"bugs": {
+				"url": "https://github.com/debitoor/safe-json-stringify/issues"
+			},
+			"homepage": "https://github.com/debitoor/safe-json-stringify",
+			"description": "Prevent defined property getters from throwing errors",
+			"main": "index.js",
+			"scripts": {
+				"postversion": "git push && git push --tags",
+				"preversion": "npm test",
+				"test": "tape test/safe-json-stringify-test.js"
+			},
+			"author": {
+				"name": "Debitoor"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"tape": "4.6.3"
+			},
+			"gitHead": "21c0afaf22f6c78d26cf47ee6884b58906bed062",
+			"_id": "safe-json-stringify@1.2.0",
+			"_npmVersion": "5.7.1",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "eagleeye",
+				"email": "eagleeyes91@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-gH8eh2nZudPQO6TytOvbxnuhYBOvDBBLW52tz5q6X58lJcd/tkmqFR+5Z9adS8aJtURSXWThWy/xJtJwixErvg==",
+				"shasum": "356e44bc98f1f93ce45df14bcd7c01cda86e0afd",
+				"tarball": "https://registry.npmjs.org/safe-json-stringify/-/safe-json-stringify-1.2.0.tgz",
+				"fileCount": 9,
+				"unpackedSize": 22757,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbBpXNCRA9TVsSAnZWagAAS1AP/16v09QZuw3fei1t5T8G\nBHdsjV/8nclSwSykC6kuYwiRPC7mL+fHHtZaU9q6bHgBtasZiMkKe7Ypyws4\nqdyyYhzxgMSIIesEgYA1AqZ50v3uS/od9DEaYj/IrM4hND/GYJs+uCGmbAk7\n09bHguladolmyO2EtOfbQXdtgZPfIywK1dOVbmAuMSndl7i7Sg5Z5CEjkvWh\nZeve2gTFtKtKXy7cbAZTjGvKaO8FZXfcaA7j97gIyXHhqTM67klPYF/4gcID\n0vbpFMhXAzvslonCZG5SD4yd2e3P6Al9Wclrb6PW63Tvab+U+5Y402U/jcBG\nPk7NHmiiY9K06zMBW13mKNYgWmC59V81fdS4iJMf9mHgFoLdsud60pM0+hYP\nkc76gC6siR0j6RmjAmfMGN4fhg4/DG2UMUAQuMKeCJzlKNRt2chN21wt88Zg\nNlZH7MgNKNwGa/fTDIJ6nAaAJT0ZmnBW8/kmtfbzQzivRZKSJVd0H45GS/hr\nlbx/KbbNuG1is5qKScReWoBGXopwC6oOTSTcGouVO32D2zKVY1fipXz/ZXnN\n2SA8+EsRVbt36lZfMvkK3LuZYsqv0QCMqTf3ee9cFgkwfvqNJgYHuxvHaY40\n1wM9hu5E3KygnuM0Kzdt2uNsDOtvaZYwoEscsDwlao0qRZEaVXc1rQSItw2K\nV1jv\r\n=vwqX\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "dan@steenbjerg.com",
+					"name": "bifrost"
+				},
+				{
+					"email": "a.bubenshchykov@gmail.com",
+					"name": "bubenshchykov"
+				},
+				{
+					"email": "eagleeyes91@gmail.com",
+					"name": "eagleeye"
+				},
+				{
+					"email": "allan@878.dk",
+					"name": "ebdrup"
+				},
+				{
+					"email": "npm@fizkerinc.dk",
+					"name": "fizker"
+				},
+				{
+					"email": "martin@gausby.dk",
+					"name": "gausby"
+				},
+				{
+					"email": "jp@jonatanpedersen.com",
+					"name": "jonatanpedersen"
+				},
+				{
+					"email": "mirza.kapetanovic@gmail.com",
+					"name": "kapetan"
+				},
+				{
+					"email": "mfbeast@mail.ru",
+					"name": "mpushkin"
+				},
+				{
+					"email": "evgen.filatov@gmail.com",
+					"name": "wtfil"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/safe-json-stringify_1.2.0_1527158220529_0.23260476133912777"
+			}
+		}
+	},
+	"time": {
+		"modified": "2018-05-24T10:37:04.164Z",
+		"created": "2014-10-22T17:05:34.976Z",
+		"1.0.0": "2014-10-22T17:05:34.976Z",
+		"1.0.1": "2014-10-23T13:28:21.327Z",
+		"1.0.3": "2015-03-31T14:15:48.915Z",
+		"1.0.4": "2017-02-28T14:47:09.000Z",
+		"1.1.0": "2018-02-20T14:32:30.999Z",
+		"1.2.0": "2018-05-24T10:37:00.997Z"
+	},
+	"dist-tags": {
+		"latest": "1.2.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"fca0b7ea9eaf1be5079f5eeff9df88da\"",
+			"fetched": 1568994345643
+		}
+	},
+	"_distfiles": {
+		"safe-json-stringify-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/safe-json-stringify/-/safe-json-stringify-1.0.0.tgz",
+			"sha": "9fca5bf37b33ad43d7d51f619852e5769059ca0d",
+			"registry": "npmjs"
+		},
+		"safe-json-stringify-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/safe-json-stringify/-/safe-json-stringify-1.0.1.tgz",
+			"sha": "c8fb18ffb9341aa0a6fbb1ec1a29e0947e0ab80c",
+			"registry": "npmjs"
+		},
+		"safe-json-stringify-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/safe-json-stringify/-/safe-json-stringify-1.0.3.tgz",
+			"sha": "3cb6717660a086d07cb5bd9b7a6875bcf67bd05e",
+			"registry": "npmjs"
+		},
+		"safe-json-stringify-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/safe-json-stringify/-/safe-json-stringify-1.0.4.tgz",
+			"sha": "81a098f447e4bbc3ff3312a243521bc060ef5911",
+			"registry": "npmjs"
+		},
+		"safe-json-stringify-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/safe-json-stringify/-/safe-json-stringify-1.1.0.tgz",
+			"sha": "bd2b6dad1ebafab3c24672a395527f01804b7e19",
+			"registry": "npmjs"
+		},
+		"safe-json-stringify-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/safe-json-stringify/-/safe-json-stringify-1.2.0.tgz",
+			"sha": "356e44bc98f1f93ce45df14bcd7c01cda86e0afd",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-4033d7699f3b7427",
+	"_id": "safe-json-stringify",
+	"readme": "# Safe JSON Stringify\n[![Build Status](https://travis-ci.org/debitoor/safe-json-stringify.svg?branch=master)](https://travis-ci.org/debitoor/safe-json-stringify)\n[![NPM Version](https://img.shields.io/npm/v/safe-json-stringify.svg)](https://www.npmjs.com/package/safe-json-stringify)\n\nA wrapper for `JSON.stringify` that handles circular references and prevents defined getters from throwing errors.\n\nCircular references are handled by returning `[Circular]` when a circular reference is spotted.\n\nDefined getters that throw errors are handled by returning `[Throws]`.\n\nUsage\n-----\nInstall it using NPM\n\n```sh\nnpm install safe-json-stringify\n```\n\nAnd require it into your Node project.\n\n```js\nconst safeJsonStringify = require('safe-json-stringify');\nconst data = {foo: 'bar'}\n\nconsole.log(safeJsonStringify(data));\n```\n\nAll the parameters of `JSON.stringify` are accepted, try e.g. the following for a nicely formatted output:\n\n```js\nconsole.log(safeJsonStringify(data, null, 2));\n```\n\nAn `ensureProperties` function is exposed too, which returns a safe object without the stringify step. Usage: `safeJsonStringify.ensureProperties(data);`.\n\n\nWhy?\n----\nThe `stringify` function on the JavaScript JSON object will take any data and return a string representation of said data. If this data contains an object literal it will attempt to return the values of any enumerable property set on this object. This can be dangerous because JavaScript supports a couple of ways to define property getters on objects.\n\nThe old, non-standard, and now deprecated `Object.prototype.__defineGetter__()` will define a named property which value is the return of a given function.\n\n```js\n// Never ever do this in your code. Please.\nvar obj = {};\nobj.__defineGetter__('foo', function() { return 'bar'; });\n\nJSON.stringify(obj); // {\"foo\":\"bar\"}\n```\n\nThis is kinda bad because we could make that function throw an error.\n\n```js\n// Never ever do this in your code. Please.\nvar obj = {};\nobj.__defineGetter__('foo', function() { throw new Error('ouch!'); });\n\nJSON.stringify(obj); // error thrown\n```\n\nThis property is created as an enumerable on the object, so the object from the previous example would make any function that iterates choke and throw an error. This is bad because one would never expect a simple property get to throw an error and bring down a system.\n\n`JSON.stringify` will blindly trust any object property, and will throw an error if it hits a defined property that throws an error. This could potentially take down your program.\n\nThe slightly better `Object.defineProperty()` does the same thing, but has the common courtesy to not define the getter as enumerable--that is per default. The following example would bring us in the same situation as with `__defineGetter__`.\n\n```js\n// Never ever do this in your code. Please.\nvar obj = {};\nObject.defineProperty(obj, 'foo', {\n    get: function() { throw new Error('ouch!'); },\n        enumerable: true // enumerable is false by default\n});\n\nJSON.stringify(obj); // error thrown\n```\n\nSo, we can not trust any of them. One could argue that they should never be used, and we can, and should, apply that principle to our own software, but we cannot trust code from third-party modules. If data from third-party modules are to be stringified by JSON we should take these situations into considerations. This module attempt to do that by spotting defined getters and return \"[Throws]\" if said getter throws an error.\n\n```js\nvar safeJsonStringify = require('safe-json-stringify');\n// Never ever do this in your code. Please.\nvar obj = {};\nObject.defineProperty(obj, 'foo', {\n    get: function() { throw new Error('ouch!'); },\n        enumerable: true\n});\n\nsafeJsonStringify(obj); // '{\"foo\":\"[Throws]\"}'\n```\n\nAnd it attempts to handle circular references too. It returns \"[Circular]\" if it spots one.\n\n\nLicense\n-------\nThe MIT License (MIT)\n\nCopyright (c) 2014-2017 [Debitoor](https://debitoor.com/)\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+}

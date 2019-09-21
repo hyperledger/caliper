@@ -1,0 +1,780 @@
+{
+	"name": "@protobufjs/codegen",
+	"versions": {
+		"1.0.0": {
+			"name": "@protobufjs/codegen",
+			"description": "A closure for generating functions programmatically.",
+			"version": "1.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/codegen@1.0.0",
+			"scripts": {},
+			"_shasum": "d33de51ca0370539308ea472984a734ab2c749b7",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "protobufjs",
+				"email": "dcode+npm-protobufjs@dcode.io"
+			},
+			"dist": {
+				"shasum": "d33de51ca0370539308ea472984a734ab2c749b7",
+				"tarball": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/codegen-1.0.0.tgz_1481415001977_0.373096534749493"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "@protobufjs/codegen",
+			"description": "A closure for generating functions programmatically.",
+			"version": "1.0.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/codegen@1.0.1",
+			"scripts": {},
+			"_shasum": "cae53d44d0a3a808880983409e5d82b5a6ffea47",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"dist": {
+				"shasum": "cae53d44d0a3a808880983409e5d82b5a6ffea47",
+				"tarball": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/codegen-1.0.1.tgz_1481417431900_0.8579396766144782"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "@protobufjs/codegen",
+			"description": "A closure for generating functions programmatically.",
+			"version": "1.0.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/codegen@1.0.2",
+			"scripts": {},
+			"_shasum": "d1d1fafe6b458657555a72cbf95c57bbce128de7",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "d1d1fafe6b458657555a72cbf95c57bbce128de7",
+				"tarball": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/codegen-1.0.2.tgz_1481582496907_0.3077931413426995"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "@protobufjs/codegen",
+			"description": "A closure for generating functions programmatically.",
+			"version": "1.0.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/codegen@1.0.3",
+			"scripts": {},
+			"_shasum": "04f59d1397ca25c7b3ce11b17f711eef50d79bfe",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "04f59d1397ca25c7b3ce11b17f711eef50d79bfe",
+				"tarball": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/codegen-1.0.3.tgz_1482269680135_0.014365223934873939"
+			},
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "@protobufjs/codegen",
+			"description": "A closure for generating functions programmatically.",
+			"version": "1.0.4",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/codegen@1.0.4",
+			"scripts": {},
+			"_shasum": "17efb8e2a46716f375726ea80f19d17899fd1b99",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "17efb8e2a46716f375726ea80f19d17899fd1b99",
+				"tarball": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/codegen-1.0.4.tgz_1483457459120_0.5844504223205149"
+			},
+			"directories": {}
+		},
+		"1.0.5": {
+			"name": "@protobufjs/codegen",
+			"description": "A closure for generating functions programmatically.",
+			"version": "1.0.5",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/codegen@1.0.5",
+			"scripts": {},
+			"_shasum": "692e8f1c7fb48bdb2f5b234368ff41b82e4e9bc1",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "692e8f1c7fb48bdb2f5b234368ff41b82e4e9bc1",
+				"tarball": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/codegen-1.0.5.tgz_1483576914562_0.5341924605891109"
+			},
+			"directories": {}
+		},
+		"1.0.6": {
+			"name": "@protobufjs/codegen",
+			"description": "A closure for generating functions programmatically.",
+			"version": "1.0.6",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/codegen@1.0.6",
+			"scripts": {},
+			"_shasum": "4d16f3fbdf9c57ba4618fbbb35f29ef9982ad8a2",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "4d16f3fbdf9c57ba4618fbbb35f29ef9982ad8a2",
+				"tarball": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/codegen-1.0.6.tgz_1484193312225_0.33083653007633984"
+			},
+			"directories": {}
+		},
+		"1.0.7": {
+			"name": "@protobufjs/codegen",
+			"description": "A closure for generating functions programmatically.",
+			"version": "1.0.7",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/codegen@1.0.7",
+			"scripts": {},
+			"_shasum": "3a8af7e673d7b1120a799684fddc25890a06aab7",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "3a8af7e673d7b1120a799684fddc25890a06aab7",
+				"tarball": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/codegen-1.0.7.tgz_1484603989304_0.7336537232622504"
+			},
+			"directories": {}
+		},
+		"1.0.8": {
+			"name": "@protobufjs/codegen",
+			"description": "A closure for generating functions programmatically.",
+			"version": "1.0.8",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/codegen@1.0.8",
+			"scripts": {},
+			"_shasum": "d29e3d48a9445d77ccbffa420379b29dc37c6d7d",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "d29e3d48a9445d77ccbffa420379b29dc37c6d7d",
+				"tarball": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.8.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/codegen-1.0.8.tgz_1484605818668_0.4628825490362942"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "@protobufjs/codegen",
+			"description": "Minimalistic code generation utility.",
+			"version": "2.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/codegen@2.0.0",
+			"scripts": {},
+			"_shasum": "270c75846467afc0b978a51fe7bcb19dd324b81b",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "270c75846467afc0b978a51fe7bcb19dd324b81b",
+				"tarball": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-2.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/codegen-2.0.0.tgz_1492950890149_0.5460622936952859"
+			},
+			"directories": {}
+		},
+		"2.0.1": {
+			"name": "@protobufjs/codegen",
+			"description": "Minimalistic code generation utility.",
+			"version": "2.0.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/codegen@2.0.1",
+			"scripts": {},
+			"_shasum": "bc15e5fe500b1dea7683331f74159aeb6edfeec3",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "bc15e5fe500b1dea7683331f74159aeb6edfeec3",
+				"tarball": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-2.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/codegen-2.0.1.tgz_1492953911110_0.4788154177367687"
+			},
+			"directories": {}
+		},
+		"2.0.2": {
+			"name": "@protobufjs/codegen",
+			"description": "Minimalistic code generation utility.",
+			"version": "2.0.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/codegen@2.0.2",
+			"scripts": {},
+			"_shasum": "11c0da423386f9aae2c63ec7b26c693e18289f99",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "11c0da423386f9aae2c63ec7b26c693e18289f99",
+				"tarball": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-2.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/codegen-2.0.2.tgz_1492964543226_0.2665631368290633"
+			},
+			"directories": {}
+		},
+		"2.0.3": {
+			"name": "@protobufjs/codegen",
+			"description": "A minimalistic code generation utility.",
+			"version": "2.0.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/codegen@2.0.3",
+			"scripts": {},
+			"_shasum": "b0b8304056e0066c055019f559e1283158fa67fc",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "b0b8304056e0066c055019f559e1283158fa67fc",
+				"tarball": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-2.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/codegen-2.0.3.tgz_1492986128674_0.5484944195486605"
+			},
+			"directories": {}
+		},
+		"2.0.4": {
+			"name": "@protobufjs/codegen",
+			"description": "A minimalistic code generation utility.",
+			"version": "2.0.4",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/codegen@2.0.4",
+			"_npmVersion": "5.0.1",
+			"_nodeVersion": "8.0.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"integrity": "sha512-YyFaikqM5sH0ziFZCN3xDC7zeGaB/d0IUb9CATugHWbd1FRFwWwt4ld4OYMPWu5a3Xe01mGAULCdqhMlPl29Jg==",
+				"shasum": "7ef37f0d010fb028ad1ad59722e506d9262815cb",
+				"tarball": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-2.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/codegen-2.0.4.tgz_1497041777758_0.900342388311401"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2017-06-09T20:56:18.669Z",
+		"created": "2016-12-11T00:10:02.575Z",
+		"1.0.0": "2016-12-11T00:10:02.575Z",
+		"1.0.1": "2016-12-11T00:50:32.519Z",
+		"1.0.2": "2016-12-12T22:41:39.053Z",
+		"1.0.3": "2016-12-20T21:34:42.042Z",
+		"1.0.4": "2017-01-03T15:30:59.776Z",
+		"1.0.5": "2017-01-05T00:41:56.501Z",
+		"1.0.6": "2017-01-12T03:55:12.897Z",
+		"1.0.7": "2017-01-16T21:59:49.930Z",
+		"1.0.8": "2017-01-16T22:30:20.490Z",
+		"2.0.0": "2017-04-23T12:34:50.784Z",
+		"2.0.1": "2017-04-23T13:25:11.760Z",
+		"2.0.2": "2017-04-23T16:22:23.805Z",
+		"2.0.3": "2017-04-23T22:22:09.282Z",
+		"2.0.4": "2017-06-09T20:56:18.669Z"
+	},
+	"dist-tags": {
+		"latest": "2.0.4"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"8e0ab9fd8902bd5d10eaa194fadd5841\"",
+			"fetched": 1568994331398
+		}
+	},
+	"_distfiles": {
+		"codegen-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.0.tgz",
+			"sha": "d33de51ca0370539308ea472984a734ab2c749b7",
+			"registry": "npmjs"
+		},
+		"codegen-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.1.tgz",
+			"sha": "cae53d44d0a3a808880983409e5d82b5a6ffea47",
+			"registry": "npmjs"
+		},
+		"codegen-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.2.tgz",
+			"sha": "d1d1fafe6b458657555a72cbf95c57bbce128de7",
+			"registry": "npmjs"
+		},
+		"codegen-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.3.tgz",
+			"sha": "04f59d1397ca25c7b3ce11b17f711eef50d79bfe",
+			"registry": "npmjs"
+		},
+		"codegen-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.4.tgz",
+			"sha": "17efb8e2a46716f375726ea80f19d17899fd1b99",
+			"registry": "npmjs"
+		},
+		"codegen-1.0.5.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.5.tgz",
+			"sha": "692e8f1c7fb48bdb2f5b234368ff41b82e4e9bc1",
+			"registry": "npmjs"
+		},
+		"codegen-1.0.6.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.6.tgz",
+			"sha": "4d16f3fbdf9c57ba4618fbbb35f29ef9982ad8a2",
+			"registry": "npmjs"
+		},
+		"codegen-1.0.7.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.7.tgz",
+			"sha": "3a8af7e673d7b1120a799684fddc25890a06aab7",
+			"registry": "npmjs"
+		},
+		"codegen-1.0.8.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-1.0.8.tgz",
+			"sha": "d29e3d48a9445d77ccbffa420379b29dc37c6d7d",
+			"registry": "npmjs"
+		},
+		"codegen-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-2.0.0.tgz",
+			"sha": "270c75846467afc0b978a51fe7bcb19dd324b81b",
+			"registry": "npmjs"
+		},
+		"codegen-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-2.0.1.tgz",
+			"sha": "bc15e5fe500b1dea7683331f74159aeb6edfeec3",
+			"registry": "npmjs"
+		},
+		"codegen-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-2.0.2.tgz",
+			"sha": "11c0da423386f9aae2c63ec7b26c693e18289f99",
+			"registry": "npmjs"
+		},
+		"codegen-2.0.3.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-2.0.3.tgz",
+			"sha": "b0b8304056e0066c055019f559e1283158fa67fc",
+			"registry": "npmjs"
+		},
+		"codegen-2.0.4.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/codegen/-/codegen-2.0.4.tgz",
+			"sha": "7ef37f0d010fb028ad1ad59722e506d9262815cb",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-77ab6273a0683e53",
+	"_id": "@protobufjs/codegen",
+	"readme": "@protobufjs/codegen\r\n===================\r\n[![npm](https://img.shields.io/npm/v/@protobufjs/codegen.svg)](https://www.npmjs.com/package/@protobufjs/codegen)\r\n\r\nA minimalistic code generation utility.\r\n\r\nAPI\r\n---\r\n\r\n* **codegen([functionParams: `string[]`], [functionName: string]): `Codegen`**<br />\r\n  Begins generating a function.\r\n\r\n* **codegen.verbose = `false`**<br />\r\n  When set to true, codegen will log generated code to console. Useful for debugging.\r\n\r\nInvoking **codegen** returns an appender function that appends code to the function's body and returns itself:\r\n\r\n* **Codegen(formatString: `string`, [...formatParams: `any`]): Codegen**<br />\r\n  Appends code to the function's body. The format string can contain placeholders specifying the types of inserted format parameters:\r\n\r\n  * `%d`: Number (integer or floating point value)\r\n  * `%f`: Floating point value\r\n  * `%i`: Integer value\r\n  * `%j`: JSON.stringify'ed value\r\n  * `%s`: String value\r\n  * `%%`: Percent sign<br />\r\n\r\n* **Codegen([scope: `Object.<string,*>`]): `Function`**<br />\r\n  Finishes the function and returns it.\r\n\r\n* **Codegen.toString([functionNameOverride: `string`]): `string`**<br />\r\n  Returns the function as a string.\r\n\r\nExample\r\n-------\r\n\r\n```js\r\nvar codegen = require(\"@protobufjs/codegen\");\r\n\r\nvar add = codegen([\"a\", \"b\"], \"add\") // A function with parameters \"a\" and \"b\" named \"add\"\r\n  (\"// awesome comment\")             // adds the line to the function's body\r\n  (\"return a + b - c + %d\", 1)       // replaces %d with 1 and adds the line to the body\r\n  ({ c: 1 });                        // adds \"c\" with a value of 1 to the function's scope\r\n\r\nconsole.log(add.toString()); // function add(a, b) { return a + b - c + 1 }\r\nconsole.log(add(1, 2));      // calculates 1 + 2 - 1 + 1 = 3\r\n```\r\n\r\n**License:** [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)"
+}

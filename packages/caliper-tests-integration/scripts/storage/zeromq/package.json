@@ -1,0 +1,2183 @@
+{
+	"name": "zeromq",
+	"versions": {
+		"0.0.1": {
+			"name": "zeromq",
+			"version": "0.0.1",
+			"description": "zeromq for node.js",
+			"main": "index",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/JustinTulloss/zeromq.node.git"
+			},
+			"devDependencies": {
+				"should": "0.3.1"
+			},
+			"engines": {
+				"node": "0.4.x"
+			},
+			"contributors": [
+				{
+					"name": "Justin Tulloss",
+					"email": "justin.tulloss@gmail.com",
+					"url": "http://justin.harmonize.fm"
+				},
+				{
+					"name": "Stéphan Kochen",
+					"email": "stephan@kochen.nl",
+					"url": "http://stephan.kochen.nl/"
+				},
+				{
+					"name": "Mike Castleman",
+					"email": "m@mlcastle.net",
+					"url": "http://mlcastle.net/"
+				},
+				{
+					"name": "Matt Crocker"
+				},
+				{
+					"name": "Jeremy Barnes",
+					"email": "jeremy@barneso.com",
+					"url": "http://www.barneso.com/"
+				},
+				{
+					"name": "Rick",
+					"email": "technoweenie@gmail.com",
+					"url": "http://techno-weenie.net/"
+				},
+				{
+					"name": "Corey Jewett",
+					"url": "http://syntheticplayground.com/"
+				},
+				{
+					"name": "Micheil Smith",
+					"email": "micheil@brandedcode.com",
+					"url": "http://brandedcode.com/"
+				},
+				{
+					"name": "TJ Holowaychuk",
+					"email": "tj@vision-media.ca",
+					"url": "http://tjholowaychuk.com/"
+				}
+			],
+			"_npmUser": {
+				"name": "tjholowaychuk",
+				"email": "tj@vision-media.ca"
+			},
+			"_id": "zeromq@0.0.1",
+			"scripts": {
+				"preinstall": "node-waf clean || true; node-waf configure build"
+			},
+			"dependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.0.104",
+			"_nodeVersion": "v0.4.12",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "6a0ec509a0f89553d7491a1a86368882ffdead25",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-0.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"directories": {}
+		},
+		"3.0.0": {
+			"name": "zeromq",
+			"version": "3.0.0",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild": "^4.2.2"
+			},
+			"devDependencies": {
+				"electron-mocha": "^3.1.1",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.1.0",
+				"nyc": "^8.3.1",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"install": "prebuild --install",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "cac0cc2b35565355cf1ef2c401f173c2804957dc",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@3.0.0",
+			"_shasum": "bb8f689e533a39ced61b07913dd10198885af4f6",
+			"_from": ".",
+			"_npmVersion": "4.0.1",
+			"_nodeVersion": "7.0.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "bb8f689e533a39ced61b07913dd10198885af4f6",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-3.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/zeromq-3.0.0.tgz_1477781413290_0.9854761750902981"
+			},
+			"directories": {}
+		},
+		"3.1.0": {
+			"name": "zeromq",
+			"version": "3.1.0",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild": "^4.4.0"
+			},
+			"devDependencies": {
+				"electron-mocha": "^3.1.1",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.1.0",
+				"nyc": "^8.3.1",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "prebuild --install --preinstall \"npm run build:libzmq\"",
+				"rebuild": "prebuild --compile",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "81598cec8dfa7ed4d8f1c31102221fdf29f3f3e2",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@3.1.0",
+			"_shasum": "220986ab4efe1f645e129f894e63342020d92a6f",
+			"_from": ".",
+			"_npmVersion": "4.0.1",
+			"_nodeVersion": "7.0.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "220986ab4efe1f645e129f894e63342020d92a6f",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-3.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "captainsafia",
+					"email": "safia@safia.rocks"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "minrk",
+					"email": "benjaminrk@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/zeromq-3.1.0.tgz_1478460891029_0.5118086473084986"
+			},
+			"directories": {}
+		},
+		"3.1.1": {
+			"name": "zeromq",
+			"version": "3.1.1",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild": "^4.4.0"
+			},
+			"devDependencies": {
+				"electron-mocha": "^3.1.1",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.1.0",
+				"nyc": "^8.3.1",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "prebuild --install --preinstall \"npm run build:libzmq\"",
+				"rebuild": "prebuild --compile",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "4bb506637f9474db99905569e0e0d1f0d8926854",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@3.1.1",
+			"_shasum": "85cb39dcf0e8f8bcbf81fe6dea7b076aae0abdf8",
+			"_from": ".",
+			"_npmVersion": "4.0.1",
+			"_nodeVersion": "7.0.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "85cb39dcf0e8f8bcbf81fe6dea7b076aae0abdf8",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-3.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "captainsafia",
+					"email": "safia@safia.rocks"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "minrk",
+					"email": "benjaminrk@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/zeromq-3.1.1.tgz_1478481338524_0.08345867460593581"
+			},
+			"directories": {}
+		},
+		"3.2.0": {
+			"name": "zeromq",
+			"version": "3.2.0",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild": "^4.4.0"
+			},
+			"devDependencies": {
+				"electron-mocha": "^3.1.1",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.1.0",
+				"nyc": "^8.3.1",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "prebuild --install --preinstall \"npm run build:libzmq\"",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "507da858216a2dcd44a2b2ffaea02f41623bf667",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@3.2.0",
+			"_shasum": "eb85f5e9e31824667199dbacb1f4621040bbe3f7",
+			"_from": ".",
+			"_npmVersion": "4.0.1",
+			"_nodeVersion": "7.0.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "eb85f5e9e31824667199dbacb1f4621040bbe3f7",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-3.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "captainsafia",
+					"email": "safia@safia.rocks"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "minrk",
+					"email": "benjaminrk@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/zeromq-3.2.0.tgz_1478531057934_0.9870058891829103"
+			},
+			"directories": {}
+		},
+		"3.2.1": {
+			"name": "zeromq",
+			"version": "3.2.1",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild": "^4.4.0"
+			},
+			"devDependencies": {
+				"electron-mocha": "^3.1.1",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.1.0",
+				"nyc": "^8.3.1",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "prebuild --install --preinstall \"npm run build:libzmq\"",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "7d63934f8f9d3310066102e557fc93219c3ed74f",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@3.2.1",
+			"_shasum": "219426bced6180403201ad21c6fa0d3b6d710ee8",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "7.1.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "219426bced6180403201ad21c6fa0d3b6d710ee8",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-3.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "captainsafia",
+					"email": "safia@safia.rocks"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "minrk",
+					"email": "benjaminrk@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/zeromq-3.2.1.tgz_1478858794286_0.674267241731286"
+			},
+			"directories": {}
+		},
+		"3.2.2": {
+			"name": "zeromq",
+			"version": "3.2.2",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild": "^4.4.0"
+			},
+			"devDependencies": {
+				"electron-mocha": "^3.1.1",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.1.0",
+				"nyc": "^8.3.1",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "prebuild --install --preinstall \"npm run build:libzmq\"",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "1ca7804b50843091fda8a408ad1a837de0452dd3",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@3.2.2",
+			"_shasum": "4e318f03a99871f715945491b0ce395eb67730cc",
+			"_from": ".",
+			"_npmVersion": "4.0.3",
+			"_nodeVersion": "7.1.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "4e318f03a99871f715945491b0ce395eb67730cc",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-3.2.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "captainsafia",
+					"email": "safia@safia.rocks"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "minrk",
+					"email": "benjaminrk@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/zeromq-3.2.2.tgz_1480348668041_0.3010364160872996"
+			},
+			"directories": {}
+		},
+		"3.2.3": {
+			"name": "zeromq",
+			"version": "3.2.3",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild": "^4.5.0"
+			},
+			"devDependencies": {
+				"electron-mocha": "^3.2.1",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.2.0",
+				"nyc": "^10.0.0",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "prebuild --install --preinstall \"npm run build:libzmq\"",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "6f325752e6a7d669cd0910fb6b8ebf2fe8f8a0a0",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@3.2.3",
+			"_shasum": "fbd012c1dfe15a88d3fbc656262bae2b947af0e1",
+			"_from": ".",
+			"_npmVersion": "4.0.3",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "fbd012c1dfe15a88d3fbc656262bae2b947af0e1",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-3.2.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "captainsafia",
+					"email": "safia@safia.rocks"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "minrk",
+					"email": "benjaminrk@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/zeromq-3.2.3.tgz_1480526458291_0.8303581029176712"
+			},
+			"directories": {}
+		},
+		"4.0.0": {
+			"name": "zeromq",
+			"version": "4.0.0",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild": "^5.0.0"
+			},
+			"devDependencies": {
+				"electron-mocha": "^3.2.1",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.2.0",
+				"nyc": "^10.0.0",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "prebuild --install --preinstall \"npm run build:libzmq\"",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"postpublish": "./scripts/trigger_travis_build.sh",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "b04f03ebcd5d384708a39746641c847a6b0734eb",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@4.0.0",
+			"_shasum": "14597ede58e00c7adc9d8c00c87b884f1ebd16df",
+			"_from": ".",
+			"_npmVersion": "4.0.3",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "14597ede58e00c7adc9d8c00c87b884f1ebd16df",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-4.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "captainsafia",
+					"email": "safia@safia.rocks"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "minrk",
+					"email": "benjaminrk@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/zeromq-4.0.0.tgz_1480959148108_0.0562632845249027"
+			},
+			"directories": {}
+		},
+		"4.1.0": {
+			"name": "zeromq",
+			"version": "4.1.0",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"@lgeiger/prebuild-install": "^2.0.1",
+				"nan": "^2.4.0"
+			},
+			"devDependencies": {
+				"electron-mocha": "^3.2.1",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.2.0",
+				"nyc": "^10.0.0",
+				"prebuild": "^5.0.0",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "prebuild-install || (npm run build:libzmq && node-gyp rebuild)",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"postpublish": "./scripts/trigger_travis_build.sh",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "f14fb4b72b4bfcf5f51a23bbb4b2f635687f4968",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@4.1.0",
+			"_shasum": "6b7c19955dfd6c4bad14f3a011ac345f2d36e574",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "7.2.1",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "6b7c19955dfd6c4bad14f3a011ac345f2d36e574",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-4.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "captainsafia",
+					"email": "safia@safia.rocks"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "minrk",
+					"email": "benjaminrk@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/zeromq-4.1.0.tgz_1481994865996_0.7287228999193758"
+			},
+			"directories": {}
+		},
+		"4.1.1": {
+			"name": "zeromq",
+			"version": "4.1.1",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild-install": "^2.0.0"
+			},
+			"devDependencies": {
+				"electron-mocha": "^3.2.1",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.2.0",
+				"nyc": "^10.0.0",
+				"prebuild": "^5.0.0",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "prebuild-install || (npm run build:libzmq && node-gyp rebuild)",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"postpublish": "./scripts/trigger_travis_build.sh",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "4b77516f74e9cf05120af2948e3d06db9bf98334",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@4.1.1",
+			"_shasum": "72c9d4c4ba6aa9781442bc9ff0d753bf0ab6caee",
+			"_from": ".",
+			"_npmVersion": "4.1.1",
+			"_nodeVersion": "7.3.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "72c9d4c4ba6aa9781442bc9ff0d753bf0ab6caee",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-4.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "captainsafia",
+					"email": "safia@safia.rocks"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "minrk",
+					"email": "benjaminrk@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/zeromq-4.1.1.tgz_1483032672684_0.055697080213576555"
+			},
+			"directories": {}
+		},
+		"4.2.0": {
+			"name": "zeromq",
+			"version": "4.2.0",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild-install": "^2.1.1"
+			},
+			"devDependencies": {
+				"electron-mocha": "^3.2.1",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.2.0",
+				"nyc": "^10.0.0",
+				"prebuild": "^6.1.0",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "prebuild-install || (npm run build:libzmq && node-gyp rebuild)",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"postpublish": "./scripts/trigger_travis_build.sh",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "d35e5dda33540918d0ed34451a66883889f415a2",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@4.2.0",
+			"_shasum": "e1133305df73c84f8c7df060a8e2b303b4c72d7f",
+			"_from": ".",
+			"_npmVersion": "4.4.0",
+			"_nodeVersion": "7.6.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "e1133305df73c84f8c7df060a8e2b303b4c72d7f",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-4.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "captainsafia",
+					"email": "safia@safia.rocks"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "minrk",
+					"email": "benjaminrk@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/zeromq-4.2.0.tgz_1488532728261_0.680788813624531"
+			},
+			"directories": {}
+		},
+		"4.2.1": {
+			"name": "zeromq",
+			"version": "4.2.1",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild-install": "^2.1.1"
+			},
+			"devDependencies": {
+				"electron-mocha": "^3.2.1",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.2.0",
+				"nyc": "^10.0.0",
+				"prebuild": "^6.1.0",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "prebuild-install || (npm run build:libzmq && node-gyp rebuild)",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"postpublish": "./scripts/trigger_travis_build.sh",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "18de65c49ac912f7c823e64f721866431164d8d1",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@4.2.1",
+			"_shasum": "04d891320ea9a8d07b003d82de67827864c53dfb",
+			"_from": ".",
+			"_npmVersion": "4.2.0",
+			"_nodeVersion": "6.10.2",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "04d891320ea9a8d07b003d82de67827864c53dfb",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-4.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "captainsafia",
+					"email": "safia@safia.rocks"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "minrk",
+					"email": "benjaminrk@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/zeromq-4.2.1.tgz_1492458656511_0.8974394246470183"
+			},
+			"directories": {}
+		},
+		"4.2.2": {
+			"name": "zeromq",
+			"version": "4.2.2",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild-install": "^2.1.1"
+			},
+			"devDependencies": {
+				"electron-mocha": "^3.2.1",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.2.0",
+				"nyc": "^10.0.0",
+				"prebuild": "^6.1.0",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "prebuild-install || (npm run build:libzmq && node-gyp rebuild)",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"postpublish": "./scripts/trigger_travis_build.sh",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "1bc1ebd5f06087331150f27d5e6694e07c75bd2b",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@4.2.2",
+			"_shasum": "bdf7d3bc8e340c56fb37e61826592c37b9053f29",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.2",
+			"_npmUser": {
+				"name": "rgbkrk",
+				"email": "rgbkrk@gmail.com"
+			},
+			"dist": {
+				"shasum": "bdf7d3bc8e340c56fb37e61826592c37b9053f29",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-4.2.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "captainsafia",
+					"email": "safia@safia.rocks"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "minrk",
+					"email": "benjaminrk@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/zeromq-4.2.2.tgz_1495749416240_0.682979331118986"
+			},
+			"directories": {}
+		},
+		"4.2.3": {
+			"name": "zeromq",
+			"version": "4.2.3",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild-install": "^2.1.1"
+			},
+			"devDependencies": {
+				"electron-mocha": "^3.2.1",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.2.0",
+				"nyc": "^10.0.0",
+				"prebuild": "^6.1.0",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "prebuild-install || (npm run build:libzmq && node-gyp rebuild)",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"postpublish": "./scripts/trigger_travis_build.sh",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "fde5f2105d1f8e23d888ae3a0300154d8b93961c",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@4.2.3",
+			"_npmVersion": "5.0.0",
+			"_nodeVersion": "8.0.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-IHGwu3lTdb+x6GHjSdjjNUHwqJ4EW7zb1ixxkmITRBr41b/fM79B7UsYNzcat7ajN8SIfbE4okrbd6XXPA7mWg==",
+				"shasum": "33cd0968dc4a9944e1796dd513bc87f639fc1190",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-4.2.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "captainsafia",
+					"email": "safia@safia.rocks"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "minrk",
+					"email": "benjaminrk@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/zeromq-4.2.3.tgz_1496333453579_0.010743311606347561"
+			},
+			"directories": {}
+		},
+		"4.3.0": {
+			"name": "zeromq",
+			"version": "4.3.0",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild-install": "^2.1.1"
+			},
+			"devDependencies": {
+				"electron-mocha": "^3.2.1",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.2.0",
+				"nyc": "^11.0.2",
+				"prebuild": "^6.1.0",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "prebuild-install || (npm run build:libzmq && node-gyp rebuild)",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"postpublish": "./scripts/trigger_travis_build.sh",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "3389313e75b4bd92a1532af3fc30fa57a7c3f256",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@4.3.0",
+			"_npmVersion": "5.0.3",
+			"_nodeVersion": "8.0.0",
+			"_npmUser": {
+				"name": "rgbkrk",
+				"email": "rgbkrk@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-bVTnjthxifh3uRTAbkqKy3jr+H/tai6H4BOIDB4vz8H+QEzdQ0RVgKp3Zr4pUvFvALQynS2G8wB/ihcIgaUzqA==",
+				"shasum": "4f206b3122b9bc88f6b83f554edb984143c2242d",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-4.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "captainsafia",
+					"email": "safia@safia.rocks"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "minrk",
+					"email": "benjaminrk@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/zeromq-4.3.0.tgz_1497301597861_0.642948433291167"
+			},
+			"directories": {}
+		},
+		"4.4.1": {
+			"name": "zeromq",
+			"version": "4.4.1",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild-install": "^2.1.1"
+			},
+			"devDependencies": {
+				"electron-mocha": "^4.0.0",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.2.0",
+				"nyc": "^11.0.2",
+				"prebuild": "^6.1.0",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "node scripts/prebuild-install.js || (npm run build:libzmq && node-gyp rebuild)",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"postpublish": "./scripts/trigger_travis_build.sh",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "f9503b45b8a97d97333b429e44cab0f3bb960573",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@4.4.1",
+			"_npmVersion": "5.0.3",
+			"_nodeVersion": "8.1.2",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-eahhHWhKkSVuZx+CUVCHZIN2xpxkfYoZOZJXwHAS3X1Gzy3rCpCeqOlt8Kxv2D/Wvz/vUng8lmZ56cJ1jkGfnw==",
+				"shasum": "cd6db69725bfb475d5c4302ec97e8ac30b9d5de5",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-4.4.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "captainsafia",
+					"email": "safia@safia.rocks"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "minrk",
+					"email": "benjaminrk@gmail.com"
+				},
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				},
+				{
+					"name": "tjholowaychuk",
+					"email": "tj@vision-media.ca"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/zeromq-4.4.1.tgz_1498430206711_0.45121430582366884"
+			},
+			"directories": {}
+		},
+		"4.5.0": {
+			"name": "zeromq",
+			"version": "4.5.0",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.4.0",
+				"prebuild-install": "^2.1.1"
+			},
+			"devDependencies": {
+				"electron-mocha": "^4.0.0",
+				"jsdoc": "^3.4.2",
+				"mocha": "^3.2.0",
+				"nyc": "^11.0.2",
+				"prebuild": "^6.1.0",
+				"semver": "^5.3.0",
+				"should": "^11.1.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "node scripts/prebuild-install.js || (npm run build:libzmq && node-gyp rebuild)",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"postpublish": "./scripts/trigger_travis_build.sh",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "ec2bafae9b974bfdff3ba0553e6cca5f8fd7cb9d",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@4.5.0",
+			"_npmVersion": "5.0.3",
+			"_nodeVersion": "8.1.3",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-S3QSlXfiSFT5/A7YJf4D7VfLPQc2tLNgNaFn0aeGwxyFKdlM85aYRhHXBqyVylNzu8BaLchM4Hh7J4TpbISFqQ==",
+				"shasum": "a76d0b548b6208b307b59bd72b30a5d6351706d7",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-4.5.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "rgbkrk",
+					"email": "rgbkrk@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/zeromq-4.5.0.tgz_1499036157607_0.3902386755216867"
+			},
+			"directories": {}
+		},
+		"4.6.0": {
+			"name": "zeromq",
+			"version": "4.6.0",
+			"description": "Prebuilt bindings for node.js to ZeroMQ",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.6.2",
+				"prebuild-install": "^2.2.2"
+			},
+			"devDependencies": {
+				"electron-mocha": "^4.0.0",
+				"jsdoc": "^3.5.4",
+				"mocha": "^3.5.0",
+				"nyc": "^11.1.0",
+				"prebuild": "^6.2.1",
+				"semver": "^5.4.1",
+				"should": "^12.0.0"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "node scripts/prebuild-install.js || (node scripts/preinstall.js && node-gyp rebuild)",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"postpublish": "./scripts/trigger_travis_build.sh",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage/lcov.info"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "394a60a2f076131a742deb600431fdb76bb9d83b",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@4.6.0",
+			"_npmVersion": "5.4.0",
+			"_nodeVersion": "8.4.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-sU7pQqQj7f/C6orJZAXls+NEKaVMZZtnZqpMPTq5d5dP78CmdC0g15XIviFAN6poPuKl9qlGt74vipOUUuNeWg==",
+				"shasum": "7b1ca19cf740f484abfb9358430728f1339f03db",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-4.6.0.tgz"
+			},
+			"maintainers": [
+				{
+					"email": "safia@safia.rocks",
+					"name": "captainsafia"
+				},
+				{
+					"email": "benjaminrk@gmail.com",
+					"name": "minrk"
+				},
+				{
+					"email": "lukas.geiger94@gmail.com",
+					"name": "lgeiger"
+				},
+				{
+					"email": "rgbkrk@gmail.com",
+					"name": "rgbkrk"
+				},
+				{
+					"email": "tj@vision-media.ca",
+					"name": "tjholowaychuk"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/zeromq-4.6.0.tgz_1504479891550_0.9482960139866918"
+			},
+			"directories": {}
+		},
+		"5.0.0": {
+			"name": "zeromq",
+			"version": "5.0.0",
+			"description": "ZeroMQ for node.js",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.10.0",
+				"prebuild-install": "5.2.0"
+			},
+			"devDependencies": {
+				"electron-mocha": "^6.0.0",
+				"jsdoc": "^3.5.4",
+				"mocha": "^5.0.0",
+				"nyc": "^12.0.2",
+				"prebuild": "^8.1.0",
+				"semver": "^5.4.1",
+				"should": "^13.0.0"
+			},
+			"engines": {
+				"node": ">=6.0"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "node scripts/prebuild-install.js || (node scripts/preinstall.js && node-gyp rebuild)",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage.lcov"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "f92cefa0e2c3fa7fea35cad68dc38c959503ceeb",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@5.0.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.11.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-yDiXJkUMXZT2IHW3gsLO9bkBXc7a46UbT0gJOZdsux3WpYH4bA4YtqZKUmiwBEsPjh432ohj8PnjNkmIWyCdRQ==",
+				"shasum": "74ab9572cb8d2e0e033e24f69a0116a3f0215159",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-5.0.0.tgz",
+				"fileCount": 49,
+				"unpackedSize": 171027,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbrvObCRA9TVsSAnZWagAAY4IP/145p7nIG/YlixbWuLHW\n8Oj0Jj19iKUZ2Elp+ydDqE/V9vm/9dZy0uyOlDI+bah+BVURCJcQWGk2OiKG\nv9UsvVO6udYT3RlWCoIf903E/iVFfRUremBoz/R3u2NSsONvC+i42tDnwNTi\nTknzQNv3JjNG6p82+yk1qjxTaRh6IaV6I28ajlYD1zWKy1ZzckPAbv6ImaCm\no18jpUI9FyYL6PswamTr99oPv64OU1LsHlWoIvHE9ma9HpOiaRu14VMO9do1\ny9RM9B+Ka2Q5WrDoI9ka+hzcdOWMjKrY5jKRTiTxdt9M79cUXBW4escHulNr\nVRLbOAapsgjl8hHxfgq+dIQMRXoLJip467A1vOg5v92dLHOO1y+UjrUxQ2dH\nAm/Ks1SLymUMLMUuEgqqUsw41pExP3WYZ9YBnam44/h3MEtZocWrYCxHy6aN\nxmRhVnucEjWQ7uL3C5T66mRSXmrj7UxlsioC05s4+/e50HC0uluL1JOG0Q4k\nTNWTzCxYXs+NhRNGnefYGt/qNBDCg3MLJZbCrxwu4LoT4o3Qz+LvToH/PYBg\nBRod8i1HJcVm2VrOxFSTl0pRRqBfmfXWfVZ5z72xEWvV6xguYFXGUWkHoBCh\nztA0BQrEa4OmDImMHsSSDP9p8WSuLEyMybyaMNA89muljwZn2uCcLGvIPmyj\nOLWj\r\n=WKSS\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "safia@safia.rocks",
+					"name": "captainsafia"
+				},
+				{
+					"email": "lukas.geiger94@gmail.com",
+					"name": "lgeiger"
+				},
+				{
+					"email": "benjaminrk@gmail.com",
+					"name": "minrk"
+				},
+				{
+					"email": "rgbkrk@gmail.com",
+					"name": "rgbkrk"
+				},
+				{
+					"email": "ron@ronkorving.nl",
+					"name": "ronkorving"
+				},
+				{
+					"email": "tj@vision-media.ca",
+					"name": "tjholowaychuk"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/zeromq_5.0.0_1538192282386_0.5169245222731966"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.1.0": {
+			"name": "zeromq",
+			"version": "5.1.0",
+			"description": "ZeroMQ for node.js",
+			"main": "index",
+			"gypfile": true,
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zeromq/zeromq.js.git"
+			},
+			"dependencies": {
+				"nan": "^2.10.0",
+				"prebuild-install": "5.2.1"
+			},
+			"devDependencies": {
+				"electron-mocha": "^6.0.0",
+				"jsdoc": "^3.5.4",
+				"mocha": "^5.0.0",
+				"nyc": "^12.0.2",
+				"prebuild": "^8.1.0",
+				"semver": "^5.4.1",
+				"should": "^13.0.0"
+			},
+			"engines": {
+				"node": ">=6.0"
+			},
+			"scripts": {
+				"build:libzmq": "node scripts/preinstall.js",
+				"install": "node scripts/prebuild-install.js || (node scripts/preinstall.js && node-gyp rebuild)",
+				"prebuild": "prebuild --all --strip",
+				"build:docs": "jsdoc -R README.md -d docs lib/*.js",
+				"test": "mocha --expose-gc --slow 300",
+				"test:electron": "electron-mocha --slow 300",
+				"precoverage": "nyc npm run test",
+				"coverage": "nyc report --reporter=text-lcov > coverage.lcov"
+			},
+			"keywords": [
+				"zeromq",
+				"zmq",
+				"0mq",
+				"ømq",
+				"libzmq",
+				"native",
+				"binding",
+				"addon"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Justin Tulloss",
+				"email": "justin.tulloss@gmail.com",
+				"url": "http://justin.harmonize.fm"
+			},
+			"gitHead": "09b22070d5b1929a2191bb91d5c4621bf36fe9bf",
+			"bugs": {
+				"url": "https://github.com/zeromq/zeromq.js/issues"
+			},
+			"homepage": "https://github.com/zeromq/zeromq.js#readme",
+			"_id": "zeromq@5.1.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.11.4",
+			"_npmUser": {
+				"name": "rgbkrk",
+				"email": "rgbkrk@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-wBEwnWaC1BQgcVoC4ZcERuIf+F0LdW12rblcwFNQANUGjJqQB1Ty3D59+WhvBJU9EliQw9Qc6V914gYXMzO6jw==",
+				"shasum": "e96508f8babe851c1ea07c0edcedf8e7715947f6",
+				"tarball": "https://registry.npmjs.org/zeromq/-/zeromq-5.1.0.tgz",
+				"fileCount": 49,
+				"unpackedSize": 171128,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbyO/vCRA9TVsSAnZWagAAiQcP/i6e6henTukh0qkCEEBV\nAZ44YCyy4oBey8tKorJ21T0Rn9B5HQg8Xpdf5yanULlx87NVPOgDgx62Vkbp\n20R0EaXg5gABknbguCtHtCsJxWrmoYl83c7emsIDL1Q50v9i7LDj/gYkgveY\nkrnvl9MQr5XGRlJ6gpSg9XJ/ab5ZCJihFZX2BRutkQNVuEvc/16EutE7pEDJ\nDIDqPqZ+X/bjdKCQvCDbI/kdgOG9VqGy0sn0h6u+qL1OParunSK3BHj/LYbG\nFKnOz8vXW+IHfYFFUOtSnJKa64fVl2bu7gUIOgDyIGPC9m10bbBny5GKN+Xv\n7V/AhbM+yEO0M0rQEfe6xMsP8ntx8N0X5/sTrelTeE/tFsWe6GbAW2bzX33E\nNYTpuE3a/B6OM1nIp+V1+xJ9EQV0/ItPN49cXgNwUrmECjM8gYyD2pJ5kD4d\nFA2XfUT2HKqM+WMnQpeWpANL8IgMsSWHoZFttIN0kkl1s93YRihkoqgpZN/i\nEinO/2312e5nz6J1MFyZ1eWGIpSQ5ceoNm06dfcoumJvWjm6Qr748qawqfSz\nwY8C1Hu8rHlvtE/jEZXbXw8F1o43T/Pl+mr0TJFOYw4jjOHdmLhx+1UTpiMc\nKzCeC/AY1qMfj2sZopRuM63nYQi4PfCeoQylFBUxwO3b+f8Ba5zUpcPeIbGE\nGwqm\r\n=Kpa/\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "safia@safia.rocks",
+					"name": "captainsafia"
+				},
+				{
+					"email": "lukas.geiger94@gmail.com",
+					"name": "lgeiger"
+				},
+				{
+					"email": "benjaminrk@gmail.com",
+					"name": "minrk"
+				},
+				{
+					"email": "rgbkrk@gmail.com",
+					"name": "rgbkrk"
+				},
+				{
+					"email": "ron@ronkorving.nl",
+					"name": "ronkorving"
+				},
+				{
+					"email": "tj@vision-media.ca",
+					"name": "tjholowaychuk"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/zeromq_5.1.0_1539895278615_0.8455483304690457"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-01-05T20:39:15.658Z",
+		"created": "2011-11-29T19:54:27.861Z",
+		"0.0.1": "2011-11-29T19:54:29.328Z",
+		"3.0.0": "2016-10-29T22:50:15.597Z",
+		"3.1.0": "2016-11-06T19:34:53.060Z",
+		"3.1.1": "2016-11-07T01:15:39.154Z",
+		"3.2.0": "2016-11-07T15:04:18.508Z",
+		"3.2.1": "2016-11-11T10:06:34.938Z",
+		"3.2.2": "2016-11-28T15:57:50.107Z",
+		"3.2.3": "2016-11-30T17:21:00.613Z",
+		"4.0.0": "2016-12-05T17:32:30.188Z",
+		"4.1.0": "2016-12-17T17:14:26.736Z",
+		"4.1.1": "2016-12-29T17:31:13.453Z",
+		"4.2.0": "2017-03-03T09:18:50.366Z",
+		"4.2.1": "2017-04-17T19:50:58.531Z",
+		"4.2.2": "2017-05-25T21:56:56.416Z",
+		"4.2.3": "2017-06-01T16:10:54.786Z",
+		"4.3.0": "2017-06-12T21:06:37.982Z",
+		"4.4.0": "2017-06-25T21:52:51.432Z",
+		"4.4.1": "2017-06-25T22:36:47.880Z",
+		"4.5.0": "2017-07-02T22:55:58.793Z",
+		"4.6.0": "2017-09-03T23:04:52.568Z",
+		"5.0.0": "2018-09-29T03:38:02.544Z",
+		"5.1.0": "2018-10-18T20:41:18.770Z"
+	},
+	"dist-tags": {
+		"latest": "5.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"5aa96e9a30cc33430c023655c2e49a80\"",
+			"fetched": 1568994352879
+		}
+	},
+	"_distfiles": {
+		"zeromq-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-0.0.1.tgz",
+			"sha": "6a0ec509a0f89553d7491a1a86368882ffdead25",
+			"registry": "npmjs"
+		},
+		"zeromq-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-3.0.0.tgz",
+			"sha": "bb8f689e533a39ced61b07913dd10198885af4f6",
+			"registry": "npmjs"
+		},
+		"zeromq-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-3.1.0.tgz",
+			"sha": "220986ab4efe1f645e129f894e63342020d92a6f",
+			"registry": "npmjs"
+		},
+		"zeromq-3.1.1.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-3.1.1.tgz",
+			"sha": "85cb39dcf0e8f8bcbf81fe6dea7b076aae0abdf8",
+			"registry": "npmjs"
+		},
+		"zeromq-3.2.0.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-3.2.0.tgz",
+			"sha": "eb85f5e9e31824667199dbacb1f4621040bbe3f7",
+			"registry": "npmjs"
+		},
+		"zeromq-3.2.1.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-3.2.1.tgz",
+			"sha": "219426bced6180403201ad21c6fa0d3b6d710ee8",
+			"registry": "npmjs"
+		},
+		"zeromq-3.2.2.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-3.2.2.tgz",
+			"sha": "4e318f03a99871f715945491b0ce395eb67730cc",
+			"registry": "npmjs"
+		},
+		"zeromq-3.2.3.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-3.2.3.tgz",
+			"sha": "fbd012c1dfe15a88d3fbc656262bae2b947af0e1",
+			"registry": "npmjs"
+		},
+		"zeromq-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-4.0.0.tgz",
+			"sha": "14597ede58e00c7adc9d8c00c87b884f1ebd16df",
+			"registry": "npmjs"
+		},
+		"zeromq-4.1.0.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-4.1.0.tgz",
+			"sha": "6b7c19955dfd6c4bad14f3a011ac345f2d36e574",
+			"registry": "npmjs"
+		},
+		"zeromq-4.1.1.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-4.1.1.tgz",
+			"sha": "72c9d4c4ba6aa9781442bc9ff0d753bf0ab6caee",
+			"registry": "npmjs"
+		},
+		"zeromq-4.2.0.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-4.2.0.tgz",
+			"sha": "e1133305df73c84f8c7df060a8e2b303b4c72d7f",
+			"registry": "npmjs"
+		},
+		"zeromq-4.2.1.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-4.2.1.tgz",
+			"sha": "04d891320ea9a8d07b003d82de67827864c53dfb",
+			"registry": "npmjs"
+		},
+		"zeromq-4.2.2.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-4.2.2.tgz",
+			"sha": "bdf7d3bc8e340c56fb37e61826592c37b9053f29",
+			"registry": "npmjs"
+		},
+		"zeromq-4.2.3.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-4.2.3.tgz",
+			"sha": "33cd0968dc4a9944e1796dd513bc87f639fc1190",
+			"registry": "npmjs"
+		},
+		"zeromq-4.3.0.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-4.3.0.tgz",
+			"sha": "4f206b3122b9bc88f6b83f554edb984143c2242d",
+			"registry": "npmjs"
+		},
+		"zeromq-4.4.1.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-4.4.1.tgz",
+			"sha": "cd6db69725bfb475d5c4302ec97e8ac30b9d5de5",
+			"registry": "npmjs"
+		},
+		"zeromq-4.5.0.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-4.5.0.tgz",
+			"sha": "a76d0b548b6208b307b59bd72b30a5d6351706d7",
+			"registry": "npmjs"
+		},
+		"zeromq-4.6.0.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-4.6.0.tgz",
+			"sha": "7b1ca19cf740f484abfb9358430728f1339f03db",
+			"registry": "npmjs"
+		},
+		"zeromq-5.0.0.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-5.0.0.tgz",
+			"sha": "74ab9572cb8d2e0e033e24f69a0116a3f0215159",
+			"registry": "npmjs"
+		},
+		"zeromq-5.1.0.tgz": {
+			"url": "https://registry.npmjs.org/zeromq/-/zeromq-5.1.0.tgz",
+			"sha": "e96508f8babe851c1ea07c0edcedf8e7715947f6",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-ac3975eeb4d69944",
+	"_id": "zeromq",
+	"readme": "# zeromq.js\n\n[![codecov](https://codecov.io/gh/zeromq/zeromq.js/branch/master/graph/badge.svg)](https://codecov.io/gh/zeromq/zeromq.js)\n[![Greenkeeper badge](https://badges.greenkeeper.io/zeromq/zeromq.js.svg)](https://greenkeeper.io/)\n[![](https://img.shields.io/badge/version-latest-blue.svg)](https://github.com/zeromq/zeromq.js)\n[![Build Status](https://travis-ci.org/zeromq/zeromq.js.svg?branch=master)](https://travis-ci.org/zeromq/zeromq.js)\n[![Build status](https://ci.appveyor.com/api/projects/status/6u7saauir2msxpou?svg=true)](https://ci.appveyor.com/project/zeromq/zeromq-js/branch/master)\n[![](https://img.shields.io/badge/version-stable-blue.svg)](https://github.com/zeromq/zeromq.js/releases)\n[![Build Status](https://travis-ci.org/zeromq/zeromq.js.svg?branch=prebuilt-testing)](https://travis-ci.org/zeromq/zeromq.js)\n[![Build status](https://ci.appveyor.com/api/projects/status/w189dgubmg9darun/branch/master?svg=true)](https://ci.appveyor.com/project/zeromq/zeromq-js/branch/prebuilt-testing)\n\n[**Users**](#installation---users) | [**From Source**](#installation---from-source) | [**Contributors and Development**](#installation---contributors-and-development) | [**Maintainers**](#for-maintainers-creating-a-release)\n\n**`zeromq`**: Your ready to use, prebuilt [ØMQ](http://www.zeromq.org/)\nbindings for [Node.js](https://nodejs.org/en/).\n\nØMQ provides handy functionality when working with sockets. Yet,\ninstalling dependencies on your operating system or building ØMQ from\nsource can lead to developer frustration.\n\n**zeromq** simplifies creating communications for a Node.js\napplication by providing well-tested, ready to use ØMQ bindings.\nzeromq supports all major operating systems, including:\n\n* OS X/Darwin (x64)\n* Linux (x64, ARMv7 and ARMv8)\n* Windows (x64 and x86)\n\nUse **zeromq** and take advantage of the *elegant simplicity of binaries*.\n\n\n## Installation - Users\n\nWe rely on [`prebuild`](https://github.com/mafintosh/prebuild).\n\nInstall `zeromq` with the following:\n\n```bash\nnpm install zeromq\n```\nwindows users:\ndo not forget to set msvs_version according to your visual studio version 2013,2015,2017\n  `npm config set msvs_version 2015`\nNow, prepare to be amazed by the wonders of binaries.\n\nTo use your system's libzmq (if it has been installed and development headers\nare available):\n\n```bash\nnpm install zeromq --zmq-external\n```\n\n### Rebuilding for Electron\n\nIf you want to use `zeromq` inside your [Electron](http://electron.atom.io/) application\nit needs to be rebuild against Electron headers. We ship prebuilt binaries for Electron so you won't need to build `zeromq` from source.\n\nYou can rebuild `zeromq` manually by running:\n```bash\nnpm rebuild zeromq --runtime=electron --target=1.4.5\n```\nWhere `target` is your desired Electron version. This will download the correct binary for usage in Electron.\n\nFor packaging your Electron application we recommend using [`electron-builder`](https://github.com/electron-userland/electron-builder) which handles rebuilding automatically. Enable the `npmSkipBuildFromSource` option to make use of the prebuilt binaries. For a real world example take a look at [nteract](https://github.com/nteract/nteract/blob/master/package.json).\n\n\n## Installation - From Source\n\nIf you are working on a Linux 32-bit system or want to install a development version, you have to build `zeromq` from source.\n\n### Prerequisites\n\n**Linux**\n- `python` (`v2.7` recommended, `v3.x.x` is not supported)\n- `make`\n- A proper C/C++ compiler toolchain, like [GCC](https://gcc.gnu.org/)\n\nUse your distribution's package manager to install.\n\n**macOS**\n\n- `python` (`v2.7` recommended, `v3.x.x` is not supported): already installed on Mac OS X\n- `Xcode Command Line Tools`: Can be installed with `xcode-select --install`\n\n**Windows**\n\n- **Option 1:** Install all the required tools and configurations using Microsoft's [windows-build-tools](https://github.com/felixrieseberg/windows-build-tools) by running `npm install -g windows-build-tools` from an elevated PowerShell (run as Administrator).\n- **Option 2:** Install dependencies and configuration manually\n   1. Visual C++ Build Environment:\n     * **Option 1:** Install [Visual C++ Build Tools](http://go.microsoft.com/fwlink/?LinkId=691126) using the *Default Install* option.\n     * **Option 2:** Install [Visual Studio 2015](https://www.visualstudio.com/products/visual-studio-community-vs) (or modify an existing installation) and select *Common Tools for Visual C++* during setup.\n\n  > :bulb: [Windows Vista / 7 only] requires [.NET Framework 4.5.1](http://www.microsoft.com/en-us/download/details.aspx?id=40773)\n\n  2. Install [Python 2.7](https://www.python.org/downloads/) or [Miniconda 2.7](http://conda.pydata.org/miniconda.html) (`v3.x.x` is not supported), and run `npm config set python python2.7`\n  3. Launch cmd, and set msvs_version according to your visual studio version 2013,2015,2017\n  `npm config set msvs_version 2015`\n\n\n### Installation\n\nNow you can install `zeromq` with the following:\n\n```bash\nnpm install zeromq\n```\n\n## Installation - Contributors and Development\n\nTo set up `zeromq` for development, fork this repository and\nclone your fork to your system.\n\nMake sure you have the required [dependencies for building `zeromq` from source](#installation---from-source) installed.\n\nInstall a development version of `zeromq` with the following:\n\n```bash\nnpm install\n```\n\n## Testing\n\nRun the test suite using:\n\n```bash\nnpm test\n```\n\n## Running an example application\n\nSeveral example applications are found in the `examples` directory. Use\n`node` to run an example. To run the 'subber' application, enter the\nfollowing:\n\n```bash\nnode examples/subber.js\n```\n\n\n## Examples using zeromq\n\n### Push/Pull\n\nThis example demonstrates how a producer pushes information onto a\nsocket and how a worker pulls information from the socket.\n\n**producer.js**\n\n```js\n// producer.js\nvar zmq = require('zeromq')\n  , sock = zmq.socket('push');\n\nsock.bindSync('tcp://127.0.0.1:3000');\nconsole.log('Producer bound to port 3000');\n\nsetInterval(function(){\n  console.log('sending work');\n  sock.send('some work');\n}, 500);\n```\n\n**worker.js**\n\n```js\n// worker.js\nvar zmq = require('zeromq')\n  , sock = zmq.socket('pull');\n\nsock.connect('tcp://127.0.0.1:3000');\nconsole.log('Worker connected to port 3000');\n\nsock.on('message', function(msg){\n  console.log('work: %s', msg.toString());\n});\n```\n\n### Pub/Sub\n\nThis example demonstrates using `zeromq` in a classic Pub/Sub,\nPublisher/Subscriber, application.\n\n**Publisher: pubber.js**\n\n```js\n// pubber.js\nvar zmq = require('zeromq')\n  , sock = zmq.socket('pub');\n\nsock.bindSync('tcp://127.0.0.1:3000');\nconsole.log('Publisher bound to port 3000');\n\nsetInterval(function(){\n  console.log('sending a multipart message envelope');\n  sock.send(['kitty cats', 'meow!']);\n}, 500);\n```\n\n**Subscriber: subber.js**\n\n```js\n// subber.js\nvar zmq = require('zeromq')\n  , sock = zmq.socket('sub');\n\nsock.connect('tcp://127.0.0.1:3000');\nsock.subscribe('kitty cats');\nconsole.log('Subscriber connected to port 3000');\n\nsock.on('message', function(topic, message) {\n  console.log('received a message related to:', topic, 'containing message:', message);\n});\n```\n\n\n## For maintainers: Creating a release\n\nWhen making a release, do the following:\n\n```bash\nnpm version minor && git push && git push --tags\n```\n\nThen, wait for the prebuilds to get uploaded for each OS. After the\nprebuilds are uploaded, run the following to publish the release:\n\n```bash\nnpm publish\n```\n\n## Background\n\nThis codebase largely came from the npm module `zmq` and was, at one point, named `nteract/zmq-prebuilt`. It started as a community run fork of `zmq` that fixed up the build process and automated prebuilt binaries. In the process of setting up a way to do statically compiled binaries of zeromq for node, `zmq-static` was created. Eventually `zmq-prebuilt` was able to do the job of `zmq-static` and it was deprecated. Once `zmq-prebuilt` was shipping for a while, allowed building from source,  and suggesting people use it for electron + node.js, the repository moved to the zeromq org and it became official."
+}

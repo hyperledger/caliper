@@ -1,0 +1,841 @@
+{
+	"name": "jssha",
+	"versions": {
+		"1.5.0": {
+			"name": "jssha",
+			"version": "1.5.0",
+			"description": "jsSHA is a JavaScript implementation of the entire family of SHA hashes as defined in FIPS 180-2 (SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512) as well as HMAC",
+			"main": "src/sha.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/Caligatio/jsSHA.git"
+			},
+			"keywords": [
+				"SHA-1",
+				"SHA-256",
+				"SHA-224",
+				"SHA-384",
+				"SHA-512",
+				"SHA1",
+				"SHA256",
+				"SHA224",
+				"SHA384",
+				"SHA512",
+				"SHA2",
+				"HMAC",
+				"hash"
+			],
+			"license": "BSD",
+			"author": {
+				"name": "Brian Turek",
+				"email": "brian.turek@gmail.com"
+			},
+			"bugs": {
+				"url": "https://github.com/Caligatio/jsSHA/issues"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"homepage": "https://github.com/Caligatio/jsSHA",
+			"dependencies": {},
+			"devDependencies": {},
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"_id": "jssha@1.5.0",
+			"dist": {
+				"shasum": "136123ea77a9d46e007f623ab5ee58a16a2636a1",
+				"tarball": "https://registry.npmjs.org/jssha/-/jssha-1.5.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.17",
+			"_npmUser": {
+				"name": "caligatio",
+				"email": "brian.turek@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "caligatio",
+					"email": "brian.turek@gmail.com"
+				}
+			],
+			"deprecated": "jsSHA versions < v2.0.0 will no longer receive features",
+			"directories": {}
+		},
+		"1.6.0": {
+			"name": "jssha",
+			"version": "1.6.0",
+			"description": "jsSHA is a JavaScript implementation of the entire family of SHA hashes as defined in FIPS 180-2 (SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512) as well as HMAC",
+			"main": "src/sha.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/Caligatio/jsSHA.git"
+			},
+			"keywords": [
+				"SHA-1",
+				"SHA-256",
+				"SHA-224",
+				"SHA-384",
+				"SHA-512",
+				"SHA1",
+				"SHA256",
+				"SHA224",
+				"SHA384",
+				"SHA512",
+				"SHA2",
+				"HMAC",
+				"hash"
+			],
+			"license": "BSD",
+			"author": {
+				"name": "Brian Turek",
+				"email": "brian.turek@gmail.com"
+			},
+			"bugs": {
+				"url": "https://github.com/Caligatio/jsSHA/issues"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"homepage": "https://github.com/Caligatio/jsSHA",
+			"dependencies": {},
+			"devDependencies": {},
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"gitHead": "3c1d4f2e65d19577a647732811cc6a875b29fcb9",
+			"_id": "jssha@1.6.0",
+			"_shasum": "67acf0b90fdebb9bb3fe3a44e6016cf2cf0670b9",
+			"_from": "jsSHA/",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "caligatio",
+				"email": "brian.turek@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "caligatio",
+					"email": "brian.turek@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "67acf0b90fdebb9bb3fe3a44e6016cf2cf0670b9",
+				"tarball": "https://registry.npmjs.org/jssha/-/jssha-1.6.0.tgz"
+			},
+			"deprecated": "jsSHA versions < v2.0.0 will no longer receive features",
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "jssha",
+			"version": "2.0.0",
+			"description": "jsSHA is a JavaScript implementation of the entire family of SHA hashes as defined in FIPS 180-2 (SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512) as well as HMAC",
+			"main": "src/sha.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/Caligatio/jsSHA.git"
+			},
+			"keywords": [
+				"SHA-1",
+				"SHA-256",
+				"SHA-224",
+				"SHA-384",
+				"SHA-512",
+				"SHA1",
+				"SHA256",
+				"SHA224",
+				"SHA384",
+				"SHA512",
+				"SHA2",
+				"HMAC",
+				"hash"
+			],
+			"license": "BSD",
+			"author": {
+				"name": "Brian Turek",
+				"email": "brian.turek@gmail.com"
+			},
+			"bugs": {
+				"url": "https://github.com/Caligatio/jsSHA/issues"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"homepage": "https://github.com/Caligatio/jsSHA",
+			"dependencies": {},
+			"devDependencies": {},
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"gitHead": "1c8b1a3fd7b0f2f981602017cd2163c65e692432",
+			"_id": "jssha@2.0.0",
+			"_shasum": "5fe96e088593c257a82019caa5ccae554afc6807",
+			"_from": "jsSHA",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "caligatio",
+				"email": "brian.turek@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "caligatio",
+					"email": "brian.turek@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "5fe96e088593c257a82019caa5ccae554afc6807",
+				"tarball": "https://registry.npmjs.org/jssha/-/jssha-2.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.1": {
+			"name": "jssha",
+			"version": "2.0.1",
+			"description": "jsSHA is a JavaScript implementation of the entire family of SHA hashes as defined in FIPS 180-2 (SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512) as well as HMAC",
+			"main": "src/sha.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/Caligatio/jsSHA.git"
+			},
+			"keywords": [
+				"SHA-1",
+				"SHA-256",
+				"SHA-224",
+				"SHA-384",
+				"SHA-512",
+				"SHA1",
+				"SHA256",
+				"SHA224",
+				"SHA384",
+				"SHA512",
+				"SHA2",
+				"HMAC",
+				"hash"
+			],
+			"license": "BSD",
+			"author": {
+				"name": "Brian Turek",
+				"email": "brian.turek@gmail.com"
+			},
+			"bugs": {
+				"url": "https://github.com/Caligatio/jsSHA/issues"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"homepage": "https://github.com/Caligatio/jsSHA",
+			"dependencies": {},
+			"devDependencies": {},
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"gitHead": "a11967ec84b0f30097ddabf6280cbb8d52d81f65",
+			"_id": "jssha@2.0.1",
+			"_shasum": "d945d29f38db919a5e086261cc012249f6d5d5b7",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "caligatio",
+				"email": "brian.turek@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "caligatio",
+					"email": "brian.turek@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "d945d29f38db919a5e086261cc012249f6d5d5b7",
+				"tarball": "https://registry.npmjs.org/jssha/-/jssha-2.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"1.6.1": {
+			"name": "jssha",
+			"version": "1.6.1",
+			"description": "jsSHA is a JavaScript implementation of the entire family of SHA hashes as defined in FIPS 180-2 (SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512) as well as HMAC",
+			"main": "src/sha.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/Caligatio/jsSHA.git"
+			},
+			"keywords": [
+				"SHA-1",
+				"SHA-256",
+				"SHA-224",
+				"SHA-384",
+				"SHA-512",
+				"SHA1",
+				"SHA256",
+				"SHA224",
+				"SHA384",
+				"SHA512",
+				"SHA2",
+				"HMAC",
+				"hash"
+			],
+			"license": "BSD",
+			"author": {
+				"name": "Brian Turek",
+				"email": "brian.turek@gmail.com"
+			},
+			"bugs": {
+				"url": "https://github.com/Caligatio/jsSHA/issues"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"homepage": "https://github.com/Caligatio/jsSHA",
+			"dependencies": {},
+			"devDependencies": {},
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"gitHead": "7a57185524e90251ba41215a57777707c93d1795",
+			"_id": "jssha@1.6.1",
+			"_shasum": "f911b05b29f235728c2b9799a250e20d11f899ec",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "caligatio",
+				"email": "brian.turek@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "caligatio",
+					"email": "brian.turek@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "f911b05b29f235728c2b9799a250e20d11f899ec",
+				"tarball": "https://registry.npmjs.org/jssha/-/jssha-1.6.1.tgz"
+			},
+			"deprecated": "jsSHA versions < v2.0.0 will no longer receive features",
+			"directories": {}
+		},
+		"2.0.2": {
+			"name": "jssha",
+			"version": "2.0.2",
+			"description": "jsSHA is a JavaScript implementation of the entire family of SHA hashes as defined in FIPS 180-2 (SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512) as well as HMAC",
+			"main": "src/sha.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/Caligatio/jsSHA.git"
+			},
+			"keywords": [
+				"SHA-1",
+				"SHA-256",
+				"SHA-224",
+				"SHA-384",
+				"SHA-512",
+				"SHA1",
+				"SHA256",
+				"SHA224",
+				"SHA384",
+				"SHA512",
+				"SHA2",
+				"HMAC",
+				"hash"
+			],
+			"license": "BSD",
+			"author": {
+				"name": "Brian Turek",
+				"email": "brian.turek@gmail.com"
+			},
+			"bugs": {
+				"url": "https://github.com/Caligatio/jsSHA/issues"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"homepage": "https://github.com/Caligatio/jsSHA",
+			"dependencies": {},
+			"devDependencies": {},
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"gitHead": "03f898d654cc83f952a16e2372a89a3ebadae435",
+			"_id": "jssha@2.0.2",
+			"_shasum": "d239dfb0231c05069c56ce680de08895e365c0cd",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "caligatio",
+				"email": "brian.turek@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "caligatio",
+					"email": "brian.turek@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "d239dfb0231c05069c56ce680de08895e365c0cd",
+				"tarball": "https://registry.npmjs.org/jssha/-/jssha-2.0.2.tgz"
+			},
+			"directories": {}
+		},
+		"1.6.2": {
+			"name": "jssha",
+			"version": "1.6.2",
+			"description": "jsSHA is a JavaScript implementation of the entire family of SHA hashes as defined in FIPS 180-2 (SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512) as well as HMAC",
+			"main": "src/sha.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/Caligatio/jsSHA.git"
+			},
+			"keywords": [
+				"SHA-1",
+				"SHA-256",
+				"SHA-224",
+				"SHA-384",
+				"SHA-512",
+				"SHA1",
+				"SHA256",
+				"SHA224",
+				"SHA384",
+				"SHA512",
+				"SHA2",
+				"HMAC",
+				"hash"
+			],
+			"license": "BSD",
+			"author": {
+				"name": "Brian Turek",
+				"email": "brian.turek@gmail.com"
+			},
+			"bugs": {
+				"url": "https://github.com/Caligatio/jsSHA/issues"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"homepage": "https://github.com/Caligatio/jsSHA",
+			"dependencies": {},
+			"devDependencies": {},
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"gitHead": "0103f12cc44db888a34a50cdc146c20d1da1a253",
+			"_id": "jssha@1.6.2",
+			"_shasum": "bd24e9bc80027473ae8986867c906b521347ed3f",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "caligatio",
+				"email": "brian.turek@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "caligatio",
+					"email": "brian.turek@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "bd24e9bc80027473ae8986867c906b521347ed3f",
+				"tarball": "https://registry.npmjs.org/jssha/-/jssha-1.6.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/jssha-1.6.2.tgz_1463165986881_0.4661816891748458"
+			},
+			"directories": {}
+		},
+		"2.1.0": {
+			"name": "jssha",
+			"version": "2.1.0",
+			"description": "jsSHA is a JavaScript implementation of the entire family of SHA hashes as defined in FIPS 180-2 (SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512) as well as HMAC",
+			"main": "src/sha.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/Caligatio/jsSHA.git"
+			},
+			"keywords": [
+				"SHA-1",
+				"SHA-256",
+				"SHA-224",
+				"SHA-384",
+				"SHA-512",
+				"SHA1",
+				"SHA256",
+				"SHA224",
+				"SHA384",
+				"SHA512",
+				"SHA2",
+				"HMAC",
+				"hash"
+			],
+			"license": "BSD",
+			"author": {
+				"name": "Brian Turek",
+				"email": "brian.turek@gmail.com"
+			},
+			"bugs": {
+				"url": "https://github.com/Caligatio/jsSHA/issues"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"homepage": "https://github.com/Caligatio/jsSHA",
+			"dependencies": {},
+			"devDependencies": {},
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"gitHead": "28fe708c1913b7902876bb6228d6d9827dab38c7",
+			"_id": "jssha@2.1.0",
+			"_shasum": "5f15e9a5804f660b1de08554d597e103e2b19317",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "caligatio",
+				"email": "brian.turek@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "caligatio",
+					"email": "brian.turek@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "5f15e9a5804f660b1de08554d597e103e2b19317",
+				"tarball": "https://registry.npmjs.org/jssha/-/jssha-2.1.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/jssha-2.1.0.tgz_1463166019915_0.30637063132598996"
+			},
+			"directories": {}
+		},
+		"2.2.0": {
+			"name": "jssha",
+			"version": "2.2.0",
+			"description": "jsSHA is a JavaScript implementation of the complete Secure Hash Standard family (SHA-1, SHA-224, SHA3-224, SHA-256, SHA3-256, SHA-384, SHA3-384, SHA-512, SHA3-512, SHAKE128, and SHAKE256) as well as HMAC",
+			"main": "src/sha.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Caligatio/jsSHA.git"
+			},
+			"keywords": [
+				"SHA-1",
+				"SHA-224",
+				"SHA3-224",
+				"SHA-256",
+				"SHA3-256",
+				"SHA-384",
+				"SHA3-384",
+				"SHA-512",
+				"SHA3-512",
+				"SHAKE-128",
+				"SHAKE-256",
+				"SHAKE128",
+				"SHAKE256",
+				"SHA1",
+				"SHA224",
+				"SHA256",
+				"SHA384",
+				"SHA512",
+				"SHA-2",
+				"SHA2",
+				"SHA-3",
+				"SHA3",
+				"SHAKE",
+				"HMAC",
+				"hash"
+			],
+			"license": "BSD-3-Clause",
+			"author": {
+				"name": "Brian Turek",
+				"email": "brian.turek@gmail.com"
+			},
+			"bugs": {
+				"url": "https://github.com/Caligatio/jsSHA/issues"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"homepage": "https://github.com/Caligatio/jsSHA",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"mocha": "^2.5.3"
+			},
+			"scripts": {
+				"test": "mocha --reporter spec"
+			},
+			"gitHead": "3b8d6036f88cae409c24c059ccbc34e723badcd6",
+			"_id": "jssha@2.2.0",
+			"_shasum": "87dcf60821dc3bec593f3855bbebccd276aacc1c",
+			"_from": ".",
+			"_npmVersion": "3.5.2",
+			"_nodeVersion": "4.2.6",
+			"_npmUser": {
+				"name": "caligatio",
+				"email": "brian.turek@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "caligatio",
+					"email": "brian.turek@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "87dcf60821dc3bec593f3855bbebccd276aacc1c",
+				"tarball": "https://registry.npmjs.org/jssha/-/jssha-2.2.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/jssha-2.2.0.tgz_1468179553157_0.5264980148058385"
+			},
+			"directories": {}
+		},
+		"2.3.0": {
+			"name": "jssha",
+			"version": "2.3.0",
+			"description": "jsSHA is a JavaScript implementation of the complete Secure Hash Standard family (SHA-1, SHA-224, SHA3-224, SHA-256, SHA3-256, SHA-384, SHA3-384, SHA-512, SHA3-512, SHAKE128, and SHAKE256) as well as HMAC",
+			"main": "src/sha.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Caligatio/jsSHA.git"
+			},
+			"keywords": [
+				"SHA-1",
+				"SHA-224",
+				"SHA3-224",
+				"SHA-256",
+				"SHA3-256",
+				"SHA-384",
+				"SHA3-384",
+				"SHA-512",
+				"SHA3-512",
+				"SHAKE-128",
+				"SHAKE-256",
+				"SHAKE128",
+				"SHAKE256",
+				"SHA1",
+				"SHA224",
+				"SHA256",
+				"SHA384",
+				"SHA512",
+				"SHA-2",
+				"SHA2",
+				"SHA-3",
+				"SHA3",
+				"SHAKE",
+				"HMAC",
+				"hash"
+			],
+			"license": "BSD-3-Clause",
+			"author": {
+				"name": "Brian Turek",
+				"email": "brian.turek@gmail.com"
+			},
+			"bugs": {
+				"url": "https://github.com/Caligatio/jsSHA/issues"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"homepage": "https://github.com/Caligatio/jsSHA",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"mocha": "^2.5.3"
+			},
+			"scripts": {
+				"test": "mocha --reporter spec"
+			},
+			"gitHead": "eaaecca598dc0e16e329f64174deb9ca64136124",
+			"_id": "jssha@2.3.0",
+			"_shasum": "bb375f545c59f3ffda7c1e80fd0b3c0867586ab8",
+			"_from": ".",
+			"_npmVersion": "3.5.2",
+			"_nodeVersion": "4.2.6",
+			"_npmUser": {
+				"name": "caligatio",
+				"email": "brian.turek@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "caligatio",
+					"email": "brian.turek@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "bb375f545c59f3ffda7c1e80fd0b3c0867586ab8",
+				"tarball": "https://registry.npmjs.org/jssha/-/jssha-2.3.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/jssha-2.3.0.tgz_1494662795978_0.39282714878208935"
+			},
+			"directories": {}
+		},
+		"2.3.1": {
+			"name": "jssha",
+			"version": "2.3.1",
+			"description": "jsSHA is a JavaScript implementation of the complete Secure Hash Standard family (SHA-1, SHA-224, SHA3-224, SHA-256, SHA3-256, SHA-384, SHA3-384, SHA-512, SHA3-512, SHAKE128, and SHAKE256) as well as HMAC",
+			"main": "src/sha.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/Caligatio/jsSHA.git"
+			},
+			"keywords": [
+				"SHA-1",
+				"SHA-224",
+				"SHA3-224",
+				"SHA-256",
+				"SHA3-256",
+				"SHA-384",
+				"SHA3-384",
+				"SHA-512",
+				"SHA3-512",
+				"SHAKE-128",
+				"SHAKE-256",
+				"SHAKE128",
+				"SHAKE256",
+				"SHA1",
+				"SHA224",
+				"SHA256",
+				"SHA384",
+				"SHA512",
+				"SHA-2",
+				"SHA2",
+				"SHA-3",
+				"SHA3",
+				"SHAKE",
+				"HMAC",
+				"hash"
+			],
+			"license": "BSD-3-Clause",
+			"author": {
+				"name": "Brian Turek",
+				"email": "brian.turek@gmail.com"
+			},
+			"bugs": {
+				"url": "https://github.com/Caligatio/jsSHA/issues"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"homepage": "https://github.com/Caligatio/jsSHA",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"mocha": "^2.5.3"
+			},
+			"scripts": {
+				"test": "mocha --reporter spec"
+			},
+			"gitHead": "20e15fd5975e3a83b040d150cc2a2e244a61a9ea",
+			"_id": "jssha@2.3.1",
+			"_shasum": "147b2125369035ca4b2f7d210dc539f009b3de9a",
+			"_from": ".",
+			"_npmVersion": "3.5.2",
+			"_nodeVersion": "4.2.6",
+			"_npmUser": {
+				"name": "caligatio",
+				"email": "brian.turek@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "caligatio",
+					"email": "brian.turek@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "147b2125369035ca4b2f7d210dc539f009b3de9a",
+				"tarball": "https://registry.npmjs.org/jssha/-/jssha-2.3.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jssha-2.3.1.tgz_1497081058017_0.8382039444986731"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2017-06-10T07:50:59.194Z",
+		"created": "2013-12-15T18:40:43.423Z",
+		"1.5.0": "2013-12-15T18:40:44.678Z",
+		"1.6.0": "2015-03-08T18:42:34.112Z",
+		"2.0.0": "2015-06-13T12:25:11.957Z",
+		"2.0.1": "2015-06-25T21:20:14.715Z",
+		"1.6.1": "2015-06-25T21:28:17.465Z",
+		"2.0.2": "2015-10-31T13:57:51.093Z",
+		"1.6.2": "2016-05-13T18:59:48.775Z",
+		"2.1.0": "2016-05-13T19:00:22.543Z",
+		"2.2.0": "2016-07-10T19:39:15.800Z",
+		"2.3.0": "2017-05-13T08:06:36.864Z",
+		"2.3.1": "2017-06-10T07:50:59.194Z"
+	},
+	"dist-tags": {
+		"latest": "2.3.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"32990edef4e347ce570a0fbb52344060\"",
+			"fetched": 1568994343478
+		}
+	},
+	"_distfiles": {
+		"jssha-1.5.0.tgz": {
+			"url": "https://registry.npmjs.org/jssha/-/jssha-1.5.0.tgz",
+			"sha": "136123ea77a9d46e007f623ab5ee58a16a2636a1",
+			"registry": "npmjs"
+		},
+		"jssha-1.6.0.tgz": {
+			"url": "https://registry.npmjs.org/jssha/-/jssha-1.6.0.tgz",
+			"sha": "67acf0b90fdebb9bb3fe3a44e6016cf2cf0670b9",
+			"registry": "npmjs"
+		},
+		"jssha-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/jssha/-/jssha-2.0.0.tgz",
+			"sha": "5fe96e088593c257a82019caa5ccae554afc6807",
+			"registry": "npmjs"
+		},
+		"jssha-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/jssha/-/jssha-2.0.1.tgz",
+			"sha": "d945d29f38db919a5e086261cc012249f6d5d5b7",
+			"registry": "npmjs"
+		},
+		"jssha-1.6.1.tgz": {
+			"url": "https://registry.npmjs.org/jssha/-/jssha-1.6.1.tgz",
+			"sha": "f911b05b29f235728c2b9799a250e20d11f899ec",
+			"registry": "npmjs"
+		},
+		"jssha-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/jssha/-/jssha-2.0.2.tgz",
+			"sha": "d239dfb0231c05069c56ce680de08895e365c0cd",
+			"registry": "npmjs"
+		},
+		"jssha-1.6.2.tgz": {
+			"url": "https://registry.npmjs.org/jssha/-/jssha-1.6.2.tgz",
+			"sha": "bd24e9bc80027473ae8986867c906b521347ed3f",
+			"registry": "npmjs"
+		},
+		"jssha-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/jssha/-/jssha-2.1.0.tgz",
+			"sha": "5f15e9a5804f660b1de08554d597e103e2b19317",
+			"registry": "npmjs"
+		},
+		"jssha-2.2.0.tgz": {
+			"url": "https://registry.npmjs.org/jssha/-/jssha-2.2.0.tgz",
+			"sha": "87dcf60821dc3bec593f3855bbebccd276aacc1c",
+			"registry": "npmjs"
+		},
+		"jssha-2.3.0.tgz": {
+			"url": "https://registry.npmjs.org/jssha/-/jssha-2.3.0.tgz",
+			"sha": "bb375f545c59f3ffda7c1e80fd0b3c0867586ab8",
+			"registry": "npmjs"
+		},
+		"jssha-2.3.1.tgz": {
+			"url": "https://registry.npmjs.org/jssha/-/jssha-2.3.1.tgz",
+			"sha": "147b2125369035ca4b2f7d210dc539f009b3de9a",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-2523182f9f14252a",
+	"_id": "jssha",
+	"readme": "# jsSHA\nA pure JavaScript streaming implementation of the complete Secure Hash Standard\nfamily (SHA-1, SHA-224, SHA3-224, SHA-256, SHA3-256, SHA-384, SHA3-384, SHA-512,\nSHA3-512, SHAKE128, and SHAKE256) as well as HMAC.\n\n[![Build Status](https://travis-ci.org/Caligatio/jsSHA.svg?branch=master)](https://travis-ci.org/Caligatio/jsSHA)\n\n## Usage\n\n### Installation\n#### Browser\nInclude the desired JavaScript file (sha.js, sha1.js, sha256.js, sha512.js, or\nsha3.js) in your header (sha.js used below):\n\n    <script type=\"text/javascript\" src=\"/path/to/sha.js\"></script>\n\n#### Node.js\njsSHA is available through NPM and be installed by simply doing\n\n    npm install jssha\n\nTo use the module, first require it using:\n\n    jsSHA = require(\"jssha\");\n\n\n### Hashing\nInstantiate a new jsSHA object with the desired hash type, input type, and\noptions as parameters.  The hash type can be one of SHA-1, SHA-224, SHA3-224,\nSHA-256, SHA3-256, SHA-384, SHA3-384, SHA-512, SHA3-512, SHAKE128, or SHAKE256.\nThe input type can be one of HEX, TEXT, B64, BYTES, or ARRAYBUFFER.  You can\nthen stream in input using the `update` object function, calling it multiple\ntimes if needed.  Finally, simply call `getHash` with the output type as a\nparameter (B64, HEX, BYTES, or ARRAYBUFFER).  Example to calculate the SHA-512\nof \"This is a test\":\n\n    var shaObj = new jsSHA(\"SHA-512\", \"TEXT\");\n    shaObj.update(\"This is a \");\n    shaObj.update(\"test\");\n    var hash = shaObj.getHash(\"HEX\");\n\nThe constructor takes a hashmap as a optional third argument with possible\nproperties of `numRounds` and `encoding`.  `numRounds` controls the number of\nhashing iterations/rounds performed and defaults to a value of 1 if not\nspecified. `encoding` specifies the encoding used to encode TEXT-type inputs.\nValid options are \"UTF8\", \"UTF16BE\", and \"UTF16LE\", it defaults to \"UTF8\".\n\n`getHash` also takes a hashmap as an optional second argument.  By default the\nhashmap is `{\"outputUpper\" : false, \"b64Pad\" : \"=\"}`.  These options are\nintelligently interpreted based upon the chosen output format. **Important**:\nSHAKE128 and SHAKE256 require `shakeLen` to be included in the hashmap where\n`shakeLen` is the desired output length of the SHAKE algorithm in a multiple\nof 8 bits.\n\n### HMAC\nInstantiate a new jsSHA object the same way as for hashing.  Then set the HMAC\nkey to be used by calling `setHMACKey` with the key and its input type (this\nMUST be done before calling update).  You can stream in the input using the\n`update` object function just like hashing.  Finally, get the HMAC by calling\nthe `getHMAC` function with the output type as its argument.  Example to\ncalculate the SHA-512 HMAC of the string \"This is a test\" with the key \"abc\":\n\n    var shaObj = new jsSHA(\"SHA-512\", \"TEXT\");\n    shaObj.setHMACKey(\"abc\", \"TEXT\");\n    shaObj.update(\"This is a \");\n    shaObj.update(\"test\");\n    var hmac = shaObj.getHMAC(\"HEX\");\n\n`setHMACKey` takes the same input types as the constructor and `getHMAC` takes the\nsame inputs as `getHash` as described above.\n\nNote: You cannot calculate both the hash and HMAC using the same object.\n\n## Files\n**src/sha\\_dev.js**\n\nA commented implementation of the entire SHA family of hashes. Not to be used\nin production.\n\n**src/sha.js**\n\nA Google Closure Compiler optimized version of the entire library.\n\n**src/sha1.js**\n\nA Google Closure Compiler optimized version the library with non SHA-1\nfunctionality removed.\n\n**src/sha256.js**\n\nA Google Closure Compiler optimized version the library with non SHA-224/SHA-256\nfunctionality removed.\n\n**src/sha3.js**\n\nA Google Closure Compiler optimized version the library with non SHA-3\nfunctionality removed.\n\n**src/sha512.js**\n\nA Google Closure Compiler optimized version the library with non SHA-384/SHA-512\nfunctionality removed.\n\n## Compiling\nThis library makes use of the [Google Closure Compiler](https://developers.google.com/closure/compiler)\nto both boost performance and reduce filesizes.  To compile sha\\_dev.js into a customized output file,\nuse a command like the following:\n\n    java -jar compiler.jar --define=\"SUPPORTED_ALGS=<FLAG>\" \\\n        --externs /path/to/build/externs.js --warning_level VERBOSE \\\n        --compilation_level ADVANCED_OPTIMIZATIONS \\\n        --js /path/to/sha_dev.js --js_output_file /path/to/sha.js\n\nwhere FLAG is a bitwise OR of the following values:\n\n* 8 for SHA3\n* 4 for SHA-384/SHA-512\n* 2 for SHA-224/256\n* 1 for SHA-1\n\n## Contact Info\nThe project's website is located at [https://caligatio.github.com/jsSHA/](https://caligatio.github.com/jsSHA/)\n\n## Donations\nFeel like donating?  We're now accepting donations through [Pledgie](https://pledgie.com/campaigns/31646) and [Bitcoin](bitcoin:12VMZgRAP2jCP1YCR3vFNAtLR9MvzHzJZb?message=jsSHA%20Donation)!"
+}

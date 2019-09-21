@@ -1,0 +1,2141 @@
+{
+	"name": "dtrace-provider",
+	"versions": {
+		"0.0.1": {
+			"name": "dtrace-provider",
+			"version": "0.0.1",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"main": "./dtrace-provider",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"scripts": {
+				"install": "node-waf configure build"
+			},
+			"_id": "dtrace-provider@0.0.1",
+			"engines": {
+				"node": "*"
+			},
+			"_nodeSupported": true,
+			"_npmVersion": "0.2.10",
+			"_nodeVersion": "v0.2.4",
+			"dist": {
+				"shasum": "09bbb1920009be278e279d2c4ab2bc2bf5dcde5f",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.2": {
+			"name": "dtrace-provider",
+			"version": "0.0.2",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"main": "./dtrace-provider",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"scripts": {
+				"install": "node-waf configure build"
+			},
+			"_id": "dtrace-provider@0.0.2",
+			"engines": {
+				"node": "*"
+			},
+			"_engineSupported": true,
+			"_npmVersion": "0.2.16",
+			"_nodeVersion": "v0.3.6",
+			"directories": {},
+			"files": [
+				""
+			],
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "f51b873081717c25b465d7dea5d79b4bd6544461",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.2.tgz",
+				"bin": {
+					"0.4-sunos-5.11": {
+						"shasum": "fbb1a7a6d2e7bc30d3724383f92ab1b597f2a7cb",
+						"tarball": "http://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.2-0.4-sunos-5.11.tgz"
+					}
+				}
+			}
+		},
+		"0.0.3": {
+			"name": "dtrace-provider",
+			"version": "0.0.3",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"main": "./dtrace-provider.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"scripts": {
+				"install": "node-waf configure build"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/chris/.npm/dtrace-provider/0.0.3/package/package.json",
+				"contributors": false,
+				"serverjs": false,
+				"wscript": true
+			},
+			"_id": "dtrace-provider@0.0.3",
+			"dependencies": {},
+			"devDependencies": {},
+			"engines": {
+				"node": "*"
+			},
+			"_engineSupported": true,
+			"_npmVersion": "1.0.15",
+			"_nodeVersion": "v0.4.9",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "cb9897e5ce0bf6db51d0b402b382bff26a55af6a",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.4": {
+			"name": "dtrace-provider",
+			"version": "0.0.4",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"main": "./dtrace-provider.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"scripts": {
+				"install": "node-waf configure build"
+			},
+			"_npmUser": {
+				"name": "chrisa",
+				"email": "chris@nodnol.org"
+			},
+			"_id": "dtrace-provider@0.0.4",
+			"dependencies": {},
+			"devDependencies": {},
+			"engines": {
+				"node": "*"
+			},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.0-alpha-2",
+			"_nodeVersion": "v0.6.3",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "29688350bc2e057753abe19ec0dc024d2cabcab8",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.5": {
+			"name": "dtrace-provider",
+			"version": "0.0.5",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"main": "./dtrace-provider.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"scripts": {
+				"install": "node-waf configure build"
+			},
+			"_npmUser": {
+				"name": "chrisa",
+				"email": "chris@nodnol.org"
+			},
+			"_id": "dtrace-provider@0.0.5",
+			"dependencies": {},
+			"devDependencies": {},
+			"engines": {
+				"node": "*"
+			},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.0-alpha-2",
+			"_nodeVersion": "v0.6.3",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "62ab508d7dabdff697b41aa9684d973bd5a59d4e",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.6": {
+			"name": "dtrace-provider",
+			"version": "0.0.6",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"main": "./dtrace-provider.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"scripts": {
+				"install": "node-waf configure build"
+			},
+			"_npmUser": {
+				"name": "chrisa",
+				"email": "chris@nodnol.org"
+			},
+			"_id": "dtrace-provider@0.0.6",
+			"dependencies": {},
+			"devDependencies": {},
+			"engines": {
+				"node": "*"
+			},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.0-alpha-2",
+			"_nodeVersion": "v0.6.3",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "ae51c1a4467c646fc162a71919b410c567261198",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.7": {
+			"name": "dtrace-provider",
+			"version": "0.0.7",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"main": "./dtrace-provider.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"scripts": {
+				"install": "node-waf configure build"
+			},
+			"_npmUser": {
+				"name": "chrisa",
+				"email": "chris@nodnol.org"
+			},
+			"_id": "dtrace-provider@0.0.7",
+			"dependencies": {},
+			"devDependencies": {},
+			"optionalDependencies": {},
+			"engines": {
+				"node": "*"
+			},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.4",
+			"_nodeVersion": "v0.6.12",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "54bd74b28abdd6d5c13ecfce8847e006c172cf74",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.8": {
+			"name": "dtrace-provider",
+			"version": "0.0.8",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"main": "./dtrace-provider.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"_npmUser": {
+				"name": "chrisa",
+				"email": "chris@nodnol.org"
+			},
+			"_id": "dtrace-provider@0.0.8",
+			"scripts": {
+				"preinstall": "node-waf clean || (exit 0); node-waf configure build"
+			},
+			"dependencies": {},
+			"devDependencies": {},
+			"optionalDependencies": {},
+			"engines": {
+				"node": "*"
+			},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.16",
+			"_nodeVersion": "v0.6.15",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "c775c70270933c15ace54b8e9cf959074720d616",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.8.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.9": {
+			"name": "dtrace-provider",
+			"version": "0.0.9",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"main": "./dtrace-provider.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"scripts": {
+				"install": "node-waf clean ; node-waf configure build"
+			},
+			"_id": "dtrace-provider@0.0.9",
+			"dist": {
+				"shasum": "8459fb26d734a7244a449ba1cfc925c1c9c2187e",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.9.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "dtrace-provider",
+			"version": "0.2.0",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"main": "./dtrace-provider.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"scripts": {
+				"install": "node-gyp rebuild"
+			},
+			"gypfile": true,
+			"_id": "dtrace-provider@0.2.0",
+			"dist": {
+				"shasum": "bb0dba3298278d3c512a2a919ed80d0f9242d533",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.1": {
+			"name": "dtrace-provider",
+			"version": "0.2.1",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"main": "./dtrace-provider.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"scripts": {
+				"install": "node-gyp rebuild"
+			},
+			"gypfile": true,
+			"_id": "dtrace-provider@0.2.1",
+			"dist": {
+				"shasum": "b9e2ae25969e62eac20c3377dce3ae8e5352c179",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.2": {
+			"name": "dtrace-provider",
+			"version": "0.2.2",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"main": "./dtrace-provider.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"scripts": {
+				"install": "node-gyp rebuild"
+			},
+			"gypfile": true,
+			"_id": "dtrace-provider@0.2.2",
+			"dist": {
+				"shasum": "82013d40267ed042ff849af194517551ac0d1c83",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.3": {
+			"name": "dtrace-provider",
+			"version": "0.2.3",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"main": "./dtrace-provider.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"scripts": {
+				"install": "node-gyp rebuild"
+			},
+			"gypfile": true,
+			"_id": "dtrace-provider@0.2.3",
+			"dist": {
+				"shasum": "2d6df0c0be874655c6dd0ead4c5377ad39bae7be",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.4": {
+			"name": "dtrace-provider",
+			"version": "0.2.4",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"main": "./dtrace-provider.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"install": "node-gyp rebuild"
+			},
+			"gypfile": true,
+			"_id": "dtrace-provider@0.2.4",
+			"dist": {
+				"shasum": "0719d4449c8994cc89e317cf0d732213f94653d7",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.5": {
+			"name": "dtrace-provider",
+			"version": "0.2.5",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.6"
+			},
+			"devDependencies": {
+				"tap": ">=0.2.0",
+				"execSync": ">=0.0.1"
+			},
+			"main": "./dtrace-provider.js",
+			"scripts": {
+				"install": "node-gyp rebuild"
+			},
+			"gypfile": true,
+			"_id": "dtrace-provider@0.2.5",
+			"dist": {
+				"shasum": "794146fa48307925487080fd33092f7513637dd1",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.6": {
+			"name": "dtrace-provider",
+			"version": "0.2.6",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.6"
+			},
+			"devDependencies": {
+				"tap": ">=0.2.0",
+				"execSync": ">=0.0.1"
+			},
+			"main": "./dtrace-provider.js",
+			"scripts": {
+				"install": "node-gyp rebuild"
+			},
+			"gypfile": true,
+			"_id": "dtrace-provider@0.2.6",
+			"dist": {
+				"shasum": "a4a32f161c2d231a27120318e1adce1c280d8676",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.7": {
+			"name": "dtrace-provider",
+			"version": "0.2.7",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.6"
+			},
+			"devDependencies": {
+				"tap": ">=0.2.0",
+				"execSync": ">=0.0.1"
+			},
+			"main": "./dtrace-provider.js",
+			"scripts": {
+				"install": "node-gyp rebuild"
+			},
+			"gypfile": true,
+			"_id": "dtrace-provider@0.2.7",
+			"dist": {
+				"shasum": "d9d9677ff31303c216479a8dc9465ea28a2d0c29",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.8": {
+			"name": "dtrace-provider",
+			"version": "0.2.8",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.6"
+			},
+			"devDependencies": {
+				"tap": ">=0.2.0"
+			},
+			"main": "./dtrace-provider.js",
+			"scripts": {
+				"install": "node-gyp rebuild"
+			},
+			"gypfile": true,
+			"_id": "dtrace-provider@0.2.8",
+			"dist": {
+				"shasum": "e243f19219aa95fbf0d8f2ffb07f5bd64e94fe20",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.8.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.3",
+			"_npmUser": {
+				"name": "chrisa",
+				"email": "chris@nodnol.org"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.0": {
+			"name": "dtrace-provider",
+			"version": "0.3.0",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.6"
+			},
+			"dependencies": {
+				"nan": "~1.3.0"
+			},
+			"devDependencies": {
+				"tap": ">=0.2.0"
+			},
+			"scripts": {
+				"install": "scripts/install.js",
+				"test": "tap test/*test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "542557d3073b63efb64f0423d86a77ef41a3fcce",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.3.0",
+			"_shasum": "633ee973f0b38d153ca01c3144312469de0037e9",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "tjfontaine",
+				"email": "tjfontaine@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				}
+			],
+			"dist": {
+				"shasum": "633ee973f0b38d153ca01c3144312469de0037e9",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.3.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.3.1": {
+			"name": "dtrace-provider",
+			"version": "0.3.1",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.6"
+			},
+			"dependencies": {
+				"nan": "~1.3.0"
+			},
+			"devDependencies": {
+				"tap": ">=0.2.0"
+			},
+			"scripts": {
+				"install": "scripts/install.js",
+				"test": "tap test/*test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "403594a847290f2020feb4b97b9510ca9224ffd7",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.3.1",
+			"_shasum": "04b4d1fc99062eb3421fea923d841878b87bb234",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "tjfontaine",
+				"email": "tjfontaine@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				}
+			],
+			"dist": {
+				"shasum": "04b4d1fc99062eb3421fea923d841878b87bb234",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.3.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.3.2": {
+			"name": "dtrace-provider",
+			"version": "0.3.2",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.6"
+			},
+			"dependencies": {
+				"nan": "~1.3.0"
+			},
+			"devDependencies": {
+				"tap": ">=0.2.0"
+			},
+			"scripts": {
+				"install": "node scripts/install.js",
+				"test": "tap test/*test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "454ab4bb81d2594644f9a5ce178eebef1b20bcc9",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.3.2",
+			"_shasum": "794e4df1993d93ec333baed9c1a4d2da72f875b9",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "tjfontaine",
+				"email": "tjfontaine@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				}
+			],
+			"dist": {
+				"shasum": "794e4df1993d93ec333baed9c1a4d2da72f875b9",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.3.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.0": {
+			"name": "dtrace-provider",
+			"version": "0.4.0",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.6"
+			},
+			"dependencies": {
+				"nan": "~1.5.1"
+			},
+			"devDependencies": {
+				"tap": ">=0.2.0"
+			},
+			"scripts": {
+				"install": "node scripts/install.js",
+				"test": "tap test/*test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "bba9fe9f9faf6005059c41f8af5ef3d39f3e6db2",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.4.0",
+			"_shasum": "0b67bc1cc77e79bf88b87ad20664f4a753ce3f26",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "tjfontaine",
+				"email": "tjfontaine@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				}
+			],
+			"dist": {
+				"shasum": "0b67bc1cc77e79bf88b87ad20664f4a753ce3f26",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.4.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.5.0": {
+			"name": "dtrace-provider",
+			"version": "0.5.0",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.6"
+			},
+			"dependencies": {
+				"nan": "~1.8.4"
+			},
+			"devDependencies": {
+				"tap": ">=0.2.0"
+			},
+			"scripts": {
+				"install": "node scripts/install.js",
+				"test": "tap test/*test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "8622b7ad803bed19bfe3ffaf81f7e0132efa5dbc",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.5.0",
+			"_shasum": "3fddbadd181aed83fc889a535c5703f54e559fea",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dap",
+				"email": "dap@cs.brown.edu"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				}
+			],
+			"dist": {
+				"shasum": "3fddbadd181aed83fc889a535c5703f54e559fea",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.5.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.6.0": {
+			"name": "dtrace-provider",
+			"version": "0.6.0",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"dependencies": {
+				"nan": "^2.0.8"
+			},
+			"devDependencies": {
+				"tap": "^0.2.0"
+			},
+			"scripts": {
+				"install": "node scripts/install.js",
+				"test": "tap test/*test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "36ca0f2a05b0f946b834f037f85e3fb8d276f09c",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.6.0",
+			"_shasum": "0b078d5517937d873101452d9146737557b75e51",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "dap",
+				"email": "dap@cs.brown.edu"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				}
+			],
+			"dist": {
+				"shasum": "0b078d5517937d873101452d9146737557b75e51",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.6.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.7.0": {
+			"name": "dtrace-provider",
+			"version": "0.7.0",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"dependencies": {
+				"nan": "^2.3.3"
+			},
+			"devDependencies": {
+				"tap": "^0.2.0"
+			},
+			"scripts": {
+				"install": "node scripts/install.js",
+				"test": "tap test/*test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "ea042a35d184e4b4fea45b9c7cd9d53496674af9",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.7.0",
+			"_shasum": "9ac6d3eb78ffbe90385063e6d14dfe7bc377005d",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "0.10.43",
+			"_npmUser": {
+				"name": "dap",
+				"email": "dap@cs.brown.edu"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				}
+			],
+			"dist": {
+				"shasum": "9ac6d3eb78ffbe90385063e6d14dfe7bc377005d",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.7.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/dtrace-provider-0.7.0.tgz_1476485196979_0.5281944724265486"
+			},
+			"directories": {}
+		},
+		"0.7.1": {
+			"name": "dtrace-provider",
+			"version": "0.7.1",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace",
+				"usdt"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"license": "BSD-2-Clause",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"dependencies": {
+				"nan": "^2.3.3"
+			},
+			"devDependencies": {
+				"tap": "^0.2.0"
+			},
+			"scripts": {
+				"install": "node scripts/install.js",
+				"test": "tap test/*test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "b733a459addb0b83815421443a9d1353d469224a",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.7.1",
+			"_shasum": "c06b308f2f10d5d5838aec9c571e5d588dc71d04",
+			"_from": ".",
+			"_npmVersion": "2.15.1",
+			"_nodeVersion": "0.10.46",
+			"_npmUser": {
+				"name": "melloc",
+				"email": "cody.mello@joyent.com"
+			},
+			"dist": {
+				"shasum": "c06b308f2f10d5d5838aec9c571e5d588dc71d04",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.7.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				},
+				{
+					"name": "melloc",
+					"email": "cody.mello@joyent.com"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/dtrace-provider-0.7.1.tgz_1477439390770_0.8336944510228932"
+			},
+			"directories": {}
+		},
+		"0.8.0": {
+			"name": "dtrace-provider",
+			"version": "0.8.0",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace",
+				"usdt"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"license": "BSD-2-Clause",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"dependencies": {
+				"nan": "^2.3.3"
+			},
+			"devDependencies": {
+				"tap": "^0.2.0"
+			},
+			"scripts": {
+				"install": "node scripts/install.js",
+				"test": "tap test/*test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "c80caf18c2275f2efbd36d13adacf47d3b61a5b4",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.8.0",
+			"_shasum": "fa95fbf67ed3ae3e97364f9664af7302e5ff5625",
+			"_from": ".",
+			"_npmVersion": "2.15.1",
+			"_nodeVersion": "0.10.46",
+			"_npmUser": {
+				"name": "melloc",
+				"email": "cody.mello@joyent.com"
+			},
+			"dist": {
+				"shasum": "fa95fbf67ed3ae3e97364f9664af7302e5ff5625",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				},
+				{
+					"name": "melloc",
+					"email": "cody.mello@joyent.com"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/dtrace-provider-0.8.0.tgz_1477439398595_0.7868409685324878"
+			},
+			"directories": {}
+		},
+		"0.8.1": {
+			"name": "dtrace-provider",
+			"version": "0.8.1",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace",
+				"usdt"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"license": "BSD-2-Clause",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"dependencies": {
+				"nan": "^2.3.3"
+			},
+			"devDependencies": {
+				"tap": "^0.2.0"
+			},
+			"scripts": {
+				"install": "node scripts/install.js",
+				"test": "tap test/*test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "a1594b0ea17b6ba2329b0bf4160e91c892777004",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.8.1",
+			"_shasum": "cd4d174a233bea1bcf4a1fbfa5798f44f48cda9f",
+			"_from": ".",
+			"_npmVersion": "2.15.1",
+			"_nodeVersion": "0.10.46",
+			"_npmUser": {
+				"name": "melloc",
+				"email": "cody.mello@joyent.com"
+			},
+			"dist": {
+				"shasum": "cd4d174a233bea1bcf4a1fbfa5798f44f48cda9f",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				},
+				{
+					"name": "melloc",
+					"email": "cody.mello@joyent.com"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/dtrace-provider-0.8.1.tgz_1488913310577_0.9861480239778757"
+			},
+			"directories": {}
+		},
+		"0.8.2": {
+			"name": "dtrace-provider",
+			"version": "0.8.2",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace",
+				"usdt"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"license": "BSD-2-Clause",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"dependencies": {
+				"nan": "^2.3.3"
+			},
+			"devDependencies": {
+				"tap": "^0.2.0"
+			},
+			"scripts": {
+				"install": "node scripts/install.js",
+				"test": "tap test/*test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "dbc47c80c538940982a1553da82c785be17d59cc",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.8.2",
+			"_shasum": "f067c2773f15da1b61eb20dbc96aa1cabb3330bc",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "4.8.1",
+			"_npmUser": {
+				"name": "melloc",
+				"email": "cody.mello@joyent.com"
+			},
+			"dist": {
+				"shasum": "f067c2773f15da1b61eb20dbc96aa1cabb3330bc",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				},
+				{
+					"name": "melloc",
+					"email": "cody.mello@joyent.com"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/dtrace-provider-0.8.2.tgz_1495850413417_0.22524780873209238"
+			},
+			"directories": {}
+		},
+		"0.8.3": {
+			"name": "dtrace-provider",
+			"version": "0.8.3",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace",
+				"usdt"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"license": "BSD-2-Clause",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"dependencies": {
+				"nan": "^2.3.3"
+			},
+			"devDependencies": {
+				"tap": "^0.2.0"
+			},
+			"scripts": {
+				"install": "node scripts/install.js",
+				"test": "tap test/*test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "7ab84e1aa29966a65f924242eb57a318d79981ca",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.8.3",
+			"_shasum": "ba1bfc6493285ccfcfc6ab69cd5c61d74c2a43bf",
+			"_from": ".",
+			"_npmVersion": "2.15.1",
+			"_nodeVersion": "0.10.46",
+			"_npmUser": {
+				"name": "melloc",
+				"email": "cody.mello@joyent.com"
+			},
+			"dist": {
+				"shasum": "ba1bfc6493285ccfcfc6ab69cd5c61d74c2a43bf",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				},
+				{
+					"name": "melloc",
+					"email": "cody.mello@joyent.com"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/dtrace-provider-0.8.3.tgz_1497313943792_0.2225570201408118"
+			},
+			"directories": {}
+		},
+		"0.8.4": {
+			"name": "dtrace-provider",
+			"version": "0.8.4",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace",
+				"usdt"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"license": "BSD-2-Clause",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"dependencies": {
+				"nan": "^2.3.3"
+			},
+			"devDependencies": {
+				"tap": "^0.2.0"
+			},
+			"scripts": {
+				"install": "$npm_node_execpath scripts/install.js",
+				"test": "tap test/*test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "d669387878d9a45da4dd15382ce92e7455ad0e4c",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.8.4",
+			"_shasum": "f27c12dc0ec3105606f9833c118b8d711c8d532a",
+			"_from": ".",
+			"_npmVersion": "2.15.1",
+			"_nodeVersion": "0.10.46",
+			"_npmUser": {
+				"name": "melloc",
+				"email": "cody.mello@joyent.com"
+			},
+			"dist": {
+				"shasum": "f27c12dc0ec3105606f9833c118b8d711c8d532a",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				},
+				{
+					"name": "melloc",
+					"email": "cody.mello@joyent.com"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/dtrace-provider-0.8.4.tgz_1501802532738_0.7838921088259667"
+			},
+			"directories": {}
+		},
+		"0.8.5": {
+			"name": "dtrace-provider",
+			"version": "0.8.5",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace",
+				"usdt"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"license": "BSD-2-Clause",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"dependencies": {
+				"nan": "^2.3.3"
+			},
+			"devDependencies": {
+				"tap": "^0.2.0"
+			},
+			"scripts": {
+				"install": "node scripts/install.js",
+				"test": "tap test/*test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "a00c95b87987f4d7afc7c6a306794e2ca55019db",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.8.5",
+			"_shasum": "98ebba221afac46e1c39fd36858d8f9367524b92",
+			"_from": ".",
+			"_npmVersion": "2.15.1",
+			"_nodeVersion": "0.10.46",
+			"_npmUser": {
+				"name": "melloc",
+				"email": "cody.mello@joyent.com"
+			},
+			"dist": {
+				"shasum": "98ebba221afac46e1c39fd36858d8f9367524b92",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				},
+				{
+					"name": "melloc",
+					"email": "cody.mello@joyent.com"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/dtrace-provider-0.8.5.tgz_1501861565736_0.9737720633856952"
+			},
+			"directories": {}
+		},
+		"0.8.6": {
+			"name": "dtrace-provider",
+			"version": "0.8.6",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace",
+				"usdt"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"license": "BSD-2-Clause",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"dependencies": {
+				"nan": "^2.3.3"
+			},
+			"devDependencies": {
+				"tap": "0.7.1"
+			},
+			"scripts": {
+				"install": "node-gyp rebuild || node suppress-error.js",
+				"test": "tap test/*.test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "1474252dccf5c85b7f933e8878859e6cb27690ac",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.8.6",
+			"_shasum": "428a223afe03425d2cd6d6347fdf40c66903563d",
+			"_from": ".",
+			"_npmVersion": "2.15.1",
+			"_nodeVersion": "0.10.46",
+			"_npmUser": {
+				"name": "melloc",
+				"email": "cody.mello@joyent.com"
+			},
+			"dist": {
+				"shasum": "428a223afe03425d2cd6d6347fdf40c66903563d",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				},
+				{
+					"name": "melloc",
+					"email": "cody.mello@joyent.com"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/dtrace-provider-0.8.6.tgz_1515716612278_0.6589958467520773"
+			},
+			"directories": {}
+		},
+		"0.8.7": {
+			"name": "dtrace-provider",
+			"version": "0.8.7",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace",
+				"usdt"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"license": "BSD-2-Clause",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"dependencies": {
+				"nan": "^2.10.0"
+			},
+			"devDependencies": {
+				"tap": "0.7.1"
+			},
+			"scripts": {
+				"install": "node-gyp rebuild || node suppress-error.js",
+				"test": "tap test/*.test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "6ef2a247fcbb9a7078e5ac483ed10a2b1e72e449",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.8.7",
+			"_shasum": "dc939b4d3e0620cfe0c1cd803d0d2d7ed04ffd04",
+			"_from": ".",
+			"_npmVersion": "2.15.1",
+			"_nodeVersion": "0.10.46",
+			"_npmUser": {
+				"name": "melloc",
+				"email": "cody.mello@joyent.com"
+			},
+			"dist": {
+				"shasum": "dc939b4d3e0620cfe0c1cd803d0d2d7ed04ffd04",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.7.tgz",
+				"fileCount": 31,
+				"unpackedSize": 87922,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbDe99CRA9TVsSAnZWagAAMp0QAIfddC6QIdK/jvw0FWNz\ngXKXx5OFt987BCCzfEIF7qRE2Lvhbf3bUEPrhwrapnnB6+IKTtezQEeQfoDS\nC/0X8Q7Bjr9/GWIvmsVlu0e1YKRbIf/MFYsL8VvgMc5gQpfSWy606flCQiCq\nfoBXOJWtzz0hhYR6JGgBmPNXYsqPjSjCRvW8uK0S7fat6ktkFqkks94VBPrL\nZHB70p/v57yr2kibi7chJ89umOQhceUVnFCrmhmeO5A8b8Hh/P65dBjNE2p9\nx491n+weWkCzp5jj0xw2B0FhqhThAJpvbUpI/qWqGGDdzrBApeb2MXWrX1pM\nDwQywyrfggVcJRN3mBP+TEXIedfoyQjiOOWt6X2WQ5/xJhyWW/0/CRbynq8e\ncOo80LXt1jhz1CC4CK3gQOBg9kitnlLxJgEzaGiPUS+BbaPOo4++Hdqqyv5R\nhKl6leYv4FG+FUTbPQk2auJhV9elufPMOeUGDE2C+34Hh+1h1RO/RvtNn1vc\notW2RBb0eVnvb1CM5phfMY6+3y8rQUBizRFbVEJWQXstTIp5WOoS+eXRr4h0\neH1FPYEuKjx89HqUvUcm3UZ6/6XTbQIifmcE3kWD9xeXJUpBkG05P0ovfDIH\nrjEMEsMGZPtoWO8GsXKK0U8Nm2yXdHK34PVBn1K7MQDIbJ4hLFVMg1B1dI4x\nkHLG\r\n=oZxY\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				},
+				{
+					"name": "melloc",
+					"email": "cody.mello@joyent.com"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/dtrace-provider_0.8.7_1527639931247_0.4289270478104241"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.8.8": {
+			"name": "dtrace-provider",
+			"version": "0.8.8",
+			"description": "Native DTrace providers for node.js applications",
+			"keywords": [
+				"dtrace",
+				"usdt"
+			],
+			"homepage": "https://github.com/chrisa/node-dtrace-provider#readme",
+			"license": "BSD-2-Clause",
+			"author": {
+				"name": "Chris Andrews",
+				"email": "chris@nodnol.org"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/chrisa/node-dtrace-provider.git"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"dependencies": {
+				"nan": "^2.14.0"
+			},
+			"devDependencies": {
+				"tap": "0.7.1"
+			},
+			"scripts": {
+				"install": "node-gyp rebuild || node suppress-error.js",
+				"test": "tap test/*.test.js"
+			},
+			"main": "./dtrace-provider.js",
+			"gitHead": "e9d860eaf553b489bd897e15bd0153f38b8e73a8",
+			"bugs": {
+				"url": "https://github.com/chrisa/node-dtrace-provider/issues"
+			},
+			"_id": "dtrace-provider@0.8.8",
+			"_nodeVersion": "10.16.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-b7Z7cNtHPhH9EJhNNbbeqTcXB8LGFFZhq1PGgEvpeHlzd36bhbdTWoE/Ba/YguqpBSlAPKnARWhVlhunCMwfxg==",
+				"shasum": "2996d5490c37e1347be263b423ed7b297fb0d97e",
+				"tarball": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.8.tgz",
+				"fileCount": 29,
+				"unpackedSize": 88332,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdV1/yCRA9TVsSAnZWagAAOb4P/jls2ETesXs85ZMx38nI\nyU563iVQA256iC3ygSSzfWhfvVwH2kWKWWIGDqqAgVSXDR3IuMKb4WA9u3W/\nwQyvmcbvw3JEAYeuUTCM7fsPxCKEEAYEtn5RzWHFmFrI6IdURqL8k9BxW61I\nFDkl/00iaMHqIpNWh+aYJyDjcq1ZnooDBqIZSeDV/rM6d/mZDI4MwkAwwZ3x\narmblZGyH9ST06+YYKi94BkJCRmYpc9F3Hd7P0nUoggozPHYZLJH2F9aC6xC\nngDd68z3qFWXA0xZHP58dMqs5IXaBMG6oOuDgzHDoSXSyV/NmdhbSLo2XrD0\nhVgNuOw39phfThK61SC//Bt0bDZ7okv5ThS7IK7bQldkOT/bLisGha7oTj/a\njlpW1rpJ/MU6bDG6lBGmNqumZrRNB6F+wBSyII1kv2amuuYFBSGXqdxvzCas\nckT/tfuvCXtuW+mWcWfl1sju8CG8t6PILkpavCEX+s+p2OE6zhC925Ee95QZ\n+WYh0p8/HVy2YG0+W6qg63VKFBokeVdIxkfQ5igzMRcDWY4KZ0/HfK9ytpaH\nnDnG1KSeyykJtccm7it3wL+tXhgk4/nVFY2ECh+w07H4emQtutYu0QuqkDPD\nslmqxUtoS4wU8hpsG5B+0taQ49uNTq/LJw88bJcbskILtZMnOqAEEKmaXYvL\nTXxO\r\n=G0EM\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "chrisa",
+					"email": "chris@nodnol.org"
+				},
+				{
+					"name": "dap",
+					"email": "dap@cs.brown.edu"
+				},
+				{
+					"name": "melloc",
+					"email": "cody.mello@joyent.com"
+				},
+				{
+					"name": "tjfontaine",
+					"email": "tjfontaine@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "melloc",
+				"email": "cody.mello@joyent.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/dtrace-provider_0.8.8_1566007281475_0.8378087976733559"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-08-17T02:01:24.255Z",
+		"created": "2011-01-27T18:36:37.447Z",
+		"0.0.1": "2011-01-27T18:36:37.927Z",
+		"0.0.2": "2011-02-05T13:25:07.437Z",
+		"0.0.3": "2011-08-31T08:57:50.164Z",
+		"0.0.4": "2011-12-12T14:55:10.220Z",
+		"0.0.5": "2011-12-13T21:28:44.654Z",
+		"0.0.6": "2012-02-06T20:54:16.132Z",
+		"0.0.7": "2012-04-17T16:23:20.822Z",
+		"0.0.8": "2012-05-29T09:41:17.576Z",
+		"0.0.9": "2012-07-04T14:33:11.555Z",
+		"0.2.0": "2012-08-21T20:42:39.327Z",
+		"0.2.1": "2012-09-23T21:50:46.879Z",
+		"0.2.2": "2012-10-15T19:59:16.246Z",
+		"0.2.3": "2012-11-01T00:00:59.792Z",
+		"0.2.4": "2012-11-02T19:40:10.083Z",
+		"0.2.5": "2012-12-09T12:59:36.350Z",
+		"0.2.6": "2012-12-30T11:39:42.755Z",
+		"0.2.7": "2013-01-05T17:43:02.222Z",
+		"0.2.8": "2013-02-04T20:35:00.179Z",
+		"0.3.0": "2014-10-15T15:39:57.615Z",
+		"0.3.1": "2014-10-25T17:46:13.479Z",
+		"0.3.2": "2015-01-24T00:09:51.372Z",
+		"0.4.0": "2015-01-24T00:13:46.431Z",
+		"0.5.0": "2015-05-28T21:08:51.051Z",
+		"0.6.0": "2015-09-04T19:09:59.448Z",
+		"0.7.0": "2016-10-14T22:46:37.220Z",
+		"0.7.1": "2016-10-25T23:49:51.031Z",
+		"0.8.0": "2016-10-25T23:49:58.818Z",
+		"0.8.1": "2017-03-07T19:01:52.592Z",
+		"0.8.2": "2017-05-27T02:00:13.519Z",
+		"0.8.3": "2017-06-13T00:32:23.900Z",
+		"0.8.4": "2017-08-03T23:22:12.972Z",
+		"0.8.5": "2017-08-04T15:46:05.910Z",
+		"0.8.6": "2018-01-12T00:23:32.351Z",
+		"0.8.7": "2018-05-30T00:25:31.310Z",
+		"0.8.8": "2019-08-17T02:01:21.642Z"
+	},
+	"dist-tags": {
+		"latest": "0.8.8"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"a4a5fbdb1364aee0a9c4fdbd8d6c8ee9\"",
+			"fetched": 1568994345466
+		}
+	},
+	"_distfiles": {
+		"dtrace-provider-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.1.tgz",
+			"sha": "09bbb1920009be278e279d2c4ab2bc2bf5dcde5f",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.2.tgz",
+			"sha": "f51b873081717c25b465d7dea5d79b4bd6544461",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.3.tgz",
+			"sha": "cb9897e5ce0bf6db51d0b402b382bff26a55af6a",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.4.tgz",
+			"sha": "29688350bc2e057753abe19ec0dc024d2cabcab8",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.0.5.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.5.tgz",
+			"sha": "62ab508d7dabdff697b41aa9684d973bd5a59d4e",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.0.6.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.6.tgz",
+			"sha": "ae51c1a4467c646fc162a71919b410c567261198",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.0.7.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.7.tgz",
+			"sha": "54bd74b28abdd6d5c13ecfce8847e006c172cf74",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.0.8.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.8.tgz",
+			"sha": "c775c70270933c15ace54b8e9cf959074720d616",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.0.9.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.0.9.tgz",
+			"sha": "8459fb26d734a7244a449ba1cfc925c1c9c2187e",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.0.tgz",
+			"sha": "bb0dba3298278d3c512a2a919ed80d0f9242d533",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.1.tgz",
+			"sha": "b9e2ae25969e62eac20c3377dce3ae8e5352c179",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.2.2.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.2.tgz",
+			"sha": "82013d40267ed042ff849af194517551ac0d1c83",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.2.3.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.3.tgz",
+			"sha": "2d6df0c0be874655c6dd0ead4c5377ad39bae7be",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.2.4.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.4.tgz",
+			"sha": "0719d4449c8994cc89e317cf0d732213f94653d7",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.2.5.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.5.tgz",
+			"sha": "794146fa48307925487080fd33092f7513637dd1",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.2.6.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.6.tgz",
+			"sha": "a4a32f161c2d231a27120318e1adce1c280d8676",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.2.7.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.7.tgz",
+			"sha": "d9d9677ff31303c216479a8dc9465ea28a2d0c29",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.2.8.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.2.8.tgz",
+			"sha": "e243f19219aa95fbf0d8f2ffb07f5bd64e94fe20",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.3.0.tgz",
+			"sha": "633ee973f0b38d153ca01c3144312469de0037e9",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.3.1.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.3.1.tgz",
+			"sha": "04b4d1fc99062eb3421fea923d841878b87bb234",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.3.2.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.3.2.tgz",
+			"sha": "794e4df1993d93ec333baed9c1a4d2da72f875b9",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.4.0.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.4.0.tgz",
+			"sha": "0b67bc1cc77e79bf88b87ad20664f4a753ce3f26",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.5.0.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.5.0.tgz",
+			"sha": "3fddbadd181aed83fc889a535c5703f54e559fea",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.6.0.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.6.0.tgz",
+			"sha": "0b078d5517937d873101452d9146737557b75e51",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.7.0.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.7.0.tgz",
+			"sha": "9ac6d3eb78ffbe90385063e6d14dfe7bc377005d",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.7.1.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.7.1.tgz",
+			"sha": "c06b308f2f10d5d5838aec9c571e5d588dc71d04",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.8.0.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.0.tgz",
+			"sha": "fa95fbf67ed3ae3e97364f9664af7302e5ff5625",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.8.1.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.1.tgz",
+			"sha": "cd4d174a233bea1bcf4a1fbfa5798f44f48cda9f",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.8.2.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.2.tgz",
+			"sha": "f067c2773f15da1b61eb20dbc96aa1cabb3330bc",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.8.3.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.3.tgz",
+			"sha": "ba1bfc6493285ccfcfc6ab69cd5c61d74c2a43bf",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.8.4.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.4.tgz",
+			"sha": "f27c12dc0ec3105606f9833c118b8d711c8d532a",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.8.5.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.5.tgz",
+			"sha": "98ebba221afac46e1c39fd36858d8f9367524b92",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.8.6.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.6.tgz",
+			"sha": "428a223afe03425d2cd6d6347fdf40c66903563d",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.8.7.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.7.tgz",
+			"sha": "dc939b4d3e0620cfe0c1cd803d0d2d7ed04ffd04",
+			"registry": "npmjs"
+		},
+		"dtrace-provider-0.8.8.tgz": {
+			"url": "https://registry.npmjs.org/dtrace-provider/-/dtrace-provider-0.8.8.tgz",
+			"sha": "2996d5490c37e1347be263b423ed7b297fb0d97e",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-54b3afa8ed963c99",
+	"_id": "dtrace-provider",
+	"readme": "# dtrace-provider - Native DTrace providers for Node.js apps.\n\nThis extension allows you to create native DTrace providers for your\nNode.js applications. That is, to create providers and probes which\nexpose information specific to your application, rather than\ninformation about the node runtime.\n\nYou could use this to expose high-level information about the inner\nworkings of your application, or to create a specific context in which\nto look at information from other runtime or system-level providers. \n\nThe provider is not created in the usual way, by declaring it and then\nchanging the build process to include it, but instead dynamically at\nruntime. This is done entirely in-process, and there is no background\ncompiler or [dtrace(1M)](https://illumos.org/man/1M/dtrace) invocation.\nThe process creating the provider need not run as root.\n\n## INSTALL\n\n    $ npm install dtrace-provider\n\n## EXAMPLE\n\nHere's a simple example of creating a provider:\n\n```javascript\nvar d = require('dtrace-provider');\n\nvar dtp = d.createDTraceProvider(\"nodeapp\");\nvar p1 = dtp.addProbe(\"probe1\", \"int\", \"int\");\nvar p2 = dtp.addProbe(\"probe2\", \"char *\");\ndtp.enable();\n```\n\nProbes may be fired via the provider object:\n\n```javascript\ndtp.fire(\"probe1\", function() {\n    return [1, 2];\n});\ndtp.fire(\"probe2\", function() {\n    return [\"hello, dtrace via provider\", \"foo\"];\n});\n```\n\nor via the probe objects themselves:\n\n```javascript\np1.fire(function() {\n  return [1, 2, 3, 4, 5, 6];\n});\np2.fire(function() {\n  return [\"hello, dtrace via probe\", \"foo\"];\n});\n```\n\nNote that `.fire()` takes a callback that returns the arguments to be\nprovided when the DTrace probe actually fires. This allows you to call\n`.fire()` unconditionally when you want to fire the probe, but the\ncallback will be invoked only when the DTrace probe is actually\nenabled. This allows you to create probes whose arguments might be\nexpensive to construct, and only do any work when the probe is\nactually enabled. (Examples might include converting a large object to\na string representation or gathering large amounts of information.)\n\nIn some cases, creating a new closure to pass to `.fire()` each time\nit's called may introduce unwanted overhead. For extremely\nCPU-intensive or memory-conscious workloads, you can avoid this by\nlifting the closures for your hot probes into an outer scope. You can\nthen supply arguments to that function as additional arguments to\n`.fire()`. As an example, you can convert the following program:\n\n```javascript\nfunction manipulateObj(largeObj) {\n    var count = 0;\n    var name = null;\n    ...\n    p1.fire(function () {\n        return [count, keyToValue(name), JSON.stringify(largeObj)];\n    });\n}\n```\n\nInto this one:\n\n```javascript\nfunction f(a, b, c) {\n    return [a, keyToValue(b), JSON.stringify(c)];\n}\n\nfunction manipulateObj(largeObj) {\n    var count = 0;\n    var name = null;\n    ...\n    p1.fire(f, count, name, largeObj);\n}\n```\n\nBe careful to avoid passing `.fire()` additional arguments that are\nthemselves expensive to construct, as that undermines the design goal\nhere: minimizing the effect of disabled probes.\n\nThis example creates a provider called \"nodeapp\", and adds two\nprobes. It then enables the provider, at which point the provider\nbecomes visible to DTrace.\n\nThe probes are then fired, which produces this output:\n\n    $ sudo dtrace -Z -n 'nodeapp*:::probe1{ trace(arg0); trace(arg1) }'  \\\n                     -n 'nodeapp*:::probe2{ trace(copyinstr(arg0));  }'\n    dtrace: description 'nodeapp*:::probe1' matched 0 probes\n    dtrace: description 'nodeapp*:::probe2' matched 0 probes\n    CPU     ID                    FUNCTION:NAME\n      1 123562                      func:probe1                 1                2\n      1 123563                      func:probe2   hello, dtrace                    \n\nArguments are captured by a callback only executed when the probe is\nenabled. This means you can do more expensive work to gather arguments.\n\nThe maximum number of arguments supported is 32. \n\nAvailable argument types are \"int\", for integer numeric values,\n\"char *\" for strings, and \"json\" for objects rendered into JSON strings.\n\nArguments typed as \"json\" will be created as \"char *\" probes in\nDTrace, but objects passed to these probe arguments will be\nautomatically serialized to JSON before being passed to DTrace. This\nfeature is best used in conjunction with the json() D subroutine, but\nis available whether or not the platform supports it.\n\n    # create a json probe:\n\n    var dtp = d.createDTraceProvider(\"nodeapp\");\n    var p1 = dtp.addProbe(\"j1\", \"json\");\n    dtp.enable();\n    p1.fire(function() { return { \"foo\": \"bar\" }; });\n\n    # on a platform supporting json():\n\n    $ sudo dtrace -Z -n 'nodeapp*:::j1{ this->j = copyinstr(arg0); \\\n                                        trace(json(this->j, \"foo\")) }'\n    dtrace: description 'nodeapp$target:::j1' matched 0 probes\n    CPU     ID                    FUNCTION:NAME\n      0  68712                            j1:j1   bar\n\n## PLATFORM SUPPORT\n\nThis libusdt-based Node.JS module supports 64 and 32 bit processes on\nMac OS X and Solaris-like systems such as illumos or SmartOS. As more\nplatform support is added to libusdt, those platforms will be\nsupported by this module. See libusdt's status at:\n\n  https://github.com/chrisa/libusdt#readme\n\nWhen using Mac OS X, be aware that as of 10.11 (El Capitan), DTrace use\nis restricted, and you'll probably want to\n[disable SIP](http://internals.exposed/blog/dtrace-vs-sip.html) to\neffectively use DTrace.\n\nFreeBSD 10 and 11 are also supported, but you'll need to make sure that\nyou have the DTrace headers installed in `/usr/src` otherwise libusdt\nwon't be able to compile. You can\n[clone them using SVN](https://www.freebsd.org/doc/handbook/svn.html),\nor find the correct `src.txz`\n[here](http://ftp.freebsd.org/pub/FreeBSD/releases/) and extract that.\nAlso note that FreeBSD 10 is restricted to only 4 working arguments per\nprobe.\n\nPlatforms not supporting DTrace (notably, Linux and Windows) may\ninstall this module without building libusdt, with a stub no-op\nimplementation provided for compatibility. This allows cross-platform\nnpm modules to embed probes and include a dependency on this module.\n\nGNU Make is required to build libusdt; the build scripts will look for\ngmake in `PATH` first, and then for make.\n\n### TROUBLESHOOTING BUILD ISSUES\n\nIf compilation fails during installation on platforms with DTrace, then\nthe library will fall back to the stub implementation that does nothing.\nTo force an installation failure when compiling fails, set the environment\nvariable `NODE_DTRACE_PROVIDER_REQUIRE` to `hard`:\n\n```shell\n$ NODE_DTRACE_PROVIDER_REQUIRE=hard npm install\n```\n\nThis will then show you the output of the build process so you can see at\nwhich point it's having an issue. Common issues are:\n\n- Missing a C/C++ compiler toolchain for your platform.\n- `python` is Python 3 instead of Python 2; run `npm config set python python2.7`\n  (or similar) to set the Python binary npm uses.\n- On OS X you may need to agree to the XCode license if that's the compiler\n  toolchain you're using. This will usually manifest with an error like\n  `Agreeing to the Xcode/iOS license requires admin privileges, please re-run as root via sudo.`\n  To accept the license, you can run `sudo xcodebuild -license`.\n\nOnce you've found and fixed the issue, you can run `npm rebuild` to rerun\nthe lifecycle scripts.\n\n## CAVEATS\n\nThere is some overhead to probes, even when disabled. Probes are\nalready using the \"is-enabled\" feature of DTrace to control execution\nof the arguments-gathering callback, but some work still needs to be\ndone before that's checked. This overhead should not be a problem\nunless probes are placed in particularly hot code paths.\n\n## CONTRIBUTING\n\nTo clone the project's source code:\n\n    $ git clone --recursive https://github.com/chrisa/node-dtrace-provider.git\n\nFor issues, please use the [GitHub issue tracker](https://github.com/chrisa/node-dtrace-provider/issues)\nlinked to the repository. GitHub pull requests are very welcome.\n\n## RUNNING THE TESTS\n\n```shell\n$ npm install\n$ sudo ./node_modules/.bin/tap --tap test/*.test.js\n```\n\n## OTHER IMPLEMENTATIONS\n\nThis node extension is derived from the ruby-dtrace gem, via the Perl\nmodule Devel::DTrace::Provider, both of which provide the same\nfunctionality to those languages."
+}

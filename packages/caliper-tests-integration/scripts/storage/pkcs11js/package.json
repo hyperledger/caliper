@@ -1,0 +1,1782 @@
+{
+	"name": "pkcs11js",
+	"versions": {
+		"1.0.0": {
+			"name": "pkcs11js",
+			"version": "1.0.0",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"token",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token"
+			],
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"nan": "^2.4.0"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "f1d22b07f3afbe82da355e39d7bb4c50ecdfb5e7",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.0",
+			"_shasum": "ed75f8a828048d4a5c76a63bb75678f7fcec6ed5",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "peculiarventures",
+				"email": "info@peculiarventures.com"
+			},
+			"dist": {
+				"shasum": "ed75f8a828048d4a5c76a63bb75678f7fcec6ed5",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/pkcs11js-1.0.0.tgz_1470262236231_0.9396554571576416"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "pkcs11js",
+			"version": "1.0.1",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"token",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token"
+			],
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"nan": "^2.4.0"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "c89c4394c7f062b8c300d22c9ed5cabba6bf86b7",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.1",
+			"_shasum": "aa6240be04f8265fbc30a7dfac4460d7d9b71161",
+			"_from": ".",
+			"_npmVersion": "2.15.8",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"shasum": "aa6240be04f8265fbc30a7dfac4460d7d9b71161",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/pkcs11js-1.0.1.tgz_1470347832332_0.8305667862296104"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "pkcs11js",
+			"version": "1.0.2",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"token",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token"
+			],
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"nan": "^2.4.0"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "a59a9315f57cd070ff1f2be9e2ab1b55cfa293e3",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.2",
+			"_shasum": "8558f94c93e602881c0b1cead0735a9885472434",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.1",
+			"_npmUser": {
+				"name": "peculiarventures",
+				"email": "info@peculiarventures.com"
+			},
+			"dist": {
+				"shasum": "8558f94c93e602881c0b1cead0735a9885472434",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/pkcs11js-1.0.2.tgz_1470463794843_0.6037041121162474"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "pkcs11js",
+			"version": "1.0.3",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"token",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token"
+			],
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha",
+				"pub": "npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"nan": "^2.4.0"
+			},
+			"devDependencies": {
+				"node-gyp": "^3.4.0",
+				"mocha": "^3.0.1"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "9b759bef2efc4c96232fa2a2306331f01043f335",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.3",
+			"_shasum": "bca414ba0a280c61e55b5bd984082776d4d834be",
+			"_from": ".",
+			"_npmVersion": "2.15.8",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"shasum": "bca414ba0a280c61e55b5bd984082776d4d834be",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/pkcs11js-1.0.3.tgz_1470607623909_0.665054177865386"
+			},
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "pkcs11js",
+			"version": "1.0.4",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"token",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepublish": "npm run build",
+				"postinstall": "npm run build",
+				"pretest": "npm run build",
+				"test": "mocha",
+				"build": "exit",
+				"pub": "npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"watch": "watch 'npm run coveragehtml' lib/ src/ test/",
+				"live": "live-server -q --port=4005 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "if [ ! -f coverage/index.html ]; then mkdir coverage; cp .waiting.html coverage/index.html; fi",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"@types/node": "^6.0.46",
+				"nan": "^2.4.0"
+			},
+			"devDependencies": {
+				"@types/mocha": "^2.2.32",
+				"live-server": "^1",
+				"mocha": "^3",
+				"node-gyp": "^3.4.0",
+				"npm-run-all": "^3",
+				"nyc": "^8",
+				"typescript": "^1.8.10",
+				"typings": "^1.3.3",
+				"watch": "^0"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "db698245dba7f66ed606426757f4745db3212517",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.4",
+			"_shasum": "bbf45573871cea39298ae5ea3df64b9b45047bc8",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"shasum": "bbf45573871cea39298ae5ea3df64b9b45047bc8",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/pkcs11js-1.0.4.tgz_1479109741982_0.8511074620764703"
+			},
+			"directories": {}
+		},
+		"1.0.5": {
+			"name": "pkcs11js",
+			"version": "1.0.5",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"token",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepublish": "npm run build",
+				"postinstall": "npm run build",
+				"pretest": "npm run build",
+				"test": "mocha",
+				"build": "exit",
+				"pub": "npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"watch": "watch 'npm run coveragehtml' lib/ src/ test/",
+				"live": "live-server -q --port=4005 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "if [ ! -f coverage/index.html ]; then mkdir coverage; cp .waiting.html coverage/index.html; fi",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"@types/node": "^6.0.46",
+				"nan": "^2.4.0"
+			},
+			"devDependencies": {
+				"@types/mocha": "^2.2.32",
+				"live-server": "^1",
+				"mocha": "^3",
+				"node-gyp": "^3.4.0",
+				"npm-run-all": "^3",
+				"nyc": "^8",
+				"typescript": "^1.8.10",
+				"typings": "^1.3.3",
+				"watch": "^0"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "8af0cf99606944f1e4d9b50fdb7a6009d93b48a1",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.5",
+			"_shasum": "ebf560a691a086563fee6a026648f8eb7bdbd49e",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"shasum": "ebf560a691a086563fee6a026648f8eb7bdbd49e",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/pkcs11js-1.0.5.tgz_1479110821587_0.28372470010071993"
+			},
+			"directories": {}
+		},
+		"1.0.6": {
+			"name": "pkcs11js",
+			"version": "1.0.6",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"token",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepublish": "npm run build",
+				"postinstall": "npm run build",
+				"pretest": "npm run build",
+				"test": "mocha",
+				"build": "exit",
+				"pub": "npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"watch": "watch 'npm run coveragehtml' lib/ src/ test/",
+				"live": "live-server -q --port=4005 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "if [ ! -f coverage/index.html ]; then mkdir coverage; cp .waiting.html coverage/index.html; fi",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"@types/node": "^6.0.46",
+				"nan": "^2.4.0"
+			},
+			"devDependencies": {
+				"@types/mocha": "^2.2.32",
+				"live-server": "^1",
+				"mocha": "^3",
+				"node-gyp": "^3.4.0",
+				"npm-run-all": "^3",
+				"nyc": "^8",
+				"typescript": "^1.8.10",
+				"typings": "^1.3.3",
+				"watch": "^0"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "7f562d292a9aef8ab01bc69474197a730f96ac7a",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.6",
+			"_shasum": "c42cd019207bce736b99d8f8f6f84881c00806dc",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"shasum": "c42cd019207bce736b99d8f8f6f84881c00806dc",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/pkcs11js-1.0.6.tgz_1479154437083_0.4540187008678913"
+			},
+			"directories": {}
+		},
+		"1.0.7": {
+			"name": "pkcs11js",
+			"version": "1.0.7",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"token",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepublish": "npm run build",
+				"install": "npm run build",
+				"test": "mocha",
+				"build": "node-gyp configure build",
+				"pub": "npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"watch": "watch 'npm run coveragehtml' lib/ src/ test/",
+				"live": "live-server -q --port=4005 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "if [ ! -f coverage/index.html ]; then mkdir coverage; cp .waiting.html coverage/index.html; fi",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"@types/node": "^6.0.63",
+				"nan": "^2.5.1"
+			},
+			"devDependencies": {
+				"@types/mocha": "^2.2.32",
+				"live-server": "^1",
+				"mocha": "^3",
+				"node-gyp": "^3.4.0",
+				"npm-run-all": "^3",
+				"nyc": "^8",
+				"typescript": "^2",
+				"watch": "^0"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gitHead": "c1d34e7ec95b9efa078fd0075b24dbcbe7963cf2",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.7",
+			"_shasum": "6ab277e7c986a3246e000eae6ce995dadd5af516",
+			"_from": ".",
+			"_npmVersion": "4.3.0",
+			"_nodeVersion": "6.9.5",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"shasum": "6ab277e7c986a3246e000eae6ce995dadd5af516",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/pkcs11js-1.0.7.tgz_1487596138337_0.7911553375888616"
+			},
+			"directories": {}
+		},
+		"1.0.8": {
+			"name": "pkcs11js",
+			"version": "1.0.8",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"token",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepublish": "npm run build",
+				"install": "npm run build",
+				"test": "mocha",
+				"build": "node-gyp configure build",
+				"pub": "npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"watch": "watch 'npm run coveragehtml' lib/ src/ test/",
+				"live": "live-server -q --port=4005 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "if [ ! -f coverage/index.html ]; then mkdir coverage; cp .waiting.html coverage/index.html; fi",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"@types/node": "^6.0.63",
+				"nan": "^2.5.1"
+			},
+			"devDependencies": {
+				"@types/mocha": "^2.2.32",
+				"live-server": "^1",
+				"mocha": "^3",
+				"node-gyp": "^3.4.0",
+				"npm-run-all": "^3",
+				"nyc": "^8",
+				"typescript": "^2",
+				"watch": "^0"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gitHead": "06d41e14a35868e21c31826277cad86638062cd9",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.8",
+			"_shasum": "072ab0fa6629f88b679eb46adfc6b6a86dc3cfe9",
+			"_from": ".",
+			"_npmVersion": "4.1.1",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"shasum": "072ab0fa6629f88b679eb46adfc6b6a86dc3cfe9",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.8.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/pkcs11js-1.0.8.tgz_1491219275239_0.5551624740473926"
+			},
+			"directories": {}
+		},
+		"1.0.9": {
+			"name": "pkcs11js",
+			"version": "1.0.9",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"token",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepublish": "npm run build",
+				"install": "npm run build",
+				"test": "mocha",
+				"build": "node-gyp configure build",
+				"pub": "npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"watch": "watch 'npm run coveragehtml' lib/ src/ test/",
+				"live": "live-server -q --port=4005 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "if [ ! -f coverage/index.html ]; then mkdir coverage; cp .waiting.html coverage/index.html; fi",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"@types/node": "^6.0.63",
+				"nan": "^2.5.1"
+			},
+			"devDependencies": {
+				"@types/mocha": "^2.2.32",
+				"live-server": "^1",
+				"mocha": "^3",
+				"node-gyp": "^3.4.0",
+				"npm-run-all": "^3",
+				"nyc": "^8",
+				"typescript": "^2",
+				"watch": "^0"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gitHead": "d073d5baaceb5b872569412fb228134b971ea7f7",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.9",
+			"_shasum": "6d787a0713cc554ed60971d9d6e30542624ea583",
+			"_from": ".",
+			"_npmVersion": "4.5.0",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"shasum": "6d787a0713cc554ed60971d9d6e30542624ea583",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.9.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pkcs11js-1.0.9.tgz_1496314634993_0.044717908604070544"
+			},
+			"directories": {}
+		},
+		"1.0.10": {
+			"name": "pkcs11js",
+			"version": "1.0.10",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"token",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepare": "npm run build",
+				"test": "mocha",
+				"build": "node-gyp configure build",
+				"pub": "npm run build && npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"nan": "^2.7.0"
+			},
+			"devDependencies": {
+				"@types/node": "^8.0.34",
+				"@types/mocha": "^2.2.43",
+				"mocha": "^4.0.1"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "c0059ea858631547a88cfb044147a6b7040fe55b",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.10",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "6.11.3",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"integrity": "sha512-RZQ0MkksFoTTik+hH4JvnICLnVcMA+pjtwt81p3u9yBAtEIIBIUNaJNn0au+jo//wu/BHvVfTXs8XRQloSG79w==",
+				"shasum": "a680b5653e4190069ac3551f5c54828bef55ce30",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.10.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pkcs11js-1.0.10.tgz_1507983292985_0.5168372094631195"
+			},
+			"directories": {}
+		},
+		"1.0.11": {
+			"name": "pkcs11js",
+			"version": "1.0.11",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"token",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepare": "npm run build",
+				"test": "mocha",
+				"build": "node-gyp configure build",
+				"pub": "npm run build && npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"nan": "^2.8.0"
+			},
+			"devDependencies": {
+				"@types/mocha": "^2.2.43",
+				"@types/node": "^8.0.53",
+				"mocha": "^4.0.1"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "f36f05c088849d3bcc4100054ba2893f7481186f",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.11",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.1",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"integrity": "sha512-ulDUtd4xG/k0cjCcZYqyz1SItRmvV7WQ0pxKQApct+QT+XC+yH+GqsJrImwXixSThNTFwNsgjRIZPeLcCdrTdw==",
+				"shasum": "b223cc0dd293b166b93464780bb15d90bcb0a0d4",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.11.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pkcs11js-1.0.11.tgz_1512126171567_0.966283660614863"
+			},
+			"directories": {}
+		},
+		"1.0.12": {
+			"name": "pkcs11js",
+			"version": "1.0.12",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"token",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepare": "npm run build",
+				"test": "mocha",
+				"build": "node-gyp configure build",
+				"pub": "npm run build && npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"nan": "^2.8.0"
+			},
+			"devDependencies": {
+				"@types/mocha": "^2.2.44",
+				"@types/node": "^8.0.53",
+				"mocha": "^4.0.1"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "54d67dd166cbc1dc2dd209f7fc8d3fbc475f62db",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.12",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "6.11.3",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"integrity": "sha512-OI3ZMZkCdFbbMXYHGMVeYYXS9Pe1ROjOZDqi+otnI2kg/heCddmcRy0D8cRebOLi9C5Y47OK9y6vEjx9VuNq1A==",
+				"shasum": "967b8175ff3ba66a8773ba1888540c38e8f8f39d",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.12.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pkcs11js-1.0.12.tgz_1513081444448_0.024829645175486803"
+			},
+			"directories": {}
+		},
+		"1.0.13": {
+			"name": "pkcs11js",
+			"version": "1.0.13",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"token",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepare": "npm run build",
+				"test": "mocha",
+				"build": "node-gyp configure build",
+				"pub": "npm run build && npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"nan": "^2.8.0"
+			},
+			"devDependencies": {
+				"@types/mocha": "^2.2.46",
+				"@types/node": "^8.5.9",
+				"mocha": "^4.0.1"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "e584bbf118276c53b55fd5c28e44b349d60cf661",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.13",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.3",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"integrity": "sha512-8qhUAscCasYmXx2xR8V413dZa7TvzHw6844wRssnTW2VzwqHKLYs7j7ZawT6vZ2wEef8j/zEHYvGFTCGdIshHw==",
+				"shasum": "79c551b863c7666bfd90654a6019452a892d07b8",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.13.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pkcs11js-1.0.13.tgz_1516655756131_0.7597884889692068"
+			},
+			"directories": {}
+		},
+		"1.0.14": {
+			"name": "pkcs11js",
+			"version": "1.0.14",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token",
+				"nss",
+				"softhsm2"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepare": "npm run build",
+				"test": "mocha",
+				"configure:xcode": "node-gyp configure -- -f xcode",
+				"configure": "node-gyp configure",
+				"build": "node-gyp configure build",
+				"pub": "npm run build && npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"nan": "^2.10.0"
+			},
+			"devDependencies": {
+				"@types/mocha": "^2.2.48",
+				"@types/node": "^8.10.0",
+				"mocha": "^4.1.0"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "8c175fd7610c4fff7bb75a8cea0949c74386ed5b",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.14",
+			"_npmVersion": "5.7.1",
+			"_nodeVersion": "9.8.0",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"integrity": "sha512-spFjQhUOOpKKWNGmIKUlg44l1w0MYkuB/Nueu9Od/eiZm+z85XDtfi1//1R7BG80wok0iqJMKtwb1PlzR+QnpQ==",
+				"shasum": "43c859701d77d285a1a395516a09d66b61384b17",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.14.tgz",
+				"fileCount": 36,
+				"unpackedSize": 294647
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pkcs11js_1.0.14_1521805090264_0.7746374896622719"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.15": {
+			"name": "pkcs11js",
+			"version": "1.0.15",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token",
+				"nss",
+				"softhsm2"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepare": "npm run build",
+				"test": "mocha",
+				"configure:xcode": "node-gyp configure -- -f xcode",
+				"configure": "node-gyp configure",
+				"build": "node-gyp configure build",
+				"pub": "npm run build && npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"nan": "^2.10.0"
+			},
+			"devDependencies": {
+				"@types/mocha": "^2.2.48",
+				"@types/node": "^8.10.0",
+				"mocha": "^4.1.0"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "1431c2e03cd58e871ca73c1826ce23ce8d3f71c8",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.15",
+			"_npmVersion": "5.7.1",
+			"_nodeVersion": "9.8.0",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"integrity": "sha512-PyuwkcyLSCrT/sxvf20xWMWTxHDyiuyid2auqOL/rfoAoHi9JUMKlE1bxvNKG+jpUfa6IouAuirblbIr2yen4g==",
+				"shasum": "dae63518f7548c530169234698e9d9b7fda020bd",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.15.tgz",
+				"fileCount": 36,
+				"unpackedSize": 297733
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pkcs11js_1.0.15_1522153640907_0.595244118756759"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.16": {
+			"name": "pkcs11js",
+			"version": "1.0.16",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token",
+				"nss",
+				"softhsm2"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepare": "npm run build",
+				"test": "mocha",
+				"configure:xcode": "node-gyp configure -- -f xcode",
+				"configure": "node-gyp configure",
+				"build": "node-gyp configure build",
+				"pub": "npm run build && npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"nan": "^2.10.0"
+			},
+			"devDependencies": {
+				"@types/mocha": "^5.2.0",
+				"@types/node": "^10.1.3",
+				"mocha": "^5.2.0"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "5a4cc973f6ad0fa632d4420d39ae5be7ba849a49",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.16",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "8.9.3",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"integrity": "sha512-WQ3jZWK8dLrdgrG0Bl87ehP36zIgCPg3lpZFr8n2+sAVMXosnAm2FXDJJRuvgJlnSY9izjHfJECgTzvTImRn6w==",
+				"shasum": "675229396854e1ea049b29d07f3f134c5f9a13f1",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.16.tgz",
+				"fileCount": 36,
+				"unpackedSize": 307446,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbDajTCRA9TVsSAnZWagAAM8gP/jObDIgxTwPF32xiXcO5\nu94YweA/vXnp+fP1PCa2AzV45R43zTry6lUyLXOiHyqirQ2n77e1Y3on5r6T\nFtdD+jY6RqUF2+9BPeEM2H5QDJZRKlnXHDIozndSpqwVJcpORca356oblINR\n6enk88ZuHVlRWnAIC7ybKTxJU5zrTWZmeZOgVPXx/jXa0doGdnuMXc8WpvlH\nLVm92FvGhES8cjyVqoKx8C1VQ9yUqNihSznESz561E6Tz+WyTXysmSdx9hEm\nfh9ZLz+QFoHtaqCLNZvqeJOqBHw7oCc9nNS/MxBbOcyKvt1q3ubBvHtNFjon\nYNc2ZZscPl5U09vvxPnCm7eVb9jMYNKPnRDa3dsNF6qj6ODL6fo0lJIzoyiU\nCOA/dilzkIxGXECdGAep0SK3Vv6xoY0Sj7fPQihLE3PitUWQ1sO0XtDDNelD\n8iZlXbooFUQuI8o+KrD5VWh2oLhyXu2YAYe4ELnafBGymaxl51I5zEnV2G34\nZTBnf0d/p2aYKmRMahj0pHuj2vYfn6x0Hduod/sHRyxGwF/h5BSBo2B1Hv3b\nwa6A330e9XXBtRC38JGaHm0xCeFzHcYB2qjkkL5oMBUb3aRUHW1ILHqKgNn9\nBf1OySf6mnDNBuAMONxqKQFhjcoUX//zMyWLEPZkxd9YAekMUahRY+hEbR0S\nwfNe\r\n=ebjN\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pkcs11js_1.0.16_1527621842117_0.7117448817382537"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.17": {
+			"name": "pkcs11js",
+			"version": "1.0.17",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token",
+				"nss",
+				"softhsm2"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepare": "npm run build",
+				"test": "mocha",
+				"configure:xcode": "node-gyp configure -- -f xcode",
+				"configure": "node-gyp configure",
+				"build": "node-gyp configure build",
+				"pub": "npm run build && npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"nan": "^2.10.0"
+			},
+			"devDependencies": {
+				"@types/mocha": "^5.2.0",
+				"@types/node": "^10.1.3",
+				"mocha": "^5.2.0"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "f4404a27ea9ee500c4356580790fa7ffa71094ea",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.17",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"integrity": "sha512-JQN70Vafra1L9eDrpDevw5J7cDRV16Osamm0GJQgRTQA6DL3SokfaD2U7mt0pZ/XN6qlkMPrQ463JlK9J6y8gg==",
+				"shasum": "4d5e35769171c62970a907823a621ed1a6f44a3a",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.17.tgz",
+				"fileCount": 36,
+				"unpackedSize": 298575,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb9b3QCRA9TVsSAnZWagAAJHYP/RQSUSwrf4HKqh+MOoLl\n7ElTqHfpjSim8KdQvkB8IQI14wKM1Tu0c01+chSoi6MRvJX3rfIyRgTDszuZ\nsmSrlaz4ypnu94byg1ghwTywGXifPJ8SOBqswwHWfwAT1/ZYVdBYIiyA5Aia\nGLPB2BtBko8VOgKvaxJGylVcVW78m+V2Ufk5qd0UJ/Hc3S1kftCUdLah8Oq9\nMtsq6P0grtTnr22l1OQlO6U2uiFEWwbqvcUpMvrU6Nyxbytfjoxi9tcL5Lx4\nbm8COrmktbwJ4W7XDS8MQ6GDyYsquNLlRBIvJV2PSbF5yYulZVlKG2gmvIrl\nGTJnpEQ109sn1mWHKbRXyye+b+WAXKXYM43nIYMSXcgvaJIFAdrnFleekbDV\nSck/u1kwAmRO2ceuCn0dn5MZUsMz8zu1kn3DMyJuBscEAvQj7ar6h+tw6/Kl\nFya/1u3ofSc1Ym0IyKoYBcyShFqPzfHTDL+t2TduBp5BhdU8WhOtfe+XGAiE\nA5NE+kMJpD0gn/G1+Q7LM7g1Znerl0/SFL7UkyaL/2aiiiqtPnrrZiaJd91A\nOegOVEUa9Lhn5wJknZos6f5ezsm1iLqy28fm7IuxBLnK3SU7+bHixs2tJQBP\n6ZlwTrlOqQuRt0D/+SLEcFsnfrK+LewTwoWvwcPUC8UmvSIYPkaQWPlSxUvu\nF+P+\r\n=3CUA\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pkcs11js_1.0.17_1542831567247_0.5056542326829123"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.18": {
+			"name": "pkcs11js",
+			"version": "1.0.18",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token",
+				"nss",
+				"softhsm2"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepare": "npm run build",
+				"test": "mocha",
+				"configure:xcode": "node-gyp configure -- -f xcode",
+				"configure": "node-gyp configure",
+				"build": "node-gyp configure build",
+				"pub": "npm run build && npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"nan": "^2.14.0"
+			},
+			"devDependencies": {
+				"@types/mocha": "^5.2.6",
+				"@types/node": "^10.14.7",
+				"mocha": "^6.1.4"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "1a6f6cebda0151b14415395c5218f78ad812fe37",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.18",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"dist": {
+				"integrity": "sha512-1MYcEAPhy+T1NbiBUw0WwllKXC0sxDCRQGLsks7AtFsaf88F/f+ukdSmCqV3Xyc0RNLIdTX/soy0zyNHOWQezw==",
+				"shasum": "2b2b63ddfc9db1088fbcf0cc7508dfd7229b1cb8",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.18.tgz",
+				"fileCount": 36,
+				"unpackedSize": 304152,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc7D06CRA9TVsSAnZWagAAnEUP/0sigTW/984/N0YrTcYu\ndK83rvFKh9slG8cm5gLPYqy80rVvP7fZv9JvH+0RyPktzMShLLLVfapXjlbT\nbzbg8DX7ksnhzh8+0m4Yxyfw9WF7qCfDQb3SapXEHa9w3pXoqoQzJjAILp0R\nxfBQTc+FnJpqxks9VSHNqgbe3jT/A56AdnlqYaqI61VV4ofz99Axla8Cl6zY\n3wW8S8tQepmHvYP2euu7o8H84W6hGjMkNOU3EQKNdUcuZEj+UHeCgGCeH9fp\nvRZIyzlQdPZ2LqV6rMkuvTP+f+yh5dw0AFsZJN1kdWSy7N1iFXTSPkSSwWxi\n6Ct1Ck73/HDFi2bc224nymoBZrHRcoGFq9a33JFrtjRr/5gm/j3kmC6rkBNZ\n1OLIjfL/o9j6k4tA9AXmhF6mwqOIkwxgF/1JYPMuq/lWPUM3iryVXpTfDgyD\nYMBIvCB+Tgrw9jfJ/m5jlk9daZvMDC6n0IzBDLtpc8HZumIMVEMB7+6wvm7T\nrMI0mtCQq846INISA62qbU9aVIfx0VIkz2BTNqc0rIzQau9EqKJpP6K1c8e9\n5nalG4Qi6jCZi1PxhMRLCQqh7RncO8OrudASbQxBKvnidJwVxmRpsfcnrlab\nZDXHKPxCzIDhbOG8MGLZIqXPQGs8283YHvxIV6lgMPF4LDCY0u3wGeVI84d4\nfZQI\r\n=zxUS\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pkcs11js_1.0.18_1558986041870_0.31195805735803495"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.19": {
+			"name": "pkcs11js",
+			"version": "1.0.19",
+			"description": "A Node.js implementation of the PKCS#11 2.3 interface",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/PeculiarVentures/pkcs11js.git"
+			},
+			"keywords": [
+				"pkcs11",
+				"rsa",
+				"ecdsa",
+				"aes",
+				"crypto",
+				"smartcard",
+				"token",
+				"nss",
+				"softhsm2"
+			],
+			"main": "index.js",
+			"types": "index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build/ buildjs/ coverage/ .nyc_output/ npm-debug.log npm-debug.log.*",
+				"prepare": "npm run build",
+				"test": "mocha",
+				"configure:xcode": "node-gyp configure -- -f xcode",
+				"configure": "node-gyp configure",
+				"build": "node-gyp configure build",
+				"pub": "npm run build && npm version patch && npm publish && git push",
+				"sync": "git ac && git pull --rebase && git push",
+				"coverage": "nyc npm test",
+				"precoveragehtml": "npm run coverage",
+				"coveragehtml": "nyc report -r html",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"install": "node-gyp rebuild"
+			},
+			"author": {
+				"name": "PeculiarVentures"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"nan": "^2.14.0"
+			},
+			"devDependencies": {
+				"@types/mocha": "^5.2.7",
+				"@types/node": "^10.14.18",
+				"mocha": "^6.2.0"
+			},
+			"bugs": {
+				"url": "https://github.com/PeculiarVentures/pkcs11js/issues"
+			},
+			"gypfile": true,
+			"gitHead": "c55979f1f71eaa76bc6e317ef1fcbd4fbdb53002",
+			"homepage": "https://github.com/PeculiarVentures/pkcs11js#readme",
+			"_id": "pkcs11js@1.0.19",
+			"_nodeVersion": "10.16.3",
+			"_npmVersion": "6.11.3",
+			"dist": {
+				"integrity": "sha512-BThNeWreqDXbMAZOTtG8PodY4WAS0HNHsXtsVbDBX4L4C58AvxIIXjjZrsBadXUagbjTllmZwsZHkebVUTpwcA==",
+				"shasum": "08c6c018df410c93a32c9c9f351f6dce71cd66fd",
+				"tarball": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.19.tgz",
+				"fileCount": 36,
+				"unpackedSize": 304153,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdfzbnCRA9TVsSAnZWagAAbDkP/3RxwkV+KUoh7A2BYCOJ\n3AQx8uht42neRvMytorKxaSCApTxvOLCa0m86Ed3alFeDhRbATzikROAlDAY\nk3gUL9qBN8gEv7lAToyLt1Z5BJxkU/QwYEAdcy/SNbVSwSxNlmDnSutXDK7P\nOipLpTV+ojRhPyblKeyEm7MBWrb1LpaxOC5qyILa7OGKFTgJjB7o2MIhzVzv\nnyoqgXnueaFYxyWGbsaOXG87frno+WT6r/CI/zoK0ZWH2hDqIzus19L2CssN\nnMGSNFaw9FeU8pOeDpEi5R+GM3fJu+ESf/0aBh9AALJ7de17Th38gAI0bdVr\ndQ9jzNUN5R2On+NLA4PINYkMatIqxunxWH1CxquF/WgkHz1ozn4DR4a0007c\nB+gAkYG6O4+82bqRiPgwRzeQqzRU03Hyh3tOTNZrnzTmontMhyOkgCHlLdxD\nC/2hsfBdw0l2EsDk7srTXejaIsKJzfblMlT02EoimmY88WW30W5aSv/saOrJ\niwUHqfO+X0S/jzpdbYB0Q9u6uvxsYeNLWTc/mBgqdIIs1/lRW6UVFJZuUNLz\nEMKmF9HTrp5j7PqUnAU5buEOg/ZdwdpQp4SH+Rr4ixEZOltrt1WLg9hEh4rx\n7/zI5eAeZybUiiZNgOhV+7rP+zWj4bavrlsxf/KECcupmECe7J7U6LDJTMig\n4Zmf\r\n=PL4M\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "microshine",
+					"email": "microshine@mail.ru"
+				},
+				{
+					"name": "peculiarventures",
+					"email": "info@peculiarventures.com"
+				}
+			],
+			"_npmUser": {
+				"name": "microshine",
+				"email": "microshine@mail.ru"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pkcs11js_1.0.19_1568618215119_0.5745284519568838"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-09-16T07:16:59.607Z",
+		"created": "2016-08-03T22:10:39.130Z",
+		"1.0.0": "2016-08-03T22:10:39.130Z",
+		"1.0.1": "2016-08-04T21:57:14.444Z",
+		"1.0.2": "2016-08-06T06:09:55.110Z",
+		"1.0.3": "2016-08-07T22:07:05.876Z",
+		"1.0.4": "2016-11-14T07:49:02.603Z",
+		"1.0.5": "2016-11-14T08:07:02.268Z",
+		"1.0.6": "2016-11-14T20:13:59.502Z",
+		"1.0.7": "2017-02-20T13:08:59.077Z",
+		"1.0.8": "2017-04-03T11:34:35.882Z",
+		"1.0.9": "2017-06-01T10:57:16.214Z",
+		"1.0.10": "2017-10-14T12:14:54.214Z",
+		"1.0.11": "2017-12-01T11:02:52.936Z",
+		"1.0.12": "2017-12-12T12:24:05.515Z",
+		"1.0.13": "2018-01-22T21:15:57.417Z",
+		"1.0.14": "2018-03-23T11:38:10.340Z",
+		"1.0.15": "2018-03-27T12:27:21.851Z",
+		"1.0.16": "2018-05-29T19:24:02.253Z",
+		"1.0.17": "2018-11-21T20:19:27.412Z",
+		"1.0.18": "2019-05-27T19:40:42.049Z",
+		"1.0.19": "2019-09-16T07:16:55.295Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.19"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"50832738558486d86c7006b0653be894\"",
+			"fetched": 1568994343910
+		}
+	},
+	"_distfiles": {
+		"pkcs11js-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.0.tgz",
+			"sha": "ed75f8a828048d4a5c76a63bb75678f7fcec6ed5",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.1.tgz",
+			"sha": "aa6240be04f8265fbc30a7dfac4460d7d9b71161",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.2.tgz",
+			"sha": "8558f94c93e602881c0b1cead0735a9885472434",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.3.tgz",
+			"sha": "bca414ba0a280c61e55b5bd984082776d4d834be",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.4.tgz",
+			"sha": "bbf45573871cea39298ae5ea3df64b9b45047bc8",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.5.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.5.tgz",
+			"sha": "ebf560a691a086563fee6a026648f8eb7bdbd49e",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.6.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.6.tgz",
+			"sha": "c42cd019207bce736b99d8f8f6f84881c00806dc",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.7.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.7.tgz",
+			"sha": "6ab277e7c986a3246e000eae6ce995dadd5af516",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.8.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.8.tgz",
+			"sha": "072ab0fa6629f88b679eb46adfc6b6a86dc3cfe9",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.9.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.9.tgz",
+			"sha": "6d787a0713cc554ed60971d9d6e30542624ea583",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.10.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.10.tgz",
+			"sha": "a680b5653e4190069ac3551f5c54828bef55ce30",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.11.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.11.tgz",
+			"sha": "b223cc0dd293b166b93464780bb15d90bcb0a0d4",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.12.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.12.tgz",
+			"sha": "967b8175ff3ba66a8773ba1888540c38e8f8f39d",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.13.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.13.tgz",
+			"sha": "79c551b863c7666bfd90654a6019452a892d07b8",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.14.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.14.tgz",
+			"sha": "43c859701d77d285a1a395516a09d66b61384b17",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.15.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.15.tgz",
+			"sha": "dae63518f7548c530169234698e9d9b7fda020bd",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.16.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.16.tgz",
+			"sha": "675229396854e1ea049b29d07f3f134c5f9a13f1",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.17.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.17.tgz",
+			"sha": "4d5e35769171c62970a907823a621ed1a6f44a3a",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.18.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.18.tgz",
+			"sha": "2b2b63ddfc9db1088fbcf0cc7508dfd7229b1cb8",
+			"registry": "npmjs"
+		},
+		"pkcs11js-1.0.19.tgz": {
+			"url": "https://registry.npmjs.org/pkcs11js/-/pkcs11js-1.0.19.tgz",
+			"sha": "08c6c018df410c93a32c9c9f351f6dce71cd66fd",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-84086cb25e615b9b",
+	"_id": "pkcs11js",
+	"readme": "# PKCS11js\n\n[![license](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/PeculiarVentures/graphene/master/LICENSE)\n[![Build Status](https://travis-ci.org/PeculiarVentures/pkcs11js.svg?branch=master)](https://travis-ci.org/PeculiarVentures/pkcs11js)\n[![Coverage Status](https://coveralls.io/repos/github/PeculiarVentures/pkcs11js/badge.svg?branch=master)](https://coveralls.io/github/PeculiarVentures/pkcs11js?branch=master)\n[![npm version](https://badge.fury.io/js/pkcs11js.svg)](https://badge.fury.io/js/pkcs11js)\n\n[![NPM](https://nodei.co/npm/pkcs11js.png)](https://nodei.co/npm/pkcs11js/)\n\n\nWe make a package called [Graphene](https://github.com/PeculiarVentures/graphene), it provides a simplistic Object Oriented interface for interacting with PKCS#11 devices, for most people this is the right level to build on. In some cases you may want to interact directly with the PKCS#11 API, if so PKCS11js is the package for you.\n\nPKCS#11 (also known as CryptoKI or PKCS11) is the standard interface for interacting with hardware crypto devices such as Smart Cards and Hardware Security Modules (HSMs). \n\nThis was developed to the PKCS#11 2.30 specification, the 2.40 headers were not availible at the time we created this, it should be easy enough to extend it for the new version at a later date.\n\nIt has been tested with :\n- [SoftHSM2](https://www.opendnssec.org/softhsm/)\n- [Thales NShield](https://www.thales-esecurity.com/products-and-services/products-and-services/hardware-security-modules/general-purpose-hsms/nshield-solo)\n- [Safenet Luna HSMs](http://www.safenet-inc.com/)\n- [RuToken](http://www.rutoken.ru/)\n\n**NOTE:** For testing purposes it may be easier to work with SoftHSM2 which is a software implementation of PKCS#11 based on OpenSSL or Botan.\n\n\n## Installation\n\n```\n$ npm install pkcs11js\n```\n\n### Install SoftHSM2\n\n- For OSX see the [instructions here](https://github.com/opendnssec/SoftHSMv2/blob/develop/OSX-NOTES.md)\n- For linux [instructions here](https://github.com/opendnssec/SoftHSMv2/blob/develop/README.md)\n\n\n## Examples\n\n### Example #1\n\n```javascript\nvar pkcs11js = require(\"pkcs11js\");\n\nvar pkcs11 = new pkcs11js.PKCS11();\npkcs11.load(\"/usr/local/lib/softhsm/libsofthsm2.so\");\n\npkcs11.C_Initialize();\n\ntry {\n    // Getting info about PKCS11 Module\n    var module_info = pkcs11.C_GetInfo();\n\n    // Getting list of slots\n    var slots = pkcs11.C_GetSlotList(true);\n    var slot = slots[0];\n\n    // Getting info about slot\n    var slot_info = pkcs11.C_GetSlotInfo(slot);\n    // Getting info about token\n    var token_info = pkcs11.C_GetTokenInfo(slot);\n\n    // Getting info about Mechanism\n    var mechs = pkcs11.C_GetMechanismList(slot);\n    var mech_info = pkcs11.C_GetMechanismInfo(slot, mechs[0]);\n\n    var session = pkcs11.C_OpenSession(slot, pkcs11js.CKF_RW_SESSION | pkcs11js.CKF_SERIAL_SESSION);\n\n    // Getting info about Session\n    var info = pkcs11.C_GetSessionInfo(session);\n    pkcs11.C_Login(session, 1, \"password\");\n\n    /**\n    * Your app code here\n    */\n    \n    pkcs11.C_Logout(session);\n    pkcs11.C_CloseSession(session);\n}\ncatch(e){\n    console.error(e);\n}\nfinally {\n    pkcs11.C_Finalize();\n}\n```\n\n### Example #2\n\nGenerating secret key using AES mechanism\n\n```javascript\nvar template = [\n    { type: pkcs11js.CKA_CLASS, value: pkcs11js.CKO_SECRET_KEY },\n    { type: pkcs11js.CKA_TOKEN, value: false },\n    { type: pkcs11js.CKA_LABEL, value: \"My AES Key\" },\n    { type: pkcs11js.CKA_VALUE_LEN, value: 256 / 8 },\n    { type: pkcs11js.CKA_ENCRYPT, value: true },\n    { type: pkcs11js.CKA_DECRYPT, value: true },\n];\nvar key = pkcs11.C_GenerateKey(session, { mechanism: pkcs11js.CKM_AES_KEY_GEN }, template);\n```\n\n### Example #3\n\nGenerating key pair using RSA-PKCS1 mechanism\n\n```javascript\nvar publicKeyTemplate = [\n    { type: pkcs11js.CKA_CLASS, value: pkcs11js.CKO_PUBLIC_KEY },\n    { type: pkcs11js.CKA_TOKEN, value: false },\n    { type: pkcs11js.CKA_LABEL, value: \"My RSA Public Key\" },\n    { type: pkcs11js.CKA_PUBLIC_EXPONENT, value: new Buffer([1, 0, 1]) },\n    { type: pkcs11js.CKA_MODULUS_BITS, value: 2048 },\n    { type: pkcs11js.CKA_VERIFY, value: true }\n];\nvar privateKeyTemplate = [\n    { type: pkcs11js.CKA_CLASS, value: pkcs11js.CKO_PRIVATE_KEY },\n    { type: pkcs11js.CKA_TOKEN, value: false },\n    { type: pkcs11js.CKA_LABEL, value: \"My RSA Private Key\" },\n    { type: pkcs11js.CKA_SIGN, value: true },\n];\nvar keys = pkcs11.C_GenerateKeyPair(session, { mechanism: pkcs11js.CKM_RSA_PKCS_KEY_PAIR_GEN }, publicKeyTemplate, privateKeyTemplate);\n```\n\n### Example #4\n\nGenerating key pair using ECDSA mechanism\n\n```javascript\nvar publicKeyTemplate = [\n    { type: pkcs11js.CKA_CLASS, value: pkcs11js.CKO_PUBLIC_KEY },\n    { type: pkcs11js.CKA_TOKEN, value: false },\n    { type: pkcs11js.CKA_LABEL, value: \"My EC Public Key\" },\n    { type: pkcs11js.CKA_EC_PARAMS, value: new Buffer(\"06082A8648CE3D030107\", \"hex\") }, // secp256r1\n];\nvar privateKeyTemplate = [\n    { type: pkcs11js.CKA_CLASS, value: pkcs11js.CKO_PRIVATE_KEY },\n    { type: pkcs11js.CKA_TOKEN, value: false },\n    { type: pkcs11js.CKA_LABEL, value: \"My EC Private Key\" },\n    { type: pkcs11js.CKA_DERIVE, value: true },\n];\nvar keys = pkcs11.C_GenerateKeyPair(session, { mechanism: pkcs11js.CKM_EC_KEY_PAIR_GEN }, publicKeyTemplate, privateKeyTemplate);\n```\n\n### Example #4\n\nWorking with Object\n\n```javascript\nvar nObject = pkcs11.C_CreateObject(session, [\n    { type: pkcs11js.CKA_CLASS, value: pkcs11js.CKO_DATA },\n    { type: pkcs11js.CKA_TOKEN, value: false },\n    { type: pkcs11js.CKA_PRIVATE, value: false },\n    { type: pkcs11js.CKA_LABEL, value: \"My custom data\" },\n]);\n\n// Updating lable of Object\npkcs11.C_SetAttributeValue(session, nObject, [{ type: pkcs11js.CKA_LABEL, value: nObjetcLabel + \"!!!\" }]);\n\n// Getting attribute value\nvar label = pkcs11.C_GetAttributeValue(session, nObject, [\n    { type: pkcs11js.CKA_LABEL },\n    { type: pkcs11js.CKA_TOKEN }\n]);\nconsole.log(label[0].value.toString()); // My custom data!!!\nconsole.log(!!label[1].value[0]; // false\n\n// Copying Object\nvar cObject = pkcs11.C_CopyObject(session, nObject, [\n    { type: pkcs11js.CKA_CLASS},\n    { type: pkcs11js.CKA_TOKEN},\n    { type: pkcs11js.CKA_PRIVATE},\n    { type: pkcs11js.CKA_LABEL},\n])\n\n// Removing Object\npkcs11.C_DestroyObject(session, cObject);\n```\n\n### Example #4\n\nSearching objects\n\n**NOTE:** If template is not setted for C_FindObjectsInit, then C_FindObjects returns all objects from slot  \n\n```javascript\npkcs11.C_FindObjectsInit(session, [{ type: pkcs11js.CKA_CLASS, value: pkcs11js.CKO_DATA }]);\nvar hObject = pkcs11.C_FindObjects(session);\nwhile (hObject) {\n    var attrs = pkcs11.C_GetAttributeValue(session, hObject, [\n        { type: pkcs11js.CKA_CLASS },\n        { type: pkcs11js.CKA_TOKEN },\n        { type: pkcs11js.CKA_LABEL }\n    ]);\n    // Output info for objects from token only\n    if (attrs[1].value[0]){\n        console.log(`Object #${hObject}: ${attrs[2].value.toString()}`);\n    }\n    hObject = pkcs11.C_FindObjects(session);\n}\npkcs11.C_FindObjectsFinal(session);\n```\n\n### Example #5\n\nGenerating random values\n\n```javascript\nvar random = pkcs11.C_GenerateRandom(session, new Buffer(20));\nconsole.log(random.toString(\"hex\"));\n```\n\nor\n\n```javascript\nvar random = new Buffer(20);\npkcs11.C_GenerateRandom(session, random);\nconsole.log(random.toString(\"hex\"));\n```\n\n### Example #6\n\nDigest\n\n```javascript\npkcs11.C_DigestInit(_session, { mechanism: pkcs11js.CKM_SHA256 });\n\npkcs11.C_DigestUpdate(session, new Buffer(\"Incomming message 1\"));\npkcs11.C_DigestUpdate(session, new Buffer(\"Incomming message N\"));\n\nvar digest = pkcs11.C_DigestFinal(_session, Buffer(256 / 8));\n\nconsole.log(digest.toString(\"hex\"));\n```\n\n### Example #7\n\nSigning data\n\n```javascript\npkcs11.C_SignInit(session, { mechanism: pkcs11js.CKM_SHA256_RSA_PKCS }, keys.privateKey);\n\npkcs11.C_SignUpdate(session, new Buffer(\"Incomming message 1\"));\npkcs11.C_SignUpdate(session, new Buffer(\"Incomming message N\"));\n\nvar signature = pkcs11.C_SignFinal(session, Buffer(256));\n```\n\nVerifying data\n\n```javascript\npkcs11.C_VerifyInit(session, { mechanism: pkcs11js.CKM_SHA256_RSA_PKCS }, keys.publicKey);\n\npkcs11.C_VerifyUpdate(session, new Buffer(\"Incomming message 1\"));\npkcs11.C_VerifyUpdate(session, new Buffer(\"Incomming message N\"));\n\nvar verify = pkcs11.C_VerifyFinal(session, signature);\n```\n\n### Example #8\n\nEncrypting data with AES-CBC mechanism\n\n```javascript\nvar cbc_param = pkcs11.C_GenerateRandom(new Buffer(16));\n\npkcs11.C_EncryptInit(\n    session,\n    {\n        mechanism: pkcs11js.CKM_AES_CBC,\n        parameter: cbc_param\n    },\n    secretKey\n);\n\nvar enc = new Buffer(0);\nenc = Buffer.concat([enc, pkcs11.C_EncryptUpdate(session, new Buffer(\"Incomming data 1\"), new Buffer(16))]);\nenc = Buffer.concat([enc, pkcs11.C_EncryptUpdate(session, new Buffer(\"Incomming data N\"), new Buffer(16))]);\nenc = Buffer.concat([enc, pkcs11.C_EncryptFinal(session, new Buffer(16))]);\n\nconsole.log(enc.toString(\"hex\"));\n```\n\nDecrypting data with AES-CBC mechanism\n\n```javascript\npkcs11.C_DecryptInit(\n    session,\n    {\n        mechanism: pkcs11js.CKM_AES_CBC,\n        parameter: cbc_param\n    },\n    secretKey\n);\n\nvar dec = new Buffer(0);\ndec = Buffer.concat([dec, pkcs11.C_DecryptUpdate(session, enc, new Buffer(32))]);\ndec = Buffer.concat([dec, pkcs11.C_DecryptFinal(session, new Buffer(16))]);\n\nconsole.log(dec.toString());\n```\n\n### Example #9\n\nDeriving key with ECDH mechanism\n\n```javascript\n// Recieve public data from EC public key\nvar attrs = pkcs11.C_GetAttributeValue(session, publicKeyEC, [{ type: pkcs11js.CKA_EC_POINT }])\nvar ec = attrs[0].value;\n\nvar derivedKey = pkcs11.C_DeriveKey(\n    session,\n    {\n        mechanism: pkcs11js.CKM_ECDH1_DERIVE,\n        parameter: {\n            type: pkcs11js.CK_PARAMS_EC_DH,\n            kdf: 2,\n            publicData: ec\n        }\n    },\n    privateKeyEC,\n    [\n        { type: pkcs11js.CKA_CLASS, value: pkcs11js.CKO_SECRET_KEY },\n        { type: pkcs11js.CKA_TOKEN, value: false },\n        { type: pkcs11js.CKA_KEY_TYPE, value: pkcs11js.CKK_AES },\n        { type: pkcs11js.CKA_LABEL, value: \"Derived AES key\" },\n        { type: pkcs11js.CKA_ENCRYPT, value: true },\n        { type: pkcs11js.CKA_VALUE_LEN, value: 256 / 8 }\n    ]\n);\n```\n### Example #10\n\nInitializing NSS crypto library\n\nUse `options` parameter for `C_Initialize` function.\n\n__Type__\n```ts\ninterface InitializationOptions {\n    /**\n     * NSS library parameters\n     */\n    libraryParameters?: string;\n    /**\n     * bit flags specifying options for `C_Initialize`\n     * - CKF_LIBRARY_CANT_CREATE_OS_THREADS. True if application threads which are executing calls to the library\n     *   may not use native operating system calls to spawn new threads; false if they may\n     * - CKF_OS_LOCKING_OK. True if the library can use the native operation system threading model for locking;\n     *   false otherwise\n     */\n    flags?: number;\n}\n/**\n * Initializes the Cryptoki library\n * @param options Initialization options\n * Supports implementation of standard `CK_C_INITIALIZE_ARGS` and extended NSS format.\n * - if `options` is null or empty, it calls native `C_Initialize` with `NULL`\n * - if `options` doesn't have `libraryParameters`, it uses `CK_C_INITIALIZE_ARGS` structure\n * - if `options` has `libraryParameters`, it uses extended NSS structure\n */\nC_Initialize(options?: InitializationOptions): void;\n```\n\n__Code__\n```js\nconst mod = new pkcs11.PKCS11();\nmod.load(\"/usr/local/opt/nss/lib/libsoftokn3.dylib\");\n\nmod.C_Initialize({\n    libraryParameters: \"configdir='' certPrefix='' keyPrefix='' secmod='' flags=readOnly,noCertDB,noModDB,forceOpen,optimizeSpace\",\n});\n\n// Your code here\n\nmod.C_Finalize();\n```\n\n[More](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Reference/FC_Initialize) info about NSS params for `C_Initialize`\n\n## Suitability\nAt this time this solution should be considered suitable for research and experimentation, further code and security review is needed before utilization in a production application.\n\n## Bug Reporting\nPlease report bugs either as pull requests or as issues in the issue tracker. Graphene has a full disclosure vulnerability policy. Please do NOT attempt to report any security vulnerability in this code privately to anybody.\n\n## Related\n- [PKCS #11 2.40 Specification](http://docs.oasis-open.org/pkcs11/pkcs11-curr/v2.40/pkcs11-curr-v2.40.html)\n- [Many PKCS #11 Specifications](http://www.cryptsoft.com/pkcs11doc/)\n- [Attacking and Fixing PKCS#11 Security Tokens](http://www.lsv.ens-cachan.fr/Publis/PAPERS/PDF/BCFS-ccs10.pdf)\n- [PERL PKCS #11 binding](https://github.com/dotse/p5-crypt-pkcs11)\n- [.NET PKCS #11 binding](https://github.com/jariq/Pkcs11Interop)\n- [Ruby PKCS #11 binding](https://github.com/larskanis/pkcs11)\n- [OCaml PKCS #11 binding](https://github.com/ANSSI-FR/caml-crush)\n- [OCaml PKCS #11 CLI](https://github.com/ANSSI-FR/opkcs11-tool)\n- [Go PKCS #11 binding](https://github.com/miekg/pkcs11) \n- [PKCS #11 Admin](http://www.pkcs11admin.net)\n- [Node.js Foreign Function Interface](https://github.com/node-ffi/node-ffi)\n- [GOST PKCS#11 constants](https://github.com/romanovskiy-k/pkcs11/blob/master/rtpkcs11t.h)\n- [PKCS#11 logging proxy module](https://github.com/jariq/pkcs11-logger)\n- [PKCS#11 Proxy](https://github.com/iksaif/pkcs11-proxy)\n- [PKCS#11 Tests](https://github.com/google/pkcs11test)\n- [OpenCryptoKi](http://sourceforge.net/projects/opencryptoki/)\n- [SoftHSM](https://www.opendnssec.org/softhsm/)\n- [SofHSM2 for Windows](https://github.com/disig/SoftHSM2-for-Windows/)\n- [node-pcsc](https://github.com/santigimeno/node-pcsclite)\n- [PKCS#11 URIs](https://tools.ietf.org/html/rfc7512)\n- [Key Length Recommendations](http://www.keylength.com/en/compare/)"
+}

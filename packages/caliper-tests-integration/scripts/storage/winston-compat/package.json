@@ -1,0 +1,461 @@
+{
+	"name": "winston-compat",
+	"versions": {
+		"0.0.1": {
+			"name": "winston-compat",
+			"version": "0.0.1",
+			"description": "Core functionality from winston < 3.0.0 commonly used by user-created transports.",
+			"main": "index.js",
+			"scripts": {
+				"test": "istanbul cover ./node_modules/.bin/_mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston-compat.git"
+			},
+			"keywords": [
+				"winston",
+				"winston2",
+				"winston1"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-compat/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-compat#readme",
+			"dependencies": {
+				"cycle": "~1.0.3"
+			},
+			"devDependencies": {
+				"assume": "~1.3.1",
+				"common-style": "~3.1.0",
+				"istanbul": "~0.4.0",
+				"mocha": "~2.3.4",
+				"mocha-istanbul": "~0.2.0"
+			},
+			"gitHead": "ab129ab86096a8f91c9e0985c9a965faf9d5e3a2",
+			"_id": "winston-compat@0.0.1",
+			"_shasum": "8809faacd3ffb1ce6a3e37db9f54834b7406869d",
+			"_from": ".",
+			"_npmVersion": "2.14.5",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "8809faacd3ffb1ce6a3e37db9f54834b7406869d",
+				"tarball": "https://registry.npmjs.org/winston-compat/-/winston-compat-0.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "winston-compat",
+			"version": "0.1.0",
+			"description": "Core functionality from winston < 3.0.0 commonly used by user-created transports.",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston-compat.git"
+			},
+			"keywords": [
+				"winston",
+				"winston2",
+				"winston1"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-compat/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-compat#readme",
+			"dependencies": {
+				"cycle": "~1.0.3",
+				"vows": "^0.8.1"
+			},
+			"devDependencies": {
+				"assume": "^1.3.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "~2.3.4",
+				"nyc": "^11.6.0",
+				"winston": "^2.1.1"
+			},
+			"gitHead": "bfe9455240dc92e8280345f3ba911e321909cdd5",
+			"_id": "winston-compat@0.1.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.1",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-EO4TiFrWGizbzSx0rF3jIeU4Lo2MlrtpnxOR8bKjckmlWdqDifl55nqDOqkFAFPsHRTvleD49hrBfZCWSnxwMw==",
+				"shasum": "5ec994c90491db0f1ba182dca4f11a0696d8214a",
+				"tarball": "https://registry.npmjs.org/winston-compat/-/winston-compat-0.1.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 29032
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-compat_0.1.0_1521822738304_0.31778677130991984"
+			}
+		},
+		"0.1.1": {
+			"name": "winston-compat",
+			"version": "0.1.1",
+			"description": "Core functionality from winston < 3.0.0 commonly used by user-created transports.",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston-compat.git"
+			},
+			"keywords": [
+				"winston",
+				"winston2",
+				"winston1"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-compat/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-compat#readme",
+			"dependencies": {
+				"cycle": "~1.0.3"
+			},
+			"devDependencies": {
+				"assume": "^1.3.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "~2.3.4",
+				"nyc": "^11.6.0",
+				"winston": "^2.1.1",
+				"vows": "^0.8.1"
+			},
+			"gitHead": "dc86eec82915f6388eaadb00ee4fa061b4dcd827",
+			"_id": "winston-compat@0.1.1",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-jX06xvtGj/4g9fySHLgx9VfD8Meh7yRuJcoqaDmaO7/SoD/meu2HmWcdwL+Tv+mpzG8M0cxgt/c+WPP6wwXKMg==",
+				"shasum": "8f38f5ec84b6a8c63e9f7791fdb89cae4e9a7cbb",
+				"tarball": "https://registry.npmjs.org/winston-compat/-/winston-compat-0.1.1.tgz",
+				"fileCount": 11,
+				"unpackedSize": 29141,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa2hj7CRA9TVsSAnZWagAA3XUP/3qgIoP7YG3MIap162Kt\n/T6J5sO04ypSNgGaP7/uamfdDO8wFGeSwmqfHylCpKfVzjuH8uit6Gpveaev\nBsiwTaw7AR5oxjyIJ3kAz/YQjlifvKYLkany/rQLn4AJGwxcGF4mZRdbAGoi\n2Y8j8C3YDYQsX40qatXkAuLdXjmM3UoTcQaYyZZdnTwVWIA+ERLViJ9synD4\nCLppdcDmui0J69Pd+odeSLXuLc6zjDQJQRqOBEuwAuq+fpMdsR8OgEpYMIgh\nfYb1CXYiCklUoyg58BhHhWIJRHyXbc1PSfb38PvRF2hXp0E32OiumZxHd2XI\nAPnNwl3d4cKSq7/o7F19C9Nkk7595u5ic4wBMiEpZV/X4pd54NqwSQXzcTdr\nYmQcN42bDnLUWolnSL8AgkOpOVXAeUiCIIjsb7D/14PdtKYkuU1azJKoesWD\njYL3l7Oq1NbILsdOd2AHBs7jE1GrxXnLD8Nf7gea6l8XaFGOo56cQcsCk6rv\nhzmB9YqiudNCkTluo0ulCZupeSdPyh40m8MKzXwqlzp8oVa6iLqjHmCn3uxc\n8QkB0KUcwFqzGeTl/idZigVF8dB3tv1Q0V/aNLY4WzcvdnGMus3mpOe+591P\np2SgAJknTGRWGF8Wu3AXBxyWpaQ2Q+dR9xABITvppvg0O7ll7zH29i92Uerb\n5v+G\r\n=BL8u\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-compat_0.1.1_1524242682586_0.289874476448851"
+			}
+		},
+		"0.1.2": {
+			"name": "winston-compat",
+			"version": "0.1.2",
+			"description": "Core functionality from winston < 3.0.0 commonly used by user-created transports.",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston-compat.git"
+			},
+			"keywords": [
+				"winston",
+				"winston2",
+				"winston1"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-compat/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-compat#readme",
+			"dependencies": {
+				"cycle": "~1.0.3"
+			},
+			"devDependencies": {
+				"assume": "^1.3.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "~2.3.4",
+				"nyc": "^11.6.0",
+				"winston": "^2.1.1",
+				"vows": "^0.8.1"
+			},
+			"gitHead": "a2cf72994ba428cf9abd8379eb8d9c6642cd10b0",
+			"_id": "winston-compat@0.1.2",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-dXa8NZzLpBSuLR+Z34Dn+Vkjm/vl0Gifx3c+ihoxmncoHdyFgB6L0k0x14GOjxvkKYRd19NtyC157pUy5iZQ/Q==",
+				"shasum": "7d19b132234a18480923fdb6db1c8a7ed39b94c2",
+				"tarball": "https://registry.npmjs.org/winston-compat/-/winston-compat-0.1.2.tgz",
+				"fileCount": 12,
+				"unpackedSize": 29231,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa8c5LCRA9TVsSAnZWagAAEKMP/Aka/SuBiHTDQcB2ic5P\nlffNFXbdZOwZFss5KjT++ho4ajE7AxnAC2ssMAaQSK8KDgkQQqIJOy2fKGYa\nV4brLhF+1N8Cp+JMXOS43jkBPKwdkCM/kqDIG4YeOmtaO5h1Oye9lT5mMb5f\nXDyCnBn9MTxRnLnbq09xIJnhDFshTSh7dg03erJnJy5xEN+Wp7Yp3z+6W1dN\nA8/Q+Tten9ojCIxf5mtkV60uY7GnDh8hYqXdYkWBebuasEkyuM+FsJeUGZPg\nSEIJ5QtiiKrn4QEKZoEq/7C7X/Q0jK7OZuV2YOu3ury8H1agiufAmq6Aa08b\n1C9J86TDIt/oqKWoYKKVXZp9VGzInw8cAEaK393JEVOHeYyct/ipy34mPrVf\nIqR8FASHMQQdFkhvLTSOwJAdHFfqom9V3IKwrUaex9Qv3HFK+uBbFIechUGq\n1Bt/zky2KfKmHpZ+AIb98F8hKYyUH0o4ETuEZ4WtYl1SPRB4GVqOdrbwzrOb\n5iHGylKhpcwLJMSq+5vc+8TBLuFZddRaLOgDOqfsF7PUw/H3/uraSs5Monc/\nkE+jPIyZUMla1sSsBdJ1l2pWPpgaDhmxQvxlvQj4h2QurNS4evdUK5W1RgfW\nepVCja/SPGr5+d2/n+4C3YAOP+vLdU36QhE0jpTOpnkKBaYB2qf0n6snwMk1\nBEmZ\r\n=qNRl\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-compat_0.1.2_1525796427312_0.1894486250412455"
+			}
+		},
+		"0.1.3": {
+			"name": "winston-compat",
+			"version": "0.1.3",
+			"description": "Core functionality from winston < 3.0.0 commonly used by user-created transports.",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js",
+				"preversion": "npm test",
+				"postversion": "git push && git push --tags && npm publish"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston-compat.git"
+			},
+			"keywords": [
+				"winston",
+				"winston2",
+				"winston1"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-compat/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-compat#readme",
+			"dependencies": {
+				"cycle": "~1.0.3",
+				"logform": "^1.6.0",
+				"triple-beam": "^1.2.0"
+			},
+			"devDependencies": {
+				"assume": "^1.3.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "~2.3.4",
+				"nyc": "^11.6.0",
+				"winston": "^2.1.1",
+				"vows": "^0.8.1"
+			},
+			"gitHead": "321bca95e13d2e05d230b1817d87e53bc3a4081a",
+			"_id": "winston-compat@0.1.3",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.4.0",
+			"_npmUser": {
+				"name": "mattberther",
+				"email": "matt@berther.io"
+			},
+			"dist": {
+				"integrity": "sha512-Lwyy1tTXEB7b14+qpik0YX9d6c3ErGAvdh7eNY0WM/R4oGDdqdgTluLt6BYCMHa8RGXUa/mm8gL2jgK/uhhnRg==",
+				"shasum": "afe6b177dcb392f71d812f0ae643cc980087d408",
+				"tarball": "https://registry.npmjs.org/winston-compat/-/winston-compat-0.1.3.tgz",
+				"fileCount": 12,
+				"unpackedSize": 29712,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa9GOKCRA9TVsSAnZWagAAfPQP/3yEpKVzMuJa1+f7BDNu\niRO18O26Zzuce/fpMkOf5CVETrYT3VXSQ/AnBdAN+fZ0aofkY21e0GdGDPce\nxM8hUsoar3DG3PB5Lmd8Bi186048GC6wANdyZN4o0UUIczNBzxwesZV+i+Ss\n/M5YSvL+TYmyPzNJLQHTs7zPzrHvMF8nmqCUAGN/uYnrYyzSXKkJF3lJSShi\nmHCXjIuOTSoFnONUayOigDH0rAJ1ssxzQrXp/K9DiJhGaCTRqBJSQWAYpiKW\n4MQHeFPBGFZ35WjSuNvsO5fPQTneGOhLBTqai+ATXgsJVEO5uH3YIKlrRVtX\nz9+q90aVLDnYxFvDZlb2SUJZ+xOnOnlRybtNWOebtpCxdcWxjX90qkVWlO+V\nBU5pIHSSoVARET1nDW7ChYPAAcgDczuG1jEimVMGx3lEX51+3oZuy76Uhqk4\nNJqJ7/ZJTDWNe5lPb+YbcLOD4v/Kz8v/Ak1ZXNTwC+z2zKtVlmqnp7Uol8YT\nelUG4REZnotQ830qCN/uq9HkHQqsHHD/nm8L+rw6g/ApASigepkVuqK/vETl\n3mEl9QLBNrJq6+ORxMpj2QvXhYiJaLA9Oys7HzJbvcfHKvtpvCMUgXrykVEJ\nzVIaIm7/b+g70fGchNYkk8AxY7BqZ9aWGkJAs0O9NyQ725Bfn/mnUgRpbxnP\ncGYj\r\n=uNGO\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "matt@berther.io",
+					"name": "mattberther"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-compat_0.1.3_1525965705824_0.9979471850194053"
+			}
+		},
+		"0.1.4": {
+			"name": "winston-compat",
+			"version": "0.1.4",
+			"description": "Core functionality from winston < 3.0.0 commonly used by user-created transports.",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js",
+				"preversion": "npm test",
+				"postversion": "git push && git push --tags && npm publish"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston-compat.git"
+			},
+			"keywords": [
+				"winston",
+				"winston2",
+				"winston1"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-compat/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-compat#readme",
+			"dependencies": {
+				"cycle": "~1.0.3",
+				"logform": "^1.6.0",
+				"triple-beam": "^1.2.0"
+			},
+			"devDependencies": {
+				"assume": "^1.3.1",
+				"eslint-config-populist": "^4.1.0",
+				"mocha": "~2.3.4",
+				"nyc": "^11.6.0",
+				"winston": "^2.1.1",
+				"vows": "^0.8.1"
+			},
+			"engines": {
+				"node": ">= 6.4.0"
+			},
+			"gitHead": "cbe391486911d20d99886b5fe250ec2f2049928c",
+			"_id": "winston-compat@0.1.4",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.2",
+			"_npmUser": {
+				"name": "mattberther",
+				"email": "matt@berther.io"
+			},
+			"dist": {
+				"integrity": "sha512-mMEfFsSm6GmkFF+f4/0UJtG4N1vSaczGmXLVJYmS/+u2zUaIPcw2ZRuwUg2TvVBjswgiraN+vNnAG8z4fRUZ4w==",
+				"shasum": "599b4ce807ffe728713ecc25ede3f6b89425b739",
+				"tarball": "https://registry.npmjs.org/winston-compat/-/winston-compat-0.1.4.tgz",
+				"fileCount": 12,
+				"unpackedSize": 29755,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbDtbeCRA9TVsSAnZWagAAShkP/1T2RzhQKkXom5yqZ4CD\nTjJUP7/dRxxbE99nUmMDIXqjBrKe1QczAPI8g+9vf2qM2tSrkkp5r5ix6fIk\n0U85ec7zKhrIEpbZkHVdVfG+YWQzxMz8jeHUWT1s1w/y9Z7iz24q2RlzYoIh\n8RsSbc7v2ibHrIiNh6jT16GpVZa/ObVSRhk8uNRM1reOnfB2f7hEw0myBAUM\nXyMpSxAv+V0Sh9oePyh803eRewhDnQFKK+yE9fSnvfDELmcelpLE3wYx54o6\ntJdI4Z6XD+1O5ALbf9cNEizR5Kz+oqOq+63VOb2Kgq0foQPiii1sCTGYI/Yb\nkRLkmoq+yDY0xl4ykfRcU0Ug/Rr7INkLpkOKZYR3Q3n5GOVjyXF06d0WNbTE\nUUwflvsv6GLXcB5m1DJKek8aZXulZo78MYNRU+qsxcSBVatkgxYlhbZV5jle\n60UxmPpgGWJ97lZP+2UI5vgZGquBah5mFKc3SUeGo1iw4fYTuCQu/gsGFfMP\nWAPyjsR+t4ELmVcenu+oKX0IaXUbRaVGDzQh5uno7wi1IMfsKdLmoFvNMRSF\nBgi7c4Dry9/+S7ESQLmvwKx/C7o7/4cfEO4JtRLmMncXo20sAATJzZhkn3G/\nV1LDn8PPGY/cwtKBb5nkiAiIBNcqoVTrqSmxi9pxUoKA9ByMixC7hbm/1WRK\nTSlF\r\n=Lant\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "matt@berther.io",
+					"name": "mattberther"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-compat_0.1.4_1527699166340_0.024813053883548264"
+			}
+		}
+	},
+	"time": {
+		"modified": "2018-05-30T16:52:49.099Z",
+		"created": "2015-11-27T18:57:44.139Z",
+		"0.0.1": "2015-11-27T18:57:44.139Z",
+		"0.1.0": "2018-03-23T16:32:18.381Z",
+		"0.1.1": "2018-04-20T16:44:42.659Z",
+		"0.1.2": "2018-05-08T16:20:27.389Z",
+		"0.1.3": "2018-05-10T15:21:45.903Z",
+		"0.1.4": "2018-05-30T16:52:46.457Z"
+	},
+	"dist-tags": {
+		"latest": "0.1.4"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"263e3d3588ae8514337dc3627d021c92\"",
+			"fetched": 1568994338774
+		}
+	},
+	"_distfiles": {
+		"winston-compat-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/winston-compat/-/winston-compat-0.0.1.tgz",
+			"sha": "8809faacd3ffb1ce6a3e37db9f54834b7406869d",
+			"registry": "npmjs"
+		},
+		"winston-compat-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/winston-compat/-/winston-compat-0.1.0.tgz",
+			"sha": "5ec994c90491db0f1ba182dca4f11a0696d8214a",
+			"registry": "npmjs"
+		},
+		"winston-compat-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/winston-compat/-/winston-compat-0.1.1.tgz",
+			"sha": "8f38f5ec84b6a8c63e9f7791fdb89cae4e9a7cbb",
+			"registry": "npmjs"
+		},
+		"winston-compat-0.1.2.tgz": {
+			"url": "https://registry.npmjs.org/winston-compat/-/winston-compat-0.1.2.tgz",
+			"sha": "7d19b132234a18480923fdb6db1c8a7ed39b94c2",
+			"registry": "npmjs"
+		},
+		"winston-compat-0.1.3.tgz": {
+			"url": "https://registry.npmjs.org/winston-compat/-/winston-compat-0.1.3.tgz",
+			"sha": "afe6b177dcb392f71d812f0ae643cc980087d408",
+			"registry": "npmjs"
+		},
+		"winston-compat-0.1.4.tgz": {
+			"url": "https://registry.npmjs.org/winston-compat/-/winston-compat-0.1.4.tgz",
+			"sha": "599b4ce807ffe728713ecc25ede3f6b89425b739",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-fcbf29764d92400c",
+	"_id": "winston-compat",
+	"readme": "# winston-compat\nCore functionality from winston < 3.0.0 commonly used by user-created transports."
+}

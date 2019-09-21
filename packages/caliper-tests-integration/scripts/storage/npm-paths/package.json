@@ -1,0 +1,650 @@
+{
+	"name": "npm-paths",
+	"versions": {
+		"0.1.1": {
+			"name": "npm-paths",
+			"description": "Returns an array of unique \"npm\" directories based on the user's platform and environment.",
+			"version": "0.1.1",
+			"homepage": "https://github.com/jonschlinkert/npm-paths",
+			"author": {
+				"name": "Jon Schlinkert",
+				"url": "https://github.com/jonschlinkert"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonschlinkert/npm-paths.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jonschlinkert/npm-paths/issues"
+			},
+			"license": "MIT",
+			"files": [
+				"index.js"
+			],
+			"main": "index.js",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"scripts": {
+				"test": "mocha"
+			},
+			"dependencies": {
+				"global-modules": "^0.2.0",
+				"is-windows": "^0.1.0"
+			},
+			"devDependencies": {
+				"mocha": "*"
+			},
+			"keywords": [
+				"directory",
+				"dirname",
+				"global",
+				"module",
+				"package",
+				"path",
+				"prefix",
+				"resolve"
+			],
+			"verb": {
+				"related": {
+					"list": [
+						"resolve-up",
+						"look-up",
+						"global-modules",
+						"global-prefix",
+						"global-paths",
+						"contains-path"
+					]
+				}
+			},
+			"gitHead": "2e92ba483c6cdcb683d5ae880e6fa33c50548320",
+			"_id": "npm-paths@0.1.1",
+			"_shasum": "df138dd0ed1bfdd785ad4301b089ca494b39906f",
+			"_from": ".",
+			"_npmVersion": "3.3.6",
+			"_nodeVersion": "5.0.0",
+			"_npmUser": {
+				"name": "jonschlinkert",
+				"email": "github@sellside.com"
+			},
+			"maintainers": [
+				{
+					"name": "jonschlinkert",
+					"email": "github@sellside.com"
+				}
+			],
+			"dist": {
+				"shasum": "df138dd0ed1bfdd785ad4301b089ca494b39906f",
+				"tarball": "https://registry.npmjs.org/npm-paths/-/npm-paths-0.1.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.2": {
+			"name": "npm-paths",
+			"description": "Returns an array of unique \"npm\" directories based on the user's platform and environment.",
+			"version": "0.1.2",
+			"homepage": "https://github.com/jonschlinkert/npm-paths",
+			"author": {
+				"name": "Jon Schlinkert",
+				"url": "https://github.com/jonschlinkert"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonschlinkert/npm-paths.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jonschlinkert/npm-paths/issues"
+			},
+			"license": "MIT",
+			"files": [
+				"index.js"
+			],
+			"main": "index.js",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"scripts": {
+				"test": "mocha"
+			},
+			"dependencies": {
+				"global-modules": "^0.2.0",
+				"is-windows": "^0.1.0"
+			},
+			"devDependencies": {
+				"mocha": "*"
+			},
+			"keywords": [
+				"directory",
+				"dirname",
+				"global",
+				"module",
+				"package",
+				"path",
+				"prefix",
+				"resolve"
+			],
+			"verb": {
+				"related": {
+					"list": [
+						"resolve-up",
+						"look-up",
+						"global-modules",
+						"global-prefix",
+						"global-paths",
+						"contains-path"
+					]
+				}
+			},
+			"gitHead": "46c3480ad093dd64e3eaa4e2aa4a7c809a6a629c",
+			"_id": "npm-paths@0.1.2",
+			"_shasum": "dfda67f7258275c8f7f3de5f5e6b278b1c057df4",
+			"_from": ".",
+			"_npmVersion": "3.3.6",
+			"_nodeVersion": "5.0.0",
+			"_npmUser": {
+				"name": "jonschlinkert",
+				"email": "github@sellside.com"
+			},
+			"maintainers": [
+				{
+					"name": "jonschlinkert",
+					"email": "github@sellside.com"
+				}
+			],
+			"dist": {
+				"shasum": "dfda67f7258275c8f7f3de5f5e6b278b1c057df4",
+				"tarball": "https://registry.npmjs.org/npm-paths/-/npm-paths-0.1.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.3": {
+			"name": "npm-paths",
+			"description": "Returns an array of unique \"npm\" directories based on the user's platform and environment.",
+			"version": "0.1.3",
+			"homepage": "https://github.com/jonschlinkert/npm-paths",
+			"author": {
+				"name": "Jon Schlinkert",
+				"url": "https://github.com/jonschlinkert"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonschlinkert/npm-paths.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jonschlinkert/npm-paths/issues"
+			},
+			"license": "MIT",
+			"files": [
+				"index.js"
+			],
+			"main": "index.js",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"scripts": {
+				"test": "mocha"
+			},
+			"dependencies": {
+				"global-modules": "^0.2.0",
+				"is-windows": "^0.1.1"
+			},
+			"devDependencies": {
+				"gulp-format-md": "^0.1.7",
+				"helper-example": "^0.1.0",
+				"mocha": "*"
+			},
+			"keywords": [
+				"directory",
+				"dirname",
+				"global",
+				"module",
+				"package",
+				"path",
+				"prefix",
+				"resolve"
+			],
+			"verb": {
+				"run": true,
+				"toc": false,
+				"layout": "default",
+				"tasks": [
+					"readme"
+				],
+				"plugins": [
+					"gulp-format-md"
+				],
+				"related": {
+					"list": [
+						"resolve-up",
+						"look-up",
+						"global-modules",
+						"global-prefix",
+						"global-paths",
+						"contains-path"
+					]
+				},
+				"reflinks": [
+					"global-paths",
+					"verb"
+				],
+				"lint": {
+					"reflinks": true
+				},
+				"helpers": [
+					"helper-example"
+				]
+			},
+			"gitHead": "760c0acd292abc51e13f804281960985dc6a3ae6",
+			"_id": "npm-paths@0.1.3",
+			"_shasum": "6b58e7a4766366b543e0a46efe41159a8f06a07f",
+			"_from": ".",
+			"_npmVersion": "3.6.0",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "jonschlinkert",
+				"email": "github@sellside.com"
+			},
+			"maintainers": [
+				{
+					"name": "jonschlinkert",
+					"email": "github@sellside.com"
+				}
+			],
+			"dist": {
+				"shasum": "6b58e7a4766366b543e0a46efe41159a8f06a07f",
+				"tarball": "https://registry.npmjs.org/npm-paths/-/npm-paths-0.1.3.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/npm-paths-0.1.3.tgz_1456510058012_0.5679503250867128"
+			},
+			"directories": {}
+		},
+		"0.1.4": {
+			"name": "npm-paths",
+			"description": "Returns an array of unique \"npm\" directories based on the user's platform and environment.",
+			"version": "0.1.4",
+			"homepage": "https://github.com/jonschlinkert/npm-paths",
+			"author": {
+				"name": "Jon Schlinkert",
+				"url": "https://github.com/jonschlinkert"
+			},
+			"contributors": [
+				{
+					"name": "Brian Woodward",
+					"url": "https://twitter.com/doowb"
+				},
+				{
+					"name": "Jon Schlinkert",
+					"url": "http://twitter.com/jonschlinkert"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonschlinkert/npm-paths.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jonschlinkert/npm-paths/issues"
+			},
+			"license": "MIT",
+			"files": [
+				"index.js"
+			],
+			"main": "index.js",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"scripts": {
+				"test": "mocha"
+			},
+			"dependencies": {
+				"global-modules": "^1.0.0",
+				"is-windows": "^1.0.1"
+			},
+			"devDependencies": {
+				"gulp-format-md": "^1.0.0",
+				"helper-example": "^0.1.0",
+				"mocha": "^3.5.3"
+			},
+			"keywords": [
+				"directory",
+				"dirname",
+				"global",
+				"module",
+				"npm",
+				"package",
+				"path",
+				"paths",
+				"prefix",
+				"resolve"
+			],
+			"verb": {
+				"run": true,
+				"toc": false,
+				"layout": "default",
+				"tasks": [
+					"readme"
+				],
+				"plugins": [
+					"gulp-format-md"
+				],
+				"related": {
+					"list": [
+						"contains-path",
+						"global-modules",
+						"global-paths",
+						"global-prefix",
+						"look-up",
+						"resolve-up"
+					]
+				},
+				"reflinks": [
+					"global-paths",
+					"verb"
+				],
+				"lint": {
+					"reflinks": true
+				},
+				"helpers": [
+					"helper-example"
+				]
+			},
+			"gitHead": "84b7aec3b279505de736577fddd947a9c18ca209",
+			"_id": "npm-paths@0.1.4",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.1.0",
+			"_npmUser": {
+				"name": "jonschlinkert",
+				"email": "github@sellside.com"
+			},
+			"dist": {
+				"integrity": "sha512-6VlthNNH1VW71JSKuAeqP/lID/NicC8E1EqCelHTwFPPClZsZ7yw06mW2BHe5gz1HxxSsM3sAmbzV2we22/KDA==",
+				"shasum": "3a5ac61e56cd1bd6855df42dc94613df98e4d810",
+				"tarball": "https://registry.npmjs.org/npm-paths/-/npm-paths-0.1.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jonschlinkert",
+					"email": "github@sellside.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/npm-paths-0.1.4.tgz_1513894525837_0.32605176442302763"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "npm-paths",
+			"description": "Returns an array of unique \"npm\" directories based on the user's platform and environment.",
+			"version": "1.0.0",
+			"homepage": "https://github.com/jonschlinkert/npm-paths",
+			"author": {
+				"name": "Jon Schlinkert",
+				"url": "https://github.com/jonschlinkert"
+			},
+			"contributors": [
+				{
+					"name": "Brian Woodward",
+					"url": "https://twitter.com/doowb"
+				},
+				{
+					"name": "Jon Schlinkert",
+					"url": "http://twitter.com/jonschlinkert"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonschlinkert/npm-paths.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jonschlinkert/npm-paths/issues"
+			},
+			"license": "MIT",
+			"files": [
+				"index.js"
+			],
+			"main": "index.js",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"scripts": {
+				"test": "mocha"
+			},
+			"dependencies": {
+				"global-modules": "^1.0.0",
+				"is-windows": "^1.0.1"
+			},
+			"devDependencies": {
+				"gulp-format-md": "^1.0.0",
+				"helper-example": "^0.1.0",
+				"mocha": "^3.5.3"
+			},
+			"keywords": [
+				"directory",
+				"dirname",
+				"global",
+				"module",
+				"npm",
+				"package",
+				"path",
+				"paths",
+				"prefix",
+				"resolve"
+			],
+			"verb": {
+				"run": true,
+				"toc": false,
+				"layout": "default",
+				"tasks": [
+					"readme"
+				],
+				"plugins": [
+					"gulp-format-md"
+				],
+				"related": {
+					"list": [
+						"contains-path",
+						"global-modules",
+						"global-paths",
+						"global-prefix",
+						"look-up",
+						"resolve-up"
+					]
+				},
+				"reflinks": [
+					"global-paths",
+					"verb"
+				],
+				"lint": {
+					"reflinks": true
+				},
+				"helpers": [
+					"helper-example"
+				]
+			},
+			"gitHead": "05c5bb218528e46ca95e2375f27dbaceba1b4345",
+			"_id": "npm-paths@1.0.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.1.0",
+			"_npmUser": {
+				"name": "jonschlinkert",
+				"email": "github@sellside.com"
+			},
+			"dist": {
+				"integrity": "sha512-COlxSO5PK9UvZXIa7/sqJDZOlffWFx9+CKJJWkdbhUJMBwcf9sof2jxt4uiVsl+nY3sy0/XFGl4iGr8GoKfiXA==",
+				"shasum": "6e66ffc8887d27db71f9e8c4edd17e11c78a1c73",
+				"tarball": "https://registry.npmjs.org/npm-paths/-/npm-paths-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jonschlinkert",
+					"email": "github@sellside.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/npm-paths-1.0.0.tgz_1513894555189_0.9633826715871692"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "npm-paths",
+			"description": "Returns an array of NPM directory paths based on the user's platform and environment.",
+			"version": "2.0.0",
+			"homepage": "https://github.com/jonschlinkert/npm-paths",
+			"author": {
+				"name": "Jon Schlinkert",
+				"url": "https://github.com/jonschlinkert"
+			},
+			"contributors": [
+				{
+					"name": "Brian Woodward",
+					"url": "https://twitter.com/doowb"
+				},
+				{
+					"name": "Jon Schlinkert",
+					"url": "http://twitter.com/jonschlinkert"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonschlinkert/npm-paths.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jonschlinkert/npm-paths/issues"
+			},
+			"license": "MIT",
+			"main": "index.js",
+			"engines": {
+				"node": ">=6"
+			},
+			"scripts": {
+				"test": "mocha"
+			},
+			"dependencies": {
+				"global-modules": "^2.0.0"
+			},
+			"devDependencies": {
+				"gulp-format-md": "^2.0.0",
+				"mocha": "^5.2.0"
+			},
+			"keywords": [
+				"directory",
+				"dirname",
+				"global",
+				"module",
+				"npm",
+				"package",
+				"path",
+				"paths",
+				"prefix",
+				"resolve"
+			],
+			"verb": {
+				"run": true,
+				"toc": false,
+				"layout": "default",
+				"tasks": [
+					"readme"
+				],
+				"plugins": [
+					"gulp-format-md"
+				],
+				"related": {
+					"list": [
+						"global-modules",
+						"global-paths",
+						"global-prefix"
+					]
+				},
+				"lint": {
+					"reflinks": true
+				}
+			},
+			"gitHead": "f23d6d41fb9d94478dd5cc15b9596d701f44abb6",
+			"_id": "npm-paths@2.0.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.4.0",
+			"_npmUser": {
+				"name": "jonschlinkert",
+				"email": "github@sellside.com"
+			},
+			"dist": {
+				"integrity": "sha512-8H6F86qZ5O/xc+vNAxEni4baIhxtYM+HrrSXt5GCOf8fLOIhuIFWrTO8+41nrPbSw3QRk8pSO/W4xVPxiBQTKw==",
+				"shasum": "080413b3432d3db3668215228cb070f32e87f656",
+				"tarball": "https://registry.npmjs.org/npm-paths/-/npm-paths-2.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 7713,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcFKKQCRA9TVsSAnZWagAAslMP/1+++CyEl3J2z8fNDPgN\nE7oH35FKai1QBiFzO5HeL89GVWqT5/Tt4x9lmU4EP1Nelf+F+2T4OLZlPQs5\nJNriKVkLViuJX2XKqn8+g6xVtoTaFyXFisy0mrCxTDzc4RLi2l27t0UWWb+7\nGl0P26fJs0ltzS2z6oVEXkMQ4FWkSBX+bdy/wcIbPGFjaq9tVkCVl8v16cYx\nzLq1F++2HzRBzyT4U4ii9juWbvtstu5NjTSMpdF7ITlfj3C7/rvglvmmXU1u\nER/u68jYBjdg4wk8oF9loG+o/kh+McD6SI9sjTgQs5hb+L550KV7rfeFL71R\n2KfxARUN6JotgHnlYAO0HsevpvZjghFhk3wMmKOhm7JirrbltiBRJztHzZhP\nf1r85O033NxbyYxpc2qtboK8y1lBaNhYC/F3p5JgO0BPM7XpqfDHJceBADjB\nUhK2JCUdE77D7ibVuBELXqk0LcxeQFtSewjZlW9qQKRGpMaNdQBWVouDw8x9\nb0V31q0k8gZiizpJzSFw2y3ycP4FVE4gIlyP9LdKKt7sbzwjzdA3k/Xp/E/w\nC1q40V+/UIrH9txW+0Hhs+KA0YWCr0xjORhKClm4GhsxDpupP7+IICOJO6Ox\n7GrRBoJJIjQqw0gfXAcxUkxKVB+K+q2e/Orbv3pc4ZLnfLAHpy/daBiS2wen\nfMuQ\r\n=1Jcg\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "jonschlinkert",
+					"email": "github@sellside.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/npm-paths_2.0.0_1544856208105_0.47420190598940093"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-01-05T00:27:17.921Z",
+		"created": "2015-11-19T06:44:21.659Z",
+		"0.1.1": "2015-11-19T06:44:21.659Z",
+		"0.1.2": "2015-11-21T08:25:59.013Z",
+		"0.1.3": "2016-02-26T18:07:41.095Z",
+		"0.1.4": "2017-12-21T22:15:26.774Z",
+		"1.0.0": "2017-12-21T22:15:55.280Z",
+		"2.0.0": "2018-12-15T06:43:28.213Z"
+	},
+	"dist-tags": {
+		"latest": "2.0.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"599596ac8f8ba9255d57efd6c3c1ef70\"",
+			"fetched": 1568994341893
+		}
+	},
+	"_distfiles": {
+		"npm-paths-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/npm-paths/-/npm-paths-0.1.1.tgz",
+			"sha": "df138dd0ed1bfdd785ad4301b089ca494b39906f",
+			"registry": "npmjs"
+		},
+		"npm-paths-0.1.2.tgz": {
+			"url": "https://registry.npmjs.org/npm-paths/-/npm-paths-0.1.2.tgz",
+			"sha": "dfda67f7258275c8f7f3de5f5e6b278b1c057df4",
+			"registry": "npmjs"
+		},
+		"npm-paths-0.1.3.tgz": {
+			"url": "https://registry.npmjs.org/npm-paths/-/npm-paths-0.1.3.tgz",
+			"sha": "6b58e7a4766366b543e0a46efe41159a8f06a07f",
+			"registry": "npmjs"
+		},
+		"npm-paths-0.1.4.tgz": {
+			"url": "https://registry.npmjs.org/npm-paths/-/npm-paths-0.1.4.tgz",
+			"sha": "3a5ac61e56cd1bd6855df42dc94613df98e4d810",
+			"registry": "npmjs"
+		},
+		"npm-paths-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/npm-paths/-/npm-paths-1.0.0.tgz",
+			"sha": "6e66ffc8887d27db71f9e8c4edd17e11c78a1c73",
+			"registry": "npmjs"
+		},
+		"npm-paths-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/npm-paths/-/npm-paths-2.0.0.tgz",
+			"sha": "080413b3432d3db3668215228cb070f32e87f656",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-fc5f95d71127cdf0",
+	"_id": "npm-paths",
+	"readme": "# npm-paths [![NPM version](https://img.shields.io/npm/v/npm-paths.svg?style=flat)](https://www.npmjs.com/package/npm-paths) [![NPM monthly downloads](https://img.shields.io/npm/dm/npm-paths.svg?style=flat)](https://npmjs.org/package/npm-paths) [![NPM total downloads](https://img.shields.io/npm/dt/npm-paths.svg?style=flat)](https://npmjs.org/package/npm-paths) [![Linux Build Status](https://img.shields.io/travis/jonschlinkert/npm-paths.svg?style=flat&label=Travis)](https://travis-ci.org/jonschlinkert/npm-paths)\n\n> Returns an array of NPM directory paths based on the user's platform and environment.\n\nPlease consider following this project's author, [Jon Schlinkert](https://github.com/jonschlinkert), and consider starring the project to show your :heart: and support.\n\n## Install\n\nInstall with [npm](https://www.npmjs.com/):\n\n```sh\n$ npm install --save npm-paths\n```\n\nThis lib does not include the `require.main.paths` in the result array. If you do need the `require.main.paths`, use [global-paths](https://github.com/jonschlinkert/global-paths) instead.\n\n## Usage\n\n```js\nconst paths = require('./');\nconsole.log(paths());\n\n// specify the CWD to start from\nconsole.log(paths('some/directory'));\n```\n\n## Example results\n\nResults in something like the following:\n\n**Mac**\n\n```js\n// example was run from the \"/Users/jonschlinkert/dev/npm-paths/\" directory\n[ '/Users/jonschlinkert/dev/npm-paths/node_modules',\n  '/Users/jonschlinkert/dev/node_modules',\n  '/Users/jonschlinkert/node_modules',\n  '/Users/node_modules',\n  '/node_modules',\n  '/usr/local/lib/node_modules',\n  '/usr/lib/node_modules' ]\n```\n\n**Windows**\n\n```js\n// example was run from the \"F:\\\\dev\\\\npm-paths\" directory\n[ 'C:\\\\Users\\\\SERVER\\\\AppData\\\\Roaming\\\\node_modules\\\\npm',\n  'C:\\\\Program Files\\\\nodejs\\\\node_modules',\n  'F:\\\\dev\\\\npm-paths\\\\node_modules',\n  'F:\\\\dev\\\\node_modules',\n  'F:\\\\node_modules' ]\n```\n\n## About\n\n<details>\n<summary><strong>Contributing</strong></summary>\n\nPull requests and stars are always welcome. For bugs and feature requests, [please create an issue](../../issues/new).\n\n</details>\n\n<details>\n<summary><strong>Running Tests</strong></summary>\n\nRunning and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:\n\n```sh\n$ npm install && npm test\n```\n\n</details>\n\n<details>\n<summary><strong>Building docs</strong></summary>\n\n_(This project's readme.md is generated by [verb](https://github.com/verbose/verb-generate-readme), please don't edit the readme directly. Any changes to the readme must be made in the [.verb.md](.verb.md) readme template.)_\n\nTo generate the readme, run the following command:\n\n```sh\n$ npm install -g verbose/verb#dev verb-generate-readme && verb\n```\n\n</details>\n\n### Related projects\n\nYou might also be interested in these projects:\n\n* [global-modules](https://www.npmjs.com/package/global-modules): The directory used by npm for globally installed npm modules. | [homepage](https://github.com/jonschlinkert/global-modules \"The directory used by npm for globally installed npm modules.\")\n* [global-paths](https://www.npmjs.com/package/global-paths): Returns an array of unique \"global\" directories based on the user's platform and environment. The… [more](https://github.com/jonschlinkert/global-paths) | [homepage](https://github.com/jonschlinkert/global-paths \"Returns an array of unique \"global\" directories based on the user's platform and environment. The resulting paths can be used for doing lookups for generators or other globally installed npm packages. Node.js / JavaScript.\")\n* [global-prefix](https://www.npmjs.com/package/global-prefix): Get the npm global path prefix. | [homepage](https://github.com/jonschlinkert/global-prefix \"Get the npm global path prefix.\")\n\n### Contributors\n\n| **Commits** | **Contributor** |  \n| --- | --- |  \n| 13 | [jonschlinkert](https://github.com/jonschlinkert) |  \n| 2  | [loremaps](https://github.com/loremaps) |  \n| 1  | [doowb](https://github.com/doowb) |  \n\n### Author\n\n**Jon Schlinkert**\n\n* [GitHub Profile](https://github.com/jonschlinkert)\n* [Twitter Profile](https://twitter.com/jonschlinkert)\n* [LinkedIn Profile](https://linkedin.com/in/jonschlinkert)\n\n### License\n\nCopyright © 2018, [Jon Schlinkert](https://github.com/jonschlinkert).\nReleased under the [MIT License](LICENSE).\n\n***\n\n_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.8.0, on December 15, 2018._"
+}

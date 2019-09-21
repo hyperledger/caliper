@@ -1,0 +1,2176 @@
+{
+	"name": "rlp",
+	"versions": {
+		"0.0.0": {
+			"name": "rlp",
+			"version": "0.0.0",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1"
+			},
+			"_id": "rlp@0.0.0",
+			"dist": {
+				"shasum": "0a43bd8b226167ae42bec60a3202d672b9645f0a",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-0.0.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.8",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			]
+		},
+		"0.0.1": {
+			"name": "rlp",
+			"version": "0.0.1",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1"
+			},
+			"_id": "rlp@0.0.1",
+			"dist": {
+				"shasum": "bf66511d4f2d30643c635136f93e2160882a12d1",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-0.0.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.8",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			]
+		},
+		"0.0.2": {
+			"name": "rlp",
+			"version": "0.0.2",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1"
+			},
+			"_id": "rlp@0.0.2",
+			"dist": {
+				"shasum": "ede2395879498e35330d24c3f5895eb4880ede37",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-0.0.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.8",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			]
+		},
+		"0.0.3": {
+			"name": "rlp",
+			"version": "0.0.3",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1"
+			},
+			"_id": "rlp@0.0.3",
+			"dist": {
+				"shasum": "76d253dae0c623ca4b322a2abadb165086f2a669",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-0.0.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.8",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			]
+		},
+		"0.0.4": {
+			"name": "rlp",
+			"version": "0.0.4",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1"
+			},
+			"_id": "rlp@0.0.4",
+			"dist": {
+				"shasum": "fdd848f59bf66463b73b517006fa6607649ea384",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-0.0.4.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.8",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			]
+		},
+		"0.0.5": {
+			"name": "rlp",
+			"version": "0.0.5",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"bignum": "^0.7.0"
+			},
+			"gitHead": "a83099dec011840e324ce67bcda4bca2a20ac221",
+			"homepage": "https://github.com/wanderer/rlp",
+			"_id": "rlp@0.0.5",
+			"_shasum": "ae9a6ce62780a5ee5384b432b8f90882dcaf7a33",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "ae9a6ce62780a5ee5384b432b8f90882dcaf7a33",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-0.0.5.tgz"
+			}
+		},
+		"0.0.6": {
+			"name": "rlp",
+			"version": "0.0.6",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "null_radix",
+				"email": "null_radix@riseup.net"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"bignum": "^0.7.0"
+			},
+			"gitHead": "7c436d60859543a7c5f9dc6614851db4bc0ffb65",
+			"homepage": "https://github.com/wanderer/rlp",
+			"_id": "rlp@0.0.6",
+			"_shasum": "57c3b980032055c0c05cb860f6843edbe5dc14dc",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "57c3b980032055c0c05cb860f6843edbe5dc14dc",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-0.0.6.tgz"
+			}
+		},
+		"0.0.7": {
+			"name": "rlp",
+			"version": "0.0.7",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"bn.js": "*"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "ab249136e25303f7fb8765fa7ac8378c18b55a3c",
+			"homepage": "https://github.com/wanderer/rlp",
+			"_id": "rlp@0.0.7",
+			"_shasum": "ba49cbecabef5ee60299dddcbc3992dc3f83771e",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "ba49cbecabef5ee60299dddcbc3992dc3f83771e",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-0.0.7.tgz"
+			}
+		},
+		"0.0.8": {
+			"name": "rlp",
+			"version": "0.0.8",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"bn.js": "*"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "ab249136e25303f7fb8765fa7ac8378c18b55a3c",
+			"homepage": "https://github.com/wanderer/rlp",
+			"_id": "rlp@0.0.8",
+			"_shasum": "1cdabf6a81b5de5b005746570f1bd99d9a02f3bb",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "1cdabf6a81b5de5b005746570f1bd99d9a02f3bb",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-0.0.8.tgz"
+			}
+		},
+		"0.0.9": {
+			"name": "rlp",
+			"version": "0.0.9",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"bn.js": "*",
+				"ethrereum-tests": "git+https://github.com/ethereum/tests.git#develop"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "9f253cb04522fc89dcbfa6b67d3553f613e42a45",
+			"homepage": "https://github.com/wanderer/rlp",
+			"_id": "rlp@0.0.9",
+			"_shasum": "e30a7e4785ab3b8a09b01e2f95ef3df5252da0b8",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "e30a7e4785ab3b8a09b01e2f95ef3df5252da0b8",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-0.0.9.tgz"
+			}
+		},
+		"0.0.10": {
+			"name": "rlp",
+			"version": "0.0.10",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"bn.js": "*",
+				"ethrereum-tests": "git+https://github.com/ethereum/tests.git#develop"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "7196c5d07c50f8dbb7db526613447cb00d719506",
+			"homepage": "https://github.com/wanderer/rlp",
+			"_id": "rlp@0.0.10",
+			"_shasum": "968143be814f7b5655e2aae5110db5be0c2d3492",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "968143be814f7b5655e2aae5110db5be0c2d3492",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-0.0.10.tgz"
+			}
+		},
+		"0.0.11": {
+			"name": "rlp",
+			"version": "0.0.11",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"bn.js": "*",
+				"ethrereum-tests": "git+https://github.com/ethereum/tests.git#develop"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "1a26bdd5b3e1151bba0468ffacf595e0b04e249a",
+			"homepage": "https://github.com/wanderer/rlp",
+			"_id": "rlp@0.0.11",
+			"_shasum": "0f86ecfe19a4153665c44368a3e9e220f018449d",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "0f86ecfe19a4153665c44368a3e9e220f018449d",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-0.0.11.tgz"
+			}
+		},
+		"0.0.12": {
+			"name": "rlp",
+			"version": "0.0.12",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"bn.js": "*",
+				"ethrereum-tests": "git+https://github.com/ethereum/tests.git#develop"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "34031f4f42ee6c85376cfb9530f3f2bafbe213e5",
+			"homepage": "https://github.com/wanderer/rlp",
+			"_id": "rlp@0.0.12",
+			"_shasum": "62d7984c0818f790398ce6f0a7c503c6da687dfb",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "62d7984c0818f790398ce6f0a7c503c6da687dfb",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-0.0.12.tgz"
+			}
+		},
+		"0.0.13": {
+			"name": "rlp",
+			"version": "0.0.13",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"bn.js": "*",
+				"ethrereum-tests": "git+https://github.com/ethereum/tests.git#develop"
+			},
+			"bin": {
+				"rlp": "./bin/rlp"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "7700124db7b880a8b0a1340af03307e943a5b05e",
+			"homepage": "https://github.com/wanderer/rlp",
+			"_id": "rlp@0.0.13",
+			"_shasum": "b3456bb254a1b79354a5b03bad08d86c1d78559f",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "b3456bb254a1b79354a5b03bad08d86c1d78559f",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-0.0.13.tgz"
+			}
+		},
+		"0.0.14": {
+			"name": "rlp",
+			"version": "0.0.14",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"bn.js": "*",
+				"ethrereum-tests": "git+https://github.com/ethereum/tests.git#develop"
+			},
+			"bin": {
+				"rlp": "./bin/rlp"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "b66e96add592acb8bde4940e696f2f3c74a54cc1",
+			"homepage": "https://github.com/wanderer/rlp",
+			"_id": "rlp@0.0.14",
+			"_shasum": "014d95d91faa135aa90fbf7a042b8c406eb71c45",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "014d95d91faa135aa90fbf7a042b8c406eb71c45",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-0.0.14.tgz"
+			}
+		},
+		"1.0.0": {
+			"name": "rlp",
+			"version": "1.0.0",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"bn.js": "*",
+				"ethrereum-tests": "git+https://github.com/ethereum/tests.git#develop"
+			},
+			"bin": {
+				"rlp": "./bin/rlp"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "d088178d3f3ec9e82e57972e4284e753d853ae1c",
+			"homepage": "https://github.com/wanderer/rlp",
+			"_id": "rlp@1.0.0",
+			"_shasum": "9f8262da5048bfd3c9a4ad6b7562c2a96f31a7b2",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "9f8262da5048bfd3c9a4ad6b7562c2a96f31a7b2",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-1.0.0.tgz"
+			}
+		},
+		"1.0.1": {
+			"name": "rlp",
+			"version": "1.0.1",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --timeout 5000 --reporter spec ./test/",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"contributors": [
+				{
+					"name": "josephyzhou"
+				}
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"bn.js": "*",
+				"ethrereum-tests": "git+https://github.com/ethereum/tests.git#develop"
+			},
+			"bin": {
+				"rlp": "./bin/rlp"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "e5d8fe760e0e52a4cd5ac91a3dd95e74ccfff282",
+			"homepage": "https://github.com/wanderer/rlp#readme",
+			"_id": "rlp@1.0.1",
+			"_shasum": "b4ef1ca77d06036c02fc83126e0e957fb17930ce",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "b4ef1ca77d06036c02fc83126e0e957fb17930ce",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-1.0.1.tgz"
+			}
+		},
+		"1.1.0": {
+			"name": "rlp",
+			"version": "1.1.0",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "standard ./index.js &&  ./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"ethereumjs-testing": "git+https://github.com/wanderer/ethereumjs-testing.git",
+				"mocha": "~1.17.1",
+				"standard": "^5.2.2"
+			},
+			"bin": {
+				"rlp": "./bin/rlp"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "e6ef2b11962e7783fed2cba6d5c0b866e2e4b5d8",
+			"homepage": "https://github.com/wanderer/rlp#readme",
+			"_id": "rlp@1.1.0",
+			"_shasum": "36d1c990a0d84b8070fee09b92fb29d1d90620c2",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "36d1c990a0d84b8070fee09b92fb29d1d90620c2",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			]
+		},
+		"1.1.1": {
+			"name": "rlp",
+			"version": "1.1.1",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "standard ./index.js ./bin/rlp &&  ./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"ethereumjs-testing": "git+https://github.com/wanderer/ethereumjs-testing.git",
+				"mocha": "~1.17.1",
+				"standard": "^5.2.2"
+			},
+			"bin": {
+				"rlp": "./bin/rlp"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "a43b2a56befea548d150e43fad49919dc7009a57",
+			"homepage": "https://github.com/wanderer/rlp#readme",
+			"_id": "rlp@1.1.1",
+			"_shasum": "a4057c1c5216a99fba2233d34e1efb166784c6f4",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "a4057c1c5216a99fba2233d34e1efb166784c6f4",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-1.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			]
+		},
+		"1.1.2": {
+			"name": "rlp",
+			"version": "1.1.2",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "standard ./index.js ./bin/rlp &&  ./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"ethereumjs-testing": "git+https://github.com/wanderer/ethereumjs-testing.git",
+				"mocha": "~1.17.1",
+				"standard": "^5.3.1"
+			},
+			"bin": {
+				"rlp": "./bin/rlp"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "862b91ef86c0fd0a0c8fb0267a4e5ac4367ffb64",
+			"homepage": "https://github.com/wanderer/rlp#readme",
+			"_id": "rlp@1.1.2",
+			"_shasum": "723573de721db85745f6abf77631802b91ddf91c",
+			"_from": ".",
+			"_npmVersion": "3.3.3",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "723573de721db85745f6abf77631802b91ddf91c",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-1.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			]
+		},
+		"2.0.0": {
+			"name": "rlp",
+			"version": "2.0.0",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"test": "standard ./index.js ./bin/rlp &&  ./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/wanderer/rlp/issues"
+			},
+			"devDependencies": {
+				"ethereumjs-testing": "git+https://github.com/wanderer/ethereumjs-testing.git",
+				"mocha": "~1.17.1",
+				"standard": "^5.3.1"
+			},
+			"bin": {
+				"rlp": "./bin/rlp"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "0ce09db81fc303fcee593f7cc094ba44015f9b92",
+			"homepage": "https://github.com/wanderer/rlp#readme",
+			"_id": "rlp@2.0.0",
+			"_shasum": "9db384ff4b89a8f61563d92395d8625b18f3afb0",
+			"_from": ".",
+			"_npmVersion": "3.3.3",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "9db384ff4b89a8f61563d92395d8625b18f3afb0",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-2.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			]
+		},
+		"2.1.0": {
+			"name": "rlp",
+			"version": "2.1.0",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"scripts": {
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"lint": "standard",
+				"test": "istanbul test mocha -- --reporter spec",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Holger Drewes",
+					"email": "Holger.Drewes@gmail.com"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/rlp/issues"
+			},
+			"dependencies": {
+				"safe-buffer": "^5.1.1"
+			},
+			"devDependencies": {
+				"bn.js": "^4.11.1",
+				"coveralls": "^2.11.4",
+				"ethereumjs-testing": "git+https://github.com/ethereumjs/ethereumjs-testing.git",
+				"istanbul": "^0.4.2",
+				"mocha": "^2.3.4",
+				"standard": "^6.0.8"
+			},
+			"bin": {
+				"rlp": "./bin/rlp"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "296857a1c1c20a93e1377d221dba0c782d7b65a4",
+			"homepage": "https://github.com/ethereumjs/rlp#readme",
+			"_id": "rlp@2.1.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.4.0",
+			"_npmUser": {
+				"name": "holgerd77",
+				"email": "Holger.Drewes@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-93U7IKH5j7nmXFVg19MeNBGzQW5uXW1pmCuKY8veeKIhYTE32C2d0mOegfiIAfXcHOKJjjPlJisn8iHDF5AezA==",
+				"shasum": "e4f9886d5a982174f314543831e36e1a658460f9",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-2.1.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 26922,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbNKYECRA9TVsSAnZWagAAXGgP/3atsKrQnkaMnVYjWl8k\nwyvHmsq9Ndo33s9p0eFNuNcSHXZ8ZGIsrcN2QTMrX1D+QA3t1n0XaWG1OXzJ\n7eLTx+6IaFDP8y96fSBDMbvBpsGfcMP1WryGpIE6Izhu3qDgUP4IkXLJY2j3\nmk0zvibHQaCwo4lazeA4w8b2FJWOj46wz1s/sXsa3NuraHnGxk2wz07Vscbv\n3H28it1kTs9h212En51j1M3PsEYS+djvdRDA1RUaSIKtoy4yppEFhETJjv1+\nplj/2KfKD933pht8LNnL0GuuU1U3fawiQScYavhVf2hCPXx9evwi/EnryhDU\nm1hHqFZFKhEp9CnWLvcei15Fus+azC6YEF99bdh9lYnhNGWgPJ+9Lm0QdjjS\ni6y47ZA1KrIix9Ge7K8Y3kJ21Bxwgn/AI8DmLK/MYXC9lodtErCupnt0rsg2\nDmiIMzR1BcBj0o3dNRDu7ckYBgX9/JuINu/FLtF3J7FCpMiQOJ211oYlr9AL\n/5AfENTBd6hZETs+bmN0liQ3EcuuatonjRNHtu3ag4XD62y9XAFeYJlJ4m4R\nVftOUjsyGQN40L3vSGYId0LOfep2M8bwPetkkkiKXdMG5FBR2JSR6TCJT9Fd\nYNj4w5yPIp7omhE31jRoqbcUrNr4BIwvNQwDNLuNHGg3AIp8fkGDLDHXgtiM\n98UL\r\n=q2L9\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "Holger.Drewes@gmail.com",
+					"name": "holgerd77"
+				},
+				{
+					"email": "null_radix@riseup.net",
+					"name": "null_radix"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/rlp_2.1.0_1530177028721_0.10132488439494702"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.2.0": {
+			"name": "rlp",
+			"version": "2.2.0",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "./dist/index.js",
+			"types": "./dist/index.d.ts",
+			"scripts": {
+				"build": "tsc -p ./tsconfig.prod.json",
+				"prepublishOnly": "npm run test && npm run build",
+				"coverage": "nyc mocha --reporter spec --require ts-node/register test/index.ts",
+				"coveralls": "npm run coverage && nyc report --reporter=text-lcov | coveralls",
+				"format": "prettier --list-different **/*.{ts,json,md,gql}",
+				"format:fix": "prettier --write **/*.{ts,json,md,gql}",
+				"tslint": "tslint -p ./tsconfig.json -e node_modules/**/* -e **/node_modules/**/* -e dist/**/* **/*.ts",
+				"tslint:fix": "tslint --fix --format stylish -p ./tsconfig.json -e node_modules/**/* -e **/node_modules/**/* -e dist/**/* **/*.ts",
+				"tsc": "tsc --noEmit",
+				"lint": "npm run format && npm run tslint && npm run tsc",
+				"lint:fix": "npm run format:fix && npm run tslint:fix && npm run tsc",
+				"unitTests": "mocha --reporter spec --require ts-node/register test/index.ts",
+				"test": "npm run lint && npm run unitTests",
+				"test:fix": "npm run lint:fix && npm run unitTests",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "Holger Drewes",
+					"email": "Holger.Drewes@gmail.com"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/rlp/issues"
+			},
+			"dependencies": {
+				"safe-buffer": "^5.1.1"
+			},
+			"devDependencies": {
+				"@ethereumjs/config-nyc": "^1.0.0",
+				"@ethereumjs/config-prettier": "^1.0.1",
+				"@ethereumjs/config-tsc": "^1.0.2",
+				"@ethereumjs/config-tslint": "^1.0.0",
+				"@types/bn.js": "^4.11.3",
+				"@types/mocha": "^5.2.5",
+				"@types/node": "^10.12.2",
+				"bn.js": "^4.11.1",
+				"coveralls": "^2.11.4",
+				"ethereumjs-testing": "git+https://github.com/ethereumjs/ethereumjs-testing.git",
+				"mocha": "4.1.0",
+				"nyc": "^13.1.0",
+				"prettier": "^1.15.2",
+				"ts-node": "^7.0.1",
+				"tslint": "^5.11.0",
+				"typescript": "^3.1.6",
+				"typestrict": "^1.0.1"
+			},
+			"bin": {
+				"rlp": "./bin/rlp"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "ba7757b05bf942cd41e01a40a1e1afd8939d5f1c",
+			"homepage": "https://github.com/ethereumjs/rlp#readme",
+			"_id": "rlp@2.2.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.12.0",
+			"_npmUser": {
+				"name": "holgerd77",
+				"email": "Holger.Drewes@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-rGDIOeKPYj82rgml9Fpi28dU9n2JYyqTXaBeCLTT9rk9+Ry+/l7oDgVuHcKYDSJ6WZfa2mD16fRWPpNzk0kTHw==",
+				"shasum": "b10686964e99c67f9b256a303868e2d39bb7660d",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-2.2.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 40707,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcF4gPCRA9TVsSAnZWagAALuUP/3na8L0DPYOhELlChziT\nfKkiPZDNDtWgg3MLRvS4Wafcrf88dzZz2EhH5FtzkHwCsvR07TIpbcZ2jkCt\nZho7vwLDnOoycmlP9/Hml41KORyeVm8SxvtULFurY2zPjf9gsY8cgk0U09ZF\nCTyhkM6G5b44CZFz5vLbdVrbPB8nZYhA3bZcI70D5ejMpmE4yIpDoIrHxD0T\n+Rd5B0tzJ6YAiwnnGepBayrXgWP/HdnRh2Bb8A7RYE2SY2N49K+wdqgdjRMR\nhkMg9E4pCKFXK8QdTnCOOLtoqw+1SQtPAM+yv0vkESELoXFbf+gaM5d8R1iB\n3CTm3Ss1GcMVXkQJ7oTAj1zE1RiEMc08UgZY4Uw+tjayixQpZCuKcEuvUwDF\nDzIx8h2CoO/YXExfDGY/Q4vUfln45ozJNcmZHW3T6ks7xl9mNpdwEM3w4zjD\nTWRmW+PcTYv08iIi1Lgj2gKiBHHOTX3RgNQgQkAxPt+e+4gUkRLUjlT+QRK5\nx5LtMTUC43Bf2FArTSBdrqTU4Kp59P2nGJ61VeZwJObDEpUWDfef0MFj2/Js\nVKlWWbBHnvFl+T9IWGD/nR1e4ZV0o246+SPV3uKECUb093QS7SW2NbowKa/M\n2+85MRhcKDkh1xXiv3IOs4z71RWT7LOcCohjpSSk86zcYorxeGyCeJ4F6TTQ\nMQ6m\r\n=L2yn\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "alex@rtfs.hu",
+					"name": "axic"
+				},
+				{
+					"email": "Holger.Drewes@gmail.com",
+					"name": "holgerd77"
+				},
+				{
+					"email": "null_radix@riseup.net",
+					"name": "null_radix"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/rlp_2.2.0_1545046031093_0.2939191401015129"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "Broken bin/rlp CLI command fixed in v2.2.1"
+		},
+		"2.2.1": {
+			"name": "rlp",
+			"version": "2.2.1",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "./dist/index.js",
+			"types": "./dist/index.d.ts",
+			"scripts": {
+				"build": "tsc -p ./tsconfig.prod.json",
+				"prepublishOnly": "npm run test && npm run build",
+				"coverage": "nyc mocha --reporter spec --require ts-node/register test/*.spec.ts",
+				"coveralls": "npm run coverage && nyc report --reporter=text-lcov | coveralls",
+				"format": "prettier --list-different **/*.{ts,json,md,gql}",
+				"format:fix": "prettier --write **/*.{ts,json,md,gql}",
+				"tslint": "tslint -p ./tsconfig.json -e node_modules/**/* -e **/node_modules/**/* -e dist/**/* **/*.ts",
+				"tslint:fix": "tslint --fix --format stylish -p ./tsconfig.json -e node_modules/**/* -e **/node_modules/**/* -e dist/**/* **/*.ts",
+				"tsc": "tsc --noEmit",
+				"lint": "npm run format && npm run tslint && npm run tsc",
+				"lint:fix": "npm run format:fix && npm run tslint:fix && npm run tsc",
+				"unitTests": "mocha --reporter spec --require ts-node/register test/*.spec.ts",
+				"test": "npm run lint && npm run unitTests",
+				"test:fix": "npm run lint:fix && npm run unitTests",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "Holger Drewes",
+					"email": "Holger.Drewes@gmail.com"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/rlp/issues"
+			},
+			"dependencies": {
+				"safe-buffer": "^5.1.1"
+			},
+			"devDependencies": {
+				"@ethereumjs/config-nyc": "^1.0.0",
+				"@ethereumjs/config-prettier": "^1.0.1",
+				"@ethereumjs/config-tsc": "^1.0.2",
+				"@ethereumjs/config-tslint": "^1.0.0",
+				"@types/bn.js": "^4.11.3",
+				"@types/mocha": "^5.2.5",
+				"@types/node": "^10.12.2",
+				"bn.js": "^4.11.1",
+				"coveralls": "^2.11.4",
+				"ethereumjs-testing": "git+https://github.com/ethereumjs/ethereumjs-testing.git",
+				"mocha": "4.1.0",
+				"nyc": "^13.1.0",
+				"prettier": "^1.15.2",
+				"ts-node": "^7.0.1",
+				"tslint": "^5.11.0",
+				"typescript": "^3.1.6",
+				"typestrict": "^1.0.1"
+			},
+			"bin": {
+				"rlp": "./bin/rlp"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "1ad130a846251ef32f0ab128d38d8af107d58a16",
+			"homepage": "https://github.com/ethereumjs/rlp#readme",
+			"_id": "rlp@2.2.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.12.0",
+			"_npmUser": {
+				"name": "holgerd77",
+				"email": "Holger.Drewes@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-nqB/qy+YjXdp/zj1CjCiDwfLMBPv/XFDol0ir/7O/+Ix90++rvi+QoK1CDJcn8JoqCu2WrPPeRucu4qyIDzALg==",
+				"shasum": "9cacf53ad2579163cc56fba64b1f4336f1f2fa46",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-2.2.1.tgz",
+				"fileCount": 11,
+				"unpackedSize": 41492,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcG569CRA9TVsSAnZWagAAy5MP/R7OH1SMzE4jZA6V7T/A\nN+4iF/ojmAtqBfcUoZUwExR55TtHW6VAfk0179iQ/ZoUgkUSs00x7WTH3Eyz\nDq/VhuEAh1wgpojg+VDYNMg0fBtFMlBCMObGZpAF43iK8fZHizM6ZZKtoDV/\n3nle8b55jzLrAeimhv0ELXkZq4lMK1TeUGZO0QW/niY15cxktc8519GXl6vh\nZLPGQOwoU0r3szdjDngGsV++wyGMyZTBlq6HGHF7+IjOxUCyUdSpQ8mBqv3v\n6OjeWYF4ylZKwpSXfA3NPqQmRafiPbeBx88d1DLjNdgMIzeNLnQsbuiUGQtq\ny+Nj5g5YpfyWj1AVyUqCIio7H/4PJbVMamGtscLk4xGVtJtYtEXsROgEtdXa\nXFfm0AzMfXXiEeiNIhSB31pa78Fc5PHhhYofVWi53f+T2ESp6dUGbGttCnMX\n98iQ+d4vlGyalU8jIFLEh680BpHEb9CIIJBVUL9u1kDRgnTR0aYXnlyqf8e/\n7hArrA31raviPWa4CqQ8WawaRYcf9ssuusVgNwYnAYmnrmp6R6Jl5DFYlFTU\nKUmLRUAgBTbAS8XLuFMI3UgP0lmrvLPJ6+yHEO73+3Wb8seLxUOtN6WA49D/\nNxk3wIOB1nS95Ds5rJYR70ii+QuoX5CxIFycgBCcLWqiumMhjjpC5fBUmwI2\n2LYF\r\n=z+T8\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "alex@rtfs.hu",
+					"name": "axic"
+				},
+				{
+					"email": "Holger.Drewes@gmail.com",
+					"name": "holgerd77"
+				},
+				{
+					"email": "null_radix@riseup.net",
+					"name": "null_radix"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/rlp_2.2.1_1545313980409_0.9716633367717269"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.2.2": {
+			"name": "rlp",
+			"version": "2.2.2",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "./dist/index.js",
+			"types": "./dist/index.d.ts",
+			"scripts": {
+				"build": "tsc -p ./tsconfig.prod.json",
+				"prepublishOnly": "npm run test && npm run build",
+				"coverage": "nyc mocha --reporter spec --require ts-node/register test/*.spec.ts",
+				"coveralls": "npm run coverage && nyc report --reporter=text-lcov | coveralls",
+				"format": "prettier --list-different **/*.{ts,json,md,gql}",
+				"format:fix": "prettier --write **/*.{ts,json,md,gql}",
+				"tslint": "tslint -p ./tsconfig.json -e node_modules/**/* -e **/node_modules/**/* -e dist/**/* **/*.ts",
+				"tslint:fix": "tslint --fix --format stylish -p ./tsconfig.json -e node_modules/**/* -e **/node_modules/**/* -e dist/**/* **/*.ts",
+				"tsc": "tsc --noEmit",
+				"lint": "npm run format && npm run tslint && npm run tsc",
+				"lint:fix": "npm run format:fix && npm run tslint:fix && npm run tsc",
+				"unitTests": "mocha --reporter spec --require ts-node/register test/*.spec.ts",
+				"test": "npm run lint && npm run unitTests",
+				"test:fix": "npm run lint:fix && npm run unitTests",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "Holger Drewes",
+					"email": "Holger.Drewes@gmail.com"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/rlp/issues"
+			},
+			"dependencies": {
+				"safe-buffer": "^5.1.1",
+				"bn.js": "^4.11.1"
+			},
+			"devDependencies": {
+				"@ethereumjs/config-nyc": "^1.0.0",
+				"@ethereumjs/config-prettier": "^1.0.1",
+				"@ethereumjs/config-tsc": "^1.0.2",
+				"@ethereumjs/config-tslint": "^1.0.0",
+				"@types/bn.js": "^4.11.3",
+				"@types/mocha": "^5.2.5",
+				"@types/node": "^10.12.2",
+				"coveralls": "^2.11.4",
+				"mocha": "4.1.0",
+				"nyc": "^13.1.0",
+				"prettier": "^1.15.2",
+				"ts-node": "^7.0.1",
+				"tslint": "^5.11.0",
+				"typescript": "^3.1.6",
+				"typestrict": "^1.0.1"
+			},
+			"bin": {
+				"rlp": "./bin/rlp"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "c5d960f21920963ea2e34a1cb06c29d114d1e80d",
+			"homepage": "https://github.com/ethereumjs/rlp#readme",
+			"_id": "rlp@2.2.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.12.0",
+			"_npmUser": {
+				"name": "holgerd77",
+				"email": "Holger.Drewes@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Ng2kJEN731Sfv4ZAY2i0ytPMc0BbJKBsVNl0QZY8LxOWSwd+1xpg+fpSRfaMn0heHU447s6Kgy8qfHZR0XTyVw==",
+				"shasum": "e6677b83cca9105371d930e01d8ffc1263139d05",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-2.2.2.tgz",
+				"fileCount": 11,
+				"unpackedSize": 41772,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcPbbECRA9TVsSAnZWagAAFo8P/jhOvQjm1vjrx8JsK12e\nwamdPkOzGhghUsjzQ0yxSR7VL9iXC14yXvJZHdX0uSMNpavHkBehHdZtuShu\nyEExJ4KX47bn6a5iZHZ5hib9EJ1QmIMVikG3X4yaVRdoMnKH1erPKHnhl2td\nk9KTNBcYyX2QwoYUNRyXQ9vpfZgfk9G94d5TicxeZxPOXSg6jDvX45KO65I6\n5pf8GxMfRhq9lE41W7Y6nfj1T1xhwZkacUzPJ8iDO/TOs3IBuUotlcEODwsc\nVdRs2YE7pWCNO22UywMEfC525bInrvzLyInsebcxO8dqO9fcD1NAK7c0xblf\nCiEdOtwu3eIunf4GB/zsvcYr8yk7w7jtTDVDcyof0apiZDtfT2QJm+4YoW9J\n8Y0WscOfmknJX352Kplfyx+W8nmUC/CrveEvBy1VifUHZHP+hfopX9VEKWvd\nIYW6VyfKAk5X5lAVi9QIazXWt3DvoQYp1wmsheGz557cnLkZ3NgIykXnEn+6\nc5iNzpliG0U6/iZq23p4soI+2H24Zc5k6no1dtO+ZhQMS7nVXW0kuEtIKQC4\njz9VjbsgNkG2umJ+rKraI/UJwaMByvT10QZiBI+4fRqUGnPyjGaHrlE/1BQZ\nwfO7W0wamGdSLldn8sqeweZK4eHGOf0DMzgUqtwQlu7SbDmxCxUSPV9DJMGO\nTr7p\r\n=PIRO\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "alex@rtfs.hu",
+					"name": "axic"
+				},
+				{
+					"email": "Holger.Drewes@gmail.com",
+					"name": "holgerd77"
+				},
+				{
+					"email": "null_radix@riseup.net",
+					"name": "null_radix"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/rlp_2.2.2_1547548355528_0.2567442496281729"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.2.3": {
+			"name": "rlp",
+			"version": "2.2.3",
+			"description": "Recursive Length Prefix Encoding Module",
+			"main": "./dist/index.js",
+			"types": "./dist/index.d.ts",
+			"scripts": {
+				"build": "tsc -p ./tsconfig.prod.json",
+				"prepublishOnly": "npm run test && npm run build",
+				"coverage": "nyc mocha --reporter spec --require ts-node/register test/*.spec.ts",
+				"coveralls": "npm run coverage && nyc report --reporter=text-lcov | coveralls",
+				"format": "prettier --list-different **/*.{ts,json,md,gql}",
+				"format:fix": "prettier --write **/*.{ts,json,md,gql}",
+				"tslint": "tslint -p ./tsconfig.json -e node_modules/**/* -e **/node_modules/**/* -e dist/**/* **/*.ts",
+				"tslint:fix": "tslint --fix --format stylish -p ./tsconfig.json -e node_modules/**/* -e **/node_modules/**/* -e dist/**/* **/*.ts",
+				"tsc": "tsc --noEmit",
+				"lint": "npm run format && npm run tslint && npm run tsc",
+				"lint:fix": "npm run format:fix && npm run tslint:fix && npm run tsc",
+				"unitTests": "mocha --reporter spec --require ts-node/register test/*.spec.ts",
+				"test": "npm run lint && npm run unitTests",
+				"test:fix": "npm run lint:fix && npm run unitTests",
+				"webtest": "browserify test/max.js | testling -u"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ethereumjs/rlp.git"
+			},
+			"keywords": [
+				"rlp",
+				"ethereum"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Beregszaszi",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "Holger Drewes",
+					"email": "Holger.Drewes@gmail.com"
+				}
+			],
+			"license": "MPL-2.0",
+			"bugs": {
+				"url": "https://github.com/ethereumjs/rlp/issues"
+			},
+			"dependencies": {
+				"safe-buffer": "^5.1.1",
+				"bn.js": "^4.11.1"
+			},
+			"devDependencies": {
+				"@ethereumjs/config-nyc": "^1.0.0",
+				"@ethereumjs/config-prettier": "^1.0.1",
+				"@ethereumjs/config-tsc": "^1.0.2",
+				"@ethereumjs/config-tslint": "^1.0.0",
+				"@types/bn.js": "^4.11.3",
+				"@types/mocha": "^5.2.5",
+				"@types/node": "^10.12.2",
+				"coveralls": "^2.11.4",
+				"mocha": "4.1.0",
+				"nyc": "^13.1.0",
+				"prettier": "^1.15.2",
+				"ts-node": "^7.0.1",
+				"tslint": "^5.11.0",
+				"typescript": "^3.1.6",
+				"typestrict": "^1.0.1"
+			},
+			"bin": {
+				"rlp": "./bin/rlp"
+			},
+			"testling": {
+				"files": "test/*.js",
+				"harness": "mocha-bdd",
+				"browsers": [
+					"chrome/22..latest",
+					"firefox/16..latest",
+					"safari/latest",
+					"opera/11.0..latest",
+					"iphone/6",
+					"ipad/6",
+					"android-browser/latest"
+				]
+			},
+			"gitHead": "a9ae71c35a18a0421274e23bd11fa3fb310b6fad",
+			"homepage": "https://github.com/ethereumjs/rlp#readme",
+			"_id": "rlp@2.2.3",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.15.1",
+			"_npmUser": {
+				"name": "holgerd77",
+				"email": "Holger.Drewes@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-l6YVrI7+d2vpW6D6rS05x2Xrmq8oW7v3pieZOJKBEdjuTF4Kz/iwk55Zyh1Zaz+KOB2kC8+2jZlp2u9L4tTzCQ==",
+				"shasum": "7f94aef86cec412df87d5ea1d8cb116a47d45f0e",
+				"tarball": "https://registry.npmjs.org/rlp/-/rlp-2.2.3.tgz",
+				"fileCount": 11,
+				"unpackedSize": 42333,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJckVTBCRA9TVsSAnZWagAA9pEP/22scktDRUfKTWAQ9gLc\n9OFrNckuVT7bs9jEYhud/8XMWUHKKWEMix54/4ymD1GcAndzxgICPDQKySeg\nzG/U9KvVUjwWaJyh699656cIEo7dtVk+gkCR481sHYI2RDWZ2QnAhFfctJ0a\n0tYwaghfI9PUXVoCAZoatCoNtahsfi8AFgt/C2OyKV3HQ1Mmp1OG4E/kUUpq\n/huYy3Yb5sHOhwAdxFixNddvzPVbjqRIQPBLvok4+Ar0R1PZU3rVeMBhMvFd\nnGTyoQaYORAmZdqUFVlGqBTtecLkJAuCggIzF+uJyXgFow6O/cOiX6r+ltj9\nXXpB6D+bA2JYmbJh4qnBT3tZz2qYMSgkvVF01QCLNf9zosuKbY8z8bEw37ZA\nGw+VVrAAX85zOpr/TTfNTD6ivGL1bypK4IOpWZ7cfyYUs2gAyIZsIC3Xfl9m\nhKbBx90bgizeB3IPiCBmQ2p+yRh7bK6hP5RJHoI7Pe3/3wxnmQW8vdTi4DvY\n5Aei5PbRbk1ixjZVrkzje1fS3UAMewhIH/ua4FwQttjmBuKsab9gI/14TSON\nYqNtz9CvE6Bq6YlPKBvgM6t9XGqftODAJRY/CGBUhHScbCI0BasJOKyKp3/p\nZjiTUnIHKX3cK1jVK95sMW/6yoBUq/iq/kO7WyW4myFwfeMl/BMjHqXMqFlx\n6Lfa\r\n=2oeA\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "alex@rtfs.hu",
+					"name": "axic"
+				},
+				{
+					"email": "Holger.Drewes@gmail.com",
+					"name": "holgerd77"
+				},
+				{
+					"email": "null_radix@riseup.net",
+					"name": "null_radix"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/rlp_2.2.3_1553028288848_0.9510421319786653"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-03-19T20:44:51.701Z",
+		"created": "2014-03-05T07:00:09.680Z",
+		"0.0.0": "2014-03-05T07:00:11.634Z",
+		"0.0.1": "2014-03-11T02:02:24.642Z",
+		"0.0.2": "2014-04-16T22:40:14.122Z",
+		"0.0.3": "2014-04-24T04:12:07.756Z",
+		"0.0.4": "2014-05-12T16:02:07.683Z",
+		"0.0.5": "2014-08-14T01:22:32.116Z",
+		"0.0.6": "2014-09-13T02:50:01.828Z",
+		"0.0.7": "2014-09-13T15:40:59.256Z",
+		"0.0.8": "2014-09-14T06:12:00.488Z",
+		"0.0.9": "2014-10-21T21:33:02.312Z",
+		"0.0.10": "2014-12-23T19:44:14.667Z",
+		"0.0.11": "2014-12-23T19:51:03.191Z",
+		"0.0.12": "2014-12-26T01:33:11.552Z",
+		"0.0.13": "2015-03-30T07:23:05.440Z",
+		"0.0.14": "2015-03-31T18:38:24.840Z",
+		"1.0.0": "2015-06-06T14:38:20.715Z",
+		"1.0.1": "2015-06-27T11:32:05.580Z",
+		"1.1.0": "2015-09-21T17:01:03.750Z",
+		"1.1.1": "2015-09-21T17:12:14.514Z",
+		"1.1.2": "2015-09-22T01:29:49.482Z",
+		"2.0.0": "2015-09-23T01:22:49.511Z",
+		"2.1.0": "2018-06-28T09:10:28.765Z",
+		"2.2.0": "2018-12-17T11:27:11.224Z",
+		"2.2.1": "2018-12-20T13:53:00.590Z",
+		"2.2.2": "2019-01-15T10:32:35.687Z",
+		"2.2.3": "2019-03-19T20:44:49.050Z"
+	},
+	"dist-tags": {
+		"latest": "2.2.3"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"ff82ff0a7bb2c591f3f30b8a3186be94\"",
+			"fetched": 1568994331671
+		}
+	},
+	"_distfiles": {
+		"rlp-0.0.0.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-0.0.0.tgz",
+			"sha": "0a43bd8b226167ae42bec60a3202d672b9645f0a",
+			"registry": "npmjs"
+		},
+		"rlp-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-0.0.1.tgz",
+			"sha": "bf66511d4f2d30643c635136f93e2160882a12d1",
+			"registry": "npmjs"
+		},
+		"rlp-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-0.0.2.tgz",
+			"sha": "ede2395879498e35330d24c3f5895eb4880ede37",
+			"registry": "npmjs"
+		},
+		"rlp-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-0.0.3.tgz",
+			"sha": "76d253dae0c623ca4b322a2abadb165086f2a669",
+			"registry": "npmjs"
+		},
+		"rlp-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-0.0.4.tgz",
+			"sha": "fdd848f59bf66463b73b517006fa6607649ea384",
+			"registry": "npmjs"
+		},
+		"rlp-0.0.5.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-0.0.5.tgz",
+			"sha": "ae9a6ce62780a5ee5384b432b8f90882dcaf7a33",
+			"registry": "npmjs"
+		},
+		"rlp-0.0.6.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-0.0.6.tgz",
+			"sha": "57c3b980032055c0c05cb860f6843edbe5dc14dc",
+			"registry": "npmjs"
+		},
+		"rlp-0.0.7.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-0.0.7.tgz",
+			"sha": "ba49cbecabef5ee60299dddcbc3992dc3f83771e",
+			"registry": "npmjs"
+		},
+		"rlp-0.0.8.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-0.0.8.tgz",
+			"sha": "1cdabf6a81b5de5b005746570f1bd99d9a02f3bb",
+			"registry": "npmjs"
+		},
+		"rlp-0.0.9.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-0.0.9.tgz",
+			"sha": "e30a7e4785ab3b8a09b01e2f95ef3df5252da0b8",
+			"registry": "npmjs"
+		},
+		"rlp-0.0.10.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-0.0.10.tgz",
+			"sha": "968143be814f7b5655e2aae5110db5be0c2d3492",
+			"registry": "npmjs"
+		},
+		"rlp-0.0.11.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-0.0.11.tgz",
+			"sha": "0f86ecfe19a4153665c44368a3e9e220f018449d",
+			"registry": "npmjs"
+		},
+		"rlp-0.0.12.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-0.0.12.tgz",
+			"sha": "62d7984c0818f790398ce6f0a7c503c6da687dfb",
+			"registry": "npmjs"
+		},
+		"rlp-0.0.13.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-0.0.13.tgz",
+			"sha": "b3456bb254a1b79354a5b03bad08d86c1d78559f",
+			"registry": "npmjs"
+		},
+		"rlp-0.0.14.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-0.0.14.tgz",
+			"sha": "014d95d91faa135aa90fbf7a042b8c406eb71c45",
+			"registry": "npmjs"
+		},
+		"rlp-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-1.0.0.tgz",
+			"sha": "9f8262da5048bfd3c9a4ad6b7562c2a96f31a7b2",
+			"registry": "npmjs"
+		},
+		"rlp-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-1.0.1.tgz",
+			"sha": "b4ef1ca77d06036c02fc83126e0e957fb17930ce",
+			"registry": "npmjs"
+		},
+		"rlp-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-1.1.0.tgz",
+			"sha": "36d1c990a0d84b8070fee09b92fb29d1d90620c2",
+			"registry": "npmjs"
+		},
+		"rlp-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-1.1.1.tgz",
+			"sha": "a4057c1c5216a99fba2233d34e1efb166784c6f4",
+			"registry": "npmjs"
+		},
+		"rlp-1.1.2.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-1.1.2.tgz",
+			"sha": "723573de721db85745f6abf77631802b91ddf91c",
+			"registry": "npmjs"
+		},
+		"rlp-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-2.0.0.tgz",
+			"sha": "9db384ff4b89a8f61563d92395d8625b18f3afb0",
+			"registry": "npmjs"
+		},
+		"rlp-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-2.1.0.tgz",
+			"sha": "e4f9886d5a982174f314543831e36e1a658460f9",
+			"registry": "npmjs"
+		},
+		"rlp-2.2.0.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-2.2.0.tgz",
+			"sha": "b10686964e99c67f9b256a303868e2d39bb7660d",
+			"registry": "npmjs"
+		},
+		"rlp-2.2.1.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-2.2.1.tgz",
+			"sha": "9cacf53ad2579163cc56fba64b1f4336f1f2fa46",
+			"registry": "npmjs"
+		},
+		"rlp-2.2.2.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-2.2.2.tgz",
+			"sha": "e6677b83cca9105371d930e01d8ffc1263139d05",
+			"registry": "npmjs"
+		},
+		"rlp-2.2.3.tgz": {
+			"url": "https://registry.npmjs.org/rlp/-/rlp-2.2.3.tgz",
+			"sha": "7f94aef86cec412df87d5ea1d8cb116a47d45f0e",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-502960f47abc3601",
+	"_id": "rlp",
+	"readme": "# SYNOPSIS\n\n[![NPM Package](https://img.shields.io/npm/v/rlp.svg?style=flat-square)](https://www.npmjs.org/package/rlp)\n[![Build Status](https://img.shields.io/travis/ethereumjs/rlp.svg?branch=master&style=flat-square)](https://travis-ci.org/ethereumjs/rlp)\n[![Coverage Status](https://img.shields.io/coveralls/ethereumjs/rlp.svg?style=flat-square)](https://coveralls.io/r/ethereumjs/rlp)\n[![Gitter](https://img.shields.io/gitter/room/ethereum/ethereumjs-lib.svg?style=flat-square)](https://gitter.im/ethereum/ethereumjs-lib) or #ethereumjs on freenode\n\n[Recursive Length](https://github.com/ethereum/wiki/wiki/RLP) Prefix Encoding for node.js.\n\n## INSTALL\n\n`npm install rlp`\n\ninstall with `-g` if you want to use the cli.\n\n## USAGE\n\n```javascript\nvar RLP = require('rlp')\nvar assert = require('assert')\n\nvar nestedList = [[], [[]], [[], [[]]]]\nvar encoded = RLP.encode(nestedList)\nvar decoded = RLP.decode(encoded)\nassert.deepEqual(nestedList, decoded)\n```\n\n## API\n\n`rlp.encode(plain)` - RLP encodes an `Array`, `Buffer` or `String` and returns a `Buffer`.\n\n`rlp.decode(encoded, [skipRemainderCheck=false])` - Decodes an RLP encoded `Buffer`, `Array` or `String` and returns a `Buffer` or an `Array` of `Buffers`. If `skipRemainderCheck` is enabled, `rlp` will just decode the first rlp sequence in the buffer. By default, it would throw an error if there are more bytes in Buffer than used by rlp sequence.\n\n## CLI\n\n`rlp decode <hex string>`  \n`rlp encode <json String>`\n\n## TESTS\n\nTest uses mocha. To run tests and linting: `npm test`. To auto fix linting problems use: `npm run test:fix`.\n\n## CODE COVERAGE\n\nInstall dev dependencies\n`npm install`\n\nRun\n`npm run coverage`\n\nThe results are at\n`coverage/lcov-report/index.html`"
+}

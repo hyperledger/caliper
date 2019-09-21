@@ -1,0 +1,850 @@
+{
+	"name": "keccak",
+	"versions": {
+		"0.0.1": {
+			"name": "keccak",
+			"version": "0.0.1",
+			"_id": "keccak@0.0.1",
+			"scripts": {},
+			"_shasum": "d642db890ff285d56b0ffb210f121d73095b57c6",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.0.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"dist": {
+				"shasum": "d642db890ff285d56b0ffb210f121d73095b57c6",
+				"tarball": "https://registry.npmjs.org/keccak/-/keccak-0.0.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/keccak-0.0.1.tgz_1462638290508_0.5283600063994527"
+			},
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "keccak",
+			"version": "0.1.0",
+			"description": "Keccak sponge function family",
+			"keywords": [
+				"sha3",
+				"sha-3",
+				"keccak",
+				"shake"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/keccak/issues"
+			},
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"binding.gyp",
+				"bindings.js",
+				"index.js",
+				"js.js"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/keccak.git"
+			},
+			"scripts": {
+				"clean": "node-gyp clean",
+				"coverage": "nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "npm run rebuild || echo \"Keccak bindings compilation fail. Pure JS implementation will be used.\"",
+				"libkeccak": "./util/libkeccak.sh",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"inherits": "^2.0.1",
+				"nan": "^2.2.1"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"node-gyp": "^3.3.1",
+				"nyc": "^10.0.0",
+				"standard": "*",
+				"tape": "^4.5.1"
+			},
+			"engines": {
+				"node": ">=4"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./js.js"
+			},
+			"gitHead": "f63a6d61a1a344e478ac4916035df1c4835044f1",
+			"homepage": "https://github.com/cryptocoinjs/keccak#readme",
+			"_id": "keccak@0.1.0",
+			"_shasum": "a1c9aedd57ba870751af1e5e1e72f48a47a9c4df",
+			"_from": ".",
+			"_npmVersion": "2.15.1",
+			"_nodeVersion": "0.12.17",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"dist": {
+				"shasum": "a1c9aedd57ba870751af1e5e1e72f48a47a9c4df",
+				"tarball": "https://registry.npmjs.org/keccak/-/keccak-0.1.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/keccak-0.1.0.tgz_1481301362087_0.8835823112167418"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "keccak",
+			"version": "1.0.0",
+			"description": "Keccak sponge function family",
+			"keywords": [
+				"sha3",
+				"sha-3",
+				"keccak",
+				"shake"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/keccak/issues"
+			},
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"binding.gyp",
+				"bindings.js",
+				"index.js",
+				"js.js"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/keccak.git"
+			},
+			"scripts": {
+				"clean": "node-gyp clean",
+				"coverage": "nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "npm run rebuild || echo \"Keccak bindings compilation fail. Pure JS implementation will be used.\"",
+				"libkeccak": "./util/libkeccak.sh",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"inherits": "^2.0.1",
+				"nan": "^2.2.1"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"node-gyp": "^3.3.1",
+				"nyc": "^10.0.0",
+				"proxyquire": "^1.7.10",
+				"standard": "*",
+				"tape": "^4.5.1"
+			},
+			"engines": {
+				"node": ">=4"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./js.js"
+			},
+			"gitHead": "bf9a90b81e577a0f391b07e631b956bd83493903",
+			"homepage": "https://github.com/cryptocoinjs/keccak#readme",
+			"_id": "keccak@1.0.0",
+			"_shasum": "350180ee06e013519a836012632e4ac712b7079d",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "axic",
+					"email": "alex@rtfs.hu"
+				},
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "350180ee06e013519a836012632e4ac712b7079d",
+				"tarball": "https://registry.npmjs.org/keccak/-/keccak-1.0.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/keccak-1.0.0.tgz_1481483789808_0.7424927928950638"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "keccak",
+			"version": "1.0.2",
+			"description": "Keccak sponge function family",
+			"keywords": [
+				"sha3",
+				"sha-3",
+				"keccak",
+				"shake"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/keccak/issues"
+			},
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"binding.gyp",
+				"bindings.js",
+				"index.js",
+				"js.js"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/keccak.git"
+			},
+			"scripts": {
+				"coverage": "nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "prebuild-install || node-gyp rebuild || echo \"Keccak bindings compilation fail. Pure JS implementation will be used.\"",
+				"libkeccak": "./util/libkeccak.sh",
+				"lint": "standard",
+				"rebuild": "prebuild --compile",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js",
+				"unit-ci": "npm run unit && prebuild-ci"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"inherits": "^2.0.1",
+				"nan": "^2.2.1",
+				"prebuild-install": "^2.0.0"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"nyc": "^10.0.0",
+				"prebuild": "^5.1.2",
+				"prebuild-ci": "^1.0.9",
+				"proxyquire": "^1.7.10",
+				"standard": "*",
+				"tape": "^4.5.1"
+			},
+			"engines": {
+				"node": ">=4"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./js.js"
+			},
+			"gitHead": "e94fbe0af3879d0d9bca5435f35832dcb93137a6",
+			"homepage": "https://github.com/cryptocoinjs/keccak#readme",
+			"_id": "keccak@1.0.2",
+			"_shasum": "8c691cdebda0f0af4e344a537aa307b8fd76adf8",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"dist": {
+				"shasum": "8c691cdebda0f0af4e344a537aa307b8fd76adf8",
+				"tarball": "https://registry.npmjs.org/keccak/-/keccak-1.0.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/keccak-1.0.2.tgz_1483515219886_0.5700579260010272"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "keccak",
+			"version": "1.1.0",
+			"description": "Keccak sponge function family",
+			"keywords": [
+				"sha3",
+				"sha-3",
+				"keccak",
+				"shake"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/keccak/issues"
+			},
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"binding.gyp",
+				"bindings.js",
+				"index.js",
+				"js.js"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/keccak.git"
+			},
+			"scripts": {
+				"coverage": "nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "prebuild-install || node-gyp rebuild || echo \"Keccak bindings compilation fail. Pure JS implementation will be used.\"",
+				"libkeccak": "./util/libkeccak.sh",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js",
+				"unit-ci": "npm run unit && prebuild-ci"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"inherits": "^2.0.1",
+				"nan": "^2.2.1",
+				"prebuild-install": "^2.0.0"
+			},
+			"devDependencies": {
+				"browserify": "^13.0.0",
+				"nyc": "^10.0.0",
+				"prebuild": "^6.0.0",
+				"prebuild-ci": "^1.0.9",
+				"proxyquire": "^1.7.10",
+				"standard": "*",
+				"tape": "^4.5.1"
+			},
+			"engines": {
+				"node": ">=4.5.0"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./js.js"
+			},
+			"gitHead": "09d21eecf24c51d6867e7f898dfaa5c540562e50",
+			"homepage": "https://github.com/cryptocoinjs/keccak#readme",
+			"_id": "keccak@1.1.0",
+			"_shasum": "9506c47717e64f8a4adc9389475d507ebfbe5399",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"dist": {
+				"shasum": "9506c47717e64f8a4adc9389475d507ebfbe5399",
+				"tarball": "https://registry.npmjs.org/keccak/-/keccak-1.1.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/keccak-1.1.0.tgz_1485021643906_0.11191232036799192"
+			},
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "keccak",
+			"version": "1.2.0",
+			"description": "Keccak sponge function family",
+			"keywords": [
+				"sha3",
+				"sha-3",
+				"keccak",
+				"shake"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/keccak/issues"
+			},
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"binding.gyp",
+				"bindings.js",
+				"index.js",
+				"js.js"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/keccak.git"
+			},
+			"scripts": {
+				"coverage": "nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "prebuild-install || node-gyp rebuild || echo \"Keccak bindings compilation fail. Pure JS implementation will be used.\"",
+				"libkeccak": "./util/libkeccak.sh",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js",
+				"unit-ci": "npm run unit && prebuild-ci"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"inherits": "^2.0.3",
+				"nan": "^2.2.1",
+				"prebuild-install": "^2.0.0"
+			},
+			"devDependencies": {
+				"browserify": "^14.1.0",
+				"nyc": "^10.0.0",
+				"prebuild": "^6.0.0",
+				"prebuild-ci": "^2.2.0",
+				"proxyquire": "^1.7.10",
+				"standard": "*",
+				"tape": "^4.5.1"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./js.js"
+			},
+			"gitHead": "f9607059c4c028c29ba72a1f92ff8549320d10c9",
+			"homepage": "https://github.com/cryptocoinjs/keccak#readme",
+			"_id": "keccak@1.2.0",
+			"_shasum": "b53618fc7961b642f6e73f1546eec3329f7effe0",
+			"_from": ".",
+			"_npmVersion": "4.1.2",
+			"_nodeVersion": "7.5.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"dist": {
+				"shasum": "b53618fc7961b642f6e73f1546eec3329f7effe0",
+				"tarball": "https://registry.npmjs.org/keccak/-/keccak-1.2.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/keccak-1.2.0.tgz_1487846904269_0.0653672618791461"
+			},
+			"directories": {}
+		},
+		"1.3.0": {
+			"name": "keccak",
+			"version": "1.3.0",
+			"description": "Keccak sponge function family",
+			"keywords": [
+				"sha3",
+				"sha-3",
+				"keccak",
+				"shake"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/keccak/issues"
+			},
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"binding.gyp",
+				"bindings.js",
+				"index.js",
+				"js.js"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/keccak.git"
+			},
+			"scripts": {
+				"coverage": "nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "prebuild-install || node-gyp rebuild || echo \"Keccak bindings compilation fail. Pure JS implementation will be used.\"",
+				"libkeccak": "./util/libkeccak.sh",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js",
+				"unit-ci": "npm run unit && prebuild-ci"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"inherits": "^2.0.3",
+				"nan": "^2.2.1",
+				"prebuild-install": "^2.0.0",
+				"safe-buffer": "^5.1.0"
+			},
+			"devDependencies": {
+				"browserify": "^14.1.0",
+				"nyc": "^11.0.2",
+				"prebuild": "^6.0.0",
+				"prebuild-ci": "^2.2.0",
+				"proxyquire": "^1.7.10",
+				"standard": "^10.0.2",
+				"tape": "^4.5.1"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./js.js"
+			},
+			"gitHead": "0d842a50ddd5ef39d40b0277186c6345740bc629",
+			"homepage": "https://github.com/cryptocoinjs/keccak#readme",
+			"_id": "keccak@1.3.0",
+			"_npmVersion": "5.0.0",
+			"_nodeVersion": "8.0.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-JgsKPxYhcJxKrV+TrCyg/GwZbOjhpRPrz2kG8xbAsUaIDelUlKjm08YcwBO9Fm8sqf/Kg8ZWkk6nWujhLykfvw==",
+				"shasum": "3681bd99ad3d0354ddb29b9040c1b6560cce08ac",
+				"tarball": "https://registry.npmjs.org/keccak/-/keccak-1.3.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/keccak-1.3.0.tgz_1496846577749_0.7228294999804348"
+			},
+			"directories": {}
+		},
+		"1.4.0": {
+			"name": "keccak",
+			"version": "1.4.0",
+			"description": "Keccak sponge function family",
+			"keywords": [
+				"sha3",
+				"sha-3",
+				"keccak",
+				"shake"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/keccak/issues"
+			},
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"binding.gyp",
+				"bindings.js",
+				"index.js",
+				"js.js"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/keccak.git"
+			},
+			"scripts": {
+				"coverage": "nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "npm run rebuild || echo \"Keccak bindings compilation fail. Pure JS implementation will be used.\"",
+				"libkeccak": "./util/libkeccak.sh",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"inherits": "^2.0.3",
+				"nan": "^2.2.1",
+				"safe-buffer": "^5.1.0"
+			},
+			"devDependencies": {
+				"browserify": "^14.1.0",
+				"nyc": "^11.0.2",
+				"proxyquire": "^1.7.10",
+				"standard": "^10.0.2",
+				"tape": "^4.5.1"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./js.js"
+			},
+			"gitHead": "256cefd8862f731f2385e7883da6e32bb789c4cd",
+			"homepage": "https://github.com/cryptocoinjs/keccak#readme",
+			"_id": "keccak@1.4.0",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "9.2.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-eZVaCpblK5formjPjeTBik7TAg+pqnDrMHIffSvi9Lh7PQgM1+hSzakUeZFCk9DVVG0dacZJuaz2ntwlzZUIBw==",
+				"shasum": "572f8a6dbee8e7b3aa421550f9e6408ca2186f80",
+				"tarball": "https://registry.npmjs.org/keccak/-/keccak-1.4.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/keccak-1.4.0.tgz_1512249628610_0.1427093679085374"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "keccak",
+			"version": "2.0.0",
+			"description": "Keccak sponge function family",
+			"keywords": [
+				"sha3",
+				"sha-3",
+				"keccak",
+				"shake"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/keccak/issues"
+			},
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/keccak.git"
+			},
+			"scripts": {
+				"coverage": "nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "npm run rebuild || echo \"Keccak bindings compilation fail. Pure JS implementation will be used.\"",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"inherits": "^2.0.3",
+				"nan": "^2.2.1",
+				"safe-buffer": "^5.1.0"
+			},
+			"devDependencies": {
+				"browserify": "^14.1.0",
+				"nyc": "^11.0.2",
+				"proxyquire": "^1.7.10",
+				"standard": "^10.0.2",
+				"tape": "^4.5.1"
+			},
+			"engines": {
+				"node": ">=6.0.0"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./js.js"
+			},
+			"gitHead": "bce5b58e8e5e3d17bcb681fa2814dbe8dd893841",
+			"homepage": "https://github.com/cryptocoinjs/keccak#readme",
+			"_id": "keccak@2.0.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.4.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"dist": {
+				"integrity": "sha512-rKe/lRr0KGhjoz97cwg+oeT1Rj/Y4cjae6glArioUC8JBF9ROGZctwIaaruM7d7naovME4Q8WcQSO908A8qcyQ==",
+				"shasum": "7456ea5023284271e6f362b4397e8df4d2bb994c",
+				"tarball": "https://registry.npmjs.org/keccak/-/keccak-2.0.0.tgz",
+				"fileCount": 36,
+				"unpackedSize": 182697,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcG1XPCRA9TVsSAnZWagAAX2sP/Rf05VN6B5RqBjC8ZoHu\n6B2lT+q7wMp+YLptHedt9zABYWpX1EkMuZwHzy4kjTK2qIdOQS7o/Kbc7eHt\nFFM/EqnuO0VvccvFpNX/hAmPzNkyrzcGzEKgJAwvKNwJ6zMUaue6X3tTjP3k\nHrDrL1cOkkx5TAQgheTCXYtygV5W4v9olNEh+FG5pbAg8O2Whe1fVDkhaGkq\n9JNa9GDA96N/9XtONwwuvR/0UdeG4kZdlj80gI8rS6hGsq+6AskoItzM0Qgf\nYLuNmEZL6kbEicq4/tB/bZYHdDpyDAyErsuhGzBmn9CATG4YqxYSNsUO1a3s\nnsd3TOCsAuAAoNNlsJebr/EKAc9SM+WdCcELQDAWHrnGPfTYtPs7++rLRFky\nhqZZkPT5IteneITXl0WVsnRKYlOBOa4V/xe1D6ZBgi0o7UrGCBWdjtw2pTH3\nVjY5wSuQ1ggueMe3q+yh6gsq4vF7dCtPZY9/CvhV/nYWqrZCq84x0AOmP5vG\naDsDpn7yGl3BYeUrVv3eXPHr28Hmx4tb/A5ISETqRxMgPfOfZZJXkEbD6mm7\nwrgvGpa1/1zd+WQc0Q4CafbgELo9OlvSEU5AP9I2pEaCBKmg3Eb5m5AADEy+\nqxoMr2S5LN3TSFvZNJ7djuiogkvm/7UDH4QAcuQE1jd5YtF01MB9vWGynop9\nLgmf\r\n=Ayw7\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/keccak_2.0.0_1545295310833_0.3989814599133539"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-01-04T23:24:15.130Z",
+		"created": "2016-05-07T16:24:51.590Z",
+		"0.0.1": "2016-05-07T16:24:51.590Z",
+		"0.1.0": "2016-12-09T16:36:04.037Z",
+		"1.0.0": "2016-12-11T19:16:30.514Z",
+		"1.0.1": "2017-01-04T07:27:12.204Z",
+		"1.0.2": "2017-01-04T07:33:40.700Z",
+		"1.1.0": "2017-01-21T18:00:44.484Z",
+		"1.2.0": "2017-02-23T10:48:26.221Z",
+		"1.3.0": "2017-06-07T14:42:58.776Z",
+		"1.4.0": "2017-12-02T21:20:29.592Z",
+		"2.0.0": "2018-12-20T08:41:51.065Z"
+	},
+	"dist-tags": {
+		"latest": "2.0.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"ae73eb7687c2d58865c75a37b9ff0c1e\"",
+			"fetched": 1568994331669
+		}
+	},
+	"_distfiles": {
+		"keccak-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/keccak/-/keccak-0.0.1.tgz",
+			"sha": "d642db890ff285d56b0ffb210f121d73095b57c6",
+			"registry": "npmjs"
+		},
+		"keccak-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/keccak/-/keccak-0.1.0.tgz",
+			"sha": "a1c9aedd57ba870751af1e5e1e72f48a47a9c4df",
+			"registry": "npmjs"
+		},
+		"keccak-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/keccak/-/keccak-1.0.0.tgz",
+			"sha": "350180ee06e013519a836012632e4ac712b7079d",
+			"registry": "npmjs"
+		},
+		"keccak-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/keccak/-/keccak-1.0.2.tgz",
+			"sha": "8c691cdebda0f0af4e344a537aa307b8fd76adf8",
+			"registry": "npmjs"
+		},
+		"keccak-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/keccak/-/keccak-1.1.0.tgz",
+			"sha": "9506c47717e64f8a4adc9389475d507ebfbe5399",
+			"registry": "npmjs"
+		},
+		"keccak-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/keccak/-/keccak-1.2.0.tgz",
+			"sha": "b53618fc7961b642f6e73f1546eec3329f7effe0",
+			"registry": "npmjs"
+		},
+		"keccak-1.3.0.tgz": {
+			"url": "https://registry.npmjs.org/keccak/-/keccak-1.3.0.tgz",
+			"sha": "3681bd99ad3d0354ddb29b9040c1b6560cce08ac",
+			"registry": "npmjs"
+		},
+		"keccak-1.4.0.tgz": {
+			"url": "https://registry.npmjs.org/keccak/-/keccak-1.4.0.tgz",
+			"sha": "572f8a6dbee8e7b3aa421550f9e6408ca2186f80",
+			"registry": "npmjs"
+		},
+		"keccak-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/keccak/-/keccak-2.0.0.tgz",
+			"sha": "7456ea5023284271e6f362b4397e8df4d2bb994c",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-9efb445c93d200d7",
+	"_id": "keccak",
+	"readme": "# keccak\n\nVersion | Mac/Linux | Windows\n------- | --------- | -------\n[![NPM Package](https://img.shields.io/npm/v/keccak.svg?style=flat-square)](https://www.npmjs.org/package/keccak) | [![Build Status](https://img.shields.io/travis/cryptocoinjs/keccak.svg?branch=master&style=flat-square)](https://travis-ci.org/cryptocoinjs/keccak) | [![AppVeyor](https://img.shields.io/appveyor/ci/fanatid/keccak.svg?branch=master&style=flat-square)](https://ci.appveyor.com/project/fanatid/keccak)\n\n[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)\n\nThis module provides native bindings to [Keccak sponge function family][1] from [Keccak Code Package][2]. In browser pure JavaScript implementation will be used.\n\n## Usage\n\nYou can use this package as [node Hash][3].\n\n```js\nconst createKeccakHash = require('keccak')\n\nconsole.log(createKeccakHash('keccak256').digest().toString('hex'))\n// => c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470\n\nconsole.log(createKeccakHash('keccak256').update('Hello world!').digest('hex'))\n// => ecd0e108a98e192af1d2c25055f4e3bed784b5c877204e73219a5203251feaab\n```\n\nAlso object has two useful methods: `_resetState` and `_clone`\n\n```js\nconst createKeccakHash = require('keccak')\n\nconsole.log(createKeccakHash('keccak256').update('Hello World!')._resetState().digest('hex'))\n// => c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470\n\nconst hash1 = createKeccakHash('keccak256').update('Hello')\nconst hash2 = hash1._clone()\nconsole.log(hash1.digest('hex'))\n// => 06b3dfaec148fb1bb2b066f10ec285e7c9bf402ab32aa78a5d38e34566810cd2\nconsole.log(hash1.update(' world!').digest('hex'))\n// => throw Error: Digest already called\nconsole.log(hash2.update(' world!').digest('hex'))\n// => ecd0e108a98e192af1d2c25055f4e3bed784b5c877204e73219a5203251feaab\n```\n\n### Why I should use this package?\n\nI thought it will be popular question, so I decide write explanation in readme.\n\nI know a few popular packages on [npm][4] related with [Keccak][1]:\n\n  - [sha3][5] ([phusion/node-sha3][6] on github) — not actual because support _only keccak_.\n  - [js-sha3][7] ([emn178/js-sha3][8] on github) — brilliant package which support keccak, sha3, shake. But not implement [node Hash][3] interface unfortunately!\n  - [browserify-sha3][9] ([wanderer/browserify-sha3][10] on github) — based on [js-sha3][7] (but not support shake!). Support [node Hash][3] interface, but without [streams][11].\n  - [keccakjs][12] ([axic/keccakjs][13] on github) — uses [sha3][5] and [browserify-sha3][9] as fallback. As result _keccak only_ with [node Hash][3] interface without [streams][11].\n\n## LICENSE\n\nThis library is free and open-source software released under the MIT license.\n\n[1]: http://keccak.noekeon.org/\n[2]: https://github.com/gvanas/KeccakCodePackage\n[3]: https://nodejs.org/api/crypto.html#crypto_class_hash\n[4]: http://npmjs.com/\n[5]: https://www.npmjs.com/package/sha3\n[6]: https://github.com/phusion/node-sha3\n[7]: https://www.npmjs.com/package/js-sha3\n[8]: https://github.com/emn178/js-sha3\n[9]: https://www.npmjs.com/package/browserify-sha3\n[10]: https://github.com/wanderer/browserify-sha3\n[11]: http://nodejs.org/api/stream.html\n[12]: https://www.npmjs.com/package/keccakjs\n[13]: https://github.com/axic/keccakjs"
+}

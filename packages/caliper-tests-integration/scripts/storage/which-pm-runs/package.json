@@ -1,0 +1,91 @@
+{
+	"name": "which-pm-runs",
+	"versions": {
+		"1.0.0": {
+			"name": "which-pm-runs",
+			"version": "1.0.0",
+			"description": "Detects what package manager executes the process",
+			"main": "index.js",
+			"files": [
+				"index.js"
+			],
+			"scripts": {
+				"test": "tape test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/zkochan/which-pm-runs.git"
+			},
+			"keywords": [
+				"npm",
+				"pnpm",
+				"yarn"
+			],
+			"author": {
+				"name": "Zoltan Kochan"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/zkochan/which-pm-runs/issues"
+			},
+			"homepage": "https://github.com/zkochan/which-pm-runs#readme",
+			"devDependencies": {
+				"execa": "^0.6.3",
+				"npm": "^4.4.4",
+				"pnpm": "^0.64.3",
+				"tape": "^4.6.3",
+				"yarn": "^0.22.0"
+			},
+			"gitHead": "0a72e9f1e73f95153629312c9f4935ef0866d7fe",
+			"_id": "which-pm-runs@1.0.0",
+			"_shasum": "670b3afbc552e0b55df6b7780ca74615f23ad1cb",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "zkochan",
+				"email": "zoltan.kochan@gmail.com"
+			},
+			"dist": {
+				"shasum": "670b3afbc552e0b55df6b7780ca74615f23ad1cb",
+				"tarball": "https://registry.npmjs.org/which-pm-runs/-/which-pm-runs-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "zkochan",
+					"email": "zoltan.kochan@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/which-pm-runs-1.0.0.tgz_1491658470712_0.22999512730166316"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2017-04-08T13:34:32.708Z",
+		"created": "2017-04-08T13:34:32.708Z",
+		"1.0.0": "2017-04-08T13:34:32.708Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"5c2fe47a746c8b98024619fba632a712\"",
+			"fetched": 1568994353091
+		}
+	},
+	"_distfiles": {
+		"which-pm-runs-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/which-pm-runs/-/which-pm-runs-1.0.0.tgz",
+			"sha": "670b3afbc552e0b55df6b7780ca74615f23ad1cb",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-dba483c3f29cdc96",
+	"_id": "which-pm-runs",
+	"readme": "# which-pm-runs\n\n> Detects what package manager executes the process\n\n[![npm version](https://img.shields.io/npm/v/which-pm-runs.svg)](https://www.npmjs.com/package/which-pm-runs) [![Build Status](https://img.shields.io/travis/zkochan/which-pm-runs/master.svg)](https://travis-ci.org/zkochan/which-pm-runs)\n\n## Installation\n\n```\nnpm i which-pm-runs\n```\n\n## Usage\n\n```js\n'use strict'\nconst whichPMRuns = require('which-pm-runs')\n\nwhichPMRuns()\n//> {name: \"pnpm\", version: \"0.64.2\"}\n```\n\n## Related\n\n* [which-pm](https://github.com/zkochan/which-pm) - Detects what package manager was used for installation\n\n## License\n\n[MIT](LICENSE) © [Zoltan Kochan](http://kochan.io)"
+}

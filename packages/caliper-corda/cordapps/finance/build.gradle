@@ -1,0 +1,153 @@
+buildscript {
+    ext {
+        corda_release_group = 'net.corda'
+        corda_release_version = '4.0'
+        corda_gradle_plugins_version = '4.0.42'
+        kotlin_version = '1.2.71'
+        junit_version = '4.12'
+        quasar_version = '0.7.10'
+        spring_boot_version = '2.0.2.RELEASE'
+        spring_boot_gradle_plugin_version = '2.0.2.RELEASE'
+        slf4j_version = '1.7.25'
+        log4j_version = '2.11.2'
+        corda_platform_version = '4'
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        maven { url 'https://ci-artifactory.corda.r3cev.com/artifactory/corda' }
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "net.corda.plugins:cordapp:$corda_gradle_plugins_version"
+        classpath "net.corda.plugins:cordformation:$corda_gradle_plugins_version"
+        classpath "net.corda.plugins:quasar-utils:$corda_gradle_plugins_version"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_gradle_plugin_version"
+    }
+}
+
+allprojects {
+    apply plugin: 'kotlin'
+
+    repositories {
+        mavenLocal()
+        jcenter()
+        mavenCentral()
+        maven { url 'https://ci-artifactory.corda.r3cev.com/artifactory/corda-releases' }
+        maven { url 'https://jitpack.io' }
+    }
+
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
+        kotlinOptions {
+            languageVersion = "1.2"
+            apiVersion = "1.2"
+            jvmTarget = "1.8"
+            javaParameters = true   // Useful for reflection.
+        }
+    }
+
+    jar {
+        // This makes the JAR's SHA-256 hash repeatable.
+        preserveFileTimestamps = false
+        reproducibleFileOrder = true
+    }
+}
+
+apply plugin: 'net.corda.plugins.cordapp'
+apply plugin: 'net.corda.plugins.cordformation'
+apply plugin: 'net.corda.plugins.quasar-utils'
+
+sourceSets {
+    main {
+        resources {
+            srcDir rootProject.file("config/dev")
+        }
+    }
+}
+
+dependencies {
+    cordaCompile "net.corda:corda-core:$corda_release_version"
+    cordapp "net.corda:corda-finance-contracts:$corda_release_version"
+    cordapp "net.corda:corda-finance-workflows:$corda_release_version"
+    cordaCompile "net.corda:corda-jackson:$corda_release_version"
+    cordaCompile "net.corda:corda-rpc:$corda_release_version"
+    cordaCompile "net.corda:corda-node-api:$corda_release_version"
+    cordaRuntime "net.corda:corda:$corda_release_version"
+    testCompile "net.corda:corda-test-utils:$corda_release_version"
+    
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    testCompile "junit:junit:$junit_version"
+    
+    cordaCompile "org.apache.logging.log4j:log4j-slf4j-impl:${log4j_version}"
+    cordaCompile "org.apache.logging.log4j:log4j-web:${log4j_version}"
+    cordaCompile "org.slf4j:jul-to-slf4j:$slf4j_version"
+
+    compile "org.apache.commons:commons-lang3:3.6"
+}
+
+cordapp {
+    info {
+        name "CorDapp Template"
+        vendor "Corda Open Source"
+        targetPlatformVersion corda_platform_version.toInteger()
+        minimumPlatformVersion corda_platform_version.toInteger()
+    }
+}
+
+task deployNodes(type: net.corda.plugins.Dockerform, dependsOn: ['jar']) {
+    nodeDefaults {
+        projectCordapp {
+            deploy = false
+        }
+        cordapp("net.corda:corda-finance-contracts:$corda_release_version")
+        cordapp("net.corda:corda-finance-workflows:$corda_release_version")
+    }
+    node {
+        name "O=Notary,L=London,C=GB"
+        notary = [validating : false]
+        p2pAddress("notary:7051")
+        rpcSettings {
+            address("notary:8051")
+            adminAddress("notary:9051")
+        }
+    }
+    node {
+        name "O=PartyA,L=London,C=GB"
+        p2pAddress("partya:7052")
+        rpcSettings {
+            address("partya:8052")
+            adminAddress("partya:9052")
+        }
+        rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
+    }
+    node {
+        name "O=PartyB,L=New York,C=US"
+        p2pAddress("partyb:7053")
+        rpcSettings {
+            address("partyb:8053")
+            adminAddress("partyb:9053")
+        }
+        rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
+    }
+    node {
+        name "O=PartyC,L=Paris,C=FR"
+        p2pAddress("partyc:7054")
+        rpcSettings {
+            address("partyc:8054")
+            adminAddress("partyc:9054")
+        }
+        rpcUsers = [[user: "user1", "password": "test", "permissions": ["ALL"]]]
+    }
+
+}
+
+task installQuasar(type: Copy) {
+    destinationDir rootProject.file("lib")
+    from(configurations.quasar) {
+        rename 'quasar-core(.*).jar', 'quasar.jar'
+    }
+}

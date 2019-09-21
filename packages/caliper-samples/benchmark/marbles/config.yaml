@@ -1,0 +1,46 @@
+---
+test:
+  clients:
+    type: local
+    number: 5
+  rounds:
+  - label: init
+    txNumber:
+    - 500
+    - 500
+    - 500
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 25
+    - type: fixed-rate
+      opts:
+        tps: 50
+    - type: fixed-rate
+      opts:
+        tps: 75
+    callback: benchmark/marbles/init.js
+  - label: query
+    txNumber:
+    - 15
+    - 15
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 5
+    - type: fixed-rate
+      opts:
+        tps: 5
+    callback: benchmark/marbles/query.js
+monitor:
+  type:
+  - docker
+  - process
+  docker:
+    name:
+    - all
+  process:
+  - command: node
+    arguments: local-client.js
+    multiOutput: avg
+  interval: 1

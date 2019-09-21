@@ -1,0 +1,81 @@
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+caliper:
+
+    # Configurations related to core Caliper behaviors
+    core:
+        # Sets the frequency of the progress reports in milliseconds
+        txupdatetime: 1000
+        # Indicates whether to skip the start command script in the network configuration file, if provided
+        skipstartscript: false
+        # Indicates whether to skip the end command script in the network configuration file, if provided
+        skipendscript: false
+        # Configurations related to the logging mechanism
+        logging:
+            # Defines a console target with info level
+            consolelogger:
+                target: console
+                level: info
+            # Defines a daily rotating file target with debug level
+            filelogger:
+                target: daily-rotate-file
+                level: debug
+                filename: log/caliper-%DATE%.log
+                datePattern: YYYY-MM-DD-HH
+                maxSize: 5m
+                zippedArchive: true
+
+    # Configurations related to the Fabric CCP adapter
+    fabricccp:
+        # Sets the sleep behaviors after different init actions
+        sleepafter:
+            # The time in milliseconds to sleep after creating the channels (if created channels at all)
+            createchannel: 5000
+            # The time in milliseconds to sleep after joining the channels (if joined channels at all)
+            joinchannel: 5000
+            # The time in milliseconds to sleep after instantiated the chaincodes (if instantiated chaincodes at all)
+            instantiatechaincode: 5000
+        # Enables extra verification steps during the transaction proposal phase
+        verify:
+            # Indicates whether to verify the identity of the endorsers and their signatures for each proposal response after endorsing a transaction.
+            # Note, that this is a CPU intensive step, use it with caution
+            proposalresponse: false
+            # Indicates whether to verify that the read-write sets returned by the endorsers match
+            readwritesets: true
+        # Contains client-side timeouts related to the initialization part of the adapter
+        timeout:
+            # Timeout in milliseconds for the endorsement part of a chaincode instantiation
+            chaincodeinstantiate: 300000
+            # Timeout in milliseconds for receiving the event about the result of a chaincode instantiation
+            chaincodeinstantiateevent: 100000
+            # The default timeout in milliseconds to use for invoking or querying transactions (applied for the entire life-cycle)
+            invokeorquery: 60000
+        # Determines how automatic load balancing is applied if the client callback module doesn’t provide explicit targets.
+        # Use the value 'client' to perform client-based load balancing, meaning that each client process will have fix target peers and target orderer.
+        # Use the value 'tx' to perform transaction-based load balancing, meaning that the peer and orderer targets change for every submitted transaction or query.
+        loadbalancing: tx
+        # Indicates whether to temporarily set the GOPATH environment variable to the Caliper root directory
+        overwritegopath: true
+        # Determines the reported commit time of a transaction based on the given percentage of event sources
+        latencythreshold: 1.0
+        # Indicates whether to count queries as workload, i.e., whether the generated report should include them
+        countqueryasload: true
+        # Indicates whether to use the Fabric Gateway API
+        usegateway: false
+        # Indicates whether to use the localhost default within the Fabric Gateway API
+        gatewaylocalhost: true
+        # Indicates whether to use the Fabric discovery mechanism (via Gateway API)
+        discovery: false
+
+    fabric:
+    sawtooth:

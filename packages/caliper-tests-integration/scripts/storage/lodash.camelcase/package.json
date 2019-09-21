@@ -1,0 +1,720 @@
+{
+	"name": "lodash.camelcase",
+	"versions": {
+		"3.0.0": {
+			"name": "lodash.camelcase",
+			"version": "3.0.0",
+			"description": "The modern build of lodash’s `_.camelCase` as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash",
+				"lodash-modularized",
+				"stdlib",
+				"util"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Benjamin Tan",
+					"email": "demoneaux@gmail.com",
+					"url": "https://d10.github.io/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "http://www.iceddev.com/"
+				},
+				{
+					"name": "Kit Cambridge",
+					"email": "github@kitcambridge.be",
+					"url": "http://kitcambridge.be/"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/lodash/lodash"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"dependencies": {
+				"lodash._createcompounder": "^3.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.camelcase@3.0.0",
+			"_shasum": "5278085988127370ae885229e51d66829b46b39b",
+			"_from": ".",
+			"_npmVersion": "2.3.0",
+			"_nodeVersion": "0.10.35",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "5278085988127370ae885229e51d66829b46b39b",
+				"tarball": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-3.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"3.0.1": {
+			"name": "lodash.camelcase",
+			"version": "3.0.1",
+			"description": "The modern build of lodash’s `_.camelCase` as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash",
+				"lodash-modularized",
+				"stdlib",
+				"util"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Benjamin Tan",
+					"email": "demoneaux@gmail.com",
+					"url": "https://d10.github.io/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "http://www.iceddev.com/"
+				},
+				{
+					"name": "Kit Cambridge",
+					"email": "github@kitcambridge.be",
+					"url": "http://kitcambridge.be/"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/lodash/lodash"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"dependencies": {
+				"lodash._createcompounder": "^3.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.camelcase@3.0.1",
+			"_shasum": "932c8b87f8a4377897c67197533282f97aeac298",
+			"_from": ".",
+			"_npmVersion": "2.3.0",
+			"_nodeVersion": "0.10.35",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "d10",
+					"email": "demoneaux@gmail.com"
+				},
+				{
+					"name": "kitcambridge",
+					"email": "github@kitcambridge.be"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"dist": {
+				"shasum": "932c8b87f8a4377897c67197533282f97aeac298",
+				"tarball": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-3.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"4.0.0": {
+			"name": "lodash.camelcase",
+			"version": "4.0.0",
+			"description": "The lodash method `_.camelCase` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash",
+				"lodash-modularized",
+				"stdlib",
+				"util",
+				"camelcase"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"dependencies": {
+				"lodash.capitalize": "^4.0.0",
+				"lodash.deburr": "^3.0.0",
+				"lodash.words": "^3.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.camelcase@4.0.0",
+			"_shasum": "e7b13f5e9f64b72be315b58cd98f53e134003c0f",
+			"_from": ".",
+			"_npmVersion": "2.14.15",
+			"_nodeVersion": "5.4.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "e7b13f5e9f64b72be315b58cd98f53e134003c0f",
+				"tarball": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-4.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.0.1": {
+			"name": "lodash.camelcase",
+			"version": "4.0.1",
+			"description": "The lodash method `_.camelCase` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash",
+				"lodash-modularized",
+				"stdlib",
+				"util",
+				"camelcase"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"dependencies": {
+				"lodash.capitalize": "^4.0.0",
+				"lodash.deburr": "^3.0.0",
+				"lodash.words": "^3.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.camelcase@4.0.1",
+			"_shasum": "5d07c1c8a42bc32e626c9247b4702c80e88b0d87",
+			"_from": ".",
+			"_npmVersion": "2.14.15",
+			"_nodeVersion": "5.4.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "5d07c1c8a42bc32e626c9247b4702c80e88b0d87",
+				"tarball": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-4.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.1.0": {
+			"name": "lodash.camelcase",
+			"version": "4.1.0",
+			"description": "The lodash method `_.camelCase` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"camelcase"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"dependencies": {
+				"lodash.capitalize": "^4.0.0",
+				"lodash.deburr": "^4.0.0",
+				"lodash.words": "^4.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.camelcase@4.1.0",
+			"_shasum": "4cc4d8be09c318c7d06c4d4cda38fcfebb9322d6",
+			"_from": ".",
+			"_npmVersion": "2.14.18",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "4cc4d8be09c318c7d06c4d4cda38fcfebb9322d6",
+				"tarball": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-4.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-5-east.internal.npmjs.com",
+				"tmp": "tmp/lodash.camelcase-4.1.0.tgz_1455615103156_0.12871463503688574"
+			},
+			"directories": {}
+		},
+		"4.1.1": {
+			"name": "lodash.camelcase",
+			"version": "4.1.1",
+			"description": "The lodash method `_.camelCase` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"camelcase"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine.bublitz@gmail.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"dependencies": {
+				"lodash.capitalize": "^4.0.0",
+				"lodash.deburr": "^4.0.0",
+				"lodash.words": "^4.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.camelcase@4.1.1",
+			"_shasum": "065b3ff08f0b7662f389934c46a5504c90e0b2d8",
+			"_from": ".",
+			"_npmVersion": "2.15.3",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "065b3ff08f0b7662f389934c46a5504c90e0b2d8",
+				"tarball": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-4.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/lodash.camelcase-4.1.1.tgz_1460561826656_0.6901515841018409"
+			},
+			"directories": {}
+		},
+		"4.2.0": {
+			"name": "lodash.camelcase",
+			"version": "4.2.0",
+			"description": "The lodash method `_.camelCase` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"camelcase"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine.bublitz@gmail.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.camelcase@4.2.0",
+			"_shasum": "57129298ac8acd1c3eddf3be394d49af321a14be",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.2.4",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "57129298ac8acd1c3eddf3be394d49af321a14be",
+				"tarball": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-4.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/lodash.camelcase-4.2.0.tgz_1469457692357_0.460042757447809"
+			},
+			"directories": {}
+		},
+		"4.3.0": {
+			"name": "lodash.camelcase",
+			"version": "4.3.0",
+			"description": "The lodash method `_.camelCase` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"camelcase"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine.bublitz@gmail.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.camelcase@4.3.0",
+			"_shasum": "b28aa6288a2b9fc651035c7711f65ab6190331a6",
+			"_from": ".",
+			"_npmVersion": "2.15.10",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "b28aa6288a2b9fc651035c7711f65ab6190331a6",
+				"tarball": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/lodash.camelcase-4.3.0.tgz_1471109822913_0.6336291655898094"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2016-10-06T16:45:07.184Z",
+		"created": "2015-01-26T15:28:32.127Z",
+		"3.0.0": "2015-01-26T15:28:32.127Z",
+		"3.0.1": "2015-02-03T17:16:11.621Z",
+		"4.0.0": "2016-01-13T10:57:22.597Z",
+		"4.0.1": "2016-01-26T08:45:14.389Z",
+		"4.1.0": "2016-02-16T09:31:46.770Z",
+		"4.1.1": "2016-04-13T15:37:09.807Z",
+		"4.2.0": "2016-07-25T14:41:32.587Z",
+		"4.3.0": "2016-08-13T17:37:03.141Z"
+	},
+	"dist-tags": {
+		"latest": "4.3.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"ea910959dc28f7f58ab3aecff406bc6d\"",
+			"fetched": 1568994332432
+		}
+	},
+	"_distfiles": {
+		"lodash.camelcase-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-3.0.0.tgz",
+			"sha": "5278085988127370ae885229e51d66829b46b39b",
+			"registry": "npmjs"
+		},
+		"lodash.camelcase-3.0.1.tgz": {
+			"url": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-3.0.1.tgz",
+			"sha": "932c8b87f8a4377897c67197533282f97aeac298",
+			"registry": "npmjs"
+		},
+		"lodash.camelcase-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-4.0.0.tgz",
+			"sha": "e7b13f5e9f64b72be315b58cd98f53e134003c0f",
+			"registry": "npmjs"
+		},
+		"lodash.camelcase-4.0.1.tgz": {
+			"url": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-4.0.1.tgz",
+			"sha": "5d07c1c8a42bc32e626c9247b4702c80e88b0d87",
+			"registry": "npmjs"
+		},
+		"lodash.camelcase-4.1.0.tgz": {
+			"url": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-4.1.0.tgz",
+			"sha": "4cc4d8be09c318c7d06c4d4cda38fcfebb9322d6",
+			"registry": "npmjs"
+		},
+		"lodash.camelcase-4.1.1.tgz": {
+			"url": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-4.1.1.tgz",
+			"sha": "065b3ff08f0b7662f389934c46a5504c90e0b2d8",
+			"registry": "npmjs"
+		},
+		"lodash.camelcase-4.2.0.tgz": {
+			"url": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-4.2.0.tgz",
+			"sha": "57129298ac8acd1c3eddf3be394d49af321a14be",
+			"registry": "npmjs"
+		},
+		"lodash.camelcase-4.3.0.tgz": {
+			"url": "https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz",
+			"sha": "b28aa6288a2b9fc651035c7711f65ab6190331a6",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-64bec11a4a8d64ba",
+	"_id": "lodash.camelcase",
+	"readme": "# lodash.camelcase v4.3.0\n\nThe [lodash](https://lodash.com/) method `_.camelCase` exported as a [Node.js](https://nodejs.org/) module.\n\n## Installation\n\nUsing npm:\n```bash\n$ {sudo -H} npm i -g npm\n$ npm i --save lodash.camelcase\n```\n\nIn Node.js:\n```js\nvar camelCase = require('lodash.camelcase');\n```\n\nSee the [documentation](https://lodash.com/docs#camelCase) or [package source](https://github.com/lodash/lodash/blob/4.3.0-npm-packages/lodash.camelcase) for more details."
+}

@@ -1,0 +1,165 @@
+{
+	"name": "wtf-8",
+	"versions": {
+		"1.0.0": {
+			"name": "wtf-8",
+			"version": "1.0.0",
+			"description": "A well-tested WTF-8 encoder/decoder written in JavaScript.",
+			"homepage": "https://mths.be/wtf8",
+			"main": "wtf-8.js",
+			"keywords": [
+				"charset",
+				"encoding",
+				"unicode",
+				"wtf8",
+				"wtf-8"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Mathias Bynens",
+				"url": "https://mathiasbynens.be/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mathiasbynens/wtf-8.js.git"
+			},
+			"files": [
+				"LICENSE-MIT.txt",
+				"wtf-8.js"
+			],
+			"bugs": {
+				"url": "https://github.com/mathiasbynens/wtf-8.js/issues"
+			},
+			"scripts": {
+				"test": "node tests/tests.js"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.1",
+				"grunt": "^0.4.5",
+				"grunt-shell": "^1.1.1",
+				"istanbul": "^0.3.2",
+				"qunit-extras": "^1.2.0",
+				"qunitjs": "~1.11.0",
+				"requirejs": "^2.1.14"
+			},
+			"gitHead": "51cdb2ad51f6ea330643be9725be8f213f43d535",
+			"_id": "wtf-8@1.0.0",
+			"_shasum": "392d8ba2d0f1c34d1ee2d630f15d0efb68e1048a",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "mathias",
+				"email": "mathias@qiwi.be"
+			},
+			"maintainers": [
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				}
+			],
+			"dist": {
+				"shasum": "392d8ba2d0f1c34d1ee2d630f15d0efb68e1048a",
+				"tarball": "https://registry.npmjs.org/wtf-8/-/wtf-8-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "wtf-8",
+			"version": "1.0.1",
+			"description": "A well-tested WTF-8 encoder/decoder written in JavaScript.",
+			"homepage": "https://mths.be/wtf8",
+			"main": "wtf-8.js",
+			"keywords": [
+				"charset",
+				"encoding",
+				"unicode",
+				"wtf8",
+				"wtf-8"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Mathias Bynens",
+				"url": "https://mathiasbynens.be/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mathiasbynens/wtf-8.git"
+			},
+			"files": [
+				"LICENSE-MIT.txt",
+				"wtf-8.js"
+			],
+			"bugs": {
+				"url": "https://github.com/mathiasbynens/wtf-8/issues"
+			},
+			"scripts": {
+				"test": "node tests/tests.js"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.1",
+				"grunt": "^0.4.5",
+				"grunt-shell": "^1.1.1",
+				"istanbul": "^0.3.2",
+				"qunit-extras": "^1.2.0",
+				"qunitjs": "~1.11.0",
+				"requirejs": "^2.1.14"
+			},
+			"gitHead": "58c6b976c6678144d180b2307bee5615457e2cc7",
+			"_id": "wtf-8@1.0.1",
+			"_shasum": "0c1998dc74a7d19f1837afb22e9ddb365bb7165a",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "mathias",
+				"email": "mathias@qiwi.be"
+			},
+			"maintainers": [
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				}
+			],
+			"dist": {
+				"shasum": "0c1998dc74a7d19f1837afb22e9ddb365bb7165a",
+				"tarball": "https://registry.npmjs.org/wtf-8/-/wtf-8-1.0.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/wtf-8-1.0.1.tgz_1487501918300_0.12468205927871168"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2017-02-19T10:58:38.835Z",
+		"created": "2014-10-03T09:03:01.498Z",
+		"1.0.0": "2014-10-03T09:03:01.498Z",
+		"1.0.1": "2017-02-19T10:58:38.835Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"afd788a35b2a3fc802e111bb15ae564a\"",
+			"fetched": 1568994348500
+		}
+	},
+	"_distfiles": {
+		"wtf-8-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/wtf-8/-/wtf-8-1.0.0.tgz",
+			"sha": "392d8ba2d0f1c34d1ee2d630f15d0efb68e1048a",
+			"registry": "npmjs"
+		},
+		"wtf-8-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/wtf-8/-/wtf-8-1.0.1.tgz",
+			"sha": "0c1998dc74a7d19f1837afb22e9ddb365bb7165a",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-21f8378716eb1e67",
+	"_id": "wtf-8",
+	"readme": "# wtf-8 [![Build status](https://travis-ci.org/mathiasbynens/wtf-8.svg?branch=master)](https://travis-ci.org/mathiasbynens/wtf-8) [![Dependency status](https://gemnasium.com/mathiasbynens/wtf-8.svg)](https://gemnasium.com/mathiasbynens/wtf-8)\n\n_wtf-8_ is a well-tested [WTF-8](https://simonsapin.github.io/wtf-8/) encoder/decoder written in JavaScript. WTF-8 is a superset of UTF-8: it can encode/decode any given Unicode code point, including those of (unpaired) surrogates. [Here’s an online demo.](https://mothereff.in/wtf-8)\n\nFeel free to fork if you see possible improvements!\n\n## Installation\n\nVia [npm](https://www.npmjs.com/):\n\n```bash\nnpm install wtf-8\n```\n\nVia [Bower](http://bower.io/):\n\n```bash\nbower install wtf-8\n```\n\nVia [Component](https://github.com/component/component):\n\n```bash\ncomponent install mathiasbynens/wtf-8\n```\n\nIn a browser:\n\n```html\n<script src=\"wtf-8.js\"></script>\n```\n\nIn [Narwhal](http://narwhaljs.org/), [Node.js](https://nodejs.org/), and [RingoJS ≥ v0.8.0](http://ringojs.org/):\n\n```js\nvar wtf8 = require('wtf-8');\n```\n\nIn [Rhino](http://www.mozilla.org/rhino/):\n\n```js\nload('wtf-8.js');\n```\n\nUsing an AMD loader like [RequireJS](http://requirejs.org/):\n\n```js\nrequire(\n  {\n    'paths': {\n      'wtf-8': 'path/to/wtf-8'\n    }\n  },\n  ['wtf-8'],\n  function(wtf8) {\n    console.log(wtf8);\n  }\n);\n```\n\n## API\n\n### `wtf8.encode(string)`\n\nEncodes any given JavaScript string (`string`) as WTF-8, and returns the WTF-8-encoded version of the string.\n\n```js\n// U+00A9 COPYRIGHT SIGN; see http://codepoints.net/U+00A9\nwtf8.encode('\\xA9');\n// → '\\xC2\\xA9'\n// U+10001 LINEAR B SYLLABLE B038 E; see http://codepoints.net/U+10001\nwtf8.encode('\\uD800\\uDC01');\n// → '\\xF0\\x90\\x80\\x81'\n```\n\n### `wtf8.decode(byteString)`\n\nDecodes any given WTF-8-encoded string (`byteString`) as WTF-8, and returns the WTF-8-decoded version of the string. It throws an error when malformed WTF-8 is detected.\n\n```js\nwtf8.decode('\\xC2\\xA9');\n// → '\\xA9'\n\nwtf8.decode('\\xF0\\x90\\x80\\x81');\n// → '\\uD800\\uDC01'\n// → U+10001 LINEAR B SYLLABLE B038 E\n```\n\n### `wtf8.version`\n\nA string representing the semantic version number.\n\n## Support\n\n_wtf-8_ has been tested in (at least) the latest versions of Chrome, Opera, Firefox, Safari, IE, Node.js, Narwhal, RingoJS, PhantomJS, and Rhino.\n\n## Author\n\n| [![twitter/mathias](https://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](https://twitter.com/mathias \"Follow @mathias on Twitter\") |\n|---|\n| [Mathias Bynens](https://mathiasbynens.be/) |\n\n## License\n\n_wtf-8_ is available under the [MIT](https://mths.be/mit) license."
+}

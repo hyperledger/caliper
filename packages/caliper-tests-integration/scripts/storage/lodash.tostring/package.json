@@ -1,0 +1,673 @@
+{
+	"name": "lodash.tostring",
+	"versions": {
+		"4.0.0": {
+			"name": "lodash.tostring",
+			"version": "4.0.0",
+			"description": "The lodash method `_.toString` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash",
+				"lodash-modularized",
+				"stdlib",
+				"util",
+				"tostring"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.tostring@4.0.0",
+			"_shasum": "d85b9f47ade9900fa7a29ba0f4db91078b4f0b92",
+			"_from": ".",
+			"_npmVersion": "2.14.15",
+			"_nodeVersion": "5.4.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "d85b9f47ade9900fa7a29ba0f4db91078b4f0b92",
+				"tarball": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.0.1": {
+			"name": "lodash.tostring",
+			"version": "4.0.1",
+			"description": "The lodash method `_.toString` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash",
+				"lodash-modularized",
+				"stdlib",
+				"util",
+				"tostring"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.tostring@4.0.1",
+			"_shasum": "59b1145e4d84082d28a9b87f293b59b6b25ff996",
+			"_from": ".",
+			"_npmVersion": "2.14.15",
+			"_nodeVersion": "5.4.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "59b1145e4d84082d28a9b87f293b59b6b25ff996",
+				"tarball": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine.bublitz@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.0.2": {
+			"name": "lodash.tostring",
+			"version": "4.0.2",
+			"description": "The lodash method `_.toString` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"tostring"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.tostring@4.0.2",
+			"_shasum": "cf4314cd3a1377f998ae6ca94861c6c1ee0ae5a2",
+			"_from": ".",
+			"_npmVersion": "2.14.15",
+			"_nodeVersion": "5.4.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "cf4314cd3a1377f998ae6ca94861c6c1ee0ae5a2",
+				"tarball": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine.bublitz@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-6-west.internal.npmjs.com",
+				"tmp": "tmp/lodash.tostring-4.0.2.tgz_1454484765838_0.7803565943613648"
+			},
+			"directories": {}
+		},
+		"4.1.0": {
+			"name": "lodash.tostring",
+			"version": "4.1.0",
+			"description": "The lodash method `_.toString` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"tostring"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"dependencies": {
+				"lodash._root": "^3.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.tostring@4.1.0",
+			"_shasum": "0af92f482954ae7f6c3cc571b39a459933222f11",
+			"_from": ".",
+			"_npmVersion": "2.14.18",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "0af92f482954ae7f6c3cc571b39a459933222f11",
+				"tarball": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine.bublitz@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-5-east.internal.npmjs.com",
+				"tmp": "tmp/lodash.tostring-4.1.0.tgz_1454898729479_0.7351043005473912"
+			},
+			"directories": {}
+		},
+		"4.1.1": {
+			"name": "lodash.tostring",
+			"version": "4.1.1",
+			"description": "The lodash method `_.toString` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"tostring"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.tostring@4.1.1",
+			"_shasum": "3be312fb394ef045ab26351340bdaa799b0d5129",
+			"_from": ".",
+			"_npmVersion": "2.14.18",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "3be312fb394ef045ab26351340bdaa799b0d5129",
+				"tarball": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine.bublitz@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-5-east.internal.npmjs.com",
+				"tmp": "tmp/lodash.tostring-4.1.1.tgz_1455615700788_0.9025743275415152"
+			},
+			"directories": {}
+		},
+		"4.1.2": {
+			"name": "lodash.tostring",
+			"version": "4.1.2",
+			"description": "The lodash method `_.toString` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"tostring"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine.bublitz@gmail.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.tostring@4.1.2",
+			"_shasum": "7d326a5cf64da4298f2fd35b688d848267535288",
+			"_from": ".",
+			"_npmVersion": "2.14.17",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "7d326a5cf64da4298f2fd35b688d848267535288",
+				"tarball": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine.bublitz@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-13-west.internal.npmjs.com",
+				"tmp": "tmp/lodash.tostring-4.1.2.tgz_1456896853027_0.8195764778647572"
+			},
+			"directories": {}
+		},
+		"4.1.3": {
+			"name": "lodash.tostring",
+			"version": "4.1.3",
+			"description": "The lodash method `_.toString` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"tostring"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine.bublitz@gmail.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.tostring@4.1.3",
+			"_shasum": "5697f62973f30105a76c2deb3e2d1669f04fd825",
+			"_from": ".",
+			"_npmVersion": "2.15.5",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "5697f62973f30105a76c2deb3e2d1669f04fd825",
+				"tarball": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.1.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine.bublitz@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/lodash.tostring-4.1.3.tgz_1463062634002_0.7874096168670803"
+			},
+			"directories": {}
+		},
+		"4.1.4": {
+			"name": "lodash.tostring",
+			"version": "4.1.4",
+			"description": "The lodash method `_.toString` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"tostring"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine.bublitz@gmail.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.tostring@4.1.4",
+			"_shasum": "560c27d1f8eadde03c2cce198fef5c031d8298fb",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.2.4",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "560c27d1f8eadde03c2cce198fef5c031d8298fb",
+				"tarball": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.1.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine.bublitz@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/lodash.tostring-4.1.4.tgz_1469458352677_0.677248232299462"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2016-10-06T16:52:31.757Z",
+		"created": "2016-01-13T11:17:20.085Z",
+		"4.0.0": "2016-01-13T11:17:20.085Z",
+		"4.0.1": "2016-01-26T08:58:14.625Z",
+		"4.0.2": "2016-02-03T07:32:46.597Z",
+		"4.1.0": "2016-02-08T02:32:11.746Z",
+		"4.1.1": "2016-02-16T09:41:44.450Z",
+		"4.1.2": "2016-03-02T05:34:13.534Z",
+		"4.1.3": "2016-05-12T14:17:17.023Z",
+		"4.1.4": "2016-07-25T14:52:32.918Z"
+	},
+	"dist-tags": {
+		"latest": "4.1.4"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"2166d4c740331b817c91dd000b09a563\"",
+			"fetched": 1568994342558
+		}
+	},
+	"_distfiles": {
+		"lodash.tostring-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.0.0.tgz",
+			"sha": "d85b9f47ade9900fa7a29ba0f4db91078b4f0b92",
+			"registry": "npmjs"
+		},
+		"lodash.tostring-4.0.1.tgz": {
+			"url": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.0.1.tgz",
+			"sha": "59b1145e4d84082d28a9b87f293b59b6b25ff996",
+			"registry": "npmjs"
+		},
+		"lodash.tostring-4.0.2.tgz": {
+			"url": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.0.2.tgz",
+			"sha": "cf4314cd3a1377f998ae6ca94861c6c1ee0ae5a2",
+			"registry": "npmjs"
+		},
+		"lodash.tostring-4.1.0.tgz": {
+			"url": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.1.0.tgz",
+			"sha": "0af92f482954ae7f6c3cc571b39a459933222f11",
+			"registry": "npmjs"
+		},
+		"lodash.tostring-4.1.1.tgz": {
+			"url": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.1.1.tgz",
+			"sha": "3be312fb394ef045ab26351340bdaa799b0d5129",
+			"registry": "npmjs"
+		},
+		"lodash.tostring-4.1.2.tgz": {
+			"url": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.1.2.tgz",
+			"sha": "7d326a5cf64da4298f2fd35b688d848267535288",
+			"registry": "npmjs"
+		},
+		"lodash.tostring-4.1.3.tgz": {
+			"url": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.1.3.tgz",
+			"sha": "5697f62973f30105a76c2deb3e2d1669f04fd825",
+			"registry": "npmjs"
+		},
+		"lodash.tostring-4.1.4.tgz": {
+			"url": "https://registry.npmjs.org/lodash.tostring/-/lodash.tostring-4.1.4.tgz",
+			"sha": "560c27d1f8eadde03c2cce198fef5c031d8298fb",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-f405cac39d28ed4d",
+	"_id": "lodash.tostring",
+	"readme": "# lodash.tostring v4.1.4\n\nThe [lodash](https://lodash.com/) method `_.toString` exported as a [Node.js](https://nodejs.org/) module.\n\n## Installation\n\nUsing npm:\n```bash\n$ {sudo -H} npm i -g npm\n$ npm i --save lodash.tostring\n```\n\nIn Node.js:\n```js\nvar toString = require('lodash.tostring');\n```\n\nSee the [documentation](https://lodash.com/docs#toString) or [package source](https://github.com/lodash/lodash/blob/4.1.4-npm-packages/lodash.tostring) for more details."
+}

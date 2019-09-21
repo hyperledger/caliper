@@ -1,0 +1,3156 @@
+{
+	"name": "lorem-ipsum",
+	"versions": {
+		"0.0.0": {
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"name": "lorem-ipsum",
+			"description": "Generate placeholder text using lorem ipsum.",
+			"version": "0.0.0",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"dependencies": {},
+			"devDependencies": {},
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nkenyeres@gmail.com"
+			},
+			"_id": "lorem-ipsum@0.0.0",
+			"_engineSupported": true,
+			"_npmVersion": "1.1.0-beta-10",
+			"_nodeVersion": "v0.6.7",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "93642206cefabad75a04256a415def6ef3baa35d",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.1": {
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"name": "lorem-ipsum",
+			"description": "Generate placeholder text using lorem ipsum.",
+			"version": "0.0.1",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"dependencies": {},
+			"devDependencies": {},
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nkenyeres@gmail.com"
+			},
+			"_id": "lorem-ipsum@0.0.1",
+			"_engineSupported": true,
+			"_npmVersion": "1.1.0-beta-10",
+			"_nodeVersion": "v0.6.7",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "48b297a7ead911b53168fcb914441e16b460cc12",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.2": {
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"name": "lorem-ipsum",
+			"description": "Generate placeholder text using lorem ipsum.",
+			"version": "0.0.2",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"dependencies": {},
+			"devDependencies": {},
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nkenyeres@gmail.com"
+			},
+			"_id": "lorem-ipsum@0.0.2",
+			"_engineSupported": true,
+			"_npmVersion": "1.1.0-beta-10",
+			"_nodeVersion": "v0.6.7",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "7dd34c59e70b34cd107083f127c811a34e2cc686",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.3": {
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"name": "lorem-ipsum",
+			"description": "Generate placeholder text using lorem ipsum.",
+			"version": "0.0.3",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"dependencies": {},
+			"devDependencies": {},
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"main": "./lorem-ipsum.js",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nkenyeres@gmail.com"
+			},
+			"_id": "lorem-ipsum@0.0.3",
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.24",
+			"_nodeVersion": "v0.6.19",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "e11a1f0cd7adf02ffc2e6f973635f133ce8f62fc",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.4": {
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"name": "lorem-ipsum",
+			"description": "Generate placeholder text using lorem ipsum.",
+			"version": "0.0.4",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"dependencies": {},
+			"devDependencies": {},
+			"main": "./lib/generator",
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"optionalDependencies": {},
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nkenyeres@gmail.com"
+			},
+			"_id": "lorem-ipsum@0.0.4",
+			"_engineSupported": true,
+			"_npmVersion": "1.1.24",
+			"_nodeVersion": "v0.6.19",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "cdd1d1b3ad6b431221129088742f51182ddf00d2",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.5": {
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"name": "lorem-ipsum",
+			"description": "Generate placeholder text using lorem ipsum.",
+			"version": "0.0.5",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"dependencies": {},
+			"devDependencies": {},
+			"main": "./lib/generator",
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"optionalDependencies": {},
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nkenyeres@gmail.com"
+			},
+			"_id": "lorem-ipsum@0.0.5",
+			"_engineSupported": true,
+			"_npmVersion": "1.1.24",
+			"_nodeVersion": "v0.6.19",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "0429b8881e347197ba966bd88da0eb3ea5718a44",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.6": {
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"name": "lorem-ipsum",
+			"description": "Generate placeholder text using lorem ipsum.",
+			"version": "0.0.6",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"dependencies": {},
+			"devDependencies": {},
+			"main": "./lib/generator",
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"optionalDependencies": {},
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nkenyeres@gmail.com"
+			},
+			"_id": "lorem-ipsum@0.0.6",
+			"_engineSupported": true,
+			"_npmVersion": "1.1.24",
+			"_nodeVersion": "v0.6.19",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "9b11d06243e596f48314f66650a5e13055dbdf99",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.7": {
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"name": "lorem-ipsum",
+			"description": "Generate placeholder text using lorem ipsum.",
+			"version": "0.0.7",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"dependencies": {},
+			"devDependencies": {},
+			"main": "./lib/generator",
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"optionalDependencies": {},
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nkenyeres@gmail.com"
+			},
+			"_id": "lorem-ipsum@0.0.7",
+			"_engineSupported": true,
+			"_npmVersion": "1.1.24",
+			"_nodeVersion": "v0.6.19",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "e1758f4ad88784af4d6a7eb152bcfeda58640d14",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.8": {
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"name": "lorem-ipsum",
+			"description": "Generate placeholder text using lorem ipsum.",
+			"version": "0.0.8",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"dependencies": {},
+			"devDependencies": {},
+			"main": "./lib/generator",
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"optionalDependencies": {},
+			"_id": "lorem-ipsum@0.0.8",
+			"dist": {
+				"shasum": "5587acdce2f79f3071a1cc5d72e14c1b38117400",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.8.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.9": {
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"name": "lorem-ipsum",
+			"description": "Generate placeholder text using lorem ipsum.",
+			"version": "0.0.9",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"dependencies": {},
+			"devDependencies": {},
+			"main": "./lib/generator",
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"optionalDependencies": {},
+			"_id": "lorem-ipsum@0.0.9",
+			"dist": {
+				"shasum": "1c31eb039f87979729ab084a8101d985cc2f48d9",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.9.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "lorem-ipsum",
+			"version": "0.1.0",
+			"description": "Generates passages of lorem ipsum text suitable for use a placeholder in web pages, graphics, and more.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "MIT/X11",
+			"main": "./lib/generator",
+			"dependencies": {
+				"optimist": "~0.3.5"
+			},
+			"devDependencies": {},
+			"optionalDependencies": {},
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engine": {
+				"node": ">=0.4"
+			},
+			"_id": "lorem-ipsum@0.1.0",
+			"dist": {
+				"shasum": "4099a3a7640fff6c4e5bfabdda09f967c2bb0ceb",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.1.0.tgz"
+			},
+			"_npmVersion": "1.1.59",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nkenyeres@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.1": {
+			"name": "lorem-ipsum",
+			"version": "0.1.1",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "MIT/X11",
+			"main": "./lib/generator",
+			"dependencies": {
+				"optimist": "~0.3.5",
+				"inflection": "~1.2.6"
+			},
+			"devDependencies": {
+				"alea": "0.0.9"
+			},
+			"optionalDependencies": {},
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"test": "nodeunit test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engine": {
+				"node": ">=0.4"
+			},
+			"_id": "lorem-ipsum@0.1.1",
+			"dist": {
+				"shasum": "c0937a0dfbb4377c0d72413ae12655514f902419",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.1.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.15",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nkenyeres@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "lorem-ipsum",
+			"version": "1.0.0",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "MIT/X11",
+			"main": "./lib/generator",
+			"dependencies": {
+				"optimist": "~0.3.5"
+			},
+			"devDependencies": {
+				"alea": "0.0.9"
+			},
+			"optionalDependencies": {},
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"test": "nodeunit test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engine": {
+				"node": ">=0.4"
+			},
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"_id": "lorem-ipsum@1.0.0",
+			"dist": {
+				"shasum": "af3b5ff814ce6221f1e0fad2176d5ed31a72e3ca",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-1.0.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.8",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nkenyeres@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "lorem-ipsum",
+			"version": "1.0.1",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "MIT/X11",
+			"main": "./lib/generator",
+			"dependencies": {
+				"optimist": "~0.3.5"
+			},
+			"devDependencies": {
+				"alea": "0.0.9"
+			},
+			"optionalDependencies": {},
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"test": "nodeunit test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engine": {
+				"node": ">=0.4"
+			},
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum",
+			"_id": "lorem-ipsum@1.0.1",
+			"dist": {
+				"shasum": "8df27d94c4f133bdd739f0e79ad1017565bf69ae",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-1.0.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nkenyeres@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "lorem-ipsum",
+			"version": "1.0.2",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "MIT/X11",
+			"main": "./lib/generator",
+			"dependencies": {
+				"optimist": "~0.3.5"
+			},
+			"devDependencies": {
+				"alea": "0.0.9"
+			},
+			"optionalDependencies": {},
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"test": "nodeunit test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engine": {
+				"node": ">=0.4"
+			},
+			"gitHead": "c3ef67ff63c30d1a8e12aeecb362de7dcab4aa4f",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum",
+			"_id": "lorem-ipsum@1.0.2",
+			"_shasum": "61746826d41c1ad24dea25adfc95cd82cc4d12ab",
+			"_from": ".",
+			"_npmVersion": "2.7.4",
+			"_nodeVersion": "0.12.2",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nkenyeres@gmail.com"
+			},
+			"dist": {
+				"shasum": "61746826d41c1ad24dea25adfc95cd82cc4d12ab",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-1.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "lorem-ipsum",
+			"version": "1.0.3",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "MIT/X11",
+			"main": "./lib/generator",
+			"dependencies": {
+				"optimist": "~0.3.5"
+			},
+			"devDependencies": {
+				"alea": "0.0.9"
+			},
+			"optionalDependencies": {},
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"test": "nodeunit test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engine": {
+				"node": ">=0.4"
+			},
+			"gitHead": "fd028b731a22cb9fb62a0da0adcd29d57c95bcf9",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum",
+			"_id": "lorem-ipsum@1.0.3",
+			"_shasum": "40afece589b39bcec2c2e4cb8b154122f467b5c0",
+			"_from": ".",
+			"_npmVersion": "2.7.4",
+			"_nodeVersion": "0.12.2",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nkenyeres@gmail.com"
+			},
+			"dist": {
+				"shasum": "40afece589b39bcec2c2e4cb8b154122f467b5c0",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-1.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "lorem-ipsum",
+			"version": "1.0.4",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "MIT/X11",
+			"main": "./lib/generator",
+			"dependencies": {
+				"optimist": "~0.3.5"
+			},
+			"devDependencies": {
+				"alea": "0.0.9"
+			},
+			"optionalDependencies": {},
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"test": "nodeunit test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engine": {
+				"node": ">=0.4"
+			},
+			"gitHead": "1540491e141e807bf564ff29a4b8aebc627a38f4",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@1.0.4",
+			"_shasum": "30b72a3b1e191f55062af8c7dfab291ae4fbd912",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "7.1.0",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nkenyeres@gmail.com"
+			},
+			"dist": {
+				"shasum": "30b72a3b1e191f55062af8c7dfab291ae4fbd912",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-1.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/lorem-ipsum-1.0.4.tgz_1493275075718_0.8011690089479089"
+			},
+			"directories": {}
+		},
+		"1.0.5": {
+			"name": "lorem-ipsum",
+			"version": "1.0.5",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "MIT",
+			"main": "./lib/generator",
+			"dependencies": {
+				"minimist": "~1.2.0"
+			},
+			"devDependencies": {
+				"alea": "0.0.9",
+				"mocha": "^5.2.0"
+			},
+			"optionalDependencies": {},
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engine": {
+				"node": ">=0.4"
+			},
+			"gitHead": "80cc3a539e75c262c79a3dd24a3cba1ca8ddfcbf",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@1.0.5",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "10.4.1",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-GW1N2mqtS1qRf4WHmQ/g/asGXXd2dciLUDEsz5hZQfVJNWHUZX0zsJDLfV581de4OOCrBRiTifyoSuSSUwIEdg==",
+				"shasum": "843461931e0043edd3ef2f7950d6d58ab625d3b4",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-1.0.5.tgz",
+				"fileCount": 9,
+				"unpackedSize": 13595,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbJSd0CRA9TVsSAnZWagAAkFQP/3qJnKwKI2vQVJlOqZ7/\nC/bB6m63IR9KRCmd0WlYo7XvobbFgIAboZWOYdqf/FVWyNZiCtXKTTVkTtpo\njVegk2afmKwT1kfxNl89OXcMurqh60t00qevnaskAC8+nscNBsqShpvWb8Pu\n1byDCadwu1BXih9Bm0DNZWU0MHZaKXVhC9XKkWbsWc6gOjwDC3j7gPPN4lKE\ncw3EJG/DjVqYTCtNDAAz+hlPxCaCPLvUsdU8JGVQqds0f1lPANU3jUnJWuHK\nGvqu5nQZaOlus7gp3/YIZFJECoFs1V0IhtI2whOmzP/VlWs9q1dY6z02ZfHE\nbXMRh0dGybsEmgpj0ngR2OvmuWR3qcSgcc3v4Qa46Uoi3CmpHjhsrCfJSE1F\nWWYZ8ORU8ATQXFInEdlw/hGSW9+QW1vgmV+FWbrdtG8iLF0UUabDhmHENasA\nPDI4BpIbrNflBjlMd9zslRN+CsHL3kLk+v9ezlY6lL+eugtzXZkxWen1DKdv\ny3L6g88fnsZqEm9Uo8rEtnprz4wIHF0wbKC939pvIBm4wo3H9lTkuhH3NzwM\nV3Ad32174+xn0oMMPXOhFaV8tRxFyj1rN9O30qSlkUL6Bdf9kzFEMRKX3kuo\np6dF3+at5Ga8oJttOva67hFKQIkTaHUXh7nzsCMhPDkHGQKnkHde9yz/9vkU\nHAaB\r\n=o8E5\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_1.0.5_1529161587274_0.3387492731791313"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.6": {
+			"name": "lorem-ipsum",
+			"version": "1.0.6",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "MIT",
+			"main": "./lib/generator",
+			"dependencies": {
+				"minimist": "~1.2.0"
+			},
+			"devDependencies": {
+				"alea": "0.0.9",
+				"mocha": "^5.2.0"
+			},
+			"optionalDependencies": {},
+			"bin": {
+				"lorem-ipsum": "bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engine": {
+				"node": ">=0.4"
+			},
+			"gitHead": "e948d01d1bd4e39bc4c0a67eb21c93cf55686153",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@1.0.6",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "10.5.0",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-Rx4XH8X4KSDCKAVvWGYlhAfNqdUP5ZdT4rRyf0jjrvWgtViZimDIlopWNfn/y3lGM5K4uuiAoY28TaD+7YKFrQ==",
+				"shasum": "69e9ab02bbb0991915d71b5559fe016d526f013f",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-1.0.6.tgz",
+				"fileCount": 9,
+				"unpackedSize": 13681,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbhJiNCRA9TVsSAnZWagAAlagQAJqGx05gDMaOrNrJcjd7\nJ5SDPE3v4AiX5PCjgMbkloj8jZX/p2ks8SGctWs9YbXzLXfJS9BhC64e99kl\nT3R4l+US8Cfx/KPbMpjV92hj2Rt/Y+ARCR22+zK5z+y0ekjvaSkWNmmBCWJx\ntju5rP8oRW/TwUJZumZcoIs0QGpkDmk7iMAGBXC8Sk9/8ZJbQyjKvEbnD5GX\nSNOFUBvx1aGJzUaptLRhD1t/4qXsnYH2/WevZKRtM0o1iiJHaw5L1kpKyhI+\nTmXQMzrylwOQyARuiiQ6Q82PM8+xar7CfDmNLqdx1hgi2phQVk+4zht/Y/Tj\npK4ZG5aKQdUMnlgfgT9/RtW9tAV5jwa+uKxUEWxgmt/LFakm83+CyAxV5WBS\nrEdNRia6KdyyIhJ0GjK2whryyb9thWMsZM/MMpJCdQ3mU1RL95+vuepreSgI\nmWnMZCUvB1TFhnO0zYp3+rlRjYCsKt+PPqDpzCLjwIObTSVtC8CgB20UUWan\niPu5bd+iTceRpmu9TKA303A5gfZ8EfLwyt9GCZFzdi+7qYhKv5SgNPfIAjGi\nuPuIw4Z/Gld3fXafxeBzs6cna5Q4PqDYAFc+WcsAVotOuc0T120rwVswxEFG\nEkbFHI+t3xIbzgf7uGHtr3MVoiQuC3TjU0AlQqI0jmOXYYVbvQSlvZmyCoKc\nWSwm\r\n=QFbF\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_1.0.6_1535416460920_0.71405302314968"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0-alpha.0": {
+			"name": "lorem-ipsum",
+			"version": "2.0.0-alpha.0",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"build": "webpack",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "yarn build && release-it",
+				"release:dry": "yarn build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.0.0",
+				"@babel/plugin-proposal-class-properties": "^7.0.0",
+				"@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+				"@babel/preset-env": "^7.0.0",
+				"@babel/preset-typescript": "^7.0.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"@types/react-native": "^0.56.15",
+				"babel-loader": "^8.0.0",
+				"clean-webpack-plugin": "^0.1.19",
+				"coveralls": "^3.0.2",
+				"jest": "^23.5.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^13.0.1",
+				"prettier": "^1.14.2",
+				"release-it": "^7.6.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.0.1",
+				"webpack": "^4.17.1",
+				"webpack-cli": "^3.1.0"
+			},
+			"dependencies": {
+				"commander": "^2.17.1",
+				"random-seed": "^0.3.0"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.{ts}",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"readmeFilename": "README.md",
+			"gitHead": "5dab0307e2b18b4398fdc1f410685f93a18354d0",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.0-alpha.0",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "10.5.0",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-pLk5zbap1KuuFI+HVc89X81DCp4wek1ehIbyI66CxNMJP3hjCmlPrAAppEp3+mG+YgNPfSLKCr/51QUOLz/ntg==",
+				"shasum": "c748c4f92baf96a0b5ad06b2ccb832e96e0943d7",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.0.tgz",
+				"fileCount": 52,
+				"unpackedSize": 190170,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbjCTLCRA9TVsSAnZWagAArEoP/3wjCKWr7UAekj4AU8O9\nQj4/BFEBhY88SdpgcJOVnZtVpPy+ZygjG0mTmx0ral3YG8PT1Zh4OCK1kjE6\n3phivqQz/XW4MmH6W0mCQnWMlV9Y92DbI5f1CYLp0D4872LljwIKsMmZjV+o\nBBHfpVkwZ62N9UbhMkG10OcyxgES9tPn1gpfJ4j/BPA7EVS33kSB3SuD3BL+\nvADcfAnbABsbZrP1f4u9T2qx9cQ29TY3R7JzEzJf1yHYVDwpM2Ch28UoIOey\nnxX1S2IdJV5IR52JN0jYt1sCNemCZ9pExKwbTO9ySbUS/pDKHJziGpY57fR9\nbYtrsgETnsk9hfmtrQ+K2Pu8WvQ3U2YYXAkew8S0Uydo1oRGKGYn9ENEIGL/\ni2fWFssyVDtqobObW7sTmfKGP4mwJXrkdxaHy+qMx+wT9cg939NKh3R/MNvR\n6VQB7MuKpSDmCTN5CW4ylLiTTeKQjiXMqkEWYM8r4VM+9hG2HNYmUCECSdCh\nEWer8/tp27KNd2tezM5dhSrW7DkNx31qRsMUezP4FUtJVtqFK4Vp/rx6WMO5\nYcExJxDpElVvYSpaFBqow0s2WrTz11YMdgBGQf5j+M92StqAT5m/Bw3RlHnq\nium1jWKxDBmR8o36mjbpPdiFFJudAagPb/Ge++CLLUlliRSyoCTFIODF/l4K\nVU1h\r\n=JEpp\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.0-alpha.0_1535911114900_0.46463093998597804"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0-alpha.1": {
+			"name": "lorem-ipsum",
+			"version": "2.0.0-alpha.1",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"build": "webpack",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "yarn build && release-it",
+				"release:dry": "yarn build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.0.0",
+				"@babel/plugin-proposal-class-properties": "^7.0.0",
+				"@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+				"@babel/preset-env": "^7.0.0",
+				"@babel/preset-typescript": "^7.0.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"@types/react-native": "^0.56.15",
+				"babel-loader": "^8.0.0",
+				"clean-webpack-plugin": "^0.1.19",
+				"coveralls": "^3.0.2",
+				"jest": "^23.5.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^13.0.1",
+				"prettier": "^1.14.2",
+				"release-it": "^7.6.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.0.1",
+				"webpack": "^4.17.1",
+				"webpack-cli": "^3.1.0"
+			},
+			"dependencies": {
+				"commander": "^2.17.1",
+				"random-seed": "^0.3.0"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.{ts}",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"readmeFilename": "README.md",
+			"gitHead": "03ddc634e68ed1ca5b0b4af96b359e5f1f92dc37",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.0-alpha.1",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "10.5.0",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-HYKXk9y+e7sGatPrq9KDaOTkYybaBlsVwAealkUX/DJ58Bff7I0sKGzTAHlNzyBrYN9N4OGlLJPRpE9mYzbXNg==",
+				"shasum": "4ca43c754da729d4b9fce2236de6487b14826869",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.1.tgz",
+				"fileCount": 52,
+				"unpackedSize": 191977,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbjC9WCRA9TVsSAnZWagAAkd4P/AoXeukbUvAoe5HI2uy/\nIzm7tEcjg/UErYIXXktLgN926g673UoaDNavmn0CwML13vvhqWtQnurEle2v\netZLU4xxpsglFqrfW16NDEEaUVE5Gcbykf+Qv4IUcCwViJik4wPuEjni3Coo\nSzNmuuClRlyvKNpHX6fNAagesS4KCSW0Fij4mqD+Ohlys72YQeeDVDdnfJac\n7z9dy0FqDrvBHZxpbx6mPJ9J832nQoBnzIr+l8vkO5Bd4KB9QqtnYS5tKayg\nLNsN4WTIC37ykP4tjD7KiEvSSLMgOIjf7ey2Dmm+UHYTInEi21A3Fo+VBPV7\nVhMpsb98wky+EllgIo88flfH4Y1saYkPh9D3pSoB6zOgsVxtPTxMJyPoKq7V\nwf57Wia1HdQLZjyGsk91PdMQViV+l9BMPBTdR7bPlzqy3urQgQmhRx5CO+Tz\nm8UTPTSucSfIzs3R57UzdI7l0j9XkAHxT4EsOyjocdEdRYXMO7FSCVFEIL4D\nL1gCc65qFEvZeGqfGvh0voKZp+mDU+bo4tAxkBirATRaVpKs296pmcNUyuXO\nVBOBzSjohiIdi2UxHkA5DHy2U39TkBThuYy8c7cjRlFXSl5mxvP3x1ZXUvUO\nJVm4rG9hhcgIJPcDqHlJ0LhOEy/BgXBfl4ZnB2/QLeizJOccPBnpoSgu3OI7\na9I5\r\n=Uvfv\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.0-alpha.1_1535913813697_0.0271753153829406"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0-alpha.2": {
+			"name": "lorem-ipsum",
+			"version": "2.0.0-alpha.2",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"main": "dist/index",
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"build": "webpack",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "yarn build && release-it",
+				"release:dry": "yarn build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.0.0",
+				"@babel/plugin-proposal-class-properties": "^7.0.0",
+				"@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+				"@babel/preset-env": "^7.0.0",
+				"@babel/preset-typescript": "^7.0.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"@types/react-native": "^0.56.15",
+				"babel-loader": "^8.0.0",
+				"clean-webpack-plugin": "^0.1.19",
+				"coveralls": "^3.0.2",
+				"jest": "^23.5.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^13.0.1",
+				"prettier": "^1.14.2",
+				"release-it": "^7.6.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.0.1",
+				"webpack": "^4.17.1",
+				"webpack-cli": "^3.1.0"
+			},
+			"dependencies": {
+				"commander": "^2.17.1",
+				"random-seed": "^0.3.0"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.{ts}",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"readmeFilename": "README.md",
+			"gitHead": "90ea80d37dfc098a45d74867abc3117874d4532d",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.0-alpha.2",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "10.5.0",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-xymfMphwel/lE3KMFWsM/xfbOoGffz6IG2qDS8PgR5mQ3OUq6N+44/cEWVWr4RQ3l/qC5lP6F9bWt2NOcktIVA==",
+				"shasum": "8b3a810aff452a58d4762ba253f557d6aec219a8",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.2.tgz",
+				"fileCount": 52,
+				"unpackedSize": 192012,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbjDKnCRA9TVsSAnZWagAAnJYP/A7pUd6RxBQnXHzjobTH\nKPMZdKm+kJtEprM0S6evScNxOxvRTQPOKK5AaP9GJJ3m+qFG6SRfEJ1gDOwI\nWqmxMY4t+LzcnmI50ZEfXugD91+PCSjFaJasaI2kGpNS5JLn/o2qNVU2CQzo\nsDdyZDZRVVN+8OttEkOMM15Dvi6MQbt1gJEqsNunAaWjARcIkqD2n1F71fWV\nDQRKZC7Bdiprc1321Zfkz1cyfDXTBtqHExblYyUXka0evUzh4ba4KgLfPRHs\ndlWV9j0tnZFKl/Wf3O15p5cGcAlie+xJfw8TwL+nwVllHNim44Dycid5XDig\nL2ZrTj69bFJt3VmGgomKJoJs8fAWRN48iYYDFTe5drchFSu4O5wGaApHXBSi\ncIjoBH/LZ12WbhY5N+sVEKQ+jz90xzKpxKKZGbIvcgdCa+G1huXsdeIn+wbZ\nRBFmgW+ZCrbdg9HMBVnT6Trt7SIlKpBRqZAea3vJtMzxtbRzIU8P/cpXYx2X\nnufj2vx+qwbmrshOe+wLcWZ1eHekPBfojpsiMG6MR3ULn6wtm9GUacqveVS3\nb1zZ1h7wOUbqJ+k6+G5TNb8eGumqNJWMYfv7boWhV9+b5bSLIkMib1km6qP/\n1tv9YJCCS5CiewNzlLBnZ5pwOP6zTF6PYwjYbtOgH4eqpqlKBA1lw9jtHgbw\noKhG\r\n=wIR+\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.0-alpha.2_1535914663336_0.32588050850416295"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0-alpha.3": {
+			"name": "lorem-ipsum",
+			"version": "2.0.0-alpha.3",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"main": "dist/index",
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"build": "webpack",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "npm build && release-it",
+				"release:dry": "npm build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.3.3",
+				"@babel/plugin-proposal-class-properties": "^7.3.3",
+				"@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+				"@babel/preset-env": "^7.3.1",
+				"@babel/preset-typescript": "^7.0.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"@types/react-native": "^0.56.15",
+				"babel-loader": "^8.0.0",
+				"clean-webpack-plugin": "^0.1.19",
+				"coveralls": "^3.0.2",
+				"jest": "^24.1.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^13.3.0",
+				"prettier": "^1.14.2",
+				"release-it": "^10.1.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.0.1",
+				"webpack": "^4.17.1",
+				"webpack-cli": "^3.1.0"
+			},
+			"dependencies": {
+				"commander": "^2.17.1"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.{ts}",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"readmeFilename": "README.md",
+			"gitHead": "e537090d6ef7daeb4d15263350f6471d7728e0a4",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.0-alpha.3",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-pCV0+iu6sd7dESVawzHIYBoLY94BudJ9SY2AuMYtxes7DWT0NNC7PaVHOK332gZ82jpFL8nj8oE60KdkbcDjRw==",
+				"shasum": "9650aff8c0929eaaa255810e69dcb00fe367f649",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.3.tgz",
+				"fileCount": 50,
+				"unpackedSize": 48697,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJca1aOCRA9TVsSAnZWagAAVTEP/0aurOViVd67E3mMwCez\nMrsk8hOgw6SRRtfmqc+6ZPcZmw7+VPNq0dHtil7XhT97cJK4L6mTjZZvooas\nsp/apQVxlXIofjRr/JZ9TuSFqHy5LbMsc391QS4txcsvzt6WHvPjIUwJy69R\nec9+eHCpJEKeRbYXDiol+OLNm6Azq+lvY5GCJGLA3sNylPoHSqmceIQLhSR7\n+aXtGttMm0fakejyFd62ug7S1/Jc/ZSq6/eb1Y0RI/EZUcEt6Be/hRNyOVEt\nFnDOW8eCrldVeWVV/iektG9BwTeTEwytaP80Bd/d7z/QJajADN4PZLzGpNCg\n28tdw/jGcbuK5Z/mYTQasXFp25zjctlWVuzCusCQPNAezqRZVEmqjoOJqxVk\ndIi9hTo1eDAq0H99QIfhhmHlKlyVGz1MDAoVBQ0RoK5Jq53WOrBpuyRz34gs\nfSG8bXT+Wvc7ufH8Lv6oZ8kilzjP9TQv+R7PUDwRYoB9kwkxx2e0Spd0mqhO\npvWKjAAN/3BvCPJZ3PsmdUeEdRAavQJoDTTW6AMS/FI5O4aoq8rkj01AcXi3\ng1OvDgC4LWgffsxBgvFCpG6E1O8ZLjrmIHio7+958+CUGe8b1nDDhYDvFDVj\noYZ8K3KuNVfQueBgngDua66u84IULVqErPHFFyrtqYEAPkxNo5ODB2WaWOO2\nLr1K\r\n=RzgT\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.0-alpha.3_1550538381741_0.6702377193852531"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0-alpha.4": {
+			"name": "lorem-ipsum",
+			"version": "2.0.0-alpha.4",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"main": "dist/index",
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"build": "webpack",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "npm run build && release-it",
+				"release:dry": "npm run build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.3.3",
+				"@babel/plugin-proposal-class-properties": "^7.3.3",
+				"@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+				"@babel/preset-env": "^7.3.1",
+				"@babel/preset-typescript": "^7.0.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"@types/react-native": "^0.56.15",
+				"babel-loader": "^8.0.0",
+				"clean-webpack-plugin": "^0.1.19",
+				"coveralls": "^3.0.2",
+				"jest": "^24.1.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^13.3.0",
+				"prettier": "^1.14.2",
+				"release-it": "^10.1.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.0.1",
+				"webpack": "^4.17.1",
+				"webpack-cli": "^3.1.0"
+			},
+			"dependencies": {
+				"commander": "^2.17.1"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.{ts}",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"readmeFilename": "README.md",
+			"gitHead": "30b20f8ee7d635bbf7ffd6daca3803885f33d4e9",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.0-alpha.4",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-Qv9OaSg/tWCn/raW6v1RT7PLqvgBldi+kWUmETAcX7sQltwaAW0cOMjFEE2f+zsxf8sqdqSueEiHLe4UyUcr8A==",
+				"shasum": "1561220e564744aac0840c0d514d0d1ea73ab0a6",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.4.tgz",
+				"fileCount": 52,
+				"unpackedSize": 162808,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJca1o4CRA9TVsSAnZWagAA5xYP/RV4NiJ5CySW01hKDX3R\nPEcsOuzJqTkmrvbe5xzq23vOOPcUNbyEmtb8FL3CKR7E4Z+iXe6XIDyexvnB\nXTDmTlpyUCmPr1HTQ1xlvI5Shczj/TCbQqwC7vbdRdT98IigM2OA0r2vtXQe\nr2QVR9g3/NzW7YBTY7tO9bniB106WrM8wUsYcEDaIONUBs2jHzLhRiiyXyCA\ngkLoeCha80is8rnwWpMWQTw/4DMjpOP9uCy2S1zUUd2QssHA303smmU0G7Do\nSyAI3vlbYD7PZmSItBBb9Xovx+VKz9OHiWeQrR3ueVEiqWVzc+PNu39tneYZ\nZ5hazp5HfVXg/huo0Hz8s9PzC9nH3/n9uDvCbl39b0c9JjZTAzH4nEICR9ll\nsdJmKvc5usyK5VJo6FFNiOuFS+TozvB6XblUDQ0hOzph4EfXo7NKoOqlS8n2\nOcghmCpGac9JKxrfBkgzurry+Ser/P3FXkk7Ztc/hQ9IIYLPtCEZiTnQTCE0\n5nJHr0mObPnDNLJs0wCtKf4suzLtffI4trDTXMF23SmoTo6+AvHtraAhg5JD\nnFSks8/pMcOoamErKElyXEIVb7B/3mur05r9nqkeK6+IVPOYvvJUgZiiur6Z\nIbhoM3LA511FpQJfkt2K05rGchhm+BbDPt08FZ7HVPok9rm5KffDAj9oP3cX\n2XkH\r\n=A+1y\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.0-alpha.4_1550539319644_0.8859157452932733"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0-alpha.5": {
+			"name": "lorem-ipsum",
+			"version": "2.0.0-alpha.5",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"main": "dist/index",
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"build": "webpack",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "npm run build && release-it",
+				"release:dry": "npm run build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.3.3",
+				"@babel/plugin-proposal-class-properties": "^7.3.3",
+				"@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+				"@babel/preset-env": "^7.3.1",
+				"@babel/preset-typescript": "^7.0.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"@types/react-native": "^0.56.15",
+				"babel-loader": "^8.0.0",
+				"clean-webpack-plugin": "^0.1.19",
+				"coveralls": "^3.0.2",
+				"jest": "^24.1.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^13.3.0",
+				"prettier": "^1.14.2",
+				"release-it": "^10.1.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.0.1",
+				"webpack": "^4.17.1",
+				"webpack-cli": "^3.1.0"
+			},
+			"dependencies": {
+				"commander": "^2.17.1"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.{ts}",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"readmeFilename": "README.md",
+			"gitHead": "458b860472eb7ec11cdb5f8d5c732eb1b982c1fe",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.0-alpha.5",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-TFyMQz2wRbOGjDroBzEDQHxnmrYrc4dxGWpYTzdYSJINE/n75Wjruo0ssKJ7Fdgxe2cpACptibHiSlpLJEOX4Q==",
+				"shasum": "355af1f63d0daa3efb8224dce0ba46a4bcc76378",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.5.tgz",
+				"fileCount": 52,
+				"unpackedSize": 167027,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJca1w4CRA9TVsSAnZWagAANkMP/iFm6Eh7ZGwsWaxvhpW6\niR4wx7JlGZx0VPf7GoRPGmcNVYZS+19CWgXMAVKaKoEVOMGvClaNB1RfmZ7i\ne2gPBW00N+9+iA0lsL7uWceecJJoXpFD91askMsSdpwRRVmC4ctNguK1te4F\n9YZ3mYWiMreBhNs1dhzECC/DYldvQ9+/O5kRuqBfL453uLmgZiP6bCMqwBSV\nkA2JDUHn5lxhP2xzfBfjK3z3BGdD6LNFfZ5wrqLKUgKGSQE3Sv3G3i3mlzbt\nc5jSMPle/EV8jtP+6qdA+qe7Qz/5mtRb+eKBp+RHZrkoWG8jzS7wPhDN5C1F\n3IouxROOLnM3j2fYl7ArL6j74ikeXt58ZvWadnxvHbsvFtraYReTuHPHu/kQ\nb3Iw8ATcTZMZ3WQtrcGfro9HcXcxkh7gZWDT9IBCgwmUfzVTbHB70ydOW4kC\ngCkCWpyrPDxjuObztoQ0mKQHIZ48ePylyCStC1nQqZ/FOQYUF+QNl7leZMhf\nCflCQKARS6qrJMazONnul3KsFIOIOOkUEdc+FZKE0PcNggZS274bn2QyVnF2\nNfcvv+H5SYgU3UxMwugbebtG+OqHvowcsakLq5hJrL0hnN8sJ0H57UelZvKM\nU+8ybcwZ2BSW6/8gNGcJm9Jxvac0FsS+VaZ0+dYzhYG8WMQ2E3LvvruNviMU\nW9xP\r\n=NcNZ\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.0-alpha.5_1550539831806_0.16946960951654377"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0-alpha.6": {
+			"name": "lorem-ipsum",
+			"version": "2.0.0-alpha.6",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"main": "dist/index",
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"build": "webpack",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "npm run build && release-it",
+				"release:dry": "npm run build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.3.3",
+				"@babel/plugin-proposal-class-properties": "^7.3.3",
+				"@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+				"@babel/preset-env": "^7.3.1",
+				"@babel/preset-typescript": "^7.0.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"@types/react-native": "^0.56.15",
+				"babel-loader": "^8.0.0",
+				"clean-webpack-plugin": "^0.1.19",
+				"coveralls": "^3.0.2",
+				"jest": "^24.1.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^13.3.0",
+				"prettier": "^1.14.2",
+				"release-it": "^10.1.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.0.1",
+				"webpack": "^4.17.1",
+				"webpack-cli": "^3.1.0"
+			},
+			"dependencies": {
+				"commander": "^2.17.1"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.{ts}",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"readmeFilename": "README.md",
+			"gitHead": "3b6d268d741e13e32b927c8cefc2dd1a5691da9c",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.0-alpha.6",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-vcf+Qfrv8HqJrYj9HSxFZzeVevkl4EbIhwOe1KGdGkv4ikCiDGBsjvEO5+y4hO1E5urT81khWJ0Q3EIJ2yeFGQ==",
+				"shasum": "5df974a4ebb98c6c8b4cd5a78dcbc71cdc9199e9",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.6.tgz",
+				"fileCount": 54,
+				"unpackedSize": 256453,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJca3fnCRA9TVsSAnZWagAARKwP/iN/K0zdl2QmkRzVlYvO\nXFo4ermqeiV193vVXdZYwCTf8jznPHu1GIA4BzDd2ux0xzSFD9iX+NW2VY02\nVTUNU/8aZQCAP7H+4tlEJcZOnpKVOpLC+zacfnVRG9GXpGfOrfzNsAuufXrB\nDMELvGSSpJrAD4gxu+L9rcFeGGwNyWk+Qb5y5y0HjwR4qkoRNlPCs7HVn5ia\nQdn4h963iBNBzmmGPC4LL73Vi9tH28jnYr08rJPxTtmOIUmJtAxHm7GDr0bt\nqO+pYRwqYy98QhPKABXja8xaSh+Cwq4rDED1YJrw3nqS46IkJWLq3/dTPJCs\nn3h5bJ1nKGdLBLue2bE67PCWvfJX3szkx5Q+0pWhZM0pBQz01ZqjCBgdx0x1\nBJeXiShAx5HaEes7Qsoy9dkt5IzKM/dCBl/YnuIEWiml+tFQBvVJARP+7c9t\nF6O7XjNqLhqrp5Bl81wBTiEY/JuHpIiMsRphBz+kziQx7zTGU/tvC5tm0aqq\n6BBz+XqJvF8oIaOoOz7FAmwDg12lswzk76afn7ryIAnYW8pYQVSfTDMtIN+Q\nUhILNN0fgL05BZv1jU6XnzmtdKOrnUzEPlPPdxCecFd+6QO/Z2aJGoTO7tJM\nWpqjOQ+3VL2EIlVAZP0wFvGcHTkrhmQzy0VDF850a9H9B1zrH6oERhuKJ1Cx\nY7BM\r\n=NqLf\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.0-alpha.6_1550546918564_0.17147556392363783"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0-alpha.7": {
+			"name": "lorem-ipsum",
+			"version": "2.0.0-alpha.7",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"main": "dist/index",
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"scripts": {
+				"build": "webpack",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "npm run build && release-it",
+				"release:dry": "npm run build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/core": "^7.3.3",
+				"@babel/plugin-proposal-class-properties": "^7.3.3",
+				"@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+				"@babel/preset-env": "^7.3.1",
+				"@babel/preset-typescript": "^7.0.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"@types/react-native": "^0.56.15",
+				"babel-loader": "^8.0.0",
+				"clean-webpack-plugin": "^0.1.19",
+				"coveralls": "^3.0.2",
+				"jest": "^24.1.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^13.3.0",
+				"prettier": "^1.14.2",
+				"release-it": "^10.1.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.0.1",
+				"webpack": "^4.17.1",
+				"webpack-cli": "^3.1.0"
+			},
+			"dependencies": {
+				"commander": "^2.17.1"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.{ts}",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"readmeFilename": "README.md",
+			"gitHead": "628850e472fe21f5017e2008c4f0de17f10065cd",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.0-alpha.7",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-z0I6hutqpzMdZqrzuUSGzWn0oTvj/g4SM6XTgSk2ZLUHFApWMR/GKHxsXIu81uVVDbkbBoJPpSjM2HM+q0Bg5A==",
+				"shasum": "a7e9da27aceb915d10569c12433666b224d7889b",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.7.tgz",
+				"fileCount": 52,
+				"unpackedSize": 292269,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJca3s5CRA9TVsSAnZWagAAp2UP/RmkJgNzlTdZ95+k+up/\najVw8KvVhJK46p0xvEeVQxbpJY91FvFXsnfqeLjsg7cRteJVCW+Efq2PC0k7\nyM6rZNQ6WgLaHmku1p6b9ITOiaY4EI4fPFqMrnJ2E04WbHVSEwLJwhZj2LI1\nkvzOxLP+HZlI91YRHzLBwvW6Hka0clPGdJyrjnupsP4/76NTD3mNC5MsuttX\nZ9y/GHWYCi1LCOhWq88IyBRLDZ2zzN4YkXuA9PpurYvpfHmnJ68hWGbW9NVn\naqd+qSCsAXv8Xv3kt5nT5AtViulqD1AauE9iRYyCdayexM+2VuiOHCjZ1Xn2\npKkwU1fZ1EIh88o8JmYitbn3soU4IPPss2FYmBGtaJkaa8SEc/SXHB35tgaQ\nQqHtwAa0bBGFA5QKMUQju13YEuJpqLIPkeG3z0aWg7vv8xOK9kWTQqsHfrst\nC4jqMg5H4LDmv6Ssk53YhrKVDyExvVyPHbFRl8g8ZE1U8M+t5i5NuGugZ+4v\nowaaJe2JI41pLrTU6cd/8WL4TFd6cJo0nHyRDr4FWMmbGLaqN4FxdQQ7q/c7\n9Q/e38Zr2ML7aIQ7d0sKXSzBmbOKnyHrmcUF3g0CnxfVdTQJKKniikNopUHr\nCOMLRo/ARgEpiJPAllgRaoe8fJU/i/iUwTU405idEp/uctDBpMOOoWAuGIck\niQBU\r\n=+nN6\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.0-alpha.7_1550547769230_0.08250867776050841"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0-alpha.9": {
+			"name": "lorem-ipsum",
+			"version": "2.0.0-alpha.9",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"main": "dist/index",
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"types": "types/index.d.ts",
+			"scripts": {
+				"type-check": "tsc --noEmit",
+				"build:types": "rm -rf types && tsc --emitDeclarationOnly",
+				"build:js": "rm -rf dist && babel src --ignore '**/*.test.ts' --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+				"build": "npm run build:types && npm run build:js",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "npm run build && release-it",
+				"release:dry": "npm run build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.0",
+				"@babel/core": "^7.2.0",
+				"@babel/plugin-proposal-class-properties": "^7.2.1",
+				"@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+				"@babel/preset-env": "^7.2.0",
+				"@babel/preset-typescript": "^7.1.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"babel-loader": "^8.0.0",
+				"coveralls": "^3.0.2",
+				"jest": "^24.1.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^13.3.0",
+				"prettier": "^1.14.2",
+				"release-it": "^10.1.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.2.2"
+			},
+			"dependencies": {
+				"commander": "^2.17.1"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.{ts}",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"readmeFilename": "README.md",
+			"gitHead": "b5be6e98461b9dab636aeaac0416aaf885f1f4b9",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.0-alpha.9",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-bzxGwINesJZ2CRExs9QlisdSFBHkG/YWxzBP40j5/wEWE/SK4Ye0JlR2By9v2pwpVxvbV4SDAD2CI6STcp9fBQ==",
+				"shasum": "a94ea9ffb42d4e0f58ca042d325b2d444648875b",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.9.tgz",
+				"fileCount": 98,
+				"unpackedSize": 118288,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJci6feCRA9TVsSAnZWagAAEloP/3F3RgPIUJeeyJIT70zN\nSyoL6UBDI+O1PhmUs/UY3yq8PBKyLRMo9lPzUh51gEWe0k9OuaixrWNb8GKS\naHXIXgTWAsCAd+cP5cW3qJtiHBzA8iYRA6WDFHYUws7hDOhy8cVse/8YZAGN\nB1DOb9SywrDtD/trDikraj7f97L8b9Y8LED4GGGlftnZ6ZxLk1xmJU48d8YI\nEetBEQtl6ZfMEccRSHfjdyURIxnnt6zKAAEYd6rbBaLyR6TCDu0U/1701Drn\nw0oh354O8CTNO7MDopX3WocWb/1tGbjnOt5nMEmU/w06ABK9Lerk0mZwMxYZ\n4zRMoMRrVCTsBF1FSqM9X3eE2LvvCOU3L6t36uHYPXO0C2dRH/GwniEvwTEA\n1xbdjAhYnh1PWitDTWoDLURMKKkcnZkxDLk0Zgr/Nq7iV7R2nB8/unxDynu5\nrL7BXGqEsHJKxYiKJsfszwvhIsK7t2HwfZYdITPaVjmqsDU0IwAhxK2bMkjq\nTGp9C4SItd87d8EamrPPFv/B5x6p8Pu9cpn//jfGcBFpRSZiZEnSx6cb3arA\nndXYnJp/1nrqOCGdFU6YvfQEwU600JSDNieOPs7ikOwSj2f+vPbjFDsNOTrD\nl/lBB9zpav/iOc8rnQG0+v17g1GIQQYGbua134CEdQTVURwGel2ANQwNc+Vj\nZuAL\r\n=l19G\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.0-alpha.9_1552656349544_0.028984033990190117"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0-alpha.10": {
+			"name": "lorem-ipsum",
+			"version": "2.0.0-alpha.10",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"main": "dist/index",
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"types": "types/index.d.ts",
+			"scripts": {
+				"type-check": "tsc --noEmit",
+				"build:types": "rm -rf types && tsc --emitDeclarationOnly",
+				"build:js": "rm -rf dist && babel src --ignore '**/*.test.ts' --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+				"build": "npm run build:types && npm run build:js",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "npm run build && release-it",
+				"release:dry": "npm run build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.0",
+				"@babel/core": "^7.2.0",
+				"@babel/plugin-proposal-class-properties": "^7.2.1",
+				"@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+				"@babel/preset-env": "^7.2.0",
+				"@babel/preset-typescript": "^7.1.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"babel-loader": "^8.0.0",
+				"coveralls": "^3.0.2",
+				"jest": "^24.1.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^13.3.0",
+				"prettier": "^1.14.2",
+				"release-it": "^10.1.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.2.2"
+			},
+			"dependencies": {
+				"commander": "^2.17.1"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.{ts}",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"readmeFilename": "README.md",
+			"gitHead": "f4a85b169f9dc9112777b9b92e7810d520e54511",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.0-alpha.10",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-HjUaZ9cjvTLH/HN+/BjfQtmg8SjzogPQ7pnay0WCeMn5H+6sy42Mue0xyWw6MiN+YyuGag3N2wTbiZZNgNd0kw==",
+				"shasum": "33ece95191b98d6cc562f888192c346f45b549cf",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.10.tgz",
+				"fileCount": 98,
+				"unpackedSize": 114805,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJci6rqCRA9TVsSAnZWagAA4fYQAJvH0ZV7lYtXD8Zv95bq\n+W5Ayhl6AhhQZN46tELv7SVKD4we3nt+Zv4eiP9tt6mnJT3DPCzgn1WANRNe\nZFZ4sff1mwdt8DaIIGbDbiPcRmpNxJHe3tBNkSike/2a/rR4zq7TLDI44SgF\nsZr3ob39bVoWg4Thybkfpi5E4gFXCHOHYNfax+DSlNB19KkVAxbwcM8WInCf\n28BAmDp+Gw7kWmqNHk5bjgP2YTOFJSvH/8FV8XWx2sJSR9zQZ480fM26+KjP\nl7GduiG8oecF7mT+PfMc/j3swlKqEM7TbMUfRkObbLszFDvV9slxg86kwRVi\n83wC6R2vYhmP7wy8BttVVR3VbYk+spXdYXmaIRXfMf/2kY7mTpMkr7lkhya8\nf4v0L6zJnJSYHTZlLdyvkHjQNnvHdfRAIYPYthSr5Q9aONwMjDPQrLo3QOCe\naDFypA0gWtPi7EPpbn97mVRgw5p2c/wAppcj3J6sUOaE77w/YgCBqzjW94pO\nDxCtryxHiDw0Y6HgyeigoeOUNTwgeyK0GmtIqgRHw6QK0KNl5NS21kTJiJtm\nL59iqqI5zllIbjvIvLAhHzqYkXyBb5ALMclw7MnfGUbYXCBCJbeFV1MXUcr0\naKDAb0wqNbcFQrAqio/mCa9thy4H/3z2sOjHX7xzt+dEyJHesz46aHRbo3ry\nD5xC\r\n=2r9F\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.0-alpha.10_1552657129284_0.5161422301769063"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0-alpha.11": {
+			"name": "lorem-ipsum",
+			"version": "2.0.0-alpha.11",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"main": "dist/index",
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"types": "types/index.d.ts",
+			"scripts": {
+				"type-check": "tsc --noEmit",
+				"build:types": "rm -rf types && tsc --emitDeclarationOnly",
+				"build:js": "rm -rf dist && babel src --ignore '**/*.test.ts' --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+				"build": "npm run build:types && npm run build:js",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "npm run build && release-it",
+				"release:dry": "npm run build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.0",
+				"@babel/core": "^7.2.0",
+				"@babel/plugin-proposal-class-properties": "^7.2.1",
+				"@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+				"@babel/plugin-transform-modules-commonjs": "^7.2.0",
+				"@babel/preset-env": "^7.2.0",
+				"@babel/preset-typescript": "^7.1.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"babel-loader": "^8.0.0",
+				"coveralls": "^3.0.2",
+				"jest": "^24.1.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^13.3.0",
+				"prettier": "^1.14.2",
+				"release-it": "^10.1.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.2.2"
+			},
+			"dependencies": {
+				"commander": "^2.17.1"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.{ts}",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"readmeFilename": "README.md",
+			"gitHead": "ba6c412f44c2e5b687c4a4e58fed3049caf14969",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.0-alpha.11",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-GtbryTab+AKTy1aPEk6RNHdymC82UFShfIZE9VZTj+9DCjs5JQNwRQuneD8rWpEtRoSH2WbmlvarGLDt0LU5nw==",
+				"shasum": "b9370da07b7c318c0db883a6e659139877f7cfd7",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.11.tgz",
+				"fileCount": 98,
+				"unpackedSize": 118421,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJci8D5CRA9TVsSAnZWagAA808P/RBScy6kG5f7BEqrzUbH\nAeQMBsD6vqRQ6IVG7i6RrgP5+QrYpza3KlIKMvcd/gDAECKST0mY76bdboz7\npOmS3beHD4hSDEy+tEAJnwp3fh311rKCNLrWBJw8oX4x9luA1itUJ51Z9+Lr\nk/AhuKyUT+qq29mShH09cETZTgE81cB0SSAe63vM2Wj6P2Ryjo37ynBZegdD\nHceZHSwmi9lZgTQRaC2BzaVIXrNOJGAjzmJrzkJ5dD1jxQHgf9oV2BsGzpKj\nFv/fUaLbhDYj/AK2EYV7uqtrko/ZA62pe5DzquDusnqjD8be912UOUI/wPXB\nzWTmKpseYsU85jiTQjPvOQoJU0r5lF8a5g/E+OyjKbqDFZOgv0h5fPQAzCFK\nCog04bKQjWaqKOdIVj743/ElZuecDCvpLNS1ru/Nb7jGH3HCqLFxhPmCfxQg\nxByd+jJy663LAAVzIRG9dfRrecTt83o4pKeOePZNknnROh+n52MvtxlL7Tid\nhIbdHHE3aBnqHfjtc+rDwfKVBnzBBi27gYKSlLVpp5ZXf4DQAseUVQpM5n/M\nBYFxyz2Tt8cfZw1gIC9ULWyaWZotWMAuYm+r1SuYTDtByCiKjbZVkipIC6xP\nfYyMTX1cj2emjm5mAQ8LkL3bWr7ZhfgfjR9yk7CMBzUUCaESRL+FPoicLsLy\nQyGk\r\n=SFJh\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.0-alpha.11_1552662776488_0.1071700789974872"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0-alpha.12": {
+			"name": "lorem-ipsum",
+			"version": "2.0.0-alpha.12",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"main": "dist/index",
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"types": "types/index.d.ts",
+			"scripts": {
+				"type-check": "tsc --noEmit",
+				"build:types": "rm -rf types && tsc --emitDeclarationOnly",
+				"build:js": "rm -rf dist && babel src --ignore '**/*.test.ts' --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+				"build:exec": "sed -i '1i #!/usr/bin/env node' dist/bin/lorem-ipsum.bin.js",
+				"build": "npm run build:types && npm run build:js && npm run build:exec",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "npm run build && release-it",
+				"release:dry": "npm run build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.0",
+				"@babel/core": "^7.2.0",
+				"@babel/plugin-proposal-class-properties": "^7.2.1",
+				"@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+				"@babel/plugin-transform-modules-commonjs": "^7.2.0",
+				"@babel/preset-env": "^7.2.0",
+				"@babel/preset-typescript": "^7.1.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"babel-loader": "^8.0.0",
+				"coveralls": "^3.0.2",
+				"jest": "^24.1.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^13.3.0",
+				"prettier": "^1.14.2",
+				"release-it": "^10.1.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.2.2"
+			},
+			"dependencies": {
+				"commander": "^2.17.1"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.{ts}",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"readmeFilename": "README.md",
+			"gitHead": "6e90184fbd368cf2f2730694c13a9d9248de5e96",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.0-alpha.12",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-GDe9R2SOZaFUS5Aehk5ePRcWsRJlf92i/gx0OJVfGMOs8Z+DcfLpN7sXJ+eUtD/dOqjqx32K0/LyTwJc2MJUNQ==",
+				"shasum": "3a62788fca1d358e1d72f2a193b33282722a59c0",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.12.tgz",
+				"fileCount": 98,
+				"unpackedSize": 118544,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJci8P9CRA9TVsSAnZWagAA5RgQAJT0r/NMOVAalFFIxVvQ\nFZ0upEhTqawkIg/OIuJIqAwjkvxd+E26rzRYjEO1VvY5tL/mz/1+skrnWwEk\nLKqltmk3tmiRKyUzr2sazLyPbCZ9eZJEUzR7KhBUnGFOK+MKfbuBE/gDLFLY\nagpjeQ58olYTCecrGMuXSV2843XFL9VYwobhDb8JwUk5MTIvXwl0UEgAFb9T\nIM60bWdd3LGponFLptMIqznR25RLXJsqchMR5N32aEAkeVM7DjSMKQR0uk47\nnAJIB9Y/2jL8kbzViIcdonV8RUvffzk+mL8YPJUUVCxM6oI+bg/CuSp2p2Fo\nbl8KmygXcg8lWMtUqzRZ1cnHtCpb4j0FPYA662Rr8M+rTR8cv/XkLf7upWXJ\nOUyvXCtHLsHx2POxwpsHIQJT5o+/jcfSZLqdRpLmdDiQE/UIy9yWHJgs4tSE\nd8ggSoSZBbWmcszBsI1BitAkvtY8tczzIJeYwn2/HHbGD0n9/tBUfHe/c/EA\nuRLA5cabpTfWN38BbHmfTHvG0Pad/uOs8i4vhBs4IvLokbB2r9V6TFUWvWoV\ngD4ZzqrQate6GVM16Og7S7CitQ4Tzy6HwCGT2TPfzBVtn05URZ4s3aCnuGek\nNdPmfVENKhE1D6/4YX+I/UEXRYhyFp95VFpPacUo03MF5Bv7mrcb4SOGFmDs\nvX4+\r\n=GbIU\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.0-alpha.12_1552663548988_0.1452141996800378"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "lorem-ipsum",
+			"version": "2.0.0",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"main": "dist/index",
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"types": "types/index.d.ts",
+			"scripts": {
+				"type-check": "tsc --noEmit",
+				"build:types": "rm -rf types && tsc --emitDeclarationOnly",
+				"build:js": "rm -rf dist && babel src --ignore '**/*.test.ts' --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+				"build:exec": "sed -i '1i #!/usr/bin/env node' dist/bin/lorem-ipsum.bin.js",
+				"build": "npm run build:types && npm run build:js && npm run build:exec",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "npm run build && release-it",
+				"release:dry": "npm run build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.0",
+				"@babel/core": "^7.2.0",
+				"@babel/plugin-proposal-class-properties": "^7.2.1",
+				"@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+				"@babel/plugin-transform-modules-commonjs": "^7.2.0",
+				"@babel/preset-env": "^7.2.0",
+				"@babel/preset-typescript": "^7.1.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"babel-loader": "^8.0.0",
+				"coveralls": "^3.0.2",
+				"jest": "^24.1.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^13.3.0",
+				"prettier": "^1.14.2",
+				"release-it": "^10.1.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.2.2"
+			},
+			"dependencies": {
+				"commander": "^2.17.1"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.ts",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/constants/regex.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"gitHead": "0f766d3165d480a5e392888ebfff04e72ce8cf13",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-MgsNPLB49Zwk2ah8kSG5T3X75JQsEC3tsI7QsWORuiIe2DTUq4b9QXSG7dkjHoO1lKKaxVM69MNiVssTfp+zGQ==",
+				"shasum": "e7b8807bcd9ff9e5e9b23abc6c432e8596dbc24b",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0.tgz",
+				"fileCount": 98,
+				"unpackedSize": 118701,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcjGt8CRA9TVsSAnZWagAACUgP/jIWl7RMSGrpb+x1EmMp\n2x8N7+R+adPzc1+7OMFi5Rz3I1M3gYovuR4VHYZtI9Pdq3DrjO1l2ARuXAgm\ntB5fAJDrWQyFEh4XgcwHgiGAmLy+/5lyAGQV6G8YfEtMYJcvzeGf4L8FxPxq\nI3at0Uhqb8y0eDwJpP2wzpraaXcw523//vVy+T6FBVL1x3AWZtKN2MgAhhzW\n8lnRWUm9KPnOlFpEdRCl9A0kW/qTnqT+80ogJyBe/eok4+a/qziUr4iReXut\n32zVU6n9FERHi4AiCOVSr/CynKKnZ1ZOPm7UqOggw2SneVjo/QOe+p3R3+Tz\nhVPA8JuQ6kZIclHzbzm4Q+4HFT4SiRnakpnDIB7KPjcGmsAXVz138yPe2N0t\nbTpFczwe575kaeL0NQLHrjsf1MzpAyxa9/vhzLKPWiu3wmNbWS4ivLlok5HN\nI3zQQES5JaKRs0n1Y7g8t6/q5cWOvuYZIlSnHUAYTcAoBJERfIsCnmbjrlLC\nwYjOc4rt7Z0feiBuXF1dAVv1iHRW3jkOvNu6bbGhcohOXjFTHgECH1CjTC64\n1pQCyzPJk98HZwFLigG8qNwlUjxhzRIS3jmjpbzirGaJA8kztUIgNGU3Rl7p\nS9bbkfZIdnKLzd7nbwDfj4Z/MVn+RdrrB+Q04NL2eMcAqrQOL8atHzQ4LZwg\no0ZH\r\n=hEAO\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.0_1552706427724_0.4627589656253712"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.1": {
+			"name": "lorem-ipsum",
+			"version": "2.0.1",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"main": "dist/index",
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"types": "types/index.d.ts",
+			"scripts": {
+				"type-check": "tsc --noEmit",
+				"build:types": "rm -rf types && tsc --emitDeclarationOnly",
+				"build:js": "rm -rf dist && babel src --ignore '**/*.test.ts' --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+				"build:exec": "sed -i '1i #!/usr/bin/env node' dist/bin/lorem-ipsum.bin.js",
+				"build": "npm run build:types && npm run build:js && npm run build:exec",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "npm run build && release-it",
+				"release:dry": "npm run build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.0",
+				"@babel/core": "^7.2.0",
+				"@babel/plugin-proposal-class-properties": "^7.2.1",
+				"@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+				"@babel/plugin-transform-modules-commonjs": "^7.2.0",
+				"@babel/preset-env": "^7.2.0",
+				"@babel/preset-typescript": "^7.1.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"babel-loader": "^8.0.0",
+				"coveralls": "^3.0.2",
+				"jest": "^24.1.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^13.3.0",
+				"prettier": "^1.14.2",
+				"release-it": "^10.1.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.2.2"
+			},
+			"dependencies": {
+				"commander": "^2.17.1"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.ts",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/constants/regex.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"gitHead": "9286af21e624798c1fb7d58ea012724cf232b3bc",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"dist": {
+				"integrity": "sha512-FjqfVmw4pEYOWCgzJf+ei2ohRTeuxhnPW/b+nQO+JK4z/QE9OEslnf+SeBVJJCTNRPKIupTW91evd7ezTX2xGA==",
+				"shasum": "de6690f2184effe6059fa88385bc6b6ec83cfed6",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.1.tgz",
+				"fileCount": 101,
+				"unpackedSize": 118179,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcn9PXCRA9TVsSAnZWagAAODQP/2DsyJszpjEd+B26I28h\n6YQ1bRNzm4dkPNgptqjZ1/Mf7/bDuijhaqrvE6aNAGcMnkhL4ZQgfOCX+uMe\nT7ZZ6dDwveYGt44BmSe4MfP4euHfD2i0k69NykJyXU2fDsoUIEe41Ujka+6v\nBk+eGE5CNdaHqX4XRSyncKI5k5kqXUJHEt1aYLuUaVXuLgBgX7iyGvukzdKb\n1Ft62OmLOqc1TAs1A6blZQz6T8vlapsEW5V5HZZRj4AtMHiCLJgE+kik75s0\nKxUWRhQtPHuekaj7nHVJVxbRHynBuE2WhfrEL0NOZeB81KGc6fPoEtxFC7RN\nc9q4iFpXqBHWXTokMBfqRJ054ll0q3V+apMHBAKMB/gZu3bC5HYrpQWbLC0v\naUGBx6ltOWJx7/NoLVW+gKvui6wygSvms19ofVxWGLrwPYt3oYLLBcGsW97l\nPZwbPuEqeC/sCTGLePhtG8DBf5e+10hT0ycDHada0BsXep54O4yXpbz0nX/8\nctP8UWNJekFOy+HNWrqdWaTDrLowvL0M1kMUp6ELMUeqkLuZTCQWmtyPXtsy\nLWv5EentO82oo+O6sV+nlK3hu2WRVgaLDyM2IFOAIj8iyHkj6IfB7Z2c8GWy\n0S3/NBcnrAqStjDCE/ajSjnesPQMV4Uz38C8VA9Du1V+8LOr2sCBvIh+QfOQ\nlHbB\r\n=Hkkm\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.1_1553978327168_0.5316285624418577"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.2": {
+			"name": "lorem-ipsum",
+			"version": "2.0.2",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"main": "dist/index",
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"types": "types/src/index.d.ts",
+			"scripts": {
+				"type-check": "tsc --noEmit",
+				"build:types": "rm -rf types && tsc --emitDeclarationOnly",
+				"build:js": "rm -rf dist && babel src --ignore '**/*.test.ts' --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+				"build:exec": "sed -i '1i #!/usr/bin/env node' dist/bin/lorem-ipsum.bin.js",
+				"build": "npm run build:types && npm run build:js && npm run build:exec",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "npm run build && release-it",
+				"release:dry": "npm run build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.0",
+				"@babel/core": "^7.2.0",
+				"@babel/plugin-proposal-class-properties": "^7.2.1",
+				"@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+				"@babel/plugin-transform-modules-commonjs": "^7.2.0",
+				"@babel/preset-env": "^7.2.0",
+				"@babel/preset-typescript": "^7.1.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"babel-loader": "^8.0.0",
+				"coveralls": "^3.0.2",
+				"jest": "^24.1.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^13.3.0",
+				"prettier": "^1.14.2",
+				"release-it": "^10.1.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.2.2"
+			},
+			"dependencies": {
+				"commander": "^2.17.1"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.ts",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/constants/regex.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"gitHead": "76cd146b8151454aa49ce2002f11d5947c43cb46",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.2",
+			"_nodeVersion": "10.15.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-iy6vhgX7BtO0tDz6TSj5yl7Y66FoN2cnojouvdsLa7wWOlU9nTBVfLTNtD/RzXP16lvodImLHtkSN60lwbR1cQ==",
+				"shasum": "b90be1da09dba3e5e60c8723ffccb8decf24de11",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.2.tgz",
+				"fileCount": 105,
+				"unpackedSize": 123841,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc0jcbCRA9TVsSAnZWagAAgp4QAIIhnYeZDMnky9Q26OPU\nvzIpBBcJaBUbhu2qldmZ8Bb25KRh+vDCMXObgfm9kYDiCsDzed4JmDZi+UA6\nMKJ0+/12fFKJezCEKy0X2gaW8/mLStfPVjXZ+46rBa8idYtlEeklnpa8EAPn\nYQ+aydxNwMgHtegvxTn1/vLh5gSay63JBEvNUXOAJa6oohCUo5w56pO3BKxm\ncsrirAIfctez9oOPrZuar5B8ePnAutpWZ/UGFSrQuM5+ZqsU/3iWFfkR3atA\nplgzsT8uzZ5sfc6Rbl7HcDwPV5O8WWUgJ/qlwL/LObJYqVb4+Pn6QMpiqHZu\n9H82lImQtR9AEYcekeeIRMRDU64ARwIxGdxtCAx4CL7/6W7wVNwQahOIjTJp\nWK4rmm2Li70GJ+rsCv13hxFiHOhZ5H2MxGo7CrgK8HBR7utgJfahpSYCh4Ri\nfvew2i6zzCEbi8i+PHdPHKCEOFBJns5+uwVdPLj5B0AotCnt6iBUu3g0DGPu\nuNgJ6S/MbvwzP9X/5bTnTFiP+KSCTJIWkO9Acdb0HW9aQDwU5aMRSMA1JuO1\ncqchx1DvJrZPjpf5MsSiYCHKbwr40zW43EpCUvpa2h5LikkvK5taqTG0mHRL\nx+bngDejNKXOv92jUr65KYni7nLUEJwta0vOOyllCyzIZKLrD0AH6lpkiSX0\nLV4S\r\n=jMDG\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.2_1557280538669_0.36524415788191034"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.3": {
+			"name": "lorem-ipsum",
+			"version": "2.0.3",
+			"description": "Generates passages of lorem ipsum text suitable for use as placeholder copy in web pages, graphics, and more. Works in the browser, NodeJS, and React Native.",
+			"author": {
+				"name": "Nickolas Kenyeres",
+				"email": "nkenyeres@gmail.com",
+				"url": "http://knicklabs.github.com"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/knicklabs/node-lorem-ipsum.git"
+			},
+			"main": "dist/index",
+			"bin": {
+				"lorem-ipsum": "dist/bin/lorem-ipsum.bin.js"
+			},
+			"types": "types/src/index.d.ts",
+			"scripts": {
+				"type-check": "tsc --noEmit",
+				"build:types": "rm -rf types && tsc --emitDeclarationOnly",
+				"build:js": "rm -rf dist && babel src --ignore '**/*.test.ts' --out-dir dist --extensions \".ts,.tsx\" --source-maps inline",
+				"build:exec": "sed -i '1i #!/usr/bin/env node' dist/bin/lorem-ipsum.bin.js",
+				"build": "npm run build:types && npm run build:js && npm run build:exec",
+				"lint:check": "tslint -c tslint.json src/**/*.ts",
+				"test": "jest --coverage",
+				"release": "npm run build && release-it",
+				"release:dry": "npm run build && release-it --dry-run",
+				"coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"lorem",
+				"ipsum",
+				"placeholder",
+				"text",
+				"dummy",
+				"filler"
+			],
+			"engines": {
+				"node": ">= 8.x",
+				"npm": ">= 5.x"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.0",
+				"@babel/core": "^7.2.0",
+				"@babel/plugin-proposal-class-properties": "^7.2.1",
+				"@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+				"@babel/plugin-transform-modules-commonjs": "^7.2.0",
+				"@babel/preset-env": "^7.2.0",
+				"@babel/preset-typescript": "^7.1.0",
+				"@types/jest": "^23.3.1",
+				"@types/node": "^10.9.3",
+				"@types/random-seed": "^0.3.3",
+				"babel-loader": "^8.0.0",
+				"coveralls": "^3.0.2",
+				"jest": "^24.1.0",
+				"nock-exec": "^0.1.0",
+				"nyc": "^14.1.1",
+				"prettier": "^1.14.2",
+				"release-it": "^10.1.0",
+				"ts-jest": "^23.1.4",
+				"tslint": "^5.11.0",
+				"typescript": "^3.2.2"
+			},
+			"dependencies": {
+				"commander": "^2.17.1"
+			},
+			"jest": {
+				"collectCoverageFrom": [
+					"src/**/*.ts",
+					"!src/bin/**/*.ts",
+					"!src/constants/cli.ts",
+					"!src/constants/regex.ts",
+					"!src/@types/**/*.d.ts"
+				],
+				"transform": {
+					"^.+\\.tsx?$": "ts-jest"
+				},
+				"testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+				"moduleFileExtensions": [
+					"ts",
+					"tsx",
+					"js",
+					"jsx",
+					"json",
+					"node"
+				]
+			},
+			"gitHead": "99defe47e8098f795dc99afe7a1db490a6951d4c",
+			"bugs": {
+				"url": "https://github.com/knicklabs/node-lorem-ipsum/issues"
+			},
+			"homepage": "https://github.com/knicklabs/node-lorem-ipsum#readme",
+			"_id": "lorem-ipsum@2.0.3",
+			"_nodeVersion": "10.15.1",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-CX2r84DMWjW/DWiuzicTI9aRaJPAw2cvAGMJYZh/nx12OkTGqloj8y8FU0S8ZkKwOdqhfxEA6Ly8CW2P6Yxjwg==",
+				"shasum": "9f1fa634780c9f58a349d4e091c3ba74f733164e",
+				"tarball": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.3.tgz",
+				"fileCount": 114,
+				"unpackedSize": 139300,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc+JbICRA9TVsSAnZWagAASIQP/iFMhtZwVfBWQ3ggmOB5\naSkBy2CNPq7PGkEe9zzikK7zAsTJRWJKUNjcbzuYYemrjvtJ9KQ1RDaw88Yy\nMt1ZYMAgiSHxmdwXDrV4eZdEOZJ3Gy738zsFsAcObK4AuXIFM54vTYWwHUGS\n5yJTGqJ+HWznVkpEdKsgkpRP6LZrB/OrBcE+6cTF/5TGTqtkHrViEt24zjfI\njaW9HBuJAMQ/rCeRrKCn0yLhyD2F6laZxTmLBqAZHLRR9nCyMuWiaqcaRlSj\nR/xTNFUIpM2xUteo6slygw6I4O0Vbbh6D2EAJBy998HXBfD/G1bvWmSewA0/\n3DglRvPCCNXRZYZ0WipRZDU4HFSXv+wOwK0eMpJimLzP3lQ89fGffIP46Y5/\nGP4giFuRiVHAxPpqotA9ygmrgLJhxq3b8uQWjQY1gsVCunt3nnTNct94P+ur\nLeocQ2UsKdBHuW6iAjOkXs6k+u57HNKvXY7Liu0m4pC3XwAh7a9+FLhUaCsR\n328NqaH1tjPui8IRTBkVwSNLSOoFyVEx0K7sn0nKlH5AXV9ph3QFrdZE9IR7\nQ/3TKvIAYEEBFhqmPUUKVZ5a7d4ptyJVRUdXS8dqHe9/ik/Z+DOHctagGhCU\nIJuAwy3KoXq5IJF7lmbqjuYaFctnVhLE1EVIxQ1Z7fh3ZSGMuLVJjs095Sx1\nUtmx\r\n=oVp+\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "knicklabs",
+					"email": "nkenyeres@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "knicklabs",
+				"email": "nickolas@knicklabs.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/lorem-ipsum_2.0.3_1559795400006_0.685674363797854"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-06-06T04:30:04.042Z",
+		"created": "2012-06-18T03:47:38.503Z",
+		"0.0.0": "2012-06-18T03:47:38.997Z",
+		"0.0.1": "2012-06-18T04:09:27.608Z",
+		"0.0.2": "2012-06-18T04:14:48.799Z",
+		"0.0.3": "2012-06-18T14:05:22.648Z",
+		"0.0.4": "2012-06-18T15:10:03.312Z",
+		"0.0.5": "2012-06-18T16:27:14.001Z",
+		"0.0.6": "2012-06-18T16:54:37.353Z",
+		"0.0.7": "2012-06-18T18:02:05.713Z",
+		"0.0.8": "2012-10-27T13:50:35.643Z",
+		"0.0.9": "2012-10-27T13:56:15.992Z",
+		"0.1.0": "2013-01-04T04:08:50.291Z",
+		"0.1.1": "2013-07-14T19:27:02.200Z",
+		"1.0.0": "2013-11-08T01:44:35.421Z",
+		"1.0.1": "2013-11-28T04:53:46.850Z",
+		"1.0.2": "2015-05-28T23:13:43.518Z",
+		"1.0.3": "2015-05-28T23:20:42.085Z",
+		"1.0.4": "2017-04-27T06:37:57.809Z",
+		"1.0.5": "2018-06-16T15:06:27.324Z",
+		"1.0.6": "2018-08-28T00:34:21.002Z",
+		"2.0.0-alpha.0": "2018-09-02T17:58:35.057Z",
+		"2.0.0-alpha.1": "2018-09-02T18:43:33.891Z",
+		"2.0.0-alpha.2": "2018-09-02T18:57:43.509Z",
+		"2.0.0-alpha.3": "2019-02-19T01:06:21.893Z",
+		"2.0.0-alpha.4": "2019-02-19T01:21:59.788Z",
+		"2.0.0-alpha.5": "2019-02-19T01:30:31.914Z",
+		"2.0.0-alpha.6": "2019-02-19T03:28:38.699Z",
+		"2.0.0-alpha.7": "2019-02-19T03:42:49.507Z",
+		"2.0.0-alpha.9": "2019-03-15T13:25:49.723Z",
+		"2.0.0-alpha.10": "2019-03-15T13:38:49.575Z",
+		"2.0.0-alpha.11": "2019-03-15T15:12:56.799Z",
+		"2.0.0-alpha.12": "2019-03-15T15:25:49.107Z",
+		"2.0.0": "2019-03-16T03:20:27.878Z",
+		"2.0.1": "2019-03-30T20:38:47.303Z",
+		"2.0.2": "2019-05-08T01:55:38.794Z",
+		"2.0.3": "2019-06-06T04:30:00.197Z"
+	},
+	"dist-tags": {
+		"latest": "2.0.3",
+		"alpha": "2.0.0-alpha.12"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"b0348209a442fc2a055834cb914931a6\"",
+			"fetched": 1568994341879
+		}
+	},
+	"_distfiles": {
+		"lorem-ipsum-0.0.0.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.0.tgz",
+			"sha": "93642206cefabad75a04256a415def6ef3baa35d",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.1.tgz",
+			"sha": "48b297a7ead911b53168fcb914441e16b460cc12",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.2.tgz",
+			"sha": "7dd34c59e70b34cd107083f127c811a34e2cc686",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.3.tgz",
+			"sha": "e11a1f0cd7adf02ffc2e6f973635f133ce8f62fc",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.4.tgz",
+			"sha": "cdd1d1b3ad6b431221129088742f51182ddf00d2",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-0.0.5.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.5.tgz",
+			"sha": "0429b8881e347197ba966bd88da0eb3ea5718a44",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-0.0.6.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.6.tgz",
+			"sha": "9b11d06243e596f48314f66650a5e13055dbdf99",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-0.0.7.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.7.tgz",
+			"sha": "e1758f4ad88784af4d6a7eb152bcfeda58640d14",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-0.0.8.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.8.tgz",
+			"sha": "5587acdce2f79f3071a1cc5d72e14c1b38117400",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-0.0.9.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.0.9.tgz",
+			"sha": "1c31eb039f87979729ab084a8101d985cc2f48d9",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.1.0.tgz",
+			"sha": "4099a3a7640fff6c4e5bfabdda09f967c2bb0ceb",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-0.1.1.tgz",
+			"sha": "c0937a0dfbb4377c0d72413ae12655514f902419",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-1.0.0.tgz",
+			"sha": "af3b5ff814ce6221f1e0fad2176d5ed31a72e3ca",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-1.0.1.tgz",
+			"sha": "8df27d94c4f133bdd739f0e79ad1017565bf69ae",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-1.0.2.tgz",
+			"sha": "61746826d41c1ad24dea25adfc95cd82cc4d12ab",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-1.0.3.tgz",
+			"sha": "40afece589b39bcec2c2e4cb8b154122f467b5c0",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-1.0.4.tgz",
+			"sha": "30b72a3b1e191f55062af8c7dfab291ae4fbd912",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-1.0.5.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-1.0.5.tgz",
+			"sha": "843461931e0043edd3ef2f7950d6d58ab625d3b4",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-1.0.6.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-1.0.6.tgz",
+			"sha": "69e9ab02bbb0991915d71b5559fe016d526f013f",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.0-alpha.0.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.0.tgz",
+			"sha": "c748c4f92baf96a0b5ad06b2ccb832e96e0943d7",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.0-alpha.1.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.1.tgz",
+			"sha": "4ca43c754da729d4b9fce2236de6487b14826869",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.0-alpha.2.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.2.tgz",
+			"sha": "8b3a810aff452a58d4762ba253f557d6aec219a8",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.0-alpha.3.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.3.tgz",
+			"sha": "9650aff8c0929eaaa255810e69dcb00fe367f649",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.0-alpha.4.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.4.tgz",
+			"sha": "1561220e564744aac0840c0d514d0d1ea73ab0a6",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.0-alpha.5.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.5.tgz",
+			"sha": "355af1f63d0daa3efb8224dce0ba46a4bcc76378",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.0-alpha.6.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.6.tgz",
+			"sha": "5df974a4ebb98c6c8b4cd5a78dcbc71cdc9199e9",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.0-alpha.7.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.7.tgz",
+			"sha": "a7e9da27aceb915d10569c12433666b224d7889b",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.0-alpha.9.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.9.tgz",
+			"sha": "a94ea9ffb42d4e0f58ca042d325b2d444648875b",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.0-alpha.10.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.10.tgz",
+			"sha": "33ece95191b98d6cc562f888192c346f45b549cf",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.0-alpha.11.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.11.tgz",
+			"sha": "b9370da07b7c318c0db883a6e659139877f7cfd7",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.0-alpha.12.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0-alpha.12.tgz",
+			"sha": "3a62788fca1d358e1d72f2a193b33282722a59c0",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.0.tgz",
+			"sha": "e7b8807bcd9ff9e5e9b23abc6c432e8596dbc24b",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.1.tgz",
+			"sha": "de6690f2184effe6059fa88385bc6b6ec83cfed6",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.2.tgz",
+			"sha": "b90be1da09dba3e5e60c8723ffccb8decf24de11",
+			"registry": "npmjs"
+		},
+		"lorem-ipsum-2.0.3.tgz": {
+			"url": "https://registry.npmjs.org/lorem-ipsum/-/lorem-ipsum-2.0.3.tgz",
+			"sha": "9f1fa634780c9f58a349d4e091c3ba74f733164e",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-258cc3c4735137f6",
+	"_id": "lorem-ipsum",
+	"readme": "# lorem-ipsum\r\n\r\n[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b55bd2bc24764915adde9b0e74223045)](https://www.codacy.com/app/knicklabs/lorem-ipsum.js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=knicklabs/lorem-ipsum.js&amp;utm_campaign=Badge_Grade)\r\n[![Build Status](https://travis-ci.org/knicklabs/lorem-ipsum.js.svg?branch=master)](https://travis-ci.org/knicklabs/lorem-ipsum.js) [![Coverage Status](https://coveralls.io/repos/github/knicklabs/lorem-ipsum.js/badge.svg?branch=master)](https://coveralls.io/github/knicklabs/lorem-ipsum.js?branch=master) [![npm version](https://badge.fury.io/js/lorem-ipsum.svg)](https://badge.fury.io/js/lorem-ipsum) ![dependencies](https://david-dm.org/knicklabs/lorem-ipsum.js.svg) ![node](https://img.shields.io/badge/node-8x-blue.svg) ![npm](https://img.shields.io/badge/npm-5x-blue.svg)\r\n\r\nTHIS README IS FOR VERSION 2. SWITCH TO `1-STABLE` BRANCH FOR THE\r\nVERSION 1 DOCUMENTATION.\r\n\r\nIF YOU NEED COMPATIBILITY WITH OLDER VERSIONS OF NODEJS, PLEASE USE V1.0.6 WHICH IS \r\nCOMPATIBLE BACK TO NODE 0.4. `npm i lorem-ipsum@1.0.6`\r\n\r\n`lorem-ipsum` is a JavaScript module for generating passages of lorem\r\nipsum text. Lorem ipsum text is commonly used as placeholder text in\r\npublishing, graphic design, and web development.\r\n\r\n`lorem-ipsum` is compatible with the browser, Node.JS, and React Native.\r\n\r\n## Installation\r\n\r\n```\r\nnpm i lorem-ipsum\r\n```\r\n\r\n## Using the Class\r\n\r\nThe class is the recommended way to use `lorem-ipsum` since version 2.\r\nIt makes it simpler to generate text using the same options.\r\n\r\n```\r\nimport { LoremIpsum } from \"lorem-ipsum\";\r\n// const LoremIpsum = require(\"lorem-ipsum\").LoremIpsum;\r\n\r\nconst lorem = new LoremIpsum({\r\n  sentencesPerParagraph: {\r\n    max: 8,\r\n    min: 4\r\n  },\r\n  wordsPerSentence: {\r\n    max: 16,\r\n    min: 4\r\n  }\r\n});\r\n\r\nlorem.generateWords(1);\r\nlorem.generateSentences(5);\r\nlorem.generateParagraphs(7);\r\n```\r\n\r\n## Using the Function\r\n\r\n`lorem-ipsum` version 2 exports a function that is backwards-\r\ncompatible with the default function exported by `lorem-ipsum` version\r\n1. Users of version 1 should be able to upgrade to version 2 without \r\nany issue; they can just continue using this library as they did before.\r\n\r\n```\r\nimport { loremIpsum } from \"lorem-ipsum\";\r\n// const loremIpsum = require(\"lorem-ipsum\").loremIpsum;\r\n\r\nloremIpsum(); // generates one sentence\r\n```\r\n\r\nLike before, you can pass in a number of options to customize the output.\r\nThe example below shows the default options.\r\n\r\n```\r\nimport { loremIpsum } from \"lorem-ipsum\";\r\n\r\nloremIpsum({\r\n  count: 1,                // Number of \"words\", \"sentences\", or \"paragraphs\"\r\n  format: \"plain\",         // \"plain\" or \"html\"\r\n  paragraphLowerBound: 3,  // Min. number of sentences per paragraph.\r\n  paragraphUpperBound: 7,  // Max. number of sentences per paragarph.\r\n  random: Math.random,     // A PRNG function\r\n  sentenceLowerBound: 5,   // Min. number of words per sentence.\r\n  sentenceUpperBound: 15,  // Max. number of words per sentence.\r\n  suffix: \"\\n\",            // Line ending, defaults to \"\\n\" or \"\\r\\n\" (win32)\r\n  units: \"sentences\",      // paragraph(s), \"sentence(s)\", or \"word(s)\"\r\n  words: [\"ad\", ...]       // Array of words to draw from\r\n})\r\n```\r\n\r\n## Using the CLI\r\n\r\n`lorem-ipsum` includes a command line interface (CLI) program for generating \r\npassages of lorem ipsum text directly from your terminal. This CLI program \r\nis compatible with Mac OSX, Windows, and Linux. On Linux you will need to \r\ninstall xclip. On Ubuntu: `apt-get install xclip`.\r\n\r\nSimply install the module globally to take advantage of this feature.\r\n\r\n```\r\nnpm i -g lorem-ipsum\r\n```\r\n\r\nExecute the statement `lorem-ipsum [count] [units]` from your terminal to\r\ngenerate a passage of lorem ipsum text. You can additional arguments to\r\nthe program.\r\n\r\n```\r\nlorem-ipsum --version\r\n# Displays the version number\r\n\r\nlorem-ipsum --help\r\n# Displays the help documentation\r\n\r\nlorem-ipsum 1 word\r\n# Prints one word\r\n\r\nlorem-ipsum 2 words\r\n# Prints two words\r\n\r\nlorem-ipsum 1 sentence\r\n# Prints one sentence\r\n\r\nlorem-ipsum 2 sentences\r\n# Prints two sentences\r\n\r\nlorem-ipsum 1 paragraph\r\n# Prints one paragraph\r\n\r\nlorem-ipsum 2 paragraphs\r\n# Prints two paragraphs\r\n\r\nlorem-ipsum 2 paragraphs --copy\r\n# Prints two pargraphs and copies it to your clipboard\r\n\r\nlorem-ipsum 2 pargraphs --format html\r\n# Prints two paragraphs in HTML format\r\n\r\nlorem-ipsum 2 paragraphs --format html --copy\r\n# Prints two paragraphs in HTML format and copies it to your clipboard.\r\n```\r\n\r\nUprading from version 1.x? The `--count` and `--units` options have been \r\ndropped in favor of the natural language interface shown in the examples\r\nabove.\r\n\r\n## License\r\n\r\nCopyright (c) 2012-2019 Nickolas Kenyeres <nickolas@knicklabs.com>\r\n\r\nPermission to use, copy, modify, and/or distribute this software for any\r\npurpose with or without fee is hereby granted, provided that the above\r\ncopyright notice and this permission notice appear in all copies.\r\n\r\nTHE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTIES\r\nWITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF\r\nMERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR\r\nANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES\r\nWHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN\r\nACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF\r\nOR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE."
+}

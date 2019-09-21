@@ -1,0 +1,5684 @@
+{
+	"name": "secp256k1",
+	"versions": {
+		"0.0.1": {
+			"name": "secp256k1",
+			"version": "0.0.1",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.2.0"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^1.21.4",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "a36cf3d5b404a9ecba7de0caca498c2e2191df15",
+			"homepage": "https://github.com/wanderer/secp256k1-node",
+			"_id": "secp256k1@0.0.1",
+			"_shasum": "42680e515540ace82c8e35df3297e5e273498293",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "42680e515540ace82c8e35df3297e5e273498293",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.2": {
+			"name": "secp256k1",
+			"version": "0.0.2",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.2.0"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^1.21.4",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "9ccead63afd4f470e2d5cc83c3b40aa0cee9edd6",
+			"homepage": "https://github.com/wanderer/secp256k1-node",
+			"_id": "secp256k1@0.0.2",
+			"_shasum": "28270ed3b3b8a24fac80edc6f53954169f956e5e",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "28270ed3b3b8a24fac80edc6f53954169f956e5e",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.3": {
+			"name": "secp256k1",
+			"version": "0.0.3",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.2.0"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^1.21.4",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "f59cfd738fe6ee8496a3095c6fe543142cffba09",
+			"homepage": "https://github.com/wanderer/secp256k1-node",
+			"_id": "secp256k1@0.0.3",
+			"_shasum": "b0a00a9884e9464b960a98a7de4e73c08e3e3dab",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "b0a00a9884e9464b960a98a7de4e73c08e3e3dab",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.3.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.4": {
+			"name": "secp256k1",
+			"version": "0.0.4",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.2.0"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^1.21.4",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "a22e66a7eba97f125ab3b3449ebac60f26a12ecd",
+			"homepage": "https://github.com/wanderer/secp256k1-node",
+			"_id": "secp256k1@0.0.4",
+			"_shasum": "d581678c2fe58932e32034ead551216151a4316b",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "d581678c2fe58932e32034ead551216151a4316b",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.4.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.5": {
+			"name": "secp256k1",
+			"version": "0.0.5",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.2.0"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^1.21.4",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "fb0d7dc388a37bf85acc11e947a65741757b1ad6",
+			"homepage": "https://github.com/wanderer/secp256k1-node",
+			"_id": "secp256k1@0.0.5",
+			"_shasum": "d6bbac873f84d39189696b4d851ff70cbab2de83",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "d6bbac873f84d39189696b4d851ff70cbab2de83",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.5.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.6": {
+			"name": "secp256k1",
+			"version": "0.0.6",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.2.0"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^1.21.4",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "6af9bf41ca36a3408820034b9553b9388c76de76",
+			"homepage": "https://github.com/wanderer/secp256k1-node",
+			"_id": "secp256k1@0.0.6",
+			"_shasum": "d9314dcc8e266ed890992d86863d5505842714e8",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "d9314dcc8e266ed890992d86863d5505842714e8",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.6.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.7": {
+			"name": "secp256k1",
+			"version": "0.0.7",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.2.0"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^1.21.4",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "8f98dcd6654f94c9071b3a94f5199d317ad9f562",
+			"homepage": "https://github.com/wanderer/secp256k1-node",
+			"_id": "secp256k1@0.0.7",
+			"_shasum": "675eb763513ea4d8229ec2d09f06130977b3653a",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "675eb763513ea4d8229ec2d09f06130977b3653a",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.7.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.8": {
+			"name": "secp256k1",
+			"version": "0.0.8",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.2.0"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^1.21.4",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "05aa42d76f481d90910fc33f5c8bac5428a23a37",
+			"homepage": "https://github.com/wanderer/secp256k1-node",
+			"_id": "secp256k1@0.0.8",
+			"_shasum": "20fc7ba110e6d6f3ca9763ba594bf635b68cf790",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "20fc7ba110e6d6f3ca9763ba594bf635b68cf790",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.8.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.9": {
+			"name": "secp256k1",
+			"version": "0.0.9",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.2.0"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^1.21.4",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "8d329e4bfd68eea9e967d7a5ac4f49235a93113f",
+			"homepage": "https://github.com/wanderer/secp256k1-node",
+			"_id": "secp256k1@0.0.9",
+			"_shasum": "13c38fbcb007af93fce34bc6a3370801bd28301d",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "13c38fbcb007af93fce34bc6a3370801bd28301d",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.9.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.10": {
+			"name": "secp256k1",
+			"version": "0.0.10",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.2.0"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^1.21.4",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "aaea0b3c1c30ad0d3c995b30c42646af2489387d",
+			"homepage": "https://github.com/wanderer/secp256k1-node",
+			"_id": "secp256k1@0.0.10",
+			"_shasum": "f33af7bd0ed792f1cc74bf0702e011c38013c636",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "f33af7bd0ed792f1cc74bf0702e011c38013c636",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.10.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.11": {
+			"name": "secp256k1",
+			"version": "0.0.11",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.2.0"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^1.21.4",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "ef7ab5daaf8b0c64ce22b2671aae3ea77acf2e56",
+			"homepage": "https://github.com/wanderer/secp256k1-node",
+			"_id": "secp256k1@0.0.11",
+			"_shasum": "73542701cba27582e6a183b90a4ee279971c352b",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "73542701cba27582e6a183b90a4ee279971c352b",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.11.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.12": {
+			"name": "secp256k1",
+			"version": "0.0.12",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.2.0"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^1.21.4",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "GPL",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "74386138eb8ca192b986cde7caa0ebe6252941cf",
+			"homepage": "https://github.com/wanderer/secp256k1-node",
+			"_id": "secp256k1@0.0.12",
+			"_shasum": "18ac774da69af5251686387748405f2d835d50d8",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "18ac774da69af5251686387748405f2d835d50d8",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.12.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.13": {
+			"name": "secp256k1",
+			"version": "0.0.13",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.4.1"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^1.21.4",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "59eddf5285203c0b9aec6a1918988c0e69cedec6",
+			"homepage": "https://github.com/wanderer/secp256k1-node",
+			"_id": "secp256k1@0.0.13",
+			"_shasum": "9eef86df63d8d68d8ccae025e95244e15f716118",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "9eef86df63d8d68d8ccae025e95244e15f716118",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.13.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.14": {
+			"name": "secp256k1",
+			"version": "0.0.14",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.4.1"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^1.21.4",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "4415d955ff0dbecff6238eb27249f54ea7a18028",
+			"homepage": "https://github.com/wanderer/secp256k1-node",
+			"_id": "secp256k1@0.0.14",
+			"_shasum": "c21a3057fc1eec5ce3abc073c831cb6304ebede6",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "c21a3057fc1eec5ce3abc073c831cb6304ebede6",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.14.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.15": {
+			"name": "secp256k1",
+			"version": "0.0.15",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.4.1"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^1.21.4",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "2a092bb1b44875c4a1d719f9d3d03bf3d52c1446",
+			"homepage": "https://github.com/wanderer/secp256k1-node",
+			"_id": "secp256k1@0.0.15",
+			"_shasum": "e8aea1e3c38eb86bf6bb832f68f88df1ec5578b9",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "e8aea1e3c38eb86bf6bb832f68f88df1ec5578b9",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.15.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.16": {
+			"name": "secp256k1",
+			"version": "0.0.16",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.8.4"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^2.2.5",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "c338e745e24dd9bdbbfe653ad0bb9a55d477b3b7",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@0.0.16",
+			"_shasum": "ed6943ebd520c4596415d196999e850c13cb7b15",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "ed6943ebd520c4596415d196999e850c13cb7b15",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.16.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.17": {
+			"name": "secp256k1",
+			"version": "0.0.17",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^1.8.4"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^2.2.5",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "7be57949117f3c96dd3c7fc053dd459a2b3235f1",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@0.0.17",
+			"_shasum": "83b4207df43386bcf71f264bef3799d9773ca776",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "83b4207df43386bcf71f264bef3799d9773ca776",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.17.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "secp256k1",
+			"version": "1.0.0",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^2.0.0"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^2.2.5",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "ad8a71beed28492b236092440b53abfb89b7c064",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@1.0.0",
+			"_shasum": "a557d2bf2d2fe0d8a6aa713eaa7d480ccd1c2b20",
+			"_from": ".",
+			"_npmVersion": "2.13.2",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "a557d2bf2d2fe0d8a6aa713eaa7d480ccd1c2b20",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "secp256k1",
+			"version": "1.0.1",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "2.0.0"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^2.2.5",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "bc517b1a9e631ceafa87b12856302a7c43b95b5a",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@1.0.1",
+			"_shasum": "adffd1018124949f35cf270db82af35c991066b8",
+			"_from": ".",
+			"_npmVersion": "2.13.2",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "adffd1018124949f35cf270db82af35c991066b8",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "secp256k1",
+			"version": "1.1.0",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "2.0.0"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^2.2.5",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "b2ffdab8ff331230c8be96ef4ff97983ed014de5",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@1.1.0",
+			"_shasum": "045746d91d5dfba4b12de8f238019b1613246d88",
+			"_from": ".",
+			"_npmVersion": "2.13.2",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "045746d91d5dfba4b12de8f238019b1613246d88",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.1": {
+			"name": "secp256k1",
+			"version": "1.1.1",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "2.0.4"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^2.2.5",
+				"secure-random": "^1.1.1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "3cda8ed687e8c98f7ca872f99c038514f2daf39b",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@1.1.1",
+			"_shasum": "81a8385b27203e6458dadb6b7fdb0a40b6d13d94",
+			"_from": ".",
+			"_npmVersion": "2.13.2",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "81a8385b27203e6458dadb6b7fdb0a40b6d13d94",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.2": {
+			"name": "secp256k1",
+			"version": "1.1.2",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && ./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "git submodule update --init --recursive && node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^2.0.9"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^2.2.5",
+				"secure-random": "^1.1.1",
+				"standard": "^5.2.2"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "f3a6d039ff5080be53e20993f1e2f50f91dea58a",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@1.1.2",
+			"_shasum": "7430c61c17f20f07d1f152900ae1d8ce3e2b93db",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "7430c61c17f20f07d1f152900ae1d8ce3e2b93db",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.3": {
+			"name": "secp256k1",
+			"version": "1.1.3",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && ./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^2.0.9"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^2.2.5",
+				"secure-random": "^1.1.1",
+				"standard": "^5.2.2"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "34df0bd4b9b7f08a5430dea16cb1ddaa57c900f8",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@1.1.3",
+			"_shasum": "8dab0739dd98269c17aab4d8d51c03c889571dbf",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "8dab0739dd98269c17aab4d8d51c03c889571dbf",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.1.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.4": {
+			"name": "secp256k1",
+			"version": "1.1.4",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && ./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^2.0.9"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^2.2.5",
+				"secure-random": "^1.1.1",
+				"standard": "^5.2.2"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "68f9793cfb3773e7ac5e2285b3d0c8be34281d0c",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@1.1.4",
+			"_shasum": "a9f0de4059eda4980bcff0e56e1457ffdb0114fe",
+			"_from": ".",
+			"_npmVersion": "3.3.3",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "a9f0de4059eda4980bcff0e56e1457ffdb0114fe",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.1.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.5": {
+			"name": "secp256k1",
+			"version": "1.1.5",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && ./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild",
+				"rebuild": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^2.0.9"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^2.2.5",
+				"node-gyp": "^3.0.3",
+				"secure-random": "^1.1.1",
+				"standard": "^5.2.2"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "3ce9935d0dd98ced12821492d1e7bbe8d9a53361",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@1.1.5",
+			"_shasum": "ae653d162e101b0bd5a2cfc07ed53cb1d4ed038b",
+			"_from": ".",
+			"_npmVersion": "3.3.8",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "ae653d162e101b0bd5a2cfc07ed53cb1d4ed038b",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.1.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.6": {
+			"name": "secp256k1",
+			"version": "1.1.6",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard ./index.js && ./node_modules/mocha/bin/mocha --reporter spec ./test/",
+				"install": "node-gyp rebuild",
+				"rebuild": "node-gyp rebuild"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"nan": "^2.0.9"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"coinkey": "^1.3.0",
+				"ecdsa": "^0.6.0",
+				"mocha": "^2.2.5",
+				"node-gyp": "^3.0.3",
+				"secure-random": "^1.1.1",
+				"standard": "^5.2.2"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"gypfile": true,
+			"gitHead": "0a362ea7e880dbe8d4e472ce57dda33799be292a",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@1.1.6",
+			"_shasum": "e467379d2f0f8cb60bccc21ffbb9ea8997a5847c",
+			"_from": ".",
+			"_npmVersion": "3.3.8",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "e467379d2f0f8cb60bccc21ffbb9ea8997a5847c",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.1.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "secp256k1",
+			"version": "2.0.0",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"main": "./bindings.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"scripts": {
+				"clean": "node-gyp clean",
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"install": "npm run rebuild",
+				"lint": "eslint src test",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bluebird": "^3.0.2",
+				"bn.js": "^4.1.1",
+				"elliptic": "^6.0.1",
+				"nan": "^2.0.9",
+				"object-assign": "^4.0.1"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"chai": "^3.4.0",
+				"chai-as-promised": "^5.1.0",
+				"coveralls": "^2.11.4",
+				"ecdsa": "^0.6.0",
+				"eckey": "^0.8.0",
+				"ecurve": "^1.0.2",
+				"eslint": "^1.7.3",
+				"eslint-config-standard": "^4.4.0",
+				"eslint-plugin-standard": "^1.3.1",
+				"istanbul": "^0.4.0",
+				"karma": "^0.13.14",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.1",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-mocha": "^0.2.0",
+				"mocha": "^2.3.3",
+				"node-gyp": "^3.0.3",
+				"progress": "^1.1.8"
+			},
+			"gypfile": true,
+			"browser": {
+				"./bindings.js": "./js.js"
+			},
+			"gitHead": "2ad4e91a10fe6e8caa0668641584cd66a4ce00c3",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@2.0.0",
+			"_shasum": "40a8193c589b1d49497456409a7a45746e42ec88",
+			"_from": ".",
+			"_npmVersion": "3.3.8",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "40a8193c589b1d49497456409a7a45746e42ec88",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.1": {
+			"name": "secp256k1",
+			"version": "2.0.1",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"main": "./bindings.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"scripts": {
+				"clean": "node-gyp clean",
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"install": "npm run rebuild",
+				"lint": "eslint src test",
+				"prepublish": "node-gyp rebuild && npm run lint && npm run test",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bluebird": "^3.0.2",
+				"bn.js": "^4.1.1",
+				"elliptic": "^6.0.1",
+				"nan": "^2.0.9",
+				"object-assign": "^4.0.1"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"chai": "^3.4.0",
+				"chai-as-promised": "^5.1.0",
+				"coveralls": "^2.11.4",
+				"ecdsa": "^0.6.0",
+				"eckey": "^0.8.0",
+				"ecurve": "^1.0.2",
+				"eslint": "^1.7.3",
+				"eslint-config-standard": "^4.4.0",
+				"eslint-plugin-standard": "^1.3.1",
+				"istanbul": "^0.4.0",
+				"karma": "^0.13.14",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.1",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-mocha": "^0.2.0",
+				"mocha": "^2.3.3",
+				"node-gyp": "^3.0.3",
+				"progress": "^1.1.8"
+			},
+			"gypfile": true,
+			"browser": {
+				"./bindings.js": "./js.js"
+			},
+			"gitHead": "e158877557e780f78b09eaee9b66ab6633a70bb4",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@2.0.1",
+			"_shasum": "07b82cc4cd6448f1bdab7b442acb4938de027fcc",
+			"_from": ".",
+			"_npmVersion": "3.3.6",
+			"_nodeVersion": "5.0.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "07b82cc4cd6448f1bdab7b442acb4938de027fcc",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.2": {
+			"name": "secp256k1",
+			"version": "2.0.2",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"utils",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"js.js",
+				"package.json",
+				"README.md"
+			],
+			"main": "./bindings.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"scripts": {
+				"clean": "node-gyp clean",
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"install": "npm run rebuild",
+				"lint": "standard",
+				"prepublish": "node-gyp rebuild && npm run lint && npm run test",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bluebird": "^3.0.2",
+				"bn.js": "^4.1.1",
+				"elliptic": "^6.0.1",
+				"nan": "^2.0.9",
+				"object-assign": "^4.0.1"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"chai": "^3.4.0",
+				"chai-as-promised": "^5.1.0",
+				"coveralls": "^2.11.4",
+				"ecdsa": "^0.6.0",
+				"eckey": "^0.8.0",
+				"ecurve": "^1.0.2",
+				"istanbul": "^0.4.0",
+				"karma": "^0.13.14",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.1",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-mocha": "^0.2.0",
+				"mocha": "^2.3.3",
+				"node-gyp": "^3.0.3",
+				"progress": "^1.1.8",
+				"standard": "^5.3.1"
+			},
+			"gypfile": true,
+			"browser": {
+				"./bindings.js": "./js.js"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "ba639cccea31d30fe5c45f2686086a4336e362db",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@2.0.2",
+			"_shasum": "fc59e37d68e0a5de329a7f808e0351d987f76bb4",
+			"_from": ".",
+			"_npmVersion": "3.3.6",
+			"_nodeVersion": "5.0.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "fc59e37d68e0a5de329a7f808e0351d987f76bb4",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.2.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.3": {
+			"name": "secp256k1",
+			"version": "2.0.3",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"utils",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"js.js",
+				"package.json",
+				"README.md"
+			],
+			"main": "./bindings.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"scripts": {
+				"clean": "node-gyp clean",
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"install": "npm run rebuild",
+				"lint": "standard",
+				"prepublish": "node-gyp rebuild && npm run lint && npm run test",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bluebird": "^3.0.2",
+				"bn.js": "^4.1.1",
+				"elliptic": "^6.0.1",
+				"nan": "^2.0.9",
+				"object-assign": "^4.0.1"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"chai": "^3.4.0",
+				"chai-as-promised": "^5.1.0",
+				"coveralls": "^2.11.4",
+				"ecdsa": "^0.6.0",
+				"eckey": "^0.8.0",
+				"ecurve": "^1.0.2",
+				"istanbul": "^0.4.0",
+				"karma": "^0.13.14",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.1",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-mocha": "^0.2.0",
+				"mocha": "^2.3.3",
+				"node-gyp": "^3.0.3",
+				"progress": "^1.1.8",
+				"standard": "^5.3.1"
+			},
+			"gypfile": true,
+			"browser": {
+				"./bindings.js": "./js.js"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "681efabcd42707ac33b429d6cc6a4db17d4d2ed2",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@2.0.3",
+			"_shasum": "712b1034558ca4d5fe750e4dcb4d8518110e0509",
+			"_from": ".",
+			"_npmVersion": "3.3.6",
+			"_nodeVersion": "5.0.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "712b1034558ca4d5fe750e4dcb4d8518110e0509",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.3.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.4": {
+			"name": "secp256k1",
+			"version": "2.0.4",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"utils",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"js.js",
+				"package.json",
+				"README.md"
+			],
+			"main": "./bindings.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"scripts": {
+				"clean": "node-gyp clean",
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"install": "npm run rebuild",
+				"lint": "standard",
+				"prepublish": "",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bluebird": "^3.0.2",
+				"bn.js": "^4.1.1",
+				"elliptic": "^6.0.1",
+				"nan": "^2.0.9",
+				"object-assign": "^4.0.1"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"chai": "^3.4.0",
+				"chai-as-promised": "^5.1.0",
+				"coveralls": "^2.11.4",
+				"ecdsa": "^0.6.0",
+				"eckey": "^0.8.0",
+				"ecurve": "^1.0.2",
+				"istanbul": "^0.4.0",
+				"karma": "^0.13.14",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.1",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-mocha": "^0.2.0",
+				"mocha": "^2.3.3",
+				"node-gyp": "^3.0.3",
+				"progress": "^1.1.8",
+				"standard": "^5.3.1"
+			},
+			"gypfile": true,
+			"browser": {
+				"./bindings.js": "./js.js"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "ee6d7529bd9d17fafdc5098242eb4a0307af6d45",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@2.0.4",
+			"_shasum": "0453e4ba1cc00485912174ef4a1c59b0f1b6fa49",
+			"_from": ".",
+			"_npmVersion": "3.3.6",
+			"_nodeVersion": "5.0.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "0453e4ba1cc00485912174ef4a1c59b0f1b6fa49",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.4.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.5": {
+			"name": "secp256k1",
+			"version": "2.0.5",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"bugs": {
+				"url": "https://github.com/wanderer/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"utils",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"js.js",
+				"package.json",
+				"README.md"
+			],
+			"main": "./bindings.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wanderer/secp256k1-node.git"
+			},
+			"scripts": {
+				"clean": "node-gyp clean",
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"install": "npm run rebuild",
+				"lint": "standard",
+				"prepublish": "node-gyp rebuild && npm run lint && npm run test",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bluebird": "^3.0.2",
+				"bn.js": "^4.1.1",
+				"elliptic": "^6.0.1",
+				"nan": "^2.0.9",
+				"object-assign": "^4.0.1"
+			},
+			"devDependencies": {
+				"bigi": "^1.3.0",
+				"chai": "^3.4.0",
+				"chai-as-promised": "^5.1.0",
+				"coveralls": "^2.11.4",
+				"ecdsa": "^0.6.0",
+				"eckey": "^0.8.0",
+				"ecurve": "^1.0.2",
+				"istanbul": "^0.4.0",
+				"karma": "^0.13.14",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.1",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-mocha": "^0.2.0",
+				"mocha": "^2.3.3",
+				"node-gyp": "^3.0.3",
+				"progress": "^1.1.8",
+				"standard": "^5.3.1"
+			},
+			"gypfile": true,
+			"browser": {
+				"./bindings.js": "./js.js"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "1da7cdc47570be378d4c57af95327d2e53fe3925",
+			"homepage": "https://github.com/wanderer/secp256k1-node#readme",
+			"_id": "secp256k1@2.0.5",
+			"_shasum": "dbcd0db42be1c3ca3aafc5e4b25c661a9d6c625b",
+			"_from": ".",
+			"_npmVersion": "3.3.6",
+			"_nodeVersion": "5.0.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "dbcd0db42be1c3ca3aafc5e4b25c661a9d6c625b",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.5.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.6": {
+			"name": "secp256k1",
+			"version": "2.0.6",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"utils",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"js.js",
+				"package.json",
+				"README.md"
+			],
+			"main": "./bindings.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"benchmark:node": "node benchmark/benchmark.js",
+				"clean": "node-gyp clean",
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"install": "npm run rebuild",
+				"lint": "standard",
+				"prepublish": "node-gyp rebuild && npm run lint && npm run test",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bluebird": "^3.0.2",
+				"bn.js": "^4.2.0",
+				"elliptic": "^6.0.2",
+				"nan": "^2.0.9",
+				"object-assign": "^4.0.1"
+			},
+			"devDependencies": {
+				"benchmark": "^1.0.0",
+				"bigi": "^1.3.0",
+				"chai": "^3.4.0",
+				"chai-as-promised": "^5.1.0",
+				"coveralls": "^2.11.4",
+				"ecdsa": "^0.6.0",
+				"eckey": "^0.8.0",
+				"ecurve": "^1.0.2",
+				"istanbul": "^0.4.0",
+				"karma": "^0.13.14",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.1",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-mocha": "^0.2.0",
+				"mocha": "^2.3.3",
+				"node-gyp": "^3.0.3",
+				"progress": "^1.1.8",
+				"standard": "^5.3.1"
+			},
+			"gypfile": true,
+			"browser": {
+				"./bindings.js": "./js.js"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "6871458e78a16051594edc335268a8b30fa612c9",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@2.0.6",
+			"_shasum": "14ea8c6e440cc2583a9b1a981a7bcbe71def88e9",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "14ea8c6e440cc2583a9b1a981a7bcbe71def88e9",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.6.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.7": {
+			"name": "secp256k1",
+			"version": "2.0.7",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"utils",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"js.js",
+				"package.json",
+				"README.md"
+			],
+			"main": "./bindings.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"benchmark:node": "node benchmark/benchmark.js",
+				"clean": "node-gyp clean",
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"install": "npm run rebuild",
+				"lint": "standard",
+				"prepublish": "node-gyp rebuild && npm run lint && npm run test",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bluebird": "^3.0.2",
+				"bn.js": "^4.2.0",
+				"elliptic": "^6.0.2",
+				"nan": "^2.0.9",
+				"object-assign": "^4.0.1"
+			},
+			"devDependencies": {
+				"benchmark": "^1.0.0",
+				"bigi": "^1.3.0",
+				"chai": "^3.4.0",
+				"chai-as-promised": "^5.1.0",
+				"coveralls": "^2.11.4",
+				"ecdsa": "^0.6.0",
+				"eckey": "^0.8.0",
+				"ecurve": "^1.0.2",
+				"istanbul": "^0.4.0",
+				"karma": "^0.13.14",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.1",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-mocha": "^0.2.0",
+				"mocha": "^2.3.3",
+				"node-gyp": "^3.0.3",
+				"progress": "^1.1.8",
+				"standard": "^5.3.1"
+			},
+			"gypfile": true,
+			"browser": {
+				"./bindings.js": "./js.js"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "3072f014ae319c78476c4b4d45d6a7596a019fef",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@2.0.7",
+			"_shasum": "f60f9ee9b7733963ac92ffeef55a36f39b649784",
+			"_from": ".",
+			"_npmVersion": "3.3.8",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "f60f9ee9b7733963ac92ffeef55a36f39b649784",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.8": {
+			"name": "secp256k1",
+			"version": "2.0.8",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"utils",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"js.js",
+				"package.json",
+				"README.md"
+			],
+			"main": "./bindings.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"benchmark:node": "node benchmark/benchmark.js",
+				"clean": "node-gyp clean",
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"install": "npm run rebuild",
+				"lint": "standard",
+				"prepublish": "node-gyp rebuild && npm run lint && npm run test",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bluebird": "^3.0.2",
+				"bn.js": "^4.6.4",
+				"elliptic": "^6.0.2",
+				"nan": "^2.0.9",
+				"object-assign": "^4.0.1"
+			},
+			"devDependencies": {
+				"benchmark": "^1.0.0",
+				"bigi": "^1.3.0",
+				"chai": "^3.4.0",
+				"chai-as-promised": "^5.1.0",
+				"coveralls": "^2.11.4",
+				"ecdsa": "^0.6.0",
+				"eckey": "^0.8.0",
+				"ecurve": "^1.0.2",
+				"istanbul": "^0.4.0",
+				"karma": "^0.13.14",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.1",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-mocha": "^0.2.0",
+				"mocha": "^2.3.3",
+				"node-gyp": "^3.0.3",
+				"progress": "^1.1.8",
+				"standard": "^5.3.1"
+			},
+			"gypfile": true,
+			"browser": {
+				"./bindings.js": "./js.js"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "5d6c70129f891af4e1379caeae9578588fb220c5",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@2.0.8",
+			"_shasum": "b57476013f1237f596f73570f4d4b8c7212d9cf1",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.4.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "b57476013f1237f596f73570f4d4b8c7212d9cf1",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.8.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.9": {
+			"name": "secp256k1",
+			"version": "2.0.9",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"utils",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"js.js",
+				"package.json",
+				"README.md"
+			],
+			"main": "./bindings.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"benchmark:node": "node benchmark/benchmark.js",
+				"clean": "node-gyp clean",
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"install": "npm run rebuild",
+				"lint": "standard",
+				"prepublish": "node-gyp rebuild && npm run lint && npm run test",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bluebird": "^3.0.2",
+				"bn.js": "^4.6.4",
+				"elliptic": "^6.0.2",
+				"nan": "^2.0.9",
+				"object-assign": "^4.0.1"
+			},
+			"devDependencies": {
+				"benchmark": "^1.0.0",
+				"bigi": "^1.3.0",
+				"chai": "^3.4.0",
+				"chai-as-promised": "^5.1.0",
+				"coveralls": "^2.11.4",
+				"ecdsa": "^0.6.0",
+				"eckey": "^0.8.0",
+				"ecurve": "^1.0.2",
+				"istanbul": "^0.4.0",
+				"karma": "^0.13.14",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.1",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-mocha": "^0.2.0",
+				"mocha": "^2.3.3",
+				"node-gyp": "^3.0.3",
+				"progress": "^1.1.8",
+				"standard": "^5.3.1"
+			},
+			"gypfile": true,
+			"browser": {
+				"./bindings.js": "./js.js"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "24e9b08128c50afe96497caa27af5110d66b193e",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@2.0.9",
+			"_shasum": "918442cb69e902dd12a7901273fea5d679606c87",
+			"_from": ".",
+			"_npmVersion": "3.5.3",
+			"_nodeVersion": "5.4.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "918442cb69e902dd12a7901273fea5d679606c87",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.9.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.10": {
+			"name": "secp256k1",
+			"version": "2.0.10",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"secp256k1",
+				"ecdsa",
+				"ec"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "martin becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"utils",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"js.js",
+				"package.json",
+				"README.md"
+			],
+			"main": "./bindings.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"benchmark:node": "node benchmark/benchmark.js",
+				"clean": "node-gyp clean",
+				"coverage": "istanbul cover _mocha",
+				"coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+				"install": "npm run rebuild",
+				"lint": "standard",
+				"prepublish": "node-gyp rebuild && npm run lint && npm run test",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bluebird": "^3.0.2",
+				"bn.js": "^4.6.4",
+				"elliptic": "^6.0.2",
+				"nan": "^2.0.9",
+				"object-assign": "^4.0.1"
+			},
+			"devDependencies": {
+				"benchmark": "^1.0.0",
+				"bigi": "^1.3.0",
+				"chai": "^3.4.0",
+				"chai-as-promised": "^5.1.0",
+				"coveralls": "^2.11.4",
+				"ecdsa": "^0.6.0",
+				"eckey": "^0.8.0",
+				"ecurve": "^1.0.2",
+				"istanbul": "^0.4.0",
+				"karma": "^0.13.14",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.1",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-mocha": "^0.2.0",
+				"mocha": "^2.3.3",
+				"node-gyp": "^3.0.3",
+				"progress": "^1.1.8",
+				"standard": "^5.3.1"
+			},
+			"gypfile": true,
+			"browser": {
+				"./bindings.js": "./js.js"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"it"
+				]
+			},
+			"gitHead": "3fab84a25c4ce0171494e4b1962968359d4336be",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@2.0.10",
+			"_shasum": "c7d6a3c119e1ca44083c367b0715e184907417b3",
+			"_from": ".",
+			"_npmVersion": "3.5.3",
+			"_nodeVersion": "5.4.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "c7d6a3c119e1ca44083c367b0715e184907417b3",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.10.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"3.0.0": {
+			"name": "secp256k1",
+			"version": "3.0.0",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"js.js",
+				"package.json",
+				"LICENSE",
+				"README.md",
+				"utils/has_lib.sh"
+			],
+			"main": "./bindings.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"benchmark:node": "node benchmark/benchmark.js",
+				"clean": "node-gyp clean",
+				"install": "npm run rebuild",
+				"lint": "standard",
+				"prepublish": "node-gyp rebuild && npm run lint && npm run test",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test _mocha -- --reporter spec test/index.js"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bn.js": "^4.10.0",
+				"elliptic": "^6.2.3",
+				"nan": "^2.2.0"
+			},
+			"devDependencies": {
+				"benchmark": "^2.0.0",
+				"bigi": "^1.3.0",
+				"bignum": "^0.11.0",
+				"chai": "^3.4.0",
+				"ecdsa": "^0.6.0",
+				"eckey": "^0.8.0",
+				"ecurve": "^1.0.2",
+				"istanbul": "^0.4.0",
+				"karma": "^0.13.14",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.1",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-mocha": "^0.2.0",
+				"mocha": "^2.3.3",
+				"node-gyp": "^3.0.3",
+				"progress": "^1.1.8",
+				"standard": "^5.3.1"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"gypfile": true,
+			"browser": {
+				"./bindings.js": "./elliptic.js"
+			},
+			"standard": {
+				"globals": [
+					"describe",
+					"before",
+					"it"
+				]
+			},
+			"gitHead": "7c3124533015601c1aa67d7ad459f8fb732433c5",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.0.0",
+			"_shasum": "d0e741d658c10f9fd98391c582b8a502243d56f2",
+			"_from": ".",
+			"_npmVersion": "3.5.3",
+			"_nodeVersion": "5.4.1",
+			"_npmUser": {
+				"name": "null_radix",
+				"email": "mjbecze@gmail.com"
+			},
+			"dist": {
+				"shasum": "d0e741d658c10f9fd98391c582b8a502243d56f2",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/secp256k1-3.0.0.tgz_1454354328579_0.5968470904044807"
+			},
+			"directories": {}
+		},
+		"3.0.1": {
+			"name": "secp256k1",
+			"version": "3.0.1",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"js.js",
+				"utils/has_lib.sh"
+			],
+			"main": "./bindings.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"clean": "node-gyp clean",
+				"install": "npm run rebuild",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run test:node && npm run test:browser",
+				"test:browser": "karma start karma.conf.js",
+				"test:node": "istanbul test node_modules/mocha/bin/_mocha -- --reporter spec test/index.js"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bn.js": "^4.10.0",
+				"drbg.js": "^1.0.0",
+				"elliptic": "^6.2.3",
+				"nan": "^2.2.0"
+			},
+			"devDependencies": {
+				"benchmark": "^2.0.0",
+				"bigi": "^1.3.0",
+				"bignum": "^0.11.0",
+				"chai": "^3.4.0",
+				"ecdsa": "^0.6.0",
+				"eckey": "^0.8.0",
+				"ecurve": "^1.0.2",
+				"istanbul": "^0.4.0",
+				"karma": "^0.13.14",
+				"karma-browserify": "^4.4.0",
+				"karma-chrome-launcher": "^0.2.1",
+				"karma-detect-browsers": "^2.0.2",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-mocha": "^0.2.0",
+				"mocha": "^2.3.3",
+				"node-gyp": "^3.0.3",
+				"progress": "^1.1.8",
+				"standard": "^5.3.1",
+				"xorshift.js": "^1.0.1"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"gypfile": true,
+			"browser": {
+				"./bindings.js": "./elliptic.js"
+			},
+			"gitHead": "880a9ebb9e972f24803c1d86eaf851701c60ebd9",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.0.1",
+			"_shasum": "1e9205135a4ed3503150dd00e7a4eb219f2900b3",
+			"_from": ".",
+			"_npmVersion": "3.6.0",
+			"_nodeVersion": "5.6.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "null_radix",
+					"email": "mjbecze@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "1e9205135a4ed3503150dd00e7a4eb219f2900b3",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.0.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-6-west.internal.npmjs.com",
+				"tmp": "tmp/secp256k1-3.0.1.tgz_1456807158792_0.8878015414811671"
+			},
+			"directories": {}
+		},
+		"3.1.0": {
+			"name": "secp256k1",
+			"version": "3.1.0",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"index.js",
+				"js.js",
+				"utils/has_lib.sh"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"clean": "node-gyp clean",
+				"coverage": "RANDOM_TESTS_REPEAT=1 nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "npm run rebuild",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run unit",
+				"unit": "npm run unit:node && npm run unit:browser",
+				"unit:browser": "karma start karma.conf.js",
+				"unit:node": "tape test/index.js |faucet"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bip66": "^1.1.3",
+				"bn.js": "^4.11.3",
+				"create-hash": "^1.1.2",
+				"drbg.js": "^1.0.1",
+				"elliptic": "^6.2.3",
+				"nan": "^2.2.1"
+			},
+			"devDependencies": {
+				"bignum": "^0.11.0",
+				"browserify": "^13.0.0",
+				"faucet": "0.0.1",
+				"karma": "^0.13.22",
+				"karma-browserify": "^5.0.4",
+				"karma-chrome-launcher": "^0.2.3",
+				"karma-detect-browsers": "^2.1.0",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-tap": "^1.0.4",
+				"node-gyp": "^3.3.1",
+				"nyc": "^6.4.0",
+				"standard": "^7.0.0",
+				"tape": "^4.5.1",
+				"xorshift.js": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./elliptic.js"
+			},
+			"gitHead": "b06be5826b1f879bbbc09dd9cbedc3db89047b19",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.1.0",
+			"_shasum": "f55529d0a52893fcb3454145b0274d4f9e01e162",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.0.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				},
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "jprichardson",
+					"email": "jprichardson@gmail.com"
+				},
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "f55529d0a52893fcb3454145b0274d4f9e01e162",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.1.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/secp256k1-3.1.0.tgz_1462383693524_0.07834177021868527"
+			},
+			"directories": {}
+		},
+		"3.2.0": {
+			"name": "secp256k1",
+			"version": "3.2.0",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"index.js",
+				"js.js",
+				"utils/has_lib.sh"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"clean": "node-gyp clean",
+				"coverage": "RANDOM_TESTS_REPEAT=1 nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "npm run rebuild || echo \"Secp256k1 bindings compilation fail. Pure JS implementation will be used.\"",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit:node",
+				"unit:browser": "karma start karma.conf.js",
+				"unit:node": "tape test/index.js |faucet"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bip66": "^1.1.3",
+				"bn.js": "^4.11.3",
+				"create-hash": "^1.1.2",
+				"drbg.js": "^1.0.1",
+				"elliptic": "^6.2.3",
+				"nan": "^2.2.1"
+			},
+			"devDependencies": {
+				"bignum": "^0.11.0",
+				"browserify": "^13.0.0",
+				"faucet": "0.0.1",
+				"karma": "^0.13.22",
+				"karma-browserify": "^5.0.4",
+				"karma-chrome-launcher": "^0.2.3",
+				"karma-detect-browsers": "^2.1.0",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-tap": "^1.0.4",
+				"node-gyp": "^3.3.1",
+				"nyc": "^6.4.0",
+				"standard": "^7.0.0",
+				"tape": "^4.5.1",
+				"xorshift.js": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./elliptic.js"
+			},
+			"gitHead": "52e0cbe6bac6921d3aa3f808b627537c18ff61ce",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.2.0",
+			"_shasum": "4503def2190f501d6baa93d63c384550a1d726f6",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.4.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				},
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "jprichardson",
+					"email": "jprichardson@gmail.com"
+				},
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "4503def2190f501d6baa93d63c384550a1d726f6",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.2.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/secp256k1-3.2.0.tgz_1471503729451_0.8396295090205967"
+			},
+			"directories": {}
+		},
+		"3.2.2": {
+			"name": "secp256k1",
+			"version": "3.2.2",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"index.js",
+				"js.js",
+				"utils/has_lib.sh"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"clean": "node-gyp clean",
+				"coverage": "RANDOM_TESTS_REPEAT=1 nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "npm run rebuild || echo \"Secp256k1 bindings compilation fail. Pure JS implementation will be used.\"",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit:node",
+				"unit:browser": "karma start karma.conf.js",
+				"unit:node": "tape test/index.js |faucet"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bip66": "^1.1.3",
+				"bn.js": "^4.11.3",
+				"create-hash": "^1.1.2",
+				"drbg.js": "^1.0.1",
+				"elliptic": "^6.2.3",
+				"nan": "^2.2.1"
+			},
+			"devDependencies": {
+				"bignum": "^0.11.0",
+				"browserify": "^13.0.0",
+				"faucet": "0.0.1",
+				"karma": "^0.13.22",
+				"karma-browserify": "^5.0.4",
+				"karma-chrome-launcher": "^0.2.3",
+				"karma-detect-browsers": "^2.1.0",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^0.1.6",
+				"karma-tap": "^1.0.4",
+				"node-gyp": "^3.3.1",
+				"nyc": "^6.4.0",
+				"standard": "^7.0.0",
+				"tape": "^4.5.1",
+				"xorshift.js": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./elliptic.js"
+			},
+			"gitHead": "c21870da22dffbf950eecd43963ba3012b91e213",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.2.2",
+			"_shasum": "2103620789ca2c9b79650cdf8cfc9c542be36597",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.7.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "dcousens",
+					"email": "email@dcousens.com"
+				},
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				},
+				{
+					"name": "jprichardson",
+					"email": "jprichardson@gmail.com"
+				},
+				{
+					"name": "null_radix",
+					"email": "null_radix@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "2103620789ca2c9b79650cdf8cfc9c542be36597",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.2.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/secp256k1-3.2.2.tgz_1477515139725_0.3166627367027104"
+			},
+			"directories": {}
+		},
+		"3.2.5": {
+			"name": "secp256k1",
+			"version": "3.2.5",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"index.js",
+				"js.js",
+				"utils/has_lib.sh"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"coverage": "RANDOM_TESTS_REPEAT=1 nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "prebuild-install || node-gyp rebuild || echo \"Secp256k1 bindings compilation fail. Pure JS implementation will be used.\"",
+				"lint": "standard",
+				"rebuild": "prebuild --compile",
+				"test": "npm run lint && npm run unit",
+				"test:browser": "karma start karma.conf.js",
+				"unit": "tape test/index.js",
+				"unit-ci": "npm run unit && prebuild-ci"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bip66": "^1.1.3",
+				"bn.js": "^4.11.3",
+				"create-hash": "^1.1.2",
+				"drbg.js": "^1.0.1",
+				"elliptic": "^6.2.3",
+				"nan": "^2.2.1",
+				"prebuild-install": "^2.0.0"
+			},
+			"devDependencies": {
+				"bignum": "^0.12.5",
+				"browserify": "^13.0.0",
+				"karma": "^1.3.0",
+				"karma-browserify": "^5.0.4",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "^2.1.0",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-tap": "^3.1.1",
+				"node-gyp": "^3.3.1",
+				"nyc": "^10.0.0",
+				"prebuild": "^6.0.0",
+				"prebuild-ci": "^1.0.9",
+				"standard": "*",
+				"tape": "^4.5.1",
+				"xorshift.js": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=0.10"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./elliptic.js"
+			},
+			"gitHead": "b2a238f13ccb3036068dcbfcaac01857dce08be4",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.2.5",
+			"_shasum": "0dde5b27e5021665f6dffca7b2c3e010c6c13c93",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"dist": {
+				"shasum": "0dde5b27e5021665f6dffca7b2c3e010c6c13c93",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.2.5.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/secp256k1-3.2.5.tgz_1483807439471_0.36229994404129684"
+			},
+			"directories": {}
+		},
+		"3.3.0": {
+			"name": "secp256k1",
+			"version": "3.3.0",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"index.js",
+				"js.js",
+				"utils/has_lib.sh"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"coverage": "RANDOM_TESTS_REPEAT=1 nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "prebuild-install || node-gyp rebuild || echo \"Secp256k1 bindings compilation fail. Pure JS implementation will be used.\"",
+				"lint": "standard",
+				"rebuild": "prebuild --compile",
+				"test": "npm run lint && npm run unit",
+				"test:browser": "karma start karma.conf.js",
+				"unit": "tape test/index.js",
+				"unit-ci": "npm run unit && prebuild-ci"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bip66": "^1.1.3",
+				"bn.js": "^4.11.3",
+				"create-hash": "^1.1.2",
+				"drbg.js": "^1.0.1",
+				"elliptic": "^6.2.3",
+				"nan": "^2.2.1",
+				"prebuild-install": "^2.0.0",
+				"safe-buffer": "^5.1.0"
+			},
+			"devDependencies": {
+				"bignum": "^0.12.5",
+				"browserify": "^14.4.0",
+				"karma": "^1.3.0",
+				"karma-browserify": "^5.0.4",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "^2.1.0",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-tap": "^3.1.1",
+				"node-gyp": "^3.3.1",
+				"nyc": "^11.0.2",
+				"prebuild": "^6.0.0",
+				"prebuild-ci": "^2.2.2",
+				"standard": "*",
+				"tape": "^4.5.1",
+				"xorshift.js": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./elliptic.js"
+			},
+			"gitHead": "7b1a31790b82fd2973e09b45468edf4f7c435ee4",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.3.0",
+			"_npmVersion": "5.0.0",
+			"_nodeVersion": "8.0.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-CbrQoeGG5V0kQ1ohEMGI+J7oKerapLTpivLICBaXR0R4HyQcN3kM9itLsV5fdpV1UR1bD14tOkJ1xughmlDIiQ==",
+				"shasum": "50ec9b201ba401403dd13ccbf21d31eeb3ff43cf",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.3.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/secp256k1-3.3.0.tgz_1496871250899_0.15787885384634137"
+			},
+			"directories": {}
+		},
+		"3.3.1": {
+			"name": "secp256k1",
+			"version": "3.3.1",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"index.js",
+				"js.js",
+				"utils/has_lib.sh"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"coverage": "RANDOM_TESTS_REPEAT=1 nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "prebuild-install || node-gyp rebuild || echo \"Secp256k1 bindings compilation fail. Pure JS implementation will be used.\"",
+				"lint": "standard",
+				"rebuild": "prebuild --compile",
+				"test": "npm run lint && npm run unit",
+				"test:browser": "karma start karma.conf.js",
+				"unit": "tape test/index.js",
+				"unit-ci": "npm run unit && prebuild-ci"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bip66": "^1.1.3",
+				"bn.js": "^4.11.3",
+				"create-hash": "^1.1.2",
+				"drbg.js": "^1.0.1",
+				"elliptic": "^6.2.3",
+				"nan": "^2.2.1",
+				"prebuild-install": "^2.0.0",
+				"safe-buffer": "^5.1.0"
+			},
+			"devDependencies": {
+				"bignum": "^0.12.5",
+				"browserify": "^14.4.0",
+				"karma": "^1.3.0",
+				"karma-browserify": "^5.0.4",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "^2.1.0",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-tap": "^3.1.1",
+				"node-gyp": "^3.3.1",
+				"nyc": "^11.0.2",
+				"prebuild": "^6.0.0",
+				"prebuild-ci": "^2.2.2",
+				"standard": "*",
+				"tape": "^4.5.1",
+				"xorshift.js": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./elliptic.js"
+			},
+			"gitHead": "2b1ed90a922c82f204f55644929e4d2e2135aaf9",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.3.1",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "9.0.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-lygjgfjzjBHblEDDkppUF5KK1EeVk6P/Dv2MsJZpYIR3vW5TKFRexOFkf0hHy9J5YxEpjQZ6x98Y3XQpMQO/vA==",
+				"shasum": "d1d325519db714789c11ec0450d4b9a3aa01eb1a",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.3.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/secp256k1-3.3.1.tgz_1509984014352_0.825422378256917"
+			},
+			"directories": {}
+		},
+		"3.4.0": {
+			"name": "secp256k1",
+			"version": "3.4.0",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"index.js",
+				"js.js",
+				"utils/has_lib.sh"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"coverage": "RANDOM_TESTS_REPEAT=1 nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "npm run rebuild || echo \"Secp256k1 bindings compilation fail. Pure JS implementation will be used.\"",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit",
+				"test:browser": "karma start karma.conf.js",
+				"unit": "tape test/index.js"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bip66": "^1.1.3",
+				"bn.js": "^4.11.3",
+				"create-hash": "^1.1.2",
+				"drbg.js": "^1.0.1",
+				"elliptic": "^6.2.3",
+				"nan": "^2.2.1",
+				"safe-buffer": "^5.1.0"
+			},
+			"devDependencies": {
+				"bignum": "^0.12.5",
+				"browserify": "^14.4.0",
+				"karma": "^1.3.0",
+				"karma-browserify": "^5.0.4",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "^2.1.0",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-tap": "^3.1.1",
+				"node-gyp": "^3.3.1",
+				"nyc": "^11.0.2",
+				"standard": "*",
+				"tape": "^4.5.1",
+				"xorshift.js": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./elliptic.js"
+			},
+			"gitHead": "6a0fc33275c7cb7c65d4a6a7b764f9d678564c6d",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.4.0",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "9.2.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-eC120ESQ6MB3gMkxj0PVcSjv/9VtSUmm9uPGNc58yTs93iMCUQZ1xeGPidQMY1z1O4psbCtOxRu3vNqpbuck6Q==",
+				"shasum": "1c905b256fa4ae5b9cc170e672dd59b4c5de46a4",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.4.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/secp256k1-3.4.0.tgz_1512249673971_0.19857074925675988"
+			},
+			"directories": {}
+		},
+		"3.5.0": {
+			"name": "secp256k1",
+			"version": "3.5.0",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"index.js",
+				"js.js",
+				"utils/has_lib.sh"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"coverage": "RANDOM_TESTS_REPEAT=1 nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "npm run rebuild || echo \"Secp256k1 bindings compilation fail. Pure JS implementation will be used.\"",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit",
+				"test:browser": "karma start karma.conf.js",
+				"unit": "tape test/index.js"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bip66": "^1.1.3",
+				"bn.js": "^4.11.3",
+				"create-hash": "^1.1.2",
+				"drbg.js": "^1.0.1",
+				"elliptic": "^6.2.3",
+				"nan": "^2.2.1",
+				"safe-buffer": "^5.1.0"
+			},
+			"devDependencies": {
+				"bignum": "^0.12.5",
+				"browserify": "^14.4.0",
+				"karma": "^1.3.0",
+				"karma-browserify": "^5.0.4",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "^2.1.0",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-tap": "^3.1.1",
+				"node-gyp": "^3.3.1",
+				"nyc": "^11.0.2",
+				"standard": "*",
+				"tape": "^4.5.1",
+				"xorshift.js": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./elliptic.js"
+			},
+			"gitHead": "fca55afca67d8a727fb94b49510d1d094d67d75c",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.5.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.4.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-e5QIJl8W7Y4tT6LHffVcZAxJjvpgE5Owawv6/XCYPQljE9aP2NFFddQ8OYMKhdLshNu88FfL3qCN3/xYkXGRsA==",
+				"shasum": "677d3b8a8e04e1a5fa381a1ae437c54207b738d0",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.5.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/secp256k1-3.5.0.tgz_1516963910627_0.798699980834499"
+			},
+			"directories": {}
+		},
+		"3.5.2": {
+			"name": "secp256k1",
+			"version": "3.5.2",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"files": [
+				"lib",
+				"src",
+				"API.md",
+				"binding.gyp",
+				"bindings.js",
+				"elliptic.js",
+				"index.js",
+				"js.js",
+				"utils/has_lib.sh"
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"coverage": "RANDOM_TESTS_REPEAT=1 nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "npm run rebuild || echo \"Secp256k1 bindings compilation fail. Pure JS implementation will be used.\"",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit",
+				"test:browser": "karma start karma.conf.js",
+				"unit": "tape test/index.js"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bip66": "^1.1.3",
+				"bn.js": "^4.11.3",
+				"create-hash": "^1.1.2",
+				"drbg.js": "^1.0.1",
+				"elliptic": "^6.2.3",
+				"nan": "^2.2.1",
+				"safe-buffer": "^5.1.0"
+			},
+			"devDependencies": {
+				"bignum": "^0.13.0",
+				"browserify": "^14.4.0",
+				"karma": "^1.3.0",
+				"karma-browserify": "^5.0.4",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "^2.1.0",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-tap": "^3.1.1",
+				"node-gyp": "^3.3.1",
+				"nyc": "^11.0.2",
+				"standard": "*",
+				"tape": "^4.5.1",
+				"xorshift.js": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./elliptic.js"
+			},
+			"gitHead": "25a4b6cb567b49a40f47f50c5ca9a756f5343e4d",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.5.2",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.2",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"dist": {
+				"integrity": "sha512-iin3kojdybY6NArd+UFsoTuapOF7bnJNf2UbcWXaY3z+E1sJDipl60vtzB5hbO/uquBu7z0fd4VC4Irp+xoFVQ==",
+				"shasum": "f95f952057310722184fe9c914e6b71281f2f2ae",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.5.2.tgz",
+				"fileCount": 121,
+				"unpackedSize": 931591,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbfRoaCRA9TVsSAnZWagAADdgQAJ9W/z0vEyfTnaR3u5T3\n6g3uSAazCP+gub89kw1w4tzC4XZbP88OLROlf2ynPY4td21AFNkuPVUneTnR\nW+ehevj2jRgibowzooO2NOd8rDID+2I+jVLmra7m0iQ2TWO/Flg3l1O+16hh\nNaVEAJA0nPE2/OwhAEkD0OB8CdZBaqIJlfrqY/sRAwyybKXWiY6WWY4Kb1R4\ncsczTwQkbC0a9LyNGRngZ8bxZzGOxiXw+ysmnx9NLak8TbcsF8LZthCmpERM\ncevF4JKz+pW6t8A8fEugSqhp4iYhJMhpvo+EPiN3erJnL4VtWmGu5GqRqn3l\nA7MyDvhpPaizlvjO+B8QLOIjApXl6Ga1Bt7PBSjC/sNx6sBeoxXuWOyYlAF+\nX6Lo9oCR6L4LWnB3Y4av+T76T/NPh+3SiylyuvQVKANgl+SXqlcclzIR5b/q\nRRj9BaexsG/ajYVoPo1nfVbpsQbB64VdD2Kxpqh8PgiVd33PriehCfnsjUr+\nieoLTVkuHW9F+5dQwgfnJqNNnm5PI9TzS9duo0eggmc9Gx6sXFIPeOCjbZwi\nqWhk2MD07z5pNIlEFNy0Q5HcXR6jU9F+OpNkYM1xo5+K07XZgU2Yrkn6AmPY\n6qp2ILM4AgLL6fXRkKEk57TVXCbfriwvDhFoH6Qf8YKPIajmH5I5LE7lHpMC\nChrY\r\n=FsX8\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/secp256k1_3.5.2_1534925338021_0.993257081078537"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.6.0": {
+			"name": "secp256k1",
+			"version": "3.6.0",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"coverage": "RANDOM_TESTS_REPEAT=1 nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "npm run rebuild || echo \"Secp256k1 bindings compilation fail. Pure JS implementation will be used.\"",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit",
+				"test:browser": "karma start karma.conf.js",
+				"unit": "tape test/index.js"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bip66": "^1.1.3",
+				"bn.js": "^4.11.3",
+				"create-hash": "^1.1.2",
+				"drbg.js": "^1.0.1",
+				"elliptic": "^6.2.3",
+				"nan": "^2.2.1",
+				"safe-buffer": "^5.1.0"
+			},
+			"devDependencies": {
+				"bignum": "^0.13.0",
+				"browserify": "^14.4.0",
+				"karma": "^1.3.0",
+				"karma-browserify": "^5.0.4",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "^2.1.0",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-tap": "^3.1.1",
+				"node-gyp": "^3.3.1",
+				"nyc": "^11.0.2",
+				"standard": "*",
+				"tape": "^4.5.1",
+				"xorshift.js": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./elliptic.js"
+			},
+			"gitHead": "e9d38b279a25049a5f4f66f73f06fb2d70868ce6",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.6.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.5.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"dist": {
+				"integrity": "sha512-a+oKfu2XWhq6Zzj7TexlYpwdnCEtJUUdLaujUclplPkV+INdMaV9D+81wYldm/g4/2PTFoNYZf/+0rHhTPgzjQ==",
+				"shasum": "26b44b0df3562319b20f5070efcdd4fa36112650",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.6.0.tgz",
+				"fileCount": 124,
+				"unpackedSize": 1001258,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcIIMrCRA9TVsSAnZWagAAPMgQAJjPYTgsVgpbz1q89jEi\n29Y0Lvoe39rDsnoudQ+WsROSWWo+UXsF7yc4EDMphqvuk9C5mRzWzUwY9Y3+\nZ7DhJOa0hcjtFOdyb7Qb7tVWnc7Ib0J6mnltYyfIcAfq/ZCGYwVtGreq56Sd\nCB+cu/mojnJc/H2iWdlxnL4MKT3x2wLxBn54h3OQRgOP8PXEP55cyjB/VrsB\nC0fzDz5Lrl426O2IvTsfF7hK6GgmAhnUhLhYwAdMLuiqlp8QPuPlE1YoKG1h\nw6ltSRNS58EGSdEgdePZxskbo63H76Dk3H0NEVCpIJNkKUfA8NM3QsTcZgIz\n61YDQDGSslExKHMaCMWp58/GInlJUix8fL2Miod4zn9G5eHguvw3Izlr3D4O\nFqe4i4N08n+yDFZGd32JrKCLnwGrdMRsDVE+ojGveUTDnmFF/ygkE8mK1fCm\n8A5R1gIs/mrWvHmsiYdXkh6IQSUsG/sfEx9TPvSsSL1Fjofqy9gig9GUjGwV\nRUnWNcvY9ONFEKkFaInAaV4eSnNtktHvL5QvFrb8lH0zrloehVIPZfgyX283\nF8ScTbIbGGHLiDgufsRxgyZLPaHbraMmMQ5z1rHd42QgyxeRHmkK9OedocF2\nGqNSfheimMewnOJ8ntD5mAqWwn9+ncM+xNdfpcUQ2R1ulhZ7GqW2F9BQAclg\nZg43\r\n=qjPV\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/secp256k1_3.6.0_1545634602986_0.46012455192249324"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "Critical bug in ecdh unsafe, fixed in v3.6.1"
+		},
+		"3.6.1": {
+			"name": "secp256k1",
+			"version": "3.6.1",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"coverage": "RANDOM_TESTS_REPEAT=1 nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "npm run rebuild || echo \"Secp256k1 bindings compilation fail. Pure JS implementation will be used.\"",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit",
+				"test:browser": "karma start karma.conf.js",
+				"unit": "tape test/index.js"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bip66": "^1.1.3",
+				"bn.js": "^4.11.3",
+				"create-hash": "^1.1.2",
+				"drbg.js": "^1.0.1",
+				"elliptic": "^6.2.3",
+				"nan": "^2.2.1",
+				"safe-buffer": "^5.1.0"
+			},
+			"devDependencies": {
+				"bignum": "^0.13.0",
+				"browserify": "^14.4.0",
+				"karma": "^1.3.0",
+				"karma-browserify": "^5.0.4",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "^2.1.0",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-tap": "^3.1.1",
+				"node-gyp": "^3.3.1",
+				"nyc": "^11.0.2",
+				"standard": "*",
+				"tape": "^4.5.1",
+				"xorshift.js": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./elliptic.js"
+			},
+			"gitHead": "365732a076241755be351344f84277430d454506",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.6.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.5.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"dist": {
+				"integrity": "sha512-utLpWv4P4agEw7hakR73wlWX0NBmC5t/vkJ0TAfTyvETAUzo0tm6aFKPYetVYRaVubxMeWm5Ekv9ETwOgcDCqw==",
+				"shasum": "f0475d42096218ff00e45a127242abdff9285335",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.6.1.tgz",
+				"fileCount": 124,
+				"unpackedSize": 1001454,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcJ6JOCRA9TVsSAnZWagAA9WsP/A8LgEKLcGtli4H48IWq\n+IIiV8Zm+hxQeM31puKwiGbEUu2/9miCDkz/z7U+SVhpr0XaOoGcyz7RTrNT\nY9raAcgTV0AGOAZQbqAEGUBSjAuv/G1zEPSb9aCnQXbSmmehJ5Tl2xxfFw4F\ndwon4ouWlWIt5o39tujpuqwH7jSRHN57A4bb80k726llF0uWfX18HyB1+U2e\n4csRfhS6Xd9ZTVeeOr3/3lZVUmYfPFdN/AEIj17/bqu7vwMVHt4A4zCIok8s\nbRSHXWnP8338EJF+8jdEmHyBmyY4sITblIQDKXVrVzej4AwuQVGm9glY/QXl\nqtsxN88uQ7+PNr3bvt2o9+ilxukVMIyTy2cjytqWb8xdERblNCwbMX53VEeQ\nplh7ngfqhotxJIwv47LHsrgYAAUmb6Ju40IgA0M5e7TeFdzoyCr/6FDEjpCX\nHpT43GrXfDSynuBmXfw2TWIoi1/2JQllv7DIqT14iiVrvG1HsOI45Civfs+3\nrbcmuJFux2pf98noDQ/OD++vFQq5xsUOeTgMJZz6rc5MRMaNXT8mz/2f2qyc\nsWWcJEzrWzAPwTl3zAcKdJj/uPV7DidsggEte48nfKKFy73plrC9qq53jCvk\nqrgaiWBEsu7BCqu8LJIYDkfrDdQM7U/7cjKnYInNY9cf3DZ/lGcmub6++SYn\na6bg\r\n=xWWD\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/secp256k1_3.6.1_1546101326127_0.834313312843163"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.6.2": {
+			"name": "secp256k1",
+			"version": "3.6.2",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"coverage": "RANDOM_TESTS_REPEAT=1 nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "npm run rebuild || echo \"Secp256k1 bindings compilation fail. Pure JS implementation will be used.\"",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit",
+				"test:browser": "karma start karma.conf.js",
+				"unit": "tape test/index.js"
+			},
+			"dependencies": {
+				"bindings": "^1.2.1",
+				"bip66": "^1.1.3",
+				"bn.js": "^4.11.3",
+				"create-hash": "^1.1.2",
+				"drbg.js": "^1.0.1",
+				"elliptic": "^6.2.3",
+				"nan": "^2.2.1",
+				"safe-buffer": "^5.1.0"
+			},
+			"devDependencies": {
+				"bignum": "^0.13.0",
+				"browserify": "^14.4.0",
+				"karma": "^1.3.0",
+				"karma-browserify": "^5.0.4",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-detect-browsers": "^2.1.0",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-tap": "^3.1.1",
+				"node-gyp": "^3.3.1",
+				"nyc": "^11.0.2",
+				"standard": "*",
+				"tape": "^4.5.1",
+				"xorshift.js": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./elliptic.js"
+			},
+			"gitHead": "fd7500cc6f4235c48426a62d93c829ea4476a3c7",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.6.2",
+			"_npmVersion": "6.5.0",
+			"_nodeVersion": "11.7.0",
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"dist": {
+				"integrity": "sha512-90nYt7yb0LmI4A2jJs1grglkTAXrBwxYAjP9bpeKjvJKOjG2fOeH/YI/lchDMIvjrOasd5QXwvV2jwN168xNng==",
+				"shasum": "da835061c833c74a12f75c73d2ec2e980f00dc1f",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.6.2.tgz",
+				"fileCount": 124,
+				"unpackedSize": 1001652,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcTuNBCRA9TVsSAnZWagAAaEAP/2zUNuBthk5M81OGvG27\nlj8qE0dAStTmW9nWkqoFI7XmLClf70Faq5nTzy3iNGLCe63qwISGGymSBMzr\nehV+wOVRoY3DzkUB3gKpRJMgHGcYChZi2XUuAxkymSrmwLTlpGpfqsI2GECB\n0m8EO4SCCLUANvef1mVmtgiq+cVMDltvvsxHzUIKq+zP79C5GeGgtR4hR4Rp\n7KzP/9QVTSqqFMtIjYeqB1dhJuSprZbIwe3RUgnGqBMUR+f1VH4HvGXiJIeK\nKZxV6MlJyya34WXLfM1Ms3Km1sry9G7udwRv7HFA3B2Fr7K/Oq3mrBtqt9on\nlAGN/Z3tDy5sUbxtJCwYp9EQEGvI7Bj+81LVirHUqYvyM8+pSYWe1Gcm4qHA\nUpAqY4VFrGGw1VVbAqI8kDfWAkmHfse7DqLQ9qkRTsMx43Noz3S7t5uOI3Jb\nssrJ8fZiB5WgcMJqm0zwU71OIza7aU1aCvbj4CNqM1GNkYEU+foffeS+Xh9R\nobe68EvrqI7BuX+synpYDHj/HJHUcSrRLBQ0GEWlZvQGtz+6X8MM55N8aUXU\nVOmLsrMtqy5WAkmBUqnNAceBZI57b4edg6Cyb2mm8r2lQnsYQdGsYr4MbUVT\n07U1mUUr/LuwPIwwA07ZakfSWBw7W+hoGVeOD0+cM+FSFL4ocPevuUqwF0DS\nqz4I\r\n=UVuO\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/secp256k1_3.6.2_1548673857180_0.9005451234040378"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.7.0": {
+			"name": "secp256k1",
+			"version": "3.7.0",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"coverage": "RANDOM_TESTS_REPEAT=1 nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "npm run rebuild || echo \"Secp256k1 bindings compilation fail. Pure JS implementation will be used.\"",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit",
+				"test:browser": "karma start karma.conf.js",
+				"unit": "tape test/index.js"
+			},
+			"dependencies": {
+				"bindings": "^1.5.0",
+				"bip66": "^1.1.5",
+				"bn.js": "^4.11.8",
+				"create-hash": "^1.2.0",
+				"drbg.js": "^1.0.1",
+				"elliptic": "^6.4.1",
+				"nan": "^2.13.2",
+				"safe-buffer": "^5.1.2"
+			},
+			"devDependencies": {
+				"bignum": "git+https://github.com/fanatid/node-bignum.git#e688fd40dff43b03480bcdb5e4c099ee9ac27102",
+				"browserify": "^16.2.3",
+				"karma": "^1.3.0",
+				"karma-browserify": "^5.0.4",
+				"karma-chrome-launcher": "^2.2.0",
+				"karma-detect-browsers": "^2.3.3",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-tap": "^3.1.1",
+				"node-gyp": "^4.0.0",
+				"nyc": "^14.1.0",
+				"standard": "^12.0.1",
+				"tape": "^4.10.1",
+				"xorshift.js": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./elliptic.js"
+			},
+			"gitHead": "bce4af79592d76156dd696f3c2643d806572a121",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.7.0",
+			"_nodeVersion": "12.2.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-YlUIghD6ilkMkzmFJpIdVjiamv2S8lNZ9YMwm1XII9JC0NcR5qQiv2DOp/G37sExBtaMStzba4VDJtvBXEbmMQ==",
+				"shasum": "e85972f847b586cc4b2acd69497d3f80afaa7505",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.7.0.tgz",
+				"fileCount": 124,
+				"unpackedSize": 1009615,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc0ncnCRA9TVsSAnZWagAAsFUQAIq77gj8L5GfAvZsXh5y\nkghgoIbtlifKbVjQVK0m3h/N4NFPUgzRkyw15ZrcnnrYw9QI0iwHKWyWy+Ps\nqwctTZQjhBlLyF4Hte+Qlq6MOsz61Yi2aI1oLBHrDjINIolquQAI3LokTFbJ\nXy+Fkg5lQxQtHYVMF+hvdvTyKhoON1K3kPfZWe2FJb+Fej3n/hh1VcxZHz51\n94/yUI2Zb38e0u9kyegogRb6F0/NYKtTDkfdp2SrwAxB9LyPflemK60TB+l9\n8aX2Mz0BMXxZLxSf1rpN2TyH402QOCKEQtDp+wYHHySW1bZZ3DS6lZGykQ6p\njPaCpbkbu76FdWyUEo7WOkc9aquS+gjvVe7JMrC2KQpE9H8PgXWAAhmqmAnV\nXbyYDqwPsF7aM8nOEdkn0kDlywVTuUVh7VXItPnuJMzHT6QqSj9YThUvVH81\n/ylHOJzQuJBx6vP7fC/ZH1yO1PnilVRT6y4A4gltY0oS2sOT2jZcJ+C59u1/\nDnXplu/hr6RG1ilew8M+l6t0LJveyqfI+DJJROa44D7ipfCLx2wN3gw1nldN\n4j3P8wk5h9mfkZLWy481xSufU67vRyEPmsUvsz8ui155q+FHCigGsBiPcXHV\nEABgmbQ4y8PkM5BK7ZdYMukRdHIni547ZhkoWgUUsV71oXgUjp38Vj6HJ6bO\nMazY\r\n=dRHk\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/secp256k1_3.7.0_1557296934687_0.6819839721945573"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.7.1": {
+			"name": "secp256k1",
+			"version": "3.7.1",
+			"description": "This module provides native bindings to ecdsa secp256k1 functions",
+			"keywords": [
+				"ec",
+				"ecdh",
+				"ecdsa",
+				"secp256k1"
+			],
+			"bugs": {
+				"url": "https://github.com/cryptocoinjs/secp256k1-node/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Martin Becze",
+				"email": "mjbecze@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Aaron Davis",
+					"url": "https://github.com/kumavis"
+				},
+				{
+					"name": "Ian Matyssik",
+					"url": "https://github.com/phpb-com"
+				},
+				{
+					"name": "Kagami Hiiragi",
+					"email": "kagami@genshiken.org",
+					"url": "http://kagami.genshiken.org/"
+				},
+				{
+					"name": "ethers",
+					"url": "https://github.com/ethers"
+				},
+				{
+					"name": "Kirill Fomichev",
+					"email": "fanatid@ya.ru",
+					"url": "https://github.com/fanatid"
+				}
+			],
+			"main": "./index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/cryptocoinjs/secp256k1-node.git"
+			},
+			"scripts": {
+				"coverage": "RANDOM_TESTS_REPEAT=1 nyc tape test/index.js",
+				"coverage-lcov": "npm run coverage && nyc report -r lcov",
+				"install": "npm run rebuild || echo \"Secp256k1 bindings compilation fail. Pure JS implementation will be used.\"",
+				"lint": "standard",
+				"rebuild": "node-gyp rebuild",
+				"test": "npm run lint && npm run unit",
+				"test:browser": "karma start karma.conf.js",
+				"unit": "tape test/index.js"
+			},
+			"dependencies": {
+				"bindings": "^1.5.0",
+				"bip66": "^1.1.5",
+				"bn.js": "^4.11.8",
+				"create-hash": "^1.2.0",
+				"drbg.js": "^1.0.1",
+				"elliptic": "^6.4.1",
+				"nan": "^2.14.0",
+				"safe-buffer": "^5.1.2"
+			},
+			"devDependencies": {
+				"bignum": "git+https://github.com/fanatid/node-bignum.git#e688fd40dff43b03480bcdb5e4c099ee9ac27102",
+				"browserify": "^16.2.3",
+				"karma": "^1.3.0",
+				"karma-browserify": "^5.0.4",
+				"karma-chrome-launcher": "^2.2.0",
+				"karma-detect-browsers": "^2.3.3",
+				"karma-env-preprocessor": "^0.1.1",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-tap": "^3.1.1",
+				"node-gyp": "^4.0.0",
+				"nyc": "^14.1.0",
+				"standard": "^12.0.1",
+				"tape": "^4.10.1",
+				"xorshift.js": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=4.0.0"
+			},
+			"gypfile": true,
+			"browser": {
+				"./index.js": "./elliptic.js"
+			},
+			"gitHead": "2f1c956d71c39e5667e6285a6dafc15ce28e86f0",
+			"homepage": "https://github.com/cryptocoinjs/secp256k1-node#readme",
+			"_id": "secp256k1@3.7.1",
+			"_nodeVersion": "12.3.1",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-1cf8sbnRreXrQFdH6qsg2H71Xw91fCCS9Yp021GnUNJzWJS/py96fS4lHbnTnouLp08Xj6jBoBB6V78Tdbdu5g==",
+				"shasum": "12e473e0e9a7c2f2d4d4818e722ad0e14cc1e2f1",
+				"tarball": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.7.1.tgz",
+				"fileCount": 124,
+				"unpackedSize": 1009621,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc8P4oCRA9TVsSAnZWagAAmAwP/29GvrdO8ujgme1aUx8N\n4IYRKmXGEuwh/h5vWyMlGDdHiY2M6+8nNseSoH9XzUlPcrWjY1Lm8qPBlOSA\nTF1DIRQ2JoN5/FIoXuucmFro/8Z40ZTMZJd5zAGIbNHytuwx0mnppGFgbiA2\nRSmwFYtiaxedPYO7XaxuRDVYxIxE52AfOp0rrk7197m6FuQXpGuFsYMrRogu\nHucifq9YhmjyaI9IuR+x/9+idQzZC1JzGa/EzMksZ2pGRfEQW6zVV9zR8NS5\nD0eCVnk6/w6+sFrSJthUoHYqn5ojpBb/gAudAEEc3OHvtXozfe3sHF9h0/Df\npEKs6z8wvpwCoLjcQcfNpG5EijQbp9BVtN6weq1xNsVQHa2IzdjV2SvZ+dPm\nnP+oEbGaoDX+EqOWuaxduvixe8QLkG3qulkO9Ugr62RimiYDVX7S1FFfrVnf\nWYCKfCPGlcPHd0MJoOOjPVFPcmyCAurlaMTxKHnMD+HOiB8I/JEvJnUbgURe\nmewQyA+yLEbaLRR3LieVtuTwKKiS3KUVPkD41NWB+LchZGS5VWgSY9NXs2xY\nRd0VCX9BVxgkxkv68ejaoXKTe6CMnxM7K/9MlTCUx6Rx8FlNpT+vMwvpaMIY\nsXiPkXq0R4DwrfPiPCXj6ma/65qz900UINSXAy3HAxDwUbLjHsXbSpQVDYzG\nRAvx\r\n=E6Xa\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "fanatid",
+					"email": "fanatid@ya.ru"
+				}
+			],
+			"_npmUser": {
+				"name": "fanatid",
+				"email": "fanatid@ya.ru"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/secp256k1_3.7.1_1559297575229_0.8136634537004803"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-05-31T10:12:58.051Z",
+		"created": "2014-10-05T01:29:24.224Z",
+		"0.0.1": "2014-10-05T01:29:24.224Z",
+		"0.0.2": "2014-10-05T01:54:41.474Z",
+		"0.0.3": "2014-10-06T02:16:12.367Z",
+		"0.0.4": "2014-10-11T00:44:05.365Z",
+		"0.0.5": "2014-10-12T23:14:02.348Z",
+		"0.0.6": "2014-10-13T00:12:26.709Z",
+		"0.0.7": "2014-10-26T01:38:21.330Z",
+		"0.0.8": "2014-11-02T01:36:52.938Z",
+		"0.0.9": "2014-11-07T21:59:35.150Z",
+		"0.0.10": "2014-11-10T19:42:56.004Z",
+		"0.0.11": "2014-11-13T02:46:03.171Z",
+		"0.0.12": "2014-11-13T04:01:59.992Z",
+		"0.0.13": "2014-12-22T03:35:52.014Z",
+		"0.0.14": "2015-01-22T01:47:43.961Z",
+		"0.0.15": "2015-01-28T00:58:37.564Z",
+		"0.0.16": "2015-06-27T16:52:31.660Z",
+		"0.0.17": "2015-07-02T17:45:24.011Z",
+		"1.0.0": "2015-08-06T23:31:52.473Z",
+		"1.0.1": "2015-08-07T00:01:47.149Z",
+		"1.1.0": "2015-08-07T16:48:10.954Z",
+		"1.1.1": "2015-08-09T17:55:26.831Z",
+		"1.1.2": "2015-09-15T03:57:43.840Z",
+		"1.1.3": "2015-09-15T15:27:43.140Z",
+		"1.1.4": "2015-09-21T18:45:16.905Z",
+		"1.1.5": "2015-10-22T08:15:44.571Z",
+		"1.1.6": "2015-10-24T09:42:41.877Z",
+		"2.0.0": "2015-11-05T02:56:46.696Z",
+		"2.0.1": "2015-11-06T13:55:40.135Z",
+		"2.0.2": "2015-11-06T17:52:01.826Z",
+		"2.0.3": "2015-11-11T08:33:25.478Z",
+		"2.0.4": "2015-11-13T17:53:49.650Z",
+		"2.0.5": "2015-11-16T19:02:51.267Z",
+		"2.0.6": "2015-11-20T07:48:49.357Z",
+		"2.0.7": "2015-11-27T20:17:06.536Z",
+		"2.0.8": "2016-01-14T06:24:44.556Z",
+		"2.0.9": "2016-01-20T01:59:25.992Z",
+		"2.0.10": "2016-01-20T03:55:25.728Z",
+		"3.0.0": "2016-02-01T19:18:51.312Z",
+		"3.0.1": "2016-03-01T04:39:22.803Z",
+		"3.1.0": "2016-05-04T17:41:36.205Z",
+		"3.2.0": "2016-08-18T07:02:11.447Z",
+		"3.2.1": "2016-10-26T07:47:01.042Z",
+		"3.2.2": "2016-10-26T20:52:21.936Z",
+		"3.2.5": "2017-01-07T16:44:01.609Z",
+		"3.3.0": "2017-06-07T21:34:12.136Z",
+		"3.3.1": "2017-11-06T16:00:15.669Z",
+		"3.4.0": "2017-12-02T21:21:15.283Z",
+		"3.5.0": "2018-01-26T10:51:50.805Z",
+		"3.5.2": "2018-08-22T08:08:58.149Z",
+		"3.6.0": "2018-12-24T06:56:43.090Z",
+		"3.6.1": "2018-12-29T16:35:26.288Z",
+		"3.6.2": "2019-01-28T11:10:57.315Z",
+		"3.7.0": "2019-05-08T06:28:54.843Z",
+		"3.7.1": "2019-05-31T10:12:55.374Z"
+	},
+	"dist-tags": {
+		"latest": "3.7.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"d500ec608e77623a05f8f0beafc755bd\"",
+			"fetched": 1568994331695
+		}
+	},
+	"_distfiles": {
+		"secp256k1-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.1.tgz",
+			"sha": "42680e515540ace82c8e35df3297e5e273498293",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.2.tgz",
+			"sha": "28270ed3b3b8a24fac80edc6f53954169f956e5e",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.3.tgz",
+			"sha": "b0a00a9884e9464b960a98a7de4e73c08e3e3dab",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.4.tgz",
+			"sha": "d581678c2fe58932e32034ead551216151a4316b",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.5.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.5.tgz",
+			"sha": "d6bbac873f84d39189696b4d851ff70cbab2de83",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.6.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.6.tgz",
+			"sha": "d9314dcc8e266ed890992d86863d5505842714e8",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.7.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.7.tgz",
+			"sha": "675eb763513ea4d8229ec2d09f06130977b3653a",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.8.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.8.tgz",
+			"sha": "20fc7ba110e6d6f3ca9763ba594bf635b68cf790",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.9.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.9.tgz",
+			"sha": "13c38fbcb007af93fce34bc6a3370801bd28301d",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.10.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.10.tgz",
+			"sha": "f33af7bd0ed792f1cc74bf0702e011c38013c636",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.11.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.11.tgz",
+			"sha": "73542701cba27582e6a183b90a4ee279971c352b",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.12.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.12.tgz",
+			"sha": "18ac774da69af5251686387748405f2d835d50d8",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.13.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.13.tgz",
+			"sha": "9eef86df63d8d68d8ccae025e95244e15f716118",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.14.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.14.tgz",
+			"sha": "c21a3057fc1eec5ce3abc073c831cb6304ebede6",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.15.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.15.tgz",
+			"sha": "e8aea1e3c38eb86bf6bb832f68f88df1ec5578b9",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.16.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.16.tgz",
+			"sha": "ed6943ebd520c4596415d196999e850c13cb7b15",
+			"registry": "npmjs"
+		},
+		"secp256k1-0.0.17.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-0.0.17.tgz",
+			"sha": "83b4207df43386bcf71f264bef3799d9773ca776",
+			"registry": "npmjs"
+		},
+		"secp256k1-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.0.0.tgz",
+			"sha": "a557d2bf2d2fe0d8a6aa713eaa7d480ccd1c2b20",
+			"registry": "npmjs"
+		},
+		"secp256k1-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.0.1.tgz",
+			"sha": "adffd1018124949f35cf270db82af35c991066b8",
+			"registry": "npmjs"
+		},
+		"secp256k1-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.1.0.tgz",
+			"sha": "045746d91d5dfba4b12de8f238019b1613246d88",
+			"registry": "npmjs"
+		},
+		"secp256k1-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.1.1.tgz",
+			"sha": "81a8385b27203e6458dadb6b7fdb0a40b6d13d94",
+			"registry": "npmjs"
+		},
+		"secp256k1-1.1.2.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.1.2.tgz",
+			"sha": "7430c61c17f20f07d1f152900ae1d8ce3e2b93db",
+			"registry": "npmjs"
+		},
+		"secp256k1-1.1.3.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.1.3.tgz",
+			"sha": "8dab0739dd98269c17aab4d8d51c03c889571dbf",
+			"registry": "npmjs"
+		},
+		"secp256k1-1.1.4.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.1.4.tgz",
+			"sha": "a9f0de4059eda4980bcff0e56e1457ffdb0114fe",
+			"registry": "npmjs"
+		},
+		"secp256k1-1.1.5.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.1.5.tgz",
+			"sha": "ae653d162e101b0bd5a2cfc07ed53cb1d4ed038b",
+			"registry": "npmjs"
+		},
+		"secp256k1-1.1.6.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-1.1.6.tgz",
+			"sha": "e467379d2f0f8cb60bccc21ffbb9ea8997a5847c",
+			"registry": "npmjs"
+		},
+		"secp256k1-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.0.tgz",
+			"sha": "40a8193c589b1d49497456409a7a45746e42ec88",
+			"registry": "npmjs"
+		},
+		"secp256k1-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.1.tgz",
+			"sha": "07b82cc4cd6448f1bdab7b442acb4938de027fcc",
+			"registry": "npmjs"
+		},
+		"secp256k1-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.2.tgz",
+			"sha": "fc59e37d68e0a5de329a7f808e0351d987f76bb4",
+			"registry": "npmjs"
+		},
+		"secp256k1-2.0.3.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.3.tgz",
+			"sha": "712b1034558ca4d5fe750e4dcb4d8518110e0509",
+			"registry": "npmjs"
+		},
+		"secp256k1-2.0.4.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.4.tgz",
+			"sha": "0453e4ba1cc00485912174ef4a1c59b0f1b6fa49",
+			"registry": "npmjs"
+		},
+		"secp256k1-2.0.5.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.5.tgz",
+			"sha": "dbcd0db42be1c3ca3aafc5e4b25c661a9d6c625b",
+			"registry": "npmjs"
+		},
+		"secp256k1-2.0.6.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.6.tgz",
+			"sha": "14ea8c6e440cc2583a9b1a981a7bcbe71def88e9",
+			"registry": "npmjs"
+		},
+		"secp256k1-2.0.7.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.7.tgz",
+			"sha": "f60f9ee9b7733963ac92ffeef55a36f39b649784",
+			"registry": "npmjs"
+		},
+		"secp256k1-2.0.8.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.8.tgz",
+			"sha": "b57476013f1237f596f73570f4d4b8c7212d9cf1",
+			"registry": "npmjs"
+		},
+		"secp256k1-2.0.9.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.9.tgz",
+			"sha": "918442cb69e902dd12a7901273fea5d679606c87",
+			"registry": "npmjs"
+		},
+		"secp256k1-2.0.10.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-2.0.10.tgz",
+			"sha": "c7d6a3c119e1ca44083c367b0715e184907417b3",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.0.0.tgz",
+			"sha": "d0e741d658c10f9fd98391c582b8a502243d56f2",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.0.1.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.0.1.tgz",
+			"sha": "1e9205135a4ed3503150dd00e7a4eb219f2900b3",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.1.0.tgz",
+			"sha": "f55529d0a52893fcb3454145b0274d4f9e01e162",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.2.0.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.2.0.tgz",
+			"sha": "4503def2190f501d6baa93d63c384550a1d726f6",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.2.2.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.2.2.tgz",
+			"sha": "2103620789ca2c9b79650cdf8cfc9c542be36597",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.2.5.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.2.5.tgz",
+			"sha": "0dde5b27e5021665f6dffca7b2c3e010c6c13c93",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.3.0.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.3.0.tgz",
+			"sha": "50ec9b201ba401403dd13ccbf21d31eeb3ff43cf",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.3.1.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.3.1.tgz",
+			"sha": "d1d325519db714789c11ec0450d4b9a3aa01eb1a",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.4.0.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.4.0.tgz",
+			"sha": "1c905b256fa4ae5b9cc170e672dd59b4c5de46a4",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.5.0.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.5.0.tgz",
+			"sha": "677d3b8a8e04e1a5fa381a1ae437c54207b738d0",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.5.2.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.5.2.tgz",
+			"sha": "f95f952057310722184fe9c914e6b71281f2f2ae",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.6.0.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.6.0.tgz",
+			"sha": "26b44b0df3562319b20f5070efcdd4fa36112650",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.6.1.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.6.1.tgz",
+			"sha": "f0475d42096218ff00e45a127242abdff9285335",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.6.2.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.6.2.tgz",
+			"sha": "da835061c833c74a12f75c73d2ec2e980f00dc1f",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.7.0.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.7.0.tgz",
+			"sha": "e85972f847b586cc4b2acd69497d3f80afaa7505",
+			"registry": "npmjs"
+		},
+		"secp256k1-3.7.1.tgz": {
+			"url": "https://registry.npmjs.org/secp256k1/-/secp256k1-3.7.1.tgz",
+			"sha": "12e473e0e9a7c2f2d4d4818e722ad0e14cc1e2f1",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-0fd22acf87435349",
+	"_id": "secp256k1",
+	"readme": "# secp256k1-node\n\nVersion | Mac/Linux | Windows\n------- | --------- | -------\n[![NPM Package](https://img.shields.io/npm/v/secp256k1.svg?style=flat-square)](https://www.npmjs.org/package/secp256k1) | [![Build Status](https://img.shields.io/travis/cryptocoinjs/secp256k1-node.svg?branch=master&style=flat-square)](https://travis-ci.org/cryptocoinjs/secp256k1-node) | [![AppVeyor](https://img.shields.io/appveyor/ci/fanatid/secp256k1-node.svg?branch=master&style=flat-square)](https://ci.appveyor.com/project/fanatid/secp256k1-node)\n\n[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)\n\nThis module provides native bindings to [bitcoin-core/secp256k1](https://github.com/bitcoin-core/secp256k1). In browser [elliptic](https://github.com/indutny/elliptic) will be used.\n\nThis library is experimental, so use at your own risk. Works on node version 4.0.0 or greater.\n\n## Installation\n\n##### from npm\n\n`npm install secp256k1`\n\n##### from git\n\n```\ngit clone git@github.com:cryptocoinjs/secp256k1-node.git\ncd secp256k1-node\ngit submodule update --init\nnpm install\n```\n\n##### Windows\n\nThe easiest way to build the package on windows is to install [windows-build-tools](https://github.com/felixrieseberg/windows-build-tools).\n\nOr install the following software:\n\n  * Git: https://git-scm.com/download/win\n  * nvm: https://github.com/coreybutler/nvm-windows\n  * Python 2.7: https://www.python.org/downloads/release/python-2712/\n  * Visual C++ Build Tools: http://landinghub.visualstudio.com/visual-cpp-build-tools (Custom Install, and select both Windows 8.1 and Windows 10 SDKs)\n\nAnd run commands:\n\n```\nnpm config set msvs_version 2015 --global\nnpm install npm@next -g\n```\n\nBased on:\n\n  * https://github.com/nodejs/node-gyp/issues/629#issuecomment-153196245\n  * https://github.com/nodejs/node-gyp/issues/972\n\n## Usage\n\n* [API Reference (v3.x)](https://github.com/cryptocoinjs/secp256k1-node/blob/master/API.md)\n* [API Reference (v2.x)](https://github.com/cryptocoinjs/secp256k1-node/blob/v2.x/API.md)\n\n```js\nconst { randomBytes } = require('crypto')\nconst secp256k1 = require('secp256k1')\n// or require('secp256k1/elliptic')\n//   if you want to use pure js implementation in node\n\n// generate message to sign\nconst msg = randomBytes(32)\n\n// generate privKey\nlet privKey\ndo {\n  privKey = randomBytes(32)\n} while (!secp256k1.privateKeyVerify(privKey))\n\n// get the public key in a compressed format\nconst pubKey = secp256k1.publicKeyCreate(privKey)\n\n// sign the message\nconst sigObj = secp256k1.sign(msg, privKey)\n\n// verify the signature\nconsole.log(secp256k1.verify(msg, sigObj.signature, pubKey))\n// => true\n```\n\n\\* **.verify return false for high signatures**\n\n## Second pure js implementation\n\nProject has yet one secp256k1 implementation based on [elliptic](http://github.com/indutny/elliptic) and [bn.js](http://github.com/indutny/bn.js). The main purpose of this smaller size, high performance and easy code audit. This implementation is super experimental, use it at your own risk.\n\n## LICENSE\n\nThis library is free and open-source software released under the MIT license."
+}

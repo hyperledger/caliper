@@ -1,0 +1,450 @@
+{
+	"name": "lodash._baseslice",
+	"versions": {
+		"3.0.0": {
+			"name": "lodash._baseslice",
+			"version": "3.0.0",
+			"description": "The modern build of lodash’s internal `baseSlice` as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Benjamin Tan",
+					"email": "demoneaux@gmail.com",
+					"url": "https://d10.github.io/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "http://www.iceddev.com/"
+				},
+				{
+					"name": "Kit Cambridge",
+					"email": "github@kitcambridge.be",
+					"url": "http://kitcambridge.be/"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/lodash/lodash"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash._baseslice@3.0.0",
+			"_shasum": "bbdbc3bddfbcdee88d79b829ce4076f4072e476c",
+			"_from": ".",
+			"_npmVersion": "2.3.0",
+			"_nodeVersion": "0.10.35",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "bbdbc3bddfbcdee88d79b829ce4076f4072e476c",
+				"tarball": "https://registry.npmjs.org/lodash._baseslice/-/lodash._baseslice-3.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"3.0.1": {
+			"name": "lodash._baseslice",
+			"version": "3.0.1",
+			"description": "The modern build of lodash’s internal `baseSlice` as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Benjamin Tan",
+					"email": "demoneaux@gmail.com",
+					"url": "https://d10.github.io/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "http://www.iceddev.com/"
+				},
+				{
+					"name": "Kit Cambridge",
+					"email": "github@kitcambridge.be",
+					"url": "http://kitcambridge.be/"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/lodash/lodash"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash._baseslice@3.0.1",
+			"_shasum": "79c9a951f4b5a90f45f28a51664ab6532395e2f6",
+			"_from": ".",
+			"_npmVersion": "2.3.0",
+			"_nodeVersion": "0.10.35",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "d10",
+					"email": "demoneaux@gmail.com"
+				},
+				{
+					"name": "kitcambridge",
+					"email": "github@kitcambridge.be"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"dist": {
+				"shasum": "79c9a951f4b5a90f45f28a51664ab6532395e2f6",
+				"tarball": "https://registry.npmjs.org/lodash._baseslice/-/lodash._baseslice-3.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"3.0.2": {
+			"name": "lodash._baseslice",
+			"version": "3.0.2",
+			"description": "The modern build of lodash’s internal `baseSlice` as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Benjamin Tan",
+					"email": "demoneaux@gmail.com",
+					"url": "https://d10.github.io/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "http://www.iceddev.com/"
+				},
+				{
+					"name": "Kit Cambridge",
+					"email": "github@kitcambridge.be",
+					"url": "http://kitcambridge.be/"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/lodash/lodash"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash._baseslice@3.0.2",
+			"_shasum": "a2f3f0066300b1cc7d4ba4041f7af7395a62a2eb",
+			"_from": ".",
+			"_npmVersion": "2.7.0",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "d10",
+					"email": "demoneaux@gmail.com"
+				},
+				{
+					"name": "kitcambridge",
+					"email": "github@kitcambridge.be"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"dist": {
+				"shasum": "a2f3f0066300b1cc7d4ba4041f7af7395a62a2eb",
+				"tarball": "https://registry.npmjs.org/lodash._baseslice/-/lodash._baseslice-3.0.2.tgz"
+			},
+			"directories": {}
+		},
+		"3.0.3": {
+			"name": "lodash._baseslice",
+			"version": "3.0.3",
+			"description": "The modern build of lodash’s internal `baseSlice` as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Benjamin Tan",
+					"email": "demoneaux@gmail.com",
+					"url": "https://d10.github.io/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "http://www.iceddev.com/"
+				},
+				{
+					"name": "Kit Cambridge",
+					"email": "github@kitcambridge.be",
+					"url": "http://kitcambridge.be/"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/lodash/lodash"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash._baseslice@3.0.3",
+			"_shasum": "aa4ae3dc53eed53b08de2e3362b39357b5c87d75",
+			"_from": ".",
+			"_npmVersion": "2.7.6",
+			"_nodeVersion": "0.12.2",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "d10",
+					"email": "demoneaux@gmail.com"
+				},
+				{
+					"name": "kitcambridge",
+					"email": "github@kitcambridge.be"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"dist": {
+				"shasum": "aa4ae3dc53eed53b08de2e3362b39357b5c87d75",
+				"tarball": "https://registry.npmjs.org/lodash._baseslice/-/lodash._baseslice-3.0.3.tgz"
+			},
+			"directories": {}
+		},
+		"4.0.0": {
+			"name": "lodash._baseslice",
+			"version": "4.0.0",
+			"description": "The internal lodash function `baseSlice` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash._baseslice@4.0.0",
+			"_shasum": "f5ce1df982948ecaff63f223853415b7b9763704",
+			"_from": ".",
+			"_npmVersion": "2.14.15",
+			"_nodeVersion": "5.4.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "f5ce1df982948ecaff63f223853415b7b9763704",
+				"tarball": "https://registry.npmjs.org/lodash._baseslice/-/lodash._baseslice-4.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2016-10-06T16:55:01.320Z",
+		"created": "2015-01-26T15:28:05.675Z",
+		"3.0.0": "2015-01-26T15:28:05.675Z",
+		"3.0.1": "2015-01-30T10:04:03.233Z",
+		"3.0.2": "2015-03-09T05:06:26.126Z",
+		"3.0.3": "2015-04-16T16:27:20.291Z",
+		"4.0.0": "2016-01-13T09:27:49.857Z"
+	},
+	"dist-tags": {
+		"latest": "4.0.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"27941354070b077ae9d1b52fdab7553f\"",
+			"fetched": 1568994342554
+		}
+	},
+	"_distfiles": {
+		"lodash._baseslice-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/lodash._baseslice/-/lodash._baseslice-3.0.0.tgz",
+			"sha": "bbdbc3bddfbcdee88d79b829ce4076f4072e476c",
+			"registry": "npmjs"
+		},
+		"lodash._baseslice-3.0.1.tgz": {
+			"url": "https://registry.npmjs.org/lodash._baseslice/-/lodash._baseslice-3.0.1.tgz",
+			"sha": "79c9a951f4b5a90f45f28a51664ab6532395e2f6",
+			"registry": "npmjs"
+		},
+		"lodash._baseslice-3.0.2.tgz": {
+			"url": "https://registry.npmjs.org/lodash._baseslice/-/lodash._baseslice-3.0.2.tgz",
+			"sha": "a2f3f0066300b1cc7d4ba4041f7af7395a62a2eb",
+			"registry": "npmjs"
+		},
+		"lodash._baseslice-3.0.3.tgz": {
+			"url": "https://registry.npmjs.org/lodash._baseslice/-/lodash._baseslice-3.0.3.tgz",
+			"sha": "aa4ae3dc53eed53b08de2e3362b39357b5c87d75",
+			"registry": "npmjs"
+		},
+		"lodash._baseslice-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/lodash._baseslice/-/lodash._baseslice-4.0.0.tgz",
+			"sha": "f5ce1df982948ecaff63f223853415b7b9763704",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-476e9acd890a72a6",
+	"_id": "lodash._baseslice",
+	"readme": "# lodash._baseslice v4.0.0\n\nThe internal [lodash](https://lodash.com/) function `baseSlice` exported as a [Node.js](https://nodejs.org/) module.\n\n## Installation\n\nUsing npm:\n```bash\n$ {sudo -H} npm i -g npm\n$ npm i --save lodash._baseslice\n```\n\nIn Node.js:\n```js\nvar baseSlice = require('lodash._baseslice');\n```\n\nSee the [package source](https://github.com/lodash/lodash/blob/4.0.0-npm-packages/lodash._baseslice) for more details."
+}

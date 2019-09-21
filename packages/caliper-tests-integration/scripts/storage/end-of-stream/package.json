@@ -1,0 +1,727 @@
+{
+	"name": "end-of-stream",
+	"versions": {
+		"0.1.0": {
+			"name": "end-of-stream",
+			"version": "0.1.0",
+			"description": "Call a callback when a readable/writable/duplex stream has completed or failed.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/mafintosh/end-of-stream.git"
+			},
+			"dependencies": {
+				"once": "~1.3.0"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"keywords": [
+				"stream",
+				"streams",
+				"callback",
+				"finish",
+				"close",
+				"end",
+				"wait"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/end-of-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/end-of-stream",
+			"_id": "end-of-stream@0.1.0",
+			"dist": {
+				"shasum": "310772e4b1a2855c9a7d809d916ecf964f7831f4",
+				"tarball": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-0.1.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.1": {
+			"name": "end-of-stream",
+			"version": "0.1.1",
+			"description": "Call a callback when a readable/writable/duplex stream has completed or failed.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/mafintosh/end-of-stream.git"
+			},
+			"dependencies": {
+				"once": "~1.3.0"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"keywords": [
+				"stream",
+				"streams",
+				"callback",
+				"finish",
+				"close",
+				"end",
+				"wait"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/end-of-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/end-of-stream",
+			"_id": "end-of-stream@0.1.1",
+			"dist": {
+				"shasum": "fc099fa7ff955d4bd9626a9adf37ee7161e1c81e",
+				"tarball": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-0.1.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.2": {
+			"name": "end-of-stream",
+			"version": "0.1.2",
+			"description": "Call a callback when a readable/writable/duplex stream has completed or failed.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/mafintosh/end-of-stream.git"
+			},
+			"dependencies": {
+				"once": "~1.3.0"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"keywords": [
+				"stream",
+				"streams",
+				"callback",
+				"finish",
+				"close",
+				"end",
+				"wait"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/end-of-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/end-of-stream",
+			"_id": "end-of-stream@0.1.2",
+			"dist": {
+				"shasum": "5079910317c36b7870f655d4c7c1fb614daddaa5",
+				"tarball": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-0.1.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.3": {
+			"name": "end-of-stream",
+			"version": "0.1.3",
+			"description": "Call a callback when a readable/writable/duplex stream has completed or failed.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/mafintosh/end-of-stream.git"
+			},
+			"dependencies": {
+				"once": "~1.3.0"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"keywords": [
+				"stream",
+				"streams",
+				"callback",
+				"finish",
+				"close",
+				"end",
+				"wait"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/end-of-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/end-of-stream",
+			"_id": "end-of-stream@0.1.3",
+			"dist": {
+				"shasum": "397eb7c9e0a195ab5d3b9609c578ad33ed4997c3",
+				"tarball": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-0.1.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.4": {
+			"name": "end-of-stream",
+			"version": "0.1.4",
+			"description": "Call a callback when a readable/writable/duplex stream has completed or failed.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/mafintosh/end-of-stream.git"
+			},
+			"dependencies": {
+				"once": "~1.3.0"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"keywords": [
+				"stream",
+				"streams",
+				"callback",
+				"finish",
+				"close",
+				"end",
+				"wait"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/end-of-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/end-of-stream",
+			"_id": "end-of-stream@0.1.4",
+			"dist": {
+				"shasum": "4a69b38706ecaaed83c53d22b7f073848ca9a203",
+				"tarball": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-0.1.4.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.24",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.5": {
+			"name": "end-of-stream",
+			"version": "0.1.5",
+			"description": "Call a callback when a readable/writable/duplex stream has completed or failed.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/mafintosh/end-of-stream.git"
+			},
+			"dependencies": {
+				"once": "~1.3.0"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"keywords": [
+				"stream",
+				"streams",
+				"callback",
+				"finish",
+				"close",
+				"end",
+				"wait"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/end-of-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/end-of-stream",
+			"main": "index.js",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"license": "MIT",
+			"_id": "end-of-stream@0.1.5",
+			"_shasum": "8e177206c3c80837d85632e8b9359dfe8b2f6eaf",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "8e177206c3c80837d85632e8b9359dfe8b2f6eaf",
+				"tarball": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-0.1.5.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "end-of-stream",
+			"version": "1.0.0",
+			"description": "Call a callback when a readable/writable/duplex stream has completed or failed.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/mafintosh/end-of-stream.git"
+			},
+			"dependencies": {
+				"once": "~1.3.0"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"keywords": [
+				"stream",
+				"streams",
+				"callback",
+				"finish",
+				"close",
+				"end",
+				"wait"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/end-of-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/end-of-stream",
+			"main": "index.js",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"license": "MIT",
+			"_id": "end-of-stream@1.0.0",
+			"_shasum": "d4596e702734a93e40e9af864319eabd99ff2f0e",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "d4596e702734a93e40e9af864319eabd99ff2f0e",
+				"tarball": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "end-of-stream",
+			"version": "1.1.0",
+			"description": "Call a callback when a readable/writable/duplex stream has completed or failed.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/mafintosh/end-of-stream.git"
+			},
+			"dependencies": {
+				"once": "~1.3.0"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"keywords": [
+				"stream",
+				"streams",
+				"callback",
+				"finish",
+				"close",
+				"end",
+				"wait"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/end-of-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/end-of-stream",
+			"main": "index.js",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"license": "MIT",
+			"gitHead": "16120f1529961ffd6e48118d8d978c97444633d4",
+			"_id": "end-of-stream@1.1.0",
+			"_shasum": "e9353258baa9108965efc41cb0ef8ade2f3cfb07",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "e9353258baa9108965efc41cb0ef8ade2f3cfb07",
+				"tarball": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.1.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "end-of-stream",
+			"version": "1.2.0",
+			"description": "Call a callback when a readable/writable/duplex stream has completed or failed.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/mafintosh/end-of-stream.git"
+			},
+			"dependencies": {
+				"once": "~1.3.0"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"keywords": [
+				"stream",
+				"streams",
+				"callback",
+				"finish",
+				"close",
+				"end",
+				"wait"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/end-of-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/end-of-stream",
+			"main": "index.js",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"license": "MIT",
+			"gitHead": "7504d3816b92ee511121f0e8144128a1faa80cd5",
+			"_id": "end-of-stream@1.2.0",
+			"_shasum": "bce82685eab6262e2a780ae740e6334027c01622",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.9.5",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "bce82685eab6262e2a780ae740e6334027c01622",
+				"tarball": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/end-of-stream-1.2.0.tgz_1489161686861_0.9188451103400439"
+			},
+			"directories": {}
+		},
+		"1.3.0": {
+			"name": "end-of-stream",
+			"version": "1.3.0",
+			"description": "Call a callback when a readable/writable/duplex stream has completed or failed.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/mafintosh/end-of-stream.git"
+			},
+			"dependencies": {
+				"once": "^1.4.0"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"keywords": [
+				"stream",
+				"streams",
+				"callback",
+				"finish",
+				"close",
+				"end",
+				"wait"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/end-of-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/end-of-stream",
+			"main": "index.js",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"license": "MIT",
+			"gitHead": "dee99ae5cfdddea9ed2a2e809ff03fae739db162",
+			"_id": "end-of-stream@1.3.0",
+			"_shasum": "9223d688e9a993365e8b9bce4b62ba55f20d7f69",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.9.5",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "9223d688e9a993365e8b9bce4b62ba55f20d7f69",
+				"tarball": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/end-of-stream-1.3.0.tgz_1489485355057_0.129423355916515"
+			},
+			"directories": {}
+		},
+		"1.4.0": {
+			"name": "end-of-stream",
+			"version": "1.4.0",
+			"description": "Call a callback when a readable/writable/duplex stream has completed or failed.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/mafintosh/end-of-stream.git"
+			},
+			"dependencies": {
+				"once": "^1.4.0"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"files": [
+				"index.js"
+			],
+			"keywords": [
+				"stream",
+				"streams",
+				"callback",
+				"finish",
+				"close",
+				"end",
+				"wait"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/end-of-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/end-of-stream",
+			"main": "index.js",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"license": "MIT",
+			"gitHead": "0ae1658b8167596fafbb9195363ada3bc5a3eaf2",
+			"_id": "end-of-stream@1.4.0",
+			"_shasum": "7a90d833efda6cfa6eac0f4949dbb0fad3a63206",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.9.5",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "7a90d833efda6cfa6eac0f4949dbb0fad3a63206",
+				"tarball": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/end-of-stream-1.4.0.tgz_1489488042174_0.6194448405876756"
+			},
+			"directories": {}
+		},
+		"1.4.1": {
+			"name": "end-of-stream",
+			"version": "1.4.1",
+			"description": "Call a callback when a readable/writable/duplex stream has completed or failed.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/mafintosh/end-of-stream.git"
+			},
+			"dependencies": {
+				"once": "^1.4.0"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"files": [
+				"index.js"
+			],
+			"keywords": [
+				"stream",
+				"streams",
+				"callback",
+				"finish",
+				"close",
+				"end",
+				"wait"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/end-of-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/end-of-stream",
+			"main": "index.js",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"license": "MIT",
+			"gitHead": "8a49159ed2661ee8ddb393c2503aee489f9ae271",
+			"_id": "end-of-stream@1.4.1",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.3",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-1MkrZNvWTKCaigbn+W15elq2BB/L22nqrSY5DKlo3X6+vclJm8Bb5djXJBmEX6fS3+zCh/F4VBK5Z2KxJt4s2Q==",
+				"shasum": "ed29634d19baba463b6ce6b80a37213eab71ec43",
+				"tarball": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/end-of-stream-1.4.1.tgz_1515600688004_0.3708031203132123"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2018-02-08T09:48:41.779Z",
+		"created": "2013-11-26T23:28:55.601Z",
+		"0.1.0": "2013-11-26T23:28:59.564Z",
+		"0.1.1": "2013-11-27T01:05:45.555Z",
+		"0.1.2": "2013-11-27T01:16:00.613Z",
+		"0.1.3": "2013-12-19T10:41:25.227Z",
+		"0.1.4": "2014-02-18T10:17:56.792Z",
+		"0.1.5": "2014-06-29T07:03:54.107Z",
+		"1.0.0": "2014-07-21T11:04:32.385Z",
+		"1.1.0": "2014-09-07T18:21:10.694Z",
+		"1.2.0": "2017-03-10T16:01:28.737Z",
+		"1.3.0": "2017-03-14T09:55:55.621Z",
+		"1.4.0": "2017-03-14T10:40:44.044Z",
+		"1.4.1": "2018-01-10T16:11:28.225Z"
+	},
+	"dist-tags": {
+		"latest": "1.4.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"7c10c0bf11f0b2d73d372e07b42a4767\"",
+			"fetched": 1568994335486
+		}
+	},
+	"_distfiles": {
+		"end-of-stream-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-0.1.0.tgz",
+			"sha": "310772e4b1a2855c9a7d809d916ecf964f7831f4",
+			"registry": "npmjs"
+		},
+		"end-of-stream-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-0.1.1.tgz",
+			"sha": "fc099fa7ff955d4bd9626a9adf37ee7161e1c81e",
+			"registry": "npmjs"
+		},
+		"end-of-stream-0.1.2.tgz": {
+			"url": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-0.1.2.tgz",
+			"sha": "5079910317c36b7870f655d4c7c1fb614daddaa5",
+			"registry": "npmjs"
+		},
+		"end-of-stream-0.1.3.tgz": {
+			"url": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-0.1.3.tgz",
+			"sha": "397eb7c9e0a195ab5d3b9609c578ad33ed4997c3",
+			"registry": "npmjs"
+		},
+		"end-of-stream-0.1.4.tgz": {
+			"url": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-0.1.4.tgz",
+			"sha": "4a69b38706ecaaed83c53d22b7f073848ca9a203",
+			"registry": "npmjs"
+		},
+		"end-of-stream-0.1.5.tgz": {
+			"url": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-0.1.5.tgz",
+			"sha": "8e177206c3c80837d85632e8b9359dfe8b2f6eaf",
+			"registry": "npmjs"
+		},
+		"end-of-stream-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.0.0.tgz",
+			"sha": "d4596e702734a93e40e9af864319eabd99ff2f0e",
+			"registry": "npmjs"
+		},
+		"end-of-stream-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.1.0.tgz",
+			"sha": "e9353258baa9108965efc41cb0ef8ade2f3cfb07",
+			"registry": "npmjs"
+		},
+		"end-of-stream-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.2.0.tgz",
+			"sha": "bce82685eab6262e2a780ae740e6334027c01622",
+			"registry": "npmjs"
+		},
+		"end-of-stream-1.3.0.tgz": {
+			"url": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.3.0.tgz",
+			"sha": "9223d688e9a993365e8b9bce4b62ba55f20d7f69",
+			"registry": "npmjs"
+		},
+		"end-of-stream-1.4.0.tgz": {
+			"url": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.0.tgz",
+			"sha": "7a90d833efda6cfa6eac0f4949dbb0fad3a63206",
+			"registry": "npmjs"
+		},
+		"end-of-stream-1.4.1.tgz": {
+			"url": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.1.tgz",
+			"sha": "ed29634d19baba463b6ce6b80a37213eab71ec43",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-e0e4dee96e81c014",
+	"_id": "end-of-stream",
+	"readme": "# end-of-stream\n\nA node module that calls a callback when a readable/writable/duplex stream has completed or failed.\n\n\tnpm install end-of-stream\n\n## Usage\n\nSimply pass a stream and a callback to the `eos`.\nBoth legacy streams, streams2 and stream3 are supported.\n\n``` js\nvar eos = require('end-of-stream');\n\neos(readableStream, function(err) {\n  // this will be set to the stream instance\n\tif (err) return console.log('stream had an error or closed early');\n\tconsole.log('stream has ended', this === readableStream);\n});\n\neos(writableStream, function(err) {\n\tif (err) return console.log('stream had an error or closed early');\n\tconsole.log('stream has finished', this === writableStream);\n});\n\neos(duplexStream, function(err) {\n\tif (err) return console.log('stream had an error or closed early');\n\tconsole.log('stream has ended and finished', this === duplexStream);\n});\n\neos(duplexStream, {readable:false}, function(err) {\n\tif (err) return console.log('stream had an error or closed early');\n\tconsole.log('stream has finished but might still be readable');\n});\n\neos(duplexStream, {writable:false}, function(err) {\n\tif (err) return console.log('stream had an error or closed early');\n\tconsole.log('stream has ended but might still be writable');\n});\n\neos(readableStream, {error:false}, function(err) {\n\t// do not treat emit('error', err) as a end-of-stream\n});\n```\n\n## License\n\nMIT\n\n## Related\n\n`end-of-stream` is part of the [mississippi stream utility collection](https://github.com/maxogden/mississippi) which includes more useful stream modules similar to this one."
+}

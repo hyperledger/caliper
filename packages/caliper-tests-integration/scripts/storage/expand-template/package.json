@@ -1,0 +1,729 @@
+{
+	"name": "expand-template",
+	"versions": {
+		"1.0.0": {
+			"name": "expand-template",
+			"version": "1.0.0",
+			"description": "Expand placeholders in a template string",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ralphtheninja/expand-template.git"
+			},
+			"homepage": "https://github.com/ralphtheninja/expand-template",
+			"scripts": {
+				"test": "tape test.js"
+			},
+			"keywords": [
+				"template",
+				"expand",
+				"replace"
+			],
+			"author": {
+				"name": "LM",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"license": "WTFPL",
+			"dependencies": {
+				"tape": "^4.0.3"
+			},
+			"gitHead": "045eb83ce3611aba1d79776f2524c6703a2e38f9",
+			"bugs": {
+				"url": "https://github.com/ralphtheninja/expand-template/issues"
+			},
+			"_id": "expand-template@1.0.0",
+			"_shasum": "ae533f46d8b0a778171af84a5b80692feec82e16",
+			"_from": ".",
+			"_npmVersion": "2.13.2",
+			"_nodeVersion": "2.5.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"maintainers": [
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "ae533f46d8b0a778171af84a5b80692feec82e16",
+				"tarball": "https://registry.npmjs.org/expand-template/-/expand-template-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "expand-template",
+			"version": "1.0.1",
+			"description": "Expand placeholders in a template string",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ralphtheninja/expand-template.git"
+			},
+			"homepage": "https://github.com/ralphtheninja/expand-template",
+			"scripts": {
+				"test": "tape test.js && standard"
+			},
+			"keywords": [
+				"template",
+				"expand",
+				"replace"
+			],
+			"author": {
+				"name": "LM",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"license": "WTFPL",
+			"dependencies": {
+				"tape": "^4.0.3"
+			},
+			"devDependencies": {
+				"standard": "^5.3.1"
+			},
+			"gitHead": "1c268d2ad671f4d7cb6ee9c6b48424b41287771f",
+			"bugs": {
+				"url": "https://github.com/ralphtheninja/expand-template/issues"
+			},
+			"_id": "expand-template@1.0.1",
+			"_shasum": "9661c035dcd98882df086a0879932bfdbf5596e0",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"maintainers": [
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "9661c035dcd98882df086a0879932bfdbf5596e0",
+				"tarball": "https://registry.npmjs.org/expand-template/-/expand-template-1.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "expand-template",
+			"version": "1.0.2",
+			"description": "Expand placeholders in a template string",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/ralphtheninja/expand-template.git"
+			},
+			"homepage": "https://github.com/ralphtheninja/expand-template",
+			"scripts": {
+				"test": "tape test.js && standard"
+			},
+			"keywords": [
+				"template",
+				"expand",
+				"replace"
+			],
+			"author": {
+				"name": "LM",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"license": "WTFPL",
+			"dependencies": {},
+			"devDependencies": {
+				"standard": "^5.3.1",
+				"tape": "^4.2.2"
+			},
+			"gitHead": "c76353bdf5ee8b41e9f9521eaecc06a0073ea160",
+			"bugs": {
+				"url": "https://github.com/ralphtheninja/expand-template/issues"
+			},
+			"_id": "expand-template@1.0.2",
+			"_shasum": "9c7d9d87957be425c5be86d84b6e2a678ef05c65",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"maintainers": [
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "9c7d9d87957be425c5be86d84b6e2a678ef05c65",
+				"tarball": "https://registry.npmjs.org/expand-template/-/expand-template-1.0.2.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "expand-template",
+			"version": "1.0.3",
+			"description": "Expand placeholders in a template string",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ralphtheninja/expand-template.git"
+			},
+			"homepage": "https://github.com/ralphtheninja/expand-template",
+			"scripts": {
+				"test": "tape test.js && standard"
+			},
+			"keywords": [
+				"template",
+				"expand",
+				"replace"
+			],
+			"author": {
+				"name": "LM",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"license": "WTFPL",
+			"dependencies": {},
+			"devDependencies": {
+				"standard": "^5.3.1",
+				"tape": "^4.2.2"
+			},
+			"gitHead": "686c7929a144bba8e43934d396bfe6992ed4a832",
+			"bugs": {
+				"url": "https://github.com/ralphtheninja/expand-template/issues"
+			},
+			"_id": "expand-template@1.0.3",
+			"_shasum": "6c303323177a62b1b22c070279f7861287b69b1a",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"maintainers": [
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "6c303323177a62b1b22c070279f7861287b69b1a",
+				"tarball": "https://registry.npmjs.org/expand-template/-/expand-template-1.0.3.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/expand-template-1.0.3.tgz_1473836954066_0.04371993010863662"
+			},
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "expand-template",
+			"version": "1.0.4",
+			"description": "Expand placeholders in a template string",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ralphtheninja/expand-template.git"
+			},
+			"homepage": "https://github.com/ralphtheninja/expand-template",
+			"scripts": {
+				"test": "tape test.js && standard"
+			},
+			"keywords": [
+				"template",
+				"expand",
+				"replace"
+			],
+			"author": {
+				"name": "LM",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"license": "WTFPL",
+			"dependencies": {},
+			"devDependencies": {
+				"standard": "^10.0.3",
+				"tape": "^4.2.2"
+			},
+			"gitHead": "f568efb046edd60bb2993f26ecead03bffa1f095",
+			"bugs": {
+				"url": "https://github.com/ralphtheninja/expand-template/issues"
+			},
+			"_id": "expand-template@1.0.4",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.3.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-42cXTxmoaxpet1k5o+4vlWhNyDrWtlrCrbXg0GiuhmVku3njXjeISgugv0FXoK3LzRXUcr40nvyXvFl8A+R1VQ==",
+				"shasum": "7f6ca646e62e959a6b835f10586edf2034da36fe",
+				"tarball": "https://registry.npmjs.org/expand-template/-/expand-template-1.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/expand-template-1.0.4.tgz_1503437023171_0.5823726421222091"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "expand-template",
+			"version": "1.1.0",
+			"description": "Expand placeholders in a template string",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ralphtheninja/expand-template.git"
+			},
+			"homepage": "https://github.com/ralphtheninja/expand-template",
+			"scripts": {
+				"test": "tape test.js && standard"
+			},
+			"keywords": [
+				"template",
+				"expand",
+				"replace"
+			],
+			"author": {
+				"name": "LM",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"license": "WTFPL",
+			"dependencies": {},
+			"devDependencies": {
+				"standard": "^10.0.3",
+				"tape": "^4.2.2"
+			},
+			"gitHead": "5fbffa338689cef04551a93092e9375220222de3",
+			"bugs": {
+				"url": "https://github.com/ralphtheninja/expand-template/issues"
+			},
+			"_id": "expand-template@1.1.0",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.3.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-kkjwkMqj0h4w/sb32ERCDxCQkREMCAgS39DscDnSwDsbxnwwM1BTZySdC3Bn1lhY7vL08n9GoO/fVTynjDgRyQ==",
+				"shasum": "e09efba977bf98f9ee0ed25abd0c692e02aec3fc",
+				"tarball": "https://registry.npmjs.org/expand-template/-/expand-template-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/expand-template-1.1.0.tgz_1503437181237_0.527762224432081"
+			},
+			"directories": {}
+		},
+		"1.1.1": {
+			"name": "expand-template",
+			"version": "1.1.1",
+			"description": "Expand placeholders in a template string",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ralphtheninja/expand-template.git"
+			},
+			"homepage": "https://github.com/ralphtheninja/expand-template",
+			"scripts": {
+				"test": "tape test.js && standard"
+			},
+			"keywords": [
+				"template",
+				"expand",
+				"replace"
+			],
+			"author": {
+				"name": "LM",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"license": "WTFPL",
+			"dependencies": {},
+			"devDependencies": {
+				"standard": "^11.0.0",
+				"tape": "^4.2.2"
+			},
+			"gitHead": "252aee7952b3c4ea6a1b9699ee4f6324586952b3",
+			"bugs": {
+				"url": "https://github.com/ralphtheninja/expand-template/issues"
+			},
+			"_id": "expand-template@1.1.1",
+			"_npmVersion": "6.0.0",
+			"_nodeVersion": "10.0.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-cebqLtV8KOZfw0UI8TEFWxtczxxC1jvyUvx6H4fyp1K1FN7A4Q+uggVUlOsI1K8AGU0rwOGqP8nCapdrw8CYQg==",
+				"shasum": "981f188c0c3a87d2e28f559bc541426ff94f21dd",
+				"tarball": "https://registry.npmjs.org/expand-template/-/expand-template-1.1.1.tgz",
+				"fileCount": 5,
+				"unpackedSize": 3833,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa8MHJCRA9TVsSAnZWagAA2kIP/iGdY4tWpPFhaPcMfpE2\nKq2v7zEs48vRoVUaXGrixMuebwFWnl82PbTmoOsfOZ0SGCPjol2Zl9tOR069\n+rB6Edp77i8UTdG4RFaT5BZSIEVCMxjv8eav0//A2wunZTB7CHmKUqfSkF8t\nwOa8yXKcaYJzbzCaUp3a5nylvxKza3fLXY0IoDJusfQYimn3Wj6BmMsgymfg\nosWhkXROEhvoRVBzmVj5nwuFUwdzEkKt3AU+ZmLE/PySNKismc0U2MCmOTpc\n/SlppovsbexJybQgfDigORuVZDNmFtLMJYe9H1y9pardvKdyXxLMFIyHVDxk\nswRC76TeqF2P2hEsZ1L6AYqU4oFQfNSberzr+0/w60KA48IhgxVVzTBVOaW4\n9dPWAdNWnunvK5Bt2iiDy3vlCGe3Jen6+6NPzLv153R6Oz1UV77MnAz6PiU+\ncGgzO+RgDcFOYur0+fs1YPYuYvJaPufhs7I0g9GF2pGlZKBVHFWzvRaY4VtG\nQ6GPk6Kb9ds1j6HEx+MDZAhX6FSk0T1GlCTgOuEDWDzGFO+HeGous2WHZqSo\n6GfQT/63TtgvZol1bJGbuQJz0fVLqhqgSAXWTQxwJpqDkU/2U5F2x7OFu4hK\n16BcRLsR5wYZSuiH3rAML5PW62mGDr+a1wke0T0IydtLC+x9Bm+ss2FTB9h2\nqFrr\r\n=eA/K\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/expand-template_1.1.1_1525727689264_0.6627704267065915"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "expand-template",
+			"version": "2.0.0",
+			"description": "Expand placeholders in a template string",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ralphtheninja/expand-template.git"
+			},
+			"homepage": "https://github.com/ralphtheninja/expand-template",
+			"scripts": {
+				"test": "tape test.js && standard"
+			},
+			"keywords": [
+				"template",
+				"expand",
+				"replace"
+			],
+			"author": {
+				"name": "LM",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"license": "WTFPL",
+			"dependencies": {},
+			"devDependencies": {
+				"standard": "^11.0.0",
+				"tape": "^4.2.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "532f886694e417d0b6b731df44dae9dff02e8b06",
+			"bugs": {
+				"url": "https://github.com/ralphtheninja/expand-template/issues"
+			},
+			"_id": "expand-template@2.0.0",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "10.1.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-KOaBVF5SVs2fJ8JGFeKyxXTB214OVGXQ343zAcKKZ5trNKOSI5QytzozSkVXkpciAN45FoEWxi/o/GTpDndCgA==",
+				"shasum": "916de7d1b36997f0b527dee82a173ff8d2076703",
+				"tarball": "https://registry.npmjs.org/expand-template/-/expand-template-2.0.0.tgz",
+				"fileCount": 5,
+				"unpackedSize": 4338,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbK4i+CRA9TVsSAnZWagAAZDoP/14YWCfwRl8746thZQ6j\n3LKINWDYkLE204HmnRyAYfzz7cgp/D9RxvJeToZjhZOHbfi9ustcN2hOW56h\n7XFYYIeUm9aYPntlOgdUNWAke9SzG3inx9ILuZlG+cNLAgZr+aS1CuhPVDze\n17f7XA7q+Q9anE/360F+KXol8EzgB0y6pGdoywz2fU1yW2Mq7xk99J56OZx/\nIH26XL91HR80fdWfXEzniSDD2YVwaNKrDC5WiN3e7TvFW3aH80sL8Mr2kx3B\n5VFKVqiWR9VHtNbaE8tJtQqD4jyvRQTvEhSUW6xqMo+vD0DNnSUXGZkREl9K\na9ack+BuX+SroVZTAU0pK7qjZI4bts3Sv/BWQLqj1BIyZbQeAkybRjhSzWVv\ncB+N4TdsvYl1aJQS+suW5QT63KTzKtcM7HsqqA3b6gQiIew+fk7Sbo0fyasw\nUWgnvb2KqbiFrlDV6++clktsechitF9RsVPJDyB0YPd+CeWxvbrOjq9SwR9M\nYsp4MrEWvJIHdq2pfcmXI0zj5IYO6j6IK2+CzshQ51zOmfkbD9jsbmV69Gsp\n/grWEoU7NnN9Hr4RnI/yacUnoQ09PdEpRBjt8ojl160t4DrJu+dkGJkljVGP\nm9fKw2X3L/SGoavmx198CS5NuhLuiU2KI1PyRB+j9uJwHEH7ec5udzvQxSz7\nGnt3\r\n=b3XI\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/expand-template_2.0.0_1529579709243_0.4101888782581875"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.1": {
+			"name": "expand-template",
+			"version": "2.0.1",
+			"description": "Expand placeholders in a template string",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ralphtheninja/expand-template.git"
+			},
+			"homepage": "https://github.com/ralphtheninja/expand-template",
+			"scripts": {
+				"test": "tape test.js && standard"
+			},
+			"keywords": [
+				"template",
+				"expand",
+				"replace"
+			],
+			"author": {
+				"name": "LM",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"license": "WTFPL",
+			"dependencies": {},
+			"devDependencies": {
+				"standard": "^12.0.0",
+				"tape": "^4.2.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "068855038de101fd8c3619a3b844a7121579a32b",
+			"bugs": {
+				"url": "https://github.com/ralphtheninja/expand-template/issues"
+			},
+			"_id": "expand-template@2.0.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.13.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-6vFlR7y85Hr5bdhFVzFoZJOrxD+074na5+dTmHff2491QMzIfwgEWvyfnlTHax9l3dBdBEhI1cQ/2YZ4bhypHA==",
+				"shasum": "b0a8c65f5cd7d9425df30bd4b9cd55edd95fd647",
+				"tarball": "https://registry.npmjs.org/expand-template/-/expand-template-2.0.1.tgz",
+				"fileCount": 6,
+				"unpackedSize": 5401,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb9GanCRA9TVsSAnZWagAAAHQP/0u3YxtfNOnxuteP92EM\nQg5csk7eZkHCH+E6v5PrszHgqN0AgJYGSQNIpoTgkJ8jIvI+dI01heZmBKWD\nsrQ0StTr6lEfYhz5jEtT5FgVoNGzw3+PsoUBCpfRhAGRVyAt4INz7BOVYFBZ\nN3yuKZy/XYsdXbbsZGMv74OcATcYXg0kTpOwXoB8rD7kibQbF0egL3oyw95I\nQr/Fs0OqAzPirARLfVHcfb9wfKexG4a39Hbo+Qq/Q0zVi7/fKDpszct5dDqa\nhErszjbaEv7kkEvp2qxVrbFrI3pGIKM+Sev+lJ7IGnMa7qdbtILSTtDj7aRu\n9t9n+7vwpjS4t76O2JdM1joF7oYE7PK1ZuUL/nH16Co+wLfWbDX0eS528zUO\nIerkVD2KYn5ipOL98fQ/cNTAZ9CxHBfjJvVYDon5/0OZ8NA856+7jTsh5WTC\nqXees0njCQbm2lCOuc+tWxlWaZmxRMaaHmrEmzOK32/FfF8cjAoTxROhC3Bf\nA2uoD0trfvfySaY/cyVOVkiEQNgldH/yR4DyA4c4V2Qe95dKvk7jAWMmwXbC\nOxt/rADwltO8LpS8sEj+5rEy3Z6Wt6lir9EtOBkJue4OtxByN1sYi7k2CbP2\nnQPAQJuwsAxReVHMFoD+dKw3qkQ/l28o5UcwKYK4WoTU/jAE90TE+nKVWpKa\nIGnH\r\n=3he3\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/expand-template_2.0.1_1542743718832_0.019422666325194404"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.2": {
+			"name": "expand-template",
+			"version": "2.0.2",
+			"description": "Expand placeholders in a template string",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ralphtheninja/expand-template.git"
+			},
+			"homepage": "https://github.com/ralphtheninja/expand-template",
+			"scripts": {
+				"test": "tape test.js && standard"
+			},
+			"keywords": [
+				"template",
+				"expand",
+				"replace"
+			],
+			"author": {
+				"name": "LM",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"license": "(MIT or WTFPL)",
+			"dependencies": {},
+			"devDependencies": {
+				"standard": "^12.0.0",
+				"tape": "^4.2.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "08b904067ddbaeb27f96cc9a947dcc0acc9ec82b",
+			"bugs": {
+				"url": "https://github.com/ralphtheninja/expand-template/issues"
+			},
+			"_id": "expand-template@2.0.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.13.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-u3v2lK7GQFqmnOccEdelQg0t0OA11/sNl2EAptMG9fnjGE1p9KVq2F71qYS/tyl59fK3TjpLMWlo2SQtOTloBg==",
+				"shasum": "a9ab60e95a7cf497e9d948d3f829139be1f02f46",
+				"tarball": "https://registry.npmjs.org/expand-template/-/expand-template-2.0.2.tgz",
+				"fileCount": 6,
+				"unpackedSize": 5410,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb/a06CRA9TVsSAnZWagAAl3AP/0KGh98cW3ABMgAITp3b\nt/ydPZLuYXEzwgzAuWKHymXKBKl8IF3NYQkshzqScRp5isyh+lCYA05Ro7Hx\nNLTdBgFjnq2N++YEIV/uUCHlu4ikDrs0eVPBODc76GbTsqkgtPsTLwZ9Dbk5\ns958Aev+DSyydVAh8ZD1LC5Z0YKcB6fQcfpxhwUw60b0iIpg5xEbVc2wCQii\nbgEEfjgApk3wOLtf1k6Vc2tlkA7Ott/Z5xZlqLOPzJ2wWOiTepXTH8G+7bfk\n1wrHd/xfCd+Lr28710EUQuJo7aGAtjQm5I/9SHDCWE4cZgqlRSQpZvQ5sECl\numws9nul9pAIxE61Iz7wLzuQq9PIat11jiiap1b5kDryE9Gq1Iwr2qRfsXW3\nG/CLi6HaKTieDeW019wlKXRuep5JikCGdkJbRhXvFE/baP4820NTyfSV27er\nRtb1HRYymAfbXcfsoWShoR6BwRYy+J9XnlBIlRZHG5F0rmsB1M8nxw4R2H1K\nWqc8Jidphlfpu9Fh158GuUQOKC3fiN1gm2NeADmXK854mGKyu1RBz3+4rhK3\nySZHDgsgV7cZQ5mAMSwSBhxvrY5heMhR20fp9rLdFKUKEq0jTKMR8c/kS+Js\nLcfHiFr3C6sO8bXAlBWIXW9ohio8ykjB9BxTCtdGnQw3woR7mmFcgIY8Stqh\n82Uq\r\n=dp0P\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/expand-template_2.0.2_1543351609679_0.023970292676494864"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.3": {
+			"name": "expand-template",
+			"version": "2.0.3",
+			"description": "Expand placeholders in a template string",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ralphtheninja/expand-template.git"
+			},
+			"homepage": "https://github.com/ralphtheninja/expand-template",
+			"scripts": {
+				"test": "tape test.js && standard"
+			},
+			"keywords": [
+				"template",
+				"expand",
+				"replace"
+			],
+			"author": {
+				"name": "LM",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"license": "(MIT OR WTFPL)",
+			"dependencies": {},
+			"devDependencies": {
+				"standard": "^12.0.0",
+				"tape": "^4.2.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "f0c2ecd522fa54b46100555a9bfd0b10680aabd2",
+			"bugs": {
+				"url": "https://github.com/ralphtheninja/expand-template/issues"
+			},
+			"_id": "expand-template@2.0.3",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.13.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-XYfuKMvj4O35f/pOXLObndIRvyQ+/+6AhODh+OKWj9S9498pHHn/IMszH+gt0fBCRWMNfk1ZSp5x3AifmnI2vg==",
+				"shasum": "6e14b3fcee0f3a6340ecb57d2e8918692052a47c",
+				"tarball": "https://registry.npmjs.org/expand-template/-/expand-template-2.0.3.tgz",
+				"fileCount": 6,
+				"unpackedSize": 5410,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb/cWYCRA9TVsSAnZWagAAZRwP/jWXGcdNErAJiGv3n/75\ndmQQZFwO2Dcgq8kwQamnbXGl8+nm0P168O5UBl3FOytnxhSHbOR/Kv4YCJZt\nbXcRjDdkE1686TBpkNshe+iZfuEbtzleN3KdZ1ZOekw8q3A13CMxl+3NQXIu\nZK7NIKJFVUr93rPESRPYPTNRG+VUuWqDAuQTSsp5r6GHdE+Uy72dyANDrDFB\n4++/enNWIMyL7iT02ekl3QZZVbKI4vEbD/sHhACW7kjjO3Vjtau6Wzi7uvva\nMXWb7KPrDMwO1tAhA3kV/7K5YIG4dPEdilKMdum6IRzw3eZX7ed6id8//UlQ\nl63JzABzEgIZLz4mXElhI1qAqqk5HLLU1wRtznKaWonZXpXxSynf5kaeXbuA\nmC2w9oig2fM+1XgHuHLKTtQ5WfxaNX6rYio0FmrytfsCFiu/NP28d6xyxO3I\n7Ux9WICwtLgIZvD3MyF9Ft+Dctoqz6hQ5zEjz4SQR512QCgXHwoKpkqCEYu7\nJVxr2uuO31izv042yXr3TVb+drnMBytglwriWjXCveyqFajoRxNvQ00j988+\nXOymLpRR0Sryaaa5uifjl2kkFwOrqcrLBtURPohcNpa9xDeLkQHSVSOeNo0I\nkoBpCmR6Cv2H7SHkoktpeCRpd+XCNWYMQgXjUOtSZzXRCbhb0WZTNHMMDrhy\nHMFT\r\n=TO59\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/expand-template_2.0.3_1543357847470_0.06430893527717885"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-01-03T20:22:09.174Z",
+		"created": "2015-08-10T10:17:55.933Z",
+		"1.0.0": "2015-08-10T10:17:55.933Z",
+		"1.0.1": "2015-10-28T10:23:51.250Z",
+		"1.0.2": "2015-11-12T17:20:50.314Z",
+		"1.0.3": "2016-09-14T07:09:14.891Z",
+		"1.0.4": "2017-08-22T21:23:44.090Z",
+		"1.1.0": "2017-08-22T21:26:22.177Z",
+		"1.1.1": "2018-05-07T21:14:49.357Z",
+		"2.0.0": "2018-06-21T11:15:09.361Z",
+		"2.0.1": "2018-11-20T19:55:18.932Z",
+		"2.0.2": "2018-11-27T20:46:49.793Z",
+		"2.0.3": "2018-11-27T22:30:47.591Z"
+	},
+	"dist-tags": {
+		"latest": "2.0.3"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"798aee329541b837004fa0ff7245fc91\"",
+			"fetched": 1568994353106
+		}
+	},
+	"_distfiles": {
+		"expand-template-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/expand-template/-/expand-template-1.0.0.tgz",
+			"sha": "ae533f46d8b0a778171af84a5b80692feec82e16",
+			"registry": "npmjs"
+		},
+		"expand-template-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/expand-template/-/expand-template-1.0.1.tgz",
+			"sha": "9661c035dcd98882df086a0879932bfdbf5596e0",
+			"registry": "npmjs"
+		},
+		"expand-template-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/expand-template/-/expand-template-1.0.2.tgz",
+			"sha": "9c7d9d87957be425c5be86d84b6e2a678ef05c65",
+			"registry": "npmjs"
+		},
+		"expand-template-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/expand-template/-/expand-template-1.0.3.tgz",
+			"sha": "6c303323177a62b1b22c070279f7861287b69b1a",
+			"registry": "npmjs"
+		},
+		"expand-template-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/expand-template/-/expand-template-1.0.4.tgz",
+			"sha": "7f6ca646e62e959a6b835f10586edf2034da36fe",
+			"registry": "npmjs"
+		},
+		"expand-template-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/expand-template/-/expand-template-1.1.0.tgz",
+			"sha": "e09efba977bf98f9ee0ed25abd0c692e02aec3fc",
+			"registry": "npmjs"
+		},
+		"expand-template-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/expand-template/-/expand-template-1.1.1.tgz",
+			"sha": "981f188c0c3a87d2e28f559bc541426ff94f21dd",
+			"registry": "npmjs"
+		},
+		"expand-template-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/expand-template/-/expand-template-2.0.0.tgz",
+			"sha": "916de7d1b36997f0b527dee82a173ff8d2076703",
+			"registry": "npmjs"
+		},
+		"expand-template-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/expand-template/-/expand-template-2.0.1.tgz",
+			"sha": "b0a8c65f5cd7d9425df30bd4b9cd55edd95fd647",
+			"registry": "npmjs"
+		},
+		"expand-template-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/expand-template/-/expand-template-2.0.2.tgz",
+			"sha": "a9ab60e95a7cf497e9d948d3f829139be1f02f46",
+			"registry": "npmjs"
+		},
+		"expand-template-2.0.3.tgz": {
+			"url": "https://registry.npmjs.org/expand-template/-/expand-template-2.0.3.tgz",
+			"sha": "6e14b3fcee0f3a6340ecb57d2e8918692052a47c",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-6d1a3aa268d668dc",
+	"_id": "expand-template",
+	"readme": "# expand-template\n\n> Expand placeholders in a template string.\n\n[![npm](https://img.shields.io/npm/v/expand-template.svg)](https://www.npmjs.com/package/expand-template)\n![Node version](https://img.shields.io/node/v/expand-template.svg)\n[![Build Status](https://travis-ci.org/ralphtheninja/expand-template.svg?branch=master)](https://travis-ci.org/ralphtheninja/expand-template)\n[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)\n\n## Install\n\n```\n$ npm i expand-template -S\n```\n\n## Usage\n\nDefault functionality expands templates using `{}` as separators for string placeholders.\n\n```js\nvar expand = require('expand-template')()\nvar template = '{foo}/{foo}/{bar}/{bar}'\nconsole.log(expand(template, {\n  foo: 'BAR',\n  bar: 'FOO'\n}))\n// -> BAR/BAR/FOO/FOO\n```\n\nCustom separators:\n\n```js\nvar expand = require('expand-template')({ sep: '[]' })\nvar template = '[foo]/[foo]/[bar]/[bar]'\nconsole.log(expand(template, {\n  foo: 'BAR',\n  bar: 'FOO'\n}))\n// -> BAR/BAR/FOO/FOO\n```\n\n## License\nAll code, unless stated otherwise, is dual-licensed under [`WTFPL`](http://www.wtfpl.net/txt/copying/) and [`MIT`](https://opensource.org/licenses/MIT)."
+}

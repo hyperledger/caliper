@@ -1,0 +1,3472 @@
+{
+	"name": "request-promise",
+	"versions": {
+		"0.0.1": {
+			"name": "request-promise",
+			"version": "0.0.1",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "lib/tp.js",
+			"scripts": {
+				"test": "To Do"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "~0.7.9-1"
+			},
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"_id": "request-promise@0.0.1",
+			"dist": {
+				"shasum": "4f93c66fb7f870f7ab7cb4f19732083a11b3d6c0",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.0.1.tgz"
+			},
+			"_from": "request-promise/",
+			"_npmVersion": "1.3.11",
+			"_npmUser": {
+				"name": "tyabonil",
+				"email": "ty.abonil@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.2": {
+			"name": "request-promise",
+			"version": "0.0.2",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "To Do"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "~0.7.9-1",
+				"request": "~2.27.0"
+			},
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"_id": "request-promise@0.0.2",
+			"dist": {
+				"shasum": "b498f7a79a12af516729181f8ee3ca55242f5ec7",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.0.2.tgz"
+			},
+			"_from": "request-promise",
+			"_npmVersion": "1.3.11",
+			"_npmUser": {
+				"name": "tyabonil",
+				"email": "ty.abonil@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.3": {
+			"name": "request-promise",
+			"version": "0.0.3",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "istanbul test _mocha --report html -- test/*-test*.js -R spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "~1.0.1",
+				"request": "~2.33.0"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"istanbul": "~0.2.4"
+			},
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"_id": "request-promise@0.0.3",
+			"dist": {
+				"shasum": "4e31b143e11dd096dbb33dd1b2369bf2b0f13b59",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.0.3.tgz"
+			},
+			"_from": "request-promise/",
+			"_npmVersion": "1.3.11",
+			"_npmUser": {
+				"name": "tyabonil",
+				"email": "ty.abonil@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.4": {
+			"name": "request-promise",
+			"version": "0.0.4",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "istanbul test _mocha --report html -- test/*-test*.js -R spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "^1.2",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"istanbul": "~0.2.4"
+			},
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"_id": "request-promise@0.0.4",
+			"dist": {
+				"shasum": "fc9f878544def53fbd7f80e2bc353f460c3ef2e2",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.0.4.tgz"
+			},
+			"_from": "request-promise/",
+			"_npmVersion": "1.3.11",
+			"_npmUser": {
+				"name": "tyabonil",
+				"email": "ty.abonil@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "request-promise",
+			"version": "0.1.0",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "istanbul test _mocha --report html -- test/*-test*.js -R spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "^1.2",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"istanbul": "~0.2.4"
+			},
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"_id": "request-promise@0.1.0",
+			"dist": {
+				"shasum": "0a2bc5e33417ede8d0a0ee6bfd542af43ca49a85",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.1.0.tgz"
+			},
+			"_from": "./request-promise",
+			"_npmVersion": "1.3.11",
+			"_npmUser": {
+				"name": "tyabonil",
+				"email": "ty.abonil@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.1": {
+			"name": "request-promise",
+			"version": "0.1.1",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "istanbul test _mocha --report html -- test/*-test*.js -R spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "^1.2",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"istanbul": "~0.2.4"
+			},
+			"gitHead": "b40cf38dba50060b5534639fa0b3395e3cc24ea1",
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"homepage": "https://github.com/tyabonil/request-promise",
+			"_id": "request-promise@0.1.1",
+			"_shasum": "12b68c0e742986726ef0ee67eab2df8c589b80a1",
+			"_from": "request-promise/",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "tyabonil",
+				"email": "ty.abonil@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "12b68c0e742986726ef0ee67eab2df8c589b80a1",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.1.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.2": {
+			"name": "request-promise",
+			"version": "0.1.2",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "istanbul test _mocha --report html -- test/*-test*.js -R spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "^1.2",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"istanbul": "~0.2.4"
+			},
+			"gitHead": "718a1a8cb8804c5ec42ab8b5f86107a217026161",
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"homepage": "https://github.com/tyabonil/request-promise",
+			"_id": "request-promise@0.1.2",
+			"_shasum": "7132a83f647a35291583a863a68cc4bcc905309b",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "tyabonil",
+				"email": "ty.abonil@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "7132a83f647a35291583a863a68cc4bcc905309b",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.1.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.3": {
+			"name": "request-promise",
+			"version": "0.1.3",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "istanbul test _mocha --report html -- test/*-test*.js -R spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "^1.2",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"istanbul": "~0.2.4"
+			},
+			"_id": "request-promise@0.1.3",
+			"dist": {
+				"shasum": "3035710fa25b1f501e0efde2110149b47d73334d",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.1.3.tgz"
+			},
+			"_from": "request-promise/",
+			"_npmVersion": "1.2.15",
+			"_npmUser": {
+				"name": "tyabonil",
+				"email": "ty.abonil@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.4": {
+			"name": "request-promise",
+			"version": "0.1.4",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "istanbul test _mocha --report html -- test/*-test*.js -R spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "^1.2",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"istanbul": "~0.2.4"
+			},
+			"_id": "request-promise@0.1.4",
+			"dist": {
+				"shasum": "3271fd9b72c3fb6cf82c479b80c270aaa1b4c5a1",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.1.4.tgz"
+			},
+			"_from": "request-promise/",
+			"_npmVersion": "1.2.15",
+			"_npmUser": {
+				"name": "tyabonil",
+				"email": "ty.abonil@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "request-promise",
+			"version": "0.2.0",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "istanbul test _mocha --report html -- test/*-test*.js -R spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "^1.2",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"istanbul": "~0.2.4"
+			},
+			"_id": "request-promise@0.2.0",
+			"dist": {
+				"shasum": "b989e8b436759beabb6a6b0ca5a7e40062e2fe37",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.2.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.15",
+			"_npmUser": {
+				"name": "tyabonil",
+				"email": "ty.abonil@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.1": {
+			"name": "request-promise",
+			"version": "0.2.1",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "istanbul test _mocha --report html -- test/*-test*.js -R spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "^2.3",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"istanbul": "~0.2.4"
+			},
+			"gitHead": "86eb6caae210d9194b9a4d7a4a3b3d672f245d01",
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"homepage": "https://github.com/tyabonil/request-promise",
+			"_id": "request-promise@0.2.1",
+			"_shasum": "b5cce6d52884a24228f820762e9421f4580452b9",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "tyabonil",
+				"email": "ty.abonil@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "b5cce6d52884a24228f820762e9421f4580452b9",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.2.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.2": {
+			"name": "request-promise",
+			"version": "0.2.2",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "istanbul test _mocha --report html -- test/*-test*.js -R spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "^2.3",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"mocha": "~1.17.1",
+				"istanbul": "~0.2.4"
+			},
+			"_id": "request-promise@0.2.2",
+			"dist": {
+				"shasum": "ff766ed4fb9bb530e14b938b16286d39a5eb3e72",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.2.2.tgz"
+			},
+			"_from": "request-promise/",
+			"_npmVersion": "1.2.15",
+			"_npmUser": {
+				"name": "tyabonil",
+				"email": "ty.abonil@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.4": {
+			"name": "request-promise",
+			"version": "0.2.4",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "gulp validate"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "^2.3",
+				"lodash": "^2.4.1",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"chalk": "^0.5.1",
+				"gulp": "^3.8.8",
+				"gulp-istanbul": "^0.3.1",
+				"gulp-jshint": "^1.8.5",
+				"gulp-mocha": "^1.1.1",
+				"jshint-stylish": "^1.0.0",
+				"rimraf": "^2.2.8",
+				"run-sequence": "^1.0.1"
+			},
+			"gitHead": "c7b8620d4d9e00c799996f1db910cd1ab230ae24",
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"homepage": "https://github.com/tyabonil/request-promise",
+			"_id": "request-promise@0.2.4",
+			"_shasum": "e23af5aaa6c7385dadb4fcefade409cfb903ea0a",
+			"_from": "request-promise/",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "tyabonil",
+				"email": "ty.abonil@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "e23af5aaa6c7385dadb4fcefade409cfb903ea0a",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.2.4.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.5": {
+			"name": "request-promise",
+			"version": "0.2.5",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "./lib/rp.js",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"scripts": {
+				"test": "./node_modules/.bin/gulp validate"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "^2.3",
+				"lodash": "^2.4.1",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"chalk": "^0.5.1",
+				"gulp": "^3.8.8",
+				"gulp-istanbul": "^0.3.1",
+				"gulp-jshint": "^1.8.5",
+				"gulp-mocha": "^1.1.1",
+				"jshint-stylish": "^1.0.0",
+				"rimraf": "^2.2.8",
+				"run-sequence": "^1.0.1"
+			},
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"_id": "request-promise@0.2.5",
+			"dist": {
+				"shasum": "7418b9388a553f23a2bad75bca7ddabc9d9aebe7",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.2.5.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.30",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.6": {
+			"name": "request-promise",
+			"version": "0.2.6",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "./lib/rp.js",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"scripts": {
+				"test": "gulp validate"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "^2.3",
+				"lodash": "^2.4.1",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"chai": "^1.9.2",
+				"chai-as-promised": "^4.1.1",
+				"chalk": "^0.5.1",
+				"gulp": "^3.8.8",
+				"gulp-istanbul": "^0.3.1",
+				"gulp-jshint": "^1.8.5",
+				"gulp-mocha": "^1.1.1",
+				"jshint-stylish": "^1.0.0",
+				"rimraf": "^2.2.8",
+				"run-sequence": "^1.0.1"
+			},
+			"gitHead": "5858fbb1d330c30a277ea7443035fb371f26030a",
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"homepage": "https://github.com/tyabonil/request-promise",
+			"_id": "request-promise@0.2.6",
+			"_shasum": "a21158ccbdaae20907e323c1028a370867e4f354",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				}
+			],
+			"dist": {
+				"shasum": "a21158ccbdaae20907e323c1028a370867e4f354",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.2.6.tgz"
+			},
+			"directories": {}
+		},
+		"0.3.0": {
+			"name": "request-promise",
+			"version": "0.3.0",
+			"description": "The world-famous HTTP client 'Request' now Promises/A+ compliant. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable"
+			],
+			"homepage": "https://github.com/tyabonil/request-promise",
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"contributors": [
+				{
+					"name": "Nicolai Kamenzky",
+					"url": "https://github.com/analog-nico"
+				}
+			],
+			"main": "./lib/rp.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise.git"
+			},
+			"scripts": {
+				"test": "gulp validate"
+			},
+			"dependencies": {
+				"bluebird": "^2.3",
+				"lodash": "^2.4.1",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"chai": "^1.10.0",
+				"chai-as-promised": "^4.1.1",
+				"chalk": "^0.5.1",
+				"gulp": "^3.8.10",
+				"gulp-istanbul": "^0.3.1",
+				"gulp-jshint": "^1.9.0",
+				"gulp-mocha": "^1.1.1",
+				"jshint-stylish": "^1.0.0",
+				"rimraf": "^2.2.8",
+				"run-sequence": "^1.0.1"
+			},
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"gitHead": "2caee56d17364f10ad9cd683389245b17b0f44ad",
+			"_id": "request-promise@0.3.0",
+			"_shasum": "d49aba96efa78dc06c01b02b505de58e91a57d7f",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				}
+			],
+			"dist": {
+				"shasum": "d49aba96efa78dc06c01b02b505de58e91a57d7f",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.3.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.3.1": {
+			"name": "request-promise",
+			"version": "0.3.1",
+			"description": "The world-famous HTTP client 'Request' now Promises/A+ compliant. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable"
+			],
+			"homepage": "https://github.com/tyabonil/request-promise",
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"contributors": [
+				{
+					"name": "Nicolai Kamenzky",
+					"url": "https://github.com/analog-nico"
+				}
+			],
+			"main": "./lib/rp.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise.git"
+			},
+			"scripts": {
+				"test": "gulp validate"
+			},
+			"dependencies": {
+				"bluebird": "^2.3",
+				"lodash": "^2.4.1",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"chai": "^1.10.0",
+				"chai-as-promised": "^4.1.1",
+				"chalk": "^0.5.1",
+				"gulp": "^3.8.10",
+				"gulp-istanbul": "^0.3.1",
+				"gulp-jshint": "^1.9.0",
+				"gulp-mocha": "^1.1.1",
+				"jshint-stylish": "^1.0.0",
+				"rimraf": "^2.2.8",
+				"run-sequence": "^1.0.1"
+			},
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"gitHead": "c947a0db5d210b4a76d12f23b77a6c01502d632f",
+			"_id": "request-promise@0.3.1",
+			"_shasum": "579ffd81f858c8adce89d922c3784765513b08ee",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				}
+			],
+			"dist": {
+				"shasum": "579ffd81f858c8adce89d922c3784765513b08ee",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.3.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.7": {
+			"name": "request-promise",
+			"version": "0.2.7",
+			"description": "Promise-based Wrapper for XHR using Request and Bluebird",
+			"main": "./lib/rp.js",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"scripts": {
+				"test": "gulp validate"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise"
+			},
+			"keywords": [
+				"xhr",
+				"promise",
+				"request"
+			],
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bluebird": "^2.3",
+				"lodash": "^2.4.1",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"chai": "^1.9.2",
+				"chai-as-promised": "^4.1.1",
+				"chalk": "^0.5.1",
+				"gulp": "^3.8.8",
+				"gulp-istanbul": "^0.3.1",
+				"gulp-jshint": "^1.8.5",
+				"gulp-mocha": "^1.1.1",
+				"jshint-stylish": "^1.0.0",
+				"rimraf": "^2.2.8",
+				"run-sequence": "^1.0.1"
+			},
+			"gitHead": "9b77af07aff97c4e55c5cbeb39f7373d2927e744",
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"homepage": "https://github.com/tyabonil/request-promise",
+			"_id": "request-promise@0.2.7",
+			"_shasum": "30b63b10a59ed7c355d6f2d25fbef719a66b9292",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				}
+			],
+			"dist": {
+				"shasum": "30b63b10a59ed7c355d6f2d25fbef719a66b9292",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.2.7.tgz"
+			},
+			"directories": {}
+		},
+		"0.3.2": {
+			"name": "request-promise",
+			"version": "0.3.2",
+			"description": "The world-famous HTTP client 'Request' now Promises/A+ compliant. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable"
+			],
+			"homepage": "https://github.com/tyabonil/request-promise",
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"contributors": [
+				{
+					"name": "Nicolai Kamenzky",
+					"url": "https://github.com/analog-nico"
+				}
+			],
+			"main": "./lib/rp.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise.git"
+			},
+			"scripts": {
+				"test": "gulp validate"
+			},
+			"dependencies": {
+				"bluebird": "^2.3",
+				"chalk": "^0.5.1",
+				"lodash": "^2.4.1",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"chai": "^1.10.0",
+				"chai-as-promised": "^4.1.1",
+				"gulp": "^3.8.10",
+				"gulp-istanbul": "^0.3.1",
+				"gulp-jshint": "^1.9.0",
+				"gulp-mocha": "^2.0.0",
+				"jshint-stylish": "^1.0.0",
+				"rimraf": "^2.2.8",
+				"run-sequence": "^1.0.1"
+			},
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"gitHead": "5656ab623372a07f0e67472a4caea580a9311b47",
+			"_id": "request-promise@0.3.2",
+			"_shasum": "a050a6a333ec2b8dbf4a327e859b1a5b89473413",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				}
+			],
+			"dist": {
+				"shasum": "a050a6a333ec2b8dbf4a327e859b1a5b89473413",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.3.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.3.3": {
+			"name": "request-promise",
+			"version": "0.3.3",
+			"description": "The world-famous HTTP client 'Request' now Promises/A+ compliant. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable"
+			],
+			"homepage": "https://github.com/tyabonil/request-promise",
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"contributors": [
+				{
+					"name": "Nicolai Kamenzky",
+					"url": "https://github.com/analog-nico"
+				}
+			],
+			"main": "./lib/rp.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise.git"
+			},
+			"scripts": {
+				"test": "gulp validate"
+			},
+			"dependencies": {
+				"bluebird": "^2.3",
+				"chalk": "^0.5.1",
+				"lodash": "^2.4.1",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"chai": "^1.10.0",
+				"chai-as-promised": "^4.1.1",
+				"event-stream": "^3.1.7",
+				"gulp": "^3.8.10",
+				"gulp-istanbul": "^0.3.1",
+				"gulp-jshint": "^1.9.0",
+				"gulp-mocha": "^2.0.0",
+				"jshint-stylish": "^1.0.0",
+				"rimraf": "^2.2.8",
+				"run-sequence": "^1.0.1"
+			},
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"gitHead": "b28177d2499f93dd9c56d40248d461662ea408ea",
+			"_id": "request-promise@0.3.3",
+			"_shasum": "f26cb11ad6c40990ddc638d6ab817c43ac0f90c8",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				}
+			],
+			"dist": {
+				"shasum": "f26cb11ad6c40990ddc638d6ab817c43ac0f90c8",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.3.3.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.0": {
+			"name": "request-promise",
+			"version": "0.4.0",
+			"description": "The world-famous HTTP client 'Request' now Promises/A+ compliant. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable"
+			],
+			"homepage": "https://github.com/tyabonil/request-promise",
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"contributors": [
+				{
+					"name": "Nicolai Kamenzky",
+					"url": "https://github.com/analog-nico"
+				}
+			],
+			"main": "./lib/rp.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise.git"
+			},
+			"scripts": {
+				"test": "gulp validate"
+			},
+			"dependencies": {
+				"bluebird": "^2.3",
+				"chalk": "^0.5.1",
+				"lodash": "^2.4.1",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"chai": "^1.10.0",
+				"chai-as-promised": "^4.1.1",
+				"event-stream": "^3.1.7",
+				"gulp": "^3.8.10",
+				"gulp-istanbul": "^0.3.1",
+				"gulp-jshint": "^1.9.0",
+				"gulp-mocha": "^2.0.0",
+				"jshint-stylish": "^1.0.0",
+				"rimraf": "^2.2.8",
+				"run-sequence": "^1.0.1"
+			},
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"gitHead": "3158939cafc67b8442df443c95797509400f3d80",
+			"_id": "request-promise@0.4.0",
+			"_shasum": "0318167a5bbe0fdf5c7382a000cd71097032223a",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				}
+			],
+			"dist": {
+				"shasum": "0318167a5bbe0fdf5c7382a000cd71097032223a",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.4.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.1": {
+			"name": "request-promise",
+			"version": "0.4.1",
+			"description": "The world-famous HTTP client 'Request' now Promises/A+ compliant. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable"
+			],
+			"homepage": "https://github.com/tyabonil/request-promise",
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"contributors": [
+				{
+					"name": "Nicolai Kamenzky",
+					"url": "https://github.com/analog-nico"
+				}
+			],
+			"main": "./lib/rp.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise.git"
+			},
+			"scripts": {
+				"test": "gulp validate"
+			},
+			"dependencies": {
+				"bluebird": "^2.3",
+				"chalk": "^0.5.1",
+				"lodash": "^2.4.1",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "^1.12.0",
+				"chai": "^1.10.0",
+				"chai-as-promised": "^4.1.1",
+				"event-stream": "^3.1.7",
+				"gulp": "^3.8.10",
+				"gulp-istanbul": "^0.3.1",
+				"gulp-jshint": "^1.9.0",
+				"gulp-mocha": "^2.0.0",
+				"jshint-stylish": "^1.0.0",
+				"rimraf": "^2.2.8",
+				"run-sequence": "^1.0.1"
+			},
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"gitHead": "b13a6c1b6450266f480953f1b7f53225738965f5",
+			"_id": "request-promise@0.4.1",
+			"_shasum": "b09c66fa4366f21327665dcdd9a06cdfbc80501c",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				}
+			],
+			"dist": {
+				"shasum": "b09c66fa4366f21327665dcdd9a06cdfbc80501c",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.4.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.2": {
+			"name": "request-promise",
+			"version": "0.4.2",
+			"description": "The world-famous HTTP client 'Request' now Promises/A+ compliant. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable"
+			],
+			"homepage": "https://github.com/tyabonil/request-promise",
+			"bugs": {
+				"url": "https://github.com/tyabonil/request-promise/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"contributors": [
+				{
+					"name": "Nicolai Kamenzky",
+					"url": "https://github.com/analog-nico"
+				}
+			],
+			"main": "./lib/rp.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/tyabonil/request-promise.git"
+			},
+			"scripts": {
+				"test": "gulp validate"
+			},
+			"dependencies": {
+				"bluebird": "^2.3",
+				"chalk": "1.0.x",
+				"lodash": "3.6.x",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "1.12.x",
+				"chai": "2.2.x",
+				"chai-as-promised": "4.3.x",
+				"event-stream": "3.3.x",
+				"gulp": "3.8.x",
+				"gulp-istanbul": "0.8.x",
+				"gulp-jshint": "1.10.x",
+				"gulp-mocha": "2.0.x",
+				"jshint-stylish": "1.0.x",
+				"rimraf": "2.3.x",
+				"run-sequence": "1.0.x"
+			},
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"gitHead": "073afb69f43cb2ad81e904edea27c0746a5d0dfe",
+			"_id": "request-promise@0.4.2",
+			"_shasum": "ebd3770c4e559f9b8567a1a8277cd77280e6d835",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				}
+			],
+			"dist": {
+				"shasum": "ebd3770c4e559f9b8567a1a8277cd77280e6d835",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.4.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.3": {
+			"name": "request-promise",
+			"version": "0.4.3",
+			"description": "The world-famous HTTP client 'Request' now Promises/A+ compliant. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable"
+			],
+			"homepage": "https://github.com/request/request-promise",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"contributors": [
+				{
+					"name": "Nicolai Kamenzky",
+					"url": "https://github.com/analog-nico"
+				}
+			],
+			"main": "./lib/rp.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/request/request-promise.git"
+			},
+			"scripts": {
+				"test": "gulp validate"
+			},
+			"dependencies": {
+				"bluebird": "^2.3",
+				"chalk": "^1.1.0",
+				"lodash": "^3.10.0",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "1.12.x",
+				"chai": "2.2.x",
+				"chai-as-promised": "4.3.x",
+				"event-stream": "3.3.x",
+				"gulp": "3.8.x",
+				"gulp-istanbul": "0.8.x",
+				"gulp-jshint": "1.10.x",
+				"gulp-mocha": "2.0.x",
+				"jshint-stylish": "1.0.x",
+				"rimraf": "2.3.x",
+				"run-sequence": "1.0.x"
+			},
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"gitHead": "02c73c758dd8633c9ca19259a3a0b176bef22757",
+			"_id": "request-promise@0.4.3",
+			"_shasum": "3c8ddc82f06f8908d720aede1d6794258e22121c",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "3c8ddc82f06f8908d720aede1d6794258e22121c",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-0.4.3.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "request-promise",
+			"version": "1.0.0",
+			"description": "The world-famous HTTP client 'Request' now Promises/A+ compliant. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable"
+			],
+			"homepage": "https://github.com/request/request-promise",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"contributors": [
+				{
+					"name": "Nicolai Kamenzky",
+					"url": "https://github.com/analog-nico"
+				}
+			],
+			"main": "./lib/rp.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/request/request-promise.git"
+			},
+			"scripts": {
+				"test": "gulp ci"
+			},
+			"dependencies": {
+				"bluebird": "^2.3",
+				"cls-bluebird": "^1.0.1",
+				"lodash": "^3.10.0",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "1.12.x",
+				"chai": "2.2.x",
+				"chai-as-promised": "4.3.x",
+				"chalk": "^1.1.1",
+				"cheerio": "^0.19.0",
+				"continuation-local-storage": "^3.1.4",
+				"event-stream": "3.3.x",
+				"gulp": "3.8.x",
+				"gulp-coveralls": "0.1.x",
+				"gulp-istanbul": "0.8.x",
+				"gulp-jshint": "1.10.x",
+				"gulp-mocha": "2.0.x",
+				"jshint-stylish": "1.0.x",
+				"rimraf": "2.3.x",
+				"run-sequence": "1.0.x"
+			},
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"gitHead": "ca35c5f9f776190021950a9e97b1e5d5ad1ab693",
+			"_id": "request-promise@1.0.0",
+			"_shasum": "de167be6975a42ffa8bf400577cb43186f943256",
+			"_from": ".",
+			"_npmVersion": "2.14.5",
+			"_nodeVersion": "0.10.40",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "de167be6975a42ffa8bf400577cb43186f943256",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "request-promise",
+			"version": "1.0.1",
+			"description": "The world-famous HTTP client 'Request' now Promises/A+ compliant. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable"
+			],
+			"homepage": "https://github.com/request/request-promise",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"contributors": [
+				{
+					"name": "Nicolai Kamenzky",
+					"url": "https://github.com/analog-nico"
+				}
+			],
+			"main": "./lib/rp.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/request/request-promise.git"
+			},
+			"scripts": {
+				"test": "gulp ci"
+			},
+			"dependencies": {
+				"bluebird": "^2.3",
+				"cls-bluebird": "^1.0.1",
+				"lodash": "^3.10.0",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "1.12.x",
+				"chai": "2.2.x",
+				"chai-as-promised": "4.3.x",
+				"chalk": "^1.1.1",
+				"cheerio": "^0.19.0",
+				"continuation-local-storage": "^3.1.4",
+				"event-stream": "3.3.x",
+				"gulp": "3.8.x",
+				"gulp-coveralls": "0.1.x",
+				"gulp-istanbul": "0.8.x",
+				"gulp-jshint": "1.10.x",
+				"gulp-mocha": "2.0.x",
+				"jshint-stylish": "1.0.x",
+				"rimraf": "2.3.x",
+				"run-sequence": "1.0.x"
+			},
+			"peerDependencies": {
+				"continuation-local-storage": "~3"
+			},
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"gitHead": "ae5aa9178e61dc8b512151f9f3275c5d51ff57e6",
+			"_id": "request-promise@1.0.1",
+			"_shasum": "15d3193cd38f945920f86b5c0c64793c6cbb79a3",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "15d3193cd38f945920f86b5c0c64793c6cbb79a3",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-1.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "request-promise",
+			"version": "1.0.2",
+			"description": "The world-famous HTTP client 'Request' now Promises/A+ compliant. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable"
+			],
+			"homepage": "https://github.com/request/request-promise",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"contributors": [
+				{
+					"name": "Nicolai Kamenzky",
+					"url": "https://github.com/analog-nico"
+				}
+			],
+			"main": "./lib/rp.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/request/request-promise.git"
+			},
+			"scripts": {
+				"test": "gulp ci"
+			},
+			"dependencies": {
+				"bluebird": "^2.3",
+				"cls-bluebird": "^1.0.1",
+				"lodash": "^3.10.0",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "1.12.x",
+				"chai": "2.2.x",
+				"chai-as-promised": "4.3.x",
+				"chalk": "^1.1.1",
+				"cheerio": "^0.19.0",
+				"continuation-local-storage": "^3.1.4",
+				"event-stream": "3.3.x",
+				"gulp": "3.8.x",
+				"gulp-coveralls": "0.1.x",
+				"gulp-istanbul": "0.8.x",
+				"gulp-jshint": "1.10.x",
+				"gulp-mocha": "2.0.x",
+				"jshint-stylish": "1.0.x",
+				"rimraf": "2.3.x",
+				"run-sequence": "1.0.x"
+			},
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"gitHead": "dbdeaba19592ba8e79ca27cfc9b320d99af93d30",
+			"_id": "request-promise@1.0.2",
+			"_shasum": "155f410608d9257c089c1d0b26f8d8f7a8aa86a1",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "155f410608d9257c089c1d0b26f8d8f7a8aa86a1",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-1.0.2.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "request-promise",
+			"version": "2.0.0",
+			"description": "The world-famous HTTP client 'Request' now Promises/A+ compliant. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable"
+			],
+			"homepage": "https://github.com/request/request-promise",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"contributors": [
+				{
+					"name": "Nicolai Kamenzky",
+					"url": "https://github.com/analog-nico"
+				}
+			],
+			"main": "./lib/rp.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/request/request-promise.git"
+			},
+			"scripts": {
+				"test": "gulp ci"
+			},
+			"dependencies": {
+				"bluebird": "^2.3",
+				"lodash": "^3.10.0",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "1.14.x",
+				"chai": "3.4.x",
+				"chai-as-promised": "5.1.x",
+				"chalk": "^1.1.1",
+				"cheerio": "^0.19.0",
+				"cls-bluebird": "^1.0.1",
+				"continuation-local-storage": "^3.1.4",
+				"event-stream": "3.3.x",
+				"gulp": "3.9.x",
+				"gulp-coveralls": "0.1.x",
+				"gulp-istanbul": "0.10.x",
+				"gulp-jshint": "1.12.x",
+				"gulp-mocha": "2.2.x",
+				"jshint": "2.8.0",
+				"jshint-stylish": "2.1.x",
+				"rimraf": "2.4.x",
+				"run-sequence": "1.1.x"
+			},
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"gitHead": "7174f7bbc22daf8be9fbb6a1be21b9ce6185f93f",
+			"_id": "request-promise@2.0.0",
+			"_shasum": "e89d6ae0edc3a97c894f967a8bf5025c23d13db3",
+			"_from": ".",
+			"_npmVersion": "2.14.15",
+			"_nodeVersion": "4.2.3",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "e89d6ae0edc3a97c894f967a8bf5025c23d13db3",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-2.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.1": {
+			"name": "request-promise",
+			"version": "2.0.1",
+			"description": "The world-famous HTTP client 'Request' now Promises/A+ compliant. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable"
+			],
+			"homepage": "https://github.com/request/request-promise",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"contributors": [
+				{
+					"name": "Nicolai Kamenzky",
+					"url": "https://github.com/analog-nico"
+				}
+			],
+			"main": "./lib/rp.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/request/request-promise.git"
+			},
+			"scripts": {
+				"test": "gulp ci"
+			},
+			"dependencies": {
+				"bluebird": "^2.3",
+				"lodash": "^4.5.0",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "1.15.x",
+				"chai": "3.5.x",
+				"chai-as-promised": "5.2.x",
+				"chalk": "1.1.x",
+				"cheerio": "0.20.x",
+				"cls-bluebird": "^1.0.1",
+				"continuation-local-storage": "^3.1.4",
+				"event-stream": "3.3.x",
+				"gulp": "3.9.x",
+				"gulp-coveralls": "0.1.x",
+				"gulp-istanbul": "0.10.x",
+				"gulp-jshint": "2.0.x",
+				"gulp-mocha": "2.2.x",
+				"jshint": "2.9.x",
+				"jshint-stylish": "2.1.x",
+				"rimraf": "2.5.x",
+				"run-sequence": "1.1.x"
+			},
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"gitHead": "21db39f73f26fc775f81bde84d6f151da82ebf2b",
+			"_id": "request-promise@2.0.1",
+			"_shasum": "acbd47b725e39372ede3174cf29c38d9ecf2b30d",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.0",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "acbd47b725e39372ede3174cf29c38d9ecf2b30d",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-2.0.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-5-east.internal.npmjs.com",
+				"tmp": "tmp/request-promise-2.0.1.tgz_1455703761589_0.18270749086514115"
+			},
+			"directories": {}
+		},
+		"3.0.0": {
+			"name": "request-promise",
+			"version": "3.0.0",
+			"description": "The world-famous HTTP client 'Request' now Promises/A+ compliant. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable"
+			],
+			"homepage": "https://github.com/request/request-promise",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"license": "MIT",
+			"author": {
+				"name": "Ty Abonil"
+			},
+			"contributors": [
+				{
+					"name": "Nicolai Kamenzky",
+					"url": "https://github.com/analog-nico"
+				}
+			],
+			"main": "./lib/rp.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/request/request-promise.git"
+			},
+			"scripts": {
+				"test": "gulp ci"
+			},
+			"dependencies": {
+				"bluebird": "^3.3",
+				"lodash": "^4.6.1",
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "1.15.x",
+				"chai": "3.5.x",
+				"chai-as-promised": "5.2.x",
+				"chalk": "1.1.x",
+				"cheerio": "0.20.x",
+				"cls-bluebird": "^1.0.1",
+				"continuation-local-storage": "^3.1.4",
+				"event-stream": "3.3.x",
+				"gulp": "3.9.x",
+				"gulp-coveralls": "0.1.x",
+				"gulp-istanbul": "0.10.x",
+				"gulp-jshint": "2.0.x",
+				"gulp-mocha": "2.2.x",
+				"jshint": "2.9.x",
+				"jshint-stylish": "2.1.x",
+				"rimraf": "2.5.x",
+				"run-sequence": "1.1.x"
+			},
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"gitHead": "2854e0461b179140f7d348e27ed227d32badfecb",
+			"_id": "request-promise@3.0.0",
+			"_shasum": "be1edb26f41c49cd1d5656c6753d6842a1249f46",
+			"_from": ".",
+			"_npmVersion": "2.15.3",
+			"_nodeVersion": "4.4.2",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				},
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "be1edb26f41c49cd1d5656c6753d6842a1249f46",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-3.0.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/request-promise-3.0.0.tgz_1460844893952_0.12239730870351195"
+			},
+			"directories": {}
+		},
+		"4.0.0": {
+			"name": "request-promise",
+			"version": "4.0.0",
+			"description": "The simplified HTTP request client 'request' with Promise support. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable",
+				"bluebird"
+			],
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "gulp ci",
+				"test-publish": "gulp ci-no-cov",
+				"publish-please": "publish-please",
+				"prepublish": "publish-please guard"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/request/request-promise.git"
+			},
+			"author": {
+				"name": "Nicolai Kamenzky",
+				"url": "https://github.com/analog-nico"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"homepage": "https://github.com/request/request-promise#readme",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"dependencies": {
+				"@request/promise-core": "^1.0.0",
+				"bluebird": "^3.4.1",
+				"stealthy-require": "^0.1.0"
+			},
+			"peerDependencies": {
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "~1.15.2",
+				"chai": "~3.5.0",
+				"chalk": "~1.1.3",
+				"gulp": "~3.9.1",
+				"gulp-coveralls": "~0.1.4",
+				"gulp-eslint": "~2.1.0",
+				"gulp-istanbul": "~1.0.0",
+				"gulp-mocha": "~2.2.0",
+				"lodash": "~4.13.1",
+				"publish-please": "~2.1.4",
+				"request": "^2.34.0",
+				"rimraf": "~2.5.3",
+				"run-sequence": "~1.2.2"
+			},
+			"gitHead": "9b533b04ca8b846e9909e3945c8ab4e033276ac3",
+			"_id": "request-promise@4.0.0",
+			"_shasum": "ebf0116d149ddd2d041dc30de04e8f95b5ca4d3f",
+			"_from": ".",
+			"_npmVersion": "2.15.8",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "request",
+					"email": "request@outofindex.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				},
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "ebf0116d149ddd2d041dc30de04e8f95b5ca4d3f",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-4.0.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/request-promise-4.0.0.tgz_1468629165138_0.4791247888933867"
+			},
+			"directories": {}
+		},
+		"4.0.1": {
+			"name": "request-promise",
+			"version": "4.0.1",
+			"description": "The simplified HTTP request client 'request' with Promise support. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable",
+				"bluebird"
+			],
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "gulp ci",
+				"test-publish": "gulp ci-no-cov",
+				"publish-please": "publish-please",
+				"prepublish": "publish-please guard"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/request/request-promise.git"
+			},
+			"author": {
+				"name": "Nicolai Kamenzky",
+				"url": "https://github.com/analog-nico"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"homepage": "https://github.com/request/request-promise#readme",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"dependencies": {
+				"@request/promise-core": "1.0.0",
+				"bluebird": "^3.4.1",
+				"stealthy-require": "^0.1.0"
+			},
+			"peerDependencies": {
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "~1.15.2",
+				"chai": "~3.5.0",
+				"chalk": "~1.1.3",
+				"gulp": "~3.9.1",
+				"gulp-coveralls": "~0.1.4",
+				"gulp-eslint": "~2.1.0",
+				"gulp-istanbul": "~1.0.0",
+				"gulp-mocha": "~2.2.0",
+				"lodash": "~4.13.1",
+				"publish-please": "~2.1.4",
+				"request": "^2.34.0",
+				"rimraf": "~2.5.3",
+				"run-sequence": "~1.2.2"
+			},
+			"gitHead": "b05749891d26d2f0d38fff25b0fdb16678e19009",
+			"_id": "request-promise@4.0.1",
+			"_shasum": "7baa9a3f072dd931069de9d5c44d43acdb575d57",
+			"_from": ".",
+			"_npmVersion": "2.15.8",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "request",
+					"email": "request@outofindex.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				},
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "7baa9a3f072dd931069de9d5c44d43acdb575d57",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-4.0.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/request-promise-4.0.1.tgz_1468801261338_0.5359185056295246"
+			},
+			"directories": {}
+		},
+		"4.0.2": {
+			"name": "request-promise",
+			"version": "4.0.2",
+			"description": "The simplified HTTP request client 'request' with Promise support. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable",
+				"bluebird"
+			],
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "gulp ci",
+				"test-publish": "gulp ci-no-cov",
+				"publish-please": "publish-please",
+				"prepublish": "publish-please guard"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/request/request-promise.git"
+			},
+			"author": {
+				"name": "Nicolai Kamenzky",
+				"url": "https://github.com/analog-nico"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"homepage": "https://github.com/request/request-promise#readme",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"dependencies": {
+				"@request/promise-core": "1.0.0",
+				"bluebird": "^3.4.1",
+				"stealthy-require": "^1.0.0"
+			},
+			"peerDependencies": {
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "~1.15.2",
+				"chai": "~3.5.0",
+				"chalk": "~1.1.3",
+				"gulp": "~3.9.1",
+				"gulp-coveralls": "~0.1.4",
+				"gulp-eslint": "~2.1.0",
+				"gulp-istanbul": "~1.0.0",
+				"gulp-mocha": "~2.2.0",
+				"lodash": "~4.13.1",
+				"publish-please": "~2.1.4",
+				"request": "^2.34.0",
+				"rimraf": "~2.5.3",
+				"run-sequence": "~1.2.2"
+			},
+			"gitHead": "143666ccada55318fed24c4460def60301443305",
+			"_id": "request-promise@4.0.2",
+			"_shasum": "41a9cf8bfec0b725cea288d2e6d99ffc282acc9a",
+			"_from": ".",
+			"_npmVersion": "2.15.8",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "request",
+					"email": "request@outofindex.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				},
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "41a9cf8bfec0b725cea288d2e6d99ffc282acc9a",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-4.0.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/request-promise-4.0.2.tgz_1468872693179_0.9880081210285425"
+			},
+			"directories": {}
+		},
+		"4.1.0": {
+			"name": "request-promise",
+			"version": "4.1.0",
+			"description": "The simplified HTTP request client 'request' with Promise support. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable",
+				"bluebird"
+			],
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "gulp ci",
+				"test-publish": "gulp ci-no-cov",
+				"publish-please": "publish-please",
+				"prepublish": "publish-please guard"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/request/request-promise.git"
+			},
+			"author": {
+				"name": "Nicolai Kamenzky",
+				"url": "https://github.com/analog-nico"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"homepage": "https://github.com/request/request-promise#readme",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"dependencies": {
+				"@request/promise-core": "1.1.0",
+				"bluebird": "^3.4.1",
+				"stealthy-require": "^1.0.0"
+			},
+			"peerDependencies": {
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "~1.15.2",
+				"chai": "~3.5.0",
+				"chalk": "~1.1.3",
+				"gulp": "~3.9.1",
+				"gulp-coveralls": "~0.1.4",
+				"gulp-eslint": "~2.1.0",
+				"gulp-istanbul": "~1.0.0",
+				"gulp-mocha": "~2.2.0",
+				"lodash": "~4.13.1",
+				"publish-please": "~2.1.4",
+				"request": "^2.34.0",
+				"rimraf": "~2.5.3",
+				"run-sequence": "~1.2.2"
+			},
+			"gitHead": "c63e3a39cf5fbf15cc866723be15af263607d3fc",
+			"_id": "request-promise@4.1.0",
+			"_shasum": "0946efbb5c0699cabdf28960b3936c22798454a2",
+			"_from": ".",
+			"_npmVersion": "2.15.8",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "request",
+					"email": "request@outofindex.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				},
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "0946efbb5c0699cabdf28960b3936c22798454a2",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-4.1.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/request-promise-4.1.0.tgz_1469922970169_0.08631016686558723"
+			},
+			"directories": {}
+		},
+		"4.1.1": {
+			"name": "request-promise",
+			"version": "4.1.1",
+			"description": "The simplified HTTP request client 'request' with Promise support. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable",
+				"bluebird"
+			],
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "gulp ci",
+				"test-publish": "gulp ci-no-cov",
+				"publish-please": "publish-please",
+				"prepublish": "publish-please guard"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/request/request-promise.git"
+			},
+			"author": {
+				"name": "Nicolai Kamenzky",
+				"url": "https://github.com/analog-nico"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"homepage": "https://github.com/request/request-promise#readme",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"dependencies": {
+				"request-promise-core": "1.1.1",
+				"bluebird": "^3.4.1",
+				"stealthy-require": "^1.0.0"
+			},
+			"peerDependencies": {
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "~1.15.2",
+				"chai": "~3.5.0",
+				"chalk": "~1.1.3",
+				"gulp": "~3.9.1",
+				"gulp-coveralls": "~0.1.4",
+				"gulp-eslint": "~2.1.0",
+				"gulp-istanbul": "~1.0.0",
+				"gulp-mocha": "~2.2.0",
+				"lodash": "~4.13.1",
+				"publish-please": "~2.1.4",
+				"request": "^2.34.0",
+				"rimraf": "~2.5.3",
+				"run-sequence": "~1.2.2"
+			},
+			"gitHead": "fc4d2b9274f33a5f2a018e2d6b2900724c88c9e7",
+			"_id": "request-promise@4.1.1",
+			"_shasum": "26021e4f6f56fd4c309f6bf1ebd8c97a95ac1fb5",
+			"_from": ".",
+			"_npmVersion": "2.15.8",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "request",
+					"email": "request@outofindex.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				},
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "26021e4f6f56fd4c309f6bf1ebd8c97a95ac1fb5",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-4.1.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/request-promise-4.1.1.tgz_1470654615971_0.6551584892440587"
+			},
+			"directories": {}
+		},
+		"4.2.0": {
+			"name": "request-promise",
+			"version": "4.2.0",
+			"description": "The simplified HTTP request client 'request' with Promise support. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable",
+				"bluebird"
+			],
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "gulp ci",
+				"test-publish": "gulp ci-no-cov",
+				"publish-please": "publish-please",
+				"prepublish": "publish-please guard"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/request/request-promise.git"
+			},
+			"author": {
+				"name": "Nicolai Kamenzky",
+				"url": "https://github.com/analog-nico"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"homepage": "https://github.com/request/request-promise#readme",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"dependencies": {
+				"request-promise-core": "1.1.1",
+				"bluebird": "^3.5.0",
+				"stealthy-require": "^1.0.0"
+			},
+			"peerDependencies": {
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "~1.15.2",
+				"chai": "~3.5.0",
+				"chalk": "~1.1.3",
+				"gulp": "~3.9.1",
+				"gulp-coveralls": "~0.1.4",
+				"gulp-eslint": "~2.1.0",
+				"gulp-istanbul": "~1.0.0",
+				"gulp-mocha": "~2.2.0",
+				"lodash": "~4.13.1",
+				"publish-please": "~2.1.4",
+				"request": "^2.34.0",
+				"rimraf": "~2.5.3",
+				"run-sequence": "~1.2.2"
+			},
+			"gitHead": "b5e06f5657b14d2640acd1aa2c778d330a3afc12",
+			"_id": "request-promise@4.2.0",
+			"_shasum": "684f77748d6b4617bee6a4ef4469906e6d074720",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "4.8.0",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "request",
+					"email": "request@outofindex.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				},
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "684f77748d6b4617bee6a4ef4469906e6d074720",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-4.2.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/request-promise-4.2.0.tgz_1489700142363_0.32127725845202804"
+			},
+			"directories": {}
+		},
+		"4.2.1": {
+			"name": "request-promise",
+			"version": "4.2.1",
+			"description": "The simplified HTTP request client 'request' with Promise support. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable",
+				"bluebird"
+			],
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "gulp ci",
+				"test-publish": "gulp ci-no-cov",
+				"publish-please": "publish-please",
+				"prepublish": "publish-please guard"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/request/request-promise.git"
+			},
+			"author": {
+				"name": "Nicolai Kamenzky",
+				"url": "https://github.com/analog-nico"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"homepage": "https://github.com/request/request-promise#readme",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"dependencies": {
+				"request-promise-core": "1.1.1",
+				"bluebird": "^3.5.0",
+				"stealthy-require": "^1.1.0",
+				"tough-cookie": ">=2.3.0"
+			},
+			"peerDependencies": {
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "~1.15.2",
+				"chai": "~3.5.0",
+				"chalk": "~1.1.3",
+				"gulp": "~3.9.1",
+				"gulp-coveralls": "~0.1.4",
+				"gulp-eslint": "~2.1.0",
+				"gulp-istanbul": "~1.0.0",
+				"gulp-mocha": "~2.2.0",
+				"lodash": "~4.13.1",
+				"publish-please": "~2.1.4",
+				"request": "^2.34.0",
+				"rimraf": "~2.5.3",
+				"run-sequence": "~1.2.2"
+			},
+			"gitHead": "ba7a3202914110c36bdb98a2574584cf57d9bdd2",
+			"_id": "request-promise@4.2.1",
+			"_shasum": "7eec56c89317a822cbfea99b039ce543c2e15f67",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "4.8.0",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "request",
+					"email": "request@outofindex.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				},
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "7eec56c89317a822cbfea99b039ce543c2e15f67",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-4.2.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/request-promise-4.2.1.tgz_1494207261935_0.7094566724263132"
+			},
+			"directories": {}
+		},
+		"4.2.2": {
+			"name": "request-promise",
+			"version": "4.2.2",
+			"description": "The simplified HTTP request client 'request' with Promise support. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable",
+				"bluebird"
+			],
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "gulp ci",
+				"test-publish": "gulp ci-no-cov",
+				"publish-please": "publish-please",
+				"prepublish": "publish-please guard"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/request/request-promise.git"
+			},
+			"author": {
+				"name": "Nicolai Kamenzky",
+				"url": "https://github.com/analog-nico"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"homepage": "https://github.com/request/request-promise#readme",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"dependencies": {
+				"request-promise-core": "1.1.1",
+				"bluebird": "^3.5.0",
+				"stealthy-require": "^1.1.0",
+				"tough-cookie": ">=2.3.3"
+			},
+			"peerDependencies": {
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "~1.15.2",
+				"chai": "~3.5.0",
+				"chalk": "~1.1.3",
+				"gulp": "~3.9.1",
+				"gulp-coveralls": "~0.1.4",
+				"gulp-eslint": "~2.1.0",
+				"gulp-istanbul": "~1.0.0",
+				"gulp-mocha": "~2.2.0",
+				"lodash": "~4.13.1",
+				"publish-please": "~2.1.4",
+				"request": "^2.34.0",
+				"rimraf": "~2.5.3",
+				"run-sequence": "~1.2.2"
+			},
+			"gitHead": "afaa3e66debbb01fab445692ca70027e3ee724e0",
+			"_id": "request-promise@4.2.2",
+			"_shasum": "d1ea46d654a6ee4f8ee6a4fea1018c22911904b4",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "4.8.0",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "request",
+					"email": "request@outofindex.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				},
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "d1ea46d654a6ee4f8ee6a4fea1018c22911904b4",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-4.2.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/request-promise-4.2.2.tgz_1506098147571_0.10049328184686601"
+			},
+			"directories": {}
+		},
+		"4.2.3": {
+			"name": "request-promise",
+			"version": "4.2.3",
+			"description": "The simplified HTTP request client 'request' with Promise support. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable",
+				"bluebird"
+			],
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "gulp ci",
+				"test-publish": "gulp ci-no-cov",
+				"publish-please": "publish-please",
+				"prepublish": "publish-please guard"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/request/request-promise.git"
+			},
+			"author": {
+				"name": "Nicolai Kamenzky",
+				"url": "https://github.com/analog-nico"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"homepage": "https://github.com/request/request-promise#readme",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"dependencies": {
+				"request-promise-core": "1.1.2",
+				"bluebird": "^3.5.0",
+				"stealthy-require": "^1.1.1",
+				"tough-cookie": "~2.3.3"
+			},
+			"peerDependencies": {
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "~1.15.2",
+				"chai": "~3.5.0",
+				"chalk": "~1.1.3",
+				"gulp": "~3.9.1",
+				"gulp-coveralls": "~0.1.4",
+				"gulp-eslint": "~2.1.0",
+				"gulp-istanbul": "~1.0.0",
+				"gulp-mocha": "~2.2.0",
+				"lodash": "~4.13.1",
+				"publish-please": "~2.1.4",
+				"request": "^2.34.0",
+				"rimraf": "~2.5.3",
+				"run-sequence": "~1.2.2"
+			},
+			"gitHead": "d8319055a063cf51038b0cf0f574377eb0b948d0",
+			"_id": "request-promise@4.2.3",
+			"_shasum": "2be17d2de947e45867d9c1b16b9e18f2dcdde88b",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.16.0",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "request",
+					"email": "request@outofindex.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				},
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "2be17d2de947e45867d9c1b16b9e18f2dcdde88b",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-4.2.3.tgz",
+				"integrity": "sha512-fJ0/f5cryabF7+jld/0o/6ARANrBVipPoNQ+vRwxlmTlx8Jv0UVvZ/ScgGLlqbl0TOh4tdkpQBmUpeGBcT75pQ==",
+				"fileCount": 6,
+				"unpackedSize": 36327,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcZgWmCRA9TVsSAnZWagAAhVkQAJizMDniuOdzm+/BPJx7\n6badKEkvaf/MeOtATGxrzXR0Wtb8WjjtdIOtsyeu1UtqIuLtR0AGig9Frkml\nUIInkSQF/Yi1Af89PCis60soj+BVh5ZudxJxh/kOvvPMpHmGW+SAGiswEp2G\nNkxH/tdTjuLv4PMpTX3AsXoIMJMSVIwQFV3iCcM4YAoVb3LyzTiA7hdXV3yh\n91WCf+s5Dm/+vUTIXxUAY5I7SL50/cRTZLZlALQRDhXAop/obVCqzVeBdGRb\nH+J6UNIVQMpSvNGB0EUKlBu8BMJkVAp3mXsamJPumgXE6fjXOHLbeTuPnzg2\nLV2B4GH4OVpsNR7h+mWZ70+iXmWP+ULk8mgi8DcCc/Y54QO9S5QoFaXRq5WY\nEg5XduVYb7zvQlxN4LFgT/vu5KCLX7390mIGI1/aA2K3yGlL6X52vUiXWDqd\nq77zAdjSqfOV6RID2qNGcb+lysMKPFubbRZPmuZ3ZTkrV4n+Nk8ZNRVFA6+u\nsPuLhKhNvW02BAJxcqh8k2+STEJKBSIE7Orjw0VLIQ9qZqGNLKdAzW6gfJTA\n6GFGpvIqfd+zzzvqLGgIbxPJl0KxjgZxY6MNOC4Mp92pJu9/3Pe+JCJApRjs\nFSnSEeV70TI58Jin7h3m2OaVxf3DwFNUVUQnijTTZLcqzsBf9q0Km9CS47dg\nyTTn\r\n=ixH+\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/request-promise_4.2.3_1550189989943_0.01587653624110552"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.2.4": {
+			"name": "request-promise",
+			"version": "4.2.4",
+			"description": "The simplified HTTP request client 'request' with Promise support. Powered by Bluebird.",
+			"keywords": [
+				"xhr",
+				"http",
+				"https",
+				"promise",
+				"request",
+				"then",
+				"thenable",
+				"bluebird"
+			],
+			"main": "./lib/rp.js",
+			"scripts": {
+				"test": "gulp ci",
+				"test-publish": "gulp ci-no-cov",
+				"publish-please": "publish-please",
+				"prepublish": "publish-please guard"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/request/request-promise.git"
+			},
+			"author": {
+				"name": "Nicolai Kamenzky",
+				"url": "https://github.com/analog-nico"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/request/request-promise/issues"
+			},
+			"homepage": "https://github.com/request/request-promise#readme",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"dependencies": {
+				"request-promise-core": "1.1.2",
+				"bluebird": "^3.5.0",
+				"stealthy-require": "^1.1.1",
+				"tough-cookie": "^2.3.3"
+			},
+			"peerDependencies": {
+				"request": "^2.34"
+			},
+			"devDependencies": {
+				"body-parser": "~1.15.2",
+				"chai": "~3.5.0",
+				"chalk": "~1.1.3",
+				"gulp": "~3.9.1",
+				"gulp-coveralls": "~0.1.4",
+				"gulp-eslint": "~2.1.0",
+				"gulp-istanbul": "~1.0.0",
+				"gulp-mocha": "~2.2.0",
+				"lodash": "~4.13.1",
+				"publish-please": "~2.1.4",
+				"request": "^2.34.0",
+				"rimraf": "~2.5.3",
+				"run-sequence": "~1.2.2"
+			},
+			"gitHead": "4e3b7ed87ae9a120aae2c4613e93aec3f8a615a9",
+			"_id": "request-promise@4.2.4",
+			"_shasum": "1c5ed0d71441e38ad58c7ce4ea4ea5b06d54b310",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.16.0",
+			"_npmUser": {
+				"name": "analog-nico",
+				"email": "nicolai.kamenzky@testrails.org"
+			},
+			"maintainers": [
+				{
+					"name": "analog-nico",
+					"email": "nicolai.kamenzky@testrails.org"
+				},
+				{
+					"name": "mikeal",
+					"email": "mikeal.rogers@gmail.com"
+				},
+				{
+					"name": "nylen",
+					"email": "jnylen@gmail.com"
+				},
+				{
+					"name": "request",
+					"email": "request@outofindex.com"
+				},
+				{
+					"name": "simov",
+					"email": "simeonvelichkov@gmail.com"
+				},
+				{
+					"name": "tyabonil",
+					"email": "ty.abonil@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "1c5ed0d71441e38ad58c7ce4ea4ea5b06d54b310",
+				"tarball": "https://registry.npmjs.org/request-promise/-/request-promise-4.2.4.tgz",
+				"integrity": "sha512-8wgMrvE546PzbR5WbYxUQogUnUDfM0S7QIFZMID+J73vdFARkFy+HElj4T+MWYhpXwlLp0EQ8Zoj8xUA0he4Vg==",
+				"fileCount": 6,
+				"unpackedSize": 36636,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcZk/HCRA9TVsSAnZWagAAi30QAIDLQ6e1dPtEp2QSKOcR\nkQLCr9Zw1gyckMJ1xypJ2vg2pwcTbfJYyJbhH8pwPssYDtqGMVC/DInI17vW\nReTpLT0sNMs+0D2PkSuJaoew8Y09A/VAQhKEPfJ7hTVzj2hRVSkAUYlwzgzL\nIYlpIimetDkLMN2MCM/WC4b5N8uZUC/f/S235hbpDwkFhJlmjxt89wnCrgg8\nP90ks3rZHkOwsEvKHob2M9BtXTK09b0887xWVcKNt2VSj9QgGmXqqlAJ9yCY\nbDbO9qMFf6YH20nZpoFA9Bvc0wycscbLyKnbbh5Xeh8+OjfJT1Cj92bqUx5H\nfeS74PCGIqpg9nDONlT9hUZWJnYgFfGVVhFPmgnexeZL07JE4uwHa9MfNpa2\nq0JbPH5HnRq6b54XZcjoTjpCMrGs+cPfpFGZwMN7724BGIJ4/t/IHH0zF/bv\nVDmz7/liF+g24jkrvK1j+D20XBNLTnhNIc+bLF3zoh4IB4EVI4sSM23yTJN2\ne+nbowV6UW+wIj7i5ANajCvzYk16pr4STWnFMx0M23snRceyjWrIkZun+aBN\n9CFvDdIi12sv0Dr7t7TKL2SAQJvHDqPLqkA587c0mvJsqGbOQBAYtRQvn7bm\n2czbZmNYf7kOW42CdG92o8FAYcirUalLjfV0ymtARZ5Ie4rRxfIN3q2z0p9s\nX8td\r\n=T8qD\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/request-promise_4.2.4_1550208967149_0.3013680170072872"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-03-14T01:30:42.627Z",
+		"created": "2013-10-04T17:46:32.969Z",
+		"0.0.1": "2013-10-04T17:46:34.565Z",
+		"0.0.2": "2013-10-05T02:11:28.373Z",
+		"0.0.3": "2014-02-03T20:17:00.658Z",
+		"0.0.4": "2014-04-26T16:50:20.240Z",
+		"0.1.0": "2014-08-10T17:23:25.178Z",
+		"0.1.1": "2014-08-17T16:23:59.798Z",
+		"0.1.2": "2014-08-17T17:47:29.981Z",
+		"0.1.3": "2014-09-13T16:34:16.844Z",
+		"0.1.4": "2014-09-25T02:40:53.174Z",
+		"0.2.0": "2014-09-25T11:19:14.518Z",
+		"0.2.1": "2014-10-07T18:23:42.134Z",
+		"0.2.2": "2014-10-11T17:52:38.024Z",
+		"0.2.4": "2014-10-13T18:13:27.054Z",
+		"0.2.5": "2014-11-07T02:22:45.171Z",
+		"0.2.6": "2014-11-10T03:24:34.929Z",
+		"0.3.0": "2014-11-10T22:45:46.311Z",
+		"0.3.1": "2014-11-11T21:16:37.905Z",
+		"0.2.7": "2014-11-18T04:36:52.958Z",
+		"0.3.2": "2014-11-18T04:38:08.520Z",
+		"0.3.3": "2015-01-19T22:45:19.432Z",
+		"0.4.0": "2015-02-08T19:14:24.727Z",
+		"0.4.1": "2015-03-20T16:38:07.715Z",
+		"0.4.2": "2015-04-12T23:30:18.769Z",
+		"0.4.3": "2015-07-27T19:41:55.270Z",
+		"1.0.0": "2015-10-11T15:05:11.806Z",
+		"1.0.1": "2015-10-14T14:03:46.219Z",
+		"1.0.2": "2015-10-22T20:00:22.662Z",
+		"2.0.0": "2016-01-12T12:08:16.588Z",
+		"2.0.1": "2016-02-17T10:09:23.935Z",
+		"3.0.0": "2016-04-16T22:14:54.393Z",
+		"4.0.0": "2016-07-16T00:32:45.355Z",
+		"4.0.1": "2016-07-18T00:21:01.588Z",
+		"4.0.2": "2016-07-18T20:11:33.430Z",
+		"4.1.0": "2016-07-30T23:56:10.419Z",
+		"4.1.1": "2016-08-08T11:10:16.243Z",
+		"4.2.0": "2017-03-16T21:35:44.332Z",
+		"4.2.1": "2017-05-08T01:34:22.183Z",
+		"4.2.2": "2017-09-22T16:35:47.641Z",
+		"4.2.3": "2019-02-15T00:19:50.133Z",
+		"4.2.4": "2019-02-15T05:36:07.298Z"
+	},
+	"dist-tags": {
+		"latest": "4.2.4",
+		"v0.1.0": "0.1.0",
+		"0.1.1": "0.1.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"99b70abadaac26ea9dda54596457639e\"",
+			"fetched": 1568994351523
+		}
+	},
+	"_distfiles": {
+		"request-promise-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.0.1.tgz",
+			"sha": "4f93c66fb7f870f7ab7cb4f19732083a11b3d6c0",
+			"registry": "npmjs"
+		},
+		"request-promise-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.0.2.tgz",
+			"sha": "b498f7a79a12af516729181f8ee3ca55242f5ec7",
+			"registry": "npmjs"
+		},
+		"request-promise-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.0.3.tgz",
+			"sha": "4e31b143e11dd096dbb33dd1b2369bf2b0f13b59",
+			"registry": "npmjs"
+		},
+		"request-promise-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.0.4.tgz",
+			"sha": "fc9f878544def53fbd7f80e2bc353f460c3ef2e2",
+			"registry": "npmjs"
+		},
+		"request-promise-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.1.0.tgz",
+			"sha": "0a2bc5e33417ede8d0a0ee6bfd542af43ca49a85",
+			"registry": "npmjs"
+		},
+		"request-promise-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.1.1.tgz",
+			"sha": "12b68c0e742986726ef0ee67eab2df8c589b80a1",
+			"registry": "npmjs"
+		},
+		"request-promise-0.1.2.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.1.2.tgz",
+			"sha": "7132a83f647a35291583a863a68cc4bcc905309b",
+			"registry": "npmjs"
+		},
+		"request-promise-0.1.3.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.1.3.tgz",
+			"sha": "3035710fa25b1f501e0efde2110149b47d73334d",
+			"registry": "npmjs"
+		},
+		"request-promise-0.1.4.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.1.4.tgz",
+			"sha": "3271fd9b72c3fb6cf82c479b80c270aaa1b4c5a1",
+			"registry": "npmjs"
+		},
+		"request-promise-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.2.0.tgz",
+			"sha": "b989e8b436759beabb6a6b0ca5a7e40062e2fe37",
+			"registry": "npmjs"
+		},
+		"request-promise-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.2.1.tgz",
+			"sha": "b5cce6d52884a24228f820762e9421f4580452b9",
+			"registry": "npmjs"
+		},
+		"request-promise-0.2.2.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.2.2.tgz",
+			"sha": "ff766ed4fb9bb530e14b938b16286d39a5eb3e72",
+			"registry": "npmjs"
+		},
+		"request-promise-0.2.4.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.2.4.tgz",
+			"sha": "e23af5aaa6c7385dadb4fcefade409cfb903ea0a",
+			"registry": "npmjs"
+		},
+		"request-promise-0.2.5.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.2.5.tgz",
+			"sha": "7418b9388a553f23a2bad75bca7ddabc9d9aebe7",
+			"registry": "npmjs"
+		},
+		"request-promise-0.2.6.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.2.6.tgz",
+			"sha": "a21158ccbdaae20907e323c1028a370867e4f354",
+			"registry": "npmjs"
+		},
+		"request-promise-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.3.0.tgz",
+			"sha": "d49aba96efa78dc06c01b02b505de58e91a57d7f",
+			"registry": "npmjs"
+		},
+		"request-promise-0.3.1.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.3.1.tgz",
+			"sha": "579ffd81f858c8adce89d922c3784765513b08ee",
+			"registry": "npmjs"
+		},
+		"request-promise-0.2.7.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.2.7.tgz",
+			"sha": "30b63b10a59ed7c355d6f2d25fbef719a66b9292",
+			"registry": "npmjs"
+		},
+		"request-promise-0.3.2.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.3.2.tgz",
+			"sha": "a050a6a333ec2b8dbf4a327e859b1a5b89473413",
+			"registry": "npmjs"
+		},
+		"request-promise-0.3.3.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.3.3.tgz",
+			"sha": "f26cb11ad6c40990ddc638d6ab817c43ac0f90c8",
+			"registry": "npmjs"
+		},
+		"request-promise-0.4.0.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.4.0.tgz",
+			"sha": "0318167a5bbe0fdf5c7382a000cd71097032223a",
+			"registry": "npmjs"
+		},
+		"request-promise-0.4.1.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.4.1.tgz",
+			"sha": "b09c66fa4366f21327665dcdd9a06cdfbc80501c",
+			"registry": "npmjs"
+		},
+		"request-promise-0.4.2.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.4.2.tgz",
+			"sha": "ebd3770c4e559f9b8567a1a8277cd77280e6d835",
+			"registry": "npmjs"
+		},
+		"request-promise-0.4.3.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-0.4.3.tgz",
+			"sha": "3c8ddc82f06f8908d720aede1d6794258e22121c",
+			"registry": "npmjs"
+		},
+		"request-promise-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-1.0.0.tgz",
+			"sha": "de167be6975a42ffa8bf400577cb43186f943256",
+			"registry": "npmjs"
+		},
+		"request-promise-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-1.0.1.tgz",
+			"sha": "15d3193cd38f945920f86b5c0c64793c6cbb79a3",
+			"registry": "npmjs"
+		},
+		"request-promise-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-1.0.2.tgz",
+			"sha": "155f410608d9257c089c1d0b26f8d8f7a8aa86a1",
+			"registry": "npmjs"
+		},
+		"request-promise-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-2.0.0.tgz",
+			"sha": "e89d6ae0edc3a97c894f967a8bf5025c23d13db3",
+			"registry": "npmjs"
+		},
+		"request-promise-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-2.0.1.tgz",
+			"sha": "acbd47b725e39372ede3174cf29c38d9ecf2b30d",
+			"registry": "npmjs"
+		},
+		"request-promise-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-3.0.0.tgz",
+			"sha": "be1edb26f41c49cd1d5656c6753d6842a1249f46",
+			"registry": "npmjs"
+		},
+		"request-promise-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-4.0.0.tgz",
+			"sha": "ebf0116d149ddd2d041dc30de04e8f95b5ca4d3f",
+			"registry": "npmjs"
+		},
+		"request-promise-4.0.1.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-4.0.1.tgz",
+			"sha": "7baa9a3f072dd931069de9d5c44d43acdb575d57",
+			"registry": "npmjs"
+		},
+		"request-promise-4.0.2.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-4.0.2.tgz",
+			"sha": "41a9cf8bfec0b725cea288d2e6d99ffc282acc9a",
+			"registry": "npmjs"
+		},
+		"request-promise-4.1.0.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-4.1.0.tgz",
+			"sha": "0946efbb5c0699cabdf28960b3936c22798454a2",
+			"registry": "npmjs"
+		},
+		"request-promise-4.1.1.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-4.1.1.tgz",
+			"sha": "26021e4f6f56fd4c309f6bf1ebd8c97a95ac1fb5",
+			"registry": "npmjs"
+		},
+		"request-promise-4.2.0.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-4.2.0.tgz",
+			"sha": "684f77748d6b4617bee6a4ef4469906e6d074720",
+			"registry": "npmjs"
+		},
+		"request-promise-4.2.1.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-4.2.1.tgz",
+			"sha": "7eec56c89317a822cbfea99b039ce543c2e15f67",
+			"registry": "npmjs"
+		},
+		"request-promise-4.2.2.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-4.2.2.tgz",
+			"sha": "d1ea46d654a6ee4f8ee6a4fea1018c22911904b4",
+			"registry": "npmjs"
+		},
+		"request-promise-4.2.3.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-4.2.3.tgz",
+			"sha": "2be17d2de947e45867d9c1b16b9e18f2dcdde88b",
+			"registry": "npmjs"
+		},
+		"request-promise-4.2.4.tgz": {
+			"url": "https://registry.npmjs.org/request-promise/-/request-promise-4.2.4.tgz",
+			"sha": "1c5ed0d71441e38ad58c7ce4ea4ea5b06d54b310",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-b6d4c39f8543770a",
+	"_id": "request-promise",
+	"readme": "<a href=\"http://promisesaplus.com/\">\n    <img src=\"https://promises-aplus.github.io/promises-spec/assets/logo-small.png\" align=\"right\" alt=\"Promises/A+ logo\" />\n</a>\n\n# Request-Promise\n\n[![Gitter](https://img.shields.io/badge/gitter-join_chat-blue.svg?style=flat-square&maxAge=2592000)](https://gitter.im/request/request-promise?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\n[![Build Status](https://img.shields.io/travis/request/request-promise/master.svg?style=flat-square&maxAge=2592000)](https://travis-ci.org/request/request-promise)\n[![Coverage Status](https://img.shields.io/coveralls/request/request-promise.svg?style=flat-square&maxAge=2592000)](https://coveralls.io/r/request/request-promise)\n[![Dependency Status](https://img.shields.io/david/request/request-promise.svg?style=flat-square&maxAge=2592000)](https://david-dm.org/request/request-promise)\n[![Known Vulnerabilities](https://snyk.io/test/npm/request-promise/badge.svg?style=flat-square&maxAge=2592000)](https://snyk.io/test/npm/request-promise)\n\nThe simplified HTTP request client 'request' with Promise support. Powered by Bluebird.\n\n[Request](https://github.com/request/request) and [Bluebird](https://github.com/petkaantonov/bluebird) are pretty awesome, but I found myself using the same design pattern. Request-Promise adds a Bluebird-powered `.then(...)` method to Request call objects. By default, http response codes other than 2xx will cause the promise to be rejected. This can be overwritten by setting `options.simple = false`.\n\nAlso check out the new libraries that are **very similar to `request-promise` v4**:\n- [`request-promise-native`](https://github.com/request/request-promise-native) v1 &ndash; Does not depend on Bluebird and uses native ES6 promises instead.\n- [`request-promise-any`](https://github.com/request/request-promise-any) v1 &ndash; Allows you to register any Promise library supported by [`any-promise`](https://www.npmjs.com/package/any-promise).\n\n---\n\n## Migration from v3 to v4\n\n1. `request` became a peer dependency. Thus make sure that `request` is installed into your project as a direct dependency. (`npm install --save request`)\n2. Continuation Local Storage is no longer supported. However, you [can get back the support](https://github.com/request/request-promise/wiki/Getting-Back-Support-for-Continuation-Local-Storage) by using `request-promise-any`.\n3. When you migrated your `transform` function to v3 and had to add `if (!(/^2/.test('' + response.statusCode))) { return resolveWithFullResponse ? response : body; }` you may now set the option `transform2xxOnly = true` instead.\n\n## Migration from v2 to v3\n\n1. The handling of the `transform` function got overhauled. This has two effects:\n    - `StatusCodeError.response` is the transformed instead of the original response now. This error is thrown for non-2xx responses when `options.simple` is `true` (default). Please update your `transform` functions to also cover the transformation of non-2xx responses. To get the old behavior you may add `if (!(/^2/.test('' + response.statusCode))) { return resolveWithFullResponse ? response : body; }` to the first line of your `transform` functions that are used for requests with `options.simple === true`. However, you may prefer updating your `transform` functions to being able to transform 2xx as well as non-2xx responses because this decouples their implementation from the use of the `simple` option when doing requests.\n    - If a transform operation throws an error, the request will be rejected with a `TransformError`. Its `cause` attribute contains the error thrown by the transform operation. Previously, the request was rejected directly with the error thrown by the transform operation. Wrapping it into a `TransformError` makes the error handling easier.\n\n2. Bluebird got updated from v2 to v3. This won't make a difference for most use cases. However, if you use advanced Promise chains starting with the Promise returned by Request-Promise, please check [Bluebird's new features and changes](http://bluebirdjs.com/docs/new-in-bluebird-3.html).\n\n---\n\n## Installation\n\nThis module is installed via npm:\n\n```\nnpm install --save request\nnpm install --save request-promise\n```\n\n`request` is defined as a peer-dependency and thus has to be installed separately.\n\n## Cheat Sheet\n\n``` js\nvar rp = require('request-promise');\n```\n\nSince `request-promise` wraps around `request` everything that works with `request` also works with `request-promise`. Also check out the [`request` docs](https://github.com/request/request) for more examples.\n\n### Crawl a webpage\n\n``` js\nrp('http://www.google.com')\n    .then(function (htmlString) {\n        // Process html...\n    })\n    .catch(function (err) {\n        // Crawling failed...\n    });\n```\n\n### Crawl a webpage better\n\n``` js\nvar cheerio = require('cheerio'); // Basically jQuery for node.js\n\nvar options = {\n    uri: 'http://www.google.com',\n    transform: function (body) {\n        return cheerio.load(body);\n    }\n};\n\nrp(options)\n    .then(function ($) {\n        // Process html like you would with jQuery...\n    })\n    .catch(function (err) {\n        // Crawling failed or Cheerio choked...\n    });\n```\n\n### GET something from a JSON REST API\n\n``` js\nvar options = {\n    uri: 'https://api.github.com/user/repos',\n    qs: {\n        access_token: 'xxxxx xxxxx' // -> uri + '?access_token=xxxxx%20xxxxx'\n    },\n    headers: {\n        'User-Agent': 'Request-Promise'\n    },\n    json: true // Automatically parses the JSON string in the response\n};\n\nrp(options)\n    .then(function (repos) {\n        console.log('User has %d repos', repos.length);\n    })\n    .catch(function (err) {\n        // API call failed...\n    });\n```\n\n### POST data to a JSON REST API\n\nSet `option.body` to your data and `json: true` to encode the body as JSON. See below for HTML forms.\n\n``` js\nvar options = {\n    method: 'POST',\n    uri: 'http://api.posttestserver.com/post',\n    body: {\n        some: 'payload'\n    },\n    json: true // Automatically stringifies the body to JSON\n};\n\nrp(options)\n    .then(function (parsedBody) {\n        // POST succeeded...\n    })\n    .catch(function (err) {\n        // POST failed...\n    });\n```\n\n### POST like HTML forms do\n\nPass your data to `options.form` to encode the body the same way as HTML forms do:\n\n``` js\nvar options = {\n    method: 'POST',\n    uri: 'http://posttestserver.com/post.php',\n    form: {\n        // Like <input type=\"text\" name=\"name\">\n        name: 'Josh'\n    },\n    headers: {\n        /* 'content-type': 'application/x-www-form-urlencoded' */ // Is set automatically\n    }\n};\n\nrp(options)\n    .then(function (body) {\n        // POST succeeded...\n    })\n    .catch(function (err) {\n        // POST failed...\n    });\n```\n\nIf you want to include a file upload then use `options.formData`:\n\n``` js\nvar options = {\n    method: 'POST',\n    uri: 'http://posttestserver.com/post.php',\n    formData: {\n        // Like <input type=\"text\" name=\"name\">\n        name: 'Jenn',\n        // Like <input type=\"file\" name=\"file\">\n        file: {\n            value: fs.createReadStream('test/test.jpg'),\n            options: {\n                filename: 'test.jpg',\n                contentType: 'image/jpg'\n            }\n        }\n    },\n    headers: {\n        /* 'content-type': 'multipart/form-data' */ // Is set automatically\n    }\n};\n\nrp(options)\n    .then(function (body) {\n        // POST succeeded...\n    })\n    .catch(function (err) {\n        // POST failed...\n    });\n```\n\n### Include a cookie\n\n``` js\nvar tough = require('tough-cookie');\n\n// Easy creation of the cookie - see tough-cookie docs for details\nlet cookie = new tough.Cookie({\n    key: \"some_key\",\n    value: \"some_value\",\n    domain: 'api.mydomain.com',\n    httpOnly: true,\n    maxAge: 31536000\n});\n\n// Put cookie in an jar which can be used across multiple requests\nvar cookiejar = rp.jar();\ncookiejar.setCookie(cookie, 'https://api.mydomain.com');\n// ...all requests to https://api.mydomain.com will include the cookie\n\nvar options = {\n    uri: 'https://api.mydomain.com/...',\n    jar: cookiejar // Tells rp to include cookies in jar that match uri\n};\n\nrp(options)\n    .then(function (body) {\n        // Request succeeded...\n    })\n    .catch(function (err) {\n        // Request failed...\n    });\n```\n\n### Get the full response instead of just the body\n\n``` js\nvar options = {\n    method: 'DELETE',\n    uri: 'http://my-server/path/to/resource/1234',\n    resolveWithFullResponse: true    //  <---  <---  <---  <---\n};\n\nrp(options)\n    .then(function (response) {\n        console.log(\"DELETE succeeded with status %d\", response.statusCode);\n    })\n    .catch(function (err) {\n        // Delete failed...\n    });\n```\n\n### Get a rejection only if the request failed for technical reasons\n\n``` js\nvar options = {\n    uri: 'http://www.google.com/this-page-does-not-exist.html',\n    simple: false    //  <---  <---  <---  <---\n};\n\nrp(options)\n    .then(function (body) {\n        // Request succeeded but might as well be a 404\n        // Usually combined with resolveWithFullResponse = true to check response.statusCode\n    })\n    .catch(function (err) {\n        // Request failed due to technical reasons...\n    });\n```\n\n---\n\n**For more options checkout the [Request docs](https://github.com/request/request#requestoptions-callback).**\n\n---\n\n## API in Detail\n\nConsider Request-Promise being:\n\n- A Request object\n\t- With an [identical API](https://github.com/request/request): `require('request-promise') == require('request')` so to say\n\t- However, **STREAMING THE RESPONSE** (e.g. `.pipe(...)`) is **DISCOURAGED** because Request-Promise would grow the memory footprint for large requests unnecessarily high. Use the original Request library for that. You can use both libraries in the same project.\n- Plus some methods on a request call object:\n\t- `rp(...).then(...)` or e.g. `rp.post(...).then(...)` which turn `rp(...)` and `rp.post(...)` into promises\n\t- `rp(...).catch(...)` or e.g. `rp.del(...).catch(...)` which is the same method as provided by Bluebird promises\n\t    - Errors that the `request` library would pass to the callback are wrapped by `request-promise` and then passed to the catch handler. See [code example](https://github.com/request/request-promise#thenonfulfilled-onrejected) below. \n\t- `rp(...).finally(...)` or e.g. `rp.put(...).finally(...)` which is the same method as provided by Bluebird promises\n\t- `rp(...).cancel()` or e.g. `rp.get(...).cancel()` which cancels the request\n\t- `rp(...).promise()` or e.g. `rp.head(...).promise()` which returns the underlying promise so you can access the full [Bluebird API](https://github.com/petkaantonov/bluebird/blob/master/API.md)\n- Plus some additional options:\n\t- `simple = true` which is a boolean to set whether status codes other than 2xx should also reject the promise\n\t- `resolveWithFullResponse = false` which is a boolean to set whether the promise should be resolved with the full response or just the response body\n\t- `transform` which takes a function to transform the response into a custom value with which the promise is resolved\n\t- `transform2xxOnly = false` which is a boolean to set whether the transform function is applied to all responses or only to those with a 2xx status code\n\nThe objects returned by request calls like `rp(...)` or e.g. `rp.post(...)` are regular Promises/A+ compliant promises and can be assimilated by any compatible promise library.\n\nThe methods `.then(...)`, `.catch(...)`, and `.finally(...)` - which you can call on the request call objects - return a full-fledged Bluebird promise. That means you have the full [Bluebird API](https://github.com/petkaantonov/bluebird/blob/master/API.md) available for further chaining. E.g.: `rp(...).then(...).spread(...)` If, however, you need a method other than `.then(...)`, `.catch(...)`, or `.finally(...)` to be **FIRST** in the chain, use `.promise()`: `rp(...).promise().bind(...).then(...)`\n\n### .then(onFulfilled, onRejected)\n\n``` js\n// As a Request user you would write:\nvar request = require('request');\n\nrequest('http://google.com', function (err, response, body) {\n    if (err) {\n        handleError({ error: err, response: response, ... });\n    } else if (!(/^2/.test('' + response.statusCode))) { // Status Codes other than 2xx\n        handleError({ error: body, response: response, ... });\n    } else {\n        process(body);\n    }\n});\n\n// As a Request-Promise user you can now write the equivalent code:\nvar rp = require('request-promise');\n\nrp('http://google.com')\n    .then(process, handleError);\n```\n\n``` js\n// The same is available for all http method shortcuts:\nrequest.post('http://example.com/api', function (err, response, body) { ... });\nrp.post('http://example.com/api').then(...);\n```\n\n### .catch(onRejected)\n\n``` js\nrp('http://google.com')\n    .catch(handleError);\n\n// ... is syntactical sugar for:\n\nrp('http://google.com')\n    .then(null, handleError);\n\n\n// However, this:\nrp('http://google.com')\n    .then(process)\n    .catch(handleError);\n\n// ... is safer than:\nrp('http://google.com')\n    .then(process, handleError);\n```\n\nFor more info on `.then(process).catch(handleError)` versus `.then(process, handleError)`, see Bluebird docs on [promise anti-patterns](http://bluebirdjs.com/docs/anti-patterns.html#the-.then).\n\n### .finally(onFinished)\n\n``` js\nrp('http://google.com')\n    .finally(function () {\n\t    // This is called after the request finishes either successful or not successful.\n\t});\n```\n\n### .cancel()\n\nThis method cancels the request using [Bluebird's cancellation feature](http://bluebirdjs.com/docs/api/cancellation.html).\n\nWhen `.cancel()` is called:\n\n- the promise will neither be resolved nor rejected and\n- the request is [aborted](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_request_abort).\n\n### .promise() - For advanced use cases\n\nIn order to not pollute the Request call objects with the methods of the underlying Bluebird promise, only `.then(...)`, `.catch(...)`, and `.finally(...)` were exposed to cover most use cases. The effect is that any methods of a Bluebird promise other than `.then(...)`, `.catch(...)`, or `.finally(...)` cannot be used as the **FIRST** method in the promise chain:\n\n``` js\n// This works:\nrp('http://google.com').then(function () { ... });\nrp('http://google.com').catch(function () { ... });\n\n// This works as well since additional methods are only used AFTER the FIRST call in the chain:\nrp('http://google.com').then(function () { ... }).spread(function () { ... });\nrp('http://google.com').catch(function () { ... }).error(function () { ... });\n\n// Using additional methods as the FIRST call in the chain does not work:\n// rp('http://google.com').bind(this).then(function () { ... });\n\n// Use .promise() in these cases:\nrp('http://google.com').promise().bind(this).then(function () { ... });\n```\n\n### Fulfilled promises and the `resolveWithFullResponse` option\n\n``` js\n// Per default the body is passed to the fulfillment handler:\nrp('http://google.com')\n    .then(function (body) {\n        // Process the html of the Google web page...\n    });\n\n// The resolveWithFullResponse options allows to pass the full response:\nrp({ uri: 'http://google.com', resolveWithFullResponse: true })\n    .then(function (response) {\n        // Access response.statusCode, response.body etc.\n    });\n\n```\n\n### Rejected promises and the `simple` option\n\n``` js\n// The rejection handler is called with a reason object...\nrp('http://google.com')\n    .catch(function (reason) {\n        // Handle failed request...\n\t});\n\n// ... and would be equivalent to this Request-only implementation:\nvar options = { uri: 'http://google.com' };\n\nrequest(options, function (err, response, body) {\n    var reason;\n    if (err) {\n        reason = {\n            cause: err,\n            error: err,\n            options: options,\n            response: response\n        };\n\t} else if (!(/^2/.test('' + response.statusCode))) { // Status Codes other than 2xx\n        reason = {\n            statusCode: response.statusCode,\n            error: body,\n            options: options,\n            response: response\n        };\n    }\n\n    if (reason) {\n        // Handle failed request...\n    }\n});\n\n\n// If you pass the simple option as false...\nrp({ uri: 'http://google.com', simple: false })\n    .catch(function (reason) {\n        // Handle failed request...\n\t});\n\n// ... the equivalent Request-only code would be:\nrequest(options, function (err, response, body) {\n    if (err) {\n        var reason = {\n            cause: err,\n            error: err,\n            options: options,\n            response: response\n        };\n        // Handle failed request...\n\t}\n});\n// E.g. a 404 would now fulfill the promise.\n// Combine it with resolveWithFullResponse = true to check the status code in the fulfillment handler.\n```\n\nWith version 0.4 the reason objects became Error objects with identical properties to ensure backwards compatibility. These new Error types allow targeted catch blocks:\n\n``` js\nvar errors = require('request-promise/errors');\n\nrp('http://google.com')\n\t.catch(errors.StatusCodeError, function (reason) {\n        // The server responded with a status codes other than 2xx.\n        // Check reason.statusCode\n\t})\n    .catch(errors.RequestError, function (reason) {\n        // The request failed due to technical reasons.\n        // reason.cause is the Error object Request would pass into a callback.\n\t});\n```\n\n### The `transform` function\n\nYou can pass a function to `options.transform` to generate a custom fulfillment value when the promise gets resolved.\n\n``` js\n// Just for fun you could reverse the response body:\nvar options = {\n\turi: 'http://google.com',\n    transform: function (body, response, resolveWithFullResponse) {\n        return body.split('').reverse().join('');\n    }\n};\n\nrp(options)\n    .then(function (reversedBody) {\n        // ;D\n    });\n\n\n// However, you could also do something useful:\nvar $ = require('cheerio'); // Basically jQuery for node.js\n\nfunction autoParse(body, response, resolveWithFullResponse) {\n    // FIXME: The content type string could contain additional values like the charset.\n    // Consider using the `content-type` library for a robust comparison.\n    if (response.headers['content-type'] === 'application/json') {\n        return JSON.parse(body);\n    } else if (response.headers['content-type'] === 'text/html') {\n        return $.load(body);\n    } else {\n        return body;\n    }\n}\n\noptions.transform = autoParse;\n\nrp(options)\n    .then(function (autoParsedBody) {\n        // :)\n    });\n\n\n// You can go one step further and set the transform as the default:\nvar rpap = rp.defaults({ transform: autoParse });\n\nrpap('http://google.com')\n    .then(function (autoParsedBody) {\n        // :)\n    });\n\nrpap('http://echojs.com')\n    .then(function (autoParsedBody) {\n        // =)\n    });\n```\n\nThe third `resolveWithFullResponse` parameter of the transform function is equivalent to the option passed with the request. This allows to distinguish whether just the transformed body or the whole response shall be returned by the transform function:\n\n``` js\nfunction reverseBody(body, response, resolveWithFullResponse) {\n    response.body = response.body.split('').reverse().join('');\n    return resolveWithFullResponse ? response : response.body;\n}\n```\n\nAs of Request-Promise v3 the transform function is ALWAYS executed for non-2xx responses. When `options.simple` is set to `true` (default) then non-2xx responses are rejected with a `StatusCodeError`. In this case the error contains the transformed response:\n\n``` js\nvar options = {\n\turi: 'http://the-server.com/will-return/404',\n\tsimple: true,\n    transform: function (body, response, resolveWithFullResponse) { /* ... */ }\n};\n\nrp(options)\n    .catch(errors.StatusCodeError, function (reason) {\n        // reason.response is the transformed response\n    });\n```\n\nYou may set `options.transform2xxOnly = true` to only execute the transform function for responses with a 2xx status code. For other status codes &ndash; independent of any other settings, e.g. `options.simple` &ndash; the transform function is not executed.\n\n#### Error handling\n\nIf the transform operation fails (throws an error) the request will be rejected with a `TransformError`:\n\n``` js\nvar errors = require('request-promise/errors');\n\nvar options = {\n\turi: 'http://google.com',\n    transform: function (body, response, resolveWithFullResponse) {\n        throw new Error('Transform failed!');\n    }\n};\n\nrp(options)\n    .catch(errors.TransformError, function (reason) {\n        console.log(reason.cause.message); // => Transform failed!\n        // reason.response is the original response for which the transform operation failed\n    });\n```\n\n## Experimental Support for Continuation Local Storage\n\nContinuation Local Storage is no longer supported. However, you [can get back the support](https://github.com/request/request-promise/wiki/Getting-Back-Support-for-Continuation-Local-Storage) by using `request-promise-any`.\n\n## Debugging\n\nThe ways to debug the operation of Request-Promise are the same [as described](https://github.com/request/request#debugging) for Request. These are:\n\n1. Launch the node process like `NODE_DEBUG=request node script.js` (`lib,request,otherlib` works too).\n2. Set `require('request-promise').debug = true` at any time (this does the same thing as #1).\n3. Use the [request-debug module](https://github.com/nylen/request-debug) to view request and response headers and bodies. Instrument Request-Promise with `require('request-debug')(rp);`.\n\n## Mocking Request-Promise\n\nUsually you want to mock the whole request function which is returned by `require('request-promise')`. This is not possible by using a mocking library like [sinon.js](http://sinonjs.org) alone. What you need is a library that ties into the module loader and makes sure that your mock is returned whenever the tested code is calling `require('request-promise')`. [Mockery](https://github.com/mfncooper/mockery) is one of such libraries.\n\n@florianschmidt1994 kindly shared his solution:\n```javascript\nbefore(function (done) {\n\n    var filename = \"fileForResponse\";\n    mockery.enable({\n        warnOnReplace: false,\n        warnOnUnregistered: false,\n        useCleanCache: true\n    });\n\n    mockery.registerMock('request-promise', function () {\n        var response = fs.readFileSync(__dirname + '/data/' + filename, 'utf8');\n        return Bluebird.resolve(response.trim());\n    });\n\n    done();\n});\n\nafter(function (done) {\n    mockery.disable();\n    mockery.deregisterAll();\n    done();\n});\n\ndescribe('custom test case', function () {\n    //  Test some function/module/... which uses request-promise\n    //  and it will always receive the predefined \"fileForResponse\" as data, e.g.:\n    var rp = require('request-promise');\n    rp(...).then(function(data) {\n        // ➞ data is what is in fileForResponse\n    });\n});\n```\n\nBased on that you may now build a more sophisticated mock. [Sinon.js](http://sinonjs.org) may be of help as well.\n\n## Contributing\n\nTo set up your development environment:\n\n1. clone the repo to your desktop,\n2. in the shell `cd` to the main folder,\n3. hit `npm install`,\n4. hit `npm install gulp -g` if you haven't installed gulp globally yet, and\n5. run `gulp dev`. (Or run `node ./node_modules/.bin/gulp dev` if you don't want to install gulp globally.)\n\n`gulp dev` watches all source files and if you save some changes it will lint the code and execute all tests. The test coverage report can be viewed from `./coverage/lcov-report/index.html`.\n\nIf you want to debug a test you should use `gulp test-without-coverage` to run all tests without obscuring the code by the test coverage instrumentation.\n\n## Change History\n\n- v4.2.4 (2019-02-14)\n    - Corrected mistakenly set `tough-cookie` version, now `^2.3.3`\n      *(Thanks to @evocateur for pointing this out.)*\n    - If you installed `request-promise@4.2.3` please make sure after the upgrade that `request` and `request-promise` use the same physical copy of `tough-cookie`.\n- v4.2.3 (2019-02-14)\n    - Using stricter `tough-cookie@~2.3.3` to avoid installing `tough-cookie@3` which introduces breaking changes\n      *(Thanks to @aomdoa for pull request [#299](https://github.com/request/request-promise/pull/299))*\n    - Security fix: bumped `lodash` to `^4.17.11`, see [vulnerabilty reports](https://snyk.io/vuln/search?q=lodash&type=npm)\n- v4.2.2 (2017-09-22)\n    - Upgraded `tough-cookie` to a version without regex DoS vulnerability\n      *(Thanks to @rouanw for [pull request #226](https://github.com/request/request-promise/pull/226))*\n- v4.2.1 (2017-05-07)\n    - Fix that allows to use `tough-cookie` for cookie creation\n      *(Thanks to @ScottyMJacobson for reporting [issue #183](https://github.com/request/request-promise/issues/183))*\n    - Added [cookie handling example](https://github.com/request/request-promise#include-a-cookie) to the cheat sheet\n      *(Thanks to @chovy and @ProfessorTom for [asking for it](https://github.com/request/request-promise/issues/79))*\n- v4.2.0 (2017-03-16)\n    - Updated `bluebird` to v3.5\n      *(Thanks to @acinader for [pull request #181](https://github.com/request/request-promise/pull/181))*\n- v4.1.1 (2016-08-08)\n    - Renamed internally used package `@request/promise-core` to `request-promise-core` because there where [too](https://github.com/request/request-promise/issues/137) [many](https://github.com/request/request-promise/issues/141) issues with the scoped package name\n      *(Thanks to @cabrinoob, @crazy4groovy, @dsandor, @KpjComp, @lorenwest, @Reisyukaku, @tehChromic, @todd for providing helpful information.)*\n- v4.1.0 (2016-07-30)\n    - Added cancellation support\n      *(Thanks to @not-an-aardvark for [pull request #123](https://github.com/request/request-promise/pull/123))*\n- v4.0.2 (2016-07-18)\n    - Fix for using with module bundlers like Webpack and Browserify\n- v4.0.1 (2016-07-17)\n    - Fixed `@request/promise-core` version for safer versioning\n- v4.0.0 (2016-07-15)\n    - **Breaking Change**: `request` is declared as a peer dependency which has to be installed separately by the user now\n    - **Breaking Change**: Dropped support for Continuation Local Storage since [`request-promise-any`](https://github.com/request/request-promise-any) can be [used](https://github.com/request/request-promise/wiki/Getting-Back-Support-for-Continuation-Local-Storage) for that now\n    - Introduced the `transform2xxOnly` option to ease the breaking change regarding the new `transform` handling in v3.0.0\n      *(Thanks to @stevage for pointing out the effect of the breaking change in [issue #131](https://github.com/request/request-promise/issues/131))*\n    - Resolved issues [#65](https://github.com/request/request-promise/issues/65) and [#71](https://github.com/request/request-promise/issues/71) by publishing nearly identical libraries to support other Promise implementations: [`request-promise-native`](https://github.com/request/request-promise-native) and [`request-promise-any`](https://github.com/request/request-promise-any)\n      *(Thanks to @benjamingr, @eilgin, @gillesdemey, @hildjj, @iggycoloma, @jonathanong, @knpwrs, @MarkHerhold, @massimocode, @mikeal, @niftylettuce, @raitucarp, @sherdeadlock, @tonylukasavage, and @vgoloviznin for the valuable discussions!)*\n    - Relicensed this library with the ISC license\n- v3.0.0 (2016-04-16)\n    - **Breaking Change**: Overhauled the handling of the `transform` function\n      *(Thanks to @Limess for explaining the need in [issue #86](https://github.com/request/request-promise/issues/86))*\n    - **Breaking Change**: Updated `bluebird` to v3\n      *(Thanks to @BrandonSmith for [pull request #103](https://github.com/request/request-promise/pull/103))*\n    - Improved `StatusCodeError.message`\n    - Updated `lodash` to v4.6\n    - Improved README in regard to `.catch(...)` best practice\n      *(Thanks to @RebootJeff for [pull request #98](https://github.com/request/request-promise/pull/98))*\n- v2.0.1 (2016-02-17)\n    - Updated `lodash` to v4\n      *(Thanks to @ratson for [pull request #94](https://github.com/request/request-promise/pull/94))*\n- v2.0.0 (2016-01-12)\n    - **Breaking Change**: Removed explicit `cls-bluebird` dependency which has to be installed by the user now\n      *(Thanks to @hildjj for his [pull request #75](https://github.com/request/request-promise/pull/75))*\n\t- `npm shrinkwrap` now works for `npm@3` users who don't use `continuation-local-storage`\n\t  *(Thanks to @toboid and @rstacruz for reporting the issue in [issue #70](https://github.com/request/request-promise/issues/70) and [issue #82](https://github.com/request/request-promise/issues/82))*\n- v1.0.2 (2015-10-22)\n    - Removed `continuation-local-storage` from peer dependencies as it was unnecessary\n      *(Thanks to @mrhyde for working on a better solution discussed in [issue #70](https://github.com/request/request-promise/issues/70))*\n- v1.0.1 (2015-10-14)\n    - Fixed a npm warning by marking `continuation-local-storage` as a peer dependency\n- v1.0.0 (2015-10-11)\n    - **Breaking Change**: Some errors that were previously thrown synchronously - e.g. for wrong input parameters - are now passed to the rejected promise instead\n      *(Thanks to @josnidhin for suggesting that in [issue #43](https://github.com/request/request-promise/issues/43))*\n    - **Breaking Change**: Request-Promise does not load its own Bluebird prototype anymore. If you use Bluebird in your project and altered the prototype then Request-Promise may use your altered Bluebird prototype internally.\n    - For HEAD requests the headers instead of an empty body is returned (unless `resolveWithFullResponse = true` is used)\n      *(Thanks to @zcei for proposing the change in [issue #58](https://github.com/request/request-promise/issues/58))*\n    - Extended `transform` function by a third `resolveWithFullResponse` parameter\n    - Added experimental support for continuation local storage\n      *(Thanks to @silverbp preparing this in [issue #64](https://github.com/request/request-promise/issues/64))*\n\t- Added node.js 4 to the Travis CI build\n\t- Updated the README\n\t  *(Thanks to many people for their feedback in issues [#55](https://github.com/request/request-promise/issues/55) and [#59](https://github.com/request/request-promise/issues/59))*\n- v0.4.3 (2015-07-27)\n    - Reduced overhead by just requiring used lodash functions instead of the whole lodash library\n      *(Thanks to @luanmuniz for [pull request #54](https://github.com/request/request-promise/pull/54))*\n    - Updated dependencies\n- v0.4.2 (2015-04-12)\n    - Updated dependencies\n- v0.4.1 (2015-03-20)\n    - Improved Error types to work in browsers without v8 engine\n      *(Thanks to @nodiis for [pull request #40](https://github.com/request/request-promise/pull/40))*\n- v0.4.0 (2015-02-08)\n    - Introduced Error types used for the reject reasons (See last part [this section](#rejected-promises-and-the-simple-option))\n      *(Thanks to @jakecraige for starting the discussion in [issue #38](https://github.com/request/request-promise/issues/38))*\n    - **Minor Breaking Change:** The reject reason objects became actual Error objects. However, `typeof reason === 'object'` still holds true and the error objects have the same properties as the previous reason objects. If the reject handler only accesses the properties on the reason object - which is usually the case - no migration is required.\n    - Added io.js and node.js 0.12 to the Travis CI build\n- v0.3.3 (2015-01-19)\n    - Fixed handling possibly unhandled rejections to work with the latest version of Bluebird\n      *(Thanks to @slang800 for reporting this in [issue #36](https://github.com/request/request-promise/issues/36))*\n- v0.3.2 (2014-11-17)\n\t- Exposed `.finally(...)` to allow using it as the first method in the promise chain\n\t  *(Thanks to @hjpbarcelos for his [pull request #28](https://github.com/request/request-promise/pull/28))*\n- v0.3.1 (2014-11-11)\n\t- Added the `.promise()` method for advanced Bluebird API usage\n\t  *(Thanks to @devo-tox for his feedback in [issue #27](https://github.com/request/request-promise/issues/27))*\n- v0.3.0 (2014-11-10)\n\t- Carefully rewritten from scratch to make Request-Promise a drop-in replacement for Request\n\n## License (ISC)\n\nIn case you never heard about the [ISC license](http://en.wikipedia.org/wiki/ISC_license) it is functionally equivalent to the MIT license.\n\nSee the [LICENSE file](LICENSE) for details."
+}

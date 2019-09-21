@@ -1,0 +1,69 @@
+version: '3'
+
+services:
+  iroha-node0:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node0
+    ports:
+      - "50051:50051"
+      - "20000:20000"
+      - "10001:10001"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg0
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - CCACHE_DIR=/tmp/ccache
+      - KEY=node0
+    depends_on:
+      - iroha_pg0
+    entrypoint: ["./wait-for-it.sh", "iroha_pg0:5432", "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", "--config", "/opt/iroha/node0/config.sample", "--keypair_name", "node0"]
+    tty: true
+    volumes:
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha-node1:
+    image: hyperledger/iroha:1.0.0_rc5
+    container_name: iroha_node1
+    ports:
+      - "50052:50051"
+      - "20001:20000"
+      - "10002:10001"
+    environment:
+      - IROHA_POSTGRES_HOST=iroha_pg1
+      - IROHA_POSTGRES_PORT=5432
+      - IROHA_POSTGRES_USER=iroha
+      - IROHA_POSTGRES_PASSWORD=helloworld
+      - KEY=node1
+      - CCACHE_DIR=/tmp/ccache
+    depends_on:
+      - iroha_pg1
+    entrypoint: ["./wait-for-it.sh", "iroha_pg1:5432", "--", "irohad", "--genesis_block", "/opt/iroha/genesis.block", "--config", "/opt/iroha/node1/config.sample", "--keypair_name", "node1"]
+    tty: true
+    volumes:
+      - ./:/opt/iroha
+      - ccache-data:/tmp/ccache
+    working_dir: /opt/iroha
+    cap_add:
+      - SYS_PTRACE
+
+  iroha_pg0:
+    image: postgres:9.5
+    container_name: iroha_pg0
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+  iroha_pg1:
+    image: postgres:9.5
+    container_name: iroha_pg1
+    environment:
+      - POSTGRES_USER=iroha
+      - POSTGRES_PASSWORD=helloworld
+
+volumes:
+  ccache-data:

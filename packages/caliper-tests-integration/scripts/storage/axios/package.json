@@ -1,0 +1,4028 @@
+{
+	"name": "axios",
+	"versions": {
+		"0.1.0": {
+			"name": "axios",
+			"version": "0.1.0",
+			"description": "Promise based XHR library",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/index.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"dependencies": {
+				"es6-promise": "^1.0.0"
+			},
+			"devDependencies": {
+				"grunt": "^0.4.5",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-watch": "^0.6.1",
+				"webpack": "^1.3.3-beta2",
+				"webpack-dev-server": "^1.4.10",
+				"grunt-webpack": "^1.0.8",
+				"load-grunt-tasks": "^0.6.0",
+				"karma": "^0.12.21",
+				"karma-jasmine": "^0.1.5",
+				"grunt-karma": "^0.8.3",
+				"karma-phantomjs-launcher": "^0.1.4",
+				"karma-jasmine-ajax": "^0.1.4",
+				"grunt-update-json": "^0.1.3",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-banner": "^0.2.3"
+			},
+			"_id": "axios@0.1.0",
+			"dist": {
+				"shasum": "854e14f2999c2ef7fab058654fd995dd183688f2",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.1.0.tgz"
+			},
+			"_from": "./",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "axios",
+			"version": "0.2.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"dependencies": {
+				"es6-promise": "^1.0.0"
+			},
+			"devDependencies": {
+				"grunt": "^0.4.5",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-watch": "^0.6.1",
+				"webpack": "^1.3.3-beta2",
+				"webpack-dev-server": "^1.4.10",
+				"grunt-webpack": "^1.0.8",
+				"load-grunt-tasks": "^0.6.0",
+				"karma": "^0.12.21",
+				"karma-jasmine": "^0.1.5",
+				"grunt-karma": "^0.8.3",
+				"karma-phantomjs-launcher": "^0.1.4",
+				"karma-jasmine-ajax": "^0.1.4",
+				"grunt-update-json": "^0.1.3",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-banner": "^0.2.3"
+			},
+			"_id": "axios@0.2.0",
+			"dist": {
+				"shasum": "315cd618142078fd22f2cea35380caad19e32069",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.2.0.tgz"
+			},
+			"_from": "./",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.1": {
+			"name": "axios",
+			"version": "0.2.1",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"dependencies": {
+				"es6-promise": "^1.0.0"
+			},
+			"devDependencies": {
+				"grunt": "^0.4.5",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-watch": "^0.6.1",
+				"webpack": "^1.3.3-beta2",
+				"webpack-dev-server": "^1.4.10",
+				"grunt-webpack": "^1.0.8",
+				"load-grunt-tasks": "^0.6.0",
+				"karma": "^0.12.21",
+				"karma-jasmine": "^0.1.5",
+				"grunt-karma": "^0.8.3",
+				"karma-phantomjs-launcher": "^0.1.4",
+				"karma-jasmine-ajax": "^0.1.4",
+				"grunt-update-json": "^0.1.3",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-banner": "^0.2.3"
+			},
+			"_id": "axios@0.2.1",
+			"dist": {
+				"shasum": "67d7695440e031286bad9b9b36ae455067f542b8",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.2.1.tgz"
+			},
+			"_from": "./",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.2": {
+			"name": "axios",
+			"version": "0.2.2",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"dependencies": {
+				"es6-promise": "^1.0.0"
+			},
+			"devDependencies": {
+				"grunt": "^0.4.5",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-watch": "^0.6.1",
+				"webpack": "^1.3.3-beta2",
+				"webpack-dev-server": "^1.4.10",
+				"grunt-webpack": "^1.0.8",
+				"load-grunt-tasks": "^0.6.0",
+				"karma": "^0.12.21",
+				"karma-jasmine": "^0.1.5",
+				"grunt-karma": "^0.8.3",
+				"karma-phantomjs-launcher": "^0.1.4",
+				"karma-jasmine-ajax": "^0.1.4",
+				"grunt-update-json": "^0.1.3",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-banner": "^0.2.3"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"_id": "axios@0.2.2",
+			"dist": {
+				"shasum": "e69c16b591e43c248cbbdd089e0babb2ba820cde",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.2.2.tgz"
+			},
+			"_from": "./",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.0": {
+			"name": "axios",
+			"version": "0.3.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"dependencies": {
+				"es6-promise": "^1.0.0"
+			},
+			"devDependencies": {
+				"grunt": "^0.4.5",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-watch": "^0.6.1",
+				"webpack": "^1.4.0-beta9",
+				"webpack-dev-server": "^1.4.10",
+				"grunt-webpack": "^1.0.8",
+				"load-grunt-tasks": "^0.6.0",
+				"karma": "^0.12.21",
+				"karma-jasmine": "^0.1.5",
+				"grunt-karma": "^0.8.3",
+				"karma-phantomjs-launcher": "^0.1.4",
+				"karma-jasmine-ajax": "^0.1.4",
+				"grunt-update-json": "^0.1.3",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-banner": "^0.2.3"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"_id": "axios@0.3.0",
+			"dist": {
+				"shasum": "07cc545f0d39b6b0d168a3b3a55b49f90a9000c7",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.3.0.tgz"
+			},
+			"_from": "./",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.1": {
+			"name": "axios",
+			"version": "0.3.1",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"dependencies": {
+				"es6-promise": "^1.0.0"
+			},
+			"devDependencies": {
+				"grunt": "^0.4.5",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-watch": "^0.6.1",
+				"webpack": "^1.4.0-beta9",
+				"webpack-dev-server": "^1.4.10",
+				"grunt-webpack": "^1.0.8",
+				"load-grunt-tasks": "^0.6.0",
+				"karma": "^0.12.21",
+				"karma-jasmine": "^0.1.5",
+				"grunt-karma": "^0.8.3",
+				"karma-phantomjs-launcher": "^0.1.4",
+				"karma-jasmine-ajax": "^0.1.4",
+				"grunt-update-json": "^0.1.3",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-banner": "^0.2.3"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"_id": "axios@0.3.1",
+			"dist": {
+				"shasum": "7380abe912433fb47ea582bed582300ffe479564",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.3.1.tgz"
+			},
+			"_from": "./",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.0": {
+			"name": "axios",
+			"version": "0.4.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"dependencies": {
+				"es6-promise": "^1.0.0"
+			},
+			"devDependencies": {
+				"grunt": "^0.4.5",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-watch": "^0.6.1",
+				"webpack": "^1.4.0-beta9",
+				"webpack-dev-server": "^1.4.10",
+				"grunt-webpack": "^1.0.8",
+				"load-grunt-tasks": "^0.6.0",
+				"karma": "^0.12.21",
+				"karma-jasmine": "^0.1.5",
+				"grunt-karma": "^0.8.3",
+				"karma-phantomjs-launcher": "^0.1.4",
+				"karma-jasmine-ajax": "^0.1.4",
+				"grunt-update-json": "^0.1.3",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-banner": "^0.2.3"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"_id": "axios@0.4.0",
+			"dist": {
+				"shasum": "b5918c5c71aaa809f6183d68822c44fb39b7b338",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.4.0.tgz"
+			},
+			"_from": "./",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.1": {
+			"name": "axios",
+			"version": "0.4.1",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"dependencies": {
+				"es6-promise": "^1.0.0"
+			},
+			"devDependencies": {
+				"grunt": "^0.4.5",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-watch": "^0.6.1",
+				"webpack": "^1.4.0-beta9",
+				"webpack-dev-server": "^1.4.10",
+				"grunt-webpack": "^1.0.8",
+				"load-grunt-tasks": "^0.6.0",
+				"karma": "^0.12.21",
+				"karma-jasmine": "^0.1.5",
+				"grunt-karma": "^0.8.3",
+				"karma-phantomjs-launcher": "^0.1.4",
+				"karma-jasmine-ajax": "^0.1.4",
+				"grunt-update-json": "^0.1.3",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-banner": "^0.2.3"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"_id": "axios@0.4.1",
+			"dist": {
+				"shasum": "e6a375377d5abd3c4389039240059e08530e1881",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.4.1.tgz"
+			},
+			"_from": "./",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.2": {
+			"name": "axios",
+			"version": "0.4.2",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"dependencies": {
+				"es6-promise": "^1.0.0"
+			},
+			"devDependencies": {
+				"grunt": "^0.4.5",
+				"grunt-banner": "^0.2.3",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-contrib-watch": "^0.6.1",
+				"grunt-karma": "^0.8.3",
+				"grunt-ts": "^1.12.1",
+				"grunt-update-json": "^0.1.3",
+				"grunt-webpack": "^1.0.8",
+				"karma": "^0.12.21",
+				"karma-jasmine": "^0.1.5",
+				"karma-jasmine-ajax": "^0.1.4",
+				"karma-phantomjs-launcher": "^0.1.4",
+				"load-grunt-tasks": "^0.6.0",
+				"webpack": "^1.4.0-beta9",
+				"webpack-dev-server": "^1.4.10"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"_id": "axios@0.4.2",
+			"dist": {
+				"shasum": "d31b5752d4885ba460ef0fd1107447b279e6f66b",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.4.2.tgz"
+			},
+			"_from": "./",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.0": {
+			"name": "axios",
+			"version": "0.5.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"dependencies": {
+				"es6-promise": "^2.0.1"
+			},
+			"devDependencies": {
+				"grunt": "^0.4.5",
+				"grunt-banner": "^0.2.3",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-contrib-watch": "^0.6.1",
+				"grunt-karma": "^0.8.3",
+				"grunt-ts": "^1.12.1",
+				"grunt-update-json": "^0.1.3",
+				"grunt-webpack": "^1.0.8",
+				"karma": "^0.12.21",
+				"karma-jasmine": "^0.1.5",
+				"karma-jasmine-ajax": "^0.1.4",
+				"karma-phantomjs-launcher": "^0.1.4",
+				"load-grunt-tasks": "^0.6.0",
+				"webpack": "^1.4.0-beta9",
+				"webpack-dev-server": "^1.4.10"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"gitHead": "fa6c26a0e5eaad5d58071eb39d7afff0c7dc051c",
+			"_id": "axios@0.5.0",
+			"_shasum": "2f369e6309a46b182c38ce683ba4fbc608d5b4ef",
+			"_from": ".",
+			"_npmVersion": "2.1.6",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "2f369e6309a46b182c38ce683ba4fbc608d5b4ef",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.5.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.5.1": {
+			"name": "axios",
+			"version": "0.5.1",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"dependencies": {
+				"es6-promise": "^2.0.1"
+			},
+			"devDependencies": {
+				"grunt": "^0.4.5",
+				"grunt-banner": "^0.2.3",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-contrib-watch": "^0.6.1",
+				"grunt-karma": "^0.8.3",
+				"grunt-ts": "^1.12.1",
+				"grunt-update-json": "^0.1.3",
+				"grunt-webpack": "^1.0.8",
+				"karma": "^0.12.31",
+				"karma-jasmine": "^0.3.5",
+				"karma-jasmine-ajax": "^0.1.11",
+				"karma-phantomjs-launcher": "^0.1.4",
+				"load-grunt-tasks": "^0.6.0",
+				"webpack": "^1.4.0-beta9",
+				"webpack-dev-server": "^1.4.10"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"gitHead": "bd5d9b7258dd27648caddeba8259a4ed020b6724",
+			"_id": "axios@0.5.1",
+			"_shasum": "63d83686335dc59a57a413b715999691fd0ea43e",
+			"_from": ".",
+			"_npmVersion": "2.1.6",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "63d83686335dc59a57a413b715999691fd0ea43e",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.5.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.5.2": {
+			"name": "axios",
+			"version": "0.5.2",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"dependencies": {
+				"es6-promise": "^2.0.1"
+			},
+			"devDependencies": {
+				"grunt": "^0.4.5",
+				"grunt-banner": "^0.3.1",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-contrib-watch": "^0.6.1",
+				"grunt-karma": "^0.10.1",
+				"grunt-ts": "^3.0.0",
+				"grunt-update-json": "^0.2.1",
+				"grunt-webpack": "^1.0.8",
+				"karma": "^0.12.31",
+				"karma-jasmine": "^0.3.5",
+				"karma-jasmine-ajax": "^0.1.12",
+				"karma-phantomjs-launcher": "^0.1.4",
+				"load-grunt-tasks": "^3.1.0",
+				"webpack": "^1.7.2",
+				"webpack-dev-server": "^1.7.0"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"gitHead": "2ce5aa77df30369960924ee70956f6ac0d37a1aa",
+			"_id": "axios@0.5.2",
+			"_shasum": "eb6009d000d81067cf0568dbac847e105525013a",
+			"_from": ".",
+			"_npmVersion": "2.7.0",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "eb6009d000d81067cf0568dbac847e105525013a",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.5.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.5.3": {
+			"name": "axios",
+			"version": "0.5.3",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"dependencies": {
+				"es6-promise": "^2.0.1"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.2",
+				"grunt": "^0.4.5",
+				"grunt-banner": "^0.3.1",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-contrib-watch": "^0.6.1",
+				"grunt-eslint": "^9.0.0",
+				"grunt-karma": "^0.10.1",
+				"grunt-ts": "^3.0.0",
+				"grunt-update-json": "^0.2.1",
+				"grunt-webpack": "^1.0.8",
+				"karma": "^0.12.31",
+				"karma-coverage": "^0.2.7",
+				"karma-jasmine": "^0.3.5",
+				"karma-jasmine-ajax": "^0.1.12",
+				"karma-phantomjs-launcher": "^0.1.4",
+				"karma-webpack": "^1.5.0",
+				"load-grunt-tasks": "^3.1.0",
+				"webpack": "^1.7.2",
+				"webpack-dev-server": "^1.7.0"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typescript": {
+				"definition": "./axios.d.ts"
+			},
+			"gitHead": "9d31a867166e9224f0c5168d84560abe85868404",
+			"_id": "axios@0.5.3",
+			"_shasum": "a4d153cc753f430a14aad8a00d8b1017eeabf1a5",
+			"_from": ".",
+			"_npmVersion": "2.7.0",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "a4d153cc753f430a14aad8a00d8b1017eeabf1a5",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.5.3.tgz"
+			},
+			"directories": {}
+		},
+		"0.5.4": {
+			"name": "axios",
+			"version": "0.5.4",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"dependencies": {
+				"es6-promise": "^2.0.1"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.2",
+				"grunt": "^0.4.5",
+				"grunt-banner": "^0.3.1",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-contrib-watch": "^0.6.1",
+				"grunt-eslint": "^9.0.0",
+				"grunt-karma": "^0.10.1",
+				"grunt-ts": "^3.0.0",
+				"grunt-update-json": "^0.2.1",
+				"grunt-webpack": "^1.0.8",
+				"karma": "^0.12.31",
+				"karma-coverage": "^0.2.7",
+				"karma-jasmine": "^0.3.5",
+				"karma-jasmine-ajax": "^0.1.12",
+				"karma-phantomjs-launcher": "^0.1.4",
+				"karma-webpack": "^1.5.0",
+				"load-grunt-tasks": "^3.1.0",
+				"webpack": "^1.7.2",
+				"webpack-dev-server": "^1.7.0"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typescript": {
+				"definition": "./axios.d.ts"
+			},
+			"gitHead": "8a4e502e3a76b8e41b2f896e05b92db3c0f543f7",
+			"_id": "axios@0.5.4",
+			"_shasum": "e06f852257838133e69094d925ccb419de94fdfb",
+			"_from": ".",
+			"_npmVersion": "2.7.0",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "e06f852257838133e69094d925ccb419de94fdfb",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.5.4.tgz"
+			},
+			"directories": {}
+		},
+		"0.6.0": {
+			"name": "axios",
+			"version": "0.6.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "^2.11.3",
+				"es6-promise": "^3.0.2",
+				"grunt": "^0.4.5",
+				"grunt-banner": "^0.5.0",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-nodeunit": "^0.4.1",
+				"grunt-contrib-watch": "^0.6.1",
+				"grunt-eslint": "^17.1.0",
+				"grunt-karma": "^0.12.0",
+				"grunt-ts": "^5.0.0-beta.5",
+				"grunt-update-json": "^0.2.1",
+				"grunt-webpack": "^1.0.11",
+				"jasmine-core": "^2.3.4",
+				"karma": "^0.13.8",
+				"karma-coverage": "^0.5.0",
+				"karma-jasmine": "^0.3.6",
+				"karma-jasmine-ajax": "^0.1.12",
+				"karma-phantomjs-launcher": "^0.2.1",
+				"karma-sourcemap-loader": "^0.3.5",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "^3.2.0",
+				"minimist": "^1.1.3",
+				"webpack": "^1.11.0",
+				"webpack-dev-server": "^1.10.1"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typescript": {
+				"definition": "./axios.d.ts"
+			},
+			"gitHead": "cd0cd1805434dea0d250d195a466a1236b98e502",
+			"_id": "axios@0.6.0",
+			"_shasum": "5f3b9bc5557f9d804547501f1a227eaa3216cad2",
+			"_from": ".",
+			"_npmVersion": "2.13.4",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "5f3b9bc5557f9d804547501f1a227eaa3216cad2",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.6.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.7.0": {
+			"name": "axios",
+			"version": "0.7.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "2.11.4",
+				"es6-promise": "3.0.2",
+				"grunt": "0.4.5",
+				"grunt-banner": "0.5.0",
+				"grunt-cli": "0.1.13",
+				"grunt-contrib-clean": "0.6.0",
+				"grunt-contrib-nodeunit": "0.4.1",
+				"grunt-contrib-watch": "0.6.1",
+				"grunt-eslint": "17.2.0",
+				"grunt-karma": "0.12.1",
+				"grunt-ts": "5.0.0-beta.5",
+				"grunt-update-json": "0.2.1",
+				"grunt-webpack": "1.0.11",
+				"jasmine-core": "2.3.4",
+				"karma": "0.13.10",
+				"karma-coverage": "0.5.2",
+				"karma-jasmine": "0.3.6",
+				"karma-jasmine-ajax": "0.1.13",
+				"karma-phantomjs-launcher": "0.2.1",
+				"karma-sourcemap-loader": "0.3.5",
+				"karma-webpack": "1.7.0",
+				"load-grunt-tasks": "3.3.0",
+				"minimist": "1.2.0",
+				"phantomjs": "1.9.18",
+				"webpack": "1.12.2",
+				"webpack-dev-server": "1.12.0"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typescript": {
+				"definition": "./axios.d.ts"
+			},
+			"gitHead": "e8136b1f746d87d9ac620cb50c26722db555169a",
+			"_id": "axios@0.7.0",
+			"_shasum": "489c269044d5066dfa2c64c749cb131b176f4a7a",
+			"_from": ".",
+			"_npmVersion": "2.13.4",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "489c269044d5066dfa2c64c749cb131b176f4a7a",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.7.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.8.0": {
+			"name": "axios",
+			"version": "0.8.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"build": "grunt build",
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "2.11.4",
+				"es6-promise": "3.0.2",
+				"grunt": "0.4.5",
+				"grunt-banner": "0.5.0",
+				"grunt-cli": "0.1.13",
+				"grunt-contrib-clean": "0.6.0",
+				"grunt-contrib-nodeunit": "0.4.1",
+				"grunt-contrib-watch": "0.6.1",
+				"grunt-eslint": "17.2.0",
+				"grunt-karma": "0.12.1",
+				"grunt-ts": "5.0.0-beta.5",
+				"grunt-update-json": "0.2.1",
+				"grunt-webpack": "1.0.11",
+				"istanbul-instrumenter-loader": "^0.1.3",
+				"jasmine-core": "2.3.4",
+				"karma": "0.13.10",
+				"karma-coverage": "0.5.2",
+				"karma-jasmine": "0.3.6",
+				"karma-jasmine-ajax": "0.1.13",
+				"karma-phantomjs-launcher": "0.2.1",
+				"karma-sinon": "1.0.4",
+				"karma-sourcemap-loader": "0.3.5",
+				"karma-webpack": "1.7.0",
+				"load-grunt-tasks": "3.3.0",
+				"minimist": "1.2.0",
+				"phantomjs": "1.9.18",
+				"webpack": "1.12.2",
+				"webpack-dev-server": "1.12.0"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typescript": {
+				"definition": "./axios.d.ts"
+			},
+			"dependencies": {
+				"follow-redirects": "0.0.7"
+			},
+			"gitHead": "908d12b8ef41af4de5226b7e88eb971798d99207",
+			"_id": "axios@0.8.0",
+			"_shasum": "9c3648c395f704742845b7d70e5b7c11f9afd859",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "3.3.1",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "9c3648c395f704742845b7d70e5b7c11f9afd859",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.8.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.8.1": {
+			"name": "axios",
+			"version": "0.8.1",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"build": "grunt build",
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "2.11.4",
+				"es6-promise": "3.0.2",
+				"grunt": "0.4.5",
+				"grunt-banner": "0.5.0",
+				"grunt-cli": "0.1.13",
+				"grunt-contrib-clean": "0.6.0",
+				"grunt-contrib-nodeunit": "0.4.1",
+				"grunt-contrib-watch": "0.6.1",
+				"grunt-eslint": "17.2.0",
+				"grunt-karma": "0.12.1",
+				"grunt-ts": "5.0.0-beta.5",
+				"grunt-update-json": "0.2.1",
+				"grunt-webpack": "1.0.11",
+				"istanbul-instrumenter-loader": "^0.1.3",
+				"jasmine-core": "2.3.4",
+				"karma": "0.13.10",
+				"karma-coverage": "0.5.2",
+				"karma-jasmine": "0.3.6",
+				"karma-jasmine-ajax": "0.1.13",
+				"karma-phantomjs-launcher": "0.2.1",
+				"karma-sinon": "1.0.4",
+				"karma-sourcemap-loader": "0.3.5",
+				"karma-webpack": "1.7.0",
+				"load-grunt-tasks": "3.3.0",
+				"minimist": "1.2.0",
+				"phantomjs": "1.9.18",
+				"webpack": "1.12.2",
+				"webpack-dev-server": "1.12.0"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typescript": {
+				"definition": "./axios.d.ts"
+			},
+			"dependencies": {
+				"follow-redirects": "0.0.7"
+			},
+			"gitHead": "9a5dec2dc5aef6eaa0bc4f72f714656bcf29dac3",
+			"_id": "axios@0.8.1",
+			"_shasum": "e0eafec0f346139527dc3b79fdcbff8034a24045",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "3.3.1",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "e0eafec0f346139527dc3b79fdcbff8034a24045",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.8.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.9.0": {
+			"name": "axios",
+			"version": "0.9.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"build": "grunt build",
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "2.11.6",
+				"es6-promise": "3.0.2",
+				"grunt": "0.4.5",
+				"grunt-banner": "0.6.0",
+				"grunt-cli": "0.1.13",
+				"grunt-contrib-clean": "0.7.0",
+				"grunt-contrib-nodeunit": "0.4.1",
+				"grunt-contrib-watch": "0.6.1",
+				"grunt-eslint": "17.3.1",
+				"grunt-karma": "0.12.1",
+				"grunt-ts": "5.3.2",
+				"grunt-update-json": "0.2.2",
+				"grunt-webpack": "1.0.11",
+				"istanbul-instrumenter-loader": "^0.1.3",
+				"jasmine-core": "2.4.1",
+				"karma": "0.13.19",
+				"karma-coverage": "0.5.3",
+				"karma-jasmine": "0.3.6",
+				"karma-jasmine-ajax": "0.1.13",
+				"karma-phantomjs-launcher": "0.2.3",
+				"karma-sinon": "1.0.4",
+				"karma-sourcemap-loader": "0.3.7",
+				"karma-webpack": "1.7.0",
+				"load-grunt-tasks": "3.4.0",
+				"minimist": "1.2.0",
+				"phantomjs": "1.9.19",
+				"webpack": "1.12.11",
+				"webpack-dev-server": "1.14.1"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typescript": {
+				"definition": "./axios.d.ts"
+			},
+			"dependencies": {
+				"follow-redirects": "0.0.7"
+			},
+			"gitHead": "7ec97dd26b3af7bb0995eef178c4edd8989c3152",
+			"_id": "axios@0.9.0",
+			"_shasum": "89544ac5f55bc94f576db4e663d7530cb4f87d14",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "3.3.1",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "89544ac5f55bc94f576db4e663d7530cb4f87d14",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.9.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.9.1": {
+			"name": "axios",
+			"version": "0.9.1",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"build": "grunt build",
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "2.11.6",
+				"es6-promise": "3.0.2",
+				"grunt": "0.4.5",
+				"grunt-banner": "0.6.0",
+				"grunt-cli": "0.1.13",
+				"grunt-contrib-clean": "0.7.0",
+				"grunt-contrib-nodeunit": "0.4.1",
+				"grunt-contrib-watch": "0.6.1",
+				"grunt-eslint": "17.3.1",
+				"grunt-karma": "0.12.1",
+				"grunt-ts": "5.3.2",
+				"grunt-update-json": "0.2.2",
+				"grunt-webpack": "1.0.11",
+				"istanbul-instrumenter-loader": "^0.1.3",
+				"jasmine-core": "2.4.1",
+				"karma": "0.13.19",
+				"karma-coverage": "0.5.3",
+				"karma-jasmine": "0.3.6",
+				"karma-jasmine-ajax": "0.1.13",
+				"karma-phantomjs-launcher": "0.2.3",
+				"karma-sinon": "1.0.4",
+				"karma-sourcemap-loader": "0.3.7",
+				"karma-webpack": "1.7.0",
+				"load-grunt-tasks": "3.4.0",
+				"minimist": "1.2.0",
+				"phantomjs": "1.9.19",
+				"webpack": "1.12.11",
+				"webpack-dev-server": "1.14.1"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typescript": {
+				"definition": "./axios.d.ts"
+			},
+			"dependencies": {
+				"follow-redirects": "0.0.7"
+			},
+			"gitHead": "5176623d6c70e9d66c17f7867703a8e9990554bd",
+			"_id": "axios@0.9.1",
+			"_shasum": "95608b16447ee29b033589854c3fc7ee2c06bf6e",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "3.3.1",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "95608b16447ee29b033589854c3fc7ee2c06bf6e",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.9.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.10.0": {
+			"name": "axios",
+			"version": "0.10.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "2.11.8",
+				"es6-promise": "3.1.2",
+				"grunt": "0.4.5",
+				"grunt-banner": "0.6.0",
+				"grunt-cli": "0.1.13",
+				"grunt-contrib-clean": "1.0.0",
+				"grunt-contrib-nodeunit": "1.0.0",
+				"grunt-contrib-watch": "0.6.1",
+				"grunt-eslint": "18.0.0",
+				"grunt-karma": "0.12.1",
+				"grunt-ts": "5.3.2",
+				"grunt-webpack": "1.0.11",
+				"istanbul-instrumenter-loader": "^0.2.0",
+				"jasmine-core": "2.4.1",
+				"karma": "0.13.21",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-coverage": "0.5.4",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-jasmine": "0.3.7",
+				"karma-jasmine-ajax": "0.1.13",
+				"karma-opera-launcher": "^0.3.0",
+				"karma-phantomjs-launcher": "1.0.0",
+				"karma-safari-launcher": "^0.1.1",
+				"karma-sauce-launcher": "^0.3.1",
+				"karma-sinon": "1.0.4",
+				"karma-sourcemap-loader": "0.3.7",
+				"karma-webpack": "1.7.0",
+				"load-grunt-tasks": "3.4.1",
+				"minimist": "1.2.0",
+				"phantomjs-prebuilt": "2.1.6",
+				"sinon": "1.17.3",
+				"webpack": "1.12.14",
+				"webpack-dev-server": "1.14.1"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typescript": {
+				"definition": "./axios.d.ts"
+			},
+			"dependencies": {
+				"follow-redirects": "0.0.7"
+			},
+			"gitHead": "2797f10ea5d2cd963a8e5c80da319848bad9f499",
+			"_id": "axios@0.10.0",
+			"_shasum": "5b0ec0d5fb53e79b98b7bf84c0e9b1cf902fdfc4",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "3.3.1",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "5b0ec0d5fb53e79b98b7bf84c0e9b1cf902fdfc4",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.10.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/axios-0.10.0.tgz_1461214339472_0.5915569786448032"
+			},
+			"directories": {}
+		},
+		"0.11.0": {
+			"name": "axios",
+			"version": "0.11.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "2.11.8",
+				"es6-promise": "3.1.2",
+				"grunt": "0.4.5",
+				"grunt-banner": "0.6.0",
+				"grunt-cli": "0.1.13",
+				"grunt-contrib-clean": "1.0.0",
+				"grunt-contrib-nodeunit": "1.0.0",
+				"grunt-contrib-watch": "0.6.1",
+				"grunt-eslint": "18.0.0",
+				"grunt-karma": "0.12.1",
+				"grunt-ts": "5.3.2",
+				"grunt-webpack": "1.0.11",
+				"istanbul-instrumenter-loader": "^0.2.0",
+				"jasmine-core": "2.4.1",
+				"karma": "0.13.21",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-coverage": "0.5.4",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-jasmine": "0.3.7",
+				"karma-jasmine-ajax": "0.1.13",
+				"karma-opera-launcher": "^0.3.0",
+				"karma-phantomjs-launcher": "1.0.0",
+				"karma-safari-launcher": "^0.1.1",
+				"karma-sauce-launcher": "^0.3.1",
+				"karma-sinon": "1.0.4",
+				"karma-sourcemap-loader": "0.3.7",
+				"karma-webpack": "1.7.0",
+				"load-grunt-tasks": "3.4.1",
+				"minimist": "1.2.0",
+				"phantomjs-prebuilt": "2.1.6",
+				"sinon": "1.17.3",
+				"webpack": "1.12.14",
+				"webpack-dev-server": "1.14.1"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typescript": {
+				"definition": "./axios.d.ts"
+			},
+			"dependencies": {
+				"follow-redirects": "0.0.7"
+			},
+			"gitHead": "82d34ac743022aaf0c4e68650b39d2f7edab73a4",
+			"_id": "axios@0.11.0",
+			"_shasum": "50adc59bd0f11bee89a383b24b2d407648e6d6e8",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.0.0",
+			"_npmUser": {
+				"name": "nickuraltsev",
+				"email": "nick.uraltsev@gmail.com"
+			},
+			"dist": {
+				"shasum": "50adc59bd0f11bee89a383b24b2d407648e6d6e8",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.11.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/axios-0.11.0.tgz_1461730790535_0.26179565815255046"
+			},
+			"directories": {}
+		},
+		"0.11.1": {
+			"name": "axios",
+			"version": "0.11.1",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "2.11.8",
+				"es6-promise": "3.1.2",
+				"grunt": "0.4.5",
+				"grunt-banner": "0.6.0",
+				"grunt-cli": "0.1.13",
+				"grunt-contrib-clean": "1.0.0",
+				"grunt-contrib-nodeunit": "1.0.0",
+				"grunt-contrib-watch": "0.6.1",
+				"grunt-eslint": "18.0.0",
+				"grunt-karma": "0.12.1",
+				"grunt-ts": "5.3.2",
+				"grunt-webpack": "1.0.11",
+				"istanbul-instrumenter-loader": "^0.2.0",
+				"jasmine-core": "2.4.1",
+				"karma": "0.13.21",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-coverage": "0.5.4",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-jasmine": "0.3.7",
+				"karma-jasmine-ajax": "0.1.13",
+				"karma-opera-launcher": "^0.3.0",
+				"karma-phantomjs-launcher": "1.0.0",
+				"karma-safari-launcher": "^0.1.1",
+				"karma-sauce-launcher": "^0.3.1",
+				"karma-sinon": "1.0.4",
+				"karma-sourcemap-loader": "0.3.7",
+				"karma-webpack": "1.7.0",
+				"load-grunt-tasks": "3.4.1",
+				"minimist": "1.2.0",
+				"phantomjs-prebuilt": "2.1.6",
+				"sinon": "1.17.3",
+				"webpack": "1.12.14",
+				"webpack-dev-server": "1.14.1"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typescript": {
+				"definition": "./axios.d.ts"
+			},
+			"dependencies": {
+				"follow-redirects": "0.0.7"
+			},
+			"gitHead": "2e949495f0177bd4f4faab8ce031aa32bef50f47",
+			"_id": "axios@0.11.1",
+			"_shasum": "39cdb65813e2c549d1c2e9c389f7e33aa65cca22",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "3.3.1",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "39cdb65813e2c549d1c2e9c389f7e33aa65cca22",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.11.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/axios-0.11.1.tgz_1463500767835_0.40583729767240584"
+			},
+			"directories": {}
+		},
+		"0.12.0": {
+			"name": "axios",
+			"version": "0.12.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "2.11.8",
+				"es6-promise": "3.1.2",
+				"grunt": "0.4.5",
+				"grunt-banner": "0.6.0",
+				"grunt-cli": "0.1.13",
+				"grunt-contrib-clean": "1.0.0",
+				"grunt-contrib-nodeunit": "1.0.0",
+				"grunt-contrib-watch": "0.6.1",
+				"grunt-eslint": "18.0.0",
+				"grunt-karma": "0.12.1",
+				"grunt-ts": "5.3.2",
+				"grunt-webpack": "1.0.11",
+				"istanbul-instrumenter-loader": "^0.2.0",
+				"jasmine-core": "2.4.1",
+				"karma": "0.13.21",
+				"karma-chrome-launcher": "^0.2.2",
+				"karma-coverage": "0.5.4",
+				"karma-firefox-launcher": "^0.1.7",
+				"karma-jasmine": "0.3.7",
+				"karma-jasmine-ajax": "0.1.13",
+				"karma-opera-launcher": "^0.3.0",
+				"karma-phantomjs-launcher": "1.0.0",
+				"karma-safari-launcher": "^0.1.1",
+				"karma-sauce-launcher": "^0.3.1",
+				"karma-sinon": "1.0.4",
+				"karma-sourcemap-loader": "0.3.7",
+				"karma-webpack": "1.7.0",
+				"load-grunt-tasks": "3.4.1",
+				"minimist": "1.2.0",
+				"phantomjs-prebuilt": "2.1.6",
+				"sinon": "1.17.3",
+				"webpack": "1.12.14",
+				"webpack-dev-server": "1.14.1",
+				"url-search-params": "0.5.0"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typescript": {
+				"definition": "./axios.d.ts"
+			},
+			"dependencies": {
+				"follow-redirects": "0.0.7"
+			},
+			"gitHead": "4d1269cb4a9773db128f459046b6c4c2a0926859",
+			"_id": "axios@0.12.0",
+			"_shasum": "b907b0221cc34ec1c9fac18ec7f07ddf95785ba4",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.0.0",
+			"_npmUser": {
+				"name": "nickuraltsev",
+				"email": "nick.uraltsev@gmail.com"
+			},
+			"dist": {
+				"shasum": "b907b0221cc34ec1c9fac18ec7f07ddf95785ba4",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.12.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/axios-0.12.0.tgz_1464758575925_0.8698380121495575"
+			},
+			"directories": {}
+		},
+		"0.13.0": {
+			"name": "axios",
+			"version": "0.13.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "^2.11.9",
+				"es6-promise": "^3.2.1",
+				"grunt": "0.4.5",
+				"grunt-banner": "0.6.0",
+				"grunt-cli": "0.1.13",
+				"grunt-contrib-clean": "1.0.0",
+				"grunt-contrib-nodeunit": "1.0.0",
+				"grunt-contrib-watch": "0.6.1",
+				"grunt-eslint": "18.0.0",
+				"grunt-karma": "0.12.1",
+				"grunt-ts": "5.3.2",
+				"grunt-webpack": "1.0.11",
+				"istanbul-instrumenter-loader": "^0.2.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^0.13.22",
+				"karma-chrome-launcher": "^1.0.1",
+				"karma-coverage": "^1.0.0",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-phantomjs-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "3.4.1",
+				"minimist": "^1.2.0",
+				"phantomjs-prebuilt": "^2.1.7",
+				"sinon": "^1.17.4",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1",
+				"url-search-params": "^0.5.0"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typescript": {
+				"definition": "./axios.d.ts"
+			},
+			"dependencies": {
+				"follow-redirects": "0.0.7"
+			},
+			"gitHead": "ff919487e13430098d3da37a37cc04c3f24b59c4",
+			"_id": "axios@0.13.0",
+			"_shasum": "b3b5243ef7e67794fc951bef0298d0bab29ffd54",
+			"_from": ".",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "3.3.1",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "b3b5243ef7e67794fc951bef0298d0bab29ffd54",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.13.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/axios-0.13.0.tgz_1468438960057_0.3536213035695255"
+			},
+			"directories": {}
+		},
+		"0.13.1": {
+			"name": "axios",
+			"version": "0.13.1",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "^2.11.9",
+				"es6-promise": "^3.2.1",
+				"grunt": "0.4.5",
+				"grunt-banner": "0.6.0",
+				"grunt-cli": "0.1.13",
+				"grunt-contrib-clean": "1.0.0",
+				"grunt-contrib-nodeunit": "1.0.0",
+				"grunt-contrib-watch": "0.6.1",
+				"grunt-eslint": "18.0.0",
+				"grunt-karma": "0.12.1",
+				"grunt-ts": "5.3.2",
+				"grunt-webpack": "1.0.11",
+				"istanbul-instrumenter-loader": "^0.2.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^0.13.22",
+				"karma-chrome-launcher": "^1.0.1",
+				"karma-coverage": "^1.0.0",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-phantomjs-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "3.4.1",
+				"minimist": "^1.2.0",
+				"phantomjs-prebuilt": "^2.1.7",
+				"sinon": "^1.17.4",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1",
+				"url-search-params": "^0.5.0"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typescript": {
+				"definition": "./axios.d.ts"
+			},
+			"dependencies": {
+				"follow-redirects": "0.0.7"
+			},
+			"gitHead": "377efb89aed819ed1cd416b69f057632ad5664a5",
+			"_id": "axios@0.13.1",
+			"_shasum": "3e67abfe4333bc9d2d5fe6fbd13b4694eafc8df8",
+			"_from": ".",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "3.3.1",
+			"_npmUser": {
+				"name": "mzabriskie",
+				"email": "mzabriskie@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "3e67abfe4333bc9d2d5fe6fbd13b4694eafc8df8",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.13.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/axios-0.13.1.tgz_1468689204636_0.7909611663781106"
+			},
+			"directories": {}
+		},
+		"0.14.0": {
+			"name": "axios",
+			"version": "0.14.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "^2.11.9",
+				"es6-promise": "^3.2.1",
+				"grunt": "0.4.5",
+				"grunt-banner": "0.6.0",
+				"grunt-cli": "0.1.13",
+				"grunt-contrib-clean": "1.0.0",
+				"grunt-contrib-nodeunit": "1.0.0",
+				"grunt-contrib-watch": "0.6.1",
+				"grunt-eslint": "18.0.0",
+				"grunt-karma": "0.12.1",
+				"grunt-ts": "5.3.2",
+				"grunt-typings": "0.1.5",
+				"grunt-webpack": "1.0.11",
+				"istanbul-instrumenter-loader": "^0.2.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^0.13.22",
+				"karma-chrome-launcher": "^1.0.1",
+				"karma-coverage": "^1.0.0",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-phantomjs-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "3.4.1",
+				"minimist": "^1.2.0",
+				"phantomjs-prebuilt": "^2.1.7",
+				"sinon": "^1.17.4",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1",
+				"url-search-params": "^0.5.0"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typings": "./axios.d.ts",
+			"dependencies": {
+				"follow-redirects": "0.0.7"
+			},
+			"gitHead": "c96348660dacddd32676924d4f1bde535c45fb77",
+			"_id": "axios@0.14.0",
+			"_shasum": "40f24f2f4e913b9faa43d3a7b2e40ab8729afa90",
+			"_from": ".",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "6.2.2",
+			"_npmUser": {
+				"name": "nickuraltsev",
+				"email": "nick.uraltsev@gmail.com"
+			},
+			"dist": {
+				"shasum": "40f24f2f4e913b9faa43d3a7b2e40ab8729afa90",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.14.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/axios-0.14.0.tgz_1472322619923_0.0996575120370835"
+			},
+			"directories": {}
+		},
+		"0.15.0": {
+			"name": "axios",
+			"version": "0.15.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "^2.11.9",
+				"es6-promise": "^3.2.1",
+				"grunt": "0.4.5",
+				"grunt-banner": "0.6.0",
+				"grunt-cli": "0.1.13",
+				"grunt-contrib-clean": "1.0.0",
+				"grunt-contrib-nodeunit": "1.0.0",
+				"grunt-contrib-watch": "0.6.1",
+				"grunt-eslint": "18.0.0",
+				"grunt-karma": "0.12.1",
+				"grunt-ts": "5.3.2",
+				"grunt-typings": "0.1.5",
+				"grunt-webpack": "1.0.11",
+				"istanbul-instrumenter-loader": "^0.2.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^0.13.22",
+				"karma-chrome-launcher": "^1.0.1",
+				"karma-coverage": "^1.0.0",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-phantomjs-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "3.4.1",
+				"minimist": "^1.2.0",
+				"phantomjs-prebuilt": "^2.1.7",
+				"sinon": "^1.17.4",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1",
+				"url-search-params": "^0.5.0"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typings": "./axios.d.ts",
+			"dependencies": {
+				"follow-redirects": "0.0.7"
+			},
+			"gitHead": "e8c5c49ea2f2cf4fd45eaf81270a6d23546e2c93",
+			"_id": "axios@0.15.0",
+			"_shasum": "69a4cbe8646866a22f1075048c41724ecef447ce",
+			"_from": ".",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "6.2.2",
+			"_npmUser": {
+				"name": "nickuraltsev",
+				"email": "nick.uraltsev@gmail.com"
+			},
+			"dist": {
+				"shasum": "69a4cbe8646866a22f1075048c41724ecef447ce",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.15.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/axios-0.15.0.tgz_1476160841391_0.021248114528134465"
+			},
+			"directories": {}
+		},
+		"0.15.1": {
+			"name": "axios",
+			"version": "0.15.1",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "^2.11.9",
+				"es6-promise": "^3.2.1",
+				"grunt": "0.4.5",
+				"grunt-banner": "0.6.0",
+				"grunt-cli": "0.1.13",
+				"grunt-contrib-clean": "1.0.0",
+				"grunt-contrib-nodeunit": "1.0.0",
+				"grunt-contrib-watch": "0.6.1",
+				"grunt-eslint": "18.0.0",
+				"grunt-karma": "0.12.1",
+				"grunt-ts": "5.3.2",
+				"grunt-typings": "0.1.5",
+				"grunt-webpack": "1.0.11",
+				"istanbul-instrumenter-loader": "^0.2.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^0.13.22",
+				"karma-chrome-launcher": "^1.0.1",
+				"karma-coverage": "^1.0.0",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-phantomjs-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "3.4.1",
+				"minimist": "^1.2.0",
+				"phantomjs-prebuilt": "^2.1.7",
+				"sinon": "^1.17.4",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1",
+				"url-search-params": "^0.5.0"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typings": "./axios.d.ts",
+			"dependencies": {
+				"follow-redirects": "0.0.7"
+			},
+			"gitHead": "3f8b128da4ab11e34f0b880381f9395b2ab0e22f",
+			"_id": "axios@0.15.1",
+			"_shasum": "9395b9ba25005e478dfd7239e8c4345ff10cd85b",
+			"_from": ".",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "6.2.2",
+			"_npmUser": {
+				"name": "nickuraltsev",
+				"email": "nick.uraltsev@gmail.com"
+			},
+			"dist": {
+				"shasum": "9395b9ba25005e478dfd7239e8c4345ff10cd85b",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.15.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/axios-0.15.1.tgz_1476513563518_0.10022198990918696"
+			},
+			"directories": {}
+		},
+		"0.15.2": {
+			"name": "axios",
+			"version": "0.15.2",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "^2.11.9",
+				"es6-promise": "^3.2.1",
+				"grunt": "0.4.5",
+				"grunt-banner": "0.6.0",
+				"grunt-cli": "0.1.13",
+				"grunt-contrib-clean": "1.0.0",
+				"grunt-contrib-nodeunit": "1.0.0",
+				"grunt-contrib-watch": "0.6.1",
+				"grunt-eslint": "18.0.0",
+				"grunt-karma": "0.12.1",
+				"grunt-ts": "5.3.2",
+				"grunt-typings": "0.1.5",
+				"grunt-webpack": "1.0.11",
+				"istanbul-instrumenter-loader": "^0.2.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^0.13.22",
+				"karma-chrome-launcher": "^1.0.1",
+				"karma-coverage": "^1.0.0",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-phantomjs-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.0.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "3.4.1",
+				"minimist": "^1.2.0",
+				"phantomjs-prebuilt": "^2.1.7",
+				"sinon": "^1.17.4",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1",
+				"url-search-params": "^0.5.0"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typings": "./axios.d.ts",
+			"dependencies": {
+				"follow-redirects": "0.0.7"
+			},
+			"gitHead": "3af756049f102be2eebafdbb108f10173380a68d",
+			"_id": "axios@0.15.2",
+			"_shasum": "496f50980b2ce1ad2e195af93c2d03b4d035e90d",
+			"_from": ".",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "6.2.2",
+			"_npmUser": {
+				"name": "nickuraltsev",
+				"email": "nick.uraltsev@gmail.com"
+			},
+			"dist": {
+				"shasum": "496f50980b2ce1ad2e195af93c2d03b4d035e90d",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.15.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/axios-0.15.2.tgz_1476754397518_0.807653674390167"
+			},
+			"directories": {}
+		},
+		"0.15.3": {
+			"name": "axios",
+			"version": "0.15.3",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "^2.11.9",
+				"es6-promise": "^4.0.5",
+				"grunt": "^1.0.1",
+				"grunt-banner": "^0.6.0",
+				"grunt-cli": "^1.2.0",
+				"grunt-contrib-clean": "^1.0.0",
+				"grunt-contrib-nodeunit": "^1.0.0",
+				"grunt-contrib-watch": "^1.0.0",
+				"grunt-eslint": "^19.0.0",
+				"grunt-karma": "^2.0.0",
+				"grunt-ts": "^6.0.0-beta.3",
+				"grunt-typings": "^0.1.5",
+				"grunt-webpack": "^1.0.18",
+				"istanbul-instrumenter-loader": "^1.0.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.3.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-coverage": "^1.0.0",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-phantomjs-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.1.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "^3.5.2",
+				"minimist": "^1.2.0",
+				"phantomjs-prebuilt": "^2.1.7",
+				"sinon": "^1.17.4",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1",
+				"url-search-params": "^0.6.1",
+				"typescript": "^2.0.3"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typings": "./index.d.ts",
+			"dependencies": {
+				"follow-redirects": "1.0.0"
+			},
+			"gitHead": "4976816808c4e81acad2393c429832afeaf9664d",
+			"_id": "axios@0.15.3",
+			"_shasum": "2c9d638b2e191a08ea1d6cc988eadd6ba5bdc053",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "7.0.0",
+			"_npmUser": {
+				"name": "nickuraltsev",
+				"email": "nick.uraltsev@gmail.com"
+			},
+			"dist": {
+				"shasum": "2c9d638b2e191a08ea1d6cc988eadd6ba5bdc053",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.15.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/axios-0.15.3.tgz_1480283949051_0.7373273745179176"
+			},
+			"directories": {}
+		},
+		"0.16.0": {
+			"name": "axios",
+			"version": "0.16.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "^2.11.9",
+				"es6-promise": "^4.0.5",
+				"grunt": "^1.0.1",
+				"grunt-banner": "^0.6.0",
+				"grunt-cli": "^1.2.0",
+				"grunt-contrib-clean": "^1.0.0",
+				"grunt-contrib-nodeunit": "^1.0.0",
+				"grunt-contrib-watch": "^1.0.0",
+				"grunt-eslint": "^19.0.0",
+				"grunt-karma": "^2.0.0",
+				"grunt-ts": "^6.0.0-beta.3",
+				"grunt-webpack": "^1.0.18",
+				"istanbul-instrumenter-loader": "^1.0.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.3.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-coverage": "^1.0.0",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-phantomjs-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.1.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "^3.5.2",
+				"minimist": "^1.2.0",
+				"phantomjs-prebuilt": "^2.1.7",
+				"sinon": "^1.17.4",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1",
+				"url-search-params": "^0.6.1",
+				"typescript": "^2.0.3"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typings": "./index.d.ts",
+			"dependencies": {
+				"follow-redirects": "1.0.0"
+			},
+			"gitHead": "19b794848047e51f5d8689cf48820c986df49d25",
+			"_id": "axios@0.16.0",
+			"_shasum": "6ed9771d815f429e7510f2838262957c4953d3b6",
+			"_from": ".",
+			"_npmVersion": "4.1.2",
+			"_nodeVersion": "7.5.0",
+			"_npmUser": {
+				"name": "nickuraltsev",
+				"email": "nick.uraltsev@gmail.com"
+			},
+			"dist": {
+				"shasum": "6ed9771d815f429e7510f2838262957c4953d3b6",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.16.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/axios-0.16.0.tgz_1491013868789_0.13724043127149343"
+			},
+			"directories": {}
+		},
+		"0.16.1": {
+			"name": "axios",
+			"version": "0.16.1",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "^2.11.9",
+				"es6-promise": "^4.0.5",
+				"grunt": "^1.0.1",
+				"grunt-banner": "^0.6.0",
+				"grunt-cli": "^1.2.0",
+				"grunt-contrib-clean": "^1.0.0",
+				"grunt-contrib-nodeunit": "^1.0.0",
+				"grunt-contrib-watch": "^1.0.0",
+				"grunt-eslint": "^19.0.0",
+				"grunt-karma": "^2.0.0",
+				"grunt-ts": "^6.0.0-beta.3",
+				"grunt-webpack": "^1.0.18",
+				"istanbul-instrumenter-loader": "^1.0.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.3.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-coverage": "^1.0.0",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-phantomjs-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.1.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "^3.5.2",
+				"minimist": "^1.2.0",
+				"phantomjs-prebuilt": "^2.1.7",
+				"sinon": "^1.17.4",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1",
+				"url-search-params": "^0.6.1",
+				"typescript": "^2.0.3"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typings": "./index.d.ts",
+			"dependencies": {
+				"follow-redirects": "^1.2.3"
+			},
+			"gitHead": "5c8095e48329dacaec1f8d43a9b84ed275fbd0ef",
+			"_id": "axios@0.16.1",
+			"_shasum": "c0b6d26600842384b8f509e57111f0d2df8223ca",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.1",
+			"_npmUser": {
+				"name": "nickuraltsev",
+				"email": "nick.uraltsev@gmail.com"
+			},
+			"dist": {
+				"shasum": "c0b6d26600842384b8f509e57111f0d2df8223ca",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.16.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/axios-0.16.1.tgz_1491677517114_0.6866208903957158"
+			},
+			"directories": {}
+		},
+		"0.16.2": {
+			"name": "axios",
+			"version": "0.16.2",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mzabriskie/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mzabriskie/axios/issues"
+			},
+			"homepage": "https://github.com/mzabriskie/axios",
+			"devDependencies": {
+				"coveralls": "^2.11.9",
+				"es6-promise": "^4.0.5",
+				"grunt": "^1.0.1",
+				"grunt-banner": "^0.6.0",
+				"grunt-cli": "^1.2.0",
+				"grunt-contrib-clean": "^1.0.0",
+				"grunt-contrib-nodeunit": "^1.0.0",
+				"grunt-contrib-watch": "^1.0.0",
+				"grunt-eslint": "^19.0.0",
+				"grunt-karma": "^2.0.0",
+				"grunt-ts": "^6.0.0-beta.3",
+				"grunt-webpack": "^1.0.18",
+				"istanbul-instrumenter-loader": "^1.0.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.3.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-coverage": "^1.0.0",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-phantomjs-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.1.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "^3.5.2",
+				"minimist": "^1.2.0",
+				"phantomjs-prebuilt": "^2.1.7",
+				"sinon": "^1.17.4",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1",
+				"url-search-params": "^0.6.1",
+				"typescript": "^2.0.3"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typings": "./index.d.ts",
+			"dependencies": {
+				"follow-redirects": "^1.2.3",
+				"is-buffer": "^1.1.5"
+			},
+			"gitHead": "46e275c407f81c44dd9aad419b6e861d8a936580",
+			"_id": "axios@0.16.2",
+			"_shasum": "ba4f92f17167dfbab40983785454b9ac149c3c6d",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.1",
+			"_npmUser": {
+				"name": "nickuraltsev",
+				"email": "nick.uraltsev@gmail.com"
+			},
+			"dist": {
+				"shasum": "ba4f92f17167dfbab40983785454b9ac149c3c6d",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.16.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/axios-0.16.2.tgz_1496518163672_0.8309127793181688"
+			},
+			"directories": {}
+		},
+		"0.17.0": {
+			"name": "axios",
+			"version": "0.17.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test && bundlesize",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axios/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axios/axios/issues"
+			},
+			"homepage": "https://github.com/axios/axios",
+			"devDependencies": {
+				"bundlesize": "^0.5.7",
+				"coveralls": "^2.11.9",
+				"es6-promise": "^4.0.5",
+				"grunt": "^1.0.1",
+				"grunt-banner": "^0.6.0",
+				"grunt-cli": "^1.2.0",
+				"grunt-contrib-clean": "^1.0.0",
+				"grunt-contrib-nodeunit": "^1.0.0",
+				"grunt-contrib-watch": "^1.0.0",
+				"grunt-eslint": "^19.0.0",
+				"grunt-karma": "^2.0.0",
+				"grunt-ts": "^6.0.0-beta.3",
+				"grunt-webpack": "^1.0.18",
+				"istanbul-instrumenter-loader": "^1.0.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.3.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-coverage": "^1.0.0",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-phantomjs-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.1.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "^3.5.2",
+				"minimist": "^1.2.0",
+				"phantomjs-prebuilt": "^2.1.7",
+				"sinon": "^1.17.4",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1",
+				"url-search-params": "^0.6.1",
+				"typescript": "^2.0.3"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typings": "./index.d.ts",
+			"dependencies": {
+				"follow-redirects": "^1.2.3",
+				"is-buffer": "^1.1.5"
+			},
+			"bundlesize": [
+				{
+					"path": "./dist/axios.min.js",
+					"threshold": "5kB"
+				}
+			],
+			"gitHead": "2c0e3183215d9a5fbc2ee8f35f459ac0e4d9f99c",
+			"_id": "axios@0.17.0",
+			"_shasum": "7da747916db803f761651d6091d708789b953c6a",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.1",
+			"_npmUser": {
+				"name": "nickuraltsev",
+				"email": "nick.uraltsev@gmail.com"
+			},
+			"dist": {
+				"shasum": "7da747916db803f761651d6091d708789b953c6a",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.17.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/axios-0.17.0.tgz_1508608890069_0.7621918669901788"
+			},
+			"directories": {}
+		},
+		"0.17.1": {
+			"name": "axios",
+			"version": "0.17.1",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test && bundlesize",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axios/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axios/axios/issues"
+			},
+			"homepage": "https://github.com/axios/axios",
+			"devDependencies": {
+				"bundlesize": "^0.5.7",
+				"coveralls": "^2.11.9",
+				"es6-promise": "^4.0.5",
+				"grunt": "^1.0.1",
+				"grunt-banner": "^0.6.0",
+				"grunt-cli": "^1.2.0",
+				"grunt-contrib-clean": "^1.0.0",
+				"grunt-contrib-nodeunit": "^1.0.0",
+				"grunt-contrib-watch": "^1.0.0",
+				"grunt-eslint": "^19.0.0",
+				"grunt-karma": "^2.0.0",
+				"grunt-ts": "^6.0.0-beta.3",
+				"grunt-webpack": "^1.0.18",
+				"istanbul-instrumenter-loader": "^1.0.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.3.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-coverage": "^1.0.0",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-phantomjs-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.1.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "^3.5.2",
+				"minimist": "^1.2.0",
+				"phantomjs-prebuilt": "^2.1.7",
+				"sinon": "^1.17.4",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1",
+				"url-search-params": "^0.6.1",
+				"typescript": "^2.0.3"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typings": "./index.d.ts",
+			"dependencies": {
+				"follow-redirects": "^1.2.5",
+				"is-buffer": "^1.1.5"
+			},
+			"bundlesize": [
+				{
+					"path": "./dist/axios.min.js",
+					"threshold": "5kB"
+				}
+			],
+			"gitHead": "ad1195f0702381a77b4f2863aad6ddb1002ffd51",
+			"_id": "axios@0.17.1",
+			"_shasum": "2d8e3e5d0bdbd7327f91bc814f5c57660f81824d",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.1",
+			"_npmUser": {
+				"name": "nickuraltsev",
+				"email": "nick.uraltsev@gmail.com"
+			},
+			"dist": {
+				"shasum": "2d8e3e5d0bdbd7327f91bc814f5c57660f81824d",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.17.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/axios-0.17.1.tgz_1510442680505_0.5486412935424596"
+			},
+			"directories": {}
+		},
+		"0.18.0": {
+			"name": "axios",
+			"version": "0.18.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test && bundlesize",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axios/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axios/axios/issues"
+			},
+			"homepage": "https://github.com/axios/axios",
+			"devDependencies": {
+				"bundlesize": "^0.5.7",
+				"coveralls": "^2.11.9",
+				"es6-promise": "^4.0.5",
+				"grunt": "^1.0.1",
+				"grunt-banner": "^0.6.0",
+				"grunt-cli": "^1.2.0",
+				"grunt-contrib-clean": "^1.0.0",
+				"grunt-contrib-nodeunit": "^1.0.0",
+				"grunt-contrib-watch": "^1.0.0",
+				"grunt-eslint": "^19.0.0",
+				"grunt-karma": "^2.0.0",
+				"grunt-ts": "^6.0.0-beta.3",
+				"grunt-webpack": "^1.0.18",
+				"istanbul-instrumenter-loader": "^1.0.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.3.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-coverage": "^1.0.0",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.1.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "^3.5.2",
+				"minimist": "^1.2.0",
+				"sinon": "^1.17.4",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1",
+				"url-search-params": "^0.6.1",
+				"typescript": "^2.0.3"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typings": "./index.d.ts",
+			"dependencies": {
+				"follow-redirects": "^1.3.0",
+				"is-buffer": "^1.1.5"
+			},
+			"bundlesize": [
+				{
+					"path": "./dist/axios.min.js",
+					"threshold": "5kB"
+				}
+			],
+			"gitHead": "d59c70fdfd35106130e9f783d0dbdcddd145b58f",
+			"_id": "axios@0.18.0",
+			"_shasum": "32d53e4851efdc0a11993b6cd000789d70c05102",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.9.5",
+			"_npmUser": {
+				"name": "emilyemorehouse",
+				"email": "emilyemorehouse@gmail.com"
+			},
+			"dist": {
+				"shasum": "32d53e4851efdc0a11993b6cd000789d70c05102",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.18.0.tgz",
+				"fileCount": 40,
+				"unpackedSize": 307840
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/axios_0.18.0_1519082934092_0.24234210178813442"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.19.0-beta.1": {
+			"name": "axios",
+			"version": "0.19.0-beta.1",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test && bundlesize",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+				"fix": "eslint --fix lib/**/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axios/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axios/axios/issues"
+			},
+			"homepage": "https://github.com/axios/axios",
+			"devDependencies": {
+				"bundlesize": "^0.17.0",
+				"coveralls": "^3.0.0",
+				"es6-promise": "^4.2.4",
+				"grunt": "^1.0.2",
+				"grunt-banner": "^0.6.0",
+				"grunt-cli": "^1.2.0",
+				"grunt-contrib-clean": "^1.1.0",
+				"grunt-contrib-watch": "^1.0.0",
+				"grunt-eslint": "^20.1.0",
+				"grunt-karma": "^2.0.0",
+				"grunt-mocha-test": "^0.13.3",
+				"grunt-ts": "^6.0.0-beta.19",
+				"grunt-webpack": "^1.0.18",
+				"istanbul-instrumenter-loader": "^1.0.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.3.0",
+				"karma-chrome-launcher": "^2.2.0",
+				"karma-coverage": "^1.1.1",
+				"karma-firefox-launcher": "^1.1.0",
+				"karma-jasmine": "^1.1.1",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.2.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "^3.5.2",
+				"minimist": "^1.2.0",
+				"mocha": "^5.2.0",
+				"sinon": "^4.5.0",
+				"typescript": "^2.8.1",
+				"url-search-params": "^0.10.0",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typings": "./index.d.ts",
+			"dependencies": {
+				"follow-redirects": "^1.4.1",
+				"is-buffer": "^2.0.2"
+			},
+			"bundlesize": [
+				{
+					"path": "./dist/axios.min.js",
+					"threshold": "5kB"
+				}
+			],
+			"gitHead": "527381198e8112dd298918b3d9d6c643763a59c3",
+			"readmeFilename": "README.md",
+			"_id": "axios@0.19.0-beta.1",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "8.11.2",
+			"_npmUser": {
+				"name": "emilyemorehouse",
+				"email": "emilyemorehouse@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Dizm4IyB5T9OrREhPgbqUSofTOjhNJoc+CLjUtyH8SQUyFfik777lLjhl9cVQ4oo3bykkPAN20rxmY1o5w0jrw==",
+				"shasum": "3d6a9ee75885d1fd39e108df9a4fb2e48e1af1e8",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.19.0-beta.1.tgz",
+				"fileCount": 40,
+				"unpackedSize": 324939,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbbIuJCRA9TVsSAnZWagAAnvUP/jEw0BG15xpUqzV1Z3IQ\nk9UMtbNc9ZXMtIgjjMqIEic1WCr5H9GZ62FVF1pOTX5YlaCWgaYqzOTCvj5w\no+hgxMgMcyUIx6QsdhL6JjMstI/XWigVPnKUTqYhEtFJZML2c4g1hwxXJci7\nJeTcREn7u+WnRFM1Qf88q4Dqn355rHNuJwFq3Nvqo8SEQfbDOwSafGXuniXQ\nlnFjlGT3cmUK08TBeBQGq9zRsSP3BBXFuIKLwVHyPfFf0uufWuylnU1kjf5s\nbyzarKlK1jguIa6r/jkVpP66uxgLWdN04Cr0N7sWs0fy68C3dRpp1Gm/6Oak\nvp2lLePxPekzpAV9vAxwNfhoLLrV3c/Q7ZncODQLKyA4D9Byg3pvYHySpH1+\nH3AgZZt50pkUSVuJ9pqrWqz0g/AL5loMlhmm9mz8wvOewjA/9MMnUk0pHF3e\nLxwnLn3ZXk8mcsg70kp81hZFG14XQYasF7lnn3wyem3YKqkQsuV4f9iYvVoT\nNdyNeiJpDkRUK7dW3GUUhfH0MxTxBUO2bcUGQEo8EKFrPgrPAemTMSr7lhCZ\n5W5UFLuztilsEIGoY62Qr2N2/ACie0a2KYaFrEHoUobGVw8RFBJeRttZ3crq\nyR3rLdVPQelsZJeOmtHTg8TTlld+pzAnBdwmgCRS5vdjIXa9COo68kJThtkY\ni1G7\r\n=Fgzx\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/axios_0.19.0-beta.1_1533840265098_0.9346787865811605"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.19.0": {
+			"name": "axios",
+			"version": "0.19.0",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test && bundlesize",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+				"fix": "eslint --fix lib/**/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axios/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axios/axios/issues"
+			},
+			"homepage": "https://github.com/axios/axios",
+			"devDependencies": {
+				"bundlesize": "^0.17.0",
+				"coveralls": "^3.0.0",
+				"es6-promise": "^4.2.4",
+				"grunt": "^1.0.2",
+				"grunt-banner": "^0.6.0",
+				"grunt-cli": "^1.2.0",
+				"grunt-contrib-clean": "^1.1.0",
+				"grunt-contrib-watch": "^1.0.0",
+				"grunt-eslint": "^20.1.0",
+				"grunt-karma": "^2.0.0",
+				"grunt-mocha-test": "^0.13.3",
+				"grunt-ts": "^6.0.0-beta.19",
+				"grunt-webpack": "^1.0.18",
+				"istanbul-instrumenter-loader": "^1.0.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.3.0",
+				"karma-chrome-launcher": "^2.2.0",
+				"karma-coverage": "^1.1.1",
+				"karma-firefox-launcher": "^1.1.0",
+				"karma-jasmine": "^1.1.1",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.2.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "^3.5.2",
+				"minimist": "^1.2.0",
+				"mocha": "^5.2.0",
+				"sinon": "^4.5.0",
+				"typescript": "^2.8.1",
+				"url-search-params": "^0.10.0",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typings": "./index.d.ts",
+			"dependencies": {
+				"follow-redirects": "1.5.10",
+				"is-buffer": "^2.0.2"
+			},
+			"bundlesize": [
+				{
+					"path": "./dist/axios.min.js",
+					"threshold": "5kB"
+				}
+			],
+			"gitHead": "8d0b92b2678d96770304dd767cd05a59d37f12cf",
+			"_id": "axios@0.19.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.1",
+			"_npmUser": {
+				"name": "emilyemorehouse",
+				"email": "emilyemorehouse@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-1uvKqKQta3KBxIz14F2v06AEHZ/dIoeKfbTRkK1E5oqjDnuEerLmYTgJB5AiQZHJcljpg1TuRzdjDR06qNk0DQ==",
+				"shasum": "8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.19.0.tgz",
+				"fileCount": 40,
+				"unpackedSize": 329975,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc8AEdCRA9TVsSAnZWagAA7oAQAIoxS4ZIzihXpGVDroAw\nl3qo8ZsDey8n+C3rEr0z11GX7/JY3bxbnyyLrj62v0zJ+zg2m/1G+qJD9wYG\nUo84LVDlNlRoOzGvlAxt0VIjLoQhiMEcARAGOb3cQLH5Cj7olIa6RIP6E3Bw\nsfM1TSUEXZ5Qpc4HKRrIMtJ8ZHZ+ml0/YhzZBYYDXHCX9SCM8Sceb/nunSOI\n9Ui5Ulrturl9lk3POfBj6VnpKljZ02EKmifVHGjAAqsPFo5QSi9CYYLSc6Mo\nlWy/cE4P56uwshwEobi3RKiymQ0FOOOj5FqHiNSCA6tP/IVTPdThlMLBv4ru\n9WoP7N+LRm5MKbyD9+QctOvZNwACY/sY0xMIZeBAxj5sIyigiCLxn/KUk0tt\nJ3wPXc4cqRyqIppGVnEnJE5QKfre12Ebnqslhai7YW2MbWjjB2vXK4wWwn1m\nNU+I5H39vFYLvsDGuGuPNr5+0KtyrIlCDi0nm8GTa283QuebaccGvQzuGlm/\nukoVzkPp24akPjHOUyhpc+2WIQA/mMC1yUD1S9thQ6InmetMAj/7XE5SZAY4\nkVBzRr25/LwhY2ZAAtX9gjjJsNQ9agw7kPe7Lkt0+1Flob9gH9GJftbEEyWe\nnW/Ol48L6F+c/NK3B9hGHEqyJWc5mBnfDMOvbYnrzNNPBvlz3j/WOCvKQwj5\nW2Db\r\n=eIur\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/axios_0.19.0_1559232796730_0.8176323141298978"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.18.1": {
+			"name": "axios",
+			"version": "0.18.1",
+			"description": "Promise based HTTP client for the browser and node.js",
+			"main": "index.js",
+			"scripts": {
+				"test": "grunt test && bundlesize",
+				"start": "node ./sandbox/server.js",
+				"build": "NODE_ENV=production grunt build",
+				"preversion": "npm test",
+				"version": "npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json",
+				"postversion": "git push && git push --tags",
+				"examples": "node ./examples/server.js",
+				"coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axios/axios.git"
+			},
+			"keywords": [
+				"xhr",
+				"http",
+				"ajax",
+				"promise",
+				"node"
+			],
+			"author": {
+				"name": "Matt Zabriskie"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/axios/axios/issues"
+			},
+			"homepage": "https://github.com/axios/axios",
+			"devDependencies": {
+				"bundlesize": "^0.5.7",
+				"coveralls": "^2.11.9",
+				"es6-promise": "^4.0.5",
+				"grunt": "^1.0.1",
+				"grunt-banner": "^0.6.0",
+				"grunt-cli": "^1.2.0",
+				"grunt-contrib-clean": "^1.0.0",
+				"grunt-contrib-nodeunit": "^1.0.0",
+				"grunt-contrib-watch": "^1.0.0",
+				"grunt-eslint": "^19.0.0",
+				"grunt-karma": "^2.0.0",
+				"grunt-ts": "^6.0.0-beta.3",
+				"grunt-webpack": "^1.0.18",
+				"istanbul-instrumenter-loader": "^1.0.0",
+				"jasmine-core": "^2.4.1",
+				"karma": "^1.3.0",
+				"karma-chrome-launcher": "^2.0.0",
+				"karma-coverage": "^1.0.0",
+				"karma-firefox-launcher": "^1.0.0",
+				"karma-jasmine": "^1.0.2",
+				"karma-jasmine-ajax": "^0.1.13",
+				"karma-opera-launcher": "^1.0.0",
+				"karma-safari-launcher": "^1.0.0",
+				"karma-sauce-launcher": "^1.1.0",
+				"karma-sinon": "^1.0.5",
+				"karma-sourcemap-loader": "^0.3.7",
+				"karma-webpack": "^1.7.0",
+				"load-grunt-tasks": "^3.5.2",
+				"minimist": "^1.2.0",
+				"sinon": "^1.17.4",
+				"webpack": "^1.13.1",
+				"webpack-dev-server": "^1.14.1",
+				"url-search-params": "^0.6.1",
+				"typescript": "^2.0.3"
+			},
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js"
+			},
+			"typings": "./index.d.ts",
+			"dependencies": {
+				"follow-redirects": "1.5.10",
+				"is-buffer": "^2.0.2"
+			},
+			"bundlesize": [
+				{
+					"path": "./dist/axios.min.js",
+					"threshold": "5kB"
+				}
+			],
+			"gitHead": "face0165de613696d10b1fd2a0e2f7b3852fa018",
+			"_id": "axios@0.18.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.1",
+			"_npmUser": {
+				"name": "emilyemorehouse",
+				"email": "emilyemorehouse@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-0BfJq4NSfQXd+SkFdrvFbG7addhYSBA2mQwISr46pD6E5iqkWg02RAs8vyTT/j0RTnoYmeXauBuSv1qKwR179g==",
+				"shasum": "ff3f0de2e7b5d180e757ad98000f1081b87bcea3",
+				"tarball": "https://registry.npmjs.org/axios/-/axios-0.18.1.tgz",
+				"fileCount": 39,
+				"unpackedSize": 293785,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc8crsCRA9TVsSAnZWagAAMs0QAKSsAzOc8kUxnYJ6E0Pd\nRbKe8SPjO6U/loW+Y5YTIxs81QhTqTq+fFxA8RAnQAB6/DRXrpjPFbqv63iQ\niygsQod95GRUa4MwJnL4a6EEM4nB00yaExxElTmiTh2B3KgESY9WST+CHK/V\nvJ1BIAQO5nh1wgPeKbH7+O0sm5RUk7axt8977YP6KtsrGEjvE4nigcYB1c37\ngpjvQqhg/0Ofpxpt9PBHpYlhKnmam9+/UzOZcQmnKTs/04MilB8iVk0oQleU\nyn/nzhm1kCo3eH9/eFKX9FGiEjnbNwC7NpS6R2/7f+U1JyJYLSFaE5HdCq4F\nin/jIh+4TbTplWcPm43nd180Ffm1ciCSu0RZfwTHOnS/6P68mte6NS81RgTq\nZxdCObWSU+iPELSrwI/R518If7A2iYtNETj7R2Lu7YOV0u7egbIcPvJJPbIy\naB+kk+Kk7+HcHgV+FIdjXQ9YI9Ix+tnXxBuZW4msk0gAuOZR31brXbtOi0CA\nL3XHvWUaYcUcBKHljC5ChC0+Ddo2kzIQrJU62+vcRiNEP3xvfQoeo/iv7E2p\nBU0FQ1zrbDi/iicyE23vSm8fR0R6+TY8lV4AhhBLlrviHHzRTH0CdP3XPn3x\nzL389p2SX3QRkpJ9fGVW28VaNCczBDGCYvl5fcBHD0As/FUqFkEVRubwWPwC\nDsfK\r\n=qJdD\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mzabriskie",
+					"email": "mzabriskie@gmail.com"
+				},
+				{
+					"name": "nickuraltsev",
+					"email": "nick.uraltsev@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/axios_0.18.1_1559349996092_0.11914013949107205"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-08-31T15:54:28.698Z",
+		"created": "2014-08-29T23:08:36.810Z",
+		"0.1.0": "2014-08-29T23:08:36.810Z",
+		"0.2.0": "2014-09-12T20:06:33.167Z",
+		"0.2.1": "2014-09-12T22:57:28.872Z",
+		"0.2.2": "2014-09-15T03:30:45.994Z",
+		"0.3.0": "2014-09-16T18:20:18.668Z",
+		"0.3.1": "2014-09-17T00:31:29.538Z",
+		"0.4.0": "2014-10-05T23:55:03.069Z",
+		"0.4.1": "2014-10-15T18:19:42.549Z",
+		"0.4.2": "2014-12-11T07:14:52.563Z",
+		"0.5.0": "2015-01-23T10:15:47.657Z",
+		"0.5.1": "2015-03-10T20:47:18.932Z",
+		"0.5.2": "2015-03-13T23:14:22.809Z",
+		"0.5.3": "2015-04-08T03:01:17.936Z",
+		"0.5.4": "2015-04-08T18:49:41.745Z",
+		"0.6.0": "2015-09-21T20:20:20.241Z",
+		"0.7.0": "2015-09-29T06:36:55.850Z",
+		"0.8.0": "2015-12-11T19:09:50.663Z",
+		"0.8.1": "2015-12-15T03:44:16.229Z",
+		"0.9.0": "2016-01-18T18:19:24.356Z",
+		"0.9.1": "2016-01-24T22:19:01.689Z",
+		"0.10.0": "2016-04-21T04:52:22.553Z",
+		"0.11.0": "2016-04-27T04:19:52.831Z",
+		"0.11.1": "2016-05-17T15:59:30.342Z",
+		"0.12.0": "2016-06-01T05:22:58.397Z",
+		"0.13.0": "2016-07-13T19:42:43.558Z",
+		"0.13.1": "2016-07-16T17:13:24.859Z",
+		"0.14.0": "2016-08-27T18:30:22.182Z",
+		"0.15.0": "2016-10-11T04:40:41.633Z",
+		"0.15.1": "2016-10-15T06:39:23.761Z",
+		"0.15.2": "2016-10-18T01:33:20.989Z",
+		"0.15.3": "2016-11-27T21:59:11.250Z",
+		"0.16.0": "2017-04-01T02:31:09.040Z",
+		"0.16.1": "2017-04-08T18:51:59.217Z",
+		"0.16.2": "2017-06-03T19:29:23.765Z",
+		"0.17.0": "2017-10-21T18:01:30.232Z",
+		"0.17.1": "2017-11-11T23:24:40.635Z",
+		"0.18.0": "2018-02-19T23:28:54.151Z",
+		"0.19.0-beta.1": "2018-08-09T18:44:25.247Z",
+		"0.19.0": "2019-05-30T16:13:16.930Z",
+		"0.18.1": "2019-06-01T00:46:36.277Z"
+	},
+	"dist-tags": {
+		"latest": "0.19.0",
+		"next": "0.19.0-beta.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"ce96cab5a8c46adcdcbb214e716a2b21\"",
+			"fetched": 1568994341807
+		}
+	},
+	"_distfiles": {
+		"axios-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.1.0.tgz",
+			"sha": "854e14f2999c2ef7fab058654fd995dd183688f2",
+			"registry": "npmjs"
+		},
+		"axios-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.2.0.tgz",
+			"sha": "315cd618142078fd22f2cea35380caad19e32069",
+			"registry": "npmjs"
+		},
+		"axios-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.2.1.tgz",
+			"sha": "67d7695440e031286bad9b9b36ae455067f542b8",
+			"registry": "npmjs"
+		},
+		"axios-0.2.2.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.2.2.tgz",
+			"sha": "e69c16b591e43c248cbbdd089e0babb2ba820cde",
+			"registry": "npmjs"
+		},
+		"axios-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.3.0.tgz",
+			"sha": "07cc545f0d39b6b0d168a3b3a55b49f90a9000c7",
+			"registry": "npmjs"
+		},
+		"axios-0.3.1.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.3.1.tgz",
+			"sha": "7380abe912433fb47ea582bed582300ffe479564",
+			"registry": "npmjs"
+		},
+		"axios-0.4.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.4.0.tgz",
+			"sha": "b5918c5c71aaa809f6183d68822c44fb39b7b338",
+			"registry": "npmjs"
+		},
+		"axios-0.4.1.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.4.1.tgz",
+			"sha": "e6a375377d5abd3c4389039240059e08530e1881",
+			"registry": "npmjs"
+		},
+		"axios-0.4.2.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.4.2.tgz",
+			"sha": "d31b5752d4885ba460ef0fd1107447b279e6f66b",
+			"registry": "npmjs"
+		},
+		"axios-0.5.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.5.0.tgz",
+			"sha": "2f369e6309a46b182c38ce683ba4fbc608d5b4ef",
+			"registry": "npmjs"
+		},
+		"axios-0.5.1.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.5.1.tgz",
+			"sha": "63d83686335dc59a57a413b715999691fd0ea43e",
+			"registry": "npmjs"
+		},
+		"axios-0.5.2.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.5.2.tgz",
+			"sha": "eb6009d000d81067cf0568dbac847e105525013a",
+			"registry": "npmjs"
+		},
+		"axios-0.5.3.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.5.3.tgz",
+			"sha": "a4d153cc753f430a14aad8a00d8b1017eeabf1a5",
+			"registry": "npmjs"
+		},
+		"axios-0.5.4.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.5.4.tgz",
+			"sha": "e06f852257838133e69094d925ccb419de94fdfb",
+			"registry": "npmjs"
+		},
+		"axios-0.6.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.6.0.tgz",
+			"sha": "5f3b9bc5557f9d804547501f1a227eaa3216cad2",
+			"registry": "npmjs"
+		},
+		"axios-0.7.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.7.0.tgz",
+			"sha": "489c269044d5066dfa2c64c749cb131b176f4a7a",
+			"registry": "npmjs"
+		},
+		"axios-0.8.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.8.0.tgz",
+			"sha": "9c3648c395f704742845b7d70e5b7c11f9afd859",
+			"registry": "npmjs"
+		},
+		"axios-0.8.1.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.8.1.tgz",
+			"sha": "e0eafec0f346139527dc3b79fdcbff8034a24045",
+			"registry": "npmjs"
+		},
+		"axios-0.9.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.9.0.tgz",
+			"sha": "89544ac5f55bc94f576db4e663d7530cb4f87d14",
+			"registry": "npmjs"
+		},
+		"axios-0.9.1.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.9.1.tgz",
+			"sha": "95608b16447ee29b033589854c3fc7ee2c06bf6e",
+			"registry": "npmjs"
+		},
+		"axios-0.10.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.10.0.tgz",
+			"sha": "5b0ec0d5fb53e79b98b7bf84c0e9b1cf902fdfc4",
+			"registry": "npmjs"
+		},
+		"axios-0.11.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.11.0.tgz",
+			"sha": "50adc59bd0f11bee89a383b24b2d407648e6d6e8",
+			"registry": "npmjs"
+		},
+		"axios-0.11.1.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.11.1.tgz",
+			"sha": "39cdb65813e2c549d1c2e9c389f7e33aa65cca22",
+			"registry": "npmjs"
+		},
+		"axios-0.12.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.12.0.tgz",
+			"sha": "b907b0221cc34ec1c9fac18ec7f07ddf95785ba4",
+			"registry": "npmjs"
+		},
+		"axios-0.13.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.13.0.tgz",
+			"sha": "b3b5243ef7e67794fc951bef0298d0bab29ffd54",
+			"registry": "npmjs"
+		},
+		"axios-0.13.1.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.13.1.tgz",
+			"sha": "3e67abfe4333bc9d2d5fe6fbd13b4694eafc8df8",
+			"registry": "npmjs"
+		},
+		"axios-0.14.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.14.0.tgz",
+			"sha": "40f24f2f4e913b9faa43d3a7b2e40ab8729afa90",
+			"registry": "npmjs"
+		},
+		"axios-0.15.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.15.0.tgz",
+			"sha": "69a4cbe8646866a22f1075048c41724ecef447ce",
+			"registry": "npmjs"
+		},
+		"axios-0.15.1.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.15.1.tgz",
+			"sha": "9395b9ba25005e478dfd7239e8c4345ff10cd85b",
+			"registry": "npmjs"
+		},
+		"axios-0.15.2.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.15.2.tgz",
+			"sha": "496f50980b2ce1ad2e195af93c2d03b4d035e90d",
+			"registry": "npmjs"
+		},
+		"axios-0.15.3.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.15.3.tgz",
+			"sha": "2c9d638b2e191a08ea1d6cc988eadd6ba5bdc053",
+			"registry": "npmjs"
+		},
+		"axios-0.16.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.16.0.tgz",
+			"sha": "6ed9771d815f429e7510f2838262957c4953d3b6",
+			"registry": "npmjs"
+		},
+		"axios-0.16.1.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.16.1.tgz",
+			"sha": "c0b6d26600842384b8f509e57111f0d2df8223ca",
+			"registry": "npmjs"
+		},
+		"axios-0.16.2.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.16.2.tgz",
+			"sha": "ba4f92f17167dfbab40983785454b9ac149c3c6d",
+			"registry": "npmjs"
+		},
+		"axios-0.17.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.17.0.tgz",
+			"sha": "7da747916db803f761651d6091d708789b953c6a",
+			"registry": "npmjs"
+		},
+		"axios-0.17.1.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.17.1.tgz",
+			"sha": "2d8e3e5d0bdbd7327f91bc814f5c57660f81824d",
+			"registry": "npmjs"
+		},
+		"axios-0.18.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.18.0.tgz",
+			"sha": "32d53e4851efdc0a11993b6cd000789d70c05102",
+			"registry": "npmjs"
+		},
+		"axios-0.19.0-beta.1.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.19.0-beta.1.tgz",
+			"sha": "3d6a9ee75885d1fd39e108df9a4fb2e48e1af1e8",
+			"registry": "npmjs"
+		},
+		"axios-0.19.0.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.19.0.tgz",
+			"sha": "8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8",
+			"registry": "npmjs"
+		},
+		"axios-0.18.1.tgz": {
+			"url": "https://registry.npmjs.org/axios/-/axios-0.18.1.tgz",
+			"sha": "ff3f0de2e7b5d180e757ad98000f1081b87bcea3",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-a37a8472be8b6c4c",
+	"_id": "axios",
+	"readme": "# axios\n\n[![npm version](https://img.shields.io/npm/v/axios.svg?style=flat-square)](https://www.npmjs.org/package/axios)\n[![build status](https://img.shields.io/travis/axios/axios.svg?style=flat-square)](https://travis-ci.org/axios/axios)\n[![code coverage](https://img.shields.io/coveralls/mzabriskie/axios.svg?style=flat-square)](https://coveralls.io/r/mzabriskie/axios)\n[![npm downloads](https://img.shields.io/npm/dm/axios.svg?style=flat-square)](http://npm-stat.com/charts.html?package=axios)\n[![gitter chat](https://img.shields.io/gitter/room/mzabriskie/axios.svg?style=flat-square)](https://gitter.im/mzabriskie/axios)\n[![code helpers](https://www.codetriage.com/axios/axios/badges/users.svg)](https://www.codetriage.com/axios/axios)\n\nPromise based HTTP client for the browser and node.js\n\n## Features\n\n- Make [XMLHttpRequests](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) from the browser\n- Make [http](http://nodejs.org/api/http.html) requests from node.js\n- Supports the [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) API\n- Intercept request and response\n- Transform request and response data\n- Cancel requests\n- Automatic transforms for JSON data\n- Client side support for protecting against [XSRF](http://en.wikipedia.org/wiki/Cross-site_request_forgery)\n\n## Browser Support\n\n![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) |\n--- | --- | --- | --- | --- | --- |\nLatest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 11 ✔ |\n\n[![Browser Matrix](https://saucelabs.com/open_sauce/build_matrix/axios.svg)](https://saucelabs.com/u/axios)\n\n## Installing\n\nUsing npm:\n\n```bash\n$ npm install axios\n```\n\nUsing bower:\n\n```bash\n$ bower install axios\n```\n\nUsing cdn:\n\n```html\n<script src=\"https://unpkg.com/axios/dist/axios.min.js\"></script>\n```\n\n## Example\n\nPerforming a `GET` request\n\n```js\n// Make a request for a user with a given ID\naxios.get('/user?ID=12345')\n  .then(function (response) {\n    console.log(response);\n  })\n  .catch(function (error) {\n    console.log(error);\n  });\n\n// Optionally the request above could also be done as\naxios.get('/user', {\n    params: {\n      ID: 12345\n    }\n  })\n  .then(function (response) {\n    console.log(response);\n  })\n  .catch(function (error) {\n    console.log(error);\n  });\n```\n\nPerforming a `POST` request\n\n```js\naxios.post('/user', {\n    firstName: 'Fred',\n    lastName: 'Flintstone'\n  })\n  .then(function (response) {\n    console.log(response);\n  })\n  .catch(function (error) {\n    console.log(error);\n  });\n```\n\nPerforming multiple concurrent requests\n\n```js\nfunction getUserAccount() {\n  return axios.get('/user/12345');\n}\n\nfunction getUserPermissions() {\n  return axios.get('/user/12345/permissions');\n}\n\naxios.all([getUserAccount(), getUserPermissions()])\n  .then(axios.spread(function (acct, perms) {\n    // Both requests are now complete\n  }));\n```\n\n## axios API\n\nRequests can be made by passing the relevant config to `axios`.\n\n##### axios(config)\n\n```js\n// Send a POST request\naxios({\n  method: 'post',\n  url: '/user/12345',\n  data: {\n    firstName: 'Fred',\n    lastName: 'Flintstone'\n  }\n});\n```\n\n```js\n// GET request for remote image\naxios({\n  method:'get',\n  url:'http://bit.ly/2mTM3nY',\n  responseType:'stream'\n})\n  .then(function(response) {\n  response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))\n});\n```\n\n##### axios(url[, config])\n\n```js\n// Send a GET request (default method)\naxios('/user/12345');\n```\n\n### Request method aliases\n\nFor convenience aliases have been provided for all supported request methods.\n\n##### axios.request(config)\n##### axios.get(url[, config])\n##### axios.delete(url[, config])\n##### axios.head(url[, config])\n##### axios.options(url[, config])\n##### axios.post(url[, data[, config]])\n##### axios.put(url[, data[, config]])\n##### axios.patch(url[, data[, config]])\n\n###### NOTE\nWhen using the alias methods `url`, `method`, and `data` properties don't need to be specified in config.\n\n### Concurrency\n\nHelper functions for dealing with concurrent requests.\n\n##### axios.all(iterable)\n##### axios.spread(callback)\n\n### Creating an instance\n\nYou can create a new instance of axios with a custom config.\n\n##### axios.create([config])\n\n```js\nvar instance = axios.create({\n  baseURL: 'https://some-domain.com/api/',\n  timeout: 1000,\n  headers: {'X-Custom-Header': 'foobar'}\n});\n```\n\n### Instance methods\n\nThe available instance methods are listed below. The specified config will be merged with the instance config.\n\n##### axios#request(config)\n##### axios#get(url[, config])\n##### axios#delete(url[, config])\n##### axios#head(url[, config])\n##### axios#options(url[, config])\n##### axios#post(url[, data[, config]])\n##### axios#put(url[, data[, config]])\n##### axios#patch(url[, data[, config]])\n\n## Request Config\n\nThese are the available config options for making requests. Only the `url` is required. Requests will default to `GET` if `method` is not specified.\n\n```js\n{\n  // `url` is the server URL that will be used for the request\n  url: '/user',\n\n  // `method` is the request method to be used when making the request\n  method: 'get', // default\n\n  // `baseURL` will be prepended to `url` unless `url` is absolute.\n  // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs\n  // to methods of that instance.\n  baseURL: 'https://some-domain.com/api/',\n\n  // `transformRequest` allows changes to the request data before it is sent to the server\n  // This is only applicable for request methods 'PUT', 'POST', and 'PATCH'\n  // The last function in the array must return a string or an instance of Buffer, ArrayBuffer,\n  // FormData or Stream\n  // You may modify the headers object.\n  transformRequest: [function (data, headers) {\n    // Do whatever you want to transform the data\n\n    return data;\n  }],\n\n  // `transformResponse` allows changes to the response data to be made before\n  // it is passed to then/catch\n  transformResponse: [function (data) {\n    // Do whatever you want to transform the data\n\n    return data;\n  }],\n\n  // `headers` are custom headers to be sent\n  headers: {'X-Requested-With': 'XMLHttpRequest'},\n\n  // `params` are the URL parameters to be sent with the request\n  // Must be a plain object or a URLSearchParams object\n  params: {\n    ID: 12345\n  },\n\n  // `paramsSerializer` is an optional function in charge of serializing `params`\n  // (e.g. https://www.npmjs.com/package/qs, http://api.jquery.com/jquery.param/)\n  paramsSerializer: function(params) {\n    return Qs.stringify(params, {arrayFormat: 'brackets'})\n  },\n\n  // `data` is the data to be sent as the request body\n  // Only applicable for request methods 'PUT', 'POST', and 'PATCH'\n  // When no `transformRequest` is set, must be of one of the following types:\n  // - string, plain object, ArrayBuffer, ArrayBufferView, URLSearchParams\n  // - Browser only: FormData, File, Blob\n  // - Node only: Stream, Buffer\n  data: {\n    firstName: 'Fred'\n  },\n\n  // `timeout` specifies the number of milliseconds before the request times out.\n  // If the request takes longer than `timeout`, the request will be aborted.\n  timeout: 1000,\n\n  // `withCredentials` indicates whether or not cross-site Access-Control requests\n  // should be made using credentials\n  withCredentials: false, // default\n\n  // `adapter` allows custom handling of requests which makes testing easier.\n  // Return a promise and supply a valid response (see lib/adapters/README.md).\n  adapter: function (config) {\n    /* ... */\n  },\n\n  // `auth` indicates that HTTP Basic auth should be used, and supplies credentials.\n  // This will set an `Authorization` header, overwriting any existing\n  // `Authorization` custom headers you have set using `headers`.\n  auth: {\n    username: 'janedoe',\n    password: 's00pers3cret'\n  },\n\n  // `responseType` indicates the type of data that the server will respond with\n  // options are 'arraybuffer', 'blob', 'document', 'json', 'text', 'stream'\n  responseType: 'json', // default\n\n  // `xsrfCookieName` is the name of the cookie to use as a value for xsrf token\n  xsrfCookieName: 'XSRF-TOKEN', // default\n\n  // `xsrfHeaderName` is the name of the http header that carries the xsrf token value\n  xsrfHeaderName: 'X-XSRF-TOKEN', // default\n\n  // `onUploadProgress` allows handling of progress events for uploads\n  onUploadProgress: function (progressEvent) {\n    // Do whatever you want with the native progress event\n  },\n\n  // `onDownloadProgress` allows handling of progress events for downloads\n  onDownloadProgress: function (progressEvent) {\n    // Do whatever you want with the native progress event\n  },\n\n  // `maxContentLength` defines the max size of the http response content allowed\n  maxContentLength: 2000,\n\n  // `validateStatus` defines whether to resolve or reject the promise for a given\n  // HTTP response status code. If `validateStatus` returns `true` (or is set to `null`\n  // or `undefined`), the promise will be resolved; otherwise, the promise will be\n  // rejected.\n  validateStatus: function (status) {\n    return status >= 200 && status < 300; // default\n  },\n\n  // `maxRedirects` defines the maximum number of redirects to follow in node.js.\n  // If set to 0, no redirects will be followed.\n  maxRedirects: 5, // default\n\n  // `socketPath` defines a UNIX Socket to be used in node.js.\n  // e.g. '/var/run/docker.sock' to send requests to the docker daemon.\n  // Only either `socketPath` or `proxy` can be specified.\n  // If both are specified, `socketPath` is used.\n  socketPath: null, // default\n\n  // `httpAgent` and `httpsAgent` define a custom agent to be used when performing http\n  // and https requests, respectively, in node.js. This allows options to be added like\n  // `keepAlive` that are not enabled by default.\n  httpAgent: new http.Agent({ keepAlive: true }),\n  httpsAgent: new https.Agent({ keepAlive: true }),\n\n  // 'proxy' defines the hostname and port of the proxy server\n  // Use `false` to disable proxies, ignoring environment variables.\n  // `auth` indicates that HTTP Basic auth should be used to connect to the proxy, and\n  // supplies credentials.\n  // This will set an `Proxy-Authorization` header, overwriting any existing\n  // `Proxy-Authorization` custom headers you have set using `headers`.\n  proxy: {\n    host: '127.0.0.1',\n    port: 9000,\n    auth: {\n      username: 'mikeymike',\n      password: 'rapunz3l'\n    }\n  },\n\n  // `cancelToken` specifies a cancel token that can be used to cancel the request\n  // (see Cancellation section below for details)\n  cancelToken: new CancelToken(function (cancel) {\n  })\n}\n```\n\n## Response Schema\n\nThe response for a request contains the following information.\n\n```js\n{\n  // `data` is the response that was provided by the server\n  data: {},\n\n  // `status` is the HTTP status code from the server response\n  status: 200,\n\n  // `statusText` is the HTTP status message from the server response\n  statusText: 'OK',\n\n  // `headers` the headers that the server responded with\n  // All header names are lower cased\n  headers: {},\n\n  // `config` is the config that was provided to `axios` for the request\n  config: {},\n\n  // `request` is the request that generated this response\n  // It is the last ClientRequest instance in node.js (in redirects)\n  // and an XMLHttpRequest instance the browser\n  request: {}\n}\n```\n\nWhen using `then`, you will receive the response as follows:\n\n```js\naxios.get('/user/12345')\n  .then(function(response) {\n    console.log(response.data);\n    console.log(response.status);\n    console.log(response.statusText);\n    console.log(response.headers);\n    console.log(response.config);\n  });\n```\n\nWhen using `catch`, or passing a [rejection callback](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) as second parameter of `then`, the response will be available through the `error` object as explained in the [Handling Errors](#handling-errors) section.\n\n## Config Defaults\n\nYou can specify config defaults that will be applied to every request.\n\n### Global axios defaults\n\n```js\naxios.defaults.baseURL = 'https://api.example.com';\naxios.defaults.headers.common['Authorization'] = AUTH_TOKEN;\naxios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';\n```\n\n### Custom instance defaults\n\n```js\n// Set config defaults when creating the instance\nvar instance = axios.create({\n  baseURL: 'https://api.example.com'\n});\n\n// Alter defaults after instance has been created\ninstance.defaults.headers.common['Authorization'] = AUTH_TOKEN;\n```\n\n### Config order of precedence\n\nConfig will be merged with an order of precedence. The order is library defaults found in [lib/defaults.js](https://github.com/axios/axios/blob/master/lib/defaults.js#L28), then `defaults` property of the instance, and finally `config` argument for the request. The latter will take precedence over the former. Here's an example.\n\n```js\n// Create an instance using the config defaults provided by the library\n// At this point the timeout config value is `0` as is the default for the library\nvar instance = axios.create();\n\n// Override timeout default for the library\n// Now all requests will wait 2.5 seconds before timing out\ninstance.defaults.timeout = 2500;\n\n// Override timeout for this request as it's known to take a long time\ninstance.get('/longRequest', {\n  timeout: 5000\n});\n```\n\n## Interceptors\n\nYou can intercept requests or responses before they are handled by `then` or `catch`.\n\n```js\n// Add a request interceptor\naxios.interceptors.request.use(function (config) {\n    // Do something before request is sent\n    return config;\n  }, function (error) {\n    // Do something with request error\n    return Promise.reject(error);\n  });\n\n// Add a response interceptor\naxios.interceptors.response.use(function (response) {\n    // Do something with response data\n    return response;\n  }, function (error) {\n    // Do something with response error\n    return Promise.reject(error);\n  });\n```\n\nIf you may need to remove an interceptor later you can.\n\n```js\nvar myInterceptor = axios.interceptors.request.use(function () {/*...*/});\naxios.interceptors.request.eject(myInterceptor);\n```\n\nYou can add interceptors to a custom instance of axios.\n\n```js\nvar instance = axios.create();\ninstance.interceptors.request.use(function () {/*...*/});\n```\n\n## Handling Errors\n\n```js\naxios.get('/user/12345')\n  .catch(function (error) {\n    if (error.response) {\n      // The request was made and the server responded with a status code\n      // that falls out of the range of 2xx\n      console.log(error.response.data);\n      console.log(error.response.status);\n      console.log(error.response.headers);\n    } else if (error.request) {\n      // The request was made but no response was received\n      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of\n      // http.ClientRequest in node.js\n      console.log(error.request);\n    } else {\n      // Something happened in setting up the request that triggered an Error\n      console.log('Error', error.message);\n    }\n    console.log(error.config);\n  });\n```\n\nYou can define a custom HTTP status code error range using the `validateStatus` config option.\n\n```js\naxios.get('/user/12345', {\n  validateStatus: function (status) {\n    return status < 500; // Reject only if the status code is greater than or equal to 500\n  }\n})\n```\n\n## Cancellation\n\nYou can cancel a request using a *cancel token*.\n\n> The axios cancel token API is based on the withdrawn [cancelable promises proposal](https://github.com/tc39/proposal-cancelable-promises).\n\nYou can create a cancel token using the `CancelToken.source` factory as shown below:\n\n```js\nvar CancelToken = axios.CancelToken;\nvar source = CancelToken.source();\n\naxios.get('/user/12345', {\n  cancelToken: source.token\n}).catch(function(thrown) {\n  if (axios.isCancel(thrown)) {\n    console.log('Request canceled', thrown.message);\n  } else {\n    // handle error\n  }\n});\n\naxios.post('/user/12345', {\n  name: 'new name'\n}, {\n  cancelToken: source.token\n})\n\n// cancel the request (the message parameter is optional)\nsource.cancel('Operation canceled by the user.');\n```\n\nYou can also create a cancel token by passing an executor function to the `CancelToken` constructor:\n\n```js\nvar CancelToken = axios.CancelToken;\nvar cancel;\n\naxios.get('/user/12345', {\n  cancelToken: new CancelToken(function executor(c) {\n    // An executor function receives a cancel function as a parameter\n    cancel = c;\n  })\n});\n\n// cancel the request\ncancel();\n```\n\n> Note: you can cancel several requests with the same cancel token.\n\n## Using application/x-www-form-urlencoded format\n\nBy default, axios serializes JavaScript objects to `JSON`. To send data in the `application/x-www-form-urlencoded` format instead, you can use one of the following options.\n\n### Browser\n\nIn a browser, you can use the [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) API as follows:\n\n```js\nvar params = new URLSearchParams();\nparams.append('param1', 'value1');\nparams.append('param2', 'value2');\naxios.post('/foo', params);\n```\n\n> Note that `URLSearchParams` is not supported by all browsers (see [caniuse.com](http://www.caniuse.com/#feat=urlsearchparams)), but there is a [polyfill](https://github.com/WebReflection/url-search-params) available (make sure to polyfill the global environment).\n\nAlternatively, you can encode data using the [`qs`](https://github.com/ljharb/qs) library:\n\n```js\nvar qs = require('qs');\naxios.post('/foo', qs.stringify({ 'bar': 123 }));\n```\n\n### Node.js\n\nIn node.js, you can use the [`querystring`](https://nodejs.org/api/querystring.html) module as follows:\n\n```js\nvar querystring = require('querystring');\naxios.post('http://something.com/', querystring.stringify({ foo: 'bar' }));\n```\n\nYou can also use the [`qs`](https://github.com/ljharb/qs) library.\n\n## Semver\n\nUntil axios reaches a `1.0` release, breaking changes will be released with a new minor version. For example `0.5.1`, and `0.5.4` will have the same API, but `0.6.0` will have breaking changes.\n\n## Promises\n\naxios depends on a native ES6 Promise implementation to be [supported](http://caniuse.com/promises).\nIf your environment doesn't support ES6 Promises, you can [polyfill](https://github.com/jakearchibald/es6-promise).\n\n## TypeScript\naxios includes [TypeScript](http://typescriptlang.org) definitions.\n```typescript\nimport axios from 'axios';\naxios.get('/user?ID=12345');\n```\n\n## Resources\n\n* [Changelog](https://github.com/axios/axios/blob/master/CHANGELOG.md)\n* [Upgrade Guide](https://github.com/axios/axios/blob/master/UPGRADE_GUIDE.md)\n* [Ecosystem](https://github.com/axios/axios/blob/master/ECOSYSTEM.md)\n* [Contributing Guide](https://github.com/axios/axios/blob/master/CONTRIBUTING.md)\n* [Code of Conduct](https://github.com/axios/axios/blob/master/CODE_OF_CONDUCT.md)\n\n## Credits\n\naxios is heavily inspired by the [$http service](https://docs.angularjs.org/api/ng/service/$http) provided in [Angular](https://angularjs.org/). Ultimately axios is an effort to provide a standalone `$http`-like service for use outside of Angular.\n\n## License\n\nMIT"
+}

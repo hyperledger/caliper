@@ -1,0 +1,153 @@
+{
+	"name": "caliper-fabric",
+	"versions": {
+		"0.1.0": {
+			"name": "caliper-fabric",
+			"version": "0.1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/caliper.git"
+			},
+			"scripts": {
+				"pretest": "npm run licchk",
+				"licchk": "license-check-and-add",
+				"test": "npm run lint",
+				"lint": "npx eslint .",
+				"list": "node ./scripts/list.js",
+				"nyc": "nyc mocha --recursive -t 10000"
+			},
+			"engineStrict": true,
+			"engines": {
+				"node": ">=8.10.0",
+				"npm": ">=5.6.0"
+			},
+			"dependencies": {
+				"caliper-core": "0.1.0",
+				"fabric-ca-client": "^1.4.0",
+				"fabric-client": "^1.4.0",
+				"fabric-network": "^1.4.0",
+				"fabric-protos": "2.0.0-snapshot.1",
+				"fs-extra": "^8.0.1",
+				"nconf": "^0.10.0"
+			},
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"eslint": "^4.19.1",
+				"mocha": "3.4.2",
+				"nyc": "11.1.0",
+				"rewire": "^4.0.0",
+				"sinon": "2.3.8",
+				"license-check-and-add": "2.3.6"
+			},
+			"license-check-and-add-config": {
+				"folder": ".",
+				"license": "../../LICENSE.txt",
+				"exact_paths_method": "EXCLUDE",
+				"exact_paths": [
+					"node_modules",
+					".nyc_output",
+					"coverage"
+				],
+				"file_type_method": "EXCLUDE",
+				"file_types": [
+					".yml"
+				],
+				"insert_license": false,
+				"license_formats": {
+					"js": {
+						"prepend": "/*",
+						"append": "*/",
+						"eachLine": {
+							"prepend": "* "
+						}
+					},
+					"editorconfig": {
+						"prepend": "#",
+						"append": "#",
+						"eachLine": {
+							"prepend": "# "
+						}
+					}
+				}
+			},
+			"nyc": {
+				"exclude": [
+					"lib/**"
+				],
+				"reporter": [
+					"text-summary",
+					"html"
+				],
+				"all": true,
+				"check-coverage": false,
+				"statements": 5,
+				"branches": 8,
+				"functions": 7,
+				"lines": 5
+			},
+			"license": "Apache-2.0",
+			"licenses": [
+				{
+					"type": "Apache-2.0",
+					"url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/hyperledger/caliper/issues"
+			},
+			"homepage": "https://github.com/hyperledger/caliper#readme",
+			"_id": "caliper-fabric@0.1.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.16.1",
+			"_npmUser": {
+				"name": "luizah",
+				"email": "luizaherback@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-L6zmZHc+xXVON1ALGP43jJaPsmAZXB3XPVkr5GV0E3lfXZdgvLLLVFViEC0JqTHVjR+e5ylLYQW05y+N1dd9Xg==",
+				"shasum": "310c72cd27344ed75ddfee021a78b8a0d087e28c",
+				"tarball": "https://registry.npmjs.org/caliper-fabric/-/caliper-fabric-0.1.0.tgz",
+				"fileCount": 9,
+				"unpackedSize": 167300,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdWVPmCRA9TVsSAnZWagAAS2oP/30H2z7p4ZWXn1zsk0E4\nmTQAD+ypSccSFBF7+Q0UXrOMhAlrpsztE077Cn9wXt7H01gF9tvPtwTzbp2+\nV6OsTVY7qYC2SFFfG7mJ6fgY28nNS3uRktIy0qhWY7y3qo6YCkdgDMEU45zD\n3xn31cpzSSQbYo+fhSfT74WLraKEmYFV1yibz1K+zHCqBIh3HHbATm18IUm4\nbhQt7K+rfsBy7XUtUhMhRFrUEQhhbgSHMPT0nlOS6AGJZk8NDzrE7LH7z7+/\nBmvCeiza4ppKRc5hHfKOqOibHa2Q04hpzbiQ/Ng2JkA06/tGDbeBkXlQz4JQ\nC4SM8IDQTBJI4sc1EaVwnKOKDsxxzdKn7DIhEWanvMVTplgxQ2nQAOM2TdX1\n/ukhmAqxfyAP5U9H9cPmTJ9cEOm3HNrSlYUxF1ZRAjaaaKecUxhDRv0DcuP3\nLZdMZiqgFLwb1Rp72AgmTB4m2oavo0IjKpDw0rJ0sCs38Pfz1s3X9OQH5oq5\nhe3BBZ7e+qGYCZ40h4AYNHRpYWfDiqfIu9/o4xCkUyqN0jDu8jGzt1XS6ZWm\nBooesUIqewCiJsInfLkX+craWprgWKM8xXeeXG2uStU8UTV4U2jaWLETfFQE\nBCdiz969+Ge2WKqJUL65mlNDaI+UZT7XKOBND7dZouQMHhOEuoTqxnlUsM5c\nd7qx\r\n=1KnA\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "luizah",
+					"email": "luizaherback@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/caliper-fabric_0.1.0_1566135270222_0.04556256502755773"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2019-08-18T13:34:30.221Z",
+		"0.1.0": "2019-08-18T13:34:30.504Z",
+		"modified": "2019-08-18T13:34:33.109Z"
+	},
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"24c6481719395e1f6ae08f5a44a39fbf\"",
+			"fetched": 1568994329331
+		}
+	},
+	"_distfiles": {
+		"caliper-fabric-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/caliper-fabric/-/caliper-fabric-0.1.0.tgz",
+			"sha": "310c72cd27344ed75ddfee021a78b8a0d087e28c",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-d80cdfdcd6f78d1c",
+	"_id": "caliper-fabric",
+	"readme": "ERROR: No README data found!"
+}

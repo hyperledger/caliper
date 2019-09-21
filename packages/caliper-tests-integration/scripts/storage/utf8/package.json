@@ -1,0 +1,446 @@
+{
+	"name": "utf8",
+	"versions": {
+		"1.0.0": {
+			"name": "utf8",
+			"description": "Basic Utf-8 encoding/decoding library to alleviate confusion among people.",
+			"version": "1.0.0",
+			"author": {
+				"name": "Ryan McGrath",
+				"email": "ryan@venodesigns.net"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/ryanmcgrath/node-utf8.git"
+			},
+			"bugs": {
+				"url": "http://github.com/ryanmcgrath/node-utf8/issues"
+			},
+			"os": [
+				"linux",
+				"darwin",
+				"freebsd"
+			],
+			"directories": {
+				"lib": "./lib/"
+			},
+			"main": "./lib/utf8",
+			"engines": {
+				"node": ">=0.1.97"
+			},
+			"licenses": [
+				{
+					"type": "Creative Commons 3.0",
+					"url": "http://github.com/ryanmcgrath/node-utf8/raw/master/LICENSE"
+				}
+			],
+			"dependencies": {},
+			"devDependencies": {},
+			"_id": "utf8@1.0.0",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.3",
+			"_nodeVersion": "v0.5.0-pre",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "b7890787bd785c1cba83eeda12c9fbbcc9c8652f",
+				"tarball": "https://registry.npmjs.org/utf8/-/utf8-1.0.0.tgz"
+			},
+			"scripts": {}
+		},
+		"2.0.0": {
+			"name": "utf8",
+			"version": "2.0.0",
+			"description": "A well-tested UTF-8 encoder/decoder written in JavaScript.",
+			"homepage": "http://mths.be/utf8js",
+			"main": "utf8.js",
+			"keywords": [
+				"charset",
+				"encoding",
+				"unicode",
+				"utf8"
+			],
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "http://mths.be/mit"
+				},
+				{
+					"type": "GPL",
+					"url": "http://mths.be/gpl"
+				}
+			],
+			"author": {
+				"name": "Mathias Bynens",
+				"url": "http://mathiasbynens.be/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mathiasbynens/utf8.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/mathiasbynens/utf8.js/issues"
+			},
+			"directories": {
+				"test": "tests"
+			},
+			"scripts": {
+				"test": "node tests/tests.js"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"grunt": "~0.4.1",
+				"grunt-shell": "~0.2.2",
+				"istanbul": "~0.1.36",
+				"qunit-clib": "~1.3.0",
+				"qunitjs": "~1.11.0",
+				"requirejs": "~2.1.6"
+			},
+			"_id": "utf8@2.0.0",
+			"dist": {
+				"shasum": "79ce59eced874809cab9a71fc7102c7d45d4118d",
+				"tarball": "https://registry.npmjs.org/utf8/-/utf8-2.0.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.30",
+			"_npmUser": {
+				"name": "mathias",
+				"email": "mathias@qiwi.be"
+			},
+			"maintainers": [
+				{
+					"name": "ryanmcgrath",
+					"email": "ryan@venodesigns.net"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				}
+			]
+		},
+		"2.1.0": {
+			"name": "utf8",
+			"version": "2.1.0",
+			"description": "A well-tested UTF-8 encoder/decoder written in JavaScript.",
+			"homepage": "https://mths.be/utf8js",
+			"main": "utf8.js",
+			"keywords": [
+				"charset",
+				"encoding",
+				"unicode",
+				"utf8"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Mathias Bynens",
+				"url": "https://mathiasbynens.be/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mathiasbynens/utf8.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/mathiasbynens/utf8.js/issues"
+			},
+			"scripts": {
+				"test": "node tests/tests.js"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.1",
+				"grunt": "^0.4.5",
+				"grunt-shell": "^1.1.1",
+				"istanbul": "^0.3.5",
+				"qunit-extras": "^1.4.0",
+				"qunitjs": "~1.11.0",
+				"requirejs": "^2.1.11"
+			},
+			"gitHead": "1961da40649c4103b5d01c29f8e6bcc3231a1372",
+			"_id": "utf8@2.1.0",
+			"_shasum": "0cfec5c8052d44a23e3aaa908104e8075f95dfd5",
+			"_from": ".",
+			"_npmVersion": "2.1.11",
+			"_nodeVersion": "0.10.32",
+			"_npmUser": {
+				"name": "mathias",
+				"email": "mathias@qiwi.be"
+			},
+			"maintainers": [
+				{
+					"name": "ryanmcgrath",
+					"email": "ryan@venodesigns.net"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				}
+			],
+			"dist": {
+				"shasum": "0cfec5c8052d44a23e3aaa908104e8075f95dfd5",
+				"tarball": "https://registry.npmjs.org/utf8/-/utf8-2.1.0.tgz"
+			},
+			"directories": {}
+		},
+		"2.1.1": {
+			"name": "utf8",
+			"version": "2.1.1",
+			"description": "A well-tested UTF-8 encoder/decoder written in JavaScript.",
+			"homepage": "https://mths.be/utf8js",
+			"main": "utf8.js",
+			"keywords": [
+				"charset",
+				"encoding",
+				"unicode",
+				"utf8"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Mathias Bynens",
+				"url": "https://mathiasbynens.be/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mathiasbynens/utf8.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/mathiasbynens/utf8.js/issues"
+			},
+			"files": [
+				"LICENSE-MIT.txt",
+				"utf8.js"
+			],
+			"scripts": {
+				"test": "node tests/tests.js"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.3",
+				"grunt": "^0.4.5",
+				"grunt-shell": "^1.1.2",
+				"istanbul": "^0.3.17",
+				"qunit-extras": "^1.4.2",
+				"qunitjs": "~1.11.0",
+				"requirejs": "^2.1.19"
+			},
+			"gitHead": "81f11c797f9601192c074f2be9f688a5a9bd1625",
+			"_id": "utf8@2.1.1",
+			"_shasum": "2e01db02f7d8d0944f77104f1609eb0c304cf768",
+			"_from": ".",
+			"_npmVersion": "2.13.0",
+			"_nodeVersion": "2.4.0",
+			"_npmUser": {
+				"name": "mathias",
+				"email": "mathias@qiwi.be"
+			},
+			"maintainers": [
+				{
+					"name": "ryanmcgrath",
+					"email": "ryan@venodesigns.net"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				}
+			],
+			"dist": {
+				"shasum": "2e01db02f7d8d0944f77104f1609eb0c304cf768",
+				"tarball": "https://registry.npmjs.org/utf8/-/utf8-2.1.1.tgz"
+			},
+			"directories": {}
+		},
+		"2.1.2": {
+			"name": "utf8",
+			"version": "2.1.2",
+			"description": "A well-tested UTF-8 encoder/decoder written in JavaScript.",
+			"homepage": "https://mths.be/utf8js",
+			"main": "utf8.js",
+			"keywords": [
+				"charset",
+				"encoding",
+				"unicode",
+				"utf8"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Mathias Bynens",
+				"url": "https://mathiasbynens.be/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mathiasbynens/utf8.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/mathiasbynens/utf8.js/issues"
+			},
+			"files": [
+				"LICENSE-MIT.txt",
+				"utf8.js"
+			],
+			"scripts": {
+				"test": "node tests/tests.js"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.14",
+				"grunt": "^1.0.1",
+				"grunt-shell": "^1.1.2",
+				"istanbul": "^0.4.5",
+				"qunit-extras": "^1.4.2",
+				"qunitjs": "~1.11.0",
+				"requirejs": "^2.3.2"
+			},
+			"gitHead": "5566334e1aa5347ba652c38dc186df08b47d8fb9",
+			"_id": "utf8@2.1.2",
+			"_shasum": "1fa0d9270e9be850d9b05027f63519bf46457d96",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.8.1",
+			"_npmUser": {
+				"name": "mathias",
+				"email": "mathias@qiwi.be"
+			},
+			"maintainers": [
+				{
+					"name": "ryanmcgrath",
+					"email": "ryan@venodesigns.net"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				}
+			],
+			"dist": {
+				"shasum": "1fa0d9270e9be850d9b05027f63519bf46457d96",
+				"tarball": "https://registry.npmjs.org/utf8/-/utf8-2.1.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/utf8-2.1.2.tgz_1476775892107_0.41815652255900204"
+			},
+			"directories": {}
+		},
+		"3.0.0": {
+			"name": "utf8",
+			"version": "3.0.0",
+			"description": "A well-tested UTF-8 encoder/decoder written in JavaScript.",
+			"homepage": "https://mths.be/utf8js",
+			"main": "utf8.js",
+			"keywords": [
+				"charset",
+				"encoding",
+				"unicode",
+				"utf8"
+			],
+			"license": "MIT",
+			"author": {
+				"name": "Mathias Bynens",
+				"url": "https://mathiasbynens.be/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mathiasbynens/utf8.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/mathiasbynens/utf8.js/issues"
+			},
+			"files": [
+				"LICENSE-MIT.txt",
+				"utf8.js"
+			],
+			"scripts": {
+				"test": "node tests/tests.js",
+				"test-extended": "node tests/tests.js --extended",
+				"test-browser": "open tests/index.html",
+				"ci": "npm run build && npm test",
+				"build": "cd tests; if [ ! -f data.json ]; then python generate-test-data.py; fi",
+				"cover-html": "istanbul cover --report html --verbose --dir coverage tests/tests.js; istanbul report --root coverage --format html",
+				"cover-coveralls": "istanbul cover --verbose --dir coverage tests/tests.js && coveralls < coverage/lcov.info; rm -rf coverage/lcov*"
+			},
+			"devDependencies": {
+				"coveralls": "^2.11.14",
+				"istanbul": "^0.4.5",
+				"qunit-extras": "^1.4.2",
+				"qunitjs": "~1.11.0"
+			},
+			"gitHead": "2ce09544b62f2a274dbcd249473c0986e3660849",
+			"_id": "utf8@3.0.0",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "mathias",
+				"email": "mathias@qiwi.be"
+			},
+			"dist": {
+				"integrity": "sha512-E8VjFIQ/TyQgp+TZfS6l8yp/xWppSAHzidGiRrqe4bK4XP9pTRyKFgGJpO3SN7zdX4DeomTrwaseCHovfpFcqQ==",
+				"shasum": "f052eed1364d696e769ef058b183df88c87f69d1",
+				"tarball": "https://registry.npmjs.org/utf8/-/utf8-3.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "ryanmcgrath",
+					"email": "ryan@venodesigns.net"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/utf8-3.0.0.tgz_1512357936545_0.000059621408581733704"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2019-01-05T17:29:12.668Z",
+		"created": "2011-05-30T05:59:09.551Z",
+		"1.0.0": "2011-05-30T05:59:10.607Z",
+		"2.0.0": "2013-06-20T12:15:19.731Z",
+		"2.1.0": "2015-01-08T11:01:42.139Z",
+		"2.1.1": "2015-07-20T10:07:03.006Z",
+		"2.1.2": "2016-10-18T07:31:33.902Z",
+		"3.0.0": "2017-12-04T03:25:36.832Z"
+	},
+	"dist-tags": {
+		"latest": "3.0.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"7b0b4061e471accb817107881aaf835e\"",
+			"fetched": 1568994329932
+		}
+	},
+	"_distfiles": {
+		"utf8-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/utf8/-/utf8-1.0.0.tgz",
+			"sha": "b7890787bd785c1cba83eeda12c9fbbcc9c8652f",
+			"registry": "npmjs"
+		},
+		"utf8-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/utf8/-/utf8-2.0.0.tgz",
+			"sha": "79ce59eced874809cab9a71fc7102c7d45d4118d",
+			"registry": "npmjs"
+		},
+		"utf8-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/utf8/-/utf8-2.1.0.tgz",
+			"sha": "0cfec5c8052d44a23e3aaa908104e8075f95dfd5",
+			"registry": "npmjs"
+		},
+		"utf8-2.1.1.tgz": {
+			"url": "https://registry.npmjs.org/utf8/-/utf8-2.1.1.tgz",
+			"sha": "2e01db02f7d8d0944f77104f1609eb0c304cf768",
+			"registry": "npmjs"
+		},
+		"utf8-2.1.2.tgz": {
+			"url": "https://registry.npmjs.org/utf8/-/utf8-2.1.2.tgz",
+			"sha": "1fa0d9270e9be850d9b05027f63519bf46457d96",
+			"registry": "npmjs"
+		},
+		"utf8-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/utf8/-/utf8-3.0.0.tgz",
+			"sha": "f052eed1364d696e769ef058b183df88c87f69d1",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-b6bf8a8fa8edb67f",
+	"_id": "utf8",
+	"readme": "# utf8.js [![Build status](https://travis-ci.org/mathiasbynens/utf8.js.svg?branch=master)](https://travis-ci.org/mathiasbynens/utf8.js) [![Code coverage status](http://img.shields.io/coveralls/mathiasbynens/utf8.js/master.svg)](https://coveralls.io/r/mathiasbynens/utf8.js) [![Dependency status](https://gemnasium.com/mathiasbynens/utf8.js.svg)](https://gemnasium.com/mathiasbynens/utf8.js)\n\n_utf8.js_ is a well-tested UTF-8 encoder/decoder written in JavaScript. Unlike many other JavaScript solutions, it is designed to be a _proper_ UTF-8 encoder/decoder: it can encode/decode any scalar Unicode code point values, as per [the Encoding Standard](https://encoding.spec.whatwg.org/#utf-8). [Here’s an online demo.](https://mothereff.in/utf-8)\n\nFeel free to fork if you see possible improvements!\n\n## Installation\n\nVia [npm](https://www.npmjs.com/):\n\n```bash\nnpm install utf8\n```\n\nIn a browser:\n\n```html\n<script src=\"utf8.js\"></script>\n```\n\nIn [Node.js](https://nodejs.org/):\n\n```js\nconst utf8 = require('utf8');\n```\n\n## API\n\n### `utf8.encode(string)`\n\nEncodes any given JavaScript string (`string`) as UTF-8, and returns the UTF-8-encoded version of the string. It throws an error if the input string contains a non-scalar value, i.e. a lone surrogate. (If you need to be able to encode non-scalar values as well, use [WTF-8](https://mths.be/wtf8) instead.)\n\n```js\n// U+00A9 COPYRIGHT SIGN; see http://codepoints.net/U+00A9\nutf8.encode('\\xA9');\n// → '\\xC2\\xA9'\n// U+10001 LINEAR B SYLLABLE B038 E; see http://codepoints.net/U+10001\nutf8.encode('\\uD800\\uDC01');\n// → '\\xF0\\x90\\x80\\x81'\n```\n\n### `utf8.decode(byteString)`\n\nDecodes any given UTF-8-encoded string (`byteString`) as UTF-8, and returns the UTF-8-decoded version of the string. It throws an error when malformed UTF-8 is detected. (If you need to be able to decode encoded non-scalar values as well, use [WTF-8](https://mths.be/wtf8) instead.)\n\n```js\nutf8.decode('\\xC2\\xA9');\n// → '\\xA9'\n\nutf8.decode('\\xF0\\x90\\x80\\x81');\n// → '\\uD800\\uDC01'\n// → U+10001 LINEAR B SYLLABLE B038 E\n```\n\n### `utf8.version`\n\nA string representing the semantic version number.\n\n## Support\n\nutf8.js has been tested in at least Chrome 27-39, Firefox 3-34, Safari 4-8, Opera 10-28, IE 6-11, Node.js v0.10.0, Narwhal 0.3.2, RingoJS 0.8-0.11, PhantomJS 1.9.0, and Rhino 1.7RC4.\n\n## Unit tests & code coverage\n\nAfter cloning this repository, run `npm install` to install the dependencies needed for development and testing. You may want to install Istanbul _globally_ using `npm install istanbul -g`.\n\nOnce that’s done, you can run the unit tests in Node using `npm test` or `node tests/tests.js`. To run the tests in Rhino, Ringo, Narwhal, PhantomJS, and web browsers as well, use `grunt test`.\n\nTo generate the code coverage report, use `grunt cover`.\n\n## FAQ\n\n### Why is the first release named v2.0.0? Haven’t you heard of [semantic versioning](http://semver.org/)?\n\nLong before utf8.js was created, the `utf8` module on npm was registered and used by another (slightly buggy) library. @ryanmcgrath was kind enough to give me access to the `utf8` package on npm when I told him about utf8.js. Since there has already been a v1.0.0 release of the old library, and to avoid breaking backwards compatibility with projects that rely on the `utf8` npm package, I decided the tag the first release of utf8.js as v2.0.0 and take it from there.\n\n## Author\n\n| [![twitter/mathias](https://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](https://twitter.com/mathias \"Follow @mathias on Twitter\") |\n|---|\n| [Mathias Bynens](https://mathiasbynens.be/) |\n\n## License\n\nutf8.js is available under the [MIT](https://mths.be/mit) license."
+}

@@ -1,0 +1,1730 @@
+{
+	"name": "@monax/burrow",
+	"versions": {
+		"0.20.0": {
+			"name": "@monax/burrow",
+			"description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
+			"version": "0.20.0",
+			"author": {
+				"name": "Dennis Mckinnon"
+			},
+			"bugs": {
+				"url": "https://github.com/monax/bosmarmot/issues"
+			},
+			"dependencies": {
+				"@nodeguy/generic": "3.0.0",
+				"@nodeguy/type": "0.2.0",
+				"bignumber.js": "github:debris/bignumber.js#94d7146671b9719e00a09c29b01a691bc85048c2",
+				"crypto-js": "3.1.4",
+				"g-functions": "0.3.0",
+				"grpc": "^1.12.2",
+				"protobufjs": "^6.8.6",
+				"ramda": "0.23.0",
+				"utf8": "2.1.2",
+				"web3": "0.18.4"
+			},
+			"devDependencies": {
+				"fs-extra": "^5.0.0",
+				"ink-docstrap": "1.3.0",
+				"istanbul": "0.4.5",
+				"jsdoc": "3.4.3",
+				"mocha": "3.2.0",
+				"mocha-circleci-reporter": "0.0.2",
+				"solc": "0.3.4",
+				"standard": "9.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/monax/bosmarmot/burrow.js",
+			"keywords": [
+				"Burrow",
+				"Hyperledger",
+				"Monax"
+			],
+			"license": "GPL-3.0",
+			"main": "./index.js",
+			"maintainers": [
+				{
+					"name": "billings",
+					"email": "Billings@Monax.io"
+				},
+				{
+					"name": "compleatang",
+					"email": "casey@monax.io"
+				},
+				{
+					"name": "dennismckinnon",
+					"email": "dennis.r.mckinnon@gmail.com"
+				},
+				{
+					"name": "silasdavis",
+					"email": "npmalpha@silasdavis.net"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/monax/bosmarmot.git"
+			},
+			"scripts": {
+				"doc": "jsdoc --configure JSDoc/conf.json --destination doc index.js lib README.md",
+				"precommit": "standard",
+				"predoc": "rm -rf doc",
+				"pretest": "standard",
+				"test": "../tests/run_burrowjs_tests.sh"
+			},
+			"standard": {
+				"globals": [
+					"after",
+					"afterEach",
+					"before",
+					"beforeEach",
+					"describe",
+					"it",
+					"run"
+				]
+			},
+			"_id": "@monax/burrow@0.20.0",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "7.10.1",
+			"_npmUser": {
+				"name": "billings",
+				"email": "Billings@Monax.io"
+			},
+			"dist": {
+				"integrity": "sha512-V1Eqff32KmZ6oVIXKXPB8SBGoFVGdsWAK4zkYSJsgKZe0dcRHoFxb6naFlHmSy49VAybzRJr/E88VOqRmNmIkw==",
+				"shasum": "ae21e0c8d3452ac2645d55980312ac39d7aec67e",
+				"tarball": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.0.tgz",
+				"fileCount": 58,
+				"unpackedSize": 160066,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbUiUpCRA9TVsSAnZWagAAvGgP/igzzaUc53yH3fUH/lIE\n0w7bJV8YQUEn0rEUQJUdgtoO5PyASPegRoNEwNAwUxA+db5ZLGW3pI8eBYmY\nINR24uLavMVTLfPgBh2IYj4PMgwp3/o3oTHnILv8Qg8kjQ44L59W3wA9b9R+\nTVig3MI2fuyLAnJDGpl9gRhp3AqtjrhvbCtjnrAelcbYmbiJlaunJXshb/Mh\nrNLLfmvPAoltKcdANQIHSwE6z29URNy8tMlx6y4me5nSqNE0GoLGq81S0npo\nIR3ZQkAHM+E/e+7eKNIrWjwuqfw5fZhNGEnBGXnjwSzMaIUzOvQkOCUkeevY\njl5wdNoVLPPXDM6fbq58yIqEgVUi85Xa/vcmE9IrFN08EKYSGdCePrj0rrbe\njqE7h10/xmu9hlJl8Ji5j/DeZlJRidKdvYh/Aqa6rJxdJ1ohSURduM0smCjx\nUB4yhvfA9ket1d6so01U2O9iBQdzO/XUUHAiKBL9Gkxql3VEj3a9g3RB2B7b\ndyn/1aTvhalDOO8fXo50WHt0VOXgQU/j9Qdc+ZVQcB5PSJGu0jwPVPMjy4Hv\nJ3siW+xmnvi81jG6NArcp/Jc8ml3pPTu0dwFkTNgrK7AoFt5fTyXzy1KwZF7\nrsGLaCHd+19xOJgXyHC0cwXgH96rjg+kRO1EzOorZ+YZcRk5/cYgOABumj2+\nLQA/\r\n=k176\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/burrow_0.20.0_1532110121733_0.834047673973682"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.20.1": {
+			"name": "@monax/burrow",
+			"description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
+			"version": "0.20.1",
+			"author": {
+				"name": "Dennis Mckinnon"
+			},
+			"bugs": {
+				"url": "https://github.com/monax/bosmarmot/issues"
+			},
+			"dependencies": {
+				"@nodeguy/generic": "3.0.0",
+				"@nodeguy/type": "0.2.0",
+				"bignumber.js": "github:debris/bignumber.js#94d7146671b9719e00a09c29b01a691bc85048c2",
+				"crypto-js": "3.1.4",
+				"g-functions": "0.3.0",
+				"grpc": "^1.12.2",
+				"protobufjs": "^6.8.6",
+				"ramda": "0.23.0",
+				"utf8": "2.1.2",
+				"web3": "0.18.4"
+			},
+			"devDependencies": {
+				"fs-extra": "^5.0.0",
+				"ink-docstrap": "1.3.0",
+				"istanbul": "0.4.5",
+				"jsdoc": "3.4.3",
+				"mocha": "3.2.0",
+				"mocha-circleci-reporter": "0.0.2",
+				"solc": "0.3.4",
+				"standard": "9.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/monax/bosmarmot/burrow.js",
+			"keywords": [
+				"Burrow",
+				"Hyperledger",
+				"Monax"
+			],
+			"license": "GPL-3.0",
+			"main": "./index.js",
+			"maintainers": [
+				{
+					"name": "billings",
+					"email": "Billings@Monax.io"
+				},
+				{
+					"name": "compleatang",
+					"email": "casey@monax.io"
+				},
+				{
+					"name": "dennismckinnon",
+					"email": "dennis.r.mckinnon@gmail.com"
+				},
+				{
+					"name": "silasdavis",
+					"email": "npmalpha@silasdavis.net"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/monax/bosmarmot.git"
+			},
+			"scripts": {
+				"doc": "jsdoc --configure JSDoc/conf.json --destination doc index.js lib README.md",
+				"precommit": "standard",
+				"predoc": "rm -rf doc",
+				"pretest": "standard",
+				"test": "../tests/run_burrowjs_tests.sh"
+			},
+			"standard": {
+				"globals": [
+					"after",
+					"afterEach",
+					"before",
+					"beforeEach",
+					"describe",
+					"it",
+					"run"
+				]
+			},
+			"_id": "@monax/burrow@0.20.1",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "7.10.1",
+			"_npmUser": {
+				"name": "billings",
+				"email": "Billings@Monax.io"
+			},
+			"dist": {
+				"integrity": "sha512-lPm5Hv5DAwdcxH2LUarb2ewvNi7d7tBdpvxB/xpwx9eh27ZeXfmF+l1qgQhut/IkSpuGvEbB/JDJImpbs/UnDA==",
+				"shasum": "eea9b356bb913b798857104329a324606b30d1ff",
+				"tarball": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.1.tgz",
+				"fileCount": 58,
+				"unpackedSize": 159738,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbV46uCRA9TVsSAnZWagAA2RcP/2+4g217MoTdCi5dwGXz\nwrOBAp3jCQPREObmQ+Zeopp7mmBtT609ZWJ7FSfRn/9YM+v7ye0+EThZNEZL\n51Mg4BWpFXiGQ+0czvihbX882mUCMU5xwPbrN+rwAMEwGv7qsR81arZXdJ8e\nqdJkPFpatOm/Rl0SuDl0T7TXaLQD7NutyTNE/6A75j/pxh2fE9xH/Dz2Fwoi\n0Ljdnc1rb9V2mJj9aysB4KTqAbgEecYunz9iYQ1pe21t7vszgqYSo7RXiauc\njf3J4MfkXyF6ohWW4oCVo7PYj3JQUbqe1E6PNc5YSI3SDknvGe2ptxhBDhXa\n/TkqixIQNVUH2kAMADuiW1JvZzwAUJJYK9E0tvqpjDIJicEDCE/6xduc9CEP\ne7D1zyv8xO+hiYZDcfwyq2ZGF6WpvauEdlQU7dIPjbd6l1/L07iJgWaKi1pL\nXnS1Fz5rko9xf730oDsGKcPp0UUQZFCW4IAjuEEK+uDvzdqaut81v5LMV0AQ\n566FYnkFrSLbqc8ZyJTqYYTFuZcTj9FjJgI5K56nE805EUiuCPFH+jqiUFyC\nADsVkpDEwYcWlPZA9FfKSA7sbxmC3QbAl+3VU8WDLKAjTGiJdTydHOdSkzz2\nsd4PFpV87YbTR4/xf7/EflStaxwqoftetAKfeayKzsLB6OtNXlqFJzOOsss1\nyxal\r\n=v5E3\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/burrow_0.20.1_1532464814165_0.6171784974915557"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.20.2": {
+			"name": "@monax/burrow",
+			"description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
+			"version": "0.20.2",
+			"author": {
+				"name": "Dennis Mckinnon"
+			},
+			"bugs": {
+				"url": "https://github.com/monax/bosmarmot/issues"
+			},
+			"dependencies": {
+				"@nodeguy/generic": "3.0.0",
+				"@nodeguy/type": "0.2.0",
+				"bignumber.js": "github:debris/bignumber.js#94d7146671b9719e00a09c29b01a691bc85048c2",
+				"crypto-js": "3.1.4",
+				"g-functions": "0.3.0",
+				"grpc": "^1.12.2",
+				"protobufjs": "^6.8.6",
+				"ramda": "0.23.0",
+				"utf8": "2.1.2",
+				"web3": "0.18.4"
+			},
+			"devDependencies": {
+				"fs-extra": "^5.0.0",
+				"ink-docstrap": "1.3.0",
+				"istanbul": "0.4.5",
+				"jsdoc": "3.4.3",
+				"mocha": "3.2.0",
+				"mocha-circleci-reporter": "0.0.2",
+				"solc": "0.3.4",
+				"standard": "9.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/monax/bosmarmot/burrow.js",
+			"keywords": [
+				"Burrow",
+				"Hyperledger",
+				"Monax"
+			],
+			"license": "GPL-3.0",
+			"main": "./index.js",
+			"maintainers": [
+				{
+					"name": "billings",
+					"email": "Billings@Monax.io"
+				},
+				{
+					"name": "compleatang",
+					"email": "casey@monax.io"
+				},
+				{
+					"name": "dennismckinnon",
+					"email": "dennis.r.mckinnon@gmail.com"
+				},
+				{
+					"name": "silasdavis",
+					"email": "npmalpha@silasdavis.net"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/monax/bosmarmot.git"
+			},
+			"scripts": {
+				"doc": "jsdoc --configure JSDoc/conf.json --destination doc index.js lib README.md",
+				"precommit": "standard",
+				"predoc": "rm -rf doc",
+				"pretest": "standard",
+				"test": "../tests/run_burrowjs_tests.sh"
+			},
+			"standard": {
+				"globals": [
+					"after",
+					"afterEach",
+					"before",
+					"beforeEach",
+					"describe",
+					"it",
+					"run"
+				]
+			},
+			"_id": "@monax/burrow@0.20.2",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "7.10.1",
+			"_npmUser": {
+				"name": "billings",
+				"email": "Billings@Monax.io"
+			},
+			"dist": {
+				"integrity": "sha512-13J5xhfzWdlBv5xhmtpceXm0aUbDuHErDOVvK1P2jTxk1mkzIRmE6RagtlTb50K2L+2yszzu8gLEU52F1RO2YQ==",
+				"shasum": "b22cebe99c212262b837dfa1dd9de3afa3a9d3e4",
+				"tarball": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.2.tgz",
+				"fileCount": 58,
+				"unpackedSize": 159746,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbV5bdCRA9TVsSAnZWagAAE7gP/0w7Ul5AEeHr1Wenw6bE\nM5UzkX5DCoUJ+Ugok34Dwf1YcEB2BhwTbvql74/Q4Ga3D3MoeRmDhdMOkjaE\nJiuilw4XsSJkVPMK0EVMNWi6m5VPn9/s5toml24Ywybt3Sz1v/4yj9/FAXUb\napeEgWInfY4aSXVm1R0Fk37tBziyJhxnDMiM5ysWoIazQqAWfy5jIizkDq67\ntYyKjMWSlEM9vGU3ZaFLsT0U9aKqruaO8rv5JuJPaHWy02sIxlrU3phF6+UJ\nboYytN4eXgiDW9jsM3TEIcw0axsGHahZ7z50F60iOSKHMN4Rwe2/rwUAAjm/\nJ0Y/Q+4SvKSx5pwOmBPb4mdgGtFS4Q6pGId7aUS9w0yeAmMkOmjV1QB6HVmh\nKjGx8Ac4P9f2YQZ9DyUBTiUF41R2M4qHOTENwP9b5tsKiVCcoUS0e70WD7pm\nn2++tziB5ZCqLVsSUknmpP/jRiy+ue0h7YQWXxYuFFgwWU9x/oOlL7SEkybY\ni7/eB+pNRwZ36FxL+SV6OF56EebJPycJ6EaVJhk80ZUYlU1CTNHpuj5y+IWP\nbmY/CLecaHOC1pYYQO4BQV9DDszDftGh34qaljUvJi5/AqhHnmULWqwDG0rw\nUvdrWzEZORth9XxRAjS4T2JvOJrFht0RugQiW+kYVXJZT49O/j/bkn3qtp7t\nbqUc\r\n=EvLQ\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/burrow_0.20.2_1532466909665_0.7525207167620225"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.20.3": {
+			"name": "@monax/burrow",
+			"description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
+			"version": "0.20.3",
+			"author": {
+				"name": "Dennis Mckinnon"
+			},
+			"bugs": {
+				"url": "https://github.com/monax/bosmarmot/issues"
+			},
+			"dependencies": {
+				"@nodeguy/generic": "3.0.0",
+				"@nodeguy/type": "0.2.0",
+				"bignumber.js": "github:debris/bignumber.js#94d7146671b9719e00a09c29b01a691bc85048c2",
+				"crypto-js": "3.1.4",
+				"g-functions": "0.3.0",
+				"grpc": "^1.12.2",
+				"protobufjs": "^6.8.6",
+				"ramda": "0.23.0",
+				"utf8": "2.1.2",
+				"web3": "0.18.4"
+			},
+			"devDependencies": {
+				"fs-extra": "^5.0.0",
+				"ink-docstrap": "1.3.0",
+				"istanbul": "0.4.5",
+				"jsdoc": "3.4.3",
+				"mocha": "5.2.0",
+				"solc": "0.4.24",
+				"standard": "9.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/monax/bosmarmot/burrow.js",
+			"keywords": [
+				"Burrow",
+				"Hyperledger",
+				"Monax"
+			],
+			"license": "GPL-3.0",
+			"main": "./index.js",
+			"maintainers": [
+				{
+					"name": "billings",
+					"email": "Billings@Monax.io"
+				},
+				{
+					"name": "compleatang",
+					"email": "casey@monax.io"
+				},
+				{
+					"name": "dennismckinnon",
+					"email": "dennis.r.mckinnon@gmail.com"
+				},
+				{
+					"name": "silasdavis",
+					"email": "npmalpha@silasdavis.net"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/monax/bosmarmot.git"
+			},
+			"scripts": {
+				"doc": "jsdoc --configure JSDoc/conf.json --destination doc index.js lib README.md",
+				"precommit": "standard",
+				"predoc": "rm -rf doc",
+				"pretest": "standard",
+				"test": "../tests/burrow.js.sh"
+			},
+			"standard": {
+				"globals": [
+					"after",
+					"afterEach",
+					"before",
+					"beforeEach",
+					"describe",
+					"it",
+					"run"
+				]
+			},
+			"_id": "@monax/burrow@0.20.3",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "7.10.1",
+			"_npmUser": {
+				"name": "billings",
+				"email": "Billings@Monax.io"
+			},
+			"dist": {
+				"integrity": "sha512-mRihN425A/JBBelYUzIlG33Qq4wpkJ3qZxxSHl136UsRy8UKlSUGQHK+QpEB0WKNyliXzJAZcaJXIGKj8lmQ8w==",
+				"shasum": "8ae3dfe34275b7de0b1dcb0384aec0a97babd11c",
+				"tarball": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.3.tgz",
+				"fileCount": 58,
+				"unpackedSize": 171137,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJba2k1CRA9TVsSAnZWagAA080QAJL/pEu9tGIjxFZZWhMs\noo4PdNzTU84JrgD2MhHuGX+q13xDuZgvXX9zgR7tzRs7QQbhQXirl0KuBz1R\n2ECf1Tb+MJfRG6Lak7scMDBK5loqJtwqmsSLfa3DylEghJAJURRPCSEKDT/g\nZe4pvTK8V0eznzrTHQ9YFeLLT1TltQyc+eRFHYEVGWbMEd5WuwlWwTGwSCK9\nGVNIG9Mguh6wTfsoOS3geV2jwpd0gBOVICzK1nDcb/zmAiwtlrKF4eYOG81q\no1NZRZAEMUoK+jOpAMqEEYlVaqsRd3vtPECi4pIe3N2PvYnpXKUgkggr58xd\nRx9xrkKnK0ABk0kGCQwvjdSHjPoUGypKHPtQHsbanQ8QGL6tK1KFGNGTHDds\n83dz4oOEi0gxIeiH9lB9zcmC3s0c/ZrFh6BuDGPBh/kqcPLh6+o+LxRBbKZU\nXPbjrEPj8hi/k05xf1Lo0R2WIJTe/07YRBbileqGa4OSSwm0zEqP5NH69LcI\nbZde1CoPBm3+5EAuuxhf7bnI8+fHnGtcwMSKsaRhWeqRq4PvidQ3x+i+D6Jc\nhs44iKKMeKvnw7lUWp0XGzjB4SN4vfA6DBDJ+nxXCKNHibHQz+SUOfk5UfYH\nfJnI8lANeKGyu60KnPOM80jPnGae9N1bOKAaWoGioBtfJDaTRv3huyPn5mdR\nrNOJ\r\n=/rR1\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/burrow_0.20.3_1533765941015_0.9055993922933436"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.20.4": {
+			"name": "@monax/burrow",
+			"description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
+			"version": "0.20.4",
+			"author": {
+				"name": "Dennis Mckinnon"
+			},
+			"bugs": {
+				"url": "https://github.com/monax/bosmarmot/issues"
+			},
+			"dependencies": {
+				"@nodeguy/generic": "3.0.0",
+				"@nodeguy/type": "0.2.0",
+				"bignumber.js": "github:debris/bignumber.js#94d7146671b9719e00a09c29b01a691bc85048c2",
+				"crypto-js": "3.1.4",
+				"g-functions": "0.3.0",
+				"grpc": "^1.12.2",
+				"protobufjs": "^6.8.6",
+				"ramda": "0.23.0",
+				"utf8": "2.1.2",
+				"web3": "0.18.4"
+			},
+			"devDependencies": {
+				"fs-extra": "^5.0.0",
+				"ink-docstrap": "1.3.0",
+				"istanbul": "0.4.5",
+				"jsdoc": "3.4.3",
+				"mocha": "5.2.0",
+				"solc": "0.4.24",
+				"standard": "9.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/monax/bosmarmot/burrow.js",
+			"keywords": [
+				"Burrow",
+				"Hyperledger",
+				"Monax"
+			],
+			"license": "GPL-3.0",
+			"main": "./index.js",
+			"maintainers": [
+				{
+					"name": "billings",
+					"email": "Billings@Monax.io"
+				},
+				{
+					"name": "compleatang",
+					"email": "casey@monax.io"
+				},
+				{
+					"name": "dennismckinnon",
+					"email": "dennis.r.mckinnon@gmail.com"
+				},
+				{
+					"name": "silasdavis",
+					"email": "npmalpha@silasdavis.net"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/monax/bosmarmot.git"
+			},
+			"scripts": {
+				"doc": "jsdoc --configure JSDoc/conf.json --destination doc index.js lib README.md",
+				"precommit": "standard --fix",
+				"predoc": "rm -rf doc",
+				"pretest": "standard --fix",
+				"test": "../tests/burrow.js.sh"
+			},
+			"standard": {
+				"globals": [
+					"after",
+					"afterEach",
+					"before",
+					"beforeEach",
+					"describe",
+					"it",
+					"run"
+				]
+			},
+			"_id": "@monax/burrow@0.20.4",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "7.10.1",
+			"_npmUser": {
+				"name": "billings",
+				"email": "Billings@Monax.io"
+			},
+			"dist": {
+				"integrity": "sha512-R4sf0T76VrHkbRDLbkn6H57A9jkEnqTBUaMPMCMD08uqAh5bgymhi/blLpFbxdSRJElQrRYq3T1EQ0s1MRGCng==",
+				"shasum": "ad5153cda5eded24fdb024b8d930b5476c77be7a",
+				"tarball": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.4.tgz",
+				"fileCount": 60,
+				"unpackedSize": 174257,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbex3zCRA9TVsSAnZWagAA7O8P/37uXafaUDzU9iOYPcdP\n6mrIg5QHCrHQxiuE14nVe3VyQydBJeNqNvIJYDRJJbIWFuwzVmh1o73TYVoC\n6l9aRycZ58zLe0H+nj13FAULNRZfHhRa4X3ND9gqhnFzkCD17IDQe34Yci/n\nMxMPgd5Fo/0E0JmCc7wMXMh+NHAEwKzEhOkMTWMbNecifOzD8CxAk2Yx5tQv\nLslRHOToJth5Sf1sx2A6T00HONPK6mWMGdPc9btHsSGoCsVjmOQmyMh/G6ud\nshf3JxvH2hvDNmN1f9ZlUjJHOpza6chqoUAXBqPhc/vFHfhkFE2jNqFAaDpo\nq+67wtqvogdSWI/dZYJFhP0AEJotv4Al9Qe7oPCtgHkcEAjl/rucMhDL9q/Z\neWL2EDwrRLw5VIq3SMUTcPPcfI/n4sRTnx98AGePZxHrHAU8mBgQuMdj2cE5\nnHF4ZkqzwFm0jAyBhp1FeadS4mcNAGGYh+6VwEMS3ieG+1bleS/HDB2L/l/3\nkZHsJaDiwurRyj9Y0uqvk3RvlSSMvAnhs9S0z4iNO4jjJO7foaCZlUToT10z\nYPlvo3Ti7252JxyTgdLMu8PjfOY2crCNjwhuvRfv4y0wXTepeMolUJELCfJ4\nT0TB9QzJ4hKXC7aGbUZGJFUI37FA1u9bidB5jf93CW0IhgCNETf9iMMN1M4s\niiK5\r\n=Tz+6\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/burrow_0.20.4_1534795251035_0.5012885481047049"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.20.5": {
+			"name": "@monax/burrow",
+			"description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
+			"version": "0.20.5",
+			"author": {
+				"name": "Dennis Mckinnon"
+			},
+			"bugs": {
+				"url": "https://github.com/monax/bosmarmot/issues"
+			},
+			"dependencies": {
+				"@grpc/proto-loader": "^0.3.0",
+				"@nodeguy/generic": "3.0.0",
+				"@nodeguy/type": "0.2.0",
+				"bignumber.js": "github:debris/bignumber.js#94d7146671b9719e00a09c29b01a691bc85048c2",
+				"crypto-js": "3.1.4",
+				"g-functions": "0.3.0",
+				"grpc": "^1.12.2",
+				"protobufjs": "^6.8.6",
+				"ramda": "0.23.0",
+				"utf8": "2.1.2",
+				"web3": "0.18.4"
+			},
+			"devDependencies": {
+				"fs-extra": "^5.0.0",
+				"ink-docstrap": "1.3.0",
+				"istanbul": "0.4.5",
+				"jsdoc": "3.4.3",
+				"mocha": "5.2.0",
+				"solc": "0.4.24",
+				"standard": "9.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/monax/bosmarmot/burrow.js",
+			"keywords": [
+				"Burrow",
+				"Hyperledger",
+				"Monax"
+			],
+			"license": "GPL-3.0",
+			"main": "./index.js",
+			"maintainers": [
+				{
+					"email": "Billings@Monax.io",
+					"name": "billings"
+				},
+				{
+					"email": "casey@monax.io",
+					"name": "compleatang"
+				},
+				{
+					"email": "dennis.r.mckinnon@gmail.com",
+					"name": "dennismckinnon"
+				},
+				{
+					"email": "oshimizu15@gmail.com",
+					"name": "ommish"
+				},
+				{
+					"email": "npmalpha@silasdavis.net",
+					"name": "silasdavis"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/monax/bosmarmot.git"
+			},
+			"scripts": {
+				"doc": "jsdoc --configure JSDoc/conf.json --destination doc index.js lib README.md",
+				"precommit": "standard --fix",
+				"predoc": "rm -rf doc",
+				"pretest": "standard --fix",
+				"test": "../tests/burrow.js.sh"
+			},
+			"standard": {
+				"globals": [
+					"after",
+					"afterEach",
+					"before",
+					"beforeEach",
+					"describe",
+					"it",
+					"run"
+				]
+			},
+			"_id": "@monax/burrow@0.20.5",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "7.10.1",
+			"_npmUser": {
+				"name": "billings",
+				"email": "Billings@Monax.io"
+			},
+			"dist": {
+				"integrity": "sha512-7gBY9ntrYSzensJQO8kTIqHU/tN44vIb0KiIOaJ2otmH+XIHmxRjHrLMhEAPmq5PN3nz5Q9Bpiwfya2fvF59ig==",
+				"shasum": "65d1be3d5a58f741db8973a6cc1542518da28197",
+				"tarball": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.5.tgz",
+				"fileCount": 66,
+				"unpackedSize": 178412,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbjtlCCRA9TVsSAnZWagAACZwP/iFv1pEcAI1JFjssGhyl\nP+mh9nbPLoCzwx+dpgqgvFB8LrnHbNLLNfLVidN7ILSyzL2rlvxjOCZS9rHd\nU9djHMjGLF1PJWmYa2hEP5B32o58VCrjn0a05t+WtShgPRFjYTDW3WcpEYtc\n3e1/yS+9Z/w7MLYRPSUGWgBCMQw6E6gNP/dPO82MgUx0A8FbRMsp1p/swGFY\nKB5lZbhyJd3aRVYe6FkpOHPQAbhbFGVUu5pNy4XY/D5kz7z18BWgNLKjLV88\nQ/YPocmCQjaZSGvARkppxaBYvZVcfqHrTssKZbuqo77gDTMY5E/EjVCgH3ta\nuFG0pvcwTqXeeZGXjQymubNTVK81JZwCl4TWDfeYSqjE5Dc/ke1rkc5wPMQa\nFu9k30lB2rExdYGdhiQF9O4qGomjzHo2RMwICf32buFturQYvTXyrUF0/WLB\n5ZexPFaIN1V9+5G17q+bk+0StPNDyi1f1UeJ6tp0kvXB87qPN/OlcfhSw8HB\nBNfUhb2VjNu9UYzSHMrLmca4AOfgjMmCQSLvP74u0FCcZZSOEXTOduCBCcG9\nHdRAIZYosuMb5F+GCT3HSEgQ5LmUw0nmLAhplcQLCHU2PkgB4rK3YbU/+iOI\nC+WVoMFYoyQpjUGMtlimnXCSVVHRprl5uTjLg5aim5hK0bodNEpGLJfN3CHV\nrA0i\r\n=iy2R\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/burrow_0.20.5_1536088385900_0.9779793732608626"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.20.6": {
+			"name": "@monax/burrow",
+			"description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
+			"version": "0.20.6",
+			"author": {
+				"name": "Dennis Mckinnon"
+			},
+			"bugs": {
+				"url": "https://github.com/monax/bosmarmot/issues"
+			},
+			"dependencies": {
+				"@grpc/proto-loader": "^0.3.0",
+				"@nodeguy/generic": "3.0.0",
+				"@nodeguy/type": "0.2.0",
+				"bignumber.js": "github:debris/bignumber.js#94d7146671b9719e00a09c29b01a691bc85048c2",
+				"crypto-js": "3.1.4",
+				"g-functions": "0.3.0",
+				"grpc": "^1.12.2",
+				"protobufjs": "^6.8.6",
+				"ramda": "0.23.0",
+				"utf8": "2.1.2",
+				"web3": "0.18.4"
+			},
+			"devDependencies": {
+				"fs-extra": "^5.0.0",
+				"ink-docstrap": "1.3.0",
+				"istanbul": "0.4.5",
+				"jsdoc": "3.4.3",
+				"mocha": "5.2.0",
+				"solc": "0.4.24",
+				"standard": "9.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/monax/bosmarmot/burrow.js",
+			"keywords": [
+				"Burrow",
+				"Hyperledger",
+				"Monax"
+			],
+			"license": "GPL-3.0",
+			"main": "./index.js",
+			"maintainers": [
+				{
+					"email": "Billings@Monax.io",
+					"name": "billings"
+				},
+				{
+					"email": "casey@monax.io",
+					"name": "compleatang"
+				},
+				{
+					"email": "dennis.r.mckinnon@gmail.com",
+					"name": "dennismckinnon"
+				},
+				{
+					"email": "oshimizu15@gmail.com",
+					"name": "ommish"
+				},
+				{
+					"email": "npmalpha@silasdavis.net",
+					"name": "silasdavis"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/monax/bosmarmot.git"
+			},
+			"scripts": {
+				"doc": "jsdoc --configure JSDoc/conf.json --destination doc index.js lib README.md",
+				"precommit": "standard --fix",
+				"predoc": "rm -rf doc",
+				"pretest": "standard --fix",
+				"test": "../tests/burrow.js.sh"
+			},
+			"standard": {
+				"globals": [
+					"after",
+					"afterEach",
+					"before",
+					"beforeEach",
+					"describe",
+					"it",
+					"run"
+				]
+			},
+			"readmeFilename": "README.md",
+			"_id": "@monax/burrow@0.20.6",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "7.10.1",
+			"_npmUser": {
+				"name": "billings",
+				"email": "Billings@Monax.io"
+			},
+			"dist": {
+				"integrity": "sha512-uQ2ohMcETBykC8he0YlTN2satFsz8RgvzuQzGT5c16KaTfQG7LPJ+Ufnm6SfSJ/ZakjUVxSOzP2UeVfw3MbUeg==",
+				"shasum": "e495d785113853ef549ef291073b5a44657769c6",
+				"tarball": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.6.tgz",
+				"fileCount": 64,
+				"unpackedSize": 177740,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbvRVdCRA9TVsSAnZWagAAy6YQAIhsVk7N1eyTM92pgyky\n4suF1CrdDHA6Memihzaz3MttjP+tOI2EP/t/J4MyIaoZ7w/QnQID2VlW8feG\nIPUB386LDbE+iL+dVrbqGHUihFAxf6HzxCVp0RhgB15g7x7PjvXGpiaOKy6s\nnTVLJkdeN+h/J1AyWvwsJ2mj4a1Lc9NpI+JBgfgEGqIoZFZgUk6wDd/sx7ZQ\naUYCGsmJ/vDADr6e5ZBZCeLH0Qe5YKO2hXRWPHZrfQgg69DXPqZpGO63yp7u\ngp34lcoDn7Nl+rbR2o4IN1tYGSGJPYkmnwCwh4B2vO0CoyQBbO1CILTUkUg5\nGTraE4JBB9RZyub5QvZpXbCqxOxnbP/n64Y74DFmOvfAYgXmqFbQR3hw5qpd\n7Anf4ufb4GulhfSU5xD/DbVJhVIhRV8vMJyU6JZw8nRkzFCIIPmlwpzc5dgG\nlYFx81rm8SS2s6xBNUz0KaZ+vFiwDzlCwWxatzbyAJ8lze0sHtPD8xU90IZV\nQX9AGLfERAYYNkJeL4lTKAcHSFA92dS/oSJ39EALm3yjaFzAvg6W8DaGUEzc\nefq29FgqhlnEGvTEaxuocVN92+M05uQro538eiJ5BHYmRTL+spFIfTxzLaw3\n0RCMyVJpT52asjWV+ew2eTl2kVKzRg0pGfC7iK6JwN/XqqlaYUYrvURcrgx/\nSYNF\r\n=a+Er\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/burrow_0.20.6_1539118428322_0.7935446443058749"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.20.7": {
+			"name": "@monax/burrow",
+			"description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
+			"version": "0.20.7",
+			"author": {
+				"name": "Dennis Mckinnon"
+			},
+			"bugs": {
+				"url": "https://github.com/monax/bosmarmot/issues"
+			},
+			"dependencies": {
+				"@grpc/proto-loader": "^0.3.0",
+				"@nodeguy/generic": "3.0.0",
+				"@nodeguy/type": "0.2.0",
+				"bignumber.js": "github:debris/bignumber.js#94d7146671b9719e00a09c29b01a691bc85048c2",
+				"crypto-js": "3.1.4",
+				"g-functions": "0.3.0",
+				"grpc": "^1.12.2",
+				"protobufjs": "^6.8.6",
+				"ramda": "0.23.0",
+				"utf8": "2.1.2",
+				"web3": "0.18.4"
+			},
+			"devDependencies": {
+				"fs-extra": "^5.0.0",
+				"ink-docstrap": "1.3.0",
+				"istanbul": "0.4.5",
+				"jsdoc": "3.4.3",
+				"mocha": "5.2.0",
+				"solc": "0.4.24",
+				"standard": "9.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/monax/bosmarmot/burrow.js",
+			"keywords": [
+				"Burrow",
+				"Hyperledger",
+				"Monax"
+			],
+			"license": "GPL-3.0",
+			"main": "./index.js",
+			"maintainers": [
+				{
+					"email": "Billings@Monax.io",
+					"name": "billings"
+				},
+				{
+					"email": "casey@monax.io",
+					"name": "compleatang"
+				},
+				{
+					"email": "dennis.r.mckinnon@gmail.com",
+					"name": "dennismckinnon"
+				},
+				{
+					"email": "oshimizu15@gmail.com",
+					"name": "ommish"
+				},
+				{
+					"email": "npmalpha@silasdavis.net",
+					"name": "silasdavis"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/monax/bosmarmot.git"
+			},
+			"scripts": {
+				"doc": "jsdoc --configure JSDoc/conf.json --destination doc index.js lib README.md",
+				"precommit": "standard --fix",
+				"predoc": "rm -rf doc",
+				"pretest": "standard --fix",
+				"test": "../tests/burrow.js.sh"
+			},
+			"standard": {
+				"globals": [
+					"after",
+					"afterEach",
+					"before",
+					"beforeEach",
+					"describe",
+					"it",
+					"run"
+				]
+			},
+			"_id": "@monax/burrow@0.20.7",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "7.10.1",
+			"_npmUser": {
+				"name": "billings",
+				"email": "Billings@Monax.io"
+			},
+			"dist": {
+				"integrity": "sha512-h+tMdG6hGnquRO9kfaCuZmMxVIhRRuHRauGzjLx+r2Mjk2Et5c3P21q8pCJHiEisjyg6kmCr/YgBtSKUHPHGcw==",
+				"shasum": "588050aaffab8ef7fb9cb70f7cfe47fb3ccba879",
+				"tarball": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.7.tgz",
+				"fileCount": 66,
+				"unpackedSize": 180827,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbvgdNCRA9TVsSAnZWagAAJloP/0/TZAnoldEVExPoQFI7\nqjzDrCYRWwT32pCDDP/OIsN+OUQDulIRtD15D/AsAKgIas3/Sfgt3exhRI0W\nBF1vVNiC91qtYKi309+iWJK6LfBDn9oMvFDSe8e4HcLntBqTijNs3DMC8LIo\n027JSFub0A4FYMFg/yVBV6VGAt7nl+HBs6sYfXszXiAvSN6M0/RN6NI124wn\nAel3CuY81OygLTP0ZtRet4XY0OkfxjMvoAm4I4plCbh7WlMX2/hd0REfSOIT\nRRa9apmPg97c++AnmaKlYvT2/96jJPzxFdPk58J9PTDcSG0KkfdCFrLXIbLs\nP2SGeLdPKrOojP8MInB/Mf/wuyJnKGoodj3TUPy5p78trFl2ML0wdPJeezby\nGvVjDXuNXLvlnR3tbspdFyb/s6kwpd39V51XzioA628MH7SOL6VJ9eUj+XYK\nsGJgLncbHVFNkguwon3kZJSxVf9utwhZEHOVh3P0fk5uuvIO3LoQ1ptgjcr7\nb1weOV++gsNNjwjj2WERY9gCB089yeg4zLidR3Up+c5VSnfheSjUeVmpqj62\nImcTgBea7rI7GoQwJED9Zh+e/5IOCFnEumvwqnPTmEbk+wFwb5dMx/+AJrcj\nrCRHlfvgP0WBdBvU6q67fhBP1LtVKrDlyW2tY8j1HeadJ6J3CVdBUzvyQu7E\nSVjT\r\n=G7mr\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/burrow_0.20.7_1539180364063_0.13491720057048817"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.20.8": {
+			"name": "@monax/burrow",
+			"description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
+			"version": "0.20.8",
+			"author": {
+				"name": "Dennis Mckinnon"
+			},
+			"bugs": {
+				"url": "https://github.com/monax/bosmarmot/issues"
+			},
+			"dependencies": {
+				"@grpc/proto-loader": "^0.3.0",
+				"@nodeguy/generic": "3.0.0",
+				"@nodeguy/type": "0.2.0",
+				"bignumber.js": "github:debris/bignumber.js#94d7146671b9719e00a09c29b01a691bc85048c2",
+				"crypto-js": "3.1.4",
+				"g-functions": "0.3.0",
+				"grpc": "^1.12.2",
+				"protobufjs": "^6.8.6",
+				"ramda": "0.23.0",
+				"utf8": "2.1.2",
+				"web3": "0.18.4"
+			},
+			"devDependencies": {
+				"fs-extra": "^5.0.0",
+				"ink-docstrap": "1.3.0",
+				"istanbul": "0.4.5",
+				"jsdoc": "3.4.3",
+				"mocha": "5.2.0",
+				"solc": "0.4.24",
+				"standard": "9.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/monax/bosmarmot/burrow.js",
+			"keywords": [
+				"Burrow",
+				"Hyperledger",
+				"Monax"
+			],
+			"license": "GPL-3.0",
+			"main": "./index.js",
+			"maintainers": [
+				{
+					"email": "Billings@Monax.io",
+					"name": "billings"
+				},
+				{
+					"email": "casey@monax.io",
+					"name": "compleatang"
+				},
+				{
+					"email": "dennis.r.mckinnon@gmail.com",
+					"name": "dennismckinnon"
+				},
+				{
+					"email": "oshimizu15@gmail.com",
+					"name": "ommish"
+				},
+				{
+					"email": "npmalpha@silasdavis.net",
+					"name": "silasdavis"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/monax/bosmarmot.git"
+			},
+			"scripts": {
+				"doc": "jsdoc --configure JSDoc/conf.json --destination doc index.js lib README.md",
+				"precommit": "standard --fix",
+				"predoc": "rm -rf doc",
+				"pretest": "standard --fix",
+				"test": "../tests/burrow.js.sh"
+			},
+			"standard": {
+				"globals": [
+					"after",
+					"afterEach",
+					"before",
+					"beforeEach",
+					"describe",
+					"it",
+					"run"
+				]
+			},
+			"_id": "@monax/burrow@0.20.8",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "7.10.1",
+			"_npmUser": {
+				"name": "billings",
+				"email": "Billings@Monax.io"
+			},
+			"dist": {
+				"integrity": "sha512-ucPwGrIMpkaLcFwT8M/ymmr6Dx276sm7bq+Sb9docBq316owQSz1fuk2UgF9TRilTv4/zc3NqHG+LKgiycKZLA==",
+				"shasum": "4c9d977257159eedc893f7f1435e873a2685dd89",
+				"tarball": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.8.tgz",
+				"fileCount": 62,
+				"unpackedSize": 179144,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbzepHCRA9TVsSAnZWagAAU+0QAJO8kf2mbrX7+Zhe0lG4\nRUj7UWbBYbeYA9dy4+3TKBcLXSbe8aktSrjggfiXz9flI1XPKRQMfGfAky/X\nkLIBD36CUeRQdPCpBrBU2lpVZZfSUYbB7yzArFIRIoIT9oq83+eM41o7iTNq\ntrRArRpemhsF890AR2TUepvI1moHXWHAfTSlpaJc0qwj+0W52AnsNpwwwwuE\n40Mia7w1OiplpaDEmfL7md1ydjVbwZVymz1IFkEbS38yoFDafaea2T2LUpY7\ntGSOtu9PKuXccxMHctH+RqCwzlIf97GhPSGbFlXmGdWIaE5AnQ2Kc8rR5jka\nhzbXnEYyK4eYEYVPdoY/DBGYJpQ8lFz2G6NRzgEnxKvCcBOqw2AgrC7Y4HZJ\nBx0/c+RkhPUHNdo/38zsXxNl/gFkkWesSGMnu4pSQtcPRy6f3lITw58RbPlT\nuNlB3JB3uO4eHWjFs78O/qJA9dJZ6/dV//dVWBe7xfkqbs9GlZI6ylQjPW2G\nyDAQBT/kmvygrzkdw/qQm7M682IlvduMGe5r4ZGG6pSYuNgvj38KAAKeQhEi\nfYHbUeXHYE28tQKLiVi5IE5D6AP7ZGrR6U8HC4xb5xWMv3HJFbrWfK/Pb973\n5vsp0YoDoHyZEczzd79gA8h8VhCUkGHZgiL73al58GkxtdSpNEjTnyxYokcx\nxkJG\r\n=xa9u\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/burrow_0.20.8_1540221510665_0.927375405616043"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.23.0": {
+			"name": "@monax/burrow",
+			"description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
+			"version": "0.23.0",
+			"author": {
+				"name": "Dennis Mckinnon"
+			},
+			"bugs": {
+				"url": "https://github.com/monax/bosmarmot/issues"
+			},
+			"dependencies": {
+				"@grpc/proto-loader": "^0.3.0",
+				"bignumber.js": "github:debris/bignumber.js#94d7146671b9719e00a09c29b01a691bc85048c2",
+				"crypto-js": "3.1.4",
+				"ethereumjs-abi": "^0.6.5",
+				"grpc": "^1.16.1",
+				"protobufjs": "^6.8.6",
+				"utf8": "2.1.2"
+			},
+			"devDependencies": {
+				"fs-extra": "^5.0.0",
+				"ink-docstrap": "1.3.0",
+				"istanbul": "0.4.5",
+				"jsdoc": "3.4.3",
+				"mocha": "5.2.0",
+				"solc": "0.4.24",
+				"standard": "9.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/monax/bosmarmot/burrow.js",
+			"keywords": [
+				"Burrow",
+				"Hyperledger",
+				"Monax"
+			],
+			"license": "GPL-3.0",
+			"main": "./index.js",
+			"maintainers": [
+				{
+					"email": "Billings@Monax.io",
+					"name": "billings"
+				},
+				{
+					"email": "casey@monax.io",
+					"name": "compleatang"
+				},
+				{
+					"email": "dennis.r.mckinnon@gmail.com",
+					"name": "dennismckinnon"
+				},
+				{
+					"email": "oshimizu15@gmail.com",
+					"name": "ommish"
+				},
+				{
+					"email": "npmalpha@silasdavis.net",
+					"name": "silasdavis"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/monax/bosmarmot.git"
+			},
+			"scripts": {
+				"doc": "jsdoc --configure JSDoc/conf.json --destination doc index.js lib README.md",
+				"precommit": "standard --fix",
+				"predoc": "rm -rf doc",
+				"pretest": "standard --fix",
+				"test": "../tests/burrow.js.sh"
+			},
+			"standard": {
+				"globals": [
+					"after",
+					"afterEach",
+					"before",
+					"beforeEach",
+					"describe",
+					"it",
+					"run"
+				]
+			},
+			"_id": "@monax/burrow@0.23.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.2",
+			"_npmUser": {
+				"name": "billings",
+				"email": "Billings@Monax.io"
+			},
+			"dist": {
+				"integrity": "sha512-56yPLGLddCpdkrYGy5kBQ4ux2An/3CvsbhjebG/0q2Njdwn8zAotzKmfxQxTgGVmmzYq/NvVfpvdXH1PmK+9Pg==",
+				"shasum": "6c32321771a95c074fcd475cd4d27d5c1e0609fc",
+				"tarball": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.23.0.tgz",
+				"fileCount": 56,
+				"unpackedSize": 146398,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcNN4ACRA9TVsSAnZWagAA0gYQAIl/tbr+ssSSrGsMcU8P\nsHG8wGP+RNLBk6eui8W9QeZzRUbF2AMW2cnI2ZfqjGtqNcHznl6LoL4eoPoi\n3uE3ivU6BvyrpOiNAj+lmuKJqm7dgAlHnuWcqmaGQ9A26iyIlbCWrXNY+ERG\nQxfn35Go3j4p5bol+ejzA0tT7YaQeLOBpdLg0lKwTfyFnqEsQJmdo/5VKeqW\n08oMltpYwBLO6BTyc8I+oPeZ7E3ZtdKUwQlEFzUXB5ccCXWwssIIVcGrUihn\nBvxK2sLY6+l8i5u2AMWCOF9AVTeS29dHI8T6BfoyI5XvHfYxGwyYZcLo4VSy\nnMyKJglLfWdmBLVqcsNxcl59Gqzi109t4LEdS9a68UjTJOzHxjyC6jCnjPTP\nAKQEeFAJWiQ69+FJwoxIh2gaJul4WitFGxG23AULXlaSxnDpMPR9Jpk44i3z\ndDhft55o+elhSNkGy6b/fR0Oj0CTOz5V1KrvXQlKS8U7H3aasdI8jIp6DfWc\n53HqbfFOz+ceirRVnUGTP/VfW+Cn+1HTh8zNyGlJ9H2kT7IQTXV7SVFsrYv0\nMk89bFvO52PiRry/FEuCoLBcS2Wzs89j9TnPiYosbGS/LGcyWo6knn7lA/6n\nRwWZzcUmJW25pOYPNJ7Zx4A1tJazJiz/E0/dIIJkN91tU8hUhjOd/vuBQSvG\nOY53\r\n=soY5\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/burrow_0.23.0_1546968575659_0.5361979639424772"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.24.0": {
+			"name": "@monax/burrow",
+			"description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
+			"version": "0.24.0",
+			"author": {
+				"name": "Dennis Mckinnon"
+			},
+			"bugs": {
+				"url": "https://github.com/monax/bosmarmot/issues"
+			},
+			"dependencies": {
+				"@grpc/proto-loader": "^0.4.0",
+				"crypto-js": "3.1.4",
+				"ethereumjs-abi": "^0.6.5",
+				"grpc": "^1.18.0",
+				"protobufjs": "^6.8.6"
+			},
+			"devDependencies": {
+				"fs-extra": "^7.0.1",
+				"mocha": "5.2.0",
+				"solc": "0.4.24",
+				"standard": "9.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/monax/bosmarmot/burrow.js",
+			"keywords": [
+				"Burrow",
+				"Hyperledger",
+				"Monax"
+			],
+			"license": "Apache2.0",
+			"main": "./index.js",
+			"maintainers": [
+				{
+					"email": "Billings@Monax.io",
+					"name": "billings"
+				},
+				{
+					"email": "casey@monax.io",
+					"name": "compleatang"
+				},
+				{
+					"email": "dennis.r.mckinnon@gmail.com",
+					"name": "dennismckinnon"
+				},
+				{
+					"email": "gregorydhill@outlook.com",
+					"name": "gregdhill"
+				},
+				{
+					"email": "oshimizu15@gmail.com",
+					"name": "ommish"
+				},
+				{
+					"email": "npm@silasdavis.net",
+					"name": "silasdavis"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/monax/bosmarmot.git"
+			},
+			"scripts": {
+				"precommit": "standard --fix",
+				"pretest": "standard --fix",
+				"test": "../tests/burrow.js.sh"
+			},
+			"standard": {
+				"globals": [
+					"after",
+					"afterEach",
+					"before",
+					"beforeEach",
+					"describe",
+					"it",
+					"run"
+				]
+			},
+			"_id": "@monax/burrow@0.24.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.2",
+			"_npmUser": {
+				"name": "billings",
+				"email": "Billings@Monax.io"
+			},
+			"dist": {
+				"integrity": "sha512-IHYbgkLEZoRPnX/+2l0CILMLXlbv1XMuGuT3uNogLbAjxoB26LsNKQ+1uz89dvpzkV1LyWvbBjQVFA9dwFM2Sw==",
+				"shasum": "a6597afeacfb5c7505a2e6e049510b67ba783479",
+				"tarball": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.24.0.tgz",
+				"fileCount": 66,
+				"unpackedSize": 199353,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcdY1ACRA9TVsSAnZWagAAakoP/08wEIirm4fR4MDCyszw\nbLYYVV+m6cMpWR1tXAOoaEHrgYumVCH1reaqqj5lsgVmVihV69lyLo14Zhcl\nY4HWb85kArC5VvazAfNOlBZRd/vlfSg0JLEObo9Kxas/s9kD1gSjwU9ludis\n+3SbED5j53RkMdox40cTRUeq9PQ5rsX+FcWNpkcQJ1Jc43UxCOIdvybFFoJG\nO1ja+JEqYKrc4H/2GDYBrV5NIGu4uQAO+AXbIMhQEPeCtHvpM35EVXq9ttdm\nZ763jtCERIky+D8vyTNFipTqiszaehmcZ7GQPy9uHycLOx3gP3ObXLZVPkdP\nYn7idK5f+E7B0MPE91rCdrRen8SrttzmPk9AXkS4YNqJzQDZH+sxoBTvHoTz\nhXpXByjQ4o0/mfSbanfbHoipPNKB1qvpebDIVHljL5tScIdF/RJquZoEbafH\nnx9RIzJ5I2XIF/rFNlPVHxh2NMEdihcY6//XXcdRsXoKijTnEso51in0xk10\ny8xL0ouHUFb+BIJEB4q+m1+vS3xpTORZ8pGwebtqA9WuyhFb+SnCgkHxisiI\nLElI+eZ5dmTgwtDmDxdJfMoa4ksnZqOUJOLC4Woqo0eZIbf0UE6IdRqfHVjV\n9uCyHuHw++vgH4n+NKER5XR/jDo4aRsP3e/fSWuMkbYhMt/Pw+6tOGXbiHgw\ncu7V\r\n=obK9\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/burrow_0.24.0_1551207743528_0.5244232720021309"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.20.9": {
+			"_from": "@monax/burrow@0.20.9",
+			"_id": "@monax/burrow@0.20.9",
+			"_inBundle": false,
+			"_integrity": "sha512-ucPwGrIMpkaLcFwT8M/ymmr6Dx276sm7bq+Sb9docBq316owQSz1fuk2UgF9TRilTv4/zc3NqHG+LKgiycKZLA==",
+			"_location": "/@monax/burrow",
+			"_phantomChildren": {
+				"@types/lodash": "4.14.121",
+				"lodash": "4.17.11",
+				"protobufjs": "6.8.8"
+			},
+			"_requested": {
+				"type": "version",
+				"registry": true,
+				"raw": "@monax/burrow@0.20.9",
+				"name": "@monax/burrow",
+				"escapedName": "@monax%2fburrow",
+				"scope": "@monax",
+				"rawSpec": "0.20.9",
+				"saveSpec": null,
+				"fetchSpec": "0.20.9"
+			},
+			"_requiredBy": [
+				"#USER",
+				"/"
+			],
+			"_resolved": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.8.tgz",
+			"_shasum": "4c9d977257159eedc893f7f1435e873a2685dd89",
+			"_spec": "@monax/burrow@0.20.8",
+			"_where": "/home/dennis/go/src/github.com/monax/test",
+			"author": {
+				"name": "Dennis Mckinnon"
+			},
+			"bugs": {
+				"url": "https://github.com/monax/bosmarmot/issues"
+			},
+			"bundleDependencies": false,
+			"dependencies": {
+				"@grpc/proto-loader": "^0.3.0",
+				"@nodeguy/generic": "3.0.0",
+				"@nodeguy/type": "0.2.0",
+				"bignumber.js": "github:debris/bignumber.js#94d7146671b9719e00a09c29b01a691bc85048c2",
+				"crypto-js": "3.1.4",
+				"g-functions": "0.3.0",
+				"grpc": "^1.12.2",
+				"protobufjs": "^6.8.6",
+				"ramda": "0.23.0",
+				"utf8": "2.1.2",
+				"web3": "0.18.4"
+			},
+			"deprecated": false,
+			"description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
+			"devDependencies": {
+				"fs-extra": "^5.0.0",
+				"ink-docstrap": "1.3.0",
+				"istanbul": "0.4.5",
+				"jsdoc": "3.4.3",
+				"mocha": "5.2.0",
+				"solc": "0.4.24",
+				"standard": "9.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/monax/bosmarmot/burrow.js",
+			"keywords": [
+				"Burrow",
+				"Hyperledger",
+				"Monax"
+			],
+			"license": "GPL-3.0",
+			"main": "./index.js",
+			"maintainers": [
+				{
+					"email": "Billings@Monax.io",
+					"name": "billings"
+				},
+				{
+					"email": "casey@monax.io",
+					"name": "compleatang"
+				},
+				{
+					"email": "dennis.r.mckinnon@gmail.com",
+					"name": "dennismckinnon"
+				},
+				{
+					"email": "gregorydhill@outlook.com",
+					"name": "gregdhill"
+				},
+				{
+					"email": "oshimizu15@gmail.com",
+					"name": "ommish"
+				},
+				{
+					"email": "npm@silasdavis.net",
+					"name": "silasdavis"
+				}
+			],
+			"name": "@monax/burrow",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/monax/bosmarmot.git"
+			},
+			"scripts": {
+				"doc": "jsdoc --configure JSDoc/conf.json --destination doc index.js lib README.md",
+				"precommit": "standard --fix",
+				"predoc": "rm -rf doc",
+				"test": "../tests/burrow.js.sh"
+			},
+			"standard": {
+				"globals": [
+					"after",
+					"afterEach",
+					"before",
+					"beforeEach",
+					"describe",
+					"it",
+					"run"
+				]
+			},
+			"version": "0.20.9",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.2",
+			"_npmUser": {
+				"name": "billings",
+				"email": "Billings@Monax.io"
+			},
+			"dist": {
+				"integrity": "sha512-MxKxbZ2OwbFOWSGOw3h3/IRJ1bw9KpC2OPx4QhN/TimcjE2zHeWePpjEX8jwVCD5Wl+T8BSzT7E2uuI/KXXSNA==",
+				"shasum": "77e1f1fd08e02c70575f50ddc9c40d3a59701133",
+				"tarball": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.9.tgz",
+				"fileCount": 62,
+				"unpackedSize": 179921,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcdaddCRA9TVsSAnZWagAA1CsP+wfyuCL/q41mJG8PrqV6\nIZ0iB0Syf94bfYMhyp6oBOZ203UUKQn00DqBO8lE7764jytSe/8IGAkSUn4L\nyCNBHU13tRL8rCYtc74kOwRzYL3l/ozBcQfaGBntTWuwhgO4m1HzWm855RQJ\nENTklTO/7QL3Ibd3eq05KpYlJVfCJrRrnfMmcVH+A9O1rQGW9AE7tXk64Z4n\nmvtqyhQHaczQapHMD2Zx2+0sEKAmK+04Me+AbsF31pz+isycTFkrcGCZEIuD\nOKlkQ6qDdM2EQEjZFlNK28M2dwDLP2hnRdTwdDM7lZTroNUPRmawxUyrO8s7\nm8ToT2QjnjX6WeZspqiZeQQ2V7p4SkyB9e77zbCR/lGnAsNUN3ylRSfOz0yk\naCALdbliT4ts+gKbAQ+DN3jjIWorqOU9PX83xkN8zK3TXUNEfTGW/LDET0cQ\ncT5ts8hWSh4Hhbh4sKzbDZZ4Iro40BbixmpsqlrCC5CUEo827zIs1dUYvZN4\nzg/J09D0vjWWjPCEhy7x09MGcXu162ScAGx8r2BqDwpjiGhU7KA3gKjE5Me0\niF3YZ5HjIcm1k4Vl6fRPC2BHQDBXLBjh/o+Whu0rW6nND8UzYPT/DPx2Qs+Z\nK/SdYMU8GYHZLjHqDwc9bk3MXBpyo6a5Dt83BOw9x4I6v7HKfkvscSV5OzRq\n95L1\r\n=fUAQ\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/burrow_0.20.9_1551214428452_0.47337572187185684"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.24.1": {
+			"name": "@monax/burrow",
+			"description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
+			"version": "0.24.1",
+			"author": {
+				"name": "Dennis Mckinnon"
+			},
+			"bugs": {
+				"url": "https://github.com/monax/bosmarmot/issues"
+			},
+			"dependencies": {
+				"@grpc/proto-loader": "^0.4.0",
+				"crypto-js": "3.1.4",
+				"ethereumjs-abi": "^0.6.5",
+				"grpc": "^1.18.0",
+				"protobufjs": "^6.8.6"
+			},
+			"devDependencies": {
+				"fs-extra": "^7.0.1",
+				"mocha": "5.2.0",
+				"solc": "0.4.24",
+				"standard": "9.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/monax/bosmarmot/burrow.js",
+			"keywords": [
+				"Burrow",
+				"Hyperledger",
+				"Monax"
+			],
+			"license": "Apache2.0",
+			"main": "./index.js",
+			"maintainers": [
+				{
+					"email": "Billings@Monax.io",
+					"name": "billings"
+				},
+				{
+					"email": "casey@monax.io",
+					"name": "compleatang"
+				},
+				{
+					"email": "dennis.r.mckinnon@gmail.com",
+					"name": "dennismckinnon"
+				},
+				{
+					"email": "gregorydhill@outlook.com",
+					"name": "gregdhill"
+				},
+				{
+					"email": "oshimizu15@gmail.com",
+					"name": "ommish"
+				},
+				{
+					"email": "npm@silasdavis.net",
+					"name": "silasdavis"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/monax/bosmarmot.git"
+			},
+			"scripts": {
+				"precommit": "standard --fix",
+				"pretest": "standard --fix",
+				"test": "../tests/burrow.js.sh"
+			},
+			"standard": {
+				"globals": [
+					"after",
+					"afterEach",
+					"before",
+					"beforeEach",
+					"describe",
+					"it",
+					"run"
+				]
+			},
+			"_id": "@monax/burrow@0.24.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.2",
+			"_npmUser": {
+				"name": "billings",
+				"email": "Billings@Monax.io"
+			},
+			"dist": {
+				"integrity": "sha512-Y72gdFIVKvb5B4WNpUSrkHbIf7uvVTgapccHkDUjl9q3bMJGKMpFcfQSHdpZRs2u+Cnb8bspQjW0awYnHW+zYw==",
+				"shasum": "c5ed606e152753f121a5ad56ab432e5234affa21",
+				"tarball": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.24.1.tgz",
+				"fileCount": 66,
+				"unpackedSize": 199353,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcdakbCRA9TVsSAnZWagAAj1YQAJE3Z+ETnTRJ6Gat1RtS\nCkaNXm0RLUUZfEXbiVJv7mCDhJGtfhRnw6ehSW3Eat+nwE7xoTl9yiqzMZPD\nNyGySuDkLXbVvrDT3r/RYkQPrjagDpQC5AM2p1jTlEwe+Azkrvzv8O7ms7d9\n4hT0HRX8oRHp2kHxWCX2Jt/CftH1rP1V4loYIeYJWfPRD0bCvyCwZzixnD9l\n4+PCQ2z5gOS96iJO0Ks68nbmTPlAjA/IyTvxFlRVWZ8xyR0WgDeCxeTk9gwv\n6u3fUWQH2bwzuukAL0IZk/o3UYW7bc482Vtn4CH29MsR4I/qs5SN8xNSLOZ3\nAYiAAuaSNFTonRMtCDLzdHDAmYE+8t9yj06MmYaNoQSDckFqJoGCPqYUgk9i\n/VYe/uJuK+CVgq+xvNXUvPTY1JhuDaHc0jJp/Y0YNJQJP2kP6Vd9vsyMV1EK\n1fhVvqx9Kd7aNAfJhKItXJCLaX9RNg1hAwQjM1uej9DOhUyMVx15hvPtSDwZ\nOStzKDOAWAxIaCNeARdx54k8R7EOPf3eBQ1GJUJFIijolFAwS4g+Ip2nI2aO\nkjve/gIGbegSzeLPiPJ21JOzJY4cBQoutFcP9xUQNydEJr3d0ldV8a6wYy4K\nTQMDrd4GIOWREPuQzY16cTVnpdqPbMjhn1wa5EuwG/S/wFBz4pUjSw/2c2Pz\n6R6y\r\n=1fzl\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/burrow_0.24.1_1551214874107_0.4222521814719411"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.24.2": {
+			"name": "@monax/burrow",
+			"description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
+			"version": "0.24.2",
+			"author": {
+				"name": "Dennis Mckinnon"
+			},
+			"bugs": {
+				"url": "https://github.com/monax/bosmarmot/issues"
+			},
+			"dependencies": {
+				"@grpc/proto-loader": "^0.4.0",
+				"crypto-js": "3.1.4",
+				"ethereumjs-abi": "^0.6.5",
+				"grpc": "^1.18.0",
+				"protobufjs": "^6.8.6"
+			},
+			"devDependencies": {
+				"fs-extra": "^7.0.1",
+				"mocha": "5.2.0",
+				"solc": "0.4.24",
+				"standard": "9.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/monax/bosmarmot/burrow.js",
+			"keywords": [
+				"Burrow",
+				"Hyperledger",
+				"Monax"
+			],
+			"license": "Apache2.0",
+			"main": "./index.js",
+			"maintainers": [
+				{
+					"email": "Billings@Monax.io",
+					"name": "billings"
+				},
+				{
+					"email": "casey@monax.io",
+					"name": "compleatang"
+				},
+				{
+					"email": "dennis.r.mckinnon@gmail.com",
+					"name": "dennismckinnon"
+				},
+				{
+					"email": "gregorydhill@outlook.com",
+					"name": "gregdhill"
+				},
+				{
+					"email": "oshimizu15@gmail.com",
+					"name": "ommish"
+				},
+				{
+					"email": "npm@silasdavis.net",
+					"name": "silasdavis"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/monax/bosmarmot.git"
+			},
+			"scripts": {
+				"precommit": "standard --fix",
+				"pretest": "standard --fix",
+				"test": "../tests/burrow.js.sh"
+			},
+			"standard": {
+				"globals": [
+					"after",
+					"afterEach",
+					"before",
+					"beforeEach",
+					"describe",
+					"it",
+					"run"
+				]
+			},
+			"_id": "@monax/burrow@0.24.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.2",
+			"_npmUser": {
+				"name": "billings",
+				"email": "Billings@Monax.io"
+			},
+			"dist": {
+				"integrity": "sha512-h5am4PrbPxZKOQylVTTFlW7eBh15ZPKnd07tV5O2/VRTjq+iNQCn5mhervyMvnZUafy21u/B+xJpWYfNQosuwA==",
+				"shasum": "1c068e814ba24697263eed222ccb887752bcfd3b",
+				"tarball": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.24.2.tgz",
+				"fileCount": 66,
+				"unpackedSize": 199347,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcdwmcCRA9TVsSAnZWagAAeo0P/3lmtmO1sW+JVYkNqw0m\n2GYhi1USTXIyP4TP3IuqcnVLv2V73IdhsYy+J21a9fx5TQFECw3QHtAdiXn7\ndUS/ziHiCmbwTPKN84c0IyKe7orvKRHyhqhTVu9cDgEMmJdaXndn4s7fDtYD\nfGTcW9pp4LwK+d340rBI5doLh6ndzWEba8HGuyEyOYeaDaog932aG7Or8ha+\nm3KfevX2xSjQve9VEE8RTnbAwMi9tbH7L/TXPWYwwTwty7JErbA45PGcNkzm\nkH2n77jERbKyABYledwwKJhs0tPl3lWyIM79+foCFoqSSB59Nf2mG7YBJ/sC\nYhqGMghHHjTGSwK0brwxV3EfIALh25KuRCXdqNeqs5bSRmUlI8jU4FEoVJJw\nea5Lwq84UKlA3xHQzndqF5YF0NUz5MRPDj2rJbBi1Wq5R8RfOskNQFaTgEZQ\nymZAzCgnk0N/W5QWERGtm34yD0a3rVRFK6aciVJ7MkUmAeUd+Yavl4CSKV08\nLqeevem6migZN50n6JoNVDJM/cJDF5XYp1WTkVPMKIInf1wsBPjSVeYumacB\n4K0y3dZLAnGXnr1BF9kiWoOr6zhrPLASYygBSoV4oYDMKD9EnNR8Nbwf2ZZL\nJutrFFoBCT6Dwb2mQzCFkJHBo7JlCf/uggOnQdhHFYcOa10rdtLJDtu87QZ4\n6JTA\r\n=jl1S\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/burrow_0.24.2_1551305115896_0.48954070695435137"
+			},
+			"_hasShrinkwrap": false
+		},
+		"0.24.3": {
+			"name": "@monax/burrow",
+			"description": "Javascript library that calls a Hyperledger Burrow server over rpc.",
+			"version": "0.24.3",
+			"author": {
+				"name": "Dennis Mckinnon"
+			},
+			"bugs": {
+				"url": "https://github.com/monax/bosmarmot/issues"
+			},
+			"dependencies": {
+				"@grpc/proto-loader": "^0.4.0",
+				"crypto-js": "3.1.4",
+				"ethereumjs-abi": "^0.6.5",
+				"grpc": "^1.18.0",
+				"protobufjs": "^6.8.6"
+			},
+			"devDependencies": {
+				"fs-extra": "^7.0.1",
+				"mocha": "5.2.0",
+				"solc": "0.4.24",
+				"standard": "9.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"homepage": "https://github.com/monax/bosmarmot/burrow.js",
+			"keywords": [
+				"Burrow",
+				"Hyperledger",
+				"Monax"
+			],
+			"license": "Apache2.0",
+			"main": "./index.js",
+			"maintainers": [
+				{
+					"email": "Billings@Monax.io",
+					"name": "billings"
+				},
+				{
+					"email": "casey@monax.io",
+					"name": "compleatang"
+				},
+				{
+					"email": "dennis.r.mckinnon@gmail.com",
+					"name": "dennismckinnon"
+				},
+				{
+					"email": "gregorydhill@outlook.com",
+					"name": "gregdhill"
+				},
+				{
+					"email": "oshimizu15@gmail.com",
+					"name": "ommish"
+				},
+				{
+					"email": "npm@silasdavis.net",
+					"name": "silasdavis"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/monax/bosmarmot.git"
+			},
+			"scripts": {
+				"precommit": "standard --fix",
+				"pretest": "standard --fix",
+				"test": "../tests/burrow.js.sh"
+			},
+			"standard": {
+				"globals": [
+					"after",
+					"afterEach",
+					"before",
+					"beforeEach",
+					"describe",
+					"it",
+					"run"
+				]
+			},
+			"_id": "@monax/burrow@0.24.3",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.2",
+			"_npmUser": {
+				"name": "billings",
+				"email": "Billings@Monax.io"
+			},
+			"dist": {
+				"integrity": "sha512-HVqPF+5KGkt+UkBj/Mn8JGEH6+7x67m/0TApBmvTdbbT6TG5IouzP4kP1pooo0e8RAGmxybPJMalZcReFDpAUw==",
+				"shasum": "e59b0a1a6c5ddc9dbaf65424111cec83f0df7a9c",
+				"tarball": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.24.3.tgz",
+				"fileCount": 67,
+				"unpackedSize": 200131,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJceEV9CRA9TVsSAnZWagAAdKgP/i1sHKjFT4zTOEMtbc7b\norKTcjmnqY7Dl7Op0ZJTX+4OPabOULluSw0a+zOHQxR8Om3lzAcWCwFJBf5e\nKtibS+zdaVLK4z/3FdXzki8SPv9+hAUsj9QMbdKALPKiTRZArXY5qFtfMOBK\nVDOQccCJdVxk9KRCDa1PMGAvZYFVYNcypLg2n8nu4VdoLz1nDSqPAYnLmAgB\n7JJaGdRqYnd1Mx1z0+1wObuorUsi6ArMzwOM2GTzF501gxYrz2JDx0sOtim3\njmcmlYlDXrLAr6ScbAOculCldxAD1DHgR029utVRmtkg6xmy7QUuU8KSb1i3\nMjfi85p1qeVjC6a1BHhD8SgPYEIUHRforl9w+pxb76bD9MvxMcTWihS2NuB9\nymHlDd/1FXPUtLcTazGj5EuUVDu1XjAut5jnB/bjJKh9iYg9CycC0aqYs51g\nNyCDbzvAt/5VrkeqbZl6+svv0p4Qt0wUc7I/65Yf1tkfrg6hCQPsQBm4dl4B\nImyXiW7dg0TGes/WWz80Y9Bt896SICWFZcnfT+C6NGJ4Phbhq04gfOJr1m9d\nmrhDIf05REdV6oL79JDj1oTFf3TUlN4fXFTlz7nFc3TcIMI3BMWRXyKMEwcW\nCW3D9WCDcl00KY8TDF9J43Ggv1bAxYiaE+TTQ6g2Hi4yLWcTGLb25sjcUrNG\nxyri\r\n=xJxs\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/burrow_0.24.3_1551385980594_0.5803389632923892"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2018-07-20T18:08:41.605Z",
+		"0.20.0": "2018-07-20T18:08:41.837Z",
+		"modified": "2019-08-02T11:14:42.241Z",
+		"0.20.1": "2018-07-24T20:40:14.248Z",
+		"0.20.2": "2018-07-24T21:15:09.783Z",
+		"0.20.3": "2018-08-08T22:05:41.135Z",
+		"0.20.4": "2018-08-20T20:00:51.146Z",
+		"0.20.5": "2018-09-04T19:13:06.060Z",
+		"0.20.6": "2018-10-09T20:53:48.500Z",
+		"0.20.7": "2018-10-10T14:06:04.212Z",
+		"0.20.8": "2018-10-22T15:18:30.774Z",
+		"0.23.0": "2019-01-08T17:29:35.793Z",
+		"0.24.0": "2019-02-26T19:02:23.766Z",
+		"0.20.9": "2019-02-26T20:53:48.590Z",
+		"0.24.1": "2019-02-26T21:01:14.302Z",
+		"0.24.2": "2019-02-27T22:05:16.073Z",
+		"0.24.3": "2019-02-28T20:33:00.762Z"
+	},
+	"dist-tags": {
+		"latest": "0.24.3",
+		"0207-pre": "0.20.6"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"86325de692411e85d01d08ed69404645\"",
+			"fetched": 1568994329784
+		}
+	},
+	"_distfiles": {
+		"burrow-0.20.0.tgz": {
+			"url": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.0.tgz",
+			"sha": "ae21e0c8d3452ac2645d55980312ac39d7aec67e",
+			"registry": "npmjs"
+		},
+		"burrow-0.20.1.tgz": {
+			"url": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.1.tgz",
+			"sha": "eea9b356bb913b798857104329a324606b30d1ff",
+			"registry": "npmjs"
+		},
+		"burrow-0.20.2.tgz": {
+			"url": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.2.tgz",
+			"sha": "b22cebe99c212262b837dfa1dd9de3afa3a9d3e4",
+			"registry": "npmjs"
+		},
+		"burrow-0.20.3.tgz": {
+			"url": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.3.tgz",
+			"sha": "8ae3dfe34275b7de0b1dcb0384aec0a97babd11c",
+			"registry": "npmjs"
+		},
+		"burrow-0.20.4.tgz": {
+			"url": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.4.tgz",
+			"sha": "ad5153cda5eded24fdb024b8d930b5476c77be7a",
+			"registry": "npmjs"
+		},
+		"burrow-0.20.5.tgz": {
+			"url": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.5.tgz",
+			"sha": "65d1be3d5a58f741db8973a6cc1542518da28197",
+			"registry": "npmjs"
+		},
+		"burrow-0.20.6.tgz": {
+			"url": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.6.tgz",
+			"sha": "e495d785113853ef549ef291073b5a44657769c6",
+			"registry": "npmjs"
+		},
+		"burrow-0.20.7.tgz": {
+			"url": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.7.tgz",
+			"sha": "588050aaffab8ef7fb9cb70f7cfe47fb3ccba879",
+			"registry": "npmjs"
+		},
+		"burrow-0.20.8.tgz": {
+			"url": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.8.tgz",
+			"sha": "4c9d977257159eedc893f7f1435e873a2685dd89",
+			"registry": "npmjs"
+		},
+		"burrow-0.23.0.tgz": {
+			"url": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.23.0.tgz",
+			"sha": "6c32321771a95c074fcd475cd4d27d5c1e0609fc",
+			"registry": "npmjs"
+		},
+		"burrow-0.24.0.tgz": {
+			"url": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.24.0.tgz",
+			"sha": "a6597afeacfb5c7505a2e6e049510b67ba783479",
+			"registry": "npmjs"
+		},
+		"burrow-0.20.9.tgz": {
+			"url": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.20.9.tgz",
+			"sha": "77e1f1fd08e02c70575f50ddc9c40d3a59701133",
+			"registry": "npmjs"
+		},
+		"burrow-0.24.1.tgz": {
+			"url": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.24.1.tgz",
+			"sha": "c5ed606e152753f121a5ad56ab432e5234affa21",
+			"registry": "npmjs"
+		},
+		"burrow-0.24.2.tgz": {
+			"url": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.24.2.tgz",
+			"sha": "1c068e814ba24697263eed222ccb887752bcfd3b",
+			"registry": "npmjs"
+		},
+		"burrow-0.24.3.tgz": {
+			"url": "https://registry.npmjs.org/@monax/burrow/-/burrow-0.24.3.tgz",
+			"sha": "e59b0a1a6c5ddc9dbaf65424111cec83f0df7a9c",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-2b0086b0c18925da",
+	"_id": "@monax/burrow",
+	"readme": "# @monax/burrow (Alpha)\n\nThis is a JavaScript API for communicating with a [Hyperledger Burrow](https://github.com/hyperledger/burrow) server, which implements the GRPC spec.\n\n[![npm version][npm-image]][npm-url]\n\n## New Library\n\nPreviously our client libs were broken into two components `@monax/legacy-db.js` and `@monax/legacy-contract.js`. These have both been replaced by this library `@monax/burrow`. This upgrade was part of a major re-write on the back-end and as such ONLY `@monax/burrow` SHOULD BE USED WITH BURROW VERSIONS GREATER THAN 0.20.0. There is NO BACKWARDS COMPATIBILITY of this lib with versions of burrow less than 0.20.0. There will be a short guide below for upgrading existing applications to new burrow versions.\n\n## Version compatibility\n\nThis lib's version is pegged to burrow's version on the minor. So @monax/burrow at version X.Y.^ will work with burrow version X.Y.^ where ^ means latest patch version. The patch version numbering will not always correspond. If you are having difficulties getting this lib to work with a burrow release please first make sure you have the latest patch version of each.\n\n## Installation\n\n### Prerequisites\n\n* [Burrow](https://github.com/hyperledger/burrow) version 0.20 or higher\n* [Node.js](https://nodejs.org/) version 7 or higher\n\nYou can check the installed version of Node.js with the command:\n\n```shell\n$ node --version\n```\n\nIf your distribution of Linux has a version older than 6 then you can\nupdate it using [NodeSource's distribution](https://github.com/nodesource/distributions).\n\n### To Install\n\n```shell\n$ npm install @monax/burrow\n```\n\n## Usage\n\nYou will need to know the <IP Address>:<PORT> of the burrow instance you wish to connect to. If running locally this will be 'localhost' and the default port, which is '10997'. DO NOT INCLUDE A PROTOCOL.\n\nThe main class is `Burrow`. A standard `Burrow` instance is created like this:\n\n```JavaScript\nconst monax = require('@monax/burrow');\nvar burrowURL = \"<IP address>:<PORT>\"; // localhost:10997 if running locally on default port\nvar account = 'ABCDEF01234567890123'; // address of the account to use for signing, hex string representation \nvar options = {objectReturn: true};\nvar burrow = monax.createInstance(burrowURL, account, options);\n```\n\nThe parameters for `createInstance` is the server URL as a string or as an object `{host:<IP Address>, port:<PORT>}`. An account in the form of a hex-encoded address must be provided. \n\n> Note: the instance of burrow you are connecting to must have the associated key (if you want local signing you should be running a local node of burrow. Other local signing options might be made available at a later point). \n\nAnd finally an optional options object. Allowed options are:\n\n* objectReturn: If True, communicating with contracts an object returns an object of the form: `{values:{...}, raw:[]}` where the values objects attempts to name the returns based on the abi and the raw is the decoded array of return values. If False just the array of decoded return values is returned.\n\n\n## API Reference\n\nThere are bindings for all the GRPC methods. All functions are on the form `function(param1, param2, ... [, callback])`, where the callback is a function on the form `function(error, data)`. The `data` object is the same as you would get by calling the corresponding RPC method directly. If no callback is provided, a promise will be returned instead. If calling a response streaming GRPC call, the callback is not optional and will be called with `data` anytime it is recieved.\n\nThe structure of the library is such that there are lower-level access to the GRPC services and higher level wrappers of these services. The structure of the library is outlined below\n\n### Burrow\n\nThe table below links to the reference schema for either the protobuf files governing the component or the Javascript interface.\n\n| Component Name | Accessor |\n| :----------- | :--------------- |\n| Transactions | [Burrow.transact](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpctransact.proto) |\n| Queries | [Burrow.query](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcquery.proto) |\n| EventStream | [Burrow.eventStream](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcevents.proto) |\n| Events | [Burrow.events](https://github.com/monax/bosmarmot/blob/develop/burrow.js/lib/events.js) |\n| NameReg | [Burrow.namereg](https://github.com/monax/bosmarmot/blob/develop/burrow.js/lib/namereg.js) |\n| Contracts | [Burrow.contracts](https://github.com/monax/bosmarmot/blob/develop/burrow.js/lib/contractManager.js) |\n\n### GRPC Access Components\n\nBurrow provides access to three GRPC services; Transactions, Queries, and ExecutionEvents in the form of automatically generated code endpoints. Below details how to access these methods and links to the request and return objects defined in the protobuf specs. The format for all calls is `function(object[, callback])` The callback is optional for non-streaming endpoints in which case a promise will be returned. \n\n#### Sending Funds and Creating Accounts\n\nIn Burrow an account must already exist in order to be used as a input account (the sender of a transaction). An account can be created once the chain is running (accounts at genesis can be described in the genesis document in the accounts section) in the following ways:\n\n1. Issuing a `SendTx` to the address to be created (see below) - where the input account must have both the `Send` and `CreateAccount` permission.\n2. Sending value to the address to created from a smart contract using the CALL opcode - where the caller contract must have the `CreateAccount` permission.\n3. Issuing a `GovTx` where accounts can be created/updated in bulk provided the input has the `Root` permission.\n\nThe conventional way to create an new account to use as an input for transactions is the following:\n\nFirst create a key - you will want to create an account for which you have access to the private key controlling that account (as defined by the address of the public key):\n\n```shell\n# Create a new key against the key store of a locally running Burrow (or burrow keys standalone server):\n$ address=$(burrow keys gen -n --name NewKey)\n\n# The address will be printed to stdout so the above captures it in $address, you can also list named keys:\n$ burrow keys list\nAddress:\"6075EADD0C7A33EE6153F3FA1B21E4D80045FCE2\" KeyName:\"NewKey\"\n```\n\nNote creating the key _does not_ create the account - it just generates a key pair in your local key store (it is not in anyway known the blockchain network).\n\nNow we would like to use a `SendTx` to create the address, here's how to do that in Javscript:\n\n```javascript\n// Using account and burrow defined in snippet from [Usage](#usage)\n\n// Address we want to create\nvar addressToCreate = \"6075EADD0C7A33EE6153F3FA1B21E4D80045FCE2\"\n\n// The amount we send is arbitrary\nvar amount = 20\n\nburrow.transact.SendTxSync(\n    {\n        Inputs: [{\n            Address: Buffer.from(account, 'hex'),\n            Amount: amount\n        }],\n        Outputs: [{\n            Address: Buffer.from(addressToCreate, 'hex'),\n            Amount: amount\n        }]\n    })\n    .then(txe => console.log(txe))\n    .catch(err => console.error(err))\n```\n\nThe return `txe` (short for `TxExecution`) logged to the console in the `then` block  contains the history and fingerprint of the `SendTx` execution. You can see an example of this in [basic app](../example/basic-app/app.js). \n\n#### NameReg access\n\nHere is an example of usage in setting and getting a name:\n\n```javascript\nvar setPayload = {\n\tInput: {\n\t\tAddress: Buffer.from(account,'hex'),\n\t\tAmount: 50000\n \t },\n\tName: \"DOUG\",\n\tData: \"Marmot\",\n\tFee: 5000\n}\n\nvar getPayload = {Name: \"DOUG\"}\n\n// Using a callback\nburrow.transact.NameTxSync(setPayload, function(error, data){\n\tif (error) throw error; // or something more sensible\n\t// data object contains detailed information of the transaction execution.\n\n\t// Get a name this time using a promise\n\tburrow.query.GetName(getPayload)\n\t\t.then((data) => {console.log(data);}) // should print \"Marmot\"\n\t\t.catch((error)=> {throw error;})\n})\n\n```\n\n#### Transactions\n\n`burrow.transact` provides access to the burrow GRPC service `rpctransact`. As a GRPC wrapper all the endpoints take a data argument and an optional callback. The format of the data object is specified in the [rpctransact protobuf file](./protobuf/rpctransact.proto).  A note on RPC naming, any method which ends in `Sync` will wait until the transaction generated is included in a block. Any `Async` method will return a receipt of the transaction immediately but does not guarantee it has been included. `Sim` methods request that the transaction be simulated and the result returned as if it had been executed. SIMULATED CALLS DO NOT GET COMMITTED AND DO NOT CHANGE STATE.\n\n| Method | Passed | Returns |\n| :----- | :--------- | :---- |\n| burrow.transact.BroadcastTxSync | [TxEnvelopeParam](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpctransact.proto#L74-L79) | [TxExecution](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/exec.proto#L34-L56) |\n| burrow.transact.BroadcastTxASync | [TxEnvelopeParam](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpctransact.proto#L74-L79) | [Receipt](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/txs.proto#L38-L47) |\n| burrow.transact.SignTx | [TxEnvelopeParam](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpctransact.proto#L74-L79) | [TxEnvelope](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpctransact.proto#L70-L72) |\n| burrow.transact.FormulateTx | [PayloadParam](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpctransact.proto#L64-L68) | [TxEnvelope](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpctransact.proto#L70-L72) |\n| burrow.transact.CallTxSync | [CallTx](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/payload.proto#L53-L66) | [TxExecution](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/exec.proto#L34-L56) |\n| burrow.transact.CallTxAsync | [CallTx](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/payload.proto#L53-L66) | [Receipt](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/txs.proto#L38-L47) |\n| burrow.transact.CallTxSim | [CallTx](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/payload.proto#L53-L66) | [TxExecution](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/exec.proto#L34-L56) |\n| burrow.transact.SendTxSync | [SendTx](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/payload.proto#L69-L76) | [TxExecution](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/exec.proto#L34-L56) |\n| burrow.transact.SendTxAsync | [SendTx](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/payload.proto#L69-L76) | [Receipt](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/txs.proto#L38-L47) |\n| burrow.transact.NameTxSync | [NameTx](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/payload.proto#L88-L98) | [TxExecution](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/exec.proto#L34-L56) |\n| burrow.transact.NameTxAsync | [NameTx](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/payload.proto#L88-L98) | [Receipt](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/txs.proto#L38-L47) |\n\n\n#### Queries\n\n`Burrow.query` provides access to the burrow GRPC service `rpcquery`. As a GRPC wrapper all the endpoints take a data argument and an optional callback. The format of the data object is specified in the [protobuf files](https://github.com/monax/bosmarmot/tree/develop/burrow.js/protobuf). Note that \"STREAM\" functions take a callback `function(error, data)` which is mandatory and is called any time data is returned. For list Accounts the queryable tags are Address, PublicKey, Sequence, Balance, Code, Permissions (Case sensitive). As an example you can get all accounts with a balance greater than 1000 by `burrow.query.ListAccounts('Balance > 1000', callback)`. Multiple tag criteria can be combined using 'AND' and 'OR' for an example of a combined query see [here](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcevents.proto#L87). Similarly for ListNames, the avaible tags are Name, Data, Owner and Exires (once again case sensitive) use is identical to List accounts.\n\n| Method | Passed | Returns | Notes |\n| :----- | :--------- | :---- | :------- |\n| burrow.query.GetAccount | [GetAccountParam](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcquery.proto#L25-L27) | [ConcreteAccount](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/acm.proto#L23-L31) | |\n| burrow.query.ListAccounts | [ListAccountsParam](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcquery.proto#L29-L31) | [ConcreteAccount](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/acm.proto#L23-L31) | STREAM |\n| burrow.query.GetNameParam | [GetNameParam](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcquery.proto#L33-L35) | [Entry](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/names.proto#L22-L32) | |\n| burrow.query.ListNames | [ListNamesParam](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcquery.proto#L37-L39) | [Entry](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/names.proto#L22-L32) | STREAM|\n\n#### EventStream\n\nNB: When listening to contract events it is easier to use the contract interface (described below)\n\n`Burrow.executionEvents` provides access to the burrow GRPC service `ExecutionEvents`. As a GRPC wrapper all the endpoints take a data argument and an optional callback. The format of the data object is specified in the [protobuf files](https://github.com/monax/bosmarmot/tree/develop/burrow.js/protobuf). Note that \"STREAM\" functions take a callback `function(error, data)` which is mandatory and is called any time data is returned.\n\n| Method | Passed | Returns | Notes |\n| :----- | :--------- | :---- | :------- |\n| burrow.executionEvents.GetBlock | [GetBlockRequest](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcevents.proto#L37-L42) | [BlockExecution](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/exec.proto#L20-L27) | |\n| burrow.executionEvents.GetBlocks | [BlocksRequest](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcevents.proto#L51-L89) | [BlockExecution](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/exec.proto#L20-L27) | STREAM |\n| burrow.executionEvents.GetTx | [GetTxRequest](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcevents.proto#L44-L49) | [TxExecution](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/exec.proto#L34-L56) | |\n| burrow.executionEvents.GetTxs | [BlocksRequest](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcevents.proto#L51-L89) | [GetTxsResponse](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcevents.proto#L96-L99) | STREAM |\n| burrow.executionEvents.GetEvents | [BlocksRequest](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcevents.proto#L51-L89) | [GetEventsResponse](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcevents.proto#L91-L94) | STREAM |\n\n\n***\n\n### High-Level Components\n\nIn addition to direct access to the grpc services, the burrow object also provides access to *three* higher level components which wrap the low level access for convenience. These are ```.namereg```, ```.events```, and ```.contracts```. All high level components use the account provided during creation of the burrow instance for constructing transactions. Component ```contracts``` is the most important of the three, as events and namereg are really just helpful wrappers.\n\n\n#### 1. Namereg\n\n`burrow.namereg` is a convenience wrapper for setting and getting entries from the name registry. \n \n##### burrow.namereg.get\n```burrow.namereg.get(name[,callback])```\n\nGets an entry stored at the name. It returns a promise if callback not provided.\n###### Parameters\n1. `String` - Name you wish to retrieve from the namereg\n2. `function` - (optional) Function to call upon completion of form `function(error, data)`.\n###### Returns\n`Object` - The return data object is of the form:\n\n```javascript\n{\n    Name: (registered name) (string)\n    Owner: (address of name owner) (buffer)\n    Data: (stored data) (string)\n    Expires: (block at which entry expires) (int)\n} \n```\n\n##### burrow.namereg.set\n```burrow.namereg.set(name, data, lease[, callback])```\n\nSets an entry in the namereg. It returns a promise if callback not provided.\n###### Parameters\n1. `String` - The name you wish to register\n2. `String` - The string data you wish to store at the registered name (longer string = larger fee)\n3. `int` - The number of blocks to register the name for (more blocks = larger fee)\n4. `function` - (optional) Function to call upon completion of form `function(error, data)`.\n###### Returns\n`TxExecution` - The return data object is a [TxExecution](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/exec.proto#L34-L56).\n###### Example\n\n```javascript\n// Using a callback\nburrow.namereg.set(\"DOUG\", \"Marmot\", 5000, function(error, data){\n\tif (error) throw error; // or something more sensible\n\t// data object contains detailed information of the transaction execution.\n\n\t// Get a name this time using a promise\n\tburrow.namereg.get(\"DOUG\")\n\t\t.then((data) => {console.log(data);}) // Should print \"Marmot\"\n\t\t.catch((error)=> {throw error;})\n})\n```\n\n> Note: this example is nearly identical to the example above except that the objects are not explicitly constructed by you.\n\n\n\n#### 2. Events\n\n`burrow.events` contains convenience wrappers for streaming executionEvents.\n\n##### burrow.events.listen\n```burrow.events.listen(query, options, callback)```\n\nListens to execution events which satisfy the filter query.\n###### Parameters\n1. `String` - a pegjs querystring for filtering the returned events see [here]() for grammar specification\n2. `Object` - Currently unused. pass `{}`\n3. `function` - Signature of `function(error, data)` mandatory\n###### Returns\n`GetEventsResponse` - The return data object is a [GetEventsResponse](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcevents.proto#L91-L94)\n\n\n\n##### burrow.events.subContractEvents\n```burrow.events.subContractEvents(address, signature, options, callback)```\n\nListens to EVM event executions from specific contract.\n###### Parameters\n1. `String` - hex string of the contract address of interest\n2. `String` - event abi signature\n3. `Object` - Currently unused. pass `{}`\n4. `function` - Signature of `function(error, data)` mandatory.\n###### Returns\n`GetEventsResponse` - The return data object is a [GetEventsResponse](https://github.com/monax/bosmarmot/blob/develop/burrow.js/protobuf/rpcevents.proto#L91-L94)\n\n\n\n#### 3. Contracts\n\n`burrow.contracts` is arguably the most important component of the burrow it exposes two functions, `.deploy` and `.new` both of which return a Contract interface object (sometimes refered to as contract object). The difference between them is that `new` simply creates an interface to a contract and `deploy` will first create an instance and then deploy a copy of it to the blockchain.\n\n\n##### burrow.contracts.deploy\n```burrow.contracts.deploy(abi, bytecode, params... [, callback])```\n\nDeploys a contract and returns a contract interface either to the callback or a promise once deploy is successful. It returns a promise if callback not provided.\n\nWhen the contract interface object is created via deploy, the default address is set to the address of the deployed contract (which can be accessed as contract.address). This interface object can still be used as a generic interface but care must be taken to use the `.at()` and `.atSim()` versions of functions.\n\n###### Parameters\n1. `Object` - the object corresponding to the json ABI of the contract you wish to interface with.\n2. `String` - Hex encoded string of bytecode of the contract to deploy\n3. `params` - arguments to the constructor function (if there are any)\n4. `function` - (optional) Format of `function(error, contract)` where contract is the contract interface object.\n###### Returns\n`Object` - The return data object is a contract interface, which refers to the contract which is deployed at `contract.address`. (This functionality used to be called `new`.)\n\n##### burrow.contracts.new\n```burrow.contracts.new(abi, [bytecode[, address]])```\n\nReturns a new contract interface object. All you really need to create an interface is the abi, however you can also include the bytecode of the contract. If you do so you can create new contracts of this type by calling `contract._constructor(...)` which will deploy a new contract and return its address. If you provide an address, then this will be the default contract address used however you can also omit this at be sure to use the `.at()` and `.atSim()` versions of functions. Also note you must provide bytecode is you wish to provide address, though bytecode argument can be null.\n\n###### Parameters\n1. `Object` - the object corresponding to the json ABI of the contract you wish to interface with.\n2. `String` - Hex encoded string of bytecode of the contract to deploy\n3. `String` - (optional) Hex encoded address of the default contract you want the interface to access\n###### Returns\n`Object` - The return data object is a contract interface.\n\n\n#### 3.1. Contract interface object\n\nThe contract interface object allows for easy access of solidity contract function calls and subscription to events. When created, javascript functions for all functions specified in the abi are generated. All of these functions have the same form `Contract.functionname(params...[, callback])`, where `params` are the arguments to the contract constructor. Arguments of the \"bytes\" type should be properly hex encoded before passing, to avoid improper encoding. If a callback is not provided a promise is returned.\n\n> Note: if the burrow object was created with ```{objectReturn: True}``` the return from these function calls is formatted as `{values:{...}, raw:[]}` otherwise an array of decoded values is provided. The values object names the decoded values according to the abi spec, if a return value has no name it won't be included in the values object and must be retrieved from its position on the raw array.\n\n\nIn the case of a REVERT op-code being called in the contract function call, an error will be passed with the revert string as the `.message` field. These errors can be distinguished from other errors as the `.code` field will be `ERR_EXECUTION_REVERT`.\n\nIn addition to the standard function call, there are three other forms: `contract.functionname.sim`, `contract.functionname.at`, `contract.functionname.atSim`.\n\n\n##### contract.functionname.sim\n```contract.functionname.sim(params... [, callback])```\n\nThe \"Sim\" forms will force a simulated call so that does not change state. Although, the data returned is identical to what would have been returned if the call had been submitted. Useful for querying data or checking if a transaction passes some tests.\n###### Parameters\n1. `params` - the arguments to the function (if there are any)\n2. `function`- (optional) Function to call upon completion of form `function(error, data)`.\n\n\n\n##### contract.functionname.at\n```contract.functionname.at(address, params... [, callback])```\n\nThe \"at\" forms allow you to specify which contract you wish to submit the transaction to. This allows you to use a single contract interface instance to access any contract with the same abi. Useful if for example there is a factory contract on the chain and you wish to connect to any of its children. The at forms MUST be used if a default address was not provided or created.\n###### Parameters\n1. `String` - Hex encoded address of the default contract you want the interface to access\n2. `params` - the arguments to the function (if there are any)\n3. `function`- (optional) Function to call upon completion of form `function(error, data)`.\n\n\n\n##### contract.functionname.atSim\n```contract.functionname.at(address, params... [, callback])```\n\n\n###### Parameters\n1. `String` - Hex encoded address of the default contract you want the interface to access\n2. `params` - the arguments to the function (if there are any)\n3. `function`- (optional) Function to call upon completion of form `function(error, data)`\n\n\n##### contract._constructor\n```contract._constructor(params... [, callback])```\n\nDeploys a new contract from the same interface (no need to create a new interface object via .deploy). Once completed it will return the created contract's address.\n\n\n###### Parameters\n1. `params` - the arguments to the function (if there are any)\n3. `function`- (optional) Function to call upon completion of form `function(error, data)`.\n###### Returns\n`String` - The return data String is the created contract's address.\n\n\n#### 3.2. Encoding and Decoding Params\n\nOccassionally you may wish to encode the parameters to a function call but not actually make the call. The most common use of this is in forwarding contracts which take pre-encoded arguments along with function signature bytes and then call another function passing that data for specifying the call. \n\nThe Contract interface object supports this use case through `Contract.functionname.encode(...args)` which will return a hex string with the encoded arguments. This functionality is also available through `Monax.utils.encode(abi, functionname, ...args)`. In addition the complement also exists, `Contract.functionname.decode(data)` will produce the return object as if the data was just returned from a call.\n\n\n#### 3.3. Contract Events\n\n##### contract.eventname\n```contract.eventname(callback)```\n\nThe contract interface object exposes subscription to Solidity events under event's name.\n where the provided callback with be passed an error and data of the form:\n\n###### Parameters\n1. `function` - Function to call upon completion of form `function(error, data)`. The data object has the following form:\n```\n{\n\tevent: [fulleventname],\n\taddress: [address of contract emitting event],\n\targs: {argname: argvalue}\n}\n```\n\n\n##### contract.eventname.at\n```contract.eventname.at(address, callback)```\n\nSimilarly to functions' contract it is possible to start listening to a non-default contract address. \n\n###### Parameters\n1. `String` - hex string of the contract address of interest\n2. `function` - Function to call upon completion of form `function(error, data)`. The data object has the following form:\n```\n{\n\tevent: [fulleventname],\n\taddress: [address of contract emitting event],\n\targs: {argname: argvalue}\n}\n```\n\n\n\n\n### Example:\n\nThe following contract is a simple contract which takes a \"name\" to the constructor and also has a function `getName` which returns the name.\n\n````solidity\npragma solidity ^0.4.18;\ncontract SimpleContract {\n\n  string private name;\n\n  function SimpleContract(string _newName) public {\n    name = _newName;\n  }\n\n  function getName() public constant returns (string thename) {\n    return name;\n  }\n\n}\n````\n\nHere I provide an example of communicating to the contract above from start to finish:\n\n```javascript\nconst monax = require('@monax/burrow');\nconst assert = require('assert');\n\nvar burrowURL = \"<IP address>:<PORT>\"; // localhost:10997 if running locally on default port\nvar account = 'ABCDEF01234567890123'; // address of the account to use for signing, hex string representation \nvar options = {objectReturn: false};\nvar burrow = monax.createInstance(burrowURL, account, options);\n\n// Get the contractABIJSON from somewhere such as solc\nvar abi = json.parse(contractABIJSON) // Get the contractABIJSON from somewhere such as solc\nvar bytecode = contractBytecode // Get this from somewhere such as solc\n\n\n\n// I'm going to use new to create a contract interface followed by a double direct call to the _constructor to deploy two contracts\nconst contract = burrow.contracts.new(abi, bytecode);\nreturn Promise.all(\t\t\t\t\t\t\t\t// Deployment of two contracts\n\t[\n\t\tcontract._constructor('contract1'),\n\t\tcontract._constructor('contract2')\n\t]\n).then( ([address1, address2]) => {\t\t\t\t// Collection of contracts' addresses\n\tconsole.log(address1 + \" - contract1\");\n\tconsole.log(address2 + \" - contract2\");\n\treturn Promise.all(\t\t\t\t\t\t\t// Execution of getName functions\n\t\t[\n\t\t\tcontract.getName.at(address1),  // Using the .at() to specify the second deployed contract\n\t\t\tcontract.getName.at(address2)\n\t\t]\n\t).then( ([name1, name2]) => {\t\t\t\t// Collection of contracts' names\n\t\tconsole.log(address1 + \" - \" + name1);\n\t\tassert.equal(name1, 'contract1');\n\t\tconsole.log(address2 + \" - \" + name2);\n\t\tassert.equal(name2, 'contract2');\n\t});\n});\n```\n\n\n## Fully working example\n\nSee [basic-app example](../example/basic-app).\n\n\n## Upgrading from pre-0.20.0 to 0.20.0 and above\n\nThere are a few breaking changes to the interface you should keep an eye out for.\n\n* There is no legacy-db make sure you use @monax/burrow's grpc interfaces or wrappers for access you might have previously gotten from that lib\n* `burrow.contracts` takes the place of the old contractManager/contractFactory framework. you should use `burrow.contracts` doe deploying and creating contract interfaces.\n* `burrow.contracts.deploy()` does what the contractFactory.new() use to. `burrow.contracts.new()` creates a contract interface without first deploying.\n* The contract object use to have `contract.functionname.call()` which is now `contract.functionname.sim()` in order to align with naming of backend\n* `contract.functionname.sendtransaction()` no longer exists. You can't force a transaction to be non-simulated if the function is constant... but why would you want to?\n* All contract function functions have optional callbacks and can return promises instead.\n\nI think that is everything but if i missed something please report it in an issue or make a PR updating this document\n\n\n<!-- \n\n## Documentation\n\nGenerate documentation using the command `npm run doc`.\n\n## Testing\n\nTo test the library against pre-recorded vectors:\n\n```\nnpm test\n```\n\nTo test the library against Burrow while recording vectors:\n\n```\nTEST=record npm test\n```\n\nTo test Burrow against pre-recorded vectors without exercising the library:\n\n```\nTEST=server npm test\n```\n\n## Debugging\n\nDebugging information will display on `stderr` if the library is run with `NODE_DEBUG=monax` in the environment. -->\n\n## Copyright\n\nCopyright 2015 Monax\n\nThis program is free software: you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation, either version 3 of the License, or\n(at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License\nalong with this program.  If not, see <http://www.gnu.org/licenses/>.\n\n\n\n[npm-image]: https://badge.fury.io/js/%40monax%2Fburrow.png\n[npm-url]: https://npmjs.org/package/@monax/burrow"
+}

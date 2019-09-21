@@ -1,0 +1,1988 @@
+{
+	"name": "restify-errors",
+	"versions": {
+		"2.0.2": {
+			"dependencies": {
+				"verror": "git://github.com/davepacheco/node-verror.git#35e55e8",
+				"assert-plus": "0.1.2"
+			},
+			"engines": {
+				"node": ">=0.8"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:rvagg/node-restify.git"
+			},
+			"version": "2.0.2",
+			"description": "restify component (errors), extracted from \"restify\"",
+			"homepage": "http://mcavage.github.com/node-restify",
+			"contributors": [
+				{
+					"name": "Dominic Barnes"
+				},
+				{
+					"name": "Domenic Denicola"
+				},
+				{
+					"name": "Paul Bouzakis"
+				},
+				{
+					"name": "Shaun Berryman"
+				},
+				{
+					"name": "Ben Howes"
+				},
+				{
+					"name": "Steve Mason"
+				},
+				{
+					"name": "Trent Mick"
+				},
+				{
+					"name": "Falco Nogatz"
+				},
+				{
+					"name": "Pedro Palazón"
+				},
+				{
+					"name": "Andrew Robinson"
+				},
+				{
+					"name": "Isaac Schlueter"
+				},
+				{
+					"name": "Andrew Sliwinski"
+				},
+				{
+					"name": "Matt Smillie"
+				},
+				{
+					"name": "Diego Torres"
+				},
+				{
+					"name": "Mike Williams"
+				}
+			],
+			"author": {
+				"name": "Mark Cavage",
+				"email": "mcavage@gmail.com"
+			},
+			"name": "restify-errors",
+			"main": "./index.js",
+			"_id": "restify-errors@2.0.2",
+			"dist": {
+				"shasum": "0ffa5a26edbe0fb9fcceb91b5dde7484395ec4d0",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-2.0.2.tgz"
+			},
+			"_npmVersion": "1.1.70",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {}
+		},
+		"2.6.1": {
+			"optionalDependencies": {
+				"dtrace-provider": "0.2.8"
+			},
+			"dependencies": {
+				"verror": "1.3.6",
+				"assert-plus": "0.1.4",
+				"dtrace-provider": "0.2.8"
+			},
+			"engines": {
+				"node": ">=0.8"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git@github.com:rvagg/node-restify.git"
+			},
+			"version": "2.6.1",
+			"description": "restify component (errors), extracted from \"restify\"",
+			"homepage": "http://mcavage.github.com/node-restify",
+			"contributors": [
+				{
+					"name": "Nathanael Anderson"
+				},
+				{
+					"name": "Adam Argo"
+				},
+				{
+					"name": "Dominic Barnes"
+				},
+				{
+					"name": "Josh Clulow"
+				},
+				{
+					"name": "Jonathan Dahan"
+				},
+				{
+					"name": "Domenic Denicola"
+				},
+				{
+					"name": "Bryan Donovan"
+				},
+				{
+					"name": "Paul Bouzakis"
+				},
+				{
+					"name": "Shaun Berryman"
+				},
+				{
+					"name": "Ben Hale"
+				},
+				{
+					"name": "Ben Howes"
+				},
+				{
+					"name": "Ben Hutchison"
+				},
+				{
+					"name": "Erik Kristensen"
+				},
+				{
+					"name": "Domikik Lessel"
+				},
+				{
+					"name": "Steve Mason"
+				},
+				{
+					"name": "Trent Mick"
+				},
+				{
+					"name": "Colin O'Brien"
+				},
+				{
+					"name": "Falco Nogatz"
+				},
+				{
+					"name": "Pedro Palazón"
+				},
+				{
+					"name": "Andrew Robinson"
+				},
+				{
+					"name": "Isaac Schlueter"
+				},
+				{
+					"name": "Andrew Sliwinski"
+				},
+				{
+					"name": "Richardo Stuven"
+				},
+				{
+					"name": "Matt Smillie"
+				},
+				{
+					"name": "Diego Torres"
+				},
+				{
+					"name": "Mike Williams"
+				}
+			],
+			"author": {
+				"name": "Mark Cavage",
+				"email": "mcavage@gmail.com"
+			},
+			"name": "restify-errors",
+			"main": "./index.js",
+			"bugs": {
+				"url": "https://github.com/rvagg/node-restify/issues"
+			},
+			"_id": "restify-errors@2.6.1",
+			"dist": {
+				"shasum": "8d0dd91791c9cb6c6f0dc8898e9d5d446b5223ca",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-2.6.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {}
+		},
+		"3.0.0": {
+			"name": "restify-errors",
+			"version": "3.0.0",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"files": [
+				"lib"
+			],
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"chai": "^3.0.0",
+				"coveralls": "^2.11.2",
+				"eslint": "^1.2.1",
+				"istanbul": "^0.3.15",
+				"jscs": "^2.1.0",
+				"mkdirp": "^0.5.1",
+				"mocha": "^2.2.5"
+			},
+			"dependencies": {
+				"assert-plus": "^0.1.5",
+				"lodash": "^3.9.3",
+				"verror": "^1.6.0"
+			},
+			"gitHead": "2c4dd3ce9725c4b6d8f1cea10fca962fe93452fa",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@3.0.0",
+			"_shasum": "3b17177d43954acece4291465a97ce1b58cf3d57",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "donutespresso",
+				"email": "donutespresso@gmail.com"
+			},
+			"dist": {
+				"shasum": "3b17177d43954acece4291465a97ce1b58cf3d57",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-3.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "yunong",
+					"email": "yjxiao@gmail.com"
+				},
+				{
+					"name": "donutespresso",
+					"email": "donutespresso@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"3.1.0": {
+			"name": "restify-errors",
+			"version": "3.1.0",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"files": [
+				"lib"
+			],
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"chai": "^3.4.1",
+				"coveralls": "^2.11.4",
+				"eslint": "^1.9.0",
+				"istanbul": "^0.3.19",
+				"jscs": "^2.5.1",
+				"mkdirp": "^0.5.1",
+				"mocha": "^2.3.4",
+				"nsp": "^2.0.2",
+				"restify": "^4.0.3",
+				"restify-clients": "^1.1.1"
+			},
+			"dependencies": {
+				"assert-plus": "^0.2.0",
+				"lodash": "^3.10.1",
+				"verror": "^1.6.0"
+			},
+			"gitHead": "c8697beb0aef60d3be053a2536c2a771f78f0c66",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@3.1.0",
+			"_shasum": "06b5479477874c0856d782a12c8707dcdad53f16",
+			"_from": ".",
+			"_npmVersion": "3.3.6",
+			"_nodeVersion": "5.0.0",
+			"_npmUser": {
+				"name": "donutespresso",
+				"email": "donutespresso@gmail.com"
+			},
+			"dist": {
+				"shasum": "06b5479477874c0856d782a12c8707dcdad53f16",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-3.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "yunong",
+					"email": "yjxiao@gmail.com"
+				},
+				{
+					"name": "donutespresso",
+					"email": "donutespresso@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.0.0": {
+			"name": "restify-errors",
+			"version": "4.0.0",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"files": [
+				"lib"
+			],
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"chai": "^3.4.1",
+				"coveralls": "^2.11.4",
+				"eslint": "^1.9.0",
+				"istanbul": "^0.4.2",
+				"jscs": "^2.5.1",
+				"mkdirp": "^0.5.1",
+				"mocha": "^2.3.4",
+				"nsp": "^2.2.0",
+				"restify": "^4.0.3",
+				"restify-clients": "^1.1.1"
+			},
+			"dependencies": {
+				"assert-plus": "^1.0.0",
+				"lodash": "^4.2.1",
+				"verror": "^1.6.0"
+			},
+			"gitHead": "ed4c6ffda43bbde6d8a5aa5e9f792e3f9a2f515c",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@4.0.0",
+			"_shasum": "cc7f884f005a1e961dc0460275034032d0b8df57",
+			"_from": ".",
+			"_npmVersion": "3.6.0",
+			"_nodeVersion": "4.2.6",
+			"_npmUser": {
+				"name": "donutespresso",
+				"email": "donutespresso@gmail.com"
+			},
+			"dist": {
+				"shasum": "cc7f884f005a1e961dc0460275034032d0b8df57",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-4.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "yunong",
+					"email": "yjxiao@gmail.com"
+				},
+				{
+					"name": "donutespresso",
+					"email": "donutespresso@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/restify-errors-4.0.0.tgz_1454620962606_0.757253106450662"
+			},
+			"directories": {}
+		},
+		"4.1.0": {
+			"name": "restify-errors",
+			"version": "4.1.0",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"files": [
+				"lib"
+			],
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"bunyan": "^1.5.1",
+				"chai": "^3.4.1",
+				"coveralls": "^2.11.4",
+				"eslint": "^1.9.0",
+				"istanbul": "^0.4.2",
+				"jscs": "^2.5.1",
+				"mkdirp": "^0.5.1",
+				"mocha": "^2.3.4",
+				"nsp": "^2.2.0",
+				"restify": "^4.0.3",
+				"restify-clients": "^1.1.1"
+			},
+			"dependencies": {
+				"assert-plus": "^1.0.0",
+				"lodash": "^4.2.1",
+				"verror": "^1.6.0"
+			},
+			"gitHead": "bc7dc8764b008b6921e712ab9f3d2396dbaa09b8",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@4.1.0",
+			"_shasum": "d904295c72a5f68d53885b6e32cf5015ab9b6d94",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.0",
+			"_npmUser": {
+				"name": "donutespresso",
+				"email": "donutespresso@gmail.com"
+			},
+			"dist": {
+				"shasum": "d904295c72a5f68d53885b6e32cf5015ab9b6d94",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-4.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "yunong",
+					"email": "yjxiao@gmail.com"
+				},
+				{
+					"name": "donutespresso",
+					"email": "donutespresso@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-5-east.internal.npmjs.com",
+				"tmp": "tmp/restify-errors-4.1.0.tgz_1455049441003_0.48985271877609193"
+			},
+			"directories": {}
+		},
+		"4.2.0": {
+			"name": "restify-errors",
+			"version": "4.2.0",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"files": [
+				"lib"
+			],
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"bunyan": "^1.5.1",
+				"chai": "^3.4.1",
+				"coveralls": "^2.11.4",
+				"eslint": "^1.9.0",
+				"istanbul": "^0.4.2",
+				"jscs": "^2.5.1",
+				"mkdirp": "^0.5.1",
+				"mocha": "^2.3.4",
+				"nsp": "^2.2.0",
+				"restify": "^4.0.3",
+				"restify-clients": "^1.1.1"
+			},
+			"optionalDependencies": {
+				"safe-json-stringify": "^1.0.3"
+			},
+			"dependencies": {
+				"assert-plus": "^1.0.0",
+				"lodash": "^4.2.1",
+				"verror": "^1.6.0",
+				"safe-json-stringify": "^1.0.3"
+			},
+			"gitHead": "c8094f3715bd3f3964b90cdd36729835468e8b46",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@4.2.0",
+			"_shasum": "ab9c96a1e6eb5f80f16866c498cc97a85a8fbad4",
+			"_from": ".",
+			"_npmVersion": "3.7.2",
+			"_nodeVersion": "4.3.0",
+			"_npmUser": {
+				"name": "donutespresso",
+				"email": "donutespresso@gmail.com"
+			},
+			"dist": {
+				"shasum": "ab9c96a1e6eb5f80f16866c498cc97a85a8fbad4",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-4.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "yunong",
+					"email": "yjxiao@gmail.com"
+				},
+				{
+					"name": "donutespresso",
+					"email": "donutespresso@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/restify-errors-4.2.0.tgz_1455747827526_0.9674622060265392"
+			},
+			"directories": {}
+		},
+		"4.2.1": {
+			"name": "restify-errors",
+			"version": "4.2.1",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"files": [
+				"lib"
+			],
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"bunyan": "^1.5.1",
+				"chai": "^3.4.1",
+				"coveralls": "^2.11.4",
+				"eslint": "^1.9.0",
+				"istanbul": "^0.4.2",
+				"jscs": "^2.5.1",
+				"mkdirp": "^0.5.1",
+				"mocha": "^2.3.4",
+				"nsp": "^2.2.0",
+				"restify": "^4.0.3",
+				"restify-clients": "^1.1.1"
+			},
+			"optionalDependencies": {
+				"safe-json-stringify": "^1.0.3"
+			},
+			"dependencies": {
+				"assert-plus": "^1.0.0",
+				"lodash": "^4.2.1",
+				"verror": "^1.6.0",
+				"safe-json-stringify": "^1.0.3"
+			},
+			"gitHead": "685961f4ca0e56112cdb441caa503e9854ffca2b",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@4.2.1",
+			"_shasum": "304633768e8b4543e550f04cdd98635799db4a26",
+			"_from": ".",
+			"_npmVersion": "3.8.0",
+			"_nodeVersion": "4.3.1",
+			"_npmUser": {
+				"name": "donutespresso",
+				"email": "donutespresso@gmail.com"
+			},
+			"dist": {
+				"shasum": "304633768e8b4543e550f04cdd98635799db4a26",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-4.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "yunong",
+					"email": "yjxiao@gmail.com"
+				},
+				{
+					"name": "donutespresso",
+					"email": "donutespresso@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/restify-errors-4.2.1.tgz_1457463037525_0.19418647163547575"
+			},
+			"directories": {}
+		},
+		"4.2.2": {
+			"name": "restify-errors",
+			"version": "4.2.2",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"files": [
+				"lib"
+			],
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"bunyan": "^1.5.1",
+				"chai": "^3.4.1",
+				"coveralls": "^2.11.4",
+				"eslint": "^2.5.0",
+				"istanbul": "^0.4.2",
+				"jscs": "^2.11.0",
+				"mkdirp": "^0.5.1",
+				"mocha": "^2.3.4",
+				"nsp": "^2.2.0",
+				"restify": "^4.0.3",
+				"restify-clients": "^1.1.1"
+			},
+			"optionalDependencies": {
+				"safe-json-stringify": "^1.0.3"
+			},
+			"dependencies": {
+				"assert-plus": "^1.0.0",
+				"lodash": "^4.2.1",
+				"verror": "^1.6.0",
+				"safe-json-stringify": "^1.0.3"
+			},
+			"gitHead": "03804812958d260c1c945498350b2f3980f236d1",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@4.2.2",
+			"_shasum": "b63c5d3beda4da10a57d797f7731a922e0aa7aab",
+			"_from": ".",
+			"_npmVersion": "3.8.7",
+			"_nodeVersion": "4.4.2",
+			"_npmUser": {
+				"name": "donutespresso",
+				"email": "donutespresso@gmail.com"
+			},
+			"dist": {
+				"shasum": "b63c5d3beda4da10a57d797f7731a922e0aa7aab",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-4.2.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "yunong",
+					"email": "yjxiao@gmail.com"
+				},
+				{
+					"name": "donutespresso",
+					"email": "donutespresso@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/restify-errors-4.2.2.tgz_1462817913496_0.6557406976353377"
+			},
+			"directories": {}
+		},
+		"4.2.3": {
+			"name": "restify-errors",
+			"version": "4.2.3",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"files": [
+				"lib"
+			],
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"bunyan": "^1.5.1",
+				"chai": "^3.4.1",
+				"coveralls": "^2.11.4",
+				"eslint": "^2.5.0",
+				"istanbul": "^0.4.2",
+				"jscs": "^2.11.0",
+				"mkdirp": "^0.5.1",
+				"mocha": "^2.3.4",
+				"nsp": "^2.2.0",
+				"restify": "^4.0.3",
+				"restify-clients": "^1.1.1"
+			},
+			"optionalDependencies": {
+				"safe-json-stringify": "^1.0.3"
+			},
+			"dependencies": {
+				"assert-plus": "^1.0.0",
+				"lodash": "^4.2.1",
+				"verror": "^1.6.0",
+				"safe-json-stringify": "^1.0.3"
+			},
+			"gitHead": "990475625ae4a0f1e94e2a6e495e3e75fd0c789a",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@4.2.3",
+			"_shasum": "011cbbe2e17da0c8f343deae7c8b6d070ec9c1d2",
+			"_from": ".",
+			"_npmVersion": "3.9.0",
+			"_nodeVersion": "4.4.4",
+			"_npmUser": {
+				"name": "donutespresso",
+				"email": "donutespresso@gmail.com"
+			},
+			"dist": {
+				"shasum": "011cbbe2e17da0c8f343deae7c8b6d070ec9c1d2",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-4.2.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "yunong",
+					"email": "yjxiao@gmail.com"
+				},
+				{
+					"name": "donutespresso",
+					"email": "donutespresso@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/restify-errors-4.2.3.tgz_1463167136166_0.6466445969417691"
+			},
+			"directories": {}
+		},
+		"4.3.0": {
+			"name": "restify-errors",
+			"version": "4.3.0",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"files": [
+				"lib"
+			],
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"bunyan": "^1.5.1",
+				"chai": "^3.4.1",
+				"coveralls": "^2.11.4",
+				"eslint": "^3.0.1",
+				"istanbul": "^0.4.2",
+				"jscs": "^2.11.0",
+				"mkdirp": "^0.5.1",
+				"mocha": "^2.3.4",
+				"nsp": "^2.2.0",
+				"restify": "^4.0.3",
+				"restify-clients": "^1.1.1"
+			},
+			"optionalDependencies": {
+				"safe-json-stringify": "^1.0.3"
+			},
+			"dependencies": {
+				"assert-plus": "^1.0.0",
+				"lodash": "^4.2.1",
+				"verror": "^1.8.1",
+				"safe-json-stringify": "^1.0.3"
+			},
+			"gitHead": "a759b94d57eee5dfd554b40da4a6599f521505f2",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@4.3.0",
+			"_shasum": "ec90f30934d7f3119135181dfc303e30be601abe",
+			"_from": ".",
+			"_npmVersion": "3.10.6",
+			"_nodeVersion": "4.5.0",
+			"_npmUser": {
+				"name": "donutespresso",
+				"email": "donutespresso@gmail.com"
+			},
+			"dist": {
+				"shasum": "ec90f30934d7f3119135181dfc303e30be601abe",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-4.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "donutespresso",
+					"email": "donutespresso@gmail.com"
+				},
+				{
+					"name": "micahr",
+					"email": "mjr578@gmail.com"
+				},
+				{
+					"name": "trentm",
+					"email": "trentm@gmail.com"
+				},
+				{
+					"name": "yunong",
+					"email": "yjxiao@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/restify-errors-4.3.0.tgz_1472842645784_0.5551239987835288"
+			},
+			"directories": {}
+		},
+		"5.0.0": {
+			"name": "restify-errors",
+			"version": "5.0.0",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"files": [
+				"lib"
+			],
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"bunyan": "^1.5.1",
+				"chai": "^3.4.1",
+				"coveralls": "^2.11.4",
+				"eslint": "^3.0.1",
+				"istanbul": "^0.4.2",
+				"jscs": "^2.11.0",
+				"mkdirp": "^0.5.1",
+				"mocha": "^2.3.4",
+				"nsp": "^2.2.0",
+				"restify": "^4.0.3",
+				"restify-clients": "^1.1.1"
+			},
+			"optionalDependencies": {
+				"safe-json-stringify": "^1.0.3"
+			},
+			"dependencies": {
+				"assert-plus": "^1.0.0",
+				"lodash": "^4.2.1",
+				"verror": "^1.8.1",
+				"safe-json-stringify": "^1.0.3"
+			},
+			"gitHead": "c83d26d70a584ca44baf6227002f6a53340ac16a",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@5.0.0",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "6.11.2",
+			"_npmUser": {
+				"name": "retrohacker",
+				"email": "william.jblankenship@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-+vby9Kxf7qlzvbZSTIEGkIixkeHG+pVCl34dk6eKnL+ua4pCezpdLT/1/eabzPZb65ADrgoc04jeWrrF1E1pvQ==",
+				"shasum": "668717e100683eec6ce0d515f89ff1dbec254a8d",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-5.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "donutespresso",
+					"email": "donutespresso@gmail.com"
+				},
+				{
+					"name": "micahr",
+					"email": "mjr578@gmail.com"
+				},
+				{
+					"name": "retrohacker",
+					"email": "william.jblankenship@gmail.com"
+				},
+				{
+					"name": "trentm",
+					"email": "trentm@gmail.com"
+				},
+				{
+					"name": "yunong",
+					"email": "yjxiao@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/restify-errors-5.0.0.tgz_1502488538388_0.2903299054596573"
+			},
+			"directories": {}
+		},
+		"6.0.0": {
+			"name": "restify-errors",
+			"version": "6.0.0",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"files": [
+				"lib"
+			],
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"bunyan": "^1.8.10",
+				"chai": "^4.0.2",
+				"coveralls": "^2.13.1",
+				"eslint": "^4.1.1",
+				"istanbul": "^0.4.5",
+				"mkdirp": "^0.5.1",
+				"mocha": "^3.4.2",
+				"nsp": "^2.6.3",
+				"restify": "^5.0.0",
+				"restify-clients": "^1.5.0"
+			},
+			"optionalDependencies": {
+				"safe-json-stringify": "^1.0.4"
+			},
+			"dependencies": {
+				"assert-plus": "^1.0.0",
+				"lodash": "^4.17.4",
+				"verror": "^1.10.0",
+				"safe-json-stringify": "^1.0.4"
+			},
+			"gitHead": "cba84ddc338e84074972be1d740ae1e05bdf46b0",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@6.0.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "6.11.5",
+			"_npmUser": {
+				"name": "donutespresso",
+				"email": "donutespresso@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Ytrpbf0KQ2h7TSrcCqmtA8dybaLv/+H9GHfayBiewwpNuzTIcomvLOfRzR0e4u2VdUsqggbWBrNogwKum0uQIQ==",
+				"shasum": "02bed44e43a85da29099ea32d07dbe65db7c3ff4",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-6.0.0.tgz",
+				"fileCount": 14,
+				"unpackedSize": 57678
+			},
+			"maintainers": [
+				{
+					"name": "donutespresso",
+					"email": "donutespresso@gmail.com"
+				},
+				{
+					"name": "micahr",
+					"email": "mjr578@gmail.com"
+				},
+				{
+					"name": "retrohacker",
+					"email": "william.jblankenship@gmail.com"
+				},
+				{
+					"name": "trentm",
+					"email": "trentm@gmail.com"
+				},
+				{
+					"name": "yunong",
+					"email": "yjxiao@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/restify-errors_6.0.0_1519254873841_0.7387918923436634"
+			},
+			"_hasShrinkwrap": false
+		},
+		"6.1.0": {
+			"name": "restify-errors",
+			"version": "6.1.0",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"files": [
+				"lib"
+			],
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"bunyan": "^1.8.10",
+				"chai": "^4.0.2",
+				"coveralls": "^3.0.0",
+				"eslint": "^4.1.1",
+				"istanbul": "^0.4.5",
+				"mkdirp": "^0.5.1",
+				"mocha": "^5.0.1",
+				"nsp": "^3.2.1",
+				"nsp-preprocessor-yarn": "^1.0.1",
+				"restify": "^6.3.4",
+				"restify-clients": "^1.5.0"
+			},
+			"optionalDependencies": {
+				"safe-json-stringify": "^1.0.4"
+			},
+			"dependencies": {
+				"assert-plus": "^1.0.0",
+				"lodash": "^4.17.4",
+				"verror": "^1.10.0",
+				"safe-json-stringify": "^1.0.4"
+			},
+			"gitHead": "690113243a3d4735db6b66d1d65b0455f0886946",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@6.1.0",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "6.14.1",
+			"_npmUser": {
+				"name": "donutespresso",
+				"email": "donutespresso@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-9Xt2tmT2LJI7Wg+i90DuxaRaJn4tM0h0RHhvGnEwS1uLAK5sA9N0JfeTuA1QfMP0NrHEBw2E5oCRD0rnjj8xWQ==",
+				"shasum": "9cb40fff3c8f60c23729fcae7035562705740f02",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-6.1.0.tgz",
+				"fileCount": 14,
+				"unpackedSize": 62512,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbDipyCRA9TVsSAnZWagAAp94P/isqBHTxu2UInU1ZcuEf\n8ukknzItLXrMhKq6rSkw89gilKqlE2ZnoXbQYGz3/dx4zl0Hv4Q3cmKO47aj\n1z+qM9xwsJTNiA9aZam3by4xpbunALF6vx7QhsW2gTsuuvEsEB/OK1iAcKtb\nD6d12c5kcSG72Kv0n2QlpJgloJrqmj0QnVY8yN6wBPZgc0EcaYwtNL5jhmgv\nQukkrez1m6V5iQ546JBmBNpa+SJT2rr6iXr/OmnlP5woEGZMhtDW9+50MoWt\n/rksrwuiZqlRfnMyaMyoJqzK9HUge869NrTw2iLBNdq5oiNMStlvjiF9OGgg\nDjkrNB2WCJTaSQ7Mf59S9XJEVX29aQRHQxM6vVE9bFR3gi5cM1vy/nR1zPI/\nKr4KHfQPta/W2QHUjijpfz0x14Z57wBMlh7xD1xsswEik7SNJC3W4sfiIYKy\nvqlYjjtkV7iQQYcs3RQ7KdreJHcicg1pMOgnKbRS6z6d/iYBJspkwhcOF/8A\nI7MjOyA3FLgHiwnyia+JuTESvazRxeorcE75B73i1iXNRrIXrUcWgubakqGu\nGw+CDyviGZGvX10q0prglcKHrWnbaH3TlxUy/IshTOTIO5yAncGlVXTGrOPl\nxR23FRhtQs98APO9Pp4ZNo54iuKoOBef0mxuIi7UMMn9+ytrLw2hbFMJjcVQ\nftA2\r\n=1vsS\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "donutespresso",
+					"email": "donutespresso@gmail.com"
+				},
+				{
+					"name": "micahr",
+					"email": "mjr578@gmail.com"
+				},
+				{
+					"name": "retrohacker",
+					"email": "william.jblankenship@gmail.com"
+				},
+				{
+					"name": "trentm",
+					"email": "trentm@gmail.com"
+				},
+				{
+					"name": "yunong",
+					"email": "yjxiao@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/restify-errors_6.1.0_1527655025041_0.5414312206300751"
+			},
+			"_hasShrinkwrap": false
+		},
+		"6.1.1": {
+			"name": "restify-errors",
+			"version": "6.1.1",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"files": [
+				"lib"
+			],
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"bunyan": "^1.8.10",
+				"chai": "^4.0.2",
+				"coveralls": "^3.0.0",
+				"eslint": "^4.1.1",
+				"istanbul": "^0.4.5",
+				"mkdirp": "^0.5.1",
+				"mocha": "^5.0.1",
+				"nsp": "^3.2.1",
+				"nsp-preprocessor-yarn": "^1.0.1",
+				"restify": "^6.3.4",
+				"restify-clients": "^1.5.0"
+			},
+			"optionalDependencies": {
+				"safe-json-stringify": "^1.0.4"
+			},
+			"dependencies": {
+				"assert-plus": "^1.0.0",
+				"lodash": "^4.17.4",
+				"verror": "^1.10.0",
+				"safe-json-stringify": "^1.0.4"
+			},
+			"gitHead": "c4cf6c3c20ee7fcc7d3eeac9a30f95ec986f10d0",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@6.1.1",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "6.14.2",
+			"_npmUser": {
+				"name": "donutespresso",
+				"email": "donutespresso@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-QSwjp1b0pHB8QQQwqaPJu+VroGHAGX+HeHqz50awIb8334SAENCKeCI1VAhN099n4h0UVNupJ99ozx0pkHdqew==",
+				"shasum": "a39bd00c1902c2e19f3030f6aeb9271f6c1b31f2",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-6.1.1.tgz",
+				"fileCount": 14,
+				"unpackedSize": 62728,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbKX+MCRA9TVsSAnZWagAA1vUP/24ip3VZjhJHni4IcDxz\nDyAHgbBHFD//jaTc9aeZvBmtWzbFVEohdfANzTP63OXzuSfD/Eg/CK4N4Fa9\n1/zepmVgX51hWS/DeExwag76oIhbCC+U3J2OrfXB1XMKirkCTAM+MngGLn4s\nwP9nnKxw8TZfi7Kq4GGnMYAl1pyJyW/IEpqTyuoMW9S28fWcaA8kpSo7JQ29\nH14ESVWEhGsPvNrntLUkhVIJAk4/deckVXRNpzSaoL31o7yn+0iEDfTXVKkQ\nZEZPjxmIbPswJChk0Rv6gZNsECVeI23xS7vNZBmV22ujiqkkqZ7KjQ2rEr+X\nM7eN6VDGsf5PsOLQ5fRK19ZNG0cCu/LrMGRZC3CUP86pmS5L3xZAkgeBUWMN\nYy8nSfkEgb1DFOoyxscDzrEhDdyGnx3Vg71lMjZRBprpQWTIGnzAtp3XDvq8\n/wRAjc71Ly1n8sxu+RWdSbdwWwR4OKr0+KYE7wPDiTBWROiWP8hALJLU9BsQ\nGSjxQWoniE7cSHqauz6tC2NToc2Yu06xwQKPLfGxVC8BhZnr2UK1ZCXU85nd\nRECjnVkMOjenupjml5YGjgRt/6LrRXu6xhs/yyJerzaaKPyHIT0ETVbv3EZI\npny8temVqC5husb+Bcx9HiraKVVuSeP7BlbvSSghDpWN391B0B1/rFSnyWyj\n4MWe\r\n=NpWa\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "donutespresso",
+					"email": "donutespresso@gmail.com"
+				},
+				{
+					"name": "micahr",
+					"email": "mjr578@gmail.com"
+				},
+				{
+					"name": "retrohacker",
+					"email": "william.jblankenship@gmail.com"
+				},
+				{
+					"name": "trentm",
+					"email": "trentm@gmail.com"
+				},
+				{
+					"name": "yunong",
+					"email": "yjxiao@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/restify-errors_6.1.1_1529446282693_0.19575836435809824"
+			},
+			"_hasShrinkwrap": false
+		},
+		"7.0.0": {
+			"name": "restify-errors",
+			"version": "7.0.0",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"bunyan": "^1.8.10",
+				"chai": "^4.0.2",
+				"coveralls": "^3.0.0",
+				"eslint": "^4.1.1",
+				"istanbul": "^0.4.5",
+				"mkdirp": "^0.5.1",
+				"mocha": "^5.0.1",
+				"nsp": "^3.2.1",
+				"nsp-preprocessor-yarn": "^1.0.1",
+				"restify": "^6.3.4",
+				"restify-clients": "^1.5.0"
+			},
+			"optionalDependencies": {
+				"safe-json-stringify": "^1.0.4"
+			},
+			"dependencies": {
+				"assert-plus": "^1.0.0",
+				"lodash": "^4.17.4",
+				"verror": "^1.10.0",
+				"safe-json-stringify": "^1.0.4"
+			},
+			"gitHead": "b718c5d89862bdd6087d32d90ff39bcc89506a19",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@7.0.0",
+			"_npmVersion": "6.5.0",
+			"_nodeVersion": "11.6.0",
+			"_npmUser": {
+				"name": "jgilli",
+				"email": "jgilli@fastmail.fm"
+			},
+			"dist": {
+				"integrity": "sha512-2XWkUSd82tMQQY/Ufdmfp+KFfhd2bMAqN4s1EAsfj1Ir3RmyKB6i0r8wcVDJm/CR+tDfeYN8vCKgqH5yEhcF6w==",
+				"shasum": "eeb6f41e783771d376fe1cfe7d87b240b309e6a2",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-7.0.0.tgz",
+				"fileCount": 12,
+				"unpackedSize": 50649,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcfWeqCRA9TVsSAnZWagAAP+UP/0YXTQyC0zBjGs21jJzQ\nhlDvP5HBJaTiL68Ihwv9ksHvj4tTKzBFgN0TJ1/M+7xwqIdMTDjPMw/mvB7b\njYoXYE2kS/mQ4epQGOsiMqopwUCXGSgZN/HMgLnP+9BdRKqeoVS29bB+EcOV\nJmliAsg11GfzP5ynnH+cXqELQEZowe9ptrmsFJ45K4I1C7QPlOiacuuYuxfh\ncQHiT2x31/zADTEbNaWafbQ5zBSdCKz8E8vpz7EN8GHKrHrS9bM/r6xxYqEp\nty5KYu8dsjLs0j0cDD43QptFO7kIJ6r1eeZww9mX3lAZ/4VnBLqsB54AmGAh\nqmP5keWt0cs+C5TWt9O6nIweU+StwcI3B9QB9864Xs9c97IwaezJ8tFyS+P0\nxLLJwv4EfoyUVcYBIRNpiLTZCJnvGM5GQfs/2kS66J6LP2dbzRSPV9aMAdNz\ny+KzWUEOW9BWHj7CjKNxz72pewtW+Zhvk1OwpxvVsszPcWYh9FqE4tUJeK4a\niWugM0U5bBQEU8z+wBYVCZvKMufw+EQH3ysMxajSW+mO5+aF5DlwXydJyD+p\nO5SwSm3TTu8MADWeeg7Q9TRZEATrYO42kf+xMOB08FPFceD46rWIAqFG1AbT\nYzOIm1dsCZl3Ems61tBDOpE4M9uU5bUL4FfqCUUhbRs4TfkQZpXE9ev57+C/\nNjEo\r\n=AjVp\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "donutespresso@gmail.com",
+					"name": "donutespresso"
+				},
+				{
+					"email": "email@martonpeter.com",
+					"name": "hekike"
+				},
+				{
+					"email": "jgilli@fastmail.fm",
+					"name": "jgilli"
+				},
+				{
+					"email": "mjr578@gmail.com",
+					"name": "micahr"
+				},
+				{
+					"email": "william.jblankenship@gmail.com",
+					"name": "retrohacker"
+				},
+				{
+					"email": "trentm@gmail.com",
+					"name": "trentm"
+				},
+				{
+					"email": "yjxiao@gmail.com",
+					"name": "yunong"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/restify-errors_7.0.0_1551722409752_0.1894872049760563"
+			},
+			"_hasShrinkwrap": false
+		},
+		"8.0.0": {
+			"name": "restify-errors",
+			"version": "8.0.0",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"bunyan": "^1.8.10",
+				"chai": "^4.2.0",
+				"coveralls": "^3.0.3",
+				"eslint": "^5.16.0",
+				"istanbul": "^0.4.5",
+				"mkdirp": "^0.5.1",
+				"mocha": "^6.1.4",
+				"restify": "^8.3.1",
+				"restify-clients": "^2.6.4"
+			},
+			"optionalDependencies": {
+				"safe-json-stringify": "^1.0.4"
+			},
+			"dependencies": {
+				"@netflix/nerror": "^1.0.0",
+				"assert-plus": "^1.0.0",
+				"lodash": "^4.17.11",
+				"safe-json-stringify": "^1.0.4"
+			},
+			"gitHead": "af5cb0c1a72b7a47886b77a56f56d766806b3c1e",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@8.0.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.13.0",
+			"_npmUser": {
+				"name": "hekike",
+				"email": "email@martonpeter.com"
+			},
+			"dist": {
+				"integrity": "sha512-UpY727sc65Zuz0vBS3Pk3wU4UD1HluIwNRINlPaA/dxLzmf2RlzH/gqZUne9X+MO48cn+DVL7SleDG+9V5YzYQ==",
+				"shasum": "8a1b58b0fb645f3df5cb78783ec56a3abc45ac71",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-8.0.0.tgz",
+				"fileCount": 13,
+				"unpackedSize": 51286,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc0KjlCRA9TVsSAnZWagAAvlgP/j00hKIusXyJb7CfEG4Z\nVU5X/ejWIDju0vGZuJZt2R0LAoiBwy8rGFJMuLFT9KlXGlJflUePD4+KysGp\n5ayyNf7zj2tmWnOVlv+C0O8Mmn0StR1fEOngmWGF9PCwwBpgoQ7FfPEZ0DQ4\neDqb35Wh4vl4kEgQ5oTLjNcRc9ZbXAgranyA/3fp0pDSFeLpkQIz+GBpByDs\nhu9H+4/8QbDiiXWOeFExGI2ILZtnr7bk16UJukX9rRCh04sA1sDlcGn1FhgC\nKXyXWU08bwwgIY64LZ0wvi8WmzqBCkMuu59vemHeYNA6pVm0aE5U+ojaPP5b\n20NlgDrwsWUeanuarEuPiq0Du68LPowCblsRvUndogkBisX+qjXAkYOaoJEt\nQd8vqZV1hZYBchJ6bX4vGD2ZWAVQkNu3sQ/Pt/bD9rIu/+kMjaNynYmespYu\nPzlAlwhwfE3bwzWNjhu634LhfF4X/anpfTEfloPjjMi1NBLg1vQCUTWsglqh\n5bKKvKEH3wU1ktsj5BuTw0WpmCua0XVUT+sp8CPdwvWi6Wc5N9xEC1K7hvEi\nkxFaz4nmmQSCZskXUxaQOpS5jjJuAKiP8zZXIGVg8BUMPXzRe5BmVZHuV/c+\ngUEVg7zeE0qi/J3GjdpJkLt79J96KU1Vzkus1dEAUD0KDyzAoWss6i5/q3gB\nHokT\r\n=Un6P\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "donutespresso@gmail.com",
+					"name": "donutespresso"
+				},
+				{
+					"email": "email@martonpeter.com",
+					"name": "hekike"
+				},
+				{
+					"email": "jgilli@fastmail.fm",
+					"name": "jgilli"
+				},
+				{
+					"email": "mjr578@gmail.com",
+					"name": "micahr"
+				},
+				{
+					"email": "william.jblankenship@gmail.com",
+					"name": "retrohacker"
+				},
+				{
+					"email": "trentm@gmail.com",
+					"name": "trentm"
+				},
+				{
+					"email": "yjxiao@gmail.com",
+					"name": "yunong"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/restify-errors_8.0.0_1557178596043_0.7908682674860754"
+			},
+			"_hasShrinkwrap": false
+		},
+		"8.0.1": {
+			"name": "restify-errors",
+			"version": "8.0.1",
+			"main": "lib/index.js",
+			"description": "Collection of Error objects shared across restify components.",
+			"homepage": "http://www.restify.com",
+			"author": {
+				"name": "Alex Liu",
+				"email": "donutespresso@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Alex Liu"
+				},
+				{
+					"name": "Gergely Nemeth"
+				},
+				{
+					"name": "Mark Cavage"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/restify/errors.git"
+			},
+			"license": "MIT",
+			"keywords": [
+				"restify-errors",
+				"restify",
+				"errors",
+				"custom errors",
+				"inherit errors",
+				"http errors",
+				"http status code",
+				"rest errors"
+			],
+			"scripts": {
+				"test": "make test"
+			},
+			"devDependencies": {
+				"bunyan": "^1.8.10",
+				"chai": "^4.2.0",
+				"conventional-changelog-angular": "^5.0.0",
+				"conventional-recommended-bump": "^4.0.0",
+				"coveralls": "^3.0.3",
+				"eslint": "^5.16.0",
+				"istanbul": "^0.4.5",
+				"mkdirp": "^0.5.1",
+				"mocha": "^6.1.4",
+				"restify": "^8.3.1",
+				"restify-clients": "^2.6.4",
+				"unleash": "^2.0.1"
+			},
+			"optionalDependencies": {
+				"safe-json-stringify": "^1.0.4"
+			},
+			"dependencies": {
+				"@netflix/nerror": "^1.0.0",
+				"assert-plus": "^1.0.0",
+				"lodash": "^4.17.15",
+				"safe-json-stringify": "^1.0.4"
+			},
+			"gitHead": "b3defcc5a56422a2240a2b41c9a73d31c55937a1",
+			"bugs": {
+				"url": "https://github.com/restify/errors/issues"
+			},
+			"_id": "restify-errors@8.0.1",
+			"_nodeVersion": "10.16.0",
+			"_npmVersion": "6.10.1",
+			"dist": {
+				"integrity": "sha512-EFQpxS828J0SBTNuJjh+rHD0OE8BoqnaxMAzuKHRNnGt5BV/212HHQIelZG4zjZYpTDEiuVAhQYHwSGSzAz0Ag==",
+				"shasum": "9f970cb16afad652379b49b4d6a666f7426c2b92",
+				"tarball": "https://registry.npmjs.org/restify-errors/-/restify-errors-8.0.1.tgz",
+				"fileCount": 13,
+				"unpackedSize": 51452,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdO60WCRA9TVsSAnZWagAAoMEP/RC1E5vere5ms23frsrn\nwjlwK6sON7s7aWn7uhXl7Yt/uKMdkG99ykVrA+66bcrgjCgqf9kxftdb7ceY\ncNX3T1s0yo2P14xYAzyqDrMSyqtiG+UARrg6cKQi4OSfI+p7eWStTSw0fC94\n56yl7HkhuCzvtcuWtziAdLZbvFYbr+PK9T25Om0QOMo3u6cuFiEay4yvIgQo\nxeq1J3u3NhU8dgOVtgoedpnIH01g3P30FEc/GNkhdsn8jaMFwdKid4p0c6zQ\notJi6a652GFH5KlsQaOwP3oT0BzKw9ezSJ7o+19vxm8oRUVp85h4lIfDRGE1\nxuPGTem7x9ar1wlNPfSqPfZIYuyTd2D9givLyszfaq/NWJ+ZMtwY0FZHhlFW\nmBhAc1roHNK1jHdXyasCOdOq0KkMiZkrYGrZWCSAFOMIuKM6+5YPir9kigvp\nCYFqmigHYF1arCxPP0i9+ViUTmz7axfMJjeJwD2oJQKh0JzgUHObzc8wxwKx\n6lZFbpYj9hb5O9FYNzko2s0pAVoZCtw5vbPrY16WaMSg6MrkPGadr3f06VAi\n1reGOToN4V8/6cEzAIyxGB/2LoNsl1n8Yw1WzDT64+wVzYlpKEutjU8aOd1Q\nu2G4Zh/23P26TAAeMyn/qnJ5Ih8MPD+XEZzy8Tps/kv2w770bL9mJ49vK6n/\niOL2\r\n=vSro\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "donutespresso@gmail.com",
+					"name": "donutespresso"
+				},
+				{
+					"email": "email@martonpeter.com",
+					"name": "hekike"
+				},
+				{
+					"email": "jgilli@fastmail.fm",
+					"name": "jgilli"
+				},
+				{
+					"email": "mjr578@gmail.com",
+					"name": "micahr"
+				},
+				{
+					"email": "william.jblankenship@gmail.com",
+					"name": "retrohack3r"
+				},
+				{
+					"email": "trentm@gmail.com",
+					"name": "trentm"
+				},
+				{
+					"email": "yjxiao@gmail.com",
+					"name": "yunong"
+				}
+			],
+			"_npmUser": {
+				"name": "donutespresso",
+				"email": "donutespresso@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/restify-errors_8.0.1_1564192021241_0.46189329223046305"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-07-27T01:47:04.150Z",
+		"created": "2013-01-03T06:55:08.795Z",
+		"2.0.2": "2013-01-03T06:55:11.741Z",
+		"2.6.1": "2013-12-09T01:36:54.695Z",
+		"3.0.0": "2015-08-24T22:58:17.852Z",
+		"3.1.0": "2015-11-18T05:02:23.085Z",
+		"4.0.0": "2016-02-04T21:22:43.679Z",
+		"4.1.0": "2016-02-09T20:24:03.728Z",
+		"4.2.0": "2016-02-17T22:23:49.998Z",
+		"4.2.1": "2016-03-08T18:50:40.223Z",
+		"4.2.2": "2016-05-09T18:18:33.939Z",
+		"4.2.3": "2016-05-13T19:18:56.603Z",
+		"4.3.0": "2016-09-02T18:57:26.070Z",
+		"5.0.0": "2017-08-11T21:55:38.467Z",
+		"6.0.0": "2018-02-21T23:14:35.327Z",
+		"6.1.0": "2018-05-30T04:37:05.128Z",
+		"6.1.1": "2018-06-19T22:11:22.786Z",
+		"7.0.0": "2019-03-04T18:00:09.934Z",
+		"8.0.0": "2019-05-06T21:36:36.395Z",
+		"8.0.1": "2019-07-27T01:47:01.394Z"
+	},
+	"dist-tags": {
+		"latest": "8.0.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"450aff7a430da1b216e4f5574b00704a\"",
+			"fetched": 1568994345425
+		}
+	},
+	"_distfiles": {
+		"restify-errors-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-2.0.2.tgz",
+			"sha": "0ffa5a26edbe0fb9fcceb91b5dde7484395ec4d0",
+			"registry": "npmjs"
+		},
+		"restify-errors-2.6.1.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-2.6.1.tgz",
+			"sha": "8d0dd91791c9cb6c6f0dc8898e9d5d446b5223ca",
+			"registry": "npmjs"
+		},
+		"restify-errors-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-3.0.0.tgz",
+			"sha": "3b17177d43954acece4291465a97ce1b58cf3d57",
+			"registry": "npmjs"
+		},
+		"restify-errors-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-3.1.0.tgz",
+			"sha": "06b5479477874c0856d782a12c8707dcdad53f16",
+			"registry": "npmjs"
+		},
+		"restify-errors-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-4.0.0.tgz",
+			"sha": "cc7f884f005a1e961dc0460275034032d0b8df57",
+			"registry": "npmjs"
+		},
+		"restify-errors-4.1.0.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-4.1.0.tgz",
+			"sha": "d904295c72a5f68d53885b6e32cf5015ab9b6d94",
+			"registry": "npmjs"
+		},
+		"restify-errors-4.2.0.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-4.2.0.tgz",
+			"sha": "ab9c96a1e6eb5f80f16866c498cc97a85a8fbad4",
+			"registry": "npmjs"
+		},
+		"restify-errors-4.2.1.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-4.2.1.tgz",
+			"sha": "304633768e8b4543e550f04cdd98635799db4a26",
+			"registry": "npmjs"
+		},
+		"restify-errors-4.2.2.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-4.2.2.tgz",
+			"sha": "b63c5d3beda4da10a57d797f7731a922e0aa7aab",
+			"registry": "npmjs"
+		},
+		"restify-errors-4.2.3.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-4.2.3.tgz",
+			"sha": "011cbbe2e17da0c8f343deae7c8b6d070ec9c1d2",
+			"registry": "npmjs"
+		},
+		"restify-errors-4.3.0.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-4.3.0.tgz",
+			"sha": "ec90f30934d7f3119135181dfc303e30be601abe",
+			"registry": "npmjs"
+		},
+		"restify-errors-5.0.0.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-5.0.0.tgz",
+			"sha": "668717e100683eec6ce0d515f89ff1dbec254a8d",
+			"registry": "npmjs"
+		},
+		"restify-errors-6.0.0.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-6.0.0.tgz",
+			"sha": "02bed44e43a85da29099ea32d07dbe65db7c3ff4",
+			"registry": "npmjs"
+		},
+		"restify-errors-6.1.0.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-6.1.0.tgz",
+			"sha": "9cb40fff3c8f60c23729fcae7035562705740f02",
+			"registry": "npmjs"
+		},
+		"restify-errors-6.1.1.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-6.1.1.tgz",
+			"sha": "a39bd00c1902c2e19f3030f6aeb9271f6c1b31f2",
+			"registry": "npmjs"
+		},
+		"restify-errors-7.0.0.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-7.0.0.tgz",
+			"sha": "eeb6f41e783771d376fe1cfe7d87b240b309e6a2",
+			"registry": "npmjs"
+		},
+		"restify-errors-8.0.0.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-8.0.0.tgz",
+			"sha": "8a1b58b0fb645f3df5cb78783ec56a3abc45ac71",
+			"registry": "npmjs"
+		},
+		"restify-errors-8.0.1.tgz": {
+			"url": "https://registry.npmjs.org/restify-errors/-/restify-errors-8.0.1.tgz",
+			"sha": "9f970cb16afad652379b49b4d6a666f7426c2b92",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-07ffce8df8a0c1e7",
+	"_id": "restify-errors",
+	"readme": "# restify-errors\n\n[![NPM Version](https://img.shields.io/npm/v/restify-errors.svg)](https://npmjs.org/package/restify-errors)\n[![Build Status](https://travis-ci.org/restify/errors.svg?branch=master)](https://travis-ci.org/restify/errors)\n[![Coverage Status](https://coveralls.io/repos/restify/errors/badge.svg?branch=master)](https://coveralls.io/r/restify/errors?branch=master)\n[![Dependency Status](https://david-dm.org/restify/errors.svg)](https://david-dm.org/restify/errors)\n[![devDependency Status](https://david-dm.org/restify/errors/dev-status.svg)](https://david-dm.org/restify/errors#info=devDependencies)\n[![bitHound Score](https://www.bithound.io/github/restify/errors/badges/score.svg)](https://www.bithound.io/github/restify/errors/master)\n\n> A collection of HTTP and REST Error constructors.\n\nThis module ships with a set of constructors that can be used to new up Error\nobjects with default status codes.\n\nThe module ships with the following HttpErrors:\n\n* 400 BadRequestError\n* 401 UnauthorizedError\n* 402 PaymentRequiredError\n* 403 ForbiddenError\n* 404 NotFoundError\n* 405 MethodNotAllowedError\n* 406 NotAcceptableError\n* 407 ProxyAuthenticationRequiredError\n* 408 RequestTimeoutError\n* 409 ConflictError\n* 410 GoneError\n* 411 LengthRequiredError\n* 412 PreconditionFailedError\n* 413 RequestEntityTooLargeError\n* 414 RequesturiTooLargeError\n* 415 UnsupportedMediaTypeError\n* 416 RangeNotSatisfiableError (For Node >= 4 & iojs >= 3)\n* 416 RequestedRangeNotSatisfiableError (For Node 0.x & iojs < 3)\n* 417 ExpectationFailedError\n* 418 ImATeapotError\n* 422 UnprocessableEntityError\n* 423 LockedError\n* 424 FailedDependencyError\n* 425 UnorderedCollectionError\n* 426 UpgradeRequiredError\n* 428 PreconditionRequiredError\n* 429 TooManyRequestsError\n* 431 RequestHeaderFieldsTooLargeError\n* 500 InternalServerError\n* 501 NotImplementedError\n* 502 BadGatewayError\n* 503 ServiceUnavailableError\n* 504 GatewayTimeoutError\n* 505 HttpVersionNotSupportedError\n* 506 VariantAlsoNegotiatesError\n* 507 InsufficientStorageError\n* 509 BandwidthLimitExceededError\n* 510 NotExtendedError\n* 511 NetworkAuthenticationRequiredError\n\nand the following RestErrors:\n\n* 400 BadDigestError\n* 405 BadMethodError\n* 500 InternalError\n* 409 InvalidArgumentError\n* 400 InvalidContentError\n* 401 InvalidCredentialsError\n* 400 InvalidHeaderError\n* 400 InvalidVersionError\n* 409 MissingParameterError\n* 403 NotAuthorizedError\n* 412 PreconditionFailedError\n* 400 RequestExpiredError\n* 429 RequestThrottledError\n* 404 ResourceNotFoundError\n* 406 WrongAcceptError\n\nSome of the status codes overlap, since applications can choose the most\napplicable error type and status code for a given scenario. Should your given\nscenario require something more customized, the Error objects can be customized\nwith an options object.\n\n## Getting Started\n\nInstall the module with: `npm install restify-errors`\n\nFor TypeScript type definitions: `npm install @types/restify-errors`\n\n## Usage\n\n### Migration from 5.x to 6.x\n\nAs of 6.x this module is now a thin wrapper over the\n[VError](https://github.com/davepacheco/node-verror) module. Every Error\nconstructor exposed by this module inherits from VError, which means the\nconstructor signatures are now also identical to VError.\n\nAll VError static methods are also re-exported on the restify-errors export\nobject. For all intents and purposes, you should treat this library as an\nextension of VError, with a list of built in constructors and sugar functions.\n\nThe primary difference between the old 5.x and 6.x API is a reshuffling of the\noption names and where they are provided. In 5.x:\n\n```js\nconst err = new errors.InternalServerError(priorErr, {\n    message: 'boom!',\n    context: { foo: 'bar' }\n});\n```\n\nIn 6.x:\n\n```js\nconst err = new errors.InternalServerError({\n    cause: priorErr,\n    info: { foo: 'bar' }\n}, 'boom!');\n```\n\n### Context/Info object\nIn 5.x, the `.context` property was used to store and capture context about the\nscenario causing the error. This concept is still supported, but now uses\nVError's info object to achieve the same thing. As it uses the VError APIs, all\nyou have to now is pass `info` instead of `context` when creating an Error.\n\nFor migration purposes, accessing the info object via `.context` will be\nsupported through 6.x, and the serializer will also continue to support it.\nBoth may be deprecated in future versions. To access the info object, you can\nuse the VError static method `.info()`, which is re-exported on the\nrestify-errors exports:\n\n```js\nvar errors = require('restify-errors');\nvar nerror = require('@netflix/nerror');\n\nvar err = new errors.InternalServerError({\n    info: {\n        foo: 'bar'\n    }\n});\nerrors.info(err);  // => { foo: 'bar' }\nverror.info(err);  // => { foo: 'bar' }\n```\n\nNote that using verror directly also works, since all Error objects created by\nthis library inherit from VError.\n\n### Custom constructors\n\nIn 5.x, using the `makeConstructor` class would add the constructor itself to\nrestify-error's module.exports object. This was problematic in complex\napplications, where custom Error constructors could be shared across multiple\nmodules in multiple contexts.\n\nAs a result, in 6.x, custom constructors are no longer stored on the\nmodule.exports object, and it is the user's responsibility to retain a\nreference to those custom constructors.\n\n\n### Creating Errors\n\nIn your application, create errors by using the constructors:\n\n```js\nvar errors = require('restify-errors');\n\nserver.get('/foo', function(req, res, next) {\n\n    if (!req.query.foo) {\n        return next(new errors.BadRequestError());\n    }\n\n    res.send(200, 'ok!');\n    return next();\n});\n```\n\n### Checking Error types\n\nYou can easily do instance checks against the Error objects:\n\n```js\nfunction redirectIfErr(req, res, next) {\n    var err = req.data.error;\n    if (err) {\n        if (err instanceof errors.InternalServerError) {\n            next(err);\n        } else if (err instanceof errors.NotFoundError) {\n            res.redirect('/NotFound', next);\n        }\n    }\n}\n```\n\nYou can also check against the `.code` or `.name` properties in case there are\nmultiple copies of restify-error in your application process:\n\n```js\nfunction redirectIfErr(req, res, next) {\n    var err = req.data.error;\n    if (err) {\n        if (err.name === 'InternalServerError' ||\n        err.code === 'InternalServer') {\n            next(err);\n        } else if (err instanceof errors.NotFoundError) {\n            res.redirect('/NotFound', next);\n        }\n    }\n}\n```\n\n### Serializing Errors\n\nAll Error objects in this module ship with both a `toString()` and `toJSON()`\nmethods. Restify uses these methods to \"render\" errors when they are passed to\n`res.send()`:\n\n```js\nfunction render(req, res, next) {\n    res.send(new errors.InternalServerError());\n    return next();\n}\n\n// => restify will render an application/json response with an http 500:\n// {\n//     code: 'InternalServerError',\n//     message: ''\n// }\n```\n\nYou can override either of these methods to customize the serialization of an\nerror.\n\n### Customizing Errors\n\nIf you'd like to change the status code or message of a built-in Error, you can\npass an options object to the constructor:\n\n```js\nfunction render(req, res, next) {\n    var myErr = new errors.InvalidVersionError({\n        statusCode: 409\n    }, 'Version not supported with current query params');\n\n    res.send(myErr);\n    return next();\n}\n\n// => even though InvalidVersionError has a built-in status code of 400, it\n//    has been customized with a 409 status code. restify will now render an\n//    application/json response with an http 409:\n// {\n//     code: 'InvalidVersionError',\n//     message: 'Version not supported with current query params'\n// }\n```\n\n### Passing in prior errors (causes)\n\nLike [WError](https://github.com/davepacheco/node-verror), all constructors\naccept an Error object as the first argument to build rich Error objects and\nstack traces. Assume a previous file lookup failed and an error was passed on:\n\n```js\nfunction wrapError(req, res, next) {\n\n    if (req.error) {\n        var myErr = new errors.InternalServerError(req.error, 'bad times!');\n        return next(myErr);\n    }\n    return next();\n}\n```\n\nThis will allow Error objects to maintain context from previous errors, giving\nyou full visibility into what caused an underlying issue:\n\n```js\nconsole.log(myErr.message);\n// => 'bad times!'\n\nconsole.log(myErr.toString());\n// => InternalServerError: bad times!; caused by Error: file lookup failed!\n\n// if you're using Bunyan, you'll get rich stack traces:\nbunyanLogger.info(myErr);\n\nInternalServerError: bad times!\n    at Object.<anonymous> (/Users/restify/test.js:30:16)\n    at Module._compile (module.js:460:26)\n    at Object.Module._extensions..js (module.js:478:10)\n    at Module.load (module.js:355:32)\n    at Function.Module._load (module.js:310:12)\n    at Function.Module.runMain (module.js:501:10)\n    at startup (node.js:129:16)\n    at node.js:814:3\nCaused by: Error: file lookup failed!\n    at Object.<anonymous> (/Users/restify/test.js:29:15)\n    at Module._compile (module.js:460:26)\n    at Object.Module._extensions..js (module.js:478:10)\n    at Module.load (module.js:355:32)\n    at Function.Module._load (module.js:310:12)\n    at Function.Module.runMain (module.js:501:10)\n    at startup (node.js:129:16)\n    at node.js:814:3\n```\n\n### Bunyan/Pino support\n\nSince errors created via restify-errors inherit from VError, you'll get out of\nthe box support via bunyan's standard serializers. If you are using the\n`info` property, you can use the serializer shipped with restify-errors:\n\n```js\nvar bunyan = require('bunyan');\nvar restifyErrors = require('restify-errors');\n\nvar log = bunyan.createLogger({\n    name: 'myLogger',\n    serializers: {\n        err: restifyErrors.bunyanSerializer\n    }\n});\n\nvar err = new restifyErrors.InternalServerError({\n    info: {\n        foo: 'bar',\n        bar: 1\n    }\n}, 'cannot service this request');\n\nlog.error(err, 'oh noes');\n```\n\n```sh\n[2016-08-31T22:27:13.117Z] ERROR: log/51633 on laptop: oh noes (err.code=InternalServer)\n    InternalServerError: cannot service this request! (foo=\"bar\", bar=1)\n        at Object.<anonymous> (/restify/test.js:11:11)\n        at Module._compile (module.js:409:26)\n        at Object.Module._extensions..js (module.js:416:10)\n        at Module.load (module.js:343:32)\n        at Function.Module._load (module.js:300:12)\n        at Function.Module.runMain (module.js:441:10)\n        at startup (node.js:139:18)\n        at node.js:974:3\n```\n\nYou can, of course, combine this with the standard set of serializers that\nbunyan ships with. VError's MultiError is also supported:\n\n```js\nvar underlyingErr = new Error('boom');\nvar multiErr = new verror.MultiError([\n    new Error('boom'),\n    new restifyErrors.InternalServerError({\n        cause: underlyingErr,\n        info: {\n            foo: 'bar',\n            baz: 1\n        }\n    }, 'wrapped')\n]);\n\nlog.error(multiErr, 'oh noes');\n```\n\n```\n[2016-08-31T22:48:43.244Z] ERROR: logger/55311 on laptop: oh noes\n    MultiError 1 of 2: Error: boom\n        at Object.<anonymous> (/restify/test.js:16:5)\n        at Module._compile (module.js:409:26)\n        at Object.Module._extensions..js (module.js:416:10)\n        at Module.load (module.js:343:32)\n        at Function.Module._load (module.js:300:12)\n        at Function.Module.runMain (module.js:441:10)\n        at startup (node.js:139:18)\n        at node.js:974:3\n    MultiError 2 of 2: InternalServerError: wrapped (foo=\"bar\", baz=1)\n        at Object.<anonymous> (/restify/test.js:17:5)\n        at Module._compile (module.js:409:26)\n        at Object.Module._extensions..js (module.js:416:10)\n        at Module.load (module.js:343:32)\n        at Function.Module._load (module.js:300:12)\n        at Function.Module.runMain (module.js:441:10)\n        at startup (node.js:139:18)\n        at node.js:974:3\n    Caused by: Error: boom\n        at Object.<anonymous> (/restify/test.js:14:21)\n        at Module._compile (module.js:409:26)\n        at Object.Module._extensions..js (module.js:416:10)\n        at Module.load (module.js:343:32)\n        at Function.Module._load (module.js:300:12)\n        at Function.Module.runMain (module.js:441:10)\n        at startup (node.js:139:18)\n        at node.js:974:3\n```\n\nFor more information about building rich errors, check out\n[VError](https://github.com/davepacheco/node-verror).\n\n\n#### Customizing the serializer\n\nThe serializer can also be customized. The serializer currently supports\nthe following options:\n\n* `options.topLevelFields` {Boolean} - if true, serializes all top level fields\n found on the error object, minus \"known\" Error/VError fields. This can be\n useful if errors are created in dependencies that don't use VError or\n restify-errors to maintain context in an independent object.\n\nFor example:\n\n```js\nvar bunyan = require('bunyan');\nvar restifyErrors = require('restify-errors');\n\nvar log = bunyan.createLogger({\n    name: 'myLogger',\n    serializers: restifyErrors.bunyanSerializer.create({\n        topLevelFields: true\n    })\n});\n\nvar err = new Error('pull!');\nerr.espresso = 'normale';\n\nlog.error(err, 'oh noes!');\n```\n\n```sh\n[2018-05-22T01:32:25.164Z] ERROR: myLogger/61085 on laptop: oh noes!\n    Error: pull! (espresso=\"normale\")\n        at Object.<anonymous> (/restify/serializer.js:11:11)\n        at Module._compile (module.js:577:32)\n        at Object.Module._extensions..js (module.js:586:10)\n        at Module.load (module.js:494:32)\n        at tryModuleLoad (module.js:453:12)\n        at Function.Module._load (module.js:445:3)\n        at Module.runMain (module.js:611:10)\n        at run (bootstrap_node.js:387:7)\n        at startup (bootstrap_node.js:153:9)\n```\n\n\n\n\n### Subclassing Errors\n\nYou can also create your own Error subclasses by using the provided\n`makeConstructor()` method.\n\n```js\nerrors.makeConstructor('ExecutionError', {\n    statusCode: 406,\n    failureType: 'motion',\n    message: 'my default message'\n});\nvar myErr = new errors.ExecutionError('bad joystick input!');\n\nconsole.log(myErr instanceof ExecutionError);\n// => true\n\nconsole.log(myErr.message);\n// => 'ExecutionError: bad joystick input!'\n\nconsole.log(myErr.failureType);\n// => 'motion'\n\nconsole.log(myErr.statusCode);\n// => 406\n\nconsole.log(myErr.stack);\n\nExecutionError: bad joystick input!\n    at Object.<anonymous> (/Users/restify/test.js:30:16)\n    at Module._compile (module.js:460:26)\n    at Object.Module._extensions..js (module.js:478:10)\n    at Module.load (module.js:355:32)\n    at Function.Module._load (module.js:310:12)\n    at Function.Module.runMain (module.js:501:10)\n    at startup (node.js:129:16)\n    at node.js:814:3\n```\n\n\n## API\n\nAll Error constructors are variadic and accept the following signatures, which\nare identical to the\n[VError and WError](https://github.com/davepacheoco/node-verror) signatures.\n\n### new Error(sprintf_args...)\n### new Error(priorErr [, sprintf_args...])\n### new Error(options [, sprinf_args...])\n\nrestify-errors adds additional options for the final signature:\n\n* `options.restCode` {Number} - a description code for your Error. This is used\nby restify to render an error when it is directly passed to `res.send()`. By\ndefault, it is the name of your error constructor (e.g., the restCode for a\nBadDigestError is BadDigest).\n* `options.statusCode` {Number} - an http status code\n* `options.toJSON` {Function} - override the default `toJSON()` method\n* `options.toString` {Function} - override the default `toString()` method\n\n### makeConstructor(name [, defaults])\n\nCreates a custom Error constructor, adds it to the existing exports object.\n\n* `name` {String} - the name of your Error\n* `defaults` {Object} - an object of default values that will added to the\nprototype. It is possible to override the default values for `restCode`,\n`statusCode`, `toString()` and `toJSON()`.\n\n**Returns:** {Constructor}\n\n### makeErrFromCode(statusCode [, args...])\n\nCreate an Error object using an http status code. This uses `http` module's\n`STATUS_CODES` to do the status code lookup. Thus, this convenience method\nis useful only for creating HttpErrors, and not RestErrors.\n\n* `statusCode` {Number} - an http status code\n* `args` - arguments to be passed on to the constructor\n\n**Returns:** {Object} an Error object\n\n\n## Contributing\n\nAdd unit tests for any new or changed functionality. Ensure that lint and style\nchecks pass.\n\nTo start contributing, install the git pre-push hooks:\n\n```sh\nmake githooks\n```\n\nBefore committing, run the prepush hook:\n\n```sh\nmake prepush\n```\n\nIf you have style errors, you can auto fix whitespace issues by running:\n\n```sh\nmake codestyle-fix\n```\n\n## License\n\nCopyright (c) 2018 Alex Liu\n\nLicensed under the MIT license."
+}

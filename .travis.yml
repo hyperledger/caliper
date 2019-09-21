@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+- '8'
+matrix:
+    include:
+        - env: BENCHMARK=composer
+        - env: BENCHMARK=fabric-ccp
+dist: trusty
+before_install: |
+    set -ev
+    set -o pipefail
+    npm install -g @alrra/travis-scripts
+
+script: ./.travis/script.sh
+
+cache:
+  directories:
+    - node_modules
+sudo: required
+notifications:
+  webhooks:
+    on_success: always # default: always
+    on_failure: always # default: always
+    on_start: always   # default: never
+    on_cancel: always # default: always
+    on_error: always # default: always

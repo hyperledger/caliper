@@ -1,0 +1,525 @@
+{
+	"name": "@protobufjs/base64",
+	"versions": {
+		"1.0.0": {
+			"name": "@protobufjs/base64",
+			"description": "A minimal base64 implementation for number arrays.",
+			"version": "1.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/base64@1.0.0",
+			"scripts": {},
+			"_shasum": "c612f0cc9606dd16df30fb3a49fca2ad7dbb4637",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "protobufjs",
+				"email": "dcode+npm-protobufjs@dcode.io"
+			},
+			"dist": {
+				"shasum": "c612f0cc9606dd16df30fb3a49fca2ad7dbb4637",
+				"tarball": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/base64-1.0.0.tgz_1481414989029_0.7084989985451102"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "@protobufjs/base64",
+			"description": "A minimal base64 implementation for number arrays.",
+			"version": "1.0.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/base64@1.0.1",
+			"scripts": {},
+			"_shasum": "835b3a0e876c13923074f264c9a6490c60c0707a",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"dist": {
+				"shasum": "835b3a0e876c13923074f264c9a6490c60c0707a",
+				"tarball": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/base64-1.0.1.tgz_1481417391041_0.8754440057091415"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "@protobufjs/base64",
+			"description": "A minimal base64 implementation for number arrays.",
+			"version": "1.0.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/base64@1.0.2",
+			"scripts": {},
+			"_shasum": "2b42c679e17555fd209412bdbdc2545e7bb71e18",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "2b42c679e17555fd209412bdbdc2545e7bb71e18",
+				"tarball": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/base64-1.0.2.tgz_1481472396509_0.4206041276920587"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "@protobufjs/base64",
+			"description": "A minimal base64 implementation for number arrays.",
+			"version": "1.0.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/base64@1.0.3",
+			"scripts": {},
+			"_shasum": "6a3ae74a937ddafd4fc877b65149a8ba89934a5f",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "6a3ae74a937ddafd4fc877b65149a8ba89934a5f",
+				"tarball": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/base64-1.0.3.tgz_1481891300115_0.3145299830939621"
+			},
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "@protobufjs/base64",
+			"description": "A minimal base64 implementation for number arrays.",
+			"version": "1.0.4",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/base64@1.0.4",
+			"scripts": {},
+			"_shasum": "edb3b02597c3faa17a13571dea744aead28a5d98",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "edb3b02597c3faa17a13571dea744aead28a5d98",
+				"tarball": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/base64-1.0.4.tgz_1482269671532_0.8503633502405137"
+			},
+			"directories": {}
+		},
+		"1.0.5": {
+			"name": "@protobufjs/base64",
+			"description": "A minimal base64 implementation for number arrays.",
+			"version": "1.0.5",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/base64@1.0.5",
+			"scripts": {},
+			"_shasum": "a3e7ea0ab94067225c8255ba2da667137cf01802",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "a3e7ea0ab94067225c8255ba2da667137cf01802",
+				"tarball": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.0.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/base64-1.0.5.tgz_1483457450913_0.5205855912063271"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "@protobufjs/base64",
+			"description": "A minimal base64 implementation for number arrays.",
+			"version": "1.1.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"istanbul": "^0.4.5",
+				"tape": "^4.6.3"
+			},
+			"scripts": {
+				"test": "tape tests/*.js",
+				"coverage": "istanbul cover node_modules/tape/bin/tape tests/*.js"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/base64@1.1.0",
+			"_shasum": "600dad4fbfafe8f8b24cea76085434bac5ba58f3",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "600dad4fbfafe8f8b24cea76085434bac5ba58f3",
+				"tarball": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/base64-1.1.0.tgz_1485367926801_0.7404193964321166"
+			},
+			"directories": {}
+		},
+		"1.1.1": {
+			"name": "@protobufjs/base64",
+			"description": "A minimal base64 implementation for number arrays.",
+			"version": "1.1.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"istanbul": "^0.4.5",
+				"tape": "^4.6.3"
+			},
+			"scripts": {
+				"test": "tape tests/*.js",
+				"coverage": "istanbul cover node_modules/tape/bin/tape tests/*.js"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/base64@1.1.1",
+			"_shasum": "8f10115d2b1ac2c25f3602e55eba708e56bcd2bb",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "8f10115d2b1ac2c25f3602e55eba708e56bcd2bb",
+				"tarball": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/base64-1.1.1.tgz_1485368183413_0.9088828768581152"
+			},
+			"directories": {}
+		},
+		"1.1.2": {
+			"name": "@protobufjs/base64",
+			"description": "A minimal base64 implementation for number arrays.",
+			"version": "1.1.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"istanbul": "^0.4.5",
+				"tape": "^4.6.3"
+			},
+			"scripts": {
+				"test": "tape tests/*.js",
+				"coverage": "istanbul cover node_modules/tape/bin/tape tests/*.js"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/base64@1.1.2",
+			"_npmVersion": "5.0.1",
+			"_nodeVersion": "8.0.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"integrity": "sha512-AZkcAA5vnN/v4PDqKyMR5lx7hZttPDgClv83E//FMNhR2TMcLUhfRUBHCmSl0oi9zMgDDqRUJkSxO3wm85+XLg==",
+				"shasum": "4c85730e59b9a1f1f349047dbf24296034bb2735",
+				"tarball": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+npm-protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/base64-1.1.2.tgz_1497000720755_0.053681070916354656"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2017-06-09T09:32:02.078Z",
+		"created": "2016-12-11T00:09:51.188Z",
+		"1.0.0": "2016-12-11T00:09:51.188Z",
+		"1.0.1": "2016-12-11T00:49:51.689Z",
+		"1.0.2": "2016-12-11T16:06:37.153Z",
+		"1.0.3": "2016-12-16T12:28:20.643Z",
+		"1.0.4": "2016-12-20T21:34:32.142Z",
+		"1.0.5": "2017-01-03T15:30:51.602Z",
+		"1.1.0": "2017-01-25T18:12:08.858Z",
+		"1.1.1": "2017-01-25T18:16:24.114Z",
+		"1.1.2": "2017-06-09T09:32:02.078Z"
+	},
+	"dist-tags": {
+		"latest": "1.1.2"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"e45e7ad9557bff57ee92cc165f8d26d0\"",
+			"fetched": 1568994331494
+		}
+	},
+	"_distfiles": {
+		"base64-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.0.0.tgz",
+			"sha": "c612f0cc9606dd16df30fb3a49fca2ad7dbb4637",
+			"registry": "npmjs"
+		},
+		"base64-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.0.1.tgz",
+			"sha": "835b3a0e876c13923074f264c9a6490c60c0707a",
+			"registry": "npmjs"
+		},
+		"base64-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.0.2.tgz",
+			"sha": "2b42c679e17555fd209412bdbdc2545e7bb71e18",
+			"registry": "npmjs"
+		},
+		"base64-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.0.3.tgz",
+			"sha": "6a3ae74a937ddafd4fc877b65149a8ba89934a5f",
+			"registry": "npmjs"
+		},
+		"base64-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.0.4.tgz",
+			"sha": "edb3b02597c3faa17a13571dea744aead28a5d98",
+			"registry": "npmjs"
+		},
+		"base64-1.0.5.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.0.5.tgz",
+			"sha": "a3e7ea0ab94067225c8255ba2da667137cf01802",
+			"registry": "npmjs"
+		},
+		"base64-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.1.0.tgz",
+			"sha": "600dad4fbfafe8f8b24cea76085434bac5ba58f3",
+			"registry": "npmjs"
+		},
+		"base64-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.1.1.tgz",
+			"sha": "8f10115d2b1ac2c25f3602e55eba708e56bcd2bb",
+			"registry": "npmjs"
+		},
+		"base64-1.1.2.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/base64/-/base64-1.1.2.tgz",
+			"sha": "4c85730e59b9a1f1f349047dbf24296034bb2735",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-580e4b23d894501b",
+	"_id": "@protobufjs/base64",
+	"readme": "@protobufjs/base64\r\n==================\r\n[![npm](https://img.shields.io/npm/v/@protobufjs/base64.svg)](https://www.npmjs.com/package/@protobufjs/base64)\r\n\r\nA minimal base64 implementation for number arrays.\r\n\r\nAPI\r\n---\r\n\r\n* **base64.length(string: `string`): `number`**<br />\r\n  Calculates the byte length of a base64 encoded string.\r\n\r\n* **base64.encode(buffer: `Uint8Array`, start: `number`, end: `number`): `string`**<br />\r\n  Encodes a buffer to a base64 encoded string.\r\n\r\n* **base64.decode(string: `string`, buffer: `Uint8Array`, offset: `number`): `number`**<br />\r\n  Decodes a base64 encoded string to a buffer.\r\n\r\n**License:** [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)"
+}

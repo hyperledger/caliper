@@ -1,0 +1,3414 @@
+{
+	"name": "bignumber.js",
+	"versions": {
+		"1.0.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "1.0.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs -o ./bignumber.min.js ./bignumber.js"
+			},
+			"_id": "bignumber.js@1.0.0",
+			"dist": {
+				"shasum": "944c0d5c6420620484ddc36c55d8b401799be13b",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.0.0.tgz"
+			},
+			"_npmVersion": "1.1.63",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "1.0.1",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs -o ./bignumber.min.js ./bignumber.js"
+			},
+			"_id": "bignumber.js@1.0.1",
+			"dist": {
+				"shasum": "0e953896823b783d48ea921884d3fd90b89bdcb1",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.0.1.tgz"
+			},
+			"_npmVersion": "1.1.66",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "1.1.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs -o ./bignumber.min.js ./bignumber.js"
+			},
+			"_id": "bignumber.js@1.1.0",
+			"dist": {
+				"shasum": "ebcc3dfa6ee8debd7656f4f63257b25931aadddf",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.1.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.14",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.1": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "1.1.1",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs -o ./bignumber.min.js ./bignumber.js"
+			},
+			"_id": "bignumber.js@1.1.1",
+			"dist": {
+				"shasum": "1a415d9ac014c13256af1feed9d1a3e5717a8cf7",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.1.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.14",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "1.2.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs -o ./bignumber.min.js ./bignumber.js"
+			},
+			"_id": "bignumber.js@1.2.0",
+			"dist": {
+				"shasum": "6b99ecc89638164aeff66f01a48e38aa8fbd79b8",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.2.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.14",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.2.1": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "1.2.1",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs -o ./bignumber.min.js ./bignumber.js"
+			},
+			"_id": "bignumber.js@1.2.1",
+			"dist": {
+				"shasum": "e190f7bf5721c8766a074a95f90c0e476b0a2f10",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.2.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.14",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.3.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "1.3.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs -o ./bignumber.min.js ./bignumber.js"
+			},
+			"_id": "bignumber.js@1.3.0",
+			"dist": {
+				"shasum": "07be3d171235a2ab78c0efae52338d645c76b735",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.3.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.14",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.4.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "1.4.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js -c -m -o bignumber.min.js --preamble '/* bignumber.js v1.4.0 https://github.com/MikeMcl/bignumber.js/LICENCE */'"
+			},
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js",
+			"_id": "bignumber.js@1.4.0",
+			"dist": {
+				"shasum": "28a11ade4b26fa07896426a5e52513049f51ad72",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.4.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.6",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.4.1": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "1.4.1",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js -c -m -o bignumber.min.js --preamble '/* bignumber.js v1.4.1 https://github.com/MikeMcl/bignumber.js/LICENCE */'"
+			},
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js",
+			"_id": "bignumber.js@1.4.1",
+			"dist": {
+				"shasum": "3d19ac321f8db4ba07aace23ebd4ac976fae6bfa",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.4.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.6",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.5.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "1.5.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js -c -m -o bignumber.min.js --preamble '/* bignumber.js v1.5.0 https://github.com/MikeMcl/bignumber.js/LICENCE */'"
+			},
+			"gitHead": "e8130405e47239e3a3c0d665a5f3f373e5e77f9f",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js",
+			"_id": "bignumber.js@1.5.0",
+			"_shasum": "ff41453ac7b19ee15cda7977e179ff1b0d11956d",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "ff41453ac7b19ee15cda7977e179ff1b0d11956d",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.5.0.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.0.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js -c -m -o bignumber.min.js --preamble '/* bignumber.js v2.0.0 https://github.com/MikeMcl/bignumber.js/LICENCE */'"
+			},
+			"gitHead": "bc66fcfed12c7b4aad528167f3138eb5ad13826f",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js",
+			"_id": "bignumber.js@2.0.0",
+			"_shasum": "9fca55e6c73e1ba5d294bda9983180e947e2119c",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "9fca55e6c73e1ba5d294bda9983180e947e2119c",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.0.tgz"
+			},
+			"deprecated": "critical bug fixed in v2.0.4",
+			"directories": {}
+		},
+		"2.0.1": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.0.1",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js -c -m -o bignumber.min.js --preamble '/* bignumber.js v2.0.1 https://github.com/MikeMcl/bignumber.js/LICENCE */'"
+			},
+			"gitHead": "44c4ab72b540ad3f1db58c686ef4cf1551739c7a",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js",
+			"_id": "bignumber.js@2.0.1",
+			"_shasum": "4db50dd4bc0d48c3ae5912d1717f27dfdf218ef9",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "4db50dd4bc0d48c3ae5912d1717f27dfdf218ef9",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.1.tgz"
+			},
+			"deprecated": "critical bug fixed in v2.0.4",
+			"directories": {}
+		},
+		"2.0.2": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.0.2",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js -c -m -o bignumber.min.js --preamble '/* bignumber.js v2.0.2 https://github.com/MikeMcl/bignumber.js/LICENCE */'"
+			},
+			"gitHead": "e7fd7c15786c3b7e7afc9e4bd5f00d1baf00b77d",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js",
+			"_id": "bignumber.js@2.0.2",
+			"_shasum": "7f80eff1e502ba743beaf3ad015119d4a2495bdd",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "7f80eff1e502ba743beaf3ad015119d4a2495bdd",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.2.tgz"
+			},
+			"deprecated": "critical bug fixed in v2.0.4",
+			"directories": {}
+		},
+		"2.0.3": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.0.3",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map doc/bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v2.0.3 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "9eb3bf841a1cf1d7cced73170790776b744f88da",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js",
+			"_id": "bignumber.js@2.0.3",
+			"_shasum": "1328f1d618f4bfe23587af73577a5a1e4f3cf105",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "1328f1d618f4bfe23587af73577a5a1e4f3cf105",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.3.tgz"
+			},
+			"deprecated": "critical bug fixed in v2.0.4",
+			"directories": {}
+		},
+		"2.0.5": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.0.5",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map doc/bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v2.0.5 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "c5eeb7e9ded3547ce27980f649a66ef167375cfb",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js",
+			"_id": "bignumber.js@2.0.5",
+			"_shasum": "e1d16f495454d4229a7a483ce8d3d774ddc50659",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "e1d16f495454d4229a7a483ce8d3d774ddc50659",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.5.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.6": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.0.6",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map doc/bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v2.0.6 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "c5e054594488b6dde01f16ca2a82c5efadc83455",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js",
+			"_id": "bignumber.js@2.0.6",
+			"_shasum": "d4094494fbb2afd30e5f63f4dbdc8a7066502625",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "d4094494fbb2afd30e5f63f4dbdc8a7066502625",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.6.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.7": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.0.7",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v2.0.7 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "968471891943735593f3711d2f6d9ce6f72868d1",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js",
+			"_id": "bignumber.js@2.0.7",
+			"_shasum": "86eb0707cf6a5110909d23e6ea7434c14f500f1c",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "86eb0707cf6a5110909d23e6ea7434c14f500f1c",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.7.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.8": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.0.8",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v2.0.8 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "f549554c8ca0c6ba9e3db40f366edc9422afc862",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@2.0.8",
+			"_shasum": "ab9f2d18b2a7a4415473e009114b6866abd5745d",
+			"_from": ".",
+			"_npmVersion": "2.14.2",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "ab9f2d18b2a7a4415473e009114b6866abd5745d",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.8.tgz"
+			},
+			"directories": {}
+		},
+		"2.1.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.1.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v2.1.0 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "94501c0b286b0b9a01d1ba80a60d4f7b68c60094",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@2.1.0",
+			"_shasum": "4f2f516b1494093a25dcf9af568de01f550a4c61",
+			"_from": ".",
+			"_npmVersion": "2.14.2",
+			"_nodeVersion": "4.0.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "4f2f516b1494093a25dcf9af568de01f550a4c61",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.1.0.tgz"
+			},
+			"directories": {}
+		},
+		"2.1.1": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.1.1",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v2.1.1 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "003231086e2789ea964cbd99805c59ff6e731813",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@2.1.1",
+			"_shasum": "fd24a5f6bce992aa56692ecf5882dd029788a9f2",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.1",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "fd24a5f6bce992aa56692ecf5882dd029788a9f2",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.1.1.tgz"
+			},
+			"directories": {}
+		},
+		"2.1.2": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.1.2",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v2.1.2 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "9a312f5b8739ca72cd74f4fd5107a31534c2afeb",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@2.1.2",
+			"_shasum": "5b34651333a7e088b3ac230a31e26574e7c6d0a6",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.1",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "5b34651333a7e088b3ac230a31e26574e7c6d0a6",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.1.2.tgz"
+			},
+			"directories": {}
+		},
+		"2.1.3": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.1.3",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v2.1.3 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "2b7d12318068d0683ebd067a0fe155580804137e",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@2.1.3",
+			"_shasum": "12cde364275430c323c198e4b602a0c5943826b2",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.1",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "12cde364275430c323c198e4b602a0c5943826b2",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.1.3.tgz"
+			},
+			"directories": {}
+		},
+		"2.1.4": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.1.4",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v2.1.4 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "ad704dc44f9e2de5cd8bf027b0ff3fcc18e83811",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@2.1.4",
+			"_shasum": "29b3bb693dbb238e88b72eac2fb89650888b2d59",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.1",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "29b3bb693dbb238e88b72eac2fb89650888b2d59",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.1.4.tgz"
+			},
+			"directories": {}
+		},
+		"2.2.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.2.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v2.2.0 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "2182c5948ed4419a35fb9a1fffba2b11ea70e100",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@2.2.0",
+			"_shasum": "160d2f47668abe216bdc0f2d6148b43d23073437",
+			"_from": ".",
+			"_npmVersion": "3.7.1",
+			"_nodeVersion": "5.7.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"shasum": "160d2f47668abe216bdc0f2d6148b43d23073437",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-13-west.internal.npmjs.com",
+				"tmp": "tmp/bignumber.js-2.2.0.tgz_1457049454480_0.39299471979029477"
+			},
+			"directories": {}
+		},
+		"2.3.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.3.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v2.3.0 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "65e21f202adab641efda0d43b85a605791c0816a",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@2.3.0",
+			"_shasum": "597a02d791edc3d64f17850e21789e7a4095df66",
+			"_from": ".",
+			"_npmVersion": "3.7.1",
+			"_nodeVersion": "5.7.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"shasum": "597a02d791edc3d64f17850e21789e7a4095df66",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-13-west.internal.npmjs.com",
+				"tmp": "tmp/bignumber.js-2.3.0.tgz_1457392338289_0.9482216306496412"
+			},
+			"directories": {}
+		},
+		"2.4.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "2.4.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v2.4.0 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "4bc0fe696c65bf0647db9d9493043d284c383a47",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@2.4.0",
+			"_shasum": "838a992da9f9d737e0f4b2db0be62bb09dd0c5e8",
+			"_from": ".",
+			"_npmVersion": "3.8.1",
+			"_nodeVersion": "5.7.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"shasum": "838a992da9f9d737e0f4b2db0be62bb09dd0c5e8",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/bignumber.js-2.4.0.tgz_1468524978236_0.18423767434433103"
+			},
+			"directories": {}
+		},
+		"3.0.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "3.0.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v3.0.0 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "b2f963c331e4d52c15071b546bab6e2b604da535",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@3.0.0",
+			"_shasum": "1c0246383f207d995ea92a892220ee5cb964cac0",
+			"_from": ".",
+			"_npmVersion": "3.8.1",
+			"_nodeVersion": "7.0.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"shasum": "1c0246383f207d995ea92a892220ee5cb964cac0",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-3.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/bignumber.js-3.0.0.tgz_1478731975358_0.3932499347720295"
+			},
+			"directories": {}
+		},
+		"3.0.1": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "3.0.1",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v3.0.1 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "9b63331703aabb0e97076451b3404488501b1f89",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@3.0.1",
+			"_shasum": "807652d10e39de37e9e3497247edc798bb746f76",
+			"_from": ".",
+			"_npmVersion": "3.8.1",
+			"_nodeVersion": "7.0.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"shasum": "807652d10e39de37e9e3497247edc798bb746f76",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-3.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bignumber.js-3.0.1.tgz_1479928260187_0.1408046525903046"
+			},
+			"directories": {}
+		},
+		"3.1.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "3.1.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v3.1.0 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "ab8723804912eeef908e51263b09681c36098b2a",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@3.1.0",
+			"_shasum": "0ef82b546ba1142b55b94d173d9db70e2dfff58c",
+			"_from": ".",
+			"_npmVersion": "3.8.1",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"shasum": "0ef82b546ba1142b55b94d173d9db70e2dfff58c",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-3.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bignumber.js-3.1.0.tgz_1483878392227_0.5329791349358857"
+			},
+			"directories": {}
+		},
+		"3.1.1": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "3.1.1",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v3.1.1 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "c1784169d4a57a916a444c23ea88597841332c45",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@3.1.1",
+			"_shasum": "07fd43a84efbbd760871f144d617a273022a1ed1",
+			"_from": ".",
+			"_npmVersion": "3.8.1",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"shasum": "07fd43a84efbbd760871f144d617a273022a1ed1",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-3.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bignumber.js-3.1.1.tgz_1483880832794_0.2319222188089043"
+			},
+			"directories": {}
+		},
+		"3.1.2": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "3.1.2",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v3.1.2 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "2ccc3a7d2831fbd849fe1efbd9895c814bb344ff",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@3.1.2",
+			"_shasum": "f3bdb99ad5268a15fc1f0bed2fb018e2693fe236",
+			"_from": ".",
+			"_npmVersion": "3.8.1",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"shasum": "f3bdb99ad5268a15fc1f0bed2fb018e2693fe236",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-3.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bignumber.js-3.1.2.tgz_1483896554937_0.13670875830575824"
+			},
+			"directories": {}
+		},
+		"4.0.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "4.0.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v4.0.0 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "46ed093a78e4061efeac50c1bbae624ad61a33f2",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@4.0.0",
+			"_shasum": "26b23a3240820fb6b875f07de822004c7d34b682",
+			"_from": ".",
+			"_npmVersion": "3.8.1",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"shasum": "26b23a3240820fb6b875f07de822004c7d34b682",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-4.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bignumber.js-4.0.0.tgz_1483961261565_0.08973092120140791"
+			},
+			"directories": {}
+		},
+		"4.0.1": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "4.0.1",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v4.0.1 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "b2ed4a015a49ccb9532dfccf73a7b3d918bde6f7",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@4.0.1",
+			"_shasum": "1ffd30d349366e078bd6f7dc97907e6da9a71888",
+			"_from": ".",
+			"_npmVersion": "3.8.1",
+			"_nodeVersion": "7.7.3",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"shasum": "1ffd30d349366e078bd6f7dc97907e6da9a71888",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-4.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bignumber.js-4.0.1.tgz_1491384293511_0.41396988462656736"
+			},
+			"directories": {}
+		},
+		"4.0.2": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "4.0.2",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v4.0.2 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "b12705646d76f8867861affe0646faaadbd3a55e",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@4.0.2",
+			"_shasum": "2d1dc37ee5968867ecea90b6da4d16e68608d21d",
+			"_from": ".",
+			"_npmVersion": "3.8.1",
+			"_nodeVersion": "7.7.3",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"shasum": "2d1dc37ee5968867ecea90b6da4d16e68608d21d",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-4.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bignumber.js-4.0.2.tgz_1493836278714_0.45414948277175426"
+			},
+			"directories": {}
+		},
+		"4.0.3": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "4.0.3",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"types": "bignumber.d.ts",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v4.0.3 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "8d8b2c9704ff447fa061df9e1983191cd07dc04f",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@4.0.3",
+			"_npmVersion": "5.0.4",
+			"_nodeVersion": "8.1.3",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-k4oRv40D6QNDoyG0hdI/VOuScPs81eiOw9WlSspXmoLHT210kpFB3vzyCmR4oQvTd+dkUSuE7wsew+8ouDFZ/g==",
+				"shasum": "b730be1a6025212b0836fdde0e93fb4f3359b133",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-4.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bignumber.js-4.0.3.tgz_1504117458925_0.2815360748209059"
+			},
+			"directories": {}
+		},
+		"4.0.4": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "4.0.4",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"types": "bignumber.d.ts",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v4.0.4 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "cf004586180c1e28129676d0c42d6c51930714c2",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@4.0.4",
+			"_npmVersion": "5.0.4",
+			"_nodeVersion": "8.1.3",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-LDXpJKVzEx2/OqNbG9mXBNvHuiRL4PzHCGfnANHMJ+fv68Ads3exDVJeGDJws+AoNEuca93bU3q+S0woeUaCdg==",
+				"shasum": "7c40f5abcd2d6623ab7b99682ee7db81b11889a4",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-4.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bignumber.js-4.0.4.tgz_1504429902953_0.5128783290274441"
+			},
+			"directories": {}
+		},
+		"4.1.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "4.1.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"types": "bignumber.d.ts",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v4.1.0 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "e545d41b2f43874399101ac7ee5098093ac96b6b",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@4.1.0",
+			"_npmVersion": "5.0.4",
+			"_nodeVersion": "8.5.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-eJzYkFYy9L4JzXsbymsFn3p54D+llV27oTQ+ziJG7WFRheJcNZilgVXMG0LoZtlQSKBsJdWtLFqOD0u+U0jZKA==",
+				"shasum": "db6f14067c140bd46624815a7916c92d9b6c24b1",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-4.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bignumber.js-4.1.0.tgz_1506461103217_0.030498685780912638"
+			},
+			"directories": {}
+		},
+		"5.0.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "5.0.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"types": "bignumber.d.ts",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node ./test/every-test.js",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v5.0.0 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "861ecdc59cb94720dfe3900594da01db99b04ded",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@5.0.0",
+			"_npmVersion": "5.0.4",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-KWTu6ZMVk9sxlDJQh2YH1UOnfDP8O8TpxUxgQG/vKASoSnEjK9aVuOueFaPcQEYQ5fyNXNTOYwYw3099RYebWg==",
+				"shasum": "fbce63f09776b3000a83185badcde525daf34833",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-5.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bignumber.js-5.0.0.tgz_1511817086538_0.6354776597581804"
+			},
+			"directories": {}
+		},
+		"6.0.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "6.0.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"types": "bignumber.d.ts",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node test/test",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v6.0.0 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "33e7d0a7cbb9bcd3d3e395d8efe46af17a73da66",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@6.0.0",
+			"_npmVersion": "5.0.4",
+			"_nodeVersion": "9.2.1",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-x247jIuy60/+FtMRvscqfxtVHQf8AGx2hm9c6btkgC0x/hp9yt+teISNhvF8WlwRkCc5yF2fDECH8SIMe8j+GA==",
+				"shasum": "bbfa047644609a5af093e9cbd83b0461fa3f6002",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-6.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bignumber.js-6.0.0.tgz_1516967715068_0.4698143533896655"
+			},
+			"directories": {},
+			"deprecated": "Custom ALPHABET bug fixed in v7.0.2"
+		},
+		"7.0.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "7.0.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"types": "bignumber.d.ts",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node test/test",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v7.0.0 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "5d31744b0ca64d64c47ad824b449a4cf386f38f8",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@7.0.0",
+			"_npmVersion": "5.0.4",
+			"_nodeVersion": "9.4.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-J4mbFeZ/u5avKy4ZC23Jd4W1hKH031FBHPY4IvBWw90o8zH+ntX+lCXp34jys7byJzYz8zP+TDE1m3v2ZNTgAA==",
+				"shasum": "aa5c4733a6289c2326dbf73c792222c1828ff7a2",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-7.0.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 381963,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa4eu3CRA9TVsSAnZWagAAzXwQAI+B2Xp/9iqPA2wrmUgQ\nK0JJEPkslC3epYt3Ztbi+64toEutWEbun6Xe5tKbLdVXbubexbHJqEqYxAYh\nQOcrKe4zFK6P3BYWJ3N27C2UB6pqmTx+IfeHZWDQSPPwLocuWgIbzXybEZxg\nK4W+1B72/Ww+ZmCEEWWr0MXXwDLk+yLvjjEFQPtrFWFxC0QZNj/R45k+yq97\nM/qLShDDkdqaqinhnbTQZpXAA4jNIu3Tw6/hU4dDcl9+EWBvkJpkippZ9Y1t\npZCCXc3ktCPHwuBbbohFmwjT6m4DBMjq2eGpWK9nYxYunEopp/H2zQXBzaxz\nYvJqIhS7rVm2VaxpFZ2Q2gZ2i6WhHilQDQ3FiSupyAqkY4ExeJ7SpaC0DFD2\n0wzLKUXKfDWQdxKMhLv5T+jltqV0D0nLGzZU0iq2W9x/wZkNua1bN4GkveH9\nBW70w8omXNs39vtpk5ITaGUZreGcTydKvIoLA8Q/u408AzBibFvIbnJGdoQp\n4evRwB1r6if0fudPh6V3+AASv6sMC8vCc/uNdsshXRMhwsSrzgmKBN5ac8Ki\nRM3kl7UviHHQbLxPGkrGNSvKaFtfsF/N91VjxabtBwzulZb8dFSaR7qOArkN\nGxLFIkbBbbF6XrOp2pq57+W6+lNPpgwhW+Z0E5x/OHzHzAREBhj8VDqieFHA\nTh9m\r\n=Sfl7\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bignumber.js_7.0.0_1524755381397_0.7883313438534241"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "Custom ALPHABET bug fixed in v7.0.2"
+		},
+		"7.0.1": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "7.0.1",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"types": "bignumber.d.ts",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node test/test",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v7.0.1 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "f070571ab8210b0def5ffdd2a1fda9623a34fb7f",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@7.0.1",
+			"_npmVersion": "5.0.4",
+			"_nodeVersion": "9.4.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-orXkDA6dhvrCTxYkWMDLIu8R1XWKfPWoJCkFeXOi/Rybl0FVUGHvgDYgUkWVn8fGa5mw2xy25VQGPPmrxfoZkQ==",
+				"shasum": "8d2ff74fb2e7a78cbfc3a57bd63cd6106bf8903a",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-7.0.1.tgz",
+				"fileCount": 11,
+				"unpackedSize": 382012,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa4gscCRA9TVsSAnZWagAAWk4P/j2acE92Z9IqwE6VHqP6\nKW/0arobVbKcEFL7Ji39hCGFwZ1TdI1lZj1L/Q5cuB9rXeQV9GDXAmYyYjU6\n2K2GVQ/HYFROvWTkPjotPl+fUjltI268iqZryfMNx9lRNfIcO4UgeklCJdJv\nmjhAmY21WF56y3Hz6RrfCfZ3JuPG4zNwp9NDeVGssUBKrV0Zvb3Ze8NxC+1o\nd5e14roRakIaE0EdCBsyrdBh1//D5BM3sz/orp6BV5VSWXnBhVNxah0SZD3s\nt5YdhrqNZwqAWrjbx+OqAO0cD17rqw2feNwAm08n3hNVSUU6ksrecqxo0Lb5\nXXZpWqsaPRlPhFQIOXlsuI5+TLE0umbQ1UDOdIeS/WUlHhgjRYa3yCObnImy\n7T7OPh84Rvlrc2NmLg5TohTUPkx3IPF91EQmjQFMgPQ0w1JQ7uayw6GKF/av\n1FmVslM+VRAdHtXjAjJClWM3pj5AEHszwuh0Y0VrkO0w3zmgf1PcP4GI8FmD\nIiqFfgR+TxzFCMQpiKG5fnqZX2idXIA/OgYSJNyREAplNw5jOVJtYRANxA3l\nxZkERY93DZjxISUwSPCN8/fnsjbb8Sx6+BT2yf1Ti4pWnnZWxGbXkSvR0cfT\nSp+rCty5eWIivZFW1feDipwfh1LrdO5T1Xbq0XnxnfcGw8N1iyrrSBXKmaLj\nP8mK\r\n=UXJj\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bignumber.js_7.0.1_1524763419395_0.008886439139829783"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "Custom ALPHABET bug fixed in v7.0.2"
+		},
+		"7.0.2": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "7.0.2",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"types": "bignumber.d.ts",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node test/test",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v7.0.2 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "93f92092a54ce2873f12a268bbbc204b1e132879",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@7.0.2",
+			"_npmVersion": "5.0.4",
+			"_nodeVersion": "10.0.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-TosM7Yg1Ux0ZCNwwS/tW95r3q9xIZstgsUGKWaez0Cgq8Oy3qia9RGvyG/fbxlQAvigjza1d057QNQLGvYXCeg==",
+				"shasum": "2d9ce9428249896d6ef528b2abadf69a405cf365",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-7.0.2.tgz",
+				"fileCount": 11,
+				"unpackedSize": 384254,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa/b1CCRA9TVsSAnZWagAA6OYP/2RWac9O3PRSMQUYKvOW\nqXHKxi2ktV/lokLEwhPOnul4CEoSdjKiJfQy9pobDK+QebKg9RjN72NjuwBR\nOI48kQ8o0xRpJjKuh5Lbm+EVAgurbqL1z+bPnzA8rir3Tn4w86qPFw41xmyc\nafmU2AztrYXfaDzcLzyJXhmpO9WuPkPN8KPwxbHLpHKyIMnrTCESLJwPh7Gb\nOTKDlYVMWhyf8JHdnJ9Y91+5C0JQuXbRmfEGM/F9sGkSEMqf40SqA0dnaPTu\nW5S/Nk/cT+oLDJoGNg/zcLWqABKSzP3TL7JpZXRii/HayTRnxAsZEYLWw5Mh\nu3QsfZG79WmeAGI2BMwt2tMIMRE1EMnP7KXh+rssHMCth0t+N78Dl4V1trhw\n22juEkNYa/k4XiN1PlnPZukBlp619b9C77f23tRT5Znw1RJ+3B1DsGPubfEg\ntWTbFBR9g2cP++g0QgnR8EVTeCEAxgbwUgz8C+WnRWJcxIj1ylPH/8PQvcjy\nZVS/TS+FCJRHzlln5uHM0SttgnrOXM4wvEIlWHOf/kt8I+O5CmMrloBFtG2s\n+Wxj4jmfbD7l085LPb0tNEeNgpotlvuCNry1S+4Q6DTtj+Y0eutfudYvLoKA\nQta+m6rxUILjblKFEGiVwhRAaYvO9rEIbuVoHyNF3a9tf0Z4Z5ffiPacyFAY\nAQs8\r\n=ww3v\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bignumber.js_7.0.2_1526578496915_0.8573955899022272"
+			},
+			"_hasShrinkwrap": false
+		},
+		"7.1.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "7.1.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber.js",
+			"module": "bignumber.mjs",
+			"types": "bignumber.d.ts",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node test/test",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v7.1.0 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "7f6504b94ecd4c8b3525962c94404e23aa8c125e",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@7.1.0",
+			"_npmVersion": "5.0.4",
+			"_nodeVersion": "10.0.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-ioirFr31dV5NwDdw6bFYCi9a62dBhGHohVmWYh0VS84GGbQsb69kIZ1wyqXNqFaPJmvIt9EXpqenk/0hc8tiTQ==",
+				"shasum": "d258f41f8aae0aa33c6e77812ca740dfb758a862",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-7.1.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 384375,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa/o1KCRA9TVsSAnZWagAAwk8P/11GDH4rf1MqpIkqi1Gc\nQVMEj/JZ8YYnKYWnIPhMPyY7kqpuRAC2GLQO2pgHkDL84n25kUiY8pI4oeV4\nESHfDuKNuv+ThS3NCRkAGP4Xc78xLetKgfwVSBkv996UwkL0XbjVFasnHaM7\nohPghcbnNc04lS86YHKM7+Id9jVH6EepkjaFrFOmCJeDrH/2AUUhm4FLYvff\n0M65vqI6T2NLhap17lqIS/NAetw+hBVq+tcGwyoQ3aKmsOJKrPIKKvjroBWx\n8DyIwHFgdqqK1noJaY8tkv7VDZ1MkzemHp0zf/X7m3nBK7cjS/aCNYz3QbEU\nPRRF5tpRw70fdELGbOrC9cKAR/K0gH/17X+OM1OhPmVrj/iHA9JQ74S2ywMR\nd6cESXqc0HCATza4O//lU1K1dYkqiIit/dP49NkarErZfRvQvRmuafi6GoPe\nkCXVFKUaCaIxDJpHtQ8cnAMP4SSHfS3B/a4FRyKdV+UBoMYe/9hZAmCbMNB7\nGt8ci5qUMMaNG1P+tnBLzQHdFr3pwTA8JyWB7+Vza4P7Pe0vvLU3S/lASdzs\nuRRGLw6TNXChs7yk1eU5F5Y6cq+mBPthqVJTMv4ue/fVs1kUDcdX+7WHNm8r\nREdcEXCxuHcccjYC0feqIHAob0UbJulh6ftJV75zaHZEZzEK4Xfsa2zkN6e6\n3oZ3\r\n=AV2V\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bignumber.js_7.1.0_1526631753232_0.6420303263131759"
+			},
+			"_hasShrinkwrap": false
+		},
+		"7.2.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "7.2.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"module": "bignumber.mjs",
+			"types": "bignumber.d.ts",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node test/test",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v7.2.0 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "0f8d1260ab892bf4fae1b9d8782c7953bbf90cd1",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@7.2.0",
+			"_npmVersion": "5.0.4",
+			"_nodeVersion": "10.0.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-WWHzlaRFrhO84RfylRcoAye2yQwlUMVASbgjYpRUsAULM/8KpQn+DL0e+xVgLqAzaS/qImPled4wDdmpIBnmEg==",
+				"shasum": "2a477d9dd87d3fedf77b18ad8ba9e373ef275850",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-7.2.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 384518,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbA/cdCRA9TVsSAnZWagAAFFgP/RZYOlLzdJRYPRzNDTq+\nK5LYZsqlI4IjhCx4AywbD8BkCABgD4/PrJB0FNoDuARnjgO3E6c4ZAEZFDGL\nP/ehAeqfJtU7Pj/XGCs1ME4LJnkvJgGL92Bk8qK06oic5Saq2r8ZPShkLEfg\nhFaAmMvVRPrng0ykA0M0gWQ+CDC39VJmTjsCkaanL+o9alEsl2HtU0B1x0Ar\n4bU3b6Lrt9h9yWgQNgloeorFjY5EGg8FlWpRwjpHOkUg7UHSNST/ty1N40No\nMtFBxkZqUroqHeIk+QpXn1EhWKqlbd1EanLfsktaB2/a/JxSf3cwewCXTyk2\nHqvoRXwdRXBjmrbxYcOKykGfc31PUuT/xzJY2Kuf+oymCJTzXk5l76COb2Vz\noWT7XO1BcGfRFzCeXMXhpxxCVFivV6vPhrHD3/wBGadiwFS3MKovbZOdAGnZ\naXJ6ZhKHoEOpB14Knck9SmkwAEfXrNnc0nkylWdGQuqezaQqBjVh8TEGcfYJ\nogRXR0PSNOI6l7qsEZOa3bTcw4AYx8sOAttoldjoo3YnviZlIEDtL92vy/cx\n5O5AZ6N6dP71SClJvPDvKbg2dElt+NNG0Pf+XIQCjJ9TmEZzVVK4XY0NNHkx\nHlK3sQ9t3HUXqz75tKa6L6p5XNkog54ItspYZ+tz/VQ2hwbhvSeg0ZcDJv5l\nopJd\r\n=XjDI\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bignumber.js_7.2.0_1526986524295_0.2080907964094445"
+			},
+			"_hasShrinkwrap": false
+		},
+		"7.2.1": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "7.2.1",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"module": "bignumber.mjs",
+			"browser": "bignumber.js",
+			"types": "bignumber.d.ts",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node test/test",
+				"build": "uglifyjs bignumber.js --source-map bignumber.js.map -c -m -o bignumber.min.js --preamble \"/* bignumber.js v7.2.1 https://github.com/MikeMcl/bignumber.js/LICENCE */\""
+			},
+			"gitHead": "38ba62a15c0088ca401f1e3bbd5bdb7acf220fe9",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@7.2.1",
+			"_npmVersion": "5.0.4",
+			"_nodeVersion": "10.0.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-S4XzBk5sMB+Rcb/LNcpzXr57VRTxgAvaAEDAl1AwRx27j00hT84O6OkteE7u8UB3NuaaygCRrEpqox4uDOrbdQ==",
+				"shasum": "80c048759d826800807c4bfd521e50edbba57a5f",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-7.2.1.tgz",
+				"fileCount": 11,
+				"unpackedSize": 384618,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbBuBmCRA9TVsSAnZWagAA9DQP/AsurlYSjjPMJZ5cHlMt\nuUWYGIGzc/0SfWsBh5QHtb4WxZVoA4iwJX+SeK1lqB+DLW0RddWSsMAxGiXI\nW/g2hP2IPTQUtXPj7ZWU+bFA7SFosObVEfuy/LFC0UqqA3V6WfF7xYIpyxhk\nCP9wvG1NPY/KFS8VPN/8LA377teuckVjJ7fsJ+p8eTAauPNjbov2I8axiNe7\nFngWQlCkrdWvBl142ZkSKUcmO0hKsyfkaVPrkcsmrf6CDRCjcsDD+Lu3vEsA\nKlfMk8xcf7tZDoKh8ZRtNnfiVaS4Xp7EUklZqvwOqenvW3Dqi2c+sp1eLWR2\nKPPqQbNQGDDyoDC9R/4c49j31/PUYnq+Wghkd8x1lJHBMlsleCJyMw/grB6h\nhpZ1kDUMwRrwVUxB49QAkk0bqL3sOVfbW23lsQycFuRoHuoGXYLOUJ4SiOR7\nvLNxFG+V+9c6yS+RX3PsYPKoOGEHCjeXFQhLxkqNUExuBfjGxm8SPQQYXvQD\nBNK7ETNrNnpnwBsbQ2UmXhPIRUxPAK2afRX8Ws+R4nydV0gl6K1cdY8gYNGT\nqTlQll6bY+bDhFWpXQ93hdWfLu7nA9gF6Shcgb4Z+lT1c7geCR6SiCZL+QJp\nsv1bLkuULj/lSG/PG6XE8UNMgo4fPKLZzObsLUlN3T9Z8DoCmGW/N982J3hN\nLqsD\r\n=9Aj4\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bignumber.js_7.2.1_1527177317585_0.29303924293970507"
+			},
+			"_hasShrinkwrap": false
+		},
+		"8.0.1": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "8.0.1",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"module": "bignumber.mjs",
+			"browser": "bignumber.js",
+			"types": "bignumber.d.ts",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node test/test",
+				"build": "uglifyjs bignumber.js --source-map -c -m -o bignumber.min.js"
+			},
+			"gitHead": "01bfc34da4cb6bee4b5e4e5d9927e5b6c4672ff0",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@8.0.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-zAySveTJXkgLYCBi0b14xzfnOs+f3G6x36I8w2a1+PFQpWk/dp0mI0F+ZZK2bu+3ELewDcSyP+Cfq++NcHX7sg==",
+				"shasum": "5d419191370fb558c64e3e5f70d68e5947138832",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-8.0.1.tgz",
+				"fileCount": 10,
+				"unpackedSize": 392588,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb2yoCCRA9TVsSAnZWagAA0V8P/2Jke6OvPakCxMGOaCKB\nUgzwX2UaD3Mh82yPqRIEjkB4b+1iFG5v6dNxjPk90BFs+1D9ah7JOhJt87Fu\nKfnwHtk1THQ+Vm31IIWlr6fbDA1LUayTVizxY9IF95dfhNhM21Jm8rq1TsYT\n3pGo2Ocj3Omp2y9DAT9pGh9ThRVjlEsiEUzbQvNGv0GjcmFfIwR3zAcMH7h4\nsS/RXrOHGoTsVJxSm+f5V3I883sNpRc1Tz0EVrBExxQkF32HIOie+mo10ZEU\nO8nPnOh8F6641bC3hwV20JQshkLWm8J1+s7Nbx+TYeB8AZUY9ScRACtzLwhE\nvG/P6KoMyFlzXFuRk6dbAJpCgSQDPfiJJpsyaIndP5EzXZ2cZzj5hkXNh2o1\nRM2Cqmc5BvgLphBMPZtHL5NImNtxZtFkKEfi78iSpCslzpJ1EfZWpJOGzm2K\nm5ErK8pCi7n2B+45JEKwzoN4jZtgeuc2VSnTtE3RuTGHw8cHKlpVS2zuSHGz\nJfwS24Q3mnAOvpw8V8/rAowbgZjFTWmmKoGtxr4bMnLg7Q+CcV72QOwhMIon\n8atf1givAgrXLMBCQY0J5wUSaMeXtvlXoBwIkItxQzoX04xPCTMuEx2EyjPv\nFbnF5Ct+X3TWOrcFT5dwvT4SRZCfz0eV6sxpYISGvF9/hm2+6znMAK08r9o2\nYPvC\r\n=bOPT\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bignumber.js_8.0.1_1541089794184_0.4818409835625219"
+			},
+			"_hasShrinkwrap": false
+		},
+		"8.0.2": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "8.0.2",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"module": "bignumber.mjs",
+			"browser": "bignumber.js",
+			"types": "bignumber.d.ts",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node test/test",
+				"build": "uglifyjs bignumber.js --source-map -c -m -o bignumber.min.js"
+			},
+			"dependencies": {},
+			"gitHead": "90672e77e471ddf91cf644d685db148e3e39e49f",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@8.0.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.5.0",
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-EiuvFrnbv0jFixEQ9f58jo7X0qI2lNGIr/MxntmVzQc5JUweDSh8y8hbTCAomFtqwUPIOWcLXP0VEOSZTG7FFw==",
+				"shasum": "d8c4e1874359573b1ef03011a2d861214aeef137",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-8.0.2.tgz",
+				"fileCount": 10,
+				"unpackedSize": 394844,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcO74UCRA9TVsSAnZWagAAbwsP/1CHGyqtrqk8grZ5eR8M\nWbaCYnqPa4XjWl1KSi9ZYo0KxUeY/Isi1eFd80345XIFrFL8ZtSwTMFNIW9k\n4w0GTqa/piCki/TfEsLneN98GA1Vnd4qHNd30xqgx5j8o1C1Ep7rH9tsesD7\nqjOH929t2fhDL7gp1kY9OGh/4LnYS0/O3PBYwTwc/GN8qtQmVJx7KywJI0O1\nEeQmBgD6sPmp2qu6vw3CJLQ9wshIV7tiH8Kl/jgL7DZAyA+tkZbHJIYTJhJC\nWazgWiATVLjpZBCWjfHxo7Fp1ETL3CmkCNBoSqbtJuo73u2e8fN1QPd3qsfv\nXLoSi1Z+A3dLcytfBEdnGx5jsJU6T/x4xvrLV3g3Pz722+yQhDuFVvJuBGIQ\nd1rW1sU04liZw/AvRxb+O4ncvSSnC1A6xQINnvU6vY8EFYyYKefTSHy0bj8A\nz0ooswvnyDvRO6SxXRL7L7Wn/ZfCzT6g1Kf+VQShJCY+63pojisFOy2lYrYd\n+lGZApPOsdJJQKnKYPBqP9EkHwHJk8knQn8BNsG/V+qYfXBz/i75AUvZfZsa\nxEs2fOLI7xcw/G4Ev5aMrUwSnOwrl5aIpgOmwAPeazr81utdkhW2FB7+ZMC9\nCRPTM2pi9zaanqEcXZ1CqXkWj+8FCb1dpUgDiamTxuJsITcS77R4farLtZuM\nT3W6\r\n=sig/\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bignumber.js_8.0.2_1547419155492_0.4141997435738314"
+			},
+			"_hasShrinkwrap": false
+		},
+		"8.1.1": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "8.1.1",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"module": "bignumber.mjs",
+			"browser": "bignumber.js",
+			"types": "bignumber.d.ts",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node test/test",
+				"build": "uglifyjs bignumber.js --source-map -c -m -o bignumber.min.js"
+			},
+			"dependencies": {},
+			"gitHead": "2601c3eda90da68c22bec168df3b709b2d42a638",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@8.1.1",
+			"_nodeVersion": "11.10.0",
+			"_npmVersion": "6.7.0",
+			"dist": {
+				"integrity": "sha512-QD46ppGintwPGuL1KqmwhR0O+N2cZUg8JG/VzwI2e28sM9TqHjQB10lI4QAaMHVbLzwVLLAwEglpKPViWX+5NQ==",
+				"shasum": "4b072ae5aea9c20f6730e4e5d529df1271c4d885",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-8.1.1.tgz",
+				"fileCount": 10,
+				"unpackedSize": 402139,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJccpceCRA9TVsSAnZWagAAzUYP/0hr58bhLziwD6c2rcAg\nrhOjmtf8dt0XaS6jr5p0v64axU41vfEqV9BZcF+Mbh/IVGe4o9SdbXYPjuj+\nNfAeele6T6fYZR5gY/SLWDyNbYjzZwePVhLX0sJ5T9FTL0wJO55PaPUGZIBg\nOX6nJluLQvA1oLxFOyPF7NwxyjuEb5ZRem8roWqpWxFPXbggRu7rMAThTkfc\n8GyWuh0Z799xG4OvaG21aLL9OlEuqZwqu4lSXIM9SEVsYgj4lvcQXT0bZNge\n9HY84RyIq2MvsAZTLdSxgI/C9tXnVBGJdcZip39QJpJjQT/SGiXlVE6pKPjG\nnB+8o5Tv6AohoMVBkTZkWWFOSjmffRAPkIcQ7b8E8VydCZWFDjtH3cvyA6yl\nUPFZEtufe/E0PDNYAndrHZ5Av9AQ/cR8S/l8T9loVcZwfH0fgiok+Iv4q0Uk\nDiHj5NrTtRyEUt89unw0gc/7deHKTt+jBzjgZqfom/fKlYdUm+xXQdm4/y1/\nqop+DM9cMCyIPyOqzA46nWNphu1VrtvTpGyD1sRv7vLWJHhpwScJz2hfTAFz\nalbZ56ycFVDAu9wwVI/QwgJdLEy+mPhS4MbUNce6853tZ/crwhSYxFcISqij\n3uXpKj55sgm2LxbguNKT3ZSSUpABCraAR2pXuI3kvfHcB7fs0L1Kc2RN/G7+\nzc61\r\n=LRgX\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bignumber.js_8.1.1_1551013661652_0.517456110464332"
+			},
+			"_hasShrinkwrap": false
+		},
+		"9.0.0": {
+			"name": "bignumber.js",
+			"description": "A library for arbitrary-precision decimal and non-decimal arithmetic",
+			"version": "9.0.0",
+			"keywords": [
+				"arbitrary",
+				"precision",
+				"arithmetic",
+				"big",
+				"number",
+				"decimal",
+				"float",
+				"biginteger",
+				"bigdecimal",
+				"bignumber",
+				"bigint",
+				"bignum"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/MikeMcl/bignumber.js.git"
+			},
+			"main": "bignumber",
+			"module": "bignumber.mjs",
+			"browser": "bignumber.js",
+			"types": "bignumber.d.ts",
+			"author": {
+				"name": "Michael Mclaughlin",
+				"email": "M8ch88l@gmail.com"
+			},
+			"engines": {
+				"node": "*"
+			},
+			"license": "MIT",
+			"scripts": {
+				"test": "node test/test",
+				"build": "uglifyjs bignumber.js --source-map -c -m -o bignumber.min.js"
+			},
+			"dependencies": {},
+			"gitHead": "986fd70e514e58e86d43bc9944547d82658e47ae",
+			"bugs": {
+				"url": "https://github.com/MikeMcl/bignumber.js/issues"
+			},
+			"homepage": "https://github.com/MikeMcl/bignumber.js#readme",
+			"_id": "bignumber.js@9.0.0",
+			"_nodeVersion": "12.2.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-t/OYhhJ2SD+YGBQcjY8GzzDHEk9f3nerxjtfa6tlMXfe7frs/WozhvCNoGvpM0P3bNf3Gq5ZRMlGr5f3r4/N8A==",
+				"shasum": "805880f84a329b5eac6e7cb6f8274b6d82bdf075",
+				"tarball": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-9.0.0.tgz",
+				"fileCount": 10,
+				"unpackedSize": 401573,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc7BxcCRA9TVsSAnZWagAAaVAP/2i1olzrdqkcX3On4KXS\nmGTjsLOApkDw/5HcLxVy6f0DfNdn1PVWPrdPLQwE0xwYc+VuyYSOKugNgznQ\neIhk5aH9e3Vk7E99dUdmDoMq2v8NXw1Mz/EcZ4zGKZF7GbYz65LEXnNVeJZq\nAPHWKQOm7kCu98v5h7A4a2brlkQS5V/W4qcZTUv3Kr7zHoxYs6aiOYk1kg21\nUCOUu6w/1EIiwWAymQ9Ui8tEb1Q3sqJgngpk9iBRZEAYgQMoHNf5MgcRpYig\nMsiMQPTDJF5kjoU+kcq5xFvaMAPXf5m4lNfeeVs0R6qZHeiucukNKmtoH8kq\nYLlpY5THGUmhK4Fh/He56ARPwLCg4npsBgLfFshgT42UlmKaRsDpWvJEwEwU\n72ylXG5MRAM4AJusTuDiI68jhtChmC63SNzu2kB0RYOH4yxActVY05srZzqJ\nm9eVPoGFmbJ5CgjMUIrU9k8PY1Ft1cFph4Eq/Et7/5uBdtvIJC6dedGV4ZFO\nfewlYG3AtMjXXgcdqhoFSYVEgm2BRKfK8xV2kpIbgSo/gBdtItyOKCfAfZzc\n3By6oZToexGqDvjscAWiC9Aws2LJ51ZoDuRM1+bvLlzx8Yy2hmio/H49AdUo\nPdw5kvkm4IobJofixDruBvf/59RbPRiaoBSe7nkSTkf2iLFINu7HH7SgZrYc\n5L3z\r\n=i4Nw\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mikemcl",
+					"email": "M8ch88l@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "mikemcl",
+				"email": "M8ch88l@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bignumber.js_9.0.0_1558977627333_0.42439649964584025"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-09-06T18:08:50.978Z",
+		"created": "2012-11-26T23:19:46.876Z",
+		"1.0.0": "2012-11-26T23:19:52.139Z",
+		"1.0.1": "2013-01-16T13:53:16.486Z",
+		"1.1.0": "2013-08-01T18:16:32.821Z",
+		"1.1.1": "2013-08-22T09:27:31.238Z",
+		"1.2.0": "2013-09-19T11:31:56.852Z",
+		"1.2.1": "2013-10-17T12:56:30.529Z",
+		"1.3.0": "2013-11-29T10:20:01.422Z",
+		"1.4.0": "2014-05-08T22:45:23.786Z",
+		"1.4.1": "2014-06-08T22:46:37.076Z",
+		"1.5.0": "2014-11-13T23:26:39.637Z",
+		"2.0.0": "2014-12-29T00:31:37.191Z",
+		"2.0.1": "2015-02-18T13:07:47.873Z",
+		"2.0.2": "2015-02-18T13:40:46.936Z",
+		"2.0.3": "2015-02-18T20:52:50.827Z",
+		"2.0.4": "2015-03-25T19:52:01.085Z",
+		"2.0.5": "2015-03-25T23:09:37.483Z",
+		"2.0.6": "2015-03-31T15:27:12.497Z",
+		"2.0.7": "2015-04-02T19:48:44.449Z",
+		"2.0.8": "2015-10-06T08:34:33.222Z",
+		"2.1.0": "2015-10-26T15:57:38.364Z",
+		"2.1.1": "2015-12-09T20:01:14.752Z",
+		"2.1.2": "2015-12-10T19:54:37.911Z",
+		"2.1.3": "2015-12-13T23:47:39.507Z",
+		"2.1.4": "2015-12-15T21:13:45.242Z",
+		"2.2.0": "2016-03-03T23:57:37.681Z",
+		"2.3.0": "2016-03-07T23:12:22.295Z",
+		"2.4.0": "2016-07-14T19:36:20.757Z",
+		"3.0.0": "2016-11-09T22:52:55.925Z",
+		"3.0.1": "2016-11-23T19:11:02.366Z",
+		"3.1.0": "2017-01-08T12:26:34.678Z",
+		"3.1.1": "2017-01-08T13:07:15.192Z",
+		"3.1.2": "2017-01-08T17:29:17.192Z",
+		"4.0.0": "2017-01-09T11:27:43.736Z",
+		"4.0.1": "2017-04-05T09:24:55.654Z",
+		"4.0.2": "2017-05-03T18:31:20.919Z",
+		"4.0.3": "2017-08-30T18:24:20.153Z",
+		"4.0.4": "2017-09-03T09:11:44.149Z",
+		"4.1.0": "2017-09-26T21:25:04.438Z",
+		"5.0.0": "2017-11-27T21:11:27.713Z",
+		"6.0.0": "2018-01-26T11:55:16.375Z",
+		"7.0.0": "2018-04-26T15:09:41.520Z",
+		"7.0.1": "2018-04-26T17:23:39.535Z",
+		"7.0.2": "2018-05-17T17:34:57.104Z",
+		"7.1.0": "2018-05-18T08:22:33.293Z",
+		"7.2.0": "2018-05-22T10:55:24.361Z",
+		"7.2.1": "2018-05-24T15:55:17.743Z",
+		"8.0.0": "2018-11-01T12:23:56.146Z",
+		"8.0.1": "2018-11-01T16:29:54.322Z",
+		"8.0.2": "2019-01-13T22:39:15.644Z",
+		"8.1.0": "2019-02-23T17:04:36.558Z",
+		"8.1.1": "2019-02-24T13:07:41.866Z",
+		"9.0.0": "2019-05-27T17:20:27.451Z"
+	},
+	"dist-tags": {
+		"latest": "9.0.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"60b548d3528919c7673bcfa1bccbd082\"",
+			"fetched": 1568994351678
+		}
+	},
+	"_distfiles": {
+		"bignumber.js-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.0.0.tgz",
+			"sha": "944c0d5c6420620484ddc36c55d8b401799be13b",
+			"registry": "npmjs"
+		},
+		"bignumber.js-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.0.1.tgz",
+			"sha": "0e953896823b783d48ea921884d3fd90b89bdcb1",
+			"registry": "npmjs"
+		},
+		"bignumber.js-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.1.0.tgz",
+			"sha": "ebcc3dfa6ee8debd7656f4f63257b25931aadddf",
+			"registry": "npmjs"
+		},
+		"bignumber.js-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.1.1.tgz",
+			"sha": "1a415d9ac014c13256af1feed9d1a3e5717a8cf7",
+			"registry": "npmjs"
+		},
+		"bignumber.js-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.2.0.tgz",
+			"sha": "6b99ecc89638164aeff66f01a48e38aa8fbd79b8",
+			"registry": "npmjs"
+		},
+		"bignumber.js-1.2.1.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.2.1.tgz",
+			"sha": "e190f7bf5721c8766a074a95f90c0e476b0a2f10",
+			"registry": "npmjs"
+		},
+		"bignumber.js-1.3.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.3.0.tgz",
+			"sha": "07be3d171235a2ab78c0efae52338d645c76b735",
+			"registry": "npmjs"
+		},
+		"bignumber.js-1.4.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.4.0.tgz",
+			"sha": "28a11ade4b26fa07896426a5e52513049f51ad72",
+			"registry": "npmjs"
+		},
+		"bignumber.js-1.4.1.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.4.1.tgz",
+			"sha": "3d19ac321f8db4ba07aace23ebd4ac976fae6bfa",
+			"registry": "npmjs"
+		},
+		"bignumber.js-1.5.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-1.5.0.tgz",
+			"sha": "ff41453ac7b19ee15cda7977e179ff1b0d11956d",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.0.tgz",
+			"sha": "9fca55e6c73e1ba5d294bda9983180e947e2119c",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.1.tgz",
+			"sha": "4db50dd4bc0d48c3ae5912d1717f27dfdf218ef9",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.2.tgz",
+			"sha": "7f80eff1e502ba743beaf3ad015119d4a2495bdd",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.0.3.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.3.tgz",
+			"sha": "1328f1d618f4bfe23587af73577a5a1e4f3cf105",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.0.5.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.5.tgz",
+			"sha": "e1d16f495454d4229a7a483ce8d3d774ddc50659",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.0.6.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.6.tgz",
+			"sha": "d4094494fbb2afd30e5f63f4dbdc8a7066502625",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.0.7.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.7.tgz",
+			"sha": "86eb0707cf6a5110909d23e6ea7434c14f500f1c",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.0.8.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.0.8.tgz",
+			"sha": "ab9f2d18b2a7a4415473e009114b6866abd5745d",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.1.0.tgz",
+			"sha": "4f2f516b1494093a25dcf9af568de01f550a4c61",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.1.1.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.1.1.tgz",
+			"sha": "fd24a5f6bce992aa56692ecf5882dd029788a9f2",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.1.2.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.1.2.tgz",
+			"sha": "5b34651333a7e088b3ac230a31e26574e7c6d0a6",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.1.3.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.1.3.tgz",
+			"sha": "12cde364275430c323c198e4b602a0c5943826b2",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.1.4.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.1.4.tgz",
+			"sha": "29b3bb693dbb238e88b72eac2fb89650888b2d59",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.2.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.2.0.tgz",
+			"sha": "160d2f47668abe216bdc0f2d6148b43d23073437",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.3.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.3.0.tgz",
+			"sha": "597a02d791edc3d64f17850e21789e7a4095df66",
+			"registry": "npmjs"
+		},
+		"bignumber.js-2.4.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-2.4.0.tgz",
+			"sha": "838a992da9f9d737e0f4b2db0be62bb09dd0c5e8",
+			"registry": "npmjs"
+		},
+		"bignumber.js-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-3.0.0.tgz",
+			"sha": "1c0246383f207d995ea92a892220ee5cb964cac0",
+			"registry": "npmjs"
+		},
+		"bignumber.js-3.0.1.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-3.0.1.tgz",
+			"sha": "807652d10e39de37e9e3497247edc798bb746f76",
+			"registry": "npmjs"
+		},
+		"bignumber.js-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-3.1.0.tgz",
+			"sha": "0ef82b546ba1142b55b94d173d9db70e2dfff58c",
+			"registry": "npmjs"
+		},
+		"bignumber.js-3.1.1.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-3.1.1.tgz",
+			"sha": "07fd43a84efbbd760871f144d617a273022a1ed1",
+			"registry": "npmjs"
+		},
+		"bignumber.js-3.1.2.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-3.1.2.tgz",
+			"sha": "f3bdb99ad5268a15fc1f0bed2fb018e2693fe236",
+			"registry": "npmjs"
+		},
+		"bignumber.js-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-4.0.0.tgz",
+			"sha": "26b23a3240820fb6b875f07de822004c7d34b682",
+			"registry": "npmjs"
+		},
+		"bignumber.js-4.0.1.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-4.0.1.tgz",
+			"sha": "1ffd30d349366e078bd6f7dc97907e6da9a71888",
+			"registry": "npmjs"
+		},
+		"bignumber.js-4.0.2.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-4.0.2.tgz",
+			"sha": "2d1dc37ee5968867ecea90b6da4d16e68608d21d",
+			"registry": "npmjs"
+		},
+		"bignumber.js-4.0.3.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-4.0.3.tgz",
+			"sha": "b730be1a6025212b0836fdde0e93fb4f3359b133",
+			"registry": "npmjs"
+		},
+		"bignumber.js-4.0.4.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-4.0.4.tgz",
+			"sha": "7c40f5abcd2d6623ab7b99682ee7db81b11889a4",
+			"registry": "npmjs"
+		},
+		"bignumber.js-4.1.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-4.1.0.tgz",
+			"sha": "db6f14067c140bd46624815a7916c92d9b6c24b1",
+			"registry": "npmjs"
+		},
+		"bignumber.js-5.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-5.0.0.tgz",
+			"sha": "fbce63f09776b3000a83185badcde525daf34833",
+			"registry": "npmjs"
+		},
+		"bignumber.js-6.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-6.0.0.tgz",
+			"sha": "bbfa047644609a5af093e9cbd83b0461fa3f6002",
+			"registry": "npmjs"
+		},
+		"bignumber.js-7.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-7.0.0.tgz",
+			"sha": "aa5c4733a6289c2326dbf73c792222c1828ff7a2",
+			"registry": "npmjs"
+		},
+		"bignumber.js-7.0.1.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-7.0.1.tgz",
+			"sha": "8d2ff74fb2e7a78cbfc3a57bd63cd6106bf8903a",
+			"registry": "npmjs"
+		},
+		"bignumber.js-7.0.2.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-7.0.2.tgz",
+			"sha": "2d9ce9428249896d6ef528b2abadf69a405cf365",
+			"registry": "npmjs"
+		},
+		"bignumber.js-7.1.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-7.1.0.tgz",
+			"sha": "d258f41f8aae0aa33c6e77812ca740dfb758a862",
+			"registry": "npmjs"
+		},
+		"bignumber.js-7.2.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-7.2.0.tgz",
+			"sha": "2a477d9dd87d3fedf77b18ad8ba9e373ef275850",
+			"registry": "npmjs"
+		},
+		"bignumber.js-7.2.1.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-7.2.1.tgz",
+			"sha": "80c048759d826800807c4bfd521e50edbba57a5f",
+			"registry": "npmjs"
+		},
+		"bignumber.js-8.0.1.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-8.0.1.tgz",
+			"sha": "5d419191370fb558c64e3e5f70d68e5947138832",
+			"registry": "npmjs"
+		},
+		"bignumber.js-8.0.2.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-8.0.2.tgz",
+			"sha": "d8c4e1874359573b1ef03011a2d861214aeef137",
+			"registry": "npmjs"
+		},
+		"bignumber.js-8.1.1.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-8.1.1.tgz",
+			"sha": "4b072ae5aea9c20f6730e4e5d529df1271c4d885",
+			"registry": "npmjs"
+		},
+		"bignumber.js-9.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bignumber.js/-/bignumber.js-9.0.0.tgz",
+			"sha": "805880f84a329b5eac6e7cb6f8274b6d82bdf075",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-7898e7383a9d4d8a",
+	"_id": "bignumber.js",
+	"readme": "![bignumber.js](https://raw.githubusercontent.com/MikeMcl/bignumber.js/gh-pages/bignumberjs.png)\r\n\r\nA JavaScript library for arbitrary-precision decimal and non-decimal arithmetic.\r\n\r\n[![Build Status](https://travis-ci.org/MikeMcl/bignumber.js.svg)](https://travis-ci.org/MikeMcl/bignumber.js)\r\n\r\n<br />\r\n\r\n## Features\r\n\r\n  - Integers and decimals\r\n  - Simple API but full-featured\r\n  - Faster, smaller, and perhaps easier to use than JavaScript versions of Java's BigDecimal\r\n  - 8 KB minified and gzipped\r\n  - Replicates the `toExponential`, `toFixed`, `toPrecision` and `toString` methods of JavaScript's Number type\r\n  - Includes a `toFraction` and a correctly-rounded `squareRoot` method\r\n  - Supports cryptographically-secure pseudo-random number generation\r\n  - No dependencies\r\n  - Wide platform compatibility: uses JavaScript 1.5 (ECMAScript 3) features only\r\n  - Comprehensive [documentation](http://mikemcl.github.io/bignumber.js/) and test set\r\n\r\n![API](https://raw.githubusercontent.com/MikeMcl/bignumber.js/gh-pages/API.png)\r\n\r\nIf a smaller and simpler library is required see [big.js](https://github.com/MikeMcl/big.js/).\r\nIt's less than half the size but only works with decimal numbers and only has half the methods.\r\nIt also does not allow `NaN` or `Infinity`, or have the configuration options of this library.\r\n\r\nSee also [decimal.js](https://github.com/MikeMcl/decimal.js/), which among other things adds support for non-integer powers, and performs all operations to a specified number of significant digits.\r\n\r\n## Load\r\n\r\nThe library is the single JavaScript file *bignumber.js* (or minified, *bignumber.min.js*).\r\n\r\nBrowser:\r\n\r\n```html\r\n<script src='path/to/bignumber.js'></script>\r\n```\r\n\r\n[Node.js](http://nodejs.org):\r\n\r\n```bash\r\n$ npm install bignumber.js\r\n```\r\n\r\n```javascript\r\nconst BigNumber = require('bignumber.js');\r\n```\r\n\r\nES6 module:\r\n\r\n```javascript\r\nimport BigNumber from \"./bignumber.mjs\"\r\n```\r\n\r\nAMD loader libraries such as [requireJS](http://requirejs.org/):\r\n\r\n```javascript\r\nrequire(['bignumber'], function(BigNumber) {\r\n    // Use BigNumber here in local scope. No global BigNumber.\r\n});\r\n```\r\n\r\n## Use\r\n\r\nThe library exports a single constructor function, [`BigNumber`](http://mikemcl.github.io/bignumber.js/#bignumber), which accepts a value of type Number, String or BigNumber,\r\n\r\n```javascript\r\nlet x = new BigNumber(123.4567);\r\nlet y = BigNumber('123456.7e-3');\r\nlet z = new BigNumber(x);\r\nx.isEqualTo(y) && y.isEqualTo(z) && x.isEqualTo(z);      // true\r\n```\r\n\r\nTo get the string value of a BigNumber use [`toString()`](http://mikemcl.github.io/bignumber.js/#toS) or [`toFixed()`](http://mikemcl.github.io/bignumber.js/#toFix). Using `toFixed()` prevents exponential notation being returned, no matter how large or small the value.\r\n\r\n```javascript\r\nlet x = new BigNumber('1111222233334444555566');\r\nx.toString();                       // \"1.111222233334444555566e+21\"\r\nx.toFixed();                        // \"1111222233334444555566\"\r\n```\r\n\r\nIf the limited precision of Number values is not well understood, it is recommended to create BigNumbers from String values rather than Number values to avoid a potential loss of precision.\r\n\r\n*In all further examples below, `let`, semicolons and `toString` calls are not shown. If a commented-out value is in quotes it means `toString` has been called on the preceding expression.*\r\n\r\n```javascript\r\n// Precision loss from using numeric literals with more than 15 significant digits.\r\nnew BigNumber(1.0000000000000001)         // '1'\r\nnew BigNumber(88259496234518.57)          // '88259496234518.56'\r\nnew BigNumber(99999999999999999999)       // '100000000000000000000'\r\n\r\n// Precision loss from using numeric literals outside the range of Number values.\r\nnew BigNumber(2e+308)                     // 'Infinity'\r\nnew BigNumber(1e-324)                     // '0'\r\n\r\n// Precision loss from the unexpected result of arithmetic with Number values.\r\nnew BigNumber(0.7 + 0.1)                  // '0.7999999999999999'\r\n```\r\n\r\nWhen creating a BigNumber from a Number, note that a BigNumber is created from a Number's decimal `toString()` value not from its underlying binary value. If the latter is required, then pass the Number's `toString(2)` value and specify base 2.\r\n\r\n```javascript\r\nnew BigNumber(Number.MAX_VALUE.toString(2), 2)\r\n```\r\n\r\nBigNumbers can be created from values in bases from 2 to 36. See [`ALPHABET`](http://mikemcl.github.io/bignumber.js/#alphabet) to extend this range.\r\n\r\n```javascript\r\na = new BigNumber(1011, 2)          // \"11\"\r\nb = new BigNumber('zz.9', 36)       // \"1295.25\"\r\nc = a.plus(b)                       // \"1306.25\"\r\n```\r\n\r\nPerformance is better if base 10 is NOT specified for decimal values. Only specify base 10 when it is desired that the number of decimal places of the input value be limited to the current [`DECIMAL_PLACES`](http://mikemcl.github.io/bignumber.js/#decimal-places) setting.\r\n\r\nA BigNumber is immutable in the sense that it is not changed by its methods.\r\n\r\n```javascript\r\n0.3 - 0.1                           // 0.19999999999999998\r\nx = new BigNumber(0.3)\r\nx.minus(0.1)                        // \"0.2\"\r\nx                                   // \"0.3\"\r\n```\r\n\r\nThe methods that return a BigNumber can be chained.\r\n\r\n```javascript\r\nx.dividedBy(y).plus(z).times(9)\r\nx.times('1.23456780123456789e+9').plus(9876.5432321).dividedBy('4444562598.111772').integerValue()\r\n```\r\n\r\nSome of the longer method names have a shorter alias.\r\n\r\n```javascript\r\nx.squareRoot().dividedBy(y).exponentiatedBy(3).isEqualTo(x.sqrt().div(y).pow(3))    // true\r\nx.modulo(y).multipliedBy(z).eq(x.mod(y).times(z))                                   // true\r\n```\r\n\r\nAs with JavaScript's Number type, there are [`toExponential`](http://mikemcl.github.io/bignumber.js/#toE), [`toFixed`](http://mikemcl.github.io/bignumber.js/#toFix) and [`toPrecision`](http://mikemcl.github.io/bignumber.js/#toP) methods.\r\n\r\n```javascript\r\nx = new BigNumber(255.5)\r\nx.toExponential(5)                  // \"2.55500e+2\"\r\nx.toFixed(5)                        // \"255.50000\"\r\nx.toPrecision(5)                    // \"255.50\"\r\nx.toNumber()                        //  255.5\r\n```\r\n\r\n A base can be specified for [`toString`](http://mikemcl.github.io/bignumber.js/#toS). Performance is better if base 10 is NOT specified, i.e. use `toString()` not `toString(10)`. Only specify base 10 when it is desired that the number of decimal places be limited to the current [`DECIMAL_PLACES`](http://mikemcl.github.io/bignumber.js/#decimal-places) setting.\r\n\r\n ```javascript\r\n x.toString(16)                     // \"ff.8\"\r\n ```\r\n\r\nThere is a [`toFormat`](http://mikemcl.github.io/bignumber.js/#toFor) method which may be useful for internationalisation.\r\n\r\n```javascript\r\ny = new BigNumber('1234567.898765')\r\ny.toFormat(2)                       // \"1,234,567.90\"\r\n```\r\n\r\nThe maximum number of decimal places of the result of an operation involving division (i.e. a division, square root, base conversion or negative power operation) is set using the `set` or `config` method of the `BigNumber` constructor.\r\n\r\nThe other arithmetic operations always give the exact result.\r\n\r\n```javascript\r\nBigNumber.set({ DECIMAL_PLACES: 10, ROUNDING_MODE: 4 })\r\n\r\nx = new BigNumber(2)\r\ny = new BigNumber(3)\r\nz = x.dividedBy(y)                        // \"0.6666666667\"\r\nz.squareRoot()                            // \"0.8164965809\"\r\nz.exponentiatedBy(-3)                     // \"3.3749999995\"\r\nz.toString(2)                             // \"0.1010101011\"\r\nz.multipliedBy(z)                         // \"0.44444444448888888889\"\r\nz.multipliedBy(z).decimalPlaces(10)       // \"0.4444444445\"\r\n```\r\n\r\nThere is a [`toFraction`](http://mikemcl.github.io/bignumber.js/#toFr) method with an optional *maximum denominator* argument\r\n\r\n```javascript\r\ny = new BigNumber(355)\r\npi = y.dividedBy(113)               // \"3.1415929204\"\r\npi.toFraction()                     // [ \"7853982301\", \"2500000000\" ]\r\npi.toFraction(1000)                 // [ \"355\", \"113\" ]\r\n```\r\n\r\nand [`isNaN`](http://mikemcl.github.io/bignumber.js/#isNaN) and [`isFinite`](http://mikemcl.github.io/bignumber.js/#isF) methods, as `NaN` and `Infinity` are valid `BigNumber` values.\r\n\r\n```javascript\r\nx = new BigNumber(NaN)                                           // \"NaN\"\r\ny = new BigNumber(Infinity)                                      // \"Infinity\"\r\nx.isNaN() && !y.isNaN() && !x.isFinite() && !y.isFinite()        // true\r\n```\r\n\r\nThe value of a BigNumber is stored in a decimal floating point format in terms of a coefficient, exponent and sign.\r\n\r\n```javascript\r\nx = new BigNumber(-123.456);\r\nx.c                                 // [ 123, 45600000000000 ]  coefficient (i.e. significand)\r\nx.e                                 // 2                        exponent\r\nx.s                                 // -1                       sign\r\n```\r\n\r\nFor advanced usage, multiple BigNumber constructors can be created, each with their own independent configuration.\r\n\r\n```javascript\r\n// Set DECIMAL_PLACES for the original BigNumber constructor\r\nBigNumber.set({ DECIMAL_PLACES: 10 })\r\n\r\n// Create another BigNumber constructor, optionally passing in a configuration object\r\nBN = BigNumber.clone({ DECIMAL_PLACES: 5 })\r\n\r\nx = new BigNumber(1)\r\ny = new BN(1)\r\n\r\nx.div(3)                            // '0.3333333333'\r\ny.div(3)                            // '0.33333'\r\n```\r\n\r\nFor further information see the [API](http://mikemcl.github.io/bignumber.js/) reference in the *doc* directory.\r\n\r\n## Test\r\n\r\nThe *test/modules* directory contains the test scripts for each method.\r\n\r\nThe tests can be run with Node.js or a browser. For Node.js use\r\n\r\n    $ npm test\r\n\r\nor\r\n\r\n    $ node test/test\r\n\r\nTo test a single method, use, for example\r\n\r\n    $ node test/methods/toFraction\r\n\r\nFor the browser, open *test/test.html*.\r\n\r\n## Build\r\n\r\nFor Node, if [uglify-js](https://github.com/mishoo/UglifyJS2) is installed\r\n\r\n    npm install uglify-js -g\r\n\r\nthen\r\n\r\n    npm run build\r\n\r\nwill create *bignumber.min.js*.\r\n\r\nA source map will also be created in the root directory.\r\n\r\n## Feedback\r\n\r\nOpen an issue, or email\r\n\r\nMichael\r\n\r\n<a href=\"mailto:M8ch88l@gmail.com\">M8ch88l@gmail.com</a>\r\n\r\n## Licence\r\n\r\nThe MIT Licence.\r\n\r\nSee [LICENCE](https://github.com/MikeMcl/bignumber.js/blob/master/LICENCE)."
+}

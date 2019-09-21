@@ -1,0 +1,17 @@
+{
+  "name": "simpletest",
+  "version": "0.0.0",
+  "description": "Simple chaincode implemented in node.js",
+  "engines": {
+    "node": ">=8.4.0",
+    "npm": ">=5.3.0"
+  },
+  "scripts": {
+    "start": "node simpletest.js"
+  },
+  "engine-strict": true,
+  "license": "Apache-2.0",
+  "dependencies": {
+    "fabric-shim": "~1.4.0"
+  }
+}

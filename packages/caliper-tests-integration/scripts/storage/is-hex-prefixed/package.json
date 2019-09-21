@@ -1,0 +1,97 @@
+{
+	"name": "is-hex-prefixed",
+	"versions": {
+		"1.0.0": {
+			"name": "is-hex-prefixed",
+			"version": "1.0.0",
+			"description": "A simple method to check if a string is hex prefixed.",
+			"main": "src/index.js",
+			"scripts": {
+				"test": "mocha src/tests/**/**.js",
+				"test-travis": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- src/tests/**/*.js",
+				"coveralls": "npm run test-travis && cat ./coverage/lcov.info | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/SilentCicero/is-hex-prefixed.git"
+			},
+			"engines": {
+				"npm": ">=3",
+				"node": ">=6.5.0"
+			},
+			"keywords": [
+				"is",
+				"hex",
+				"prefixed",
+				"prefix",
+				"checker",
+				"method"
+			],
+			"author": {
+				"name": "Nick Dodson",
+				"email": "thenickdodson@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/SilentCicero/is-hex-prefixed/issues"
+			},
+			"homepage": "https://github.com/SilentCicero/is-hex-prefixed#readme",
+			"devDependencies": {
+				"chai": "3.5.0",
+				"mocha": "3.2.0",
+				"istanbul": "0.4.5",
+				"coveralls": "2.11.9"
+			},
+			"gitHead": "ee0b92c34415b7ee25600febd60aaf99894f17cb",
+			"_id": "is-hex-prefixed@1.0.0",
+			"_shasum": "7d8d37e6ad77e5d127148913c573e082d777f554",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.5.0",
+			"_npmUser": {
+				"name": "silentcicero",
+				"email": "thenickdodson@gmail.com"
+			},
+			"dist": {
+				"shasum": "7d8d37e6ad77e5d127148913c573e082d777f554",
+				"tarball": "https://registry.npmjs.org/is-hex-prefixed/-/is-hex-prefixed-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "silentcicero",
+					"email": "thenickdodson@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/is-hex-prefixed-1.0.0.tgz_1481059100244_0.9576371384318918"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2016-12-06T21:18:20.936Z",
+		"created": "2016-12-06T21:18:20.936Z",
+		"1.0.0": "2016-12-06T21:18:20.936Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"1d43d386f718da014683af6ebe744e28\"",
+			"fetched": 1568994331885
+		}
+	},
+	"_distfiles": {
+		"is-hex-prefixed-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/is-hex-prefixed/-/is-hex-prefixed-1.0.0.tgz",
+			"sha": "7d8d37e6ad77e5d127148913c573e082d777f554",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-bf604c6f8c491185",
+	"_id": "is-hex-prefixed",
+	"readme": "## is-hex-prefixed\n\n<div>\n  <!-- Dependency Status -->\n  <a href=\"https://david-dm.org/silentcicero/is-hex-prefixed\">\n    <img src=\"https://david-dm.org/silentcicero/is-hex-prefixed.svg\"\n    alt=\"Dependency Status\" />\n  </a>\n\n  <!-- devDependency Status -->\n  <a href=\"https://david-dm.org/silentcicero/is-hex-prefixed#info=devDependencies\">\n    <img src=\"https://david-dm.org/silentcicero/is-hex-prefixed/dev-status.svg\" alt=\"devDependency Status\" />\n  </a>\n\n  <!-- Build Status -->\n  <a href=\"https://travis-ci.org/SilentCicero/is-hex-prefixed\">\n    <img src=\"https://travis-ci.org/SilentCicero/is-hex-prefixed.svg\"\n    alt=\"Build Status\" />\n  </a>\n\n  <!-- NPM Version -->\n  <a href=\"https://www.npmjs.org/package/is-hex-prefixed\">\n    <img src=\"http://img.shields.io/npm/v/is-hex-prefixed.svg\"\n    alt=\"NPM version\" />\n  </a>\n\n  <!-- Test Coverage -->\n  <a href=\"https://coveralls.io/r/SilentCicero/is-hex-prefixed\">\n    <img src=\"https://coveralls.io/repos/github/SilentCicero/is-hex-prefixed/badge.svg\" alt=\"Test Coverage\" />\n  </a>\n\n  <!-- Javascript Style -->\n  <a href=\"http://airbnb.io/javascript/\">\n    <img src=\"https://img.shields.io/badge/code%20style-airbnb-brightgreen.svg\" alt=\"js-airbnb-style\" />\n  </a>\n</div>\n\n<br />\n\nA simple method to check if a string is hex prefixed.\n\n## Install\n\n```\nnpm install --save is-hex-prefixed\n```\n\n## Usage\n\n```js\nconst isHexPrefixed = require('is-hex-prefixed');\n\nconsole.log(isHexPrefixed('0x..'));\n\n// result true\n\nconsole.log(isHexPrefixed('dfsk'));\n\n// result false\n\nconsole.log(isHexPrefixed({}));\n\n// result throw new Error\n\nconsole.log(isHexPrefixed('-0x'));\n\n// result false\n```\n\n## Important documents\n\n- [Changelog](CHANGELOG.md)\n- [License](https://raw.githubusercontent.com/silentcicero/is-hex-prefixed/master/LICENSE)\n\n## Licence\n\nThis project is licensed under the MIT license, Copyright (c) 2016 Nick Dodson. For more information see LICENSE.md.\n\n```\nThe MIT License\n\nCopyright (c) 2016 Nick Dodson. nickdodson.com\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n```"
+}

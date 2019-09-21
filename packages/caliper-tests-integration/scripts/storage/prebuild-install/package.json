@@ -1,0 +1,4417 @@
+{
+	"name": "prebuild-install",
+	"versions": {
+		"1.0.0": {
+			"name": "prebuild-install",
+			"version": "1.0.0",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^2.0.3",
+				"os-homedir": "^1.0.1",
+				"pump": "^1.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^2.0.0",
+				"tar-fs": "^1.12.0",
+				"xtend": "4.0.1"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^7.1.0",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "17abb4e7ba07796126aeb56a2d5c16e2ddca748e",
+			"_id": "prebuild-install@1.0.0",
+			"_shasum": "877263dbd54d232ef3daff184a094e7850b0040c",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.1.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"maintainers": [
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "877263dbd54d232ef3daff184a094e7850b0040c",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-1.0.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/prebuild-install-1.0.0.tgz_1463496655603_0.5208812109194696"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "prebuild-install",
+			"version": "1.0.1",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^2.0.3",
+				"os-homedir": "^1.0.1",
+				"pump": "^1.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^2.0.0",
+				"tar-fs": "^1.12.0",
+				"xtend": "4.0.1"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^7.1.0",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "111d8ee268dde0f4c85da8647bc6ac0c70ba0eed",
+			"_id": "prebuild-install@1.0.1",
+			"_shasum": "839680714c3387538b4966c7566d4c58c022ac33",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.1.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "839680714c3387538b4966c7566d4c58c022ac33",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-1.0.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/prebuild-install-1.0.1.tgz_1463519473256_0.0846379364375025"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "prebuild-install",
+			"version": "1.0.2",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^2.0.3",
+				"os-homedir": "^1.0.1",
+				"pump": "^1.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^2.0.0",
+				"tar-fs": "^1.13.0",
+				"xtend": "4.0.1"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^7.1.0",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "cb4dd711a7a39ac45457b5b0e0f79bd6d75d54e3",
+			"_id": "prebuild-install@1.0.2",
+			"_shasum": "fe568314a59a3cc7972163a79488f152c6b14ba2",
+			"_from": ".",
+			"_npmVersion": "3.8.9",
+			"_nodeVersion": "6.2.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"dist": {
+				"shasum": "fe568314a59a3cc7972163a79488f152c6b14ba2",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-1.0.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/prebuild-install-1.0.2.tgz_1464469719114_0.8564140002708882"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "prebuild-install",
+			"version": "1.1.0",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^2.0.3",
+				"os-homedir": "^1.0.1",
+				"pump": "^1.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^2.0.0",
+				"tar-fs": "^1.13.0",
+				"xtend": "4.0.1"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^7.1.0",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "8517efc85cd74da9ec0a37562cf1adb20c0e8569",
+			"_id": "prebuild-install@1.1.0",
+			"_shasum": "783cad04ce65a3001da73fb2999f7bb0dfee8e4b",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "5.11.1",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"shasum": "783cad04ce65a3001da73fb2999f7bb0dfee8e4b",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/prebuild-install-1.1.0.tgz_1464604922412_0.267256414052099"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "prebuild-install",
+			"version": "2.0.0",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"node-abi": "^1.0.3",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^1.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^1.4.2",
+				"tunnel-agent": "^0.4.3",
+				"tar-fs": "^1.13.0",
+				"xtend": "4.0.1"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^8.6.0",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "8091bc031c8bc674d344a43231f628d1bc8c39a4",
+			"_id": "prebuild-install@2.0.0",
+			"_shasum": "6b194814a00a60a696e832c944e517c7bd72b1be",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"shasum": "6b194814a00a60a696e832c944e517c7bd72b1be",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "piranna",
+					"email": "piranna@gmail.com"
+				},
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/prebuild-install-2.0.0.tgz_1483019174814_0.33165694889612496"
+			},
+			"directories": {}
+		},
+		"2.1.0": {
+			"name": "prebuild-install",
+			"version": "2.1.0",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"node-abi": "^1.0.3",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^1.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^1.4.2",
+				"tunnel-agent": "^0.4.3",
+				"tar-fs": "^1.13.0",
+				"xtend": "4.0.1"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^8.6.0",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "d80e30273dd4f1b828b58eb3c73bfd6bcd8a442f",
+			"_id": "prebuild-install@2.1.0",
+			"_shasum": "526c7b3ed1e2707a247f7c040719173a321bc14f",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "piranna",
+				"email": "piranna@gmail.com"
+			},
+			"dist": {
+				"shasum": "526c7b3ed1e2707a247f7c040719173a321bc14f",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "piranna",
+					"email": "piranna@gmail.com"
+				},
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/prebuild-install-2.1.0.tgz_1483822917588_0.025979788741096854"
+			},
+			"directories": {}
+		},
+		"2.1.1": {
+			"name": "prebuild-install",
+			"version": "2.1.1",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"node-abi": "^2.0.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^1.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^1.4.2",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.4.3",
+				"xtend": "4.0.1"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^8.6.0",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "1024bb0e794ff13f1b31a7b2f6614b632c7c7e3f",
+			"_id": "prebuild-install@2.1.1",
+			"_shasum": "d0a77ea51b6a00f928cb71bc0ccea24f87ec171e",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "7.4.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"shasum": "d0a77ea51b6a00f928cb71bc0ccea24f87ec171e",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "piranna",
+					"email": "piranna@gmail.com"
+				},
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/prebuild-install-2.1.1.tgz_1488477426320_0.6201443427708"
+			},
+			"directories": {}
+		},
+		"2.1.2": {
+			"name": "prebuild-install",
+			"version": "2.1.2",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"node-abi": "^2.0.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^1.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^1.4.2",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.4.3",
+				"xtend": "4.0.1"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^8.6.0",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "be380f3a5177dbe6412f8d089e784fd75c30206a",
+			"_id": "prebuild-install@2.1.2",
+			"_shasum": "d9ae0ca85330e03962d93292f95a8b44c2ebf505",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "7.4.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"shasum": "d9ae0ca85330e03962d93292f95a8b44c2ebf505",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "piranna",
+					"email": "piranna@gmail.com"
+				},
+				{
+					"name": "ralphtheninja",
+					"email": "ralphtheninja@riseup.net"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/prebuild-install-2.1.2.tgz_1491814178272_0.0412924790289253"
+			},
+			"directories": {}
+		},
+		"2.2.0": {
+			"name": "prebuild-install",
+			"version": "2.2.0",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"node-abi": "^2.0.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^1.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^1.4.2",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"xtend": "4.0.1"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^8.6.0",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "2c3f3a26dd919abd63d837088de2bfc6a287e8c2",
+			"_id": "prebuild-install@2.2.0",
+			"_shasum": "55934756a32bac8747390ca44ff663cee8b99b69",
+			"_from": ".",
+			"_npmVersion": "4.2.0",
+			"_nodeVersion": "7.10.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"shasum": "55934756a32bac8747390ca44ff663cee8b99b69",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install-2.2.0.tgz_1499377722121_0.7436535509768873"
+			},
+			"directories": {}
+		},
+		"2.2.1": {
+			"name": "prebuild-install",
+			"version": "2.2.1",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"node-abi": "^2.0.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^1.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^1.4.2",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"xtend": "4.0.1"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^8.6.0",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "0997322ff93c8483a245ef0443d5e2a6f1cd3137",
+			"_id": "prebuild-install@2.2.1",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.2.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-y/sgNJ49vjXQ3qYdSI/jTRZq6D7g5Q2euK6x0/L8dvwK1EGvNLidtg2t4PZzTgkR6LahkzpYVshOmHKYtp0AlQ==",
+				"shasum": "cdf16b041505bde8c55168abd7e58ea264e537ca",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install-2.2.1.tgz_1500724545440_0.10901290667243302"
+			},
+			"directories": {}
+		},
+		"2.2.2": {
+			"name": "prebuild-install",
+			"version": "2.2.2",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"node-abi": "^2.0.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^1.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^1.4.2",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"xtend": "4.0.1"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^8.6.0",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "456ecda8e0c8470ab0b9eddfac0001f01c32e459",
+			"_id": "prebuild-install@2.2.2",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.2.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-F46pcvDxtQhbV3B+dm+exHuKxIyJK26fVNiJRmbTW/5D7o0Z2yzc8CKeu7UWbo9XxQZoVOC88aKgySAsza+cWw==",
+				"shasum": "dd47c4d61f3754fb17bbf601759e5922e16e0671",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.2.2.tgz"
+			},
+			"maintainers": [
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install-2.2.2.tgz_1502277332113_0.3099504834972322"
+			},
+			"directories": {}
+		},
+		"2.3.0": {
+			"name": "prebuild-install",
+			"version": "2.3.0",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"node-abi": "^2.1.1",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^1.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^1.4.2",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"xtend": "4.0.1"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^8.6.0",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "4ca5b0001481ffaf1c3ec64340c1c107ad66feff",
+			"_id": "prebuild-install@2.3.0",
+			"_npmVersion": "5.4.2",
+			"_nodeVersion": "8.4.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-gzjq2oHB8oMbzJSsSh9MQ64zrXZGt092/uT4TLZlz2qnrPxpWqp4vYB7LZrDxnlxf5RfbCjkgDI/z0EIVuYzAw==",
+				"shasum": "19481247df728b854ab57b187ce234211311b485",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install-2.3.0.tgz_1507110378987_0.6229625081177801"
+			},
+			"directories": {}
+		},
+		"2.4.0": {
+			"name": "prebuild-install",
+			"version": "2.4.0",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"node-abi": "^2.1.1",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^1.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^1.4.2",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"xtend": "4.0.1"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^8.6.0",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "94a0211f841a1a0f92f11cebab104f50ac9c0802",
+			"_id": "prebuild-install@2.4.0",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "9.2.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-2v/FFGgF8Z2UjmM7dHiEwfuldALnZZsBEfjY6Pk1wPu88gYexPkIBUJwHYJ7e/kasFu8zbtTPY5bY45Vc2MC6g==",
+				"shasum": "9cd6325847f984136dd993375395d420da270a75",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install-2.4.0.tgz_1512561095247_0.572210049489513"
+			},
+			"directories": {}
+		},
+		"2.4.1": {
+			"name": "prebuild-install",
+			"version": "2.4.1",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"node-abi": "^2.1.1",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^1.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^1.4.2",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"xtend": "4.0.1"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^8.6.0",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "28c600eec7eebee811d7bfd048161d15c3688657",
+			"_id": "prebuild-install@2.4.1",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "9.2.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-99TyEFYTTkBWANT+mwSptmLb9ZCLQ6qKIUE36fXSIOtShB0JNprL2hzBD8F1yIuT9btjFrFEwbRHXhqDi1HmRA==",
+				"shasum": "c28ba1d1eedc17fbd6b3229a657ffc0fba479b49",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.4.1.tgz"
+			},
+			"maintainers": [
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install-2.4.1.tgz_1512814941212_0.4735178924165666"
+			},
+			"directories": {}
+		},
+		"2.5.0": {
+			"name": "prebuild-install",
+			"version": "2.5.0",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"node-abi": "^2.1.1",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^1.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^1.4.2",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"xtend": "4.0.1"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^8.6.0",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "63721a8f7a8f6547cf72b8c85d59546252af2d37",
+			"_id": "prebuild-install@2.5.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.3",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-3wlyZgmkeeyduOR8Ursu5gKr3yWAYObACa5aJOtt2farRRFV/+zXk/Y3wM6yQRMqmqHh+pHAwyKp5r82K699Rg==",
+				"shasum": "6fdd8436069971c76688071f4847d4c891a119f4",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.5.0.tgz"
+			},
+			"maintainers": [
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install-2.5.0.tgz_1516709378088_0.2365416418761015"
+			},
+			"directories": {}
+		},
+		"2.5.1": {
+			"name": "prebuild-install",
+			"version": "2.5.1",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"node-abi": "^2.2.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^2.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^2.7.0",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^10.0.3",
+				"tape": "^4.5.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "00187177601745a2d9a6eb7bfa5c385ad976ca12",
+			"_id": "prebuild-install@2.5.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.4.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-3DX9L6pzwc1m1ksMkW3Ky2WLgPQUBiySOfXVl3WZyAeJSyJb4wtoH9OmeRGcubAWsMlLiL8BTHbwfm/jPQE9Ag==",
+				"shasum": "0f234140a73760813657c413cdccdda58296b1da",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.5.1.tgz",
+				"fileCount": 13,
+				"unpackedSize": 18959
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_2.5.1_1518132396777_0.9687993737822158"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.5.2": {
+			"name": "prebuild-install",
+			"version": "2.5.2",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "verify-travis-appveyor && tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"node-abi": "^2.2.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^2.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^2.7.0",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^10.0.3",
+				"tape": "^4.5.1",
+				"verify-travis-appveyor": "^2.0.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "e13ea32c8dd4774fd5e11325ebf59b43038c5bf4",
+			"_id": "prebuild-install@2.5.2",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.10.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-/KVYCewcfs20kkwifbTAk+3LVr79h4+E+TQG+MtK26Yh632jUJcJOTy6MX4MtE6xHpsGMEtQ8oxDRVJH333dag==",
+				"shasum": "8bdfb6325b98610bfd6832c7d0074bf1b59da848",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.5.2.tgz",
+				"fileCount": 14,
+				"unpackedSize": 19195,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa09B1CRA9TVsSAnZWagAAsbMQAIYOVl9B22bLb89aUkDw\nHxmESGUw/Szs1Vb62HwTMOL9Cnn1bbs0HrryjJ4D2Erac4q1ODeJOgz+wBuE\n3bNFL+STdP9fWesKE7+IquD45fCJtvwbMEyd7tHd8MqssA2P3cxtMU9+XYAZ\nBn+VGJ7RHpYlRHBcOsau/uD5Xnpf022fa7zJHdEzmVDl9aVd1OLITarWNL3B\nN3JBEr+Bc+KdKy8JhZGzvUt6ctdBq232UHWXpS6/r8+blA8FjkQPfnAtImL2\nPU98EpAvPgOg5hAK5loySHNLmCTv9QuBbRSy3IE7wREFCbrD/ercj9nRsX+d\nOAo6mF3O4KMDuCSg6kXTOYnhvinNNKA307FkeGPwjMog7XKKuZE6CRxtF/MS\nzRgW4+HnzAIbEZ1pWlInJUlxn8unww8OO0geu2oercaxhduOAbQHcZYqWPZT\nTiRAJcHp7mkazoAHT0cCYqZm1p6cSxwflL3lH6m7FXDQo3Dxvzpj1kxRalJe\nf3vz7fRsY4hWtsxAVScoFUTg03Og39X/VuSNpWeDZHcwDtDnhhvWxabtbd2p\nvGYVyH1YBp2DXnASOqlJTKLcPmOv0VE1B+mU2mvbtySYCmWnwtVlJQUbU2xP\nbtxh55w1VZZHM228tHrYiKeW0Ck6nzVOgEhiLYUx+RTYZ9zBHxtvlzEZTDzo\nwCam\r\n=wg8X\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_2.5.2_1523830900288_0.07639136131691315"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.5.3": {
+			"name": "prebuild-install",
+			"version": "2.5.3",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "verify-travis-appveyor && tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"node-abi": "^2.2.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^2.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^2.7.0",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^10.0.3",
+				"tape": "^4.5.1",
+				"verify-travis-appveyor": "^2.0.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"_id": "prebuild-install@2.5.3",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.11.1",
+			"_npmUser": {
+				"name": "mathiask",
+				"email": "mathiask@hotmail.de"
+			},
+			"dist": {
+				"integrity": "sha512-/rI36cN2g7vDQnKWN8Uzupi++KjyqS9iS+/fpwG4Ea8d0Pip0PQ5bshUNzVwt+/D2MRfhVAplYMMvWLqWrCF/g==",
+				"shasum": "9f65f242782d370296353710e9bc843490c19f69",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.5.3.tgz",
+				"fileCount": 14,
+				"unpackedSize": 19222,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa1KN5CRA9TVsSAnZWagAAt9oP/066tRCYDzf/JEO61O/Y\n9A8S6dC3bjzwVAzjJ47JTeJomwENS8Yz+1U6PtzMjIGYuaWSEe3kh2nqte+j\n4djOXzotun97m0T6zGtHcdc1eHXg2bcAGn4rRTcrws7CHbGuJYUQj3fg6wv1\nQKI+lzxOvr+uOd/XkJ88OHmCOv3nzw+5WpsRKbvhyEdLiQhxWhgDLPN8l06k\n4jUZx6+lm35nbckidvCrWVFvvvu3r32tST2NGsc/iL07nZ9n2KYBP3cMEQNH\nEts5tZScqO7z8cw17fmblqBSdwozIpr293ph3eh08BgRpVKYamP54AkUGQL9\ngjGBRVS896Vf9i0QPHTQ+I5TgvmWVTBowLTJD6Tm2j9lBloDSRm36qlP0vWM\nEztqOCsQeWGj/UfW0m9wY9G2tQqmskRjXROaUKsyKzPhMmKttcjgL3+O6VAy\n0LWoOMbx7oM05CITjw+o8u82RwtYk2YRTe7nPOvpjrsgP9AREYcOkcbiUsjC\n7kDzdw9B4GBkCTwwGvKKOGUd8A4WxFxQdPMrt80o74R7VVqnP2cuOyzcb9UU\nLGEivNFEdxSYgo+sLlw7ORAYwOmaXtIG2BjgYrm24WV9MbL+k+CHQdQ6m7HA\n5ywXHLLH6WPHz+zVbpphVDIi6FKeiOWc2lefh0Zf076L9EoQS5vIBYMml1vF\nY0Ou\r\n=XHV+\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "mathiask@hotmail.de",
+					"name": "mathiask"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				},
+				{
+					"email": "dev@vincentweevers.nl",
+					"name": "vweevers"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_2.5.3_1523884920725_0.3883338579427129"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"name": "prebuild-install",
+			"version": "3.0.0",
+			"description": "A command line tool for easily install prebuilds for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "verify-travis-appveyor && tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"node-abi": "^2.2.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^2.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^2.7.0",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nock": "^9.2.5",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^10.0.3",
+				"tape": "^4.5.1",
+				"verify-travis-appveyor": "^2.0.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/mafintosh/prebuild-install",
+			"gitHead": "00ca63231ccd38ec3b0af0c74651f95dc53ba173",
+			"_id": "prebuild-install@3.0.0",
+			"_npmVersion": "6.0.0",
+			"_nodeVersion": "10.0.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-9kuOu84mRwlQV3JyD+tkYiJtTbeEVtPf0z91OvU89llsT8Y1mjZyz8jyMzMrCj+UynQzzaEc/p31IZBqXG77rA==",
+				"shasum": "0fd5b2c48ffcf4ceefa64d04a4c5a328d79ad66c",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-3.0.0.tgz",
+				"fileCount": 16,
+				"unpackedSize": 22552,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa5vOLCRA9TVsSAnZWagAAT8YQAKRsZZOlePtjo1QAW1gt\nEgGwgeTPvXFsCBU/3D2k6DzkRQCCLKSj+EqLC40dqTTsA5CrYpDbNMLJFYeh\nVgawanxG4H1mPDFfmkppof/M60qO2rPffOHA6mDSu0ItdPHvjC3sMXMX4OKo\nl13E5GdISnye8pOUgFezDn7kBF3TuNp8twErEHSVqYplUwe6lkPF8sXbEsso\np6lrzKwZxYq8EC1H5OVgUBeYR6R4GbkHMUhtksD4+WPmpUH3dm7tcBz4HLV9\nfuziJydI8eqdM3eqOtd1nDdd1LG6LhEdtnIBK1T6xzl4A3WrVYmsuIBw5012\nj2nKiI/P93R8i9kd/H9Wp+7TMMRG1fCzXoHGnvhrExjaye9tODnOTAqXjfMs\nXX+Sl1JEWdbo4fU8o6oujsW6VE7UFxnaItOj0VQLkKqi8A9YLyb4ITjDcntR\nACRSEqIQ51JWcPlR/CRglOgTB5JPuDyETZtpU+tRtYmQYuQLmjgnKT977/SE\nlaDEQrv0URDP66r0DGQ7nwpBzpwWG26MAym1IvyiB7xnJnZzSGeMX8Sbe4dm\n6qB9NjV+TzopOsBefHMTYFx8ZNxA6z6NDa3RmXf6Ilr2siNHtIeRuPtFRI8A\nueY0gvHXfxcTs6GzgIxiUKktx5s9Q9BAzqWI7YAL4A8OHFekfRAeyHxk9r7T\nrmYQ\r\n=O2Gq\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "mathiask@hotmail.de",
+					"name": "mathiask"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				},
+				{
+					"email": "dev@vincentweevers.nl",
+					"name": "vweevers"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_3.0.0_1525085065810_0.935378699389559"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.0.0": {
+			"name": "prebuild-install",
+			"version": "4.0.0",
+			"description": "A command line tool to easily install prebuilt binaries for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "verify-travis-appveyor && tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"node-abi": "^2.2.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^2.0.1",
+				"rc": "^1.1.6",
+				"simple-get": "^2.7.0",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nock": "^9.2.5",
+				"nsp": "^2.3.0",
+				"rimraf": "^2.5.2",
+				"standard": "^10.0.3",
+				"tape": "^4.5.1",
+				"verify-travis-appveyor": "^2.0.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/prebuild/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/prebuild/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/prebuild/prebuild-install",
+			"engines": {
+				"node": ">=4"
+			},
+			"gitHead": "062cb4153dd9b08e39d8ae34a66052340ea226e8",
+			"_id": "prebuild-install@4.0.0",
+			"_npmVersion": "6.0.0",
+			"_nodeVersion": "10.0.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-7tayxeYboJX0RbVzdnKyGl2vhQRWr6qfClEXDhOkXjuaOKCw2q8aiuFhONRYVsG/czia7KhpykIlI2S2VaPunA==",
+				"shasum": "206ce8106ce5efa4b6cf062fc8a0a7d93c17f3a8",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-4.0.0.tgz",
+				"fileCount": 16,
+				"unpackedSize": 22667,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa7YxfCRA9TVsSAnZWagAAbKkP/jC2Z6E/VHaZQseKsQVm\neUoLvoT1259vJ2nPX2+xiQukmUINZhab6AKbU0L4+Nzyec/LlVBVey6/Lq4t\n1JLhbk/ht/hfi0fXAtOVpYUZ0B3ENrh6UXvAEb5h2FCxLo1xbD3jn0lbtad4\nowUjt56SrhDA08y1GM2OIhrBHz4uGFAh/QiG5mqXXJWDK2eQRYB05kJrPDSg\nfVe9XPWPjvPucksYeS76W7lFrKxCXdFxlHCMRZjv1z61zYo6zYLMkjpP4y1G\nND8mlPKoO4TcyPFqJDL3SSt+9Uv8Lyo2fT4RjbayAI+ZFdT3PGihUQsM6JrR\n6y9V4jJdayF6GZpy+DpcrIS7qpLafyFeQlQvX05T16JthcQEl51FLwX+0p1+\nnhB2q3ARX2XGXCbahHlOk1xWUux1oA/UggoWbeVomSu1DChzscvSN+/jyk5Y\nUvY0omZ2zhVN3POtdLOlrfJ1ljwmOAReP+1JdEwS4WK8F4vXbSbR01Dqz7rj\nEebYwjslYCdvDTynP6XIX6ZnpdnZPE3DgzPt6T460z++o/kp2P5TRsvG8XDI\n6YQvomXNcGkGsLUfeYHrbEkkWkwFM3KYAbXtqdp87GxgNBiY9UoQxnkPJ1Jb\n6LZTbZunHTg3pY66wshF0OmisdK8oqo+OMEpouPbBM020vUIYy72jHAaXv/f\n/Hpl\r\n=tLSV\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "mathiask@hotmail.de",
+					"name": "mathiask"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				},
+				{
+					"email": "dev@vincentweevers.nl",
+					"name": "vweevers"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_4.0.0_1525517406108_0.28408013702994395"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.0.0": {
+			"name": "prebuild-install",
+			"version": "5.0.0",
+			"description": "A command line tool to easily install prebuilt binaries for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "verify-travis-appveyor && tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"node-abi": "^2.2.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^2.0.1",
+				"rc": "^1.2.7",
+				"simple-get": "^2.7.0",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nock": "^9.2.5",
+				"nsp": "^3.2.1",
+				"rimraf": "^2.5.2",
+				"standard": "^10.0.3",
+				"tape": "^4.5.1",
+				"verify-travis-appveyor": "^2.0.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/prebuild/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/prebuild/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/prebuild/prebuild-install",
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "17dd2d3e515261d2480f7bb6a4afe9974cf84f99",
+			"_id": "prebuild-install@5.0.0",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "10.5.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-AvcPLFqNz/hDd6o7qLj8i9xB479P9jSjA/p6m4927CRfY3tsmPfyFmD7RKXtdp6I2d1BAIVBgJoj5mxRJDZL4w==",
+				"shasum": "bc1a24636beaf0af7945c0a84d4b9249bf191b6b",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.0.0.tgz",
+				"fileCount": 16,
+				"unpackedSize": 22633,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbPAHjCRA9TVsSAnZWagAAu7cQAIoX/1EHNnnVlb3kN2iS\n6VBEIQhhUfm/rD4jTiFBtq/WloeDecXnjv5g1RJ8cfM1EY2n9fy9YScQH/3B\nc9yBBOOcXhXH8N/uACgd9qIc5+E8I8u4e4yJE2gHLnGdH5ywgGs+XUETNoQP\n8nJztb58RB3zg9+V2NDk7e+m0DzyAI2o/vcrf02kTwIUK8VHGlIZn4NZai05\njD5EWszmgoNWgw3sq0jzvIUCaGOyrZRCWciRj5LrBc+P6HJwHdSVIKeNz4jJ\nRPFyvypujykRlJM8pSE4ZnTrM1DO0G2r0bOhY47uVnJ0fMuLRlK0RCOroQZx\nBz9kqII8IRDBcBuz9y3D/H/TUx6DfrXGyZ7IcdRH0H+LVsojqD4NvyMZLs+t\nMmWC8M0UJCojzCW46Xf99yneHXYIdzK4bQL1yqui9zNzeSYO2B/ZiPhXxHXa\nZYBQz4T5ghELPdbQWR04G88fAN8+xUwNBgLBos6U845RWal5eAwQ35kkaP3p\ny2CpWbnM5MI7BGJKGHJVciGnKQIdcuh1MF/1JuiaofttRb+ec2bVIAugSKjf\n+Pj6DKK3M08j78CUmg/ib88tDQ03+3qRUjI8JKE1IHndTiwVtgT5scZal55X\nqbg6pDrhy3ElqBdKUonrp6ND1XWqvh8k5u3ocJ8dGve0/1GS1LGlbuL5CgRC\n75ED\r\n=8luZ\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "mathiask@hotmail.de",
+					"name": "mathiask"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				},
+				{
+					"email": "dev@vincentweevers.nl",
+					"name": "vweevers"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_5.0.0_1530659299629_0.4676449785781809"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.1.0": {
+			"name": "prebuild-install",
+			"version": "5.1.0",
+			"description": "A command line tool to easily install prebuilt binaries for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "verify-travis-appveyor && tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"node-abi": "^2.2.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^2.0.1",
+				"rc": "^1.2.7",
+				"simple-get": "^2.7.0",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nock": "^9.2.5",
+				"nsp": "^3.2.1",
+				"rimraf": "^2.5.2",
+				"standard": "^10.0.3",
+				"tape": "^4.5.1",
+				"verify-travis-appveyor": "^2.0.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/prebuild/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/prebuild/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/prebuild/prebuild-install",
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "7384bf5e36370eafd9ef8ef885b8957f07456603",
+			"_id": "prebuild-install@5.1.0",
+			"_npmVersion": "6.4.0",
+			"_nodeVersion": "10.8.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-jGdh2Ws5OUCvBm+aQ/je7hgOBfLIFcgnF9DZ1PIEvht0JKfMwn3Gy0MPHL16JcAUI6tu7LX0D3VxmvMm1XZwAw==",
+				"shasum": "799cf2e443065eaff4880ecfa32b4d1a4a3ad000",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.1.0.tgz",
+				"fileCount": 16,
+				"unpackedSize": 22775,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbhVngCRA9TVsSAnZWagAAx3YP+gLtcLvxYvu1fEv3uYSs\ngpT7oZJztHXfdMt0Mwdo1hc3jhEFoEbc2HN1em511jIoAcxx8gWmpCqd9+jX\n30ZOUjesDEb4GfKRjHAedrTrbdZYZkRRK6/faUXHJ0076yNpoKih2tHR6tBV\ndzutSHOMK7c68TwfuxcC3mvL+MvvF0tLHQR5sx69iT0uprSdKDqvd+HKYbQy\nqQ2xACDhaZHXPkNkeVIj23vfOYRV2SiB+H4MnH4xmMBpJjFDXYSr//ZOmpZl\nDs97ijY/KhzRdcwzeyH1AAaLVcfrZ7vvXbz+FnK2rGVue+NsCc2BvLxs0bur\nyyiX9vZxZmqxsHBrQ+JErciVKrhm68en3/UIcjVbIAUAfh6h3xrYhzFTxH+q\nAJRE+c1Uyb4WZh+TtMbmuMLVPeGLCyczuFjHrU1n0M9UYc6s7DicfkeilbKQ\nN16mL4bfJ2CAyZxt5QAIMnGLUyYquLb+NSEwXGnXFd2a4CEstawM+rb+fdjH\n85hZo7VNw8Fp6OkQUqdL1VeQtSh/haG7nUomHtOPFJODODwfyLu9F2IvFQw7\nDPCpWCqdH02xRU3NPSzBHtl06+27XxaOvSlPqZ+J5+WssmoqXAwZ/xDZCUt5\nZMSDr7dTenFP5x417L6ECRD0RndzuZvlRltrOzcn1INuLP8kRlEXSdIYf/2g\nEJG+\r\n=bQun\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "mathiask@hotmail.de",
+					"name": "mathiask"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				},
+				{
+					"email": "dev@vincentweevers.nl",
+					"name": "vweevers"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_5.1.0_1535465949631_0.6426650623164663"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.2.0": {
+			"name": "prebuild-install",
+			"version": "5.2.0",
+			"description": "A command line tool to easily install prebuilt binaries for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "verify-travis-appveyor && tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops",
+				"napi"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"napi-build-utils": "^1.0.1",
+				"node-abi": "^2.2.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^2.0.1",
+				"rc": "^1.2.7",
+				"simple-get": "^2.7.0",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nock": "^9.2.5",
+				"nsp": "^3.2.1",
+				"rimraf": "^2.5.2",
+				"standard": "^10.0.3",
+				"tape": "^4.5.1",
+				"verify-travis-appveyor": "^2.0.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/prebuild/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/prebuild/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/prebuild/prebuild-install",
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "cccad21a8a816f76c3f948383ef9e5845ce19e56",
+			"_id": "prebuild-install@5.2.0",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "10.9.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-cpuyMS8y30Df0bnN+I8pdmpwtZbm8fj9cQADOhSH/qnS1exb80elZ707FTMohFBJax4NyWjJVSg0chRQXzHSvg==",
+				"shasum": "53c0422ebf28437047d699450bd4fd765b2951ea",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.2.0.tgz",
+				"fileCount": 16,
+				"unpackedSize": 23249,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbrSoKCRA9TVsSAnZWagAAZuMQAI+XWpAo2yErJQ0hIFlH\nm/XWhIpod1/eursgstf+//KVr8VewRwsHMY/Jp7NxnSpqj6757a4huECvbNy\nHZxnfxtWgOnm93GaeHM6sv9NC/xwOdTrY1DibH3aTDrXjSwuVXlHfM67eUqx\nGfdOKbUaWS9m5yal6gAS6iS2UKcle0/ZE61S5mmfvgeRbA3GA/5OxmNjz9rV\nUlXSa0dkCy7jZuYW5PWunyPASdeEsWlNkggjKD1x9yHej2Vm09yRJRTYtzdA\nxrVMbQUjgfEMb6eAJIwJvGml9wa30AsQ9SNJk0vTb4nyA2QomW1Qn99rpGw5\nxqzKsxBGi/7IoOzonsv1TjiiCZvn8YvPNxjGqMSLJUUZTu2Hkn//tO2YcDeD\nGs06rbYcKF0WQJzqksTW7ZotElejXKMwzYVygM/pZTq+IuVwChGpYePkBMQH\nCkKo9E+PZxSs/2++MAy7M06nPibqRtrS646tsD7NFurijtKZAZlxbOFsIBd+\njS3zcuCNNpa17vicsYuY1tdAE77zKLmuWiCCrc0JwBpu+Lu1Yf+AH+XvjmKQ\nkilAxBy+dSF3+R19ayijjWqsnrfUYSh2TlQLK12XgUdzl9vwWcdHVAtTPxE8\nvXATuZn4riRr8jLmYZqfM+V+oNuyS3sarC4bkDJS9avBGtYHnfuUf0AjEzsv\nW4Xr\r\n=Giqc\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "mathiask@hotmail.de",
+					"name": "mathiask"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				},
+				{
+					"email": "dev@vincentweevers.nl",
+					"name": "vweevers"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_5.2.0_1538075146223_0.5338810421887914"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.2.1": {
+			"name": "prebuild-install",
+			"version": "5.2.1",
+			"description": "A command line tool to easily install prebuilt binaries for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "verify-travis-appveyor && tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops",
+				"napi"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^1.0.2",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"napi-build-utils": "^1.0.1",
+				"node-abi": "^2.2.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^2.0.1",
+				"rc": "^1.2.7",
+				"simple-get": "^2.7.0",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nock": "^9.2.5",
+				"nsp": "^3.2.1",
+				"rimraf": "^2.5.2",
+				"standard": "^10.0.3",
+				"tape": "^4.5.1",
+				"verify-travis-appveyor": "^2.0.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/prebuild/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/prebuild/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/prebuild/prebuild-install",
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "0da7f4e7d838dfcf4f197350a3de960ee66b20fa",
+			"_id": "prebuild-install@5.2.1",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "10.9.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-9DAccsInWHB48TBQi2eJkLPE049JuAI6FjIH0oIrij4bpDVEbX6JvlWRAcAAlUqBHhjgq0jNqA3m3bBXWm9v6w==",
+				"shasum": "87ba8cf17c65360a75eefeb3519e87973bf9791d",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.2.1.tgz",
+				"fileCount": 16,
+				"unpackedSize": 23279,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbyLuECRA9TVsSAnZWagAAlyoP/31h5AhIiEBPOnXnlXl6\n5D6UwATOQQd53DXr5zLWcsCEF2brwiuH7tH29NyysTxYLjnE1NNEY7QFzlEA\n/RHOG+AiAvXjxfZAJh9AE05fsFMeH3J8UdVYdwCfrvuvcxbMud7WGCabvpFj\nUm0HTsEnhl9TXCZZNXsY670Sb1lFmG49M0/0xcvuZtyv2yfTuaw4H2GU6ED/\nwEETe/BexuGZra5+wE0N4McLKUJ18sVI+8zWIiBtT2XIWM0CBvMRwZtu0Qjq\nAAuqdsBO/hjuPsYFZryRlndGA9WtbcA69/uzO6w7DitgAeFRdobR3LpesCO4\n12SJhK2j2FBDBsJiIKbpBy1jxtJQ+ePqtzOa9DFeuUU7UYrSYb6jpSSNhzrG\niBttYNLiJ8A6xVKKeArzIWyQiRlvFNuagAhMoAh0hNd99ZF1rSvSqeWJjPLM\nr1JDcuTRPnuWkpJkENQpFJkjGNEJeLdBfHnWguvzlJR0bmoYbgdQlx9pW31D\nThlSIN/Jso7BATiVhw1d3YO20+vql2TRy2LXyKxgkWUYL8viivT/gN14PtfR\n68aJZD+vykpVUuQs1LkRy69iHlCqBGHE5Kx7NcVyAavid4Xe9DT9YbPeWTpR\nZ6frKRYJa6Wjkp5TUK8ZUkdaSMJeV8uS33E/KpvNt7jjPs8eCqQduOGANPXD\npi+z\r\n=D/qj\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "mathiask@hotmail.de",
+					"name": "mathiask"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				},
+				{
+					"email": "dev@vincentweevers.nl",
+					"name": "vweevers"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_5.2.1_1539881859328_0.5110587660633801"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.2.2": {
+			"name": "prebuild-install",
+			"version": "5.2.2",
+			"description": "A command line tool to easily install prebuilt binaries for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "verify-travis-appveyor && tape test/*-test.js && npm run audit && npm run lint",
+				"audit": "nsp check",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops",
+				"napi"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^2.0.3",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"napi-build-utils": "^1.0.1",
+				"node-abi": "^2.2.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^2.0.1",
+				"rc": "^1.2.7",
+				"simple-get": "^2.7.0",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nock": "^9.2.5",
+				"nsp": "^3.2.1",
+				"rimraf": "^2.5.2",
+				"standard": "^10.0.3",
+				"tape": "^4.5.1",
+				"verify-travis-appveyor": "^2.0.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/prebuild/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/prebuild/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/prebuild/prebuild-install",
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "ab8eb4c83d0fc72904cd6bbccb8a8f70e8fecdf3",
+			"_id": "prebuild-install@5.2.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.3.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-4e8VJnP3zJdZv/uP0eNWmr2r9urp4NECw7Mt1OSAi3rcLrbBRxGiAkfUFtre2MhQ5wfREAjRV+K1gubvs/GPsA==",
+				"shasum": "237888f21bfda441d0ee5f5612484390bccd4046",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.2.2.tgz",
+				"fileCount": 16,
+				"unpackedSize": 23279,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb/yVHCRA9TVsSAnZWagAACO8QAIemGzdeD1pbl74QrWlg\nQC6mr5GeCqucszuCp6apGinxgLG0T3PcZBKZA4A5wLIOIYMrxmmSgOzxfLZo\n70kNlXHQj7Zp4nJc0I5NLSUB7ovdDeZYmM9l6nFCsRVrFsam1LmqhXIPmsKr\neOw0+qeKFRfGYgoXxTHGKdNzcddDQWdjW1OOV3itWW6XHdMFZ2ZpTu04jA2o\nLPhwTmBformcITTV6z9nCY/vZQRyTuhktTEV9Bg2MGFfsje3Z43qEh0Dcjz5\nmNKpBOc2IIzJPhlFblAE02Zq13xjuEMq54kFynNdYX6qo2ywPNZttNU3oF3D\nI11nmqkrN6XcBpPVmm4zfv2mb6s9qtQeFa1pBbkLRgxVxWBl9ZH3wZnHpicR\nIobGyId6Y0yUgChEVUqUof4YaRKEli+bFTzDEVntK1GCo3zPsiCfAupFBY8W\nmEzu7M3Ojv+0x4pGvxPJjHkiQa9K05Dg/dXNg9Xe6Sl08ZRc8S+kIrnHw0gE\nqKtzvKQeetccN4L5GrZs9aNPKVBtSJRhelrRgQDPrDWQLfaeJg29OGanOJuc\nGhgCqIUjMZ1a4B00m/j8czHa0ylpkaGlDd8WMobyZ7fOQJBaXUM6m5g6LoGq\nkSYJSf1atlIc7aiC2+ezuOkEIwcAykNrNY6oYGpkUK/PnAzvczcQlx4N8u8c\nqm+5\r\n=s5fT\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "mathiask@hotmail.de",
+					"name": "mathiask"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				},
+				{
+					"email": "dev@vincentweevers.nl",
+					"name": "vweevers"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_5.2.2_1543447879138_0.24225429868291837"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.2.3": {
+			"name": "prebuild-install",
+			"version": "5.2.3",
+			"description": "A command line tool to easily install prebuilt binaries for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "verify-travis-appveyor && tape test/*-test.js && npm run lint",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops",
+				"napi"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^2.0.3",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"napi-build-utils": "^1.0.1",
+				"node-abi": "^2.2.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^2.0.1",
+				"rc": "^1.2.7",
+				"simple-get": "^2.7.0",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nock": "^9.2.5",
+				"rimraf": "^2.5.2",
+				"standard": "^10.0.3",
+				"tape": "^4.5.1",
+				"verify-travis-appveyor": "^2.0.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/prebuild/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/prebuild/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/prebuild/prebuild-install",
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "099c704fc6654637edf3a1ab4e85887fb150a5d7",
+			"_id": "prebuild-install@5.2.3",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-sdijGV8EkK244XbYJLRhOLiHj9QZKUaYW6uDotEPpRGrC5FUXFr6mZhGHr9NjhU0MISI+JSqZ0geVZMs2kIDRQ==",
+				"shasum": "096f5116e63eeef57ae533a2ee460b13d7872704",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.2.3.tgz",
+				"fileCount": 16,
+				"unpackedSize": 23240,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcU1wZCRA9TVsSAnZWagAABtEQAJWASNyyTITlpyrFbqO2\npFYVmn8WlNH3ZlqKXyPOdekj0NtNHOIN4NfaDyLe5Lkemo8QKMcZ37d8rvvB\n6nDFRNl6rDpN1Di79c5klar7Uj2L77aUrt85LMl8+d4TQTMeqlAfq+Xey5jU\nywtebXnzjgUjmW2TBnuUrx8+tmWRMCjGsORfCodeXo48cKx48E4xPDWKDW17\nM+EEbi1yZDtQHzCR3fpPTx/8vCKS8sTy2mFQ+sSv7v6NytczZiYjCfCkSjW6\nVEOp/5tLxvGJsMnHPaNiuA8cZJn5FwzoHHH9rB4BuE3xxam6xgHDEjvJEvcF\n9UOsKvbXT5ge0BCC/4Hy8lh1th7ExABMhSVj9uk47ikdI1zpFsHvGT3Jw0wi\nai5rBipGAQbhqMqKae1Pxx/u2GISFZKtBYuNp+MuEL1UDryKkdxQp+/f1XwH\nTVSs8ipyyMPONjuGWle6RaCZGKCTDNk5zdBVCmLHACDTJ4q39oGlvCfZN1If\nXNYRhtnYNMhmR4JBJtDecMT+QuCsAeFoJdL89n2srWvAOf2KzgC3zzZ036zZ\nqeHw+JSaqq8tvR343zX2HSMtH5+duimVKksQkEVIjY8VTnJPp9I/siIqQwAJ\nZKXR098Ne6bmS8vVTXW0PY9xgQAtZRjAP834O9fA1lihr/KMKm6M3lYff29D\n1EsQ\r\n=xxC/\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "mathiask@hotmail.de",
+					"name": "mathiask"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				},
+				{
+					"email": "dev@vincentweevers.nl",
+					"name": "vweevers"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_5.2.3_1548966936788_0.7057701869518755"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.2.4": {
+			"name": "prebuild-install",
+			"version": "5.2.4",
+			"description": "A command line tool to easily install prebuilt binaries for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "verify-travis-appveyor && tape test/*-test.js && npm run lint",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops",
+				"napi"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^2.0.3",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"napi-build-utils": "^1.0.1",
+				"node-abi": "^2.7.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^2.0.1",
+				"rc": "^1.2.7",
+				"simple-get": "^2.7.0",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nock": "^9.2.5",
+				"rimraf": "^2.5.2",
+				"standard": "^10.0.3",
+				"tape": "^4.5.1",
+				"verify-travis-appveyor": "^2.0.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/prebuild/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/prebuild/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/prebuild/prebuild-install",
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "2a6ba425eaea6c84ac768a2ebeaccfc9757a3b77",
+			"_id": "prebuild-install@5.2.4",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.0",
+			"_npmUser": {
+				"name": "ralphtheninja",
+				"email": "ralphtheninja@riseup.net"
+			},
+			"dist": {
+				"integrity": "sha512-CG3JnpTZXdmr92GW4zbcba4jkDha6uHraJ7hW4Fn8j0mExxwOKK20hqho8ZuBDCKYCHYIkFM1P2jhtG+KpP4fg==",
+				"shasum": "8cc41a217ef778a31d3a876fe6668d05406db750",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.2.4.tgz",
+				"fileCount": 16,
+				"unpackedSize": 23555,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcWuslCRA9TVsSAnZWagAA4BIQAIWQRyqsqr2wOWL9yZF0\nrwyz3Rrv29KUYeDJ2b+Q4wOhbpIOCeSI8PLygOXIQ4egdY/VP5rQQxO8m5xX\n0wWa6oqto2BLGix2X2ukkQ+cnXGnhxRr7aVpnTihoTJNr1XBIqbXcfZGp9mo\nfu56NabcTP5IAjTMm6NEoB6l29C5LD9b+cirkle8sxJifnyQC55DEMtYjOWr\nYnXEwPuwRdMMiRx/Ln52CAuF97nShy2EcW0S2rRLm1SbYLU1UT491CVx9ERx\nZSOiwiyXFUl5+da+Y9Eo/aywqJql3I5TQ6HdpfVX2AvpX+gA+dUDzkTkbPCE\n2mNS+dJIt3MT4brjzhUtffIRPmo2OgrgzNKOgTS6vSu//LMroWZhxN/auooV\nOTt9ECMQCjxCGU/YroC7LdHuXdIGAUOxRu6Rj64EEOf+SP2rpEqySC+Uh2xg\n17CxNu9Z40bCxDItutfdstXj3pRdflJk3BH9lHiOrQD7qDTAH18Bv8dEuxcb\nDi3fLsxBHMhLK8Mq2jTRtJUkaD0FTYLPk7T/06njtsMoXQ1daYTPAPHaXi4J\nGTGxQfqAC154rbj+wI7J+dN/UbpWxHKAOLbkRypBAQciG3k6EIJZPhziqd5N\ng68m5tAFpuB5EadxghdwMITB6GZ95Fn/Hxt+UeVdq6vGi08cbhPon4kJV+oX\nnNya\r\n=WNVb\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "mathiask@hotmail.de",
+					"name": "mathiask"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				},
+				{
+					"email": "dev@vincentweevers.nl",
+					"name": "vweevers"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_5.2.4_1549462308627_0.5572059113820502"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.2.5": {
+			"name": "prebuild-install",
+			"version": "5.2.5",
+			"description": "A command line tool to easily install prebuilt binaries for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "verify-travis-appveyor && tape test/*-test.js && npm run lint",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops",
+				"napi"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^2.0.3",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"napi-build-utils": "^1.0.1",
+				"node-abi": "^2.7.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^2.0.1",
+				"rc": "^1.2.7",
+				"simple-get": "^2.7.0",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nock": "^9.2.5",
+				"rimraf": "^2.5.2",
+				"standard": "^10.0.3",
+				"tape": "^4.5.1",
+				"verify-travis-appveyor": "^2.0.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/prebuild/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/prebuild/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/prebuild/prebuild-install",
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "c2697038726fac585f6c4858a84ab2ac9901ae99",
+			"_id": "prebuild-install@5.2.5",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.1",
+			"_npmUser": {
+				"name": "vweevers",
+				"email": "dev@vincentweevers.nl"
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "mathiask@hotmail.de",
+					"name": "mathiask"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				},
+				{
+					"email": "dev@vincentweevers.nl",
+					"name": "vweevers"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-6uZgMVg7yDfqlP5CPurVhtq3hUKBFNufiar4J5hZrlHTo59DDBEtyxw01xCdFss9j0Zb9+qzFVf/s4niayba3w==",
+				"shasum": "c7485911fe98950b7f7cd15bb9daee11b875cc44",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.2.5.tgz",
+				"fileCount": 16,
+				"unpackedSize": 23582,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJchsFeCRA9TVsSAnZWagAADMsP/3OElXEXL90v7eKE/Xvu\ngtznWjROIz/n2HPOGYVW5UXQrlMF+jAnZzT5FzvJlbQYGeiyBboJHCHP3jjA\nIjDXc2DGHP7nRLcKfb+PPTArbN1q9giteAHBPSSZu4PTevdxuZZirdfE0Yzw\nhByvB7ghRK5U30KkVu5aV3B+GrabaHqtBOQoHhNhQUwsBJa/LCdYUJDAMMFo\nK4xADxFQNp4N2HhUWmLI406zxPM1ZFWsDRTh8MF+5PL0iJC0hMfkAvrglGzh\n40K1PwhU82xpUM8qI9pfxE95XqGvAsf+9pbA1iLQVWDJlsrm0yg/zhGagInb\nlE742GQqHp/nkE5OupMW8YGEeBDR2GEmL4fQ1Qnoo1ZdDQDhARjneVqE/PD5\nt/SYKo9kKUKqqQUvhna83DjGvRtnfKMjp6FVaeMf8XCmvUgQC5INGL9Y0uqw\n1dvBGLBKkq9Pmk9jQgm40y8OHCfjZ6ORWQJDVo3wny19btjkRgWLpjxMzmwt\n/UsYaeDqJMMBqNpwoT+GxLUyqbxkC9XpGiIpsCgdok7BxdNjUG/kSQAEjwi1\ncpw7Ps5L+1bv1VOqAzxTO3IjwRGWjrcravJ47eeUfHvAo0/W+MDvfcV8ijuA\nhpk/lm38zEAn2gppvOD/X2zOtNAl8/NElZFTLddP7H69yNAw/HkF3UPT4ghV\ndJE0\r\n=13w1\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_5.2.5_1552335198169_0.25859715378941006"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.3.0": {
+			"name": "prebuild-install",
+			"version": "5.3.0",
+			"description": "A command line tool to easily install prebuilt binaries for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "verify-travis-appveyor && tape test/*-test.js && npm run lint",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops",
+				"napi"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^2.0.3",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"napi-build-utils": "^1.0.1",
+				"node-abi": "^2.7.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"os-homedir": "^1.0.1",
+				"pump": "^2.0.1",
+				"rc": "^1.2.7",
+				"simple-get": "^2.7.0",
+				"tar-fs": "^1.13.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nock": "^9.2.5",
+				"rimraf": "^2.5.2",
+				"standard": "^10.0.3",
+				"tape": "^4.5.1",
+				"verify-travis-appveyor": "^2.0.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/prebuild/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/prebuild/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/prebuild/prebuild-install",
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "bb3eac6c6f0dc432326e1aa15c7c9f5157ae7fb0",
+			"_id": "prebuild-install@5.3.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.1",
+			"_npmUser": {
+				"name": "vweevers",
+				"email": "dev@vincentweevers.nl"
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "mathiask@hotmail.de",
+					"name": "mathiask"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				},
+				{
+					"email": "dev@vincentweevers.nl",
+					"name": "vweevers"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-aaLVANlj4HgZweKttFNUVNRxDukytuIuxeK2boIMHjagNJCiVKWFsKF4tCE3ql3GbrD2tExPQ7/pwtEJcHNZeg==",
+				"shasum": "58b4d8344e03590990931ee088dd5401b03004c8",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.3.0.tgz",
+				"fileCount": 16,
+				"unpackedSize": 23720,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcvEDgCRA9TVsSAnZWagAA3isP/0dJDHI7bBHrMP0AN9YR\nvTleE+Qn3XxW1xoMmNMnW+93AvjC7RekFPYj4nTOW3PgykFStDNMmNjz6aba\n9VUY9AwfJ8W1D0DL/GfA2xHUMVAGMTa/EhcnhJ3Rd36lBkBtq4pBv8wb4wH0\n8XZWf8z0o1GxwX6mOZzAkzqYmggCf2u4o3lQ5m8ixuUlbst9ntg5slrsJ9kC\n6xGQNYlz8vSUKBeja5HamNJ3hQlNzjLN2gxnYO4fjWxWI+l4dJx0/UK0K4eB\nv+Q9/xsRWcnOJFRal8q3o8qQPkGBtw+Dw1DOLAUuYiepkAZaTSC7yIapjTcB\nipGnyaL5sAhCY3afVolN0Va3qOGYIUpx5PMC4SpwrQeFEe83j78zmmwFAxA7\nPyc59Og4a7DV7s6uHpyIidRxdDZJU49s3sd1JY1+xHmswT+5zRbxcjTcqqzY\n93rOukhbDsTcJQAp2KUslNAcrKBr1kZVXfwPvybasu863s1F8KO3JSgtn/IF\nSPUWTBkx4quMk/3XyOBr3KhXTBEw6o/4M1GlVXu1/OL5D8ZiUkczw8EnwAuP\nrEmoQtH8ZNsv5taHIbYkPm0x/WVo7Fq2nsdfYLmKXyWi6bUDo7CZrhpOs7i0\no/ycKkRl2ugWLNliy7HY4v+f+PILAn1ADc+UCBY5g4O0hA1x16S4DX2girBA\nVhpN\r\n=vD1m\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_5.3.0_1555841247915_0.040151001473928805"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.3.1": {
+			"name": "prebuild-install",
+			"version": "5.3.1",
+			"description": "A command line tool to easily install prebuilt binaries for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "verify-travis-appveyor && tape test/*-test.js && npm run lint",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops",
+				"napi"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^2.0.3",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"napi-build-utils": "^1.0.1",
+				"node-abi": "^2.7.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"pump": "^3.0.0",
+				"rc": "^1.2.7",
+				"simple-get": "^3.0.3",
+				"tar-fs": "^2.0.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nock": "^10.0.6",
+				"rimraf": "^2.5.2",
+				"standard": "^13.0.2",
+				"tape": "^4.5.1",
+				"verify-travis-appveyor": "^3.0.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/prebuild/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/prebuild/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/prebuild/prebuild-install",
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "652f16941115d7b9aa1a0d0a27d85da21e11789f",
+			"_id": "prebuild-install@5.3.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.1",
+			"_npmUser": {
+				"name": "vweevers",
+				"email": "dev@vincentweevers.nl"
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "mathiask@hotmail.de",
+					"name": "mathiask"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				},
+				{
+					"email": "dev@vincentweevers.nl",
+					"name": "vweevers"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-lRLBU0JPXBbpC/ER9PtVYYk1y9Rme1WiMA3WKEQ4v78A5kTsqQtrEyYlbghvXCA6Uhr/769SkhibQznjDBRZpg==",
+				"shasum": "7d220b978e03b0e067e0d8cffd13e84b3515131d",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.3.1.tgz",
+				"fileCount": 16,
+				"unpackedSize": 23844,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdcpLaCRA9TVsSAnZWagAAbAoP/2wTR5JVvcZCzNiVU11H\niv4GN+6yXaFdvzt8pBoxS4Ooqz8H8WOxG6sVrF0p2E+dGRNQH+cv3f4f2upu\nqj1++Vj2m+jXTK3oF8Ap9KxnRjvGzciLQL8OoKr7C5I2xdT8OCLXNIz0jSRi\nUWCfG35+YGjbX5F/dsgTX+3PgA48z7/YsKcTLqJ2TyKEoyZLTjzh6zijsNI9\n+bxNqyg5wkSoXpra1KqTk5lLauUyq5n70H8OwVHHNz/tT6nmo11CtrNKmCEh\nKbpa9ypdhLhMOwAExKVendlrGBG25ryRZScBj2EGwueOkmTjEWUgGIeDRnDQ\nAMWx2hSV05i7vKJQufGQQXr/G/Z1XLNsye7vJsrKv2DDVUACREZutZxP5x8k\nj45duiAJ/OO0pagbMWGASKa/mVJKGOd9vy0A5u70pcXA4yoNN18535A+8clt\nVGpvM6YRCEJgiT3zF46Axvf/SZd5BRXH8H5sayD8aIFv06wPDAE32OIA3E05\n39ygoF6h6Y2ZHNZ9O81h8sUeH+DiC1zL2v6hKyNrdJkBPcN4G1iBJsZSFF3S\nXOY+dFY8rSljPo7aYOq154joTwAyt8RsA4tGPOq1sCKO6oPsq5sEm7aTqsti\n8RUqeZ9cIodPuvHrj6FgVCH2UZz7i6vCedrYRd8J7AoDzF2fqoNpuAe6LFrS\nPvQU\r\n=euab\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_5.3.1_1567789785784_0.18121663528167709"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.3.2": {
+			"name": "prebuild-install",
+			"version": "5.3.2",
+			"description": "A command line tool to easily install prebuilt binaries for multiple version of node/iojs on a specific platform",
+			"scripts": {
+				"test": "verify-travis-appveyor && tape test/*-test.js && npm run lint",
+				"lint": "standard"
+			},
+			"keywords": [
+				"prebuilt",
+				"binaries",
+				"native",
+				"addon",
+				"module",
+				"c",
+				"c++",
+				"bindings",
+				"devops",
+				"napi"
+			],
+			"dependencies": {
+				"detect-libc": "^1.0.3",
+				"expand-template": "^2.0.3",
+				"github-from-package": "0.0.0",
+				"minimist": "^1.2.0",
+				"mkdirp": "^0.5.1",
+				"napi-build-utils": "^1.0.1",
+				"node-abi": "^2.7.0",
+				"noop-logger": "^0.1.1",
+				"npmlog": "^4.0.1",
+				"pump": "^3.0.0",
+				"rc": "^1.2.7",
+				"simple-get": "^3.0.3",
+				"tar-fs": "^2.0.0",
+				"tunnel-agent": "^0.6.0",
+				"which-pm-runs": "^1.0.0"
+			},
+			"devDependencies": {
+				"a-native-module": "^1.0.0",
+				"nock": "^10.0.6",
+				"rimraf": "^2.5.2",
+				"standard": "^13.0.2",
+				"tape": "^4.5.1",
+				"verify-travis-appveyor": "^3.0.1"
+			},
+			"bin": {
+				"prebuild-install": "./bin.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/prebuild/prebuild-install.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"contributors": [
+				{
+					"name": "Julian Gruber",
+					"email": "julian@juliangruber.com",
+					"url": "https://github.com/juliangruber"
+				},
+				{
+					"name": "Brett Lawson",
+					"email": "brett19@gmail.com",
+					"url": "https://github.com/brett19"
+				},
+				{
+					"name": "Pieter Hintjens",
+					"email": "ph@imatix.com",
+					"url": "https://github.com/hintjens"
+				},
+				{
+					"name": "Lars-Magnus Skog",
+					"email": "ralphtheninja@riseup.net",
+					"url": "https://github.com/ralphtheninja"
+				},
+				{
+					"name": "Jesús Leganés Combarro",
+					"email": "piranna@gmail.com",
+					"url": "https://github.com/piranna"
+				},
+				{
+					"name": "Mathias Küsel",
+					"email": "mathiask@hotmail.de",
+					"url": "https://github.com/mathiask88"
+				},
+				{
+					"name": "Lukas Geiger",
+					"email": "lukas.geiger94@gmail.com",
+					"url": "https://github.com/lgeiger"
+				}
+			],
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/prebuild/prebuild-install/issues"
+			},
+			"homepage": "https://github.com/prebuild/prebuild-install",
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "a5ff6d3899af47428ef19c8212d0d49a0c4bb447",
+			"_id": "prebuild-install@5.3.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.14.1",
+			"_npmUser": {
+				"name": "vweevers",
+				"email": "dev@vincentweevers.nl"
+			},
+			"maintainers": [
+				{
+					"email": "mathiasbuus@gmail.com",
+					"name": "mafintosh"
+				},
+				{
+					"email": "mathiask@hotmail.de",
+					"name": "mathiask"
+				},
+				{
+					"email": "piranna@gmail.com",
+					"name": "piranna"
+				},
+				{
+					"email": "ralphtheninja@riseup.net",
+					"name": "ralphtheninja"
+				},
+				{
+					"email": "dev@vincentweevers.nl",
+					"name": "vweevers"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-INDfXzTPnhT+WYQemqnAXlP7SvfiFMopMozSgXCZ+RDLb279gKfIuLk4o7PgEawLp3WrMgIYGBpkxpraROHsSA==",
+				"shasum": "6392e9541ac0b879ef0f22b3d65037417eb2035e",
+				"tarball": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.3.2.tgz",
+				"fileCount": 16,
+				"unpackedSize": 23855,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdelB4CRA9TVsSAnZWagAAQp8P/2acoSdyOjlM+9HuP7Ns\nC0DMFrinXKHTZzkQ1xXfQS+EsUn/mWba2gXbEojcQkxw73OUG+dB7roOSO4m\nNOvfglNj38lIBr6NnBVhmDeOKvWPC7mJ6+mdZp9aynT0WH3lrJGbg9FTTf3N\nPWKCR9DFuPrdgNISAKy78baqJ6M91ZwHH1yz8Zcuc8SJSkCbG8ffSe7Sx3oP\nS87oyDiggEq56hZpuhRNQj/CIit5KAJaQiR4k/HFtj2wU0ALY6+CHnaEFOE5\njtk32N7JlTEz2mqzzSiEC71eWULQVsd0JGGYuKFTylxwLa7jsijpIcB1Np31\nwpMhV/KL7n0qYzLIkZISKzqwCxdHn//7zTukHDstpEyC2cvTDmQd+keN7hRv\n+QUeVtYNOSveB1vTk5veCW9J0jMGQQudO/vnTNVglGL8EE9Q2f5H4aeVqrId\nAaNONpmZnfSr6k4I/0WaxXj8K9aqvFvSxHZDbjjWzEQ99xJuyl/odg7AsQ1L\nRnYe2tEvES8QP1nErsOlbrXb+0nHYyqIlvYkOkYJMgJLRP86ZJXr2md6B0OW\ngY8c+FuB/RwLQm0I/Tetan5PI3Pv0hYkaoJKFhFPX4D7KDZ1QDF7Rv513cU5\noDs3MeHiq9QVsBO5vHW2m+9tifYqdJdnueCVLBxfqi+LFd5uiJOHnwFKLg/f\ncmRU\r\n=CTib\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/prebuild-install_5.3.2_1568297079344_0.5069270002891808"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-09-12T14:04:42.735Z",
+		"created": "2016-05-17T14:50:56.451Z",
+		"1.0.0": "2016-05-17T14:50:56.451Z",
+		"1.0.1": "2016-05-17T21:11:15.948Z",
+		"1.0.2": "2016-05-28T21:08:41.011Z",
+		"1.1.0": "2016-05-30T10:42:04.574Z",
+		"2.0.0": "2016-12-29T13:46:15.423Z",
+		"2.1.0": "2017-01-07T21:01:58.266Z",
+		"2.1.1": "2017-03-02T17:57:06.976Z",
+		"2.1.2": "2017-04-10T08:49:38.843Z",
+		"2.2.0": "2017-07-06T21:48:43.262Z",
+		"2.2.1": "2017-07-22T11:55:46.342Z",
+		"2.2.2": "2017-08-09T11:15:33.031Z",
+		"2.3.0": "2017-10-04T09:46:19.936Z",
+		"2.4.0": "2017-12-06T11:51:36.143Z",
+		"2.4.1": "2017-12-09T10:22:22.264Z",
+		"2.5.0": "2018-01-23T12:09:39.065Z",
+		"2.5.1": "2018-02-08T23:26:37.536Z",
+		"2.5.2": "2018-04-15T22:21:40.552Z",
+		"2.5.3": "2018-04-16T13:22:00.870Z",
+		"3.0.0": "2018-04-30T10:44:25.953Z",
+		"4.0.0": "2018-05-05T10:50:06.202Z",
+		"5.0.0": "2018-07-03T23:08:19.737Z",
+		"5.1.0": "2018-08-28T14:19:12.124Z",
+		"5.2.0": "2018-09-27T19:05:46.408Z",
+		"5.2.1": "2018-10-18T16:57:39.538Z",
+		"5.2.2": "2018-11-28T23:31:19.368Z",
+		"5.2.3": "2019-01-31T20:35:36.904Z",
+		"5.2.4": "2019-02-06T14:11:48.741Z",
+		"5.2.5": "2019-03-11T20:13:18.323Z",
+		"5.3.0": "2019-04-21T10:07:28.175Z",
+		"5.3.1": "2019-09-06T17:09:46.050Z",
+		"5.3.2": "2019-09-12T14:04:39.517Z"
+	},
+	"dist-tags": {
+		"latest": "5.3.2"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"7169b569724fad22529d4566705ed6a5\"",
+			"fetched": 1568994352971
+		}
+	},
+	"_distfiles": {
+		"prebuild-install-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-1.0.0.tgz",
+			"sha": "877263dbd54d232ef3daff184a094e7850b0040c",
+			"registry": "npmjs"
+		},
+		"prebuild-install-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-1.0.1.tgz",
+			"sha": "839680714c3387538b4966c7566d4c58c022ac33",
+			"registry": "npmjs"
+		},
+		"prebuild-install-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-1.0.2.tgz",
+			"sha": "fe568314a59a3cc7972163a79488f152c6b14ba2",
+			"registry": "npmjs"
+		},
+		"prebuild-install-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-1.1.0.tgz",
+			"sha": "783cad04ce65a3001da73fb2999f7bb0dfee8e4b",
+			"registry": "npmjs"
+		},
+		"prebuild-install-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.0.0.tgz",
+			"sha": "6b194814a00a60a696e832c944e517c7bd72b1be",
+			"registry": "npmjs"
+		},
+		"prebuild-install-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.1.0.tgz",
+			"sha": "526c7b3ed1e2707a247f7c040719173a321bc14f",
+			"registry": "npmjs"
+		},
+		"prebuild-install-2.1.1.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.1.1.tgz",
+			"sha": "d0a77ea51b6a00f928cb71bc0ccea24f87ec171e",
+			"registry": "npmjs"
+		},
+		"prebuild-install-2.1.2.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.1.2.tgz",
+			"sha": "d9ae0ca85330e03962d93292f95a8b44c2ebf505",
+			"registry": "npmjs"
+		},
+		"prebuild-install-2.2.0.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.2.0.tgz",
+			"sha": "55934756a32bac8747390ca44ff663cee8b99b69",
+			"registry": "npmjs"
+		},
+		"prebuild-install-2.2.1.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.2.1.tgz",
+			"sha": "cdf16b041505bde8c55168abd7e58ea264e537ca",
+			"registry": "npmjs"
+		},
+		"prebuild-install-2.2.2.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.2.2.tgz",
+			"sha": "dd47c4d61f3754fb17bbf601759e5922e16e0671",
+			"registry": "npmjs"
+		},
+		"prebuild-install-2.3.0.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.3.0.tgz",
+			"sha": "19481247df728b854ab57b187ce234211311b485",
+			"registry": "npmjs"
+		},
+		"prebuild-install-2.4.0.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.4.0.tgz",
+			"sha": "9cd6325847f984136dd993375395d420da270a75",
+			"registry": "npmjs"
+		},
+		"prebuild-install-2.4.1.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.4.1.tgz",
+			"sha": "c28ba1d1eedc17fbd6b3229a657ffc0fba479b49",
+			"registry": "npmjs"
+		},
+		"prebuild-install-2.5.0.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.5.0.tgz",
+			"sha": "6fdd8436069971c76688071f4847d4c891a119f4",
+			"registry": "npmjs"
+		},
+		"prebuild-install-2.5.1.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.5.1.tgz",
+			"sha": "0f234140a73760813657c413cdccdda58296b1da",
+			"registry": "npmjs"
+		},
+		"prebuild-install-2.5.2.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.5.2.tgz",
+			"sha": "8bdfb6325b98610bfd6832c7d0074bf1b59da848",
+			"registry": "npmjs"
+		},
+		"prebuild-install-2.5.3.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-2.5.3.tgz",
+			"sha": "9f65f242782d370296353710e9bc843490c19f69",
+			"registry": "npmjs"
+		},
+		"prebuild-install-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-3.0.0.tgz",
+			"sha": "0fd5b2c48ffcf4ceefa64d04a4c5a328d79ad66c",
+			"registry": "npmjs"
+		},
+		"prebuild-install-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-4.0.0.tgz",
+			"sha": "206ce8106ce5efa4b6cf062fc8a0a7d93c17f3a8",
+			"registry": "npmjs"
+		},
+		"prebuild-install-5.0.0.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.0.0.tgz",
+			"sha": "bc1a24636beaf0af7945c0a84d4b9249bf191b6b",
+			"registry": "npmjs"
+		},
+		"prebuild-install-5.1.0.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.1.0.tgz",
+			"sha": "799cf2e443065eaff4880ecfa32b4d1a4a3ad000",
+			"registry": "npmjs"
+		},
+		"prebuild-install-5.2.0.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.2.0.tgz",
+			"sha": "53c0422ebf28437047d699450bd4fd765b2951ea",
+			"registry": "npmjs"
+		},
+		"prebuild-install-5.2.1.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.2.1.tgz",
+			"sha": "87ba8cf17c65360a75eefeb3519e87973bf9791d",
+			"registry": "npmjs"
+		},
+		"prebuild-install-5.2.2.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.2.2.tgz",
+			"sha": "237888f21bfda441d0ee5f5612484390bccd4046",
+			"registry": "npmjs"
+		},
+		"prebuild-install-5.2.3.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.2.3.tgz",
+			"sha": "096f5116e63eeef57ae533a2ee460b13d7872704",
+			"registry": "npmjs"
+		},
+		"prebuild-install-5.2.4.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.2.4.tgz",
+			"sha": "8cc41a217ef778a31d3a876fe6668d05406db750",
+			"registry": "npmjs"
+		},
+		"prebuild-install-5.2.5.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.2.5.tgz",
+			"sha": "c7485911fe98950b7f7cd15bb9daee11b875cc44",
+			"registry": "npmjs"
+		},
+		"prebuild-install-5.3.0.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.3.0.tgz",
+			"sha": "58b4d8344e03590990931ee088dd5401b03004c8",
+			"registry": "npmjs"
+		},
+		"prebuild-install-5.3.1.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.3.1.tgz",
+			"sha": "7d220b978e03b0e067e0d8cffd13e84b3515131d",
+			"registry": "npmjs"
+		},
+		"prebuild-install-5.3.2.tgz": {
+			"url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-5.3.2.tgz",
+			"sha": "6392e9541ac0b879ef0f22b3d65037417eb2035e",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-56916f68966f10c3",
+	"_id": "prebuild-install",
+	"readme": "# prebuild-install\n\n> A command line tool to easily install prebuilt binaries for multiple version of node/iojs on a specific platform.\n\n[![npm](https://img.shields.io/npm/v/prebuild-install.svg)](https://www.npmjs.com/package/prebuild-install)\n![Node version](https://img.shields.io/node/v/prebuild-install.svg)\n[![Build Status](https://travis-ci.org/prebuild/prebuild-install.svg?branch=master)](https://travis-ci.org/prebuild/prebuild-install)\n[![Build status](https://ci.appveyor.com/api/projects/status/6v6hxxwgjrr99pc8/branch/master?svg=true)](https://ci.appveyor.com/project/mathiask88/prebuild-install)\n[![david](https://david-dm.org/prebuild/prebuild-install.svg)](https://david-dm.org/prebuild/prebuild-install)\n[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)\n\n`prebuild-install` supports installing prebuilt binaries from GitHub by default.\n\n## Usage\n\nChange your package.json install script to:\n```json\n{\n  \"scripts\": {\n    \"install\": \"prebuild-install || node-gyp rebuild\"\n  }\n}\n```\n\n### Requirements\n\nYou need to provide prebuilds made by [`prebuild`](https://github.com/prebuild/prebuild).\n\n### Help\n```\nprebuild-install [options]\n\n  --download    -d  [url]       (download prebuilds, no url means github)\n  --target      -t  version     (version to install for)\n  --runtime     -r  runtime     (Node runtime [node, napi or electron] to build or install for, default is node)\n  --path        -p  path        (make a prebuild-install here)\n  --token       -T  gh-token    (github token for private repos)\n  --tag-prefix <prefix>         (github tag prefix, default is \"v\")\n  --build-from-source           (skip prebuild download)\n  --verbose                     (log verbosely)\n  --libc                        (use provided libc rather than system default)\n  --debug                       (set Debug or Release configuration)\n  --version                     (print prebuild-install version and exit)\n```\n\nWhen `prebuild-install` is run via an `npm` script, options\n`--build-from-source`, `--debug` and `--download`, may be passed through via\narguments given to the `npm` command.\n\n### Private Repositories\n\n`prebuild-install` supports downloading prebuilds from private GitHub repositories using the `-T <github-token>`:\n\n```\n$ prebuild-install -T <github-token>\n```\n\nIf you don't want to use the token on cli you can put it in `~/.prebuild-installrc`:\n\n```\ntoken=<github-token>\n```\n\nAlternatively you can specify it in the `prebuild-install_token` environment variable.\n\nNote that using a GitHub token uses the API to resolve the correct release meaning that you are subject to the ([GitHub Rate Limit](https://developer.github.com/v3/rate_limit/)).\n\n### Create GitHub Token\n\nTo create a token:\n\n* Go to [this page](https://github.com/settings/tokens)\n* Click the `Generate new token` button\n* Give the token a name and click the `Generate token` button, see below\n\n![prebuild-token](https://cloud.githubusercontent.com/assets/13285808/20844584/d0b85268-b8c0-11e6-8b08-2b19522165a9.png)\n\nThe default scopes should be fine.\n\n### Custom binaries\nThe end user can override binary download location through environment variables in their .npmrc file.\nThe variable needs to meet the mask `% your package name %_binary_host` or `% your package name %_binary_host_mirror`. For example:\n```\nleveldown_binary_host=http://overriden-host.com/overriden-path\n```\nNote that the package version subpath and file name will still be appended.\nSo if you are installing `leveldown@1.2.3` the resulting url will be:\n```\nhttp://overriden-host.com/overriden-path/v1.2.3/leveldown-v1.2.3-node-v57-win32-x64.tar.gz\n```\n\n### Cache\n\nAll prebuilt binaries are cached to minimize traffic. So first `prebuild-install` picks binaries from the cache and if no binary could be found, it will be downloaded. Depending on the environment, the cache folder is determined in the following order:\n\n* `${npm_config_cache}/_prebuilds`\n* `${APP_DATA}/npm-cache/_prebuilds`\n* `${HOME}/.npm/_prebuilds`\n\n## License\n\nMIT"
+}

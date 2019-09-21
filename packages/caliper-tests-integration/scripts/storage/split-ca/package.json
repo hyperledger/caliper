@@ -1,0 +1,161 @@
+{
+	"name": "split-ca",
+	"versions": {
+		"1.0.0": {
+			"name": "split-ca",
+			"version": "1.0.0",
+			"description": "Simple module to split a single certificate authority chain file (aka: bundle, ca-bundle, ca-chain, etc.) into an array, as expected by the node.js tls api.",
+			"main": "index.js",
+			"scripts": {
+				"test": "make test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/bushong1/split-ca.git"
+			},
+			"keywords": [
+				"nodejs",
+				"ca",
+				"chain",
+				"ssl",
+				"tls",
+				"https",
+				"certificate",
+				"authority",
+				"bundle",
+				"ca-bundle",
+				"ca-chain",
+				"split",
+				"server"
+			],
+			"author": {
+				"name": "Charles Bushong"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/bushong1/split-ca/issues"
+			},
+			"homepage": "https://github.com/bushong1/split-ca",
+			"devDependencies": {
+				"chai": "^1.10.0",
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "1d37548a19bbd8def981f8bfce82f7a91c72e8c6",
+			"_id": "split-ca@1.0.0",
+			"_shasum": "fb3157bdab5d2a7ea060b4f1757474507bde6219",
+			"_from": ".",
+			"_npmVersion": "2.1.9",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "bushong1",
+				"email": "bushong1@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "bushong1",
+					"email": "bushong1@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "fb3157bdab5d2a7ea060b4f1757474507bde6219",
+				"tarball": "https://registry.npmjs.org/split-ca/-/split-ca-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "split-ca",
+			"version": "1.0.1",
+			"description": "Simple module to split a single certificate authority chain file (aka: bundle, ca-bundle, ca-chain, etc.) into an array, as expected by the node.js tls api.",
+			"main": "index.js",
+			"scripts": {
+				"test": "make test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/bushong1/split-ca.git"
+			},
+			"keywords": [
+				"nodejs",
+				"ca",
+				"chain",
+				"ssl",
+				"tls",
+				"https",
+				"certificate",
+				"authority",
+				"bundle",
+				"ca-bundle",
+				"ca-chain",
+				"split",
+				"server"
+			],
+			"author": {
+				"name": "Charles Bushong"
+			},
+			"license": "ISC",
+			"bugs": {
+				"url": "https://github.com/bushong1/split-ca/issues"
+			},
+			"homepage": "https://github.com/bushong1/split-ca",
+			"devDependencies": {
+				"chai": "^1.10.0",
+				"mocha": "^2.1.0"
+			},
+			"gitHead": "4fb87455c8af37396803be25c9fbca74af84a69b",
+			"_id": "split-ca@1.0.1",
+			"_shasum": "6c83aff3692fa61256e0cd197e05e9de157691a6",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "bushong1",
+				"email": "bushong1@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "bushong1",
+					"email": "bushong1@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "6c83aff3692fa61256e0cd197e05e9de157691a6",
+				"tarball": "https://registry.npmjs.org/split-ca/-/split-ca-1.0.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-6-west.internal.npmjs.com",
+				"tmp": "tmp/split-ca-1.0.1.tgz_1456855684061_0.576786095276475"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2016-03-01T18:08:07.407Z",
+		"created": "2015-02-01T17:35:36.761Z",
+		"1.0.0": "2015-02-01T17:35:36.761Z",
+		"1.0.1": "2016-03-01T18:08:07.407Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"ee6de1597fb44fa78fd72e01ee25f5c4\"",
+			"fetched": 1568994335133
+		}
+	},
+	"_distfiles": {
+		"split-ca-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/split-ca/-/split-ca-1.0.0.tgz",
+			"sha": "fb3157bdab5d2a7ea060b4f1757474507bde6219",
+			"registry": "npmjs"
+		},
+		"split-ca-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/split-ca/-/split-ca-1.0.1.tgz",
+			"sha": "6c83aff3692fa61256e0cd197e05e9de157691a6",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-dea302f1045983af",
+	"_id": "split-ca",
+	"readme": "# split-ca\n\nSimple node.js module to split a single certificate authority chain file (bundle, ca-bundle, ca-chain, etc.) into an array, as expected by the node.js tls api\n\n## Installation\n\n`npm install split-ca`\n\n## Usage\n\nUsage will depend on your server module of choice, but most https modules require an options hash with `ca`, `key`, and `cert`.  Simply give split-ca the filepath of your bundle file.\n\n```js\nvar https = require('https');\nvar fs = require('fs');\n\nvar splitca = require('split-ca');\n\nvar options = {\n  ca: splitca(\"path/to/ca_bundle_file\"),\n  key:fs.readFileSync(\"path/to/server_key_file\"),\n  cert:fs.readFileSync(\"path/to/server_cert_file\"),\n  requestCert: true,\n  rejectUnauthorized: true\n};\n\nhttps.createServer(options, function (req, res) {\n  res.writeHead(200);\n  res.end(\"hello world\\n\");\n}).listen(8000);\n```\n\n## Args\n\n`split-ca('filepath','split-string','encoding')`\n\n#### `filepath`\n\nA standard node path to your object.  An error is thrown if the file cannot be parsed, is not formatted properly.\n\n#### `split-string`\n\nOptional.  Defaults to `\"\\n\"`, can be replaced with anything.\n\n#### `encoding`\n\nOptional.  Defaults to `\"utf-8\"`, can be replaced with anything accepted by node's `fs` module.\n\n## Credits\n\nThanks to [Benjie Gillam](https://twitter.com/Benjie) for the [blog post and sample code](http://www.benjiegillam.com/2012/06/node-dot-js-ssl-certificate-chain/) that was unashamedly ripped for this module."
+}

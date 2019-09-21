@@ -1,0 +1,2489 @@
+{
+	"name": "bl",
+	"versions": {
+		"0.0.0": {
+			"name": "bl",
+			"version": "0.0.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.2"
+			},
+			"devDependencies": {
+				"tape": "*"
+			},
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.0.0",
+			"dist": {
+				"shasum": "ff9976e3a0f612ab25fa189e7718316bfd736ded",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.0.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.30",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "bl",
+			"version": "0.1.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.2"
+			},
+			"devDependencies": {
+				"tape": "*"
+			},
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.1.0",
+			"dist": {
+				"shasum": "4109c45afeda64238c29a9771f2343d72c394755",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.1.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.30",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.1": {
+			"name": "bl",
+			"version": "0.1.1",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.2"
+			},
+			"devDependencies": {
+				"tape": "*"
+			},
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.1.1",
+			"dist": {
+				"shasum": "97301af51723a061ecf9a5017c22165eb40504c9",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.1.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.30",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "bl",
+			"version": "0.2.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.2"
+			},
+			"devDependencies": {
+				"tape": "*",
+				"hash_file": "*"
+			},
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.2.0",
+			"dist": {
+				"shasum": "dfc5bedd197b0b7fa6fdb54cc0c6fe30ea53865d",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.2.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.2",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.0": {
+			"name": "bl",
+			"version": "0.3.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.2"
+			},
+			"devDependencies": {
+				"tape": "*",
+				"hash_file": "*"
+			},
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.3.0",
+			"dist": {
+				"shasum": "6e9c33e6f41f6887b5d2604ce13ef55e3a70c08b",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.3.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.5",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.0": {
+			"name": "bl",
+			"version": "0.4.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.2"
+			},
+			"devDependencies": {
+				"tape": "*",
+				"hash_file": "*"
+			},
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.4.0",
+			"dist": {
+				"shasum": "6064458cbf0905a1c8affabbc4d19bcfd67da6f4",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.4.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.5",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.1": {
+			"name": "bl",
+			"version": "0.4.1",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.2"
+			},
+			"devDependencies": {
+				"tape": "*",
+				"hash_file": "*"
+			},
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.4.1",
+			"dist": {
+				"shasum": "56c68b83017927ecadee12919e4cf0c745972ab3",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.4.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.5",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.2": {
+			"name": "bl",
+			"version": "0.4.2",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.2"
+			},
+			"devDependencies": {
+				"tape": "*",
+				"hash_file": "*"
+			},
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.4.2",
+			"dist": {
+				"shasum": "5db31d72f038c54e68adc39578125fe3b0addc96",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.4.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.8",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.0": {
+			"name": "bl",
+			"version": "0.5.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.2"
+			},
+			"devDependencies": {
+				"tape": "*",
+				"hash_file": "*"
+			},
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.5.0",
+			"dist": {
+				"shasum": "11ffd01650412b31aa6fa9878ffd3d4fa77a7185",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.5.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.11",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.6.0": {
+			"name": "bl",
+			"version": "0.6.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.2"
+			},
+			"devDependencies": {
+				"tape": "*",
+				"hash_file": "*"
+			},
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.6.0",
+			"dist": {
+				"shasum": "30910299937294133844ee34aa479a5344b4cd29",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.6.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.7.0": {
+			"name": "bl",
+			"version": "0.7.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet",
+				"test-local": "brtapsauce-local test/basic-test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.2"
+			},
+			"peerDependencies": {
+				"stream-browserify": "*"
+			},
+			"devDependencies": {
+				"tape": "~2.3.2",
+				"hash_file": "~0.1.1",
+				"brtapsauce": "~0.3.0",
+				"faucet": "0.0.0",
+				"stream-browserify": "~0.1.2"
+			},
+			"browser": {
+				"readable-stream": "stream-browserify"
+			},
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.7.0",
+			"dist": {
+				"shasum": "3fb0670602ac2878eb770dc2039f1836be62ae5b",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.7.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.21",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.8.0": {
+			"name": "bl",
+			"version": "0.8.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet",
+				"test-local": "brtapsauce-local test/basic-test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.26"
+			},
+			"devDependencies": {
+				"tape": "~2.12.3",
+				"hash_file": "~0.1.1",
+				"faucet": "~0.0.1",
+				"brtapsauce": "~0.3.0"
+			},
+			"browser": {
+				"readable-stream": "stream-browserify"
+			},
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.8.0",
+			"dist": {
+				"shasum": "378b1c638b5ea57467e57c4f33a36ff6761f18fa",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.8.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {}
+		},
+		"0.8.1": {
+			"name": "bl",
+			"version": "0.8.1",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet",
+				"test-local": "brtapsauce-local test/basic-test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"stream-browserify": "~1.0.0",
+				"readable-stream": "~1.0.26"
+			},
+			"devDependencies": {
+				"tape": "~2.12.3",
+				"hash_file": "~0.1.1",
+				"faucet": "~0.0.1",
+				"brtapsauce": "~0.3.0"
+			},
+			"browser": {
+				"readable-stream": "stream-browserify"
+			},
+			"gitHead": "ee75b2be282d218be1139f4999f446e27a2647ac",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.8.1",
+			"_shasum": "3b478a0874c3357e3a6a8559419abd93b92abde0",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"dist": {
+				"shasum": "3b478a0874c3357e3a6a8559419abd93b92abde0",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.8.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.8.2": {
+			"name": "bl",
+			"version": "0.8.2",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet",
+				"test-local": "brtapsauce-local test/basic-test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.26"
+			},
+			"devDependencies": {
+				"tape": "~2.12.3",
+				"hash_file": "~0.1.1",
+				"faucet": "~0.0.1",
+				"brtapsauce": "~0.3.0"
+			},
+			"gitHead": "1b67e141ebf47eb0c2ace434bd510286842d9959",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.8.2",
+			"_shasum": "c9b6bca08d1bc2ea00fc8afb4f1a5fd1e1c66e4e",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"dist": {
+				"shasum": "c9b6bca08d1bc2ea00fc8afb4f1a5fd1e1c66e4e",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.8.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.9.0": {
+			"name": "bl",
+			"version": "0.9.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet",
+				"test-local": "brtapsauce-local test/basic-test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.26"
+			},
+			"devDependencies": {
+				"tape": "~2.12.3",
+				"hash_file": "~0.1.1",
+				"faucet": "~0.0.1",
+				"brtapsauce": "~0.3.0"
+			},
+			"gitHead": "6b5296f09f8a781bdf90f6cf4140a553c0aab5e6",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.9.0",
+			"_shasum": "ab5ffaeccb30acd3da0af0c8df63b904990a76dd",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"dist": {
+				"shasum": "ab5ffaeccb30acd3da0af0c8df63b904990a76dd",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.9.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.9.1": {
+			"name": "bl",
+			"version": "0.9.1",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet",
+				"test-local": "brtapsauce-local test/basic-test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.26"
+			},
+			"devDependencies": {
+				"tape": "~2.12.3",
+				"hash_file": "~0.1.1",
+				"faucet": "~0.0.1",
+				"brtapsauce": "~0.3.0"
+			},
+			"gitHead": "53d3d10e39be326feb049ab27437173b3ce47ec4",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.9.1",
+			"_shasum": "d262c5b83aa5cf4386cea1d998c82b36d7ae2942",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"dist": {
+				"shasum": "d262c5b83aa5cf4386cea1d998c82b36d7ae2942",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.9.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.9.2": {
+			"name": "bl",
+			"version": "0.9.2",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet",
+				"test-local": "brtapsauce-local test/basic-test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.26"
+			},
+			"devDependencies": {
+				"tape": "~2.12.3",
+				"hash_file": "~0.1.1",
+				"faucet": "~0.0.1",
+				"brtapsauce": "~0.3.0"
+			},
+			"gitHead": "58699b7ea3823c9cff418e0e8d2d132c9efe9ec9",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.9.2",
+			"_shasum": "0233b18ab6d83e370f274d67c25cb4cc58c6a885",
+			"_from": ".",
+			"_npmVersion": "1.4.27",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"dist": {
+				"shasum": "0233b18ab6d83e370f274d67c25cb4cc58c6a885",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.9.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.9.3": {
+			"name": "bl",
+			"version": "0.9.3",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet",
+				"test-local": "brtapsauce-local test/basic-test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.26"
+			},
+			"devDependencies": {
+				"tape": "~2.12.3",
+				"hash_file": "~0.1.1",
+				"faucet": "~0.0.1",
+				"brtapsauce": "~0.3.0"
+			},
+			"gitHead": "4987a76bf6bafd7616e62c7023c955e62f3a9461",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.9.3",
+			"_shasum": "c41eff3e7cb31bde107c8f10076d274eff7f7d44",
+			"_from": ".",
+			"_npmVersion": "1.4.27",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"dist": {
+				"shasum": "c41eff3e7cb31bde107c8f10076d274eff7f7d44",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.9.3.tgz"
+			},
+			"directories": {}
+		},
+		"0.9.4": {
+			"name": "bl",
+			"version": "0.9.4",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet",
+				"test-local": "brtapsauce-local test/basic-test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.26"
+			},
+			"devDependencies": {
+				"tape": "~2.12.3",
+				"hash_file": "~0.1.1",
+				"faucet": "~0.0.1",
+				"brtapsauce": "~0.3.0"
+			},
+			"gitHead": "e7f90703c5f90ca26f60455ea6ad0b6be4a9feee",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.9.4",
+			"_shasum": "4702ddf72fbe0ecd82787c00c113aea1935ad0e7",
+			"_from": ".",
+			"_npmVersion": "2.1.18",
+			"_nodeVersion": "1.0.3",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"dist": {
+				"shasum": "4702ddf72fbe0ecd82787c00c113aea1935ad0e7",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.9.4.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "bl",
+			"version": "1.0.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet",
+				"test-local": "brtapsauce-local test/basic-test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~2.0.0"
+			},
+			"devDependencies": {
+				"tape": "~2.12.3",
+				"hash_file": "~0.1.1",
+				"faucet": "~0.0.1",
+				"brtapsauce": "~0.3.0"
+			},
+			"gitHead": "1794938be6697a6d1e02cd942a4eea59b353347a",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@1.0.0",
+			"_shasum": "ada9a8a89a6d7ac60862f7dec7db207873e0c3f5",
+			"_from": ".",
+			"_npmVersion": "2.9.0",
+			"_nodeVersion": "2.0.1-nightly20150618d2e4e03444",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"dist": {
+				"shasum": "ada9a8a89a6d7ac60862f7dec7db207873e0c3f5",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "bl",
+			"version": "1.0.1",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet",
+				"test-local": "brtapsauce-local test/basic-test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~2.0.5"
+			},
+			"devDependencies": {
+				"tape": "~2.12.3",
+				"hash_file": "~0.1.1",
+				"faucet": "~0.0.1",
+				"brtapsauce": "~0.3.0"
+			},
+			"gitHead": "9eced07e8c4f4b44b42e6e99ac33d4c390b4e74a",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@1.0.1",
+			"_shasum": "0e6df7330308c46515751676cafa7334dc9852fd",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "6.0.0-nightly2016011666b9c0d8bd",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"dist": {
+				"shasum": "0e6df7330308c46515751676cafa7334dc9852fd",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-1.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.9.5": {
+			"name": "bl",
+			"version": "0.9.5",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet",
+				"test-local": "brtapsauce-local test/basic-test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~1.0.26"
+			},
+			"devDependencies": {
+				"faucet": "~0.0.1",
+				"hash_file": "~0.1.1",
+				"tape": "~4.4.0"
+			},
+			"gitHead": "fe77435118490ac7d07f93c0b52896c67fb2601f",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@0.9.5",
+			"_shasum": "c06b797af085ea00bc527afc8efcf11de2232054",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "6.0.0-nightly2016011666b9c0d8bd",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"dist": {
+				"shasum": "c06b797af085ea00bc527afc8efcf11de2232054",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-0.9.5.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "bl",
+			"version": "1.0.2",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~2.0.5"
+			},
+			"devDependencies": {
+				"tape": "~2.12.3",
+				"hash_file": "~0.1.1",
+				"faucet": "~0.0.1"
+			},
+			"gitHead": "9f1e7ce410e28d68c0a6f678b93b4cc2273e585f",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@1.0.2",
+			"_shasum": "8c66490d825ba84d560de1f62196a29555b3a0c4",
+			"_from": ".",
+			"_npmVersion": "3.6.0",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"dist": {
+				"shasum": "8c66490d825ba84d560de1f62196a29555b3a0c4",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-1.0.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-6-west.internal.npmjs.com",
+				"tmp": "tmp/bl-1.0.2.tgz_1454532811740_0.7871121023781598"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "bl",
+			"version": "1.0.3",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~2.0.5"
+			},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"hash_file": "~0.1.1",
+				"tape": "~4.4.0"
+			},
+			"gitHead": "906e0dd6e811c9989a2c1d46fcca22c8da9f8f5b",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@1.0.3",
+			"_shasum": "fc5421a28fd4226036c3b3891a66a25bc64d226e",
+			"_from": ".",
+			"_npmVersion": "3.6.0",
+			"_nodeVersion": "5.6.0",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"dist": {
+				"shasum": "fc5421a28fd4226036c3b3891a66a25bc64d226e",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-1.0.3.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-5-east.internal.npmjs.com",
+				"tmp": "tmp/bl-1.0.3.tgz_1455187279627_0.9823597683571279"
+			},
+			"directories": {}
+		},
+		"1.1.1": {
+			"name": "bl",
+			"version": "1.1.1",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~2.0.5"
+			},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"hash_file": "~0.1.1",
+				"tape": "~4.4.0"
+			},
+			"gitHead": "62a04992e9c5c5ab0943d59d37928971576218f6",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@1.1.1",
+			"_shasum": "f81b4108185afc9bb6ea9a1885c5c5c7b1dae25c",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.3.0",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"dist": {
+				"shasum": "f81b4108185afc9bb6ea9a1885c5c5c7b1dae25c",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-1.1.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/bl-1.1.1.tgz_1455246147968_0.6150420815683901"
+			},
+			"directories": {}
+		},
+		"1.1.2": {
+			"name": "bl",
+			"version": "1.1.2",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "~2.0.5"
+			},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"hash_file": "~0.1.1",
+				"tape": "~4.4.0"
+			},
+			"gitHead": "ea42021059dc65fc60d7f4b9217c73431f09d23d",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@1.1.2",
+			"_shasum": "fdca871a99713aa00d19e3bbba41c44787a65398",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.3.0",
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "rod@vagg.org"
+			},
+			"maintainers": [
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"dist": {
+				"shasum": "fdca871a99713aa00d19e3bbba41c44787a65398",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-1.1.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/bl-1.1.2.tgz_1455246621698_0.6300242957659066"
+			},
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "bl",
+			"version": "1.2.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "^2.0.5"
+			},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"hash_file": "~0.1.1",
+				"tape": "~4.6.0"
+			},
+			"gitHead": "199e5c1807c378c8af5d81be0bb3c30921ce530a",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@1.2.0",
+			"_shasum": "1397e7ec42c5f5dc387470c500e34a9f6be9ea98",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "matteo.collina",
+				"email": "hello@matteocollina.com"
+			},
+			"dist": {
+				"shasum": "1397e7ec42c5f5dc387470c500e34a9f6be9ea98",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-1.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				},
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bl-1.2.0.tgz_1482392005359_0.8425999039318413"
+			},
+			"directories": {}
+		},
+		"1.2.1": {
+			"name": "bl",
+			"version": "1.2.1",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "^2.0.5"
+			},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"hash_file": "~0.1.1",
+				"tape": "~4.6.0"
+			},
+			"gitHead": "d71a2a0ca3aba1fe81cbe62ed85f2d2e18759d24",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@1.2.1",
+			"_shasum": "cac328f7bee45730d404b692203fcb590e172d5e",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.1",
+			"_npmUser": {
+				"name": "matteo.collina",
+				"email": "hello@matteocollina.com"
+			},
+			"dist": {
+				"shasum": "cac328f7bee45730d404b692203fcb590e172d5e",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-1.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				},
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bl-1.2.1.tgz_1493627681200_0.7146802595816553"
+			},
+			"directories": {}
+		},
+		"1.2.2": {
+			"name": "bl",
+			"version": "1.2.2",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "^2.3.5",
+				"safe-buffer": "^5.1.1"
+			},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"hash_file": "~0.1.1",
+				"tape": "~4.9.0"
+			},
+			"gitHead": "feaaa4ca34417d7d2e659d25455a73a85ef989c3",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@1.2.2",
+			"_npmVersion": "5.7.1",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "matteo.collina",
+				"email": "hello@matteocollina.com"
+			},
+			"dist": {
+				"integrity": "sha512-e8tQYnZodmebYDWGH7KMRvtzKXaJHx3BbilrgZCfvyLUYdKpK1t5PSPmpkny/SgiTSCnjfLW7v5rlONXVFkQEA==",
+				"shasum": "a160911717103c07410cef63ef51b397c025af9c",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-1.2.2.tgz",
+				"fileCount": 7,
+				"unpackedSize": 38223
+			},
+			"maintainers": [
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				},
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bl_1.2.2_1521669598170_0.7406366214040565"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "bl",
+			"version": "2.0.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "^2.3.5",
+				"safe-buffer": "^5.1.1"
+			},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"hash_file": "~0.1.1",
+				"tape": "~4.9.0"
+			},
+			"gitHead": "52564cc1b2091374f66ca4544f686f199fd4537d",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@2.0.0",
+			"_npmVersion": "6.0.1",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "matteo.collina",
+				"email": "hello@matteocollina.com"
+			},
+			"dist": {
+				"integrity": "sha512-nqdgzTR3A/DdvWXolezBa/lJbF3+e/KXarzx5LmQGZP/jbgeOmC+fi2v9iaJllcnVQBOh6WTK+CuDlbsvdX22Q==",
+				"shasum": "faa080459216250225f431e888aec87fc6aeac48",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-2.0.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 39960,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa+p7HCRA9TVsSAnZWagAABTkP/RMzvCXJNbffHnH+WNIo\nglgb4Pa7JWP/qx31+3DKR5SaSI9OLqlKE5u+aSKBZWscfwfPv1OZy049ENuA\nz0XSx1Gk+JWjQGqhZBZxj7omQ8K34QJ7URZYjHOBVVgBQwe2Q8BDnHq+oLoA\nCk03aEjJPHD10PmWBY4S1yOkCpxAK/JzKdwkLdhljO0wc8mymvmaAxyUis4S\nuWElufMkO7/0antWdm3RfuJ9Zd/nDXR/Qerm3CK4xK3yyyqo6bkFcJHeXLvo\nyFvmJzYh9NgThoTDL2a5K6qi8huu55c0ozU9Pp9bKH/rfheQfpMi6GGfv/Au\nK2x3WnORwAEaYFcib5Ry1puGTBUKgDtXo/XRtxE8etTuxBzwa/RmWM5z1ERp\nLdxuZZjHmJNPv5wWkbn+7v9sj8jGxYCGfOxueO/g7+RIfxHQh/IvnUzPESk3\nb2cUdi4Imlscx1eoFY8UIRzZ0gppZDVQxjEPd0b4NawkD0QBgYQf7s2lWcQW\nseo9yQZTD+5DRMWtSkev0M6JAm7nzIR9CUnmg4qeIkZkTTmNjJUCWVaJPC3P\n6FNH0VkdAYiHFC5Htp7uefAKXXGDxrkAss2XRbtCmUYlL/vmvsROAebpBgZj\nmuXldIyHuOA8rJ0pFOLvkv6uoTVF5FIaA2cf+Qtcn7xl6ZKh+Alwtq+ZDRUD\nRve5\r\n=6Ktr\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				},
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bl_2.0.0_1526374086098_0.07346820948207466"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.1": {
+			"name": "bl",
+			"version": "2.0.1",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "^2.3.5",
+				"safe-buffer": "^5.1.1"
+			},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"hash_file": "~0.1.1",
+				"tape": "~4.9.0"
+			},
+			"gitHead": "f13bdda1b18adc545c5a576dd40ae14e2cabd4ca",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@2.0.1",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "8.11.2",
+			"_npmUser": {
+				"name": "matteo.collina",
+				"email": "hello@matteocollina.com"
+			},
+			"dist": {
+				"integrity": "sha512-FrMgLukB9jujvJ92p5TA0hcKIHtInVXXhxD7qgAuV7k0cbPt9USZmOYnhDXH6IsnGeIUglX42TSBV7Gn4q5sbQ==",
+				"shasum": "1de8346d50c3078d088d6a60c2bbc8c516248bc5",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-2.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 39960,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbInKoCRA9TVsSAnZWagAAmJYQAJIa12CqwtTVMnwe6M5d\nJfSY6PqVq0Et9rE6VB7E5lDkbhU4xj+5ljLPcT3726GxLJ4CQvJGp/oLQKW6\nAUFmH29ru8PXk8xBIr/67/M5BBO/FZIFMrBGU8mklILBRNf+VdWDWWzUVnQn\ndiH3SRAQBfg9K42zou+Gscg8fMHktDsq9U8Ev/Yz1V0o9lnSeBbzjXBPfWR1\nvrZU4weTu7ynsY2MN5Wfq7M7TAA+4n7uuIGO/4eVjVS0ovQKEGrBrgYik3yx\nmp0LRtojomQVF9bO2GLZnRRLn5jvLGqoJvcQvr0hipi7H4vPcqSEj2Y6Gfbx\nKG7E/nrBQIV+mK4qmX4FT0iwIwq5py2K2Wolp/Hq+zbsWM5G8lvKvYVUQyi5\n3to3RSlcHay+O6nqHpw0DbLTDXhMr4N9AiJtUjZspqr2LC6be2ax+GlnzL0O\n449XJtTo5078fh0pM2ffe6Ale8O2233ltKZOZeR3PQumDd1upaN2O5VMWkXS\nqiGVg7dvHUmA8FY8ltNUYj3cpBlPReiWX8USKjdO4ratj6Yvtapt89zDLUyE\n7AtxvZLO4UtzH9rVCsUEccmTgc2qfNPAW9i/vEcBHaPQg+HPBD7a8NSe77xJ\n0QOdNcgY1/8Wgm3/SAQpT8vZlHeu399vso/6NJrI2MuizmyTRv+4akXnf4yL\n07OE\r\n=rDDa\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				},
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bl_2.0.1_1528984230595_0.11921599579759667"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.1.0": {
+			"name": "bl",
+			"version": "2.1.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "^2.3.5",
+				"safe-buffer": "^5.1.1"
+			},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"hash_file": "~0.1.1",
+				"tape": "~4.9.0"
+			},
+			"gitHead": "8c596a8968864b1d5fd2fab74083aa9c5e842742",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@2.1.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.12.0",
+			"_npmUser": {
+				"name": "matteo.collina",
+				"email": "hello@matteocollina.com"
+			},
+			"dist": {
+				"integrity": "sha512-5ACYemes58YSYaL06sZuUQBMprbF5ig7B+TNdJXLe5yEgNxrjFyPZbkL7RzJ9ogngDJzZwLCw/qB9Bw9CYT0CA==",
+				"shasum": "e5dba41d9be27eb3cb48ed53463cabd025b2a70e",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-2.1.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 56847
+			},
+			"maintainers": [
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				},
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bl_2.1.0_1538651323017_0.12253795029321246"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.1.1": {
+			"name": "bl",
+			"version": "2.1.1",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "^2.3.5",
+				"safe-buffer": "^5.1.1"
+			},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"hash_file": "~0.1.1",
+				"tape": "~4.9.0"
+			},
+			"gitHead": "6702c3affadab89d0db48921aabd16e30170767a",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@2.1.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.12.0",
+			"_npmUser": {
+				"name": "matteo.collina",
+				"email": "hello@matteocollina.com"
+			},
+			"dist": {
+				"integrity": "sha512-YTmzlmPyCuKGFSTLL3P7nlZHk+CDC3ddehCT+/ZwcI35jUjnpfSXlrAAr3hIEoD/+4TvKy27vMp7yc/q8aa6tA==",
+				"shasum": "bc883a864d8243b2836cf5b13857f512e7559860",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-2.1.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 57543,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbuuVrCRA9TVsSAnZWagAAqegP/R8rkjaOPmguR/844/BK\nPog94/PtHSTVtvFvNj9xP1zOJMvBKouKK8nFgrH8lCpa7cE1TJjuHDam3xEv\nptXjspcnlf2SfnjBwVzORw9+OC9Gle0tNTlZgNsyiymLb+45xupVgIVMYyK4\nvLbY5Jw54Xo3x2AJpy4wjJKhn4W4fhrge0UDKdSngwef+vB4CZK26jyV3VsO\nzsQBQQCq6tRx2X96VqvPVdCLxzAsOrAj4o6mrQJ5Glw1VGq/rYodZrOTs3wW\n9Tphfmsc60MDfG73V0jsLyz3oPdw5vE4plLlqDI93eSJcQMJ/qcjDUeGKtX+\nbJ74DeQiJy4cXaJ06Pk7FNqzedOwLq44rY7L7os7rTAHAnsSvYZjRsUqp9/V\nYiflHK559cyfj/R86jVQJLPEWKeTlkhAfwFs6yufryp7iZGjGYwncGKGriAa\nVFshWZ7UcQtxO4o8YGFvj1n1NfvNbANYQ6RABHFx4Xtcxl4asHVK0SuzM0gN\nt9kmPyb1LK2Fw6L+V/hAE60gTfreGll674e/ieB222Tij5ZI5P+TDhSanl3K\nvqrpz2lZjwSX72/wnE90V0qBDbCeBIhZY1RVOgl3b+G882NDMAmr5+mHuvDb\nts34yqmTJCD/kp81m1zoH6U1tA6TNfE1JgXEt2JSSyPWkUobNG7dPvrCWbpM\ndLCQ\r\n=QZnj\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				},
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bl_2.1.1_1538975082712_0.6966946210943161"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.1.2": {
+			"name": "bl",
+			"version": "2.1.2",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "^2.3.5",
+				"safe-buffer": "^5.1.1"
+			},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"hash_file": "~0.1.1",
+				"tape": "~4.9.0"
+			},
+			"gitHead": "270e5f5e8d1a3e1bb323e09a1e951d0f0d323ada",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@2.1.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.12.0",
+			"_npmUser": {
+				"name": "matteo.collina",
+				"email": "hello@matteocollina.com"
+			},
+			"dist": {
+				"integrity": "sha512-DvC0x+PxmSJNx8wXoFV15pC2+GOJ3ohb4F1REq3X32a2Z3nEBpR1Guu740M7ouYAImFj4BXDNilLNZbygtG9lQ==",
+				"shasum": "591182cb9f3f2eff3beb1e76dabedfb5c5fa9a26",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-2.1.2.tgz",
+				"fileCount": 8,
+				"unpackedSize": 57549,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbwOdyCRA9TVsSAnZWagAA5s8P/R+BamLl6TfuvFI3N7jN\nPxE/GJWYHjtFJTh+HCnY1iFp6jD0SUXQ2CoRByUBQsSsJKjoY03uTWwHW8R0\ns/NuLnYBlygdrf73d9M28w8P/aZqi5tZ7OONBZJivULZLDNgKvay7IVIFEfp\nVLcYVtJ/OMhtjrHoQp0JfN4tEwlWYO3p0vxLhXRgy2r+L0+oQ6R5pI7PdTQ2\nSmu3GiDR56SgTOpLcxRqv94w9MFqcggjvFsRgc2ynmBfk5BFsW8gYutGxZkn\n0KuZxoKMAjUN7lkb0iSVp8E9udU3dd/nsgHCudVZyHQ0P5kMIXbeu+T0Parq\nznJc7C75jY8hgJBYVl0lONEwAo6pm+G3cgmGnsiRUiLe0qIxKSeUpnQYgAPp\npsfzrq2rRRhp8He6Y3lz2rnJtjipbD50QyRuJ8fMwCFPdvxP8ij6X3MMVjid\nGy3IqI5Z0B/viW5WxXFXB+diAKZqlrgFqvgKey9ofWEladDrCaAVqBXF5d4M\nhHktq2jSuxxe/5fwm0W4BCzj/z3mAALrFoDe3y+Ac24fZplhBYhli185nj+4\nET5EJTmjciHEaAc2BmeZwDkz7BYGucSsLpgoQxSwBKHhJSN8a7GrmaoW9dXV\n5Aaw0sTYBW13sElHtYssZ7e7DLu2cRXz5IU+TicmpsoGON5VsIQLiET7FkJc\nJizB\r\n=AUQE\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				},
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bl_2.1.2_1539368817313_0.775657452433625"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.2.0": {
+			"name": "bl",
+			"version": "2.2.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "^2.3.5",
+				"safe-buffer": "^5.1.1"
+			},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"hash_file": "~0.1.1",
+				"tape": "~4.9.0"
+			},
+			"gitHead": "b6284a824a8aae312e640afb0d59ac24139f0a36",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@2.2.0",
+			"_nodeVersion": "10.14.2",
+			"_npmVersion": "6.7.0",
+			"_npmUser": {
+				"name": "matteo.collina",
+				"email": "hello@matteocollina.com"
+			},
+			"dist": {
+				"integrity": "sha512-wbgvOpqopSr7uq6fJrLH8EsvYMJf9gzfo2jCsL2eTy75qXPukA4pCgHamOQkZtY5vmfVtjB+P3LNlMHW5CEZXA==",
+				"shasum": "e1a574cdf528e4053019bb800b041c0ac88da493",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-2.2.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 58589,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcVqY7CRA9TVsSAnZWagAAzoYP/2T28EHNevUmzZz/mqtI\n7kk7RXGycVXjuGcMK/OfTenSOxeZ3eQWOelWW7LGJI5O611iPUM8Yvp9X2Hq\nBa217h3KDZ0kaooNS85seflVDLufjgsh2SsPz9zP58UjTCRK0768U1xwB7A/\nT4ExS63s5NjqRfxTbydcpvt4ObCrib+z5aSSHRbhiml18oYfWlKHqknsgWfe\nBNAUz7tPEzHtnlY1nprup2n96kZwBrOD7m1SX0X1wh6ND2Yuex8LGwdtgzL6\nSmadUyv7c6Pvzkb4JVGBGd3flKdIWzexFNscgLNEpkihi6NQLTmSaMrzxVdt\nc8gpbbTgA4IBiX5sYZ3s70/iBR0baxVlLe43yiHXr4B2MvcmJVQT1SYiSZoP\nMM8vSYkA3FgO8gRLozyZ7lLrK0DqYJpWwhOVMh5BU+9Tk9FD0cKmmo0QT19V\nhmr30NfIN/JKzvwj+6eIuJfEJ+l0Lpn/tRpnIP4ZFWKo1APs6IqSDTR7bQWP\nRsguv7C2lzcxAsf7MqNpQFbI4VGr5P6o2hW7rp4cWb3zrjij0PKyxNQkeDji\n5IVJ3KRL1jAnthiHMdTofGlh5fs8bUqb5WRzhxmRaV7lPKthwIg/YHU34HJ/\nmDA3d99iz4+4vh7u89YAJw06C+TIFhHart3TKoWd3XNJ6mVJS9QVXzv8pb2T\nJtfg\r\n=6SMP\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				},
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bl_2.2.0_1549182523075_0.8810481806404531"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"name": "bl",
+			"version": "3.0.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"test": "node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "^3.0.1"
+			},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"hash_file": "~0.1.1",
+				"tape": "~4.9.1"
+			},
+			"gitHead": "ecc0cc51ef62f41ae151e82d61a8eac71c2ca672",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@3.0.0",
+			"_nodeVersion": "10.15.1",
+			"_npmVersion": "6.8.0",
+			"_npmUser": {
+				"name": "matteo.collina",
+				"email": "hello@matteocollina.com"
+			},
+			"dist": {
+				"integrity": "sha512-EUAyP5UHU5hxF8BPT0LKW8gjYLhq1DQIcneOX/pL/m2Alo+OYDQAJlHq+yseMP50Os2nHXOSic6Ss3vSQeyf4A==",
+				"shasum": "3611ec00579fd18561754360b21e9f784500ff88",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-3.0.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 58774,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcd7VtCRA9TVsSAnZWagAAIoEP/0/VcjmLqeHP+6V9fNBL\n3EbmcPAmZbtDFzzNSzfTSavXudliVM9GtGZbgUJ8nW4MJaOxu3uFS2HsaS5q\ndEMmpzqG45/yu8wCQRbCNMInMksFRbvtDIii9+EixFZgKZSYM79ibg18Z9y/\na0ZBz+E5PuJYUqP6Yul01V3cqowVrRIf9dhKwpZ1BFhxNUNMp+nASDWUsYJv\nPshcTj/ST7VS5FxTqzOodixMAHoFAohX7Tf1qBmGU75AOd/V4Jq32eZtRTzt\njLNSskOxwOBRW9FUR5JIuCRaq6r/kgCMRFk30ekyPN7KWrUSM97gNOneF9Dg\nsBvERMzLq1jSbH9qlvdbiV5PuQW+NfdFVesqddYdNjDn6o4ajShEunJirBRv\n0cBaEIZfberDA8vZHSeeNXU866ye7HTikYTwm1+weMYh06XBVdy3XtOcc0Ew\nvv8IKvRkXwz8NTi6cyMcP6zUG85kl48GK6BCNp4XkRri+738WcrvhzH60kvS\nWxrkTgDcVFSmoWJocs3yMaQFoFjkQOHdGu3EyIdn9dEiJgSMjOtu2fpHlFPx\nH2+fcwNh/do5+hCI08zTZGPsKMtp6fKVKUiZH06iIdvx/0zpt9z9NPTCas7O\n2IatNP1Q8/DVVrIlcEsImf7h/qZAmIL2v76QJpuKCJKuQaycvdkq38061BV2\nPLF2\r\n=42QJ\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				},
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bl_3.0.0_1551349100582_0.4647639136198465"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.0.0": {
+			"name": "bl",
+			"version": "4.0.0",
+			"description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+			"main": "bl.js",
+			"scripts": {
+				"lint": "standard *.js test/*.js",
+				"test": "npm run lint && node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/rvagg/bl.git"
+			},
+			"homepage": "https://github.com/rvagg/bl",
+			"authors": [
+				"Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
+				"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+				"Jarett Cruger <jcrugzz@gmail.com> (https://github.com/jcrugzz)"
+			],
+			"keywords": [
+				"buffer",
+				"buffers",
+				"stream",
+				"awesomesauce"
+			],
+			"license": "MIT",
+			"dependencies": {
+				"readable-stream": "^3.4.0"
+			},
+			"devDependencies": {
+				"faucet": "~0.0.1",
+				"standard": "^14.3.0",
+				"tape": "^4.11.0"
+			},
+			"gitHead": "8ca2ec434a053d48b399c5b5cb06ad00202cc5d4",
+			"bugs": {
+				"url": "https://github.com/rvagg/bl/issues"
+			},
+			"_id": "bl@4.0.0",
+			"_nodeVersion": "12.10.0",
+			"_npmVersion": "6.10.3",
+			"dist": {
+				"integrity": "sha512-QwQvAZZA1Bw1FWnhNj2X5lu+sPxxB2ITH3mqEqYyahN6JZR13ONjk+XiTnBaGEzMPUrAgOkaD68pBH1rvPRPsw==",
+				"shasum": "fc7351c473992110749d3552087e1fe942021e65",
+				"tarball": "https://registry.npmjs.org/bl/-/bl-4.0.0.tgz",
+				"fileCount": 10,
+				"unpackedSize": 62912,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdguN3CRA9TVsSAnZWagAAeZEP/jdHp4PO81DRUisjvHfH\nkZfcLvf5/s1vhFtgfF9FYXbxindbYcLcXahZrIsIyHdkChEXOh6j1tu9aoBq\nnZDbEpjLdCuxDD9+b3DtB5c2Ntor5AwxXHeOX8O578xkR0i6TrJg+iUakoyc\nj/4cNFeojZ0YA+L/W47v4B7+NJZ0YBbLB1LqDJ34/VtzNzKN4Im9iZg6LwCL\nJ6luN2VHx1Oeqa6Z7VC58I+F35Akfz9xujYAnXZfcaaJAseKhZQXklKKGsB9\nX6zxBULZImngAwjYkf5wOaayLngloBfUxdhV4mBIdrvcnrjG5CxCAKM53YZx\nYsaiJhDNT6g0fM9FdNNS3ZHO4e1gx64mlyddpccYespAaebcDkix0xHQc2pu\nCoxdfXsbrHmlmLqDBlizt3b4JzKFlfmXwG5DTocV+LbP9PKyftIuEfFdjO/j\nnECXhghntBH1kbehHSQuLXXR/1SEkqe8++4mZ5GW8gAmuEimGvNXC5JNGiC4\n6zHnUNGsTH6VySAx3O2LkLtOWDMpDtTr9JBBqqniNiQlhtzy7GK60FEM6hQr\nZj6zY4hVS7QDIQunmPpq2pZg32rqpv+c07z7glH/FhooOpzRzPIuFuLiYUPa\nZG1HVvE2UEpzZ68mG05crqqpm1ltd3s2NG5U+2Ux/YfOidxMN4PfnHd6kYAc\nmJVA\r\n=2JEL\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "matteo.collina",
+					"email": "hello@matteocollina.com"
+				},
+				{
+					"name": "rvagg",
+					"email": "rod@vagg.org"
+				}
+			],
+			"_npmUser": {
+				"name": "rvagg",
+				"email": "r@va.gg"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bl_4.0.0_1568858998592_0.6674685522448147"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-09-19T02:10:01.249Z",
+		"created": "2013-06-15T12:35:42.237Z",
+		"0.0.0": "2013-06-15T12:35:47.051Z",
+		"0.1.0": "2013-06-16T01:04:03.168Z",
+		"0.1.1": "2013-06-16T04:59:00.527Z",
+		"0.2.0": "2013-07-23T08:11:36.873Z",
+		"0.3.0": "2013-08-07T23:39:24.286Z",
+		"0.4.0": "2013-08-08T13:51:22.510Z",
+		"0.4.1": "2013-08-08T14:02:15.734Z",
+		"0.4.2": "2013-10-02T09:48:29.941Z",
+		"0.5.0": "2013-10-10T21:47:31.190Z",
+		"0.6.0": "2013-12-03T03:23:07.669Z",
+		"0.7.0": "2014-01-09T09:41:05.970Z",
+		"0.8.0": "2014-04-07T09:56:19.606Z",
+		"0.8.1": "2014-06-27T02:30:06.185Z",
+		"0.8.2": "2014-06-28T04:45:15.739Z",
+		"0.9.0": "2014-07-22T12:26:24.857Z",
+		"0.9.1": "2014-08-20T10:17:06.829Z",
+		"0.9.2": "2014-09-10T01:49:52.743Z",
+		"0.9.3": "2014-09-10T01:54:50.700Z",
+		"0.9.4": "2015-01-19T23:52:52.258Z",
+		"1.0.0": "2015-06-21T06:35:02.302Z",
+		"1.0.1": "2016-01-19T05:32:39.741Z",
+		"0.9.5": "2016-01-19T05:36:26.056Z",
+		"1.0.2": "2016-02-03T20:53:32.695Z",
+		"1.0.3": "2016-02-11T10:41:22.390Z",
+		"1.1.0": "2016-02-12T02:58:34.031Z",
+		"1.1.1": "2016-02-12T03:02:29.633Z",
+		"1.1.2": "2016-02-12T03:10:23.327Z",
+		"1.2.0": "2016-12-22T07:33:27.682Z",
+		"1.2.1": "2017-05-01T08:34:43.085Z",
+		"1.2.2": "2018-03-21T21:59:58.272Z",
+		"2.0.0": "2018-05-15T08:48:06.878Z",
+		"2.0.1": "2018-06-14T13:50:30.662Z",
+		"2.1.0": "2018-10-04T11:08:43.234Z",
+		"2.1.1": "2018-10-08T05:04:42.845Z",
+		"2.1.2": "2018-10-12T18:26:57.507Z",
+		"2.2.0": "2019-02-03T08:28:43.245Z",
+		"3.0.0": "2019-02-28T10:18:20.693Z",
+		"4.0.0": "2019-09-19T02:09:58.708Z"
+	},
+	"dist-tags": {
+		"latest": "4.0.0",
+		"v0_9_x": "0.9.5"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"c5aac5497f4d58cad4c623601a2ca2a3\"",
+			"fetched": 1568994335617
+		}
+	},
+	"_distfiles": {
+		"bl-0.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.0.0.tgz",
+			"sha": "ff9976e3a0f612ab25fa189e7718316bfd736ded",
+			"registry": "npmjs"
+		},
+		"bl-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.1.0.tgz",
+			"sha": "4109c45afeda64238c29a9771f2343d72c394755",
+			"registry": "npmjs"
+		},
+		"bl-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.1.1.tgz",
+			"sha": "97301af51723a061ecf9a5017c22165eb40504c9",
+			"registry": "npmjs"
+		},
+		"bl-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.2.0.tgz",
+			"sha": "dfc5bedd197b0b7fa6fdb54cc0c6fe30ea53865d",
+			"registry": "npmjs"
+		},
+		"bl-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.3.0.tgz",
+			"sha": "6e9c33e6f41f6887b5d2604ce13ef55e3a70c08b",
+			"registry": "npmjs"
+		},
+		"bl-0.4.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.4.0.tgz",
+			"sha": "6064458cbf0905a1c8affabbc4d19bcfd67da6f4",
+			"registry": "npmjs"
+		},
+		"bl-0.4.1.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.4.1.tgz",
+			"sha": "56c68b83017927ecadee12919e4cf0c745972ab3",
+			"registry": "npmjs"
+		},
+		"bl-0.4.2.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.4.2.tgz",
+			"sha": "5db31d72f038c54e68adc39578125fe3b0addc96",
+			"registry": "npmjs"
+		},
+		"bl-0.5.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.5.0.tgz",
+			"sha": "11ffd01650412b31aa6fa9878ffd3d4fa77a7185",
+			"registry": "npmjs"
+		},
+		"bl-0.6.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.6.0.tgz",
+			"sha": "30910299937294133844ee34aa479a5344b4cd29",
+			"registry": "npmjs"
+		},
+		"bl-0.7.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.7.0.tgz",
+			"sha": "3fb0670602ac2878eb770dc2039f1836be62ae5b",
+			"registry": "npmjs"
+		},
+		"bl-0.8.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.8.0.tgz",
+			"sha": "378b1c638b5ea57467e57c4f33a36ff6761f18fa",
+			"registry": "npmjs"
+		},
+		"bl-0.8.1.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.8.1.tgz",
+			"sha": "3b478a0874c3357e3a6a8559419abd93b92abde0",
+			"registry": "npmjs"
+		},
+		"bl-0.8.2.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.8.2.tgz",
+			"sha": "c9b6bca08d1bc2ea00fc8afb4f1a5fd1e1c66e4e",
+			"registry": "npmjs"
+		},
+		"bl-0.9.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.9.0.tgz",
+			"sha": "ab5ffaeccb30acd3da0af0c8df63b904990a76dd",
+			"registry": "npmjs"
+		},
+		"bl-0.9.1.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.9.1.tgz",
+			"sha": "d262c5b83aa5cf4386cea1d998c82b36d7ae2942",
+			"registry": "npmjs"
+		},
+		"bl-0.9.2.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.9.2.tgz",
+			"sha": "0233b18ab6d83e370f274d67c25cb4cc58c6a885",
+			"registry": "npmjs"
+		},
+		"bl-0.9.3.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.9.3.tgz",
+			"sha": "c41eff3e7cb31bde107c8f10076d274eff7f7d44",
+			"registry": "npmjs"
+		},
+		"bl-0.9.4.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.9.4.tgz",
+			"sha": "4702ddf72fbe0ecd82787c00c113aea1935ad0e7",
+			"registry": "npmjs"
+		},
+		"bl-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-1.0.0.tgz",
+			"sha": "ada9a8a89a6d7ac60862f7dec7db207873e0c3f5",
+			"registry": "npmjs"
+		},
+		"bl-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-1.0.1.tgz",
+			"sha": "0e6df7330308c46515751676cafa7334dc9852fd",
+			"registry": "npmjs"
+		},
+		"bl-0.9.5.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-0.9.5.tgz",
+			"sha": "c06b797af085ea00bc527afc8efcf11de2232054",
+			"registry": "npmjs"
+		},
+		"bl-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-1.0.2.tgz",
+			"sha": "8c66490d825ba84d560de1f62196a29555b3a0c4",
+			"registry": "npmjs"
+		},
+		"bl-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-1.0.3.tgz",
+			"sha": "fc5421a28fd4226036c3b3891a66a25bc64d226e",
+			"registry": "npmjs"
+		},
+		"bl-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-1.1.1.tgz",
+			"sha": "f81b4108185afc9bb6ea9a1885c5c5c7b1dae25c",
+			"registry": "npmjs"
+		},
+		"bl-1.1.2.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-1.1.2.tgz",
+			"sha": "fdca871a99713aa00d19e3bbba41c44787a65398",
+			"registry": "npmjs"
+		},
+		"bl-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-1.2.0.tgz",
+			"sha": "1397e7ec42c5f5dc387470c500e34a9f6be9ea98",
+			"registry": "npmjs"
+		},
+		"bl-1.2.1.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-1.2.1.tgz",
+			"sha": "cac328f7bee45730d404b692203fcb590e172d5e",
+			"registry": "npmjs"
+		},
+		"bl-1.2.2.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-1.2.2.tgz",
+			"sha": "a160911717103c07410cef63ef51b397c025af9c",
+			"registry": "npmjs"
+		},
+		"bl-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-2.0.0.tgz",
+			"sha": "faa080459216250225f431e888aec87fc6aeac48",
+			"registry": "npmjs"
+		},
+		"bl-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-2.0.1.tgz",
+			"sha": "1de8346d50c3078d088d6a60c2bbc8c516248bc5",
+			"registry": "npmjs"
+		},
+		"bl-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-2.1.0.tgz",
+			"sha": "e5dba41d9be27eb3cb48ed53463cabd025b2a70e",
+			"registry": "npmjs"
+		},
+		"bl-2.1.1.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-2.1.1.tgz",
+			"sha": "bc883a864d8243b2836cf5b13857f512e7559860",
+			"registry": "npmjs"
+		},
+		"bl-2.1.2.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-2.1.2.tgz",
+			"sha": "591182cb9f3f2eff3beb1e76dabedfb5c5fa9a26",
+			"registry": "npmjs"
+		},
+		"bl-2.2.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-2.2.0.tgz",
+			"sha": "e1a574cdf528e4053019bb800b041c0ac88da493",
+			"registry": "npmjs"
+		},
+		"bl-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-3.0.0.tgz",
+			"sha": "3611ec00579fd18561754360b21e9f784500ff88",
+			"registry": "npmjs"
+		},
+		"bl-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bl/-/bl-4.0.0.tgz",
+			"sha": "fc7351c473992110749d3552087e1fe942021e65",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-10cf8d4aae6643e6",
+	"_id": "bl",
+	"readme": "# bl *(BufferList)*\n\n[![Build Status](https://travis-ci.org/rvagg/bl.svg?branch=master)](https://travis-ci.org/rvagg/bl)\n\n**A Node.js Buffer list collector, reader and streamer thingy.**\n\n[![NPM](https://nodei.co/npm/bl.svg)](https://nodei.co/npm/bl/)\n\n**bl** is a storage object for collections of Node Buffers, exposing them with the main Buffer readable API. Also works as a duplex stream so you can collect buffers from a stream that emits them and emit buffers to a stream that consumes them!\n\nThe original buffers are kept intact and copies are only done as necessary. Any reads that require the use of a single original buffer will return a slice of that buffer only (which references the same memory as the original buffer). Reads that span buffers perform concatenation as required and return the results transparently.\n\n```js\nconst { BufferList } = require('bl')\n\nconst bl = new BufferList()\nbl.append(Buffer.from('abcd'))\nbl.append(Buffer.from('efg'))\nbl.append('hi')                     // bl will also accept & convert Strings\nbl.append(Buffer.from('j'))\nbl.append(Buffer.from([ 0x3, 0x4 ]))\n\nconsole.log(bl.length) // 12\n\nconsole.log(bl.slice(0, 10).toString('ascii')) // 'abcdefghij'\nconsole.log(bl.slice(3, 10).toString('ascii')) // 'defghij'\nconsole.log(bl.slice(3, 6).toString('ascii'))  // 'def'\nconsole.log(bl.slice(3, 8).toString('ascii'))  // 'defgh'\nconsole.log(bl.slice(5, 10).toString('ascii')) // 'fghij'\n\nconsole.log(bl.indexOf('def')) // 3\nconsole.log(bl.indexOf('asdf')) // -1\n\n// or just use toString!\nconsole.log(bl.toString())               // 'abcdefghij\\u0003\\u0004'\nconsole.log(bl.toString('ascii', 3, 8))  // 'defgh'\nconsole.log(bl.toString('ascii', 5, 10)) // 'fghij'\n\n// other standard Buffer readables\nconsole.log(bl.readUInt16BE(10)) // 0x0304\nconsole.log(bl.readUInt16LE(10)) // 0x0403\n```\n\nGive it a callback in the constructor and use it just like **[concat-stream](https://github.com/maxogden/node-concat-stream)**:\n\n```js\nconst { BufferListStream } = require('bl')\nconst fs = require('fs')\n\nfs.createReadStream('README.md')\n  .pipe(BufferListStream((err, data) => { // note 'new' isn't strictly required\n    // `data` is a complete Buffer object containing the full data\n    console.log(data.toString())\n  }))\n```\n\nNote that when you use the *callback* method like this, the resulting `data` parameter is a concatenation of all `Buffer` objects in the list. If you want to avoid the overhead of this concatenation (in cases of extreme performance consciousness), then avoid the *callback* method and just listen to `'end'` instead, like a standard Stream.\n\nOr to fetch a URL using [hyperquest](https://github.com/substack/hyperquest) (should work with [request](http://github.com/mikeal/request) and even plain Node http too!):\n\n```js\nconst hyperquest = require('hyperquest')\nconst { BufferListStream } = require('bl')\n\nconst url = 'https://raw.github.com/rvagg/bl/master/README.md'\n\nhyperquest(url).pipe(BufferListStream((err, data) => {\n  console.log(data.toString())\n}))\n```\n\nOr, use it as a readable stream to recompose a list of Buffers to an output source:\n\n```js\nconst { BufferList } = require('bl')\nconst fs = require('fs')\n\nvar bl = new BufferList()\nbl.append(Buffer.from('abcd'))\nbl.append(Buffer.from('efg'))\nbl.append(Buffer.from('hi'))\nbl.append(Buffer.from('j'))\n\nbl.pipe(fs.createWriteStream('gibberish.txt'))\n```\n\n## API\n\n  * <a href=\"#ctor\"><code><b>new BufferList([ buf ])</b></code></a>\n  * <a href=\"#isBufferList\"><code><b>BufferList.isBufferList(obj)</b></code></a>\n  * <a href=\"#length\"><code>bl.<b>length</b></code></a>\n  * <a href=\"#append\"><code>bl.<b>append(buffer)</b></code></a>\n  * <a href=\"#get\"><code>bl.<b>get(index)</b></code></a>\n  * <a href=\"#indexOf\"><code>bl.<b>indexOf(value[, byteOffset][, encoding])</b></code></a>\n  * <a href=\"#slice\"><code>bl.<b>slice([ start[, end ] ])</b></code></a>\n  * <a href=\"#shallowSlice\"><code>bl.<b>shallowSlice([ start[, end ] ])</b></code></a>\n  * <a href=\"#copy\"><code>bl.<b>copy(dest, [ destStart, [ srcStart [, srcEnd ] ] ])</b></code></a>\n  * <a href=\"#duplicate\"><code>bl.<b>duplicate()</b></code></a>\n  * <a href=\"#consume\"><code>bl.<b>consume(bytes)</b></code></a>\n  * <a href=\"#toString\"><code>bl.<b>toString([encoding, [ start, [ end ]]])</b></code></a>\n  * <a href=\"#readXX\"><code>bl.<b>readDoubleBE()</b></code>, <code>bl.<b>readDoubleLE()</b></code>, <code>bl.<b>readFloatBE()</b></code>, <code>bl.<b>readFloatLE()</b></code>, <code>bl.<b>readInt32BE()</b></code>, <code>bl.<b>readInt32LE()</b></code>, <code>bl.<b>readUInt32BE()</b></code>, <code>bl.<b>readUInt32LE()</b></code>, <code>bl.<b>readInt16BE()</b></code>, <code>bl.<b>readInt16LE()</b></code>, <code>bl.<b>readUInt16BE()</b></code>, <code>bl.<b>readUInt16LE()</b></code>, <code>bl.<b>readInt8()</b></code>, <code>bl.<b>readUInt8()</b></code></a>\n  * <a href=\"#ctorStream\"><code><b>new BufferListStream([ callback ])</b></code></a>\n\n--------------------------------------------------------\n<a name=\"ctor\"></a>\n### new BufferList([ Buffer | Buffer array | BufferList | BufferList array | String ])\nNo arguments are _required_ for the constructor, but you can initialise the list by passing in a single `Buffer` object or an array of `Buffer` objects.\n\n`new` is not strictly required, if you don't instantiate a new object, it will be done automatically for you so you can create a new instance simply with:\n\n```js\nconst { BufferList } = require('bl')\nconst bl = BufferList()\n\n// equivalent to:\n\nconst { BufferList } = require('bl')\nconst bl = new BufferList()\n```\n\n--------------------------------------------------------\n<a name=\"isBufferList\"></a>\n### BufferList.isBufferList(obj)\nDetermines if the passed object is a `BufferList`. It will return `true` if the passed object is an instance of `BufferList` **or** `BufferListStream` and `false` otherwise.\n\nN.B. this won't return `true` for `BufferList` or `BufferListStream` instances created by versions of this library before this static method was added.\n\n--------------------------------------------------------\n<a name=\"length\"></a>\n### bl.length\nGet the length of the list in bytes. This is the sum of the lengths of all of the buffers contained in the list, minus any initial offset for a semi-consumed buffer at the beginning. Should accurately represent the total number of bytes that can be read from the list.\n\n--------------------------------------------------------\n<a name=\"append\"></a>\n### bl.append(Buffer | Buffer array | BufferList | BufferList array | String)\n`append(buffer)` adds an additional buffer or BufferList to the internal list. `this` is returned so it can be chained.\n\n--------------------------------------------------------\n<a name=\"get\"></a>\n### bl.get(index)\n`get()` will return the byte at the specified index.\n\n--------------------------------------------------------\n<a name=\"indexOf\"></a>\n### bl.indexOf(value[, byteOffset][, encoding])\n`get()` will return the byte at the specified index.\n`indexOf()` method returns the first index at which a given element can be found in the BufferList, or -1 if it is not present.\n\n--------------------------------------------------------\n<a name=\"slice\"></a>\n### bl.slice([ start, [ end ] ])\n`slice()` returns a new `Buffer` object containing the bytes within the range specified. Both `start` and `end` are optional and will default to the beginning and end of the list respectively.\n\nIf the requested range spans a single internal buffer then a slice of that buffer will be returned which shares the original memory range of that Buffer. If the range spans multiple buffers then copy operations will likely occur to give you a uniform Buffer.\n\n--------------------------------------------------------\n<a name=\"shallowSlice\"></a>\n### bl.shallowSlice([ start, [ end ] ])\n`shallowSlice()` returns a new `BufferList` object containing the bytes within the range specified. Both `start` and `end` are optional and will default to the beginning and end of the list respectively.\n\nNo copies will be performed. All buffers in the result share memory with the original list.\n\n--------------------------------------------------------\n<a name=\"copy\"></a>\n### bl.copy(dest, [ destStart, [ srcStart [, srcEnd ] ] ])\n`copy()` copies the content of the list in the `dest` buffer, starting from `destStart` and containing the bytes within the range specified with `srcStart` to `srcEnd`. `destStart`, `start` and `end` are optional and will default to the beginning of the `dest` buffer, and the beginning and end of the list respectively.\n\n--------------------------------------------------------\n<a name=\"duplicate\"></a>\n### bl.duplicate()\n`duplicate()` performs a **shallow-copy** of the list. The internal Buffers remains the same, so if you change the underlying Buffers, the change will be reflected in both the original and the duplicate. This method is needed if you want to call `consume()` or `pipe()` and still keep the original list.Example:\n\n```js\nvar bl = new BufferList()\n\nbl.append('hello')\nbl.append(' world')\nbl.append('\\n')\n\nbl.duplicate().pipe(process.stdout, { end: false })\n\nconsole.log(bl.toString())\n```\n\n--------------------------------------------------------\n<a name=\"consume\"></a>\n### bl.consume(bytes)\n`consume()` will shift bytes *off the start of the list*. The number of bytes consumed don't need to line up with the sizes of the internal Buffers&mdash;initial offsets will be calculated accordingly in order to give you a consistent view of the data.\n\n--------------------------------------------------------\n<a name=\"toString\"></a>\n### bl.toString([encoding, [ start, [ end ]]])\n`toString()` will return a string representation of the buffer. The optional `start` and `end` arguments are passed on to `slice()`, while the `encoding` is passed on to `toString()` of the resulting Buffer. See the [Buffer#toString()](http://nodejs.org/docs/latest/api/buffer.html#buffer_buf_tostring_encoding_start_end) documentation for more information.\n\n--------------------------------------------------------\n<a name=\"readXX\"></a>\n### bl.readDoubleBE(), bl.readDoubleLE(), bl.readFloatBE(), bl.readFloatLE(), bl.readInt32BE(), bl.readInt32LE(), bl.readUInt32BE(), bl.readUInt32LE(), bl.readInt16BE(), bl.readInt16LE(), bl.readUInt16BE(), bl.readUInt16LE(), bl.readInt8(), bl.readUInt8()\n\nAll of the standard byte-reading methods of the `Buffer` interface are implemented and will operate across internal Buffer boundaries transparently.\n\nSee the <b><code>[Buffer](http://nodejs.org/docs/latest/api/buffer.html)</code></b> documentation for how these work.\n\n--------------------------------------------------------\n<a name=\"ctorStream\"></a>\n### new BufferListStream([ callback | Buffer | Buffer array | BufferList | BufferList array | String ])\n**BufferListStream** is a Node **[Duplex Stream](http://nodejs.org/docs/latest/api/stream.html#stream_class_stream_duplex)**, so it can be read from and written to like a standard Node stream. You can also `pipe()` to and from a **BufferListStream** instance.\n\nThe constructor takes an optional callback, if supplied, the callback will be called with an error argument followed by a reference to the **bl** instance, when `bl.end()` is called (i.e. from a piped stream). This is a convenient method of collecting the entire contents of a stream, particularly when the stream is *chunky*, such as a network stream.\n\nNormally, no arguments are required for the constructor, but you can initialise the list by passing in a single `Buffer` object or an array of `Buffer` object.\n\n`new` is not strictly required, if you don't instantiate a new object, it will be done automatically for you so you can create a new instance simply with:\n\n```js\nconst { BufferListStream } = require('bl')\nconst bl = BufferListStream()\n\n// equivalent to:\n\nconst { BufferListStream } = require('bl')\nconst bl = new BufferListStream()\n```\n\nN.B. For backwards compatibility reasons, `BufferListStream` is the **default** export when you `require('bl')`:\n\n```js\nconst { BufferListStream } = require('bl')\n// equivalent to:\nconst BufferListStream = require('bl')\n```\n\n--------------------------------------------------------\n\n## Contributors\n\n**bl** is brought to you by the following hackers:\n\n * [Rod Vagg](https://github.com/rvagg)\n * [Matteo Collina](https://github.com/mcollina)\n * [Jarett Cruger](https://github.com/jcrugzz)\n\n<a name=\"license\"></a>\n## License &amp; copyright\n\nCopyright (c) 2013-2019 bl contributors (listed above).\n\nbl is licensed under the MIT license. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE.md file for more details."
+}

@@ -1,0 +1,1136 @@
+{
+	"name": "@types/bytebuffer",
+	"versions": {
+		"5.0.15-alpha": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.15-alpha",
+			"description": "Type definitions for bytebuffer.js 5.0.0 from https://www.github.com/DefinitelyTyped/DefinitelyTyped",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Denis Cappellin",
+				"email": "http://github.com/cappellin"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {},
+			"_id": "@types/bytebuffer@5.0.15-alpha",
+			"_shasum": "93baf68962dbb1c8e76f7a2d0cae58e5e960f632",
+			"_from": "output\\bytebuffer",
+			"_resolved": "file:output\\bytebuffer",
+			"_npmVersion": "3.8.2",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "93baf68962dbb1c8e76f7a2d0cae58e5e960f632",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.15-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.15-alpha.tgz_1463459731149_0.01814174558967352"
+			},
+			"directories": {}
+		},
+		"5.0.16-alpha": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.16-alpha",
+			"description": "Type definitions for bytebuffer.js 5.0.0 from https://www.github.com/DefinitelyTyped/DefinitelyTyped",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Denis Cappellin",
+				"email": "http://github.com/cappellin"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {
+				"@types/long": "*"
+			},
+			"_id": "@types/bytebuffer@5.0.16-alpha",
+			"_shasum": "9268266a0fcd996c3f1c91a317495445f4f5efa6",
+			"_from": "output\\bytebuffer",
+			"_resolved": "file:output\\bytebuffer",
+			"_npmVersion": "3.8.2",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "9268266a0fcd996c3f1c91a317495445f4f5efa6",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.16-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.16-alpha.tgz_1463689601656_0.34978115977719426"
+			},
+			"directories": {}
+		},
+		"5.0.21-alpha": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.21-alpha",
+			"description": "TypeScript definitions for bytebuffer.js 5.0.0",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Denis Cappellin",
+				"email": "http://github.com/cappellin"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {
+				"@types/long": "*"
+			},
+			"_id": "@types/bytebuffer@5.0.21-alpha",
+			"_shasum": "2d907992b0c669bc9ab38d7976f23ed31a75fae5",
+			"_from": "output\\bytebuffer",
+			"_resolved": "file:output\\bytebuffer",
+			"_npmVersion": "3.8.2",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "2d907992b0c669bc9ab38d7976f23ed31a75fae5",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.21-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.21-alpha.tgz_1463771851187_0.2487259868066758"
+			},
+			"directories": {}
+		},
+		"5.0.22-alpha": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.22-alpha",
+			"description": "TypeScript definitions for bytebuffer.js 5.0.0",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Denis Cappellin",
+				"email": "http://github.com/cappellin"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {
+				"@types/long": "*"
+			},
+			"_id": "@types/bytebuffer@5.0.22-alpha",
+			"_shasum": "96c8a5c0d5946065d53b404c8a58522be15e73bf",
+			"_from": "output\\bytebuffer",
+			"_resolved": "file:output\\bytebuffer",
+			"_npmVersion": "3.8.2",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "96c8a5c0d5946065d53b404c8a58522be15e73bf",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.22-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.22-alpha.tgz_1464150948923_0.7364870794117451"
+			},
+			"directories": {}
+		},
+		"5.0.23-alpha": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.23-alpha",
+			"description": "TypeScript definitions for bytebuffer.js 5.0.0",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Denis Cappellin",
+				"email": "http://github.com/cappellin"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {
+				"@types/long": "3.0.*"
+			},
+			"_id": "@types/bytebuffer@5.0.23-alpha",
+			"_shasum": "6d139e28e1d7cfe6b93c2f7893c692f1e306b445",
+			"_from": "output\\bytebuffer",
+			"_resolved": "file:output\\bytebuffer",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "6.2.2",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "6d139e28e1d7cfe6b93c2f7893c692f1e306b445",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.23-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.23-alpha.tgz_1467399776713_0.9220220113638788"
+			},
+			"directories": {}
+		},
+		"5.0.24-alpha": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.24-alpha",
+			"description": "TypeScript definitions for bytebuffer.js 5.0.0",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Denis Cappellin",
+				"email": "http://github.com/cappellin"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {
+				"@types/long": "3.0.22-alpha"
+			},
+			"_id": "@types/bytebuffer@5.0.24-alpha",
+			"_shasum": "ea07ccc831b77812b2838f79196787ddd2adccb5",
+			"_from": "output\\bytebuffer",
+			"_resolved": "file:output\\bytebuffer",
+			"_npmVersion": "3.7.2",
+			"_nodeVersion": "6.2.1",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "ea07ccc831b77812b2838f79196787ddd2adccb5",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.24-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.24-alpha.tgz_1467412117849_0.5330044466536492"
+			},
+			"directories": {}
+		},
+		"5.0.25-alpha": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.25-alpha",
+			"description": "TypeScript definitions for bytebuffer.js 5.0.0",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Denis Cappellin",
+				"email": "http://github.com/cappellin"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {
+				"@types/long": "3.0.23-alpha"
+			},
+			"_id": "@types/bytebuffer@5.0.25-alpha",
+			"_shasum": "c1a041a73a47563a9b9685d17f89ab85686b5e4c",
+			"_from": "output\\bytebuffer",
+			"_resolved": "file:output\\bytebuffer",
+			"_npmVersion": "3.7.2",
+			"_nodeVersion": "6.2.1",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "c1a041a73a47563a9b9685d17f89ab85686b5e4c",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.25-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.25-alpha.tgz_1467425317899_0.8781467704102397"
+			},
+			"directories": {}
+		},
+		"5.0.26-alpha": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.26-alpha",
+			"description": "TypeScript definitions for bytebuffer.js 5.0.0",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Denis Cappellin",
+				"email": "http://github.com/cappellin"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {
+				"@types/long": "3.0.25-alpha"
+			},
+			"_id": "@types/bytebuffer@5.0.26-alpha",
+			"_shasum": "b485135dfec17c8a1849f7609be680ec21e47e20",
+			"_from": "output\\bytebuffer",
+			"_resolved": "file:output\\bytebuffer",
+			"_npmVersion": "3.7.2",
+			"_nodeVersion": "6.2.1",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "b485135dfec17c8a1849f7609be680ec21e47e20",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.26-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.26-alpha.tgz_1467590125984_0.20392296509817243"
+			},
+			"directories": {}
+		},
+		"5.0.27-alpha": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.27-alpha",
+			"description": "TypeScript definitions for bytebuffer.js 5.0.0",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Denis Cappellin",
+				"email": "http://github.com/cappellin"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {
+				"@types/long": "3.0.26-alpha"
+			},
+			"_id": "@types/bytebuffer@5.0.27-alpha",
+			"_shasum": "adc9c026c87461c4c720c06cfc1d2c3793db44ef",
+			"_from": "output\\bytebuffer",
+			"_resolved": "file:output\\bytebuffer",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.0",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "adc9c026c87461c4c720c06cfc1d2c3793db44ef",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.27-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.27-alpha.tgz_1468007062270_0.12536563072353601"
+			},
+			"directories": {}
+		},
+		"5.0.28-alpha": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.28-alpha",
+			"description": "TypeScript definitions for bytebuffer.js 5.0.0",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Denis Cappellin",
+				"email": "http://github.com/cappellin"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {
+				"@types/long": "3.0.26-alpha"
+			},
+			"_id": "@types/bytebuffer@5.0.28-alpha",
+			"_shasum": "206e152814675e9b91cb65c90fc373dc390daf12",
+			"_from": "output\\bytebuffer",
+			"_resolved": "file:output\\bytebuffer",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.0",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "206e152814675e9b91cb65c90fc373dc390daf12",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.28-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.28-alpha.tgz_1468276096421_0.15491082216612995"
+			},
+			"directories": {}
+		},
+		"5.0.29": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.29",
+			"description": "TypeScript definitions for bytebuffer.js 5.0.0",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Denis Cappellin",
+				"email": "http://github.com/cappellin"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {
+				"@types/long": "3.0.*"
+			},
+			"_id": "@types/bytebuffer@5.0.29",
+			"_shasum": "85ae6b9f56942722ce3ec5e520e650d20a04817f",
+			"_from": "output\\bytebuffer",
+			"_resolved": "file:output\\bytebuffer",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.0",
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"dist": {
+				"shasum": "85ae6b9f56942722ce3ec5e520e650d20a04817f",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.29.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.29.tgz_1468505595377_0.43654006090946496"
+			},
+			"directories": {}
+		},
+		"5.0.30": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.30",
+			"description": "TypeScript definitions for bytebuffer.js 5.0.0",
+			"license": "MIT",
+			"author": "Denis Cappellin <http://github.com/cappellin>",
+			"main": "",
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {
+				"@types/long": "3.0.*"
+			},
+			"typings": "index.d.ts",
+			"_id": "@types/bytebuffer@5.0.30",
+			"dist": {
+				"shasum": "a5062d0c2faa7388b66585d3bba786ecf06d64ae",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.30.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.30.tgz_1470152903736_0.8172776233404875"
+			},
+			"directories": {}
+		},
+		"5.0.31": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.31",
+			"description": "TypeScript definitions for bytebuffer.js 5.0.0",
+			"license": "MIT",
+			"author": "Denis Cappellin <http://github.com/cappellin>",
+			"main": "",
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {
+				"@types/long": "3.0.*"
+			},
+			"typings": "index.d.ts",
+			"_id": "@types/bytebuffer@5.0.31",
+			"dist": {
+				"shasum": "934551b6e1ce90edf6c7ff3b6d37986f426f2bdf",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.31.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.31.tgz_1471620099320_0.8821214917115867"
+			},
+			"directories": {}
+		},
+		"5.0.32": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.32",
+			"description": "TypeScript definitions for bytebuffer.js 5.0.0",
+			"license": "MIT",
+			"author": "Denis Cappellin <http://github.com/cappellin>",
+			"main": "",
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {
+				"@types/long": "3.0.*"
+			},
+			"typings": "index.d.ts",
+			"_id": "@types/bytebuffer@5.0.32",
+			"dist": {
+				"shasum": "434520bc77af4d9b68c388ecd0bce6d87cd10ffb",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.32.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.32.tgz_1472150181303_0.014349024510011077"
+			},
+			"directories": {}
+		},
+		"5.0.33": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.33",
+			"description": "TypeScript definitions for bytebuffer.js 5.0.0",
+			"license": "MIT",
+			"author": "Denis Cappellin <http://github.com/cappellin>",
+			"main": "",
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {
+				"@types/long": "*"
+			},
+			"typings": "index.d.ts",
+			"typesPublisherContentHash": "ccda07a557636ba98606d57639a69facd79a251c8fcfed570ce6ba830a5dfb1e",
+			"_id": "@types/bytebuffer@5.0.33",
+			"dist": {
+				"shasum": "b4da156e2b58c936661ecb6d4ecd43f443b60ed6",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.33.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.33.tgz_1474302400972_0.38025745283812284"
+			},
+			"directories": {}
+		},
+		"5.0.34": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.34",
+			"description": "TypeScript definitions for bytebuffer.js",
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Denis Cappellin",
+					"url": "https://github.com/cappellin"
+				}
+			],
+			"main": "",
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {
+				"@types/long": "*"
+			},
+			"typesPublisherContentHash": "6e0fa311dd7bd12fe238e337f3a17799c3fb55cfecc1822a465de2bb03e3b699",
+			"typeScriptVersion": "2.0",
+			"_id": "@types/bytebuffer@5.0.34",
+			"dist": {
+				"integrity": "sha512-XuWgycr3cMfnPl2RBL8ylMF6vEDe8jrpcM0ZPOxHzeyNxqgEsIth1Gk/Gyv6atms1Bxm2M6gd/6nZCPEuAiYDw==",
+				"shasum": "43f7140503a593acc700f818fe23343ae911bcdf",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.34.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bytebuffer-5.0.34.tgz_1503352177934_0.5864021161105484"
+			},
+			"directories": {}
+		},
+		"5.0.35": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.35",
+			"description": "TypeScript definitions for bytebuffer.js",
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Denis Cappellin",
+					"url": "https://github.com/cappellin",
+					"githubUsername": "cappellin"
+				}
+			],
+			"main": "",
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {
+				"@types/long": "*"
+			},
+			"typesPublisherContentHash": "8031563015062a64f237e7fd7fbddc85487b288f43eb19bad60e1a92966b90d9",
+			"typeScriptVersion": "2.0",
+			"_id": "@types/bytebuffer@5.0.35",
+			"dist": {
+				"integrity": "sha512-Iv+OQiBqEWeOvzM831Egi+BXW+wX4snV2UaxU+aoFZy6v9eUP/JVeC7+WVKnKG26S0941a7+dZ0XJYLAxb7V4Q==",
+				"shasum": "1d8fc012a5feecaf87aefb8256766c99313d6a49",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.35.tgz"
+			},
+			"maintainers": [
+				{
+					"email": "ts-npm-types@microsoft.com",
+					"name": "types"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bytebuffer-5.0.35.tgz_1514969893643_0.0015887536574155092"
+			},
+			"directories": {}
+		},
+		"5.0.36": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.36",
+			"description": "TypeScript definitions for bytebuffer.js",
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Denis Cappellin",
+					"url": "https://github.com/cappellin",
+					"githubUsername": "cappellin"
+				}
+			],
+			"main": "",
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {
+				"@types/long": "*"
+			},
+			"typesPublisherContentHash": "45ae506a4230f11320511983d927586f74ba9bf949ac3f891c969023e04e18c8",
+			"typeScriptVersion": "2.0",
+			"_id": "@types/bytebuffer@5.0.36",
+			"dist": {
+				"integrity": "sha512-rDXtRfQGDJ/wrKJefKm8H7oW+zSRQqr+I1KZCxwtE9MXI81fYYOr/tYW4Ncr8z2MH/VGxGxANC7iVuXJeuejsg==",
+				"shasum": "e5a4860d8bea3089c4a473d0aba838385cadba1c",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.36.tgz"
+			},
+			"maintainers": [
+				{
+					"email": "ts-npm-types@microsoft.com",
+					"name": "types"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bytebuffer-5.0.36.tgz_1516737951061_0.9826300018467009"
+			},
+			"directories": {}
+		},
+		"5.0.37": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.37",
+			"description": "TypeScript definitions for bytebuffer.js",
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Denis Cappellin",
+					"url": "https://github.com/cappellin",
+					"githubUsername": "cappellin"
+				}
+			],
+			"main": "",
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {
+				"@types/long": "*",
+				"@types/node": "*"
+			},
+			"typesPublisherContentHash": "35e031e30ca7d811b8e2ff8064a278061cb1000bdff5cb4e3c7dec9ad8131ce0",
+			"typeScriptVersion": "2.0",
+			"_id": "@types/bytebuffer@5.0.37",
+			"dist": {
+				"integrity": "sha512-ktTBUX8hHsosJbt3Pxx5/pUpEFkLlimJLeddGFz7illfm/gTk43Ln7lAdr0rEPi8QIJjuFuV0bvVSa1sKcYszg==",
+				"shasum": "795c0082cfb8c43a4cf3a8fc97d108ec76e59579",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.37.tgz",
+				"fileCount": 4,
+				"unpackedSize": 22892
+			},
+			"maintainers": [
+				{
+					"email": "ts-npm-types@microsoft.com",
+					"name": "types"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bytebuffer_5.0.37_1521741168904_0.6763466437408023"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.0.38": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.38",
+			"description": "TypeScript definitions for bytebuffer.js",
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Denis Cappellin",
+					"url": "https://github.com/cappellin",
+					"githubUsername": "cappellin"
+				}
+			],
+			"main": "",
+			"types": "index",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {
+				"@types/long": "*",
+				"@types/node": "*"
+			},
+			"typesPublisherContentHash": "145a64adfd9e42fad90abc865f76fc38907c3a80c3f9dd55dd55ad692463fe0f",
+			"typeScriptVersion": "2.0",
+			"_id": "@types/bytebuffer@5.0.38",
+			"dist": {
+				"integrity": "sha512-vssbbAavoCx82DlwaYjEFPadKtXCN2xlrHM+9t5rRUMyRif7DcykP8nANq5Xu8R9Y44wPrpby6yLbEsNwmnJmA==",
+				"shasum": "acad0c830964b041dd585f12f6d9a21d24bf9178",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.38.tgz",
+				"fileCount": 4,
+				"unpackedSize": 22942,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcIbmyCRA9TVsSAnZWagAAwbMP/i7X5yTngM+PkHsUr6ni\n6tj9qXrNzRUuV3/8OqHmxPAmltNRtkGExrZW/acvLtz66pKn3Mhr2NxwLAgo\n6OciI/f5B7nTpEF0e52waXkisqw/5fgkAi1bn+bdnv9H3kbdIP3/ZAtZGKnb\nTHvzQhh2h3Gc9/3li0QbjMyCN9lHv1QvEmfoDqKW+b+ijiJ1U5LMT1cAE4XW\n+5pvJMVU8CLpJ1+U9uD8DOo+lX1toBtVIcRLNdeskVdfBMflla5jtPHULIn7\nB5lC8XPDiHlMU8djeMdjrNqxxynB9CLMynW3y8ezqKkfrX9i9ZG7gTdXVqf4\nOVXz9SKkH3cbg7PCQ7QpN+tSPRGbjnJZipLceqeXb1Nxc40QXGpYc2+Y4VA9\njh6Z6WscFcfQyR/WuwNIBwfjscQslexkPBIdAZ6AZJ83mDpdVjYIO6oX3Qvm\nmuKXjK7Ow0KAVsjqp/JdFVGncsB6O1Mt3bHfDCUkt+vNqrBiAbBGQ+g20cHc\nuSg5FaX9rrbEDe+6kgE7+8w+xd3YiJVQNLdHNGgM+I4mYmaNxZmWjPcfFClw\nvyLN4NGDagfngBX2ATVrD1If/1mdvCE82SWmdQVbBPp94bK4R2AeDqswUe0V\nmFiI6eqS6DM8Op76tI7PBfDPq2SlwvVh7aK+RY6weP0I+K/55I6o5LtCpenl\n3Mj+\r\n=RK7h\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "ts-npm-types@microsoft.com",
+					"name": "types"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bytebuffer_5.0.38_1545714098183_0.6544228860088972"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.0.39": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.39",
+			"description": "TypeScript definitions for bytebuffer.js",
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Denis Cappellin",
+					"url": "https://github.com/cappellin",
+					"githubUsername": "cappellin"
+				}
+			],
+			"main": "",
+			"types": "index",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {
+				"@types/long": "*",
+				"@types/node": "*"
+			},
+			"typesPublisherContentHash": "4fba66f62a9c7e97162ef777beeb22ff6155e18da86af27ace5e230544243e29",
+			"typeScriptVersion": "2.0",
+			"_id": "@types/bytebuffer@5.0.39",
+			"dist": {
+				"integrity": "sha512-Zp7ovhq5DsMAr9SN56feMbT1+rmnrYmOgmkncpb4v0O/t51cZOQGwFyxx8EiET/IQVmOQx9Q/0JPIAWi8TXNLA==",
+				"shasum": "3c0076bec10ca82a0e7bf6f1199002982ad30ea5",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.39.tgz",
+				"fileCount": 4,
+				"unpackedSize": 22982,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcLn79CRA9TVsSAnZWagAAAKIP/i6YedhoEcOqNTATzu7j\noudWCB1lD/gyCjxFNK6qiXz58LJz//nWTkYlHKZgJeTR6y9mxhMOWcqYNI4c\nvaR17PIawe8YdxIKNsioMqa12zEd8bYh4AqTnwXOfHGDaHMyZgicc5O4PBF/\nnccX5mp8CAu4kwlSxxZUbJyII2JfutVMKtkOYAoe2bFce/7r0aDbyD04bh6X\n2m/HUvqweNM77jjuV6q+4WxDgj5UEwX9lIA5JMxutFwkSBQVy/QxbU10xcTT\nvMWD2PukpVt2ZCjNMSOhF5PuMaYezmTL5kXs9h55aYST+FR0G2D3/LBi13fg\n+JDlG4mtx/sFi3cv+J2zQmuPAvXk3eiljfNl474gsu15xfvG11ovN50LxmKn\nRZu7qUSxL7JjWk6VrMTuwk94flBrs4OyY9Z2xITrStNqq5oNpAIAbvOUEB3H\nlGB/dIb57Wh/XxGQoPjip6/BbnJorJ8/cRlHPLNTBPg3J58/f47GHEjsbgEv\nIXML33dC/hACiLcgOqXWWgX1wTCaZDsGMWT+uYRH0jcU/MVAq99q452Rw0wv\nxkmoYQaYWDAaOtoAWrJrhH7t9+7Ax4awJArN0lb93lL09xmhPqW0HLftWfB1\nsE5ICz/9oCjXCyFXMUrX4DhfFDmAz533RzEZo4sAdrcPdggrdtUmRsXzaL4x\nv430\r\n=n3UD\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "ts-npm-types@microsoft.com",
+					"name": "types"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bytebuffer_5.0.39_1546551036730_0.4590650487213912"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.0.40": {
+			"name": "@types/bytebuffer",
+			"version": "5.0.40",
+			"description": "TypeScript definitions for bytebuffer.js",
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Denis Cappellin",
+					"url": "https://github.com/cappellin",
+					"githubUsername": "cappellin"
+				}
+			],
+			"main": "",
+			"types": "index",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {
+				"@types/long": "*",
+				"@types/node": "*"
+			},
+			"typesPublisherContentHash": "3bb1f2dd5d11c1de73a942571c599a54a039efd1238959a6b134b3f8fa452f70",
+			"typeScriptVersion": "2.0",
+			"_id": "@types/bytebuffer@5.0.40",
+			"dist": {
+				"integrity": "sha512-h48dyzZrPMz25K6Q4+NCwWaxwXany2FhQg/ErOcdZS1ZpsaDnDMZg8JYLMTGz7uvXKrcKGJUZJlZObyfgdaN9g==",
+				"shasum": "d6faac40dcfb09cd856cdc4c01d3690ba536d3ee",
+				"tarball": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.40.tgz",
+				"fileCount": 4,
+				"unpackedSize": 23146,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcT58mCRA9TVsSAnZWagAA60AP/3l88Lahr/E5tYYx7EZy\nCPneQw40VIrzpG/OmLLthkXicObEf+PaiSgNNXmezQeLwbn6oLE/Bzag5t+g\nWZgpbmgAzbO8zDRpXI+RmksttBeEoeZIZ/una06ffqAbYOQetBrygJqs3/xa\neTnCnNZN9EtJW/nIZSCdR8pRjHMErYL5xwZCMeizmBxLjyfagFwSWE1Yc2mC\nrhL91oUmACGPhVvsrKVgBiwK40mNSQNSk7HIi/Ym6ybqINmdbOVDDVqyfBjR\nnFnmtbzMrR7qZgtnmwvj6RqFLag2M37VngrpLurqsRMVJUbGGcihEmPaRgY0\nuJFJaVRnjiGqL/kWdM94yWAUJbSgm8FNiqC5FUdINPTIOVbOW5d15LLhWgjS\n3YcL/QpOaHKqGvJDVKHx7RwplBrS9Ao/EZxqE9WjlkDkamQ6DWylfMXZHRJC\nAg5Q3kWoSp2ktaC32IbwkR01S2bVB3/jJBW9jr8LGLBNitchM5B54THNgxJd\njN3TiXHF7ukqwH3axAqAZyBcA9zjd6Tgy+4hSZ0Tj6hFKFwr3z92OheYP7Ov\ny3Dz4+vlZDLBesUHUQHpcIs1Unp90ELAybV8Zb/w5jzgvNRaDFfao2N4AxyV\njVCKI1kOj9H8SZ/vJDSGgBVKdMSBXwhXvJTtcl7aEV1IrYkktm8/KSh3B3o4\nJ43t\r\n=oHZR\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "ts-npm-types@microsoft.com",
+					"name": "types"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/bytebuffer_5.0.40_1548721957963_0.15171261723202"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-09-03T17:27:09.946Z",
+		"created": "2016-05-17T04:35:31.742Z",
+		"5.0.15-alpha": "2016-05-17T04:35:31.742Z",
+		"5.0.16-alpha": "2016-05-19T20:26:42.366Z",
+		"5.0.21-alpha": "2016-05-20T19:17:33.526Z",
+		"5.0.22-alpha": "2016-05-25T04:35:49.439Z",
+		"5.0.23-alpha": "2016-07-01T19:02:58.836Z",
+		"5.0.24-alpha": "2016-07-01T22:28:38.419Z",
+		"5.0.25-alpha": "2016-07-02T02:08:38.400Z",
+		"5.0.26-alpha": "2016-07-03T23:55:26.479Z",
+		"5.0.27-alpha": "2016-07-08T19:44:22.703Z",
+		"5.0.28-alpha": "2016-07-11T22:28:19.515Z",
+		"5.0.29": "2016-07-14T14:13:17.357Z",
+		"5.0.30": "2016-08-02T15:48:24.705Z",
+		"5.0.31": "2016-08-19T15:21:41.142Z",
+		"5.0.32": "2016-08-25T18:36:23.025Z",
+		"5.0.33": "2016-09-19T16:26:42.706Z",
+		"5.0.34": "2017-08-21T21:49:38.030Z",
+		"5.0.35": "2018-01-03T08:58:13.739Z",
+		"5.0.36": "2018-01-23T20:05:51.191Z",
+		"5.0.37": "2018-03-22T17:52:49.063Z",
+		"5.0.38": "2018-12-25T05:01:38.353Z",
+		"5.0.39": "2019-01-03T21:30:36.846Z",
+		"5.0.40": "2019-01-29T00:32:38.059Z"
+	},
+	"dist-tags": {
+		"latest": "5.0.40",
+		"ts2.0": "5.0.40",
+		"ts2.1": "5.0.40",
+		"ts2.2": "5.0.40",
+		"ts2.3": "5.0.40",
+		"ts2.4": "5.0.40",
+		"ts2.5": "5.0.40",
+		"ts2.6": "5.0.40",
+		"ts2.7": "5.0.40",
+		"ts2.8": "5.0.40",
+		"ts2.9": "5.0.40",
+		"ts3.0": "5.0.40",
+		"ts3.1": "5.0.40",
+		"ts3.2": "5.0.40",
+		"ts3.3": "5.0.40",
+		"ts3.4": "5.0.40",
+		"ts3.5": "5.0.40",
+		"ts3.6": "5.0.40",
+		"ts3.7": "5.0.40"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"44ec0d29de68926cf18512ab29790915\"",
+			"fetched": 1568994332433
+		}
+	},
+	"_distfiles": {
+		"bytebuffer-5.0.15-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.15-alpha.tgz",
+			"sha": "93baf68962dbb1c8e76f7a2d0cae58e5e960f632",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.16-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.16-alpha.tgz",
+			"sha": "9268266a0fcd996c3f1c91a317495445f4f5efa6",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.21-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.21-alpha.tgz",
+			"sha": "2d907992b0c669bc9ab38d7976f23ed31a75fae5",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.22-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.22-alpha.tgz",
+			"sha": "96c8a5c0d5946065d53b404c8a58522be15e73bf",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.23-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.23-alpha.tgz",
+			"sha": "6d139e28e1d7cfe6b93c2f7893c692f1e306b445",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.24-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.24-alpha.tgz",
+			"sha": "ea07ccc831b77812b2838f79196787ddd2adccb5",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.25-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.25-alpha.tgz",
+			"sha": "c1a041a73a47563a9b9685d17f89ab85686b5e4c",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.26-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.26-alpha.tgz",
+			"sha": "b485135dfec17c8a1849f7609be680ec21e47e20",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.27-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.27-alpha.tgz",
+			"sha": "adc9c026c87461c4c720c06cfc1d2c3793db44ef",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.28-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.28-alpha.tgz",
+			"sha": "206e152814675e9b91cb65c90fc373dc390daf12",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.29.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.29.tgz",
+			"sha": "85ae6b9f56942722ce3ec5e520e650d20a04817f",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.30.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.30.tgz",
+			"sha": "a5062d0c2faa7388b66585d3bba786ecf06d64ae",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.31.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.31.tgz",
+			"sha": "934551b6e1ce90edf6c7ff3b6d37986f426f2bdf",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.32.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.32.tgz",
+			"sha": "434520bc77af4d9b68c388ecd0bce6d87cd10ffb",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.33.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.33.tgz",
+			"sha": "b4da156e2b58c936661ecb6d4ecd43f443b60ed6",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.34.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.34.tgz",
+			"sha": "43f7140503a593acc700f818fe23343ae911bcdf",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.35.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.35.tgz",
+			"sha": "1d8fc012a5feecaf87aefb8256766c99313d6a49",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.36.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.36.tgz",
+			"sha": "e5a4860d8bea3089c4a473d0aba838385cadba1c",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.37.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.37.tgz",
+			"sha": "795c0082cfb8c43a4cf3a8fc97d108ec76e59579",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.38.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.38.tgz",
+			"sha": "acad0c830964b041dd585f12f6d9a21d24bf9178",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.39.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.39.tgz",
+			"sha": "3c0076bec10ca82a0e7bf6f1199002982ad30ea5",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.40.tgz": {
+			"url": "https://registry.npmjs.org/@types/bytebuffer/-/bytebuffer-5.0.40.tgz",
+			"sha": "d6faac40dcfb09cd856cdc4c01d3690ba536d3ee",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-eaeb6d02c19ce804",
+	"_id": "@types/bytebuffer",
+	"readme": "# Installation\r\n> `npm install --save @types/bytebuffer`\r\n\r\n# Summary\r\nThis package contains type definitions for bytebuffer.js ( https://github.com/dcodeIO/bytebuffer.js ).\r\n\r\n# Details\r\nFiles were exported from https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/bytebuffer\r\n\r\nAdditional Details\r\n * Last updated: Tue, 29 Jan 2019 00:32:10 GMT\r\n * Dependencies: @types/long, @types/node\r\n * Global values: ByteBuffer\r\n\r\n# Credits\r\nThese definitions were written by Denis Cappellin <https://github.com/cappellin>."
+}

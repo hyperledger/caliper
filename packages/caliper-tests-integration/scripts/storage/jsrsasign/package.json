@@ -1,0 +1,5488 @@
+{
+	"name": "jsrsasign",
+	"versions": {
+		"0.0.1": {
+			"name": "jsrsasign",
+			"version": "0.0.1",
+			"description": "pure JavaScript cryptographic library",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS1",
+				"PKCS5",
+				"PKCS8",
+				"Hash",
+				"HMac",
+				"ASN.1",
+				"X.509",
+				"Signature",
+				"Message Digest",
+				"signing",
+				"certificate"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"_id": "jsrsasign@0.0.1",
+			"dist": {
+				"shasum": "a3e4d31a1eaf42a04ae8dd27c88ed6e972e3adc4",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-0.0.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.23",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.2": {
+			"name": "jsrsasign",
+			"version": "0.0.2",
+			"description": "pure JavaScript cryptographic library(jsrsasign) and JSON Web Token (JWT) and JSON Web Signature (JWS) library (jsjws) bundle",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS1",
+				"PKCS5",
+				"PKCS8",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"X.509",
+				"Signature",
+				"Message Digest",
+				"signing",
+				"certificate",
+				"JSON Web Token",
+				"JSON Web Signature",
+				"JWT",
+				"JWS",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"_id": "jsrsasign@0.0.2",
+			"dist": {
+				"shasum": "39ea2bb60b5f513d683cbec36eaf7a33a9b22cd3",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-0.0.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.23",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.3": {
+			"name": "jsrsasign",
+			"version": "0.0.3",
+			"description": "pure JavaScript cryptographic library(jsrsasign) and JSON Web Token (JWT) and JSON Web Signature (JWS) library (jsjws) bundle",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS1",
+				"PKCS5",
+				"PKCS8",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"X.509",
+				"Signature",
+				"Message Digest",
+				"signing",
+				"certificate",
+				"JSON Web Token",
+				"JSON Web Signature",
+				"JWT",
+				"JWS",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"_id": "jsrsasign@0.0.3",
+			"dist": {
+				"shasum": "8145894cca889620c4e6defdb5fd8653e7325e61",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-0.0.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.23",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.8.2": {
+			"name": "jsrsasign",
+			"version": "4.8.2",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK). This",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@4.8.2",
+			"_shasum": "bd0a7040d426d7598d6c742ec8f875d0e88644a9",
+			"_from": ".",
+			"_npmVersion": "2.9.1",
+			"_nodeVersion": "0.12.3",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "bd0a7040d426d7598d6c742ec8f875d0e88644a9",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.8.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.8.3": {
+			"name": "jsrsasign",
+			"version": "4.8.3",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK). This",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@4.8.3",
+			"_shasum": "d074e28ad676086ed18413c9c30872637fe75aa8",
+			"_from": ".",
+			"_npmVersion": "2.9.1",
+			"_nodeVersion": "0.12.3",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "d074e28ad676086ed18413c9c30872637fe75aa8",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.8.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.8.4": {
+			"name": "jsrsasign",
+			"version": "4.8.4",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK). This",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@4.8.4",
+			"_shasum": "639d94faf33a8a297023e81d3f2d28def0334ce6",
+			"_from": ".",
+			"_npmVersion": "2.13.4",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "639d94faf33a8a297023e81d3f2d28def0334ce6",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.8.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.8.5": {
+			"name": "jsrsasign",
+			"version": "4.8.5",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK). This",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@4.8.5",
+			"_shasum": "cbaa1a6de2c20bcff3af04747f25dd06cbf39ec4",
+			"_from": ".",
+			"_npmVersion": "2.14.1",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "cbaa1a6de2c20bcff3af04747f25dd06cbf39ec4",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.8.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.8.6": {
+			"name": "jsrsasign",
+			"version": "4.8.6",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK). This",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@4.8.6",
+			"_shasum": "51d0da9d6c31e1c86be54ef980ee6ba2f42a2c99",
+			"_from": ".",
+			"_npmVersion": "2.14.1",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "51d0da9d6c31e1c86be54ef980ee6ba2f42a2c99",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.8.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.9.0": {
+			"name": "jsrsasign",
+			"version": "4.9.0",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK). This",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@4.9.0",
+			"_shasum": "ffa5a8688b2ff1eee7cba1832aa1f3ed41551ecd",
+			"_from": ".",
+			"_npmVersion": "2.14.1",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "ffa5a8688b2ff1eee7cba1832aa1f3ed41551ecd",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.9.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.9.1": {
+			"name": "jsrsasign",
+			"version": "4.9.1",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK). This",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@4.9.1",
+			"_shasum": "3cefb00347e509795a68789c32a11c197df4012b",
+			"_from": ".",
+			"_npmVersion": "2.14.1",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "3cefb00347e509795a68789c32a11c197df4012b",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.9.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.9.2": {
+			"name": "jsrsasign",
+			"version": "4.9.2",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK). This",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@4.9.2",
+			"_shasum": "eaaca954700981e856f8a27da2e6b0eab6df0134",
+			"_from": ".",
+			"_npmVersion": "2.14.1",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "eaaca954700981e856f8a27da2e6b0eab6df0134",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.9.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"5.0.0": {
+			"name": "jsrsasign",
+			"version": "5.0.0",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK). This",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@5.0.0",
+			"_shasum": "45233f6e002ccf4d27524598842a7c6d75eaec92",
+			"_from": ".",
+			"_npmVersion": "2.14.1",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "45233f6e002ccf4d27524598842a7c6d75eaec92",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"5.0.1": {
+			"name": "jsrsasign",
+			"version": "5.0.1",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK). This",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@5.0.1",
+			"_shasum": "bf858c82e543c54d4596e3587667241553685363",
+			"_from": ".",
+			"_npmVersion": "2.14.1",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "bf858c82e543c54d4596e3587667241553685363",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"5.0.2": {
+			"name": "jsrsasign",
+			"version": "5.0.2",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK). This",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@5.0.2",
+			"_shasum": "0df520cc64808bbea28762d6c3aec40dd3c1dfb6",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "0df520cc64808bbea28762d6c3aec40dd3c1dfb6",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"5.0.5": {
+			"name": "jsrsasign",
+			"version": "5.0.5",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK). This",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@5.0.5",
+			"_shasum": "f802314988c3215cf64f8e710289dace4fc1efef",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "f802314988c3215cf64f8e710289dace4fc1efef",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"5.0.6": {
+			"name": "jsrsasign",
+			"version": "5.0.6",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK). This",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@5.0.6",
+			"_shasum": "fe786085834e0571dfd9bd36df059f7412cc4b42",
+			"_from": ".",
+			"_npmVersion": "2.14.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "fe786085834e0571dfd9bd36df059f7412cc4b42",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-13-west.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-5.0.6.tgz_1456925146500_0.7228746227920055"
+			},
+			"directories": {}
+		},
+		"5.0.7": {
+			"name": "jsrsasign",
+			"version": "5.0.7",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK). This",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@5.0.7",
+			"_shasum": "8b5f5ab3c09a6bcf1fb7a7d5a5546c17cea5e677",
+			"_from": ".",
+			"_npmVersion": "2.14.21",
+			"_nodeVersion": "4.3.2",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "8b5f5ab3c09a6bcf1fb7a7d5a5546c17cea5e677",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-13-west.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-5.0.7.tgz_1457237128849_0.11040312517434359"
+			},
+			"directories": {}
+		},
+		"5.0.8": {
+			"name": "jsrsasign",
+			"version": "5.0.8",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK).",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@5.0.8",
+			"_shasum": "98bcbf6875456575a9e3bc3f8b9190fcaf5d4c2d",
+			"_from": ".",
+			"_npmVersion": "2.15.2",
+			"_nodeVersion": "4.4.2",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "98bcbf6875456575a9e3bc3f8b9190fcaf5d4c2d",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.8.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-5.0.8.tgz_1460630375922_0.6378683168441057"
+			},
+			"directories": {}
+		},
+		"5.0.9": {
+			"name": "jsrsasign",
+			"version": "5.0.9",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK).",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@5.0.9",
+			"_shasum": "20456f3881a5c6aa814a935ed0e0af08764511d9",
+			"_from": ".",
+			"_npmVersion": "2.15.2",
+			"_nodeVersion": "4.4.2",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "20456f3881a5c6aa814a935ed0e0af08764511d9",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.9.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-5.0.9.tgz_1461071640461_0.19773571798577905"
+			},
+			"directories": {}
+		},
+		"5.0.10": {
+			"name": "jsrsasign",
+			"version": "5.0.10",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK).",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@5.0.10",
+			"_shasum": "2918981bc6f2f41bbf022f9a7547f4736d8080ea",
+			"_from": ".",
+			"_npmVersion": "2.15.2",
+			"_nodeVersion": "4.4.2",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "2918981bc6f2f41bbf022f9a7547f4736d8080ea",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.10.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-5.0.10.tgz_1461506870771_0.8906332165934145"
+			},
+			"directories": {}
+		},
+		"5.0.11": {
+			"name": "jsrsasign",
+			"version": "5.0.11",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK).",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@5.0.11",
+			"_shasum": "d1dd132e0ca39b1ca25523adba9c608925d99b4b",
+			"_from": ".",
+			"_npmVersion": "2.15.2",
+			"_nodeVersion": "4.4.2",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "d1dd132e0ca39b1ca25523adba9c608925d99b4b",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.11.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-5.0.11.tgz_1462894729849_0.49433663371019065"
+			},
+			"directories": {}
+		},
+		"5.0.12": {
+			"name": "jsrsasign",
+			"version": "5.0.12",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK).",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@5.0.12",
+			"_shasum": "d62ea366518a52ff3b00ff8139c082f0903cac50",
+			"_from": ".",
+			"_npmVersion": "2.15.2",
+			"_nodeVersion": "4.4.2",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "d62ea366518a52ff3b00ff8139c082f0903cac50",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.12.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-5.0.12.tgz_1463498897922_0.05452495440840721"
+			},
+			"directories": {}
+		},
+		"5.0.13": {
+			"name": "jsrsasign",
+			"version": "5.0.13",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK).",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@5.0.13",
+			"_shasum": "87871d32f84209e7c0b0070e15ee57596fa895a9",
+			"_from": ".",
+			"_npmVersion": "2.15.2",
+			"_nodeVersion": "4.4.2",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "87871d32f84209e7c0b0070e15ee57596fa895a9",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.13.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-5.0.13.tgz_1470368766677_0.09387198719196022"
+			},
+			"directories": {}
+		},
+		"5.0.14": {
+			"name": "jsrsasign",
+			"version": "5.0.14",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK).",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@5.0.14",
+			"_shasum": "a44820824c1040830be34e0a2bd6cbc97c4db509",
+			"_from": ".",
+			"_npmVersion": "2.15.2",
+			"_nodeVersion": "4.4.2",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "a44820824c1040830be34e0a2bd6cbc97c4db509",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.14.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-5.0.14.tgz_1471040271879_0.9569733554963022"
+			},
+			"directories": {}
+		},
+		"5.0.15": {
+			"name": "jsrsasign",
+			"version": "5.0.15",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK).",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@5.0.15",
+			"_shasum": "e33d215b7494def3226e59a9f9fcde91154d83e6",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "e33d215b7494def3226e59a9f9fcde91154d83e6",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.15.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-5.0.15.tgz_1472306691922_0.6798829943872988"
+			},
+			"directories": {}
+		},
+		"5.1.0": {
+			"name": "jsrsasign",
+			"version": "5.1.0",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK).",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@5.1.0",
+			"_shasum": "2549d559674f6f8956b12bd7f3b5c066b4e0c6ba",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "2549d559674f6f8956b12bd7f3b5c066b4e0c6ba",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-5.1.0.tgz_1473270540198_0.6754874405451119"
+			},
+			"directories": {}
+		},
+		"6.0.0": {
+			"name": "jsrsasign",
+			"version": "6.0.0",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK).",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@6.0.0",
+			"_shasum": "465395908321e262f8a1639a8c12c513afa490fc",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "465395908321e262f8a1639a8c12c513afa490fc",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-6.0.0.tgz_1473569983779_0.2715061432681978"
+			},
+			"directories": {}
+		},
+		"6.0.1": {
+			"name": "jsrsasign",
+			"version": "6.0.1",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK).",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/kjur/jsrsasign/master/LICENSE.txt"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@6.0.1",
+			"_shasum": "593984c23ff1527a977ff86fe568578b052b07c0",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "593984c23ff1527a977ff86fe568578b052b07c0",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-6.0.1.tgz_1473686731807_0.31859142356552184"
+			},
+			"directories": {}
+		},
+		"6.1.0": {
+			"name": "jsrsasign",
+			"version": "6.1.0",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@6.1.0",
+			"_shasum": "8bc5c2f1ffb1c101390b6f30c0a2d2210f4f17ab",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "8bc5c2f1ffb1c101390b6f30c0a2d2210f4f17ab",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-6.1.0.tgz_1474673197510_0.21096138120628893"
+			},
+			"directories": {}
+		},
+		"6.1.1": {
+			"name": "jsrsasign",
+			"version": "6.1.1",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@6.1.1",
+			"_shasum": "e745a3aac120a0fcfbbf6f973aee559c493bd8eb",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "e745a3aac120a0fcfbbf6f973aee559c493bd8eb",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-6.1.1.tgz_1474811192531_0.8282966478727758"
+			},
+			"directories": {}
+		},
+		"6.1.2": {
+			"name": "jsrsasign",
+			"version": "6.1.2",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@6.1.2",
+			"_shasum": "577ce1e6f65843d5eaa0a610606a720f32803dc7",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "577ce1e6f65843d5eaa0a610606a720f32803dc7",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-6.1.2.tgz_1475888829540_0.042568164179101586"
+			},
+			"directories": {}
+		},
+		"6.1.3": {
+			"name": "jsrsasign",
+			"version": "6.1.3",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@6.1.3",
+			"_shasum": "5a3888f24061aeb8f7e74380d3f42324e045e51f",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.6.0",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "5a3888f24061aeb8f7e74380d3f42324e045e51f",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.1.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-6.1.3.tgz_1476538928077_0.6428518365137279"
+			},
+			"directories": {}
+		},
+		"6.1.4": {
+			"name": "jsrsasign",
+			"version": "6.1.4",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@6.1.4",
+			"_shasum": "2ebfe0e923ca647c565a14f5f53125b5fec1d5ac",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.6.0",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "2ebfe0e923ca647c565a14f5f53125b5fec1d5ac",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.1.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-6.1.4.tgz_1476581226275_0.7791761495172977"
+			},
+			"directories": {}
+		},
+		"6.2.0": {
+			"name": "jsrsasign",
+			"version": "6.2.0",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@6.2.0",
+			"_shasum": "009f26419738662d43f0d3596d59245e2bd219c8",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.6.0",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "009f26419738662d43f0d3596d59245e2bd219c8",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-6.2.0.tgz_1478140530038_0.9187467005103827"
+			},
+			"directories": {}
+		},
+		"6.2.1": {
+			"name": "jsrsasign",
+			"version": "6.2.1",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@6.2.1",
+			"_shasum": "2d918dcc8a9a130fc325f1c7d7aa7d7abe0b9db5",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.6.0",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "2d918dcc8a9a130fc325f1c7d7aa7d7abe0b9db5",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-6.2.1.tgz_1479397911001_0.5417418947909027"
+			},
+			"directories": {}
+		},
+		"6.2.2": {
+			"name": "jsrsasign",
+			"version": "6.2.2",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@6.2.2",
+			"_shasum": "84a0f85ba4aac7a79c358badb26ed99913172dbc",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.6.0",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "84a0f85ba4aac7a79c358badb26ed99913172dbc",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.2.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-6.2.2.tgz_1479515906352_0.5628437818959355"
+			},
+			"directories": {}
+		},
+		"6.2.3": {
+			"name": "jsrsasign",
+			"version": "6.2.3",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@6.2.3",
+			"_shasum": "c474bd7861e5dc444de55fb54a0bb9e566322757",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.6.0",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "c474bd7861e5dc444de55fb54a0bb9e566322757",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.2.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-6.2.3.tgz_1480429415567_0.5344167810399085"
+			},
+			"directories": {}
+		},
+		"7.0.0": {
+			"name": "jsrsasign",
+			"version": "7.0.0",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@7.0.0",
+			"_shasum": "1498429d7112a57f9567ed154bf67a42bd5b3c2d",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "4.6.1",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "1498429d7112a57f9567ed154bf67a42bd5b3c2d",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-7.0.0.tgz_1482675843318_0.35648019472137094"
+			},
+			"directories": {}
+		},
+		"7.1.0": {
+			"name": "jsrsasign",
+			"version": "7.1.0",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@7.1.0",
+			"_shasum": "8455d23806a5552d5cf5e496bb1115dff279d0e7",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "4.6.1",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "8455d23806a5552d5cf5e496bb1115dff279d0e7",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-7.1.0.tgz_1485079497221_0.5291062528267503"
+			},
+			"directories": {}
+		},
+		"7.1.1": {
+			"name": "jsrsasign",
+			"version": "7.1.1",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@7.1.1",
+			"_shasum": "7807c046052f190d003fc29db511cb95cee1abe4",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "4.7.2",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "7807c046052f190d003fc29db511cb95cee1abe4",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-7.1.1.tgz_1489438316080_0.13290204852819443"
+			},
+			"directories": {}
+		},
+		"7.1.2": {
+			"name": "jsrsasign",
+			"version": "7.1.2",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@7.1.2",
+			"_shasum": "68cfe1a3a67ecbb27463c151ef816755ce5f7215",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "4.8.0",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "68cfe1a3a67ecbb27463c151ef816755ce5f7215",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-7.1.2.tgz_1489983859248_0.6591067637782544"
+			},
+			"directories": {}
+		},
+		"7.1.3": {
+			"name": "jsrsasign",
+			"version": "7.1.3",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@7.1.3",
+			"_shasum": "e7c71928be9bae8ef1c35e6dc5f407928e9e6ccd",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "4.8.0",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "e7c71928be9bae8ef1c35e6dc5f407928e9e6ccd",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.1.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-7.1.3.tgz_1492338625464_0.13015545974485576"
+			},
+			"directories": {}
+		},
+		"7.1.5": {
+			"name": "jsrsasign",
+			"version": "7.1.5",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@7.1.5",
+			"_shasum": "5f4bc6b216726a1f0cf7d32d4a4b9a202a4b3c8e",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "4.8.0",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "5f4bc6b216726a1f0cf7d32d4a4b9a202a4b3c8e",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.1.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/jsrsasign-7.1.5.tgz_1494192040223_0.7761389997322112"
+			},
+			"directories": {}
+		},
+		"7.2.0": {
+			"name": "jsrsasign",
+			"version": "7.2.0",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@7.2.0",
+			"_shasum": "26384d5e5f4f9ab7fe16f59c3c72be094ef79edf",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "4.8.0",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "26384d5e5f4f9ab7fe16f59c3c72be094ef79edf",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign-7.2.0.tgz_1495344700720_0.9554241974838078"
+			},
+			"directories": {}
+		},
+		"7.2.1": {
+			"name": "jsrsasign",
+			"version": "7.2.1",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@7.2.1",
+			"_shasum": "b4d82d19dc148255263225124b5cd885546f6cc1",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "4.8.0",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "b4d82d19dc148255263225124b5cd885546f6cc1",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign-7.2.1.tgz_1496568931891_0.049955199006944895"
+			},
+			"directories": {}
+		},
+		"7.2.2": {
+			"name": "jsrsasign",
+			"version": "7.2.2",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.7.4"
+			},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@7.2.2",
+			"_shasum": "ae5230cb5574451bb979a9cc697428c60f598d20",
+			"_from": ".",
+			"_npmVersion": "2.15.12",
+			"_nodeVersion": "4.8.3",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "ae5230cb5574451bb979a9cc697428c60f598d20",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.2.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign-7.2.2.tgz_1498362719057_0.10092249722220004"
+			},
+			"directories": {}
+		},
+		"8.0.0": {
+			"name": "jsrsasign",
+			"version": "8.0.0",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.7.4"
+			},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@8.0.0",
+			"_shasum": "add54931d801b0de8539c999a3782aa3c04c7d32",
+			"_from": ".",
+			"_npmVersion": "2.15.12",
+			"_nodeVersion": "4.8.3",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "add54931d801b0de8539c999a3782aa3c04c7d32",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign-8.0.0.tgz_1498740901668_0.835010580951348"
+			},
+			"directories": {}
+		},
+		"8.0.1": {
+			"name": "jsrsasign",
+			"version": "8.0.1",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.7.4"
+			},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@8.0.1",
+			"_shasum": "3b5ad50b2d1742ee793186fe4504308d0ea760a2",
+			"_from": ".",
+			"_npmVersion": "2.15.12",
+			"_nodeVersion": "4.8.3",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "3b5ad50b2d1742ee793186fe4504308d0ea760a2",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign-8.0.1.tgz_1498865229971_0.5732297012582421"
+			},
+			"directories": {}
+		},
+		"8.0.2": {
+			"name": "jsrsasign",
+			"version": "8.0.2",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.7.4"
+			},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@8.0.2",
+			"_shasum": "80f030dad301db7f04c122db4c16c5e4dc63648e",
+			"_from": ".",
+			"_npmVersion": "2.15.12",
+			"_nodeVersion": "4.8.3",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "80f030dad301db7f04c122db4c16c5e4dc63648e",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign-8.0.2.tgz_1499521892259_0.085167650366202"
+			},
+			"directories": {}
+		},
+		"8.0.3": {
+			"name": "jsrsasign",
+			"version": "8.0.3",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.7.4"
+			},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@8.0.3",
+			"_shasum": "04017b1452f5f7ef6cfff053fede4d397afc8910",
+			"_from": ".",
+			"_npmVersion": "2.15.12",
+			"_nodeVersion": "4.8.3",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "04017b1452f5f7ef6cfff053fede4d397afc8910",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign-8.0.3.tgz_1499724152474_0.7143769685644656"
+			},
+			"directories": {}
+		},
+		"8.0.4": {
+			"name": "jsrsasign",
+			"version": "8.0.4",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.7.4"
+			},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@8.0.4",
+			"_shasum": "3f7b8238844f126b496a7556ec9f4b511f95f861",
+			"_from": ".",
+			"_npmVersion": "2.15.12",
+			"_nodeVersion": "4.8.4",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "3f7b8238844f126b496a7556ec9f4b511f95f861",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign-8.0.4.tgz_1505403335209_0.025486108846962452"
+			},
+			"directories": {}
+		},
+		"8.0.5": {
+			"name": "jsrsasign",
+			"version": "8.0.5",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.7.4"
+			},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@8.0.5",
+			"_shasum": "e33bc937940ac183ffa0e34098f797298822ed42",
+			"_from": ".",
+			"_npmVersion": "2.15.12",
+			"_nodeVersion": "4.8.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "e33bc937940ac183ffa0e34098f797298822ed42",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign-8.0.5.tgz_1517039403846_0.28901707846671343"
+			},
+			"directories": {}
+		},
+		"8.0.6": {
+			"name": "jsrsasign",
+			"version": "8.0.6",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.7.4"
+			},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@8.0.6",
+			"_shasum": "4586f00823e302e599a244a47be20c61aadd0fcf",
+			"_from": ".",
+			"_npmVersion": "2.15.12",
+			"_nodeVersion": "4.8.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "4586f00823e302e599a244a47be20c61aadd0fcf",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.6.tgz",
+				"fileCount": 12,
+				"unpackedSize": 684038
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign_8.0.6_1518189737091_0.8800499757629807"
+			}
+		},
+		"8.0.7": {
+			"name": "jsrsasign",
+			"version": "8.0.7",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.7.4"
+			},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@8.0.7",
+			"_shasum": "44a8e57def3e7794da8bb8deb42e8e6363d759bd",
+			"_from": ".",
+			"_npmVersion": "2.15.12",
+			"_nodeVersion": "4.8.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "44a8e57def3e7794da8bb8deb42e8e6363d759bd",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.7.tgz",
+				"fileCount": 12,
+				"unpackedSize": 684382
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign_8.0.7_1521939162194_0.13723839443977304"
+			}
+		},
+		"8.0.8": {
+			"name": "jsrsasign",
+			"version": "8.0.8",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.7.4"
+			},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@8.0.8",
+			"_shasum": "a93f3ceeb206afa1016180db937818527e50e675",
+			"_from": ".",
+			"_npmVersion": "2.15.12",
+			"_nodeVersion": "4.8.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "a93f3ceeb206afa1016180db937818527e50e675",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.8.tgz",
+				"fileCount": 13,
+				"unpackedSize": 686146
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign_8.0.8_1522614309882_0.4744481019737836"
+			}
+		},
+		"8.0.9": {
+			"name": "jsrsasign",
+			"version": "8.0.9",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.7.4"
+			},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@8.0.9",
+			"_shasum": "440f31a85f5405d01634c714a495597d4b1c990f",
+			"_from": ".",
+			"_npmVersion": "2.15.12",
+			"_nodeVersion": "4.8.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "440f31a85f5405d01634c714a495597d4b1c990f",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.9.tgz",
+				"fileCount": 13,
+				"unpackedSize": 686393
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign_8.0.9_1522839518199_0.3937977184624415"
+			}
+		},
+		"8.0.10": {
+			"name": "jsrsasign",
+			"version": "8.0.10",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.7.4"
+			},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@8.0.10",
+			"_shasum": "c92d36ca22e61762dbf57b92cd855c5dce83fca6",
+			"_from": ".",
+			"_npmVersion": "2.15.12",
+			"_nodeVersion": "4.8.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "c92d36ca22e61762dbf57b92cd855c5dce83fca6",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.10.tgz",
+				"fileCount": 13,
+				"unpackedSize": 691626
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign_8.0.10_1523378364857_0.6844913821385561"
+			}
+		},
+		"8.0.11": {
+			"name": "jsrsasign",
+			"version": "8.0.11",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.7.4"
+			},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@8.0.11",
+			"_shasum": "8e824651e0e15ffcc7ab7ad1e490674398d51d6d",
+			"_from": ".",
+			"_npmVersion": "2.15.12",
+			"_nodeVersion": "4.8.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "8e824651e0e15ffcc7ab7ad1e490674398d51d6d",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.11.tgz",
+				"fileCount": 13,
+				"unpackedSize": 691868,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa1gy8CRA9TVsSAnZWagAAF68P/jjr/+1/9H0s6ktcFdNt\nHltT5x9/WTnW9WHD8GJLJ8SWUyTFzkVhy5+uWt5VcNzvO8khpvgvyIwO44j6\nDRSkLeuU3oFOwx9FNimS4EHSdkvnO8M1l0/S99O8E9rw/yVkM9tBjCceoxSm\nRLQPQU1aGdiwPh0CZKuitHxFyAV3PXVnwKDK8HxlorQ+iF1Dq1kkAnzQwoCR\nA+bBhYJiFyDbEkR1HakMJ+ApS5K99rmYBOzUF9UeqAebax3CuldfzWvIBmcS\nKMihT7nPENaPO+LZsX6oRQ2kt+jH8rFw8b5aoZDtdOvFhCmw0Sbw1SphfMuu\nuqg5sTzMQlDPcTVS3CLzbZMe3+0xuoRVZVyHR2rduH7fuX7uRzcbd6HCH0UJ\nVwhmTQQxwU9b9r/VAsIDjC7pf9WpcIErce0zN4GdkRNpngcx+gyUFaOoPRd+\nw9vObkRQaDEewclu9fWUwPy3i0uZkP1YJ7blkmCDey459H6HH4As2GNx3Jw6\nIS4pV4vlISSAKcKDzDQkmY6mVxWUlfygWAL8gwSflw+KW8qF93U4kEoBwyJg\npou9OFOXSppmDhT+GND2lMx0sJoT6T4sHrRxrcZGJFqZWACwsv9XmPxK9vEd\n70btKHcFPA93Y1ffFKqKEBcVPnAX+A1OnXvzerhrreuQ8EJzDWIbXDw7XiWY\n1abm\r\n=+4Dg\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign_8.0.11_1523977404089_0.4220411752915163"
+			}
+		},
+		"8.0.12": {
+			"name": "jsrsasign",
+			"version": "8.0.12",
+			"description": "opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK)",
+			"main": "lib/jsrsasign.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/kjur/jsrsasign.git"
+			},
+			"keywords": [
+				"crypto",
+				"cryptography",
+				"Cipher",
+				"RSA",
+				"ECDSA",
+				"DSA",
+				"RSAPSS",
+				"PKCS#1",
+				"PKCS#5",
+				"PKCS#8",
+				"private key",
+				"public key",
+				"CSR",
+				"PKCS#10",
+				"hash function",
+				"HMac",
+				"ASN.1",
+				"certificate",
+				"X.509",
+				"CRL",
+				"OCSP",
+				"RFC 3161",
+				"Digital Timestamp",
+				"Timestamp",
+				"Time Stamp Token",
+				"CMS",
+				"Cryptgraphic Message Syntax",
+				"PKCS#7",
+				"Signature",
+				"Digital Signature",
+				"signing",
+				"Message Digest",
+				"JSON Web Token",
+				"JWT",
+				"JSON Web Signature",
+				"JWS",
+				"JSON Web Key",
+				"JWK",
+				"JOSE",
+				"JWA"
+			],
+			"author": {
+				"name": "Kenji Urushima"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/kjur/jsrsasign/issues"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "~1.7.4"
+			},
+			"homepage": "https://github.com/kjur/jsrsasign#readme",
+			"_id": "jsrsasign@8.0.12",
+			"_shasum": "22abb9656d34a30b9530436720835e89c2e5c316",
+			"_from": ".",
+			"_npmVersion": "2.15.12",
+			"_nodeVersion": "4.8.7",
+			"_npmUser": {
+				"name": "kjur",
+				"email": "kenji.urushima@gmail.com"
+			},
+			"dist": {
+				"shasum": "22abb9656d34a30b9530436720835e89c2e5c316",
+				"tarball": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.12.tgz",
+				"fileCount": 13,
+				"unpackedSize": 693188,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa3JSBCRA9TVsSAnZWagAAFfMP/ivsq92wJNzw0IgwDPM5\nGzAsieDCFDsHXkGn+ERGL9hgWC2UwXCXtBAcUFfONICWR3aFqHR+F/EKktYh\npbiG3TXrfkQkREFV1Fx1GYFBOm/pKtLFGucbaUT2mgDj3uWAA8InY+uR3BSU\nZUOBVMAtKGQCcOAL53YjhGGc8fdX11HcZzxlQTsGtc/CofwRqmfwEGDtJR9p\n6cNtOKoRo9xCWI/BqQNldPYuSBkwroOYrNOnMZljGiT1j8cENUtXEpfrVzm5\nE2SSSk5cJlL6f2w9tCYKoB2hcO2pqI/j5mB2MiKOA9wPeOwWbK9gF4dALwz5\n4ShUDGLrrvHx+r5jlkk0XS+WmRj3zLKjVpoGN+prdJiFe1r5pJl7i1jgGRDp\npqB9sMygNQpUWE8SbUDSQNAsl0TNHs07qIT1trUB9NnG1mGj1GiGqi0s529p\ng9Iwd6Bt6gh4mZT+7LyTuK2DPo64AqKNHZNHRhxEVLGyvK2k5qJaUWsIjCA3\nCyw5lIWMpSXYgzuhBJZsd3eBVoxkZogazzOYaNKPmpV5UMM6FuV0/l47lFzR\nc4oMo1pDmuXfHUKGk4fSXwZqvI0uKiAricwbtHpw3Z7O83aiaMGZzzDq1qRi\nIsScjb/JEL2iVNWBiPx+HjSqbzxuHOHayT69VhfNDPoeflKmN+3KLLiy36TG\nizNV\r\n=LlAI\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "kjur",
+					"email": "kenji.urushima@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/jsrsasign_8.0.12_1524405376946_0.8006507867547525"
+			}
+		}
+	},
+	"time": {
+		"modified": "2018-04-22T13:56:20.228Z",
+		"created": "2013-10-06T14:27:12.385Z",
+		"0.0.1": "2013-10-06T14:27:18.940Z",
+		"0.0.2": "2013-10-07T12:13:22.796Z",
+		"0.0.3": "2013-10-12T08:28:26.870Z",
+		"4.8.2": "2015-06-06T02:20:34.172Z",
+		"4.8.3": "2015-06-11T14:04:58.954Z",
+		"4.8.4": "2015-08-16T15:07:58.699Z",
+		"4.8.5": "2015-08-30T04:50:30.524Z",
+		"4.8.6": "2015-08-31T14:03:53.813Z",
+		"4.9.0": "2015-09-13T12:52:36.990Z",
+		"4.9.1": "2015-10-01T13:46:38.628Z",
+		"4.9.2": "2015-10-02T13:30:26.817Z",
+		"4.10.0": "2015-10-12T06:37:25.054Z",
+		"5.0.0": "2015-10-13T21:34:22.605Z",
+		"5.0.1": "2015-10-18T10:34:32.256Z",
+		"5.0.2": "2015-11-11T15:48:51.826Z",
+		"5.0.5": "2015-11-26T14:55:23.643Z",
+		"5.0.6": "2016-03-02T13:25:47.163Z",
+		"5.0.7": "2016-03-06T04:05:30.396Z",
+		"5.0.8": "2016-04-14T10:39:39.267Z",
+		"5.0.9": "2016-04-19T13:14:00.892Z",
+		"5.0.10": "2016-04-24T14:07:51.365Z",
+		"5.0.11": "2016-05-10T15:38:52.575Z",
+		"5.0.12": "2016-05-17T15:28:22.095Z",
+		"5.0.13": "2016-08-05T03:46:06.934Z",
+		"5.0.14": "2016-08-12T22:17:52.139Z",
+		"5.0.15": "2016-08-27T14:04:54.074Z",
+		"5.1.0": "2016-09-07T17:49:02.345Z",
+		"6.0.0": "2016-09-11T04:59:44.016Z",
+		"6.0.1": "2016-09-12T13:25:34.973Z",
+		"6.1.0": "2016-09-23T23:26:37.728Z",
+		"6.1.1": "2016-09-25T13:46:35.259Z",
+		"6.1.2": "2016-10-08T01:07:09.782Z",
+		"6.1.3": "2016-10-15T13:42:10.767Z",
+		"6.1.4": "2016-10-16T01:27:08.958Z",
+		"6.2.0": "2016-11-03T02:35:30.264Z",
+		"6.2.1": "2016-11-17T15:51:51.238Z",
+		"6.2.2": "2016-11-19T00:38:28.255Z",
+		"6.2.3": "2016-11-29T14:23:35.801Z",
+		"7.0.0": "2016-12-25T14:24:05.319Z",
+		"7.1.0": "2017-01-22T10:04:57.440Z",
+		"7.1.1": "2017-03-13T20:51:56.325Z",
+		"7.1.2": "2017-03-20T04:24:21.409Z",
+		"7.1.3": "2017-04-16T10:30:27.307Z",
+		"7.1.4": "2017-05-06T04:31:38.669Z",
+		"7.1.5": "2017-05-07T21:20:43.061Z",
+		"7.2.0": "2017-05-21T05:31:40.922Z",
+		"7.2.1": "2017-06-04T09:35:32.046Z",
+		"7.2.2": "2017-06-25T03:51:59.294Z",
+		"8.0.0": "2017-06-29T12:55:01.849Z",
+		"8.0.1": "2017-06-30T23:27:10.403Z",
+		"8.0.2": "2017-07-08T13:51:32.527Z",
+		"8.0.3": "2017-07-10T22:02:32.596Z",
+		"8.0.4": "2017-09-14T15:35:35.368Z",
+		"8.0.5": "2018-01-27T07:50:03.915Z",
+		"8.0.6": "2018-02-09T15:22:17.272Z",
+		"8.0.7": "2018-03-25T00:52:42.279Z",
+		"8.0.8": "2018-04-01T20:25:10.007Z",
+		"8.0.9": "2018-04-04T10:58:38.351Z",
+		"8.0.10": "2018-04-10T16:39:24.950Z",
+		"8.0.11": "2018-04-17T15:03:24.235Z",
+		"8.0.12": "2018-04-22T13:56:17.072Z"
+	},
+	"dist-tags": {
+		"latest": "8.0.12"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"2bba003c58bf36ca874b25305f500c70\"",
+			"fetched": 1568994341838
+		}
+	},
+	"_distfiles": {
+		"jsrsasign-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-0.0.1.tgz",
+			"sha": "a3e4d31a1eaf42a04ae8dd27c88ed6e972e3adc4",
+			"registry": "npmjs"
+		},
+		"jsrsasign-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-0.0.2.tgz",
+			"sha": "39ea2bb60b5f513d683cbec36eaf7a33a9b22cd3",
+			"registry": "npmjs"
+		},
+		"jsrsasign-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-0.0.3.tgz",
+			"sha": "8145894cca889620c4e6defdb5fd8653e7325e61",
+			"registry": "npmjs"
+		},
+		"jsrsasign-4.8.2.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.8.2.tgz",
+			"sha": "bd0a7040d426d7598d6c742ec8f875d0e88644a9",
+			"registry": "npmjs"
+		},
+		"jsrsasign-4.8.3.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.8.3.tgz",
+			"sha": "d074e28ad676086ed18413c9c30872637fe75aa8",
+			"registry": "npmjs"
+		},
+		"jsrsasign-4.8.4.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.8.4.tgz",
+			"sha": "639d94faf33a8a297023e81d3f2d28def0334ce6",
+			"registry": "npmjs"
+		},
+		"jsrsasign-4.8.5.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.8.5.tgz",
+			"sha": "cbaa1a6de2c20bcff3af04747f25dd06cbf39ec4",
+			"registry": "npmjs"
+		},
+		"jsrsasign-4.8.6.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.8.6.tgz",
+			"sha": "51d0da9d6c31e1c86be54ef980ee6ba2f42a2c99",
+			"registry": "npmjs"
+		},
+		"jsrsasign-4.9.0.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.9.0.tgz",
+			"sha": "ffa5a8688b2ff1eee7cba1832aa1f3ed41551ecd",
+			"registry": "npmjs"
+		},
+		"jsrsasign-4.9.1.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.9.1.tgz",
+			"sha": "3cefb00347e509795a68789c32a11c197df4012b",
+			"registry": "npmjs"
+		},
+		"jsrsasign-4.9.2.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-4.9.2.tgz",
+			"sha": "eaaca954700981e856f8a27da2e6b0eab6df0134",
+			"registry": "npmjs"
+		},
+		"jsrsasign-5.0.0.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.0.tgz",
+			"sha": "45233f6e002ccf4d27524598842a7c6d75eaec92",
+			"registry": "npmjs"
+		},
+		"jsrsasign-5.0.1.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.1.tgz",
+			"sha": "bf858c82e543c54d4596e3587667241553685363",
+			"registry": "npmjs"
+		},
+		"jsrsasign-5.0.2.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.2.tgz",
+			"sha": "0df520cc64808bbea28762d6c3aec40dd3c1dfb6",
+			"registry": "npmjs"
+		},
+		"jsrsasign-5.0.5.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.5.tgz",
+			"sha": "f802314988c3215cf64f8e710289dace4fc1efef",
+			"registry": "npmjs"
+		},
+		"jsrsasign-5.0.6.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.6.tgz",
+			"sha": "fe786085834e0571dfd9bd36df059f7412cc4b42",
+			"registry": "npmjs"
+		},
+		"jsrsasign-5.0.7.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.7.tgz",
+			"sha": "8b5f5ab3c09a6bcf1fb7a7d5a5546c17cea5e677",
+			"registry": "npmjs"
+		},
+		"jsrsasign-5.0.8.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.8.tgz",
+			"sha": "98bcbf6875456575a9e3bc3f8b9190fcaf5d4c2d",
+			"registry": "npmjs"
+		},
+		"jsrsasign-5.0.9.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.9.tgz",
+			"sha": "20456f3881a5c6aa814a935ed0e0af08764511d9",
+			"registry": "npmjs"
+		},
+		"jsrsasign-5.0.10.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.10.tgz",
+			"sha": "2918981bc6f2f41bbf022f9a7547f4736d8080ea",
+			"registry": "npmjs"
+		},
+		"jsrsasign-5.0.11.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.11.tgz",
+			"sha": "d1dd132e0ca39b1ca25523adba9c608925d99b4b",
+			"registry": "npmjs"
+		},
+		"jsrsasign-5.0.12.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.12.tgz",
+			"sha": "d62ea366518a52ff3b00ff8139c082f0903cac50",
+			"registry": "npmjs"
+		},
+		"jsrsasign-5.0.13.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.13.tgz",
+			"sha": "87871d32f84209e7c0b0070e15ee57596fa895a9",
+			"registry": "npmjs"
+		},
+		"jsrsasign-5.0.14.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.14.tgz",
+			"sha": "a44820824c1040830be34e0a2bd6cbc97c4db509",
+			"registry": "npmjs"
+		},
+		"jsrsasign-5.0.15.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.0.15.tgz",
+			"sha": "e33d215b7494def3226e59a9f9fcde91154d83e6",
+			"registry": "npmjs"
+		},
+		"jsrsasign-5.1.0.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-5.1.0.tgz",
+			"sha": "2549d559674f6f8956b12bd7f3b5c066b4e0c6ba",
+			"registry": "npmjs"
+		},
+		"jsrsasign-6.0.0.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.0.0.tgz",
+			"sha": "465395908321e262f8a1639a8c12c513afa490fc",
+			"registry": "npmjs"
+		},
+		"jsrsasign-6.0.1.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.0.1.tgz",
+			"sha": "593984c23ff1527a977ff86fe568578b052b07c0",
+			"registry": "npmjs"
+		},
+		"jsrsasign-6.1.0.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.1.0.tgz",
+			"sha": "8bc5c2f1ffb1c101390b6f30c0a2d2210f4f17ab",
+			"registry": "npmjs"
+		},
+		"jsrsasign-6.1.1.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.1.1.tgz",
+			"sha": "e745a3aac120a0fcfbbf6f973aee559c493bd8eb",
+			"registry": "npmjs"
+		},
+		"jsrsasign-6.1.2.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.1.2.tgz",
+			"sha": "577ce1e6f65843d5eaa0a610606a720f32803dc7",
+			"registry": "npmjs"
+		},
+		"jsrsasign-6.1.3.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.1.3.tgz",
+			"sha": "5a3888f24061aeb8f7e74380d3f42324e045e51f",
+			"registry": "npmjs"
+		},
+		"jsrsasign-6.1.4.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.1.4.tgz",
+			"sha": "2ebfe0e923ca647c565a14f5f53125b5fec1d5ac",
+			"registry": "npmjs"
+		},
+		"jsrsasign-6.2.0.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.2.0.tgz",
+			"sha": "009f26419738662d43f0d3596d59245e2bd219c8",
+			"registry": "npmjs"
+		},
+		"jsrsasign-6.2.1.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.2.1.tgz",
+			"sha": "2d918dcc8a9a130fc325f1c7d7aa7d7abe0b9db5",
+			"registry": "npmjs"
+		},
+		"jsrsasign-6.2.2.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.2.2.tgz",
+			"sha": "84a0f85ba4aac7a79c358badb26ed99913172dbc",
+			"registry": "npmjs"
+		},
+		"jsrsasign-6.2.3.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-6.2.3.tgz",
+			"sha": "c474bd7861e5dc444de55fb54a0bb9e566322757",
+			"registry": "npmjs"
+		},
+		"jsrsasign-7.0.0.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.0.0.tgz",
+			"sha": "1498429d7112a57f9567ed154bf67a42bd5b3c2d",
+			"registry": "npmjs"
+		},
+		"jsrsasign-7.1.0.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.1.0.tgz",
+			"sha": "8455d23806a5552d5cf5e496bb1115dff279d0e7",
+			"registry": "npmjs"
+		},
+		"jsrsasign-7.1.1.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.1.1.tgz",
+			"sha": "7807c046052f190d003fc29db511cb95cee1abe4",
+			"registry": "npmjs"
+		},
+		"jsrsasign-7.1.2.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.1.2.tgz",
+			"sha": "68cfe1a3a67ecbb27463c151ef816755ce5f7215",
+			"registry": "npmjs"
+		},
+		"jsrsasign-7.1.3.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.1.3.tgz",
+			"sha": "e7c71928be9bae8ef1c35e6dc5f407928e9e6ccd",
+			"registry": "npmjs"
+		},
+		"jsrsasign-7.1.5.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.1.5.tgz",
+			"sha": "5f4bc6b216726a1f0cf7d32d4a4b9a202a4b3c8e",
+			"registry": "npmjs"
+		},
+		"jsrsasign-7.2.0.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.2.0.tgz",
+			"sha": "26384d5e5f4f9ab7fe16f59c3c72be094ef79edf",
+			"registry": "npmjs"
+		},
+		"jsrsasign-7.2.1.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.2.1.tgz",
+			"sha": "b4d82d19dc148255263225124b5cd885546f6cc1",
+			"registry": "npmjs"
+		},
+		"jsrsasign-7.2.2.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-7.2.2.tgz",
+			"sha": "ae5230cb5574451bb979a9cc697428c60f598d20",
+			"registry": "npmjs"
+		},
+		"jsrsasign-8.0.0.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.0.tgz",
+			"sha": "add54931d801b0de8539c999a3782aa3c04c7d32",
+			"registry": "npmjs"
+		},
+		"jsrsasign-8.0.1.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.1.tgz",
+			"sha": "3b5ad50b2d1742ee793186fe4504308d0ea760a2",
+			"registry": "npmjs"
+		},
+		"jsrsasign-8.0.2.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.2.tgz",
+			"sha": "80f030dad301db7f04c122db4c16c5e4dc63648e",
+			"registry": "npmjs"
+		},
+		"jsrsasign-8.0.3.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.3.tgz",
+			"sha": "04017b1452f5f7ef6cfff053fede4d397afc8910",
+			"registry": "npmjs"
+		},
+		"jsrsasign-8.0.4.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.4.tgz",
+			"sha": "3f7b8238844f126b496a7556ec9f4b511f95f861",
+			"registry": "npmjs"
+		},
+		"jsrsasign-8.0.5.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.5.tgz",
+			"sha": "e33bc937940ac183ffa0e34098f797298822ed42",
+			"registry": "npmjs"
+		},
+		"jsrsasign-8.0.6.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.6.tgz",
+			"sha": "4586f00823e302e599a244a47be20c61aadd0fcf",
+			"registry": "npmjs"
+		},
+		"jsrsasign-8.0.7.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.7.tgz",
+			"sha": "44a8e57def3e7794da8bb8deb42e8e6363d759bd",
+			"registry": "npmjs"
+		},
+		"jsrsasign-8.0.8.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.8.tgz",
+			"sha": "a93f3ceeb206afa1016180db937818527e50e675",
+			"registry": "npmjs"
+		},
+		"jsrsasign-8.0.9.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.9.tgz",
+			"sha": "440f31a85f5405d01634c714a495597d4b1c990f",
+			"registry": "npmjs"
+		},
+		"jsrsasign-8.0.10.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.10.tgz",
+			"sha": "c92d36ca22e61762dbf57b92cd855c5dce83fca6",
+			"registry": "npmjs"
+		},
+		"jsrsasign-8.0.11.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.11.tgz",
+			"sha": "8e824651e0e15ffcc7ab7ad1e490674398d51d6d",
+			"registry": "npmjs"
+		},
+		"jsrsasign-8.0.12.tgz": {
+			"url": "https://registry.npmjs.org/jsrsasign/-/jsrsasign-8.0.12.tgz",
+			"sha": "22abb9656d34a30b9530436720835e89c2e5c316",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-3c30ad422e6d670d",
+	"_id": "jsrsasign",
+	"readme": "jsrsasign\r\n=========\r\n\r\nThe 'jsrsasign' (RSA-Sign JavaScript Library) is an opensource free pure JavaScript cryptographic library supports RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, CMS SignedData, TimeStamp and CAdES and JSON Web Signature(JWS)/Token(JWT)/Key(JWK).\r\n\r\n[![license](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/kjur/jsrsasign/blob/master/LICENSE.txt)\r\n[![bower](https://img.shields.io/bower/v/jsrsasign.svg?maxAge=2592000)](https://libraries.io/bower/jsrsasign)\r\n[![npm version](https://badge.fury.io/js/jsrsasign.svg)](https://badge.fury.io/js/jsrsasign)\r\n[![CDNJS](https://img.shields.io/cdnjs/v/jsrsasign.svg)](https://cdnjs.com/libraries/jsrsasign)\r\n\r\nPublic page is https://kjur.github.io/jsrsasign .\r\n\r\n[github TOP](https://kjur.github.io/jsrsasign/)|[API doc](https://kjur.github.io/jsrsasign/api/)|[Wiki](https://github.com/kjur/jsrsasign/wiki)|[Node sample](https://github.com/kjur/jsrsasign/tree/master/sample_node)\r\n\r\nDIFFERENCE WITH CRYPTO MODULE\r\n-----------------------------\r\n\r\nHere is the difference between bundled ['Crypto' module](http://nodejs.org/api/crypto.html) \r\nand this 'jsrsasign' module.\r\n\r\n- Crypto module\r\n    - fast\r\n    - works only on Node.js\r\n    - OpenSSL based\r\n    - lacking ASN.1 functionality\r\n    - provides symmetric ciphers\r\n    - lacking RSAPSS signing\r\n- jsrsasign module\r\n    - slow\r\n    - implemented in pure JavaScript\r\n    - works on both Node.js(server) and browsers(client)\r\n    - provides ASN.1 parsing/generation functionality\r\n    - lacking symmetric ciphers\r\n    - provides RSAPSS signing\r\n    - also provides support for JSON Web Signatures (JWS) and JSON Web Token (JWT)\r\n\r\nAVAILABLE CLASSES AND METHODS\r\n-----------------------------\r\n\r\nMost of the classes and methods defined in jsrsasign \r\navailable in this jsrsasign npm module.\r\n\r\nAfter loading the module,\r\n\r\n    > var r = require('jsrsasign');\r\n    > var r = require('jsrsasign-util'); // for file I/O utilities\r\n\r\nYou can refer name spaces, classes, methods and functions \r\nby following variables:\r\n\r\n- r.BigInteger - BigInteger class\r\n- r.RSAKey - [RSAKey class](https://kjur.github.io/jsrsasign/api/symbols/RSAKey.html)\r\n- r.ECDSA - [KJUR.crypto.ECDSA class](https://kjur.github.io/jsrsasign/api/symbols/KJUR.crypto.ECDSA.html)\r\n- r.DSA - [KJUR.crypto.DSA class](https://kjur.github.io/jsrsasign/api/symbols/KJUR.crypto.DSA.html)\r\n- r.Signature - [KJUR.crypto.Signature class](https://kjur.github.io/jsrsasign/api/symbols/KJUR.crypto.Signature.html)\r\n- r.MessageDigest - [KJUR.crypto.MessageDigest class](https://kjur.github.io/jsrsasign/api/symbols/KJUR.crypto.MessageDigest.html)\r\n- r.Mac - [KJUR.crypto.Mac class](https://kjur.github.io/jsrsasign/api/symbols/KJUR.crypto.Mac.html)\r\n- r.KEYUTIL - [KEYUTIL class](https://kjur.github.io/jsrsasign/api/symbols/KEYUTIL.html)\r\n- r.ASN1HEX - [ASN1HEX class](https://kjur.github.io/jsrsasign/api/symbols/ASN1HEX.html)\r\n- r.crypto - [KJUR.crypto name space](https://kjur.github.io/jsrsasign/api/symbols/KJUR.crypto.html)\r\n- r.asn1 - [KJUR.asn1 name space](https://kjur.github.io/jsrsasign/api/symbols/KJUR.asn1.html)\r\n- r.jws - [KJUR.jws name space](https://kjur.github.io/jsjws/api/)\r\n\r\nPlease see API reference in the above links.\r\n\r\nEXAMPLE(1) SIGNATURE\r\n--------------------\r\n\r\nLoading encrypted PKCS#5 private key:\r\n\r\n    > var rs = require('jsrsasign');\r\n    > var rsu = require('jsrsasign-util');\r\n    > var pem = rsu.readFile('z1.prv.p5e.pem');\r\n    > var prvKey = rs.KEYUTIL.getKey(pem, 'passwd');\r\n\r\nSign string 'aaa' with the loaded private key:\r\n\r\n    > var sig = new a.Signature({alg: 'SHA1withRSA'});\r\n    > sig.init(prvKey);\r\n    > sig.updateString('aaa');\r\n    > var sigVal = sig.sign();\r\n    > sigVal\r\n    'd764dcacb...'\r\n\r\nMORE TUTORIALS AND SAMPLES\r\n--------------------\r\n- [Tutorials in GitHub Wiki](https://github.com/kjur/jsrsasign/wiki)\r\n- [Sample Node Scripts](https://github.com/kjur/jsrsasign/tree/master/sample_node)"
+}

@@ -1,0 +1,163 @@
+{
+	"name": "fast-decode-uri-component",
+	"versions": {
+		"1.0.0": {
+			"name": "fast-decode-uri-component",
+			"version": "1.0.0",
+			"description": "Fast and safe decodeURIComponent",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && tap test.js",
+				"bench": "node bench.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/fast-decode-uri-component.git"
+			},
+			"keywords": [
+				"decode",
+				"uri",
+				"component",
+				"fast",
+				"safe"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/fast-decode-uri-component/issues"
+			},
+			"homepage": "https://github.com/delvedor/fast-decode-uri-component#readme",
+			"devDependencies": {
+				"nanobench": "^2.1.1",
+				"randomstring": "^1.1.5",
+				"standard": "^11.0.1",
+				"tap": "^11.1.2"
+			},
+			"gitHead": "e5bac12352794d9b0fb894be31ef6dbf08bcd1b1",
+			"_id": "fast-decode-uri-component@1.0.0",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-WQSYVKn6tDW/3htASeUkrx5LcnuTENQIZQPCVlwdnvIJ7bYtSpoJYq38MgUJnx1CQIR1gjZ8HJxAEcN4gqugBg==",
+				"shasum": "7ce10336aa4b26286fee93d71e6785ff0f596a33",
+				"tarball": "https://registry.npmjs.org/fast-decode-uri-component/-/fast-decode-uri-component-1.0.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 9077
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/fast-decode-uri-component_1.0.0_1521456081600_0.3917510444636094"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.1": {
+			"name": "fast-decode-uri-component",
+			"version": "1.0.1",
+			"description": "Fast and safe decodeURIComponent",
+			"main": "index.js",
+			"scripts": {
+				"test": "standard && tap test.js",
+				"bench": "node bench.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/delvedor/fast-decode-uri-component.git"
+			},
+			"keywords": [
+				"decode",
+				"uri",
+				"component",
+				"fast",
+				"safe"
+			],
+			"author": {
+				"name": "Tomas Della Vedova - @delvedor",
+				"url": "http://delved.org"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/delvedor/fast-decode-uri-component/issues"
+			},
+			"homepage": "https://github.com/delvedor/fast-decode-uri-component#readme",
+			"devDependencies": {
+				"nanobench": "^2.1.1",
+				"randomstring": "^1.1.5",
+				"standard": "^11.0.1",
+				"tap": "^11.1.2"
+			},
+			"gitHead": "c124e25816434dcb25813a4a7b9c3898eec76922",
+			"_id": "fast-decode-uri-component@1.0.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "delvedor",
+				"email": "tommydelved@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-WKgKWg5eUxvRZGwW8FvfbaH7AXSh2cL+3j5fMGzUMCxWBJ3dV3a7Wz8y2f/uQ0e3B6WmodD3oS54jTQ9HVTIIg==",
+				"shasum": "46f8b6c22b30ff7a81357d4f59abfae938202543",
+				"tarball": "https://registry.npmjs.org/fast-decode-uri-component/-/fast-decode-uri-component-1.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 9232,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJci8HDCRA9TVsSAnZWagAAVPkP+gP2/7N8HX78YvqbBqx7\n4rN7RhnRvNhg5VKmYnWf2oTbkLYAObre+JR8c+hq8w4TnTYlX4znooV8XBhF\n/1Q1RA2gnKjByvaExqZOgOXrCCZdm4bIMQjOj6ldrZ/Fkp2OF6HHW4BnJIL2\nuxUHDlO9a3qtrWsgUdnqpFF9raLLANhpuF6l41PQBbXh24JpzrOoTxRw1xWU\nKe7ecD744x2SczOGxIcIrJ2xBUBEgnTVHaNRJyBivNQ37vUZ8ZU82FXk7QlV\nV1qGms0RtGEZWMbK/79Rj/TPnDlQyTEKVlL/88xHGUmwolszvF38WVRfhMuN\nkbTHFn3KBGu4KtVREAOxSbvwnPa84mAkCtMvlM4BwnwVyC0FAxlrV3I1tmmD\nMQ3bMcqLz+5GQEb+nvVyQTkmUopKO3LtVFIvnV/zijVgJeyXvliYpllA9XZn\nreXS7J/1JhD16YRPx+uNVAPJVHGN5EeAh0DUfatQLsL4LpDhgti6tENZILZF\nSjEMEmyuf1KLBHxEzwTIyS52tMx3Dh4kD3BBpDfgktTqfTv9s+HrW20s7oX7\n2lmSr1IfhuvdU6hn4rFHK/uth9+r/1PIlCjcyAJh5gYEl+us3VgSnOgYP8SS\nukontd6hjavW402izqgh0w135XC+oLZkimiPkoW9dknJjifyBtL+R7lINZFn\nnXQf\r\n=ZQqf\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "delvedor",
+					"email": "tommydelved@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/fast-decode-uri-component_1.0.1_1552662978261_0.14201685172216738"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2018-03-19T10:41:21.600Z",
+		"1.0.0": "2018-03-19T10:41:21.665Z",
+		"modified": "2019-03-15T15:16:21.981Z",
+		"1.0.1": "2019-03-15T15:16:18.441Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"91619fb18e3127fe3e4dc89b0c31a89e\"",
+			"fetched": 1568994346013
+		}
+	},
+	"_distfiles": {
+		"fast-decode-uri-component-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/fast-decode-uri-component/-/fast-decode-uri-component-1.0.0.tgz",
+			"sha": "7ce10336aa4b26286fee93d71e6785ff0f596a33",
+			"registry": "npmjs"
+		},
+		"fast-decode-uri-component-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/fast-decode-uri-component/-/fast-decode-uri-component-1.0.1.tgz",
+			"sha": "46f8b6c22b30ff7a81357d4f59abfae938202543",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-abe4ecd763550b57",
+	"_id": "fast-decode-uri-component",
+	"readme": "# fast-decode-uri-component\n\n[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)  [![Build Status](https://travis-ci.org/delvedor/fast-decode-uri-component.svg?branch=master)](https://travis-ci.org/delvedor/fast-decode-uri-component)\n\nDecodes strings encoded by `encodeURI` and `encodeURIComponent`, without throwing errors on invalid escapes, instead, it returns `null`.\n\n\n## Installation\n```\nnpm install fast-decode-uri-component\n```\n\n## Usage\n```js\nconst fastDecode = require('fast-decode-uri-component')\n\nconsole.log(fastDecode('test')) // 'test'\nconsole.log(fastDecode('%25')) // '%'\nconsole.log(fastDecode('/test/hel%2Flo')) // '/test/hel/lo'\n\nconsole.log(fastDecode('/test/hel%\"Flo')) // null\nconsole.log(fastDecode('%7B%ab%7C%de%7D')) // null\nconsole.log(fastDecode('%ab')) // null\n```\n\n## Benchmarks\nYou can find the benchmark file [here](https://github.com/delvedor/fast-decode-uri-component/blob/master/bench.js).\n```\n# fast-decode-uri-component\nok ~539 ms (0 s + 539114308 ns)\n\n# decodeURIComponent\nok ~6.06 s (6 s + 62305153 ns)\n```\n\n## Acknowledgements\nThis project has been forked from [`jridgewell/safe-decode-uri-component`](https://github.com/jridgewell/safe-decode-uri-component) because I wanted to change the behaviour of the library on invalid inputs, plus change some internals.<br>\nAll the credits before the commit [`53000fe`](https://github.com/delvedor/fast-decode-uri-component/commit/53000feb8c268eec7a24620fd440fdd540be32b7) goes to the `jridgewell/safe-decode-uri-component` project [contributors](https://github.com/delvedor/fast-decode-uri-component/graphs/contributors).<br>\nSince the commit [`9673ab7`](https://github.com/delvedor/fast-decode-uri-component/commit/9673ab7820ef92081206a9f4fd158ffe9a352861) the project will be maintained by [**@delvedor**](https://github.com/delvedor).\n\n## License\n\nLicensed under [MIT](./LICENSE)."
+}

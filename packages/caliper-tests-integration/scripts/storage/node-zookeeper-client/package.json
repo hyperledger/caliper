@@ -1,0 +1,826 @@
+{
+	"name": "node-zookeeper-client",
+	"versions": {
+		"0.0.1": {
+			"name": "node-zookeeper-client",
+			"version": "0.0.1",
+			"description": "A pure Javascript ZooKeeper client for Node.js.",
+			"author": {
+				"name": "Alex Guan",
+				"email": "alex.guan@gmail.com"
+			},
+			"main": "index.js",
+			"keywords": [
+				"zookeeper",
+				"client",
+				"pure",
+				"javascript"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/alexguan/node-zookeeper-client"
+			},
+			"scripts": {
+				"test": "mocha --recursive --reporter spec test/*",
+				"coverage": "istanbul cover _mocha --recursive test/*"
+			},
+			"engines": {
+				"node": ">=0.6.0"
+			},
+			"dependencies": {
+				"underscore": "~1.4.4",
+				"async": "~0.2.7"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "http://github.com/alexguan/node-zookeeper-client/raw/master/LICENSE"
+				}
+			],
+			"devDependencies": {
+				"mocha": "~1.9.0",
+				"chai": "~1.5.0",
+				"istanbul": "~0.1.34"
+			},
+			"_id": "node-zookeeper-client@0.0.1",
+			"dist": {
+				"shasum": "bcc7d4369c80c760f9873932a63e62ce7792c304",
+				"tarball": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.0.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.11",
+			"_npmUser": {
+				"name": "alexguan",
+				"email": "alex.guan@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "alexguan",
+					"email": "alex.guan@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.3": {
+			"name": "node-zookeeper-client",
+			"version": "0.0.3",
+			"description": "A pure Javascript ZooKeeper client for Node.js.",
+			"author": {
+				"name": "Alex Guan",
+				"email": "alex.guan@gmail.com"
+			},
+			"main": "index.js",
+			"keywords": [
+				"zookeeper",
+				"client",
+				"pure",
+				"javascript"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/alexguan/node-zookeeper-client"
+			},
+			"scripts": {
+				"test": "mocha --recursive --reporter spec test/*",
+				"coverage": "istanbul cover _mocha --recursive test/*"
+			},
+			"engines": {
+				"node": ">=0.6.0"
+			},
+			"dependencies": {
+				"underscore": "~1.4.4",
+				"async": "~0.2.7"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "http://github.com/alexguan/node-zookeeper-client/raw/master/LICENSE"
+				}
+			],
+			"devDependencies": {
+				"mocha": "~1.9.0",
+				"chai": "~1.5.0",
+				"istanbul": "~0.1.34"
+			},
+			"_id": "node-zookeeper-client@0.0.3",
+			"dist": {
+				"shasum": "33c7c8eae42d4b7fbc1deef7e7b26a256f493ed6",
+				"tarball": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.0.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.11",
+			"_npmUser": {
+				"name": "alexguan",
+				"email": "alex.guan@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "alexguan",
+					"email": "alex.guan@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.4": {
+			"name": "node-zookeeper-client",
+			"version": "0.0.4",
+			"description": "A pure Javascript ZooKeeper client for Node.js.",
+			"author": {
+				"name": "Alex Guan",
+				"email": "alex.guan@gmail.com"
+			},
+			"main": "index.js",
+			"keywords": [
+				"zookeeper",
+				"client",
+				"pure",
+				"javascript"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/alexguan/node-zookeeper-client"
+			},
+			"scripts": {
+				"pretest": "jslint --node --sloppy index.js lib/*.js lib/jute/*.js",
+				"test": "mocha --recursive --reporter spec test/*",
+				"coverage": "istanbul cover _mocha --recursive test/*"
+			},
+			"engines": {
+				"node": ">=0.6.0"
+			},
+			"dependencies": {
+				"underscore": "~1.4.4",
+				"async": "~0.2.7"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "http://github.com/alexguan/node-zookeeper-client/raw/master/LICENSE"
+				}
+			],
+			"devDependencies": {
+				"mocha": "~1.9.0",
+				"chai": "~1.5.0",
+				"istanbul": "~0.1.34",
+				"jslint": "~0.1.9"
+			},
+			"_id": "node-zookeeper-client@0.0.4",
+			"dist": {
+				"shasum": "ed4eac5fa4c0276eb231ba44f9eba5686ec0aa68",
+				"tarball": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.0.4.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.11",
+			"_npmUser": {
+				"name": "alexguan",
+				"email": "alex.guan@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "alexguan",
+					"email": "alex.guan@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "node-zookeeper-client",
+			"version": "0.1.0",
+			"description": "A pure Javascript ZooKeeper client for Node.js.",
+			"author": {
+				"name": "Alex Guan",
+				"email": "alex.guan@gmail.com"
+			},
+			"main": "index.js",
+			"keywords": [
+				"zookeeper",
+				"client",
+				"pure",
+				"javascript"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/alexguan/node-zookeeper-client"
+			},
+			"scripts": {
+				"pretest": "jslint --node --sloppy index.js lib/*.js lib/jute/*.js",
+				"test": "mocha --recursive --reporter spec test/*",
+				"coverage": "istanbul cover _mocha --recursive test/*"
+			},
+			"engines": {
+				"node": ">=0.6.0"
+			},
+			"dependencies": {
+				"underscore": "~1.4.4",
+				"async": "~0.2.7"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "http://github.com/alexguan/node-zookeeper-client/raw/master/LICENSE"
+				}
+			],
+			"devDependencies": {
+				"mocha": "~1.9.0",
+				"chai": "~1.5.0",
+				"istanbul": "~0.1.34",
+				"jslint": "~0.1.9"
+			},
+			"_id": "node-zookeeper-client@0.1.0",
+			"dist": {
+				"shasum": "080b3d56e49bd74e08a0d2ce54fe3f1f179647c2",
+				"tarball": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.1.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.11",
+			"_npmUser": {
+				"name": "alexguan",
+				"email": "alex.guan@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "alexguan",
+					"email": "alex.guan@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.1": {
+			"name": "node-zookeeper-client",
+			"version": "0.1.1",
+			"description": "A pure Javascript ZooKeeper client for Node.js.",
+			"author": {
+				"name": "Alex Guan",
+				"email": "alex.guan@gmail.com"
+			},
+			"main": "index.js",
+			"keywords": [
+				"zookeeper",
+				"client",
+				"pure",
+				"javascript"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/alexguan/node-zookeeper-client"
+			},
+			"scripts": {
+				"pretest": "jslint --node --sloppy index.js lib/*.js lib/jute/*.js",
+				"test": "mocha --recursive --reporter spec test/*",
+				"coverage": "istanbul cover _mocha --recursive test/*"
+			},
+			"engines": {
+				"node": ">=0.6.0"
+			},
+			"dependencies": {
+				"underscore": "~1.4.4",
+				"async": "~0.2.7"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "http://github.com/alexguan/node-zookeeper-client/raw/master/LICENSE"
+				}
+			],
+			"devDependencies": {
+				"mocha": "~1.9.0",
+				"chai": "~1.5.0",
+				"istanbul": "~0.1.34",
+				"jslint": "~0.1.9"
+			},
+			"_id": "node-zookeeper-client@0.1.1",
+			"dist": {
+				"shasum": "c0baa7e8b7f441330f04cfb3d352987d98c5c218",
+				"tarball": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.1.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.11",
+			"_npmUser": {
+				"name": "alexguan",
+				"email": "alex.guan@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "alexguan",
+					"email": "alex.guan@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "node-zookeeper-client",
+			"version": "0.2.0",
+			"description": "A pure Javascript ZooKeeper client for Node.js.",
+			"author": {
+				"name": "Alex Guan",
+				"email": "alex.guan@gmail.com"
+			},
+			"main": "index.js",
+			"keywords": [
+				"zookeeper",
+				"client",
+				"pure",
+				"javascript"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/alexguan/node-zookeeper-client"
+			},
+			"scripts": {
+				"pretest": "jslint --node --sloppy index.js lib/*.js lib/jute/*.js",
+				"test": "mocha --recursive --reporter spec test/*",
+				"coverage": "istanbul cover _mocha --recursive test/*"
+			},
+			"engines": {
+				"node": ">=0.6.0"
+			},
+			"dependencies": {
+				"underscore": "~1.4.4",
+				"async": "~0.2.7"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "http://github.com/alexguan/node-zookeeper-client/raw/master/LICENSE"
+				}
+			],
+			"devDependencies": {
+				"mocha": "~1.9.0",
+				"chai": "~1.5.0",
+				"istanbul": "~0.1.34",
+				"jslint": "~0.1.9"
+			},
+			"bugs": {
+				"url": "https://github.com/alexguan/node-zookeeper-client/issues"
+			},
+			"_id": "node-zookeeper-client@0.2.0",
+			"dist": {
+				"shasum": "f44ad27cf0d5a31fe3c6ebc0b3f0f63f47315a62",
+				"tarball": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.2.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.25",
+			"_npmUser": {
+				"name": "alexguan",
+				"email": "alex.guan@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "alexguan",
+					"email": "alex.guan@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.1": {
+			"name": "node-zookeeper-client",
+			"version": "0.2.1",
+			"description": "A pure Javascript ZooKeeper client for Node.js.",
+			"author": {
+				"name": "Alex Guan",
+				"email": "alex.guan@gmail.com"
+			},
+			"main": "index.js",
+			"keywords": [
+				"zookeeper",
+				"client",
+				"pure",
+				"javascript"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/alexguan/node-zookeeper-client"
+			},
+			"scripts": {
+				"pretest": "jslint --node --sloppy index.js lib/*.js lib/jute/*.js",
+				"test": "mocha --recursive --reporter spec test/*",
+				"coverage": "istanbul cover _mocha --recursive test/*"
+			},
+			"engines": {
+				"node": ">=0.6.0"
+			},
+			"dependencies": {
+				"underscore": "~1.4.4",
+				"async": "~0.2.7"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "http://github.com/alexguan/node-zookeeper-client/raw/master/LICENSE"
+				}
+			],
+			"devDependencies": {
+				"mocha": "~1.9.0",
+				"chai": "~1.5.0",
+				"istanbul": "~0.1.34",
+				"jslint": "~0.1.9"
+			},
+			"bugs": {
+				"url": "https://github.com/alexguan/node-zookeeper-client/issues"
+			},
+			"homepage": "https://github.com/alexguan/node-zookeeper-client",
+			"_id": "node-zookeeper-client@0.2.1",
+			"dist": {
+				"shasum": "d0e8a12e3b95f36f5301ea8df1f99e015bb1f1ff",
+				"tarball": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.2.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.21",
+			"_npmUser": {
+				"name": "alexguan",
+				"email": "alex.guan@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "alexguan",
+					"email": "alex.guan@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.2": {
+			"name": "node-zookeeper-client",
+			"version": "0.2.2",
+			"description": "A pure Javascript ZooKeeper client for Node.js.",
+			"author": {
+				"name": "Alex Guan",
+				"email": "alex.guan@gmail.com"
+			},
+			"main": "index.js",
+			"keywords": [
+				"zookeeper",
+				"client",
+				"pure",
+				"javascript"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/alexguan/node-zookeeper-client"
+			},
+			"scripts": {
+				"pretest": "jslint --node --sloppy index.js lib/*.js lib/jute/*.js",
+				"test": "mocha --recursive --reporter spec test/*",
+				"coverage": "istanbul cover _mocha --recursive test/*"
+			},
+			"engines": {
+				"node": ">=0.6.0"
+			},
+			"dependencies": {
+				"underscore": "~1.4.4",
+				"async": "~0.2.7"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "http://github.com/alexguan/node-zookeeper-client/raw/master/LICENSE"
+				}
+			],
+			"devDependencies": {
+				"mocha": "~1.9.0",
+				"chai": "~1.5.0",
+				"istanbul": "~0.1.34",
+				"jslint": "~0.1.9"
+			},
+			"gitHead": "db474832e7f6ee084d683f873ca8eaf7c37feeff",
+			"bugs": {
+				"url": "https://github.com/alexguan/node-zookeeper-client/issues"
+			},
+			"homepage": "https://github.com/alexguan/node-zookeeper-client",
+			"_id": "node-zookeeper-client@0.2.2",
+			"_shasum": "097bda01999eef8f602ce068b632600069dbf685",
+			"_from": ".",
+			"_npmVersion": "2.1.6",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "alexguan",
+				"email": "alex.guan@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "alexguan",
+					"email": "alex.guan@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "097bda01999eef8f602ce068b632600069dbf685",
+				"tarball": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.2.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.3": {
+			"name": "node-zookeeper-client",
+			"version": "0.2.3",
+			"description": "A pure Javascript ZooKeeper client for Node.js.",
+			"author": {
+				"name": "Alex Guan",
+				"email": "alex.guan@gmail.com"
+			},
+			"main": "index.js",
+			"keywords": [
+				"zookeeper",
+				"client",
+				"pure",
+				"javascript"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/alexguan/node-zookeeper-client.git"
+			},
+			"scripts": {
+				"pretest": "eslint index.js lib/*.js lib/jute/*.js",
+				"test": "mocha --recursive --reporter spec test/*",
+				"coverage": "istanbul cover _mocha --recursive test/*"
+			},
+			"engines": {
+				"node": ">=0.6.0"
+			},
+			"dependencies": {
+				"underscore": "~1.4.4",
+				"async": "~0.2.7"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "http://github.com/alexguan/node-zookeeper-client/raw/master/LICENSE"
+				}
+			],
+			"devDependencies": {
+				"chai": "~1.5.0",
+				"eslint": "^3.2.0",
+				"istanbul": "~0.1.34",
+				"mocha": "~1.9.0"
+			},
+			"gitHead": "e4e91dc9e07f62bfc6e60cec15894901a354be1d",
+			"bugs": {
+				"url": "https://github.com/alexguan/node-zookeeper-client/issues"
+			},
+			"homepage": "https://github.com/alexguan/node-zookeeper-client#readme",
+			"_id": "node-zookeeper-client@0.2.3",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.4.0",
+			"_npmUser": {
+				"name": "alexguan",
+				"email": "alex.guan@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-V4gVHxzQ42iwhkANpPryzfjmqi3Ql3xeO9E/px7W5Yi774WplU3YtqUpnvcL/eJit4UqcfuLOgZLkpf0BPhHmg==",
+				"shasum": "48c79129c56b8e898df9bd3bdad9e27dcad63851",
+				"tarball": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.2.3.tgz",
+				"fileCount": 37,
+				"unpackedSize": 165196,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcFCfqCRA9TVsSAnZWagAABIkP/jd0t+EiKlN9FvZ+gdCC\n/Rz+6eFDyV0JvqrOaq1hRil4s3YJ65UBF9C+LlV5maTg24MdI0Pc2kmltvW7\nIiy2DZ2fPzctZD874ctpl+acd7UXmOA32jwT8x3B7AOeFJi2wENLRqigeChA\nEYLYVJPHHRqlEkxsNiHAkJD+GjcbGpikvR9cZacCe7pPs1fpUZ2S9QYEGHZi\n9sqd0b9tW6muK5UdCcEW3J0I6TAx1JoC9D4Fry9klGO103tHCZjC8Y78S59b\nQu412TjlcxWIbwr87EBjPJmapcIQbgiDE/XIpEqLLDLmnXWkDE2mklpcJHmi\nT+yX3QJ3ESoH923OkjPegq9EjuKvXUM0pZWfnaLgGyvylkbF8kMGNyXSdt6h\nBwrIcnmSvFEotn62bg+HWYcXZgkJWjE83nU7qAGnYXLf9Uz2zdyVoYjMifWU\n0nWlSjFIkytuc4VbaJxAf+C5ZLjNor7/M3MYAJp5jazp9U2wDOYIWmi6HmhY\neziVFm5lOCA1FvfmnXwtiwm+Z+FDLBcTcizY3PoJHjrRLFEzRoYsZ3ENc3LS\nS+bs77Jox0UUyYnL7vARoyVXvtv2BRXs3CY/QAsb9HB6hPLcprEr+U2EbSEU\nhlP3JLezhRj3izY8QCxnwELJVrJJ73Ii2IstUGcUczziDtjmhzbep37/mai2\nwy2t\r\n=Fjgk\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "alexguan",
+					"email": "alex.guan@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-zookeeper-client_0.2.3_1544824809377_0.017288045544852748"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.0": {
+			"name": "node-zookeeper-client",
+			"version": "1.0.0",
+			"description": "A pure Javascript ZooKeeper client for Node.js.",
+			"author": {
+				"name": "Alex Guan",
+				"email": "alex.guan@gmail.com"
+			},
+			"license": "MIT",
+			"main": "index.js",
+			"keywords": [
+				"zookeeper",
+				"client",
+				"pure",
+				"javascript"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/alexguan/node-zookeeper-client.git"
+			},
+			"scripts": {
+				"pretest": "eslint index.js lib/*.js lib/jute/*.js",
+				"test": "mocha --recursive --reporter spec test/*",
+				"coverage": "nyc npm test"
+			},
+			"engines": {
+				"node": ">=6.0.0"
+			},
+			"dependencies": {
+				"underscore": "~1.4.4",
+				"async": "~0.2.7"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "http://github.com/alexguan/node-zookeeper-client/raw/master/LICENSE"
+				}
+			],
+			"devDependencies": {
+				"chai": "~1.5.0",
+				"eslint": "^3.2.0",
+				"mocha": "^6.1.4",
+				"nyc": "^14.1.1"
+			},
+			"gitHead": "4f2edaf9f8560562b6503672f56b6794ddee8291",
+			"bugs": {
+				"url": "https://github.com/alexguan/node-zookeeper-client/issues"
+			},
+			"homepage": "https://github.com/alexguan/node-zookeeper-client#readme",
+			"_id": "node-zookeeper-client@1.0.0",
+			"_nodeVersion": "12.4.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-VLRrz7RB0Q4A14eL4icS16xIUuBE4ITG3lWokFx8iJaGLBb83jMmSTR7RnV0KcQIXr21bgxLcKSU+/dXYBBeTg==",
+				"shasum": "596d38acdce777772530daff567c80e9f5f3f759",
+				"tarball": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-1.0.0.tgz",
+				"fileCount": 37,
+				"unpackedSize": 165213,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdCUpICRA9TVsSAnZWagAArLwP/j4fcA9dGHd+3mZwoXUg\njPEV/K0sa+v/BTE/DbbhMaogIh0yPLBC/wTnS7gwS8xpMmzf8mbYYHLezIsB\n/A8DN8jyWHbWwUR+KuSyCtc+mni2qgy1vMRbryzDyoc7xIrUf2cgHNkeByvO\n/4sbna2DEuJregN63ACubohY0F87wo2G4zLJdGD0kWEu4KR15LWCfF+ClI8D\nvUgN2yUTaaRdWLXH/8JvHstRM/2phztEwuA4uQz3xF4Roh6+XaAJfgvuOMkW\n7KwoQ8MhoMTEnLkMG34ecvI8QUSYqV7Il15ViMTsPh7Wi9kTckgzC9DVB8YY\n+H7DY8ZvHOi+nsiHgRsrdXcG/5rljy9B0U7yc+U2oJFsm4CPwA0LG+MlxoDk\nkCLuCnM+p0fmf8vgXKma/KFSmpeYKlKNmCkQP+glI876EtPBO/EtKwruLude\ntOteb41dRxn0SU7K6JnTWNi5tdTIQ9aboHJAhgDj7Z7Y3pfeuxV3elXQ4FyC\noUqFZyAmUxnqx1ZKr5l/KBdqMuUk6m6Sv10XjFZKjXsGrtfmzHj3jQ3bSuns\nUD7ZJZ5thqoTFx+Df5GjubZW5PBLAICgS78CrHVn5irFW9Yz8H7yDi/r8wc1\noDbK9ErMV9VtVx/B1dQjgTWkur7JG5P58QJuRIwdossGorSFXTOJF9H+piE1\n19qX\r\n=QOYM\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "alexguan",
+					"email": "alex.guan@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "alexguan",
+				"email": "alex.guan@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-zookeeper-client_1.0.0_1560889927160_0.23108086093183644"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.1.0": {
+			"name": "node-zookeeper-client",
+			"version": "1.1.0",
+			"description": "A pure Javascript ZooKeeper client for Node.js.",
+			"author": {
+				"name": "Alex Guan",
+				"email": "alex.guan@gmail.com"
+			},
+			"license": "MIT",
+			"main": "index.js",
+			"keywords": [
+				"zookeeper",
+				"client",
+				"pure",
+				"javascript"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/alexguan/node-zookeeper-client.git"
+			},
+			"scripts": {
+				"pretest": "eslint index.js lib/*.js lib/jute/*.js",
+				"test": "mocha --recursive --reporter spec test/*",
+				"coverage": "nyc npm test"
+			},
+			"engines": {
+				"node": ">=8.10.0"
+			},
+			"dependencies": {
+				"underscore": "~1.4.4",
+				"async": "~0.2.7"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "http://github.com/alexguan/node-zookeeper-client/raw/master/LICENSE"
+				}
+			],
+			"devDependencies": {
+				"chai": "~1.5.0",
+				"eslint": "^6.4.0",
+				"mocha": "^6.2.0",
+				"nyc": "^14.1.1"
+			},
+			"gitHead": "0a7cb95aa506b68b552bb8686263d658d355429d",
+			"bugs": {
+				"url": "https://github.com/alexguan/node-zookeeper-client/issues"
+			},
+			"homepage": "https://github.com/alexguan/node-zookeeper-client#readme",
+			"_id": "node-zookeeper-client@1.1.0",
+			"_nodeVersion": "12.10.0",
+			"_npmVersion": "6.11.3",
+			"dist": {
+				"integrity": "sha512-Vp9kP8noRV6LcNcHg4/1wjDfxLDbRfnaXoBIbw87ZkG1fPi4H/mIs9ko5dNrniAq7wK6ugBEUGZ1Wzy0VkMnFw==",
+				"shasum": "256c5b79d00108eff349d68d1efe7a5e78933e89",
+				"tarball": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-1.1.0.tgz",
+				"fileCount": 39,
+				"unpackedSize": 170002,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdhABqCRA9TVsSAnZWagAAz+MQAIF+PSkcF4xz6ICnzB+R\nTmDoztJdeRPbie8hQuhn0n3KOlXLTjvcuB37gPWfaFmpL0S5gga9xlFEyxjk\nzL4rMgH7xUeKmDH5JlQH+I7OqoPF71H8jnfL1q+5MNbTDYj+VHmEDX2odo8/\npGox2+G37hRGzqBckPHREsqkufq02tLEHs/EAv3Ng6HBmhOda6b7SG/Vffa/\nweDqYw+Q2TvT4hB9mH1+HQ2g9fCdqtShddeB+TeOOfJHY43GGnMZuc8PwZHU\nDafkBjKlohGxp28Bt5UEM409wUaliym5V0TRwOnkr7d7Sy/pe7CgiF57i776\nq9zUf9PUVdZtYSKpR/2Vz/S1TS5TJPTqQeZvdvmEESOVQuuM3y1UKcQXPjX4\ndeh1iX2G6TG54YczWYzowH0ByoGZOwRSuGDnCym1xVSXOgyK1P+oYdr02kep\n6ptdAXf+XUPxsaqJwjKEpEH9Lfvs8tlqXL4e34iB77WaXuokQJGgjXcX4RfV\nsoLUbqFynTsgIMcM8YFLrMRJ2kwKovhkDfvBjs1RVU6BgX3mxQTz+EeSEksM\nHrYT9DT+QSyZLG1eU2jDsBVP8iI6jRWqT4HZyIwp+St1fwwL8oAFalRoyg//\nPoAp6dlrE20Ka2NAxkT5i0Iu3RASlq49K90ADumIunBY8rJzJiM87vqoBYbb\nKGJZ\r\n=4eMY\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "alexguan",
+					"email": "alex.guan@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "alexguan",
+				"email": "alex.guan@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-zookeeper-client_1.1.0_1568931945500_0.7026128965535694"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-09-19T22:25:48.276Z",
+		"created": "2013-04-26T00:58:05.147Z",
+		"0.0.1": "2013-04-26T00:58:05.887Z",
+		"0.0.3": "2013-05-06T05:07:23.290Z",
+		"0.0.4": "2013-05-07T00:41:32.212Z",
+		"0.1.0": "2013-05-08T17:59:56.555Z",
+		"0.1.1": "2013-06-03T22:58:26.990Z",
+		"0.2.0": "2013-07-08T04:57:48.278Z",
+		"0.2.1": "2014-04-01T00:53:21.709Z",
+		"0.2.2": "2015-01-17T01:59:56.010Z",
+		"0.2.3": "2018-12-14T22:00:09.483Z",
+		"1.0.0": "2019-06-18T20:32:07.290Z",
+		"1.1.0": "2019-09-19T22:25:45.680Z"
+	},
+	"dist-tags": {
+		"latest": "1.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"76fb097c27a87ced6934f70fc62b025d\"",
+			"fetched": 1568994334285
+		}
+	},
+	"_distfiles": {
+		"node-zookeeper-client-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.0.1.tgz",
+			"sha": "bcc7d4369c80c760f9873932a63e62ce7792c304",
+			"registry": "npmjs"
+		},
+		"node-zookeeper-client-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.0.3.tgz",
+			"sha": "33c7c8eae42d4b7fbc1deef7e7b26a256f493ed6",
+			"registry": "npmjs"
+		},
+		"node-zookeeper-client-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.0.4.tgz",
+			"sha": "ed4eac5fa4c0276eb231ba44f9eba5686ec0aa68",
+			"registry": "npmjs"
+		},
+		"node-zookeeper-client-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.1.0.tgz",
+			"sha": "080b3d56e49bd74e08a0d2ce54fe3f1f179647c2",
+			"registry": "npmjs"
+		},
+		"node-zookeeper-client-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.1.1.tgz",
+			"sha": "c0baa7e8b7f441330f04cfb3d352987d98c5c218",
+			"registry": "npmjs"
+		},
+		"node-zookeeper-client-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.2.0.tgz",
+			"sha": "f44ad27cf0d5a31fe3c6ebc0b3f0f63f47315a62",
+			"registry": "npmjs"
+		},
+		"node-zookeeper-client-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.2.1.tgz",
+			"sha": "d0e8a12e3b95f36f5301ea8df1f99e015bb1f1ff",
+			"registry": "npmjs"
+		},
+		"node-zookeeper-client-0.2.2.tgz": {
+			"url": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.2.2.tgz",
+			"sha": "097bda01999eef8f602ce068b632600069dbf685",
+			"registry": "npmjs"
+		},
+		"node-zookeeper-client-0.2.3.tgz": {
+			"url": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-0.2.3.tgz",
+			"sha": "48c79129c56b8e898df9bd3bdad9e27dcad63851",
+			"registry": "npmjs"
+		},
+		"node-zookeeper-client-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-1.0.0.tgz",
+			"sha": "596d38acdce777772530daff567c80e9f5f3f759",
+			"registry": "npmjs"
+		},
+		"node-zookeeper-client-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/node-zookeeper-client/-/node-zookeeper-client-1.1.0.tgz",
+			"sha": "256c5b79d00108eff349d68d1efe7a5e78933e89",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-cce64d8dee3d114a",
+	"_id": "node-zookeeper-client",
+	"readme": "# node-zookeeper-client\n\nA pure Javascript [ZooKeeper](http://zookeeper.apache.org) client module for\n[Node.js](http://nodejs.org).\n\n[![NPM](https://nodei.co/npm/node-zookeeper-client.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/node-zookeeper-client/)\n\n[![Build Status](https://travis-ci.org/alexguan/node-zookeeper-client.png?branch=master)](https://travis-ci.org/alexguan/node-zookeeper-client)\n\nThis module is designed to resemble the ZooKeeper Java client API but with\ntweaks to follow the convention of Node.js modules. Developers that are familiar\nwith the ZooKeeper Java client would be able to pick it up quickly.\n\nThis module has been tested to work with ZooKeeper version 3.4.*.\n\n---\n\n+ [Installation](#installation)\n+ [Example](#example)\n+ [Documentation](#documentation)\n    + [createClient](#client-createclientconnectionstring-options)\n    + [Client](#client)\n        + [connect](#void-connect)\n        + [close](#void-close)\n        + [create](#void-createpath-data-acls-mode-callback)\n        + [remove](#void-removepath-version-callback)\n        + [removeRecursive](#void-removerecursivepath-version-callback)\n        + [exists](#void-existspath-watcher-callback)\n        + [getChildren](#void-getchildrenpath-watcher-callback)\n        + [listSubTreeBFS](#void-listsubtreebfspath-callback)\n        + [getData](#void-getdatapath-watcher-callback)\n        + [setData](#void-setdatapath-data-version-callback)\n        + [getACL](#void-getaclpath-callback)\n        + [setACL](#void-setaclpath-acls-version-callback)\n        + [transaction](#transaction-transaction)\n        + [mkdirp](#void-mkdirppath-data-acls-mode-callback)\n        + [addAuthInfo](#void-addauthinfoscheme-auth)\n        + [getState](#state-getstate)\n        + [getSessionId](#buffer-getsessionid)\n        + [getSessionPassword](#buffer-getsessionpassword)\n        + [getSessionTimeout](#number-getsessiontimeout)\n    + [State](#state)\n    + [Event](#event)\n    + [Transaction](#transaction)\n        + [create](#transaction-createpath-data-acls-mode)\n        + [setData](#transaction-setdatapath-data-version)\n        + [check](#transaction-checkpath-version)\n        + [remove](#transaction-removepath-data-version)\n        + [commit](#void-commitcallback)\n    + [Exception](#exception)\n        + [getCode](#number-getcode)\n        + [getPath](#string-getpath)\n        + [getName](#string-getname)\n        + [toString](#string-tostring)\n    + [Exception](#exception)\n+ [Dependency](#dependency)\n+ [License](#license)\n\n## Installation\n\nYou can install it using npm:\n\n```bash\n$ npm install node-zookeeper-client\n```\n\n## Example\n\n1\\. Create a node using given path:\n\n```javascript\nvar zookeeper = require('node-zookeeper-client');\n\nvar client = zookeeper.createClient('localhost:2181');\nvar path = process.argv[2];\n\nclient.once('connected', function () {\n    console.log('Connected to the server.');\n\n    client.create(path, function (error) {\n        if (error) {\n            console.log('Failed to create node: %s due to: %s.', path, error);\n        } else {\n            console.log('Node: %s is successfully created.', path);\n        }\n\n        client.close();\n    });\n});\n\nclient.connect();\n```\n\n2\\. List and watch the children of given node:\n\n```javascript\nvar zookeeper = require('node-zookeeper-client');\n\nvar client = zookeeper.createClient('localhost:2181');\nvar path = process.argv[2];\n\nfunction listChildren(client, path) {\n    client.getChildren(\n        path,\n        function (event) {\n            console.log('Got watcher event: %s', event);\n            listChildren(client, path);\n        },\n        function (error, children, stat) {\n            if (error) {\n                console.log(\n                    'Failed to list children of %s due to: %s.',\n                    path,\n                    error\n                );\n                return;\n            }\n\n            console.log('Children of %s are: %j.', path, children);\n        }\n    );\n}\n\nclient.once('connected', function () {\n    console.log('Connected to ZooKeeper.');\n    listChildren(client, path);\n});\n\nclient.connect();\n```\n\nMore examples can be found [here](examples).\n\n\n## Documentation\n\n#### Client createClient(connectionString, [options])\n\nFactory method to create a new zookeeper [client](#client) instance.\n\n**Arguments**\n\n* connectionString `String` - Comma separated `host:port` pairs, each\n  represents a ZooKeeper server. You can optionally append a chroot path, then\n  the client would be rooted at the given path. e.g.\n\n  ```javascript\n  'localhost:3000,locahost:3001,localhost:3002'\n  'localhost:2181,localhost:2182/test'\n  ```\n\n* options `Object` - An object to set the client options. Currently available\n  options are:\n\n    * `sessionTimeout` Session timeout in milliseconds, defaults to 30 seconds.\n    * `spinDelay` The delay (in milliseconds) between each connection attempts.\n    * `retries` The number of retry attempts for connection loss exception.\n\n  Defaults options:\n\n    ```javascript\n    {\n        sessionTimeout: 30000,\n        spinDelay : 1000,\n        retries : 0\n    }\n    ```\n\n**Example**\n\n```javascript\nvar client = zookeeper.createClient(\n    'localhost:2181/test',\n    { sessionTimeout: 10000 }\n);\n```\n\n---\n\n### Client\n\nThis is the main class of ZooKeeper client module. An application must\nuse [`createClient`](#createclientconnectionstring-options) method to\ninstantiate the client.\n\nOnce a connection from the client to the server is established, a session id is\nassigned to the client. The client will starts sending heart beats to the server\nperiodically to keep the session valid.\n\nIf the client fails to send heart beats to the server for a prolonged period of\ntime (exceeding the sessionTimeout value), the server will expire the session.\nThe client object will no longer be usable.\n\nIf the ZooKeeper server the client currently connects to fails or otherwise\ndoes not respond, the client will automatically try to connect to another server\nbefore its session times out. If successful, the application can continue to\nuse the client.\n\nThis class inherits from [events.EventEmitter](http://nodejs.org/api/events.html)\nclass, see [Event](#event) for details.\n\n#### void connect()\n\nInitiate the connection to the provided server list (ensemble). The client will\npick an arbitrary server from the list and attempt to connect to it. If the\nestablishment of the connection fails, another server will be tried (picked\nrandomly) until a connection is established or [close](#close) method is\ninvoked.\n\n---\n\n#### void close()\n\nClose this client. Once the client is closed, its session becomes invalid.\nAll the ephemeral nodes in the ZooKeeper server associated with the session\nwill be removed. The watchers left on those nodes (and on their parents) will\nbe triggered.\n\n---\n\n#### void create(path, [data], [acls], [mode], callback)\n\nCreate a node with given path, data, acls and mode.\n\n**Arguments**\n\n* path `String` - Path of the node.\n* data `Buffer` - The data buffer, optional, defaults to null.\n* acls `Array` - An array of [ACL](#acl) objects, optional, defaults to\n  `ACL.OPEN_ACL_UNSAFE`\n* mode `CreateMode` -  The creation mode, optional, defaults to\n  `CreateMode.PERSISTENT`\n* callback(error, path) `Function` - The callback function.\n\n**Example**\n\n```javascript\nzookeeper.create(\n    '/test/demo',\n    Buffer.from('data'),\n    CreateMode.EPHEMERAL,\n    function (error, path) {\n        if (error) {\n            console.log(error.stack);\n            return;\n        }\n\n        console.log('Node: %s is created.', path);\n    }\n);\n```\n\n---\n\n#### void remove(path, [version], callback)\n\nDelete a node with the given path and version. If version is provided and not\nequal to -1, the request will fail when the provided version does not match the\nserver version.\n\n**Arguments**\n\n* path `String` - Path of the node.\n* version `Number` - The version of the node, optional, defaults to -1.\n* callback(error) `Function` - The callback function.\n\n**Example**\n\n```javascript\nzookeeper.remove('/test/demo', -1, function (error) {\n    if (error) {\n        console.log(error.stack);\n        return;\n    }\n\n    console.log('Node is deleted.');\n});\n```\n\n---\n\n#### void removeRecursive(path, [version], callback)\n\nDeletes a node and all its children with the given path and version.\n\n**Arguments**\n\n* path `String` - Path of the node.\n* version `Number` - The version of the node, optional, defaults to -1.\n* callback(error) `Function` - The callback function.\n\n**Example**\n\n```javascript\nzookeeper.removeRecursive('/test/demo', -1, function (error) {\n    if (error) {\n        console.log(error.stack);\n        return;\n    }\n\n    console.log('Nodes removed.');\n});\n```\n\n---\n\n#### void exists(path, [watcher], callback)\n\nCheck the existence of a node. The callback will be invoked with the\nstat of the given path, or `null` if no such node exists.\n\nIf the watcher function is provided and the operation is successful (no error),\na watcher will be placed on the node with the given path. The watcher will be\ntriggered by a successful operation that creates the node, deletes the node or\nsets the data on the node.\n\n**Arguments**\n\n* path `String` - Path of the node.\n* watcher(event) `Function` - The watcher function, optional. The `event` is an\n  instance of [`Event`](#event)\n* callback(error, stat) `Function` - The callback function. The `stat` is an\n  instance of [`Stat`](#stat).\n\n**Example**\n\n```javascript\nzookeeper.exists('/test/demo', function (error, stat) {\n    if (error) {\n        console.log(error.stack);\n        return;\n    }\n\n    if (stat) {\n        console.log('Node exists.');\n    } else {\n        console.log('Node does not exist.');\n    }\n});\n```\n\n---\n\n#### void getChildren(path, [watcher], callback)\n\nFor the given node path, retrieve the children list and the stat. The children\nwill be an unordered list of strings.\n\nIf the watcher callback is provided and the operation is successfully, a watcher\nwill be placed the given node. The watcher will be triggered\nwhen an operation successfully deletes the given node or creates/deletes\nthe child under it.\n\n**Arguments**\n\n* path `String` - Path of the node.\n* watcher(event) `Function` - The watcher function, optional. The `event` is an\n  instance of [`Event`](#event)\n* callback(error, children, stat) `Function` - The callback function. The\n  children is an array of strings and the `stat` is an instance of\n  [`Stat`](#stat).\n\n**Example**\n\n```javascript\nzookeeper.getChildren('/test/demo', function (error, children, stats) {\n    if (error) {\n        console.log(error.stack);\n        return;\n    }\n\n    console.log('Children are: %j.', children);\n});\n```\n\n---\n\n#### void listSubTreeBFS(path, callback)\n\nRetrieve a list of all children including itself for the given node path.\n\n**Arguments**\n\n* path `String` - Path of the node.\n* callback(error, children) `Function` - The callback function. The\n  children is an array of strings.\n\n**Example**\n\n```javascript\nzookeeper.listSubTreeBFS('/test/demo', function (error, children) {\n    if (error) {\n        console.log(error.stack);\n        return;\n    }\n\n    console.log('Children are: %j.', children);\n});\n```\n\n---\n\n#### void getData(path, [watcher], callback)\n\nRetrieve the data and the stat of the node of the given path. If the watcher\nfunction is provided and the operation is successful (no error), a watcher\nwill be placed on the node with the given path. The watch will be triggered by\na successful operation which sets data on the node, or deletes the node.\n\n**Arguments**\n\n* path `String` - Path of the node.\n* watcher(event) `Function` - The watcher function, optional. The `event` is an\n  instance of [`Event`](#event)\n* callback(error, data, stat) `Function` - The callback function. The `data` is\n  an instance of [`Buffer`](http://nodejs.org/api/buffer.html) and stat is an\n  instance of [`Stat`](#stat).\n\n**Example**\n\n```javascript\nzookeeper.getData(\n    '/test/demo',\n    function (event) {\n        console.log('Got event: %s.', event);\n    },\n    function (error, data, stat) {\n        if (error) {\n            console.log(error.stack);\n            return;\n        }\n\n        console.log('Got data: %s', data.toString('utf8'));\n    }\n);\n```\n\n---\n\n#### void setData(path, data, [version], callback)\n\nSet the data for the node of the given path if such a node exists and the\noptional given version matches the version of the node (if the given\nversion is -1, it matches any node's versions). The [stat](#stat) of the node\nwill be returned through the callback function.\n\n**Arguments**\n\n* path `String` - Path of the node.\n* data `Buffer` - The data buffer.\n* version `Number` - The version of the node, optional, defaults to -1.\n* callback(error, stat) `Function` - The callback function. The `stat` is an\n  instance of [`Stat`](#stat).\n\n**Example**\n\n```javascript\nzookeeper.setData('/test/demo', null, 2, function (error, stat) {\n    if (error) {\n        console.log(error.stack);\n        return;\n    }\n\n    console.log('Data is set.');\n});\n```\n\n---\n\n#### void getACL(path, callback)\n\nRetrieve the list of [ACL](#acl) and stat of the node of the given path.\n\n**Arguments**\n\n* path `String` - Path of the node.\n* callback(error, acls, stat) `Function` - The callback function. `acls` is an\n  array of [`ACL`](#acl) instances. The `stat` is an instance of\n  [`Stat`](#stat).\n\n**Example**\n\n```javascript\nzookeeper.getACL('/test/demo', function (error, acls, stat) {\n    if (error) {\n        console.log(error.stack);\n        return;\n    }\n\n    console.log('ACL(s) are: %j', acls);\n});\n```\n\n---\n\n#### void setACL(path, acls, [version], callback)\n\nSet the [ACL](#acl) for the node of the given path if such a node exists and the\ngiven version (optional) matches the version of the node on the server. (if the\ngiven version is -1, it matches any versions).\n\n**Arguments**\n\n* path `String` - Path of the node.\n* acls `Array` - An array of [`ACL`](#acl) instances.\n* version `Number` - The version of the node, optional, defaults to -1.\n* callback(error, stat) `Function` - The callback function. The `stat` is an\n  instance of [`Stat`](#stat).\n\n**Example**\n\n```javascript\nzookeeper.setACL(\n    '/test/demo',\n    [\n        new zookeeper.ACL(\n            zookeeeper.Permission.ADMIN,\n            new zookeeper.Id('ip', '127.0.0.1')\n        )\n    ],\n    function (error, acls, stat) {\n        if (error) {\n            console.log(error.stack);\n            return;\n        }\n\n        console.log('New ACL is set.');\n    }\n);\n```\n\n---\n\n#### Transaction transaction()\n\nCreate and return a new Transaction instance which provides a builder object\nthat can be used to construct and commit a set of operations atomically.\n\nSee [Transaction](#transaction) for details.\n\n\n**Example**\n\n```javascript\nvar transaction = zookeeper.transaction();\n```\n\n---\n\n#### void mkdirp(path, [data], [acls], [mode], callback)\n\nCreate given path in a way similar to `mkdir -p`.\n\n**Arguments**\n\n* path `String` - Path of the node.\n* data `Buffer` - The data buffer, optional, defaults to `null`.\n* acls `Array` - An array of [ACL](#acl) objects, optional, defaults to\n  `ACL.OPEN_ACL_UNSAFE`\n* mode `CreateMode` -  The creation mode, optional, defaults to\n  `CreateMode.PERSISTENT`\n* callback(error, path) `Function` - The callback function.\n\n**Example**\n\n```javascript\nzookeeper.mkdirp('/test/demo/1/2/3', function (error, path) {\n    if (error) {\n        console.log(error.stack);\n        return;\n    }\n\n    console.log('Node: %s is created.', path);\n});\n```\n\n---\n\n#### void addAuthInfo(scheme, auth)\n\nAdd the specified scheme:auth information to this client.\n\n**Arguments**\n\n* scheme `String` - The authentication scheme.\n* auth `Buffer` - The authentication data buffer.\n\n**Example**\n\n```javascript\nzookeeper.addAuthInfo('ip', Buffer.from('127.0.0.1'));\n```\n\n---\n\n#### State getState()\n\nReturn the current client [state](#state).\n\n**Example**\n\n```javascript\nvar client = zookeeper.createClient({...});\nvar state = client.getState();\nconsole.log('Current state is: %s', state);\n```\n\n---\n\n#### Buffer getSessionId()\n\nReturns the session id of this client instance. The value returned is not valid\nuntil the client connects to a server and may change after a re-connect.\n\nThe id returned is a long integer stored into a 8 bytes\n[`Buffer`](http://nodejs.org/api/buffer.html) since Javascript does not support\nlong integer natively.\n\n**Example**\n\n```javascript\nvar client = zookeeper.createClient({...});\nvar id = client.getSessionId();\nconsole.log('Session id is: %s', id.toString('hex'));\n```\n\n---\n\n#### Buffer getSessionPassword()\n\nReturns the session password of this client instance. The value returned is not\nvalid until the client connects to a server and may change after a re-connect.\n\nThe value returned is an instance of\n[`Buffer`](http://nodejs.org/api/buffer.html).\n\n**Example**\n\n```javascript\nvar client = zookeeper.createClient({...});\nvar pwd = client.getSessionPassword();\n```\n\n---\n\n#### Number getSessionTimeout()\n\nReturns the *negotiated* session timeout (in milliseconds) for this client\ninstance. The value returned is not valid until the client connects to a server\nand may change after a re-connect.\n\n**Example**\n\n```javascript\nvar client = zookeeper.createClient({...});\nvar sessionTimeout = client.getSessionTimeout();\n```\n\n---\n\n### State\n\nAfter the `connect()` method is invoked, the ZooKeeper client starts its\nlife cycle and transitions its state as described in the following diagram.\n\n![state transition](http://zookeeper.apache.org/doc/r3.4.5/images/state_dia.jpg)\n\nThere are two ways to watch the client state changes:\n\n1\\. **Node.js convention:** Register event listener on the specific event\nwhich interests you. The following is the list of events that can be watched:\n\n* `connected` - Client is connected and ready.\n* `connectedReadOnly` - Client is connected to a readonly server.\n* `disconnected` - The connection between client and server is dropped.\n* `expired` - The client session is expired.\n* `authenticationFailed` - Failed to authenticate with the server.\n\nNote: some events (e.g. `connected` or `disconnected`) maybe be emitted more\nthan once during the client life cycle.\n\n**Example**\n\n```javascript\nclient.on('connected', function () {\n    console.log('Client state is changed to connected.');\n});\n```\n\n2\\. **Java client convention:** Register one event listener on the `state` event\nto watch all state transitions. The listener callback will be called with an\ninstance of the `State` class. The following is the list of exported state\ninstances:\n\n* `State.CONNECTED` - Client is connected and ready.\n* `State.CONNECTED_READ_ONLY` - Client is connected to a readonly server.\n* `State.DISCONNECTED` - The connection between client and server is dropped.\n* `State.EXPIRED` - The client session is expired.\n* `State.AUTH_FAILED` - Failed to authenticate with the server.\n\n```javascript\nclient.on('state', function (state) {\n    if (state === zookeeper.State.SYNC_CONNECTED) {\n        console.log('Client state is changed to connected.');\n    }\n});\n```\n\n---\n\n### Event\n\nOptionally, you can register watcher functions when calling\n[`exists`](#void-existspath-watcher-callback),\n[`getChildren`](#void-getchildrenpath-watcher-callback) and\n[`getData`](#void-getdatapath-watcher-callback) methods. The watcher function\nwill be called with an instance of `Event`.\n\n**Properties**\n\nThere are four type of events are exposed as `Event` class properties.\n\n* `NODE_CREATED` - Watched node is created.\n* `NODE_DELETED` - watched node is deleted.\n* `NODE_DATA_CHANGED` - Data of watched node is changed.\n* `NODE_CHILDREN_CHANGED` - Children of watched node is changed.\n\n---\n\n#### Number getType()\n\nReturn the type of the event.\n\n---\n\n#### String getName()\n\nReturn the name of the event.\n\n---\n\n#### Number getPath()\n\nReturn the path of the event.\n\n---\n\n#### String toString()\n\nReturn a string representation of the event.\n\n---\n\n### Transaction\n\nTransaction provides a builder interface to construct and commit a set of\noperations atomically.\n\n**Example**\n\n```javascript\nvar client = zookeeper.createClient(process.argv[2] || 'localhost:2181');\n\nclient.once('connected', function () {\n    client.transaction().\n        create('/txn').\n        create('/txn/1', Buffer.from('transaction')).\n        setData('/txn/1', Buffer.from('test'), -1).\n        check('/txn/1').\n        remove('/txn/1', -1).\n        remove('/txn').\n        commit(function (error, results) {\n            if (error) {\n                console.log(\n                    'Failed to execute the transaction: %s, results: %j',\n                    error,\n                    results\n                );\n\n                return;\n            }\n\n            console.log('Transaction completed.');\n            client.close();\n        });\n});\n\nclient.connect();\n```\n\n#### Transaction create(path, [data], [acls], [mode])\n\nAdd a create operation with given path, data, acls and mode.\n\n**Arguments**\n\n* path `String` - Path of the node.\n* data `Buffer` - The data buffer, optional, defaults to null.\n* acls `Array` - An array of [ACL](#acl) objects, optional, defaults to\n  `ACL.OPEN_ACL_UNSAFE`\n* mode `CreateMode` -  The creation mode, optional, defaults to\n  `CreateMode.PERSISTENT`\n\n---\n\n#### Transaction setData(path, data, [version])\n\nAdd a set-data operation with the given path, data and optional version.\n\n**Arguments**\n\n* path `String` - Path of the node.\n* data `Buffer` - The data buffer, or null.\n* version `Number` - The version of the node, optional, defaults to -1.\n\n---\n\n#### Transaction check(path, [version])\n\nAdd a check (existence) operation with given path and optional version.\n\n**Arguments**\n\n* path `String` - Path of the node.\n* version `Number` - The version of the node, optional, defaults to -1.\n\n---\n\n#### Transaction remove(path, data, version)\n\nAdd a delete operation with the given path and optional version.\n\n**Arguments**\n\n* path `String` - Path of the node.\n* version `Number` - The version of the node, optional, defaults to -1.\n\n---\n\n#### void commit(callback)\n\nExecute the transaction atomically.\n\n**Arguments**\n\n* callback(error, results) `Function` - The callback function.\n\n---\n\n### Exception\n\nIf the requested operation fails due to reason related to ZooKeeper, the error\nwhich is passed into callback function will be an instance of `Exception` class.\n\nThe exception can be identified through its error code, the following is the\nlist of error codes that are exported through `Exception` class.\n\n* `Exception.OK`\n* `Exception.SYSTEM_ERROR`\n* `Exception.RUNTIME_INCONSISTENCY`\n* `Exception.DATA_INCONSISTENCY`\n* `Exception.CONNECTION_LOSS`\n* `Exception.MARSHALLING_ERROR`\n* `Exception.UNIMPLEMENTED`\n* `Exception.OPERATION_TIMEOUT`\n* `Exception.BAD_ARGUMENTS`\n* `Exception.API_ERROR`\n* `Exception.NO_NODE`\n* `Exception.NO_AUTH`\n* `Exception.BAD_VERSION`\n* `Exception.NO_CHILDREN_FOR_EPHEMERALS`\n* `Exception.NODE_EXISTS`\n* `Exception.NOT_EMPTY`\n* `Exception.SESSION_EXPIRED`\n* `Exception.INVALID_CALLBACK`\n* `Exception.INVALID_ACL`\n* `Exception.AUTH_FAILED`\n\n**Example**\n\n```javascript\nzookeeper.create('/test/demo', function (error, path) {\n    if (error) {\n        if (error.getCode() == zookeeper.Exception.NODE_EXISTS) {\n            console.log('Node exists.');\n        } else {\n            console.log(error.stack);\n        }\n        return;\n    }\n\n    console.log('Node: %s is created.', path);\n});\n```\n\n#### Number getCode()\n\nReturn the error code of the exception.\n\n---\n\n#### String getPath()\n\nReturn the associated node path of the exception. The path can be `undefined`\nif the exception is not related to node.\n\n--\n\n#### String getName()\n\nReturn the exception name as defined in aforementioned list.\n\n---\n\n### String toString()\n\nReturn the exception in a readable string.\n\n---\n\n\n## Dependency\n\nThis module depends on the following third-party libraries:\n\n* [async](https://github.com/caolan/async)\n* [underscore](http://underscorejs.org)\n\n## License\n\nThis module is licensed under [MIT License](raw/master/LICENSE)"
+}

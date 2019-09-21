@@ -1,0 +1,226 @@
+{
+	"name": "ewma",
+	"versions": {
+		"1.0.0": {
+			"name": "ewma",
+			"version": "1.0.0",
+			"description": "Exponentially Weighted Moving Average",
+			"main": "index.js",
+			"scripts": {
+				"all": "make"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ReactiveSocket/ewma.git"
+			},
+			"files": [
+				"index.js"
+			],
+			"keywords": [
+				"JS",
+				"math",
+				"statistics"
+			],
+			"author": {
+				"name": "Steve Gury"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/ReactiveSocket/ewma/issues"
+			},
+			"homepage": "https://github.com/ReactiveSocket/ewma#readme",
+			"dependencies": {
+				"assert-plus": "^1.0.0"
+			},
+			"devDependencies": {
+				"eslint": "^4.5.0",
+				"jscs": "^3.0.7"
+			},
+			"gitHead": "f87139a707c456bc3b9c6b755c43395059296cc4",
+			"_id": "ewma@1.0.0",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "6.11.2",
+			"_npmUser": {
+				"name": "retrohacker",
+				"email": "william.jblankenship@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-JEIQXAYZUXXA3UL+u3YCM+3CKJ+6NSkQl5f1BbFf0amufbLiSdq0IWB9geau6dM8JpHQJY6H9oYE/D6RFXlVuA==",
+				"shasum": "cb6af5212cb255a4e262f2fa5d91720fef216b75",
+				"tarball": "https://registry.npmjs.org/ewma/-/ewma-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "retrohacker",
+					"email": "william.jblankenship@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ewma-1.0.0.tgz_1504303877803_0.30208452441729605"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "ewma",
+			"version": "2.0.0",
+			"description": "Exponentially Weighted Moving Average",
+			"main": "index.js",
+			"scripts": {
+				"all": "make"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ReactiveSocket/ewma.git"
+			},
+			"files": [
+				"index.js"
+			],
+			"keywords": [
+				"JS",
+				"math",
+				"statistics"
+			],
+			"author": {
+				"name": "Steve Gury"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/ReactiveSocket/ewma/issues"
+			},
+			"homepage": "https://github.com/ReactiveSocket/ewma#readme",
+			"dependencies": {
+				"assert-plus": "^1.0.0"
+			},
+			"devDependencies": {
+				"eslint": "^4.5.0",
+				"jscs": "^3.0.7",
+				"nyc": "^11.2.0",
+				"tape": "^4.8.0"
+			},
+			"gitHead": "8621f3a2e53c87d99cac30fbffbdfbb7c160c21c",
+			"_id": "ewma@2.0.0",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "6.11.2",
+			"_npmUser": {
+				"name": "retrohacker",
+				"email": "william.jblankenship@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-LTazHYh7K4KysXrIDqa4JaQbOCVTU5w+gIwQlACOYm2ZA3lG4a5R9lQezWxShR+wqtjUl66Xif/4hbsmt4I7Ig==",
+				"shasum": "de5a2d81b922859db8f4352dff0f5646411d3963",
+				"tarball": "https://registry.npmjs.org/ewma/-/ewma-2.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "retrohacker",
+					"email": "william.jblankenship@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ewma-2.0.0.tgz_1504712820159_0.39188048196956515"
+			},
+			"directories": {}
+		},
+		"2.0.1": {
+			"name": "ewma",
+			"version": "2.0.1",
+			"description": "Exponentially Weighted Moving Average",
+			"main": "index.js",
+			"scripts": {
+				"all": "make"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/ReactiveSocket/ewma.git"
+			},
+			"files": [
+				"index.js"
+			],
+			"keywords": [
+				"JS",
+				"math",
+				"statistics"
+			],
+			"author": {
+				"name": "Steve Gury"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/ReactiveSocket/ewma/issues"
+			},
+			"homepage": "https://github.com/ReactiveSocket/ewma#readme",
+			"dependencies": {
+				"assert-plus": "^1.0.0"
+			},
+			"devDependencies": {
+				"eslint": "^4.5.0",
+				"jscs": "^3.0.7",
+				"nyc": "^11.2.0",
+				"tape": "^4.8.0"
+			},
+			"gitHead": "60d3a4200fc51b491acccd61b0d666a345953e4f",
+			"_id": "ewma@2.0.1",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "6.11.2",
+			"_npmUser": {
+				"name": "retrohacker",
+				"email": "william.jblankenship@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-MYYK17A76cuuyvkR7MnqLW4iFYPEi5Isl2qb8rXiWpLiwFS9dxW/rncuNnjjgSENuVqZQkIuR4+DChVL4g1lnw==",
+				"shasum": "9876c1c491ac5733c8666001a3961a04c97cf1e8",
+				"tarball": "https://registry.npmjs.org/ewma/-/ewma-2.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "retrohacker",
+					"email": "william.jblankenship@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ewma-2.0.1.tgz_1504904790676_0.3281108944211155"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2019-06-12T23:32:13.511Z",
+		"created": "2017-09-01T22:11:17.885Z",
+		"1.0.0": "2017-09-01T22:11:17.885Z",
+		"2.0.0": "2017-09-06T15:47:00.269Z",
+		"2.0.1": "2017-09-08T21:06:30.774Z"
+	},
+	"dist-tags": {
+		"latest": "2.0.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"8db0f7ab75ef35b901c35e7531ad5ec6\"",
+			"fetched": 1568994345391
+		}
+	},
+	"_distfiles": {
+		"ewma-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/ewma/-/ewma-1.0.0.tgz",
+			"sha": "cb6af5212cb255a4e262f2fa5d91720fef216b75",
+			"registry": "npmjs"
+		},
+		"ewma-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/ewma/-/ewma-2.0.0.tgz",
+			"sha": "de5a2d81b922859db8f4352dff0f5646411d3963",
+			"registry": "npmjs"
+		},
+		"ewma-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/ewma/-/ewma-2.0.1.tgz",
+			"sha": "9876c1c491ac5733c8666001a3961a04c97cf1e8",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-8edf3f2954790524",
+	"_id": "ewma",
+	"readme": "[![NPM Version](https://img.shields.io/npm/v/ewma.svg)](https://npmjs.org/package/ewma)\n[![Build Status](https://travis-ci.org/ReactiveSocket/ewma.svg?branch=master)](https://travis-ci.org/ReactiveSocket/ewma)\n\n# EWMA\n\nAn exponential weighted moving average for Node.js and the browser!\n\n```bash\nnpm install -g ewma\n```\n\n## Usage\n\nCompute the exponential weighted moving average of a series of values.  The\ntime at which you insert the value into `Ewma` is used to compute a weight\n(recent points are weighted higher).  The parameter for defining the\nconvergence speed (like most decay process) is the half-life.\n\ne.g. with a half-life of 10 unit, if you insert 100 at t=0 and 200 at t=10 the\newma will be equal to (200 - 100)/2 = 150 (half of the distance between the new\nand the old value).\n\n### `var ewma = new EWMA(halfLifeMs, initialValue, clock)`\n\n* `halfLifeMs` - `{Number}` parameter representing the speed of convergence\n* `initialValue` - `{Number}` initial value\n* `clock` - Optional `{Number}` clock object used to read time, must support\n            `Date.now()` style method. Defaults to `Date`.\n\nreturns an object computing the ewma average\n\n### `ewma.insert(x)`\n\n* `x` - The next value, `ewma` will automatically compute the EWMA based on the\n        clock difference between this value and the last time `insert` was\n        called\n\n### `ewma.reset(x)`\n\n* `x` - Set the EWMA to exactly `x`.\n\n### `ewma.value()`\n\nReturns the current EWMA value.\n\n## Examples\n\nThese are generated using a 500ms interval with a half life indicated in the\nkey. For the source code, or to reproduce yourself, check the\n[Example](./example) directory.\n\n![](./example/abs.png)\n![](./example/sin.png)\n![](./example/sawtooth.png)\n\n## Contributions\nContributions welcome, please ensure `make` runs clean.\n\n## License\nMIT"
+}

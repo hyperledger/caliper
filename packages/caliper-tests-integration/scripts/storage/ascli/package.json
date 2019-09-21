@@ -1,0 +1,308 @@
+{
+	"name": "ascli",
+	"versions": {
+		"0.1.0": {
+			"name": "ascli",
+			"description": "A uniform foundation for unobtrusive (ASCII art in) cli apps.",
+			"version": "0.1.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"repository": {
+				"type": "url",
+				"url": "https://github.com/dcodeIO/ascli.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ascli/issues"
+			},
+			"keywords": [
+				"ansi",
+				"terminal",
+				"colors",
+				"ascii"
+			],
+			"main": "./ascli.js",
+			"dependencies": {
+				"colour": "latest"
+			},
+			"scripts": {
+				"test": "node tests/test.js"
+			},
+			"license": "Apache-2.0",
+			"_id": "ascli@0.1.0",
+			"dist": {
+				"shasum": "381218d8054e2295aaef41229de31e147a374779",
+				"tarball": "https://registry.npmjs.org/ascli/-/ascli-0.1.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.18",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "ascli",
+			"description": "A uniform foundation for unobtrusive (ASCII art in) cli apps.",
+			"version": "0.2.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"repository": {
+				"type": "url",
+				"url": "https://github.com/dcodeIO/ascli.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ascli/issues"
+			},
+			"keywords": [
+				"ansi",
+				"terminal",
+				"colors",
+				"ascii"
+			],
+			"main": "./ascli.js",
+			"dependencies": {
+				"colour": "latest",
+				"optjs": "latest"
+			},
+			"scripts": {
+				"test": "node tests/test.js"
+			},
+			"license": "Apache-2.0",
+			"_id": "ascli@0.2.0",
+			"dist": {
+				"shasum": "3c23d68db397f88ad56d02b524e2665d35a4debd",
+				"tarball": "https://registry.npmjs.org/ascli/-/ascli-0.2.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.18",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.0": {
+			"name": "ascli",
+			"description": "A uniform foundation for unobtrusive (ASCII art in) cli apps.",
+			"version": "0.3.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"repository": {
+				"type": "url",
+				"url": "https://github.com/dcodeIO/ascli.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ascli/issues"
+			},
+			"keywords": [
+				"ansi",
+				"terminal",
+				"colors",
+				"ascii"
+			],
+			"main": "./ascli.js",
+			"dependencies": {
+				"colour": "latest",
+				"optjs": "latest"
+			},
+			"scripts": {
+				"test": "node tests/test.js"
+			},
+			"license": "Apache-2.0",
+			"_id": "ascli@0.3.0",
+			"dist": {
+				"shasum": "5e66230e5219fe3e8952a4efb4f20fae596a813a",
+				"tarball": "https://registry.npmjs.org/ascli/-/ascli-0.3.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.18",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "ascli",
+			"description": "A uniform foundation for unobtrusive (ASCII art in) cli apps.",
+			"version": "1.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"repository": {
+				"type": "url",
+				"url": "https://github.com/dcodeIO/ascli.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ascli/issues"
+			},
+			"keywords": [
+				"ansi",
+				"terminal",
+				"colors",
+				"ascii"
+			],
+			"main": "./ascli.js",
+			"dependencies": {
+				"colour": "latest",
+				"optjs": "latest"
+			},
+			"scripts": {
+				"test": "node tests/test.js"
+			},
+			"license": "Apache-2.0",
+			"gitHead": "ba3c3dfeb4fd6f2cbdc827e69c28393cd95ecbcc",
+			"homepage": "https://github.com/dcodeIO/ascli",
+			"_id": "ascli@1.0.0",
+			"_shasum": "03a8040e86338244300509708602a65916b53a31",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "03a8040e86338244300509708602a65916b53a31",
+				"tarball": "https://registry.npmjs.org/ascli/-/ascli-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "ascli",
+			"description": "A uniform foundation for unobtrusive (ASCII art in) cli apps.",
+			"version": "1.0.1",
+			"author": {
+				"name": "Daniel Wirtz"
+			},
+			"repository": {
+				"type": "url",
+				"url": "git+https://github.com/dcodeIO/ascli.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ascli/issues"
+			},
+			"keywords": [
+				"ansi",
+				"terminal",
+				"colors",
+				"ascii"
+			],
+			"main": "./ascli.js",
+			"dependencies": {
+				"colour": "~0.7.1",
+				"optjs": "~3.2.2"
+			},
+			"scripts": {
+				"test": "node tests/test.js"
+			},
+			"license": "Apache-2.0",
+			"gitHead": "5972ea9baf6939fc0f47a3435cedd66bc6f66fe1",
+			"homepage": "https://github.com/dcodeIO/ascli#readme",
+			"_id": "ascli@1.0.1",
+			"_shasum": "bcfa5974a62f18e81cabaeb49732ab4a88f906bc",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"dist": {
+				"shasum": "bcfa5974a62f18e81cabaeb49732ab4a88f906bc",
+				"tarball": "https://registry.npmjs.org/ascli/-/ascli-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/ascli-1.0.1.tgz_1478308515232_0.15863740793429315"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2017-04-10T03:00:45.236Z",
+		"created": "2013-05-03T03:24:19.873Z",
+		"0.1.0": "2013-05-03T03:24:23.360Z",
+		"0.2.0": "2013-05-03T16:46:38.665Z",
+		"0.3.0": "2013-05-28T18:24:12.609Z",
+		"1.0.0": "2014-11-04T16:09:42.089Z",
+		"1.0.1": "2016-11-05T01:15:16.987Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"31c51f844b10660ab2f63a26de068520\"",
+			"fetched": 1568994333456
+		}
+	},
+	"_distfiles": {
+		"ascli-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/ascli/-/ascli-0.1.0.tgz",
+			"sha": "381218d8054e2295aaef41229de31e147a374779",
+			"registry": "npmjs"
+		},
+		"ascli-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/ascli/-/ascli-0.2.0.tgz",
+			"sha": "3c23d68db397f88ad56d02b524e2665d35a4debd",
+			"registry": "npmjs"
+		},
+		"ascli-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/ascli/-/ascli-0.3.0.tgz",
+			"sha": "5e66230e5219fe3e8952a4efb4f20fae596a813a",
+			"registry": "npmjs"
+		},
+		"ascli-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/ascli/-/ascli-1.0.0.tgz",
+			"sha": "03a8040e86338244300509708602a65916b53a31",
+			"registry": "npmjs"
+		},
+		"ascli-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/ascli/-/ascli-1.0.1.tgz",
+			"sha": "bcfa5974a62f18e81cabaeb49732ab4a88f906bc",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-4e8630d5035e25ea",
+	"_id": "ascli",
+	"readme": "![ascli](https://raw.github.com/dcodeIO/ascli/master/ascli.png)\r\n=====\r\n**Why?** Some of us are not only programmers but also part-time artist. So am I. This is good. However, to limit myself\r\na bit to a straight look of my CLI apps, I've created ascli based on the thought of not making things too fancy but\r\nstill looking good. So, basically, this package is meant to be used by me but if you like my interpretation of\r\nunobtrusiveness and ease-of-use ... You are welcome!\r\n\r\n<p align=\"center\">\r\n    <img src=\"https://raw.github.com/dcodeIO/ascli/master/example.png\" alt=\"example\" />\r\n</p>\r\n\r\nInstallation\r\n------------\r\n`npm install ascli`\r\n\r\nUsage\r\n-----\r\n```js\r\nvar cli = require(\"ascli\")(\"myAppName\");\r\ncli.banner(ascli.appName.green.bold, \"v1.0.0 by Foo Bar <foobar@example.com>\");\r\ncli.log(\"Hello!\");\r\ncli.info(\"World!\");\r\ncli.warn(\"of\");\r\ncli.error(\"ascli.\");\r\n// If it worked:\r\ncli.ok(\"It worked!\", /* optional exit code */ 0);\r\n// If it didn't:\r\ncli.fail(\"Nope, sorry.\", /* optional exit code */ 1);\r\n```\r\n\r\n#### Using another alphabet\r\nBy default ascli uses a modified version of the **straight** ASCII alphabet. If you don't like it, you are free to\r\nreplace it:\r\n\r\n```js\r\ncli.use(\"/path/to/my/alphabet.json\");\r\n// or\r\nvar myAlphabet = { ... };\r\ncli.use(myAlphabet);\r\n```\r\n\r\nSee the `alphabet/` directory for an example.\r\n\r\n#### Using colors\r\nascli automatically looks up and translates ANSI terminal colors applied to the title string. For that it depends on\r\n[colour.js](https://github.com/dcodeIO/colour.js) which is also exposed as a property of the ascli namespace:\r\n`cli.colour` / `cli.colors`. Also means: You don't need another ANSI terminal colors dependency.\r\n\r\n#### Indentation\r\n`cli.log` etc. indents all console output by one space just because it looks better with the banner.\r\n\r\nParsing command line arguments\r\n------------------------------\r\n[opt.js](https://github.com/dcodeIO/opt.js) will be pre-run on the `cli` namespace and also exposed as `cli.optjs()`.\r\n```js\r\ncli.node   // Node executable\r\ncli.script // Executed script\r\ncli.opt    // Options as a hash\r\ncli.argv   // Remaining non-option arguments\r\n```\r\n\r\nLicense\r\n-------\r\nApache License, Version 2.0"
+}

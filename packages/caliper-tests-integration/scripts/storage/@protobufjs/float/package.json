@@ -1,0 +1,213 @@
+{
+	"name": "@protobufjs/float",
+	"versions": {
+		"1.0.0": {
+			"name": "@protobufjs/float",
+			"description": "Reads / writes floats / doubles from / to buffers in both modern and ancient browsers. Fast.",
+			"version": "1.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"dependencies": {},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"istanbul": "^0.4.5",
+				"tape": "^4.6.3"
+			},
+			"scripts": {
+				"test": "tape tests/*.js",
+				"coverage": "istanbul cover node_modules/tape/bin/tape tests/*.js"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/float@1.0.0",
+			"_shasum": "0fb174657153ed21aa257f5c22e78f5bd269780e",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "protobufjs",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"dist": {
+				"shasum": "0fb174657153ed21aa257f5c22e78f5bd269780e",
+				"tarball": "https://registry.npmjs.org/@protobufjs/float/-/float-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/float-1.0.0.tgz_1491054410701_0.9425753401592374"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "@protobufjs/float",
+			"description": "Reads / writes floats / doubles from / to buffers in both modern and ancient browsers.",
+			"version": "1.0.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"dependencies": {},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"istanbul": "^0.4.5",
+				"tape": "^4.6.3"
+			},
+			"scripts": {
+				"test": "tape tests/*.js",
+				"coverage": "istanbul cover node_modules/tape/bin/tape tests/*.js"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/float@1.0.1",
+			"_shasum": "87338ae3d46a02110baa691ba4c74b2b06b63bde",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "87338ae3d46a02110baa691ba4c74b2b06b63bde",
+				"tarball": "https://registry.npmjs.org/@protobufjs/float/-/float-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/float-1.0.1.tgz_1491055893676_0.4305617983918637"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "@protobufjs/float",
+			"description": "Reads / writes floats / doubles from / to buffers in both modern and ancient browsers.",
+			"version": "1.0.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"dependencies": {},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"benchmark": "^2.1.4",
+				"chalk": "^1.1.3",
+				"ieee754": "^1.1.8",
+				"istanbul": "^0.4.5",
+				"tape": "^4.6.3"
+			},
+			"scripts": {
+				"test": "tape tests/*.js",
+				"coverage": "istanbul cover node_modules/tape/bin/tape tests/*.js",
+				"bench": "node bench"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/float@1.0.2",
+			"_shasum": "5e9e1abdcb73fc0a7cb8b291df78c8cbd97b87d1",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "5e9e1abdcb73fc0a7cb8b291df78c8cbd97b87d1",
+				"tarball": "https://registry.npmjs.org/@protobufjs/float/-/float-1.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/float-1.0.2.tgz_1491129941022_0.6265034212265164"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2017-04-02T19:53:38.009Z",
+		"created": "2017-04-01T13:46:51.512Z",
+		"1.0.0": "2017-04-01T13:46:51.512Z",
+		"1.0.1": "2017-04-01T14:11:34.226Z",
+		"1.0.2": "2017-04-02T10:45:42.854Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.2"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"9d084910d0bd411d0aac3624c199ee7c\"",
+			"fetched": 1568994331393
+		}
+	},
+	"_distfiles": {
+		"float-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/float/-/float-1.0.0.tgz",
+			"sha": "0fb174657153ed21aa257f5c22e78f5bd269780e",
+			"registry": "npmjs"
+		},
+		"float-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/float/-/float-1.0.1.tgz",
+			"sha": "87338ae3d46a02110baa691ba4c74b2b06b63bde",
+			"registry": "npmjs"
+		},
+		"float-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/float/-/float-1.0.2.tgz",
+			"sha": "5e9e1abdcb73fc0a7cb8b291df78c8cbd97b87d1",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-60efa1dc2c17ba9e",
+	"_id": "@protobufjs/float",
+	"readme": "@protobufjs/float\r\n=================\r\n[![npm](https://img.shields.io/npm/v/@protobufjs/float.svg)](https://www.npmjs.com/package/@protobufjs/float)\r\n\r\nReads / writes floats / doubles from / to buffers in both modern and ancient browsers. Fast.\r\n\r\nAPI\r\n---\r\n\r\n* **writeFloatLE(val: `number`, buf: `Uint8Array`, pos: `number`)**<br />\r\n  Writes a 32 bit float to a buffer using little endian byte order.\r\n\r\n* **writeFloatBE(val: `number`, buf: `Uint8Array`, pos: `number`)**<br />\r\n  Writes a 32 bit float to a buffer using big endian byte order.\r\n\r\n* **readFloatLE(buf: `Uint8Array`, pos: `number`): `number`**<br />\r\n  Reads a 32 bit float from a buffer using little endian byte order.\r\n\r\n* **readFloatBE(buf: `Uint8Array`, pos: `number`): `number`**<br />\r\n  Reads a 32 bit float from a buffer using big endian byte order.\r\n\r\n* **writeDoubleLE(val: `number`, buf: `Uint8Array`, pos: `number`)**<br />\r\n  Writes a 64 bit double to a buffer using little endian byte order.\r\n\r\n* **writeDoubleBE(val: `number`, buf: `Uint8Array`, pos: `number`)**<br />\r\n  Writes a 64 bit double to a buffer using big endian byte order.\r\n\r\n* **readDoubleLE(buf: `Uint8Array`, pos: `number`): `number`**<br />\r\n  Reads a 64 bit double from a buffer using little endian byte order.\r\n\r\n* **readDoubleBE(buf: `Uint8Array`, pos: `number`): `number`**<br />\r\n  Reads a 64 bit double from a buffer using big endian byte order.\r\n\r\nPerformance\r\n-----------\r\nThere is a simple benchmark included comparing raw read/write performance of this library (float), float's fallback for old browsers, the [ieee754](https://www.npmjs.com/package/ieee754) module and node's [buffer](https://nodejs.org/api/buffer.html). On an i7-2600k running node 6.9.1 it yields:\r\n\r\n```\r\nbenchmarking writeFloat performance ...\r\n\r\nfloat x 42,741,625 ops/sec ±1.75% (81 runs sampled)\r\nfloat (fallback) x 11,272,532 ops/sec ±1.12% (85 runs sampled)\r\nieee754 x 8,653,337 ops/sec ±1.18% (84 runs sampled)\r\nbuffer x 12,412,414 ops/sec ±1.41% (83 runs sampled)\r\nbuffer (noAssert) x 13,471,149 ops/sec ±1.09% (84 runs sampled)\r\n\r\n                      float was fastest\r\n           float (fallback) was 73.5% slower\r\n                    ieee754 was 79.6% slower\r\n                     buffer was 70.9% slower\r\n          buffer (noAssert) was 68.3% slower\r\n\r\nbenchmarking readFloat performance ...\r\n\r\nfloat x 44,382,729 ops/sec ±1.70% (84 runs sampled)\r\nfloat (fallback) x 20,925,938 ops/sec ±0.86% (87 runs sampled)\r\nieee754 x 17,189,009 ops/sec ±1.01% (87 runs sampled)\r\nbuffer x 10,518,437 ops/sec ±1.04% (83 runs sampled)\r\nbuffer (noAssert) x 11,031,636 ops/sec ±1.15% (87 runs sampled)\r\n\r\n                      float was fastest\r\n           float (fallback) was 52.5% slower\r\n                    ieee754 was 61.0% slower\r\n                     buffer was 76.1% slower\r\n          buffer (noAssert) was 75.0% slower\r\n\r\nbenchmarking writeDouble performance ...\r\n\r\nfloat x 38,624,906 ops/sec ±0.93% (83 runs sampled)\r\nfloat (fallback) x 10,457,811 ops/sec ±1.54% (85 runs sampled)\r\nieee754 x 7,681,130 ops/sec ±1.11% (83 runs sampled)\r\nbuffer x 12,657,876 ops/sec ±1.03% (83 runs sampled)\r\nbuffer (noAssert) x 13,372,795 ops/sec ±0.84% (85 runs sampled)\r\n\r\n                      float was fastest\r\n           float (fallback) was 73.1% slower\r\n                    ieee754 was 80.1% slower\r\n                     buffer was 67.3% slower\r\n          buffer (noAssert) was 65.3% slower\r\n\r\nbenchmarking readDouble performance ...\r\n\r\nfloat x 40,527,888 ops/sec ±1.05% (84 runs sampled)\r\nfloat (fallback) x 18,696,480 ops/sec ±0.84% (86 runs sampled)\r\nieee754 x 14,074,028 ops/sec ±1.04% (87 runs sampled)\r\nbuffer x 10,092,367 ops/sec ±1.15% (84 runs sampled)\r\nbuffer (noAssert) x 10,623,793 ops/sec ±0.96% (84 runs sampled)\r\n\r\n                      float was fastest\r\n           float (fallback) was 53.8% slower\r\n                    ieee754 was 65.3% slower\r\n                     buffer was 75.1% slower\r\n          buffer (noAssert) was 73.8% slower\r\n```\r\n\r\nTo run it yourself:\r\n\r\n```\r\n$> npm run bench\r\n```\r\n\r\n**License:** [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)"
+}

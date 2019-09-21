@@ -1,0 +1,2914 @@
+{
+	"name": "simple-get",
+	"versions": {
+		"1.0.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "1.0.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"portfinder": "^0.3.0",
+				"string-to-stream": "^1.0.0",
+				"tape": "3.x"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"gitHead": "a53005fba05a64f938b96c33438b6d6f3ec20ff3",
+			"_id": "simple-get@1.0.0",
+			"_shasum": "98d7dc01b434430c7fc7fcbc20655d4f720c6ac7",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"dist": {
+				"shasum": "98d7dc01b434430c7fc7fcbc20655d4f720c6ac7",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "1.1.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"portfinder": "^0.3.0",
+				"self-signed-https": "^1.0.5",
+				"string-to-stream": "^1.0.0",
+				"tape": "3.x"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"gitHead": "7ab4d2e6b64ed9e4e0607dbe3e4f3b3a50d528c4",
+			"_id": "simple-get@1.1.0",
+			"_shasum": "dc8ec9ff6c71a8ad8480d1e42cfb30547ab6c8b9",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"dist": {
+				"shasum": "dc8ec9ff6c71a8ad8480d1e42cfb30547ab6c8b9",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-1.1.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "1.2.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"portfinder": "^0.3.0",
+				"self-signed-https": "^1.0.5",
+				"string-to-stream": "^1.0.0",
+				"tape": "3.x"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"gitHead": "dae75ac38e576049e168618945893b28ed9ade81",
+			"_id": "simple-get@1.2.0",
+			"_shasum": "521bc8710482fb640567a29b927c6d50bc7869f0",
+			"_from": ".",
+			"_npmVersion": "2.1.16",
+			"_nodeVersion": "0.10.35",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"dist": {
+				"shasum": "521bc8710482fb640567a29b927c6d50bc7869f0",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-1.2.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.3.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "1.3.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"portfinder": "^0.3.0",
+				"self-signed-https": "^1.0.5",
+				"string-to-stream": "^1.0.0",
+				"tape": "3.x"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"gitHead": "c0d62557cd02d7a96f98095282fc28d814c2d729",
+			"_id": "simple-get@1.3.0",
+			"_shasum": "b74582c8ac71cf6e0ece58b152a4eb74a55630ad",
+			"_from": ".",
+			"_npmVersion": "2.1.16",
+			"_nodeVersion": "0.10.35",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"dist": {
+				"shasum": "b74582c8ac71cf6e0ece58b152a4eb74a55630ad",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-1.3.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.3.1": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "1.3.1",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"portfinder": "^0.3.0",
+				"self-signed-https": "^1.0.5",
+				"standard": "^3.3.0",
+				"string-to-stream": "^1.0.0",
+				"tape": "3.x"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "08c277c5da855d6b88312154bf7cff40e8772cb4",
+			"_id": "simple-get@1.3.1",
+			"_shasum": "f13402d2d3c6969e75796e1d645317f26b568525",
+			"_from": ".",
+			"_npmVersion": "2.7.4",
+			"_nodeVersion": "1.6.3",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"dist": {
+				"shasum": "f13402d2d3c6969e75796e1d645317f26b568525",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-1.3.1.tgz"
+			},
+			"directories": {}
+		},
+		"1.3.2": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "1.3.2",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"self-signed-https": "^1.0.5",
+				"standard": "^3.3.0",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "cb0d1b0af4c90575f71e428776364d13c5fa5224",
+			"_id": "simple-get@1.3.2",
+			"_shasum": "f103b633718ad3432707ada6ebbd96fd0a9d25ca",
+			"_from": ".",
+			"_npmVersion": "2.7.4",
+			"_nodeVersion": "0.12.2",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"dist": {
+				"shasum": "f103b633718ad3432707ada6ebbd96fd0a9d25ca",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-1.3.2.tgz"
+			},
+			"directories": {}
+		},
+		"1.3.3": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "1.3.3",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"self-signed-https": "^1.0.5",
+				"standard": "^3.3.0",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "9d150846e370e1999598e351ca8f1a971ec065d6",
+			"_id": "simple-get@1.3.3",
+			"_shasum": "03e4102ff8372034dbc92c2630a78f8440dbf81a",
+			"_from": ".",
+			"_npmVersion": "2.7.4",
+			"_nodeVersion": "0.12.2",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"dist": {
+				"shasum": "03e4102ff8372034dbc92c2630a78f8440dbf81a",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-1.3.3.tgz"
+			},
+			"directories": {}
+		},
+		"1.3.4": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "1.3.4",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"unzip-response": "^1.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"self-signed-https": "^1.0.5",
+				"standard": "^4.5.2",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "adad5dfba5e0915c87cb17325a351466f4c8b6c0",
+			"_id": "simple-get@1.3.4",
+			"_shasum": "746ef6e6fc5668b99dbe6cee4dcc8f9ee5fa6205",
+			"_from": ".",
+			"_npmVersion": "2.13.0",
+			"_nodeVersion": "2.4.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"dist": {
+				"shasum": "746ef6e6fc5668b99dbe6cee4dcc8f9ee5fa6205",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-1.3.4.tgz"
+			},
+			"directories": {}
+		},
+		"1.4.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "1.4.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"object-assign": "^3.0.0",
+				"once": "^1.3.1",
+				"unzip-response": "^1.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"self-signed-https": "^1.0.5",
+				"standard": "^4.5.2",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "854d4453739a22679979f1e4d5c40cd6cdaf29c2",
+			"_id": "simple-get@1.4.0",
+			"_shasum": "922b88827db6b9abc981dad78f25f087446d8159",
+			"_from": ".",
+			"_npmVersion": "2.13.0",
+			"_nodeVersion": "2.4.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"dist": {
+				"shasum": "922b88827db6b9abc981dad78f25f087446d8159",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-1.4.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.4.1": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "1.4.1",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"object-assign": "^3.0.0",
+				"once": "^1.3.1",
+				"unzip-response": "^1.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"self-signed-https": "^1.0.5",
+				"standard": "^4.5.2",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "10faf37feee8410a8e63ff3468715eea65efc2a1",
+			"_id": "simple-get@1.4.1",
+			"_shasum": "03155e5b8b62b8aba8a03cc0fd4e9c342d512181",
+			"_from": ".",
+			"_npmVersion": "2.13.2",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"dist": {
+				"shasum": "03155e5b8b62b8aba8a03cc0fd4e9c342d512181",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-1.4.1.tgz"
+			},
+			"directories": {}
+		},
+		"1.4.2": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "1.4.2",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"object-assign": "^3.0.0",
+				"once": "^1.3.1",
+				"unzip-response": "^1.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"self-signed-https": "^1.0.5",
+				"standard": "^4.5.2",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "ed8cf6541a7256f759d7aea710d5c1dcf925ed7e",
+			"_id": "simple-get@1.4.2",
+			"_shasum": "2464fb6f39e501f6720932d5ada07739938c54bf",
+			"_from": ".",
+			"_npmVersion": "2.13.2",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"dist": {
+				"shasum": "2464fb6f39e501f6720932d5ada07739938c54bf",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-1.4.2.tgz"
+			},
+			"directories": {}
+		},
+		"1.4.3": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "1.4.3",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"unzip-response": "^1.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"self-signed-https": "^1.0.5",
+				"standard": "^5.1.0",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "d212b1022d21b49c8ec83acf251d1dc4aeb38ca3",
+			"_id": "simple-get@1.4.3",
+			"_shasum": "e9755eda407e96da40c5e5158c9ea37b33becbeb",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "2.1.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"shasum": "e9755eda407e96da40c5e5158c9ea37b33becbeb",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-1.4.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.0.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"unzip-response": "^1.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"self-signed-https": "^1.0.5",
+				"standard": "^6.0.5",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "cad77c9d360e81abc2d9b570c802e409173d2f94",
+			"_id": "simple-get@2.0.0",
+			"_shasum": "3aadc50fd5ebeb64a41cd520e38e8226c3cd952f",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"shasum": "3aadc50fd5ebeb64a41cd520e38e8226c3cd952f",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/simple-get-2.0.0.tgz_1455436690760_0.9315116293728352"
+			},
+			"directories": {}
+		},
+		"2.1.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.1.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"unzip-response": "^1.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"self-signed-https": "^1.0.5",
+				"standard": "^7.0.1",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "01aa59dee0bd41e509e3f8a6576faa27d9074c93",
+			"_id": "simple-get@2.1.0",
+			"_shasum": "24cd2d0506715c65b804642603774205017dbcc6",
+			"_from": ".",
+			"_npmVersion": "2.15.3",
+			"_nodeVersion": "6.0.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"shasum": "24cd2d0506715c65b804642603774205017dbcc6",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/simple-get-2.1.0.tgz_1462402089927_0.8882959075272083"
+			},
+			"directories": {}
+		},
+		"2.2.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.2.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"unzip-response": "^1.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"self-signed-https": "^1.0.5",
+				"standard": "^7.0.1",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "960c5a1400bf6c850c67a3f094213a950af050e1",
+			"_id": "simple-get@2.2.0",
+			"_shasum": "b19f51209f00455fe7aa4d781fac3b07c51782d8",
+			"_from": ".",
+			"_npmVersion": "2.15.5",
+			"_nodeVersion": "4.4.5",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"shasum": "b19f51209f00455fe7aa4d781fac3b07c51782d8",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/simple-get-2.2.0.tgz_1465167868105_0.48267842060886323"
+			},
+			"directories": {}
+		},
+		"2.2.1": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.2.1",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"unzip-response": "^1.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"self-signed-https": "^1.0.5",
+				"standard": "^7.0.1",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "9c19e48c2603873d5be843ac1d8b06a868354a16",
+			"_id": "simple-get@2.2.1",
+			"_shasum": "202205732e45bbd64ab1c3e477881914fe155f5f",
+			"_from": ".",
+			"_npmVersion": "3.8.9",
+			"_nodeVersion": "6.2.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"shasum": "202205732e45bbd64ab1c3e477881914fe155f5f",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/simple-get-2.2.1.tgz_1465853831062_0.8040981136728078"
+			},
+			"directories": {}
+		},
+		"2.2.2": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.2.2",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"unzip-response": "^1.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"self-signed-https": "^1.0.5",
+				"standard": "^7.0.1",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "5cd9379bcb62575f79dbfea6ce24adbca611fa6c",
+			"_id": "simple-get@2.2.2",
+			"_shasum": "e4d0ff30af7dddf8ef9b5221c32658e7f1438515",
+			"_from": ".",
+			"_npmVersion": "3.8.9",
+			"_nodeVersion": "6.2.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"shasum": "e4d0ff30af7dddf8ef9b5221c32658e7f1438515",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.2.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/simple-get-2.2.2.tgz_1468355064847_0.09573076432570815"
+			},
+			"directories": {}
+		},
+		"2.2.3": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.2.3",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"unzip-response": "^1.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "9570031f4cc8a8c74050bd68ce85053cc7196a11",
+			"_id": "simple-get@2.2.3",
+			"_shasum": "cc4b653891601977db17ff3bcbb01474997f9fdb",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.7.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"shasum": "cc4b653891601977db17ff3bcbb01474997f9fdb",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.2.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/simple-get-2.2.3.tgz_1475298873880_0.17022775951772928"
+			},
+			"directories": {}
+		},
+		"2.2.4": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.2.4",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"unzip-response": "^1.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "af55e4e098429b427bdba45b533d805e2e6b5599",
+			"_id": "simple-get@2.2.4",
+			"_shasum": "caaf62223c03c9d9e0ef35f58edeab64f6a38677",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.7.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"shasum": "caaf62223c03c9d9e0ef35f58edeab64f6a38677",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.2.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/simple-get-2.2.4.tgz_1475355224946_0.8353333489503711"
+			},
+			"directories": {}
+		},
+		"2.2.5": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.2.5",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"unzip-response": "^1.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.7",
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "69fa043e9ee6d8ee5e06cf8dd09ff3085d9ff97d",
+			"_id": "simple-get@2.2.5",
+			"_shasum": "6f14efb685f5be6a7dc7f125a9291cdca40a2c3f",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.7.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"shasum": "6f14efb685f5be6a7dc7f125a9291cdca40a2c3f",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.2.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/simple-get-2.2.5.tgz_1475356596818_0.760918733663857"
+			},
+			"directories": {}
+		},
+		"2.3.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.3.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"simple-concat": "^1.0.0",
+				"unzip-response": "^2.0.1"
+			},
+			"devDependencies": {
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "8b212e0c1260d8bc97a5be92ccb7f41e3cf3564b",
+			"_id": "simple-get@2.3.0",
+			"_shasum": "c5fdfcce1e516ad4b2ce7b7c2bd2d710502d8ac9",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.7.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"shasum": "c5fdfcce1e516ad4b2ce7b7c2bd2d710502d8ac9",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/simple-get-2.3.0.tgz_1476328810916_0.141581462463364"
+			},
+			"directories": {}
+		},
+		"2.4.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.4.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"simple-concat": "^1.0.0",
+				"unzip-response": "^2.0.1"
+			},
+			"devDependencies": {
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "764f53cd9cabcd4912ff6bfa630e61098a0d0c85",
+			"_id": "simple-get@2.4.0",
+			"_shasum": "31ae7478ea0042b107c743a5af657333d778f7c2",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"shasum": "31ae7478ea0042b107c743a5af657333d778f7c2",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/simple-get-2.4.0.tgz_1484376607403_0.46506331535056233"
+			},
+			"directories": {}
+		},
+		"2.5.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.5.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"simple-concat": "^1.0.0",
+				"unzip-response": "^2.0.1"
+			},
+			"devDependencies": {
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "09c430751f88539cf17c730190ef23caa51220fe",
+			"_id": "simple-get@2.5.0",
+			"_shasum": "9f0ad93eb3c239235d5125a01e1843e2446729d8",
+			"_from": ".",
+			"_npmVersion": "4.5.0",
+			"_nodeVersion": "7.8.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"shasum": "9f0ad93eb3c239235d5125a01e1843e2446729d8",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.5.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/simple-get-2.5.0.tgz_1492114346781_0.08113874355331063"
+			},
+			"directories": {}
+		},
+		"2.5.1": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.5.1",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"simple-concat": "^1.0.0",
+				"unzip-response": "^2.0.1"
+			},
+			"devDependencies": {
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "f04cd77e98c8f545b2cd2d600c45efa728da60f0",
+			"_id": "simple-get@2.5.1",
+			"_shasum": "eb418fb2c9e431631b4cd6c478af548da613ccd2",
+			"_from": ".",
+			"_npmVersion": "4.5.0",
+			"_nodeVersion": "7.8.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"shasum": "eb418fb2c9e431631b4cd6c478af548da613ccd2",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.5.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/simple-get-2.5.1.tgz_1492114410043_0.1306703465525061"
+			},
+			"directories": {}
+		},
+		"2.6.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.6.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"simple-concat": "^1.0.0",
+				"unzip-response": "^2.0.1"
+			},
+			"devDependencies": {
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "5c3a5704bb98b5db2c0154cac948daad25b6283b",
+			"_id": "simple-get@2.6.0",
+			"_shasum": "bb01144db49b3d4c107615dcf48d3ee404b16e06",
+			"_from": ".",
+			"_npmVersion": "4.5.0",
+			"_nodeVersion": "7.9.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"shasum": "bb01144db49b3d4c107615dcf48d3ee404b16e06",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.6.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/simple-get-2.6.0.tgz_1492826347834_0.33439312083646655"
+			},
+			"directories": {}
+		},
+		"2.6.1": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.6.1",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"unzip-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"once": "^1.3.1",
+				"simple-concat": "^1.0.0",
+				"unzip-response": "^2.0.1"
+			},
+			"devDependencies": {
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "41a59291e46c5de2a516243167a7672c55a98c71",
+			"_id": "simple-get@2.6.1",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.3.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"integrity": "sha512-2xMI0SNx8EShSE/UUnV+Bf+DTzW58Tc3qHt5Wq2aqBPDHmzIh8/pHZNyFbXZGaWIBDGJHB6H85ZseyQzVbU2Dg==",
+				"shasum": "7745b52d2377c7df5bcc58040aae8ec8427e4875",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.6.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/simple-get-2.6.1.tgz_1503114911742_0.5319134120363742"
+			},
+			"directories": {}
+		},
+		"2.7.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.7.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"decompress-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"decompress-response": "^3.3.0",
+				"once": "^1.3.1",
+				"simple-concat": "^1.0.0"
+			},
+			"devDependencies": {
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "31cf973ee624ef67e270decbe023607d881f8411",
+			"_id": "simple-get@2.7.0",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.3.0",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"integrity": "sha512-RkE9rGPHcxYZ/baYmgJtOSM63vH0Vyq+ma5TijBcLla41SWlh8t6XYIGMR/oeZcmr+/G8k+zrClkkVrtnQ0esg==",
+				"shasum": "ad37f926d08129237ff08c4f2edfd6f10e0380b5",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.7.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/simple-get-2.7.0.tgz_1503115908692_0.35631019435822964"
+			},
+			"directories": {}
+		},
+		"2.7.1": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.7.1",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"decompress-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"decompress-response": "^3.3.0",
+				"once": "^1.3.1",
+				"simple-concat": "^1.0.0"
+			},
+			"devDependencies": {
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "9aa69cfac637e1ebc54d95ad7b7562291544bf12",
+			"_id": "simple-get@2.7.1",
+			"_npmVersion": "6.0.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"integrity": "sha512-iNww6PLhtLm7c84dpE/BfLwmgH6x+U3Ym4PnU0jcAw8tWTBmr8Mee9hZLDnKEV85WVPmWjyo938wApS+oNs+vQ==",
+				"shasum": "3e2b775334e78f2114e7ef31d20ba8a470c4e662",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.7.1.tgz",
+				"fileCount": 12,
+				"unpackedSize": 32779,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa34e1CRA9TVsSAnZWagAA/tMP/2nm2MFtbpTQuM8HqTrM\nLw3tEmG65o+ecw8ySdS9qmBS37r/63EJsBKnB04+08Xm27DqAg+mIjaHAsrv\nvv3zDSLl7slFGhAIn2LYiFvXp1S52Dsfd4mbvyj4DG1byFS2qufAJvTzb9Z8\nW7tvARsdnU8ZgxZdqhim66UKxSzPzW7tSJRVme0Y6Tr0fTv3Kj32kXf+BZds\nw/sPaQuWWRx21Ib0WP30bH0CgkrkvNJdw1C8yOAhZ5N+SlG4iF+j2sPEXok+\nFXEL0B83V9nJR+go8gRrfMjfRAgNgIehDTfoPQAVKsKkae9ldfi+rl1IJzpb\nEyM+gQwXZz2ZNlEjfo8S9++Pd+L1iGEy20QR/GskGs8XAc17/s++u0n7h9yV\n+Kv0AxMy9EEc2IKPIZYfoXLFFWuGbquxExHtTJ0MHZzpIzJMR2m3QfmRnpzu\n8s6GWrPvDloIodUPkMLHufes5wDtp/CfEWyyCPAz8jA9eH85KUiXcYFkMpYK\nRWowGt9SUcn1hwcCztN/eYo/NzJ4/Cri9eFFOPiE3Mg02viyP1noJa0Li5Nv\nH8Ntz8xS1r7wWlDT70NO+3hjpSdfTajW1lrJ4bbpJ/t0793uub5d8P52ypjK\nVMrNVk5Byc0Q8PANo9SWXWYplmJ37TLTAU/wxkc7AtSsx0kBTiSHNPX8TtSY\n3uaL\r\n=Nn79\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/simple-get_2.7.1_1524598707695_0.1828111803149144"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.8.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.8.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"decompress-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"decompress-response": "^3.3.0",
+				"once": "^1.3.1",
+				"simple-concat": "^1.0.0"
+			},
+			"devDependencies": {
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "33e39a0d01d909ec7fb93ce2b53bf8bf05fa5ca9",
+			"_id": "simple-get@2.8.0",
+			"_npmVersion": "6.0.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"integrity": "sha512-tZFHZSTP3ozftOMAXvH4f15vULTOE8k73quPapQYqUc8IjWwHv262brCoQGRrd/y2c5AjigpjtgNE5XrKvrpqQ==",
+				"shasum": "d9747458b6aff66eaa930e3818dff0d1e1489ceb",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.8.0.tgz",
+				"fileCount": 12,
+				"unpackedSize": 35407,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa35alCRA9TVsSAnZWagAA0sEP/2WGCVMhhR/wrROsbNDS\nPaCweNQVSpqYIMTeK51YjWJMyl8CWr2x+4Q2H124gwagkqSRhQ0h5f4IFEDh\n9wq0jCOtYRLgjySu9gbeAw26a6K4H+no3XA5Q5aQQ3wsLpVRwFD6UHIHLXHr\nKzkxFbWGMeYH1VfStAEHMsky0golZ912kmEtsEfBaQNrBZPezOLRJLyiaT96\nCol4ftq+dYTrITBEywlO5+7qXuU3FZOAauaAZ8vx6iRVMF97IDAa+0RGbxDM\nqkT+GfYQKwF7/FdD0pu4Fzdh13wgNp+oYsOGb34rgXyKzy3M+KXS8jJ9zzmN\nBuhDdxL+NM+fGJoOgeCoAKiY+18gDf1h7UKRuj6O06RtkukLzxlW4dLgIEZ2\n8ToOYptBpM90mSl16mZgxijaO6f2pKWzShMGD/jrIKBOELsyREC+fiiXOJnJ\naR54F5i7/qpzYKPJWJ/8/+dQw5d2dzpxpNNUZIMH34QD1aZuBvArjHcknK9V\nh1eo8VdY9Czu0Sf0Io1LkugisI4mDselX2Vr7hk8GdvV2LHCzJ6y1BAuIPq4\nnKR0LopU92kkwFMpx2wpcsLYRswAkDnNqOuIGooym3yVKfvyiUjVXjg0ryUw\nWrdMTeyjb/EqTVW27vdlBJ6kpT1oAIFWmJJeUcWgDe1dd38TA4NdcGV7CYbs\nIE61\r\n=c7H3\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/simple-get_2.8.0_1524602532851_0.7639681810397572"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.8.1": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "2.8.1",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"decompress-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"decompress-response": "^3.3.0",
+				"once": "^1.3.1",
+				"simple-concat": "^1.0.0"
+			},
+			"devDependencies": {
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "c0351df7dda5502b6c46728b06743f7b387cb6d7",
+			"_id": "simple-get@2.8.1",
+			"_npmVersion": "6.0.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"integrity": "sha512-lSSHRSw3mQNUGPAYRqo7xy9dhKmxFXIjLjp4KHpf99GEH2VH7C3AM+Qfx6du6jhfUi6Vm7XnbEVEf7Wb6N8jRw==",
+				"shasum": "0e22e91d4575d87620620bc91308d57a77f44b5d",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-2.8.1.tgz",
+				"fileCount": 4,
+				"unpackedSize": 13021,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa35cuCRA9TVsSAnZWagAA4OUP/3hXnUIK2BDCbNNmYyMK\nEMegu24zC1vgFqv/ZSVrdspPKcylT/g5baQn2VlS4JGaHYvhxwricToESRg9\nnTqhTw/v5xtA7sSxz9in4M/36pHiwFJKb2C+MsVM5mq7q+aqHxIHeJ+GReQ3\ndRrwobSy9QySshSinG5Pu7uAr81SaAvajKyva/0+CM7o/1vSL+blC1/CY7WW\ni2xzEXAYAMw/u8SpSMPuccqiN5K2+267tem49kNLnSPxFidvfIkEQ9Umghkb\naNvHlKODGj405pyyarfEONDdT8pbDYw1xz7BIUzANsiPuHmdUlWIhm1m+kUL\nBn0YNZdusqAL4loSPwafjFYcb+3hly7LF3JQUxumfZpvoBLGv7os4Aw2IiDG\n4gbTCUT+2Ks8eGKj/SoXdEdQgsvkDtt3eBySbxy3oaHkw0o5uXomXIavEj0E\nFZOvYmvYKHXJmY+oQFLqR7g7j16fMLBuno3KfwYCxkjsQVSic56d+Xsz1OA0\nEV5y1tgfPWj745nFwM3m/eqD9suaZMBhLNQ5heMBIBM9KOK0dr7zuBINeAKv\nXXk7iMp2rOionQhn+4VVNeDU13kgB8369qmMZFsST1R8L6AuaIrOqWJBD2rA\nT++YICxd9wirtK/1HwLmKAgSkjidV0iRbBfJFYGkySIHPpKn+54RzNGHzLID\nU/Lc\r\n=uIpo\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/simple-get_2.8.1_1524602670094_0.5544670814451136"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "3.0.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"decompress-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"decompress-response": "^3.3.0",
+				"once": "^1.3.1",
+				"simple-concat": "^1.0.0"
+			},
+			"devDependencies": {
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "4b490edb1eeb13aed375f13a6fef50e41a4b05f7",
+			"_id": "simple-get@3.0.0",
+			"_npmVersion": "6.0.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"integrity": "sha512-VJ0mDC9L6CKS/i94e8UqHKAvStWiMEiYuIbDtuiBmekkP75vTy2QFIGEPgCI2IW+AGb3ahdmfLjW3t4L7sOlDQ==",
+				"shasum": "e699afefefcc917450738ecdfb227edb9c5355e7",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-3.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 12784,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa36R8CRA9TVsSAnZWagAA7CYP/2pVWfImodGTpTaqTyDe\nQUIrs7EhPzpGo4VffpRuorfWulMo9X1Qq9W8S4f+TfUykT5xi5VMMWysqgjs\nvWRe2ivYvjI2EiMkqfMgKQhVtAE3m7jycwSDGmKBzQj0gzNLNdM+wbtSfSBz\nlIH+2j2hF3Rwgud9HLQns8OHbDqAzZSTqWGzuRolPxe4Mil2hHlo75WF+1up\nCJmB+jjLj8kW7E95imY29rpNXHEyOE+rGwgdaKOTV4JvnK9YcSyb3jcaiwug\nhmqSRqbIFzVZWYw5NyPyk24Wdk/YXrAkFRydzJZhMqSfnkXVgy46jL4jTVxA\nMck0Nt+AY2gYd1CaGqAkvL3q/smnlNV4WhMnG+1muV7SkjwjduP0XLmaNfCH\nzMXKfkmS8p1stWdsE3bLFLlZL4k5IA02/vAFajRiLZaoloAjfl6uW1xdOzVM\nl+o4V43m7tqVKLYrQ7c3wrKeJPoe9lzX2/ZrEQnWwgVbiIGLpoWxJy+m+PbS\nCR8ogvqUJwNdZcAe7z5H34iAHfM+Pacd/hKwVKbRExiK3TdVUR+/DxawNuKR\nyjdGYrdfFGIaAeQV3rCtzk3SeiD/h072naGOHL+RXDz1A3RdTTXXUK8XTDT1\nkjj6bPJhu2+vIWTqennoL2IUFjQVOxxGs7hrnWpeCfWaAHUaUpcznEGmjiGf\nv6LH\r\n=ijVJ\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/simple-get_3.0.0_1524606074908_0.5444095906089974"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.1": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "3.0.1",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"decompress-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"decompress-response": "^3.3.0",
+				"once": "^1.3.1",
+				"simple-concat": "^1.0.0"
+			},
+			"devDependencies": {
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "f14caf6104fea713218eafb800add9b6ae9359b0",
+			"_id": "simple-get@3.0.1",
+			"_npmVersion": "6.0.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"integrity": "sha512-K+jV374TU7w53XkeqPwyPi9S0W9HzlzY3n59BrZGnzZ2sktnsV9PU0qghTJsUx9h0KUorRx9Ly5eX7zNACT7IQ==",
+				"shasum": "bcfe22c440b4558c6a02c2b6937220114cbba237",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-3.0.1.tgz",
+				"fileCount": 4,
+				"unpackedSize": 12828,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa36+xCRA9TVsSAnZWagAAvdkP/0y1PaMIBS7q1pro/evW\njdMxpc2+hmRkLnDchtmwBbTzF4d4zJWhLcsCW8VoSseWAMikwjD14SZbCf3J\nbfKauEdJfpMbhXok6lNGgES9aWUh5KIuNN08vZ7/85GirYiZaw81X8qemgMn\nKvrKxNscGDS8U1Ka89quUtIamIPo6TQTyLeaVdkNEaciE5A32Awetobvo1C9\nwu2kYddSkCHNtTOFa5qYeLQe2Q8i0f/jHhn1ahUy5snfl8MSAF7xzqYxN0/Z\ntVHL5/BrohFVfCg9fbhBbk4FyOvlJpWtSviuOUlaYWF6zEc4yUDFNu76aDCG\n2V3/78SeHYSdYTmXM5oLgzJRZXfshqVO6aSRLtZyqYtPKbYE/vQVuzquPbym\n0yax9jaFBvRFVZ79mOxr1fu3e26nImvu9iQadmj29VhIfnYGa19o1Je+OlTI\ndiZv3XwwaCWTlvD4OvacMHidVauwq8qL6iVR/V1YOcuZipaP3xY6xSamPXC1\nfUhqkoDWm3ffrK6BLa3jy81UT1Kl1Cln2J7aTR6pAjrWVpRafesncjmvdbz+\nU9GT4ssM63vSifEY27TZ5yybdgr7i4ogUjLF8URy4mTQScnn6GShtV/O5ETv\ns4OcUPXMFcOrBfKGGIi4i0HIfvUa2Lyo5RWFHRLR3irRhXUFkwl+EtSsTeuD\nKfip\r\n=fPB4\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/simple-get_3.0.1_1524608944029_0.9616207900445866"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.2": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "3.0.2",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"decompress-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"decompress-response": "^3.3.0",
+				"once": "^1.3.1",
+				"simple-concat": "^1.0.0"
+			},
+			"devDependencies": {
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "fa61e0e05965d428f30087b7adf1189642153cc5",
+			"_id": "simple-get@3.0.2",
+			"_npmVersion": "6.0.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"integrity": "sha512-dU3TBVIGkP5Hzw6o74hJx+VzTBTX2rqIiLfugs0HdmdVQCQp76XGg2jlBCqfRJfW/n6/mUKTi+s3rnzX7SgbBA==",
+				"shasum": "4646e0d6e1b7d429b914d9642b01e1dfaa5c56e5",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-3.0.2.tgz",
+				"fileCount": 4,
+				"unpackedSize": 12802,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa4My7CRA9TVsSAnZWagAAkx4P/0wtzNebYkb1AKCvZEpm\nSYp/GKiTRsDbpLoMMUe2l9pHOVKdFRVofjGheJshSpL+ZPTZTu7HqpXoxK1a\nhDq/83+l/dVDYqwCzfSokPPVwrPLJzSy/sy81zsIJ2fcDHnAQ2DjaO9Uinms\nRGv8VKreGZgfrDcvQwuEk2gnk9+EQAmb9Uzdd78M+MXeEwwy16SzfZkv/Tnc\n2SkdCTUpzBBItJApLs5cDscKMweAtdx8mD8FFVZ3HMT9O8c73E6ndZViLY4k\n469CGH9BEGBHTNBlbHW7G9ERJsw2GFW7c6RrODLqTlmgxSo2GCIBc+JXajF+\nzZW+R157FKMEpih/56GkIMorQs3LB0yctri6AEStEGS/j7yh+WkKlNl/fj4g\nQw7UeihK04C8TCmxMcyANx/CNNsa7gSMpguk5RTNZ14qvEDpmr/Qjety8zvm\nvTQPlUS3JIbcVXgargeuM5BXker87XSSNwgxNaG3IAt1pjh5L9tbKP83tswK\noDd76gVsrQx3EszgSjqEl/4KTKkaalff91b2ojBJ5mGRPvXyAl6zeZuAB8wO\ncCcwgngz5tXTR128p9qFKiCQ5A9zir0fa9bS1D2ZxPYT5slWJ9CV54ROVzNW\npzdTfxPNISZB0KseJdHe0v+bEERibMXeFvbF5nBe2oOfM8BJZucZ12cVf8BN\ndAVI\r\n=4PI8\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/simple-get_3.0.2_1524681914347_0.07959424494287659"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.3": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "3.0.3",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"decompress-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"decompress-response": "^3.3.0",
+				"once": "^1.3.1",
+				"simple-concat": "^1.0.0"
+			},
+			"devDependencies": {
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^1.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "7173ab4e910b83660b9f9f819fb027a15553c093",
+			"_id": "simple-get@3.0.3",
+			"_npmVersion": "6.3.0",
+			"_nodeVersion": "8.11.3",
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"dist": {
+				"integrity": "sha512-Wvre/Jq5vgoz31Z9stYWPLn0PqRqmBDpFSdypAnHu5AvRVCYPRYGnvryNLiXu8GOBNDH82J2FRHUGMjjHUpXFw==",
+				"shasum": "924528ac3f9d7718ce5e9ec1b1a69c0be4d62efa",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-3.0.3.tgz",
+				"fileCount": 4,
+				"unpackedSize": 12817,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJba+IbCRA9TVsSAnZWagAAsB4P/iMgY1OLZewM/yq9zOdi\nsHcO4/HbRZ33BPw9FZTSI3Q3XFaI01Dgn5Y55phLdVKQuFmx1y2c0qsyxGzK\nKjiPuH75UlQOMlyP/ElzrbZQqZRbGn3jmtn4u7q9zYcOgArPqr+abE07KPSG\nLlfXpMKeOKtaB/mDkBYZl2Lby1gJa6pYGypFTVAKMbPDaVSKc+Ltu8zG4VU7\nVlG+HZuACPdF9GgE/83jGdPt2UjzJAATLju0Qb7nagvCk3BX1+nesrsKTaiF\n1x3fJRpNmlXEpT0B+rIsSr8TB1xG3U68kX52JsLcbdeAo1zmA+xslGpL5YcT\nwsoSbGe1W4DqFmhJlivv9rHo3eEanmah2vX5qqt9C4EmxhjemK2HxOEAMAze\nseRBV6Bh4+HbANLxq8pTvKrdkV1oXMjC0aPfsZR6f3Y/6q3D5f6/G9u7rBn4\n5pHK71NaO5L9IB0/xpIAHiPE7hOcz+qCZM+rVEIFl6OC2xuIiZqf5FGUEbsy\nnhITNnpXm9IrCp2N0iXilDZuNeL+4+b2Q3FRBNai9E0Szs76l5PZoa3wJmAO\ns5Xi2t2iPAgMgtlgNWgXRu756t5VHgSnuU2es3B/ZFBFspANSQuQVwuF4Y/3\nC3vNRVwbs3LNl7OXzrS7oa73ML7GaxxgL52JLCeacShJchEY48lb1nT2ddFh\n0HMN\r\n=GPwp\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/simple-get_3.0.3_1533796890912_0.8362350995076513"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.1.0": {
+			"name": "simple-get",
+			"description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+			"version": "3.1.0",
+			"author": {
+				"name": "Feross Aboukhadijeh",
+				"email": "feross@feross.org",
+				"url": "http://feross.org/"
+			},
+			"browser": {
+				"decompress-response": false
+			},
+			"bugs": {
+				"url": "https://github.com/feross/simple-get/issues"
+			},
+			"dependencies": {
+				"decompress-response": "^4.2.0",
+				"once": "^1.3.1",
+				"simple-concat": "^1.0.0"
+			},
+			"devDependencies": {
+				"self-signed-https": "^1.0.5",
+				"standard": "*",
+				"string-to-stream": "^3.0.0",
+				"tape": "^4.0.0"
+			},
+			"homepage": "https://github.com/feross/simple-get",
+			"keywords": [
+				"request",
+				"http",
+				"GET",
+				"get request",
+				"http.get",
+				"redirects",
+				"follow redirects",
+				"gzip",
+				"deflate",
+				"https",
+				"http-https",
+				"stream",
+				"simple request",
+				"simple get"
+			],
+			"license": "MIT",
+			"main": "index.js",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/feross/simple-get.git"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"gitHead": "abdcdb32d0bb7707110a1ab39df99488330df1ee",
+			"_id": "simple-get@3.1.0",
+			"_nodeVersion": "10.16.3",
+			"_npmVersion": "6.11.3",
+			"dist": {
+				"integrity": "sha512-bCR6cP+aTdScaQCnQKbPKtJOKDp/hj9EDLJo3Nw4y1QksqaovlW/bnptB6/c1e+qmNIDHRK+oXFDdEqBT8WzUA==",
+				"shasum": "b45be062435e50d159540b576202ceec40b9c6b3",
+				"tarball": "https://registry.npmjs.org/simple-get/-/simple-get-3.1.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 13161,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdgXqRCRA9TVsSAnZWagAAAnkP/iAEUpEKW04CxpM6o75R\nHlWuTTIsFvgajOcwMCujwHhYG/Qy9A/He+QWp4W29C0FjXx6GMFOpKbY4K9p\nh+ri4/L9OrRr6dWOoVQI21p7WTvZ2pjxZf9mBkaYyP1w6f225tVmQswkBCRS\neovoXFKG5ZTw4cxNIonnQK436FkqaD3yBvMnV8EoOa9eReAkZDNX4Y54MQ03\nxkVSlxopb05XLBvhIdt3klgFDxPOw//0+qH0dBDzGJol/M704/kAsl4IufjV\ni38vG2LjbbztLEIjqhyfiGP2Dhu7S0ypDya42StM4uEtNTECLl+MAyzbz9bE\nyRhTKbGRK64APM1cw40FHZuEpVbnvTU7xozTlln9W8DCS6AVnwzUTrZQgUKl\nMuLucfR8voHI7uC/e5s1KZHrrz8y/MAYS+VRB00ZL4Q89D+j0cI18Uohy5Mh\nlSD+1E46ZHLgIoo4YWPe2iDY+lMLhaJxDVEaoCtlqwQYiFRtnoPXHwT9rwo9\n4ChjC6xRdXG/wre9/EWubmnsSmRe28/k3gFWODQg91R7gYRsAF7UU1W878er\nnzR+hc9k8V2lZuQ29Dgf94VENrwspnbklXe/ZHM6UWaUTGNniQya9Gfgdx07\nx7GsJVJPzCl+RnmYvE3i6LovdZiS/wLisDXhfDAHm6vN/AB9QqNRdL1MuUo+\nPpaQ\r\n=r408\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "feross",
+					"email": "feross@feross.org"
+				}
+			],
+			"_npmUser": {
+				"name": "feross",
+				"email": "feross@feross.org"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/simple-get_3.1.0_1568766608660_0.8860725569342833"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-09-18T00:30:11.452Z",
+		"created": "2014-12-28T03:23:55.408Z",
+		"1.0.0": "2014-12-28T03:23:55.408Z",
+		"1.1.0": "2014-12-29T23:14:38.039Z",
+		"1.2.0": "2014-12-31T02:15:08.331Z",
+		"1.3.0": "2015-01-04T03:56:55.173Z",
+		"1.3.1": "2015-04-01T04:46:52.964Z",
+		"1.3.2": "2015-04-11T03:00:17.578Z",
+		"1.3.3": "2015-04-11T03:13:14.696Z",
+		"1.3.4": "2015-07-26T20:47:45.373Z",
+		"1.4.0": "2015-07-26T22:51:20.494Z",
+		"1.4.1": "2015-07-27T01:22:15.086Z",
+		"1.4.2": "2015-07-27T23:32:35.178Z",
+		"1.4.3": "2015-08-23T19:41:24.532Z",
+		"2.0.0": "2016-02-14T07:58:12.540Z",
+		"2.1.0": "2016-05-04T22:48:12.476Z",
+		"2.2.0": "2016-06-05T23:04:28.632Z",
+		"2.2.1": "2016-06-13T21:37:15.649Z",
+		"2.2.2": "2016-07-12T20:24:25.336Z",
+		"2.2.3": "2016-10-01T05:14:34.106Z",
+		"2.2.4": "2016-10-01T20:53:47.300Z",
+		"2.2.5": "2016-10-01T21:16:37.090Z",
+		"2.3.0": "2016-10-13T03:20:11.845Z",
+		"2.4.0": "2017-01-14T06:50:09.227Z",
+		"2.5.0": "2017-04-13T20:12:27.040Z",
+		"2.5.1": "2017-04-13T20:13:30.340Z",
+		"2.6.0": "2017-04-22T01:59:11.187Z",
+		"2.6.1": "2017-08-19T03:55:11.849Z",
+		"2.7.0": "2017-08-19T04:11:49.286Z",
+		"2.7.1": "2018-04-24T19:38:27.798Z",
+		"2.8.0": "2018-04-24T20:42:12.917Z",
+		"2.8.1": "2018-04-24T20:44:30.196Z",
+		"3.0.0": "2018-04-24T21:41:15.121Z",
+		"3.0.1": "2018-04-24T22:29:04.122Z",
+		"3.0.2": "2018-04-25T18:45:14.429Z",
+		"3.0.3": "2018-08-09T06:41:31.020Z",
+		"3.1.0": "2019-09-18T00:30:08.868Z"
+	},
+	"dist-tags": {
+		"latest": "3.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"d829797e44d3ee487dd2a56847a69cdc\"",
+			"fetched": 1568994353096
+		}
+	},
+	"_distfiles": {
+		"simple-get-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-1.0.0.tgz",
+			"sha": "98d7dc01b434430c7fc7fcbc20655d4f720c6ac7",
+			"registry": "npmjs"
+		},
+		"simple-get-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-1.1.0.tgz",
+			"sha": "dc8ec9ff6c71a8ad8480d1e42cfb30547ab6c8b9",
+			"registry": "npmjs"
+		},
+		"simple-get-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-1.2.0.tgz",
+			"sha": "521bc8710482fb640567a29b927c6d50bc7869f0",
+			"registry": "npmjs"
+		},
+		"simple-get-1.3.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-1.3.0.tgz",
+			"sha": "b74582c8ac71cf6e0ece58b152a4eb74a55630ad",
+			"registry": "npmjs"
+		},
+		"simple-get-1.3.1.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-1.3.1.tgz",
+			"sha": "f13402d2d3c6969e75796e1d645317f26b568525",
+			"registry": "npmjs"
+		},
+		"simple-get-1.3.2.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-1.3.2.tgz",
+			"sha": "f103b633718ad3432707ada6ebbd96fd0a9d25ca",
+			"registry": "npmjs"
+		},
+		"simple-get-1.3.3.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-1.3.3.tgz",
+			"sha": "03e4102ff8372034dbc92c2630a78f8440dbf81a",
+			"registry": "npmjs"
+		},
+		"simple-get-1.3.4.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-1.3.4.tgz",
+			"sha": "746ef6e6fc5668b99dbe6cee4dcc8f9ee5fa6205",
+			"registry": "npmjs"
+		},
+		"simple-get-1.4.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-1.4.0.tgz",
+			"sha": "922b88827db6b9abc981dad78f25f087446d8159",
+			"registry": "npmjs"
+		},
+		"simple-get-1.4.1.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-1.4.1.tgz",
+			"sha": "03155e5b8b62b8aba8a03cc0fd4e9c342d512181",
+			"registry": "npmjs"
+		},
+		"simple-get-1.4.2.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-1.4.2.tgz",
+			"sha": "2464fb6f39e501f6720932d5ada07739938c54bf",
+			"registry": "npmjs"
+		},
+		"simple-get-1.4.3.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-1.4.3.tgz",
+			"sha": "e9755eda407e96da40c5e5158c9ea37b33becbeb",
+			"registry": "npmjs"
+		},
+		"simple-get-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.0.0.tgz",
+			"sha": "3aadc50fd5ebeb64a41cd520e38e8226c3cd952f",
+			"registry": "npmjs"
+		},
+		"simple-get-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.1.0.tgz",
+			"sha": "24cd2d0506715c65b804642603774205017dbcc6",
+			"registry": "npmjs"
+		},
+		"simple-get-2.2.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.2.0.tgz",
+			"sha": "b19f51209f00455fe7aa4d781fac3b07c51782d8",
+			"registry": "npmjs"
+		},
+		"simple-get-2.2.1.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.2.1.tgz",
+			"sha": "202205732e45bbd64ab1c3e477881914fe155f5f",
+			"registry": "npmjs"
+		},
+		"simple-get-2.2.2.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.2.2.tgz",
+			"sha": "e4d0ff30af7dddf8ef9b5221c32658e7f1438515",
+			"registry": "npmjs"
+		},
+		"simple-get-2.2.3.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.2.3.tgz",
+			"sha": "cc4b653891601977db17ff3bcbb01474997f9fdb",
+			"registry": "npmjs"
+		},
+		"simple-get-2.2.4.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.2.4.tgz",
+			"sha": "caaf62223c03c9d9e0ef35f58edeab64f6a38677",
+			"registry": "npmjs"
+		},
+		"simple-get-2.2.5.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.2.5.tgz",
+			"sha": "6f14efb685f5be6a7dc7f125a9291cdca40a2c3f",
+			"registry": "npmjs"
+		},
+		"simple-get-2.3.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.3.0.tgz",
+			"sha": "c5fdfcce1e516ad4b2ce7b7c2bd2d710502d8ac9",
+			"registry": "npmjs"
+		},
+		"simple-get-2.4.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.4.0.tgz",
+			"sha": "31ae7478ea0042b107c743a5af657333d778f7c2",
+			"registry": "npmjs"
+		},
+		"simple-get-2.5.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.5.0.tgz",
+			"sha": "9f0ad93eb3c239235d5125a01e1843e2446729d8",
+			"registry": "npmjs"
+		},
+		"simple-get-2.5.1.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.5.1.tgz",
+			"sha": "eb418fb2c9e431631b4cd6c478af548da613ccd2",
+			"registry": "npmjs"
+		},
+		"simple-get-2.6.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.6.0.tgz",
+			"sha": "bb01144db49b3d4c107615dcf48d3ee404b16e06",
+			"registry": "npmjs"
+		},
+		"simple-get-2.6.1.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.6.1.tgz",
+			"sha": "7745b52d2377c7df5bcc58040aae8ec8427e4875",
+			"registry": "npmjs"
+		},
+		"simple-get-2.7.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.7.0.tgz",
+			"sha": "ad37f926d08129237ff08c4f2edfd6f10e0380b5",
+			"registry": "npmjs"
+		},
+		"simple-get-2.7.1.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.7.1.tgz",
+			"sha": "3e2b775334e78f2114e7ef31d20ba8a470c4e662",
+			"registry": "npmjs"
+		},
+		"simple-get-2.8.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.8.0.tgz",
+			"sha": "d9747458b6aff66eaa930e3818dff0d1e1489ceb",
+			"registry": "npmjs"
+		},
+		"simple-get-2.8.1.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-2.8.1.tgz",
+			"sha": "0e22e91d4575d87620620bc91308d57a77f44b5d",
+			"registry": "npmjs"
+		},
+		"simple-get-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-3.0.0.tgz",
+			"sha": "e699afefefcc917450738ecdfb227edb9c5355e7",
+			"registry": "npmjs"
+		},
+		"simple-get-3.0.1.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-3.0.1.tgz",
+			"sha": "bcfe22c440b4558c6a02c2b6937220114cbba237",
+			"registry": "npmjs"
+		},
+		"simple-get-3.0.2.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-3.0.2.tgz",
+			"sha": "4646e0d6e1b7d429b914d9642b01e1dfaa5c56e5",
+			"registry": "npmjs"
+		},
+		"simple-get-3.0.3.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-3.0.3.tgz",
+			"sha": "924528ac3f9d7718ce5e9ec1b1a69c0be4d62efa",
+			"registry": "npmjs"
+		},
+		"simple-get-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/simple-get/-/simple-get-3.1.0.tgz",
+			"sha": "b45be062435e50d159540b576202ceec40b9c6b3",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-d442f05c01932f91",
+	"_id": "simple-get",
+	"readme": "# simple-get [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url] [![javascript style guide][standard-image]][standard-url]\n\n[travis-image]: https://img.shields.io/travis/feross/simple-get/master.svg\n[travis-url]: https://travis-ci.org/feross/simple-get\n[npm-image]: https://img.shields.io/npm/v/simple-get.svg\n[npm-url]: https://npmjs.org/package/simple-get\n[downloads-image]: https://img.shields.io/npm/dm/simple-get.svg\n[downloads-url]: https://npmjs.org/package/simple-get\n[standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg\n[standard-url]: https://standardjs.com\n\n### Simplest way to make http get requests\n\n## features\n\nThis module is the lightest possible wrapper on top of node.js `http`, but supporting these essential features:\n\n- follows redirects\n- automatically handles gzip/deflate responses\n- supports HTTPS\n- supports specifying a timeout\n- supports convenience `url` key so there's no need to use `url.parse` on the url when specifying options\n- composes well with npm packages for features like cookies, proxies, form data, & OAuth\n\nAll this in < 100 lines of code.\n\n## install\n\n```\nnpm install simple-get\n```\n\n## usage\n\nNote, all these examples also work in the browser with [browserify](http://browserify.org/).\n\n### simple GET request\n\nDoesn't get easier than this:\n\n```js\nconst get = require('simple-get')\n\nget('http://example.com', function (err, res) {\n  if (err) throw err\n  console.log(res.statusCode) // 200\n  res.pipe(process.stdout) // `res` is a stream\n})\n```\n\n### even simpler GET request\n\nIf you just want the data, and don't want to deal with streams:\n\n```js\nconst get = require('simple-get')\n\nget.concat('http://example.com', function (err, res, data) {\n  if (err) throw err\n  console.log(res.statusCode) // 200\n  console.log(data) // Buffer('this is the server response')\n})\n```\n\n### POST, PUT, PATCH, HEAD, DELETE support\n\nFor `POST`, call `get.post` or use option `{ method: 'POST' }`.\n\n```js\nconst get = require('simple-get')\n\nconst opts = {\n  url: 'http://example.com',\n  body: 'this is the POST body'\n}\nget.post(opts, function (err, res) {\n  if (err) throw err\n  res.pipe(process.stdout) // `res` is a stream\n})\n```\n\n#### A more complex example:\n\n```js\nconst get = require('simple-get')\n\nget({\n  url: 'http://example.com',\n  method: 'POST',\n  body: 'this is the POST body',\n\n  // simple-get accepts all options that node.js `http` accepts\n  // See: http://nodejs.org/api/http.html#http_http_request_options_callback\n  headers: {\n    'user-agent': 'my cool app'\n  }\n}, function (err, res) {\n  if (err) throw err\n\n  // All properties/methods from http.IncomingResponse are available,\n  // even if a gunzip/inflate transform stream was returned.\n  // See: http://nodejs.org/api/http.html#http_http_incomingmessage\n  res.setTimeout(10000)\n  console.log(res.headers)\n\n  res.on('data', function (chunk) {\n    // `chunk` is the decoded response, after it's been gunzipped or inflated\n    // (if applicable)\n    console.log('got a chunk of the response: ' + chunk)\n  }))\n\n})\n```\n\n### JSON\n\nYou can serialize/deserialize request and response with JSON:\n\n```js\nconst get = require('simple-get')\n\nconst opts = {\n  method: 'POST',\n  url: 'http://example.com',\n  body: {\n    key: 'value'\n  },\n  json: true\n}\nget.concat(opts, function (err, res, data) {\n  if (err) throw err\n  console.log(data.key) // `data` is an object\n})\n```\n\n### Timeout\n\nYou can set a timeout (in milliseconds) on the request with the `timeout` option.\nIf the request takes longer than `timeout` to complete, then the entire request\nwill fail with an `Error`.\n\n```js\nconst get = require('simple-get')\n\nconst opts = {\n  url: 'http://example.com',\n  timeout: 2000 // 2 second timeout\n}\n\nget(opts, function (err, res) {})\n```\n\n### One Quick Tip\n\nIt's a good idea to set the `'user-agent'` header so the provider can more easily\nsee how their resource is used.\n\n```js\nconst get = require('simple-get')\nconst pkg = require('./package.json')\n\nget('http://example.com', {\n  headers: {\n    'user-agent': `my-module/${pkg.version} (https://github.com/username/my-module)`\n  }\n})\n```\n\n### Proxies\n\nYou can use the [`tunnel`](https://github.com/koichik/node-tunnel) module with the\n`agent` option to work with proxies:\n\n```js\nconst get = require('simple-get')\nconst tunnel = require('tunnel')\n\nconst opts = {\n  url: 'http://example.com',\n  agent: tunnel.httpOverHttp({\n    proxy: {\n      host: 'localhost'\n    }\n  })\n}\n\nget(opts, function (err, res) {})\n```\n\n### Cookies\n\nYou can use the [`cookie`](https://github.com/jshttp/cookie) module to include\ncookies in a request:\n\n```js\nconst get = require('simple-get')\nconst cookie = require('cookie')\n\nconst opts = {\n  url: 'http://example.com',\n  headers: {\n    cookie: cookie.serialize('foo', 'bar')\n  }\n}\n\nget(opts, function (err, res) {})\n```\n\n### Form data\n\nYou can use the [`form-data`](https://github.com/form-data/form-data) module to\ncreate POST request with form data:\n\n```js\nconst fs = require('fs')\nconst get = require('simple-get')\nconst FormData = require('form-data')\nconst form = new FormData()\n\nform.append('my_file', fs.createReadStream('/foo/bar.jpg'))\n\nconst opts = {\n  url: 'http://example.com',\n  body: form\n}\n\nget.post(opts, function (err, res) {})\n```\n\n#### Or, include `application/x-www-form-urlencoded` form data manually:\n\n```js\nconst get = require('simple-get')\n\nconst opts = {\n  url: 'http://example.com',\n  form: {\n    key: 'value'\n  }\n}\nget.post(opts, function (err, res) {})\n```\n\n### Specifically disallowing redirects\n\n```js\nconst get = require('simple-get')\n\nconst opts = {\n  url: 'http://example.com/will-redirect-elsewhere',\n  followRedirects: false\n}\n// res.statusCode will be 301, no error thrown\nget(opts, function (err, res) {})\n```\n\n### OAuth\n\nYou can use the [`oauth-1.0a`](https://github.com/ddo/oauth-1.0a) module to create\na signed OAuth request:\n\n```js\nconst get = require('simple-get')\nconst crypto  = require('crypto')\nconst OAuth = require('oauth-1.0a')\n\nconst oauth = OAuth({\n  consumer: {\n    key: process.env.CONSUMER_KEY,\n    secret: process.env.CONSUMER_SECRET\n  },\n  signature_method: 'HMAC-SHA1',\n  hash_function: (baseString, key) => crypto.createHmac('sha1', key).update(baseString).digest('base64')\n})\n\nconst token = {\n  key: process.env.ACCESS_TOKEN,\n  secret: process.env.ACCESS_TOKEN_SECRET\n}\n\nconst url = 'https://api.twitter.com/1.1/statuses/home_timeline.json'\n\nconst opts = {\n  url: url,\n  headers: oauth.toHeader(oauth.authorize({url, method: 'GET'}, token)),\n  json: true\n}\n\nget(opts, function (err, res) {})\n```\n\n### Throttle requests\n\nYou can use [limiter](https://github.com/jhurliman/node-rate-limiter) to throttle requests. This is useful when calling an API that is rate limited.\n\n```js\nconst simpleGet = require('simple-get')\nconst RateLimiter = require('limiter').RateLimiter\nconst limiter = new RateLimiter(1, 'second')\n\nconst get = (opts, cb) => limiter.removeTokens(1, () => simpleGet(opts, cb))\nget.concat = (opts, cb) => limiter.removeTokens(1, () => simpleGet.concat(opts, cb))\n\nvar opts = {\n  url: 'http://example.com'\n}\n\nget.concat(opts, processResult)\nget.concat(opts, processResult)\n\nfunction processResult (err, res, data) {\n  if (err) throw err\n  console.log(data.toString())\n}\n```\n\n## license\n\nMIT. Copyright (c) [Feross Aboukhadijeh](http://feross.org)."
+}

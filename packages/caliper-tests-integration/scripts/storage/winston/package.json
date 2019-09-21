@@ -1,0 +1,5341 @@
+{
+	"name": "winston",
+	"versions": {
+		"0.2.11": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.2.11",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x",
+				"riak-js": ">= 0.4.0rc2",
+				"mongodb": "0.9.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows test/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_id": "winston@0.2.11",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.6",
+			"_nodeVersion": "v0.4.8",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "596c131ac552a2194b37ba622ded9f887131599c",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.2.11.tgz"
+			},
+			"directories": {}
+		},
+		"0.3.3": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.3.3",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows test/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/winston/0.3.3/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "winston@0.3.3",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.18",
+			"_nodeVersion": "v0.4.10",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "e4b38e7117e5cc91dc632a2338efbbbdcdf72034",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.3.3.tgz"
+			},
+			"directories": {}
+		},
+		"0.3.4": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.3.4",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows test/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/winston/0.3.4/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "winston@0.3.4",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.22",
+			"_nodeVersion": "v0.4.10",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "bade1b45c944731970d8df9fb1d1927b0fbcf697",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.3.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.5": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.3.5",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x",
+				"pkginfo": "0.2.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows test/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/winston/0.3.5/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "winston@0.3.5",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.23",
+			"_nodeVersion": "v0.4.10",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "04d3fc80b7049872c065ee8a912c0fd3f5199668",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.3.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.0": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.4.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x >=0.3.7",
+				"pkginfo": "0.2.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows test/*-test.js --spec"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/winston/0.4.0/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "winston@0.4.0",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.23",
+			"_nodeVersion": "v0.4.10",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "c66bffffbb94b0c5d5173871fc26aa485be01a28",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.1": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.4.1",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x >=0.3.7",
+				"pkginfo": "0.2.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows test/*-test.js --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/winston/0.4.1/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "winston@0.4.1",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.23",
+			"_nodeVersion": "v0.4.11",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "ed47572fc787a266d4c65fcf14151e0298907b95",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.4.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.0": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.5.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x >=0.3.7",
+				"pkginfo": "0.2.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/winston/0.5.0/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "winston@0.5.0",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.23",
+			"_nodeVersion": "v0.4.11",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "38269506eaf446ecb8808295ea1d3da05010ab82",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.5.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.1": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.5.1",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x >=0.3.7",
+				"pkginfo": "0.2.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/winston/0.5.1/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "winston@0.5.1",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.23",
+			"_nodeVersion": "v0.4.11",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "2b2f40cdbf469b60f1885cc549757c4b9973e5ea",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.5.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.2": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.5.2",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x >=0.3.7",
+				"pkginfo": "0.2.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/winston/0.5.2/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "winston@0.5.2",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.23",
+			"_nodeVersion": "v0.4.11",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "5adcbf0a8a872e3b3584a11b1173765329b00765",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.5.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.3": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.5.3",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x >=0.3.7",
+				"pkginfo": "0.2.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/winston/0.5.3/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "winston@0.5.3",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.23",
+			"_nodeVersion": "v0.4.11",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "2b40e4eaacfe76b27e0c0436e626aa820da5990e",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.5.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.4": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.5.4",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x >=0.3.7",
+				"pkginfo": "0.2.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/winston/0.5.4/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "winston@0.5.4",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.23",
+			"_nodeVersion": "v0.4.11",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "e6d5fbfe6549a8a3e39900ad68967bc74c1c1586",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.5.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.5": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.5.5",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x >=0.3.7",
+				"pkginfo": "0.2.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/winston/0.5.5/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "winston@0.5.5",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.23",
+			"_nodeVersion": "v0.4.11",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "f4f859ea6d7cb38cb2f4496b4fa5ea12050e5c92",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.5.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.6": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.5.6",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x >=0.3.7",
+				"pkginfo": "0.2.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/Charlie/.npm/winston/0.5.6/package/package.json",
+				"wscript": false,
+				"contributors": false,
+				"serverjs": false
+			},
+			"_id": "winston@0.5.6",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.23",
+			"_nodeVersion": "v0.4.11",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "0f4bae04ebe00c8bfd0a351797c3d2ce0416d033",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.5.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.7": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.5.7",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x >=0.3.7",
+				"pkginfo": "0.2.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"_id": "winston@0.5.7",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.106",
+			"_nodeVersion": "v0.4.12",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "50597e0e6860eef9f9716a709b2857aab817e51c",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.5.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.8": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.5.8",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x >=0.3.7",
+				"pkginfo": "0.2.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"_id": "winston@0.5.8",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.106",
+			"_nodeVersion": "v0.4.12",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "8a2f068613f25975d810d7f5dd45df141d67edb9",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.5.8.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.9": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.5.9",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/indexzero/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x >=0.3.7",
+				"pkginfo": "0.2.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.5.x >=0.5.11"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"_id": "winston@0.5.9",
+			"_engineSupported": true,
+			"_npmVersion": "1.0.106",
+			"_nodeVersion": "v0.4.12",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "3160f86b2298781599ef061bac742752e7cc3c3a",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.5.9.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.10": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.5.10",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/flatiron/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x >=0.3.7",
+				"pkginfo": "0.2.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.6.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"_id": "winston@0.5.10",
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.1",
+			"_nodeVersion": "v0.6.10",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "34167c79a07d2757f11407f766150acf97de9b70",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.5.10.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.5.11": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.5.11",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"contributors": [
+				{
+					"name": "Matthew Bergman",
+					"email": "mzbphoto@gmail.com"
+				},
+				{
+					"name": "Marak Squires",
+					"email": "marak@nodejitsu.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/flatiron/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"loggly": "0.3.x >=0.3.7",
+				"pkginfo": "0.2.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.6.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmUser": {
+				"name": "marak",
+				"email": "marak.squires@gmail.com"
+			},
+			"_id": "winston@0.5.11",
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.10",
+			"_nodeVersion": "v0.6.12",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "9d84ead981a497a92ddf76616137abef661c414f",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.5.11.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "marak",
+					"email": "marak.squires@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.6.1": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.6.1",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "marak",
+					"email": "marak.squires@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/flatiron/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"eyes": "0.1.x",
+				"pkginfo": "0.2.x",
+				"stack-trace": "0.0.x",
+				"cycle": "1.0.x",
+				"request": "2.9.x"
+			},
+			"devDependencies": {
+				"vows": "0.6.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmUser": {
+				"name": "chjj",
+				"email": "chjjeffrey@gmail.com"
+			},
+			"_id": "winston@0.6.1",
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.21",
+			"_nodeVersion": "v0.6.18",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "22bfc4c995e307bf61603c0df5f3abbb319f7495",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.6.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.6.2": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.6.2",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "marak",
+					"email": "marak.squires@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/flatiron/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.1.x",
+				"colors": "0.x.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"pkginfo": "0.2.x",
+				"request": "2.9.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.6.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.4.0"
+			},
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"_id": "winston@0.6.2",
+			"optionalDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.2",
+			"_nodeVersion": "v0.8.1",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "4144fe2586cdc19a612bf8c035590132c9064bd2",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.6.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.7.0": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.7.0",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "V1",
+					"email": "info@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/flatiron/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.2.x",
+				"colors": "0.6.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"pkginfo": "0.3.x",
+				"request": "2.16.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.6.0"
+			},
+			"_id": "winston@0.7.0",
+			"dist": {
+				"shasum": "6dc5c097897df706ea4eb555adcfd08c050b15e6",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.7.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.14",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.7.1": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.7.1",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "V1",
+					"email": "info@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/flatiron/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.2.x",
+				"colors": "0.6.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"pkginfo": "0.3.x",
+				"request": "2.16.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.6.0"
+			},
+			"_id": "winston@0.7.1",
+			"dist": {
+				"shasum": "e291ab24eddbf79ea40ff532619277a0d30b0eb3",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.7.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.14",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.7.2": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.7.2",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "V1",
+					"email": "info@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/flatiron/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.2.x",
+				"colors": "0.6.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"pkginfo": "0.3.x",
+				"request": "2.16.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.6.0"
+			},
+			"bugs": {
+				"url": "https://github.com/flatiron/winston/issues"
+			},
+			"_id": "winston@0.7.2",
+			"dist": {
+				"shasum": "2570ae1aa1d8a9401e8d5a88362e1cf936550ceb",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.7.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.24",
+			"_npmUser": {
+				"name": "mmalecki",
+				"email": "me@mmalecki.com"
+			},
+			"directories": {}
+		},
+		"0.7.3": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.7.3",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "mmalecki",
+					"email": "me@mmalecki.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "V1",
+					"email": "info@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/flatiron/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.2.x",
+				"colors": "0.6.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"pkginfo": "0.3.x",
+				"request": "2.16.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.6.0"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/flatiron/winston/master/LICENSE"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/flatiron/winston/issues"
+			},
+			"homepage": "https://github.com/flatiron/winston",
+			"_id": "winston@0.7.3",
+			"dist": {
+				"shasum": "7ae313ba73fcdc2ecb4aa2f9cd446e8298677266",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.7.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.4",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"directories": {}
+		},
+		"0.8.0": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.8.0",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "V1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/flatiron/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.2.x",
+				"colors": "0.6.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.6.0"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/flatiron/winston/master/LICENSE"
+				}
+			],
+			"gitHead": "5ff2673ea37f0122436248968f1e886a14f42c77",
+			"bugs": {
+				"url": "https://github.com/flatiron/winston/issues"
+			},
+			"homepage": "https://github.com/flatiron/winston",
+			"_id": "winston@0.8.0",
+			"_shasum": "61d0830fa699706212206b0a2b5ca69a93043668",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "jcrugzz",
+				"email": "jcrugzz@gmail.com"
+			},
+			"dist": {
+				"shasum": "61d0830fa699706212206b0a2b5ca69a93043668",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.8.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.8.1": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.8.1",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "V1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/flatiron/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.2.x",
+				"colors": "0.6.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.6.0"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/flatiron/winston/master/LICENSE"
+				}
+			],
+			"gitHead": "733d86f8b2e0ad4962343a18335a08c7ca53241e",
+			"bugs": {
+				"url": "https://github.com/flatiron/winston/issues"
+			},
+			"homepage": "https://github.com/flatiron/winston",
+			"_id": "winston@0.8.1",
+			"_shasum": "86bc9ec6c02aefe5c6dfdb88f3aff1b19d629216",
+			"_from": ".",
+			"_npmVersion": "2.0.2",
+			"_nodeVersion": "0.10.32",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "86bc9ec6c02aefe5c6dfdb88f3aff1b19d629216",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.8.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.8.2": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.8.2",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "V1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/flatiron/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.2.x",
+				"colors": "0.6.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.6.0"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/flatiron/winston/master/LICENSE"
+				}
+			],
+			"gitHead": "6281760fa743144c23f62e3bb3b9e793ef1633b7",
+			"bugs": {
+				"url": "https://github.com/flatiron/winston/issues"
+			},
+			"homepage": "https://github.com/flatiron/winston",
+			"_id": "winston@0.8.2",
+			"_shasum": "1af036705152aa7ea62b60c11df4d21614e845b8",
+			"_from": ".",
+			"_npmVersion": "2.1.6",
+			"_nodeVersion": "0.10.32",
+			"_npmUser": {
+				"name": "jcrugzz",
+				"email": "jcrugzz@gmail.com"
+			},
+			"dist": {
+				"shasum": "1af036705152aa7ea62b60c11df4d21614e845b8",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.8.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.8.3": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.8.3",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "V1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/flatiron/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.2.x",
+				"colors": "0.6.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.6.0"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/flatiron/winston/master/LICENSE"
+				}
+			],
+			"gitHead": "d12b2688d7d82557a5f5d490217e3c516bb661cb",
+			"bugs": {
+				"url": "https://github.com/flatiron/winston/issues"
+			},
+			"homepage": "https://github.com/flatiron/winston",
+			"_id": "winston@0.8.3",
+			"_shasum": "64b6abf4cd01adcaefd5009393b1d8e8bec19db0",
+			"_from": ".",
+			"_npmVersion": "2.1.6",
+			"_nodeVersion": "0.10.32",
+			"_npmUser": {
+				"name": "jcrugzz",
+				"email": "jcrugzz@gmail.com"
+			},
+			"dist": {
+				"shasum": "64b6abf4cd01adcaefd5009393b1d8e8bec19db0",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.8.3.tgz"
+			},
+			"directories": {}
+		},
+		"0.9.0": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "0.9.0",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "pose",
+					"email": "albertopose@gmail.com"
+				},
+				{
+					"name": "v1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "3rdeden",
+					"email": "npm@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/flatiron/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.9.x",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/flatiron/winston/master/LICENSE"
+				}
+			],
+			"gitHead": "bcd8b0d3fb5063aa9416e5a6edcb371ca34efd6e",
+			"bugs": {
+				"url": "https://github.com/flatiron/winston/issues"
+			},
+			"homepage": "https://github.com/flatiron/winston",
+			"_id": "winston@0.9.0",
+			"_shasum": "b5726e6c42291e305e36286ce7ae9f3b74a527a8",
+			"_from": ".",
+			"_npmVersion": "2.2.0",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "b5726e6c42291e305e36286ce7ae9f3b74a527a8",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-0.9.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "1.0.0",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "pose",
+					"email": "albertopose@gmail.com"
+				},
+				{
+					"name": "v1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "3rdeden",
+					"email": "npm@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.9.x",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"licenses": [
+				{
+					"type": "MIT",
+					"url": "https://raw.github.com/winstonjs/winston/master/LICENSE"
+				}
+			],
+			"gitHead": "e915acb2cb0819ae6669703938e887ff4c6f6a20",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston",
+			"_id": "winston@1.0.0",
+			"_shasum": "30e36e0041fc0a864b0029565719e4dc41d026a4",
+			"_from": ".",
+			"_npmVersion": "2.6.1",
+			"_nodeVersion": "0.10.36",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "30e36e0041fc0a864b0029565719e4dc41d026a4",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "1.0.1",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "pose",
+					"email": "albertopose@gmail.com"
+				},
+				{
+					"name": "v1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "3rdeden",
+					"email": "npm@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "0.9.x",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"license": "MIT",
+			"gitHead": "cc5d04dd1139cd9d7f567feb511fb08dacf738dd",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston",
+			"_id": "winston@1.0.1",
+			"_shasum": "4c6f5a1167ebc516ac29b76e4eadb873c15289a4",
+			"_from": ".",
+			"_npmVersion": "2.7.5",
+			"_nodeVersion": "0.10.38",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "4c6f5a1167ebc516ac29b76e4eadb873c15289a4",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-1.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "1.0.2",
+			"author": {
+				"name": "Nodejitsu Inc.",
+				"email": "info@nodejitsu.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "pose",
+					"email": "albertopose@gmail.com"
+				},
+				{
+					"name": "v1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "3rdeden",
+					"email": "npm@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"license": "MIT",
+			"gitHead": "1223d420f72cbdc064a94c98cc09a97db5866e7a",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@1.0.2",
+			"_shasum": "351c58e2323f8a4ca29a45195aa9aa3b4c35d76f",
+			"_from": ".",
+			"_npmVersion": "2.14.5",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "351c58e2323f8a4ca29a45195aa9aa3b4c35d76f",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-1.0.2.tgz"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "1.1.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "pose",
+					"email": "albertopose@gmail.com"
+				},
+				{
+					"name": "v1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "3rdeden",
+					"email": "npm@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"license": "MIT",
+			"gitHead": "fb12093fa769fafc58971d3315c1096e54b40b03",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@1.1.0",
+			"_shasum": "8e86ff561ccea5007711712159c21ed057209011",
+			"_from": ".",
+			"_npmVersion": "2.14.1",
+			"_nodeVersion": "0.10.38",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "8e86ff561ccea5007711712159c21ed057209011",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-1.1.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.1.1": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "1.1.1",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "pose",
+					"email": "albertopose@gmail.com"
+				},
+				{
+					"name": "v1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "3rdeden",
+					"email": "npm@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"license": "MIT",
+			"gitHead": "f3d0c820bbcc32877a0dc7c31c629fb6a44c5cf4",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@1.1.1",
+			"_shasum": "9f1887afb92cc0f23459d20de2a185b5ae11a9b0",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "jcrugzz",
+				"email": "jcrugzz@gmail.com"
+			},
+			"dist": {
+				"shasum": "9f1887afb92cc0f23459d20de2a185b5ae11a9b0",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-1.1.1.tgz"
+			},
+			"directories": {}
+		},
+		"1.1.2": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "1.1.2",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "pose",
+					"email": "albertopose@gmail.com"
+				},
+				{
+					"name": "v1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "3rdeden",
+					"email": "npm@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"license": "MIT",
+			"gitHead": "2064bfe3b0f3da77c798d248a1609dbc24ff077e",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@1.1.2",
+			"_shasum": "68edd769ff79d4f9528cf0e5d80021aade67480c",
+			"_from": ".",
+			"_npmVersion": "2.14.5",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "68edd769ff79d4f9528cf0e5d80021aade67480c",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-1.1.2.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "2.0.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "pose",
+					"email": "albertopose@gmail.com"
+				},
+				{
+					"name": "v1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "3rdeden",
+					"email": "npm@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"license": "MIT",
+			"gitHead": "020409b656230914337081f89db684fb6346f408",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@2.0.0",
+			"_shasum": "d3ad5dc2db5ce716ff1825b9283cbfbb6f481aee",
+			"_from": ".",
+			"_npmVersion": "2.14.5",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "d3ad5dc2db5ce716ff1825b9283cbfbb6f481aee",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-2.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.1": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "2.0.1",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "pose",
+					"email": "albertopose@gmail.com"
+				},
+				{
+					"name": "v1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "3rdeden",
+					"email": "npm@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"license": "MIT",
+			"gitHead": "8a549b720888c9166ffd4e0f09ac25f93e337aa2",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@2.0.1",
+			"_shasum": "999d682648f0b24ae4a3096d774409c5bb86d87c",
+			"_from": ".",
+			"_npmVersion": "2.14.1",
+			"_nodeVersion": "0.10.38",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "999d682648f0b24ae4a3096d774409c5bb86d87c",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-2.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"2.1.0": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "2.1.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "pose",
+					"email": "albertopose@gmail.com"
+				},
+				{
+					"name": "v1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "3rdeden",
+					"email": "npm@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"license": "MIT",
+			"gitHead": "edbf0d2c6c57c6712ffce772f16bd1a2124e68f3",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@2.1.0",
+			"_shasum": "34688215cc8dbb784838b9aa626e73aee44fe4b6",
+			"_from": ".",
+			"_npmVersion": "2.14.5",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "34688215cc8dbb784838b9aa626e73aee44fe4b6",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-2.1.0.tgz"
+			},
+			"directories": {}
+		},
+		"2.1.1": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "2.1.1",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "pose",
+					"email": "albertopose@gmail.com"
+				},
+				{
+					"name": "v1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "3rdeden",
+					"email": "npm@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"cross-spawn-async": "^2.0.0",
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"license": "MIT",
+			"gitHead": "69171ed1679a290e947f22a83b044b3980be3565",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@2.1.1",
+			"_shasum": "3c9349d196207fd1bdff9d4bc43ef72510e3a12e",
+			"_from": ".",
+			"_npmVersion": "2.14.5",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "3c9349d196207fd1bdff9d4bc43ef72510e3a12e",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-2.1.1.tgz"
+			},
+			"directories": {}
+		},
+		"2.2.0": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "2.2.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "pose",
+					"email": "albertopose@gmail.com"
+				},
+				{
+					"name": "v1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "3rdeden",
+					"email": "npm@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"pkginfo": "0.3.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"cross-spawn-async": "^2.0.0",
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.10.0"
+			},
+			"license": "MIT",
+			"gitHead": "b44062612f63211d047c67050fef5b7624682fb6",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@2.2.0",
+			"_shasum": "2c853dd87ab552a8e8485d72cbbf9a2286f029b7",
+			"_from": ".",
+			"_npmVersion": "3.7.3",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "2c853dd87ab552a8e8485d72cbbf9a2286f029b7",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-2.2.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/winston-2.2.0.tgz_1456439000097_0.023458356503397226"
+			},
+			"directories": {}
+		},
+		"2.3.0": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "2.3.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "pose",
+					"email": "albertopose@gmail.com"
+				},
+				{
+					"name": "v1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "3rdeden",
+					"email": "npm@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"cross-spawn-async": "^2.0.0",
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.10.0"
+			},
+			"license": "MIT",
+			"gitHead": "739d8023c87183261dcae6ecc92c5b87a5eac961",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@2.3.0",
+			"_shasum": "207faaab6fccf3fe493743dd2b03dbafc7ceb78c",
+			"_from": ".",
+			"_npmVersion": "3.9.0",
+			"_nodeVersion": "4.4.4",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "207faaab6fccf3fe493743dd2b03dbafc7ceb78c",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-2.3.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/winston-2.3.0.tgz_1478060833954_0.4984084344469011"
+			},
+			"directories": {}
+		},
+		"2.3.1": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "2.3.1",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "chjj",
+					"email": "chjjeffrey@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				},
+				{
+					"name": "pose",
+					"email": "albertopose@gmail.com"
+				},
+				{
+					"name": "v1",
+					"email": "info@3rd-Eden.com"
+				},
+				{
+					"name": "3rdeden",
+					"email": "npm@3rd-Eden.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"cross-spawn-async": "^2.0.0",
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.10.0"
+			},
+			"license": "MIT",
+			"gitHead": "fba37b44f7875ba7c460df81fad27d6a941ed213",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@2.3.1",
+			"_shasum": "0b48420d978c01804cf0230b648861598225a119",
+			"_from": ".",
+			"_npmVersion": "3.10.5",
+			"_nodeVersion": "4.7.2",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "0b48420d978c01804cf0230b648861598225a119",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-2.3.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/winston-2.3.1.tgz_1484937497945_0.36467634653672576"
+			},
+			"directories": {}
+		},
+		"2.4.0": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "2.4.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"cross-spawn-async": "^2.0.0",
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.10.0"
+			},
+			"license": "MIT",
+			"gitHead": "ffe883e4c8e467e543eda2e0673370f176bd5eb7",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@2.4.0",
+			"_shasum": "808050b93d52661ed9fb6c26b3f0c826708b0aee",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "808050b93d52661ed9fb6c26b3f0c826708b0aee",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-2.4.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-2.4.0.tgz_1506920353218_0.3485619300045073"
+			},
+			"directories": {}
+		},
+		"3.0.0-rc0": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "3.0.0-rc0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "^1.0.0",
+				"diagnostics": "^1.0.1",
+				"isstream": "0.1.x",
+				"logform": "^1.2.1",
+				"one-time": "0.0.4",
+				"stack-trace": "0.0.x",
+				"triple-beam": "^1.0.1",
+				"winston-transport": "^3.0.1"
+			},
+			"devDependencies": {
+				"abstract-winston-transport": ">= 0.5.1",
+				"assume": "^1.5.1",
+				"colors": "~1.1.2",
+				"cross-spawn-async": "^2.0.0",
+				"eslint-config-populist": "^4.1.0",
+				"hock": "^1.3.2",
+				"mocha": "^3.2.0",
+				"nyc": "^11.2.1",
+				"split2": "^2.1.1",
+				"std-mocks": "^1.0.0",
+				"through2": "^2.0.0",
+				"winston-compat": "^0.0.1"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"lint": "populist lib/*.js lib/winston/*.js lib/winston/**/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js test/**/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"engines": {
+				"node": ">= 4.2.2"
+			},
+			"license": "MIT",
+			"gitHead": "76b7f01ffd0af496e94d53b5688c914ddbef05f5",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@3.0.0-rc0",
+			"_shasum": "08ee0b1304cd671f1708ea360ffeeb4135d6dcf3",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"shasum": "08ee0b1304cd671f1708ea360ffeeb4135d6dcf3",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-3.0.0-rc0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-3.0.0-rc0.tgz_1506921434934_0.27894210652448237"
+			},
+			"directories": {}
+		},
+		"3.0.0-rc1": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "3.0.0-rc1",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "^1.0.0",
+				"diagnostics": "^1.0.1",
+				"isstream": "0.1.x",
+				"logform": "^1.2.1",
+				"one-time": "0.0.4",
+				"stack-trace": "0.0.x",
+				"triple-beam": "^1.0.1",
+				"winston-transport": "^3.0.1"
+			},
+			"devDependencies": {
+				"abstract-winston-transport": ">= 0.5.1",
+				"assume": "^1.5.1",
+				"colors": "~1.1.2",
+				"cross-spawn-async": "^2.0.0",
+				"eslint-config-populist": "^4.1.0",
+				"hock": "^1.3.2",
+				"mocha": "^3.2.0",
+				"nyc": "^11.2.1",
+				"split2": "^2.1.1",
+				"std-mocks": "^1.0.0",
+				"through2": "^2.0.0",
+				"winston-compat": "^0.0.1"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"lint": "populist lib/*.js lib/winston/*.js lib/winston/**/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js test/**/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"engines": {
+				"node": ">= 4.2.2"
+			},
+			"license": "MIT",
+			"gitHead": "7e44c93940af60bdc9bba71d465821629ca1366f",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@3.0.0-rc1",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.6.0",
+			"_npmUser": {
+				"name": "jcrugzz",
+				"email": "jcrugzz@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-aNtKirnK2UEe5v56SK0TIEr5ylyYdXyjAaIJXZTk21UlNx7FQclTkVU2T1ZzMtdDM+Rk2b7vrI/e/4n8U84XaQ==",
+				"shasum": "982bc0ad4ef5c53000ca68036d78a3deaa28cac5",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-3.0.0-rc1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-3.0.0-rc1.tgz_1508444238403_0.7883252075407654"
+			},
+			"directories": {}
+		},
+		"2.4.1": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "2.4.1",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"cross-spawn-async": "^2.0.0",
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.10.0"
+			},
+			"license": "MIT",
+			"gitHead": "ea9cd55ad47bc9cbaabcbd47a0d134c2e3f6de28",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@2.4.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.1",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-k/+Dkzd39ZdyJHYkuaYmf4ff+7j+sCIy73UCOWHYA67/WXU+FF/Y6PF28j+Vy7qNRPHWO+dR+/+zkoQWPimPqg==",
+				"shasum": "a3a9265105564263c6785b4583b8c8aca26fded6",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-2.4.1.tgz",
+				"fileCount": 31,
+				"unpackedSize": 172485
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston_2.4.1_1520622437251_0.3264411258734665"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0-rc2": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "3.0.0-rc2",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "^2.6.0",
+				"diagnostics": "^1.0.1",
+				"isstream": "0.1.x",
+				"logform": "^1.2.1",
+				"one-time": "0.0.4",
+				"stack-trace": "0.0.x",
+				"triple-beam": "^1.0.1",
+				"winston-transport": "^3.0.1"
+			},
+			"devDependencies": {
+				"abstract-winston-transport": ">= 0.5.1",
+				"assume": "^1.5.1",
+				"colors": ">= 1.2.0-rc0",
+				"cross-spawn-async": "^2.0.0",
+				"eslint-config-populist": "^4.1.0",
+				"hock": "^1.3.2",
+				"mocha": "^3.2.0",
+				"nyc": "^11.2.1",
+				"split2": "^2.1.1",
+				"std-mocks": "^1.0.0",
+				"through2": "^2.0.0",
+				"winston-compat": "^0.0.1"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"lint": "populist lib/*.js lib/winston/*.js lib/winston/**/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js test/**/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"engines": {
+				"node": ">= 4.2.2"
+			},
+			"license": "MIT",
+			"gitHead": "1e0b96a175551f27e2b2aef4771cca9480757640",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@3.0.0-rc2",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.1",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-wkyf9OzpX6gWJEb8zw1NM6pR2mz2CbrH6ziqDPoVWDDapzFhfJ417N43nSG4aS/ZOC8PZfCvYz3hE5gbEQwGJg==",
+				"shasum": "c30d043b20822c5f6da4797242108b1c5860a3a2",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-3.0.0-rc2.tgz",
+				"fileCount": 30,
+				"unpackedSize": 142343
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston_3.0.0-rc2_1520623084959_0.7783665522283425"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0-rc3": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "3.0.0-rc3",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "^2.6.0",
+				"diagnostics": "^1.0.1",
+				"isstream": "0.1.x",
+				"logform": "^1.2.1",
+				"one-time": "0.0.4",
+				"stack-trace": "0.0.x",
+				"triple-beam": "^1.0.1",
+				"winston-transport": "^3.0.1"
+			},
+			"devDependencies": {
+				"abstract-winston-transport": ">= 0.5.1",
+				"assume": "^1.5.1",
+				"colors": "^1.2.0",
+				"cross-spawn-async": "^2.0.0",
+				"eslint-config-populist": "^4.1.0",
+				"hock": "^1.3.2",
+				"mocha": "^3.2.0",
+				"nyc": "^11.2.1",
+				"split2": "^2.1.1",
+				"std-mocks": "^1.0.0",
+				"through2": "^2.0.0",
+				"winston-compat": "^0.0.1"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"lint": "populist lib/*.js lib/winston/*.js lib/winston/**/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js test/**/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"engines": {
+				"node": ">= 4.2.2"
+			},
+			"license": "MIT",
+			"gitHead": "ae55f5baf71ebeb8dcd8e5bbff8494faa66f27af",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@3.0.0-rc3",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.1",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-KPvs53IB5m6wMHAm4j5DgL8MkgfXZKjwNqzTr3IA8SijHTXeN6l8ebyR24rlCSVotuqtXhooFHvYLbA3fAViSw==",
+				"shasum": "dd31ebbd76e35968dcf5f130e57473329534904e",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-3.0.0-rc3.tgz",
+				"fileCount": 30,
+				"unpackedSize": 143167
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston_3.0.0-rc3_1521223179923_0.21623720019923054"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0-rc4": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "3.0.0-rc4",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "^2.6.0",
+				"diagnostics": "^1.0.1",
+				"is-stream": "^1.1.0",
+				"logform": "^1.4.1",
+				"one-time": "0.0.4",
+				"stack-trace": "0.0.x",
+				"triple-beam": "^1.0.1",
+				"winston-transport": "^3.1.0"
+			},
+			"devDependencies": {
+				"abstract-winston-transport": ">= 0.5.1",
+				"assume": "^1.5.1",
+				"colors": "^1.2.0",
+				"cross-spawn-async": "^2.0.0",
+				"eslint-config-populist": "^4.1.0",
+				"hock": "^1.3.2",
+				"mocha": "^3.2.0",
+				"nyc": "^11.2.1",
+				"split2": "^2.1.1",
+				"std-mocks": "^1.0.0",
+				"through2": "^2.0.0",
+				"winston-compat": "^0.0.1"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"lint": "populist lib/*.js lib/winston/*.js lib/winston/**/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js test/**/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"engines": {
+				"node": ">= 4.2.2"
+			},
+			"license": "MIT",
+			"gitHead": "a2521ab12b9cf940d1c0b96f19c7b12aa162e671",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@3.0.0-rc4",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-wyLu9Uky/uB6F6VqVyodYMevBigxlX0qTIbQhD39+G/7XiMf4G4oX9meMMDJNTvCdZyUUUFXOidnLW5yR3oedQ==",
+				"shasum": "2e34e05b1130bae677c79b3ace993d091e678c5f",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-3.0.0-rc4.tgz",
+				"fileCount": 30,
+				"unpackedSize": 145093
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston_3.0.0-rc4_1523035013459_0.1832622552601204"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.4.2": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "2.4.2",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"cross-spawn-async": "^2.0.0",
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.10.0"
+			},
+			"license": "MIT",
+			"gitHead": "d9304b89af29edc9e90d466aee67dc6be3d82cfb",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@2.4.2",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-4S/Ad4ZfSNl8OccCLxnJmNISWcm2joa6Q0YGDxlxMzH0fgSwWsjMt+SmlNwCqdpaPg3ev1HKkMBsIiXeSUwpbA==",
+				"shasum": "3ca01f763116fc48db61053b7544e750431f8db0",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-2.4.2.tgz",
+				"fileCount": 36,
+				"unpackedSize": 175387,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa2htsCRA9TVsSAnZWagAAqPwP+wa4pALvTCdbCD5G2C78\nq1qQN3RzkM7hpD9Aq0XqjX+mXjC6VbDgZcNcihXps9zmhT4cCtG/lQCoIJwK\n+/9yHEiMcJPmP0L4kNBVRbC8tASNm6lpYhrtn6PN2giA2xFadbwjtZzi6Nhb\nXnickaoO7W7s20OfGZDh7OvivBhXWntQHyZorM8x/iXUO7NvNMtRH3bdnXr3\nKBTYgSYDyA1fwLijZbqksrk0j0tVX3P70HYaEjaY0LUwzKJzsBgxJJYsNdSY\nlmGcp7Yvt4Y5l0ZKJMnQUkOpxWmQ24jrFGg3CBSocHtwaCnGd1eYrzYdtzcM\nd5LZKCWRbtaRA16ItKwNhw4Foew3L+2emjJV6fTiJWFHOOccg0CtRUT4ofJT\ndY7yV8rcgFuMvE+cgbVw7UxS2JBXEcDPtBZrNjbZa94PNlYak2REKdVpQRLp\nApaxXJ6FOm0n8qXs4MB+cM1yWbVl028k7z+JqbHsdkfS6c+W0gHnR7Y90eFi\nkfgBrLKGqdgoL8ENjWi08YMAUdbEaYPhP5LA3oHU8glK8shQ3C9OEG86Yc0R\nxJ58LP3VfrVelS3+VP7MML+UgtIJqJnsIy8Xp67Rp3qzw9VjZStfGAzeF3L0\nkz3sK68v+39p6+uc7pEGFL0UsIHlF1bP5GcFftkbES0Ble+Nry9iaf2akIvx\n6AT+\r\n=qFsT\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston_2.4.2_1524243306014_0.7326485527894178"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0-rc5": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "3.0.0-rc5",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "^2.6.0",
+				"diagnostics": "^1.0.1",
+				"is-stream": "^1.1.0",
+				"logform": "^1.4.1",
+				"one-time": "0.0.4",
+				"stack-trace": "0.0.x",
+				"triple-beam": "^1.0.1",
+				"winston-transport": "^3.1.0"
+			},
+			"devDependencies": {
+				"abstract-winston-transport": ">= 0.5.1",
+				"assume": "^2.0.1",
+				"colors": "^1.2.0",
+				"cross-spawn-async": "^2.0.0",
+				"eslint-config-populist": "^4.1.0",
+				"hock": "^1.3.2",
+				"mocha": "^3.2.0",
+				"nyc": "^11.2.1",
+				"split2": "^2.1.1",
+				"std-mocks": "^1.0.0",
+				"through2": "^2.0.0",
+				"winston-compat": "^0.1.1"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"lint": "populist lib/*.js lib/winston/*.js lib/winston/**/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js test/**/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"engines": {
+				"node": ">= 4.2.2"
+			},
+			"license": "MIT",
+			"gitHead": "1146e645df303e9645521322019f8d99ed66c18c",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@3.0.0-rc5",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-BRYS7jsNkfLAqGu4dZW3kp6CmqiWKrComvfsIMYdsnpPre7g8BIw63nWRyX69vxyLYvZdszcEyxJkJmILXd/pA==",
+				"shasum": "bc383d32b0e774d387a66e77290fe78766468f34",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-3.0.0-rc5.tgz",
+				"fileCount": 36,
+				"unpackedSize": 148880,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa2kMUCRA9TVsSAnZWagAAY+cP/3wY1LaKXW1fwXmqpDNe\nBCz2l1h7d5Oc1v3WThuYgjwbPikDDKjbedIfWA0SYHGnMQf4yDEGSRlyndaM\noYrLxRByJTgB54adVxB0MJ0rs+r+LeM5iR1wf/lVj6hhhQ3rBa826/BIHguU\ngG3jrqH8ZgxIfdi4j0Ry2w9NlGbGPDR0I6aDeqmeWx9sUGNNwkna7a/H4/Fy\n2wLmvWdPnR1d3Mwc5JVamOgHmOXwrwHm2gULnrtwT009ZVyrWgGmM0Q0kjsS\nM1Vli8epKiuUl6Rh63gUeXeX4GpNqMNf6cuWG7DfDG0VTQaAC2H7C3tEdaGn\nVz8TPl/lvzdbIg993taEE71CUOg2r8AkzTDeP/+QGvGX/XT+jLII0iIge6UI\nMMcHgUVdHQmXFQZre0oYpHE2biNsJRHa63xdshNy7+L1Sqy4etRDSwFvhrPm\n0TCteoJ+7E7jH7AEBeS4UjC4Q08OE82Evw39kQdDP3ij4usVb2QI6E+6LncH\nOO8skDcbwviHMhNCn0NYzxOT9b4jOSS9s+e4tSZBuYcH+zr6R99E6B8fl6UY\nAQSvaTyN9NoGQMNW2snX3ihJNVbP4C5uwCQ1u4Mql/gb8G/dyfC7lrh1G5MD\nox6cwa6DtbkSoyoCsRWVJPHRcz8NgBwyci+JFYeewD43TEOfylemPnKaawyA\nHXlN\r\n=JXWf\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston_3.0.0-rc5_1524253458426_0.901113116870903"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0-rc6": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "3.0.0-rc6",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "^2.6.0",
+				"diagnostics": "^1.0.1",
+				"is-stream": "^1.1.0",
+				"logform": "^1.7.0",
+				"one-time": "0.0.4",
+				"stack-trace": "0.0.x",
+				"triple-beam": "^1.3.0",
+				"winston-transport": "^4.0.0"
+			},
+			"devDependencies": {
+				"@types/node": "^9.6.6",
+				"abstract-winston-transport": ">= 0.5.1",
+				"assume": "^2.0.1",
+				"colors": "^1.2.0",
+				"cross-spawn-async": "^2.0.0",
+				"eslint-config-populist": "^4.1.0",
+				"hock": "^1.3.2",
+				"mocha": "^3.2.0",
+				"nyc": "^11.2.1",
+				"rimraf": "^2.6.2",
+				"split2": "^2.1.1",
+				"std-mocks": "^1.0.0",
+				"through2": "^2.0.0",
+				"winston-compat": "^0.1.1"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"lint": "populist lib/*.js lib/winston/*.js lib/winston/**/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc --reporter=text --reporter lcov npm run test:mocha",
+				"test:mocha": "mocha test/*.test.js test/**/*.test.js"
+			},
+			"engines": {
+				"node": ">= 6.4.0"
+			},
+			"license": "MIT",
+			"gitHead": "9971268017ab18710367bca22b211a998a08a118",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@3.0.0-rc6",
+			"_npmVersion": "5.10.0",
+			"_nodeVersion": "8.6.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-4QwLccPbU/aJMA+j6uYTQ8TobwLKPWhpceJZwz1lkQ+wYv7bxGyAHIdbfEOrxsKHD8zRCcgCXPbbpV3BDRD1rw==",
+				"shasum": "f6a0417be6cc2fe5c9a64fbb698e8da674cdf26a",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-3.0.0-rc6.tgz",
+				"fileCount": 33,
+				"unpackedSize": 167966,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbDj4lCRA9TVsSAnZWagAAS64P/3CTTzEmWAX51so5QXcw\nGLsW4Da281Nb6YiEsg+4wGIVm2aJ3Um2PsRbLmlvBBHCAOHKE2FxW2uZ2Exy\nchQfcOiCTwwT0cROGfdYMK1bXkLAHW6jdMhGNYxoKOr8Dyb+uXZYoYUsodLJ\n02vJX3BLXxnThD7QWgJOewbouBuxEfobonmG8vJ76qoUZ1BoMkINrShodhA+\nYGJsSXDoCqU2ge9Ff/wQmtpcVU7QFOmftJ/LVW2esBvuU1yoC8XOugqfXQjb\nudHyOKajymwIK8g7WbEujTzy/oY93dikg0kNUTZyhFYAS5mTT7NmQLRNhOfw\n1nZSh1mn2oEIA0mz/h3jitomeNLZWVqbWSC8Apu6nYwiPKqzI8pnO8kAorEJ\nX1hEARiDT33KuSy4l9igAAu77YcZbJl52tJpjoZi1JPUcB2wga/fy8kMa8in\nah7oyzFoVC8GmGGlTppCIYbgoyiEqHPT7TuIERQ1DYG7ZA3plGItPCZpawLy\nFwV9pDSe0YduC+3vIeKspw5BCP0Ms0vba/lilcaPwqob+1Wmig0xpp41l4Mi\nHXPQVKSUMPczQe9nXb5/GVKOeN1Y7SUQqDglH5jbmqwdR3MpUs/DgS6qXH8E\nNeKGfBNAR4OHXviPdIwH8aqL2HVk7I6Uv6+/gVFbY5toQ+ldb/z5Vok7sz8K\nUsiO\r\n=t0cn\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston_3.0.0-rc6_1527660066136_0.0013855148606916057"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.4.3": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "2.4.3",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"cross-spawn-async": "^2.0.0",
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"engines": {
+				"node": ">= 0.10.0"
+			},
+			"license": "MIT",
+			"gitHead": "dc74db60b8d46475fce04bab1e0c31abe5201e09",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@2.4.3",
+			"_npmVersion": "5.10.0",
+			"_nodeVersion": "10.3.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-GYKuysPz2pxYAVJD2NPsDLP5Z79SDEzPm9/j4tCjkF/n89iBNGBMJcR+dMUqxgPNgoSs6fVygPi+Vl2oxIpBuw==",
+				"shasum": "7a9fdab371b6d3d9b63a592947846d856948c517",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-2.4.3.tgz",
+				"fileCount": 3557,
+				"unpackedSize": 5985515,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbH5gBCRA9TVsSAnZWagAAjBkQAJmMB+VBw/VEif40VXa1\nH3ANivrsZgJ177AImlFbJACULaKxravnHI0wnS1rLxcQJqc5fWLamWy4Fxgr\nyg+xZ2gtoAdll12BB1rkrvKZsjvutG9f6KbYmy9N7bHKpuojespzb/lSienz\nd8YMCxfNj/jGv1hPg+uWVUVR/7bkHOErrSTbu5fR467n3n9Uvqja67rGElXk\n8BFtDJLMzYUjGnTo9epHnhHswJ+g0YCy3uSu8c9lrWdMjPLyjeWPE04mZ2Mz\nNg1vyKMCianZ6n0vwm//Ip1XKIfo2wJ6WoR1xhnhxXnW9maNEDfSSlHPjXkM\njH9iEr9PoUfXUEleo18DmoS33iLa6ItOdWx1JO46aki5p/OoliZbLdZlAUFr\nSIdQ4qZ5HdERu9gxElZbRUGiRofBobQLilgDPViiE2pkiYAB1xXo4D4nToxX\nUZU06piIHFPhIqAL1520dUlIrpIXqSd7wUu9dcLiTPx/PwejAy4F+8aLib2g\nqxbh2Rf8nYj6W4cxGf6E8Z1jlM9QRhzd3g0WEj9fqsgy7XKLG7wrVNKCR3JN\nasvppN62sspVgW3/zHRx9vma6QexOYYAUlAa44MXMQfNb37S71sBcSzIYPmi\ndARkNp7Q9arDg+Hz6hP2ZQ370qGtiAmCoRJttcAMqiqaxa6ku4J8G7MsvplA\nQK1L\r\n=KLNW\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston_2.4.3_1528797184091_0.5220518102634675"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"name": "winston",
+			"description": "A logger for just about everything.",
+			"version": "3.0.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logger",
+				"logging",
+				"logs",
+				"sysadmin",
+				"bunyan",
+				"pino",
+				"loglevel",
+				"tools",
+				"json",
+				"stream"
+			],
+			"dependencies": {
+				"async": "^2.6.0",
+				"diagnostics": "^1.0.1",
+				"is-stream": "^1.1.0",
+				"logform": "^1.9.0",
+				"one-time": "0.0.4",
+				"readable-stream": "^2.3.6",
+				"stack-trace": "0.0.x",
+				"triple-beam": "^1.3.0",
+				"winston-transport": "^4.2.0"
+			},
+			"devDependencies": {
+				"@types/node": "^9.6.6",
+				"abstract-winston-transport": ">= 0.5.1",
+				"assume": "^2.0.1",
+				"colors": "^1.2.0",
+				"cross-spawn-async": "^2.0.0",
+				"eslint-config-populist": "^4.1.0",
+				"hock": "^1.3.2",
+				"mocha": "^3.2.0",
+				"nyc": "^11.2.1",
+				"rimraf": "^2.6.2",
+				"split2": "^2.1.1",
+				"std-mocks": "^1.0.0",
+				"through2": "^2.0.0",
+				"winston-compat": "^0.1.1"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"lint": "populist lib/*.js lib/winston/*.js lib/winston/**/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc --reporter=text --reporter lcov npm run test:mocha",
+				"test:mocha": "mocha test/*.test.js test/**/*.test.js"
+			},
+			"engines": {
+				"node": ">= 6.4.0"
+			},
+			"license": "MIT",
+			"gitHead": "8be746b4fba623c7167420c887ee9cf3d4147664",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@3.0.0",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-7QyfOo1PM5zGL6qma6NIeQQMh71FBg/8fhkSAePqtf5YEi6t+UrPDcUuHhuuUasgso49ccvMEsmqr0GBG2qaMQ==",
+				"shasum": "1f0b24a96586798bcf0cd149fb07ed47cb01a1b2",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-3.0.0.tgz",
+				"fileCount": 70,
+				"unpackedSize": 611998,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbH/VgCRA9TVsSAnZWagAAmMYP/1Bz9tGx9E+c18763TdH\nxqtMo5FFauSdwEWsRaYVXVZDWnjlWektf/tbD1kjdEM5Vx+CN/yKmL4hnnx1\nNI6nFaIpbqCh+Q5ZpqPMYxzXRYq+iHvK5Rs194O+8YHubIjnW16n7XuQf7go\ngSXbfF0bKmkdQ0lIQ9jveKcVDLck6Xl3P19aEfo+wVLzN+4Sr5RySjoP2ecm\nxmU7razcHiK5magTpPdVrD8zF1CZeFELm3hPNNaO43iVZtvJclxbMqp7F5LG\nW1GxfMAbCAchrfymzFF2VzCx1++f2HEhZYXCAg6CgV1Vp4SHX8fChKuXemHF\nHdx4XfCccwZWDFdlVtrnz5CcJC1Jx0o37FyfSzX7MAFZ3cGvB6zxvJAqP8Jy\nPT5BOSYfdVRCgi5QObfJykHrP5SJDUB8uslFRljcwNcY7FEgo+NP9uMIuh/l\nbe0HAESm5YxXe9ZanEjEfzf8G3Bsy5Sac9m5zxTWW69LKHrAZkF2pVpFb5Z1\nFTsgnOHa6Ab50FMsJlSj8RhRBuFRXiDCJDLQPzBbuQ1tUfJO+KrtWLdyeHre\nlNE+w2gY8F3BPWkh4yODrB9FVvyvdBnG1qW5+fM1C9hmkYVTyNcqHmGrnuhM\nWbZvaismFNhPMoO22HFCrOtLlWkaU5IWfdTA1bRWi0KjBcH44g3sr8pnv8y+\nIohh\r\n=0S99\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston_3.0.0_1528821086783_0.3629993700749554"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.4.4": {
+			"name": "winston",
+			"description": "A multi-transport async logging library for Node.js",
+			"version": "2.4.4",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logging",
+				"sysadmin",
+				"tools"
+			],
+			"dependencies": {
+				"async": "~1.0.0",
+				"colors": "1.0.x",
+				"cycle": "1.0.x",
+				"eyes": "0.1.x",
+				"isstream": "0.1.x",
+				"stack-trace": "0.0.x"
+			},
+			"devDependencies": {
+				"cross-spawn-async": "^2.0.0",
+				"hock": "1.x.x",
+				"std-mocks": "~1.0.0",
+				"vows": "0.7.x"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"test": "vows --spec --isolate"
+			},
+			"types": "./index.d.ts",
+			"engines": {
+				"node": ">= 0.10.0"
+			},
+			"license": "MIT",
+			"gitHead": "67c44ffe1f9db9305a1bc562e0af1a0332588b15",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@2.4.4",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "10.3.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-NBo2Pepn4hK4V01UfcWcDlmiVTs7VTB1h7bgnB0rgP146bYhMxX0ypCz3lBOfNxCO4Zuek7yeT+y/zM1OfMw4Q==",
+				"shasum": "a01e4d1d0a103cf4eada6fc1f886b3110d71c34b",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-2.4.4.tgz",
+				"fileCount": 32,
+				"unpackedSize": 189862,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbfIKACRA9TVsSAnZWagAALMsP/2Ua2w4cNGpHS2Y7ju3v\n5GR/ylqqVvZIiZyWBMV4bXNIHYnEY3U+EBv9knr7/lJqvNNiD9dQl8mx7b9R\ndLVeaLb3p1xCq5yfJcbx2fJ20x8g1dgqoVGVLl90+NsHHUr6HHLbryDVPjDM\nlt/xQflSjUOtYZV/o7h0/cUanFtKnOt18nWxepLG13dYyyegIlsAqs91zGN4\nbsaj0US7c2PWAH9bTQaTrzquNwUfOK/teTCEdn1kcUrPWMDi7cxveSqwLje4\n5vqpXKqs1T474uyAvM28onpmfFtA5wTyGkUOQoa9wW5nh3pI/ky1li2fgdI3\ncULGXTQcprDncArwDEuc+qwHUKv8Fusdipj1YZ5qkmi/u14GlzqzUQXb6N+N\nqmBE0cgRaH5H7hskKv69bFKeFiapZ43T9Hw8DosQbC7ci2VW0mYXy/VFiPQD\nOVyijqFs9be74t7WcOB3WmnKZsVQUxHlrMiYRllYySmNSk16LlpSVk+tYEcu\nXmScIAbXZLvMy0aFzq8KlQDDelJEOAQdQ9Jm3C7/TPhU9vb9yeQRWARMJpIe\n2aFZSXXbEu+j1IuAyfF6rUmMLpy7XCHWAil87UN69vdHydw2r4wqxCur9494\nD91rw1rA4ziFUcljNdE0tns76sy7lCb8n77Hb78ocqyGAvCUUJAwG4zFkd1f\n5//V\r\n=k7FV\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston_2.4.4_1534886527464_0.7641525117081251"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.1": {
+			"name": "winston",
+			"description": "A logger for just about everything.",
+			"version": "3.0.1",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logger",
+				"logging",
+				"logs",
+				"sysadmin",
+				"bunyan",
+				"pino",
+				"loglevel",
+				"tools",
+				"json",
+				"stream"
+			],
+			"dependencies": {
+				"async": "^2.6.0",
+				"diagnostics": "^1.0.1",
+				"is-stream": "^1.1.0",
+				"logform": "^1.9.0",
+				"one-time": "0.0.4",
+				"readable-stream": "^2.3.6",
+				"stack-trace": "0.0.x",
+				"triple-beam": "^1.3.0",
+				"winston-transport": "^4.2.0"
+			},
+			"devDependencies": {
+				"@types/node": "^9.6.6",
+				"abstract-winston-transport": ">= 0.5.1",
+				"assume": "^2.0.1",
+				"colors": "^1.2.0",
+				"cross-spawn-async": "^2.0.0",
+				"eslint-config-populist": "^4.1.0",
+				"hock": "^1.3.2",
+				"mocha": "^3.2.0",
+				"nyc": "^11.2.1",
+				"rimraf": "^2.6.2",
+				"split2": "^2.1.1",
+				"std-mocks": "^1.0.0",
+				"through2": "^2.0.0",
+				"winston-compat": "^0.1.1"
+			},
+			"main": "./lib/winston",
+			"scripts": {
+				"lint": "populist lib/*.js lib/winston/*.js lib/winston/**/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc --reporter=text --reporter lcov npm run test:mocha",
+				"test:mocha": "mocha test/*.test.js test/**/*.test.js"
+			},
+			"engines": {
+				"node": ">= 6.4.0"
+			},
+			"license": "MIT",
+			"gitHead": "d0a70d3b2f4492d9375a1351a191480a364cc28c",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@3.0.1",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Qp0hlqi7rR59K8CyEu8+CLNM9vjJjfq8zf90RkS/osirjdMPeGlqYcZXcGNVvghFUr7ztW1U1FXAcolBNs6T4Q==",
+				"shasum": "ac2196df24bd5ffa7217ebf287eede455f0f2de5",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-3.0.1.tgz",
+				"fileCount": 33,
+				"unpackedSize": 166181,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbjpEcCRA9TVsSAnZWagAADr4P+QFinKE/pZLF9kSnVGQd\nmIE94hILgioDKYDLGZ0wChUjmvuPlXAp4oZe6nDx1AFwZnPayDcbtYYSldaW\njIo5M93Dr9N3HFgV53o9Z/4CkyAhUWfuBMEVKzN8vEOUseXs4O8YPvvVhQTx\nnITd6jZoECu+Li7WgPaULw1knIaUa1H0j3tyGe9apdw7g9Ud3uaFJlAc+5Uj\nowCHOyMaXKEwV3a6fw3/oClpZG/R8L23EgSiRV1hq0tBXMSP/eX7+VunpnV4\nlVGTOJUoYRmHQll3LmusqHkueh2fq12jiVAg2l1wMdYzC1/UXeomxCbIz6d/\nhgMe6KgYS/LbJut3iG3YuvMNyh9KXJ6O+4nloprx9hkuaGzb6DtV/uoC7n1w\nYczN9XU0vHdxQ2SVDkl+4xSBZEQ2jZkPC5bchcTbuEEGVCqV2E2BGVhFD/vG\n9UtvcUzeYTY3iE9UxwAsmgwUXvFhJU+PCG8+wsGHUjg9XBvp+QxRSh70YSnv\nI+FWdYS5MufarjapDqGLjue5PoRjMnBzVW89gfh9d9QzhwPJwBxENNoeqJMq\nmm07szGCliKLUGi5pryuRf2+MwccQEIITZqjS7ktmHlnhVsZ9w+M1UbowDbf\nFccMBtjuNdhzioEXLzPT1Zzo3vm2uZMOIP/rkGGm4c/iJ1hjus4Zeb5Fx8kT\nMVqZ\r\n=zJfA\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston_3.0.1_1536069915681_0.515383666810193"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.1.0": {
+			"name": "winston",
+			"description": "A logger for just about everything.",
+			"version": "3.1.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logger",
+				"logging",
+				"logs",
+				"sysadmin",
+				"bunyan",
+				"pino",
+				"loglevel",
+				"tools",
+				"json",
+				"stream"
+			],
+			"dependencies": {
+				"async": "^2.6.0",
+				"diagnostics": "^1.1.1",
+				"is-stream": "^1.1.0",
+				"logform": "^1.9.1",
+				"one-time": "0.0.4",
+				"readable-stream": "^2.3.6",
+				"stack-trace": "0.0.x",
+				"triple-beam": "^1.3.0",
+				"winston-transport": "^4.2.0"
+			},
+			"devDependencies": {
+				"@types/node": "^10.9.3",
+				"abstract-winston-transport": ">= 0.5.1",
+				"assume": "^2.1.0",
+				"colors": "^1.3.2",
+				"cross-spawn-async": "^2.0.0",
+				"eslint-config-populist": "^4.1.0",
+				"hock": "^1.3.3",
+				"mocha": "^5.2.0",
+				"nyc": "^13.0.1",
+				"rimraf": "^2.6.2",
+				"split2": "^3.0.0",
+				"std-mocks": "^1.0.0",
+				"through2": "^2.0.0",
+				"winston-compat": "^0.1.1"
+			},
+			"main": "./lib/winston",
+			"types": "./index.d.ts",
+			"scripts": {
+				"lint": "populist lib/*.js lib/winston/*.js lib/winston/**/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc --reporter=text --reporter lcov npm run test:mocha",
+				"test:mocha": "mocha test/*.test.js test/**/*.test.js --exit"
+			},
+			"engines": {
+				"node": ">= 6.4.0"
+			},
+			"license": "MIT",
+			"gitHead": "9eda806b3d0d95ce127cae12e9df45c2570bd253",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@3.1.0",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-FsQfEE+8YIEeuZEYhHDk5cILo1HOcWkGwvoidLrDgPog0r4bser1lEIOco2dN9zpDJ1M88hfDgZvxe5z4xNcwg==",
+				"shasum": "80724376aef164e024f316100d5b178d78ac5331",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-3.1.0.tgz",
+				"fileCount": 33,
+				"unpackedSize": 169945,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbjpHDCRA9TVsSAnZWagAA/y4P/iNRGRsyG/Lwu9AvVSF/\niunubPBHVd5lNph2Qu+caFQyJKcDdsEuIJJG6+ellpBBNhSxwa9KYbKdysha\nm9izU1dtyeDzbHiVHDvVTknO8f1anScHkW+u6zv05X4FYYfo6Vqls8fDwieD\nhTxPmmz1eIECNgfQsVh4XiDgU/dNNh2u96uYyfrNNhxAxEU94sJICAe+XCqX\niE7ARqIz5PAN5i0SBHPeSBZ1TuxzbroPVH+q8IpOwQ+G02BQTMzTP/CX9Axq\nG1+5P35zGbD+g9l/7C4+iMxbAB1zfz4EpAKuDYeySNM1Y91fleWglQooRfvh\nFZ3tofhNDB5fXjw9TRwB8t64GjJQ1ifihadMN5P+jwX8oZwdhd0mbn27u51m\nfO9RQ/iRzrXEgWGQOPtiwb2EH05s+G2iboiWS6YixDNgivo+Tr7tcjI2HO7w\nIFOJfIaCZdYBTfttF7HVEiwFHTiWX5etsMG2DhUsTDf+O4TcUlNBOg+/V3NM\nHU2NLjJkCHSh9/JSFNnnoXh4BVeAWoZr8MfKzwj9E+1gJMYA4ULbDm9vFCzW\n8vNmpgcxtYQQF62gmJXbdqdm1IHrhCjJu+W2qHJDhYCQUadnUJHm1ZH7pbSY\nUlbRq7oGGZYI5Jdoe0z73A5YDvO/vjCUqcQHH496hkXpkuKDnI2XFPEGThXs\np8kl\r\n=z1yK\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston_3.1.0_1536070082953_0.9601566695222759"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.2.0": {
+			"name": "winston",
+			"description": "A logger for just about everything.",
+			"version": "3.2.0",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logger",
+				"logging",
+				"logs",
+				"sysadmin",
+				"bunyan",
+				"pino",
+				"loglevel",
+				"tools",
+				"json",
+				"stream"
+			],
+			"dependencies": {
+				"async": "^2.6.1",
+				"diagnostics": "^1.1.1",
+				"is-stream": "^1.1.0",
+				"logform": "^2.1.0",
+				"one-time": "0.0.4",
+				"readable-stream": "^3.1.1",
+				"stack-trace": "0.0.x",
+				"triple-beam": "^1.3.0",
+				"winston-transport": "^4.3.0"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.3",
+				"@babel/core": "^7.2.2",
+				"@babel/preset-env": "^7.2.3",
+				"@types/node": "^10.12.18",
+				"abstract-winston-transport": ">= 0.5.1",
+				"assume": "^2.1.0",
+				"colors": "^1.3.3",
+				"cross-spawn-async": "^2.2.5",
+				"eslint-config-populist": "^4.1.0",
+				"hock": "^1.3.3",
+				"mocha": "^5.2.0",
+				"nyc": "^13.1.0",
+				"rimraf": "^2.6.3",
+				"split2": "^3.1.0",
+				"std-mocks": "^1.0.1",
+				"through2": "^3.0.0",
+				"winston-compat": "^0.1.4"
+			},
+			"main": "./lib/winston",
+			"browser": "./dist/winston",
+			"types": "./index.d.ts",
+			"scripts": {
+				"lint": "populist lib/*.js lib/winston/*.js lib/winston/**/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc --reporter=text --reporter lcov npm run test:mocha",
+				"test:mocha": "mocha test/*.test.js test/**/*.test.js --exit",
+				"build": "rimraf dist && babel lib -d dist",
+				"prepublishOnly": "npm run build"
+			},
+			"engines": {
+				"node": ">= 6.4.0"
+			},
+			"license": "MIT",
+			"gitHead": "fe76c66d5fdf4524b6e310b77e64e28dca8bf675",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@3.2.0",
+			"_nodeVersion": "10.15.0",
+			"_npmVersion": "6.7.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-r2e2ufodByh8U1infSXNLViN7ekqVRoSkcJgpS6AzAyKve0uiUkeQq0kxdSDr8bwaM1rGXprvvoC1B+ocy5L0w==",
+				"shasum": "f42735b194a425526025d3ae721246c796172f24",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-3.2.0.tgz",
+				"fileCount": 51,
+				"unpackedSize": 304548,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcTLmhCRA9TVsSAnZWagAAsL8QAJrJmOwspEPAtoncdKPB\njAEG9EMzpkKazl68/yLJib+zRz/JDqaH4qMWzCzbZbs3H0fcSki3rJR11hqs\nhqJ6Lj5ruUEsmYe3S4jzAS1Asdnst8HwRNDVgT3EeGXxuHy3HEBP0ju+CG/1\ncG9cicOmrzuRhd2xJ6kIQ7yPmXJ8tQ0s05n8AkonUBN3Ug2R6av1ER3TafB9\nbfGKmaQ/mBpz419z6n7MjIRLbOq05d2encdSEBLBEAn/p0bsYtiQ1ScHzskE\n1aU2rXxuIpPNdYKvZ2kQdFqSzJN1UGL2QhyJr5fYGl8R0ZB77AYR/9ZOewXo\nP8y8rwr44IR0A0jTqaMnlSGIMhDzjjeuNCwcG2d3D0jjkvzsbFvj1xyy4JhT\n041+DzV/RVPQvW1coUqnwRgAk/9aWcqdwivnwKAjYq7H9Vw6kQsnnQm66S8Y\nXdxGoDzAcq5Jz6/l9Mi/zD6YlLB2RjFWWSz9CkpbyP4Pv0eOCFYw1xyoFsVl\nzJh/tc6wkVPd+yxTbJrnyjeB9YCX4scqfyAE0LGBUyLFolvycl34CN0FJruE\n/Eg4ANLlKPcBlbUm8lizDn21z3aYLkR89FAWgQ7+eiNJ3FOlE0kcOByEzYWw\nCVRHExjk+D6U5GRO1z/MdtJzE+9wOfzKmaZ41sDYVGvR07JpxbztJCfADAHu\njq31\r\n=ATOG\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston_3.2.0_1548532128487_0.3182652549505156"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.2.1": {
+			"name": "winston",
+			"description": "A logger for just about everything.",
+			"version": "3.2.1",
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "3rdeden"
+				},
+				{
+					"email": "chjjeffrey@gmail.com",
+					"name": "chjj"
+				},
+				{
+					"email": "charlie.robbins@gmail.com",
+					"name": "indexzero"
+				},
+				{
+					"email": "jcrugzz@gmail.com",
+					"name": "jcrugzz"
+				},
+				{
+					"email": "albertopose@gmail.com",
+					"name": "pose"
+				},
+				{
+					"email": "npm@3rd-Eden.com",
+					"name": "v1"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston.git"
+			},
+			"keywords": [
+				"winston",
+				"logger",
+				"logging",
+				"logs",
+				"sysadmin",
+				"bunyan",
+				"pino",
+				"loglevel",
+				"tools",
+				"json",
+				"stream"
+			],
+			"dependencies": {
+				"async": "^2.6.1",
+				"diagnostics": "^1.1.1",
+				"is-stream": "^1.1.0",
+				"logform": "^2.1.1",
+				"one-time": "0.0.4",
+				"readable-stream": "^3.1.1",
+				"stack-trace": "0.0.x",
+				"triple-beam": "^1.3.0",
+				"winston-transport": "^4.3.0"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.3",
+				"@babel/core": "^7.2.2",
+				"@babel/preset-env": "^7.3.1",
+				"@types/node": "^10.12.19",
+				"abstract-winston-transport": ">= 0.5.1",
+				"assume": "^2.1.0",
+				"colors": "^1.3.3",
+				"cross-spawn-async": "^2.2.5",
+				"eslint-config-populist": "^4.2.0",
+				"hock": "^1.3.3",
+				"mocha": "^5.2.0",
+				"nyc": "^13.1.0",
+				"rimraf": "^2.6.3",
+				"split2": "^3.1.0",
+				"std-mocks": "^1.0.1",
+				"through2": "^3.0.0",
+				"winston-compat": "^0.1.4"
+			},
+			"main": "./lib/winston",
+			"browser": "./dist/winston",
+			"types": "./index.d.ts",
+			"scripts": {
+				"lint": "populist lib/*.js lib/winston/*.js lib/winston/**/*.js",
+				"pretest": "npm run lint",
+				"test": "nyc --reporter=text --reporter lcov npm run test:mocha",
+				"test:mocha": "mocha test/*.test.js test/**/*.test.js --exit",
+				"build": "rimraf dist && babel lib -d dist",
+				"prepublishOnly": "npm run build"
+			},
+			"engines": {
+				"node": ">= 6.4.0"
+			},
+			"license": "MIT",
+			"gitHead": "49ccdb6604ecce590eda2915b130970ee0f1b6a3",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston#readme",
+			"_id": "winston@3.2.1",
+			"_nodeVersion": "10.15.0",
+			"_npmVersion": "6.7.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-zU6vgnS9dAWCEKg/QYigd6cgMVVNwyTzKs81XZtTFuRwJOcDdBg7AU0mXVyNbs7O5RH2zdv+BdNZUlx7mXPuOw==",
+				"shasum": "63061377976c73584028be2490a1846055f77f07",
+				"tarball": "https://registry.npmjs.org/winston/-/winston-3.2.1.tgz",
+				"fileCount": 51,
+				"unpackedSize": 305100,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcUKOsCRA9TVsSAnZWagAAkJEP/ideEmSeWCrhHt690NJV\nY4nM4M75zS78j9gGKfzqB/Wet390K3OGc7UZyCjb/GpwmCnFWlQ75LnDKfQv\nrlAvU9OXJo1Zd/7gAkE+2Uhlzeg3KkkcpG97tblcPXcWgJIil6NkViFlg0LP\n+Xpbj0LIjwBOyoi927TyED0r9x7wbPnnoTiCxdkYQNi1q40D+1xW2rVYg2oO\neHF3FxGMlzKjh6aRIDhS4oK3gX8QE9HNyQsR74P1oy501S6YGruIbq4SvZHS\ns6KRhyviuM7JfQCjpfa9mXYH75sZYrzNyEDYgi3tgQx+SKwH50MaySfbHnoH\nme0HYREwey5TMDmCYeY3XehSQqygGbGjT1pIjruLbFdyouDqJXI7IJeztnEg\ncs0d/OihRXli+K2/RGKkaIiKWAxoG8cml9z8wlJgTmYb6SqZa5KmvF2Wvpzz\n1x/mg674P/8WZ1ZYAA5RTwhYuBTzlMx2qrOsvjBjO5Q7PSzAV7pMIoyFefdE\nVLR5G/3u28HESTEyfiEhEcgQ75qJNjdmpDiuz6DPE99pyMY4/rVQTUhJJRXo\nerUHugmEh0lC1d0tueEW26ONXPwlromsJZOvyi8E7oofGkXddF9qZ6JaBejf\nEef820R0yMfkIPYx9cQkRmjOZ3xS/uWksOtFJgpxJmE8RQI1cwhgpjDC83Fs\n7vOB\r\n=sRVW\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston_3.2.1_1548788651547_0.18299038067022044"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-06-27T07:19:57.447Z",
+		"created": "2011-01-18T20:45:37.131Z",
+		"0.1.0": "2011-01-18T20:45:38.390Z",
+		"0.1.1": "2011-01-21T23:13:54.329Z",
+		"0.1.2": "2011-01-23T08:06:43.393Z",
+		"0.1.3": "2011-01-25T03:38:16.585Z",
+		"0.1.4": "2011-01-29T18:39:11.805Z",
+		"0.2.0": "2011-02-02T20:27:37.640Z",
+		"0.2.1": "2011-02-07T06:01:46.325Z",
+		"0.2.2": "2011-02-16T09:42:58.012Z",
+		"0.2.3": "2011-02-18T00:56:53.038Z",
+		"0.2.4": "2011-03-04T04:57:49.832Z",
+		"0.2.5": "2011-03-05T20:47:10.687Z",
+		"0.2.6": "2011-03-27T21:27:26.947Z",
+		"0.2.7": "2011-04-10T01:08:45.046Z",
+		"0.2.8": "2011-05-20T01:46:40.672Z",
+		"0.2.9": "2011-05-20T02:32:21.372Z",
+		"0.2.10": "2011-05-29T03:58:23.814Z",
+		"0.2.11": "2011-05-30T02:03:04.360Z",
+		"0.3.0": "2011-06-07T09:31:50.865Z",
+		"0.3.1": "2011-06-08T07:31:24.555Z",
+		"0.3.2": "2011-06-24T03:22:24.882Z",
+		"0.3.3": "2011-07-24T05:51:41.205Z",
+		"0.3.4": "2011-08-04T06:17:10.075Z",
+		"0.3.5": "2011-08-09T14:59:56.544Z",
+		"0.4.0": "2011-08-22T10:33:34.512Z",
+		"0.4.1": "2011-09-11T05:00:42.302Z",
+		"0.5.0": "2011-09-12T17:31:47.276Z",
+		"0.5.1": "2011-09-13T09:35:25.860Z",
+		"0.5.2": "2011-09-15T05:14:00.793Z",
+		"0.5.3": "2011-09-23T19:27:10.866Z",
+		"0.5.4": "2011-10-07T23:53:50.549Z",
+		"0.5.5": "2011-10-09T19:29:17.799Z",
+		"0.5.6": "2011-10-22T06:12:53.069Z",
+		"0.5.7": "2011-11-20T20:53:45.416Z",
+		"0.5.8": "2011-11-30T07:02:21.061Z",
+		"0.5.9": "2011-12-02T09:44:54.777Z",
+		"0.5.10": "2012-02-22T05:21:53.531Z",
+		"0.5.11": "2012-03-23T23:59:42.494Z",
+		"0.6.1": "2012-05-31T19:27:44.116Z",
+		"0.6.2": "2012-07-08T07:02:22.663Z",
+		"0.7.0": "2013-04-21T05:57:56.796Z",
+		"0.7.1": "2013-04-21T10:39:21.275Z",
+		"0.7.2": "2013-06-14T15:12:35.844Z",
+		"0.7.3": "2014-03-25T05:31:53.165Z",
+		"0.8.0": "2014-09-15T19:43:37.312Z",
+		"0.8.1": "2014-10-06T20:37:40.790Z",
+		"0.8.2": "2014-11-04T22:05:29.713Z",
+		"0.8.3": "2014-11-04T23:45:58.648Z",
+		"0.9.0": "2015-02-03T18:53:28.304Z",
+		"1.0.0": "2015-04-07T23:02:53.645Z",
+		"1.0.1": "2015-06-27T01:50:07.404Z",
+		"1.0.2": "2015-09-25T22:01:50.066Z",
+		"1.1.0": "2015-10-09T15:08:35.400Z",
+		"1.1.1": "2015-10-18T17:26:00.110Z",
+		"1.1.2": "2015-10-29T09:00:24.773Z",
+		"2.0.0": "2015-10-30T01:30:42.064Z",
+		"2.0.1": "2015-11-03T07:36:35.149Z",
+		"2.1.0": "2015-11-04T06:01:39.648Z",
+		"2.1.1": "2015-11-18T21:52:04.196Z",
+		"2.2.0": "2016-02-25T22:23:20.901Z",
+		"2.3.0": "2016-11-02T04:27:16.329Z",
+		"2.3.1": "2017-01-20T18:38:19.965Z",
+		"2.4.0": "2017-10-02T04:59:14.456Z",
+		"3.0.0-rc0": "2017-10-02T05:17:16.169Z",
+		"3.0.0-rc1": "2017-10-19T20:17:19.718Z",
+		"2.4.1": "2018-03-09T19:07:17.315Z",
+		"3.0.0-rc2": "2018-03-09T19:18:05.047Z",
+		"3.0.0-rc3": "2018-03-16T17:59:40.002Z",
+		"3.0.0-rc4": "2018-04-06T17:16:53.520Z",
+		"2.4.2": "2018-04-20T16:55:06.628Z",
+		"3.0.0-rc5": "2018-04-20T19:44:18.499Z",
+		"3.0.0-rc6": "2018-05-30T06:01:07.464Z",
+		"2.4.3": "2018-06-12T09:53:04.261Z",
+		"3.0.0": "2018-06-12T16:31:26.893Z",
+		"2.4.4": "2018-08-21T21:22:07.552Z",
+		"3.0.1": "2018-09-04T14:05:15.969Z",
+		"3.1.0": "2018-09-04T14:08:03.077Z",
+		"3.2.0": "2019-01-26T19:48:48.618Z",
+		"3.2.1": "2019-01-29T19:04:11.622Z"
+	},
+	"dist-tags": {
+		"latest": "3.2.1",
+		"next": "3.1.0",
+		"3.x-latest": "3.1.0",
+		"2.x-latest": "2.4.4"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"7a1b1dda6b43f23234d3e6a6afe909f5\"",
+			"fetched": 1568994334381
+		}
+	},
+	"_distfiles": {
+		"winston-0.2.11.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.2.11.tgz",
+			"sha": "596c131ac552a2194b37ba622ded9f887131599c",
+			"registry": "npmjs"
+		},
+		"winston-0.3.3.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.3.3.tgz",
+			"sha": "e4b38e7117e5cc91dc632a2338efbbbdcdf72034",
+			"registry": "npmjs"
+		},
+		"winston-0.3.4.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.3.4.tgz",
+			"sha": "bade1b45c944731970d8df9fb1d1927b0fbcf697",
+			"registry": "npmjs"
+		},
+		"winston-0.3.5.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.3.5.tgz",
+			"sha": "04d3fc80b7049872c065ee8a912c0fd3f5199668",
+			"registry": "npmjs"
+		},
+		"winston-0.4.0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.4.0.tgz",
+			"sha": "c66bffffbb94b0c5d5173871fc26aa485be01a28",
+			"registry": "npmjs"
+		},
+		"winston-0.4.1.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.4.1.tgz",
+			"sha": "ed47572fc787a266d4c65fcf14151e0298907b95",
+			"registry": "npmjs"
+		},
+		"winston-0.5.0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.5.0.tgz",
+			"sha": "38269506eaf446ecb8808295ea1d3da05010ab82",
+			"registry": "npmjs"
+		},
+		"winston-0.5.1.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.5.1.tgz",
+			"sha": "2b2f40cdbf469b60f1885cc549757c4b9973e5ea",
+			"registry": "npmjs"
+		},
+		"winston-0.5.2.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.5.2.tgz",
+			"sha": "5adcbf0a8a872e3b3584a11b1173765329b00765",
+			"registry": "npmjs"
+		},
+		"winston-0.5.3.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.5.3.tgz",
+			"sha": "2b40e4eaacfe76b27e0c0436e626aa820da5990e",
+			"registry": "npmjs"
+		},
+		"winston-0.5.4.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.5.4.tgz",
+			"sha": "e6d5fbfe6549a8a3e39900ad68967bc74c1c1586",
+			"registry": "npmjs"
+		},
+		"winston-0.5.5.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.5.5.tgz",
+			"sha": "f4f859ea6d7cb38cb2f4496b4fa5ea12050e5c92",
+			"registry": "npmjs"
+		},
+		"winston-0.5.6.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.5.6.tgz",
+			"sha": "0f4bae04ebe00c8bfd0a351797c3d2ce0416d033",
+			"registry": "npmjs"
+		},
+		"winston-0.5.7.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.5.7.tgz",
+			"sha": "50597e0e6860eef9f9716a709b2857aab817e51c",
+			"registry": "npmjs"
+		},
+		"winston-0.5.8.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.5.8.tgz",
+			"sha": "8a2f068613f25975d810d7f5dd45df141d67edb9",
+			"registry": "npmjs"
+		},
+		"winston-0.5.9.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.5.9.tgz",
+			"sha": "3160f86b2298781599ef061bac742752e7cc3c3a",
+			"registry": "npmjs"
+		},
+		"winston-0.5.10.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.5.10.tgz",
+			"sha": "34167c79a07d2757f11407f766150acf97de9b70",
+			"registry": "npmjs"
+		},
+		"winston-0.5.11.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.5.11.tgz",
+			"sha": "9d84ead981a497a92ddf76616137abef661c414f",
+			"registry": "npmjs"
+		},
+		"winston-0.6.1.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.6.1.tgz",
+			"sha": "22bfc4c995e307bf61603c0df5f3abbb319f7495",
+			"registry": "npmjs"
+		},
+		"winston-0.6.2.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.6.2.tgz",
+			"sha": "4144fe2586cdc19a612bf8c035590132c9064bd2",
+			"registry": "npmjs"
+		},
+		"winston-0.7.0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.7.0.tgz",
+			"sha": "6dc5c097897df706ea4eb555adcfd08c050b15e6",
+			"registry": "npmjs"
+		},
+		"winston-0.7.1.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.7.1.tgz",
+			"sha": "e291ab24eddbf79ea40ff532619277a0d30b0eb3",
+			"registry": "npmjs"
+		},
+		"winston-0.7.2.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.7.2.tgz",
+			"sha": "2570ae1aa1d8a9401e8d5a88362e1cf936550ceb",
+			"registry": "npmjs"
+		},
+		"winston-0.7.3.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.7.3.tgz",
+			"sha": "7ae313ba73fcdc2ecb4aa2f9cd446e8298677266",
+			"registry": "npmjs"
+		},
+		"winston-0.8.0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.8.0.tgz",
+			"sha": "61d0830fa699706212206b0a2b5ca69a93043668",
+			"registry": "npmjs"
+		},
+		"winston-0.8.1.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.8.1.tgz",
+			"sha": "86bc9ec6c02aefe5c6dfdb88f3aff1b19d629216",
+			"registry": "npmjs"
+		},
+		"winston-0.8.2.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.8.2.tgz",
+			"sha": "1af036705152aa7ea62b60c11df4d21614e845b8",
+			"registry": "npmjs"
+		},
+		"winston-0.8.3.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.8.3.tgz",
+			"sha": "64b6abf4cd01adcaefd5009393b1d8e8bec19db0",
+			"registry": "npmjs"
+		},
+		"winston-0.9.0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-0.9.0.tgz",
+			"sha": "b5726e6c42291e305e36286ce7ae9f3b74a527a8",
+			"registry": "npmjs"
+		},
+		"winston-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-1.0.0.tgz",
+			"sha": "30e36e0041fc0a864b0029565719e4dc41d026a4",
+			"registry": "npmjs"
+		},
+		"winston-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-1.0.1.tgz",
+			"sha": "4c6f5a1167ebc516ac29b76e4eadb873c15289a4",
+			"registry": "npmjs"
+		},
+		"winston-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-1.0.2.tgz",
+			"sha": "351c58e2323f8a4ca29a45195aa9aa3b4c35d76f",
+			"registry": "npmjs"
+		},
+		"winston-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-1.1.0.tgz",
+			"sha": "8e86ff561ccea5007711712159c21ed057209011",
+			"registry": "npmjs"
+		},
+		"winston-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-1.1.1.tgz",
+			"sha": "9f1887afb92cc0f23459d20de2a185b5ae11a9b0",
+			"registry": "npmjs"
+		},
+		"winston-1.1.2.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-1.1.2.tgz",
+			"sha": "68edd769ff79d4f9528cf0e5d80021aade67480c",
+			"registry": "npmjs"
+		},
+		"winston-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-2.0.0.tgz",
+			"sha": "d3ad5dc2db5ce716ff1825b9283cbfbb6f481aee",
+			"registry": "npmjs"
+		},
+		"winston-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-2.0.1.tgz",
+			"sha": "999d682648f0b24ae4a3096d774409c5bb86d87c",
+			"registry": "npmjs"
+		},
+		"winston-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-2.1.0.tgz",
+			"sha": "34688215cc8dbb784838b9aa626e73aee44fe4b6",
+			"registry": "npmjs"
+		},
+		"winston-2.1.1.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-2.1.1.tgz",
+			"sha": "3c9349d196207fd1bdff9d4bc43ef72510e3a12e",
+			"registry": "npmjs"
+		},
+		"winston-2.2.0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-2.2.0.tgz",
+			"sha": "2c853dd87ab552a8e8485d72cbbf9a2286f029b7",
+			"registry": "npmjs"
+		},
+		"winston-2.3.0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-2.3.0.tgz",
+			"sha": "207faaab6fccf3fe493743dd2b03dbafc7ceb78c",
+			"registry": "npmjs"
+		},
+		"winston-2.3.1.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-2.3.1.tgz",
+			"sha": "0b48420d978c01804cf0230b648861598225a119",
+			"registry": "npmjs"
+		},
+		"winston-2.4.0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-2.4.0.tgz",
+			"sha": "808050b93d52661ed9fb6c26b3f0c826708b0aee",
+			"registry": "npmjs"
+		},
+		"winston-3.0.0-rc0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-3.0.0-rc0.tgz",
+			"sha": "08ee0b1304cd671f1708ea360ffeeb4135d6dcf3",
+			"registry": "npmjs"
+		},
+		"winston-3.0.0-rc1.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-3.0.0-rc1.tgz",
+			"sha": "982bc0ad4ef5c53000ca68036d78a3deaa28cac5",
+			"registry": "npmjs"
+		},
+		"winston-2.4.1.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-2.4.1.tgz",
+			"sha": "a3a9265105564263c6785b4583b8c8aca26fded6",
+			"registry": "npmjs"
+		},
+		"winston-3.0.0-rc2.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-3.0.0-rc2.tgz",
+			"sha": "c30d043b20822c5f6da4797242108b1c5860a3a2",
+			"registry": "npmjs"
+		},
+		"winston-3.0.0-rc3.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-3.0.0-rc3.tgz",
+			"sha": "dd31ebbd76e35968dcf5f130e57473329534904e",
+			"registry": "npmjs"
+		},
+		"winston-3.0.0-rc4.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-3.0.0-rc4.tgz",
+			"sha": "2e34e05b1130bae677c79b3ace993d091e678c5f",
+			"registry": "npmjs"
+		},
+		"winston-2.4.2.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-2.4.2.tgz",
+			"sha": "3ca01f763116fc48db61053b7544e750431f8db0",
+			"registry": "npmjs"
+		},
+		"winston-3.0.0-rc5.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-3.0.0-rc5.tgz",
+			"sha": "bc383d32b0e774d387a66e77290fe78766468f34",
+			"registry": "npmjs"
+		},
+		"winston-3.0.0-rc6.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-3.0.0-rc6.tgz",
+			"sha": "f6a0417be6cc2fe5c9a64fbb698e8da674cdf26a",
+			"registry": "npmjs"
+		},
+		"winston-2.4.3.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-2.4.3.tgz",
+			"sha": "7a9fdab371b6d3d9b63a592947846d856948c517",
+			"registry": "npmjs"
+		},
+		"winston-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-3.0.0.tgz",
+			"sha": "1f0b24a96586798bcf0cd149fb07ed47cb01a1b2",
+			"registry": "npmjs"
+		},
+		"winston-2.4.4.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-2.4.4.tgz",
+			"sha": "a01e4d1d0a103cf4eada6fc1f886b3110d71c34b",
+			"registry": "npmjs"
+		},
+		"winston-3.0.1.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-3.0.1.tgz",
+			"sha": "ac2196df24bd5ffa7217ebf287eede455f0f2de5",
+			"registry": "npmjs"
+		},
+		"winston-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-3.1.0.tgz",
+			"sha": "80724376aef164e024f316100d5b178d78ac5331",
+			"registry": "npmjs"
+		},
+		"winston-3.2.0.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-3.2.0.tgz",
+			"sha": "f42735b194a425526025d3ae721246c796172f24",
+			"registry": "npmjs"
+		},
+		"winston-3.2.1.tgz": {
+			"url": "https://registry.npmjs.org/winston/-/winston-3.2.1.tgz",
+			"sha": "63061377976c73584028be2490a1846055f77f07",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-6d79f9a815c96ada",
+	"_id": "winston",
+	"readme": "# winston\n\nA logger for just about everything.\n\n[![Version npm](https://img.shields.io/npm/v/winston.svg?style=flat-square)](https://www.npmjs.com/package/winston)[![npm Downloads](https://img.shields.io/npm/dm/winston.svg?style=flat-square)](https://npmcharts.com/compare/winston?minimal=true)[![Build Status](https://img.shields.io/travis/winstonjs/winston/master.svg?style=flat-square)](https://travis-ci.org/winstonjs/winston)[![Dependencies](https://img.shields.io/david/winstonjs/winston.svg?style=flat-square)](https://david-dm.org/winstonjs/winston)\n\n[![NPM](https://nodei.co/npm/winston.png?downloads=true&downloadRank=true)](https://nodei.co/npm/winston/)\n\n[![Join the chat at https://gitter.im/winstonjs/winston](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/winstonjs/winston?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\n\n## winston@3.2.0\n\nSee the [Upgrade Guide](UPGRADE-3.0.md) for more information. Bug reports and\nPRs welcome!\n\n## Looking for `winston@2.x` documentation?\n\nPlease note that the documentation below is for `winston@3`. \n[Read the `winston@2.x` documentation].\n\n## Motivation\n\n`winston` is designed to be a simple and universal logging library with\nsupport for multiple transports. A transport is essentially a storage device\nfor your logs. Each `winston` logger can have multiple transports (see:\n[Transports]) configured at different levels (see: [Logging levels]). For\nexample, one may want error logs to be stored in a persistent remote location\n(like a database), but all logs output to the console or a local file.\n\n`winston` aims to decouple parts of the logging process to make it more\nflexible and extensible. Attention is given to supporting flexibility in log\nformatting (see: [Formats]) & levels (see: [Using custom logging levels]), and\nensuring those APIs decoupled from the implementation of transport logging\n(i.e. how the logs are stored / indexed, see: [Adding Custom Transports]) to\nthe API that they exposed to the programmer.\n\n## Quick Start\n\nTL;DR? Check out the [quick start example][quick-example] in `./examples/`. \nThere are a number of other examples in [`./examples/*.js`][examples].\nDon't see an example you think should be there? Submit a pull request\nto add it!\n\n## Usage\n\nThe recommended way to use `winston` is to create your own logger. The\nsimplest way to do this is using `winston.createLogger`:\n\n``` js\nconst logger = winston.createLogger({\n  level: 'info',\n  format: winston.format.json(),\n  defaultMeta: { service: 'user-service' },\n  transports: [\n    //\n    // - Write to all logs with level `info` and below to `combined.log` \n    // - Write all logs error (and below) to `error.log`.\n    //\n    new winston.transports.File({ filename: 'error.log', level: 'error' }),\n    new winston.transports.File({ filename: 'combined.log' })\n  ]\n});\n\n//\n// If we're not in production then log to the `console` with the format:\n// `${info.level}: ${info.message} JSON.stringify({ ...rest }) `\n// \nif (process.env.NODE_ENV !== 'production') {\n  logger.add(new winston.transports.Console({\n    format: winston.format.simple()\n  }));\n}\n```\n\nYou may also log directly via the default logger exposed by\n`require('winston')`, but this merely intended to be a convenient shared\nlogger to use throughout your application if you so choose.\n\n## Table of contents\n\n* [Motivation](#motivation)\n* [Quick Start](#quick-start)\n* [Usage](#usage)\n* [Table of Contents](#table-of-contents)\n* [Logging](#logging)\n  * [Creating your logger](#creating-your-own-logger)\n  * [Streams, `objectMode`, and `info` objects](#streams-objectmode-and-info-objects)\n* [Formats]\n  * [Combining formats](#combining-formats)\n  * [String interpolation](#string-interpolation)\n  * [Filtering `info` Objects](#filtering-info-objects)\n  * [Creating custom formats](#creating-custom-formats)\n* [Logging levels]\n  * [Using logging levels](#using-logging-levels)\n  * [Using custom logging levels](#using-custom-logging-levels)\n* [Transports]\n  * [Multiple transports of the same type](#multiple-transports-of-the-same-type)\n  * [Adding Custom Transports](#adding-custom-transports)\n* [Exceptions](#exceptions)\n  * [Handling Uncaught Exceptions with winston](#handling-uncaught-exceptions-with-winston)\n  * [To Exit or Not to Exit](#to-exit-or-not-to-exit)\n* [Profiling](#profiling)\n* [Streaming Logs](#streaming-logs)\n* [Querying Logs](#querying-logs)\n* [Further Reading](#further-reading)\n  * [Using the default logger](#using-the-default-logger)\n  * [Awaiting logs to be written in `winston`](#awaiting-logs-to-be-written-in-winston)\n  * [Working with multiple Loggers in `winston`](#working-with-multiple-loggers-in-winston)\n* [Installation](#installation)\n* [Run Tests](#run-tests)\n\n## Logging\n\nLogging levels in `winston` conform to the severity ordering specified by\n[RFC5424]: _severity of all levels is assumed to be numerically **ascending**\nfrom most important to least important._\n\n``` js\nconst levels = { \n  error: 0, \n  warn: 1, \n  info: 2, \n  verbose: 3, \n  debug: 4, \n  silly: 5 \n};\n```\n\n### Creating your own Logger\nYou get started by creating a logger using `winston.createLogger`:\n\n``` js\nconst logger = winston.createLogger({\n  transports: [\n    new winston.transports.Console(),\n    new winston.transports.File({ filename: 'combined.log' })\n  ]\n});\n```\n\nA logger accepts the following parameters:\n\n| Name          | Default                     |  Description    |\n| ------------- | --------------------------- | --------------- |\n| `level`       | `'info'`                    | Log only if [`info.level`](#streams-objectmode-and-info-objects) less than or equal to this level  |  \n| `levels`      | `winston.config.npm.levels` | Levels (and colors) representing log priorities            |\n| `format`      | `winston.format.json`       | Formatting for `info` messages  (see: [Formats])           |\n| `transports`  | `[]` _(No transports)_      | Set of logging targets for `info` messages                 |\n| `exitOnError` | `true`                      | If false, handled exceptions will not cause `process.exit` |\n| `silent`      | `false`                     | If true, all logs are suppressed |\n\nThe levels provided to `createLogger` will be defined as convenience methods\non the `logger` returned. \n\n``` js\n//\n// Logging\n//\nlogger.log({\n  level: 'info',\n  message: 'Hello distributed log files!'\n});\n\nlogger.info('Hello again distributed logs');\n```\n\nYou can add or remove transports from the `logger` once it has been provided \nto you from `winston.createLogger`:\n\n``` js\nconst files = new winston.transports.File({ filename: 'combined.log' });\nconst console = new winston.transports.Console();\n\nlogger\n  .clear()          // Remove all transports\n  .add(console)     // Add console transport\n  .add(files)       // Add file transport\n  .remove(console); // Remove console transport\n```\n\nYou can also wholesale reconfigure a `winston.Logger` instance using the\n`configure` method:\n\n``` js\nconst logger = winston.createLogger({\n  level: 'info',\n  transports: [\n    new winston.transports.Console(),\n    new winston.transports.File({ filename: 'combined.log' })\n  ]\n});\n\n//\n// Replaces the previous transports with those in the\n// new configuration wholesale.\n//\nconst DailyRotateFile = require('winston-daily-rotate-file');\nlogger.configure({\n  level: 'verbose',\n  transports: [\n    new DailyRotateFile(opts)\n  ]\n});\n```\n\n### Creating child loggers\n\nYou can create child loggers from existing loggers to pass metadata overrides:\n\n``` js\nconst logger = winston.createLogger({\n  transports: [\n    new winston.transports.Console(),\n  ]\n});\n\nconst childLogger = logger.child({ requestId: '451' });\n```\n\n### Streams, `objectMode`, and `info` objects\n\nIn `winston`, both `Logger` and `Transport` instances are treated as\n[`objectMode`](https://nodejs.org/api/stream.html#stream_object_mode)\nstreams that accept an `info` object. \n\nThe `info` parameter provided to a given format represents a single log\nmessage. The object itself is mutable. Every `info` must have at least the\n`level` and `message` properties:\n\n``` js\nconst info = {\n  level: 'info',                 // Level of the logging message  \n  message: 'Hey! Log something?' // Descriptive message being logged.\n};\n```\n\nProperties **besides level and message** are considered as \"`meta`\". i.e.:\n\n``` js\nconst { level, message, ...meta } = info;\n```\n\nSeveral of the formats in `logform` itself add additional properties:\n\n| Property    | Format added by | Description |\n| ----------- | --------------- | ----------- | \n| `splat`     | `splat()`       | String interpolation splat for `%d %s`-style messages. |\n| `timestamp` | `timestamp()`   |  timestamp the message was received. |\n| `label`     | `label()`       | Custom label associated with each message. | \n| `ms`        | `ms()`          | Number of milliseconds since the previous log message. |\n\nAs a consumer you may add whatever properties you wish – _internal state is\nmaintained by `Symbol` properties:_\n\n- `Symbol.for('level')` _**(READ-ONLY)**:_ equal to `level` property.\n  **Is treated as immutable by all code.**\n- `Symbol.for('message'):` complete string message set by \"finalizing formats\":\n  - `json`\n  - `logstash`\n  - `printf`\n  - `prettyPrint`\n  - `simple`\n- `Symbol.for('splat')`: additional string interpolation arguments. _Used\n  exclusively by `splat()` format._\n\nThese Symbols are stored in another package: `triple-beam` so that all\nconsumers of `logform` can have the same Symbol reference. i.e.:\n\n``` js\nconst { LEVEL, MESSAGE, SPLAT } = require('triple-beam');\n\nconsole.log(LEVEL === Symbol.for('level'));\n// true\n\nconsole.log(MESSAGE === Symbol.for('message'));\n// true\n\nconsole.log(SPLAT === Symbol.for('splat'));\n// true\n```\n\n> **NOTE:** any `{ message }` property in a `meta` object provided will\n> automatically be concatenated to any `msg` already provided: For \n> example the below will concatenate 'world' onto 'hello':\n>\n> ``` js\n> logger.log('error', 'hello', { message: 'world' });\n> logger.info('hello', { message: 'world' });\n> ```\n\n## Formats\n\nFormats in `winston` can be accessed from `winston.format`. They are\nimplemented in [`logform`](https://github.com/winstonjs/logform), a separate\nmodule from `winston`. This allows flexibility when writing your own transports\nin case you wish to include a default format with your transport.\n\nIn modern versions of `node` template strings are very performant and are the\nrecommended way for doing most end-user formatting. If you want to bespoke\nformat your logs, `winston.format.printf` is for you:\n\n``` js\nconst { createLogger, format, transports } = require('winston');\nconst { combine, timestamp, label, printf } = format;\n\nconst myFormat = printf(({ level, message, label, timestamp }) => {\n  return `${timestamp} [${label}] ${level}: ${message}`;\n});\n\nconst logger = createLogger({\n  format: combine(\n    label({ label: 'right meow!' }),\n    timestamp(),\n    myFormat\n  ),\n  transports: [new transports.Console()]\n});\n```\n\nTo see what built-in formats are available and learn more about creating your\nown custom logging formats, see [`logform`][logform].\n\n### Combining formats\n\nAny number of formats may be combined into a single format using\n`format.combine`. Since `format.combine` takes no `opts`, as a convenience it\nreturns pre-created instance of the combined format.\n\n``` js\nconst { createLogger, format, transports } = require('winston');\nconst { combine, timestamp, label, prettyPrint } = format;\n\nconst logger = createLogger({\n  format: combine(\n    label({ label: 'right meow!' }),\n    timestamp(),\n    prettyPrint()\n  ),\n  transports: [new transports.Console()]\n})\n\nlogger.log({\n  level: 'info',\n  message: 'What time is the testing at?'\n});\n// Outputs:\n// { level: 'info',\n//   message: 'What time is the testing at?',\n//   label: 'right meow!',\n//   timestamp: '2017-09-30T03:57:26.875Z' }\n```\n\n### String interpolation\n\nThe `log` method provides the string interpolation using [util.format]. **It\nmust be enabled using `format.splat()`.**\n\nBelow is an example that defines a format with string interpolation of\nmessages using `format.splat` and then serializes the entire `info` message\nusing `format.simple`.\n\n``` js\nconst { createLogger, format, transports } = require('winston');\nconst logger = createLogger({\n  format: format.combine(\n    format.splat(),\n    format.simple()\n  ),\n  transports: [new transports.Console()]\n});\n\n// info: test message my string {}\nlogger.log('info', 'test message %s', 'my string');\n\n// info: test message 123 {}\nlogger.log('info', 'test message %d', 123);\n\n// info: test message first second {number: 123}\nlogger.log('info', 'test message %s, %s', 'first', 'second', { number: 123 });\n```\n\n### Filtering `info` Objects\n\nIf you wish to filter out a given `info` Object completely when logging then \nsimply return a falsey value.\n\n``` js\nconst { createLogger, format, transports } = require('winston');\n\n// Ignore log messages if they have { private: true }\nconst ignorePrivate = format((info, opts) => {\n  if (info.private) { return false; }\n  return info;\n});\n\nconst logger = createLogger({\n  format: format.combine(\n    ignorePrivate(),\n    format.json()\n  ),\n  transports: [new transports.Console()]\n});\n\n// Outputs: {\"level\":\"error\",\"message\":\"Public error to share\"}\nlogger.log({\n  level: 'error',\n  message: 'Public error to share'\n});\n\n// Messages with { private: true } will not be written when logged.\nlogger.log({\n  private: true,\n  level: 'error',\n  message: 'This is super secret - hide it.'\n});\n```\n\nUse of `format.combine` will respect any falsey values return and stop\nevaluation of later formats in the series. For example:\n\n``` js\nconst { format } = require('winston');\nconst { combine, timestamp, label } = format;\n\nconst willNeverThrow = format.combine(\n  format(info => { return false })(), // Ignores everything\n  format(info => { throw new Error('Never reached') })()\n);\n```\n\n### Creating custom formats\n\nFormats are prototypal objects (i.e. class instances) that define a single \nmethod: `transform(info, opts)` and return the mutated `info`:\n\n- `info`: an object representing the log message.\n- `opts`: setting specific to the current instance of the format.\n\nThey are expected to return one of two things:\n\n- **An `info` Object** representing the modified `info` argument. Object \nreferences need not be preserved if immutability is preferred. All current \nbuilt-in formats consider `info` mutable, but [immutablejs] is being \nconsidered for future releases.\n- **A falsey value** indicating that the `info` argument should be ignored by the \ncaller. (See: [Filtering `info` Objects](#filtering-info-objects)) below.\n\n`winston.format` is designed to be as simple as possible. To define a new\nformat simple pass it a `transform(info, opts)` function to get a new\n`Format`.\n\nThe named `Format` returned can be used to create as many copies of the given\n`Format` as desired:\n\n``` js\nconst { format } = require('winston');\n\nconst volume = format((info, opts) => {\n  if (opts.yell) {\n    info.message = info.message.toUpperCase();\n  } else if (opts.whisper) {\n    info.message = info.message.toLowerCase();\n  }\n\n  return info;\n});\n\n// `volume` is now a function that returns instances of the format.\nconst scream = volume({ yell: true });\nconsole.dir(scream.transform({\n  level: 'info',\n  message: `sorry for making you YELL in your head!`\n}, scream.options));\n// {\n//   level: 'info'\n//   message: 'SORRY FOR MAKING YOU YELL IN YOUR HEAD!'\n// }\n\n// `volume` can be used multiple times to create different formats.\nconst whisper = volume({ whisper: true });\nconsole.dir(whisper.transform({\n  level: 'info',\n  message: `WHY ARE THEY MAKING US YELL SO MUCH!`\n}, whisper.options));\n// {\n//   level: 'info'\n//   message: 'why are they making us yell so much!'\n// }\n```\n\n## Logging Levels\n\nLogging levels in `winston` conform to the severity ordering specified by\n[RFC5424]: _severity of all levels is assumed to be numerically **ascending**\nfrom most important to least important._\n\nEach `level` is given a specific integer priority. The higher the priority the\nmore important the message is considered to be, and the lower the\ncorresponding integer priority.  For example, as specified exactly in RFC5424\nthe `syslog` levels are prioritized from 0 to 7 (highest to lowest).\n\n```js\n{ \n  emerg: 0, \n  alert: 1, \n  crit: 2, \n  error: 3, \n  warning: 4, \n  notice: 5, \n  info: 6, \n  debug: 7\n}\n```\n\nSimilarly, `npm` logging levels are prioritized from 0 to 5 (highest to\nlowest):\n\n``` js\n{ \n  error: 0, \n  warn: 1, \n  info: 2, \n  verbose: 3, \n  debug: 4, \n  silly: 5 \n}\n```\n\nIf you do not explicitly define the levels that `winston` should use, the\n`npm` levels above will be used.\n\n### Using Logging Levels\n\nSetting the level for your logging message can be accomplished in one of two\nways. You can pass a string representing the logging level to the log() method\nor use the level specified methods defined on every winston Logger.\n\n``` js\n//\n// Any logger instance\n//\nlogger.log('silly', \"127.0.0.1 - there's no place like home\");\nlogger.log('debug', \"127.0.0.1 - there's no place like home\");\nlogger.log('verbose', \"127.0.0.1 - there's no place like home\");\nlogger.log('info', \"127.0.0.1 - there's no place like home\");\nlogger.log('warn', \"127.0.0.1 - there's no place like home\");\nlogger.log('error', \"127.0.0.1 - there's no place like home\");\nlogger.info(\"127.0.0.1 - there's no place like home\");\nlogger.warn(\"127.0.0.1 - there's no place like home\");\nlogger.error(\"127.0.0.1 - there's no place like home\");\n\n//\n// Default logger\n//\nwinston.log('info', \"127.0.0.1 - there's no place like home\");\nwinston.info(\"127.0.0.1 - there's no place like home\");\n```\n\n`winston` allows you to define a `level` property on each transport which\nspecifies the **maximum** level of messages that a transport should log. For\nexample, using the `syslog` levels you could log only `error` messages to the\nconsole and everything `info` and below to a file (which includes `error`\nmessages):\n\n``` js\nconst logger = winston.createLogger({\n  levels: winston.config.syslog.levels,\n  transports: [\n    new winston.transports.Console({ level: 'error' }),\n    new winston.transports.File({\n      filename: 'combined.log',\n      level: 'info'\n    })\n  ]\n});\n```\n\nYou may also dynamically change the log level of a transport:\n\n``` js\nconst transports = {\n  console: new winston.transports.Console({ level: 'warn' }),\n  file: new winston.transports.File({ filename: 'combined.log', level: 'error' })\n};\n\nconst logger = winston.createLogger({\n  transports: [\n    transports.console,\n    transports.file\n  ]\n});\n\nlogger.info('Will not be logged in either transport!');\ntransports.console.level = 'info';\ntransports.file.level = 'info';\nlogger.info('Will be logged in both transports!');\n```\n\n`winston` supports customizable logging levels, defaulting to npm style\nlogging levels. Levels must be specified at the time of creating your logger.\n\n### Using Custom Logging Levels\n\nIn addition to the predefined `npm`, `syslog`, and `cli` levels available in\n`winston`, you can also choose to define your own:\n\n``` js\nconst myCustomLevels = {\n  levels: {\n    foo: 0,\n    bar: 1,\n    baz: 2,\n    foobar: 3\n  },\n  colors: {\n    foo: 'blue',\n    bar: 'green',\n    baz: 'yellow',\n    foobar: 'red'\n  }\n};\n\nconst customLevelLogger = winston.createLogger({ \n  levels: myCustomLevels.levels \n});\n\ncustomLevelLogger.foobar('some foobar level-ed message');\n```\n\nAlthough there is slight repetition in this data structure, it enables simple\nencapsulation if you do not want to have colors. If you do wish to have\ncolors, in addition to passing the levels to the Logger itself, you must make\nwinston aware of them:\n\n``` js\nwinston.addColors(myCustomLevels.colors);\n```\n\nThis enables loggers using the `colorize` formatter to appropriately color and style \nthe output of custom levels.\n\nAdditionally, you can also change background color and font style. \nFor example,\n``` js\nbaz: 'italic yellow',\nfoobar: 'bold red cyanBG'\n```\n\nPossible options are below.\n\n* Font styles: `bold`, `dim`, `italic`, `underline`, `inverse`, `hidden`, \n  `strikethrough`.\n\n* Font foreground colors: `black`, `red`, `green`, `yellow`, `blue`, `magenta`,\n  `cyan`, `white`, `gray`, `grey`.\n\n* Background colors: `blackBG`, `redBG`, `greenBG`, `yellowBG`, `blueBG`\n  `magentaBG`, `cyanBG`, `whiteBG`\n  \n### Colorizing Standard logging levels\n\nTo colorize the standard logging level add\n```js\nwinston.format.combine(\n  winston.format.colorize(),\n  winston.format.json()\n);\n```\nwhere `winston.format.json()` is whatever other formatter you want to use.  The `colorize` formatter must come before any formatters adding text you wish to color.\n\n## Transports\n\nThere are several [core transports] included in  `winston`, which leverage the\nbuilt-in networking and file I/O offered by Node.js core. In addition, there\nare [additional transports] written by members of the community.\n\n## Multiple transports of the same type\n\nIt is possible to use multiple transports of the same type e.g.\n`winston.transports.File` when you construct the transport.\n\n``` js\nconst logger = winston.createLogger({\n  transports: [\n    new winston.transports.File({\n      filename: 'combined.log',\n      level: 'info'\n    }),\n    new winston.transports.File({\n      filename: 'errors.log',\n      level: 'error'\n    })\n  ]\n});\n```\n\nIf you later want to remove one of these transports you can do so by using the\ntransport itself. e.g.:\n\n``` js\nconst combinedLogs = logger.transports.find(transport => {\n  return transport.filename === 'combined.log'\n});\n\nlogger.remove(combinedLogs);\n```\n\n## Adding Custom Transports\n\nAdding a custom transport is easy. All you need to do is accept any options\nyou need, implement a log() method, and consume it with `winston`.\n\n``` js\nconst Transport = require('winston-transport');\nconst util = require('util');\n\n//\n// Inherit from `winston-transport` so you can take advantage\n// of the base functionality and `.exceptions.handle()`.\n//\nmodule.exports = class YourCustomTransport extends Transport {\n  constructor(opts) {\n    super(opts);\n    //\n    // Consume any custom options here. e.g.:\n    // - Connection information for databases\n    // - Authentication information for APIs (e.g. loggly, papertrail, \n    //   logentries, etc.).\n    //\n  }\n\n  log(info, callback) {\n    setImmediate(() => {\n      this.emit('logged', info);\n    });\n\n    // Perform the writing to the remote service\n    callback();\n  }\n};\n```\n\n## Exceptions\n\n### Handling Uncaught Exceptions with winston\n\nWith `winston`, it is possible to catch and log `uncaughtException` events\nfrom your process. With your own logger instance you can enable this behavior\nwhen it's created or later on in your applications lifecycle:\n\n``` js\nconst { createLogger, transports } = require('winston');\n\n// Enable exception handling when you create your logger.\nconst logger = createLogger({\n  transports: [\n    new transports.File({ filename: 'combined.log' }) \n  ],\n  exceptionHandlers: [\n    new transports.File({ filename: 'exceptions.log' })\n  ]\n});\n\n// Or enable it later on by adding a transport or using `.exceptions.handle`\nconst logger = createLogger({\n  transports: [\n    new transports.File({ filename: 'combined.log' }) \n  ]\n});\n\n// Call exceptions.handle with a transport to handle exceptions\nlogger.exceptions.handle(\n  new transports.File({ filename: 'exceptions.log' })\n);\n```\n\nIf you want to use this feature with the default logger, simply call\n`.exceptions.handle()` with a transport instance.\n\n``` js\n//\n// You can add a separate exception logger by passing it to `.exceptions.handle`\n//\nwinston.exceptions.handle(\n  new winston.transports.File({ filename: 'path/to/exceptions.log' })\n);\n\n//\n// Alternatively you can set `handleExceptions` to true when adding transports\n// to winston.\n//\nwinston.add(new winston.transports.File({\n  filename: 'path/to/combined.log',\n  handleExceptions: true\n}));\n```\n\n### To Exit or Not to Exit\n\nBy default, winston will exit after logging an uncaughtException. If this is\nnot the behavior you want, set `exitOnError = false`\n\n``` js\nconst logger = winston.createLogger({ exitOnError: false });\n\n//\n// or, like this:\n//\nlogger.exitOnError = false;\n```\n\nWhen working with custom logger instances, you can pass in separate transports\nto the `exceptionHandlers` property or set `handleExceptions` on any\ntransport.\n\n##### Example 1\n\n``` js\nconst logger = winston.createLogger({\n  transports: [\n    new winston.transports.File({ filename: 'path/to/combined.log' })\n  ],\n  exceptionHandlers: [\n    new winston.transports.File({ filename: 'path/to/exceptions.log' })\n  ]\n});\n```\n\n##### Example 2\n\n``` js\nconst logger = winston.createLogger({\n  transports: [\n    new winston.transports.Console({\n      handleExceptions: true\n    })\n  ],\n  exitOnError: false\n});\n```\n\nThe `exitOnError` option can also be a function to prevent exit on only\ncertain types of errors:\n\n``` js\nfunction ignoreEpipe(err) {\n  return err.code !== 'EPIPE';\n}\n\nconst logger = winston.createLogger({ exitOnError: ignoreEpipe });\n\n//\n// or, like this:\n//\nlogger.exitOnError = ignoreEpipe;\n```\n\n## Profiling\n\nIn addition to logging messages and metadata, `winston` also has a simple\nprofiling mechanism implemented for any logger:\n\n``` js\n//\n// Start profile of 'test'\n//\nlogger.profile('test');\n\nsetTimeout(function () {\n  //\n  // Stop profile of 'test'. Logging will now take place:\n  //   '17 Jan 21:00:00 - info: test duration=1000ms'\n  //\n  logger.profile('test');\n}, 1000);\n```\n\nAlso you can start a timer and keep a reference that you can call `.done()``\non:\n\n``` js\n // Returns an object corresponding to a specific timing. When done\n // is called the timer will finish and log the duration. e.g.:\n //\n const profiler = logger.startTimer();\n setTimeout(function () {\n   profiler.done({ message: 'Logging message' });\n }, 1000);\n```\n\nAll profile messages are set to 'info' level by default, and both message and\nmetadata are optional.  For individual profile messages, you can override the default log level by supplying a metadata object with a `level` property:\n\n```js\nlogger.profile('test', { level: 'debug' });\n```\n\n## Querying Logs\n\n`winston` supports querying of logs with Loggly-like options. [See Loggly\nSearch API](https://www.loggly.com/docs/api-retrieving-data/). Specifically:\n`File`, `Couchdb`, `Redis`, `Loggly`, `Nssocket`, and `Http`.\n\n``` js\nconst options = {\n  from: new Date() - (24 * 60 * 60 * 1000),\n  until: new Date(),\n  limit: 10,\n  start: 0,\n  order: 'desc',\n  fields: ['message']\n};\n\n//\n// Find items logged between today and yesterday.\n//\nlogger.query(options, function (err, results) {\n  if (err) {\n    /* TODO: handle me */\n    throw err;\n  }\n\n  console.log(results);\n});\n```\n\n## Streaming Logs\nStreaming allows you to stream your logs back from your chosen transport.\n\n``` js\n//\n// Start at the end.\n//\nwinston.stream({ start: -1 }).on('log', function(log) {\n  console.log(log);\n});\n```\n\n## Further Reading\n\n### Using the Default Logger\n\nThe default logger is accessible through the `winston` module directly. Any\nmethod that you could call on an instance of a logger is available on the\ndefault logger:\n\n``` js\nconst winston = require('winston');\n\nwinston.log('info', 'Hello distributed log files!');\nwinston.info('Hello again distributed logs');\n\nwinston.level = 'debug';\nwinston.log('debug', 'Now my debug messages are written to console!');\n```\n\nBy default, no transports are set on the default logger. You must\nadd or remove transports via the `add()` and `remove()` methods:\n\n``` js\nconst files = new winston.transports.File({ filename: 'combined.log' });\nconst console = new winston.transports.Console();\n\nwinston.add(console);\nwinston.add(files);\nwinston.remove(console);\n```\n\nOr do it with one call to configure():\n\n``` js\nwinston.configure({\n  transports: [\n    new winston.transports.File({ filename: 'somefile.log' })\n  ]\n});\n```\n\nFor more documentation about working with each individual transport supported\nby `winston` see the [`winston` Transports](docs/transports.md) document.\n\n### Awaiting logs to be written in `winston`\n\nOften it is useful to wait for your logs to be written before exiting the\nprocess. Each instance of `winston.Logger` is also a [Node.js stream]. A\n`finish` event will be raised when all logs have flushed to all transports\nafter the stream has been ended.\n\n``` js\nconst transport = new winston.transports.Console();\nconst logger = winston.createLogger({\n  transports: [transport]\n});\n\nlogger.on('finish', function (info) {\n  // All `info` log messages has now been logged\n});\n\nlogger.info('CHILL WINSTON!', { seriously: true });\nlogger.end();\n```\n\nIt is also worth mentioning that the logger also emits an 'error' event which\nyou should handle or suppress if you don't want unhandled exceptions:\n\n``` js\n//\n// Handle errors\n//\nlogger.on('error', function (err) { /* Do Something */ });\n\n//\n// Or just suppress them.\n//\nlogger.emitErrs = false;\n```\n\n### Working with multiple Loggers in winston\n\nOften in larger, more complex, applications it is necessary to have multiple\nlogger instances with different settings. Each logger is responsible for a\ndifferent feature area (or category). This is exposed in `winston` in two\nways: through `winston.loggers` and instances of `winston.Container`. In fact,\n`winston.loggers` is just a predefined instance of `winston.Container`:\n\n``` js\nconst winston = require('winston');\nconst { format } = winston;\nconst { combine, label, json } = format;\n\n//\n// Configure the logger for `category1`\n//\nwinston.loggers.add('category1', {\n  format: combine(\n    label({ label: 'category one' }),\n    json()\n  ),\n  transports: [\n    new winston.transports.Console({ level: 'silly' }),\n    new winston.transports.File({ filename: 'somefile.log' })\n  ]\n});\n\n//\n// Configure the logger for `category2`\n//\nwinston.loggers.add('category2', {\n  format: combine(\n    label({ label: 'category two' }),\n    json()\n  ),\n  transports: [\n    new winston.transports.Http({ host: 'localhost', port:8080 })\n  ]\n});\n```\n\nNow that your loggers are setup, you can require winston _in any file in your\napplication_ and access these pre-configured loggers:\n\n``` js\nconst winston = require('winston');\n\n//\n// Grab your preconfigured loggers\n//\nconst category1 = winston.loggers.get('category1');\nconst category2 = winston.loggers.get('category2');\n\ncategory1.info('logging to file and console transports');\ncategory2.info('logging to http transport');\n```\n\nIf you prefer to manage the `Container` yourself, you can simply instantiate one:\n\n``` js\nconst winston = require('winston');\nconst { format } = winston;\nconst { combine, json } = format;\n\nconst container = new winston.Container();\n\ncontainer.add('category1', {\n  format: combine(\n    label({ label: 'category one' }),\n    json()\n  ),\n  transports: [\n    new winston.transports.Console({ level: 'silly' }),\n    new winston.transports.File({ filename: 'somefile.log' })\n  ]\n});\n\nconst category1 = container.get('category1');\ncategory1.info('logging to file and console transports');\n```\n\n## Installation\n\n``` bash\nnpm install winston\n```\n\n``` bash\nyarn add winston\n```\n\n## Run Tests\n\nAll of the winston tests are written with [`mocha`][mocha], [`nyc`][nyc], and \n[`assume`][assume].  They can be run with `npm`.\n\n``` bash\nnpm test\n```\n\n#### Author: [Charlie Robbins]\n#### Contributors: [Jarrett Cruger], [David Hyde], [Chris Alderson]\n\n[Transports]: #transports\n[Logging levels]: #logging-levels\n[Formats]: #formats\n[Using custom logging levels]: #using-custom-logging-levels\n[Adding Custom Transports]: #adding-custom-transports\n[core transports]: docs/transports.md#winston-core\n[additional transports]: docs/transports.md#additional-transports\n\n[RFC5424]: https://tools.ietf.org/html/rfc5424\n[util.format]: https://nodejs.org/dist/latest/docs/api/util.html#util_util_format_format_args\n[mocha]: https://mochajs.org\n[nyc]: https://github.com/istanbuljs/nyc\n[assume]: https://github.com/bigpipe/assume\n[logform]: https://github.com/winstonjs/logform#readme\n\n[Read the `winston@2.x` documentation]: https://github.com/winstonjs/winston/tree/2.x \n\n[quick-example]: https://github.com/winstonjs/winston/blob/master/examples/quick-start.js\n[examples]: https://github.com/winstonjs/winston/tree/master/examples\n\n[Charlie Robbins]: http://github.com/indexzero\n[Jarrett Cruger]: https://github.com/jcrugzz\n[David Hyde]: https://github.com/dabh\n[Chris Alderson]: https://github.com/chrisalderson"
+}

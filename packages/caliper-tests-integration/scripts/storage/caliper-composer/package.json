@@ -1,0 +1,152 @@
+{
+	"name": "caliper-composer",
+	"versions": {
+		"0.1.0": {
+			"name": "caliper-composer",
+			"version": "0.1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/caliper.git"
+			},
+			"scripts": {
+				"pretest": "npm run licchk",
+				"licchk": "license-check-and-add",
+				"test": "npm run lint",
+				"lint": "npx eslint .",
+				"nyc": "nyc mocha --recursive -t 10000"
+			},
+			"engineStrict": true,
+			"engines": {
+				"node": ">=8.10.0",
+				"npm": ">=5.6.0"
+			},
+			"dependencies": {
+				"caliper-core": "0.1.0",
+				"composer-admin": "0.20.8",
+				"composer-client": "0.20.8",
+				"composer-common": "0.20.8",
+				"fabric-ca-client": "^1.4.0",
+				"fabric-client": "^1.4.0",
+				"ora": "^1.2.0"
+			},
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"eslint": "^4.19.1",
+				"mocha": "3.4.2",
+				"nyc": "11.1.0",
+				"rewire": "^4.0.0",
+				"sinon": "2.3.8",
+				"license-check-and-add": "2.3.6"
+			},
+			"license-check-and-add-config": {
+				"folder": ".",
+				"license": "../../LICENSE.txt",
+				"exact_paths_method": "EXCLUDE",
+				"exact_paths": [
+					"node_modules",
+					".nyc_output",
+					"coverage"
+				],
+				"file_type_method": "EXCLUDE",
+				"file_types": [
+					".yml"
+				],
+				"insert_license": false,
+				"license_formats": {
+					"js": {
+						"prepend": "/*",
+						"append": "*/",
+						"eachLine": {
+							"prepend": "* "
+						}
+					},
+					"editorconfig": {
+						"prepend": "#",
+						"append": "#",
+						"eachLine": {
+							"prepend": "# "
+						}
+					}
+				}
+			},
+			"nyc": {
+				"exclude": [
+					"lib/**"
+				],
+				"reporter": [
+					"text-summary",
+					"html"
+				],
+				"all": true,
+				"check-coverage": false,
+				"statements": 5,
+				"branches": 8,
+				"functions": 7,
+				"lines": 5
+			},
+			"license": "Apache-2.0",
+			"licenses": [
+				{
+					"type": "Apache-2.0",
+					"url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/hyperledger/caliper/issues"
+			},
+			"homepage": "https://github.com/hyperledger/caliper#readme",
+			"_id": "caliper-composer@0.1.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.16.1",
+			"_npmUser": {
+				"name": "luizah",
+				"email": "luizaherback@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Ew25xKoiiDjfVBsQCFbOmlhFOHu8DyNT8IveJUb5eR66QfUa4p2/RsF73Ux2c6hfm2kciBWccLyZgHGNiZ0mMg==",
+				"shasum": "b0b105f39fbdf6c9e7bb9d3858062b926b8a6442",
+				"tarball": "https://registry.npmjs.org/caliper-composer/-/caliper-composer-0.1.0.tgz",
+				"fileCount": 9,
+				"unpackedSize": 35701,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdWWgyCRA9TVsSAnZWagAAEYoP/jueoe75crwD3ut/ycu1\nLiL6yVqtqq4x2TGFGm+V3cMpA76h2vViAQd2OYOV9Kthn9tMfpcFa4AiCXJI\n5HrxIqRB4QvGYhuehzOBlnoy8K6hTDH7AjE6EGdUjO/xa/MNc+QO5w/gx9Ky\nSkMymQcqiPjQlYS4HECmYxZtzAWS6M1u41C3pflw+v83E4kObXY6mhMWiIDt\nbzmDc/yAXEVMQ7ZkcTKoXo7Zac7iPQDK+H7o8E0lTUAS8/NrfD1UHwWF30t3\nCriCykJuxPDjlLGtEkipzGkldZdoRFmJREuXgcPn1OSdNgsxjUN6C0I2nSQO\n6k2yD47Gvu67CeppAdOrwJhOyQ61YAxj7HbRNITBeWfZ2l1XKOH7Y2OY6CA8\nL6LlKlHqfAHmlWhvJnf7REyoI1VoqmD0egEv9c2K2S6edSlV0+cL3GDkJR81\nniEFPIiM6sMkL534cXZ2xzpnMIAF5H30kTbD4HS8pleQmeadlOfb5WWSunDX\n5flpHofuQJGS0nYBlAg4q4g+6O1uxF0w5/IRLop1VgM89gImbvojRSmaVd50\n9UihCzWF07QaraxsmgWjiltKkt1UWxI+D2nZi83BYLidqgW/IBzlNB/NoQBF\nGZ8WIEQoNoJy7lc9a8aDSPD//LMXXSmgRzCBnzQRzaSYKBeen2q9QESu8vp9\nfMxw\r\n=07ho\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "luizah",
+					"email": "luizaherback@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/caliper-composer_0.1.0_1566140466230_0.4177702449318854"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2019-08-18T15:01:06.230Z",
+		"0.1.0": "2019-08-18T15:01:06.412Z",
+		"modified": "2019-08-18T15:01:09.337Z"
+	},
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"d96de73d1ac28180630c0dcc04b7a1ab\"",
+			"fetched": 1568994329341
+		}
+	},
+	"_distfiles": {
+		"caliper-composer-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/caliper-composer/-/caliper-composer-0.1.0.tgz",
+			"sha": "b0b105f39fbdf6c9e7bb9d3858062b926b8a6442",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-a9146dbb52dcdab7",
+	"_id": "caliper-composer",
+	"readme": "ERROR: No README data found!"
+}

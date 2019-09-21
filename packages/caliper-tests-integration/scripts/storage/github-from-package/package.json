@@ -1,0 +1,77 @@
+{
+	"name": "github-from-package",
+	"versions": {
+		"0.0.0": {
+			"name": "github-from-package",
+			"version": "0.0.0",
+			"description": "return the github url from a package.json file",
+			"main": "index.js",
+			"devDependencies": {
+				"tap": "~0.3.0",
+				"tape": "~0.1.5"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/substack/github-from-package.git"
+			},
+			"homepage": "https://github.com/substack/github-from-package",
+			"keywords": [
+				"github",
+				"package.json",
+				"npm",
+				"repository"
+			],
+			"author": {
+				"name": "James Halliday",
+				"email": "mail@substack.net",
+				"url": "http://substack.net"
+			},
+			"license": "MIT",
+			"_id": "github-from-package@0.0.0",
+			"dist": {
+				"shasum": "97fb5d96bfde8973313f20e8288ef9a167fa64ce",
+				"tarball": "https://registry.npmjs.org/github-from-package/-/github-from-package-0.0.0.tgz"
+			},
+			"_npmVersion": "1.1.59",
+			"_npmUser": {
+				"name": "substack",
+				"email": "mail@substack.net"
+			},
+			"maintainers": [
+				{
+					"name": "substack",
+					"email": "mail@substack.net"
+				}
+			],
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2012-12-29T11:12:52.069Z",
+		"created": "2012-12-29T11:12:51.043Z",
+		"0.0.0": "2012-12-29T11:12:52.069Z"
+	},
+	"dist-tags": {
+		"latest": "0.0.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"0811779c82814480f06e7e7a57d8480e\"",
+			"fetched": 1568994353061
+		}
+	},
+	"_distfiles": {
+		"github-from-package-0.0.0.tgz": {
+			"url": "https://registry.npmjs.org/github-from-package/-/github-from-package-0.0.0.tgz",
+			"sha": "97fb5d96bfde8973313f20e8288ef9a167fa64ce",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-3de9a574cfdea655",
+	"_id": "github-from-package",
+	"readme": "# github-from-package\n\nreturn the github url from a package.json file\n\n[![build status](https://secure.travis-ci.org/substack/github-from-package.png)](http://travis-ci.org/substack/github-from-package)\n\n# example\n\nFor the `./package.json` file:\n\n``` json\n{\n  \"name\": \"beep-boop\",\n  \"version\": \"1.2.3\",\n  \"repository\" : {\n    \"type\" : \"git\",\n    \"url\": \"git@github.com:substack/beep-boop.git\"\n  }\n}\n```\n\n``` js\nvar github = require('github-from-package');\nvar url = github(require('./package.json'));\nconsole.log(url);\n```\n\n```\nhttps://github.com/substack/beep-boop\n```\n\n# methods\n\n``` js\nvar github = require('github-from-package')\n```\n\n## var url = github(pkg)\n\nReturn the most likely github url from the package.json contents `pkg`. If no\ngithub url can be determined, return `undefined`.\n\n# install\n\nWith [npm](https://npmjs.org) do:\n\n```\nnpm install github-from-package\n```\n\n# license\n\nMIT"
+}

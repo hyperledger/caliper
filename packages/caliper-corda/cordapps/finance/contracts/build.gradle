@@ -1,0 +1,24 @@
+apply plugin: 'net.corda.plugins.cordapp'
+
+cordapp {
+    signing {
+        enabled false
+    }
+    targetPlatformVersion corda_platform_version.toInteger()
+    minimumPlatformVersion corda_platform_version.toInteger()
+    contract {
+        name "Template CorDapp"
+        vendor "Corda Open Source"
+        licence "Apache License, Version 2.0"
+        versionId 1
+    }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+    // Corda dependencies.
+    cordaCompile "$corda_release_group:corda-core:$corda_release_version"
+
+    testCompile "$corda_release_group:corda-node-driver:$corda_release_version"
+}

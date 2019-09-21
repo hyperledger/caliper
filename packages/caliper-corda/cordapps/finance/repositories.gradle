@@ -1,0 +1,8 @@
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://ci-artifactory.corda.r3cev.com/artifactory/corda' }
+    maven { url 'https://repo.gradle.org/gradle/libs-releases' }
+}

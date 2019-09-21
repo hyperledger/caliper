@@ -1,0 +1,947 @@
+{
+	"name": "protocol-buffers-schema",
+	"versions": {
+		"1.5.1": {
+			"name": "protocol-buffers-schema",
+			"version": "1.5.1",
+			"description": "No nonsense protocol buffers schema parser written in Javascript",
+			"main": "index.js",
+			"devDependencies": {
+				"standard": "^2.6.5",
+				"tape": "^2.13.4"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers-schema"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"schema",
+				"parser",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-schema",
+			"gitHead": "4bf3da49d014eb9b1b43e2d6f187292bbd7b33d1",
+			"_id": "protocol-buffers-schema@1.5.1",
+			"_shasum": "ed710a47ae95f38897c4e8248aa8ca93ab16a236",
+			"_from": ".",
+			"_npmVersion": "2.7.5",
+			"_nodeVersion": "1.6.4",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "ed710a47ae95f38897c4e8248aa8ca93ab16a236",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-1.5.1.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "protocol-buffers-schema",
+			"version": "2.0.0",
+			"description": "No nonsense protocol buffers schema parser written in Javascript",
+			"main": "index.js",
+			"devDependencies": {
+				"standard": "^3.7.0",
+				"tape": "^4.0.0"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers-schema"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"schema",
+				"parser",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-schema",
+			"gitHead": "fd716932dd64e7c1a50ff6353c46e48ff0bc405d",
+			"_id": "protocol-buffers-schema@2.0.0",
+			"_shasum": "924b2a6d4ad82d61dc900e643bfbe30fe1811a2c",
+			"_from": ".",
+			"_npmVersion": "2.7.5",
+			"_nodeVersion": "1.6.4",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "924b2a6d4ad82d61dc900e643bfbe30fe1811a2c",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-2.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.1": {
+			"name": "protocol-buffers-schema",
+			"version": "2.0.1",
+			"description": "No nonsense protocol buffers schema parser written in Javascript",
+			"main": "index.js",
+			"devDependencies": {
+				"standard": "^3.7.0",
+				"tape": "^4.0.0"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers-schema"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"schema",
+				"parser",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-schema",
+			"gitHead": "5851eb6fbcb264ca2e6fb75673703eb29f4a3373",
+			"_id": "protocol-buffers-schema@2.0.1",
+			"_shasum": "7565d41d1d124065e80b91a9afdeb30777782cea",
+			"_from": ".",
+			"_npmVersion": "2.7.5",
+			"_nodeVersion": "1.6.4",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "7565d41d1d124065e80b91a9afdeb30777782cea",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-2.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.2": {
+			"name": "protocol-buffers-schema",
+			"version": "2.0.2",
+			"description": "No nonsense protocol buffers schema parser written in Javascript",
+			"main": "index.js",
+			"devDependencies": {
+				"standard": "^3.7.0",
+				"tape": "^4.0.0"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers-schema"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"schema",
+				"parser",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-schema",
+			"gitHead": "d2d905d1ea2aec11eead8653998e75386f58af0d",
+			"_id": "protocol-buffers-schema@2.0.2",
+			"_shasum": "568baf689d408d849f542cc6bf7d32103ddfe519",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "2.1.0",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "568baf689d408d849f542cc6bf7d32103ddfe519",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-2.0.2.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.3": {
+			"name": "protocol-buffers-schema",
+			"version": "2.0.3",
+			"description": "No nonsense protocol buffers schema parser written in Javascript",
+			"main": "index.js",
+			"devDependencies": {
+				"standard": "^3.7.0",
+				"tape": "^4.0.0"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers-schema.git"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"schema",
+				"parser",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-schema",
+			"gitHead": "74fe9519c93ee02978295a900d1829848e4217c6",
+			"_id": "protocol-buffers-schema@2.0.3",
+			"_shasum": "3b7fbf3a6b36454982bef4003105875e8c8fe362",
+			"_from": ".",
+			"_npmVersion": "2.13.4",
+			"_nodeVersion": "2.5.0",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "3b7fbf3a6b36454982bef4003105875e8c8fe362",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-2.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.4": {
+			"name": "protocol-buffers-schema",
+			"version": "2.0.4",
+			"description": "No nonsense protocol buffers schema parser written in Javascript",
+			"main": "index.js",
+			"devDependencies": {
+				"standard": "^3.7.0",
+				"tape": "^4.0.0"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers-schema.git"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"schema",
+				"parser",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-schema",
+			"gitHead": "29e2c857ae4c8cba5806b6627988980fe9941aa4",
+			"_id": "protocol-buffers-schema@2.0.4",
+			"_shasum": "6dc1ccf35cfe81b29bdeac18363cca269c63709c",
+			"_from": ".",
+			"_npmVersion": "2.13.2",
+			"_nodeVersion": "2.5.0",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "6dc1ccf35cfe81b29bdeac18363cca269c63709c",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-2.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.1.0": {
+			"name": "protocol-buffers-schema",
+			"version": "2.1.0",
+			"description": "No nonsense protocol buffers schema parser written in Javascript",
+			"main": "index.js",
+			"devDependencies": {
+				"standard": "^5.4.1",
+				"tape": "^4.2.2"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers-schema"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"schema",
+				"parser",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-schema",
+			"gitHead": "d4d3ea5409a99d6a7c6842d42e4f423d64d5ceb6",
+			"_id": "protocol-buffers-schema@2.1.0",
+			"_shasum": "526dc79a430ecefc34f2d646155af1a572e4c8f4",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "526dc79a430ecefc34f2d646155af1a572e4c8f4",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-2.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.2.0": {
+			"name": "protocol-buffers-schema",
+			"version": "2.2.0",
+			"description": "No nonsense protocol buffers schema parser written in Javascript",
+			"main": "index.js",
+			"devDependencies": {
+				"standard": "^5.4.1",
+				"tape": "^4.2.2"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers-schema"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"schema",
+				"parser",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-schema",
+			"gitHead": "cd2a1ef9606154a5a71fa11df5405f223ad50467",
+			"_id": "protocol-buffers-schema@2.2.0",
+			"_shasum": "d29c6cd73fb655978fb6989691180db844119f61",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "d29c6cd73fb655978fb6989691180db844119f61",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-2.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"3.0.0": {
+			"name": "protocol-buffers-schema",
+			"version": "3.0.0",
+			"description": "No nonsense protocol buffers schema parser written in Javascript",
+			"main": "index.js",
+			"devDependencies": {
+				"standard": "^5.4.1",
+				"tape": "^4.2.2"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers-schema"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"schema",
+				"parser",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-schema",
+			"gitHead": "272ddd83bf6e0dcb971d12128b31223009dae436",
+			"_id": "protocol-buffers-schema@3.0.0",
+			"_shasum": "092d196352f9efd68b88594091ab18cb644852ae",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.3",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "092d196352f9efd68b88594091ab18cb644852ae",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"3.1.0": {
+			"name": "protocol-buffers-schema",
+			"version": "3.1.0",
+			"description": "No nonsense protocol buffers schema parser written in Javascript",
+			"main": "index.js",
+			"devDependencies": {
+				"standard": "^5.4.1",
+				"tape": "^4.2.2"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers-schema"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"schema",
+				"parser",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-schema",
+			"gitHead": "b89b0df526391208b58d3dfe4ab3ab1ed2a55bec",
+			"_id": "protocol-buffers-schema@3.1.0",
+			"_shasum": "d8a819549ead3e6bd189ebe9e50e96636bbc5cc7",
+			"_from": ".",
+			"_npmVersion": "2.14.20",
+			"_nodeVersion": "4.4.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "d8a819549ead3e6bd189ebe9e50e96636bbc5cc7",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/protocol-buffers-schema-3.1.0.tgz_1460195760387_0.9851551277097315"
+			},
+			"directories": {}
+		},
+		"3.1.1": {
+			"name": "protocol-buffers-schema",
+			"version": "3.1.1",
+			"description": "No nonsense protocol buffers schema parser written in Javascript",
+			"main": "index.js",
+			"devDependencies": {
+				"standard": "^5.4.1",
+				"tape": "^4.2.2"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/mafintosh/protocol-buffers-schema"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"schema",
+				"parser",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-schema",
+			"gitHead": "07c8dc0349831b1cf5896c66facc5ad7be0aa8de",
+			"_id": "protocol-buffers-schema@3.1.1",
+			"_shasum": "b5e4800ce8adab7fb8ffe8770bb36e2a04359c78",
+			"_from": ".",
+			"_npmVersion": "2.15.11",
+			"_nodeVersion": "4.6.2",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "b5e4800ce8adab7fb8ffe8770bb36e2a04359c78",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/protocol-buffers-schema-3.1.1.tgz_1480087251768_0.805266652489081"
+			},
+			"directories": {}
+		},
+		"3.2.0": {
+			"name": "protocol-buffers-schema",
+			"version": "3.2.0",
+			"description": "No nonsense protocol buffers schema parser written in Javascript",
+			"main": "index.js",
+			"devDependencies": {
+				"standard": "^5.4.1",
+				"tape": "^4.2.2"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers-schema.git"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"schema",
+				"parser",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-schema",
+			"gitHead": "1bf46dd3878ee85dfda048bc85dd9e74f3ac6019",
+			"_id": "protocol-buffers-schema@3.2.0",
+			"_shasum": "e76de32b9cc84d36630348efa560b9cfac16f64c",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.9.5",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "e76de32b9cc84d36630348efa560b9cfac16f64c",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/protocol-buffers-schema-3.2.0.tgz_1491842131471_0.5296575205866247"
+			},
+			"directories": {}
+		},
+		"3.3.0": {
+			"name": "protocol-buffers-schema",
+			"version": "3.3.0",
+			"description": "No nonsense protocol buffers schema parser written in Javascript",
+			"main": "index.js",
+			"devDependencies": {
+				"standard": "^5.4.1",
+				"tape": "^4.2.2"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers-schema.git"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"schema",
+				"parser",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-schema",
+			"gitHead": "47be37485d3e9ed0bc5c23e3186919b1c32cacfe",
+			"_id": "protocol-buffers-schema@3.3.0",
+			"_shasum": "141271d96c718f2c810847f158c991f5bca9e321",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.9.5",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "141271d96c718f2c810847f158c991f5bca9e321",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/protocol-buffers-schema-3.3.0.tgz_1491900640788_0.3270483845844865"
+			},
+			"directories": {}
+		},
+		"3.3.1": {
+			"name": "protocol-buffers-schema",
+			"version": "3.3.1",
+			"description": "No nonsense protocol buffers schema parser written in Javascript",
+			"main": "index.js",
+			"devDependencies": {
+				"standard": "^5.4.1",
+				"tape": "^4.2.2"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers-schema.git"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"schema",
+				"parser",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-schema",
+			"gitHead": "b859ee268618c660c59bbcf772ed2965d8821cc1",
+			"_id": "protocol-buffers-schema@3.3.1",
+			"_shasum": "ad151141877c6af8828647851af66a0db69275f5",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.9.5",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "ad151141877c6af8828647851af66a0db69275f5",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.3.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/protocol-buffers-schema-3.3.1.tgz_1494243323519_0.007076924433931708"
+			},
+			"directories": {}
+		},
+		"3.3.2": {
+			"name": "protocol-buffers-schema",
+			"version": "3.3.2",
+			"description": "No nonsense protocol buffers schema parser written in Javascript",
+			"main": "index.js",
+			"devDependencies": {
+				"standard": "^10.0.3",
+				"tape": "^4.8.0"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers-schema.git"
+			},
+			"keywords": [
+				"protobuf",
+				"protocol",
+				"buffers",
+				"schema",
+				"parser",
+				"parse"
+			],
+			"author": {
+				"name": "Mathias Buus"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-schema/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-schema",
+			"gitHead": "66206cb2c4557bccb313b6da2d89a995762705a4",
+			"_id": "protocol-buffers-schema@3.3.2",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.5.0",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Xdayp8sB/mU+sUV4G7ws8xtYMGdQnxbeIfLjyO9TZZRJdztBGhlmbI5x1qcY4TG5hBkIKGnc28i7nXxaugu88w==",
+				"shasum": "00434f608b4e8df54c59e070efeefc37fb4bb859",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.3.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/protocol-buffers-schema-3.3.2.tgz_1506079517336_0.10029375785961747"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2018-03-20T15:32:52.549Z",
+		"created": "2015-04-23T04:11:33.907Z",
+		"1.5.1": "2015-04-23T04:11:33.907Z",
+		"2.0.0": "2015-04-23T06:11:33.022Z",
+		"2.0.1": "2015-04-23T20:02:00.554Z",
+		"2.0.2": "2015-05-25T14:38:42.694Z",
+		"2.0.3": "2015-08-28T13:45:33.778Z",
+		"2.0.4": "2015-09-20T21:22:37.898Z",
+		"2.1.0": "2015-11-29T18:21:39.504Z",
+		"2.2.0": "2015-12-05T12:44:03.470Z",
+		"3.0.0": "2015-12-14T15:43:04.529Z",
+		"3.1.0": "2016-04-09T09:56:01.494Z",
+		"3.1.1": "2016-11-25T15:20:53.621Z",
+		"3.2.0": "2017-04-10T16:35:32.025Z",
+		"3.3.0": "2017-04-11T08:50:41.475Z",
+		"3.3.1": "2017-05-08T11:35:25.478Z",
+		"3.3.2": "2017-09-22T11:25:18.278Z"
+	},
+	"dist-tags": {
+		"latest": "3.3.2"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"649d29bf49856a89e2008b29eb6cc5d8\"",
+			"fetched": 1568994351817
+		}
+	},
+	"_distfiles": {
+		"protocol-buffers-schema-1.5.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-1.5.1.tgz",
+			"sha": "ed710a47ae95f38897c4e8248aa8ca93ab16a236",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-schema-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-2.0.0.tgz",
+			"sha": "924b2a6d4ad82d61dc900e643bfbe30fe1811a2c",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-schema-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-2.0.1.tgz",
+			"sha": "7565d41d1d124065e80b91a9afdeb30777782cea",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-schema-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-2.0.2.tgz",
+			"sha": "568baf689d408d849f542cc6bf7d32103ddfe519",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-schema-2.0.3.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-2.0.3.tgz",
+			"sha": "3b7fbf3a6b36454982bef4003105875e8c8fe362",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-schema-2.0.4.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-2.0.4.tgz",
+			"sha": "6dc1ccf35cfe81b29bdeac18363cca269c63709c",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-schema-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-2.1.0.tgz",
+			"sha": "526dc79a430ecefc34f2d646155af1a572e4c8f4",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-schema-2.2.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-2.2.0.tgz",
+			"sha": "d29c6cd73fb655978fb6989691180db844119f61",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-schema-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.0.0.tgz",
+			"sha": "092d196352f9efd68b88594091ab18cb644852ae",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-schema-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.1.0.tgz",
+			"sha": "d8a819549ead3e6bd189ebe9e50e96636bbc5cc7",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-schema-3.1.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.1.1.tgz",
+			"sha": "b5e4800ce8adab7fb8ffe8770bb36e2a04359c78",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-schema-3.2.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.2.0.tgz",
+			"sha": "e76de32b9cc84d36630348efa560b9cfac16f64c",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-schema-3.3.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.3.0.tgz",
+			"sha": "141271d96c718f2c810847f158c991f5bca9e321",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-schema-3.3.1.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.3.1.tgz",
+			"sha": "ad151141877c6af8828647851af66a0db69275f5",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-schema-3.3.2.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.3.2.tgz",
+			"sha": "00434f608b4e8df54c59e070efeefc37fb4bb859",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-74a60e19b3b26794",
+	"_id": "protocol-buffers-schema",
+	"readme": "# protocol-buffers-schema\n\nNo nonsense [protocol buffers](https://developers.google.com/protocol-buffers) schema parser written in Javascript\n\n``` js\nnpm install protocol-buffers-schema\n```\n\n[![build status](http://img.shields.io/travis/mafintosh/protocol-buffers-schema.svg?style=flat)](http://travis-ci.org/mafintosh/protocol-buffers-schema)\n\n## Usage\n\nFirst save the following file as `example.proto`\n\n```proto\nsyntax = \"proto2\";\n\nmessage Point {\n  required int32 x = 1;\n  required int32 y=2;\n  optional string label = 3;\n}\n\nmessage Line {\n  required Point start = 1;\n  required Point end = 2;\n  optional string label = 3;\n}\n```\n\nThe run the following example\n\n``` js\nvar fs = require('fs')\nvar schema = require('protocol-buffers-schema')\n\n// pass a buffer or string to schema.parse\nvar sch = schema.parse(fs.readFileSync('example.proto'))\n\n// will print out the schema as a javascript object\nconsole.log(sch)\n```\n\nRunning the above example will print something like\n\n``` js\n{\n  syntax: 2,\n  package: null,\n  enums: [],\n  messages: [{\n    name: 'Point',\n    enums: [],\n    messages: [],\n    fields: [{\n      name: 'x',\n      type: 'int32',\n      tag: 1,\n      required: true,\n      repeated: false,\n      options: {}\n    }, {\n      name: 'y',\n      type: 'int32',\n      tag: 2,\n      required: true,\n      repeated: false,\n      options: {}\n    }, {\n      name: 'label',\n      type: 'string',\n      tag: 3,\n      required: false,\n      repeated: false,\n      options: {}\n    }]\n  }, {\n    name: 'Line',\n    enums: [],\n    messages: [],\n    fields: [{\n      name: 'start',\n      type: 'Point',\n      tag: 1,\n      required: true,\n      repeated: false,\n      options: {}\n    }, {\n      name: 'end',\n      type: 'Point',\n      tag: 2,\n      required: true,\n      repeated: false,\n      options: {}\n    }, {\n      name: 'label',\n      type: 'string',\n      tag: 3,\n      required: false,\n      repeated: false,\n      options: {}\n    }]\n  }],\n  options:{}\n}\n```\n\n## API\n\n#### `schema.parse(protobufSchemaBufferOrString)`\n\nParses a .proto schema into a javascript object\n\n#### `schema.stringify(schema)`\n\nStringifies a parsed schema back into .proto format\n\n## License\n\nMIT"
+}

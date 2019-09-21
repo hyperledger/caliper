@@ -1,0 +1,420 @@
+{
+	"name": "@protobufjs/aspromise",
+	"versions": {
+		"1.0.2": {
+			"name": "@protobufjs/aspromise",
+			"description": "Returns a promise from a node-style callback function.",
+			"version": "1.0.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/aspromise@1.0.2",
+			"scripts": {},
+			"_shasum": "d675200a515ce84b32406587b6f03836186f0cf6",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "protobufjs",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"dist": {
+				"shasum": "d675200a515ce84b32406587b6f03836186f0cf6",
+				"tarball": "https://registry.npmjs.org/@protobufjs/aspromise/-/aspromise-1.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/aspromise-1.0.2.tgz_1481550707132_0.4843015312217176"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "@protobufjs/aspromise",
+			"description": "Returns a promise from a node-style callback function.",
+			"version": "1.0.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "Apache-2.0",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/aspromise@1.0.3",
+			"scripts": {},
+			"_shasum": "3cba72968c451b4412ddba0a5e8c45f7cdd6b6b3",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "3cba72968c451b4412ddba0a5e8c45f7cdd6b6b3",
+				"tarball": "https://registry.npmjs.org/@protobufjs/aspromise/-/aspromise-1.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/aspromise-1.0.3.tgz_1481581646236_0.1612536848988384"
+			},
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "@protobufjs/aspromise",
+			"description": "Returns a promise from a node-style callback function.",
+			"version": "1.0.4",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/aspromise@1.0.4",
+			"scripts": {},
+			"_shasum": "5859b2faf47046b0d5806b6724c297e566bbcd60",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "5859b2faf47046b0d5806b6724c297e566bbcd60",
+				"tarball": "https://registry.npmjs.org/@protobufjs/aspromise/-/aspromise-1.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/aspromise-1.0.4.tgz_1482269631018_0.9258926708716899"
+			},
+			"directories": {}
+		},
+		"1.0.5": {
+			"name": "@protobufjs/aspromise",
+			"description": "Returns a promise from a node-style callback function.",
+			"version": "1.0.5",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/aspromise@1.0.5",
+			"scripts": {},
+			"_shasum": "6aff4b003db2ad3fdba193d679116bb8600ffbb9",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "6aff4b003db2ad3fdba193d679116bb8600ffbb9",
+				"tarball": "https://registry.npmjs.org/@protobufjs/aspromise/-/aspromise-1.0.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/aspromise-1.0.5.tgz_1483457440638_0.8339315615594387"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "@protobufjs/aspromise",
+			"description": "Returns a promise from a node-style callback function.",
+			"version": "1.1.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"istanbul": "^0.4.5",
+				"tape": "^4.6.3"
+			},
+			"scripts": {
+				"test": "tape tests/*.js",
+				"coverage": "istanbul cover node_modules/tape/bin/tape tests/*.js"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/aspromise@1.1.0",
+			"_shasum": "ef59873160a27bb8b8cf3869a418bbc7ed810df4",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "ef59873160a27bb8b8cf3869a418bbc7ed810df4",
+				"tarball": "https://registry.npmjs.org/@protobufjs/aspromise/-/aspromise-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/aspromise-1.1.0.tgz_1485367909676_0.568523450056091"
+			},
+			"directories": {}
+		},
+		"1.1.1": {
+			"name": "@protobufjs/aspromise",
+			"description": "Returns a promise from a node-style callback function.",
+			"version": "1.1.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"istanbul": "^0.4.5",
+				"tape": "^4.6.3"
+			},
+			"scripts": {
+				"test": "tape tests/*.js",
+				"coverage": "istanbul cover node_modules/tape/bin/tape tests/*.js"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/aspromise@1.1.1",
+			"_shasum": "22526b2959bbc8dcc531dfcf569a9e2a1eeb3e1f",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "22526b2959bbc8dcc531dfcf569a9e2a1eeb3e1f",
+				"tarball": "https://registry.npmjs.org/@protobufjs/aspromise/-/aspromise-1.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/aspromise-1.1.1.tgz_1485368158413_0.4736923042219132"
+			},
+			"directories": {}
+		},
+		"1.1.2": {
+			"name": "@protobufjs/aspromise",
+			"description": "Returns a promise from a node-style callback function.",
+			"version": "1.1.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode+protobufjs@dcode.io"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/protobuf.js.git"
+			},
+			"license": "BSD-3-Clause",
+			"main": "index.js",
+			"types": "index.d.ts",
+			"devDependencies": {
+				"istanbul": "^0.4.5",
+				"tape": "^4.6.3"
+			},
+			"scripts": {
+				"test": "tape tests/*.js",
+				"coverage": "istanbul cover node_modules/tape/bin/tape tests/*.js"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/protobuf.js/issues"
+			},
+			"homepage": "https://github.com/dcodeIO/protobuf.js#readme",
+			"_id": "@protobufjs/aspromise@1.1.2",
+			"_shasum": "9b8b0cc663d669a7d8f6f5d0893a14d348f30fbf",
+			"_from": ".",
+			"_npmVersion": "4.0.5",
+			"_nodeVersion": "6.9.1",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode+npm@dcode.io"
+			},
+			"dist": {
+				"shasum": "9b8b0cc663d669a7d8f6f5d0893a14d348f30fbf",
+				"tarball": "https://registry.npmjs.org/@protobufjs/aspromise/-/aspromise-1.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode+npm@dcode.io"
+				},
+				{
+					"name": "protobufjs",
+					"email": "dcode+protobufjs@dcode.io"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/aspromise-1.1.2.tgz_1493030312365_0.014110192423686385"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2018-01-07T13:56:48.274Z",
+		"created": "2016-12-12T13:51:47.764Z",
+		"1.0.2": "2016-12-12T13:51:47.764Z",
+		"1.0.3": "2016-12-12T22:27:26.849Z",
+		"1.0.4": "2016-12-20T21:33:51.634Z",
+		"1.0.5": "2017-01-03T15:30:42.723Z",
+		"1.1.0": "2017-01-25T18:11:51.401Z",
+		"1.1.1": "2017-01-25T18:16:00.231Z",
+		"1.1.2": "2017-04-24T10:38:32.963Z"
+	},
+	"dist-tags": {
+		"latest": "1.1.2"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"7ca905b122bdcc4fd04537f49c78dbc2\"",
+			"fetched": 1568994331432
+		}
+	},
+	"_distfiles": {
+		"aspromise-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/aspromise/-/aspromise-1.0.2.tgz",
+			"sha": "d675200a515ce84b32406587b6f03836186f0cf6",
+			"registry": "npmjs"
+		},
+		"aspromise-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/aspromise/-/aspromise-1.0.3.tgz",
+			"sha": "3cba72968c451b4412ddba0a5e8c45f7cdd6b6b3",
+			"registry": "npmjs"
+		},
+		"aspromise-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/aspromise/-/aspromise-1.0.4.tgz",
+			"sha": "5859b2faf47046b0d5806b6724c297e566bbcd60",
+			"registry": "npmjs"
+		},
+		"aspromise-1.0.5.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/aspromise/-/aspromise-1.0.5.tgz",
+			"sha": "6aff4b003db2ad3fdba193d679116bb8600ffbb9",
+			"registry": "npmjs"
+		},
+		"aspromise-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/aspromise/-/aspromise-1.1.0.tgz",
+			"sha": "ef59873160a27bb8b8cf3869a418bbc7ed810df4",
+			"registry": "npmjs"
+		},
+		"aspromise-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/aspromise/-/aspromise-1.1.1.tgz",
+			"sha": "22526b2959bbc8dcc531dfcf569a9e2a1eeb3e1f",
+			"registry": "npmjs"
+		},
+		"aspromise-1.1.2.tgz": {
+			"url": "https://registry.npmjs.org/@protobufjs/aspromise/-/aspromise-1.1.2.tgz",
+			"sha": "9b8b0cc663d669a7d8f6f5d0893a14d348f30fbf",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-260865d114e54f0b",
+	"_id": "@protobufjs/aspromise",
+	"readme": "@protobufjs/aspromise\r\n=====================\r\n[![npm](https://img.shields.io/npm/v/@protobufjs/aspromise.svg)](https://www.npmjs.com/package/@protobufjs/aspromise)\r\n\r\nReturns a promise from a node-style callback function.\r\n\r\nAPI\r\n---\r\n\r\n* **asPromise(fn: `function`, ctx: `Object`, ...params: `*`): `Promise<*>`**<br />\r\n  Returns a promise from a node-style callback function.\r\n\r\n**License:** [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)"
+}

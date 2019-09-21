@@ -1,0 +1,17 @@
+[2019-09-20 17:45:12] PM2 log: ===============================================================================
+[2019-09-20 17:45:12] PM2 log: --- New PM2 Daemon started ----------------------------------------------------
+[2019-09-20 17:45:12] PM2 log: Time                 : Fri Sep 20 2019 17:45:12 GMT+0200 (CEST)
+[2019-09-20 17:45:12] PM2 log: PM2 version          : 2.10.1
+[2019-09-20 17:45:12] PM2 log: Node.js version      : 8.15.1
+[2019-09-20 17:45:12] PM2 log: Current arch         : x64
+[2019-09-20 17:45:12] PM2 log: PM2 home             : .pm2
+[2019-09-20 17:45:12] PM2 log: PM2 PID file         : /home/julien/bin/caliper/packages/caliper-tests-integration/.pm2/pm2.pid
+[2019-09-20 17:45:12] PM2 log: RPC socket file      : /home/julien/bin/caliper/packages/caliper-tests-integration/.pm2/rpc.sock
+[2019-09-20 17:45:12] PM2 log: BUS socket file      : /home/julien/bin/caliper/packages/caliper-tests-integration/.pm2/pub.sock
+[2019-09-20 17:45:12] PM2 log: Application log path : /home/julien/bin/caliper/packages/caliper-tests-integration/.pm2/logs
+[2019-09-20 17:45:12] PM2 log: Process dump file    : /home/julien/bin/caliper/packages/caliper-tests-integration/.pm2/dump.pm2
+[2019-09-20 17:45:12] PM2 log: Concurrent actions   : 2
+[2019-09-20 17:45:12] PM2 log: SIGTERM timeout      : 1600
+[2019-09-20 17:45:12] PM2 log: ===============================================================================
+[2019-09-20 17:45:12] PM2 log: Starting execution sequence in -fork mode- for app name:verdaccio id:0
+[2019-09-20 17:45:12] PM2 log: App name:verdaccio id:0 online

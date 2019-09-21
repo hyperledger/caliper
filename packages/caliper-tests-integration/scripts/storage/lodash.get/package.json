@@ -1,0 +1,1110 @@
+{
+	"name": "lodash.get",
+	"versions": {
+		"3.7.0": {
+			"name": "lodash.get",
+			"version": "3.7.0",
+			"description": "The modern build of lodash’s `_.get` as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash",
+				"lodash-modularized",
+				"stdlib",
+				"util"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Benjamin Tan",
+					"email": "demoneaux@gmail.com",
+					"url": "https://d10.github.io/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "http://www.iceddev.com/"
+				},
+				{
+					"name": "Kit Cambridge",
+					"email": "github@kitcambridge.be",
+					"url": "http://kitcambridge.be/"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/lodash/lodash"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"dependencies": {
+				"lodash._baseget": "^3.0.0",
+				"lodash._topath": "^3.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.get@3.7.0",
+			"_shasum": "3ce68ae2c91683b281cc5394128303cbf75e691f",
+			"_from": ".",
+			"_npmVersion": "2.7.6",
+			"_nodeVersion": "0.12.2",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "3ce68ae2c91683b281cc5394128303cbf75e691f",
+				"tarball": "https://registry.npmjs.org/lodash.get/-/lodash.get-3.7.0.tgz"
+			},
+			"directories": {}
+		},
+		"4.0.0": {
+			"name": "lodash.get",
+			"version": "4.0.0",
+			"description": "The lodash method `_.get` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash",
+				"lodash-modularized",
+				"stdlib",
+				"util",
+				"get"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.get@4.0.0",
+			"_shasum": "faa56272dfdca33553066b5039592cc11b43941a",
+			"_from": ".",
+			"_npmVersion": "2.14.15",
+			"_nodeVersion": "5.4.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "faa56272dfdca33553066b5039592cc11b43941a",
+				"tarball": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.0.1": {
+			"name": "lodash.get",
+			"version": "4.0.1",
+			"description": "The lodash method `_.get` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash",
+				"lodash-modularized",
+				"stdlib",
+				"util",
+				"get"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.get@4.0.1",
+			"_shasum": "825f82281af7e36675b1067a0ddd5593ba626070",
+			"_from": ".",
+			"_npmVersion": "2.14.15",
+			"_nodeVersion": "5.4.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "825f82281af7e36675b1067a0ddd5593ba626070",
+				"tarball": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"directories": {}
+		},
+		"4.0.2": {
+			"name": "lodash.get",
+			"version": "4.0.2",
+			"description": "The lodash method `_.get` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"get"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.get@4.0.2",
+			"_shasum": "bdac849862f7cd2bdcc2b84e2d6a35463b26e1f6",
+			"_from": ".",
+			"_npmVersion": "2.14.15",
+			"_nodeVersion": "5.4.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "bdac849862f7cd2bdcc2b84e2d6a35463b26e1f6",
+				"tarball": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/lodash.get-4.0.2.tgz_1454484450046_0.03573412774130702"
+			},
+			"directories": {}
+		},
+		"4.1.0": {
+			"name": "lodash.get",
+			"version": "4.1.0",
+			"description": "The lodash method `_.get` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"get"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"dependencies": {
+				"lodash._root": "^3.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.get@4.1.0",
+			"_shasum": "e110110c32d3225f0b5b66558d91d2d8d7a27e2b",
+			"_from": ".",
+			"_npmVersion": "2.14.18",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "e110110c32d3225f0b5b66558d91d2d8d7a27e2b",
+				"tarball": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/lodash.get-4.1.0.tgz_1454898396668_0.48346277163363993"
+			},
+			"directories": {}
+		},
+		"4.1.1": {
+			"name": "lodash.get",
+			"version": "4.1.1",
+			"description": "The lodash method `_.get` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"get"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"dependencies": {
+				"lodash.tostring": "^4.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.get@4.1.1",
+			"_shasum": "b3f4854ca3a30effd1b84d5bd093c7506dbce3e6",
+			"_from": ".",
+			"_npmVersion": "2.14.18",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "b3f4854ca3a30effd1b84d5bd093c7506dbce3e6",
+				"tarball": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-5-east.internal.npmjs.com",
+				"tmp": "tmp/lodash.get-4.1.1.tgz_1455602317197_0.3085003807209432"
+			},
+			"directories": {}
+		},
+		"4.1.2": {
+			"name": "lodash.get",
+			"version": "4.1.2",
+			"description": "The lodash method `_.get` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"get"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine@iceddev.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"dependencies": {
+				"lodash.tostring": "^4.0.0"
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.get@4.1.2",
+			"_shasum": "e8ae368b95d5bbb6d24aee9651b32d8c552cdd79",
+			"_from": ".",
+			"_npmVersion": "2.14.18",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "e8ae368b95d5bbb6d24aee9651b32d8c552cdd79",
+				"tarball": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-9-west.internal.npmjs.com",
+				"tmp": "tmp/lodash.get-4.1.2.tgz_1455615287803_0.8842703467234969"
+			},
+			"directories": {}
+		},
+		"4.2.0": {
+			"name": "lodash.get",
+			"version": "4.2.0",
+			"description": "The lodash method `_.get` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"get"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine.bublitz@gmail.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"dependencies": {
+				"lodash._stringtopath": "~4.7.0"
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.get@4.2.0",
+			"_shasum": "b3edefbc0f2629fb23c2b559cb4d6cc9f60c2a7f",
+			"_from": ".",
+			"_npmVersion": "2.15.2",
+			"_nodeVersion": "5.9.1",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "b3edefbc0f2629fb23c2b559cb4d6cc9f60c2a7f",
+				"tarball": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/lodash.get-4.2.0.tgz_1459655354100_0.8729645137209445"
+			},
+			"directories": {}
+		},
+		"4.2.1": {
+			"name": "lodash.get",
+			"version": "4.2.1",
+			"description": "The lodash method `_.get` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"get"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine.bublitz@gmail.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"dependencies": {
+				"lodash._stringtopath": "~4.7.0"
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.get@4.2.1",
+			"_shasum": "6e9afc87b8a6c02160667a70f6c8ce1078aeb11b",
+			"_from": ".",
+			"_npmVersion": "2.15.3",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "6e9afc87b8a6c02160667a70f6c8ce1078aeb11b",
+				"tarball": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/lodash.get-4.2.1.tgz_1460393674288_0.44501535198651254"
+			},
+			"directories": {}
+		},
+		"4.3.0": {
+			"name": "lodash.get",
+			"version": "4.3.0",
+			"description": "The lodash method `_.get` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"get"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine.bublitz@gmail.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"dependencies": {
+				"lodash._stringtopath": "~4.8.0"
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.get@4.3.0",
+			"_shasum": "d3765ffbf770d4e3d2bb4f6f40995ceaa223e36f",
+			"_from": ".",
+			"_npmVersion": "2.15.5",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "d3765ffbf770d4e3d2bb4f6f40995ceaa223e36f",
+				"tarball": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/lodash.get-4.3.0.tgz_1463062233175_0.7616066564805806"
+			},
+			"directories": {}
+		},
+		"4.4.0": {
+			"name": "lodash.get",
+			"version": "4.4.0",
+			"description": "The lodash method `_.get` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"get"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine.bublitz@gmail.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.get@4.4.0",
+			"_shasum": "ed35fb9fe4681abc7eee8c2651120d9015d40a86",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.2.4",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "ed35fb9fe4681abc7eee8c2651120d9015d40a86",
+				"tarball": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/lodash.get-4.4.0.tgz_1469457878230_0.45184128312394023"
+			},
+			"directories": {}
+		},
+		"4.4.1": {
+			"name": "lodash.get",
+			"version": "4.4.1",
+			"description": "The lodash method `_.get` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"get"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine.bublitz@gmail.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.get@4.4.1",
+			"_shasum": "3cb0acc6a6dc15b5e76197a895a47a2a45ce7f42",
+			"_from": ".",
+			"_npmVersion": "2.15.8",
+			"_nodeVersion": "6.0.0",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "3cb0acc6a6dc15b5e76197a895a47a2a45ce7f42",
+				"tarball": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.4.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/lodash.get-4.4.1.tgz_1469924577631_0.5892761377617717"
+			},
+			"directories": {}
+		},
+		"4.4.2": {
+			"name": "lodash.get",
+			"version": "4.4.2",
+			"description": "The lodash method `_.get` exported as a module.",
+			"homepage": "https://lodash.com/",
+			"icon": "https://lodash.com/icon.svg",
+			"license": "MIT",
+			"keywords": [
+				"lodash-modularized",
+				"get"
+			],
+			"author": {
+				"name": "John-David Dalton",
+				"email": "john.david.dalton@gmail.com",
+				"url": "http://allyoucanleet.com/"
+			},
+			"contributors": [
+				{
+					"name": "John-David Dalton",
+					"email": "john.david.dalton@gmail.com",
+					"url": "http://allyoucanleet.com/"
+				},
+				{
+					"name": "Blaine Bublitz",
+					"email": "blaine.bublitz@gmail.com",
+					"url": "https://github.com/phated"
+				},
+				{
+					"name": "Mathias Bynens",
+					"email": "mathias@qiwi.be",
+					"url": "https://mathiasbynens.be/"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lodash/lodash.git"
+			},
+			"scripts": {
+				"test": "echo \"See https://travis-ci.org/lodash/lodash-cli for testing details.\""
+			},
+			"bugs": {
+				"url": "https://github.com/lodash/lodash/issues"
+			},
+			"_id": "lodash.get@4.4.2",
+			"_shasum": "2d177f652fa31e939b4438d5341499dfa3825e99",
+			"_from": ".",
+			"_npmVersion": "2.15.10",
+			"_nodeVersion": "4.4.7",
+			"_npmUser": {
+				"name": "jdalton",
+				"email": "john.david.dalton@gmail.com"
+			},
+			"dist": {
+				"shasum": "2d177f652fa31e939b4438d5341499dfa3825e99",
+				"tarball": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.4.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jdalton",
+					"email": "john.david.dalton@gmail.com"
+				},
+				{
+					"name": "mathias",
+					"email": "mathias@qiwi.be"
+				},
+				{
+					"name": "phated",
+					"email": "blaine@iceddev.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/lodash.get-4.4.2.tgz_1471109964075_0.3515763762407005"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2016-10-06T16:47:06.450Z",
+		"created": "2015-04-16T16:30:47.000Z",
+		"3.7.0": "2015-04-16T16:30:47.000Z",
+		"4.0.0": "2016-01-13T11:02:34.157Z",
+		"4.0.1": "2016-01-26T08:49:30.896Z",
+		"4.0.2": "2016-02-03T07:27:30.833Z",
+		"4.1.0": "2016-02-08T02:26:37.690Z",
+		"4.1.1": "2016-02-16T05:58:40.746Z",
+		"4.1.2": "2016-02-16T09:34:50.482Z",
+		"4.2.0": "2016-04-03T03:49:14.615Z",
+		"4.2.1": "2016-04-11T16:54:37.455Z",
+		"4.3.0": "2016-05-12T14:10:33.687Z",
+		"4.4.0": "2016-07-25T14:44:41.560Z",
+		"4.4.1": "2016-07-31T00:23:01.462Z",
+		"4.4.2": "2016-08-13T17:39:26.852Z"
+	},
+	"dist-tags": {
+		"latest": "4.4.2"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"fff821c1ff814fa1ebc6addc6b5c4f1a\"",
+			"fetched": 1568994345919
+		}
+	},
+	"_distfiles": {
+		"lodash.get-3.7.0.tgz": {
+			"url": "https://registry.npmjs.org/lodash.get/-/lodash.get-3.7.0.tgz",
+			"sha": "3ce68ae2c91683b281cc5394128303cbf75e691f",
+			"registry": "npmjs"
+		},
+		"lodash.get-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.0.0.tgz",
+			"sha": "faa56272dfdca33553066b5039592cc11b43941a",
+			"registry": "npmjs"
+		},
+		"lodash.get-4.0.1.tgz": {
+			"url": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.0.1.tgz",
+			"sha": "825f82281af7e36675b1067a0ddd5593ba626070",
+			"registry": "npmjs"
+		},
+		"lodash.get-4.0.2.tgz": {
+			"url": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.0.2.tgz",
+			"sha": "bdac849862f7cd2bdcc2b84e2d6a35463b26e1f6",
+			"registry": "npmjs"
+		},
+		"lodash.get-4.1.0.tgz": {
+			"url": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.1.0.tgz",
+			"sha": "e110110c32d3225f0b5b66558d91d2d8d7a27e2b",
+			"registry": "npmjs"
+		},
+		"lodash.get-4.1.1.tgz": {
+			"url": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.1.1.tgz",
+			"sha": "b3f4854ca3a30effd1b84d5bd093c7506dbce3e6",
+			"registry": "npmjs"
+		},
+		"lodash.get-4.1.2.tgz": {
+			"url": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.1.2.tgz",
+			"sha": "e8ae368b95d5bbb6d24aee9651b32d8c552cdd79",
+			"registry": "npmjs"
+		},
+		"lodash.get-4.2.0.tgz": {
+			"url": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.2.0.tgz",
+			"sha": "b3edefbc0f2629fb23c2b559cb4d6cc9f60c2a7f",
+			"registry": "npmjs"
+		},
+		"lodash.get-4.2.1.tgz": {
+			"url": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.2.1.tgz",
+			"sha": "6e9afc87b8a6c02160667a70f6c8ce1078aeb11b",
+			"registry": "npmjs"
+		},
+		"lodash.get-4.3.0.tgz": {
+			"url": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.3.0.tgz",
+			"sha": "d3765ffbf770d4e3d2bb4f6f40995ceaa223e36f",
+			"registry": "npmjs"
+		},
+		"lodash.get-4.4.0.tgz": {
+			"url": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.4.0.tgz",
+			"sha": "ed35fb9fe4681abc7eee8c2651120d9015d40a86",
+			"registry": "npmjs"
+		},
+		"lodash.get-4.4.1.tgz": {
+			"url": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.4.1.tgz",
+			"sha": "3cb0acc6a6dc15b5e76197a895a47a2a45ce7f42",
+			"registry": "npmjs"
+		},
+		"lodash.get-4.4.2.tgz": {
+			"url": "https://registry.npmjs.org/lodash.get/-/lodash.get-4.4.2.tgz",
+			"sha": "2d177f652fa31e939b4438d5341499dfa3825e99",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-46945d2c9ea8e948",
+	"_id": "lodash.get",
+	"readme": "# lodash.get v4.4.2\n\nThe [lodash](https://lodash.com/) method `_.get` exported as a [Node.js](https://nodejs.org/) module.\n\n## Installation\n\nUsing npm:\n```bash\n$ {sudo -H} npm i -g npm\n$ npm i --save lodash.get\n```\n\nIn Node.js:\n```js\nvar get = require('lodash.get');\n```\n\nSee the [documentation](https://lodash.com/docs#get) or [package source](https://github.com/lodash/lodash/blob/4.4.2-npm-packages/lodash.get) for more details."
+}

@@ -1,0 +1,782 @@
+{
+	"name": "@types/long",
+	"versions": {
+		"3.0.14-alpha": {
+			"name": "@types/long",
+			"version": "3.0.14-alpha",
+			"description": "Type definitions for long.js 3.0.2 from https://www.github.com/DefinitelyTyped/DefinitelyTyped",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Peter Kooijmans",
+				"email": "https://github.com/peterkooijmans/"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {},
+			"_id": "@types/long@3.0.14-alpha",
+			"_shasum": "e976825f729521a01fb2dc186d793186f954088e",
+			"_from": "output\\long",
+			"_resolved": "file:output\\long",
+			"_npmVersion": "3.8.2",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "e976825f729521a01fb2dc186d793186f954088e",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-3.0.14-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/long-3.0.14-alpha.tgz_1463463180135_0.2609598874114454"
+			},
+			"directories": {}
+		},
+		"3.0.15-alpha": {
+			"name": "@types/long",
+			"version": "3.0.15-alpha",
+			"description": "Type definitions for long.js 3.0.2 from https://www.github.com/DefinitelyTyped/DefinitelyTyped",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Peter Kooijmans",
+				"email": "https://github.com/peterkooijmans/"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {},
+			"_id": "@types/long@3.0.15-alpha",
+			"_shasum": "c8b5e1a2b9b774133dd22f32b8953975508c70ca",
+			"_from": "output\\long",
+			"_resolved": "file:output\\long",
+			"_npmVersion": "3.8.2",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "c8b5e1a2b9b774133dd22f32b8953975508c70ca",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-3.0.15-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/long-3.0.15-alpha.tgz_1463693890508_0.29136186628602445"
+			},
+			"directories": {}
+		},
+		"3.0.20-alpha": {
+			"name": "@types/long",
+			"version": "3.0.20-alpha",
+			"description": "TypeScript definitions for long.js 3.0.2",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Peter Kooijmans",
+				"email": "https://github.com/peterkooijmans/"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {},
+			"_id": "@types/long@3.0.20-alpha",
+			"_shasum": "764222e740d0706c08b0580ccf9b6f224bee65f4",
+			"_from": "output\\long",
+			"_resolved": "file:output\\long",
+			"_npmVersion": "3.8.2",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "764222e740d0706c08b0580ccf9b6f224bee65f4",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-3.0.20-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/long-3.0.20-alpha.tgz_1463774800643_0.5482947328127921"
+			},
+			"directories": {}
+		},
+		"3.0.21-alpha": {
+			"name": "@types/long",
+			"version": "3.0.21-alpha",
+			"description": "TypeScript definitions for long.js 3.0.2",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Peter Kooijmans",
+				"email": "https://github.com/peterkooijmans/"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {},
+			"_id": "@types/long@3.0.21-alpha",
+			"_shasum": "0a8627bce34153d232c23fae668abae003281513",
+			"_from": "output\\long",
+			"_resolved": "file:output\\long",
+			"_npmVersion": "3.8.2",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "0a8627bce34153d232c23fae668abae003281513",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-3.0.21-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/long-3.0.21-alpha.tgz_1464153886901_0.4182706759311259"
+			},
+			"directories": {}
+		},
+		"3.0.22-alpha": {
+			"name": "@types/long",
+			"version": "3.0.22-alpha",
+			"description": "TypeScript definitions for long.js 3.0.2",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Peter Kooijmans",
+				"email": "https://github.com/peterkooijmans/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {},
+			"_id": "@types/long@3.0.22-alpha",
+			"_shasum": "1463b8ec3cb540ab892811f32ea615ba66824628",
+			"_from": "output\\long",
+			"_resolved": "file:output\\long",
+			"_npmVersion": "3.9.5",
+			"_nodeVersion": "6.2.2",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "1463b8ec3cb540ab892811f32ea615ba66824628",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-3.0.22-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/long-3.0.22-alpha.tgz_1467403185841_0.4488585120998323"
+			},
+			"directories": {}
+		},
+		"3.0.23-alpha": {
+			"name": "@types/long",
+			"version": "3.0.23-alpha",
+			"description": "TypeScript definitions for long.js 3.0.2",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Peter Kooijmans",
+				"email": "https://github.com/peterkooijmans/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {},
+			"_id": "@types/long@3.0.23-alpha",
+			"_shasum": "06efe38cd11a689b9cfa2cb3a6706d678e5cbb3d",
+			"_from": "output\\long",
+			"_resolved": "file:output\\long",
+			"_npmVersion": "3.7.2",
+			"_nodeVersion": "6.2.1",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "06efe38cd11a689b9cfa2cb3a6706d678e5cbb3d",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-3.0.23-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/long-3.0.23-alpha.tgz_1467415052652_0.13675462850369513"
+			},
+			"directories": {}
+		},
+		"3.0.24-alpha": {
+			"name": "@types/long",
+			"version": "3.0.24-alpha",
+			"description": "TypeScript definitions for long.js 3.0.2",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Peter Kooijmans",
+				"email": "https://github.com/peterkooijmans/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {},
+			"_id": "@types/long@3.0.24-alpha",
+			"_shasum": "6721d7d8bba44c9244318172580646a36765f5f5",
+			"_from": "output\\long",
+			"_resolved": "file:output\\long",
+			"_npmVersion": "3.7.2",
+			"_nodeVersion": "6.2.1",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "6721d7d8bba44c9244318172580646a36765f5f5",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-3.0.24-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/long-3.0.24-alpha.tgz_1467428178233_0.6394117136951536"
+			},
+			"directories": {}
+		},
+		"3.0.25-alpha": {
+			"name": "@types/long",
+			"version": "3.0.25-alpha",
+			"description": "TypeScript definitions for long.js 3.0.2",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Peter Kooijmans",
+				"email": "https://github.com/peterkooijmans/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {},
+			"_id": "@types/long@3.0.25-alpha",
+			"_shasum": "6a82a8128728974a7a45ce55450a5834a30a9815",
+			"_from": "output\\long",
+			"_resolved": "file:output\\long",
+			"_npmVersion": "3.7.2",
+			"_nodeVersion": "6.2.1",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "6a82a8128728974a7a45ce55450a5834a30a9815",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-3.0.25-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/long-3.0.25-alpha.tgz_1467593156977_0.5641482966020703"
+			},
+			"directories": {}
+		},
+		"3.0.26-alpha": {
+			"name": "@types/long",
+			"version": "3.0.26-alpha",
+			"description": "TypeScript definitions for long.js 3.0.2",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Peter Kooijmans",
+				"email": "https://github.com/peterkooijmans/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {},
+			"_id": "@types/long@3.0.26-alpha",
+			"_shasum": "d6310013cdc1cec23108599f94aedc02b02abd05",
+			"_from": "output\\long",
+			"_resolved": "file:output\\long",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.0",
+			"_npmUser": {
+				"name": "types",
+				"email": "ryan.cavanaugh@microsoft.com"
+			},
+			"dist": {
+				"shasum": "d6310013cdc1cec23108599f94aedc02b02abd05",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-3.0.26-alpha.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/long-3.0.26-alpha.tgz_1468010640030_0.23471832764334977"
+			},
+			"directories": {}
+		},
+		"3.0.27": {
+			"name": "@types/long",
+			"version": "3.0.27",
+			"description": "TypeScript definitions for long.js 3.0.2",
+			"main": "",
+			"scripts": {},
+			"author": {
+				"name": "Peter Kooijmans",
+				"email": "https://github.com/peterkooijmans/"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"license": "MIT",
+			"typings": "index.d.ts",
+			"dependencies": {},
+			"_id": "@types/long@3.0.27",
+			"_shasum": "4ae5c1d446e4048975449a4c2d02fcc48a57098a",
+			"_from": "output\\long",
+			"_resolved": "file:output\\long",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.0",
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"dist": {
+				"shasum": "4ae5c1d446e4048975449a4c2d02fcc48a57098a",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-3.0.27.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/long-3.0.27.tgz_1468509600100_0.728180258302018"
+			},
+			"directories": {}
+		},
+		"3.0.28": {
+			"name": "@types/long",
+			"version": "3.0.28",
+			"description": "TypeScript definitions for long.js 3.0.2",
+			"license": "MIT",
+			"author": "Peter Kooijmans <https://github.com/peterkooijmans/>",
+			"main": "",
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {},
+			"typings": "index.d.ts",
+			"_id": "@types/long@3.0.28",
+			"dist": {
+				"shasum": "7e93fae3f788d2d2a2c0dfc1941a571aa8cdcd83",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-3.0.28.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/long-3.0.28.tgz_1470153570107_0.9946540964301676"
+			},
+			"directories": {}
+		},
+		"3.0.29": {
+			"name": "@types/long",
+			"version": "3.0.29",
+			"description": "TypeScript definitions for long.js 3.0.2",
+			"license": "MIT",
+			"author": "Peter Kooijmans <https://github.com/peterkooijmans/>",
+			"main": "",
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {},
+			"typings": "index.d.ts",
+			"_id": "@types/long@3.0.29",
+			"dist": {
+				"shasum": "835222aec99dd733510cb601f3bf9ed1a2a88809",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-3.0.29.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/long-3.0.29.tgz_1471620717275_0.019062079023569822"
+			},
+			"directories": {}
+		},
+		"3.0.30": {
+			"name": "@types/long",
+			"version": "3.0.30",
+			"description": "TypeScript definitions for long.js 3.0.2",
+			"license": "MIT",
+			"author": "Peter Kooijmans <https://github.com/peterkooijmans/>",
+			"main": "",
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {},
+			"typings": "index.d.ts",
+			"_id": "@types/long@3.0.30",
+			"dist": {
+				"shasum": "dff48528c63fa3eda0864105c5e26a6c3913383c",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-3.0.30.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/long-3.0.30.tgz_1472150922782_0.30070726526901126"
+			},
+			"directories": {}
+		},
+		"3.0.31": {
+			"name": "@types/long",
+			"version": "3.0.31",
+			"description": "TypeScript definitions for long.js 3.0.2",
+			"license": "MIT",
+			"author": "Peter Kooijmans <https://github.com/peterkooijmans/>",
+			"main": "",
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {},
+			"typings": "index.d.ts",
+			"typesPublisherContentHash": "df8f400a77aaf9eaea3ce9f69c781598217677a8c6dee87b769dda7961e1f30b",
+			"_id": "@types/long@3.0.31",
+			"dist": {
+				"shasum": "08635b0d0d322676940c1a88a7a9cef661c6f34a",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-3.0.31.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/long-3.0.31.tgz_1474307448726_0.8327819586265832"
+			},
+			"directories": {}
+		},
+		"3.0.32": {
+			"name": "@types/long",
+			"version": "3.0.32",
+			"description": "TypeScript definitions for long.js",
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Peter Kooijmans",
+					"url": "https://github.com/peterkooijmans"
+				}
+			],
+			"main": "",
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {},
+			"typesPublisherContentHash": "26c346715f4bbe747a7eddec4134408618814ef4340646fcbac955fcdb491a4c",
+			"typeScriptVersion": "2.0",
+			"_id": "@types/long@3.0.32",
+			"dist": {
+				"integrity": "sha512-ZXyOOm83p7X8p3s0IYM3VeueNmHpkk/yMlP8CLeOnEcu6hIwPH7YjZBvhQkR0ZFS2DqZAxKtJ/M5fcuv3OU5BA==",
+				"shasum": "f4e5af31e9e9b196d8e5fca8a5e2e20aa3d60b69",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-3.0.32.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "types",
+					"email": "ryan.cavanaugh@microsoft.com"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/long-3.0.32.tgz_1503352676481_0.9611550983972847"
+			},
+			"directories": {}
+		},
+		"4.0.0": {
+			"name": "@types/long",
+			"version": "4.0.0",
+			"description": "TypeScript definitions for long.js",
+			"license": "MIT",
+			"contributors": [
+				{
+					"name": "Peter Kooijmans",
+					"url": "https://github.com/peterkooijmans",
+					"githubUsername": "peterkooijmans"
+				}
+			],
+			"main": "",
+			"repository": {
+				"type": "git",
+				"url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+			},
+			"scripts": {},
+			"dependencies": {},
+			"typesPublisherContentHash": "cc3246302180c8c161d2e2c0c3f0a419226efa475d2cd5afbe51986d60cd8287",
+			"typeScriptVersion": "2.0",
+			"_id": "@types/long@4.0.0",
+			"dist": {
+				"integrity": "sha512-1w52Nyx4Gq47uuu0EVcsHBxZFJgurQ+rTKS3qMHxR1GY2T8c2AJYd6vZoZ9q1rupaDjU0yT+Jc2XTyXkjeMA+Q==",
+				"shasum": "719551d2352d301ac8b81db732acb6bdc28dbdef",
+				"tarball": "https://registry.npmjs.org/@types/long/-/long-4.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 12007,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa385ICRA9TVsSAnZWagAAu9gP/A4fXr9mf90nzX94WIli\nb1/HvmqRW4/v5Q45Hftql2RrGIZFM326rE1JRXvVfFRIBFwfd06m4BDVj3p8\nnAMbR+rtGtfDLFR8FI3s8695VjE8az/I9+wxDG9h87drQpuk5kBHXyQoVTdc\nv0NiI2cZk6/GI5ghvH9bGV4ZyYxAGEpMXLFJlX+JY9d50mZDC0VMXwcdQRTQ\n1I/7RD5FH285T6mTuwPBBB4JzNM0sy3Q8Q1m82YXEruXywe5bR+p4iBJoMzx\nbzSQCnyxAledbxYANhZZeD4xtZuw4CFjDCX7L1Ra2jjtKLvoRm/MCkwIyG3+\nW7mtycMpRDMW5V4AGWGwddYVsdnq4RQkVBTfXxzGN4oPcqhVDSc01ZZ4Cx/n\nPp4bSr8yHTKU5vhpi1O/YcYmNhyNBsU2WDOjZAZhJsNdUCvJydAAAlGPKNFW\nJysnd346il9/SDhSYgKymGWP0TXLTZRKHWSiybvRe9oC4ecFEL2iNNMuU1jB\n4uGY5KCvyjwJlpekjDNVIwP4t2ZPm0eD4lmcBzK/vj7L+sdCOuFn//5Qe3S2\nj2Bnd/17ZQPE5/rDHydQDxWKB18OMQ+VYDF786yQhqzu+/XCGJFXRnW8xOF9\n2KzkM6Bnz++FusfxUNPaLdkqeE52mNcL2xv92JbB20+gTiyCg805fkCAC4WV\n5wDb\r\n=MLoT\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "ts-npm-types@microsoft.com",
+					"name": "types"
+				}
+			],
+			"_npmUser": {
+				"name": "types",
+				"email": "ts-npm-types@microsoft.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/long_4.0.0_1524616775797_0.43996577247975543"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-09-03T17:49:38.196Z",
+		"created": "2016-05-17T05:33:00.822Z",
+		"3.0.14-alpha": "2016-05-17T05:33:00.822Z",
+		"3.0.15-alpha": "2016-05-19T21:38:11.111Z",
+		"3.0.20-alpha": "2016-05-20T20:06:42.842Z",
+		"3.0.21-alpha": "2016-05-25T05:24:47.383Z",
+		"3.0.22-alpha": "2016-07-01T19:59:49.610Z",
+		"3.0.23-alpha": "2016-07-01T23:17:35.058Z",
+		"3.0.24-alpha": "2016-07-02T02:56:21.639Z",
+		"3.0.25-alpha": "2016-07-04T00:45:57.479Z",
+		"3.0.26-alpha": "2016-07-08T20:44:01.381Z",
+		"3.0.27": "2016-07-14T15:20:02.220Z",
+		"3.0.28": "2016-08-02T15:59:32.131Z",
+		"3.0.29": "2016-08-19T15:31:59.062Z",
+		"3.0.30": "2016-08-25T18:48:43.344Z",
+		"3.0.31": "2016-09-19T17:50:52.088Z",
+		"3.0.32": "2017-08-21T21:57:56.549Z",
+		"4.0.0": "2018-04-25T00:39:35.900Z"
+	},
+	"dist-tags": {
+		"latest": "4.0.0",
+		"ts2.0": "4.0.0",
+		"ts2.1": "4.0.0",
+		"ts2.2": "4.0.0",
+		"ts2.3": "4.0.0",
+		"ts2.4": "4.0.0",
+		"ts2.5": "4.0.0",
+		"ts2.6": "4.0.0",
+		"ts2.7": "4.0.0",
+		"ts2.8": "4.0.0",
+		"ts2.9": "4.0.0",
+		"ts3.0": "4.0.0",
+		"ts3.1": "4.0.0",
+		"ts3.2": "4.0.0",
+		"ts3.3": "4.0.0",
+		"ts3.4": "4.0.0",
+		"ts3.5": "4.0.0",
+		"ts3.6": "4.0.0",
+		"ts3.7": "4.0.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"8ef576c71a427b66955ab43844414d21\"",
+			"fetched": 1568994331391
+		}
+	},
+	"_distfiles": {
+		"long-3.0.14-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-3.0.14-alpha.tgz",
+			"sha": "e976825f729521a01fb2dc186d793186f954088e",
+			"registry": "npmjs"
+		},
+		"long-3.0.15-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-3.0.15-alpha.tgz",
+			"sha": "c8b5e1a2b9b774133dd22f32b8953975508c70ca",
+			"registry": "npmjs"
+		},
+		"long-3.0.20-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-3.0.20-alpha.tgz",
+			"sha": "764222e740d0706c08b0580ccf9b6f224bee65f4",
+			"registry": "npmjs"
+		},
+		"long-3.0.21-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-3.0.21-alpha.tgz",
+			"sha": "0a8627bce34153d232c23fae668abae003281513",
+			"registry": "npmjs"
+		},
+		"long-3.0.22-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-3.0.22-alpha.tgz",
+			"sha": "1463b8ec3cb540ab892811f32ea615ba66824628",
+			"registry": "npmjs"
+		},
+		"long-3.0.23-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-3.0.23-alpha.tgz",
+			"sha": "06efe38cd11a689b9cfa2cb3a6706d678e5cbb3d",
+			"registry": "npmjs"
+		},
+		"long-3.0.24-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-3.0.24-alpha.tgz",
+			"sha": "6721d7d8bba44c9244318172580646a36765f5f5",
+			"registry": "npmjs"
+		},
+		"long-3.0.25-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-3.0.25-alpha.tgz",
+			"sha": "6a82a8128728974a7a45ce55450a5834a30a9815",
+			"registry": "npmjs"
+		},
+		"long-3.0.26-alpha.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-3.0.26-alpha.tgz",
+			"sha": "d6310013cdc1cec23108599f94aedc02b02abd05",
+			"registry": "npmjs"
+		},
+		"long-3.0.27.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-3.0.27.tgz",
+			"sha": "4ae5c1d446e4048975449a4c2d02fcc48a57098a",
+			"registry": "npmjs"
+		},
+		"long-3.0.28.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-3.0.28.tgz",
+			"sha": "7e93fae3f788d2d2a2c0dfc1941a571aa8cdcd83",
+			"registry": "npmjs"
+		},
+		"long-3.0.29.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-3.0.29.tgz",
+			"sha": "835222aec99dd733510cb601f3bf9ed1a2a88809",
+			"registry": "npmjs"
+		},
+		"long-3.0.30.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-3.0.30.tgz",
+			"sha": "dff48528c63fa3eda0864105c5e26a6c3913383c",
+			"registry": "npmjs"
+		},
+		"long-3.0.31.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-3.0.31.tgz",
+			"sha": "08635b0d0d322676940c1a88a7a9cef661c6f34a",
+			"registry": "npmjs"
+		},
+		"long-3.0.32.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-3.0.32.tgz",
+			"sha": "f4e5af31e9e9b196d8e5fca8a5e2e20aa3d60b69",
+			"registry": "npmjs"
+		},
+		"long-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/@types/long/-/long-4.0.0.tgz",
+			"sha": "719551d2352d301ac8b81db732acb6bdc28dbdef",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-bd496e17a6bc58dd",
+	"_id": "@types/long",
+	"readme": "# Installation\r\n> `npm install --save @types/long`\r\n\r\n# Summary\r\nThis package contains type definitions for long.js (https://github.com/dcodeIO/long.js).\r\n\r\n# Details\r\nFiles were exported from https://www.github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/long\r\n\r\nAdditional Details\r\n * Last updated: Wed, 25 Apr 2018 00:38:11 GMT\r\n * Dependencies: none\r\n * Global values: Long\r\n\r\n# Credits\r\nThese definitions were written by Peter Kooijmans <https://github.com/peterkooijmans>."
+}

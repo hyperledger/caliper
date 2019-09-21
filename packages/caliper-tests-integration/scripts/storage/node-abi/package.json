@@ -1,0 +1,2702 @@
+{
+	"name": "node-abi",
+	"versions": {
+		"1.0.0": {
+			"name": "node-abi",
+			"version": "1.0.0",
+			"description": "Get the Node ABI for a given target and runtime",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"tape": "^4.6.3"
+			},
+			"gitHead": "64ff846df1f6406334f4b8a8a83edb6bc47ffa33",
+			"_id": "node-abi@1.0.0",
+			"_shasum": "9120c531c4b1ae08039bab1ceeace865920a1287",
+			"_from": ".",
+			"_npmVersion": "4.0.3",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "9120c531c4b1ae08039bab1ceeace865920a1287",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/node-abi-1.0.0.tgz_1480724411546_0.5770387335214764"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "node-abi",
+			"version": "1.0.1",
+			"description": "Get the Node ABI for a given target and runtime",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"tape": "^4.6.3"
+			},
+			"gitHead": "d1bbe1d507d48e3e4f2116c2f587a22246bb4eda",
+			"_id": "node-abi@1.0.1",
+			"_shasum": "a21af9f0892bb4f25a8ac8914d351b74f96f7e96",
+			"_from": ".",
+			"_npmVersion": "4.0.3",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "a21af9f0892bb4f25a8ac8914d351b74f96f7e96",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/node-abi-1.0.1.tgz_1480728029093_0.2006724860984832"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "node-abi",
+			"version": "1.0.2",
+			"description": "Get the Node ABI for a given target and runtime",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"tape": "^4.6.3"
+			},
+			"gitHead": "11c9b6e48d4ae7cc87b864e78e9046b484d448f4",
+			"_id": "node-abi@1.0.2",
+			"_shasum": "fb5278963597c1b8eeafa21e148a10a0f1d6150c",
+			"_from": ".",
+			"_npmVersion": "4.0.3",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "fb5278963597c1b8eeafa21e148a10a0f1d6150c",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-1.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/node-abi-1.0.2.tgz_1480766234025_0.08750625350512564"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "node-abi",
+			"version": "1.0.3",
+			"description": "Get the Node ABI for a given target and runtime",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"tape": "^4.6.3"
+			},
+			"gitHead": "5e3ce0a0b2b4cb24b643e0b37787be5dbe0868d9",
+			"_id": "node-abi@1.0.3",
+			"_shasum": "0768a3abc28d260e747ca166c484a34ca42b8659",
+			"_from": ".",
+			"_npmVersion": "4.0.3",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "0768a3abc28d260e747ca166c484a34ca42b8659",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-1.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/node-abi-1.0.3.tgz_1480874888407_0.8221668065525591"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "node-abi",
+			"version": "1.1.0",
+			"description": "Get the Node ABI for a given target and runtime",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"tape": "^4.6.3"
+			},
+			"gitHead": "ae3fd2f673f1adbe095e59081f325ace5a055772",
+			"_id": "node-abi@1.1.0",
+			"_shasum": "ec17cc17204dbbd30aa7916ae36515e928ae93bf",
+			"_from": ".",
+			"_npmVersion": "4.1.1",
+			"_nodeVersion": "7.4.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "ec17cc17204dbbd30aa7916ae36515e928ae93bf",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/node-abi-1.1.0.tgz_1485423761019_0.10705263866111636"
+			},
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "node-abi",
+			"version": "1.2.0",
+			"description": "Get the Node ABI for a given target and runtime",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"tape": "^4.6.3"
+			},
+			"gitHead": "113b54e3f3e189a89c277649fcfd9e0d72db5051",
+			"_id": "node-abi@1.2.0",
+			"_shasum": "63d9b09c1219d54ba129d7bd0579219501d37a8d",
+			"_from": ".",
+			"_npmVersion": "4.1.1",
+			"_nodeVersion": "7.4.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "63d9b09c1219d54ba129d7bd0579219501d37a8d",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-1.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/node-abi-1.2.0.tgz_1485894491658_0.3468257854692638"
+			},
+			"directories": {}
+		},
+		"1.2.1": {
+			"name": "node-abi",
+			"version": "1.2.1",
+			"description": "Get the Node ABI for a given target and runtime",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"tape": "^4.6.3"
+			},
+			"gitHead": "490f147aea4fe1493edf4f98e2f8f7ef747f5004",
+			"_id": "node-abi@1.2.1",
+			"_shasum": "4b37303ee67d8f06ea6b594953c09dad05eabcd6",
+			"_from": ".",
+			"_npmVersion": "4.1.1",
+			"_nodeVersion": "7.4.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "4b37303ee67d8f06ea6b594953c09dad05eabcd6",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-1.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/node-abi-1.2.1.tgz_1485896757271_0.7254576091654599"
+			},
+			"directories": {}
+		},
+		"1.3.0": {
+			"name": "node-abi",
+			"version": "1.3.0",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"tape": "^4.6.3"
+			},
+			"gitHead": "a92656ef96582b9ec4796f7d53fadf86424a4525",
+			"_id": "node-abi@1.3.0",
+			"_shasum": "9b3f4283092960086ad613fdd4fd4af87d98d488",
+			"_from": ".",
+			"_npmVersion": "4.2.0",
+			"_nodeVersion": "7.5.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "9b3f4283092960086ad613fdd4fd4af87d98d488",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-1.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/node-abi-1.3.0.tgz_1486042607663_0.5966747801285237"
+			},
+			"directories": {}
+		},
+		"1.3.1": {
+			"name": "node-abi",
+			"version": "1.3.1",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"tape": "^4.6.3"
+			},
+			"gitHead": "22347595c422b847085bc9251d5a1c8fb06d973d",
+			"_id": "node-abi@1.3.1",
+			"_shasum": "9f8c5fc76b40d4a2af90a6f4d24ea102c3ff554a",
+			"_from": ".",
+			"_npmVersion": "4.2.0",
+			"_nodeVersion": "7.5.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "9f8c5fc76b40d4a2af90a6f4d24ea102c3ff554a",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-1.3.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/node-abi-1.3.1.tgz_1486046628541_0.43554249964654446"
+			},
+			"directories": {}
+		},
+		"1.3.2": {
+			"name": "node-abi",
+			"version": "1.3.2",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"tape": "^4.6.3"
+			},
+			"gitHead": "ab1ad5ad88bef8097b4da536bfd16958813b4f1e",
+			"_id": "node-abi@1.3.2",
+			"_shasum": "b0469183e101b5a0105c017a02599712b0663273",
+			"_from": ".",
+			"_npmVersion": "4.2.0",
+			"_nodeVersion": "7.5.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "b0469183e101b5a0105c017a02599712b0663273",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-1.3.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/node-abi-1.3.2.tgz_1486459398137_0.5797008338849992"
+			},
+			"directories": {}
+		},
+		"1.3.3": {
+			"name": "node-abi",
+			"version": "1.3.3",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"tape": "^4.6.3"
+			},
+			"gitHead": "8dcd3ad5f92598ef55f6e253a32334169fe18064",
+			"_id": "node-abi@1.3.3",
+			"_shasum": "0f06f2815deba26107959d2213b36ce97437e6e2",
+			"_from": ".",
+			"_npmVersion": "4.2.0",
+			"_nodeVersion": "7.5.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "0f06f2815deba26107959d2213b36ce97437e6e2",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-1.3.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/node-abi-1.3.3.tgz_1486650356342_0.6337803886272013"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "node-abi",
+			"version": "2.0.0",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"tape": "^4.6.3"
+			},
+			"gitHead": "e1df71adfdd6596e6dd77e0a34884d23075bfce6",
+			"_id": "node-abi@2.0.0",
+			"_shasum": "443bfd151b599231028ae425e592e76cd31cb537",
+			"_from": ".",
+			"_npmVersion": "4.2.0",
+			"_nodeVersion": "7.5.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "443bfd151b599231028ae425e592e76cd31cb537",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/node-abi-2.0.0.tgz_1486746887912_0.0831943484954536"
+			},
+			"directories": {}
+		},
+		"2.0.1": {
+			"name": "node-abi",
+			"version": "2.0.1",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"standard": "^10.0.0",
+				"tape": "^4.6.3"
+			},
+			"gitHead": "0fd4c0a5fcf19440c900aa8559f24e8fa6b5171f",
+			"_id": "node-abi@2.0.1",
+			"_shasum": "5767e5e29b3684c96434417f0797d36a09b1f6ad",
+			"_from": ".",
+			"_npmVersion": "4.6.1",
+			"_nodeVersion": "7.10.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "5767e5e29b3684c96434417f0797d36a09b1f6ad",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/node-abi-2.0.1.tgz_1494634306637_0.5617431760765612"
+			},
+			"directories": {}
+		},
+		"2.0.2": {
+			"name": "node-abi",
+			"version": "2.0.2",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"standard": "^10.0.0",
+				"tape": "^4.6.3"
+			},
+			"gitHead": "d2511fd9255942b8e73f25267fa001fbfe662591",
+			"_id": "node-abi@2.0.2",
+			"_shasum": "00f3e0a58100eb480133b48c99a32cc1f9e6c93e",
+			"_from": ".",
+			"_npmVersion": "4.6.1",
+			"_nodeVersion": "7.10.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "00f3e0a58100eb480133b48c99a32cc1f9e6c93e",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/node-abi-2.0.2.tgz_1494635573657_0.32915789098478854"
+			},
+			"directories": {}
+		},
+		"2.0.3": {
+			"name": "node-abi",
+			"version": "2.0.3",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"standard": "^10.0.0",
+				"tape": "^4.6.3"
+			},
+			"gitHead": "7d1b903eaf2337b342fb9fd6511f625f50bd8a35",
+			"_id": "node-abi@2.0.3",
+			"_shasum": "0ca67e5e667b8e1343549ca17153a815d0bbfdaa",
+			"_from": ".",
+			"_npmVersion": "4.6.1",
+			"_nodeVersion": "7.10.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"shasum": "0ca67e5e667b8e1343549ca17153a815d0bbfdaa",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi-2.0.3.tgz_1496190468343_0.5912974460516125"
+			},
+			"directories": {}
+		},
+		"2.1.0": {
+			"name": "node-abi",
+			"version": "2.1.0",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"standard": "^10.0.0",
+				"tape": "^4.6.3"
+			},
+			"gitHead": "775458444b2a2fc4d0b22f24ae82f8c34b2b66df",
+			"_id": "node-abi@2.1.0",
+			"_npmVersion": "5.0.3",
+			"_nodeVersion": "8.1.4",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-AbW35CPRE4vdieOse46V+16dKispLNv3PQwgqlcfg7GQeQHcLu3gvp3fbU2gTh7d8NfGjp5CJh+j4Hpyb0XzaA==",
+				"shasum": "50ad834affcf17440e12bfc5f9ba0946f572d10c",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi-2.1.0.tgz_1500028847286_0.33704616082832217"
+			},
+			"directories": {}
+		},
+		"2.1.1": {
+			"name": "node-abi",
+			"version": "2.1.1",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"standard": "^10.0.0",
+				"tape": "^4.6.3"
+			},
+			"gitHead": "3b92dcc6c42e74a060c962d9e3903541c326b542",
+			"_id": "node-abi@2.1.1",
+			"_npmVersion": "5.4.0",
+			"_nodeVersion": "8.4.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-6oxV13poCOv7TfGvhsSz6XZWpXeKkdGVh72++cs33OfMh3KAX8lN84dCvmqSETyDXAFcUHtV7eJrgFBoOqZbNQ==",
+				"shasum": "c9cda256ec8aa99bcab2f6446db38af143338b2a",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi-2.1.1.tgz_1504263916926_0.43231524946168065"
+			},
+			"directories": {}
+		},
+		"2.1.2": {
+			"name": "node-abi",
+			"version": "2.1.2",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js",
+				"semantic-release": "semantic-release pre && npm publish && semantic-release post"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"standard": "^10.0.0",
+				"tape": "^4.6.3",
+				"semantic-release": "^8.0.0"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "47eca66d41a501eca3ce5b22d9a88b500b9884c1",
+			"_id": "node-abi@2.1.2",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-hmUtb8m75RSi7N+zZLYqe75XDvZB+6LyTBPkj2DConvNgQet2e3BIqEwe1LLvqMrfyjabuT5ZOrTioLCH1HTdA==",
+				"shasum": "4da6caceb6685fcd31e7dd1994ef6bb7d0a9c0b2",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi-2.1.2.tgz_1509537142965_0.7097391991410404"
+			},
+			"directories": {}
+		},
+		"2.2.0": {
+			"name": "node-abi",
+			"version": "2.2.0",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js",
+				"semantic-release": "semantic-release pre && npm publish && semantic-release post"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"standard": "^10.0.0",
+				"tape": "^4.6.3",
+				"semantic-release": "^8.0.0"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "1e324fb48e523d9e2327cd1ac622879a6cf1286b",
+			"_id": "node-abi@2.2.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-FqVC0WNNL8fQWQK3GYTESfwZXZKDbSIiEEIvufq7HV6Lj0IDDZRVa4CU/KTA0JVlqY9eTDSuPiC8FS9UfGVuzA==",
+				"shasum": "e802ac7a2408e2c0593fb3176ffdf8a99a9b4dec",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi-2.2.0.tgz_1517158835922_0.18998108385130763"
+			},
+			"directories": {}
+		},
+		"2.3.0": {
+			"name": "node-abi",
+			"version": "2.3.0",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js",
+				"semantic-release": "semantic-release pre && npm publish && semantic-release post"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"standard": "^11.0.0",
+				"tape": "^4.6.3",
+				"semantic-release": "^8.0.0"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "86000be7bb62987381bf852b2d76f3ce2e67f710",
+			"_id": "node-abi@2.3.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-zwm6vU3SsVgw3e9fu48JBaRBCJGIvAgysDsqtf5+vEexFE71bEOtaMWb5zr/zODZNzTPtQlqUUpC79k68Hspow==",
+				"shasum": "f3d554d6ac72a9ee16f0f4dc9548db7c08de4986",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.3.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 18557
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.3.0_1519598303831_0.236560607284928"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.4.0": {
+			"name": "node-abi",
+			"version": "2.4.0",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js",
+				"semantic-release": "semantic-release pre && npm publish && semantic-release post"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"standard": "^11.0.0",
+				"tape": "^4.6.3",
+				"semantic-release": "^8.0.0"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "09e7676d079ed0ae30c898477ec22b9a943b53c5",
+			"_id": "node-abi@2.4.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-hRUz0vG+eJfSqwU6rOgW6wNyX85ec8OEE9n4A+u+eoiE8oTePhCkUFTNmwQ+86Kyu429PCLNNyI2P2jL9qKXhw==",
+				"shasum": "3c27515cb842f5bbc132a31254f9f1e1c55c7b83",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.4.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 18619,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa4FCNCRA9TVsSAnZWagAAATsP/3Wq36oyn89i3rGwgrMl\nuv2sjktkxTyR/kmgmzB1ILk4uEQxcn7Px9zW6GaHvBlwGFuw6+jcljML3H3o\n8xoQFtJKJTWiXXSONV779te8zGpzMjLTlOAnggOiE9+qGB6mmPy6yIGc6rmj\nzJGIkkiAwu37YMqEEgMzQKZnHF5Mtb+NYDRZhpXJkMIfZbevddTO3Q0DEcWY\nq3MxJEit3Mpvt/s1T+DbW1WIlBCS31WNuPybd5PVjFNEyHY11ahIwPU+MugQ\nSAmUiO1aZkcZ2zmMbUbirYjpLSQw9oqudmmoFttEKg+WGKo8gwrP247x2Jtx\nojOMvAP/Tuy1W45rREJ9rFjaUgRpBBS+uCfHUQkjoBUAtZkCC4dTP1HZecPa\nEZ1xCOmEVA+O4IorcxBmlw7RGMtgjkoUXotR72KU+YTXtCKSXBB+yPyXNTXM\nnQ3DcK/ttwy+fDwbdOCLlB58ZO4QyCQtF6Tny5S34MX15GtjEhlD9i/2kaw6\nar7MiqUNA5cnVR/1CUGPlpHrIOlrENmwv6FZtG9DNI31IshxpTmjlusTVw6w\nN2xFxDI0MJpUocdoqgci7evMzEt0zb0h5syIeEnxmsqWdoQ2PJRBgxLc0AzS\naCYcFcCKo0OCIaZcVchdTyKGtZAEHBw6EAa7PugoaBvIrkmVapOkCDj43mOO\nT70R\r\n=g9tj\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.4.0_1524650125279_0.6000165219249347"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.4.1": {
+			"name": "node-abi",
+			"version": "2.4.1",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js",
+				"semantic-release": "semantic-release pre && npm publish && semantic-release post"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"standard": "^11.0.0",
+				"tape": "^4.6.3",
+				"semantic-release": "^8.0.0"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "396db7f9a375772726b6502e388fc920cdab9c7a",
+			"_id": "node-abi@2.4.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "10.0.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-pUlswqpHQ7zGPI9lGjZ4XDNIEUDbHxsltfIRb7dTnYdhgHWHOcB0MLZKLoCz6UMcGzSPG5wGl1HODZVQAUsH6w==",
+				"shasum": "7628c4d4ec4e9cd3764ceb3652f36b2e7f8d4923",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.4.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 18629,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa7HUsCRA9TVsSAnZWagAAKosP/0Fdxf9jKoGZgMop1j+O\nKm5kuhZSbY9U5eIB7MffdhmkpAyZe9pLPKGjbI792iQae/RZVZc0ei7wU/XM\nhkcHrwui2k+q25UZR7pN8TZiugVol0sUMibBrKwBTp7I6F+OFrMyM4ey2fJB\nb8eAjJrjDAS0ROYJNZ0AtMjT7UqMbHZfyGCtft4ttyuYC/lONl2vwZOTI1Iv\ns2BdieBT6s1BMFWT8m+ygeFRDsNS16zwY24Nh+8AC+6HCqgJrElS3EgSaTzD\nOeFPq80Fg3KS/YJ6Pjvm3Wov+Q351MZv3xew3KQU5+uFUo/OgwbT+QfImx+v\n9dxt+aQhPHp6JEIHb3JfakLXUuOsp0n/sbVD+seHP12dLZoxtUv1jo9dh/4K\ns34x27RrWGiytzkjqKy5HU1zUwVrqTKSUSldigchI2Sf2v9Zwbnq3IkrdzLg\n21zCjcl4D0c2nG/C1EpXg3YM2eK6ZuCS+H3gU2b0fF7/Y3/32HpoqcS4DYxl\noPdkfvEB3FXCq/6QszA0zLzxCODKrb1h++dFuK+ddL5JovFwIZKjE6Ka5giB\nmABKavZ65GVnGID/3U7xiqhpsLrSFKzdgwDeE/PDuZssO/PmtliJH94pRCR/\nEEsPdq21UEURcY6tf7/aT8OLVRN9jbn3TECuPVQ6sEKtSfWB+pKA6id+ZiVh\nwYnI\r\n=gs6y\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.4.1_1525445931805_0.44485092152228134"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.4.2": {
+			"name": "node-abi",
+			"version": "2.4.2",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js",
+				"semantic-release": "semantic-release pre && npm publish && semantic-release post"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"standard": "^11.0.0",
+				"tape": "^4.6.3",
+				"semantic-release": "^8.0.0"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "4f7b577dfe72bfc32966fddb0f068706652b3a1d",
+			"_id": "node-abi@2.4.2",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "10.5.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Gitd5dp03nIwR5Npo2SYvnKaaukdSDh8Y3GeRLbDy89brlG3lR5PEYdE3zsR5mJ/9L2X+1LNoE+BPjbRpHN2OQ==",
+				"shasum": "8a77e348bf59c13e13ed4c22c5d73fce7ce4686a",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.4.2.tgz",
+				"fileCount": 8,
+				"unpackedSize": 18694,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbK8SyCRA9TVsSAnZWagAAN1MQAKMEIwGZVriv7UKmMuoG\n3bzGs7Z8a9dqOaJ8wFIQ7abRu/9HKy0NmX9CmscQYkH4Kjj53mA376Q9Z1u0\nV7gfpGxvvyfzvatcADOtcPrUYGkmq1WZFRmNQLm2Yt2fqyy6qZjB6qe9TzSm\na9t27NyVXppPODNSOGEuY6ygf8xeHjTJP3Ek3WpliNnrdU0sFxH6JegKiY0p\nuACh/CQL4ib10f/OEbexHSfB+OD8cZ4fbZa8xUtFyW1/ShNgiarRsZpJxAGM\nBM77de2iJpcKPYZIvWOPpWyY5rLjnDBftuUamTbR2Fiv4sVlLzKb5d6g8J1N\n1lx0Yu/NaU8Te5dzrZGnoQtY/nCoHtIYInPiyj1qNNz2ERuPgXyWtgJ3k8nt\nf4vowEclNQ2W6MfIeTpsbSfZxSRnHIyU6fZojvd81YnOacGSNta+8b55btyj\nY56WYAQ4aC7eRDbTDA2VkxVQ9kqpGPVz8CkOmavDWG7KOvIzidcEJzc827CP\ngO+PAjYw2+JcigGXWP6caM6AD31p+3Q/oPE5zIzGKl1URYZ+MLfTPD/IFFdJ\n9ONlWsiX65SwrzLL/kNu3wgoADgtF5tFM0qVQmC5cUthoJgvp75FV7DXTSrc\nDDUxNgQC7lCm4psO1T8DEl/erBiqPZV7cPC0JQMbb+EvRgr2R/XLHj3yNcuQ\n1QJA\r\n=Ngae\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.4.2_1529595058815_0.28562887587340846"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.4.3": {
+			"name": "node-abi",
+			"version": "2.4.3",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js",
+				"semantic-release": "semantic-release pre && npm publish && semantic-release post"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"standard": "^11.0.0",
+				"tape": "^4.6.3",
+				"semantic-release": "^8.0.0"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "95b1a112be387073f353cf1a219591d51cadbb69",
+			"_id": "node-abi@2.4.3",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "10.5.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-b656V5C0628gOOA2kwcpNA/bxdlqYF9FvxJ+qqVX0ctdXNVZpS8J6xEUYir3WAKc7U0BH/NRlSpNbGsy+azjeg==",
+				"shasum": "43666b7b17e57863e572409edbb82115ac7af28b",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.4.3.tgz",
+				"fileCount": 8,
+				"unpackedSize": 18700,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbK9ElCRA9TVsSAnZWagAAzxsP/14QJt2IQx9DCtwtZGJl\n7y5ZehJu+TE/pGGIQHxvLMAM/cyg7MiKwx358oQJN7ZGOrvHQy7LiFufzXAb\nQMKkH1JgWQEYYyYzXAbpft/yEwDuWqO3itjEV+JR5EenFDqWSvUbC7JCjSsI\nF5z+53YzZi8lrzm3rk2o66OlWS1wnV1hPvB0GuiYvTDdbc+BMcgmlafFaRDG\n+JVrVfehP5zHY3+Gf8GweZOit2g3CDrMITLoBUzHtNEwGIenjiX9oHc9uXwN\n52B+KyASsSBqA0IMI7GYBSlFfCxz8trjWSsHY3QPIpM/3kGwWwmd7DD8xLL8\nf3TNpABSEmg4PWbY98GPDxgX8MDgCRG/u4wwO5AxmTztIXMfXVTpyZQdny2e\nsl6XzVgdYdsZ3HZea/zKrQ69NCwHsHTUZSdYvWLBX94WkCLPgR5I0bm0C29c\n1MlPyMYxk+0wHNNaKkzeF8Pf3dnyWT0ncV1cGdPLpbfExT0TOxR5zA4qqkSy\nugjixNc/ZNcoKTFq6FAiR1d2dZ4nxnW3BdYeDBn/mJIqEN2NU404Buf2e97/\nKCm0NIt2UCNtEuRDh97JrNt3DFGN85kJvxyKd6hlj3uedt59DjeSkd9LmqaC\nyspzl3a/XeASbv/eolJFYtNnn8U7rRVgUDBrwEfHHj9GGA9qEHM15eGREGbt\nDNZw\r\n=UbJI\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.4.3_1529598244942_0.9466380300402024"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.4.4": {
+			"name": "node-abi",
+			"version": "2.4.4",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"lint": "standard",
+				"test": "npm run lint && npm run unit",
+				"unit": "tape test/index.js",
+				"semantic-release": "semantic-release pre && npm publish && semantic-release post"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"standard": "^11.0.0",
+				"tape": "^4.6.3",
+				"semantic-release": "^8.0.0"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "9a3f348d2d9edc3957400af80bfaf658a7685ec6",
+			"_id": "node-abi@2.4.4",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.10.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-DQ9Mo2mf/XectC+s6+grPPRQ1Z9gI3ZbrGv6nyXRkjwT3HrE0xvtvrfnH7YHYBLgC/KLadg+h3XHnhZw1sv88A==",
+				"shasum": "410d8968809fe616dc078a181c44a370912f12fd",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.4.4.tgz",
+				"fileCount": 8,
+				"unpackedSize": 18717,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbodEcCRA9TVsSAnZWagAAwgsP/0ioX2Rvn9129P4N65S8\nOIgrEYexSGI/wpYkuurvrnr0VMS+2U9XyFV27OMEuRteWSc99Osl/Rr5ihbN\nSY9Gz+5LUJVB6wGkw3wbTFsoz6e0Lx4hMea9LJY3LHf+5SEd92M9WxINeP5o\nxeBj2OK3zOUN2qr0s5JH4DOyjtofmqnWclGWRtzU5rSZEuby/44C+sXZZ4yJ\n1fuqIhP0hzksYHQaWV+Xv7g8HmmYJMhQVsJ5iJ0J6V2Kj1F6ALDn1FTGG7NQ\nDxlJzHV2seePM+1DZSTSOiWChoHNvlilBjhnxYUHMLoHtqnDy8VPrxob5Z3X\n4Ie585zbMvgJBv0URIMf0jLyzyJ/VaFguQLntqtpmKvvvhjGnClYiQYX7PzN\n7dF8UwmRzX+8Ul/vd+BqctUmAvqSaxP5DaNi4tw74bx28+Gu+Z7nWjYWqwIW\ncqMIETSPPclocNq8CHm1ZL9NyE5MuVsXFdpuFqQthPKNOh0ShwbUSeCJgQhR\nTRV2tfZ+eLYB8S6GDQc1OO6MZSbomJn/pHrQD/54bdF7sHyKne8zy6uwHC53\nkXyO7cvdhHECOJ2DijtG88iGBfq7vP38nAvHG2UZ+AMKKqPn32LP0FMMHq2L\nJ1gnc4bMeRMAvn0rpS63fVQkjCcGN9T97PxBl2V9CFQWyvWJHcHeaTY6fN0M\nMwQT\r\n=Go3f\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.4.4_1537331484348_0.48815369606094916"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.4.5": {
+			"name": "node-abi",
+			"version": "2.4.5",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test/index.js",
+				"semantic-release": "semantic-release",
+				"travis-deploy-once": "travis-deploy-once"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"semantic-release": "^15.8.0",
+				"tape": "^4.6.3",
+				"travis-deploy-once": "^5.0.1"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "d11b1aad31f715135b871a21423fe465f3929537",
+			"_id": "node-abi@2.4.5",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.11.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-aa/UC6Nr3+tqhHGRsAuw/edz7/q9nnetBrKWxj6rpTtm+0X9T1qU7lIEHMS3yN9JwAbRiKUbRRFy1PLz/y3aaA==",
+				"shasum": "1fd1fb66641bf3c4dcf55a5490ba10c467ead80c",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.4.5.tgz",
+				"fileCount": 8,
+				"unpackedSize": 18810,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbskAMCRA9TVsSAnZWagAAyTkP/2nvY7c9kGc2pXO3Uxcj\niABpuz74BQJJO2tLFhycjqp26XKuRaPHjgenQ7Dk5pwmNf2VVehZ1RlfuUgq\nhsba26u45k45lqhHksnl2Pc8+it0B5YUVBkWvfpw7MCQESU+slkA5DKnylH6\n/rCn9tSVPKl9ReDvB820rPzm0dToLlLcjgneaAvo8bTdhWs5FMwvuMBkGcqk\nVvU7kCzxMDGQ8K97y3DJW1pylKRU+4Hr8FSEQ4NFYEp9hIIEjYrS2MSWej4C\n7CViwKPvZjFS+JFuzLYUcUC/tJRnQnmj+O1iQ8Rt6hpjlBZQNCC3KmnWys+y\nPjkaGUIxGXHDgwmkcCTHErupvmhqFktThxQyhXw8knV226RgZWKVCFy4+ury\nTDO31h/DBaKK/zppurr+hLv+jlXXPN4Yjj7mRLJ+527ScxOzwng8Btv6EC3x\neTBw+p7m/R2KX8eRn5S9Vym0IDnRLC94G0SmLBNhKrgzSlnkRDmSk8YCy8Bn\nza3y1mNPh9LYs18dA9m/yucBzY/cHo+mqfEwMi7i7WbbeP0Bk6T+Wtk0a6w/\nErficuIY0X7OnDk5ewggb6rQljSpze471XXOr7ScbVHROj6A5tLcyofrewDs\nUecojde8/exs73cJME44RB6mIb7nwDEgRfe7P5/ATMBXP1654+JoUJ+xDjAo\nVKLj\r\n=lYnA\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.4.5_1538408459743_0.758087005640742"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.5.0": {
+			"name": "node-abi",
+			"version": "2.5.0",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test/index.js",
+				"semantic-release": "semantic-release",
+				"travis-deploy-once": "travis-deploy-once"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"semantic-release": "^15.8.0",
+				"tape": "^4.6.3",
+				"travis-deploy-once": "^5.0.1"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "9db6bd1be92fd7b1059ad468b662f99fc632e9a9",
+			"_id": "node-abi@2.5.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.13.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-9g2twBGSP6wIR5PW7tXvAWnEWKJDH/VskdXp168xsw9VVxpEGov8K4jsP4/VeoC7b2ZAyzckvMCuQuQlw44lXg==",
+				"shasum": "942e1a78bce764bc0c1672d5821e492b9d032052",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.5.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 18872,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb25C8CRA9TVsSAnZWagAAFnMP/3ypMYws2BqDfeX4EHKp\nDBlzGfManLMr3rCktNEdS46khXI6yMC4YCA/DQkuZi2/2SHkuga30y2GolDM\nuJ9PU5bb7en0oPVSlDHFlKsS972R5i0yirLiVod18p4TDhfwTXuiBUb7FFMW\neTTgwtz9nhu7ubvaXrxFv0+lzayDySSTeP1asJA+4Ky5sdPvXDTG0w34BjeW\n7f/+h5vxbpV6lM4vAd62jLI+CxNm9kL37FelS3YOzWxZ9FHolGfWFUkiMbxN\nrbJlrYj0E0kd16NycfBtpNQaXfJBNGj12h4qMe0WFYDaY3HOr+0VKVgsslCf\nwNUZS5h/ASjVdDhvpRIl7Qk1IL2PRkM5qW2LtPtrFFOe4hAy47qZjw+YfrJa\nvM5orqXbq60FpKT9qQNox6rfk0FsPAIMLAzrvDq5uv3o8QB3QVNEyc5OamT6\n+cc3Fn/BzP1UhSjoRdOpGRJx9JkBJjJzztOphoe0lo5G5JoOFGYeVhjjoSLE\n8G/LTb9NXhEfkP1xxeQEpLtxpru/azbgXizNtxUVChkZce+0Ipw7sIM/xXNT\nzfXKPQeIRtiO3A0NSE/V7ZuwHKcBPRl/yGUpJjAGw7fth1Ug3RxXQin4gWN5\noSkPEte/aU1zxZE/k3eEs0rDRvG8qt/fZabF3CSWgDY3dQDDiOMAhg5qa/+R\nShFu\r\n=gKe8\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.5.0_1541116091448_0.11665582885516446"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.5.1": {
+			"name": "node-abi",
+			"version": "2.5.1",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test/index.js",
+				"semantic-release": "semantic-release",
+				"travis-deploy-once": "travis-deploy-once"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"semantic-release": "^15.8.0",
+				"tape": "^4.6.3",
+				"travis-deploy-once": "^5.0.1"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "7bc96648bcf9f3e6a1f2a07370d3ecfb6dee465d",
+			"_id": "node-abi@2.5.1",
+			"_npmVersion": "6.5.0",
+			"_nodeVersion": "10.14.2",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-oDbFc7vCFx0RWWCweTer3hFm1u+e60N5FtGnmRV6QqvgATGFH/XRR6vqWIeBVosCYCqt6YdIr2L0exLZuEdVcQ==",
+				"shasum": "bb17288fc3b2f68fea0ed9897c66979fd754ed47",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.5.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 18866,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcHaxSCRA9TVsSAnZWagAA86YP/jpuoCxNuAy0Snp1QPDW\nrPceLfX/sCS2JZMQsfENZs/E1ylRSrv5C6DBMW6SYuvPWs3d6bKhkqSUO55s\nre1/Fq/GpVqgK3e0TpgfWKjkZGVnNBVGjwvZJV97Yb2BDmktu5i6sRx07fDP\nC24WJB4etabifGcGEzNcgANhma8HeFfulCT+uR8WWt1TfH/mUf4cBees5st7\n1Xv0JnkoUaCX5ommy9nb61ajeW+gGvusB9tUxjvWyRhR4JyVhV0B3udQEQK2\nQxSoTKkiMrY/KxUx/fxXoP0z2ayYpIiRBR+L80IGa/vyXYAv4eFajHa7ZD6z\nTpSjOLz09ei8kQMQPL2ydDOjMDRsMIZcmRXS67hPx9rN08B2+p2+nRWoCMRp\nuYs4XypJgG0ed4YP9wILgu2YKLVGOLWiV+GHSYyc+aKceOSRPn3Suo4X9spd\nlqTGA/JR3pURKVlHxwZRdmzjA8nAH3KDdhgDKj6I7KdThoQ/zzkJ/lxDd/Fi\nPr39fDIH2rIY8Sqd7+WAGKq9RPMwapWHGMdMU1hzb22CFYi0POpA5/cgQ1IU\nnYqQ2HskFgzYrYy3mibqy3IY7C1GnHmkJXY0IkJJErmwWC+qXVVg3+8U8a3i\n/Ktwz2riuDHr6CgBeH5ZS1hBReiKwCWsTvKzj2X49SrXOoYYVuhxloZVyFYH\nfdc/\r\n=Mupm\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.5.1_1545448530441_0.9271784398622274"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.6.0": {
+			"name": "node-abi",
+			"version": "2.6.0",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test/index.js",
+				"semantic-release": "semantic-release",
+				"travis-deploy-once": "travis-deploy-once"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"semantic-release": "^15.8.0",
+				"tape": "^4.6.3",
+				"travis-deploy-once": "^5.0.1"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "458f2eb39c3cdbbbeb060d88c48acc987e569f74",
+			"_id": "node-abi@2.6.0",
+			"_npmVersion": "6.5.0",
+			"_nodeVersion": "10.15.0",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-kCnEh6af6Z6DB7RFI/7LHNwqRjvJW7rgrv3lhIFoQ/+XhLPI/lJYwsk5vzvkldPWWgqnAMcuPF5S8/jj56kVOA==",
+				"shasum": "3adc69b28b334a0556fbadca378c7d18b8c82397",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.6.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 18937,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcTMRDCRA9TVsSAnZWagAAoUEP/2+48LEFSGlOd0pvGfOs\nX8cZ4+m87szdqUtG86RAvrw4RjS7b2epOb987Iwxdm7diUxnNnt8xXFhkYBr\n+IYt7AGILi/XiM1C7tbbxIV44AHrVrB2ysj+kEiBXquvTh04B0/J3Ottc11x\nhsGgHti5nA7vESh7i31Lb3uCjJ5rDNFtRP/IJGvIzS2Bt4l64Wjw9EtN3JN0\n/mZFBTc0g7AgD2ZZm2SgQ+GMhb46qHBy0mqjcpK+dEX5ZjmHvFlDbzL52OKD\nZdIt9QCzNpEqHblRZ82vy8TfKGs/lreWknsZU0tBEyUUNVAK/pscUYB3fE1k\nODkqoRP+QhCkeGCZUbRVg15hXQDyZw8nIzsQ2gOeNPnGfZhdXzW+TFZ1zMua\n4C2COkRm2UU/uE6fFZky7cMoLZaqhUBktiialVOPIz6/BpylDaXESpUzVhuj\n7b8hAOI3SFXoFkH2v8320E9zx8vBT2QpxMT8UlI9ZEUbLA0tDhaZ7+WX50s7\nuhswJx54zpRa3jLImveSj16P1LNl/fUCQBSjZi5BS5sCQn4IyMzscrlE7/Qf\nXBthJow1trn4I9bma+ilhkLgH9HQp/skQKixoufSYKAu8h8JzTXaj5OaPfL1\nzuah/hsjR7dcbqd+gemug1XV6AiQokExfu3EvskAoPeIBNSPzXSDw5LE2JF4\n9hmC\r\n=dVPm\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.6.0_1548534851242_0.25608379012202476"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.7.0": {
+			"name": "node-abi",
+			"version": "2.7.0",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test/index.js",
+				"semantic-release": "semantic-release",
+				"travis-deploy-once": "travis-deploy-once"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"semantic-release": "^15.8.0",
+				"tape": "^4.6.3",
+				"travis-deploy-once": "^5.0.1"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "9e4c1a63e63f8994cc2f5e3efee43785c9eb1c8f",
+			"_id": "node-abi@2.7.0",
+			"_npmVersion": "6.5.0",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-egTtvNoZLMjwxkL/5iiJKYKZgn2im0zP+G+PncMxICYGiD3aZtXUvEsDmu0pF8gpASvLZyD8v53qi1/ELaRZpg==",
+				"shasum": "e2f814088ab97c85504ae2bacb8f93d5d77cbc2b",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.7.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 19002,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcV1JnCRA9TVsSAnZWagAAzGgP/1o5PVDcu83Rtmz70h8s\nMfZn+przhqijyMVu8Q2R55qgQmKnamZoUW8dpIJT2f0yZXdDaNMUGn+kmAh8\ncXYgCBq6ve5jvc283S110EkTa250lhX22Q5q5ctqS/wfQHDE7sYTn3ghOGm4\nD3Vrr6JmheiN1z/4gufIUekXviFepLnG9RSGE8qQiLBGGKa+CaH4iMGuRu7F\nP2LbGvtfzYq4AJMtA7i2ucJC+8K/DXEco5zqFOxABEgflClfdIEs9BG5Kdb/\ndqfsAPX/hxhFCiye8zh986cs6NU/87i6nw2wLtzeWMTgFuSD8BHn3MA8SYtE\nyzpBJVO0URyskHCEH0i4UuOQ+qGV2SqsLWKI5Q7xr0ORPH97vB3PUYAJiUyk\nSCHlD+SyWNrPrBx571plPfsToiQ72s0O3DZNN0fjxejh4DUcV6l/t5DRMI8w\n5dwAC2o5I65zqxwqXlaeYJ+9JGRqPkw+20SuErsgEEcgXlXUzUiiLCO+UHGw\n8/Z4vI5WhJKO4MF3LDQhW+Ck55VNjPYfBRP7bMrADEBCxPGidHCcEK7pcT6w\ns2qrQDvONGlcOs7tUZOnS8NUwq0BKY+YOgWF+z+wlLYVcSVVCQdi8Qm+8Gvz\nG+R4XSoDRVmF6k/vPPHJrkT7euQp0x6DPW6MWKyIZAhYduNtmCQf5sHrzXJI\nlJsO\r\n=1zSL\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.7.0_1549226599108_0.6825815727593161"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.7.1": {
+			"name": "node-abi",
+			"version": "2.7.1",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test/index.js",
+				"semantic-release": "semantic-release",
+				"travis-deploy-once": "travis-deploy-once"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"semantic-release": "^15.8.0",
+				"tape": "^4.6.3",
+				"travis-deploy-once": "^5.0.1"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "9c5acd11ae297c4eabb29c531334dec4b09ebdf3",
+			"_id": "node-abi@2.7.1",
+			"_npmVersion": "6.5.0",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-OV8Bq1OrPh6z+Y4dqwo05HqrRL9YNF7QVMRfq1/pguwKLG+q9UB/Lk0x5qXjO23JjJg+/jqCHSTaG1P3tfKfuw==",
+				"shasum": "a8997ae91176a5fbaa455b194976e32683cda643",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.7.1.tgz",
+				"fileCount": 8,
+				"unpackedSize": 19016,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcYeKhCRA9TVsSAnZWagAA4jUQAKChAlQvJB9qN93BJwHI\n0Bp0IWVHNUcOLJtNt37tdBcz4NFVjweuLDR67xu8h65LJ0COFhYTI11hujCG\nrGbzQF71VmAB6Cq6SlVNRKVZX5FxKJmObXvE3RU81C2VoE4zAWMkVCuD/zJZ\n4Ci9syApKZtwfNJ/GAYT/1POYw9i90q9R/hl/vVZpYisbMi0Vg+C2LBv3Wyh\nUBRM8SBr7YuCLuAl5KVuiw+CzbUbKtJviki42N9QKC+2v+AGzs37I5g1h9i9\nQ+3W6QUsV/h61TK+iqfrovDMhXSZqRw99T0SrZoz56WwUD7mWVr6PqvxVnpV\nPl5ehsbHAEqzo2ttE/CLYLeClvCVdFGPjba2J8HEViDhw2CTi55meJltw2CG\nanhbDlE3e3oxILGR2d4G1ge/aMgqfn/pcLcbNhyvX4eibiStM+yV44TRrxTE\nDoyzXd1GGMPrOlmBtlBEBl7tZtXQ+5rQSbLbeSF9V2lCkNiYu8M5QL3L9csf\nfFbmRT9ZJ/bWf7Gmh6kXDs5xI3Jg6tPxL6P7aYv7WEzxvtSLlGlFTYr0LFmL\nsQJIXAn6VElDeBI3rUcp8d5Xa/f0D/2O4PcMyT0KuTUtM9/L1I8HGBLRqtDR\naofzEL8XfREroeyBTV1eZoefMpFnHETUfPWH6pfKxrHoIP+X1RW+SuvNFlva\n9KGN\r\n=mPsv\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.7.1_1549918880479_0.8845012284341398"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.8.0": {
+			"name": "node-abi",
+			"version": "2.8.0",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test/index.js",
+				"semantic-release": "semantic-release",
+				"travis-deploy-once": "travis-deploy-once"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"semantic-release": "^15.8.0",
+				"tape": "^4.6.3",
+				"travis-deploy-once": "^5.0.1"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "79d73c3b676add0bd63899f021dabfa7e240be44",
+			"_id": "node-abi@2.8.0",
+			"_npmVersion": "6.5.0",
+			"_nodeVersion": "10.15.3",
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-1/aa2clS0pue0HjckL62CsbhWWU35HARvBDXcJtYKbYR7LnIutmpxmXbuDMV9kEviD2lP/wACOgWmmwljghHyQ==",
+				"shasum": "bd2e88dbe6a6871e6dd08553e0605779325737ec",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.8.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 19343,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcwfrgCRA9TVsSAnZWagAADVUP/233DktDXJFcy7t7krPa\nDpwDJ32ilcsVP51Jl3jEV7aJNTc/8IBO6czZ9LRnbQ/bJC6kVRqNpxwKJAkS\n+7tkCacOQgYozbF7s8XKWImpGY99lfgzhLQycXMFRBO1qPoE0gHFcnpP/7WC\n1KOyZmmSaRQ7m0TCnall3BV8gkJ5zX5hHt88mcIucS9Za01mQU9HdFRHwjhX\nBhtmFqBGldBKq26Rw0thi7IzoI9j6ZDf7dmjER5d5tGYdq+WWSr9W9Bp2Yhd\nQfgv/v4eXHunXKeI1jTOQ3l15YkZJRUQPkqyaQvCawWfG5BiL1GTsFhnQFcT\nIUfjGsuV71RNmaAepYpM6xqsnirHQcFScgEvw3P9Sye9+yGYqxB5soA3ahAW\nbcpJ2FJRMFJQm1by0k8Bgf0at9zVhKXvQ/KXNwUN6KWtctQsysZ0IzwJlh3g\nT0H1fph02DQwHrMMs8cuVxPbtvlcTbNysK50NSnWk7oAnQZm0BgEfgwev/QY\nPW0FUhP0ZreVRyyA9UsQUBSt/TQIAtzp+Fv2eRgnCbTWHzq5CsShhe4yfAX1\n87v9qCdgdWveIkEQJidFaYR4yAFEsAP/mzGHmCHDTzQhD1XgReD9LKueJzoZ\nkXtRXPpljEytxAJYFJLMwROULhPwltWIdxAshZs+DkOQ1kbF/zuIRPi9PUaH\nmUmo\r\n=k+YD\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.8.0_1556216543318_0.6049558457479269"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.9.0": {
+			"name": "node-abi",
+			"version": "2.9.0",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test/index.js",
+				"semantic-release": "semantic-release",
+				"travis-deploy-once": "travis-deploy-once"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"semantic-release": "^15.8.0",
+				"tape": "^4.6.3",
+				"travis-deploy-once": "^5.0.1"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "165f8849de4bb4b04b265e9eacb9c5ac2a4d3f8a",
+			"_id": "node-abi@2.9.0",
+			"_nodeVersion": "10.16.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-jmEOvv0eanWjhX8dX1pmjb7oJl1U1oR4FOh0b2GnvALwSYoOdU7sj+kLDSAyjo4pfC9aj/IxkloxdLJQhSSQBA==",
+				"shasum": "ae4075b298dab2d92dd1e22c48ccc7ffd7f06200",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.9.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 19413,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdCnaaCRA9TVsSAnZWagAATLYP/RyQRwy12eH8cxbytzYT\nymhGd84WRNaYDtuKjD0nBeNgoodcueVjTngRgbvEBSyKRURFIgq21uxylrYI\nZQxu8GPgYWd+scsK+FvfwvBuFW8+NppW8/mkGTG2MOc0awRKaaUKkwfu5Igz\nZgBCjMQC99Mi0bVSn/nABgJbLLM7E6HvCZemdHnZM46BtkMMJNcwoXMOwMXn\n7Xxxb44CsfX1Hyt29u+b292ICRCv3Mm26Zz6k0f/t3ZuRnICnEmjrK57r95S\ngyXPAKCin5DqDDW2OdjyOwlsOsx2I7dwEeAZAxSLUgnGq7Ua9U0YfDL9hwR6\nTQFDaQrD+Rs93e8HQl/7dIOLgDppcd9xUUis5MYTeB0ELdDYDEckDlXBfyiv\nqn8XYHLD3fmR6kOdB5NRhzGUpX9+GvUtsaOGGZATWFId2kkHmmyONiodLApy\nMIPBnsUvF7bETGL8LTyJ5t8STWmmwSUOuah5jJeAPjsnyc+8mZYMNFpOvcmg\n45EG1ZhIM3G/Acy6omrVTVfFEjMgPhduza/TVHAV34R83TodwhBtSOr+2tkY\neVm4blRymZdLVn32kobWvzbW8hc2dEHv2a81Xtg2l9fclx2FIqdTXFQfQOH/\nBbUgNxUDlXU8qwWkJ281yWUviWkLgbKwtFvTjBfaXGk/UGNwFEaNrYPV3Xfp\nNmqc\r\n=AviM\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.9.0_1560966810011_0.1037879959007082"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.10.0": {
+			"name": "node-abi",
+			"version": "2.10.0",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test/index.js",
+				"semantic-release": "semantic-release",
+				"travis-deploy-once": "travis-deploy-once"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"semantic-release": "^15.8.0",
+				"tape": "^4.6.3",
+				"travis-deploy-once": "^5.0.1"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "1ad02ee49e5ae637e4a46630fb64343ede8dab40",
+			"_id": "node-abi@2.10.0",
+			"_nodeVersion": "10.16.0",
+			"_npmVersion": "6.10.2",
+			"dist": {
+				"integrity": "sha512-OT0WepUvYHXdki6DU8LWhEkuo3M44i2paWBYtH9qXtPb9YiKlYEKa5WUII20XEcOv7UJPzfB0kZfPZdW46zdkw==",
+				"shasum": "894bc6625ee042627ed9b5e9270d80bb63ef5045",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.10.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 19409,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdQHLZCRA9TVsSAnZWagAARIoP/0KUkQWkgUxAVguaDZGM\nBcquNA1KM6S+jAbCN5ibvGxXf8pRD8RdisYGeoCu4+IicQCJGPq6MpcTt66Q\nnDKLm2glbJLKNFOkAYX4ojclvEosBAx1E4lfwD7LCR1+5CkIQvm1NrT77T2l\nHA+U4rbgBt/YpA0H4Yzc0f1LPhxmzScQa/x1qzc/9cGlcYZHbvkTHlffkMrm\nXe9ztKek4OAKmi2PUWCzqS14koiSWBINlPWp3TsxJ4Dpd+a3hqbDHbchcHj+\nP6oWqhHPvkB7CFiTN+dWxBSajLNzYI+DBfok5sSG/oNOWBZwcszEXPG0ltiD\n2dHlkQxNhC9DdLVdKkZcAFo0YkPqW92PxaxuQB586fPjyyuk/HCTgSAyOCu+\nqzrgWg08uuGOl9C2imTLibvSeLuwJz1V10h4VmI02J6wFZJBPJKCOAGsw5fO\n7937jeERyl8MWRuNkYBxWHjzuqriVWzETJHSz4PFyZX/uaa48AXZxr23f11/\nzFR3YfZd+oMdXPt3ObAExJxBdjTMyzA/lO23+NlPVKN1sDzA86Zgk3qBiIcF\nu5Domyn98THtCLo386Lfpfck42Rq9bWAGOt+UYtx3PsZ3hJ4IKJdJZFXz0Ya\nXYLnfLThTVD0TTs23+Bz+kBXUkbg7et0ax2oGv/80A68oS9QwTkc+lxj18t3\nVFqk\r\n=P6i7\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.10.0_1564504792999_0.35531190427242487"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.11.0": {
+			"name": "node-abi",
+			"version": "2.11.0",
+			"description": "Get the Node ABI for a given target and runtime, and vice versa.",
+			"main": "index.js",
+			"scripts": {
+				"test": "tape test/index.js",
+				"semantic-release": "semantic-release",
+				"travis-deploy-once": "travis-deploy-once"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/lgeiger/node-abi.git"
+			},
+			"keywords": [
+				"node",
+				"electron",
+				"node_module_version",
+				"abi",
+				"v8"
+			],
+			"author": {
+				"name": "Lukas Geiger"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/lgeiger/node-abi/issues"
+			},
+			"homepage": "https://github.com/lgeiger/node-abi#readme",
+			"devDependencies": {
+				"semantic-release": "^15.8.0",
+				"tape": "^4.6.3",
+				"travis-deploy-once": "^5.0.1"
+			},
+			"dependencies": {
+				"semver": "^5.4.1"
+			},
+			"gitHead": "3651a264d7ba540689ae469ed88c075dc340c188",
+			"_id": "node-abi@2.11.0",
+			"_nodeVersion": "10.16.2",
+			"_npmVersion": "6.10.2",
+			"dist": {
+				"integrity": "sha512-kuy/aEg75u40v378WRllQ4ZexaXJiCvB68D2scDXclp/I4cRq6togpbOoKhmN07tns9Zldu51NNERo0wehfX9g==",
+				"shasum": "b7dce18815057544a049be5ae75cd1fdc2e9ea59",
+				"tarball": "https://registry.npmjs.org/node-abi/-/node-abi-2.11.0.tgz",
+				"fileCount": 8,
+				"unpackedSize": 19480,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdUdVxCRA9TVsSAnZWagAAVbUQAInvCQMTVXpQt3qK6O/k\nO7Ia/n8rpp2ImPWugfHL7hfu/sM6UbKoQtsegLCJy1wv7kA7DrpONN+kDFp0\nvU04YaNdSYwvsaorPyutkfmPixN7ftpiTOJ65/JtaYXhC30NNwp5hwCgmY7Z\nvo0vXx+beL+SEB8Ykm8zhXltxt5k4leoRBDrKLfEvoRliYaMLc5/NLn47UCa\ncZd7gSbyw3Gg9hy6pIRgQ47+BF+hxdkqooIR/a77PUDnzq2kzQF2vtetOZZ+\n37Wflq6namMOrLKn8DUKI9wtmSuADDkJQy0mRCiNEh6AkPD4i2t9eOOIfQjw\ntHYKHpFiEX53AcGU6lJIyw5/IFDSJbUgSSDSnXWLvIf6evpsTZqGqaebJupY\n38q2hrBkA5d69FvBQzvRhIjpQwnAqYvaJ8oPFc779aaisIQDWvaboiWdahMI\n+h5Q0WAOkOwcM3493ynx6SZoEc9HnxqADaTaPIExoVEKleYrfVSAXOgZACPa\nhmcfekkAi8lTA0GMFM4RmsfBm/s7xr0DZCTs5s59SqujQB6wiLoSbRb5wxV4\n2wK1lgs5rfcYoYhrdgoKWHVJp7xfew1T3brMQvODW7SYIMap/QjVTUU2QIBW\nf+Z7vRIe1iK8CBkwK0OF4/HQyxOBlb03lj7j8vYhpEa1NEzYKXWpH1nYHMEd\n6fr/\r\n=PJ7M\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "juliangruber",
+					"email": "julian@juliangruber.com"
+				},
+				{
+					"name": "lgeiger",
+					"email": "lukas.geiger94@gmail.com"
+				},
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "marshallofsound",
+					"email": "samuel.r.attard@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "lgeiger",
+				"email": "lukas.geiger94@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/node-abi_2.11.0_1565644144944_0.8904855376323362"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-08-12T21:09:07.647Z",
+		"created": "2016-12-03T00:20:14.024Z",
+		"1.0.0": "2016-12-03T00:20:14.024Z",
+		"1.0.1": "2016-12-03T01:20:29.717Z",
+		"1.0.2": "2016-12-03T11:57:14.572Z",
+		"1.0.3": "2016-12-04T18:08:10.387Z",
+		"1.1.0": "2017-01-26T09:42:41.879Z",
+		"1.2.0": "2017-01-31T20:28:12.191Z",
+		"1.2.1": "2017-01-31T21:05:57.824Z",
+		"1.3.0": "2017-02-02T13:36:49.476Z",
+		"1.3.1": "2017-02-02T14:43:50.283Z",
+		"1.3.2": "2017-02-07T09:23:20.026Z",
+		"1.3.3": "2017-02-09T14:25:58.269Z",
+		"2.0.0": "2017-02-10T17:14:49.945Z",
+		"2.0.1": "2017-05-13T00:11:47.942Z",
+		"2.0.2": "2017-05-13T00:32:55.453Z",
+		"2.0.3": "2017-05-31T00:27:49.377Z",
+		"2.1.0": "2017-07-14T10:40:48.259Z",
+		"2.1.1": "2017-09-01T11:05:17.823Z",
+		"2.1.2": "2017-11-01T11:52:24.211Z",
+		"2.2.0": "2018-01-28T17:00:36.760Z",
+		"2.3.0": "2018-02-25T22:38:23.896Z",
+		"2.4.0": "2018-04-25T09:55:25.336Z",
+		"2.4.1": "2018-05-04T14:58:51.854Z",
+		"2.4.2": "2018-06-21T15:30:58.882Z",
+		"2.4.3": "2018-06-21T16:24:05.012Z",
+		"2.4.4": "2018-09-19T04:31:24.485Z",
+		"2.4.5": "2018-10-01T15:40:59.877Z",
+		"2.5.0": "2018-11-01T23:48:11.594Z",
+		"2.5.1": "2018-12-22T03:15:30.540Z",
+		"2.6.0": "2019-01-26T20:34:11.388Z",
+		"2.7.0": "2019-02-03T20:43:19.301Z",
+		"2.7.1": "2019-02-11T21:01:20.562Z",
+		"2.8.0": "2019-04-25T18:22:23.431Z",
+		"2.9.0": "2019-06-19T17:53:30.117Z",
+		"2.10.0": "2019-07-30T16:39:53.142Z",
+		"2.11.0": "2019-08-12T21:09:05.062Z"
+	},
+	"dist-tags": {
+		"latest": "2.11.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"3c110b2ef8000435eddf2fa69e7cce89\"",
+			"fetched": 1568994353073
+		}
+	},
+	"_distfiles": {
+		"node-abi-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-1.0.0.tgz",
+			"sha": "9120c531c4b1ae08039bab1ceeace865920a1287",
+			"registry": "npmjs"
+		},
+		"node-abi-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-1.0.1.tgz",
+			"sha": "a21af9f0892bb4f25a8ac8914d351b74f96f7e96",
+			"registry": "npmjs"
+		},
+		"node-abi-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-1.0.2.tgz",
+			"sha": "fb5278963597c1b8eeafa21e148a10a0f1d6150c",
+			"registry": "npmjs"
+		},
+		"node-abi-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-1.0.3.tgz",
+			"sha": "0768a3abc28d260e747ca166c484a34ca42b8659",
+			"registry": "npmjs"
+		},
+		"node-abi-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-1.1.0.tgz",
+			"sha": "ec17cc17204dbbd30aa7916ae36515e928ae93bf",
+			"registry": "npmjs"
+		},
+		"node-abi-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-1.2.0.tgz",
+			"sha": "63d9b09c1219d54ba129d7bd0579219501d37a8d",
+			"registry": "npmjs"
+		},
+		"node-abi-1.2.1.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-1.2.1.tgz",
+			"sha": "4b37303ee67d8f06ea6b594953c09dad05eabcd6",
+			"registry": "npmjs"
+		},
+		"node-abi-1.3.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-1.3.0.tgz",
+			"sha": "9b3f4283092960086ad613fdd4fd4af87d98d488",
+			"registry": "npmjs"
+		},
+		"node-abi-1.3.1.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-1.3.1.tgz",
+			"sha": "9f8c5fc76b40d4a2af90a6f4d24ea102c3ff554a",
+			"registry": "npmjs"
+		},
+		"node-abi-1.3.2.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-1.3.2.tgz",
+			"sha": "b0469183e101b5a0105c017a02599712b0663273",
+			"registry": "npmjs"
+		},
+		"node-abi-1.3.3.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-1.3.3.tgz",
+			"sha": "0f06f2815deba26107959d2213b36ce97437e6e2",
+			"registry": "npmjs"
+		},
+		"node-abi-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.0.0.tgz",
+			"sha": "443bfd151b599231028ae425e592e76cd31cb537",
+			"registry": "npmjs"
+		},
+		"node-abi-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.0.1.tgz",
+			"sha": "5767e5e29b3684c96434417f0797d36a09b1f6ad",
+			"registry": "npmjs"
+		},
+		"node-abi-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.0.2.tgz",
+			"sha": "00f3e0a58100eb480133b48c99a32cc1f9e6c93e",
+			"registry": "npmjs"
+		},
+		"node-abi-2.0.3.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.0.3.tgz",
+			"sha": "0ca67e5e667b8e1343549ca17153a815d0bbfdaa",
+			"registry": "npmjs"
+		},
+		"node-abi-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.1.0.tgz",
+			"sha": "50ad834affcf17440e12bfc5f9ba0946f572d10c",
+			"registry": "npmjs"
+		},
+		"node-abi-2.1.1.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.1.1.tgz",
+			"sha": "c9cda256ec8aa99bcab2f6446db38af143338b2a",
+			"registry": "npmjs"
+		},
+		"node-abi-2.1.2.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.1.2.tgz",
+			"sha": "4da6caceb6685fcd31e7dd1994ef6bb7d0a9c0b2",
+			"registry": "npmjs"
+		},
+		"node-abi-2.2.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.2.0.tgz",
+			"sha": "e802ac7a2408e2c0593fb3176ffdf8a99a9b4dec",
+			"registry": "npmjs"
+		},
+		"node-abi-2.3.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.3.0.tgz",
+			"sha": "f3d554d6ac72a9ee16f0f4dc9548db7c08de4986",
+			"registry": "npmjs"
+		},
+		"node-abi-2.4.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.4.0.tgz",
+			"sha": "3c27515cb842f5bbc132a31254f9f1e1c55c7b83",
+			"registry": "npmjs"
+		},
+		"node-abi-2.4.1.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.4.1.tgz",
+			"sha": "7628c4d4ec4e9cd3764ceb3652f36b2e7f8d4923",
+			"registry": "npmjs"
+		},
+		"node-abi-2.4.2.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.4.2.tgz",
+			"sha": "8a77e348bf59c13e13ed4c22c5d73fce7ce4686a",
+			"registry": "npmjs"
+		},
+		"node-abi-2.4.3.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.4.3.tgz",
+			"sha": "43666b7b17e57863e572409edbb82115ac7af28b",
+			"registry": "npmjs"
+		},
+		"node-abi-2.4.4.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.4.4.tgz",
+			"sha": "410d8968809fe616dc078a181c44a370912f12fd",
+			"registry": "npmjs"
+		},
+		"node-abi-2.4.5.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.4.5.tgz",
+			"sha": "1fd1fb66641bf3c4dcf55a5490ba10c467ead80c",
+			"registry": "npmjs"
+		},
+		"node-abi-2.5.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.5.0.tgz",
+			"sha": "942e1a78bce764bc0c1672d5821e492b9d032052",
+			"registry": "npmjs"
+		},
+		"node-abi-2.5.1.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.5.1.tgz",
+			"sha": "bb17288fc3b2f68fea0ed9897c66979fd754ed47",
+			"registry": "npmjs"
+		},
+		"node-abi-2.6.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.6.0.tgz",
+			"sha": "3adc69b28b334a0556fbadca378c7d18b8c82397",
+			"registry": "npmjs"
+		},
+		"node-abi-2.7.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.7.0.tgz",
+			"sha": "e2f814088ab97c85504ae2bacb8f93d5d77cbc2b",
+			"registry": "npmjs"
+		},
+		"node-abi-2.7.1.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.7.1.tgz",
+			"sha": "a8997ae91176a5fbaa455b194976e32683cda643",
+			"registry": "npmjs"
+		},
+		"node-abi-2.8.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.8.0.tgz",
+			"sha": "bd2e88dbe6a6871e6dd08553e0605779325737ec",
+			"registry": "npmjs"
+		},
+		"node-abi-2.9.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.9.0.tgz",
+			"sha": "ae4075b298dab2d92dd1e22c48ccc7ffd7f06200",
+			"registry": "npmjs"
+		},
+		"node-abi-2.10.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.10.0.tgz",
+			"sha": "894bc6625ee042627ed9b5e9270d80bb63ef5045",
+			"registry": "npmjs"
+		},
+		"node-abi-2.11.0.tgz": {
+			"url": "https://registry.npmjs.org/node-abi/-/node-abi-2.11.0.tgz",
+			"sha": "b7dce18815057544a049be5ae75cd1fdc2e9ea59",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-c2e99ae3d4469568",
+	"_id": "node-abi",
+	"readme": "# Node.js ABI\n\n[![Build Status](https://travis-ci.org/lgeiger/node-abi.svg?branch=v1.0.0)](https://travis-ci.org/lgeiger/node-abi) [![Greenkeeper badge](https://badges.greenkeeper.io/lgeiger/node-abi.svg)](https://greenkeeper.io/)\n\n\nGet the Node ABI for a given target and runtime, and vice versa.\n\n## Installation\n```\nnpm install node-abi\n```\n\n## Usage\n```javascript\nconst nodeAbi = require('node-abi')\n\nnodeAbi.getAbi('7.2.0', 'node')\n// '51'\nnodeAbi.getAbi('1.4.10', 'electron')\n// '50'\nnodeAbi.getTarget('51', 'node')\n// '7.2.0'\nnodeAbi.getTarget('50', 'electron')\n// '1.4.15'\n\nnodeAbi.allTargets\n// [\n//  { runtime: 'node', target: '0.10.48', abi: '11', lts: false },\n//  { runtime: 'node', target: '0.12.17', abi: '14', lts: false },\n//  { runtime: 'node', target: '4.6.1', abi: '46', lts: true },\n//  { runtime: 'node', target: '5.12.0', abi: '47', lts: false },\n//  { runtime: 'node', target: '6.9.4', abi: '48', lts: true },\n//  { runtime: 'node', target: '7.4.0', abi: '51', lts: false },\n//  { runtime: 'electron', target: '1.0.2', abi: '47', lts: false },\n//  { runtime: 'electron', target: '1.2.8', abi: '48', lts: false },\n//  { runtime: 'electron', target: '1.3.13', abi: '49', lts: false },\n//  { runtime: 'electron', target: '1.4.15', abi: '50', lts: false }\n// ]\nnodeAbi.deprecatedTargets\nnodeAbi.supportedTargets\nnodeAbi.additionalTargets\nnodeAbi.futureTargets\n// ...\n```\n\n## References\n\n- https://github.com/lgeiger/electron-abi\n- https://nodejs.org/en/download/releases/\n- https://github.com/nodejs/LTS"
+}

@@ -1,0 +1,703 @@
+{
+	"name": "global-modules",
+	"versions": {
+		"0.1.0": {
+			"name": "global-modules",
+			"description": "The directory used by npm for globally installed npm modules.",
+			"version": "0.1.0",
+			"homepage": "https://github.com/jonschlinkert/global-modules",
+			"author": {
+				"name": "Jon Schlinkert",
+				"url": "https://github.com/jonschlinkert"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/jonschlinkert/global-modules.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jonschlinkert/global-modules/issues"
+			},
+			"license": {
+				"type": "MIT",
+				"url": "https://github.com/jonschlinkert/global-modules/blob/master/LICENSE"
+			},
+			"files": [
+				"index.js"
+			],
+			"main": "index.js",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"scripts": {
+				"test": "mocha"
+			},
+			"dependencies": {
+				"global-prefix": "^0.1.0"
+			},
+			"devDependencies": {
+				"should": "*"
+			},
+			"keywords": [],
+			"_id": "global-modules@0.1.0",
+			"_shasum": "9e8011fdede4f811047f76b155495e7786d27e02",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "jonschlinkert",
+				"email": "github@sellside.com"
+			},
+			"maintainers": [
+				{
+					"name": "jonschlinkert",
+					"email": "github@sellside.com"
+				}
+			],
+			"dist": {
+				"shasum": "9e8011fdede4f811047f76b155495e7786d27e02",
+				"tarball": "https://registry.npmjs.org/global-modules/-/global-modules-0.1.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "global-modules",
+			"description": "The directory used by npm for globally installed npm modules.",
+			"version": "0.2.0",
+			"homepage": "https://github.com/jonschlinkert/global-modules",
+			"author": {
+				"name": "Jon Schlinkert",
+				"url": "https://github.com/jonschlinkert"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonschlinkert/global-modules.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jonschlinkert/global-modules/issues"
+			},
+			"license": "MIT",
+			"files": [
+				"index.js"
+			],
+			"main": "index.js",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"scripts": {
+				"test": "mocha"
+			},
+			"dependencies": {
+				"global-prefix": "^0.1.0",
+				"is-windows": "^0.1.0"
+			},
+			"keywords": [
+				"directory",
+				"dirname",
+				"global",
+				"module",
+				"package",
+				"path",
+				"prefix",
+				"resolve"
+			],
+			"verb": {
+				"related": {
+					"list": [
+						"global-prefix",
+						"cwd",
+						"git-config-path",
+						"contains-path"
+					]
+				}
+			},
+			"gitHead": "9cf00ecb75c1da4f0f89bb79e51f9601ca87ef89",
+			"_id": "global-modules@0.2.0",
+			"_shasum": "efb4f2d0c9a6856c106f1bba3bc0568e59c197b1",
+			"_from": ".",
+			"_npmVersion": "2.10.1",
+			"_nodeVersion": "0.12.4",
+			"_npmUser": {
+				"name": "jonschlinkert",
+				"email": "github@sellside.com"
+			},
+			"maintainers": [
+				{
+					"name": "jonschlinkert",
+					"email": "github@sellside.com"
+				}
+			],
+			"dist": {
+				"shasum": "efb4f2d0c9a6856c106f1bba3bc0568e59c197b1",
+				"tarball": "https://registry.npmjs.org/global-modules/-/global-modules-0.2.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.2.1": {
+			"name": "global-modules",
+			"description": "The directory used by npm for globally installed npm modules.",
+			"version": "0.2.1",
+			"homepage": "https://github.com/jonschlinkert/global-modules",
+			"author": {
+				"name": "Jon Schlinkert",
+				"url": "https://github.com/jonschlinkert"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonschlinkert/global-modules.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jonschlinkert/global-modules/issues"
+			},
+			"license": "MIT",
+			"files": [
+				"index.js"
+			],
+			"main": "index.js",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"scripts": {
+				"test": "mocha"
+			},
+			"dependencies": {
+				"global-prefix": "^0.1.1",
+				"is-windows": "^0.1.1"
+			},
+			"devDependencies": {
+				"gulp-format-md": "^0.1.7"
+			},
+			"keywords": [
+				"directory",
+				"dirname",
+				"global",
+				"module",
+				"package",
+				"path",
+				"prefix",
+				"resolve"
+			],
+			"verb": {
+				"run": true,
+				"toc": false,
+				"layout": "default",
+				"tasks": [
+					"readme"
+				],
+				"plugins": [
+					"gulp-format-md"
+				],
+				"related": {
+					"list": [
+						"global-prefix",
+						"cwd",
+						"git-config-path",
+						"contains-path"
+					]
+				},
+				"reflinks": [
+					"verb"
+				],
+				"lint": {
+					"reflinks": true
+				}
+			},
+			"gitHead": "086c6c0c0418868e4ac5828ebcc3f9172d7dea79",
+			"_id": "global-modules@0.2.1",
+			"_shasum": "c2720c3b36a4565d21b08a5322f8edd46a9e4d38",
+			"_from": ".",
+			"_npmVersion": "3.6.0",
+			"_nodeVersion": "5.5.0",
+			"_npmUser": {
+				"name": "jonschlinkert",
+				"email": "github@sellside.com"
+			},
+			"maintainers": [
+				{
+					"name": "jonschlinkert",
+					"email": "github@sellside.com"
+				}
+			],
+			"dist": {
+				"shasum": "c2720c3b36a4565d21b08a5322f8edd46a9e4d38",
+				"tarball": "https://registry.npmjs.org/global-modules/-/global-modules-0.2.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-13-west.internal.npmjs.com",
+				"tmp": "tmp/global-modules-0.2.1.tgz_1457864859907_0.10043016052804887"
+			},
+			"directories": {}
+		},
+		"0.2.2": {
+			"name": "global-modules",
+			"description": "The directory used by npm for globally installed npm modules.",
+			"version": "0.2.2",
+			"homepage": "https://github.com/jonschlinkert/global-modules",
+			"author": {
+				"name": "Jon Schlinkert",
+				"url": "https://github.com/jonschlinkert"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonschlinkert/global-modules.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jonschlinkert/global-modules/issues"
+			},
+			"license": "MIT",
+			"files": [
+				"index.js"
+			],
+			"main": "index.js",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"scripts": {
+				"test": "mocha"
+			},
+			"dependencies": {
+				"global-prefix": "^0.1.4",
+				"is-windows": "^0.2.0"
+			},
+			"devDependencies": {
+				"gulp-format-md": "^0.1.9"
+			},
+			"keywords": [
+				"directory",
+				"dirname",
+				"global",
+				"module",
+				"package",
+				"path",
+				"prefix",
+				"resolve"
+			],
+			"verb": {
+				"run": true,
+				"toc": false,
+				"layout": "default",
+				"tasks": [
+					"readme"
+				],
+				"plugins": [
+					"gulp-format-md"
+				],
+				"related": {
+					"list": [
+						"global-prefix",
+						"git-config-path",
+						"npm-paths",
+						"contains-path"
+					]
+				},
+				"reflinks": [
+					"verb"
+				],
+				"lint": {
+					"reflinks": true
+				}
+			},
+			"gitHead": "d94bf7a7d6c8ab5aec34a8a733380a84288e3aa0",
+			"_id": "global-modules@0.2.2",
+			"_shasum": "c7e589646bf8bec457d71049553adc72e36c6346",
+			"_from": ".",
+			"_npmVersion": "3.8.9",
+			"_nodeVersion": "6.2.0",
+			"_npmUser": {
+				"name": "jonschlinkert",
+				"email": "github@sellside.com"
+			},
+			"maintainers": [
+				{
+					"name": "jonschlinkert",
+					"email": "github@sellside.com"
+				}
+			],
+			"dist": {
+				"shasum": "c7e589646bf8bec457d71049553adc72e36c6346",
+				"tarball": "https://registry.npmjs.org/global-modules/-/global-modules-0.2.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/global-modules-0.2.2.tgz_1465119339796_0.09512556111440063"
+			},
+			"directories": {}
+		},
+		"0.2.3": {
+			"name": "global-modules",
+			"description": "The directory used by npm for globally installed npm modules.",
+			"version": "0.2.3",
+			"homepage": "https://github.com/jonschlinkert/global-modules",
+			"author": {
+				"name": "Jon Schlinkert",
+				"url": "https://github.com/jonschlinkert"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonschlinkert/global-modules.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jonschlinkert/global-modules/issues"
+			},
+			"license": "MIT",
+			"files": [
+				"index.js"
+			],
+			"main": "index.js",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"scripts": {
+				"test": "mocha"
+			},
+			"dependencies": {
+				"global-prefix": "^0.1.4",
+				"is-windows": "^0.2.0"
+			},
+			"devDependencies": {
+				"fs-exists-sync": "^0.1.0",
+				"gulp-format-md": "^0.1.9",
+				"mocha": "^2.5.3"
+			},
+			"keywords": [
+				"directory",
+				"dirname",
+				"global",
+				"module",
+				"package",
+				"path",
+				"prefix",
+				"resolve"
+			],
+			"verb": {
+				"run": true,
+				"toc": false,
+				"layout": "default",
+				"tasks": [
+					"readme"
+				],
+				"plugins": [
+					"gulp-format-md"
+				],
+				"related": {
+					"list": [
+						"global-prefix",
+						"git-config-path",
+						"npm-paths",
+						"contains-path"
+					]
+				},
+				"reflinks": [
+					"verb"
+				],
+				"lint": {
+					"reflinks": true
+				}
+			},
+			"gitHead": "49887f70849463067e3c771473d8c16f5cfb76cc",
+			"_id": "global-modules@0.2.3",
+			"_shasum": "ea5a3bed42c6d6ce995a4f8a1269b5dae223828d",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.0",
+			"_npmUser": {
+				"name": "jonschlinkert",
+				"email": "github@sellside.com"
+			},
+			"maintainers": [
+				{
+					"name": "jonschlinkert",
+					"email": "github@sellside.com"
+				}
+			],
+			"dist": {
+				"shasum": "ea5a3bed42c6d6ce995a4f8a1269b5dae223828d",
+				"tarball": "https://registry.npmjs.org/global-modules/-/global-modules-0.2.3.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/global-modules-0.2.3.tgz_1469511881835_0.8791879329364747"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "global-modules",
+			"description": "The directory used by npm for globally installed npm modules.",
+			"version": "1.0.0",
+			"homepage": "https://github.com/jonschlinkert/global-modules",
+			"author": {
+				"name": "Jon Schlinkert",
+				"url": "https://github.com/jonschlinkert"
+			},
+			"contributors": [
+				{
+					"name": "JasonChang",
+					"url": "https://packagist.org/packages/jason-chang"
+				},
+				{
+					"name": "Jon Schlinkert",
+					"url": "http://twitter.com/jonschlinkert"
+				},
+				{
+					"name": "Kiko Beats",
+					"url": "https://kikobeats.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonschlinkert/global-modules.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jonschlinkert/global-modules/issues"
+			},
+			"license": "MIT",
+			"files": [
+				"index.js"
+			],
+			"main": "index.js",
+			"engines": {
+				"node": ">=0.10.0"
+			},
+			"scripts": {
+				"test": "mocha"
+			},
+			"dependencies": {
+				"global-prefix": "^1.0.1",
+				"is-windows": "^1.0.1",
+				"resolve-dir": "^1.0.0"
+			},
+			"devDependencies": {
+				"gulp-format-md": "^0.1.12",
+				"mocha": "^3.4.2"
+			},
+			"keywords": [
+				"directory",
+				"dirname",
+				"global",
+				"module",
+				"modules",
+				"package",
+				"path",
+				"prefix",
+				"resolve"
+			],
+			"verb": {
+				"run": true,
+				"toc": false,
+				"layout": "default",
+				"tasks": [
+					"readme"
+				],
+				"plugins": [
+					"gulp-format-md"
+				],
+				"related": {
+					"list": [
+						"homedir-polyfill",
+						"git-config-path",
+						"global-prefix",
+						"npm-paths"
+					]
+				},
+				"reflinks": [
+					"verb"
+				],
+				"lint": {
+					"reflinks": true
+				}
+			},
+			"gitHead": "4816de2b0375edf9b69678a880965b5537739c2d",
+			"_id": "global-modules@1.0.0",
+			"_npmVersion": "5.0.4",
+			"_nodeVersion": "7.7.3",
+			"_npmUser": {
+				"name": "jonschlinkert",
+				"email": "github@sellside.com"
+			},
+			"maintainers": [
+				{
+					"name": "jonschlinkert",
+					"email": "github@sellside.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-sKzpEkf11GpOFuw0Zzjzmt4B4UZwjOcG757PPvrfhxcLFbq0wpsgpOqxpxtxFiCG4DtG93M6XRVbF2oGdev7bg==",
+				"shasum": "6d770f0eb523ac78164d72b5e71a8877265cc3ea",
+				"tarball": "https://registry.npmjs.org/global-modules/-/global-modules-1.0.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/global-modules-1.0.0.tgz_1498632359258_0.21966388146393"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "global-modules",
+			"description": "The directory used by npm for globally installed npm modules.",
+			"version": "2.0.0",
+			"homepage": "https://github.com/jonschlinkert/global-modules",
+			"author": {
+				"name": "Jon Schlinkert",
+				"url": "https://github.com/jonschlinkert"
+			},
+			"contributors": [
+				{
+					"name": "JasonChang",
+					"url": "https://packagist.org/packages/jason-chang"
+				},
+				{
+					"name": "Jon Schlinkert",
+					"url": "http://twitter.com/jonschlinkert"
+				},
+				{
+					"name": "Kiko Beats",
+					"url": "https://kikobeats.com"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/jonschlinkert/global-modules.git"
+			},
+			"bugs": {
+				"url": "https://github.com/jonschlinkert/global-modules/issues"
+			},
+			"license": "MIT",
+			"main": "index.js",
+			"engines": {
+				"node": ">=6"
+			},
+			"scripts": {
+				"test": "mocha"
+			},
+			"dependencies": {
+				"global-prefix": "^3.0.0"
+			},
+			"devDependencies": {
+				"gulp-format-md": "^2.0.0",
+				"mocha": "^5.2.0"
+			},
+			"keywords": [
+				"directory",
+				"dirname",
+				"global",
+				"module",
+				"modules",
+				"package",
+				"path",
+				"prefix",
+				"resolve"
+			],
+			"verb": {
+				"run": true,
+				"toc": false,
+				"layout": "default",
+				"tasks": [
+					"readme"
+				],
+				"plugins": [
+					"gulp-format-md"
+				],
+				"related": {
+					"list": [
+						"git-config-path",
+						"global-prefix",
+						"npm-paths"
+					]
+				},
+				"lint": {
+					"reflinks": true
+				}
+			},
+			"gitHead": "7455e827f0ce0366d224aea035a8fecd233aa24a",
+			"_id": "global-modules@2.0.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.4.0",
+			"_npmUser": {
+				"name": "jonschlinkert",
+				"email": "github@sellside.com"
+			},
+			"dist": {
+				"integrity": "sha512-NGbfmJBp9x8IxyJSd1P+otYK8vonoJactOogrVfFRIAEY1ukil8RSKDz2Yo7wh1oihl51l/r6W4epkeKJHqL8A==",
+				"shasum": "997605ad2345f27f51539bea26574421215c7780",
+				"tarball": "https://registry.npmjs.org/global-modules/-/global-modules-2.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 6570,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcFGoYCRA9TVsSAnZWagAAifwP/16uQBmLEIJxrTJeFInp\nerlj2Kw6FmPrUhiPa/T2b6W625L6/cp+TDTQfw+Ovb7+EoZ01zOpiADyfC1p\n8f54u05bNsrgWyxW9RuiZ/QzCQPw8b0Ad49damIw/SG9A0M9+lPh05l1nkZY\nkB9ul27Rs22cDG8qrqxqUZnmHlm3GWZTg1GAh+5N6jSQ5hwrQ6N1/0htF/SX\ng4IOlAUke8vaMqPbErRUh7xGEnf/2ez43+9YjavUohg+DoAdL9fEq9nnQq4K\n6qDMpKiyGC+9eN3vzs+HN59n0Mb4HsWIyjgyTPwF6qeNAE8Si5IDMNSL82nR\nMMrEUo7Kl2ffVKGeN2LAEw1UEQl6NIhqzsIxpH4o4CV6R8ouPRMk+PcJa0Ty\n1kv6l5+raqxLafoDcUoA5nwVBzFQN5TpCt2l3FxpafN0sJFPiHWQyDCr6553\nmPX4/yataEFHgcqIOEbflTrp2UcsX8Hh+M6dZW64VH3X2XdsbFbGDSIZgItd\nEOlEclTcF3NWWYqi5uYoJtIO7TIsiI3FnXSECov5+zb5ArfSxLJDwsHKd2V6\nROC9h+iMiwUZy+IZaoPpQJmysmEKLIuHkTRE0B6pas2wY5LQYjkHs1hFGPix\nSt/Is8nDfLOjYRL9vkklgd5XmQZArIPyqTJHg5cnkIPbcKIx6DDy+7eG621d\noLmH\r\n=091l\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "jonschlinkert",
+					"email": "github@sellside.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/global-modules_2.0.0_1544841752181_0.715127626296878"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-01-04T00:12:59.900Z",
+		"created": "2014-04-20T15:24:15.501Z",
+		"0.0.1": "2014-04-20T15:24:17.414Z",
+		"0.0.2": "2014-04-20T15:37:36.018Z",
+		"0.1.0": "2015-03-06T13:07:03.442Z",
+		"0.2.0": "2015-07-15T05:21:34.954Z",
+		"0.2.1": "2016-03-13T10:27:42.068Z",
+		"0.2.2": "2016-06-05T09:35:41.708Z",
+		"0.2.3": "2016-07-26T05:44:44.295Z",
+		"1.0.0": "2017-06-28T06:46:00.149Z",
+		"2.0.0": "2018-12-15T02:42:32.356Z"
+	},
+	"dist-tags": {
+		"latest": "2.0.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"d4c22e11a1215bc550ebe05328910098\"",
+			"fetched": 1568994342930
+		}
+	},
+	"_distfiles": {
+		"global-modules-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/global-modules/-/global-modules-0.1.0.tgz",
+			"sha": "9e8011fdede4f811047f76b155495e7786d27e02",
+			"registry": "npmjs"
+		},
+		"global-modules-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/global-modules/-/global-modules-0.2.0.tgz",
+			"sha": "efb4f2d0c9a6856c106f1bba3bc0568e59c197b1",
+			"registry": "npmjs"
+		},
+		"global-modules-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/global-modules/-/global-modules-0.2.1.tgz",
+			"sha": "c2720c3b36a4565d21b08a5322f8edd46a9e4d38",
+			"registry": "npmjs"
+		},
+		"global-modules-0.2.2.tgz": {
+			"url": "https://registry.npmjs.org/global-modules/-/global-modules-0.2.2.tgz",
+			"sha": "c7e589646bf8bec457d71049553adc72e36c6346",
+			"registry": "npmjs"
+		},
+		"global-modules-0.2.3.tgz": {
+			"url": "https://registry.npmjs.org/global-modules/-/global-modules-0.2.3.tgz",
+			"sha": "ea5a3bed42c6d6ce995a4f8a1269b5dae223828d",
+			"registry": "npmjs"
+		},
+		"global-modules-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/global-modules/-/global-modules-1.0.0.tgz",
+			"sha": "6d770f0eb523ac78164d72b5e71a8877265cc3ea",
+			"registry": "npmjs"
+		},
+		"global-modules-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/global-modules/-/global-modules-2.0.0.tgz",
+			"sha": "997605ad2345f27f51539bea26574421215c7780",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-4bbb2bc12986748c",
+	"_id": "global-modules",
+	"readme": "# global-modules [![NPM version](https://img.shields.io/npm/v/global-modules.svg?style=flat)](https://www.npmjs.com/package/global-modules) [![NPM monthly downloads](https://img.shields.io/npm/dm/global-modules.svg?style=flat)](https://npmjs.org/package/global-modules) [![NPM total downloads](https://img.shields.io/npm/dt/global-modules.svg?style=flat)](https://npmjs.org/package/global-modules) [![Linux Build Status](https://img.shields.io/travis/jonschlinkert/global-modules.svg?style=flat&label=Travis)](https://travis-ci.org/jonschlinkert/global-modules)\n\n> The directory used by npm for globally installed npm modules.\n\nPlease consider following this project's author, [Jon Schlinkert](https://github.com/jonschlinkert), and consider starring the project to show your :heart: and support.\n\n## Install\n\nInstall with [npm](https://www.npmjs.com/):\n\n```sh\n$ npm install --save global-modules\n```\n\n## Usage\n\n```js\nconst globalModules = require('global-modules');\nconsole.log(globalModules);\n//=> '/usr/local/lib/node_modules' \n```\n_(Note that this path might be different based on platform, user-defined configuration settings, etc)_\n\n## About\n\n<details>\n<summary><strong>Contributing</strong></summary>\n\nPull requests and stars are always welcome. For bugs and feature requests, [please create an issue](../../issues/new).\n\n</details>\n\n<details>\n<summary><strong>Running Tests</strong></summary>\n\nRunning and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:\n\n```sh\n$ npm install && npm test\n```\n\n</details>\n\n<details>\n<summary><strong>Building docs</strong></summary>\n\n_(This project's readme.md is generated by [verb](https://github.com/verbose/verb-generate-readme), please don't edit the readme directly. Any changes to the readme must be made in the [.verb.md](.verb.md) readme template.)_\n\nTo generate the readme, run the following command:\n\n```sh\n$ npm install -g verbose/verb#dev verb-generate-readme && verb\n```\n\n</details>\n\n### Related projects\n\nYou might also be interested in these projects:\n\n* [git-config-path](https://www.npmjs.com/package/git-config-path): Resolve the path to the user's local or global .gitconfig. | [homepage](https://github.com/jonschlinkert/git-config-path \"Resolve the path to the user's local or global .gitconfig.\")\n* [global-prefix](https://www.npmjs.com/package/global-prefix): Get the npm global path prefix. | [homepage](https://github.com/jonschlinkert/global-prefix \"Get the npm global path prefix.\")\n* [npm-paths](https://www.npmjs.com/package/npm-paths): Returns an array of unique \"npm\" directories based on the user's platform and environment. | [homepage](https://github.com/jonschlinkert/npm-paths \"Returns an array of unique \"npm\" directories based on the user's platform and environment.\")\n\n### Contributors\n\n| **Commits** | **Contributor** |  \n| --- | --- |  \n| 20 | [jonschlinkert](https://github.com/jonschlinkert) |  \n| 1  | [Kikobeats](https://github.com/Kikobeats) |  \n\n### Author\n\n**Jon Schlinkert**\n\n* [GitHub Profile](https://github.com/jonschlinkert)\n* [Twitter Profile](https://twitter.com/jonschlinkert)\n* [LinkedIn Profile](https://linkedin.com/in/jonschlinkert)\n\n### License\n\nCopyright © 2018, [Jon Schlinkert](https://github.com/jonschlinkert).\nReleased under the [MIT License](LICENSE).\n\n***\n\n_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.8.0, on December 14, 2018._"
+}

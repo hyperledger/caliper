@@ -1,0 +1,4669 @@
+{
+	"name": "csv",
+	"versions": {
+		"0.0.1": {
+			"name": "csv",
+			"version": "0.0.1",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"directories": {
+				"lib": "./lib"
+			},
+			"main": "./lib/csv",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"_id": "csv@0.0.1",
+			"_nodeSupported": true,
+			"_npmVersion": "0.2.7-2",
+			"_nodeVersion": "v0.3.1-pre",
+			"dist": {
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.1.tgz",
+				"shasum": "69744756a53c7aeb299797f337530f151fbb2e0d"
+			}
+		},
+		"0.0.2": {
+			"name": "csv",
+			"version": "0.0.2",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"directories": {
+				"lib": "./lib"
+			},
+			"main": "./lib/csv",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"_id": "csv@0.0.2",
+			"_nodeSupported": true,
+			"_npmVersion": "0.2.7-2",
+			"_nodeVersion": "v0.3.1-pre",
+			"dist": {
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.2.tgz",
+				"shasum": "db442d9a2a1de418874595dec61f5bc5301497e6"
+			}
+		},
+		"0.0.3": {
+			"name": "csv",
+			"version": "0.0.3",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"directories": {
+				"lib": "./lib"
+			},
+			"main": "./lib/csv",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wdavidw/node-csv-parser.git"
+			},
+			"_id": "csv@0.0.3",
+			"_nodeSupported": true,
+			"_npmVersion": "0.2.3-6",
+			"_nodeVersion": "v0.3.2-pre",
+			"dist": {
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.3.tgz",
+				"shasum": "769581ead7df296bbdddaaa59247ab5470d6f70f"
+			}
+		},
+		"0.0.5": {
+			"name": "csv",
+			"version": "0.0.5",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"main": "./lib/csv",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wdavidw/node-csv-parser.git"
+			},
+			"_id": "csv@0.0.5",
+			"_nodeSupported": true,
+			"_npmVersion": "0.2.3-6",
+			"_nodeVersion": "v0.3.3-pre",
+			"dist": {
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.5.tgz",
+				"shasum": "6ba84ea2930dccbd1a4e3faf473cc19f60523454"
+			}
+		},
+		"0.0.6": {
+			"name": "csv",
+			"version": "0.0.6",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"main": "./lib/csv",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wdavidw/node-csv-parser.git"
+			},
+			"_id": "csv@0.0.6",
+			"_nodeSupported": true,
+			"_npmVersion": "0.2.3-6",
+			"_nodeVersion": "v0.3.6-pre",
+			"dist": {
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.6.tgz",
+				"shasum": "4755b111df196de303e14c9461280c91bad3d70c"
+			}
+		},
+		"0.0.7": {
+			"name": "csv",
+			"version": "0.0.7",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"main": "./lib/csv",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wdavidw/node-csv-parser.git"
+			},
+			"_id": "csv@0.0.7",
+			"_engineSupported": true,
+			"_npmVersion": "0.2.18",
+			"_nodeVersion": "v0.4.0",
+			"files": [
+				""
+			],
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "65190b9c40c35f07636987bbef6dc87e01bb4b13",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.7.tgz"
+			}
+		},
+		"0.0.9": {
+			"name": "csv",
+			"version": "0.0.9",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"main": "./lib/csv",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"_id": "csv@0.0.9",
+			"_engineSupported": true,
+			"_npmVersion": "0.3.15",
+			"_nodeVersion": "v0.5.0-pre",
+			"files": [
+				""
+			],
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "09fb6254c7a9341e9aee101d64375285ab0ea8ac",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.9.tgz"
+			}
+		},
+		"0.0.10": {
+			"name": "csv",
+			"version": "0.0.10",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"directories": {
+				"lib": "./lib"
+			},
+			"main": "./lib/csv",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"_npmJsonOpts": {
+				"file": "/Users/wdavidw/.npm/csv/0.0.10/package/package.json",
+				"contributors": false,
+				"wscript": false,
+				"serverjs": false
+			},
+			"_id": "csv@0.0.10",
+			"dependencies": {},
+			"devDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.0.26",
+			"_nodeVersion": "v0.4.11",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "7dbe276f607c1a0f412a29de977819b2ecfd8eab",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.10.tgz"
+			},
+			"scripts": {},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			]
+		},
+		"0.0.11": {
+			"name": "csv",
+			"version": "0.0.11",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"_id": "csv@0.0.11",
+			"dependencies": {},
+			"devDependencies": {},
+			"_engineSupported": true,
+			"_npmVersion": "1.1.0-beta-10",
+			"_nodeVersion": "v0.6.7",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "8c25e88d669f5a8f43f4fc624e74a5191e1abce6",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.11.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.12": {
+			"name": "csv",
+			"version": "0.0.12",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"homepage": "https://github.com/wdavidw/node-csv-parser",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"_id": "csv@0.0.12",
+			"_engineSupported": true,
+			"_npmVersion": "1.1.9",
+			"_nodeVersion": "v0.6.13",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "900d6fab35d1c5aa50747d042439f2de511dc5c6",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.12.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.13": {
+			"name": "csv",
+			"version": "0.0.13",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"homepage": "https://github.com/wdavidw/node-csv-parser",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"_id": "csv@0.0.13",
+			"_engineSupported": true,
+			"_npmVersion": "1.1.9",
+			"_nodeVersion": "v0.6.13",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "78189782eb5ae7dd4f428b0a016029934234c4bc",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.13.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.14": {
+			"name": "csv",
+			"version": "0.0.14",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"homepage": "https://github.com/wdavidw/node-csv-parser",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"_id": "csv@0.0.14",
+			"_engineSupported": true,
+			"_npmVersion": "1.1.21",
+			"_nodeVersion": "v0.6.18",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "b770e4e9ef18d19c728c4047557eb5748a3d3b12",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.14.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.15": {
+			"name": "csv",
+			"version": "0.0.15",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"homepage": "https://github.com/wdavidw/node-csv-parser",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"_id": "csv@0.0.15",
+			"_engineSupported": true,
+			"_npmVersion": "1.1.21",
+			"_nodeVersion": "v0.6.18",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "a8d0f7f6c3e593044476beca0ddee3ef885f84e9",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.15.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.16": {
+			"name": "csv",
+			"version": "0.0.16",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"homepage": "https://github.com/wdavidw/node-csv-parser",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"_id": "csv@0.0.16",
+			"_engineSupported": true,
+			"_npmVersion": "1.1.21",
+			"_nodeVersion": "v0.6.18",
+			"_defaultsLoaded": true,
+			"dist": {
+				"shasum": "25d0cdd140801838afdb47c81645b008cf1b1f5b",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.16.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.17": {
+			"name": "csv",
+			"version": "0.0.17",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"homepage": "https://github.com/wdavidw/node-csv-parser",
+			"_id": "csv@0.0.17",
+			"dist": {
+				"shasum": "4ad2d5f518bed952f56d043f281b9c85ebd344ea",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.17.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.18": {
+			"name": "csv",
+			"version": "0.0.18",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"homepage": "https://github.com/wdavidw/node-csv-parser",
+			"_id": "csv@0.0.18",
+			"dist": {
+				"shasum": "7e322d2fdc640be7ef126d8cd1351333d1e1a632",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.18.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.19": {
+			"name": "csv",
+			"version": "0.0.19",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"homepage": "https://github.com/wdavidw/node-csv-parser",
+			"_id": "csv@0.0.19",
+			"dist": {
+				"shasum": "c90c1cad41433e9616d12bc5ca603ccd566b73d9",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.0.19.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "csv",
+			"version": "0.2.0",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest",
+				"glob": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"homepage": "https://github.com/wdavidw/node-csv-parser",
+			"_id": "csv@0.2.0",
+			"dist": {
+				"shasum": "aa4542c7677051447ffde7148d271b6820558543",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.1": {
+			"name": "csv",
+			"version": "0.2.1",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest",
+				"glob": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"homepage": "https://github.com/wdavidw/node-csv-parser",
+			"_id": "csv@0.2.1",
+			"dist": {
+				"shasum": "ee18ba742e0fc89c5eb198c4e76f53d3ead9ebe2",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.2": {
+			"name": "csv",
+			"version": "0.2.2",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				},
+				{
+					"name": "jonseymour",
+					"email": "https://github.com/jonseymour"
+				},
+				{
+					"name": "pascalopitz",
+					"email": "https://github.com/pascalopitz"
+				},
+				{
+					"name": "Josh Pschorr",
+					"email": "https://github.com/jpschorr"
+				},
+				{
+					"name": "Elad Ben-Israel",
+					"email": "https://github.com/eladb"
+				},
+				{
+					"name": "Philippe Plantier",
+					"email": "https://github.com/phipla"
+				},
+				{
+					"name": "Tim Oxley",
+					"email": "https://github.com/timoxley"
+				},
+				{
+					"name": "Damon Oehlman",
+					"email": "https://github.com/DamonOehlman"
+				},
+				{
+					"name": "Alexandru Topliceanu",
+					"email": "https://github.com/topliceanu"
+				},
+				{
+					"name": "Visup",
+					"email": "https://github.com/visup"
+				},
+				{
+					"name": "Edmund von der Burg",
+					"email": "https://github.com/evdb"
+				},
+				{
+					"name": "Douglas Christopher Wilson",
+					"email": "https://github.com/dougwilson"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest",
+				"glob": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"homepage": "https://github.com/wdavidw/node-csv-parser",
+			"_id": "csv@0.2.2",
+			"dist": {
+				"shasum": "160eaf831345277cfd55d3a61b485f20de94cc6f",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.2.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.3": {
+			"name": "csv",
+			"version": "0.2.3",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				},
+				{
+					"name": "jonseymour",
+					"email": "https://github.com/jonseymour"
+				},
+				{
+					"name": "pascalopitz",
+					"email": "https://github.com/pascalopitz"
+				},
+				{
+					"name": "Josh Pschorr",
+					"email": "https://github.com/jpschorr"
+				},
+				{
+					"name": "Elad Ben-Israel",
+					"email": "https://github.com/eladb"
+				},
+				{
+					"name": "Philippe Plantier",
+					"email": "https://github.com/phipla"
+				},
+				{
+					"name": "Tim Oxley",
+					"email": "https://github.com/timoxley"
+				},
+				{
+					"name": "Damon Oehlman",
+					"email": "https://github.com/DamonOehlman"
+				},
+				{
+					"name": "Alexandru Topliceanu",
+					"email": "https://github.com/topliceanu"
+				},
+				{
+					"name": "Visup",
+					"email": "https://github.com/visup"
+				},
+				{
+					"name": "Edmund von der Burg",
+					"email": "https://github.com/evdb"
+				},
+				{
+					"name": "Douglas Christopher Wilson",
+					"email": "https://github.com/dougwilson"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest",
+				"glob": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv@0.2.3",
+			"dist": {
+				"shasum": "5eb70ef3b424e9d266470d004aaa74414283606f",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.2.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "csv",
+			"version": "0.1.0",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"homepage": "https://github.com/wdavidw/node-csv-parser",
+			"_id": "csv@0.1.0",
+			"dist": {
+				"shasum": "139a0141e91494040b8727358af899aefa6d27e0",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.4": {
+			"name": "csv",
+			"version": "0.2.4",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				},
+				{
+					"name": "jonseymour",
+					"email": "https://github.com/jonseymour"
+				},
+				{
+					"name": "pascalopitz",
+					"email": "https://github.com/pascalopitz"
+				},
+				{
+					"name": "Josh Pschorr",
+					"email": "https://github.com/jpschorr"
+				},
+				{
+					"name": "Elad Ben-Israel",
+					"email": "https://github.com/eladb"
+				},
+				{
+					"name": "Philippe Plantier",
+					"email": "https://github.com/phipla"
+				},
+				{
+					"name": "Tim Oxley",
+					"email": "https://github.com/timoxley"
+				},
+				{
+					"name": "Damon Oehlman",
+					"email": "https://github.com/DamonOehlman"
+				},
+				{
+					"name": "Alexandru Topliceanu",
+					"email": "https://github.com/topliceanu"
+				},
+				{
+					"name": "Visup",
+					"email": "https://github.com/visup"
+				},
+				{
+					"name": "Edmund von der Burg",
+					"email": "https://github.com/evdb"
+				},
+				{
+					"name": "Douglas Christopher Wilson",
+					"email": "https://github.com/dougwilson"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest",
+				"glob": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv@0.2.4",
+			"dist": {
+				"shasum": "142ab5abdc4987e9be55d66452dd548728f07c6d",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.2.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.6": {
+			"name": "csv",
+			"version": "0.2.6",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				},
+				{
+					"name": "jonseymour",
+					"email": "https://github.com/jonseymour"
+				},
+				{
+					"name": "pascalopitz",
+					"email": "https://github.com/pascalopitz"
+				},
+				{
+					"name": "Josh Pschorr",
+					"email": "https://github.com/jpschorr"
+				},
+				{
+					"name": "Elad Ben-Israel",
+					"email": "https://github.com/eladb"
+				},
+				{
+					"name": "Philippe Plantier",
+					"email": "https://github.com/phipla"
+				},
+				{
+					"name": "Tim Oxley",
+					"email": "https://github.com/timoxley"
+				},
+				{
+					"name": "Damon Oehlman",
+					"email": "https://github.com/DamonOehlman"
+				},
+				{
+					"name": "Alexandru Topliceanu",
+					"email": "https://github.com/topliceanu"
+				},
+				{
+					"name": "Visup",
+					"email": "https://github.com/visup"
+				},
+				{
+					"name": "Edmund von der Burg",
+					"email": "https://github.com/evdb"
+				},
+				{
+					"name": "Douglas Christopher Wilson",
+					"email": "https://github.com/dougwilson"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"node",
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest",
+				"glob": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv@0.2.6",
+			"dist": {
+				"shasum": "7811d839bd328b33539698c27094c28b2a4d2a52",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.2.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.7": {
+			"name": "csv",
+			"version": "0.2.7",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": "https://github.com/wdavidw/node-csv-parser/issues",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				},
+				{
+					"name": "jonseymour",
+					"email": "https://github.com/jonseymour"
+				},
+				{
+					"name": "pascalopitz",
+					"email": "https://github.com/pascalopitz"
+				},
+				{
+					"name": "Josh Pschorr",
+					"email": "https://github.com/jpschorr"
+				},
+				{
+					"name": "Elad Ben-Israel",
+					"email": "https://github.com/eladb"
+				},
+				{
+					"name": "Philippe Plantier",
+					"email": "https://github.com/phipla"
+				},
+				{
+					"name": "Tim Oxley",
+					"email": "https://github.com/timoxley"
+				},
+				{
+					"name": "Damon Oehlman",
+					"email": "https://github.com/DamonOehlman"
+				},
+				{
+					"name": "Alexandru Topliceanu",
+					"email": "https://github.com/topliceanu"
+				},
+				{
+					"name": "Visup",
+					"email": "https://github.com/visup"
+				},
+				{
+					"name": "Edmund von der Burg",
+					"email": "https://github.com/evdb"
+				},
+				{
+					"name": "Douglas Christopher Wilson",
+					"email": "https://github.com/dougwilson"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"node",
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv@0.2.7",
+			"dist": {
+				"shasum": "784a69370c8951f6fc38840535015525ae82c80f",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.2.7.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.3",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.8": {
+			"name": "csv",
+			"version": "0.2.8",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": "https://github.com/wdavidw/node-csv-parser/issues",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				},
+				{
+					"name": "jonseymour",
+					"email": "https://github.com/jonseymour"
+				},
+				{
+					"name": "pascalopitz",
+					"email": "https://github.com/pascalopitz"
+				},
+				{
+					"name": "Josh Pschorr",
+					"email": "https://github.com/jpschorr"
+				},
+				{
+					"name": "Elad Ben-Israel",
+					"email": "https://github.com/eladb"
+				},
+				{
+					"name": "Philippe Plantier",
+					"email": "https://github.com/phipla"
+				},
+				{
+					"name": "Tim Oxley",
+					"email": "https://github.com/timoxley"
+				},
+				{
+					"name": "Damon Oehlman",
+					"email": "https://github.com/DamonOehlman"
+				},
+				{
+					"name": "Alexandru Topliceanu",
+					"email": "https://github.com/topliceanu"
+				},
+				{
+					"name": "Visup",
+					"email": "https://github.com/visup"
+				},
+				{
+					"name": "Edmund von der Burg",
+					"email": "https://github.com/evdb"
+				},
+				{
+					"name": "Douglas Christopher Wilson",
+					"email": "https://github.com/dougwilson"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"node",
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest",
+				"iconv": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv@0.2.8",
+			"dist": {
+				"shasum": "53b2e19f62a6f8b0ca2d9e91024c65cc41887fb1",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.2.8.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.11",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.9": {
+			"name": "csv",
+			"version": "0.2.9",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": "https://github.com/wdavidw/node-csv-parser/issues",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				},
+				{
+					"name": "jonseymour",
+					"email": "https://github.com/jonseymour"
+				},
+				{
+					"name": "pascalopitz",
+					"email": "https://github.com/pascalopitz"
+				},
+				{
+					"name": "Josh Pschorr",
+					"email": "https://github.com/jpschorr"
+				},
+				{
+					"name": "Elad Ben-Israel",
+					"email": "https://github.com/eladb"
+				},
+				{
+					"name": "Philippe Plantier",
+					"email": "https://github.com/phipla"
+				},
+				{
+					"name": "Tim Oxley",
+					"email": "https://github.com/timoxley"
+				},
+				{
+					"name": "Damon Oehlman",
+					"email": "https://github.com/DamonOehlman"
+				},
+				{
+					"name": "Alexandru Topliceanu",
+					"email": "https://github.com/topliceanu"
+				},
+				{
+					"name": "Visup",
+					"email": "https://github.com/visup"
+				},
+				{
+					"name": "Edmund von der Burg",
+					"email": "https://github.com/evdb"
+				},
+				{
+					"name": "Douglas Christopher Wilson",
+					"email": "https://github.com/dougwilson"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"node",
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest",
+				"iconv": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv@0.2.9",
+			"dist": {
+				"shasum": "52d16e7ec2d61971211bf326f49a8294efb65f16",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.2.9.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.11",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.0": {
+			"name": "csv",
+			"version": "0.3.0",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": "https://github.com/wdavidw/node-csv-parser/issues",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				},
+				{
+					"name": "jonseymour",
+					"email": "https://github.com/jonseymour"
+				},
+				{
+					"name": "pascalopitz",
+					"email": "https://github.com/pascalopitz"
+				},
+				{
+					"name": "Josh Pschorr",
+					"email": "https://github.com/jpschorr"
+				},
+				{
+					"name": "Elad Ben-Israel",
+					"email": "https://github.com/eladb"
+				},
+				{
+					"name": "Philippe Plantier",
+					"email": "https://github.com/phipla"
+				},
+				{
+					"name": "Tim Oxley",
+					"email": "https://github.com/timoxley"
+				},
+				{
+					"name": "Damon Oehlman",
+					"email": "https://github.com/DamonOehlman"
+				},
+				{
+					"name": "Alexandru Topliceanu",
+					"email": "https://github.com/topliceanu"
+				},
+				{
+					"name": "Visup",
+					"email": "https://github.com/visup"
+				},
+				{
+					"name": "Edmund von der Burg",
+					"email": "https://github.com/evdb"
+				},
+				{
+					"name": "Douglas Christopher Wilson",
+					"email": "https://github.com/dougwilson"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"node",
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv-parser.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest",
+				"iconv": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv@0.3.0",
+			"dist": {
+				"shasum": "0f138402e01b16de2c7d546c23d65eac9db60b2c",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.3.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.11",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.2": {
+			"name": "csv",
+			"version": "0.3.2",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": "https://github.com/wdavidw/node-csv/issues",
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				},
+				{
+					"name": "jonseymour",
+					"email": "https://github.com/jonseymour"
+				},
+				{
+					"name": "pascalopitz",
+					"email": "https://github.com/pascalopitz"
+				},
+				{
+					"name": "Josh Pschorr",
+					"email": "https://github.com/jpschorr"
+				},
+				{
+					"name": "Elad Ben-Israel",
+					"email": "https://github.com/eladb"
+				},
+				{
+					"name": "Philippe Plantier",
+					"email": "https://github.com/phipla"
+				},
+				{
+					"name": "Tim Oxley",
+					"email": "https://github.com/timoxley"
+				},
+				{
+					"name": "Damon Oehlman",
+					"email": "https://github.com/DamonOehlman"
+				},
+				{
+					"name": "Alexandru Topliceanu",
+					"email": "https://github.com/topliceanu"
+				},
+				{
+					"name": "Visup",
+					"email": "https://github.com/visup"
+				},
+				{
+					"name": "Edmund von der Burg",
+					"email": "https://github.com/evdb"
+				},
+				{
+					"name": "Douglas Christopher Wilson",
+					"email": "https://github.com/dougwilson"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"node",
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest",
+				"iconv": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv@0.3.2",
+			"dist": {
+				"shasum": "948e0c39db9d94935efcdfe36bb8aef1e8b10a7c",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.3.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.18",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.3": {
+			"name": "csv",
+			"version": "0.3.3",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": {
+				"url": "https://github.com/wdavidw/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"email": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"email": "https://github.com/justinlatimer"
+				},
+				{
+					"name": "jonseymour",
+					"email": "https://github.com/jonseymour"
+				},
+				{
+					"name": "pascalopitz",
+					"email": "https://github.com/pascalopitz"
+				},
+				{
+					"name": "Josh Pschorr",
+					"email": "https://github.com/jpschorr"
+				},
+				{
+					"name": "Elad Ben-Israel",
+					"email": "https://github.com/eladb"
+				},
+				{
+					"name": "Philippe Plantier",
+					"email": "https://github.com/phipla"
+				},
+				{
+					"name": "Tim Oxley",
+					"email": "https://github.com/timoxley"
+				},
+				{
+					"name": "Damon Oehlman",
+					"email": "https://github.com/DamonOehlman"
+				},
+				{
+					"name": "Alexandru Topliceanu",
+					"email": "https://github.com/topliceanu"
+				},
+				{
+					"name": "Visup",
+					"email": "https://github.com/visup"
+				},
+				{
+					"name": "Edmund von der Burg",
+					"email": "https://github.com/evdb"
+				},
+				{
+					"name": "Douglas Christopher Wilson",
+					"email": "https://github.com/dougwilson"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"node",
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest",
+				"iconv": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv@0.3.3",
+			"dist": {
+				"shasum": "a2c84cad2209123ef7b2070df31d192f3cdae71b",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.3.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.24",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.4": {
+			"name": "csv",
+			"version": "0.3.4",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": {
+				"url": "https://github.com/wdavidw/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "hhttp://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"url": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"url": "https://github.com/justinlatimer"
+				},
+				{
+					"name": "jonseymour",
+					"url": "https://github.com/jonseymour"
+				},
+				{
+					"name": "pascalopitz",
+					"url": "https://github.com/pascalopitz"
+				},
+				{
+					"name": "Josh Pschorr",
+					"url": "https://github.com/jpschorr"
+				},
+				{
+					"name": "Elad Ben-Israel",
+					"url": "https://github.com/eladb"
+				},
+				{
+					"name": "Philippe Plantier",
+					"url": "https://github.com/phipla"
+				},
+				{
+					"name": "Tim Oxley",
+					"url": "https://github.com/timoxley"
+				},
+				{
+					"name": "Damon Oehlman",
+					"url": "https://github.com/DamonOehlman"
+				},
+				{
+					"name": "Alexandru Topliceanu",
+					"url": "https://github.com/topliceanu"
+				},
+				{
+					"name": "Visup",
+					"url": "https://github.com/visup"
+				},
+				{
+					"name": "Edmund von der Burg",
+					"url": "https://github.com/evdb"
+				},
+				{
+					"name": "Douglas Christopher Wilson",
+					"url": "https://github.com/dougwilson"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"node",
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest",
+				"iconv": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv@0.3.4",
+			"dist": {
+				"shasum": "f0c93e2b19c2fd6aea556d7af226d4186512af74",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.3.4.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.25",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.5": {
+			"name": "csv",
+			"version": "0.3.5",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": {
+				"url": "https://github.com/wdavidw/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "hhttp://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"url": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"url": "https://github.com/justinlatimer"
+				},
+				{
+					"name": "jonseymour",
+					"url": "https://github.com/jonseymour"
+				},
+				{
+					"name": "pascalopitz",
+					"url": "https://github.com/pascalopitz"
+				},
+				{
+					"name": "Josh Pschorr",
+					"url": "https://github.com/jpschorr"
+				},
+				{
+					"name": "Elad Ben-Israel",
+					"url": "https://github.com/eladb"
+				},
+				{
+					"name": "Philippe Plantier",
+					"url": "https://github.com/phipla"
+				},
+				{
+					"name": "Tim Oxley",
+					"url": "https://github.com/timoxley"
+				},
+				{
+					"name": "Damon Oehlman",
+					"url": "https://github.com/DamonOehlman"
+				},
+				{
+					"name": "Alexandru Topliceanu",
+					"url": "https://github.com/topliceanu"
+				},
+				{
+					"name": "Visup",
+					"url": "https://github.com/visup"
+				},
+				{
+					"name": "Edmund von der Burg",
+					"url": "https://github.com/evdb"
+				},
+				{
+					"name": "Douglas Christopher Wilson",
+					"url": "https://github.com/dougwilson"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"node",
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest",
+				"iconv": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv@0.3.5",
+			"dist": {
+				"shasum": "d99e9239ab491a75947fb43d276ec9b782723d4a",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.3.5.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.25",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.6": {
+			"name": "csv",
+			"version": "0.3.6",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": {
+				"url": "https://github.com/wdavidw/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"url": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"url": "https://github.com/justinlatimer"
+				},
+				{
+					"name": "jonseymour",
+					"url": "https://github.com/jonseymour"
+				},
+				{
+					"name": "pascalopitz",
+					"url": "https://github.com/pascalopitz"
+				},
+				{
+					"name": "Josh Pschorr",
+					"url": "https://github.com/jpschorr"
+				},
+				{
+					"name": "Elad Ben-Israel",
+					"url": "https://github.com/eladb"
+				},
+				{
+					"name": "Philippe Plantier",
+					"url": "https://github.com/phipla"
+				},
+				{
+					"name": "Tim Oxley",
+					"url": "https://github.com/timoxley"
+				},
+				{
+					"name": "Damon Oehlman",
+					"url": "https://github.com/DamonOehlman"
+				},
+				{
+					"name": "Alexandru Topliceanu",
+					"url": "https://github.com/topliceanu"
+				},
+				{
+					"name": "Visup",
+					"url": "https://github.com/visup"
+				},
+				{
+					"name": "Edmund von der Burg",
+					"url": "https://github.com/evdb"
+				},
+				{
+					"name": "Douglas Christopher Wilson",
+					"url": "https://github.com/dougwilson"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"node",
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/wdavidw/node-csv.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest",
+				"iconv": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv@0.3.6",
+			"dist": {
+				"shasum": "9b105f4f2f136d909e296acfbead7c326b0dd180",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.3.6.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.25",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.7": {
+			"name": "csv",
+			"version": "0.3.7",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": {
+				"url": "https://github.com/wdavidw/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				},
+				{
+					"name": "Will White",
+					"url": "https://github.com/willwhite"
+				},
+				{
+					"name": "Justin Latimer",
+					"url": "https://github.com/justinlatimer"
+				},
+				{
+					"name": "jonseymour",
+					"url": "https://github.com/jonseymour"
+				},
+				{
+					"name": "pascalopitz",
+					"url": "https://github.com/pascalopitz"
+				},
+				{
+					"name": "Josh Pschorr",
+					"url": "https://github.com/jpschorr"
+				},
+				{
+					"name": "Elad Ben-Israel",
+					"url": "https://github.com/eladb"
+				},
+				{
+					"name": "Philippe Plantier",
+					"url": "https://github.com/phipla"
+				},
+				{
+					"name": "Tim Oxley",
+					"url": "https://github.com/timoxley"
+				},
+				{
+					"name": "Damon Oehlman",
+					"url": "https://github.com/DamonOehlman"
+				},
+				{
+					"name": "Alexandru Topliceanu",
+					"url": "https://github.com/topliceanu"
+				},
+				{
+					"name": "Visup",
+					"url": "https://github.com/visup"
+				},
+				{
+					"name": "Edmund von der Burg",
+					"url": "https://github.com/evdb"
+				},
+				{
+					"name": "Douglas Christopher Wilson",
+					"url": "https://github.com/dougwilson"
+				}
+			],
+			"licenses": [
+				{
+					"type": "BSD",
+					"url": "https://github.com/wdavidw/node-csv/blob/master/LICENSE"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"keywords": [
+				"node",
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wdavidw/node-csv.git"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest",
+				"each": "latest",
+				"mecano": "latest",
+				"iconv": "latest"
+			},
+			"dependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv@0.3.7",
+			"dist": {
+				"shasum": "a4f8a363f0072cd155181e6bb49bd58e5497b31c",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.3.7.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.14",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.0": {
+			"name": "csv",
+			"version": "0.4.0",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": {
+				"url": "https://github.com/wdavidw/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"licenses": [
+				{
+					"type": "BSD",
+					"url": "https://github.com/wdavidw/node-csv/blob/master/LICENSE"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"keywords": [
+				"node",
+				"parser",
+				"csv"
+			],
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wdavidw/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "*",
+				"csv-parse": "*",
+				"stream-transform": "*",
+				"csv-stringify": "*"
+			},
+			"devDependencies": {},
+			"optionalDependencies": {},
+			"scripts": {},
+			"_id": "csv@0.4.0",
+			"dist": {
+				"shasum": "3738bbcac91eee3c090aabc0b071f109ed9421f0",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.4.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.4",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.1": {
+			"name": "csv",
+			"version": "0.4.1",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": {
+				"url": "https://github.com/wdavidw/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"licenses": [
+				{
+					"type": "BSD",
+					"url": "https://github.com/wdavidw/node-csv/blob/master/LICENSE"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wdavidw/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "*",
+				"csv-parse": "*",
+				"stream-transform": "*",
+				"csv-stringify": "*"
+			},
+			"devDependencies": {},
+			"optionalDependencies": {},
+			"scripts": {},
+			"gitHead": "f23a689b6125e773b83a708920f98c454a304c43",
+			"_id": "csv@0.4.1",
+			"_shasum": "aa58f059591c98a361a61b287d1c0a394c79160e",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "aa58f059591c98a361a61b287d1c0a394c79160e",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.4.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.2": {
+			"name": "csv",
+			"version": "0.4.2",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": {
+				"url": "https://github.com/wdavidw/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"licenses": [
+				{
+					"type": "BSD",
+					"url": "https://github.com/wdavidw/node-csv/blob/master/LICENSE"
+				}
+			],
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wdavidw/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^0.0.4",
+				"csv-parse": "^0.1.1",
+				"stream-transform": "^0.0.7",
+				"csv-stringify": "^0.0.6"
+			},
+			"devDependencies": {},
+			"optionalDependencies": {},
+			"scripts": {},
+			"gitHead": "a5a051789e2607bb8d8c9ad8565ffc0737dda947",
+			"_id": "csv@0.4.2",
+			"_shasum": "5ada47bdd9ddd2f17852f73a5986025390133e04",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "5ada47bdd9ddd2f17852f73a5986025390133e04",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.4.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.4": {
+			"name": "csv",
+			"version": "0.4.4",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": {
+				"url": "https://github.com/wdavidw/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wdavidw/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^0.0.6",
+				"csv-parse": "^0.1.3",
+				"stream-transform": "^0.0.9",
+				"csv-stringify": "^0.0.8"
+			},
+			"devDependencies": {},
+			"optionalDependencies": {},
+			"scripts": {},
+			"gitHead": "6970f68a6d48b7b4ad5ad4dc6ae8ed611e89e3f3",
+			"_id": "csv@0.4.4",
+			"_shasum": "8bf0d96b7af1ff2df2866cbdf2fe18523e5cfff3",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "8bf0d96b7af1ff2df2866cbdf2fe18523e5cfff3",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.4.4.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.5": {
+			"name": "csv",
+			"version": "0.4.5",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": {
+				"url": "https://github.com/wdavidw/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wdavidw/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^0.0.6",
+				"csv-parse": "^0.1.3",
+				"stream-transform": "^0.1.0",
+				"csv-stringify": "^0.0.8"
+			},
+			"devDependencies": {},
+			"optionalDependencies": {},
+			"scripts": {},
+			"gitHead": "0d8ac8b63396beaa8e85850d60330298d2018d60",
+			"_id": "csv@0.4.5",
+			"_shasum": "53bd2308fa1cdae696ba4ba2f460b0bbe0e00484",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "53bd2308fa1cdae696ba4ba2f460b0bbe0e00484",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.4.5.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.6": {
+			"name": "csv",
+			"version": "0.4.6",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": {
+				"url": "https://github.com/wdavidw/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/wdavidw/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^0.0.6",
+				"csv-parse": "^1.0.0",
+				"stream-transform": "^0.1.0",
+				"csv-stringify": "^0.0.8"
+			},
+			"devDependencies": {},
+			"optionalDependencies": {},
+			"scripts": {},
+			"gitHead": "74db5c2af7f7d13d457872a099117207c44df056",
+			"_id": "csv@0.4.6",
+			"_shasum": "8dbae7ddfdbaae62c1ea987c3e0f8a9ac737b73d",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "8dbae7ddfdbaae62c1ea987c3e0f8a9ac737b73d",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-0.4.6.tgz"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "csv",
+			"version": "1.1.0",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": {
+				"url": "https://github.com/wdavidw/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wdavidw/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^1.0.0",
+				"csv-parse": "^1.1.0",
+				"stream-transform": "^0.1.0",
+				"csv-stringify": "^1.0.0"
+			},
+			"devDependencies": {},
+			"optionalDependencies": {},
+			"scripts": {},
+			"gitHead": "9eda6179556eb2fbe02e1ff4f70eec1bd959f71b",
+			"_id": "csv@1.1.0",
+			"_shasum": "0da30872c5cca486a4b5a0edbb52b2dbf6eb30ef",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.0.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "0da30872c5cca486a4b5a0edbb52b2dbf6eb30ef",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-1.1.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/csv-1.1.0.tgz_1463656907199_0.12544741993770003"
+			},
+			"directories": {}
+		},
+		"1.1.1": {
+			"name": "csv",
+			"version": "1.1.1",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "http://www.adaltas.com/projects/node-csv/",
+			"bugs": {
+				"url": "https://github.com/wdavidw/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/wdavidw/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^1.0.0",
+				"csv-parse": "^1.2.0",
+				"stream-transform": "^0.1.0",
+				"csv-stringify": "^1.0.0"
+			},
+			"devDependencies": {},
+			"optionalDependencies": {},
+			"scripts": {},
+			"gitHead": "f3520ddeaf087ffb436b3909e447ef3e5fcef316",
+			"_id": "csv@1.1.1",
+			"_shasum": "d9952d59b1f964a7afbcdd804d6818a73199a477",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.7.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "d9952d59b1f964a7afbcdd804d6818a73199a477",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-1.1.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/csv-1.1.1.tgz_1485444032981_0.6298237980809063"
+			},
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "csv",
+			"version": "1.2.0",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "http://csv.adaltas.com",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/adaltas/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^1.0.0",
+				"csv-parse": "^1.2.0",
+				"stream-transform": "^0.1.2",
+				"csv-stringify": "^1.0.4"
+			},
+			"devDependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"coffee": "coffee -b -o lib src"
+			},
+			"gitHead": "660e2f47fdf4b0d48ef9d8b66916291bfbe66036",
+			"_id": "csv@1.2.0",
+			"_shasum": "85c1143eba3472681640a4e87eb754b4a49c8c81",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"shasum": "85c1143eba3472681640a4e87eb754b4a49c8c81",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-1.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-1.2.0.tgz_1508497022515_0.8741952448617667"
+			},
+			"directories": {}
+		},
+		"1.2.1": {
+			"name": "csv",
+			"version": "1.2.1",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "http://csv.adaltas.com",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/adaltas/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^1.1.2",
+				"csv-parse": "^1.3.3",
+				"stream-transform": "^0.2.2",
+				"csv-stringify": "^1.1.2"
+			},
+			"devDependencies": {},
+			"optionalDependencies": {},
+			"scripts": {
+				"coffee": "coffee -b -o lib src"
+			},
+			"gitHead": "423bd3ed01fdb5e9697039896f8435b9b9ea0a02",
+			"_id": "csv@1.2.1",
+			"_shasum": "5231edfc1c7152512ec45781076a7a97ff525c0c",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"shasum": "5231edfc1c7152512ec45781076a7a97ff525c0c",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-1.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-1.2.1.tgz_1508500399990_0.8683307480532676"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "csv",
+			"version": "2.0.0",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "http://csv.adaltas.com",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/adaltas/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^2.0.0",
+				"csv-parse": "^2.0.0",
+				"stream-transform": "^1.0.0",
+				"csv-stringify": "^2.0.0"
+			},
+			"devDependencies": {
+				"coffeescript": "~2.0.1"
+			},
+			"optionalDependencies": {},
+			"scripts": {
+				"coffee": "coffee -b -o lib src"
+			},
+			"gitHead": "42bceb693f809a85a49be97bd00b8e4a6a18c46d",
+			"_id": "csv@2.0.0",
+			"_shasum": "0d51d8fa3ece278b5409f795717fcfcd5ace9b3e",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"shasum": "0d51d8fa3ece278b5409f795717fcfcd5ace9b3e",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-2.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-2.0.0.tgz_1508501329220_0.925717682344839"
+			},
+			"directories": {}
+		},
+		"3.0.0": {
+			"name": "csv",
+			"version": "3.0.0",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "http://csv.adaltas.com",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/adaltas/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^2.0.2",
+				"csv-parse": "^2.2.0",
+				"stream-transform": "^1.0.2",
+				"csv-stringify": "^3.0.0"
+			},
+			"devDependencies": {
+				"coffeescript": "~2.2.4"
+			},
+			"optionalDependencies": {},
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && rm -rf lib && npm test",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src"
+			},
+			"gitHead": "25228868e4c4cbb852974035a37b87b50fcec733",
+			"_id": "csv@3.0.0",
+			"_npmVersion": "5.4.2",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-R+3J3Ei7kvbgFUmvg/E+arAk/BqtEdsUWPBcr57Qdr6g6tGbJDPaNWanJPEskUD1VUSAGip/Fh9KKo6hjFhD8g==",
+				"shasum": "a4f0322965e18b0981c3afc0494608641d54d371",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-3.0.0.tgz",
+				"fileCount": 10,
+				"unpackedSize": 10618
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv_3.0.0_1523045505976_0.445750355761549"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.1": {
+			"name": "csv",
+			"version": "3.0.1",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "http://csv.adaltas.com",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/adaltas/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^2.0.2",
+				"csv-parse": "^2.2.0",
+				"stream-transform": "^1.0.2",
+				"csv-stringify": "^3.0.0"
+			},
+			"devDependencies": {
+				"coffeescript": "~2.2.4"
+			},
+			"optionalDependencies": {},
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && rm -rf lib && npm test",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src"
+			},
+			"gitHead": "de892f94adf35bdc9af85574aaa36466cf61ca08",
+			"_id": "csv@3.0.1",
+			"_npmVersion": "5.4.2",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-jPSc86BRC/UiWBs0N6hEzgotTZdZTBXO+X5om0gkl4Q590Q3p1Fpus3xNW3nYLLdQmiC/8FHLcCCkE9BmNvgZQ==",
+				"shasum": "572d363fad172606086d0dc56e7733eb609a9e02",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-3.0.1.tgz",
+				"fileCount": 10,
+				"unpackedSize": 10706
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv_3.0.1_1523260607990_0.37961251145466846"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.2": {
+			"name": "csv",
+			"version": "3.0.2",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "http://csv.adaltas.com",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/adaltas/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^2.0.2",
+				"csv-parse": "^2.2.0",
+				"stream-transform": "^1.0.2",
+				"csv-stringify": "^3.0.0"
+			},
+			"devDependencies": {
+				"coffeescript": "~2.2.4"
+			},
+			"optionalDependencies": {},
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && rm -rf lib && npm run coffee",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src"
+			},
+			"gitHead": "8610ef6a4295ff8bf314ffa03e6b9890b3e17d95",
+			"_id": "csv@3.0.2",
+			"_npmVersion": "5.4.2",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-ARn20iNUAVVQcrzYIzv/OiRDHKHEWbdDDmxcHxa9WjGWNr61AeZl7Zm06DEouSesbgUNUz4hOE4V69vptoyyeQ==",
+				"shasum": "3f29d92cd27c75e3ba21265b5cad29bd2d785358",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-3.0.2.tgz",
+				"fileCount": 11,
+				"unpackedSize": 11527
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv_3.0.2_1523260751917_0.7840437935025575"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.1.0": {
+			"name": "csv",
+			"version": "3.1.0",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "http://csv.adaltas.com",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/adaltas/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^2.0.2",
+				"csv-parse": "^2.4.0",
+				"stream-transform": "^1.0.2",
+				"csv-stringify": "^3.0.0"
+			},
+			"devDependencies": {
+				"coffeescript": "~2.3.0"
+			},
+			"optionalDependencies": {},
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && rm -rf lib && npm run coffee",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src"
+			},
+			"gitHead": "42eb7d381d40c9d35bd27886368493706a44f568",
+			"_id": "csv@3.1.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "10.0.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-SfnePMkhjljB7ehvubZESGjgrnM7V/gBe5ubZWKxeKwgmTl/HtVCdfSaGRgH/i/vG7qJaSLMpP0krNbAuunRBg==",
+				"shasum": "91ad8625e294bf37a5b366b84d01aa40b2d20f15",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-3.1.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 11681,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa/UFtCRA9TVsSAnZWagAAYPcP/3IUCaE3cy/Nsl+hOeVY\n8hFfyZKY8mq6QAx2HHx8yZzSiRO1DJPQD2OIlGh5k9BbxUkTx+kaDqhBR1q+\nTGD9lzrNQ7vvoorIIQ1kQ9A8QIunp44AflKTdVMHXwDXMIeSz09NgHNM7pbG\ncDLiRRDGd7Ys2W+QQ88QWYTcroQa6ONDvLZMKuBzH6z3QlddpZAogiNJZY+W\n5i5rZgYGU/H0WFjPSkbgtRp+6bu+u3R8Ee31DM+XvyXDCe9kGfYs1+MkGazz\nD4aysKnaHjCTiLh/px7OEyBu/Izxdh/xjFITDbadCUMkyiXFMlrYo58VAv7p\nu9NcUDh5ypC752k2tO4bjx+VxYUuHJM6IC2ynI3KhY9gOk45y2NPoJtdY0ye\n6pWCs6MexrEjz8WnXySlU+Y9v/mWcXw7MEl7E6ZuUfQ88/NQLORLiqn0gsY1\nOoRUZam9L9DHGPc5buo1ju7RNeOwc3y0QPy5LKg4ZjvXO5TCsY0XC2L8LKiL\n7Hlqc7nQ3vg6Erx3oH5+3E650loXk9kwM9cg0h8pvAM1HKxsS1iF8tBcsejD\nmWgl8K1fNZbJR1Xn0tjpL8FXJcb4Twwyx4RAkKbFOZadL8T0suzRN5pbQyrV\nMPu8LJaX+GSV0BHKkLn34UnyGc2AHbBF0P3oflciNuvWtOrTOK+DRtjgqAwm\nHnhT\r\n=68jR\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv_3.1.0_1526546795879_0.48409677325144895"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.0.0": {
+			"name": "csv",
+			"version": "4.0.0",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "https://csv.js.org/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/adaltas/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^2.2.2",
+				"csv-parse": "^3.1.2",
+				"stream-transform": "^1.0.7",
+				"csv-stringify": "^4.3.1"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.2",
+				"@babel/core": "^7.1.2",
+				"@babel/preset-env": "^7.1.0",
+				"coffeescript": "~2.3.2",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && rm -rf lib && npm run coffee",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "74a06c57a8b78ee21e3c68b43ef16cf837690ed9",
+			"_id": "csv@4.0.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.11.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-rj3+HMMIKskeiipg0VkFSx7o8FhrNSfIb1nLT6AkJ0gx7mdGU5JsJGv4tmk0vl1jV/h/TfWJOwh1tpbbhVqNKA==",
+				"shasum": "c7de44b9a0fd47f7a10db24064519f642a7ce92d",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-4.0.0.tgz",
+				"fileCount": 18,
+				"unpackedSize": 14808,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbsdXbCRA9TVsSAnZWagAALbwP/0LVyDPb8jhRXYBoWgZp\n9AxQBntT8GYxmlxoowe8nMPsd7zOUx4QQGpRG2rb0o3h5T0htde5Gt4dP++o\nN4Mg7mq06gmziFqzYewxACZmy5ou477Dyflm0i+vuZTBjBnEaRkJ1zCY69Tm\nViqXZSgELUWfBG+mWbFLJwK4/D2YcQux4l1wboJ+kBGT3Zep/uC2mjq2HQib\nfVVe4p4xD2m/qBV3jmOe2ddOTta/i6107LWckVGHp4/2keLB6LADBGNe0Dbo\nQ7qlWVC4KTv27PDiMHSUcZ+U3soQTgcOQqEBLmImDyD48ouO3RnfxvEvTDuE\nbxbQrw3JLwxzhDL+6dSBow4cab19+6ZVFT7zbA3hZLCrY5frL5y25+bNI+Av\nIQy4gtJ3JxMkJiW3LxCTJTPCJrM9w+YHNHktK2c505ibPkv46E8F34ZXCaTL\nUEt2xBth/4NalDhpzU7AQE7LuJ1b7iYumwe1ZZtE9uCf04OjfnvDsB83sS5Y\nGpIlwymE6CGgi8jdA3XaBXdUw+hWgsW5LS4miwHMVKQPPLAMA8HG7jZNzw78\nDOxmQ3Uo/0221iAtCClcDtDV62kJKMXmaL09YQaemTYxTLyGy95I08C/OOGR\ntbfWzZaj+skZW7fRCkktu30zLeJcZ1/Vpga+bmg41IBgzvpOWlAtlckG9jhS\nCJc+\r\n=Na/h\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv_4.0.0_1538381274426_0.15730475432428603"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.0.0": {
+			"name": "csv",
+			"version": "5.0.0",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "https://csv.js.org/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/adaltas/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^3.1.0",
+				"csv-parse": "^4.0.1",
+				"stream-transform": "^1.0.7",
+				"csv-stringify": "^5.0.0"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.5",
+				"@babel/core": "^7.1.6",
+				"@babel/preset-env": "^7.1.6",
+				"coffeescript": "~2.3.2",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && rm -rf lib && npm run coffee",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "a617a3fac0fdba8fa9cec35c61f9b6038cc480d5",
+			"_id": "csv@5.0.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-dYY1CpVmG9J8RGKzVsoemiHHzI2arUkIKt++flgw+zyrh7ohpWob8zYNWWxkmYKJsRjK65iijS1ONMRk6o6q6A==",
+				"shasum": "96d532a997ae036ef9cef6b325438e18aa89deae",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-5.0.0.tgz",
+				"fileCount": 18,
+				"unpackedSize": 14948,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb9dcGCRA9TVsSAnZWagAANB4P/ArzVe8frNjUKiPlHv2t\nEyXrjFNUmz443Yo3cmZLcCn3ADcOFC7cU5LlS1P0BNBPDNYTrpGUt+iMmJ8C\n0D6FSkIEoRcmvWLDiyvA8Nke9T08oWeTH4u3oOeyctpKid6FQHmGox9y7xvf\notYatEUGQ/ALxzddpqaygx71SATiPHX5SERTk/sbWw3WTIddZzd+vqu0qn4K\ntCbj+EVv3Wf5Woi45+TZbWQtoTIo6d/uInIDMw+rQNtUe67YxLZARhe7vUb5\nOAHgqZYEOfQrko9VZSv4lgS6ChjCfOkP+oVt6NQekhXWrpRtGD3O+0gmpD+1\nmYNbu1aUWztdLCt/sRKeGZJe2030TqbMnEcLw3v8DGUCqWB8Z7lAx45W71Ik\nqTTLgN6UG9+uEKxz2LjulT8vl9dzgdREzZY/IJWdY/VwiEB5TPNPacW+1h50\nyZMDfdptuiGF0CDfOa6G9M/NWUpuTKPVf60xBO0fqiw8ZoFdL7kaYMEnqWun\njOh0kGL/CdHhvie0bhqjKrGNrWUEt+PsczkN/aWn7yEzOBUvT/VAmZiDTblt\nGd8HObBRSNUOkXjuOVEotNEm4DeEhPz2zR0FNtDJwMyuowMTIb7QaXPCLYUk\n2VNaIiuAw532UMVyQ4AhvWxedjt2Z2Xll+hB45VDRA7OMyAe9vR15pJoegG3\ng1H/\r\n=9OGe\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv_5.0.0_1542838021596_0.7363037107871953"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.0.1": {
+			"name": "csv",
+			"version": "5.0.1",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "https://csv.js.org/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/adaltas/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^3.1.0",
+				"csv-parse": "^4.0.1",
+				"stream-transform": "^1.0.7",
+				"csv-stringify": "^5.0.0"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.5",
+				"@babel/core": "^7.1.6",
+				"@babel/preset-env": "^7.1.6",
+				"coffeescript": "~2.3.2",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "1a9769559ad62e3df9a823754548fe3f89127788",
+			"_id": "csv@5.0.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-dYvwQKgtQ9+3Ek1FLqpnnfF/AZ3W0KNhPhyKzPHtJhHt3JTZ7fs1wWvJVyOTj3rweMK8ugfNzMY9ho4I6HWbTQ==",
+				"shasum": "6ddeb1fda97f5408b9ae9aa045ff41e6636b6b59",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-5.0.1.tgz",
+				"fileCount": 16,
+				"unpackedSize": 10948,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcF2ZxCRA9TVsSAnZWagAAtJkP/RsKz1Ta9Ya2Tgofmccl\nQBpinA/3m31w2zoA8lOECi5ZGnbVOgHq2TDXR+bPZ6yMWRr7jPR7U6avMgE4\ngwQSygfxWNXCqNgOGFbilLwo4WO3vAMp2s1dffxvXJdUcGMRCAppTt/hi9EP\n7+1nzuKidViK7HoV/SEIw7YIKoPRoVXpVf+qBh0877bZJH/zoLoV3MoH2WWf\n9IixSPaCgI+awWMYL5gbNHPRoag8QdupIAQhpvVX+lDx5u7GuIwbqEfEfC+3\n4GUdU77lmytnEtMU4f3QAO/ULztWzWq2DxiP2aZ0LfFuAC4N8UgEzc1mnno6\nvXbiAtJ63MUy3ApDgqRoccI0SHQmzgUBd7zEMf3y2SwLpa0xqlARNuYeilsG\ngNdIG701QhqFL4W/fSVK39rkiY0Nr3jMc5wSYgT8l8LDCg6qa7GTnNaaOhbh\nxZBoJaA4k1QlLQwNg+SsbLdNx+N6SusykvtkGJhlDZYmyyJx9t3SgoxTvsCe\nM+kq2K96I0xOU9PP4DDng2l/nWUUwlHM2m5XY5jnMmDVGsVs9DX7dT0fDh1I\nFh+uIHWVUo6H3JGwttsE+riqHTk5MOsY4O0oWnqZN+83bk68iY+mv6GJwDoa\nNPXtCGmKOUQnnfImuybptmPBSVkb4VuGmFh+ti/RuVPG4LJUEW5Wx6WVdUiE\niprC\r\n=w0Yl\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv_5.0.1_1545037425417_0.5802372953294108"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.1.0": {
+			"name": "csv",
+			"version": "5.1.0",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "https://csv.js.org/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/adaltas/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^3.2.0",
+				"csv-parse": "^4.3.0",
+				"stream-transform": "^1.0.8",
+				"csv-stringify": "^5.1.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.3",
+				"@babel/core": "^7.2.2",
+				"@babel/preset-env": "^7.2.3",
+				"coffeescript": "~2.3.2",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"pretest": "cd lib && babel *.js -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "01e07a7e68a61aca5b3b74cbe30edb66f850788c",
+			"_id": "csv@5.1.0",
+			"_npmVersion": "6.5.0",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-LxTpi0H3VAf/f4cYBWwIqESI/UsXKowMLkV6Tz7uKCysQcN9ILi8l5rHHRduym9DcDR9rMAoZs6TLO8VwJRRtw==",
+				"shasum": "83e8637018d76a711e84f3b331b3fe83f67f28d6",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-5.1.0.tgz",
+				"fileCount": 16,
+				"unpackedSize": 11132,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcKSzGCRA9TVsSAnZWagAAIosP/3BGHkSu/U5icWnqqiCp\nNN6PNHKL5mcXp6BwQU/Xn4/eGp4mCF2TMVizq2TzZpbDHiU0G4nP12wgdhtD\nA7otSIRXkYvIHkD8DMgtIMtzger/MO/vmBq7J/69aIeE1aFyp0T/KAnlZXj+\nDGMgdfB4on0xpG6N26ij65q30FOEMKpaBNiDloHmzBagxYkGngJT0Zxy14d+\n/t+HQ1Q40+BqMUX6zvehCRVJalD83h2NDKLXquJMoMSKNDNgbinJU887co3P\n/Ga5NHJ8f8BTesI7pK3q8cbhKjS/sdbo2uk4OnOTS2r3UFn/Vq2tBrPqXEJG\nLa7Xxm8Nas+lLZOejMx5iujEuN2pyhfvz4TTIaIjBbv4PRszKOErWD2JLNU3\nrSP3wDMQGyxUpXasxblrXMeGdII23qNgZFqxLPqBeWXgss0fCX/vuQjDZJyP\nY+MO1IKlWqs0hJNRIOvUMxqzko8m5DhFSuFWj/+gLcR0jfyweZKD+7fjO9ey\nO3fhmUjF+mTmUvj/kcDlln9dFYWLK8enl4a/s0amLaiqB9cgMWB4JNn1zTxp\nq/xCS36zrAjgwYS2wntT1/CZrJjcnUbmPtwZq5NoVpyB98XkminKWC0LhoNU\nHoX5SkiD81jvKPvIOCjnqAeQ+Z2fnLT5wh8jSeGF4+j+o0QUXYFYq278mFZR\n9wjm\r\n=Hxd1\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv_5.1.0_1546202309523_0.08474026632412635"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.1.1": {
+			"name": "csv",
+			"version": "5.1.1",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "https://csv.js.org/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "BSD-3-Clause",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/adaltas/node-csv.git"
+			},
+			"dependencies": {
+				"csv-generate": "^3.2.0",
+				"csv-parse": "^4.3.0",
+				"stream-transform": "^1.0.8",
+				"csv-stringify": "^5.1.2"
+			},
+			"devDependencies": {
+				"coffeescript": "~2.3.2",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "58644b3f58cea3145007d445ea7292f1c26f1e94",
+			"_id": "csv@5.1.1",
+			"_npmVersion": "6.5.0",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-gezB9D+enrh2tLj+vsAD8JyYRMIJdSMpec/Pgbb+7YRj6Q6/D12HLSwjhx+CrirRT4dESjZYXWX1JfqlV4RlTA==",
+				"shasum": "bd715f15a4ed9141309a24ec6dab1c903ab79f92",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-5.1.1.tgz",
+				"fileCount": 16,
+				"unpackedSize": 11082,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcN3PMCRA9TVsSAnZWagAA6CoP/02hu6/mCSSDWlAOpQj5\ns1bCZ0U4XDMYpX/oH/u0JJO/8S2mO2dZVv+woE7vS+XwmCvpsDqwf+Aqq6ta\nE5y3GCtg4rZHcyoFB5PUzg4/laQFnrzTdOT0U4F0vblLnOBDl2eWk+dYU1kG\n9iI037YBdvEkdnSpfPksR/X4IrlN9Ba7bR+UWDiHswOVXg4NFG6uCm/stS9j\ntMkPv40uoV0uNRwty8/H41WhAZ9/U+SI/J0HrSCuntdbR1W6iwVxGtx65QY9\nT/UTQpcGuv8VEXtqupYg6r1/Hyln9P/PzCMC2PFC89Dn3v5a5JydfrpPaSeK\nMfhqa8UnBgxBNBgZD0QecvZsqI9+htfS1+XxkBCbqHcWueNrrmHJu8Kq4V5t\nd9pKaJbfDXoFt0lCF+ipq8BU2ugtUb+Jq83d05XtAQnKFAmqiDS7+66jqLrA\nfhnFFJxope1AlPelxeWsA12OWgL2g5dH2oBUe/udRoPV3VBzlBzasDjwf6Of\nCw5ODiTHXa3bieiYTyGFLmP188ITPBIShPd2ebHNeSDS2S/RbRjjRXWcjwJ6\n7rNzoX6txjHUDgKweTsJs0/L0nMAqqO7Ku/u6iSbr7mihnnhQFoP9DNq3IRh\n250SOWPKPNQomsKasuO+p1X/IOfUp8Yzc612ayqIzLIRW77aTFWGdbGpT6u1\nYVjL\r\n=6b2j\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv_5.1.1_1547137995628_0.8794140093075575"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.1.2": {
+			"name": "csv",
+			"version": "5.1.2",
+			"description": "CSV parser with simple api, full of options and tested against large datasets.",
+			"keywords": [
+				"node",
+				"csv",
+				"tsv",
+				"parser",
+				"parse",
+				"stringifier",
+				"stringify"
+			],
+			"homepage": "https://csv.js.org/",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv/issues"
+			},
+			"author": {
+				"name": "David Worms",
+				"email": "david@adaltas.com",
+				"url": "http://www.adaltas.com"
+			},
+			"contributors": [
+				{
+					"name": "David Worms",
+					"email": "david@adaltas.com",
+					"url": "http://www.adaltas.com"
+				}
+			],
+			"license": "MIT",
+			"engines": {
+				"node": ">= 0.1.90"
+			},
+			"main": "./lib",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/adaltas/node-csv.git"
+			},
+			"coffeelintConfig": {
+				"indentation": {
+					"level": "error",
+					"value": 2
+				},
+				"line_endings": {
+					"level": "error",
+					"value": "unix"
+				},
+				"max_line_length": {
+					"level": "ignore"
+				}
+			},
+			"dependencies": {
+				"csv-generate": "^3.2.3",
+				"csv-parse": "^4.4.5",
+				"stream-transform": "^2.0.1",
+				"csv-stringify": "^5.3.3"
+			},
+			"devDependencies": {
+				"@types/mocha": "^5.2.7",
+				"@types/node": "^12.7.1",
+				"@types/should": "^13.0.0",
+				"coffeescript": "~2.4.1",
+				"mocha": "~6.2.0",
+				"should": "~13.2.3",
+				"ts-node": "^8.3.0",
+				"typescript": "^3.5.3"
+			},
+			"optionalDependencies": {},
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && npm test && cp lib/*.ts lib/es5 && git add lib/es5/*.ts",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"test": "mocha test/**/*.{coffee,ts}"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "614477daaa39bcb0bd2df7482b3b541e7b404836",
+			"_id": "csv@5.1.2",
+			"_nodeVersion": "12.7.0",
+			"_npmVersion": "6.10.1",
+			"dist": {
+				"integrity": "sha512-2NA/Fp9FuRAJY6bu5mZsSyBFeqbDZjGg8z1WYETpBpuO30gyWOkxf9KjzBNEZiCsXuNxdQrU3rKrpejyucznMg==",
+				"shasum": "6e3c5262dd91a18768552a5e40d531a68cc00f3e",
+				"tarball": "https://registry.npmjs.org/csv/-/csv-5.1.2.tgz",
+				"fileCount": 12,
+				"unpackedSize": 10446,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdTzVmCRA9TVsSAnZWagAACkcP/R0XsNwzJG4JoTfxmd8N\nCy21t29M0WZY9y8O4rDIv9WIhM7UTQ6cKiRNKhMovBUQjL7CcDcZ6xp2pVA5\nPY/q3Ox7WyMtnMigBi+LIdYsSu56NSrkczexSS4kZIOhQEHZWlmHncQPjAdI\nFXc+VhLIyKbL8cASQmbIHcWyxESGjQfUv8GiCuVcuol20do+ht3UTgjmEG2d\nkZhVSpowDYfyLANBUEMxJv6HD1ymD1C6VLawLpMFnbXie5vu9x5ObLL7/8HK\nq9+iai0AX3DTRe99WJH4FD5UQAgxeu+sdmvqF9hApA42AxH3ISRYZxhCRUMN\nz8EU5jz7cIhYWO+H0r7MczF9KDcNP9K5dw6ifHneJ5+dxbZLQ71u0zleGT2/\nDp3lxg63lfKgP6yHOBGyCYCtUKRp28T1tMCK9SFdaEkEDCZkEMpi8fZ0q2vX\n+oUqQROKg6FPS1npMQoW0BXp6H56Vh4z7NYixuiqcwFSs/XyY1ApGBHm71Zc\nD/jIKfq/wkx91IMdXna29/+0KHnCBmP1I4L96dvyQPTnGPDgSwfktpR/2zlM\nKL4tQODNxlc+V/VdUwKLJ5lF2K4+UJ+5a3lMh+KJBc02vgELqINj0QoIBOLs\nJ3EbCoOmZR72wFe4XE5FnextuqL24KYje/3p2jsDiLvxAz8eenMnho8Dkx1M\n0Z+z\r\n=quIx\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv_5.1.2_1565472102193_0.7607189858456673"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-08-10T21:21:44.852Z",
+		"created": "2011-01-21T11:48:11.161Z",
+		"0.0.1": "2011-01-21T11:48:11.161Z",
+		"0.0.2": "2011-01-21T11:48:11.161Z",
+		"0.0.3": "2011-01-21T11:48:11.161Z",
+		"0.0.5": "2011-01-21T11:48:11.161Z",
+		"0.0.6": "2011-01-27T15:08:41.875Z",
+		"0.0.7": "2011-02-14T21:26:47.782Z",
+		"0.0.9": "2011-04-10T14:57:53.983Z",
+		"0.0.10": "2011-09-05T22:28:30.155Z",
+		"0.0.11": "2012-02-12T22:21:31.636Z",
+		"0.0.12": "2012-04-01T14:58:51.441Z",
+		"0.0.13": "2012-04-03T21:44:28.157Z",
+		"0.0.14": "2012-06-20T13:37:44.683Z",
+		"0.0.15": "2012-06-20T15:11:03.250Z",
+		"0.0.16": "2012-07-01T10:51:37.680Z",
+		"0.0.17": "2012-07-20T21:05:49.092Z",
+		"0.0.18": "2012-07-26T13:31:27.842Z",
+		"0.0.19": "2012-08-15T21:16:30.594Z",
+		"0.2.0": "2012-10-02T15:48:14.458Z",
+		"0.2.1": "2012-10-24T13:11:28.769Z",
+		"0.2.2": "2012-11-05T21:11:36.587Z",
+		"0.2.3": "2012-11-16T16:49:00.509Z",
+		"0.1.0": "2012-11-19T16:00:28.130Z",
+		"0.2.4": "2012-11-20T11:52:09.317Z",
+		"0.2.6": "2013-01-02T12:00:04.326Z",
+		"0.2.7": "2013-02-09T22:29:34.245Z",
+		"0.2.8": "2013-03-13T09:19:58.205Z",
+		"0.2.9": "2013-03-17T09:06:38.030Z",
+		"0.3.0": "2013-04-10T21:59:05.667Z",
+		"0.3.2": "2013-05-29T21:51:17.006Z",
+		"0.3.3": "2013-06-13T06:45:29.787Z",
+		"0.3.4": "2013-07-24T11:04:04.515Z",
+		"0.3.5": "2013-07-30T09:09:15.065Z",
+		"0.3.6": "2013-08-15T21:16:26.517Z",
+		"0.3.7": "2014-01-29T19:23:53.059Z",
+		"0.4.0": "2014-05-19T21:00:26.474Z",
+		"0.4.1": "2014-10-30T11:53:00.448Z",
+		"0.4.2": "2015-04-22T20:37:49.852Z",
+		"0.4.4": "2015-06-09T10:34:36.534Z",
+		"0.4.5": "2015-06-11T22:48:15.641Z",
+		"0.4.6": "2015-08-10T16:49:19.078Z",
+		"1.1.0": "2016-05-19T11:21:49.899Z",
+		"1.1.1": "2017-01-26T15:20:33.687Z",
+		"1.2.0": "2017-10-20T10:57:03.402Z",
+		"1.2.1": "2017-10-20T11:53:20.823Z",
+		"2.0.0": "2017-10-20T12:08:50.032Z",
+		"3.0.0": "2018-04-06T20:11:46.081Z",
+		"3.0.1": "2018-04-09T07:56:48.043Z",
+		"3.0.2": "2018-04-09T07:59:11.975Z",
+		"3.1.0": "2018-05-17T08:46:36.072Z",
+		"4.0.0": "2018-10-01T08:07:54.707Z",
+		"5.0.0": "2018-11-21T22:07:01.731Z",
+		"5.0.1": "2018-12-17T09:03:45.526Z",
+		"5.1.0": "2018-12-30T20:38:29.657Z",
+		"5.1.1": "2019-01-10T16:33:15.738Z",
+		"5.1.2": "2019-08-10T21:21:42.330Z"
+	},
+	"dist-tags": {
+		"stable": "0.0.2",
+		"latest": "5.1.2"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"685a9d8ecbbcfeb9ed5b0b4370f1788b\"",
+			"fetched": 1568994345433
+		}
+	},
+	"_distfiles": {
+		"csv-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.1.tgz",
+			"sha": "69744756a53c7aeb299797f337530f151fbb2e0d",
+			"registry": "npmjs"
+		},
+		"csv-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.2.tgz",
+			"sha": "db442d9a2a1de418874595dec61f5bc5301497e6",
+			"registry": "npmjs"
+		},
+		"csv-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.3.tgz",
+			"sha": "769581ead7df296bbdddaaa59247ab5470d6f70f",
+			"registry": "npmjs"
+		},
+		"csv-0.0.5.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.5.tgz",
+			"sha": "6ba84ea2930dccbd1a4e3faf473cc19f60523454",
+			"registry": "npmjs"
+		},
+		"csv-0.0.6.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.6.tgz",
+			"sha": "4755b111df196de303e14c9461280c91bad3d70c",
+			"registry": "npmjs"
+		},
+		"csv-0.0.7.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.7.tgz",
+			"sha": "65190b9c40c35f07636987bbef6dc87e01bb4b13",
+			"registry": "npmjs"
+		},
+		"csv-0.0.9.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.9.tgz",
+			"sha": "09fb6254c7a9341e9aee101d64375285ab0ea8ac",
+			"registry": "npmjs"
+		},
+		"csv-0.0.10.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.10.tgz",
+			"sha": "7dbe276f607c1a0f412a29de977819b2ecfd8eab",
+			"registry": "npmjs"
+		},
+		"csv-0.0.11.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.11.tgz",
+			"sha": "8c25e88d669f5a8f43f4fc624e74a5191e1abce6",
+			"registry": "npmjs"
+		},
+		"csv-0.0.12.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.12.tgz",
+			"sha": "900d6fab35d1c5aa50747d042439f2de511dc5c6",
+			"registry": "npmjs"
+		},
+		"csv-0.0.13.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.13.tgz",
+			"sha": "78189782eb5ae7dd4f428b0a016029934234c4bc",
+			"registry": "npmjs"
+		},
+		"csv-0.0.14.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.14.tgz",
+			"sha": "b770e4e9ef18d19c728c4047557eb5748a3d3b12",
+			"registry": "npmjs"
+		},
+		"csv-0.0.15.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.15.tgz",
+			"sha": "a8d0f7f6c3e593044476beca0ddee3ef885f84e9",
+			"registry": "npmjs"
+		},
+		"csv-0.0.16.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.16.tgz",
+			"sha": "25d0cdd140801838afdb47c81645b008cf1b1f5b",
+			"registry": "npmjs"
+		},
+		"csv-0.0.17.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.17.tgz",
+			"sha": "4ad2d5f518bed952f56d043f281b9c85ebd344ea",
+			"registry": "npmjs"
+		},
+		"csv-0.0.18.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.18.tgz",
+			"sha": "7e322d2fdc640be7ef126d8cd1351333d1e1a632",
+			"registry": "npmjs"
+		},
+		"csv-0.0.19.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.0.19.tgz",
+			"sha": "c90c1cad41433e9616d12bc5ca603ccd566b73d9",
+			"registry": "npmjs"
+		},
+		"csv-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.2.0.tgz",
+			"sha": "aa4542c7677051447ffde7148d271b6820558543",
+			"registry": "npmjs"
+		},
+		"csv-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.2.1.tgz",
+			"sha": "ee18ba742e0fc89c5eb198c4e76f53d3ead9ebe2",
+			"registry": "npmjs"
+		},
+		"csv-0.2.2.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.2.2.tgz",
+			"sha": "160eaf831345277cfd55d3a61b485f20de94cc6f",
+			"registry": "npmjs"
+		},
+		"csv-0.2.3.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.2.3.tgz",
+			"sha": "5eb70ef3b424e9d266470d004aaa74414283606f",
+			"registry": "npmjs"
+		},
+		"csv-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.1.0.tgz",
+			"sha": "139a0141e91494040b8727358af899aefa6d27e0",
+			"registry": "npmjs"
+		},
+		"csv-0.2.4.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.2.4.tgz",
+			"sha": "142ab5abdc4987e9be55d66452dd548728f07c6d",
+			"registry": "npmjs"
+		},
+		"csv-0.2.6.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.2.6.tgz",
+			"sha": "7811d839bd328b33539698c27094c28b2a4d2a52",
+			"registry": "npmjs"
+		},
+		"csv-0.2.7.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.2.7.tgz",
+			"sha": "784a69370c8951f6fc38840535015525ae82c80f",
+			"registry": "npmjs"
+		},
+		"csv-0.2.8.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.2.8.tgz",
+			"sha": "53b2e19f62a6f8b0ca2d9e91024c65cc41887fb1",
+			"registry": "npmjs"
+		},
+		"csv-0.2.9.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.2.9.tgz",
+			"sha": "52d16e7ec2d61971211bf326f49a8294efb65f16",
+			"registry": "npmjs"
+		},
+		"csv-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.3.0.tgz",
+			"sha": "0f138402e01b16de2c7d546c23d65eac9db60b2c",
+			"registry": "npmjs"
+		},
+		"csv-0.3.2.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.3.2.tgz",
+			"sha": "948e0c39db9d94935efcdfe36bb8aef1e8b10a7c",
+			"registry": "npmjs"
+		},
+		"csv-0.3.3.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.3.3.tgz",
+			"sha": "a2c84cad2209123ef7b2070df31d192f3cdae71b",
+			"registry": "npmjs"
+		},
+		"csv-0.3.4.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.3.4.tgz",
+			"sha": "f0c93e2b19c2fd6aea556d7af226d4186512af74",
+			"registry": "npmjs"
+		},
+		"csv-0.3.5.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.3.5.tgz",
+			"sha": "d99e9239ab491a75947fb43d276ec9b782723d4a",
+			"registry": "npmjs"
+		},
+		"csv-0.3.6.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.3.6.tgz",
+			"sha": "9b105f4f2f136d909e296acfbead7c326b0dd180",
+			"registry": "npmjs"
+		},
+		"csv-0.3.7.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.3.7.tgz",
+			"sha": "a4f8a363f0072cd155181e6bb49bd58e5497b31c",
+			"registry": "npmjs"
+		},
+		"csv-0.4.0.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.4.0.tgz",
+			"sha": "3738bbcac91eee3c090aabc0b071f109ed9421f0",
+			"registry": "npmjs"
+		},
+		"csv-0.4.1.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.4.1.tgz",
+			"sha": "aa58f059591c98a361a61b287d1c0a394c79160e",
+			"registry": "npmjs"
+		},
+		"csv-0.4.2.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.4.2.tgz",
+			"sha": "5ada47bdd9ddd2f17852f73a5986025390133e04",
+			"registry": "npmjs"
+		},
+		"csv-0.4.4.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.4.4.tgz",
+			"sha": "8bf0d96b7af1ff2df2866cbdf2fe18523e5cfff3",
+			"registry": "npmjs"
+		},
+		"csv-0.4.5.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.4.5.tgz",
+			"sha": "53bd2308fa1cdae696ba4ba2f460b0bbe0e00484",
+			"registry": "npmjs"
+		},
+		"csv-0.4.6.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-0.4.6.tgz",
+			"sha": "8dbae7ddfdbaae62c1ea987c3e0f8a9ac737b73d",
+			"registry": "npmjs"
+		},
+		"csv-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-1.1.0.tgz",
+			"sha": "0da30872c5cca486a4b5a0edbb52b2dbf6eb30ef",
+			"registry": "npmjs"
+		},
+		"csv-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-1.1.1.tgz",
+			"sha": "d9952d59b1f964a7afbcdd804d6818a73199a477",
+			"registry": "npmjs"
+		},
+		"csv-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-1.2.0.tgz",
+			"sha": "85c1143eba3472681640a4e87eb754b4a49c8c81",
+			"registry": "npmjs"
+		},
+		"csv-1.2.1.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-1.2.1.tgz",
+			"sha": "5231edfc1c7152512ec45781076a7a97ff525c0c",
+			"registry": "npmjs"
+		},
+		"csv-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-2.0.0.tgz",
+			"sha": "0d51d8fa3ece278b5409f795717fcfcd5ace9b3e",
+			"registry": "npmjs"
+		},
+		"csv-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-3.0.0.tgz",
+			"sha": "a4f0322965e18b0981c3afc0494608641d54d371",
+			"registry": "npmjs"
+		},
+		"csv-3.0.1.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-3.0.1.tgz",
+			"sha": "572d363fad172606086d0dc56e7733eb609a9e02",
+			"registry": "npmjs"
+		},
+		"csv-3.0.2.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-3.0.2.tgz",
+			"sha": "3f29d92cd27c75e3ba21265b5cad29bd2d785358",
+			"registry": "npmjs"
+		},
+		"csv-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-3.1.0.tgz",
+			"sha": "91ad8625e294bf37a5b366b84d01aa40b2d20f15",
+			"registry": "npmjs"
+		},
+		"csv-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-4.0.0.tgz",
+			"sha": "c7de44b9a0fd47f7a10db24064519f642a7ce92d",
+			"registry": "npmjs"
+		},
+		"csv-5.0.0.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-5.0.0.tgz",
+			"sha": "96d532a997ae036ef9cef6b325438e18aa89deae",
+			"registry": "npmjs"
+		},
+		"csv-5.0.1.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-5.0.1.tgz",
+			"sha": "6ddeb1fda97f5408b9ae9aa045ff41e6636b6b59",
+			"registry": "npmjs"
+		},
+		"csv-5.1.0.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-5.1.0.tgz",
+			"sha": "83e8637018d76a711e84f3b331b3fe83f67f28d6",
+			"registry": "npmjs"
+		},
+		"csv-5.1.1.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-5.1.1.tgz",
+			"sha": "bd715f15a4ed9141309a24ec6dab1c903ab79f92",
+			"registry": "npmjs"
+		},
+		"csv-5.1.2.tgz": {
+			"url": "https://registry.npmjs.org/csv/-/csv-5.1.2.tgz",
+			"sha": "6e3c5262dd91a18768552a5e40d531a68cc00f3e",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-91cd5e6fa0f9706a",
+	"_id": "csv",
+	"readme": "<pre>\n     _   _           _        _____  _______      __\n    | \\ | |         | |      / ____|/ ____\\ \\    / /\n    |  \\| | ___   __| | ___ | |    | (___  \\ \\  / /\n    | . ` |/ _ \\ / _` |/ _ \\| |     \\___ \\  \\ \\/ /\n    | |\\  | (_) | (_| |  __/| |____ ____) |  \\  /\n    |_| \\_|\\___/ \\__,_|\\___| \\_____|_____/    \\/     New BSD License\n\n</pre>\n\nThis project provides CSV generation, parsing, transformation and serialization\nfor Node.js.\n\nIt has been tested and used by a large community over the years and should be\nconsidered reliable. It provides every option you would expect from an advanced\nCSV parser and stringifier.\n\n[![NPM](https://nodei.co/npm/csv.png?stars&downloads)](https://nodei.co/npm/csv/) [![NPM](https://nodei.co/npm-dl/csv.png)](https://nodei.co/npm/csv/)\n\nThe `csv` package is itself split into 4 packages:\n\n*   [`csv-generate`](https://csv.js.org/generate/),\n    a flexible generator of CSV string and Javascript objects. \n    [![Build Status](https://secure.travis-ci.org/adaltas/node-csv-generate.svg?branch=master)][travis-csv-generate]\n*   [`csv-parse`](https://csv.js.org/parse/),\n    a parser converting CSV text into arrays or objects. \n    [![Build Status](https://secure.travis-ci.org/adaltas/node-csv-parse.svg?branch=master)][travis-csv-parse]\n*   [`stream-transform`](https://csv.js.org/transform/),\n    a transformation framework.\n    [![Build Status](https://secure.travis-ci.org/adaltas/node-stream-transform.svg?branch=master)][travis-stream-transform]\n*   [`csv-stringify`](https://csv.js.org/stringify/), \n    a stringifier converting records into a CSV text. \n    [![Build Status](https://secure.travis-ci.org/adaltas/node-csv-stringify.svg?branch=master)][travis-csv-stringify]\n\n## Documentation\n\nThe full documentation for the current version is available [here](https://csv.js.org).\n\n## Usage\n\nInstallation command is `npm install csv`.\n\nEach package is fully compatible with the stream 2 and 3 specifications.\nAlso, a simple callback-based API is always provided for convenience.\n\n## Development\n\nThis parent project doesn't have tests itself but instead delegates the\ntests to its child projects.\n\nRead the documentation of the child projects for additional information.\n\n## Related projects\n\n*   Pavel Kolesnikov \"ya-csv\": <http://github.com/koles/ya-csv>\n*   Chris Williams \"node-csv\": <http://github.com/voodootikigod/node-csv>\n*   Mat Holt \"PapaParse\": <https://github.com/mholt/PapaParse>\n\n[travis]: https://travis-ci.org/\n[travis-csv-generate]: http://travis-ci.org/adaltas/node-csv-generate\n[travis-csv-parse]: http://travis-ci.org/adaltas/node-csv-parse\n[travis-stream-transform]: http://travis-ci.org/adaltas/node-stream-transform\n[travis-csv-stringify]: http://travis-ci.org/adaltas/node-csv-stringify"
+}

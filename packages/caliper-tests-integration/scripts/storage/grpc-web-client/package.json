@@ -1,0 +1,1114 @@
+{
+	"name": "grpc-web-client",
+	"versions": {
+		"0.1.2": {
+			"name": "grpc-web-client",
+			"version": "0.1.2",
+			"description": "gRPC-Web client for browsers (JS/TS)",
+			"main": "dist/index.js",
+			"types": "dist/index.ts",
+			"scripts": {
+				"clean": "rm -rf build && rm -rf dist",
+				"lib:build": "npm run clean && tsc && cp -R build/ dist/",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts"
+			},
+			"author": {
+				"name": "Improbable"
+			},
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "github.com/improbable-eng/grpc-web"
+			},
+			"keywords": [
+				"grpc",
+				"grpc-web",
+				"protobuf",
+				"typescript",
+				"ts"
+			],
+			"dependencies": {
+				"@types/google-protobuf": "^3.2.1",
+				"browser-headers": "^0.2.1",
+				"google-protobuf": "^3.2.0",
+				"text-encoding": "^0.6.4"
+			},
+			"devDependencies": {
+				"@types/text-encoding": "0.0.30",
+				"tslint": "^4.5.1",
+				"typescript": "^2.2.1"
+			},
+			"_id": "grpc-web-client@0.1.2",
+			"_shasum": "49f5e7a1c783417716876240b681c8e53186dce2",
+			"_from": ".",
+			"_npmVersion": "2.14.12",
+			"_nodeVersion": "4.3.2",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "49f5e7a1c783417716876240b681c8e53186dce2",
+				"tarball": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/grpc-web-client-0.1.2.tgz_1490629457793_0.8508365063462406"
+			},
+			"directories": {},
+			"deprecated": "This package has been deprecated in favor of @improbable-eng/grpc-web"
+		},
+		"0.1.3": {
+			"name": "grpc-web-client",
+			"version": "0.1.3",
+			"description": "gRPC-Web client for browsers (JS/TS)",
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build && rm -rf dist",
+				"lib:build": "npm run clean && tsc && cp -R build/ dist/",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts"
+			},
+			"author": {
+				"name": "Improbable"
+			},
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "github.com/improbable-eng/grpc-web"
+			},
+			"keywords": [
+				"grpc",
+				"grpc-web",
+				"protobuf",
+				"typescript",
+				"ts"
+			],
+			"dependencies": {
+				"@types/google-protobuf": "^3.2.1",
+				"browser-headers": "^0.2.1",
+				"google-protobuf": "^3.2.0",
+				"text-encoding": "^0.6.4"
+			},
+			"devDependencies": {
+				"@types/text-encoding": "0.0.30",
+				"tslint": "^4.5.1",
+				"typescript": "^2.2.1"
+			},
+			"_id": "grpc-web-client@0.1.3",
+			"_shasum": "68cf0d2b403eafbc720a376be338744f2ed104be",
+			"_from": ".",
+			"_npmVersion": "3.3.9",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "68cf0d2b403eafbc720a376be338744f2ed104be",
+				"tarball": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.1.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/grpc-web-client-0.1.3.tgz_1490656127884_0.8270307979546487"
+			},
+			"directories": {},
+			"deprecated": "This package has been deprecated in favor of @improbable-eng/grpc-web"
+		},
+		"0.2.0": {
+			"name": "grpc-web-client",
+			"version": "0.2.0",
+			"description": "gRPC-Web client for browsers (JS/TS)",
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build && rm -rf dist",
+				"lib:build": "npm run clean && tsc && cp -R build/ dist/",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts"
+			},
+			"author": {
+				"name": "Improbable"
+			},
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "github.com/improbable-eng/grpc-web"
+			},
+			"keywords": [
+				"grpc",
+				"grpc-web",
+				"protobuf",
+				"typescript",
+				"ts"
+			],
+			"files": [
+				"dist"
+			],
+			"peerDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"google-protobuf": "^3.2.0"
+			},
+			"dependencies": {
+				"browser-headers": "^0.2.1"
+			},
+			"devDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"tslint": "^4.5.1",
+				"typescript": "^2.2.1",
+				"google-protobuf": "^3.2.0"
+			},
+			"_id": "grpc-web-client@0.2.0",
+			"_shasum": "7a21b5e75dc1873f264962ef6ba0f2ad8207a8ba",
+			"_from": ".",
+			"_npmVersion": "4.2.0",
+			"_nodeVersion": "5.7.1",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "7a21b5e75dc1873f264962ef6ba0f2ad8207a8ba",
+				"tarball": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/grpc-web-client-0.2.0.tgz_1493116968158_0.9238122426904738"
+			},
+			"directories": {},
+			"deprecated": "This package has been deprecated in favor of @improbable-eng/grpc-web"
+		},
+		"0.2.1": {
+			"name": "grpc-web-client",
+			"version": "0.2.1",
+			"description": "gRPC-Web client for browsers (JS/TS)",
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build && rm -rf dist",
+				"lib:build": "npm run clean && tsc && cp -R build/ dist/",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts"
+			},
+			"author": {
+				"name": "Improbable"
+			},
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "github.com/improbable-eng/grpc-web"
+			},
+			"keywords": [
+				"grpc",
+				"grpc-web",
+				"protobuf",
+				"typescript",
+				"ts"
+			],
+			"files": [
+				"dist"
+			],
+			"peerDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"google-protobuf": "^3.2.0"
+			},
+			"dependencies": {
+				"browser-headers": "^0.2.1"
+			},
+			"devDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"tslint": "^4.5.1",
+				"typescript": "^2.2.1",
+				"google-protobuf": "^3.2.0"
+			},
+			"_id": "grpc-web-client@0.2.1",
+			"_shasum": "768b28d21ba6ece104267a36c6c73fdf320cf5d3",
+			"_from": ".",
+			"_npmVersion": "4.2.0",
+			"_nodeVersion": "5.7.1",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "768b28d21ba6ece104267a36c6c73fdf320cf5d3",
+				"tarball": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/grpc-web-client-0.2.1.tgz_1493212170499_0.0040641354862600565"
+			},
+			"directories": {},
+			"deprecated": "This package has been deprecated in favor of @improbable-eng/grpc-web"
+		},
+		"0.3.0-beta": {
+			"name": "grpc-web-client",
+			"version": "0.3.0-beta",
+			"description": "gRPC-Web client for browsers (JS/TS)",
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build && rm -rf dist",
+				"lib:build": "npm run clean && tsc && cp -R build/ dist/",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts"
+			},
+			"author": {
+				"name": "Improbable"
+			},
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "github.com/improbable-eng/grpc-web"
+			},
+			"keywords": [
+				"grpc",
+				"grpc-web",
+				"protobuf",
+				"typescript",
+				"ts"
+			],
+			"files": [
+				"dist"
+			],
+			"peerDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"google-protobuf": "^3.2.0"
+			},
+			"dependencies": {
+				"browser-headers": "^0.2.1"
+			},
+			"devDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"tslint": "^4.5.1",
+				"typescript": "^2.2.1",
+				"google-protobuf": "^3.2.0"
+			},
+			"_id": "grpc-web-client@0.3.0-beta",
+			"_shasum": "c38308900b5e349b4fdfa709e9284dd40e6d32d0",
+			"_from": ".",
+			"_npmVersion": "4.2.0",
+			"_nodeVersion": "5.7.1",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "c38308900b5e349b4fdfa709e9284dd40e6d32d0",
+				"tarball": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.3.0-beta.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/grpc-web-client-0.3.0-beta.tgz_1493907186971_0.955903567140922"
+			},
+			"directories": {}
+		},
+		"0.3.0": {
+			"name": "grpc-web-client",
+			"version": "0.3.0",
+			"description": "gRPC-Web client for browsers (JS/TS)",
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build && rm -rf dist",
+				"lib:build": "npm run clean && tsc && cp -R build/ dist/",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts"
+			},
+			"author": {
+				"name": "Improbable"
+			},
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "github.com/improbable-eng/grpc-web"
+			},
+			"keywords": [
+				"grpc",
+				"grpc-web",
+				"protobuf",
+				"typescript",
+				"ts"
+			],
+			"files": [
+				"dist"
+			],
+			"peerDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"google-protobuf": "^3.2.0"
+			},
+			"dependencies": {
+				"@types/text-encoding": "0.0.30",
+				"browser-headers": "^0.2.1",
+				"text-encoding": "^0.6.4"
+			},
+			"devDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"@types/node": "^7.0.29",
+				"google-protobuf": "^3.2.0",
+				"tslint": "^4.5.1",
+				"typescript": "2.2.1"
+			},
+			"_id": "grpc-web-client@0.3.0",
+			"_shasum": "b46e64b298c480745006f883678e318d7abc11b4",
+			"_from": ".",
+			"_npmVersion": "4.2.0",
+			"_nodeVersion": "5.7.1",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "b46e64b298c480745006f883678e318d7abc11b4",
+				"tarball": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/grpc-web-client-0.3.0.tgz_1500238646439_0.6057071804534644"
+			},
+			"directories": {},
+			"deprecated": "This package has been deprecated in favor of @improbable-eng/grpc-web"
+		},
+		"0.3.1": {
+			"name": "grpc-web-client",
+			"version": "0.3.1",
+			"description": "gRPC-Web client for browsers (JS/TS)",
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build && rm -rf dist",
+				"lib:build": "npm run clean && tsc && cp -R build/ dist/",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts"
+			},
+			"author": {
+				"name": "Improbable"
+			},
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "github.com/improbable-eng/grpc-web"
+			},
+			"keywords": [
+				"grpc",
+				"grpc-web",
+				"protobuf",
+				"typescript",
+				"ts"
+			],
+			"files": [
+				"dist"
+			],
+			"peerDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"google-protobuf": "^3.2.0"
+			},
+			"dependencies": {
+				"@types/text-encoding": "0.0.30",
+				"browser-headers": "^0.2.1",
+				"text-encoding": "^0.6.4"
+			},
+			"devDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"@types/node": "^7.0.29",
+				"google-protobuf": "^3.2.0",
+				"tslint": "^4.5.1",
+				"typescript": "2.2.1"
+			},
+			"_id": "grpc-web-client@0.3.1",
+			"_shasum": "ab1abe15856306e47deb97b0fd2dbd3f56e5878e",
+			"_from": ".",
+			"_npmVersion": "3.3.9",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"shasum": "ab1abe15856306e47deb97b0fd2dbd3f56e5878e",
+				"tarball": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.3.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jonnyreeves",
+					"email": "npm@jonnyreeves.co.uk"
+				},
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/grpc-web-client-0.3.1.tgz_1506278662505_0.29505359660834074"
+			},
+			"directories": {},
+			"deprecated": "This package has been deprecated in favor of @improbable-eng/grpc-web"
+		},
+		"0.4.0": {
+			"name": "grpc-web-client",
+			"version": "0.4.0",
+			"description": "gRPC-Web client for browsers (JS/TS)",
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build && rm -rf dist",
+				"lib:build": "npm run clean && tsc && cp -R build/ dist/",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts"
+			},
+			"author": {
+				"name": "Improbable"
+			},
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "github.com/improbable-eng/grpc-web"
+			},
+			"keywords": [
+				"grpc",
+				"grpc-web",
+				"protobuf",
+				"typescript",
+				"ts"
+			],
+			"files": [
+				"dist"
+			],
+			"peerDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"google-protobuf": "^3.2.0"
+			},
+			"dependencies": {
+				"browser-headers": "^0.4.0"
+			},
+			"devDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"@types/node": "^7.0.29",
+				"google-protobuf": "^3.2.0",
+				"tslint": "^4.5.1",
+				"typescript": "2.2.1"
+			},
+			"_id": "grpc-web-client@0.4.0",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"integrity": "sha512-wsR4cvDCtJqhZHCktAEm9zQlkwO4FKoMKLt27zxiGQ9C9HApWGPcZ3N/B+xWZ5mMxovgenVqOWzA5tkSKOYgyA==",
+				"shasum": "257c70c35e831ca6b36f7f0b872b1ae1704cea0a",
+				"tarball": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "jonnyreeves",
+					"email": "npm@jonnyreeves.co.uk"
+				},
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/grpc-web-client-0.4.0.tgz_1517931163961_0.4558621777687222"
+			},
+			"directories": {},
+			"deprecated": "This package has been deprecated in favor of @improbable-eng/grpc-web"
+		},
+		"0.5.0": {
+			"name": "grpc-web-client",
+			"version": "0.5.0",
+			"description": "gRPC-Web client for browsers (JS/TS)",
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build && rm -rf dist",
+				"lib:build": "npm run clean && tsc && cp -R build/ dist/",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts"
+			},
+			"author": {
+				"name": "Improbable"
+			},
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "github.com/improbable-eng/grpc-web"
+			},
+			"keywords": [
+				"grpc",
+				"grpc-web",
+				"protobuf",
+				"typescript",
+				"ts"
+			],
+			"files": [
+				"dist"
+			],
+			"peerDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"google-protobuf": "^3.2.0"
+			},
+			"dependencies": {
+				"browser-headers": "^0.4.0"
+			},
+			"devDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"@types/node": "^7.0.29",
+				"google-protobuf": "^3.2.0",
+				"tslint": "^4.5.1",
+				"typescript": "2.2.1"
+			},
+			"_id": "grpc-web-client@0.5.0",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"integrity": "sha512-AcLecuqaDp5STYXGViTQmNTCoZVfM6gi3+hvfTGXGP5YTIimASesNi39jnP8dox3x8QBelMWDdOck5/4UJaZdg==",
+				"shasum": "bcab5c4ae27a568ed68b37ba47b0cd2f982fdae2",
+				"tarball": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.5.0.tgz",
+				"fileCount": 56,
+				"unpackedSize": 84522
+			},
+			"maintainers": [
+				{
+					"name": "jonnyreeves",
+					"email": "npm@jonnyreeves.co.uk"
+				},
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/grpc-web-client_0.5.0_1517998979654_0.5788273079275459"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This package has been deprecated in favor of @improbable-eng/grpc-web"
+		},
+		"0.6.0": {
+			"name": "grpc-web-client",
+			"version": "0.6.0",
+			"description": "gRPC-Web client for browsers (JS/TS)",
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build && rm -rf dist",
+				"lib:build": "npm run clean && tsc && cp -R build/ dist/",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts"
+			},
+			"author": {
+				"name": "Improbable"
+			},
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "github.com/improbable-eng/grpc-web"
+			},
+			"keywords": [
+				"grpc",
+				"grpc-web",
+				"protobuf",
+				"typescript",
+				"ts"
+			],
+			"files": [
+				"dist"
+			],
+			"peerDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"google-protobuf": "^3.2.0"
+			},
+			"dependencies": {
+				"browser-headers": "^0.4.0"
+			},
+			"devDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"@types/node": "^7.0.29",
+				"google-protobuf": "^3.2.0",
+				"tslint": "^4.5.1",
+				"typescript": "2.2.1"
+			},
+			"readmeFilename": "README.md",
+			"_id": "grpc-web-client@0.6.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "jonnyreeves",
+				"email": "npm@jonnyreeves.co.uk"
+			},
+			"dist": {
+				"integrity": "sha512-Rul06jwttdfqdqD9hOMb7aXlZ2sRkyeQMo86K5g2NqWPR9bQHQaQvn9veC/n9bSfIOUew7WNkzIGElflVUy7DA==",
+				"shasum": "e9a781bec81b74a6105fdc4a8f3a9212ca7d99d2",
+				"tarball": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.6.0.tgz",
+				"fileCount": 59,
+				"unpackedSize": 92619,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa0yO1CRA9TVsSAnZWagAAqbIQAKIuoCAGFkEeWL1o3rJx\nzioV9nAaPuPCeToJTEdifrcuX8Yo6IC1dek9Wc9p6IDyeDcyZqtQ+pQZSfF6\nQt+A4E9tyP9Aewatb6gFkr6+V8wNHaPFJWCDg9jJeLCn8BYmomepMf2aJUsx\npJpuTFa1S7VVXkVD6U1t6qOAzSfisS6Reu4SC1+eluNwCKDUwZxnzk61d2qL\nT/U1BI+CwVnXdaxE8P+x7cfwTscgP/KFNz2wMfaEXhZILN8x/NJfE6OrX4CJ\nWfKl8rFSDUKLVKfJQpNdOrZbPy4db7YHVUEcMENqheGEB0lf2MpNbMmckDWz\nfU6XyYGlKOZZS61Ftv/0QAa0R1j+7SkFqJgpGrFgmmfXeJiQjWFKdij6fC8u\nkJkhayTYp+HwGJJ9g9giIyo//0w/9JtYA9G/hlC4i6AYjV/TNDGrtPjwK4Vf\nze/n/Jd9CT4Rw2XV8ZT/UWw0djYSdAvSCwPs4mWC2PpZg+3usZTXBOzx8AY7\nBmpeAF+SYF7msLak11+gPlN54g+neq5BnOFnn4kUm588m1c+mEtxG7upP1rM\n+PptYFPvp/3RvocZoc2IIpqHbZD7alABIQqKNo0HHQUdIbdfc52w6ke2e45F\nAifjX1eaAqhP44KgiqLEDVyULH4cRrCLYrVN6vw8Gl1GhmJEWMkYTa4FjcRU\nsa2b\r\n=QLOb\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "jonnyreeves",
+					"email": "npm@jonnyreeves.co.uk"
+				},
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/grpc-web-client_0.6.0_1523786675997_0.29251200914265074"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This package has been deprecated in favor of @improbable-eng/grpc-web"
+		},
+		"0.6.1": {
+			"name": "grpc-web-client",
+			"version": "0.6.1",
+			"description": "gRPC-Web client for browsers (JS/TS)",
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build && rm -rf dist",
+				"lib:build": "npm run clean && tsc && cp -R build/ dist/",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts"
+			},
+			"author": {
+				"name": "Improbable"
+			},
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "github.com/improbable-eng/grpc-web"
+			},
+			"keywords": [
+				"grpc",
+				"grpc-web",
+				"protobuf",
+				"typescript",
+				"ts"
+			],
+			"files": [
+				"dist"
+			],
+			"peerDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"google-protobuf": "^3.2.0"
+			},
+			"dependencies": {
+				"browser-headers": "^0.4.0"
+			},
+			"devDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"@types/node": "^8.9.4",
+				"google-protobuf": "^3.2.0",
+				"tslint": "^5.9.1",
+				"typescript": "2.8.3"
+			},
+			"_id": "grpc-web-client@0.6.1",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"integrity": "sha512-PR+fhkl/ZHMj8i0ocvOAg0by8fg9n+YcEjeZuL6iL8kyf7Cfy1xpOnwJ+pmufxBW/nsyyq7KvB8bfdhLuoBxSg==",
+				"shasum": "e73b80ac7481dc8ee72dccaaf0ebf98e63657d38",
+				"tarball": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.6.1.tgz",
+				"fileCount": 59,
+				"unpackedSize": 90978,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa6c1pCRA9TVsSAnZWagAAd68P/06zrm5dAZBzTPz6H8DA\nraeeIoDRtWmAK3Sy9TSZoA3ZNi2GPv8v6lQvDk5/aD0OWNd3H881BjpT68Sh\n3Ys2LWFhOnMJ4Fc0FPSr3HtufKwDE8Fzckmc1+fz+Y46Zc30WmtCJPtiIBuN\nM+SsWAPecvXt8cbXyksxrEPlJaw5HgkS7MGcuR8Gs4CuXywkxbCRzlkE+6DE\nQARz/mJp+C7hhtQair0oMqH/W4OcdUf2HmgazXQnRj/Rtutcq2yz5D7L2lYO\nnhwfw8hfKnXVYRqYAoC7OwwZ1MmP/LI/AJ61UtvNREBcqFazHviA8dOsy2yE\n9kTqDxulcWY/z7cNKP/qFCXAw3CcAAgQq3Sxph5kp0HT/cemiDFqFDnRE9uz\nH4pTb8psZbnsV7x2YKSvxVGvbblxUZcVN6OUjzCEsmDxYiIKDd/zYqeZECrA\nxGX/umGvfiJ9I+Lea4sFTaVUWPkb1Oz9RLlCVhcjXIXVA9z6/zyWmQyugtfg\nh6sdiBkSlwrQzb5NrN4UOPR/E+whFNUiBvyQNJQeprq7NilSz6I36nERan4x\n6AahUgcK9GbHUftVGgkFy7Ji7AYasI/lF6I5wcuvooRLfoCdbOqTNfoLDjsi\n+9I6VlST8fU9JoYWM1Jk5mlleosrevwLzpY0uvISv4j1AXIOJgpM4icVh+sP\n9paH\r\n=fTCh\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "jonnyreeves",
+					"email": "npm@jonnyreeves.co.uk"
+				},
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/grpc-web-client_0.6.1_1525271911979_0.5133361229399998"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This package has been deprecated in favor of @improbable-eng/grpc-web"
+		},
+		"0.6.2": {
+			"name": "grpc-web-client",
+			"version": "0.6.2",
+			"description": "gRPC-Web client for browsers (JS/TS)",
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build && rm -rf dist",
+				"lib:build": "npm run clean && tsc && cp -R build/ dist/",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts"
+			},
+			"author": {
+				"name": "Improbable"
+			},
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "github.com/improbable-eng/grpc-web"
+			},
+			"keywords": [
+				"grpc",
+				"grpc-web",
+				"protobuf",
+				"typescript",
+				"ts"
+			],
+			"files": [
+				"dist"
+			],
+			"peerDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"google-protobuf": "^3.2.0"
+			},
+			"dependencies": {
+				"browser-headers": "^0.4.0"
+			},
+			"devDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"@types/node": "^8.9.4",
+				"google-protobuf": "^3.2.0",
+				"tslint": "^5.9.1",
+				"typescript": "2.8.3"
+			},
+			"_id": "grpc-web-client@0.6.2",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.0",
+			"_npmUser": {
+				"name": "marcuslongmuir",
+				"email": "marcus@marcuslongmuir.com"
+			},
+			"dist": {
+				"integrity": "sha512-7LSp9Gr0cWLJp53ijrNW+KHNyw8rZKDMMmFKmRkxu1QJLU9vuE+5hG4NTc8ao5YwuP1rsBQi74eZ1R+sOiQVtg==",
+				"shasum": "3be2187edd6314192321cd9929fc1bfb8b715d91",
+				"tarball": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.6.2.tgz",
+				"fileCount": 59,
+				"unpackedSize": 90978,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa6dI6CRA9TVsSAnZWagAA5GEQAJ8DXp7oyuJSBwulg9oB\nDpIIrOxrowEe2ow/uY2N499yhj2O8iCgVVl8JestL06tu4b5RUvwysGGrYN6\nJULVmmICfnYf/Y4t+DTyhYbkIuTFGD+/aoX5JQZ4cw6q5y+dQzyHTuNl2yCe\n+TjhBbp8KLOYnchpyQO0KJPv6e+jl6gPguXVqwjkig0o36GOIxwCy81PgzH5\n7kXIRGhrxy93GRKXEiLzZkz3mDLvaLGNAIZMsMv1Pv3eONnGsFeHOeWMyUoh\nVJG7iVvzIZDvqV3aOArexWouSOIYGv0qBIPVjkHd5jFUJwnfBiMVw6C7G7Dx\nQQqOAGm/oAg0Ye+N+ufFrwD0GnGLNj6VvTM0VkPnBEsyGBQ+JlITx5bjn2as\nAEWnBDrM40riwW2TTQm18GJpXxJeZes0tDuPxEkWN7HnrBMJAyBgd3Ft2oJI\nElql+DxhfsGeFadeDiHEzKnV5RaZ6wctpL+jynYIgTeV9od8idm/W9jkgK61\nF7CXy+eqMIR+9gfjZd7W6QlTZSCPmE/GPuujH04M/DFyzf/yutdlustZrkaN\nFOyJUO3sMOFieYwC43zGmn8Q3Gnj5/aT5pXx8O9qzWndlcfelNXw3XiutzDU\nvBhc/yAj77yvgT2omoM1aeFLFGxwnnPm5FrLTVJd3OLkpTXlC/FvMKbqlC4h\niWCL\r\n=c0p1\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "jonnyreeves",
+					"email": "npm@jonnyreeves.co.uk"
+				},
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/grpc-web-client_0.6.2_1525273145142_0.5635977461211488"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This package has been deprecated in favor of @improbable-eng/grpc-web"
+		},
+		"0.6.3": {
+			"name": "grpc-web-client",
+			"version": "0.6.3",
+			"description": "gRPC-Web client for browsers (JS/TS)",
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts",
+			"scripts": {
+				"clean": "rm -rf build && rm -rf dist",
+				"lib:build": "npm run clean && tsc && cp -R build/ dist/",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts"
+			},
+			"author": {
+				"name": "Improbable"
+			},
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "github.com/improbable-eng/grpc-web"
+			},
+			"keywords": [
+				"grpc",
+				"grpc-web",
+				"protobuf",
+				"typescript",
+				"ts"
+			],
+			"peerDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"google-protobuf": "^3.2.0"
+			},
+			"dependencies": {
+				"browser-headers": "^0.4.0"
+			},
+			"devDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"@types/node": "^10.7.1",
+				"google-protobuf": "^3.2.0",
+				"tslint": "^5.9.1",
+				"typescript": "3.0.1"
+			},
+			"_id": "grpc-web-client@0.6.3",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "jonnyreeves",
+				"email": "npm@jonnyreeves.co.uk"
+			},
+			"dist": {
+				"integrity": "sha512-j9znd2f4ZQdJFVOpLr8q5dJjpb7478wyJ/A9Kj0aJCX5st1Ay9lpVEEmA0wAoP0xeTyplnnThEEx+BXSweQPOg==",
+				"shasum": "b3f527db570978cba51a30004d922bad9138962d",
+				"tarball": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.6.3.tgz",
+				"fileCount": 59,
+				"unpackedSize": 93100,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbj8jSCRA9TVsSAnZWagAA6asP/Rv8enXEqHdJRvXQQzxt\nUVoDmpK4rx4QmJMhtabeM5hu5s/++gDCXd5XLKM6JYFOe9/owIGS1/sK4faM\nd2yhqiIId9LHpMk4wlBS2L0LcUV20DoCRLV3Xz+uaFBY7TNjd1ChVEICNDF6\nJK3F9sUj4Bgiv1oFh/GygN5V4zHCkbu3386sj9l+gOecBHa4pQbenvSxvBGh\ngMyK5VwWZkSeGQ11R2diBY1gM49wPPLBMETeTcViT9vfOsepCrFb3bDVyIl4\nKo7oqJciG75kcKIK7QHtcOVkLK6epxVynIFYLSbhTliNyi9MiUWAol4/DfdI\n3Avdh4E5vmSNTqmKCpT9jmlgp2XEyqct4TDjTUF5mFJTYRp+4m6wKN2ol0z4\niULgn47MuX+O2biXWnjVO7TOqkQ4uoTQ/5Q6UsPq1PSAA7xTEq1GcEv75OH3\ngHYFXNmy7TW14aahH8FgY4vVkDt3eWYo6UwgyRH4NMKn2+PP+nLHAD/ws7hp\npmAz132i5BbYayu5Q/drI7qcPg+GTt595gtF92JRCY0d5umHR4oDhq7HG8xa\n3sGLv13PMJnXTXarf8NeIv5MsHRWPHxarkZKUTbWCfx7WPpnkN6FoVD3is7v\n4Gpzm6R3RoiPE9WC8w3HGvYYl/lXpG4MIzl3bbH3p/eSwWiBNNzWJPTMVKvI\njagy\r\n=8eZE\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "jonnyreeves",
+					"email": "npm@jonnyreeves.co.uk"
+				},
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/grpc-web-client_0.6.3_1536149712677_0.23417552280884824"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This package has been deprecated in favor of @improbable-eng/grpc-web"
+		},
+		"0.7.0": {
+			"name": "grpc-web-client",
+			"version": "0.7.0",
+			"description": "gRPC-Web client for browsers (JS/TS)",
+			"main": "dist/grpc-web-client.js",
+			"browser": "dist/grpc-web-client.umd.js",
+			"types": "dist/typings/index.d.ts",
+			"scripts": {
+				"clean": "rm -rf dist",
+				"postbootstrap": "npm run lib:build",
+				"lib:build": "npm run clean && webpack",
+				"lint": "tslint -c ./tslint.json ./src/**/*.ts"
+			},
+			"author": {
+				"name": "Improbable"
+			},
+			"license": "Apache-2.0",
+			"repository": {
+				"type": "git",
+				"url": "github.com/improbable-eng/grpc-web"
+			},
+			"keywords": [
+				"grpc",
+				"grpc-web",
+				"protobuf",
+				"typescript",
+				"ts"
+			],
+			"peerDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"google-protobuf": "^3.2.0"
+			},
+			"dependencies": {
+				"browser-headers": "^0.4.0"
+			},
+			"devDependencies": {
+				"@types/google-protobuf": "^3.2.5",
+				"@types/node": "^7.0.5",
+				"google-protobuf": "^3.2.0",
+				"ts-loader": "^2.0.1",
+				"tslint": "^5.9.1",
+				"typescript": "3.0.1",
+				"webpack": "^2.2.1"
+			},
+			"gitHead": "786a6af4e2933d065da271ee471f0b8d5f3b65f7",
+			"_resolved": "",
+			"_integrity": "",
+			"_from": "file:grpc-web-client-0.7.0.tgz",
+			"_id": "grpc-web-client@0.7.0",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "10.9.0",
+			"_npmUser": {
+				"name": "jonnyreeves",
+				"email": "npm@jonnyreeves.co.uk"
+			},
+			"dist": {
+				"integrity": "sha512-tydslNg6pPHi61aMs0HoaETTtyDR5TQyDZ0AQhbbURpOK2NW8IMrUGs/i1UMkS0H64Vj7PuggSAhDohP41yubQ==",
+				"shasum": "db19d331ad1fec49ed56744031340ee6af8529b9",
+				"tarball": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.7.0.tgz",
+				"fileCount": 23,
+				"unpackedSize": 129604,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb5/v0CRA9TVsSAnZWagAA0DkP/3yYMDTKX5pY/lwaXUv3\nuQD9bsN5/M/cObX9kN/W72Ls1/ZFMwwEbsXQAwqcvDcJuE6tn0l5f8loN109\nEsEq17dh56btzZztuklB6E2my5VpySbYepmThMp319aA7SvBFALz2GA9LSKe\n+bhvAiEtEam+t1D7kZ2T1ZjUpVGOEN0qqX0uH/eYse5BM8JmrrjqEPNT9dsf\nx7inL0oKm0DiOCkbu06InsrRWPk7Gfx7BCu9on/El2XUsob+/1Qn+Q20LL5/\nPoPDextI/xTNTBhvZoPT75aR31wPVS/puqC5XrZ5Pk2e2DHl1mLb7Tc5IvxD\n4ph7AicU1wb3qaKRD7Y893UNcja1Fdgf2fcOVFRRSHRzKw+MLEvOthIBFbaV\nbk6b92CeDORyfbs19C+e6DSHQ8aKHQtGcM2yU2coTFJ4UCZdnZO7UE/oRTRd\n6hAad1nvCV+AckBcPego8GETg5tHjEwfnAkjaQ8TIJShRe1fwe0BmdsO+3G8\n3DpHTy9K0T/Ub5+svd3PCjml51chZcMcTyFiXVHtLP79no24Om1raoVpzWxC\nEyb1oDRBhm7LKKgORepughw62hPx4MyXvz2+Ofo1HQEBqDDEck70DkvVGAPz\nnB9xY58yDnQt8zPVBUg6oJoEuH2OE5ZDknDuwX4oQ1y5VbTv0/m7BtG05Gww\nA7p0\r\n=0oK4\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "jonnyreeves",
+					"email": "npm@jonnyreeves.co.uk"
+				},
+				{
+					"name": "marcuslongmuir",
+					"email": "marcus@marcuslongmuir.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/grpc-web-client_0.7.0_1541929972065_0.7399095005153773"
+			},
+			"_hasShrinkwrap": false,
+			"deprecated": "This package has been deprecated in favor of @improbable-eng/grpc-web"
+		}
+	},
+	"time": {
+		"modified": "2019-01-13T16:07:24.687Z",
+		"created": "2017-03-27T15:44:18.583Z",
+		"0.1.2": "2017-03-27T15:44:18.583Z",
+		"0.1.3": "2017-03-27T23:08:48.400Z",
+		"0.2.0": "2017-04-25T10:42:48.782Z",
+		"0.2.1": "2017-04-26T13:09:31.712Z",
+		"0.3.0-beta": "2017-05-04T14:13:10.096Z",
+		"0.3.0": "2017-07-16T20:57:27.408Z",
+		"0.3.1": "2017-09-24T18:44:23.486Z",
+		"0.4.0": "2018-02-06T15:32:44.889Z",
+		"0.5.0": "2018-02-07T10:23:00.397Z",
+		"0.6.0": "2018-04-15T10:04:36.100Z",
+		"0.6.1": "2018-05-02T14:38:32.052Z",
+		"0.6.2": "2018-05-02T14:59:05.238Z",
+		"0.6.3": "2018-09-05T12:15:13.662Z",
+		"0.7.0": "2018-11-11T09:52:52.204Z"
+	},
+	"dist-tags": {
+		"latest": "0.7.0",
+		"beta": "0.6.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"cbf976ad840e0075a6171e4ae6512087\"",
+			"fetched": 1568994351298
+		}
+	},
+	"_distfiles": {
+		"grpc-web-client-0.1.2.tgz": {
+			"url": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.1.2.tgz",
+			"sha": "49f5e7a1c783417716876240b681c8e53186dce2",
+			"registry": "npmjs"
+		},
+		"grpc-web-client-0.1.3.tgz": {
+			"url": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.1.3.tgz",
+			"sha": "68cf0d2b403eafbc720a376be338744f2ed104be",
+			"registry": "npmjs"
+		},
+		"grpc-web-client-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.2.0.tgz",
+			"sha": "7a21b5e75dc1873f264962ef6ba0f2ad8207a8ba",
+			"registry": "npmjs"
+		},
+		"grpc-web-client-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.2.1.tgz",
+			"sha": "768b28d21ba6ece104267a36c6c73fdf320cf5d3",
+			"registry": "npmjs"
+		},
+		"grpc-web-client-0.3.0-beta.tgz": {
+			"url": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.3.0-beta.tgz",
+			"sha": "c38308900b5e349b4fdfa709e9284dd40e6d32d0",
+			"registry": "npmjs"
+		},
+		"grpc-web-client-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.3.0.tgz",
+			"sha": "b46e64b298c480745006f883678e318d7abc11b4",
+			"registry": "npmjs"
+		},
+		"grpc-web-client-0.3.1.tgz": {
+			"url": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.3.1.tgz",
+			"sha": "ab1abe15856306e47deb97b0fd2dbd3f56e5878e",
+			"registry": "npmjs"
+		},
+		"grpc-web-client-0.4.0.tgz": {
+			"url": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.4.0.tgz",
+			"sha": "257c70c35e831ca6b36f7f0b872b1ae1704cea0a",
+			"registry": "npmjs"
+		},
+		"grpc-web-client-0.5.0.tgz": {
+			"url": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.5.0.tgz",
+			"sha": "bcab5c4ae27a568ed68b37ba47b0cd2f982fdae2",
+			"registry": "npmjs"
+		},
+		"grpc-web-client-0.6.0.tgz": {
+			"url": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.6.0.tgz",
+			"sha": "e9a781bec81b74a6105fdc4a8f3a9212ca7d99d2",
+			"registry": "npmjs"
+		},
+		"grpc-web-client-0.6.1.tgz": {
+			"url": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.6.1.tgz",
+			"sha": "e73b80ac7481dc8ee72dccaaf0ebf98e63657d38",
+			"registry": "npmjs"
+		},
+		"grpc-web-client-0.6.2.tgz": {
+			"url": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.6.2.tgz",
+			"sha": "3be2187edd6314192321cd9929fc1bfb8b715d91",
+			"registry": "npmjs"
+		},
+		"grpc-web-client-0.6.3.tgz": {
+			"url": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.6.3.tgz",
+			"sha": "b3f527db570978cba51a30004d922bad9138962d",
+			"registry": "npmjs"
+		},
+		"grpc-web-client-0.7.0.tgz": {
+			"url": "https://registry.npmjs.org/grpc-web-client/-/grpc-web-client-0.7.0.tgz",
+			"sha": "db19d331ad1fec49ed56744031340ee6af8529b9",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-cec203ff5bcc6a19",
+	"_id": "grpc-web-client",
+	"readme": "# grpc-web-client\n> Library for making gRPC-Web requests from a browser\n\nThis library is intended for both JavaScript and TypeScript usage from a web browser or NodeJS (see [Usage with NodeJS](#usage-with-nodejs)).\n\n*Note: This only works if the server supports [gRPC-Web](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-WEB.md)*\n\nA Golang gRPC-Web middleware and a Golang-based gRPC-Web proxy are [available here](https://github.com/improbable-eng/grpc-web).\n\nPlease see the full [gRPC-Web README](https://github.com/improbable-eng/grpc-web) for known limitations.\n\n## Installation\n\n`grpc-web-client` has peer dependencies of `google-protobuf` and `@types/google-protobuf`.\n\n`npm install google-protobuf @types/google-protobuf grpc-web-client --save`\n\n## Example Project\n\nThere is an [example project available here](https://github.com/improbable-eng/grpc-web/tree/master/example)\n\n## Usage Overview\n* Use [`ts-protoc-gen`](https://www.npmjs.com/package/ts-protoc-gen) with [`protoc`](https://github.com/google/protobuf) to generate `.js` and `.d.ts` files for your request and response classes. `ts-protoc-gen` can also generate gRPC service definitions with the `service=true` argument.\n  * [Go to code generation docs](docs/code-generation.md)\n* Make a request using [`unary()`](docs/unary.md), [`invoke()`](docs/invoke.md) or [`client()`](docs/client.md)\n\n```javascript\nimport {grpc} from \"grpc-web-client\";\n\n// Import code-generated data structures.\nimport {BookService} from \"./generated/proto/examplecom/library/book_service_pb_service\";\nimport {GetBookRequest} from \"./generated/proto/examplecom/library/book_service_pb\";\n\nconst getBookRequest = new GetBookRequest();\ngetBookRequest.setIsbn(60929871);\ngrpc.unary(BookService.GetBook, {\n  request: getBookRequest,\n  host: host,\n  onEnd: res => {\n    const { status, statusMessage, headers, message, trailers } = res;\n    if (status === grpc.Code.OK && message) {\n      console.log(\"all ok. got book: \", message.toObject());\n    }\n  }\n});\n```\n\n* Requests can be aborted/cancelled before they complete:\n\n```javascript\nconst request = grpc.unary(BookService.GetBook, { ... });\nrequest.cancel();\n```\n\n## Available Request Functions\n\nThere are three functions for making gRPC requests:\n\n### [`grpc.unary`](docs/unary.md)\nThis is a convenience function for making requests that consist of a single request message and single response message. It can only be used with unary methods.\n\n```protobuf\nrpc GetBook(GetBookRequest) returns (Book) {}\n```\n\n### [`grpc.invoke`](docs/invoke.md)\nThis is a convenience function for making requests that consist of a single request message and a stream of response messages (server-streaming). It can also be used with unary methods.\n\n```protobuf\nrpc GetBook(GetBookRequest) returns (Book) {}\nrpc QueryBooks(QueryBooksRequest) returns (stream Book) {}\n```\n\n### [`grpc.client`](docs/client.md)\n`grpc.client` returns a client. Dependant upon [transport compatibility](docs/transport.md) this client is capable of sending multiple request messages (client-streaming) and receiving multiple response messages (server-streaming). It can be used with any type of method, but will enforce limiting the sending of messages for unary methods.\n\n```protobuf\nrpc GetBook(GetBookRequest) returns (Book) {}\nrpc QueryBooks(QueryBooksRequest) returns (stream Book) {}\nrpc LogReadPages(stream PageRead) returns (google.protobuf.Empty) {}\nrpc ListenForBooks(stream QueryBooksRequest) returns (stream Book) {}\n```\n\n## Usage with NodeJS\nRefer to [grpc-web-node-http-transport](https://npmjs.com/package/grpc-web-node-http-transport).\n\n## All Docs\n\n* [unary()](docs/unary.md)\n* [invoke()](docs/invoke.md)\n* [client()](docs/client.md)\n* [Code Generation](docs/code-generation.md)\n* [Concepts](docs/concepts.md)\n* [Transport](docs/transport.md)"
+}

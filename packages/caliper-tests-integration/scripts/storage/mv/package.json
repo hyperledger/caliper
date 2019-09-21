@@ -1,0 +1,763 @@
+{
+	"name": "mv",
+	"versions": {
+		"0.0.1": {
+			"name": "mv",
+			"version": "0.0.1",
+			"description": "fs.rename but works across devices. same as the unix utility 'mv'",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/superjoe30/node-mv.git"
+			},
+			"keywords": [
+				"mv",
+				"move",
+				"rename",
+				"device",
+				"recursive",
+				"folder"
+			],
+			"author": {
+				"name": "Andrew Kelley"
+			},
+			"license": "BSD",
+			"devDependencies": {
+				"proxyquire": "~0.3.4",
+				"mocha": "~1.6.0"
+			},
+			"_id": "mv@0.0.1",
+			"dist": {
+				"shasum": "a7b2f8d9993c6de8da056db91d7747666f6b38e7",
+				"tarball": "https://registry.npmjs.org/mv/-/mv-0.0.1.tgz"
+			},
+			"_npmVersion": "1.1.62",
+			"_npmUser": {
+				"name": "superjoe",
+				"email": "superjoe30@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "superjoe",
+					"email": "superjoe30@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.2": {
+			"name": "mv",
+			"version": "0.0.2",
+			"description": "fs.rename but works across devices. same as the unix utility 'mv'",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/superjoe30/node-mv.git"
+			},
+			"keywords": [
+				"mv",
+				"move",
+				"rename",
+				"device",
+				"recursive",
+				"folder"
+			],
+			"author": {
+				"name": "Andrew Kelley"
+			},
+			"license": "BSD",
+			"devDependencies": {
+				"proxyquire": "~0.3.4",
+				"mocha": "~1.6.0"
+			},
+			"_id": "mv@0.0.2",
+			"dist": {
+				"shasum": "7a12f40ba32e7d13d8af1d814c34b00af665d506",
+				"tarball": "https://registry.npmjs.org/mv/-/mv-0.0.2.tgz"
+			},
+			"_npmVersion": "1.1.62",
+			"_npmUser": {
+				"name": "superjoe",
+				"email": "superjoe30@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "superjoe",
+					"email": "superjoe30@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.3": {
+			"name": "mv",
+			"version": "0.0.3",
+			"description": "fs.rename but works across devices. same as the unix utility 'mv'",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/superjoe30/node-mv.git"
+			},
+			"keywords": [
+				"mv",
+				"move",
+				"rename",
+				"device",
+				"recursive",
+				"folder"
+			],
+			"author": {
+				"name": "Andrew Kelley"
+			},
+			"license": "BSD",
+			"engines": {
+				"node": ">=0.8.0 <0.10.0"
+			},
+			"devDependencies": {
+				"proxyquire": "~0.3.4",
+				"mocha": "~1.6.0"
+			},
+			"_id": "mv@0.0.3",
+			"dist": {
+				"shasum": "bc48ff0e4f43746c4b7a0ef8d05cdae38028579d",
+				"tarball": "https://registry.npmjs.org/mv/-/mv-0.0.3.tgz"
+			},
+			"_npmVersion": "1.1.62",
+			"_npmUser": {
+				"name": "superjoe",
+				"email": "superjoe30@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "superjoe",
+					"email": "superjoe30@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.4": {
+			"name": "mv",
+			"version": "0.0.4",
+			"description": "fs.rename but works across devices. same as the unix utility 'mv'",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/superjoe30/node-mv.git"
+			},
+			"keywords": [
+				"mv",
+				"move",
+				"rename",
+				"device",
+				"recursive",
+				"folder"
+			],
+			"author": {
+				"name": "Andrew Kelley"
+			},
+			"license": "BSD",
+			"engines": {
+				"node": ">=0.8.0 <0.10.0"
+			},
+			"devDependencies": {
+				"proxyquire": "~0.3.4",
+				"mocha": "~1.6.0"
+			},
+			"_id": "mv@0.0.4",
+			"dist": {
+				"shasum": "1b941d7005b0553164cd9346b77db95547949012",
+				"tarball": "https://registry.npmjs.org/mv/-/mv-0.0.4.tgz"
+			},
+			"_npmVersion": "1.1.66",
+			"_npmUser": {
+				"name": "superjoe",
+				"email": "superjoe30@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "superjoe",
+					"email": "superjoe30@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.5": {
+			"name": "mv",
+			"version": "0.0.5",
+			"description": "fs.rename but works across devices. same as the unix utility 'mv'",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/superjoe30/node-mv.git"
+			},
+			"keywords": [
+				"mv",
+				"move",
+				"rename",
+				"device",
+				"recursive",
+				"folder"
+			],
+			"author": {
+				"name": "Andrew Kelley"
+			},
+			"license": "BSD",
+			"engines": {
+				"node": ">=0.8.0"
+			},
+			"devDependencies": {
+				"proxyquire": "~0.3.4",
+				"mocha": "~1.6.0"
+			},
+			"_id": "mv@0.0.5",
+			"dist": {
+				"shasum": "15eac759479884df1131d6de56bce20b654f5391",
+				"tarball": "https://registry.npmjs.org/mv/-/mv-0.0.5.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.14",
+			"_npmUser": {
+				"name": "superjoe",
+				"email": "superjoe30@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "superjoe",
+					"email": "superjoe30@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "mv",
+			"version": "1.0.0",
+			"description": "fs.rename but works across devices. same as the unix utility 'mv'",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha test/test.js --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/superjoe30/node-mv.git"
+			},
+			"keywords": [
+				"mv",
+				"move",
+				"rename",
+				"device",
+				"recursive",
+				"folder"
+			],
+			"author": {
+				"name": "Andrew Kelley"
+			},
+			"license": "BSD",
+			"engines": {
+				"node": ">=0.8.0"
+			},
+			"devDependencies": {
+				"proxyquire": "~0.3.4",
+				"mocha": "~1.6.0"
+			},
+			"dependencies": {
+				"ncp": "~0.4.2",
+				"rimraf": "~2.2.2",
+				"mkdirp": "~0.3.5"
+			},
+			"bugs": {
+				"url": "https://github.com/superjoe30/node-mv/issues"
+			},
+			"_id": "mv@1.0.0",
+			"dist": {
+				"shasum": "9caef9a3e5d0c4f4049f123d64c00891139efd11",
+				"tarball": "https://registry.npmjs.org/mv/-/mv-1.0.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.8",
+			"_npmUser": {
+				"name": "superjoe",
+				"email": "superjoe30@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "superjoe",
+					"email": "superjoe30@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "mv",
+			"version": "2.0.0",
+			"description": "fs.rename but works across devices. same as the unix utility 'mv'",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha test/test.js --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/andrewrk/node-mv.git"
+			},
+			"keywords": [
+				"mv",
+				"move",
+				"rename",
+				"device",
+				"recursive",
+				"folder"
+			],
+			"author": {
+				"name": "Andrew Kelley"
+			},
+			"license": "BSD",
+			"engines": {
+				"node": ">=0.8.0"
+			},
+			"devDependencies": {
+				"proxyquire": "~0.3.4",
+				"mocha": "~1.6.0"
+			},
+			"dependencies": {
+				"ncp": "~0.4.2",
+				"rimraf": "~2.2.6",
+				"mkdirp": "~0.3.5"
+			},
+			"bugs": {
+				"url": "https://github.com/andrewrk/node-mv/issues"
+			},
+			"homepage": "https://github.com/andrewrk/node-mv",
+			"_id": "mv@2.0.0",
+			"dist": {
+				"shasum": "8e7ec2b5187c84714d77c8e983b1ed29d7a33a1b",
+				"tarball": "https://registry.npmjs.org/mv/-/mv-2.0.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "superjoe",
+				"email": "superjoe30@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "superjoe",
+					"email": "superjoe30@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.1": {
+			"name": "mv",
+			"version": "2.0.1",
+			"description": "fs.rename but works across devices. same as the unix utility 'mv'",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha test/test.js --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/andrewrk/node-mv.git"
+			},
+			"keywords": [
+				"mv",
+				"move",
+				"rename",
+				"device",
+				"recursive",
+				"folder"
+			],
+			"author": {
+				"name": "Andrew Kelley"
+			},
+			"license": "BSD",
+			"engines": {
+				"node": ">=0.8.0"
+			},
+			"devDependencies": {
+				"mocha": "~1.20.1",
+				"proxyquire": "~1.0.1"
+			},
+			"dependencies": {
+				"mkdirp": "~0.5.0",
+				"ncp": "~0.5.1",
+				"rimraf": "~2.2.8"
+			},
+			"bugs": {
+				"url": "https://github.com/andrewrk/node-mv/issues"
+			},
+			"homepage": "https://github.com/andrewrk/node-mv",
+			"directories": {
+				"test": "test"
+			},
+			"gitHead": "0a04725f5957dcf78a8e9f50432d0603af2f5796",
+			"_id": "mv@2.0.1",
+			"_shasum": "7aa36d3179d50eb181e39327d874f9f7d6a73166",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "superjoe",
+				"email": "superjoe30@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "superjoe",
+					"email": "superjoe30@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "7aa36d3179d50eb181e39327d874f9f7d6a73166",
+				"tarball": "https://registry.npmjs.org/mv/-/mv-2.0.1.tgz"
+			}
+		},
+		"2.0.2": {
+			"name": "mv",
+			"version": "2.0.2",
+			"description": "fs.rename but works across devices. same as the unix utility 'mv'",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha test/test.js --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/andrewrk/node-mv.git"
+			},
+			"keywords": [
+				"mv",
+				"move",
+				"rename",
+				"device",
+				"recursive",
+				"folder"
+			],
+			"author": {
+				"name": "Andrew Kelley"
+			},
+			"license": "MIT",
+			"engines": {
+				"node": ">=0.8.0"
+			},
+			"devDependencies": {
+				"mocha": "~1.21.0",
+				"proxyquire": "~1.0.1"
+			},
+			"dependencies": {
+				"mkdirp": "~0.5.0",
+				"ncp": "~0.6.0",
+				"rimraf": "~2.2.8"
+			},
+			"bugs": {
+				"url": "https://github.com/andrewrk/node-mv/issues"
+			},
+			"homepage": "https://github.com/andrewrk/node-mv",
+			"directories": {
+				"test": "test"
+			},
+			"_id": "mv@2.0.2",
+			"dist": {
+				"shasum": "e5763185091c44a7e3ed316ba4e385299c255d75",
+				"tarball": "https://registry.npmjs.org/mv/-/mv-2.0.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.10",
+			"_npmUser": {
+				"name": "superjoe",
+				"email": "superjoe30@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "superjoe",
+					"email": "superjoe30@gmail.com"
+				}
+			]
+		},
+		"2.0.3": {
+			"name": "mv",
+			"version": "2.0.3",
+			"description": "fs.rename but works across devices. same as the unix utility 'mv'",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha test/test.js --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/andrewrk/node-mv.git"
+			},
+			"keywords": [
+				"mv",
+				"move",
+				"rename",
+				"device",
+				"recursive",
+				"folder"
+			],
+			"author": {
+				"name": "Andrew Kelley"
+			},
+			"license": "MIT",
+			"engines": {
+				"node": ">=0.8.0"
+			},
+			"devDependencies": {
+				"mocha": "~1.21.0"
+			},
+			"dependencies": {
+				"mkdirp": "~0.5.0",
+				"ncp": "~0.6.0",
+				"rimraf": "~2.2.8"
+			},
+			"bugs": {
+				"url": "https://github.com/andrewrk/node-mv/issues"
+			},
+			"homepage": "https://github.com/andrewrk/node-mv",
+			"directories": {
+				"test": "test"
+			},
+			"_id": "mv@2.0.3",
+			"dist": {
+				"shasum": "e9ab707d71dc38de24edcc637a8e2f5f480c7f32",
+				"tarball": "https://registry.npmjs.org/mv/-/mv-2.0.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.10",
+			"_npmUser": {
+				"name": "superjoe",
+				"email": "superjoe30@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "superjoe",
+					"email": "superjoe30@gmail.com"
+				}
+			]
+		},
+		"2.1.0": {
+			"name": "mv",
+			"version": "2.1.0",
+			"description": "fs.rename but works across devices. same as the unix utility 'mv'",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha test/test.js --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/andrewrk/node-mv.git"
+			},
+			"keywords": [
+				"mv",
+				"move",
+				"rename",
+				"device",
+				"recursive",
+				"folder"
+			],
+			"author": {
+				"name": "Andrew Kelley"
+			},
+			"license": "MIT",
+			"engines": {
+				"node": ">=0.8.0"
+			},
+			"devDependencies": {
+				"mocha": "~2.2.5"
+			},
+			"dependencies": {
+				"mkdirp": "~0.5.1",
+				"ncp": "~2.0.0",
+				"rimraf": "~2.4.0"
+			},
+			"bugs": {
+				"url": "https://github.com/andrewrk/node-mv/issues"
+			},
+			"homepage": "https://github.com/andrewrk/node-mv",
+			"directories": {
+				"test": "test"
+			},
+			"gitHead": "73bb8fa3750c686784316c82932eb5e71de204c6",
+			"_id": "mv@2.1.0",
+			"_shasum": "bfcff9360b97460818d65d8f1d45ffb4b7e6b55e",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "superjoe",
+				"email": "superjoe30@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "superjoe",
+					"email": "superjoe30@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "bfcff9360b97460818d65d8f1d45ffb4b7e6b55e",
+				"tarball": "https://registry.npmjs.org/mv/-/mv-2.1.0.tgz"
+			}
+		},
+		"2.1.1": {
+			"name": "mv",
+			"version": "2.1.1",
+			"description": "fs.rename but works across devices. same as the unix utility 'mv'",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha test/test.js --reporter spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/andrewrk/node-mv.git"
+			},
+			"keywords": [
+				"mv",
+				"move",
+				"rename",
+				"device",
+				"recursive",
+				"folder"
+			],
+			"author": {
+				"name": "Andrew Kelley"
+			},
+			"license": "MIT",
+			"engines": {
+				"node": ">=0.8.0"
+			},
+			"devDependencies": {
+				"mocha": "~2.2.5"
+			},
+			"dependencies": {
+				"mkdirp": "~0.5.1",
+				"ncp": "~2.0.0",
+				"rimraf": "~2.4.0"
+			},
+			"bugs": {
+				"url": "https://github.com/andrewrk/node-mv/issues"
+			},
+			"homepage": "https://github.com/andrewrk/node-mv",
+			"directories": {
+				"test": "test"
+			},
+			"gitHead": "645d8f4c783abf84204be704098fdd41f36ab195",
+			"_id": "mv@2.1.1",
+			"_shasum": "ae6ce0d6f6d5e0a4f7d893798d03c1ea9559b6a2",
+			"_from": ".",
+			"_npmVersion": "2.5.1",
+			"_nodeVersion": "0.12.0",
+			"_npmUser": {
+				"name": "superjoe",
+				"email": "superjoe30@gmail.com"
+			},
+			"dist": {
+				"shasum": "ae6ce0d6f6d5e0a4f7d893798d03c1ea9559b6a2",
+				"tarball": "https://registry.npmjs.org/mv/-/mv-2.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "superjoe",
+					"email": "superjoe30@gmail.com"
+				}
+			]
+		}
+	},
+	"time": {
+		"modified": "2018-01-25T08:54:45.941Z",
+		"created": "2012-10-12T03:02:09.699Z",
+		"0.0.1": "2012-10-12T03:02:10.751Z",
+		"0.0.2": "2012-10-12T03:28:40.516Z",
+		"0.0.3": "2012-10-12T03:36:20.812Z",
+		"0.0.4": "2012-12-12T22:15:08.784Z",
+		"0.0.5": "2013-03-12T04:57:12.824Z",
+		"1.0.0": "2013-09-08T00:25:50.031Z",
+		"2.0.0": "2014-02-26T06:49:58.561Z",
+		"2.0.1": "2014-06-30T06:23:07.647Z",
+		"2.0.2": "2014-07-26T20:12:49.567Z",
+		"2.0.3": "2014-07-26T20:22:42.349Z",
+		"2.1.0": "2015-06-19T21:44:19.869Z",
+		"2.1.1": "2015-06-22T22:06:53.771Z"
+	},
+	"dist-tags": {
+		"latest": "2.1.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"090a60fe2dcebef44d3b58583194fed3\"",
+			"fetched": 1568994345615
+		}
+	},
+	"_distfiles": {
+		"mv-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/mv/-/mv-0.0.1.tgz",
+			"sha": "a7b2f8d9993c6de8da056db91d7747666f6b38e7",
+			"registry": "npmjs"
+		},
+		"mv-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/mv/-/mv-0.0.2.tgz",
+			"sha": "7a12f40ba32e7d13d8af1d814c34b00af665d506",
+			"registry": "npmjs"
+		},
+		"mv-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/mv/-/mv-0.0.3.tgz",
+			"sha": "bc48ff0e4f43746c4b7a0ef8d05cdae38028579d",
+			"registry": "npmjs"
+		},
+		"mv-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/mv/-/mv-0.0.4.tgz",
+			"sha": "1b941d7005b0553164cd9346b77db95547949012",
+			"registry": "npmjs"
+		},
+		"mv-0.0.5.tgz": {
+			"url": "https://registry.npmjs.org/mv/-/mv-0.0.5.tgz",
+			"sha": "15eac759479884df1131d6de56bce20b654f5391",
+			"registry": "npmjs"
+		},
+		"mv-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/mv/-/mv-1.0.0.tgz",
+			"sha": "9caef9a3e5d0c4f4049f123d64c00891139efd11",
+			"registry": "npmjs"
+		},
+		"mv-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/mv/-/mv-2.0.0.tgz",
+			"sha": "8e7ec2b5187c84714d77c8e983b1ed29d7a33a1b",
+			"registry": "npmjs"
+		},
+		"mv-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/mv/-/mv-2.0.1.tgz",
+			"sha": "7aa36d3179d50eb181e39327d874f9f7d6a73166",
+			"registry": "npmjs"
+		},
+		"mv-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/mv/-/mv-2.0.2.tgz",
+			"sha": "e5763185091c44a7e3ed316ba4e385299c255d75",
+			"registry": "npmjs"
+		},
+		"mv-2.0.3.tgz": {
+			"url": "https://registry.npmjs.org/mv/-/mv-2.0.3.tgz",
+			"sha": "e9ab707d71dc38de24edcc637a8e2f5f480c7f32",
+			"registry": "npmjs"
+		},
+		"mv-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/mv/-/mv-2.1.0.tgz",
+			"sha": "bfcff9360b97460818d65d8f1d45ffb4b7e6b55e",
+			"registry": "npmjs"
+		},
+		"mv-2.1.1.tgz": {
+			"url": "https://registry.npmjs.org/mv/-/mv-2.1.1.tgz",
+			"sha": "ae6ce0d6f6d5e0a4f7d893798d03c1ea9559b6a2",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-895365990ccfcd08",
+	"_id": "mv",
+	"readme": "[![Build Status](https://secure.travis-ci.org/andrewrk/node-mv.png)](http://travis-ci.org/andrewrk/node-mv)\n\nUsage:\n------\n\n```js\nvar mv = require('mv');\n\nmv('source/file', 'dest/file', function(err) {\n  // done. it tried fs.rename first, and then falls back to\n  // piping the source file to the dest file and then unlinking\n  // the source file.\n});\n```\n\nAnother example:\n\n```js\nmv('source/dir', 'dest/a/b/c/dir', {mkdirp: true}, function(err) {\n  // done. it first created all the necessary directories, and then\n  // tried fs.rename, then falls back to using ncp to copy the dir\n  // to dest and then rimraf to remove the source dir\n});\n```\n\nAnother example:\n\n```js\nmv('source/file', 'dest/file', {clobber: false}, function(err) {\n  // done. If 'dest/file' exists, an error is returned\n  // with err.code === 'EEXIST'.\n});\n```"
+}

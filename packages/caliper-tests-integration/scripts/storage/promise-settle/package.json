@@ -1,0 +1,224 @@
+{
+	"name": "promise-settle",
+	"versions": {
+		"0.2.0": {
+			"name": "promise-settle",
+			"version": "0.2.0",
+			"description": "settle([...]) returns a Promise that is fulfilled when all items in the array are either fulfilled or rejected",
+			"main": "index.js",
+			"engines": {
+				"node": ">= 0.10.0"
+			},
+			"scripts": {
+				"test": "mocha -R spec test/",
+				"cover": "istanbul cover ./node_modules/mocha/bin/_mocha --report html -- -R spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/pgaubatz/node-promise-settle.git"
+			},
+			"keywords": [
+				"es6",
+				"promise",
+				"settle",
+				"Promise.settle"
+			],
+			"author": {
+				"name": "Patrick Gaubatz",
+				"email": "patrick@gaubatz.at"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/pgaubatz/node-promise-settle/issues"
+			},
+			"homepage": "https://github.com/pgaubatz/node-promise-settle#readme",
+			"dependencies": {},
+			"devDependencies": {
+				"mocha": "^2.2.4",
+				"native-promise-only": "^0.8.1"
+			},
+			"gitHead": "cafc94a911a84864dc35aaab3809d8e542dc6ac7",
+			"_id": "promise-settle@0.2.0",
+			"_shasum": "aba3ae4495209f65a246176a53e2380ef0b2832f",
+			"_from": ".",
+			"_npmVersion": "2.11.0",
+			"_nodeVersion": "0.10.36",
+			"_npmUser": {
+				"name": "pgaubatz",
+				"email": "patrick@gaubatz.at"
+			},
+			"dist": {
+				"shasum": "aba3ae4495209f65a246176a53e2380ef0b2832f",
+				"tarball": "https://registry.npmjs.org/promise-settle/-/promise-settle-0.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "pgaubatz",
+					"email": "patrick@gaubatz.at"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.1": {
+			"name": "promise-settle",
+			"version": "0.2.1",
+			"description": "settle([...]) returns a Promise that is fulfilled when all items in the array are either fulfilled or rejected",
+			"main": "index.js",
+			"engines": {
+				"node": ">= 0.10.0"
+			},
+			"scripts": {
+				"test": "mocha -R spec test/",
+				"cover": "istanbul cover ./node_modules/mocha/bin/_mocha --report html -- -R spec",
+				"build": "browserify -s Promise.settle index.js > build/promise-settle.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/pgaubatz/node-promise-settle.git"
+			},
+			"keywords": [
+				"es6",
+				"promise",
+				"settle",
+				"Promise.settle"
+			],
+			"author": {
+				"name": "Patrick Gaubatz",
+				"email": "patrick@gaubatz.at"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/pgaubatz/node-promise-settle/issues"
+			},
+			"homepage": "https://github.com/pgaubatz/node-promise-settle#readme",
+			"dependencies": {},
+			"devDependencies": {
+				"browserify": "^11.2.0",
+				"mocha": "^2.2.4",
+				"native-promise-only": "^0.8.1"
+			},
+			"gitHead": "d4e84130a78918c4f624861a17900a3e87857ba7",
+			"_id": "promise-settle@0.2.1",
+			"_shasum": "93f147fc185b1a516e4190b8763bea455e6c1e38",
+			"_from": ".",
+			"_npmVersion": "3.3.6",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "pgaubatz",
+				"email": "patrick@gaubatz.at"
+			},
+			"dist": {
+				"shasum": "93f147fc185b1a516e4190b8763bea455e6c1e38",
+				"tarball": "https://registry.npmjs.org/promise-settle/-/promise-settle-0.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "pgaubatz",
+					"email": "patrick@gaubatz.at"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.0": {
+			"name": "promise-settle",
+			"version": "0.3.0",
+			"description": "settle([...]) returns a Promise that is fulfilled when all items in the array are either fulfilled or rejected",
+			"main": "index.js",
+			"engines": {
+				"node": ">= 0.10.0"
+			},
+			"scripts": {
+				"test": "mocha -R spec test/",
+				"cover": "istanbul cover ./node_modules/mocha/bin/_mocha --report html -- -R spec",
+				"build": "browserify -s Promise.settle index.js > build/promise-settle.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/pgaubatz/node-promise-settle.git"
+			},
+			"keywords": [
+				"es6",
+				"promise",
+				"settle",
+				"Promise.settle"
+			],
+			"author": {
+				"name": "Patrick Gaubatz",
+				"email": "patrick@gaubatz.at"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/pgaubatz/node-promise-settle/issues"
+			},
+			"homepage": "https://github.com/pgaubatz/node-promise-settle#readme",
+			"dependencies": {},
+			"devDependencies": {
+				"browserify": "^11.2.0",
+				"mocha": "^2.2.4",
+				"native-promise-only": "^0.8.1"
+			},
+			"gitHead": "d6395551ac646d5ebdd2d13df9d22ed769b51203",
+			"_id": "promise-settle@0.3.0",
+			"_shasum": "b4efd572a1eb74cf794f828cd349da40a08e4e96",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.3",
+			"_npmUser": {
+				"name": "pgaubatz",
+				"email": "patrick@gaubatz.at"
+			},
+			"dist": {
+				"shasum": "b4efd572a1eb74cf794f828cd349da40a08e4e96",
+				"tarball": "https://registry.npmjs.org/promise-settle/-/promise-settle-0.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "pgaubatz",
+					"email": "patrick@gaubatz.at"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-6-west.internal.npmjs.com",
+				"tmp": "tmp/promise-settle-0.3.0.tgz_1456429101790_0.028572380542755127"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2016-02-25T19:38:24.335Z",
+		"created": "2015-08-12T13:08:57.145Z",
+		"0.2.0": "2015-08-12T13:08:57.145Z",
+		"0.2.1": "2015-10-25T14:05:24.620Z",
+		"0.3.0": "2016-02-25T19:38:24.335Z"
+	},
+	"dist-tags": {
+		"latest": "0.3.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"410d06f19697622f3dca31c5cadb006f\"",
+			"fetched": 1568994343914
+		}
+	},
+	"_distfiles": {
+		"promise-settle-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/promise-settle/-/promise-settle-0.2.0.tgz",
+			"sha": "aba3ae4495209f65a246176a53e2380ef0b2832f",
+			"registry": "npmjs"
+		},
+		"promise-settle-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/promise-settle/-/promise-settle-0.2.1.tgz",
+			"sha": "93f147fc185b1a516e4190b8763bea455e6c1e38",
+			"registry": "npmjs"
+		},
+		"promise-settle-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/promise-settle/-/promise-settle-0.3.0.tgz",
+			"sha": "b4efd572a1eb74cf794f828cd349da40a08e4e96",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-2fce158cc1f1faa7",
+	"_id": "promise-settle",
+	"readme": "# promise-settle\n[![npm version](https://badge.fury.io/js/promise-settle.svg)](http://badge.fury.io/js/promise-settle)\n[![Build Status](https://travis-ci.org/pgaubatz/node-promise-settle.svg?branch=master)](https://travis-ci.org/pgaubatz/node-promise-settle)\n[![Coverage Status](https://coveralls.io/repos/pgaubatz/node-promise-settle/badge.svg)](https://coveralls.io/r/pgaubatz/node-promise-settle)\n[![Dependency Status](https://david-dm.org/pgaubatz/node-promise-settle.svg)](https://david-dm.org/pgaubatz/node-promise-settle)\n\nsettle([...]) returns a Promise that is fulfilled when all items in the array are either fulfilled or rejected.  \n\n## Installation\n\n    npm install --save promise-settle\n\n## Usage\n```javascript\nvar settle = require('promise-settle');\n\nsettle([true, Promise.resolve(3), Promise.reject(new Error('error'))])\n  .then(function (results) {\n    results.forEach(function (result) {\n      if (result.isFulfilled()) {\n        console.log('Promise is fulfilled', result.value());\n      } else {\n        console.log('Promise is rejected', result.reason());\n      }\n    })\n  });\n```"
+}

@@ -1,0 +1,1629 @@
+{
+	"name": "stream-transform",
+	"versions": {
+		"0.0.2": {
+			"version": "0.0.2",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-stream-transform"
+			},
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"pad": "latest",
+				"mocha": "latest",
+				"csv-generate": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "stream-transform@0.0.2",
+			"dist": {
+				"shasum": "030a26f44b76d738b705aa18f83157003a2dd610",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.0.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.4",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.4": {
+			"version": "0.0.4",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"licenses": [
+				{
+					"type": "BSD",
+					"url": "https://github.com/wdavidw/node-stream-transform/blob/master/LICENSE"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-stream-transform"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"pad": "latest",
+				"mocha": "latest",
+				"csv-generate": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"test": "make test"
+			},
+			"gitHead": "160d2be565414cf9c65b90257cd335f19040ad02",
+			"_id": "stream-transform@0.0.4",
+			"_shasum": "3bf2f9ba0be94e3d9f1872fcb2442248d717f921",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "3bf2f9ba0be94e3d9f1872fcb2442248d717f921",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.0.4.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.6": {
+			"version": "0.0.6",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"licenses": [
+				{
+					"type": "BSD",
+					"url": "https://github.com/wdavidw/node-stream-transform/blob/master/LICENSE"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-stream-transform"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"pad": "latest",
+				"mocha": "latest",
+				"csv-generate": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"test": "make test"
+			},
+			"gitHead": "0640d5c06e22460c01286802406fe530372b51dd",
+			"_id": "stream-transform@0.0.6",
+			"_shasum": "365aa2beffe68cfaa96cb4c525f8644befc3d037",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "365aa2beffe68cfaa96cb4c525f8644befc3d037",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.0.6.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.7": {
+			"version": "0.0.7",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"licenses": [
+				{
+					"type": "BSD",
+					"url": "https://github.com/wdavidw/node-stream-transform/blob/master/LICENSE"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-stream-transform"
+			},
+			"homepage": "http://csv.adaltas.com/transform/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"pad": "latest",
+				"mocha": "latest",
+				"csv-generate": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter dot"
+			},
+			"gitHead": "84eb9852c73e3d2e22c6b8a557d28615fa85757f",
+			"_id": "stream-transform@0.0.7",
+			"_shasum": "f7f1dd009de4db7eb772f116b33341003d461907",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "f7f1dd009de4db7eb772f116b33341003d461907",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.0.7.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.8": {
+			"version": "0.0.8",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"licenses": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-stream-transform"
+			},
+			"homepage": "http://csv.adaltas.com/transform/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"pad": "latest",
+				"mocha": "latest",
+				"csv-generate": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter dot"
+			},
+			"gitHead": "e5e6f9ff5e09d48de63384ad077570f14a523e85",
+			"_id": "stream-transform@0.0.8",
+			"_shasum": "955bf2a4397ce5bb065fb395e95a96c6685a97e8",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "955bf2a4397ce5bb065fb395e95a96c6685a97e8",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.0.8.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.9": {
+			"version": "0.0.9",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-stream-transform"
+			},
+			"homepage": "http://csv.adaltas.com/transform/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"pad": "latest",
+				"mocha": "latest",
+				"csv-generate": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter dot"
+			},
+			"gitHead": "5591ad09c2d95708db9e69345b754d4a4b32f07b",
+			"_id": "stream-transform@0.0.9",
+			"_shasum": "7d7049e13261be8d484a075abc7134a260d6a85d",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "7d7049e13261be8d484a075abc7134a260d6a85d",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.0.9.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.0": {
+			"version": "0.1.0",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-stream-transform"
+			},
+			"homepage": "http://csv.adaltas.com/transform/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"pad": "latest",
+				"mocha": "latest",
+				"csv-generate": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter dot"
+			},
+			"gitHead": "1e56e58222733f0767a03cf9c16c79364903a507",
+			"_id": "stream-transform@0.1.0",
+			"_shasum": "6bd0d47b79f48b34ff21f6b9393126427e61f485",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "6bd0d47b79f48b34ff21f6b9393126427e61f485",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.1.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.1": {
+			"version": "0.1.1",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-stream-transform"
+			},
+			"homepage": "http://csv.adaltas.com/transform/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"pad": "latest",
+				"mocha": "latest",
+				"csv-generate": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter dot"
+			},
+			"gitHead": "954af75b01633aba5e2e93d110842aa151b22bbf",
+			"_id": "stream-transform@0.1.1",
+			"_shasum": "0a54a2b81eea88da55a50df2441cb63edc101c71",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "0a54a2b81eea88da55a50df2441cb63edc101c71",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.1.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.1.2": {
+			"version": "0.1.2",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-stream-transform"
+			},
+			"homepage": "http://csv.adaltas.com/transform/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"pad": "latest",
+				"mocha": "latest",
+				"csv-generate": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter dot"
+			},
+			"gitHead": "71b6e35390b5880c25ccee0b01b2509e627b177d",
+			"_id": "stream-transform@0.1.2",
+			"_shasum": "7d8e6b4e03ac4781778f8c79517501bfb0762a9f",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.7.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "7d8e6b4e03ac4781778f8c79517501bfb0762a9f",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.1.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/stream-transform-0.1.2.tgz_1486502394964_0.11159795918501914"
+			},
+			"directories": {}
+		},
+		"0.2.0": {
+			"version": "0.2.0",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-stream-transform"
+			},
+			"homepage": "http://csv.adaltas.com/transform/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffeescript": "~2.0.1",
+				"pad": "~2.0.1",
+				"mocha": "~4.0.1",
+				"csv-generate": "~1.1.0",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha test/**/*.coffee"
+			},
+			"gitHead": "a49fb2ce068b6988667317384ecca5613b47f93f",
+			"_id": "stream-transform@0.2.0",
+			"_shasum": "ff1b3ab7392121b29fc6221cd593673a4e7ddde5",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"shasum": "ff1b3ab7392121b29fc6221cd593673a4e7ddde5",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/stream-transform-0.2.0.tgz_1508496936308_0.3830176596529782"
+			},
+			"directories": {}
+		},
+		"0.2.1": {
+			"version": "0.2.1",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-stream-transform"
+			},
+			"homepage": "http://csv.adaltas.com/transform/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "~1.12.7",
+				"pad": "~2.0.1",
+				"mocha": "~4.0.1",
+				"csv-generate": "~1.1.0",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha test/**/*.coffee"
+			},
+			"gitHead": "9070632cc2e772f8bac6df1b252bedb00dedf605",
+			"_id": "stream-transform@0.2.1",
+			"_shasum": "19b7c3aed527b9512c3e7a169736e6fc2576a21c",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"shasum": "19b7c3aed527b9512c3e7a169736e6fc2576a21c",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/stream-transform-0.2.1.tgz_1508499707328_0.45830323244445026"
+			},
+			"directories": {}
+		},
+		"0.2.2": {
+			"version": "0.2.2",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-stream-transform"
+			},
+			"homepage": "http://csv.adaltas.com/transform/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "~1.12.7",
+				"pad": "~2.0.1",
+				"mocha": "~4.0.1",
+				"csv-generate": "~1.1.0",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha test/**/*.coffee"
+			},
+			"gitHead": "19fb07de382497e196783415b54264de36f487df",
+			"_id": "stream-transform@0.2.2",
+			"_shasum": "75867487f49528f8bf1d82499658753d02df7838",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"shasum": "75867487f49528f8bf1d82499658753d02df7838",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.2.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/stream-transform-0.2.2.tgz_1508500073769_0.7180329624097794"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"version": "1.0.0",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-stream-transform"
+			},
+			"homepage": "http://csv.adaltas.com/transform/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffeescript": "~2.0.1",
+				"pad": "~2.0.1",
+				"mocha": "~4.0.1",
+				"csv-generate": "~2.0.0",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha test/**/*.coffee"
+			},
+			"gitHead": "e72ea719a8a5f815d6ec00306b96596a5e9e8822",
+			"_id": "stream-transform@1.0.0",
+			"_shasum": "d4ef386913d6ec102052bc75fc0516947a961f10",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"shasum": "d4ef386913d6ec102052bc75fc0516947a961f10",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/stream-transform-1.0.0.tgz_1508501249176_0.21216854103840888"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"version": "1.0.1",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-stream-transform"
+			},
+			"homepage": "http://csv.adaltas.com/transform/",
+			"dependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1"
+			},
+			"devDependencies": {
+				"coffeescript": "~2.0.1",
+				"csv-generate": "~2.0.0",
+				"mocha": "~4.0.1",
+				"pad": "~2.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "49a026d72c1449cbdcd70771e07ef9b37fb2f73f",
+			"_id": "stream-transform@1.0.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-EhMNfmqZGOHYevjVmCC9V9zj4TSx1UCxaTFH8+qrXZfA1aacejiyyxy/Xz/3i5GUzWUt64itZ8ydn+W8ccEAaA==",
+				"shasum": "963817c1ce6ab6e47c99edd2527e1077f21e4f0c",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.1.tgz",
+				"fileCount": 12,
+				"unpackedSize": 76456
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/stream-transform_1.0.1_1518643696747_0.22001115403278693"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.2": {
+			"version": "1.0.2",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-stream-transform"
+			},
+			"homepage": "http://csv.adaltas.com/transform/",
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1",
+				"coffeescript": "~2.0.1",
+				"csv-generate": "~2.0.0",
+				"mocha": "~4.0.1",
+				"pad": "~2.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "1d2d754fd377674288e7b4889f081505fb07590b",
+			"dependencies": {},
+			"_id": "stream-transform@1.0.2",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-LNcZSF01PZ+bM0OqwPY7UHPiKoxSmLGHAcqakvh01DCU98ONEslLORdyBPdmTqjTpZSfCiaYLV4sci9y5M47oA==",
+				"shasum": "47de4d15fbc29b7e2a7e54d25e99538876f114c1",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.2.tgz",
+				"fileCount": 12,
+				"unpackedSize": 76493
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/stream-transform_1.0.2_1518699227334_0.6852819257504568"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.3": {
+			"version": "1.0.3",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-stream-transform.git"
+			},
+			"homepage": "http://csv.adaltas.com/transform/",
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1",
+				"coffeescript": "~2.0.1",
+				"csv-generate": "~2.0.0",
+				"mocha": "~4.0.1",
+				"pad": "~2.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "da3e4076e22ef4167f751ef63e81816961af74fe",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-stream-transform/issues"
+			},
+			"dependencies": {},
+			"_id": "stream-transform@1.0.3",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-gTeScYM2wyibgNI8CD16g65cq0abnDf5AhyN9kx9bgsN520ftz+1HQNw+28hLmiFguFHUC+hBQR9s4yXPP4VQg==",
+				"shasum": "3efad9a056e66ed7d70cc1ea1439157a0cca33d9",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.3.tgz",
+				"fileCount": 13,
+				"unpackedSize": 21898,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbqXmiCRA9TVsSAnZWagAAYh8QAJwScqfPAlLNL9h8gDa2\nbuQEd74sNjfQoorcrZMwcGg4a4hqdvRxzZCgvzVFkQpzwXuwixWMHaKq185Y\n2gLFt2iuBMtnOb3oLTLHAnrjSwtzzX+wZObkhXO8RIywXaoJZUD35gnsZuTI\nWOVVcL6XYWLoL5yDlGB2V0pX1UO57Fxp72zgq1pye0BimgJQjnPUNzDpnPvd\nhgaDAWgoXy1jrm9p6e62jIEQRJQrB6qllQUTJBF28GXkdy2/F96F2g2TPRrX\nK5XH5HODfIP47k4JvEb2kTNYKUU3Ar5iiOzkBPbpWxrh60JAY/K8mO9d8llN\nmI0qiYy4TXMZWkbq1ZREvJCwYuJDe3uCW8ebmb1bU/aag7ycVGx5pi1YjAXy\nsRUfTSiFCd9L6bNszpQVb5DE+OocLr5vCYQO9RzCO8Sdtf0Pff2M1uQ+yu/I\nJUvgQbX59pMSC0ySYXgNqN2hLJ8MeZ+aqW7wSRKcJOhosqUfOpvFnzC8TU75\niAyP2pI5uAuujwh8oIDSiP6IJ2C4fXopS1EJSnS41sfFlAictFiGUhPZRefw\nnBO7ueobYvAFokhAo9IKoEeO34t0g6zb4ctD9hJ3THDjtCkoiThMaBuk95z7\nOkx13qB+BilxFHfqsyht6rYhUY2F0wRxrMa7Ky7xHBFI8UYM0udP1uO+9HtA\n1Rn6\r\n=XTvV\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/stream-transform_1.0.3_1537833377422_0.6829302063502427"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.4": {
+			"version": "1.0.4",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-stream-transform.git"
+			},
+			"homepage": "http://csv.adaltas.com/transform/",
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1",
+				"coffeescript": "~2.0.1",
+				"csv-generate": "~2.0.0",
+				"mocha": "~4.0.1",
+				"pad": "~2.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "077925e2e7fb7dfa3511df93dea64aaa553f58eb",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-stream-transform/issues"
+			},
+			"dependencies": {},
+			"_id": "stream-transform@1.0.4",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-Xk7qOotC90ydtuXzxDW+m+YoV2GlqVJPFapMcAizUouPnEj+emDqONV+il6YiOlEkXa2mE+FsoiFUeMEATHp8g==",
+				"shasum": "61581bbf0c7392a7e72b2bc1cf917b16c570f86c",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.4.tgz",
+				"fileCount": 13,
+				"unpackedSize": 21981,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbqXqmCRA9TVsSAnZWagAAB7sP/2bjHSIeCHZn/noAs/1n\nFWf2AGN4WOwltZ8FlOrx58euXCU6Jz9kYE6V/3bXHrMQcntk96ZxNXI0OmQ9\nVUOqJQqpwYEDp6525pV4IaPSPn5lotAcpBvQUDZ2lUNsy/wG46FrvulYlht8\no5KUJA+/i7n4/vAhsxBlPixJKoV6m8m2o9v9No3TmghGuNyU2qAHABA8Yncx\nrUKjk1w5sD5FMrG0G5UVpr9lTG298HEBF/aNqXAgu9CN2bx/8DO2H+8vsIAW\njsvdt2HFXJZFWYKMF86iJ9B22NfLFtULiAmnuOG4GEqR+Tr2qXvkEzILvhZj\nqnCDJUOUM+CEl1PwFq/eGrPtrMRaJ089A27GBrZwokqk1EwQg8fDV38AwHzf\nC7uwWTlvI7TlMetwOpLhBOK9Eq95GhxIG0NWVFPPrLhVlUyxs6jpELuMuert\nA2NfvzLVOiQrlYSbms+pFj/2ZMiiKFKnHAnnTK2laUAZBiNU/qVLb+iX2sbj\n+yNZgTRpApim7b8RvCs7TULGcVtv8WqMyQUjMFKnDY7dQLwMj46gFVswx9US\n9sFxooFYW8WKmqsW70rATvB8Ofhuk/fsCi8g28/6hCQOrMHqnAoFJtYtMLJX\npFFA0Xq+/JaXDMiHeyU8nqOP0MTny7UdgxYFlxhQ5wBSBcE/jL0LB67O/5dB\njSTO\r\n=h3pZ\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/stream-transform_1.0.4_1537833637502_0.345063886976255"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.5": {
+			"version": "1.0.5",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-stream-transform.git"
+			},
+			"homepage": "https://csv.js.org/transform/",
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"coffeescript": "~2.3.2",
+				"csv-generate": "~2.1.0",
+				"mocha": "~5.2.0",
+				"pad": "~2.2.1",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "3a107c119abedad48bcf508f34bd88d4adf05bd7",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-stream-transform/issues"
+			},
+			"dependencies": {},
+			"_id": "stream-transform@1.0.5",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.11.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-BT8T2LBHiPmn/MReld/lRqdkXkvXuKHM8AZagwJ5FC4jsfJVaktnn0wy2jSbdTqgob1/D92prQ76HTVziXDv9g==",
+				"shasum": "44956847022e209bbf030f43c31046d50142b1ae",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.5.tgz",
+				"fileCount": 18,
+				"unpackedSize": 25292,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbrprDCRA9TVsSAnZWagAAhGEQAJw+JAe5CHo83za0GctQ\nptyLmf2WbBGktxP1VXX4MqUck1OrV7CK+XMExUNlFehU9McXBQQqksxa0LbH\nPu1X+uaZpH40JPbyRsI0Y9zo4jRyAHPqPe6W0nrC/pCv17H/D10dKqOyTi33\nLetcbe8CEyy+D58V+by5y+/yf3yvadBj967h9i1v+kw0oGl2OkcGfKhPJd+N\nsxbB8kp8eBwXQXCN2xeRG6PIy0mlNfDrVn2i6QatkYcqbOiXo7hgmvmO5Nc8\nGz2t8XeWlP66EqXlaeILP76FojA4/u+yKkQ87pl3s/CpJBurYTYDsO6P9uqS\njFMF8VkxokUZua5EZbCe+BoyxNj0shjmm5LfY3WtMMb+zQ4smHL8j4zIEtW5\nOBacmc/8DKnAEx5aR+1O2B7uSENaSSSjtiuI7lqxlno5/zQbzZclpljblTlu\ngjWJQCiFQ4GNP82urQ7hDe+B0PJBC1mxcTg/X6MNfmdRWKaTUhShXs9kNByp\n41WLWK8tU/AuoG24CtOLuyYGDQL522CQBHTyP5oz//8DCRS10bLF855XJRzx\n2/XMMigHYx67R38mFMYTDfVnd+/A2iMGL1JDdYxKCh8yV5dfOc/DQ+io/Zrz\nc5EBXBBrBCnzxWPrHe6luPUaBYf5ohvFDRTkgqx1N0SPtTA86rwkWsqzyc40\n2a5O\r\n=lRWu\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/stream-transform_1.0.5_1538169537897_0.6106993423737321"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.6": {
+			"version": "1.0.6",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-stream-transform.git"
+			},
+			"homepage": "https://csv.js.org/transform/",
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"coffeescript": "~2.3.2",
+				"csv-generate": "~2.1.0",
+				"mocha": "~5.2.0",
+				"pad": "~2.2.1",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "ed56b40933cf78f30497ce217d18c08b82045b0d",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-stream-transform/issues"
+			},
+			"dependencies": {},
+			"_id": "stream-transform@1.0.6",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.11.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-3w1i6uoZ/TgBx++zY/7bYwqTMjpHEinOBPwC/O278ozSGTE9z64fbXJsE87ANZU0tGpQQuPYTnX02OmQK3Zpcw==",
+				"shasum": "147dfd4bd987e67c8618d6b5c854242d69d21cc0",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.6.tgz",
+				"fileCount": 18,
+				"unpackedSize": 25326,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbrp1aCRA9TVsSAnZWagAAfS0P/1i40teP4z2C7+d0Ysu6\nRzxfZV6cl9ufZFvGdAZO9rp4hRhUyNx9mXCkd7xH81Ih0SmyD3TQkb/IOCKX\nQvHCenn2kwo2lXJ2h3PPWZNsiUoJpiVOSPh9dF+YjMDJJsiUwdQBjMlY0Dae\nf+zAF2AeB1lXKxee/gELx7qfZeJh0dPi1x1fKUcw7ADbF5XwmQfhLUzD6QzI\n21c5fdoRagKJalFz1AI6c9SG/eeVVyvdQ462RWPSOFnA0Sa+phyvInwcKPpQ\noq0xvgptNQ+W0K2miVhyMpiSeiLRPSYXX0pljVVaEknB9mbGJqfvL7xstbfz\nOgJrHUiP8OLptmfw9UJZ4ifgMdJuYqHSUDVMwOnQn57os6YV+cVifftd5u4Y\nAVH/mb2Wk2fv8giCwZ3C0uZBZKrAIeebj7r03QQk/3JOEyCvEKQNmzzkQ5eC\nvpaJGE4TF05gg7V1769LCq+YNI0JcNuT7LqTRCUFb8M6qhg2PCuARTvMUAy7\nQBSMSIbmESUvYIJBfxYCU2wc9BLPI5J3oeV7O/YSngaeiBzzAo3wRK2zMig8\nl6t3tG5MAYlIVWnAMhKhTV1PzdnVmwMT8R7oZAqbdz87Eo8u8kw243t3ld+K\niKGH2oJMo6p7l+YX93MERTdSsFzP2b+fBlH8BImagnbae1sxMeqzuZh9Qd+0\ngCmL\r\n=cGkx\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/stream-transform_1.0.6_1538170201692_0.7228644642506479"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.7": {
+			"version": "1.0.7",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-stream-transform.git"
+			},
+			"homepage": "https://csv.js.org/transform/",
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"coffeescript": "~2.3.2",
+				"csv-generate": "~2.1.0",
+				"mocha": "~5.2.0",
+				"pad": "~2.2.1",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "bab34efc2c8cc71facf9efbd9abb0f9dcd72a1f2",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-stream-transform/issues"
+			},
+			"dependencies": {},
+			"_id": "stream-transform@1.0.7",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.11.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-bp27sM5lf75yOZAM0HfKgN7jub2FApKmXUVYnN/zuw4raqtinM3muxzd+ny262opnKvAg5PnMO66N4Eq928ayw==",
+				"shasum": "5135dd6c29941a1179212da6083be2cacdebc15a",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.7.tgz",
+				"fileCount": 18,
+				"unpackedSize": 25372,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbr8/4CRA9TVsSAnZWagAADckQAKJ/UtLYeZa2PknGg5NZ\nhNqfncDgzPJ6ct/Od7aKlMBnU6wTJr1PRUM+wyeXBO2GCJcvJcP6mKLfbYAA\ntBprb0hFIqA2CvUofErXZpJNDVXCmHAu95bae2HWlcVqOpmMaioIPYj7wZ5l\n9Qopi4pw0UxBKW6/xeMipUUxb55LgVcIaz4LqFkrXmTHjstuH3hdBfNZJzjz\nWY+uRmWNKVApvCJdxntBqfSf3ei60S9hgWK6KhXXnNSQz7W1LzMjSxs82OfJ\nAul7co20LcGpfp7fIOYI5fP6Qit+o5nJ+H6PozGnxooA6CtLw1GI1HmAbp0q\nEcqWLrpelqM9Rex+tFN1/ZR8hdZg4JRkZeUpTv0fa7nXlWpnM0C7rPWOjipe\nsU8cC1mW/X8AuggGqEF8bUo3GI8GcvktBpOGaWU4eeR7i0keOF67JggdqibU\nqTcTv5Qes1u5AJPRxtZM86XVAIIvKBQL5XqXeT9ZXedJleI3reNSHKwuWwdG\nrxMWkqny6x/49ISWQyN89u3qZNN6rIX1ou1aiXrG+r5n6w4QRCRuEAERzZAW\njDN9/YyapsFqTJDNDunBOlWah9qqtbLnBqopflE+lDDQQsruGv1xR++YBHS7\nQx7bYoT8fpTpYo6BhJp9+iAT9gEqCXe8i8RwVpMr9BihISBELsoyNb7UTcXV\nnAWj\r\n=0Bsd\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/stream-transform_1.0.7_1538248695510_0.22159189423002967"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.8": {
+			"version": "1.0.8",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-stream-transform.git"
+			},
+			"homepage": "https://csv.js.org/transform/",
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"coffeescript": "~2.3.2",
+				"csv-generate": "~2.1.0",
+				"mocha": "~5.2.0",
+				"pad": "~2.2.1",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "ecfaed0e8bee09bebc37c1c3f82e1c252f112056",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-stream-transform/issues"
+			},
+			"dependencies": {},
+			"_id": "stream-transform@1.0.8",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-1q+dL790Ps0NV33rISMq9OLtfDA9KMJZdo1PHZXE85orrWsM4FAh8CVyAOTHO0rhyeM138KNPngBPrx33bFsxw==",
+				"shasum": "54f721122d310eca855a16c97939881ab5bbb76c",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.8.tgz",
+				"fileCount": 18,
+				"unpackedSize": 24952,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcCu20CRA9TVsSAnZWagAA+HcQAJ03tB4RDFHS2OJqzfYE\nt8SATi7kJj6uNKOWfmvO7/GOpgOYkKQMxD5ziTfYHQ5KhQV1+Ihgh/gjKtsh\nouyDFMa5OxOrVvdiWTixe1oCUC27hTO1Ft9zJ71fTs49C+GjHrhyz5BvGUV7\nERCtFL2dK12dNYL5X7IALwAOE15BoarLqzaXPBChqWGenK5KJN/41NomoILv\n8wr7bNpeIx5GfvkQub2/AcF9UdNN6+FRFTnoFtjaNcy7rM8Kl/kpqAF6BBHY\nhZBmSX9OckNauvN8bDOZKutEXLO4qKKTrPu/0nP8/Jlh30RdJK/zkZQcHJDo\nShsQGB2f1MyYgFQDgk4uXqg8diE8N5LvG4wUAfcC9OKFUiE7BSYrGaVFxUWY\nPsCt/dANLsW+40gzUWqb9k/0zzygR7f5Vq/kibs8D4x3DncCJluOSozm1WBs\n9lmMl3lzdbGHqehwpS5dNTm+gm8ZldhxaErIDMRQqoRVgZWdxVk3CV2u+xL3\n6igE8CRDdDunehhVf4uhxkufYAvIwmT2keIgmgGJhSU0CS47YHrm39Cd8/xM\nqnUrU1h+W7aao3npkrOgYmzv9ciak2f/Z45cw7ylGstYUMya7xFvKN0aKcht\nBHw6BWmbIbY/3Gp5EKydBKV5vUgMcbfm9lVBDsm5455RpP8BFwJarWqxOntT\nt5Ha\r\n=ne9x\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/stream-transform_1.0.8_1544220083366_0.16734074585035863"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"version": "2.0.0",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-stream-transform.git"
+			},
+			"homepage": "https://csv.js.org/transform/",
+			"coffeelintConfig": {
+				"indentation": {
+					"level": "error",
+					"value": 2
+				},
+				"line_endings": {
+					"level": "error",
+					"value": "unix"
+				},
+				"max_line_length": {
+					"level": "ignore"
+				}
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.4.3",
+				"@babel/core": "^7.4.3",
+				"@babel/preset-env": "^7.4.3",
+				"@types/mocha": "^5.2.6",
+				"@types/node": "^11.13.7",
+				"@types/should": "^13.0.0",
+				"coffeescript": "~2.4.1",
+				"csv-generate": "~3.2.0",
+				"mocha": "~6.1.4",
+				"pad": "~2.3.0",
+				"should": "~13.2.3",
+				"ts-node": "^8.1.0",
+				"typescript": "^3.4.5"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && npm test && cp lib/*.ts lib/es5 && git add lib/es5/*.ts",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.{coffee,ts}"
+			},
+			"types": [
+				"./lib/es5/index.d.ts",
+				"./lib/es5/sync.d.ts",
+				"./lib/index.d.ts",
+				"./lib/sync.d.ts"
+			],
+			"dependencies": {
+				"mixme": "^0.3.1"
+			},
+			"gitHead": "ad4c228b58db7e2f7622604981ce9439eda4d28b",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-stream-transform/issues"
+			},
+			"_id": "stream-transform@2.0.0",
+			"_nodeVersion": "11.13.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-xbTLpkQTi7hbQdRmJmP2exrKlcN/dstQb6m/Rh7DP7gZ0Rx/jDCpJhXIENcYcQrQvyEFyS92cogOyOGImugRXQ==",
+				"shasum": "1ea1e7b6c1c28075cd759f82b2108209ec612e47",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-2.0.0.tgz",
+				"fileCount": 23,
+				"unpackedSize": 36245,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcwjkKCRA9TVsSAnZWagAAw/4P/3sSWuJndA1uz4t8fRJY\nNqWkH6cly++1Ep94fuEmX9Cu6GcZOStQDu3c0qPah83ddBEAMsuM3hRNxRFM\niJMFKB0McHhq/nnxjobbxnfup/Eg1j0g/21Fgwu7JylnOcQj16rFOWwROwCK\nbPJNQbYiCFR+77X1zJIJ7sGpsppvPaTZDUO8Jb1J59osUb7S3Vdo2UVlashi\nStv5vIryVPO+V5qZMpyCBdoQ/X1JjZXS4RCdipEIosVjr9SXq79iwpIaJ5QM\nKDojYTLLplHnltPNl8EcAvnJMXkv5Nh547kf+z7hfSPeSi9yInkvJg3CEAup\npMNzyeK33wefhK+TB4Ekhn7dDTo8QoBDMkjW4eDl4vVMivdWabhugiDMbn4z\nEbS/t6hs7aT9fXr2g9ZwAFo5qKeuNqbe4dX2D8HXU6ySHFEjGtACsgGnJMPE\nNFhRoCfKKlOcJb8dRoPKlEhBc9npwTXEONSEKwsUgl8buJ1cv1DZOdIsSv1t\nLinWJ6JIF3uXa654nzZIA/fcDyTxVDTut2fdxs0wwla/uhgNYtfGtHJIp5j0\na4E+GUaFLzOpTVfen8a4Vo3QvdqdXD9GRB+HVgMdvNW8cxH1Gm2OXRgDP1GX\n8O3gCQyTURmgzh7lV3k3BWaxhWN6A5DFvg9eJbHFVnCahZmEFmulVQ4IgkOk\n/ZYF\r\n=zJ6g\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/stream-transform_2.0.0_1556232458193_0.5395782822752613"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.1": {
+			"version": "2.0.1",
+			"name": "stream-transform",
+			"description": "Object transformations implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"stream",
+				"transform",
+				"csv",
+				"object"
+			],
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-stream-transform.git"
+			},
+			"homepage": "https://csv.js.org/transform/",
+			"coffeelintConfig": {
+				"indentation": {
+					"level": "error",
+					"value": 2
+				},
+				"line_endings": {
+					"level": "error",
+					"value": "unix"
+				},
+				"max_line_length": {
+					"level": "ignore"
+				}
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.4.3",
+				"@babel/core": "^7.4.3",
+				"@babel/preset-env": "^7.4.3",
+				"@types/mocha": "^5.2.6",
+				"@types/node": "^11.13.7",
+				"@types/should": "^13.0.0",
+				"coffeescript": "~2.4.1",
+				"csv-generate": "~3.2.0",
+				"mocha": "~6.1.4",
+				"pad": "~2.3.0",
+				"should": "~13.2.3",
+				"ts-node": "^8.1.0",
+				"typescript": "^3.4.5"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && npm test && cp lib/*.ts lib/es5 && git add lib/es5/*.ts",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"build": "coffee -b -o lib src && cd lib && babel *.js -d es5 && cd ..",
+				"pretest": "npm run build",
+				"test": "mocha test/**/*.{coffee,ts}"
+			},
+			"types": [
+				"./lib/es5/index.d.ts",
+				"./lib/es5/sync.d.ts",
+				"./lib/index.d.ts",
+				"./lib/sync.d.ts"
+			],
+			"dependencies": {
+				"mixme": "^0.3.1"
+			},
+			"gitHead": "c6c4465c2af548c664f566409dd3bc77660f79fa",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-stream-transform/issues"
+			},
+			"_id": "stream-transform@2.0.1",
+			"_nodeVersion": "11.13.0",
+			"_npmVersion": "6.9.0",
+			"dist": {
+				"integrity": "sha512-GiTcO/rRvZP2R8WPwxmxCFP+Of1yIATuFAmYkvSLDfcD93X2WHiPwdgIqeFT2CvL1gyAsjQvu1nB6RDNQ5b2jw==",
+				"shasum": "112ef2b4d8b9b517f9a6994b0bf7b946fa4d51bc",
+				"tarball": "https://registry.npmjs.org/stream-transform/-/stream-transform-2.0.1.tgz",
+				"fileCount": 12,
+				"unpackedSize": 25985,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc+5cJCRA9TVsSAnZWagAAeLAP/ifWV+4QU7K3JCWLyZcU\nSoLLkpOz2Ti6m3TI1xxMlc+3PYZGpLpROciVSZfIPrWSohqCsr3xFwDHmDvr\n+L3/HRpbej6OrVM/H+OgjVXKTcONUqviBdkqTV++LSTpEkzkORoFDfNGTdqG\n5t8nL6XDsM8IfDUqEzx1PllQ4FqCuL07ZUCoi326zsm99pq4KDFNAct+EBlu\n57WYxVmh4z8/+xZShK6hvEMpmsCdqj+hGgBkvrg24V3i0OiDIbnryt2uIbLj\nRAyqzVRBBjWtoRPxFK+MrTglNus9rmHiYmKaNL2xPdWFbHIfPfy6wf9bpSGo\nd89TKBe0cimPan+c07WLmf8YwCG4ufYXAY2i4sknS6YlQLH52x39CoY+dRbX\ngdPE6fC5G+ZP/DjSbQ36cB8X1jDvwebphV/++KWXZu+XeHUTxuB8kZBQDbvh\n/kEyVozcS2pdK6o7VW+agKdwtlCuv6KuOtDEFLeGvOtZoSQ/wsg6nKjWl3R7\nrG05pSbsifmxoZECvl8vW5H43zA/AdBvLD00elHidZNyFrsmpEVoYP/NB5r+\n55JCkfklEabHlZxdPkPS/OVVBoiSGEufOUwV34wYkXkQPv18rLnk/jFOUSEh\nzQ9nl/TEE0xnabFA3ePaV9160wVTszgCJwHpz4unVplOiVKKk2hc6qDUUN/4\nQ2rb\r\n=0lzS\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/stream-transform_2.0.1_1559992073187_0.7104529477845918"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-06-08T11:07:55.901Z",
+		"created": "2014-04-28T11:39:46.746Z",
+		"0.0.2": "2014-04-28T11:39:46.746Z",
+		"0.0.4": "2014-06-22T13:32:26.707Z",
+		"0.0.5": "2014-08-07T19:01:56.027Z",
+		"0.0.6": "2014-08-07T19:10:52.722Z",
+		"0.0.7": "2015-02-27T08:44:57.274Z",
+		"0.0.8": "2015-05-29T09:36:12.721Z",
+		"0.0.9": "2015-06-09T09:48:47.058Z",
+		"0.1.0": "2015-06-10T21:19:35.817Z",
+		"0.1.1": "2015-10-20T20:40:06.672Z",
+		"0.1.2": "2017-02-07T21:19:56.699Z",
+		"0.2.0": "2017-10-20T10:55:37.175Z",
+		"0.2.1": "2017-10-20T11:41:48.265Z",
+		"0.2.2": "2017-10-20T11:47:54.648Z",
+		"1.0.0": "2017-10-20T12:07:30.076Z",
+		"1.0.1": "2018-02-14T21:28:18.999Z",
+		"1.0.2": "2018-02-15T12:53:48.170Z",
+		"1.0.3": "2018-09-24T23:56:17.624Z",
+		"1.0.4": "2018-09-25T00:00:37.675Z",
+		"1.0.5": "2018-09-28T21:18:58.084Z",
+		"1.0.6": "2018-09-28T21:30:01.895Z",
+		"1.0.7": "2018-09-29T19:18:15.695Z",
+		"1.0.8": "2018-12-07T22:01:23.515Z",
+		"2.0.0": "2019-04-25T22:47:38.330Z",
+		"2.0.1": "2019-06-08T11:07:53.333Z"
+	},
+	"dist-tags": {
+		"latest": "2.0.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"79639478ed7b0ab320930698cafa6221\"",
+			"fetched": 1568994345839
+		}
+	},
+	"_distfiles": {
+		"stream-transform-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.0.2.tgz",
+			"sha": "030a26f44b76d738b705aa18f83157003a2dd610",
+			"registry": "npmjs"
+		},
+		"stream-transform-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.0.4.tgz",
+			"sha": "3bf2f9ba0be94e3d9f1872fcb2442248d717f921",
+			"registry": "npmjs"
+		},
+		"stream-transform-0.0.6.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.0.6.tgz",
+			"sha": "365aa2beffe68cfaa96cb4c525f8644befc3d037",
+			"registry": "npmjs"
+		},
+		"stream-transform-0.0.7.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.0.7.tgz",
+			"sha": "f7f1dd009de4db7eb772f116b33341003d461907",
+			"registry": "npmjs"
+		},
+		"stream-transform-0.0.8.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.0.8.tgz",
+			"sha": "955bf2a4397ce5bb065fb395e95a96c6685a97e8",
+			"registry": "npmjs"
+		},
+		"stream-transform-0.0.9.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.0.9.tgz",
+			"sha": "7d7049e13261be8d484a075abc7134a260d6a85d",
+			"registry": "npmjs"
+		},
+		"stream-transform-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.1.0.tgz",
+			"sha": "6bd0d47b79f48b34ff21f6b9393126427e61f485",
+			"registry": "npmjs"
+		},
+		"stream-transform-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.1.1.tgz",
+			"sha": "0a54a2b81eea88da55a50df2441cb63edc101c71",
+			"registry": "npmjs"
+		},
+		"stream-transform-0.1.2.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.1.2.tgz",
+			"sha": "7d8e6b4e03ac4781778f8c79517501bfb0762a9f",
+			"registry": "npmjs"
+		},
+		"stream-transform-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.2.0.tgz",
+			"sha": "ff1b3ab7392121b29fc6221cd593673a4e7ddde5",
+			"registry": "npmjs"
+		},
+		"stream-transform-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.2.1.tgz",
+			"sha": "19b7c3aed527b9512c3e7a169736e6fc2576a21c",
+			"registry": "npmjs"
+		},
+		"stream-transform-0.2.2.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-0.2.2.tgz",
+			"sha": "75867487f49528f8bf1d82499658753d02df7838",
+			"registry": "npmjs"
+		},
+		"stream-transform-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.0.tgz",
+			"sha": "d4ef386913d6ec102052bc75fc0516947a961f10",
+			"registry": "npmjs"
+		},
+		"stream-transform-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.1.tgz",
+			"sha": "963817c1ce6ab6e47c99edd2527e1077f21e4f0c",
+			"registry": "npmjs"
+		},
+		"stream-transform-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.2.tgz",
+			"sha": "47de4d15fbc29b7e2a7e54d25e99538876f114c1",
+			"registry": "npmjs"
+		},
+		"stream-transform-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.3.tgz",
+			"sha": "3efad9a056e66ed7d70cc1ea1439157a0cca33d9",
+			"registry": "npmjs"
+		},
+		"stream-transform-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.4.tgz",
+			"sha": "61581bbf0c7392a7e72b2bc1cf917b16c570f86c",
+			"registry": "npmjs"
+		},
+		"stream-transform-1.0.5.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.5.tgz",
+			"sha": "44956847022e209bbf030f43c31046d50142b1ae",
+			"registry": "npmjs"
+		},
+		"stream-transform-1.0.6.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.6.tgz",
+			"sha": "147dfd4bd987e67c8618d6b5c854242d69d21cc0",
+			"registry": "npmjs"
+		},
+		"stream-transform-1.0.7.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.7.tgz",
+			"sha": "5135dd6c29941a1179212da6083be2cacdebc15a",
+			"registry": "npmjs"
+		},
+		"stream-transform-1.0.8.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-1.0.8.tgz",
+			"sha": "54f721122d310eca855a16c97939881ab5bbb76c",
+			"registry": "npmjs"
+		},
+		"stream-transform-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-2.0.0.tgz",
+			"sha": "1ea1e7b6c1c28075cd759f82b2108209ec612e47",
+			"registry": "npmjs"
+		},
+		"stream-transform-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/stream-transform/-/stream-transform-2.0.1.tgz",
+			"sha": "112ef2b4d8b9b517f9a6994b0bf7b946fa4d51bc",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-c810b660920eef20",
+	"_id": "stream-transform",
+	"readme": "[![Build Status](https://api.travis-ci.org/adaltas/node-stream-transform.svg)](https://travis-ci.org/#!/adaltas/node-stream-transform)\n\nPart of the [CSV module](https://csv.js.org/), this project is a simple object transformation framework. It implements the Node.js [`stream.Transform` API](http://nodejs.org/api/stream.html#stream_class_stream_transform). It also provides a simple callback-based API for convenience. It is both extremely easy to use and powerful.\n\n## Documentation\n\n* [Project homepage](http://csv.js.org/transform/)\n* [API](http://csv.js.org/transform/api/)\n* [Options](http://csv.js.org/transform/options/)\n* [Handler](http://csv.js.org/transform/handler/)\n* [State properties](http://csv.js.org/transform/state/)\n* [Examples](http://csv.js.org/transform/examples/)\n\n## Features\n\n* Extends the native Node.js [transform stream API](http://nodejs.org/api/stream.html#stream_class_stream_transform)\n* Simplicity with the optional callback and sync API\n* Pipe transformations between readable and writable streams\n* Synchronous versus asynchronous user functions\n* Sequential and parallel execution\n* Accept object, array or JSON as input and output\n* Sequential or user-defined concurrent execution\n* Skip and multiply records\n* Alter or clone input records\n* MIT License\n\n## Usage\n\nThe module is built on the Node.js Stream API. For the sake of simplify, a simple callback API is also provided. To give you a quick look, here's an example of the callback API:\n\n```javascript\nvar transform = require('stream-transform');\n\ninput = [ [ '1', '2', '3', '4' ], [ 'a', 'b', 'c', 'd' ] ];\ntransform(input, function(data){\n  data.push(data.shift());\n  return data.join(',')+'\\n';\n}, function(err, output){\n  output.should.eql([ '2,3,4,1\\n', 'b,c,d,a\\n' ]);\n});\n```\n\n## Development\n\nTests are executed with mocha. To install it, simple run `npm install` followed by `npm test`. It will install mocha and its dependencies in your project \"node_modules\" directory and run the test suite. The tests run against the CoffeeScript source files.\n\nTo generate the JavaScript files, run `npm run coffee`.\n\nThe test suite is run online with [Travis](http://travis-ci.org/wdavidw/node-stream-transform). See the [Travis definition file](https://github.com/adaltas/node-stream-transform/blob/master/.travis.yml) to view the tested Node.js version."
+}

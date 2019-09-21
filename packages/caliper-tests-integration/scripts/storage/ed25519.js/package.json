@@ -1,0 +1,452 @@
+{
+	"name": "ed25519.js",
+	"versions": {
+		"1.0.0": {
+			"name": "ed25519.js",
+			"version": "1.0.0",
+			"description": "A javascript port and wrapper of https://github.com/warchant/ed25519.git",
+			"main": "index.js",
+			"scripts": {
+				"precommit": "npm test",
+				"prepush": "npm test",
+				"test": "standard && tape test/**/*.js | tap-spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/laSinteZ/ed25519.js.git"
+			},
+			"author": {
+				"name": "Vyacheslav Bikbaev",
+				"email": "la.sintez@gmail.com"
+			},
+			"license": "Apache-2.0",
+			"devDependencies": {
+				"husky": "^0.14.3",
+				"standard": "^10.0.3",
+				"tap-spec": "^4.1.1",
+				"tape": "^4.8.0"
+			},
+			"standard": {
+				"ignore": [
+					"/lib/*.js"
+				]
+			},
+			"licenseText": "                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Copyright 2018 Vyacheslav Bikbaev\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n",
+			"_id": "ed25519.js@1.0.0",
+			"dist": {
+				"shasum": "306214453e17a29933d25b62448aeadbc2e0e572",
+				"tarball": "https://registry.npmjs.org/ed25519.js/-/ed25519.js-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lasintez",
+					"email": "la.sintez@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "lasintez",
+				"email": "la.sintez@gmail.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ed25519.js-1.0.0.tgz_1516285637653_0.6784467631950974"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "ed25519.js",
+			"version": "1.0.1",
+			"description": "A javascript port and wrapper of https://github.com/warchant/ed25519.git",
+			"main": "index.js",
+			"scripts": {
+				"precommit": "npm test",
+				"prepush": "npm test",
+				"test": "standard && tape test/**/*.js | tap-spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/laSinteZ/ed25519.js.git"
+			},
+			"author": {
+				"name": "Vyacheslav Bikbaev",
+				"email": "la.sintez@gmail.com"
+			},
+			"license": "Apache-2.0",
+			"devDependencies": {
+				"husky": "^0.14.3",
+				"standard": "^10.0.3",
+				"tap-spec": "^4.1.1",
+				"tape": "^4.8.0"
+			},
+			"standard": {
+				"ignore": [
+					"/lib/*.js"
+				]
+			},
+			"licenseText": "                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Copyright 2018 Vyacheslav Bikbaev\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n",
+			"_id": "ed25519.js@1.0.1",
+			"dist": {
+				"shasum": "41f6b8758611de09ae48c9029e46ee81f3c329ac",
+				"tarball": "https://registry.npmjs.org/ed25519.js/-/ed25519.js-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "lasintez",
+					"email": "la.sintez@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "lasintez",
+				"email": "la.sintez@gmail.com"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ed25519.js-1.0.1.tgz_1516286407571_0.942333193263039"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "ed25519.js",
+			"version": "1.1.0",
+			"description": "A javascript port and wrapper of https://github.com/warchant/ed25519.git",
+			"main": "index.js",
+			"scripts": {
+				"precommit": "npm test",
+				"prepush": "npm test",
+				"test": "standard && tape test/**/*.js | tap-spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/laSinteZ/ed25519.js.git"
+			},
+			"author": {
+				"name": "Vyacheslav Bikbaev",
+				"email": "la.sintez@gmail.com"
+			},
+			"license": "Apache-2.0",
+			"devDependencies": {
+				"husky": "^0.14.3",
+				"standard": "^10.0.3",
+				"tap-spec": "^4.1.1",
+				"tape": "^4.8.0"
+			},
+			"standard": {
+				"ignore": [
+					"/lib/*.js"
+				]
+			},
+			"gitHead": "424d8ecbff644115528fc16b09236b8473aff20c",
+			"bugs": {
+				"url": "https://github.com/laSinteZ/ed25519.js/issues"
+			},
+			"homepage": "https://github.com/laSinteZ/ed25519.js#readme",
+			"_id": "ed25519.js@1.1.0",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "10.2.1",
+			"_npmUser": {
+				"name": "lasintez",
+				"email": "la.sintez@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "lasintez",
+					"email": "la.sintez@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-9KFuJdSY1PZOL1SjwGT+6faP0D8RONEg5JPsOtEZbFqLvXbFumd1KNRokAknDiCSTSdNzHisf1fTqdb0etQHOw==",
+				"shasum": "87bc1287b0a8b941cdc7d922dfcb8ad91b6afc35",
+				"tarball": "https://registry.npmjs.org/ed25519.js/-/ed25519.js-1.1.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 248667,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbT3+PCRA9TVsSAnZWagAATQoP/20ob/v/XEIDDnmOnDLe\n8FWt3zClwUg30Tw8vMfIrzVXy3Fa0mqQMTMBaZ5Gzy85jmeDjZJxIE5eK+5c\n+dZM7z6XmDuUz59NPw7z04K1aYcapA/ZX8brzdbRDlQMlTHiBYihM6Y67Xj9\nNliqAHyPpuJfOancPZMxr/Sjy5xC5BX3dXMHJysO4V3aJ1EnjTM5v6STAvFF\nrK3SUpQrCqOvD8UgWzhq/2+5JXrPNrL5k83HRlcFEPURhCYhIu2jNQ/A+pcY\nIYeINeSpYHI+g0lHLcxviUUr17cTBVdFZmAU4n4hoJBp34t8HMmXM7dPsQRO\nanL+lW8TbbJho2MrcXx14KyIaMMB49Csohl1pqCb+lu6NISUMZcmSMolqWqh\nWgiRAC0k7VRc1VHp8S/B3TmRzHobVCp/qleGBcNy7tQx5NZ7ZLChBThRcfcl\nNxOTdyHPhwW4LyrrXST36HUadlpEFXXfPoP32IO4l/gkCOnhJ5/wzFjOfc+B\nGekny6Ns8uz1tHxvWtMWKMk7553vLs+RXelPi0QCG40y0OeHFYbtC88DMU07\nbI/hIrZF7NdUv3+EoYCZayU5w7P7dTHSwPXGL2wGG59hlSoNixU1O+e+zcAG\novbQxoqTuAALHeDq7TeglVfQRq1CDxSt8oldiMLcbwWBCB1tttk4Lm6UbWyG\n+b1H\r\n=89Jp\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ed25519.js_1.1.0_1531936655822_0.5561648696154682"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "ed25519.js",
+			"version": "2.0.0",
+			"description": "A javascript port and wrapper of https://github.com/hyperledger/iroha-ed25519",
+			"main": "index.js",
+			"scripts": {
+				"precommit": "npm test",
+				"prepush": "npm test",
+				"test": "standard && tape test/**/*.js | tap-spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soramitsu/iroha-ed25519.js.git"
+			},
+			"author": {
+				"name": "Vyacheslav Bikbaev",
+				"email": "la.sintez@gmail.com"
+			},
+			"license": "Apache-2.0",
+			"devDependencies": {
+				"husky": "^0.14.3",
+				"standard": "^10.0.3",
+				"tap-spec": "^4.1.1",
+				"tape": "^4.8.0"
+			},
+			"standard": {
+				"ignore": [
+					"/lib/*.js"
+				]
+			},
+			"gitHead": "60d5af61aef502cf5f8b57b6fc0740235d1fe834",
+			"bugs": {
+				"url": "https://github.com/soramitsu/iroha-ed25519.js/issues"
+			},
+			"homepage": "https://github.com/soramitsu/iroha-ed25519.js#readme",
+			"_id": "ed25519.js@2.0.0",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "10.7.0",
+			"_npmUser": {
+				"name": "lasintez",
+				"email": "la.sintez@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "la.sintez@gmail.com",
+					"name": "lasintez"
+				},
+				{
+					"email": "s1190013@gmail.com",
+					"name": "oimou"
+				},
+				{
+					"email": "stinger112@gmail.com",
+					"name": "stinger112"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-EWEIoFjmtQGuZagJ+IgwmwG9UM2ozGLd590nY6L9eWfAvVvYvbPaduRzdb9aLxP9cNdcO4r8Utu0Upk30IIJFg==",
+				"shasum": "ad868822773682f257e713b212af29f7b8b79cfd",
+				"tarball": "https://registry.npmjs.org/ed25519.js/-/ed25519.js-2.0.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 248693,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbYI7qCRA9TVsSAnZWagAAXhsP/Aq2ZbTQz2CPQSYXTAiU\nI+TlQ+FsUF818lHgPA2YvyjSEDiJqK4BUuKeTpSlCAhn/9kfp7OlSjALq/jr\n9FAYgg3A86gUSZXys+1bDd72WkbbvpNMa5dXDP12wFITrmZ0ZTKr2hnp1eh2\nqMjU9qDmFtdeQclEBhFR4Rop6Ew34Q/mPr569ukGA8bnaNdMHPsXRXXdhg6M\nqbWsCQWvC0/loXLMp1IjvGHATm+xhe2RAaexK5yovu/1Z4s3fdxIra+X9FcV\nk5Uuw9YNx6+WLtutO2E8PH7fZdaLDS0rrUd1O6rJVdlSYCinONAEeHlkZ5av\nvlqVJikOt0lQhwFBp4NIi8rF+j/w9DyztAAq00dKui8iPsbUMbnf9wZF59gS\nEt0XPFvc3U/TD7GnxirwUVA26K+UyAohu+5U65obqlplsZ2L1WMOPOKtH/7s\nhTeg7+MbefeRawh4CefP1Psr1mjPp3I9MNQu8cqxHEJOCqRmwLRNiD6cNXMT\nS1GLwzvZmyD7nmZ88SXZ2aqIX7RdF0APwfQfh18YTVo7W0D233OCQxQdtn+f\nwHp42s7NLSr8I2XzD+35IiYkIdTPMAOMaGBOnwCOBwzhrGPyv4dhbP3HWYwx\nIcSJSl4Nu+rbqtZ4n68406NK5W4/Rddps/f9HCGUnYYMlfJgfDLfww9Y9ye9\nTncP\r\n=BXrT\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ed25519.js_2.0.0_1533054698080_0.1978853798001976"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.2.0": {
+			"name": "ed25519.js",
+			"version": "1.2.0",
+			"description": "A typescript/javascript port of https://github.com/hyperledger/iroha-ed25519",
+			"main": "index.js",
+			"typings": "index.d.ts",
+			"scripts": {
+				"precommit": "npm test",
+				"prepush": "npm test",
+				"docs": "npx typedoc --out doc --module commonjs --target ES5 --ignoreCompilerErrors --excludeExternals --hideGenerator --excludePrivate ./index.ts",
+				"lint": "npx tslint -e **/node_modules/** -e **/dist/** index.ts test/index.ts",
+				"build": "npx tsc -p ./tsconfig.json",
+				"test": "ts-node node_modules/tape/bin/tape tape test/**/*.ts | tap-spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soramitsu/iroha-ed25519.js.git"
+			},
+			"author": {
+				"name": "Vyacheslav Bikbaev",
+				"email": "la.sintez@gmail.com"
+			},
+			"license": "Apache-2.0",
+			"devDependencies": {
+				"husky": "^0.14.3",
+				"tap-spec": "5.0.0",
+				"tape": "^4.9.1",
+				"ts-node": "7.0.0",
+				"tslint": "5.11.0",
+				"tslint-config-standard": "7.1.0",
+				"typedoc": "0.11.1",
+				"typescript": "2.9.2"
+			},
+			"dependencies": {
+				"buffer": "5.0.2"
+			},
+			"gitHead": "cfa08681ac065b8e1b11da0a92a8be65d2bb132f",
+			"bugs": {
+				"url": "https://github.com/soramitsu/iroha-ed25519.js/issues"
+			},
+			"homepage": "https://github.com/soramitsu/iroha-ed25519.js#readme",
+			"_id": "ed25519.js@1.2.0",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "10.8.0",
+			"_npmUser": {
+				"name": "lasintez",
+				"email": "la.sintez@gmail.com"
+			},
+			"maintainers": [
+				{
+					"email": "la.sintez@gmail.com",
+					"name": "lasintez"
+				},
+				{
+					"email": "s1190013@gmail.com",
+					"name": "oimou"
+				},
+				{
+					"email": "stinger112@gmail.com",
+					"name": "stinger112"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-20js1FL9v2tmR9sEE6a8zdQ9uJ27ARC4tL6rsaLgdyajpImxSf5hFaEYfrHl28bzL+k2kJS9J+fz2f+08Umc+Q==",
+				"shasum": "8554e05c055f1611cdf0cf54f332cd11d654d314",
+				"tarball": "https://registry.npmjs.org/ed25519.js/-/ed25519.js-1.2.0.tgz",
+				"fileCount": 12,
+				"unpackedSize": 244933,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbaDYWCRA9TVsSAnZWagAAEfUQAI6v608VTZ6v4as2QcBX\nb/C+34EL1pEbFYENwEAtF8SbxZCsIZy6aSKM6laR9Fj+h2sP1U4lx+G0cDXy\ng1KkHh443VDenl0wABa+GC6KSnv1rjJyss8RQvk8W3kcXZAii072JRKPZheN\nME9L/xsvELIBuCgL/P+lsu1pgatWVXspKpN2VsYSntA2lx8CjveH2tmWfEAw\nfGRiHh5i+yCCQ6u5WQL0w+VD4UanC1g/a3yswnEW7WyXS/Qm2s5Mnr2qrZmf\nbeIge4kifENgDd7aSDv/QSn2zqZB2/TV+meK33Jt8OKs59XLyMmHAA4dfDcU\n8MYeUp6sK3vi7yZhK/EleF1a0MVaxB/j1JOzeri3OQ/Q6ZF9TXPWcUA35csl\nNku1Y8NnevNbZaQYooad9k5YX+OuQ6sDOuTCWUQ+9T0UhB5rStX8MdwoA3v6\n1+CoovpraVPBwW0SrtDAeoIZ1xH3JaYT7YXhNIvklH9rftOgWF4eNmknzO76\nWLUKmxtTStEH2VVuk5TZBAUUxymPjDP5uA+f+HHhSR7d2Ts5aw8gkvcqAe71\n7LnSvkEwLOA2OeHelZPtzEix51R+SxxjR8Kzcm85OZ7T2EQDfpRl65F8OhCV\nxcKc0WMNwfepjBM8I/kI+6wh9iJ3nvVbV7KwTcVr0VuovFd2gXcDR3HbaPvP\n+KGO\r\n=Wr6Y\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ed25519.js_1.2.0_1533556245437_0.017238671760025692"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.3.0": {
+			"name": "ed25519.js",
+			"version": "1.3.0",
+			"description": "A typescript/javascript port of https://github.com/hyperledger/iroha-ed25519",
+			"main": "index.js",
+			"typings": "index.d.ts",
+			"scripts": {
+				"precommit": "npm test",
+				"prepush": "npm test",
+				"docs": "npx typedoc --out doc --module commonjs --target ES5 --ignoreCompilerErrors --excludeExternals --hideGenerator --excludePrivate ./index.ts",
+				"lint": "npx tslint -e **/node_modules/** -e **/dist/** index.ts test/index.ts",
+				"build": "npx tsc -p ./tsconfig.json",
+				"test": "ts-node node_modules/tape/bin/tape tape test/**/*.ts | tap-spec"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soramitsu/iroha-ed25519.js.git"
+			},
+			"author": {
+				"name": "Vyacheslav Bikbaev",
+				"email": "la.sintez@gmail.com"
+			},
+			"license": "Apache-2.0",
+			"devDependencies": {
+				"husky": "^0.14.3",
+				"tap-spec": "5.0.0",
+				"tape": "^4.9.1",
+				"ts-node": "7.0.0",
+				"tslint": "5.11.0",
+				"tslint-config-standard": "7.1.0",
+				"typedoc": "0.11.1",
+				"typescript": "2.9.2"
+			},
+			"dependencies": {
+				"buffer": "5.0.2"
+			},
+			"gitHead": "de2e723bcc5c1fb577797e8181ee0ec254c15d6a",
+			"bugs": {
+				"url": "https://github.com/soramitsu/iroha-ed25519.js/issues"
+			},
+			"homepage": "https://github.com/soramitsu/iroha-ed25519.js#readme",
+			"_id": "ed25519.js@1.3.0",
+			"_npmVersion": "6.3.0",
+			"_nodeVersion": "10.7.0",
+			"_npmUser": {
+				"name": "stinger112",
+				"email": "stinger112@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-KeS+1N/aTaHQdOIaVxKqfscrb7HRgVfRyOP3QkEGlpcMnuDN/3dVvm5t1/DpsH4NeFrv1g6wtut5vdVMRw4DqQ==",
+				"shasum": "11ff48508c4964302179aee33d2f870371df4ad8",
+				"tarball": "https://registry.npmjs.org/ed25519.js/-/ed25519.js-1.3.0.tgz",
+				"fileCount": 11,
+				"unpackedSize": 214029,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbaUJDCRA9TVsSAnZWagAAW7UQAKMa3X0QcSkQP5Kflo+C\npViPZUGJk5GfhXp3RsXdLYm4lxenBVmAJfLM6fY0p+oOOshcdTdIlgHWyjUJ\nv6of31qKYmIHe5dlWRJYsa6DJ6Adm0HHdVJlOjU2X4bd3kNXj0Ty2aJagG/T\n+6emuZlmsxh5nRiKqPOOMnjjcRYKBAfeeGCK7QJoDp+2lN98NsvFH/a/yzwX\nVzCH3ZpvvYbkuoLqvoJOzuFzNhMMGd683MmVSb0O8p+l2R16MziaxwCtzziW\n9LTUcHRNguCqPZkP6eBaaHs2ceafjmLhOYWes7uBrbS1DVpPyvaZgNJLfWVu\nwcd2rsjOpb6VPG943eiqHNaAgHGuFwszKVBQWVypqcayQzcGwJjCvTy71lT0\nAWxN0omn1JJBGEwfN8wIj2etAEdObyTp/t7TSBdZTFSq80HIGHqVrZcVTrcl\n/36n4M/4SIpGcm90Pp5lLg98ED1jT/ej/mz3bD4/5s+KdKjmwBkGOdgG51/W\nl5JrG/zOcoccQODq8B6BaZlS12w41YIIexIHQZ/7w/ad0N/wnncLgUGNNh7A\nh/UugzCTqWC5+sYKna1bVm2DfsBuYt0A6ZRw60d1fkXAJE9E8NwvS88ShsOP\nCECbKwF94aBoMZvH2e9+clCUluVsQaqnql6HmWsEKY91esCMmAgy1cJsEupI\nGI59\r\n=cT/W\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "la.sintez@gmail.com",
+					"name": "lasintez"
+				},
+				{
+					"email": "s1190013@gmail.com",
+					"name": "oimou"
+				},
+				{
+					"email": "stinger112@gmail.com",
+					"name": "stinger112"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/ed25519.js_1.3.0_1533624899472_0.208866633994778"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-04-01T07:28:10.919Z",
+		"created": "2018-01-18T14:27:18.875Z",
+		"1.0.0": "2018-01-18T14:27:18.875Z",
+		"1.0.1": "2018-01-18T14:40:08.804Z",
+		"1.1.0": "2018-07-18T17:57:35.897Z",
+		"2.0.0": "2018-07-31T16:31:38.180Z",
+		"1.2.0": "2018-08-06T11:50:45.540Z",
+		"1.3.0": "2018-08-07T06:54:59.596Z"
+	},
+	"dist-tags": {
+		"latest": "1.3.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"7acce31f828f1eebf1ff757aaba1f97e\"",
+			"fetched": 1568994351300
+		}
+	},
+	"_distfiles": {
+		"ed25519.js-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/ed25519.js/-/ed25519.js-1.0.0.tgz",
+			"sha": "306214453e17a29933d25b62448aeadbc2e0e572",
+			"registry": "npmjs"
+		},
+		"ed25519.js-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/ed25519.js/-/ed25519.js-1.0.1.tgz",
+			"sha": "41f6b8758611de09ae48c9029e46ee81f3c329ac",
+			"registry": "npmjs"
+		},
+		"ed25519.js-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/ed25519.js/-/ed25519.js-1.1.0.tgz",
+			"sha": "87bc1287b0a8b941cdc7d922dfcb8ad91b6afc35",
+			"registry": "npmjs"
+		},
+		"ed25519.js-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/ed25519.js/-/ed25519.js-2.0.0.tgz",
+			"sha": "ad868822773682f257e713b212af29f7b8b79cfd",
+			"registry": "npmjs"
+		},
+		"ed25519.js-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/ed25519.js/-/ed25519.js-1.2.0.tgz",
+			"sha": "8554e05c055f1611cdf0cf54f332cd11d654d314",
+			"registry": "npmjs"
+		},
+		"ed25519.js-1.3.0.tgz": {
+			"url": "https://registry.npmjs.org/ed25519.js/-/ed25519.js-1.3.0.tgz",
+			"sha": "11ff48508c4964302179aee33d2f870371df4ad8",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-67148a578c5ffb83",
+	"_id": "ed25519.js",
+	"readme": "# ed25519.js [![npm version](https://badge.fury.io/js/ed25519.js.svg)](https://badge.fury.io/js/ed25519.js) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)\n\n\n\n[https://github.com/hyperledger/iroha-ed25519](https://github.com/warchant/ed25519.git) compiled with [Emscripten](https://github.com/kripken/emscripten) and wrapper for it.\n\n## Installation\nYarn: `yarn add ed25519.js`\n\nNPM: `npm install ed25519.js`\n\nAfter it, you can use it with `require('ed25519.js')`\n\n## Example\nThis library produces buffers of bytes and requires buffers as input\n\nGenerating keypair\n```\nvar ed25519 = require('ed25519.js')\n\nvar keys = ed25519.createKeyPair() //Generate keypair\nconsole.log(keys.publicKey) // Generated public key, stored as buffer\nconsole.log(keys.privateKey) // Generated private key, stored as buffer\n```\n\nDeriving public key, signing and verifying message\n```\nvar ed25519 = require('ed25519.js')\n\n// Example private key, parsed from hex string as buffer\nvar privateKey = Buffer.from('9d61b19deffd5a60ba844af492ec2cc44449c5697b326919703bac031cae7f60', 'hex')\n\n// Derived public key, stored as buffer\nvar publicKey = ed25519.derivePublicKey(privateKey)\n\n// Message, stored as buffer\nvar message = Buffer.from('Cool message', 'utf8')\n\n// Signing message\nvar signature = ed25519.sign(message, publicKey, privateKey)\n\n// Verifying message\nvar isVerified = ed25519.verify(signature, message, publicKey)\n\nconsole.log(isVerified)\n```\n\n### TS Examples\n\nYou can test typescript examples by running this command\n```\nnode -r ts-node/register ./examples/createKeyPair.ts\n```\n\n\n## TODOs\n- [x] Write tests\n- [x] Use Standard.js\n- [x] Add PreCommit/Push hooks\n- [x] Write an example to readme\n- [x] License\n- [x] Create NPM package\n- [x] Migrate code to TS\n- [x] Code examples in TS \n- [ ] Uglify/Minify\n- [x] TSDoc\n- [ ] Compile library from C++ on the fly\n- [ ] More tests\n\n## License\n[Apache License 2.0](LICENSE.md)"
+}

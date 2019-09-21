@@ -1,0 +1,158 @@
+{
+	"name": "caliper-cli",
+	"versions": {
+		"0.1.0": {
+			"name": "caliper-cli",
+			"version": "0.1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/caliper.git"
+			},
+			"bin": {
+				"caliper": "caliper.js"
+			},
+			"main": "index.js",
+			"scripts": {
+				"pretest": "npm run licchk",
+				"licchk": "license-check-and-add",
+				"test": "npm run lint",
+				"lint": "npx eslint .",
+				"list": "node ./scripts/list.js",
+				"nyc": "nyc mocha --recursive -t 10000"
+			},
+			"engineStrict": true,
+			"engines": {
+				"node": ">=8.10.0",
+				"npm": ">=5.6.0"
+			},
+			"dependencies": {
+				"caliper-core": "0.1.0",
+				"caliper-burrow": "0.1.0",
+				"caliper-composer": "0.1.0",
+				"caliper-fabric": "0.1.0",
+				"caliper-iroha": "0.1.0",
+				"caliper-sawtooth": "0.1.0",
+				"chalk": "1.1.3",
+				"yargs": "10.0.3"
+			},
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"eslint": "^4.19.1",
+				"mocha": "3.4.2",
+				"nyc": "11.1.0",
+				"rewire": "^4.0.0",
+				"sinon": "2.3.8",
+				"license-check-and-add": "2.3.6"
+			},
+			"license-check-and-add-config": {
+				"folder": ".",
+				"license": "../../LICENSE.txt",
+				"exact_paths_method": "EXCLUDE",
+				"exact_paths": [
+					"node_modules",
+					".nyc_output",
+					"coverage"
+				],
+				"file_type_method": "EXCLUDE",
+				"file_types": [
+					".yml"
+				],
+				"insert_license": false,
+				"license_formats": {
+					"js": {
+						"prepend": "/*",
+						"append": "*/",
+						"eachLine": {
+							"prepend": "* "
+						}
+					},
+					"editorconfig|yaml": {
+						"prepend": "#",
+						"append": "#",
+						"eachLine": {
+							"prepend": "# "
+						}
+					}
+				}
+			},
+			"nyc": {
+				"exclude": [
+					"lib/**"
+				],
+				"reporter": [
+					"text-summary",
+					"html"
+				],
+				"all": true,
+				"check-coverage": false,
+				"statements": 5,
+				"branches": 8,
+				"functions": 7,
+				"lines": 5
+			},
+			"license": "Apache-2.0",
+			"licenses": [
+				{
+					"type": "Apache-2.0",
+					"url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/hyperledger/caliper/issues"
+			},
+			"homepage": "https://github.com/hyperledger/caliper#readme",
+			"_id": "caliper-cli@0.1.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.16.1",
+			"_npmUser": {
+				"name": "luizah",
+				"email": "luizaherback@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Cj0DJtetUG2ikpimRqPBuqhSopyPhz08cCaEkpL8Go5cCXEq3tFjVLHuJFcdHhcdplER4J9pNQ0hLg4bMEAd2Q==",
+				"shasum": "a6244b609554939338ee236633f9f944fd216a2a",
+				"tarball": "https://registry.npmjs.org/caliper-cli/-/caliper-cli-0.1.0.tgz",
+				"fileCount": 19,
+				"unpackedSize": 29541,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdWVPrCRA9TVsSAnZWagAAm64P/15CJ1pB/NKR5hAE23az\nsSdRWTXH/kF3TL55YSeKqYC1lq2t2Psd0BTomwvYOYm+7ChHCUmOAYqYkfDD\no9v7H4rV1hXz330cTtvaEQfSJwNieqbnP5pk97Gi2Wr9cxNKtMY+Li9j5ZNY\nWVBrNwMDV7Q3jE3bLg/2LQd3vTHv/NQfwit7pD3+GdMXNlrXbNYvgUkVLaic\nbk49lWXkK7rr0Np3YX5ef60JqQh4jbgCZUpnA5qklpz76OCOL4DcXnsPSYOp\nIfy2H9VJ91R2F4WXNF6nUaE8uKxKCtcSpwitqgFWsh2wrkyr0Rrgi7qSieab\n2/G8orHhD6G42mP4XjiEzasXORTd7XrxjH9/4nIfTtIaELtvkxcqpkiR4yja\nP8E1KNP8D0KWCZC2hVcST2+CUi39xxVnIzEc1lTM8MPRoD/WOpyfWFQ5eNdm\n2NuNHR04qneByTlB9OefXBM/Uew6JV3KgfSzlr3RZAPA+8yhIcgrEwOMv2h7\nVgjC7A33CfQkGFdbEFRfwtaLIbNC2fHqHBC+J+iYRVTShNSqNE8L5nUdQsGN\nLLBuwbOITaSpmd/XtZzPwfoDmJkGtzCAt0r3RpcY7R4eR0NbexlVZUtSAzQD\nM7y7lXAA24TgF4/QK/rtdWnl04mjT57oFr6+uGarq4gdeLwj/lu3bKSn5LMu\nHbYl\r\n=Dg/k\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "luizah",
+					"email": "luizaherback@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/caliper-cli_0.1.0_1566135274459_0.48636275308805166"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2019-08-18T13:34:34.459Z",
+		"0.1.0": "2019-08-18T13:34:34.608Z",
+		"modified": "2019-08-18T13:34:37.231Z"
+	},
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"64da46d6e51300026bf8246953d102c2\"",
+			"fetched": 1568994327635
+		}
+	},
+	"_distfiles": {
+		"caliper-cli-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/caliper-cli/-/caliper-cli-0.1.0.tgz",
+			"sha": "a6244b609554939338ee236633f9f944fd216a2a",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-68239c320e433979",
+	"_id": "caliper-cli",
+	"readme": "ERROR: No README data found!"
+}

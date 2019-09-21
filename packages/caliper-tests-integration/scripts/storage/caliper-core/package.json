@@ -1,0 +1,172 @@
+{
+	"name": "caliper-core",
+	"versions": {
+		"0.1.0": {
+			"name": "caliper-core",
+			"version": "0.1.0",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hyperledger/caliper.git"
+			},
+			"scripts": {
+				"pretest": "npm run licchk",
+				"licchk": "license-check-and-add",
+				"test": "npm run lint && npm run nyc",
+				"lint": "npx eslint .",
+				"nyc": "nyc mocha --recursive -t 10000"
+			},
+			"engineStrict": true,
+			"engines": {
+				"node": ">=8.10.0",
+				"npm": ">=5.6.0"
+			},
+			"dependencies": {
+				"compare-versions": "^3.4.0",
+				"dockerode": "^2.5.0",
+				"fs-extra": "^8.0.1",
+				"js-yaml": "^3.12.0",
+				"moment": "^2.22.2",
+				"mustache": "^2.3.0",
+				"nconf": "^0.10.0",
+				"nconf-yaml": "^1.0.2",
+				"node-zookeeper-client": "^0.2.2",
+				"pidusage": "^1.1.6",
+				"ps-node": "^0.1.6",
+				"request": "^2.81.0",
+				"systeminformation": "^3.23.7",
+				"table": "^4.0.1",
+				"winston": "^2.4.4",
+				"winston-daily-rotate-file": "^3.5.1",
+				"ajv": "^6.0.0"
+			},
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"eslint": "^4.19.1",
+				"mocha": "3.4.2",
+				"nyc": "11.1.0",
+				"rewire": "^4.0.0",
+				"sinon": "2.3.8",
+				"license-check-and-add": "2.3.6"
+			},
+			"license-check-and-add-config": {
+				"folder": ".",
+				"license": "../../LICENSE.txt",
+				"exact_paths_method": "EXCLUDE",
+				"exact_paths": [
+					"node_modules",
+					".nyc_output",
+					"coverage"
+				],
+				"file_type_method": "EXCLUDE",
+				"file_types": [
+					".yml",
+					".md",
+					".html",
+					".php"
+				],
+				"insert_license": false,
+				"license_formats": {
+					"js": {
+						"prepend": "/*",
+						"append": "*/",
+						"eachLine": {
+							"prepend": "* "
+						}
+					},
+					"editorconfig|yaml": {
+						"prepend": "#",
+						"append": "#",
+						"eachLine": {
+							"prepend": "# "
+						}
+					}
+				}
+			},
+			"optionalDependencies": {
+				"ajv": "^6.0.0"
+			},
+			"nyc": {
+				"exclude": [
+					"lib/**"
+				],
+				"reporter": [
+					"text-summary",
+					"html"
+				],
+				"all": true,
+				"check-coverage": false,
+				"statements": 1,
+				"branches": 1,
+				"functions": 1,
+				"lines": 1
+			},
+			"license": "Apache-2.0",
+			"licenses": [
+				{
+					"type": "Apache-2.0",
+					"url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
+				}
+			],
+			"bugs": {
+				"url": "https://github.com/hyperledger/caliper/issues"
+			},
+			"homepage": "https://github.com/hyperledger/caliper#readme",
+			"_id": "caliper-core@0.1.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "8.16.1",
+			"_npmUser": {
+				"name": "luizah",
+				"email": "luizaherback@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-/oxpk5Ux1gJ4fxVglLOVKCc6KtoG7MzSW1yIJsC98tnndAdpUjRfl7uxsvZNv3f4uk1kTfj1oBYWeFJJCKwnyw==",
+				"shasum": "521464fdf9ba9e9c06dc129489e235678c810005",
+				"tarball": "https://registry.npmjs.org/caliper-core/-/caliper-core-0.1.0.tgz",
+				"fileCount": 46,
+				"unpackedSize": 272979,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdWVPiCRA9TVsSAnZWagAAiw4P/R0shMv7zEu8gg9akEKm\nl4PYh+HYg120OemRpi6CVUlLCI80NFAekyZCvlfjhGlw8gnnELN/4h7Kzw0O\nbQ9Y0NmIWxatlR0yH38AeM42/reOC/rTiCggHb6Kwft+QvB2dEDnyqDn9QQj\nR3Ue9inrVgJmXY23AzaUO/sqmpxFRqnzh66K49dRIOsqaFa2mSj0gRVqbOC/\n1oZWFD/QxIuWATMKN23CSiZ6Rm8ZbxeVs2PR3ou/tBElH40sZFhJ7FUjPkMV\nZBHWf/+xZGY2EbdecW5yvbxxeXIy4FFMqpE7xzNFNOSjSYbvLUDX7AmMPIRQ\nUw+KR4wfuYFCZIHlqf5qb76nnrdzaqB+pyaH7sTy3U6oodzIjoeJjPWI+6Nn\n+LmFgm2927O7oG7UDPEpbvFQaz0vPj2olw3UdlUGhxCS9D7IGpgzCW+ztWLV\nosHzLjJo7DjsILxQswkYIIw+rTQUt3XrEVd3ZXk0R6PtkH6+Sa2Ytiryk6gD\nTfCFaneOEuRPuPa47SiqH2cGck7kW4KFN4dVecapLLI8nslrQJnDvq92fohm\n1ylB3QcSLsWBzVsW/GH/kxNL4y7r39QO9s1e7A1Z/byt8xu2u2wcgT+77if/\nbe5GPDuLTaCkIl2Ge95wONkLt+90g6LahRMSuS1QH8e5sQ5a3Sg7mxyUdbLv\nWjjq\r\n=86oC\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "luizah",
+					"email": "luizaherback@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/caliper-core_0.1.0_1566135266058_0.41463577481382896"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"created": "2019-08-18T13:34:26.058Z",
+		"0.1.0": "2019-08-18T13:34:26.205Z",
+		"modified": "2019-08-18T13:34:28.833Z"
+	},
+	"dist-tags": {
+		"latest": "0.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"aeb970ff42b466d11e4a5eae6321eca4\"",
+			"fetched": 1568994326761
+		}
+	},
+	"_distfiles": {
+		"caliper-core-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/caliper-core/-/caliper-core-0.1.0.tgz",
+			"sha": "521464fdf9ba9e9c06dc129489e235678c810005",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {
+		"caliper-core-0.1.0.tgz": {
+			"shasum": "0512d1fa683e754832d973b816ce7ca94fe08000"
+		}
+	},
+	"_rev": "2-d54c6428d807aa04",
+	"_id": "caliper-core",
+	"readme": "ERROR: No README data found!"
+}

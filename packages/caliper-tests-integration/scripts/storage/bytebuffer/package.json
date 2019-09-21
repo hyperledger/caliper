@@ -1,0 +1,5037 @@
+{
+	"name": "bytebuffer",
+	"versions": {
+		"0.0.0": {
+			"name": "bytebuffer",
+			"version": "0.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A Java-like ByteBuffer implementation using typed arrays.",
+			"contributors": [
+				{
+					"name": "Daniel Wirtz",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"keywords": [
+				"net",
+				"buffer"
+			],
+			"dependencies": {},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"_id": "bytebuffer@0.0.0",
+			"dist": {
+				"shasum": "99ee9c60f381256d25212eb64faaa7bc817de8fd",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-0.0.0.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"0.9.0": {
+			"name": "bytebuffer",
+			"version": "0.9.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A Java-like ByteBuffer implementation using typed arrays.",
+			"contributors": [
+				{
+					"name": "Daniel Wirtz",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"keywords": [
+				"net",
+				"buffer"
+			],
+			"dependencies": {},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"_id": "bytebuffer@0.9.0",
+			"dist": {
+				"shasum": "d2fa3d4079c963265362a5741fcec4eb9d99e9ac",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-0.9.0.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"0.9.1": {
+			"name": "bytebuffer",
+			"version": "0.9.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A Java-like ByteBuffer implementation using typed arrays.",
+			"contributors": [
+				{
+					"name": "Daniel Wirtz",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"keywords": [
+				"net",
+				"buffer"
+			],
+			"dependencies": {},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"_id": "bytebuffer@0.9.1",
+			"dist": {
+				"shasum": "cc516ca13c0d2da06c1df112803945df4820f877",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-0.9.1.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"0.9.3": {
+			"name": "bytebuffer",
+			"version": "0.9.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A Java-like ByteBuffer implementation using typed arrays.",
+			"contributors": [
+				{
+					"name": "Daniel Wirtz",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"keywords": [
+				"net",
+				"buffer"
+			],
+			"dependencies": {},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"_id": "bytebuffer@0.9.3",
+			"dist": {
+				"shasum": "6ddc52299fb0b9b3475f04c351c0869bd1cde390",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-0.9.3.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"0.9.4": {
+			"name": "bytebuffer",
+			"version": "0.9.4",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A Java-like ByteBuffer implementation using typed arrays.",
+			"contributors": [
+				{
+					"name": "Daniel Wirtz",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"nodeunit": ">=0.7",
+				"uglify-js": ">=2"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"minify": "uglifyjs ByteBuffer.js -o ByteBuffer.min.js --comments",
+				"jsdoc": "jsdoc.cmd -c jsdoc.json",
+				"pretest": "npm run-script minify",
+				"test": "nodeunit tests/suite.js"
+			},
+			"_id": "bytebuffer@0.9.4",
+			"dist": {
+				"shasum": "63f9b6f5762bc468ce275606884042a5bc0ea8a6",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-0.9.4.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "bytebuffer",
+			"version": "1.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A Java-like ByteBuffer implementation using typed arrays.",
+			"contributors": [
+				{
+					"name": "Daniel Wirtz",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"nodeunit": ">=0.7",
+				"uglify-js": ">=2"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"minify": "uglifyjs ByteBuffer.js -o ByteBuffer.min.js --comments",
+				"jsdoc": "jsdoc.cmd -c jsdoc.json",
+				"pretest": "npm run-script minify",
+				"test": "nodeunit tests/suite.js"
+			},
+			"_id": "bytebuffer@1.0.0",
+			"dist": {
+				"shasum": "363c92612cafe8b73237433158d38792892bffa3",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.0.0.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "bytebuffer",
+			"version": "1.0.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A Java-like ByteBuffer implementation using typed arrays.",
+			"contributors": [
+				{
+					"name": "Daniel Wirtz",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"nodeunit": ">=0.7",
+				"uglify-js": ">=2"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"minify": "uglifyjs ByteBuffer.js -o ByteBuffer.min.js --comments",
+				"jsdoc": "jsdoc -c jsdoc.json",
+				"pretest": "npm run-script minify",
+				"test": "nodeunit tests/suite.js"
+			},
+			"_id": "bytebuffer@1.0.1",
+			"dist": {
+				"shasum": "f81624bb5bac6e2c52ff365600816e29b4b51e9c",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.0.1.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "bytebuffer",
+			"version": "1.0.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A Java-like ByteBuffer implementation using typed arrays.",
+			"contributors": [
+				{
+					"name": "Daniel Wirtz",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"nodeunit": ">=0.7"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"compile": "java -jar closure-compiler/compiler.jar --create_source_map ByteBuffer.min.map --compilation_level ADVANCED_OPTIMIZATIONS --js ByteBuffer.js --js_output_file ByteBuffer.min.js",
+				"noexpose": "closure-compiler\\cat ByteBuffer.js | closure-compiler\\grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.0.2",
+			"dist": {
+				"shasum": "55d7aca4a124d9eb59c3db2b274ba239901ba372",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.0.2.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "bytebuffer",
+			"version": "1.0.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A Java-like ByteBuffer implementation using typed arrays.",
+			"contributors": [
+				{
+					"name": "Daniel Wirtz",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"nodeunit": ">=0.7"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"compile": "java -jar closure-compiler/compiler.jar --create_source_map ByteBuffer.min.map --compilation_level ADVANCED_OPTIMIZATIONS --js ByteBuffer.js --js_output_file ByteBuffer.min.js",
+				"noexpose": "closure-compiler\\cat ByteBuffer.js | closure-compiler\\grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.0.3",
+			"dist": {
+				"shasum": "e82fd86a0954f527ee09798ef354155774d277e9",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.0.3.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "bytebuffer",
+			"version": "1.0.4",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A Java-like ByteBuffer implementation using typed arrays.",
+			"contributors": [
+				{
+					"name": "Daniel Wirtz",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"nodeunit": ">=0.7"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"compile": "java -jar closure-compiler/compiler.jar --create_source_map ByteBuffer.min.map --compilation_level ADVANCED_OPTIMIZATIONS --js ByteBuffer.js --js_output_file ByteBuffer.min.js",
+				"noexpose": "closure-compiler\\cat ByteBuffer.js | closure-compiler\\grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.0.4",
+			"dist": {
+				"shasum": "6585a6f5bd2b0bcda8c03017e9d640877770a7c3",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.0.4.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.5": {
+			"name": "bytebuffer",
+			"version": "1.0.5",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A Java-like ByteBuffer implementation using typed arrays.",
+			"contributors": [
+				{
+					"name": "Daniel Wirtz",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"nodeunit": ">=0.7"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"compile": "java -jar closure-compiler/compiler.jar --create_source_map ByteBuffer.min.map --compilation_level ADVANCED_OPTIMIZATIONS --js ByteBuffer.js --js_output_file ByteBuffer.min.js",
+				"noexpose": "closure-compiler\\cat ByteBuffer.js | closure-compiler\\grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.0.5",
+			"dist": {
+				"shasum": "3bbff1a03965065f9c11df880bb8452958209579",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.0.5.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "bytebuffer",
+			"version": "1.1.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A Java-like ByteBuffer implementation using typed arrays.",
+			"contributors": [
+				{
+					"name": "Daniel Wirtz",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"nodeunit": ">=0.7"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"compile": "java -jar closure-compiler/compiler.jar --create_source_map ByteBuffer.min.map --compilation_level ADVANCED_OPTIMIZATIONS --js ByteBuffer.js --js_output_file ByteBuffer.min.js",
+				"noexpose": "closure-compiler\\cat ByteBuffer.js | closure-compiler\\grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.1.0",
+			"dist": {
+				"shasum": "0c4df3c0a2dc23c560b88fcdf3555ff2db6c4fa9",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.1.0.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.1": {
+			"name": "bytebuffer",
+			"version": "1.1.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A Java-like ByteBuffer implementation using typed arrays.",
+			"contributors": [
+				{
+					"name": "Daniel Wirtz",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": "https://github.com/dcodeIO/ByteBuffer.js/issues",
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"nodeunit": ">=0.7"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"compile": "java -jar closure-compiler/compiler.jar --create_source_map ByteBuffer.min.map --compilation_level ADVANCED_OPTIMIZATIONS --js ByteBuffer.js --js_output_file ByteBuffer.min.js",
+				"noexpose": "closure-compiler\\cat ByteBuffer.js | closure-compiler\\grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.1.1",
+			"dist": {
+				"shasum": "d455ddcc55cfd8134f424a90ea33ea848dd15a64",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.1.1.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.2": {
+			"name": "bytebuffer",
+			"version": "1.1.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A Java-like ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"nodeunit": ">=0.7"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"compile": "java -jar closure-compiler/compiler.jar --create_source_map ByteBuffer.min.map --compilation_level ADVANCED_OPTIMIZATIONS --js ByteBuffer.js --js_output_file ByteBuffer.min.js",
+				"noexpose": "closure-compiler\\cat ByteBuffer.js | closure-compiler\\grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.1.2",
+			"dist": {
+				"shasum": "3e375b292b3523ab783dca176d9bac956cca017b",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.1.2.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.3": {
+			"name": "bytebuffer",
+			"version": "1.1.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"nodeunit": ">=0.7",
+				"preprocessor": ">=1.0.2",
+				"closurecompiler": ">=1.1"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.1.3",
+			"dist": {
+				"shasum": "9fa225379b00e8e79161d8099c681d7fe055c10e",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.1.3.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.4": {
+			"name": "bytebuffer",
+			"version": "1.1.4",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"nodeunit": ">=0.7",
+				"preprocessor": ">=1.0.2",
+				"closurecompiler": ">=1.1"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.1.4",
+			"dist": {
+				"shasum": "d7125df57ad52aad2f6b2754ef5e60a02c462fbf",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.1.4.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.1.5": {
+			"name": "bytebuffer",
+			"version": "1.1.5",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {},
+			"devDependencies": {
+				"nodeunit": ">=0.7",
+				"preprocessor": ">=1.0.2",
+				"closurecompiler": ">=1.1"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.1.5",
+			"dist": {
+				"shasum": "962ca4b3f29d152ddd743967a8efdc20f6cbfeaf",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.1.5.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "bytebuffer",
+			"version": "1.2.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": ">=1.0.1"
+			},
+			"devDependencies": {
+				"nodeunit": ">=0.7",
+				"preprocessor": ">=1.0.2",
+				"closurecompiler": ">=1.1"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.2.0",
+			"dist": {
+				"shasum": "3f5ec0228f7d79f7f207a7e7ca8c6d4e30a01c66",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.2.0.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.2.1": {
+			"name": "bytebuffer",
+			"version": "1.2.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": ">=1.1.0"
+			},
+			"devDependencies": {
+				"nodeunit": ">=0.7",
+				"preprocessor": ">=1.0.2",
+				"closurecompiler": ">=1.1"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.2.1",
+			"dist": {
+				"shasum": "7fd1096b6795a4696b2b6edc265c7c97a2e568f7",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.2.1.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.2.2": {
+			"name": "bytebuffer",
+			"version": "1.2.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": ">=1.1.2"
+			},
+			"devDependencies": {
+				"nodeunit": ">=0.7",
+				"preprocessor": ">=1.0.2",
+				"closurecompiler": ">=1.1"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.2.2",
+			"dist": {
+				"shasum": "4238d93e96d7c333032c2ed15a88ec06f642e691",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.2.2.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.2.3": {
+			"name": "bytebuffer",
+			"version": "1.2.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": ">=1.1.2"
+			},
+			"devDependencies": {
+				"nodeunit": ">=0.7",
+				"preprocessor": ">=1.0.2",
+				"closurecompiler": ">=1.1"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.2.3",
+			"dist": {
+				"shasum": "232a702e5831b5c7e6b8df9804ba5f70242899e5",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.2.3.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.3.0": {
+			"name": "bytebuffer",
+			"version": "1.3.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": ">=1.1.2"
+			},
+			"devDependencies": {
+				"nodeunit": ">=0.7",
+				"preprocessor": ">=1.0.2",
+				"closurecompiler": ">=1.1"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.3.0",
+			"dist": {
+				"shasum": "376b43dbd413a462fb91527fa57577c3e087d891",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.0.tgz"
+			},
+			"_npmVersion": "1.2.0",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.3.1": {
+			"name": "bytebuffer",
+			"version": "1.3.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": ">=1.1.2"
+			},
+			"devDependencies": {
+				"nodeunit": ">=0.7",
+				"preprocessor": ">=1.0.2",
+				"closurecompiler": ">=1.1"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.3.1",
+			"dist": {
+				"shasum": "7fbe2bf1b2432f189e31b789dc81463b107b6ae7",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.17",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.3.2": {
+			"name": "bytebuffer",
+			"version": "1.3.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": ">=1.1.2"
+			},
+			"devDependencies": {
+				"nodeunit": ">=0.7",
+				"preprocessor": ">=1.0.2",
+				"closurecompiler": ">=1.1"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.3.2",
+			"dist": {
+				"shasum": "a8fb981afb25c8d0ec588598ba3cb12074c30596",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.18",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.3.3": {
+			"name": "bytebuffer",
+			"version": "1.3.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": ">=1.1.2"
+			},
+			"devDependencies": {
+				"nodeunit": ">=0.7",
+				"preprocessor": ">=1.0.2",
+				"closurecompiler": ">=1.1"
+			},
+			"license": "Apache License, Version 2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "nodeunit tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.3.3",
+			"dist": {
+				"shasum": "b401e6dc20dece29f791ca493e918ef9dd3bff5d",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.18",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.3.4": {
+			"name": "bytebuffer",
+			"version": "1.3.4",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.3.4",
+			"dist": {
+				"shasum": "ffe7e8c3f95fdc8147e85d8c1b05213dd8e021cb",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.4.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.18",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.3.5": {
+			"name": "bytebuffer",
+			"version": "1.3.5",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.3.5",
+			"dist": {
+				"shasum": "81e7a6528b332f9183272f5a92bba5b47c391267",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.5.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.18",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.3.6": {
+			"name": "bytebuffer",
+			"version": "1.3.6",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.3.6",
+			"dist": {
+				"shasum": "5a5f77c9aba74b9ee65699ce711085219d49bc33",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.6.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.18",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.3.7": {
+			"name": "bytebuffer",
+			"version": "1.3.7",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.3.7",
+			"dist": {
+				"shasum": "4097dab2539d3138b29608d89f354e3835667ddc",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.7.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.18",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.3.8": {
+			"name": "bytebuffer",
+			"version": "1.3.8",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.3.8",
+			"dist": {
+				"shasum": "ea1c9aa8ebbb80ed0b2c80a8dbaeaf1f9d9ab355",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.8.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.18",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.4.1": {
+			"name": "bytebuffer",
+			"version": "1.4.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.4.1",
+			"dist": {
+				"shasum": "ca82aa6aa973a50e1c40b897b58b66ed750fcd4a",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.4.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.32",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.5.0": {
+			"name": "bytebuffer",
+			"version": "1.5.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.5.0",
+			"dist": {
+				"shasum": "5c153dc12d640004a69e9a863aa1fd90a829af20",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.5.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.32",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.6.0": {
+			"name": "bytebuffer",
+			"version": "1.6.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.6.0",
+			"dist": {
+				"shasum": "77197e5159904fb4db866e1f1d10ff882c8a25a6",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.6.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.32",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"1.6.1": {
+			"name": "bytebuffer",
+			"version": "1.6.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "ByteBuffer.js: A Java-like, Netty-inspired ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "preprocess src/ByteBuffer.js src/ > ByteBuffer.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@1.6.1",
+			"dist": {
+				"shasum": "05b973ca6cc57d4881701ea8f161d5b0ec78fa42",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.6.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.32",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "bytebuffer",
+			"version": "2.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A full-featured ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "node build.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@2.0.0",
+			"dist": {
+				"shasum": "5a4567435106ec5eba81798dd9a47d23774bffc6",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.0.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.32",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.1": {
+			"name": "bytebuffer",
+			"version": "2.0.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A full-featured ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "node build.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@2.0.1",
+			"dist": {
+				"shasum": "91e52bc0f2cf65445d8234df37d6bd97834e4d69",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.0.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.32",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"2.0.2": {
+			"name": "bytebuffer",
+			"version": "2.0.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A full-featured ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "node build.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@2.0.2",
+			"dist": {
+				"shasum": "ffa2b6fefdcf5200c0fe2c0807a1879b23262572",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.0.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.32",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"2.1.0": {
+			"name": "bytebuffer",
+			"version": "2.1.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A full-featured ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "node build.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@2.1.0",
+			"dist": {
+				"shasum": "931ae9a46fcb3868614ad3368a569dc7ce4e9ab9",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.1.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.32",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"2.1.1": {
+			"name": "bytebuffer",
+			"version": "2.1.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A full-featured ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "node build.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@2.1.1",
+			"dist": {
+				"shasum": "28adec3b947858fce281c301457545e8f28358e4",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.1.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.32",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"2.2.0": {
+			"name": "bytebuffer",
+			"version": "2.2.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A full-featured ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "node build.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@2.2.0",
+			"dist": {
+				"shasum": "43696649542f3d1c2f949ea252d994c5717e5893",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.2.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.32",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"2.3.0": {
+			"name": "bytebuffer",
+			"version": "2.3.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A full-featured ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.6"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "node build.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@2.3.0",
+			"dist": {
+				"shasum": "f5e1a5a1e48264510fc92cda1e0d2a35ca1a6a4b",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.3.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.32",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"2.3.1": {
+			"name": "bytebuffer",
+			"version": "2.3.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A full-featured ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "latest"
+			},
+			"devDependencies": {
+				"testjs": "latest",
+				"preprocessor": "latest",
+				"closurecompiler": "latest"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "node build.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"_id": "bytebuffer@2.3.1",
+			"dist": {
+				"shasum": "17c2c290bfed534b06aadd6513aa5a0096ca2639",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.3.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.32",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"directories": {}
+		},
+		"3.0.0-RC1": {
+			"name": "bytebuffer",
+			"version": "3.0.0-RC1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~1",
+				"bufferview": "~1",
+				"memcpy": "~0.4"
+			},
+			"optionalDependencies": {
+				"memcpy": "~0.4"
+			},
+			"devDependencies": {
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test && npm run-script jsdoc",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.0.0-RC1",
+			"_shasum": "bba11814338551e61fa974dfccbd5d27f1de8cd6",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "bba11814338551e61fa974dfccbd5d27f1de8cd6",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.0.0-RC1.tgz"
+			},
+			"directories": {}
+		},
+		"3.0.0-RC2": {
+			"name": "bytebuffer",
+			"version": "3.0.0-RC2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~1",
+				"bufferview": "~1",
+				"memcpy": "~0.4"
+			},
+			"optionalDependencies": {
+				"memcpy": "~0.4"
+			},
+			"devDependencies": {
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test && npm run-script jsdoc",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.0.0-RC2",
+			"_shasum": "dfe40947ca46d2b4123065ff6a1a04e66f6c9ff5",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "dfe40947ca46d2b4123065ff6a1a04e66f6c9ff5",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.0.0-RC2.tgz"
+			},
+			"directories": {}
+		},
+		"3.0.0": {
+			"name": "bytebuffer",
+			"version": "3.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~1",
+				"bufferview": "~1",
+				"memcpy": "~0.4"
+			},
+			"optionalDependencies": {
+				"memcpy": "~0.4"
+			},
+			"devDependencies": {
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test && npm run-script jsdoc",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.0.0",
+			"_shasum": "900faf438b2bf3e3c7c80229abfb7f1523defefa",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "900faf438b2bf3e3c7c80229abfb7f1523defefa",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"3.0.1": {
+			"name": "bytebuffer",
+			"version": "3.0.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~1",
+				"bufferview": "~1"
+			},
+			"devDependencies": {
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test && npm run-script jsdoc",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.0.1",
+			"_shasum": "d4e8095665d2212a3288616a1d2a35cd975e10e7",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "d4e8095665d2212a3288616a1d2a35cd975e10e7",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"3.0.2": {
+			"name": "bytebuffer",
+			"version": "3.0.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~1",
+				"bufferview": "~1"
+			},
+			"devDependencies": {
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test && npm run-script jsdoc",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.0.2",
+			"_shasum": "249919e27053a15dcdee374bd817664ffe3bcaeb",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "249919e27053a15dcdee374bd817664ffe3bcaeb",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.0.2.tgz"
+			},
+			"directories": {}
+		},
+		"3.0.3": {
+			"name": "bytebuffer",
+			"version": "3.0.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~1",
+				"bufferview": "~1"
+			},
+			"devDependencies": {
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test && npm run-script jsdoc",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.0.3",
+			"_shasum": "d87161321c7118920038e579ee9b33fd9510d3cb",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "d87161321c7118920038e579ee9b33fd9510d3cb",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.0.3.tgz"
+			},
+			"directories": {}
+		},
+		"3.1.0": {
+			"name": "bytebuffer",
+			"version": "3.1.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.min.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~1",
+				"bufferview": "~1"
+			},
+			"devDependencies": {
+				"utfx": "~0.12",
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test && npm run-script jsdoc",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.1.0",
+			"_shasum": "6e488a73432e1230508c3c1a6c84fcfe3cc76690",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "6e488a73432e1230508c3c1a6c84fcfe3cc76690",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.1.0.tgz"
+			},
+			"directories": {}
+		},
+		"3.1.1": {
+			"name": "bytebuffer",
+			"version": "3.1.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.min.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~1",
+				"bufferview": "~1"
+			},
+			"devDependencies": {
+				"utfx": "~1.0",
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test && npm run-script jsdoc",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"gitHead": "ae139b911453bbdf6b22ad48f4c6c10c5fc97916",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.1.1",
+			"_shasum": "286b8b3f1673e3790f5fb2be22efa5eb5b96db90",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "286b8b3f1673e3790f5fb2be22efa5eb5b96db90",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.1.1.tgz"
+			},
+			"directories": {}
+		},
+		"3.1.1-1": {
+			"name": "bytebuffer",
+			"version": "3.1.1-1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.min.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~1",
+				"bufferview": "~1"
+			},
+			"devDependencies": {
+				"utfx": "~1.0",
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz"
+			},
+			"gitHead": "442cac572a22e8fa475db06d7031cd82be6cf2a6",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.1.1-1",
+			"_shasum": "1a672aa02433c96f863d4fd55ba73a0bddfd4cb5",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "1a672aa02433c96f863d4fd55ba73a0bddfd4cb5",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.1.1-1.tgz"
+			},
+			"directories": {}
+		},
+		"2.3.2": {
+			"name": "bytebuffer",
+			"version": "2.3.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "A full-featured ByteBuffer implementation using typed arrays.",
+			"main": "ByteBuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~1"
+			},
+			"devDependencies": {
+				"testjs": "~1",
+				"preprocessor": "~1.4",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script noexpose && npm test && npm run-script jsdoc",
+				"build": "node build.js",
+				"compile": "ccjs ByteBuffer.js --create_source_map=ByteBuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=externs/Long.js > ByteBuffer.min.js",
+				"noexpose": "cat ByteBuffer.js | grep -v @expose > ByteBuffer.noexpose.js",
+				"jsdoc": "jsdoc -c jsdoc.json"
+			},
+			"gitHead": "9036c08598541139a2aef60aff9608d24e3681c2",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@2.3.2",
+			"_shasum": "41046123b56bbe8c6bec6c652244aa7169f27a44",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "41046123b56bbe8c6bec6c652244aa7169f27a44",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.3.2.tgz"
+			},
+			"directories": {}
+		},
+		"3.2.0": {
+			"name": "bytebuffer",
+			"version": "3.2.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.min.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~2",
+				"bufferview": "~1",
+				"memcpy": "~0.5"
+			},
+			"devDependencies": {
+				"utfx": "~1",
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"optionalDependencies": {
+				"memcpy": "~0.5"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz"
+			},
+			"gitHead": "de24fd5cf4f23fcb68733beb621f5ab1af1ce221",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.2.0",
+			"_shasum": "6e83ab0595efd4a92745d35281d73d25e6b23788",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "6e83ab0595efd4a92745d35281d73d25e6b23788",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.2.0.tgz"
+			},
+			"directories": {}
+		},
+		"3.2.1": {
+			"name": "bytebuffer",
+			"version": "3.2.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.min.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~2",
+				"bufferview": "~1",
+				"memcpy": "~0.5"
+			},
+			"devDependencies": {
+				"utfx": "~1",
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"optionalDependencies": {
+				"memcpy": "~0.5"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz"
+			},
+			"gitHead": "919da88f285e6b71725b62ed11f2b710568e2d79",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.2.1",
+			"_shasum": "213a3df886ce3aab3ac7742a77e59d0e6c3ef31a",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "213a3df886ce3aab3ac7742a77e59d0e6c3ef31a",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.2.1.tgz"
+			},
+			"directories": {}
+		},
+		"3.2.2": {
+			"name": "bytebuffer",
+			"version": "3.2.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.min.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~2",
+				"bufferview": "~1",
+				"memcpy": "~0.5"
+			},
+			"devDependencies": {
+				"utfx": "~1",
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"optionalDependencies": {
+				"memcpy": "~0.5"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz"
+			},
+			"gitHead": "d6c7d32ad3041bf690ab9816bdf851c6f01ded0f",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.2.2",
+			"_shasum": "e882156acd8bebbc67a1e3695ee8ba42219b8ff1",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "e882156acd8bebbc67a1e3695ee8ba42219b8ff1",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.2.2.tgz"
+			},
+			"directories": {}
+		},
+		"3.2.3": {
+			"name": "bytebuffer",
+			"version": "3.2.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.min.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~2",
+				"bufferview": "~1",
+				"memcpy": "~0.5"
+			},
+			"devDependencies": {
+				"utfx": "~1",
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"optionalDependencies": {
+				"memcpy": "~0.5"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz"
+			},
+			"gitHead": "19e12ac72143bb50b672456fa665b4388df07396",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.2.3",
+			"_shasum": "962df0ffcb61c48a0c7e30125422f766822dd980",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "962df0ffcb61c48a0c7e30125422f766822dd980",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.2.3.tgz"
+			},
+			"directories": {}
+		},
+		"3.3.0": {
+			"name": "bytebuffer",
+			"version": "3.3.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.min.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~2",
+				"bufferview": "~1",
+				"memcpy": "~0.5"
+			},
+			"devDependencies": {
+				"utfx": "~1",
+				"lxiv": "~0.2",
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"optionalDependencies": {
+				"memcpy": "~0.5"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz"
+			},
+			"gitHead": "11c617e0eace1714005a931fd1a44f31f2e1b270",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.3.0",
+			"_shasum": "6096efa6c938ba30d775c57110644632e621cba4",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "6096efa6c938ba30d775c57110644632e621cba4",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.3.0.tgz"
+			},
+			"directories": {}
+		},
+		"3.4.0": {
+			"name": "bytebuffer",
+			"version": "3.4.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.min.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~2",
+				"bufferview": "~1"
+			},
+			"devDependencies": {
+				"utfx": "~1",
+				"lxiv": "~0.2",
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz"
+			},
+			"gitHead": "9882b63c4244281e46810d648229b785344c7f0f",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.4.0",
+			"_shasum": "76e2aa3b3519a83a0f0a83b22c01c5fd642b5aa5",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "76e2aa3b3519a83a0f0a83b22c01c5fd642b5aa5",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.4.0.tgz"
+			},
+			"directories": {}
+		},
+		"3.5.0": {
+			"name": "bytebuffer",
+			"version": "3.5.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.min.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~2 >=2.2",
+				"bufferview": "~1"
+			},
+			"devDependencies": {
+				"utfx": "~1",
+				"lxiv": "~0.2",
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz"
+			},
+			"gitHead": "4e7847779ce8d58eb5f32be30db61e13e01b0c4f",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.5.0",
+			"_shasum": "622a5b22df040f0a959be61001b91aca8a644e6a",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "622a5b22df040f0a959be61001b91aca8a644e6a",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.5.0.tgz"
+			},
+			"directories": {}
+		},
+		"3.5.1": {
+			"name": "bytebuffer",
+			"version": "3.5.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.min.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~2 >=2.2",
+				"bufferview": "~1"
+			},
+			"devDependencies": {
+				"utfx": "~1",
+				"lxiv": "~0.2",
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz"
+			},
+			"gitHead": "b30079476a8d82c26abce573ac1738c6224179fb",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.5.1",
+			"_shasum": "7b52457fe4c8c5519bb5f0d6e4e1ab2763802be1",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "7b52457fe4c8c5519bb5f0d6e4e1ab2763802be1",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.5.1.tgz"
+			},
+			"directories": {}
+		},
+		"3.5.2": {
+			"name": "bytebuffer",
+			"version": "3.5.2",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.min.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~2 >=2.2",
+				"bufferview": "~1"
+			},
+			"devDependencies": {
+				"utfx": "~1",
+				"lxiv": "~0.2",
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz"
+			},
+			"gitHead": "67c08d80adbdd2055632eb5d6f63a8e1a84196f9",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.5.2",
+			"_shasum": "0b613a3b1deb5ac34d0b7de2a1028b12ccfef7c4",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "0b613a3b1deb5ac34d0b7de2a1028b12ccfef7c4",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.5.2.tgz"
+			},
+			"directories": {}
+		},
+		"3.5.3": {
+			"name": "bytebuffer",
+			"version": "3.5.3",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~2 >=2.2.3",
+				"bufferview": "~1"
+			},
+			"devDependencies": {
+				"utfx": "~1",
+				"lxiv": "~0.2",
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz"
+			},
+			"gitHead": "28c246eac60b97881c3d42336028062132db369f",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.5.3",
+			"_shasum": "eee3a96e2b6473ffd7819b1adac7e63a1500996f",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "eee3a96e2b6473ffd7819b1adac7e63a1500996f",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.5.3.tgz"
+			},
+			"directories": {}
+		},
+		"3.5.4": {
+			"name": "bytebuffer",
+			"version": "3.5.4",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~2 >=2.2.3",
+				"bufferview": "~1"
+			},
+			"devDependencies": {
+				"utfx": "~1",
+				"lxiv": "~0.2",
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz"
+			},
+			"gitHead": "0a5d362430f24402f94c011ea59f4b0749866305",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.5.4",
+			"_shasum": "436e2733174f96aaa978b0926749e83fa162e786",
+			"_from": ".",
+			"_npmVersion": "1.4.21",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "436e2733174f96aaa978b0926749e83fa162e786",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.5.4.tgz"
+			},
+			"directories": {}
+		},
+		"3.5.5": {
+			"name": "bytebuffer",
+			"version": "3.5.5",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~2 >=2.2.3",
+				"bufferview": "~1"
+			},
+			"devDependencies": {
+				"utfx": "~1",
+				"lxiv": "~0.2",
+				"testjs": "~1",
+				"metascript": "~0",
+				"closurecompiler": "~1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz"
+			},
+			"gitHead": "83b98043f13f6073b9e073f0eb39849dab5ae257",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@3.5.5",
+			"_shasum": "7a6faf1a13514b083f1fcf9541c4c9bfbe7e7fd3",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "7a6faf1a13514b083f1fcf9541c4c9bfbe7e7fd3",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.5.5.tgz"
+			},
+			"directories": {}
+		},
+		"4.0.0": {
+			"name": "bytebuffer",
+			"version": "4.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.js",
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~2 >=2.2.3",
+				"bufferview": "~1"
+			},
+			"devDependencies": {
+				"closurecompiler": "~1",
+				"lxiv": "~0.2",
+				"metascript": "~0",
+				"pretty-hrtime": "^1.0.0",
+				"testjs": "~1",
+				"utfx": "^1.0.1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "npm run-script compileAB && npm run-script compileAB_DataView",
+				"compileAB": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB.min.js",
+				"compileAB_DataView": "ccjs dist/ByteBufferAB_DataView.js --create_source_map=dist/ByteBufferAB_DataView.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB_DataView.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz && gzip -c -9 dist/ByteBufferAB_DataView.min.js > dist/ByteBufferAB_DataView.min.js.gz"
+			},
+			"gitHead": "5d089a39d8e0b917eb7a0168ce85303df1417093",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js",
+			"_id": "bytebuffer@4.0.0",
+			"_shasum": "5115c97a72d0ef2a87e8bbfdfa19d3519b16f027",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "5115c97a72d0ef2a87e8bbfdfa19d3519b16f027",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-4.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"4.1.0": {
+			"name": "bytebuffer",
+			"version": "4.1.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "index.js",
+			"browser": "dist/ByteBufferAB.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/ByteBuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/ByteBuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~2 >=2.3.0",
+				"bufferview": "~1"
+			},
+			"devDependencies": {
+				"closurecompiler": "~1",
+				"lxiv": "~0.2",
+				"metascript": "~0",
+				"pretty-hrtime": "^1.0.0",
+				"testjs": "~1",
+				"utfx": "^1.0.1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "npm run-script compileAB && npm run-script compileAB_DataView",
+				"compileAB": "ccjs dist/ByteBufferAB.js --create_source_map=dist/ByteBufferAB.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB.min.js",
+				"compileAB_DataView": "ccjs dist/ByteBufferAB_DataView.js --create_source_map=dist/ByteBufferAB_DataView.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/Long.js > dist/ByteBufferAB_DataView.min.js",
+				"compress": "gzip -c -9 dist/ByteBufferAB.min.js > dist/ByteBufferAB.min.js.gz && gzip -c -9 dist/ByteBufferAB_DataView.min.js > dist/ByteBufferAB_DataView.min.js.gz"
+			},
+			"gitHead": "95849ea268c6f908591ebde1f5e8828ca517b80b",
+			"homepage": "https://github.com/dcodeIO/ByteBuffer.js#readme",
+			"_id": "bytebuffer@4.1.0",
+			"_shasum": "4c58269e052ab1e4b1f7ff364fdfb3ce882906aa",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "4c58269e052ab1e4b1f7ff364fdfb3ce882906aa",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-4.1.0.tgz"
+			},
+			"directories": {}
+		},
+		"5.0.0": {
+			"name": "bytebuffer",
+			"version": "5.0.0",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "dist/bytebuffer-node.js",
+			"browser": "dist/bytebuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/bytebuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/bytebuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~3"
+			},
+			"devDependencies": {
+				"closurecompiler": "~1",
+				"lxiv": "~0.2",
+				"metascript": "~0",
+				"pretty-hrtime": "^1.0.0",
+				"testjs": "~1",
+				"utfx": "^1.0.1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "npm run-script compile-default && npm run-script compile-dataview",
+				"compile-default": "ccjs dist/bytebuffer.js --create_source_map=dist/bytebuffer.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/long.js > dist/bytebuffer.min.js",
+				"compile-dataview": "ccjs dist/bytebuffer-dataview.js --create_source_map=dist/bytebuffer-dataview.min.map --compilation_level=ADVANCED_OPTIMIZATIONS --externs=externs/minimal-env.js --externs=node_modules/long/externs/long.js > dist/bytebuffer-dataview.min.js",
+				"compress": "gzip -c -9 dist/bytebuffer.min.js > dist/bytebuffer.min.js.gz && gzip -c -9 dist/bytebuffer-dataview.min.js > dist/bytebuffer-dataview.min.js.gz"
+			},
+			"gitHead": "19d4b7e5c75dff3928cd3873ab90cca831af0e81",
+			"homepage": "https://github.com/dcodeIO/bytebuffer.js#readme",
+			"_id": "bytebuffer@5.0.0",
+			"_shasum": "4e92c92af79d5ec3d6a659554127e3f8d03d20e7",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "4e92c92af79d5ec3d6a659554127e3f8d03d20e7",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-5.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"5.0.1": {
+			"name": "bytebuffer",
+			"version": "5.0.1",
+			"author": {
+				"name": "Daniel Wirtz",
+				"email": "dcode@dcode.io"
+			},
+			"description": "The swiss army knife for binary data in JavaScript.",
+			"main": "dist/bytebuffer-node.js",
+			"browser": "dist/bytebuffer.js",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/dcodeIO/bytebuffer.js.git"
+			},
+			"bugs": {
+				"url": "https://github.com/dcodeIO/bytebuffer.js/issues"
+			},
+			"keywords": [
+				"net",
+				"array",
+				"buffer",
+				"arraybuffer",
+				"typed array",
+				"bytebuffer",
+				"json",
+				"websocket",
+				"webrtc"
+			],
+			"dependencies": {
+				"long": "~3"
+			},
+			"devDependencies": {
+				"closurecompiler": "~1",
+				"lxiv": "~0.2",
+				"metascript": "~0",
+				"pretty-hrtime": "^1.0.0",
+				"testjs": "~1",
+				"utfx": "^1.0.1"
+			},
+			"license": "Apache-2.0",
+			"engines": {
+				"node": ">=0.8"
+			},
+			"scripts": {
+				"prepublish": "npm test",
+				"test": "node node_modules/testjs/bin/testjs tests/suite.js",
+				"make": "npm run-script build && npm run-script compile && npm run-script compress && npm test",
+				"build": "node scripts/build.js",
+				"compile": "npm run-script compile-default && npm run-script compile-dataview",
+				"compile-default": "ccjs dist/bytebuffer.js --create_source_map=dist/bytebuffer.min.map --externs=externs/minimal-env.js --externs=node_modules/long/externs/long.js > dist/bytebuffer.min.js",
+				"compile-dataview": "ccjs dist/bytebuffer-dataview.js --create_source_map=dist/bytebuffer-dataview.min.map --externs=externs/minimal-env.js --externs=node_modules/long/externs/long.js > dist/bytebuffer-dataview.min.js",
+				"compress": "gzip -c -9 dist/bytebuffer.min.js > dist/bytebuffer.min.js.gz && gzip -c -9 dist/bytebuffer-dataview.min.js > dist/bytebuffer-dataview.min.js.gz"
+			},
+			"gitHead": "f3f310b6786e5d44686d385a2cc60c6720a1069b",
+			"homepage": "https://github.com/dcodeIO/bytebuffer.js#readme",
+			"_id": "bytebuffer@5.0.1",
+			"_shasum": "582eea4b1a873b6d020a48d58df85f0bba6cfddd",
+			"_from": ".",
+			"_npmVersion": "2.11.3",
+			"_nodeVersion": "0.12.7",
+			"_npmUser": {
+				"name": "dcode",
+				"email": "dcode@dcode.io"
+			},
+			"maintainers": [
+				{
+					"name": "dcode",
+					"email": "dcode@dcode.io"
+				}
+			],
+			"dist": {
+				"shasum": "582eea4b1a873b6d020a48d58df85f0bba6cfddd",
+				"tarball": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-5.0.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-6-west.internal.npmjs.com",
+				"tmp": "tmp/bytebuffer-5.0.1.tgz_1455285585844_0.40705969324335456"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2017-09-16T05:21:26.184Z",
+		"created": "2013-02-27T02:55:07.190Z",
+		"0.0.0": "2013-02-27T02:55:09.557Z",
+		"0.9.0": "2013-02-27T13:28:37.934Z",
+		"0.9.1": "2013-02-27T15:04:41.529Z",
+		"0.9.3": "2013-02-27T17:54:59.428Z",
+		"0.9.4": "2013-02-27T20:20:00.079Z",
+		"1.0.0": "2013-02-27T23:36:08.599Z",
+		"1.0.1": "2013-02-28T16:39:42.515Z",
+		"1.0.2": "2013-03-02T14:45:34.218Z",
+		"1.0.3": "2013-03-04T01:10:42.179Z",
+		"1.0.4": "2013-03-04T03:14:41.285Z",
+		"1.0.5": "2013-03-04T21:46:47.013Z",
+		"1.1.0": "2013-03-05T04:04:32.345Z",
+		"1.1.1": "2013-03-06T15:10:19.000Z",
+		"1.1.2": "2013-03-09T18:55:35.253Z",
+		"1.1.3": "2013-03-12T13:16:09.963Z",
+		"1.1.4": "2013-03-17T15:32:06.113Z",
+		"1.1.5": "2013-03-18T13:03:56.806Z",
+		"1.2.0": "2013-03-18T17:01:24.761Z",
+		"1.2.1": "2013-03-19T13:22:17.430Z",
+		"1.2.2": "2013-03-19T20:06:07.593Z",
+		"1.2.3": "2013-03-19T21:04:41.831Z",
+		"1.3.0": "2013-03-20T11:51:33.097Z",
+		"1.3.1": "2013-04-24T14:01:42.795Z",
+		"1.3.2": "2013-05-12T12:29:28.791Z",
+		"1.3.3": "2013-05-12T13:55:37.951Z",
+		"1.3.4": "2013-05-16T13:57:00.599Z",
+		"1.3.5": "2013-05-21T12:43:31.279Z",
+		"1.3.6": "2013-05-21T13:38:16.967Z",
+		"1.3.7": "2013-06-02T11:58:36.449Z",
+		"1.3.8": "2013-06-07T12:20:11.721Z",
+		"1.4.1": "2013-09-30T21:31:54.058Z",
+		"1.5.0": "2013-10-22T22:08:08.768Z",
+		"1.6.0": "2013-11-10T18:45:49.865Z",
+		"1.6.1": "2013-11-10T20:08:43.131Z",
+		"2.0.0": "2013-11-17T17:52:20.674Z",
+		"2.0.1": "2013-11-18T17:18:25.769Z",
+		"2.0.2": "2013-12-06T23:36:07.179Z",
+		"2.1.0": "2013-12-08T01:13:44.057Z",
+		"2.1.1": "2013-12-26T16:54:03.821Z",
+		"2.2.0": "2013-12-27T23:53:01.859Z",
+		"2.3.0": "2013-12-28T14:58:34.383Z",
+		"2.3.1": "2013-12-28T17:33:14.671Z",
+		"3.0.0-RC1": "2014-06-05T16:59:14.728Z",
+		"3.0.0-RC2": "2014-06-05T17:32:44.773Z",
+		"3.0.0": "2014-06-16T22:00:04.633Z",
+		"3.0.1": "2014-06-18T13:57:01.948Z",
+		"3.0.2": "2014-06-24T16:29:01.322Z",
+		"3.0.3": "2014-06-26T14:09:18.530Z",
+		"3.1.0": "2014-06-28T02:30:13.021Z",
+		"3.1.1": "2014-08-07T14:18:52.135Z",
+		"3.1.1-1": "2014-08-10T17:29:28.683Z",
+		"2.3.2": "2014-08-12T22:33:47.017Z",
+		"3.2.0": "2014-08-12T23:10:00.705Z",
+		"3.2.1": "2014-08-25T23:44:56.944Z",
+		"3.2.2": "2014-08-26T00:23:57.648Z",
+		"3.2.3": "2014-08-26T15:41:10.095Z",
+		"3.3.0": "2014-08-26T20:00:08.820Z",
+		"3.4.0": "2014-10-02T22:00:51.358Z",
+		"3.5.0": "2014-10-14T14:46:50.337Z",
+		"3.5.1": "2014-10-21T13:19:16.585Z",
+		"3.5.2": "2014-10-21T14:20:20.136Z",
+		"3.5.3": "2014-10-23T16:16:03.320Z",
+		"3.5.4": "2014-11-03T15:28:53.000Z",
+		"3.5.5": "2015-06-20T23:04:03.721Z",
+		"4.0.0": "2015-06-25T15:42:10.760Z",
+		"4.1.0": "2015-09-26T17:15:08.333Z",
+		"5.0.0": "2015-10-25T15:36:49.077Z",
+		"5.0.1": "2016-02-12T13:59:49.327Z"
+	},
+	"dist-tags": {
+		"latest": "5.0.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"7f10f620175f74fd96bfd12f55fa2afc\"",
+			"fetched": 1568994333346
+		}
+	},
+	"_distfiles": {
+		"bytebuffer-0.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-0.0.0.tgz",
+			"sha": "99ee9c60f381256d25212eb64faaa7bc817de8fd",
+			"registry": "npmjs"
+		},
+		"bytebuffer-0.9.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-0.9.0.tgz",
+			"sha": "d2fa3d4079c963265362a5741fcec4eb9d99e9ac",
+			"registry": "npmjs"
+		},
+		"bytebuffer-0.9.1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-0.9.1.tgz",
+			"sha": "cc516ca13c0d2da06c1df112803945df4820f877",
+			"registry": "npmjs"
+		},
+		"bytebuffer-0.9.3.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-0.9.3.tgz",
+			"sha": "6ddc52299fb0b9b3475f04c351c0869bd1cde390",
+			"registry": "npmjs"
+		},
+		"bytebuffer-0.9.4.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-0.9.4.tgz",
+			"sha": "63f9b6f5762bc468ce275606884042a5bc0ea8a6",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.0.0.tgz",
+			"sha": "363c92612cafe8b73237433158d38792892bffa3",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.0.1.tgz",
+			"sha": "f81624bb5bac6e2c52ff365600816e29b4b51e9c",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.0.2.tgz",
+			"sha": "55d7aca4a124d9eb59c3db2b274ba239901ba372",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.0.3.tgz",
+			"sha": "e82fd86a0954f527ee09798ef354155774d277e9",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.0.4.tgz",
+			"sha": "6585a6f5bd2b0bcda8c03017e9d640877770a7c3",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.0.5.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.0.5.tgz",
+			"sha": "3bbff1a03965065f9c11df880bb8452958209579",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.1.0.tgz",
+			"sha": "0c4df3c0a2dc23c560b88fcdf3555ff2db6c4fa9",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.1.1.tgz",
+			"sha": "d455ddcc55cfd8134f424a90ea33ea848dd15a64",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.1.2.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.1.2.tgz",
+			"sha": "3e375b292b3523ab783dca176d9bac956cca017b",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.1.3.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.1.3.tgz",
+			"sha": "9fa225379b00e8e79161d8099c681d7fe055c10e",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.1.4.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.1.4.tgz",
+			"sha": "d7125df57ad52aad2f6b2754ef5e60a02c462fbf",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.1.5.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.1.5.tgz",
+			"sha": "962ca4b3f29d152ddd743967a8efdc20f6cbfeaf",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.2.0.tgz",
+			"sha": "3f5ec0228f7d79f7f207a7e7ca8c6d4e30a01c66",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.2.1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.2.1.tgz",
+			"sha": "7fd1096b6795a4696b2b6edc265c7c97a2e568f7",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.2.2.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.2.2.tgz",
+			"sha": "4238d93e96d7c333032c2ed15a88ec06f642e691",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.2.3.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.2.3.tgz",
+			"sha": "232a702e5831b5c7e6b8df9804ba5f70242899e5",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.3.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.0.tgz",
+			"sha": "376b43dbd413a462fb91527fa57577c3e087d891",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.3.1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.1.tgz",
+			"sha": "7fbe2bf1b2432f189e31b789dc81463b107b6ae7",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.3.2.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.2.tgz",
+			"sha": "a8fb981afb25c8d0ec588598ba3cb12074c30596",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.3.3.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.3.tgz",
+			"sha": "b401e6dc20dece29f791ca493e918ef9dd3bff5d",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.3.4.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.4.tgz",
+			"sha": "ffe7e8c3f95fdc8147e85d8c1b05213dd8e021cb",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.3.5.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.5.tgz",
+			"sha": "81e7a6528b332f9183272f5a92bba5b47c391267",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.3.6.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.6.tgz",
+			"sha": "5a5f77c9aba74b9ee65699ce711085219d49bc33",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.3.7.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.7.tgz",
+			"sha": "4097dab2539d3138b29608d89f354e3835667ddc",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.3.8.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.3.8.tgz",
+			"sha": "ea1c9aa8ebbb80ed0b2c80a8dbaeaf1f9d9ab355",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.4.1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.4.1.tgz",
+			"sha": "ca82aa6aa973a50e1c40b897b58b66ed750fcd4a",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.5.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.5.0.tgz",
+			"sha": "5c153dc12d640004a69e9a863aa1fd90a829af20",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.6.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.6.0.tgz",
+			"sha": "77197e5159904fb4db866e1f1d10ff882c8a25a6",
+			"registry": "npmjs"
+		},
+		"bytebuffer-1.6.1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-1.6.1.tgz",
+			"sha": "05b973ca6cc57d4881701ea8f161d5b0ec78fa42",
+			"registry": "npmjs"
+		},
+		"bytebuffer-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.0.0.tgz",
+			"sha": "5a4567435106ec5eba81798dd9a47d23774bffc6",
+			"registry": "npmjs"
+		},
+		"bytebuffer-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.0.1.tgz",
+			"sha": "91e52bc0f2cf65445d8234df37d6bd97834e4d69",
+			"registry": "npmjs"
+		},
+		"bytebuffer-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.0.2.tgz",
+			"sha": "ffa2b6fefdcf5200c0fe2c0807a1879b23262572",
+			"registry": "npmjs"
+		},
+		"bytebuffer-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.1.0.tgz",
+			"sha": "931ae9a46fcb3868614ad3368a569dc7ce4e9ab9",
+			"registry": "npmjs"
+		},
+		"bytebuffer-2.1.1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.1.1.tgz",
+			"sha": "28adec3b947858fce281c301457545e8f28358e4",
+			"registry": "npmjs"
+		},
+		"bytebuffer-2.2.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.2.0.tgz",
+			"sha": "43696649542f3d1c2f949ea252d994c5717e5893",
+			"registry": "npmjs"
+		},
+		"bytebuffer-2.3.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.3.0.tgz",
+			"sha": "f5e1a5a1e48264510fc92cda1e0d2a35ca1a6a4b",
+			"registry": "npmjs"
+		},
+		"bytebuffer-2.3.1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.3.1.tgz",
+			"sha": "17c2c290bfed534b06aadd6513aa5a0096ca2639",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.0.0-RC1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.0.0-RC1.tgz",
+			"sha": "bba11814338551e61fa974dfccbd5d27f1de8cd6",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.0.0-RC2.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.0.0-RC2.tgz",
+			"sha": "dfe40947ca46d2b4123065ff6a1a04e66f6c9ff5",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.0.0.tgz",
+			"sha": "900faf438b2bf3e3c7c80229abfb7f1523defefa",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.0.1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.0.1.tgz",
+			"sha": "d4e8095665d2212a3288616a1d2a35cd975e10e7",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.0.2.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.0.2.tgz",
+			"sha": "249919e27053a15dcdee374bd817664ffe3bcaeb",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.0.3.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.0.3.tgz",
+			"sha": "d87161321c7118920038e579ee9b33fd9510d3cb",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.1.0.tgz",
+			"sha": "6e488a73432e1230508c3c1a6c84fcfe3cc76690",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.1.1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.1.1.tgz",
+			"sha": "286b8b3f1673e3790f5fb2be22efa5eb5b96db90",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.1.1-1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.1.1-1.tgz",
+			"sha": "1a672aa02433c96f863d4fd55ba73a0bddfd4cb5",
+			"registry": "npmjs"
+		},
+		"bytebuffer-2.3.2.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-2.3.2.tgz",
+			"sha": "41046123b56bbe8c6bec6c652244aa7169f27a44",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.2.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.2.0.tgz",
+			"sha": "6e83ab0595efd4a92745d35281d73d25e6b23788",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.2.1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.2.1.tgz",
+			"sha": "213a3df886ce3aab3ac7742a77e59d0e6c3ef31a",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.2.2.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.2.2.tgz",
+			"sha": "e882156acd8bebbc67a1e3695ee8ba42219b8ff1",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.2.3.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.2.3.tgz",
+			"sha": "962df0ffcb61c48a0c7e30125422f766822dd980",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.3.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.3.0.tgz",
+			"sha": "6096efa6c938ba30d775c57110644632e621cba4",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.4.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.4.0.tgz",
+			"sha": "76e2aa3b3519a83a0f0a83b22c01c5fd642b5aa5",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.5.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.5.0.tgz",
+			"sha": "622a5b22df040f0a959be61001b91aca8a644e6a",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.5.1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.5.1.tgz",
+			"sha": "7b52457fe4c8c5519bb5f0d6e4e1ab2763802be1",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.5.2.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.5.2.tgz",
+			"sha": "0b613a3b1deb5ac34d0b7de2a1028b12ccfef7c4",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.5.3.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.5.3.tgz",
+			"sha": "eee3a96e2b6473ffd7819b1adac7e63a1500996f",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.5.4.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.5.4.tgz",
+			"sha": "436e2733174f96aaa978b0926749e83fa162e786",
+			"registry": "npmjs"
+		},
+		"bytebuffer-3.5.5.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-3.5.5.tgz",
+			"sha": "7a6faf1a13514b083f1fcf9541c4c9bfbe7e7fd3",
+			"registry": "npmjs"
+		},
+		"bytebuffer-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-4.0.0.tgz",
+			"sha": "5115c97a72d0ef2a87e8bbfdfa19d3519b16f027",
+			"registry": "npmjs"
+		},
+		"bytebuffer-4.1.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-4.1.0.tgz",
+			"sha": "4c58269e052ab1e4b1f7ff364fdfb3ce882906aa",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.0.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-5.0.0.tgz",
+			"sha": "4e92c92af79d5ec3d6a659554127e3f8d03d20e7",
+			"registry": "npmjs"
+		},
+		"bytebuffer-5.0.1.tgz": {
+			"url": "https://registry.npmjs.org/bytebuffer/-/bytebuffer-5.0.1.tgz",
+			"sha": "582eea4b1a873b6d020a48d58df85f0bba6cfddd",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-d4064a130a80e28e",
+	"_id": "bytebuffer",
+	"readme": "![bytebuffer.js - The swiss army knife for binary data in JavaScript.](https://raw.github.com/dcodeIO/bytebuffer.js/master/bytebuffer.png)\r\n======================================\r\nA fast and complete ByteBuffer implementation using either ArrayBuffers in the browser or node Buffers under node.js,\r\ngenerated from a single source tree through [MetaScript](https://github.com/dcodeIO/MetaScript).\r\n\r\n[![Build Status](https://travis-ci.org/dcodeIO/bytebuffer.js.svg?branch=master)](https://travis-ci.org/dcodeIO/bytebuffer.js)\r\n[![Donate](https://raw.githubusercontent.com/dcodeIO/bytebuffer.js/master/donate.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=dcode%40dcode.io&item_name=%3C3%20bytebuffer.js)\r\n\r\nFeatures\r\n--------\r\n* Three API-compatible versions:\r\n  * **bytebuffer** &nbsp; Backing buffer: ArrayBuffer, Accessor: Uint8Array\r\n  * **bytebuffer-dataview** &nbsp; Backing buffer: ArrayBuffer, Accessor: DataView\r\n  * **bytebuffer-node** &nbsp; Backing buffer / Accessor: node Buffer\r\n* 8, 16, 32 and 64 bit (through [long.js](https://github.com/dcodeIO/long.js)) signed and unsigned integers\r\n* 32 and 64 bit floats\r\n* Varints as used in protobuf (32 and 64 bit, zig-zag)\r\n* [Base64](https://github.com/dcodeIO/lxiv), [utf8](https://github.com/dcodeIO/utfx), binary, hex and debug encodings\r\n* Handy string and debugging utilities\r\n* Big and little endianness\r\n* Relative and absolute zero-copy operations wherever possible\r\n* Transparent resizing when using unknown-length data\r\n* Chaining of all operations that do not return a specific value\r\n* Slicing, appending, prepending, reversing, flip, mark, reset, etc.\r\n\r\nUsage\r\n-----\r\nThe library is compatible with CommonJS and AMD loaders and is exposed globally as `dcodeIO.ByteBuffer` if neither is\r\navailable.\r\n\r\n```javascript\r\nvar ByteBuffer = require(\"bytebuffer\");\r\n\r\nvar bb = new ByteBuffer()\r\n            .writeIString(\"Hello world!\")\r\n            .flip();\r\nconsole.log(bb.readIString()+\" from bytebuffer.js\");\r\n```\r\n\r\nIn the browser, 64 bit integer support is optional and present only if [Long.js](https://github.com/dcodeIO/long.js) has\r\nbeen loaded prior to bytebuffer.js.\r\n\r\nAPI\r\n---\r\n* [View the API documentation](https://github.com/dcodeIO/bytebuffer.js/wiki/API)\r\n* [Check the wiki](https://github.com/dcodeIO/bytebuffer.js/wiki)\r\n\r\nDownloads\r\n---------\r\n* [Distributions](https://github.com/dcodeIO/bytebuffer.js/tree/master/dist)\r\n* [ZIP-Archive](https://github.com/dcodeIO/bytebuffer.js/archive/master.zip)\r\n* [Tarball](https://github.com/dcodeIO/bytebuffer.js/tarball/master)\r\n\r\nSupport for IE<10, FF<15, Chrome<9 etc.\r\n---------------------------------------\r\n* Use bytebuffer-dataview with a polyfill ([see](https://github.com/dcodeIO/bytebuffer.js/tree/master/dist))\r\n\r\nContributors\r\n------------\r\n[Dretch](https://github.com/Dretch) (IE8 compatibility)\r\n\r\nLicense\r\n-------\r\n**License:** [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html) - Logo derived from [W3C HTML5 Logos](http://www.w3.org/html/logo/) (CC A 3.0)"
+}

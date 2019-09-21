@@ -1,0 +1,37 @@
+---
+test:
+  clients:
+    type: local
+    number: 1
+  rounds:
+  - label: open
+    txNumber:
+    - 50
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 50
+    arguments:
+      money: 10000
+      txnPerBatch: 10
+    callback: benchmark/simple/open.js
+  - label: query
+    txNumber:
+    - 50
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 50
+    callback: benchmark/simple/query.js
+monitor:
+  type:
+  - docker
+  - process
+  docker:
+    name:
+    - all
+  process:
+  - command: node
+    arguments: local-client.js
+    multiOutput: avg
+  interval: 1

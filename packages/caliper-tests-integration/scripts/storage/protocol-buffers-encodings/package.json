@@ -1,0 +1,144 @@
+{
+	"name": "protocol-buffers-encodings",
+	"versions": {
+		"1.0.0": {
+			"name": "protocol-buffers-encodings",
+			"version": "1.0.0",
+			"description": "Base encodings for protocol-buffers",
+			"main": "index.js",
+			"dependencies": {
+				"signed-varint": "^2.0.1",
+				"varint": "^5.0.0"
+			},
+			"devDependencies": {
+				"standard": "^10.0.3",
+				"tape": "^4.8.0"
+			},
+			"scripts": {
+				"test": "standard && tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers-encodings.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-encodings/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-encodings",
+			"gitHead": "cb915adebecd857bfe6a295841c33e00be8e134c",
+			"_id": "protocol-buffers-encodings@1.0.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Cp6YLfXR30nlMsYLKAjMMjFbrVFGYOHG54iDpwAkkPqkpfrDXHPoRVmw80koLK5CgFW163V5fUTTzYj0Oq7NVQ==",
+				"shasum": "46483d698e77afb5c7ec8fb59503d48ed5f6e83c",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-encodings/-/protocol-buffers-encodings-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/protocol-buffers-encodings-1.0.0.tgz_1516196700071_0.665986459236592"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "protocol-buffers-encodings",
+			"version": "1.1.0",
+			"description": "Base encodings for protocol-buffers",
+			"main": "index.js",
+			"dependencies": {
+				"signed-varint": "^2.0.1",
+				"varint": "^5.0.0"
+			},
+			"devDependencies": {
+				"standard": "^10.0.3",
+				"tape": "^4.8.0"
+			},
+			"scripts": {
+				"test": "standard && tape test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/protocol-buffers-encodings.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"url": "@mafintosh"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/mafintosh/protocol-buffers-encodings/issues"
+			},
+			"homepage": "https://github.com/mafintosh/protocol-buffers-encodings",
+			"gitHead": "7768744fec6c452de27ed1f9212bf526d443d4ad",
+			"_id": "protocol-buffers-encodings@1.1.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-SmjEuAf3hc3h3rWZ6V1YaaQw2MNJWK848gLJgzx/sefOJdNLujKinJVXIS0q2cBQpQn2Q32TinawZyDZPzm4kQ==",
+				"shasum": "f3905631106669b85381bad47a336add7d206873",
+				"tarball": "https://registry.npmjs.org/protocol-buffers-encodings/-/protocol-buffers-encodings-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/protocol-buffers-encodings-1.1.0.tgz_1516197198069_0.15216099540703"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2018-01-17T13:53:19.184Z",
+		"created": "2018-01-17T13:45:01.251Z",
+		"1.0.0": "2018-01-17T13:45:01.251Z",
+		"1.1.0": "2018-01-17T13:53:19.184Z"
+	},
+	"dist-tags": {
+		"latest": "1.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"acb9dc6202c3cecd76150ef03a329ebd\"",
+			"fetched": 1568994351790
+		}
+	},
+	"_distfiles": {
+		"protocol-buffers-encodings-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-encodings/-/protocol-buffers-encodings-1.0.0.tgz",
+			"sha": "46483d698e77afb5c7ec8fb59503d48ed5f6e83c",
+			"registry": "npmjs"
+		},
+		"protocol-buffers-encodings-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/protocol-buffers-encodings/-/protocol-buffers-encodings-1.1.0.tgz",
+			"sha": "f3905631106669b85381bad47a336add7d206873",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-2bd1c361644c5131",
+	"_id": "protocol-buffers-encodings",
+	"readme": "# protocol-buffers-encodings\n\nBase encodings for [protocol-buffers](https://github.com/mafintosh/protocol-buffers).\n\n```\nnpm install protocol-buffers-encodings\n```\n\n[![build status](https://travis-ci.org/mafintosh/protocol-buffers-encodings.svg?branch=master)](https://travis-ci.org/mafintosh/protocol-buffers-encodings)\n\nMoved into it's own module for lighter installs\n\n## Usage\n\n``` js\nvar encodings = require('protocol-buffers-encodings')\nvar buf = Buffer.alloc(4096)\n\nencodings.string('hi', buf, 0)\nconsole.log(encodings.string(buf, 0)) // prints 'hi'\n```\n\n## API\n\nIn general all encoders follow this API\n\n#### `buffer = enc.encode(value, buffer, offset)`\n\nEncode a value. `buffer` should be a buffer big enough to fit the value, `offset` should be the byte offset in the buffer where you want to write it.\nThe buffer is returned for conveinience.\n\nAfter a value has been encoded `enc.encode.bytes` contains the amount of bytes used in the buffer.\n\n#### `value = enc.decode(buffer, offset)`\n\nDecode a value. `buffer` shoudl be an encoded value and `offset` should be the byte offset where you want to start decoding.\n\nAfter a value has been decoded `enc.decode.bytes` contains the amount of bytes that was consumed from the buffer.\n\n#### `var len = enc.encodingLength(value)`\n\nUse this method to calculate how much space is needed to encode a value.\n\n#### `enc.type`\n\nA number indicating the protobuf wire type for the encoding\n\n## Encodings\n\nThe following encodings are available\n\n* `encodings.bytes` - encode a buffer\n* `encodings.string` - encode a string\n* `encodings.bool` - encode a boolean\n* `encodings.uint64` - encode a uint64 to varint\n* `encodings.uint32` - encode a uint32 to varint\n* `encodings.sint64` - encode a signed int64 to a signed varint\n* `encodings.sint32` - encode a signed int32 to a signed varint\n* `encodings.int64` - encode a signed int64 to a varint\n* `encodings.int32` - encode a signed int32 to a varint\n* `encodings.fixed32` - encode a uint32 to a fixed 4 byte buffer\n* `encodings.sfixed32` - encode a signed int32 to a fixed 4 byte buffer\n* `encodings.fixed64` - encode a uint64 (represented as a buffer) to a fixed 8 byte buffer\n* `encodings.sfixed64` - encode a signed int64 (represented as a buffer) to a fixed 8 byte buffer\n* `encodings.double` - encode a double\n* `encodings.float` - encode a float\n* `encodings.enum` - encode a numeric enum as a varint\n\n## License\n\nMIT"
+}

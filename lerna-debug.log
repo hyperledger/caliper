@@ -1,0 +1,38 @@
+0 silly input [ 'clean' ]
+1 silly flags { _: [ 'clean' ] }
+2 verbose rootPath /home/julien/bin/caliper
+3 info version 2.0.0
+4 silly existsSync /home/julien/bin/caliper/VERSION
+5 error EPACKAGES JSONError: Trailing comma in object at 12:3 in packages/caliper-bftsmart/package.json
+5 error EPACKAGES   },
+5 error EPACKAGES   ^
+5 error EPACKAGES   },
+5 error EPACKAGES   ^
+5 error EPACKAGES     at module.exports (/home/julien/bin/caliper/node_modules/load-json-file/node_modules/parse-json/index.js:27:17)
+5 error EPACKAGES     at parse (/home/julien/bin/caliper/node_modules/load-json-file/index.js:8:29)
+5 error EPACKAGES     at Function.module.exports.sync.fp [as sync] (/home/julien/bin/caliper/node_modules/load-json-file/index.js:11:29)
+5 error EPACKAGES     at Function.module.exports.sync (/home/julien/bin/caliper/node_modules/read-pkg/index.js:40:25)
+5 error EPACKAGES     at /home/julien/bin/caliper/node_modules/lerna/lib/PackageUtilities.js:125:47
+5 error EPACKAGES     at Array.forEach (<anonymous>)
+5 error EPACKAGES     at /home/julien/bin/caliper/node_modules/lerna/lib/PackageUtilities.js:119:86
+5 error EPACKAGES     at Array.forEach (<anonymous>)
+5 error EPACKAGES     at Function.getPackages (/home/julien/bin/caliper/node_modules/lerna/lib/PackageUtilities.js:118:22)
+5 error EPACKAGES     at Repository.buildPackageGraph (/home/julien/bin/caliper/node_modules/lerna/lib/Repository.js:82:51)
+5 error EPACKAGES  Errored while collecting packages and package graph { JSONError: Trailing comma in object at 12:3 in packages/caliper-bftsmart/package.json
+5 error EPACKAGES   },
+5 error EPACKAGES   ^
+5 error EPACKAGES   },
+5 error EPACKAGES   ^
+5 error EPACKAGES     at module.exports (/home/julien/bin/caliper/node_modules/load-json-file/node_modules/parse-json/index.js:27:17)
+5 error EPACKAGES     at parse (/home/julien/bin/caliper/node_modules/load-json-file/index.js:8:29)
+5 error EPACKAGES     at Function.module.exports.sync.fp [as sync] (/home/julien/bin/caliper/node_modules/load-json-file/index.js:11:29)
+5 error EPACKAGES     at Function.module.exports.sync (/home/julien/bin/caliper/node_modules/read-pkg/index.js:40:25)
+5 error EPACKAGES     at /home/julien/bin/caliper/node_modules/lerna/lib/PackageUtilities.js:125:47
+5 error EPACKAGES     at Array.forEach (<anonymous>)
+5 error EPACKAGES     at /home/julien/bin/caliper/node_modules/lerna/lib/PackageUtilities.js:119:86
+5 error EPACKAGES     at Array.forEach (<anonymous>)
+5 error EPACKAGES     at Function.getPackages (/home/julien/bin/caliper/node_modules/lerna/lib/PackageUtilities.js:118:22)
+5 error EPACKAGES     at Repository.buildPackageGraph (/home/julien/bin/caliper/node_modules/lerna/lib/Repository.js:82:51)
+5 error EPACKAGES   stack: 'JSONError: Trailing comma in object at 12:3 in packages/caliper-bftsmart/package.json\n  },\n  ^\n  },\n  ^\n    at module.exports (/home/julien/bin/caliper/node_modules/load-json-file/node_modules/parse-json/index.js:27:17)\n    at parse (/home/julien/bin/caliper/node_modules/load-json-file/index.js:8:29)\n    at Function.module.exports.sync.fp [as sync] (/home/julien/bin/caliper/node_modules/load-json-file/index.js:11:29)\n    at Function.module.exports.sync (/home/julien/bin/caliper/node_modules/read-pkg/index.js:40:25)\n    at /home/julien/bin/caliper/node_modules/lerna/lib/PackageUtilities.js:125:47\n    at Array.forEach (<anonymous>)\n    at /home/julien/bin/caliper/node_modules/lerna/lib/PackageUtilities.js:119:86\n    at Array.forEach (<anonymous>)\n    at Function.getPackages (/home/julien/bin/caliper/node_modules/lerna/lib/PackageUtilities.js:118:22)\n    at Repository.buildPackageGraph (/home/julien/bin/caliper/node_modules/lerna/lib/Repository.js:82:51)',
+5 error EPACKAGES   name: 'JSONError',
+5 error EPACKAGES   fileName: 'packages/caliper-bftsmart/package.json' }

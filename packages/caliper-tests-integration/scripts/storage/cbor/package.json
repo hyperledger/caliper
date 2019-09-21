@@ -1,0 +1,4633 @@
+{
+	"name": "cbor",
+	"versions": {
+		"0.0.0": {
+			"name": "cbor",
+			"version": "0.0.0",
+			"description": "NPM package for encoding and decoding CBOR (Concise Binary Object Representation) data.",
+			"main": "index.js",
+			"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+			},
+			"repository": "",
+			"keywords": [
+				"CBOR"
+			],
+			"author": {
+				"name": "Vitaly Domnikov"
+			},
+			"license": "BSD",
+			"_id": "cbor@0.0.0",
+			"dist": {
+				"shasum": "609c74b9047d83da62bc22fc45d7b44a99caaeee",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.0.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.2.11",
+			"_npmUser": {
+				"name": "dotcypress",
+				"email": "dotcypress@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.1": {
+			"name": "cbor",
+			"version": "0.0.1",
+			"description": "NPM package for encoding and decoding CBOR (Concise Binary Object Representation) data.",
+			"main": "index.js",
+			"scripts": {
+				"test": "mocha test"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/dotCypress/cbor"
+			},
+			"keywords": [
+				"CBOR"
+			],
+			"author": {
+				"name": "Vitaly Domnikov",
+				"email": "dotcypress@gmail.com"
+			},
+			"license": "MIT",
+			"devDependencies": {
+				"mocha": "~1.13.0",
+				"memorystream": "~0.2.0"
+			},
+			"dependencies": {
+				"lodash": "~2.4.1",
+				"node-int64": "~0.3.0"
+			},
+			"_id": "cbor@0.0.1",
+			"dist": {
+				"shasum": "376623d505b15ba3d1644d69294bd4b7b7a4c954",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.0.1.tgz"
+			},
+			"_npmVersion": "1.1.65",
+			"_npmUser": {
+				"name": "dotcypress",
+				"email": "dotcypress@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.0": {
+			"name": "cbor",
+			"version": "0.3.0",
+			"description": "Encode and parse CBOR documents.",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib"
+			},
+			"bin": {
+				"json2cbor": "./bin/json2cbor",
+				"cbor2json": "./bin/cbor2json"
+			},
+			"scripts": {
+				"test": "nodeunit test",
+				"prepublish": "coffee -c -o lib src"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"devDependencies": {
+				"coffee-script": "*",
+				"nodeunit": "*",
+				"covershot": "*",
+				"temp": "*",
+				"node-jsmeter": "git://github.com/hildjj/node-jsmeter.git"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"async": "~0.2.9",
+				"bignumber.js": "~1.0.1"
+			},
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@0.3.0",
+			"dist": {
+				"shasum": "fb527bcbb6089b1fd333f1aee3a6e5393a6d3042",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.3.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			]
+		},
+		"0.3.1": {
+			"name": "cbor",
+			"version": "0.3.1",
+			"description": "Encode and parse CBOR documents.",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib"
+			},
+			"bin": {
+				"json2cbor": "./bin/json2cbor",
+				"cbor2json": "./bin/cbor2json"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt coffee"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				}
+			],
+			"devDependencies": {
+				"grunt": "~0.4.3",
+				"grunt-cli": "~0.1.13",
+				"grunt-contrib-coffee": "~0.10.1",
+				"grunt-contrib-nodeunit": "~0.3.2",
+				"grunt-coveralls": "~0.3.0",
+				"grunt-shell": "~0.6.4",
+				"temp": "~0.7.0"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"async": "~0.2.9",
+				"bignumber.js": "~1.3.0"
+			},
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@0.3.1",
+			"dist": {
+				"shasum": "4214229fd5a7598328a2a45cd5602f255b0b947f",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.3.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			]
+		},
+		"0.3.2": {
+			"name": "cbor",
+			"version": "0.3.2",
+			"description": "Encode and parse CBOR documents.",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib"
+			},
+			"bin": {
+				"json2cbor": "./bin/json2cbor",
+				"cbor2json": "./bin/cbor2json"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt coffee"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				}
+			],
+			"peerDependencies": {
+				"grunt-cli": "~0.1",
+				"nodeunit": "~0.8",
+				"istanbul": "~0.2"
+			},
+			"devDependencies": {
+				"grunt": "~0.4.3",
+				"grunt-contrib-coffee": "~0.10.1",
+				"grunt-contrib-nodeunit": "~0.3.2",
+				"grunt-coveralls": "~0.3.0",
+				"grunt-shell": "~0.6.4",
+				"temp": "~0.7.0",
+				"grunt-express": "^1.2.1",
+				"grunt-contrib-watch": "^0.5.3",
+				"matchdep": "^0.3.0",
+				"grunt-release": "^0.7.0"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"async": "~0.2.9",
+				"bignumber.js": "~1.3.0"
+			},
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@0.3.2",
+			"dist": {
+				"shasum": "9ba2035bd778c5ef6b74420ed7bca285762ae1f3",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.3.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			]
+		},
+		"0.3.3": {
+			"name": "cbor",
+			"version": "0.3.3",
+			"description": "Encode and parse CBOR documents.",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib"
+			},
+			"bin": {
+				"json2cbor": "./bin/json2cbor",
+				"cbor2json": "./bin/cbor2json"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt coffee"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				}
+			],
+			"peerDependencies": {
+				"grunt-cli": "~0.1",
+				"nodeunit": "~0.8",
+				"istanbul": "~0.2"
+			},
+			"devDependencies": {
+				"grunt": "~0.4.3",
+				"grunt-contrib-coffee": "~0.10.1",
+				"grunt-contrib-nodeunit": "~0.3.2",
+				"grunt-coveralls": "~0.3.0",
+				"grunt-shell": "~0.6.4",
+				"temp": "~0.7.0",
+				"grunt-express": "^1.2.1",
+				"grunt-contrib-watch": "^0.5.3",
+				"matchdep": "^0.3.0",
+				"grunt-release": "^0.7.0"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"async": "~0.2.9",
+				"bignumber.js": "~1.3.0"
+			},
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@0.3.3",
+			"dist": {
+				"shasum": "224fb741253376cc764f0b5fdad25996687daf16",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.3.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			]
+		},
+		"0.3.4": {
+			"name": "cbor",
+			"version": "0.3.4",
+			"description": "Encode and parse CBOR documents.",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib"
+			},
+			"bin": {
+				"json2cbor": "./bin/json2cbor",
+				"cbor2json": "./bin/cbor2json"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt coffee"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				}
+			],
+			"peerDependencies": {
+				"grunt-cli": "~0.1",
+				"nodeunit": "~0.8",
+				"istanbul": "~0.2"
+			},
+			"devDependencies": {
+				"grunt": "~0.4.3",
+				"grunt-codo": "^0.1.0",
+				"grunt-coffeelint": "0.0.8",
+				"grunt-contrib-coffee": "~0.10.1",
+				"grunt-contrib-nodeunit": "~0.3.2",
+				"grunt-contrib-watch": "^0.5.3",
+				"grunt-coveralls": "~0.3.0",
+				"grunt-express": "^1.2.1",
+				"grunt-release": "^0.7.0",
+				"grunt-shell": "~0.6.4",
+				"matchdep": "^0.3.0",
+				"temp": "~0.7.0"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"async": "~0.2.9",
+				"bignumber.js": "~1.3.0"
+			},
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@0.3.4",
+			"dist": {
+				"shasum": "bf060b1acfeae7df292e956234ddfa1931afbabd",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.3.4.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			]
+		},
+		"0.3.5": {
+			"name": "cbor",
+			"version": "0.3.5",
+			"description": "Encode and parse CBOR documents.",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib"
+			},
+			"bin": {
+				"json2cbor": "./bin/json2cbor",
+				"cbor2json": "./bin/cbor2json"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt coffee"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				}
+			],
+			"peerDependencies": {
+				"grunt-cli": "~0.1",
+				"nodeunit": "~0.8",
+				"istanbul": "~0.2"
+			},
+			"devDependencies": {
+				"grunt": "~0.4.3",
+				"grunt-codo": "^0.1.0",
+				"grunt-coffeelint": "0.0.8",
+				"grunt-contrib-coffee": "~0.10.1",
+				"grunt-contrib-nodeunit": "~0.3.2",
+				"grunt-contrib-watch": "^0.5.3",
+				"grunt-coveralls": "~0.3.0",
+				"grunt-express": "^1.2.1",
+				"grunt-release": "^0.7.0",
+				"grunt-shell": "~0.6.4",
+				"matchdep": "^0.3.0",
+				"temp": "~0.7.0"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"async": "~0.2.9",
+				"bignumber.js": "~1.3.0"
+			},
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@0.3.5",
+			"dist": {
+				"shasum": "4b14a45cacd37926d6b43e83b96b6a40a593010b",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.3.5.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			]
+		},
+		"0.3.6": {
+			"name": "cbor",
+			"version": "0.3.6",
+			"description": "Encode and parse CBOR documents.",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"json2cbor": "./bin/json2cbor",
+				"cbor2json": "./bin/cbor2json"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt prepublish"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				}
+			],
+			"peerDependencies": {
+				"grunt-cli": "~0.1",
+				"nodeunit": "~0.8",
+				"istanbul": "~0.2"
+			},
+			"devDependencies": {
+				"grunt": "~0.4.3",
+				"grunt-codo": "^0.1.0",
+				"grunt-coffeelint": "0.0.8",
+				"grunt-contrib-coffee": "~0.10.1",
+				"grunt-contrib-nodeunit": "~0.3.2",
+				"grunt-contrib-watch": "^0.5.3",
+				"grunt-coveralls": "~0.3.0",
+				"grunt-express": "^1.2.1",
+				"grunt-markedman": "^1.0.0",
+				"grunt-release": "^0.7.0",
+				"grunt-shell": "~0.6.4",
+				"matchdep": "^0.3.0",
+				"temp": "~0.7.0",
+				"grunt-contrib-clean": "^0.5.0"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"async": "~0.2.9",
+				"bignumber.js": "~1.3.0"
+			},
+			"man": [],
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@0.3.6",
+			"dist": {
+				"shasum": "6d010db2ba268655fb0fa149125a9ec1d1d75a29",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.3.6.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			]
+		},
+		"0.3.7": {
+			"name": "cbor",
+			"version": "0.3.7",
+			"description": "Encode and parse CBOR documents.",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"json2cbor": "./bin/json2cbor",
+				"cbor2json": "./bin/cbor2json"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt prepublish"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				}
+			],
+			"peerDependencies": {
+				"grunt-cli": "~0.1",
+				"nodeunit": "~0.8",
+				"istanbul": "~0.2"
+			},
+			"devDependencies": {
+				"grunt": "~0.4.3",
+				"grunt-codo": "^0.1.0",
+				"grunt-coffeelint": "0.0.8",
+				"grunt-contrib-clean": "^0.5.0",
+				"grunt-contrib-coffee": "~0.10.1",
+				"grunt-contrib-nodeunit": "~0.3.2",
+				"grunt-contrib-watch": "^0.5.3",
+				"grunt-coveralls": "~0.3.0",
+				"grunt-express": "^1.2.1",
+				"grunt-markedman": "^1.0.0",
+				"grunt-release": "^0.7.0",
+				"grunt-shell": "~0.6.4",
+				"jit-grunt": "^0.3.2",
+				"temp": "~0.7.0"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"async": "~0.2.9",
+				"bignumber.js": "~1.3.0"
+			},
+			"man": [],
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@0.3.7",
+			"dist": {
+				"shasum": "2213ed6ca0e493272a57a849e57b141ddc82e0cd",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.3.7.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			]
+		},
+		"0.3.8": {
+			"name": "cbor",
+			"version": "0.3.8",
+			"description": "Encode and parse CBOR documents.",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"json2cbor": "./bin/json2cbor",
+				"cbor2json": "./bin/cbor2json"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt prepublish"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				}
+			],
+			"devDependencies": {
+				"grunt": "~0.4.3",
+				"grunt-codo": "^0.1.0",
+				"grunt-coffeelint": "0.0.8",
+				"grunt-contrib-clean": "^0.5.0",
+				"grunt-contrib-coffee": "~0.10.1",
+				"grunt-contrib-nodeunit": "~0.3.2",
+				"grunt-contrib-watch": "^0.5.3",
+				"grunt-coveralls": "~0.3.0",
+				"grunt-express": "^1.2.1",
+				"grunt-markedman": "^1.0.0",
+				"grunt-release": "^0.7.0",
+				"grunt-shell": "~0.6.4",
+				"jit-grunt": "^0.3.2",
+				"temp": "~0.7.0"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"async": "~0.2.9",
+				"bignumber.js": "~1.3.0"
+			},
+			"man": [],
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@0.3.8",
+			"_shasum": "9fd3e00e0e2c5d34d8f628fc2f4a93c61edaa621",
+			"_from": ".",
+			"_npmVersion": "1.4.7",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"dist": {
+				"shasum": "9fd3e00e0e2c5d34d8f628fc2f4a93c61edaa621",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.3.8.tgz"
+			}
+		},
+		"0.3.9": {
+			"name": "cbor",
+			"version": "0.3.9",
+			"description": "Encode and parse CBOR documents.",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"json2cbor": "./bin/json2cbor",
+				"cbor2json": "./bin/cbor2json"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt prepublish"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				}
+			],
+			"devDependencies": {
+				"garbage": "0.0.0",
+				"grunt": "~0.4.3",
+				"grunt-codo": "^0.1.0",
+				"grunt-coffeelint": "0.0.8",
+				"grunt-contrib-clean": "^0.5.0",
+				"grunt-contrib-coffee": "~0.10.1",
+				"grunt-contrib-nodeunit": "~0.3.2",
+				"grunt-contrib-watch": "^0.5.3",
+				"grunt-coveralls": "~0.3.0",
+				"grunt-express": "^1.2.1",
+				"grunt-markedman": "^1.0.0",
+				"grunt-release": "^0.7.0",
+				"grunt-shell": "~0.6.4",
+				"jit-grunt": "^0.3.2",
+				"temp": "~0.7.0"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"async": "^0.8.0",
+				"bignumber.js": "~1.3.0"
+			},
+			"man": [],
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@0.3.9",
+			"_shasum": "6b729340ca366fd4684537b548b3a1d612b7298e",
+			"_from": ".",
+			"_npmVersion": "1.4.10",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"dist": {
+				"shasum": "6b729340ca366fd4684537b548b3a1d612b7298e",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.3.9.tgz"
+			}
+		},
+		"0.3.10": {
+			"name": "cbor",
+			"version": "0.3.10",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"json2cbor": "./bin/json2cbor",
+				"cbor2json": "./bin/cbor2json"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt prepublish"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				}
+			],
+			"devDependencies": {
+				"garbage": "0.0.0",
+				"grunt": "~0.4.3",
+				"grunt-codo": "^0.1.0",
+				"grunt-coffeelint": "0.0.8",
+				"grunt-contrib-clean": "^0.5.0",
+				"grunt-contrib-coffee": "~0.10.1",
+				"grunt-contrib-nodeunit": "~0.3.2",
+				"grunt-contrib-watch": "^0.5.3",
+				"grunt-coveralls": "~0.3.0",
+				"grunt-express": "^1.2.1",
+				"grunt-markedman": "^1.0.0",
+				"grunt-release": "^0.7.0",
+				"grunt-shell": "~0.6.4",
+				"jit-grunt": "^0.3.2",
+				"temp": "~0.7.0"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"async": "^0.8.0",
+				"bignumber.js": "~1.3.0",
+				"commander": "^2.2.0"
+			},
+			"man": [
+				"/Users/jhildebr/track/node-cbor/man/cbor2comment.1",
+				"/Users/jhildebr/track/node-cbor/man/cbor2diag.1",
+				"/Users/jhildebr/track/node-cbor/man/cbor2json.1",
+				"/Users/jhildebr/track/node-cbor/man/json2cbor.1"
+			],
+			"gitHead": "c12cdf6907ab33cf6ef8f2ea83a45bf242d1b311",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@0.3.10",
+			"_shasum": "2d84661c0e80884681894d015b58147d4a044a5d",
+			"_from": ".",
+			"_npmVersion": "1.4.15",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"dist": {
+				"shasum": "2d84661c0e80884681894d015b58147d4a044a5d",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.3.10.tgz"
+			}
+		},
+		"0.3.12": {
+			"name": "cbor",
+			"version": "0.3.12",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"json2cbor": "./bin/json2cbor",
+				"cbor2json": "./bin/cbor2json"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt prepublish"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				}
+			],
+			"devDependencies": {
+				"garbage": "0.0.0",
+				"grunt": "~0.4.5",
+				"grunt-codo": "^0.2.0",
+				"grunt-coffeelint": "0.0.13",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-coffee": "~0.13.0",
+				"grunt-contrib-nodeunit": "~0.4.1",
+				"grunt-contrib-watch": "^0.6.1",
+				"grunt-coveralls": "~1.0.0",
+				"grunt-express": "^1.4.1",
+				"grunt-markedman": "^1.0.0",
+				"grunt-release": "^0.12.0",
+				"grunt-shell": "~1.1.2",
+				"jit-grunt": "^0.9.1",
+				"temp": "~0.8.1"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"async": "^1.0.0",
+				"bignumber.js": "~2.0.7",
+				"commander": "^2.8.1"
+			},
+			"man": [
+				"/Users/jhildebr/track/node-cbor/man/cbor2comment.1",
+				"/Users/jhildebr/track/node-cbor/man/cbor2diag.1",
+				"/Users/jhildebr/track/node-cbor/man/cbor2json.1",
+				"/Users/jhildebr/track/node-cbor/man/json2cbor.1"
+			],
+			"gitHead": "b5b5700e9717dc61a2d172130ba0149ab8395e7f",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@0.3.12",
+			"_shasum": "b35e05772ec29a35ec23b5692bc68e7653d4de1d",
+			"_from": ".",
+			"_npmVersion": "2.7.5",
+			"_nodeVersion": "0.12.2",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "b35e05772ec29a35ec23b5692bc68e7653d4de1d",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.3.12.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			]
+		},
+		"0.3.13": {
+			"name": "cbor",
+			"version": "0.3.13",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"json2cbor": "./bin/json2cbor",
+				"cbor2json": "./bin/cbor2json"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt prepublish"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				}
+			],
+			"devDependencies": {
+				"garbage": "0.0.0",
+				"grunt": "~0.4.5",
+				"grunt-codo": "^0.2.0",
+				"grunt-coffeelint": "0.0.13",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-coffee": "~0.13.0",
+				"grunt-contrib-nodeunit": "~0.4.1",
+				"grunt-contrib-watch": "^0.6.1",
+				"grunt-coveralls": "~1.0.0",
+				"grunt-express": "^1.4.1",
+				"grunt-markedman": "^1.0.0",
+				"grunt-release": "^0.12.0",
+				"grunt-shell": "~1.1.2",
+				"jit-grunt": "^0.9.1",
+				"temp": "~0.8.1"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"async": "^1.0.0",
+				"bignumber.js": "~2.0.7",
+				"commander": "^2.8.1"
+			},
+			"man": [
+				"/Users/jhildebr/track/node-cbor/man/cbor2comment.1",
+				"/Users/jhildebr/track/node-cbor/man/cbor2diag.1",
+				"/Users/jhildebr/track/node-cbor/man/cbor2json.1",
+				"/Users/jhildebr/track/node-cbor/man/json2cbor.1"
+			],
+			"gitHead": "5d2807b7e5b4807ae3d3bae59bf6b0a56bf1412b",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@0.3.13",
+			"_shasum": "5f744a9ce1e23a79a3f1493efd2bc9d5fdd32282",
+			"_from": ".",
+			"_npmVersion": "2.7.5",
+			"_nodeVersion": "0.12.2",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "5f744a9ce1e23a79a3f1493efd2bc9d5fdd32282",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.3.13.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			]
+		},
+		"0.3.14": {
+			"name": "cbor",
+			"version": "0.3.14",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "http://github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt prepublish"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				}
+			],
+			"devDependencies": {
+				"coffeelint": "^1.9.7",
+				"garbage": "0.0.0",
+				"grunt": "~0.4.5",
+				"grunt-codo": "^0.2.0",
+				"grunt-coffeelint": "0.0.13",
+				"grunt-contrib-clean": "^0.6.0",
+				"grunt-contrib-coffee": "~0.13.0",
+				"grunt-contrib-nodeunit": "~0.4.1",
+				"grunt-contrib-watch": "^0.6.1",
+				"grunt-coveralls": "~1.0.0",
+				"grunt-express": "^1.4.1",
+				"grunt-markedman": "^1.0.0",
+				"grunt-release": "^0.12.0",
+				"grunt-shell": "~1.1.2",
+				"jit-grunt": "^0.9.1",
+				"source-map-support": "^0.2.10",
+				"temp": "~0.8.1"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"async": "^1.0.0",
+				"bignumber.js": "~2.0.7",
+				"commander": "^2.8.1"
+			},
+			"man": [
+				"/Users/jhildebr/track/node-cbor/man/cbor2comment.1",
+				"/Users/jhildebr/track/node-cbor/man/cbor2diag.1",
+				"/Users/jhildebr/track/node-cbor/man/cbor2json.1",
+				"/Users/jhildebr/track/node-cbor/man/json2cbor.1"
+			],
+			"gitHead": "689528918bb59b4b361c01549bad28edce40c5ad",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@0.3.14",
+			"_shasum": "747a7be953cbd3179e28b3b21736bdabf14788cf",
+			"_from": ".",
+			"_npmVersion": "2.7.5",
+			"_nodeVersion": "0.12.2",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "747a7be953cbd3179e28b3b21736bdabf14788cf",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-0.3.14.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			]
+		},
+		"1.0.1": {
+			"name": "cbor",
+			"version": "1.0.1",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt prepublish"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				}
+			],
+			"devDependencies": {
+				"async": "^1.4",
+				"coffeelint": "^1.11",
+				"garbage": "0.0",
+				"grunt": "~0.4",
+				"grunt-codo": "^0.2",
+				"grunt-coffeelint": "0.0",
+				"grunt-contrib-clean": "^0.6",
+				"grunt-contrib-coffee": "~0.13",
+				"grunt-contrib-nodeunit": "~0.4",
+				"grunt-contrib-watch": "^0.6",
+				"grunt-coveralls": "~1.0",
+				"grunt-express": "^1.4",
+				"grunt-markedman": "^1.0",
+				"grunt-release": "^0.13",
+				"grunt-shell": "~1.1",
+				"jit-grunt": "^0.9",
+				"source-map-support": "^0.3"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "~2.0",
+				"commander": "^2.8",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^0.0"
+			},
+			"engines": {
+				"node": ">=4.1.0"
+			},
+			"man": [
+				"/Users/jhildebr/track/node-cbor/man/cbor2comment.1",
+				"/Users/jhildebr/track/node-cbor/man/cbor2diag.1",
+				"/Users/jhildebr/track/node-cbor/man/cbor2json.1",
+				"/Users/jhildebr/track/node-cbor/man/json2cbor.1"
+			],
+			"gitHead": "5ac971fe101979c8600411f34cd892e128e0c361",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@1.0.1",
+			"_shasum": "558d7e7d385513e2f4eae8a9340270ed7c5dafb0",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.1",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "558d7e7d385513e2f4eae8a9340270ed7c5dafb0",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			]
+		},
+		"1.0.2": {
+			"name": "cbor",
+			"version": "1.0.2",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt prepublish"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				}
+			],
+			"devDependencies": {
+				"async": "^1.4",
+				"coffeelint": "^1.15",
+				"garbage": "0.0",
+				"grunt": "~1.0",
+				"grunt-coffeelint": "0.0",
+				"grunt-contrib-clean": "^1.0",
+				"grunt-contrib-coffee": "~1.0",
+				"grunt-contrib-nodeunit": "~1.0",
+				"grunt-contrib-watch": "^1.0",
+				"grunt-coveralls": "~1.0",
+				"grunt-express": "^1.4",
+				"grunt-markedman": "^1.0",
+				"grunt-release": "^0.13",
+				"grunt-shell": "~1.3",
+				"jit-grunt": "^0.10",
+				"source-map-support": "^0.4"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "~2.3",
+				"commander": "^2.9",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^0.0"
+			},
+			"engines": {
+				"node": ">=4.1.0"
+			},
+			"man": [],
+			"gitHead": "159537ea9b9f37f9ac7d05588a2c58a48f8cfba6",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@1.0.2",
+			"_shasum": "c88d619ed50aa2cbd4e323ab3bf2e000304a3817",
+			"_from": ".",
+			"_npmVersion": "3.8.3",
+			"_nodeVersion": "5.10.1",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "c88d619ed50aa2cbd4e323ab3bf2e000304a3817",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-1.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/cbor-1.0.2.tgz_1461274157570_0.9382110598962754"
+			}
+		},
+		"1.0.3": {
+			"name": "cbor",
+			"version": "1.0.3",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"scripts": {
+				"test": "grunt test",
+				"ci": "grunt ci",
+				"prepublish": "grunt prepublish"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				}
+			],
+			"devDependencies": {
+				"async": "^1.4",
+				"coffeelint": "^1.15",
+				"garbage": "0.0",
+				"grunt": "~1.0",
+				"grunt-coffeelint": "0.0",
+				"grunt-contrib-clean": "^1.0",
+				"grunt-contrib-coffee": "~1.0",
+				"grunt-contrib-nodeunit": "~1.0",
+				"grunt-contrib-watch": "^1.0",
+				"grunt-coveralls": "~1.0",
+				"grunt-express": "^1.4",
+				"grunt-markedman": "^1.0",
+				"grunt-release": "^0.13",
+				"grunt-shell": "~1.3",
+				"jit-grunt": "^0.10",
+				"source-map-support": "^0.4"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "~2.3",
+				"commander": "^2.9",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^0.0"
+			},
+			"engines": {
+				"node": ">=4.1.0"
+			},
+			"man": [
+				"/Users/jhildebr/track/node-cbor/man/cbor2comment.1",
+				"/Users/jhildebr/track/node-cbor/man/cbor2diag.1",
+				"/Users/jhildebr/track/node-cbor/man/cbor2json.1",
+				"/Users/jhildebr/track/node-cbor/man/json2cbor.1"
+			],
+			"gitHead": "3ec4317075894a42ea5e305d9b7dba745e5f5e34",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@1.0.3",
+			"_shasum": "caca597378a57f33d7793a13dee5e87a385de14c",
+			"_from": ".",
+			"_npmVersion": "3.8.3",
+			"_nodeVersion": "5.10.1",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "caca597378a57f33d7793a13dee5e87a385de14c",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-1.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/cbor-1.0.3.tgz_1461274217293_0.6805540095083416"
+			}
+		},
+		"1.0.4": {
+			"name": "cbor",
+			"version": "1.0.4",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"scripts": {
+				"clean": "rm -rf coverage lib doc man/*",
+				"lint": "coffeelint src test",
+				"coffee": "coffee -cm -o lib/ src",
+				"coverage": "istanbul cover nodeunit test/*.test.js",
+				"precoverage": "npm run coffee -s",
+				"test": "nodeunit test/*.coffee",
+				"pretest": "npm run coffee -s",
+				"codo": "codo src",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"doc": "npm-run-all --silent man codo",
+				"prepublish": "npm-run-all --silent coffee doc",
+				"watch": "watch 'npm run coverage' src/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"ci": "npm run coverage -s && cat ./coverage/lcov.info | coveralls",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage/lcov-report",
+				"dev": "npm-run-all -p --silent watch live"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				}
+			],
+			"devDependencies": {
+				"async": "latest",
+				"codo": "latest",
+				"coffeelint": "latest",
+				"coffee-script": "latest",
+				"coveralls": "latest",
+				"garbage": "latest",
+				"istanbul": "latest",
+				"live-server": "latest",
+				"marked-man": "latest",
+				"nodeunit": "latest",
+				"npm-run-all": "latest",
+				"source-map-support": "latest",
+				"watch": "latest"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "~2.3",
+				"commander": "^2.9",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^0.0"
+			},
+			"engines": {
+				"node": ">=4.1.0"
+			},
+			"man": [],
+			"gitHead": "db1ed65092e1fe9f77b291137f4addb16e8e4301",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@1.0.4",
+			"_shasum": "80ace01e89a4a98a899255eba06ef3803204a20b",
+			"_from": ".",
+			"_npmVersion": "3.8.8",
+			"_nodeVersion": "6.0.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "80ace01e89a4a98a899255eba06ef3803204a20b",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-1.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/cbor-1.0.4.tgz_1461965998011_0.00965576944872737"
+			}
+		},
+		"1.0.5": {
+			"name": "cbor",
+			"version": "1.0.5",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"scripts": {
+				"clean": "rm -rf coverage lib docs/doc man/*",
+				"lint": "coffeelint src test",
+				"coffee": "coffee -cm -o lib/ src",
+				"coverage": "nyc npm test",
+				"precoverage": "npm run coffee -s",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "nodeunit test/*.test.js",
+				"pretest": "npm run coffee -s",
+				"codo": "codo src",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"doc": "npm-run-all --silent man codo",
+				"prepublish": "npm-run-all --silent coffee doc",
+				"watch": "watch 'npm run coveragehtml' src/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"ci": "npm run coverage -s && cat ./coverage/lcov.info | coveralls",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"dev": "npm-run-all -p --silent watch live"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				}
+			],
+			"devDependencies": {
+				"async": "latest",
+				"codo": "latest",
+				"coffeelint": "latest",
+				"coffee-script": "latest",
+				"coveralls": "latest",
+				"garbage": "latest",
+				"nyc": "latest",
+				"live-server": "latest",
+				"marked-man": "latest",
+				"nodeunit": "latest",
+				"npm-run-all": "latest",
+				"source-map-support": "latest",
+				"watch": "latest"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "~2.4",
+				"commander": "^2.9",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^0.0.3"
+			},
+			"engines": {
+				"node": ">=4.1.0"
+			},
+			"man": [],
+			"gitHead": "a8cc9a06690e29effe88e5e3b92919e6ae9d81e4",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@1.0.5",
+			"_shasum": "03fbbfdc55edb543451825df1027635eca16de4f",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.1",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "03fbbfdc55edb543451825df1027635eca16de4f",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-1.0.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/cbor-1.0.5.tgz_1471722701685_0.5084554878994823"
+			}
+		},
+		"1.0.6": {
+			"name": "cbor",
+			"version": "1.0.6",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"scripts": {
+				"clean": "rm -rf coverage lib docs/doc man/*",
+				"lint": "coffeelint src test",
+				"coffee": "coffee -cm -o lib/ src",
+				"coverage": "nyc npm test",
+				"precoverage": "npm run coffee -s",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "nodeunit test/*.test.js",
+				"pretest": "npm run coffee -s",
+				"codo": "codo src",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"doc": "npm-run-all --silent man codo",
+				"prepublish": "npm-run-all --silent coffee doc",
+				"watch": "watch 'npm run coveragehtml' src/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				}
+			],
+			"devDependencies": {
+				"async": "latest",
+				"codo": "latest",
+				"coffeelint": "latest",
+				"coffee-script": "latest",
+				"coveralls": "latest",
+				"garbage": "latest",
+				"nyc": "latest",
+				"live-server": "latest",
+				"marked-man": "latest",
+				"nodeunit": "latest",
+				"npm-run-all": "latest",
+				"source-map-support": "latest",
+				"watch": "latest"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "~2.4",
+				"commander": "^2.9",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^0.0.3"
+			},
+			"engines": {
+				"node": ">=4.1.0"
+			},
+			"man": [],
+			"gitHead": "21a06a50f1b089c68c024de0bf20864d802fe174",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@1.0.6",
+			"_shasum": "13c6a934f1b01b93dae7f635a53568126e2b6a02",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.4.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "13c6a934f1b01b93dae7f635a53568126e2b6a02",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-1.0.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/cbor-1.0.6.tgz_1472064864578_0.282669625710696"
+			}
+		},
+		"2.0.0": {
+			"name": "cbor",
+			"version": "2.0.0",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"lint": "standard src/*.js bin/* test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "if [ ! -f coverage/index.html ]; then mkdir coverage; cp .waiting.html coverage/index.html; fi",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"ava": "*",
+				"garbage": "*",
+				"ink-docstrap": "*",
+				"jsdoc": "*",
+				"live-server": "*",
+				"marked-man": "*",
+				"npm-run-all": "*",
+				"nyc": "*",
+				"standard": "*",
+				"watch": "*"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "~2.4",
+				"commander": "^2.9",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^0.0.3"
+			},
+			"engines": {
+				"node": ">=4"
+			},
+			"man": [],
+			"gitHead": "5bd29fdd2303502ba71e05e10178bdf4b73093cc",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@2.0.0",
+			"_shasum": "7eda5b9d8ab71f3cf3b60cdf1d780161275cd3ff",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.7.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "7eda5b9d8ab71f3cf3b60cdf1d780161275cd3ff",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-2.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/cbor-2.0.0.tgz_1476123091349_0.2259519558865577"
+			}
+		},
+		"2.0.1": {
+			"name": "cbor",
+			"version": "2.0.1",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"prelint": "optional-dev-dependency -t lint",
+				"lint": "standard src/*.js bin/* test/*.js",
+				"predoc": "optional-dev-dependency -t doc",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"precoverage": "optional-dev-dependency -t coverage",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"preman": "optional-dev-dependency -t doc",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "if [ ! -f coverage/index.html ]; then mkdir coverage; cp .waiting.html coverage/index.html; fi; optional-dev-dependency -t dev",
+				"dev": "npm-run-all -p --silent watch live",
+				"precoveralls": "optional-dev-dependency -t ci",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"ava": "*",
+				"garbage": "*",
+				"optional-dev-dependency": "git://github.com/hildjj/optional-dev-dependency.git#package"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "~2.4",
+				"commander": "^2.9",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^0.0.3"
+			},
+			"engines": {
+				"node": ">=4"
+			},
+			"optionalDevDependencies": {
+				"ava": [
+					"*",
+					"test"
+				],
+				"standard": [
+					"*",
+					"lint"
+				],
+				"jsdoc": [
+					"*",
+					"doc"
+				],
+				"minami": [
+					"*",
+					"doc"
+				],
+				"marked-man": [
+					"*",
+					"man"
+				],
+				"nyc": [
+					"*",
+					"coverage"
+				],
+				"live-server": [
+					"*",
+					"dev"
+				],
+				"npm-run-all": [
+					"*",
+					"dev"
+				],
+				"watch": [
+					"*",
+					"dev"
+				],
+				"coveralls": [
+					"*",
+					"ci"
+				]
+			},
+			"man": [],
+			"gitHead": "9af7a5eaccdd7c2261b7dd35b4c9d1947b299367",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@2.0.1",
+			"_shasum": "b8848b46c197002bac37abb748d2d2008942ac72",
+			"_from": ".",
+			"_npmVersion": "2.15.9",
+			"_nodeVersion": "4.6.1",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "b8848b46c197002bac37abb748d2d2008942ac72",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-2.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/cbor-2.0.1.tgz_1477344298663_0.09637746587395668"
+			}
+		},
+		"2.0.2": {
+			"name": "cbor",
+			"version": "2.0.2",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"browser": {
+				"fs": false,
+				"source-map-support": false
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"prelint": "optional-dev-dependency -t lint",
+				"lint": "standard src/*.js bin/* test/*.js",
+				"predoc": "optional-dev-dependency -t doc",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"precoverage": "optional-dev-dependency -t coverage",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"preman": "optional-dev-dependency -t doc",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "if [ ! -f coverage/index.html ]; then mkdir coverage; cp .waiting.html coverage/index.html; fi; optional-dev-dependency -t dev",
+				"dev": "npm-run-all -p --silent watch live",
+				"precoveralls": "optional-dev-dependency -t ci",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"ava": "*",
+				"garbage": "*",
+				"optional-dev-dependency": ">=1.4"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "~2.4",
+				"commander": "^2.9",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^0.0.3"
+			},
+			"engines": {
+				"node": ">=4"
+			},
+			"optionalDevDependencies": {
+				"ava": [
+					"*",
+					"test"
+				],
+				"standard": [
+					"*",
+					"lint"
+				],
+				"jsdoc": [
+					"*",
+					"doc"
+				],
+				"minami": [
+					"*",
+					"doc"
+				],
+				"marked-man": [
+					"*",
+					"man"
+				],
+				"nyc": [
+					"*",
+					"coverage"
+				],
+				"live-server": [
+					"*",
+					"dev"
+				],
+				"npm-run-all": [
+					"*",
+					"dev"
+				],
+				"watch": [
+					"*",
+					"dev"
+				],
+				"coveralls": [
+					"*",
+					"ci"
+				]
+			},
+			"man": [],
+			"gitHead": "6a175d4b368aac8d97bfe4446e63a023b8b3cb3d",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@2.0.2",
+			"_shasum": "7e9f7f50017c6b8fc7b3fb9f030f2aed904ed428",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "7.0.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "7e9f7f50017c6b8fc7b3fb9f030f2aed904ed428",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-2.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/cbor-2.0.2.tgz_1477490575215_0.22377708181738853"
+			}
+		},
+		"3.0.0": {
+			"name": "cbor",
+			"version": "3.0.0",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"browser": {
+				"fs": false
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"prelint": "optional-dev-dependency -t lint",
+				"lint": "standard src/*.js bin/* test/*.js",
+				"predoc": "optional-dev-dependency -t doc",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"precoverage": "optional-dev-dependency -t coverage",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"preman": "optional-dev-dependency -t doc",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "if [ ! -f coverage/index.html ]; then mkdir coverage; cp .waiting.html coverage/index.html; fi; optional-dev-dependency -t dev",
+				"dev": "npm-run-all -p --silent watch live",
+				"precoveralls": "optional-dev-dependency -t ci",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"ava": "*",
+				"garbage": "*",
+				"optional-dev-dependency": ">=1.4"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "~3.0.0",
+				"commander": "^2.9",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^0.0.3"
+			},
+			"engines": {
+				"node": ">=4"
+			},
+			"optionalDevDependencies": {
+				"ava": [
+					"*",
+					"test"
+				],
+				"standard": [
+					"*",
+					"lint"
+				],
+				"jsdoc": [
+					"*",
+					"doc"
+				],
+				"minami": [
+					"*",
+					"doc"
+				],
+				"marked-man": [
+					"*",
+					"man"
+				],
+				"nyc": [
+					"*",
+					"coverage"
+				],
+				"live-server": [
+					"*",
+					"dev"
+				],
+				"npm-run-all": [
+					"*",
+					"dev"
+				],
+				"watch": [
+					"*",
+					"dev"
+				],
+				"coveralls": [
+					"*",
+					"ci"
+				]
+			},
+			"man": [],
+			"gitHead": "c1bdcff11a5eb92f9d52e20f7438d691d456144c",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@3.0.0",
+			"_shasum": "e2a383e38a98349d66f4e3fc0fa2ec3669a791a0",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "7.1.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "e2a383e38a98349d66f4e3fc0fa2ec3669a791a0",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-3.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/cbor-3.0.0.tgz_1479684753144_0.27517051063477993"
+			}
+		},
+		"3.0.2": {
+			"name": "cbor",
+			"version": "3.0.2",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"browser": {
+				"fs": false
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"prelint": "optional-dev-dependency -t lint",
+				"lint": "standard src/*.js bin/* test/*.js",
+				"predoc": "optional-dev-dependency -t doc",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"precoverage": "optional-dev-dependency -t coverage",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"preman": "optional-dev-dependency -t doc",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "if [ ! -f coverage/index.html ]; then mkdir coverage; cp .waiting.html coverage/index.html; fi; optional-dev-dependency -t dev",
+				"dev": "npm-run-all -p --silent watch live",
+				"precoveralls": "optional-dev-dependency -t ci",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"ava": "^0.21",
+				"concordance": "^3.0",
+				"garbage": "0.0.0",
+				"optional-dev-dependency": ">=1.4"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "^4.0",
+				"commander": "^2.11",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^0.0.3"
+			},
+			"engines": {
+				"node": ">=4"
+			},
+			"optionalDevDependencies": {
+				"ava": [
+					"*",
+					"test"
+				],
+				"standard": [
+					"*",
+					"lint"
+				],
+				"jsdoc": [
+					"*",
+					"doc"
+				],
+				"minami": [
+					"*",
+					"doc"
+				],
+				"marked-man": [
+					"*",
+					"man"
+				],
+				"nyc": [
+					"*",
+					"coverage"
+				],
+				"live-server": [
+					"*",
+					"dev"
+				],
+				"npm-run-all": [
+					"*",
+					"dev"
+				],
+				"watch": [
+					"*",
+					"dev"
+				],
+				"coveralls": [
+					"*",
+					"ci"
+				]
+			},
+			"man": [],
+			"gitHead": "10f9cc16c5029db84236793f1495c6fa19083090",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@3.0.2",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.1.4",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"integrity": "sha512-g7M2NmwlB+uvaid+VgRqDl35bO+8fD8wYLlt0AWBgOZ87EtbHvIh1fz29aN9gEHEp2BR1ZDKiwMMgwaw9Pz/Bg==",
+				"shasum": "e0cb8bed9388807f523c61ff0b80f3bf3543340e",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-3.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/cbor-3.0.2.tgz_1500349919295_0.6960146087221801"
+			}
+		},
+		"3.0.3": {
+			"name": "cbor",
+			"version": "3.0.3",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"browser": {
+				"fs": false
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"lint": "eslint src/*.js bin/* test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "if [ ! -f coverage/index.html ]; then mkdir coverage; cp .waiting.html coverage/index.html; fi",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"ava": "^0.21",
+				"concordance": "^3.0",
+				"eslint": "^4.3.0",
+				"garbage": "0.0.0",
+				"jsdoc": "*",
+				"live-server": "*",
+				"marked-man": "*",
+				"minami": "*",
+				"npm-run-all": "*",
+				"nyc": "*",
+				"watch": "*"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "^4.0",
+				"commander": "^2.11",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^0.0.3"
+			},
+			"engines": {
+				"node": ">=4"
+			},
+			"man": [],
+			"gitHead": "92a6dccd0b399e246173d5054532fda060275f50",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@3.0.3",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.2.1",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"integrity": "sha512-+UY2FhD8w4GCp8QzP2a3eW0NRTFh2BaXn6t/sVYtGzKJAl0LL8nwma7qzIwmojq7jMF94X5DVfBUeIj8BBHBqA==",
+				"shasum": "7caaa24f481996d246ef428cecdde053073a903e",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-3.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/cbor-3.0.3.tgz_1501549075910_0.8599593336693943"
+			}
+		},
+		"4.0.0": {
+			"name": "cbor",
+			"version": "4.0.0",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"browser": {
+				"fs": false
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"lint": "eslint lib/*.js bin/* test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "if [ ! -f coverage/index.html ]; then mkdir coverage; cp .waiting.html coverage/index.html; fi",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				},
+				{
+					"name": "Denis Lapaev",
+					"email": "den@lapaev.me",
+					"url": "http://lapaev.me/"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"ava": "^0.25",
+				"concordance": "^3.0",
+				"eslint": "^4.17",
+				"garbage": "0.0",
+				"jsdoc": "^3.5",
+				"live-server": "*",
+				"marked-man": "*",
+				"minami": "*",
+				"npm-run-all": "^4.1",
+				"nyc": "^11.5",
+				"watch": "*"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "^6.0",
+				"commander": "^2.14.1",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^0.0.3"
+			},
+			"engines": {
+				"node": ">=4"
+			},
+			"man": [],
+			"gitHead": "b8fc5259d3fd6ad0999dfb461eeabb902cffd8d9",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@4.0.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.5.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"integrity": "sha512-SWtnNIThYI4bM1cg/5AKj2oKDsrFOmQb5W4pr6jaIlbsOfl/aLHJADx9hVkAqUX4PR3iDZLp8f9S6QPP9VPXxg==",
+				"shasum": "c69e0124dc225156c0a32a70ebf0bbaf032eac0a",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-4.0.0.tgz",
+				"fileCount": 96,
+				"unpackedSize": 1848384
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/cbor_4.0.0_1518970524415_0.2393488498346923"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.1.0": {
+			"name": "cbor",
+			"version": "4.1.0",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"browser": {
+				"fs": false
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"lint": "eslint lib/*.js bin/* test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "node tools/copyif.js",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				},
+				{
+					"name": "Denis Lapaev",
+					"email": "den@lapaev.me",
+					"url": "http://lapaev.me/"
+				},
+				{
+					"name": "Ruben Bridgewater",
+					"email": "ruben@bridgewater.de"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"ava": "^0.25",
+				"concordance": "^3.0",
+				"eslint": "^4.19.1",
+				"garbage": "0.0",
+				"jsdoc": "^3.5",
+				"live-server": "*",
+				"marked-man": "*",
+				"minami": "*",
+				"npm-run-all": "^4.1.3",
+				"nyc": "^12.0.1",
+				"watch": "*"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "^7.2.1",
+				"commander": "^2.15.1",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^0.0.3"
+			},
+			"engines": {
+				"node": ">=4"
+			},
+			"man": [],
+			"gitHead": "7c17afe3b5abb29d89b49bd02dbdeeacc6921a7e",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@4.1.0",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "10.3.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"integrity": "sha512-l9b/QWBojLDqvG6A4clPlzUMbbCoHOyPII7Pf24WnqbZ5TH83e69jdwkCjDcwuURzSYfE4uQLSHuEfGzcwMmHg==",
+				"shasum": "12535080a382defad294329c958b1cfe12541449",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-4.1.0.tgz",
+				"fileCount": 36,
+				"unpackedSize": 96377,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbFEw1CRA9TVsSAnZWagAAsHoQAIkFBkyUYwzloI3+Q8zC\nSyPEmn5Mo+N5DFEjLqR1NUsveOfD/tdlc2F6VlvucxyAlH6Qgx9vgSOQKR+5\noYHwnc5KeY+t+2wXk2KM0AaEam/UQZKWv9/GzRNy9QAKF6qdnhuNtPPpD2A/\ntTxJNS2mqEVGVv8VM388oZcSzvhg+W8ZXlpcGNhEnMk/QfpZlH1Qjuit5+fv\n/AmynJ3H9gYFZhULDzxcjyzxQrIBlG375JLwxRH+W0IzEli75YdbqC6/lfgG\nZr6gpxI/Pekga+zn6xhwkEE0xIoBTXvzzsVlBJaz5Az8Vur20Tff3yKV5rnr\nVc8WxbXD1OOg1lPIetbsYKqQgBafhLcXLjBa0Z6Lj0DCaiTPz2nwUT7Pug2A\nAZwtaLnmL/SOynzCL7IzKg0IxfokdM+GWKp4dvrfVY40vcLmoOSWRY/TJ5kR\nFWdUo+WzBCh6UVIs7xxMKi9B5/gQDjtMEH8KkiB0D7d5X5AzcdhKgxLh7f5K\n2TRApK/kEZOBfws7OrVIkRu4kxmZdt40vdgHPDRSFc7APX6wSbCKntTVbyR/\n61EGXK5rg8IqBaqPEDMzczWWSF6XYpFdBUkKJy2xyR604JdVJ9WHEqBra4cI\nh/2eW9dy6hYnaZRt3qlJiJKSbZjzWoyequksECytkJpIs4sFI0YiT/SIrg+w\ngOCm\r\n=Sw7A\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/cbor_4.1.0_1528056883623_0.8013541027584943"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.1.1": {
+			"name": "cbor",
+			"version": "4.1.1",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"browser": {
+				"fs": false
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"lint": "eslint lib/*.js bin/* test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "node tools/copyif.js",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				},
+				{
+					"name": "Denis Lapaev",
+					"email": "den@lapaev.me",
+					"url": "http://lapaev.me/"
+				},
+				{
+					"name": "Ruben Bridgewater",
+					"email": "ruben@bridgewater.de"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"ava": "^0.25",
+				"concordance": "^3.0",
+				"garbage": "0.0",
+				"jsdoc": "^3.5",
+				"live-server": "*",
+				"marked-man": "*",
+				"minami": "*",
+				"npm-run-all": "^4.1.3",
+				"nyc": "^12.0.1",
+				"watch": "*"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "^7.2.1",
+				"commander": "^2.16.0",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^0.0.3"
+			},
+			"engines": {
+				"node": ">=6.0.0"
+			},
+			"man": [],
+			"gitHead": "0625563ec97af08219b1d10583a01b6c7e18f1c8",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@4.1.1",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "10.6.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"integrity": "sha512-x9Pc1gT3JxUEZTOA9YdRdpg8hohBEFPAc26c85PlGYvzoc77PXr1lvfBKmBPFcf7eYsOs0hWRWWmfqJozrvDnw==",
+				"shasum": "a6bc17020b45685d315c6bbc971f3bb3c973fde9",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-4.1.1.tgz",
+				"fileCount": 37,
+				"unpackedSize": 197171,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbSK3bCRA9TVsSAnZWagAAhuAP/RYruBNx3Ap7rCt7aWIf\nj65p3LmYyMqfoifjwU7BfVmusO2CDald3gZRSX9W04nAxHEOCGBSvNvpe5mK\nAPAg2X52RIcEzzbqRB1JV1EuDGMTm9zQSFNLzUA7HyHBf510F+NlZ6Dbx26u\nwXVrwkJCWCuo00yHwMOckMy6uOi24V96BHew9Kxy7SDYHH5MSIxwPpUugw8B\nDFSuIfM9gK3rHBdxLT+5tX5Vf5T9LWJKuVFwOCsFaJPvYjeIlMt73PG9kbcP\nilgw9PHSpoo4/hapWIxsrhDBJBNLu/tQi5NSQnkAqlHKhwf5mTyIUVIK2HGz\nSa0BVeNg5SDKRlXszrWrnwJsY6xsMwxI795ggkjXtYS09OMnLNGeFEl2IS0O\nAkiWibyYG1wW5DmrInxfXWHdopQqRaZpXjk1VY2bvfFXkonhgrBjQA0nl4C4\nLRiyJrzSEuCuIyeAgo7MfbFJ2rFA7nYbcVdUun9ciFZzSExjHnhmNKAe2FUt\nOVvTcrmvg1vvMPSd63TSM7OmJrMgGOA3AIYELc8MRjRvGefppiLqbgNnQPcE\nT2FlkZ4SiYvt1pTA90amRFm0PArZgJnXEaS02/qucNoSRwew84vAom/MyUQH\ni/Ww1gRlMhAV8r7uCUwYsTUdYrKrWS/Xu2jYonu+FCEUIKyKfzDYr8A/oCwX\nTPjq\r\n=5J/D\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/cbor_4.1.1_1531489755791_0.25637815100893424"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.1.2": {
+			"name": "cbor",
+			"version": "4.1.2",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"browser": {
+				"fs": false
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"lint": "eslint lib/*.js bin/* test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "node tools/copyif.js",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				},
+				{
+					"name": "Denis Lapaev",
+					"email": "den@lapaev.me",
+					"url": "http://lapaev.me/"
+				},
+				{
+					"name": "Ruben Bridgewater",
+					"email": "ruben@bridgewater.de"
+				},
+				{
+					"name": "Burt Harris",
+					"email": "Burt_Harris_cbor@azxs.33mail.com"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"ava": "^0.25",
+				"concordance": "^4.0",
+				"garbage": "0.0",
+				"jsdoc": "^3.5",
+				"live-server": "*",
+				"marked-man": "*",
+				"minami": "*",
+				"npm-run-all": "^4.1.5",
+				"nyc": "^13.1.0",
+				"watch": "*"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "^8.0.1",
+				"commander": "^2.19.0",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^1.0.0"
+			},
+			"engines": {
+				"node": ">=6.0.0"
+			},
+			"man": [],
+			"gitHead": "5bcf425b273aaa367c2ec310c7766532479d28b2",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@4.1.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.2.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"integrity": "sha512-KHQMqOYP2/0YqCNxx5Ye180NNWstBGw/h+awpRBI5mYfbIOAutHIN1vukowiiXWkCQSEJBNwwbRqlEH9L+zE8Q==",
+				"shasum": "b6a7b3a1c983113dcfd6eac0da2c02f4db575a6b",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-4.1.2.tgz",
+				"fileCount": 37,
+				"unpackedSize": 198435,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb/IQ0CRA9TVsSAnZWagAAARoP/20lPpOYBWaBOwcV9WGq\nJHuOXl6L4VXnpoGmTc8xkAbAwhGXR3v4uye2LnEgb+1huW9kdV+PvLnl2yGr\nT5YbIUNjVMu5O1EmG3yx3piCR2Nye0Uiyq/225xzXVjlNZpWRzE8GGIh7WwE\n6hU2uEATE+sInX6pWG8m/R2igC/6tgzUL8YDaiYMbCjXz8l/atGo2DauiuX+\nTXzD+mtuFM30/hpa+fFApGoX7c14CW77AQn75/gQDPVXVtl+JOhpChKi4vBE\nh8JwlNfuTZdtDY7kpBERkAZAOvN8OBSkoLeIQXv+JGJy987hd3LhhufDt1kF\nC4jGqjC6fn59Bxp7VOyTZ0yXplgtHxEMbmchp7yg+v1gj/7NQJmnbUaKj8N2\nNwHgBOo7tD0BcFW3NZxODuCqQfWiD5YdDdqnviRfP1N7yy0ayghGXE7wVsOr\njzGo7c+ED6dPsogP7yM2BqCUYV4zDGOmh9fUVGalST/lkzFQ3zsyo/NkJ38S\nKRdGoSHwOyMlcJNOoqqCy6taR7eUEFVXQF2Bokz1bQL0FqQCU6oL4qDDFSTe\nOIT78eCtWco7kRjlLWZbtmeyxjxVNnkzLDuXbs1hFtrZXwY/ln68PxAJAwlz\ntRnzj3p9GE40FaxVwJPs/YOAxmLTEkNE2HLPjt3gnBXFSM5FJtxX74XXimJy\nmyZ+\r\n=B8Fj\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/cbor_4.1.2_1543275572106_0.7424583425994002"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.1.3": {
+			"name": "cbor",
+			"version": "4.1.3",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"browser": {
+				"fs": false
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"lint": "eslint lib/*.js bin/* test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "node tools/copyif.js",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				},
+				{
+					"name": "Denis Lapaev",
+					"email": "den@lapaev.me",
+					"url": "http://lapaev.me/"
+				},
+				{
+					"name": "Ruben Bridgewater",
+					"email": "ruben@bridgewater.de"
+				},
+				{
+					"name": "Burt Harris",
+					"email": "Burt_Harris_cbor@azxs.33mail.com"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"ava": "^0.25",
+				"concordance": "^4.0",
+				"garbage": "0.0",
+				"jsdoc": "^3.5",
+				"live-server": "*",
+				"marked-man": "*",
+				"minami": "*",
+				"npm-run-all": "^4.1.5",
+				"nyc": "^13.1.0",
+				"watch": "*"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "^8.0.1",
+				"commander": "^2.19.0",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^1.0.1"
+			},
+			"engines": {
+				"node": ">=6.0.0"
+			},
+			"man": [],
+			"gitHead": "aa9accb6bc74199ca87acde0771489616fc1e996",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@4.1.3",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.2.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"integrity": "sha512-yyKb++PWB2Xhvq7CjUuyD+wu2pG8le6y5KTCPmq1plflkcsj96iYXKaaYqLAkm7bmhnNKM0VIpkixRwwHVP0RA==",
+				"shasum": "c6b69611ff8f916f0391f43a16291c7ca297d2f4",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-4.1.3.tgz",
+				"fileCount": 37,
+				"unpackedSize": 198435,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb/JIjCRA9TVsSAnZWagAAPlYP/iCw/AfEAmCOo/fyicPP\nB8SyU/ubXRM6itNigdNWQh5zevBfpJflmG9X6Iq4zhW7KCKDlvShqjFgs9if\nOlCpFVH1xxBacjodvmi0lcu+qzKMqvGAH1nLruYF5+R0vcQJO1s8hN9WuDoR\noRvSffkrdkIsLImpx1VOsdNKHf8kmiV76YkXQN26v8O7sBV+zCA4skM2C6xR\nxu3v7Qus1aPaG2BuIdR0RzUQAg8I48stJ4bHgpa50AoRBBLQJ7rMJslJ9EJC\noJphq7Rm9SPD6lJB2el7sF0sR+F/mVIsfn4QQdhPB302vum5IOJWOnOjWZm7\nMV2xpA4StxL/tAURFuLeFSZFddzazxk0lzacVHJ0SY8P06U4x3VB3oe5Qmjf\nL+oUpR/tIkjJgXv2ozudpW9GkHJnsvyec6BYib9GkzaVYvpboEYWIdtTNscW\nqcFrPSrUn8HeB58Snn6ba+kA172kPD9trBxbTw24pi44T3xRCKg/6Dmv6VKx\naVO31W4gZ50ArcZskOUp+9/e7znmyGzpYGg2zbSbIsPAl6NiTnPM30u4mUbm\n0K7tFwgPENej1NHqOKcpkZCZJlfciNTIGj3ChZ9o7xs7uPhxG9Q+tVxBU/jD\njiV2YCYaxFsh4WxydPL4sSznQ7eiFRjrzOYbmzsJ2kxqaVWqYquSl5M+F/Ke\nVdQg\r\n=kVqh\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/cbor_4.1.3_1543279138677_0.11766959742943217"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.1.4": {
+			"name": "cbor",
+			"version": "4.1.4",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"browser": {
+				"fs": false
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"lint": "eslint lib/*.js bin/* test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "node tools/copyif.js",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				},
+				{
+					"name": "Denis Lapaev",
+					"email": "den@lapaev.me",
+					"url": "http://lapaev.me/"
+				},
+				{
+					"name": "Ruben Bridgewater",
+					"email": "ruben@bridgewater.de"
+				},
+				{
+					"name": "Burt Harris",
+					"email": "Burt_Harris_cbor@azxs.33mail.com"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"ava": "^1.0.1",
+				"concordance": "^4.0",
+				"garbage": "0.0",
+				"jsdoc": "^3.5",
+				"live-server": "*",
+				"marked-man": "*",
+				"minami": "*",
+				"npm-run-all": "^4.1.5",
+				"nyc": "^13.1.0",
+				"watch": "*"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "^8.0.1",
+				"commander": "^2.19.0",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^1.0.1"
+			},
+			"engines": {
+				"node": ">=6.0.0"
+			},
+			"man": [],
+			"gitHead": "4fd3889b39eb582603036d0f8d5cbe60522912d0",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@4.1.4",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.4.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"integrity": "sha512-SqNWyQnnYtKAPLA7lupvuGKrEgoF2rR/7I9rXdmW/9uxtmKdltthHTf8hfLLN1SIkoAFwz/jb6+VZuaHv3Lv6Q==",
+				"shasum": "fcf59ebdf78b0d3a403cc953ed98550253160c67",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-4.1.4.tgz",
+				"fileCount": 36,
+				"unpackedSize": 99649,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcF/LRCRA9TVsSAnZWagAAfx0P/AghXxfNjgkmL/m17jae\nuqF2/M+bMa09Fc+2qdH0CtQRzx4YHRzzlyUTApTBR5EeonUsd8dJyHYN2HpG\nIvWcD8L/Kqn4vxG4DzryKlKYUS4hiVybXDdG2zRpEkhGkw1MrGQMfW+2TzYE\nlTAHbYstp9nIlpxVYN3ovBAUvtKsND/D4Uohu8fwP64JzR0Ay+BmnIKllzKH\nqfEvMSDR/Gm+nJ9ufLCXpK+inOb/FlJF/u4jy1z1zf4p93i0ZZrHBpxfT0e/\nCKo8D6kIXNni/7FULaTRabmCdZWNAZtXm+9/Rn34jbCecGgY08+drtUdCdHS\nIQXLuaIcdYqXWbVvZlPcp70WDD0Fzf9lCMiBY3R8srkqAan6pTBKiKgHyKZj\nSXLAhcAItRfDXeSxTXyp5w4bv6rG1T1vtDYwHsRgnGjtUSoP53KfN5jpahg8\nwsbYwNPvyRadID1dtTwKXU/hDZiguATAcPrSOkljpl5hJXiJMswFCbHwBSWE\nJ6TBnzn5Ki/sijfV/krLmmxp0qqeVrdnczJRqKL8UopWQUnRDNnObMDPoInq\nGZAjtML7TWICDYen/Ts3smmekTVkNAi4uVhEuIvp3ruhfu6q0uP8qWF0xf+i\nTXDcUx2yQOcz9Og0VScGp+vykq6uUc+4qco0LizVxiw/CsCEHYlx+0bm28xT\nz+BY\r\n=dkCE\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/cbor_4.1.4_1545073359996_0.8179922664478396"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.1.5": {
+			"name": "cbor",
+			"version": "4.1.5",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"browser": {
+				"fs": false
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"lint": "eslint lib/*.js bin/* test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "node tools/copyif.js",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				},
+				{
+					"name": "Denis Lapaev",
+					"email": "den@lapaev.me",
+					"url": "http://lapaev.me/"
+				},
+				{
+					"name": "Ruben Bridgewater",
+					"email": "ruben@bridgewater.de"
+				},
+				{
+					"name": "Burt Harris",
+					"email": "Burt_Harris_cbor@azxs.33mail.com"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"ava": "^1.2.0",
+				"concordance": "^4.0",
+				"garbage": "0.0",
+				"jsdoc": "^3.5",
+				"live-server": "*",
+				"marked-man": "*",
+				"minami": "*",
+				"mock-stdio": "^1.0.3",
+				"npm-run-all": "^4.1.5",
+				"nyc": "^13.1.0",
+				"watch": "*"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "^8.0.2",
+				"commander": "^2.19.0",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^1.0.1"
+			},
+			"engines": {
+				"node": ">=6.0.0"
+			},
+			"man": [],
+			"gitHead": "d9529bf81c1cf33481a69411af5ad2f3ae602fad",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@4.1.5",
+			"_npmVersion": "6.5.0",
+			"_nodeVersion": "11.8.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"integrity": "sha512-WqpISHl7/kk1u1uoaqctGyGiET3+wGN4A6pPsFCzEBztJJlCVxnMB4JwcuuNSrMiV4V6UBlxMkhNzJrUxDWO1A==",
+				"shasum": "c8ef3702b2f8710bde1425903c0c16a50419d369",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-4.1.5.tgz",
+				"fileCount": 25,
+				"unpackedSize": 86158,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcT2eiCRA9TVsSAnZWagAAmgIP/1Z5Jfh7SS9jSYpkWiav\nfoGELEFXPm7FJVLN8M7BP34M2AP4GddDupgAp2oOFIC3JPfXTZk6gCvn8L1Z\nJyfkfApLLz3gjsZCF13uNn7qn1BgRcR233mb11B1PkhAeW8KSpJnL/9cy2FC\n2Ntms/p4Dzgjb9ElKpbGITnpCIbjdSZCbFHwl/8ZXhTRKHx/HCnUWRegGumd\nL/dpKTHsuqlQ6gz0epr7FIcB9FFcyB08l3cBlmB6DOlwwX4mxGodRzCZlSsV\nKSvU14pM4TJQ6jluVRoCONpIRCJfR8bOHEuDCqckq0RvQjqWcotesG3127Ji\n3fe8nPeE6a/42EMzF3DO+Q/7FWbcips3wEPXSw3eYiTiAeUR5aas2PQItGji\nAx9mqsw1w2vhZfdzdDSUaogjHZTFiXlMhgO3oplFr6SbY2PTXadR7AuIQQ7U\nPe5/XG0oc2r+7MFmOUp1wZElFUwnrrNigFn1dnxRgsIox1wB99tW17ItdTcw\n5v+08fVqNaEyCJh1pT1l8z3OqXVQw7x8MfxhVZJ7fohAKSdW3Qn1HFZYocmu\nyaX9kxwoJ03On7b+ZM9ooCI5PACGWaPhXNHbKplXAS07Hsng57Rinkc/KRue\nsYVl0R0En7JOjzxYwEOZKbhWM/DLQ9pZigveIAMrUz+fjjraVnR8f6JWr36B\nYNkR\r\n=XQ0z\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/cbor_4.1.5_1548707745902_0.08164475696009821"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.2.0": {
+			"name": "cbor",
+			"version": "4.2.0",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"browser": {
+				"fs": false
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"lint": "eslint lib/*.js bin/* test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "node tools/copyif.js",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"typecheck": "tsc --allowJs --checkJs --noEmit --target ES6 --moduleResolution node lib/*.js"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				},
+				{
+					"name": "Denis Lapaev",
+					"email": "den@lapaev.me",
+					"url": "http://lapaev.me/"
+				},
+				{
+					"name": "Ruben Bridgewater",
+					"email": "ruben@bridgewater.de"
+				},
+				{
+					"name": "Burt Harris",
+					"email": "Burt_Harris_cbor@azxs.33mail.com"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"@types/node": "^12.7.0",
+				"ava": "^2.2.0",
+				"concordance": "^4.0",
+				"garbage": "0.0",
+				"jsdoc": "^3.6.3",
+				"live-server": "*",
+				"marked-man": "^0.7.0",
+				"minami": "*",
+				"mock-stdio": "^1.0.3",
+				"npm-run-all": "^4.1.5",
+				"nyc": "^14.1.1",
+				"watch": "*"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "^9.0.0",
+				"commander": "^2.20.0",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=8.0.0"
+			},
+			"man": [],
+			"gitHead": "77921899a04e16bbf768ac73c0f5db1ad756cacf",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@4.2.0",
+			"_nodeVersion": "12.7.0",
+			"_npmVersion": "6.10.2",
+			"dist": {
+				"integrity": "sha512-P8ciatEETapCN17TBudKW1Dr6YkYVLcptjZrqxp4B1Lcjtmspoivq33V/jbGqm29vGgDHfgqf/nZCfSEsTPO0A==",
+				"shasum": "d371d851315fa62cffc1ae5db717f991a7eaf490",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-4.2.0.tgz",
+				"fileCount": 23,
+				"unpackedSize": 88479,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdSh1oCRA9TVsSAnZWagAAduYP/0TrO5fmG0mHYFpxXwd/\n0Z1lektvo4QrXBicTE2rnQUKpY1uR5a1mGEiTp20NzLE60c/QH/qQJ00iYf4\nB7XT5KpMBnCg5ctk7g1rznhsE2zJlGCtO2EEV4rLb4fnvTxX5gUQPTqKeYtd\nUDXmn8psCIV5hboa17v258M/uwJt7XuH3tWKBl6irlusT7lvrQ8buT4304YG\nLM3uS88m/qqSEGJkEGXN2MdtarykONQ/7qotVUPztrIzgQTlQ3d+37hV9F5y\nour8m0Xe62tn9Iim0cbwkKLyyPmLHKPK+ApgUJfcyifN3dp+pIMpBKFPdNXK\nze9+8M2BizcPHxBFaCCFY00M2s47CAfuwitHr4x0jsg9NraIGICyd/waph+I\nKkSEAu8b3R4fbCzRnkVIkDdovu5ZvpLZ3DVorLhHRJJp6RCN1aPMkJB8GPpO\n60nouJicXvkOvmeD979rQrx6yIddy8S7gSfZMuWU9bdNhXX43yphueba7koC\nIhM0lCMQJ7HB1B0xvL39LJI5zkGkhlBTWnMfs+Rw1XfJIQxFDQzo2IPm0+A1\n6ySd+Kmk5a4XyayNIEYkCvrl+HZ15rJwNTEDQmbbxH85o5FGXACvlFqI+4u2\nlRCwAdG7ysuiE0rrC8DwR7kjIYSHiuN9RtEOeechrZSmWzJU+r8aoE039110\nB43m\r\n=YGSl\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/cbor_4.2.0_1565138279483_0.5069560034522187"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.2.1": {
+			"name": "cbor",
+			"version": "4.2.1",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"browser": {
+				"fs": false
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"lint": "eslint lib/*.js bin/* test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "node tools/copyif.js",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"typecheck": "tsc --allowJs --checkJs --noEmit --target ES6 --moduleResolution node lib/*.js"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				},
+				{
+					"name": "Denis Lapaev",
+					"email": "den@lapaev.me",
+					"url": "http://lapaev.me/"
+				},
+				{
+					"name": "Ruben Bridgewater",
+					"email": "ruben@bridgewater.de"
+				},
+				{
+					"name": "Burt Harris",
+					"email": "Burt_Harris_cbor@azxs.33mail.com"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"@types/node": "^12.7.0",
+				"ava": "^1.4.1",
+				"concordance": "^4.0",
+				"garbage": "0.0",
+				"jsdoc": "^3.6.3",
+				"live-server": "*",
+				"marked-man": "^0.7.0",
+				"minami": "*",
+				"mock-stdio": "^1.0.3",
+				"npm-run-all": "^4.1.5",
+				"nyc": "^14.1.1",
+				"watch": "*"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "^9.0.0",
+				"commander": "^2.20.0",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=6.0.0"
+			},
+			"man": [],
+			"gitHead": "474fb2bd7328cba3e9c9b416d5248f809983d07e",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@4.2.1",
+			"_nodeVersion": "12.7.0",
+			"_npmVersion": "6.10.2",
+			"dist": {
+				"integrity": "sha512-qIb7O0l8hPl1BcwogGFO0t7sURuo0iSjhgGfOCSU3EGSSEoVdnN4PVUcKA4VW/o9IsuvigSDoOmAqYoWXMpRCw==",
+				"shasum": "141c1ec5acfb0e5964a88e0fc5fe179c50fbed95",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-4.2.1.tgz",
+				"fileCount": 23,
+				"unpackedSize": 88829,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdTAaMCRA9TVsSAnZWagAA+q8QAI8Xov3dkbiq/In8wY9s\ntxwiGEu7QDY2wc6n60eo4eOWnwXhpWPxD4D06aZ1hHR5kYpnejJW7oyBPQWq\nVP7MSdEbPFx04qCAIdAHUQ0EQAsoPZ9JGmykWxOljnN2N/wUDZbUrQxUZqEL\nxVbilMZTirUQzxf9QW1kuQ4Krrwwu6e6jBp07xGE/GgysPOaqCO7dmxlwS9W\nci/6rWXuBTlU29Y+zFBWqDScn1jWiReP80mZMyfHTz0UCwEjZozAb4rIWdQN\nq/2eYAjBvOxfrxoT9CAH+1VYfjRlDsTEUPIsjDEOdjkL55A9xSZX2T2duT+L\nXUQJlxD233R+M3wtfBvP8xfhTciYYk8uaSwdZHCPQf0E06hl/91jOGSte4U5\nY+HRrmVOK6dj70a9KE84ZVXxiTvWNBGf5qxD3xlSoyABb3vv3ZwSZxGK/FYc\n8aVEeX/ZcHg9upUhLbMtxBpcat1yf9txzQ0BOii5+gvaT2zOFnw3g9F3rjrb\nkLZWFq0ZXmy/ZBClGMTFeqGaK/Ih6YXfv+Ooc3bCJOrhPDpyhmjzRhDrJxuN\n7HmO3eUhRS8vd8CX4u40AgmeT3e7I+yeaOqjoDKaiFRChH35DGNOOYzNq41z\nfXOuWXRd638PTqTvllvhVQqL0hfcISJDPkTepkDEHXh6qLUhL0HmGu2tzrRQ\nM9kj\r\n=8qgm\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/cbor_4.2.1_1565263499339_0.630629388217244"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.3.0": {
+			"name": "cbor",
+			"version": "4.3.0",
+			"description": "Encode and parse data in the Concise Binary Object Representation (CBOR) data format (RFC7049).",
+			"main": "./lib/cbor.js",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/hildjj/node-cbor.git"
+			},
+			"homepage": "http://hildjj.github.io/node-cbor/",
+			"directories": {
+				"lib": "lib",
+				"man": "man"
+			},
+			"bin": {
+				"cbor2comment": "./bin/cbor2comment",
+				"cbor2diag": "./bin/cbor2diag",
+				"cbor2json": "./bin/cbor2json",
+				"json2cbor": "./bin/json2cbor"
+			},
+			"browser": {
+				"fs": false
+			},
+			"scripts": {
+				"clean": "rm -rf coverage .nyc_output/ docs/api man/*",
+				"lint": "eslint lib/*.js bin/* test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"coverage": "nyc npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "ava",
+				"man": "mkdir -p man; for f in man_src/*.md; do b=`basename $f`; marked-man $f -o man/${b%.md}.1; gzip -9f man/${b%.md}.1; done",
+				"watch": "watch 'npm run coveragehtml' lib/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"live": "live-server --port=4002 --ignorePattern='(js|css|png)$' coverage",
+				"predev": "node tools/copyif.js",
+				"dev": "npm-run-all -p --silent watch live",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls",
+				"typecheck": "tsc --allowJs --checkJs --noEmit --target ES6 --moduleResolution node lib/*.js"
+			},
+			"keywords": [
+				"coap",
+				"cbor",
+				"json"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"contributors": [
+				{
+					"name": "Patrick Gansterer",
+					"email": "paroga@paroga.com",
+					"url": "http://paroga.com/"
+				},
+				{
+					"name": "Artyom Yagilev",
+					"email": "github@scorpi.org",
+					"url": "http://scorpi.org/"
+				},
+				{
+					"name": "Denis Lapaev",
+					"email": "den@lapaev.me",
+					"url": "http://lapaev.me/"
+				},
+				{
+					"name": "Ruben Bridgewater",
+					"email": "ruben@bridgewater.de"
+				},
+				{
+					"name": "Burt Harris",
+					"email": "Burt_Harris_cbor@azxs.33mail.com"
+				}
+			],
+			"ava": {
+				"files": [
+					"test/*.ava.js"
+				]
+			},
+			"devDependencies": {
+				"@types/node": "^12.7.2",
+				"ava": "^1.4.1",
+				"concordance": "^4.0",
+				"garbage": "0.0",
+				"jsdoc": "^3.6.3",
+				"live-server": "*",
+				"marked-man": "^0.7.0",
+				"minami": "*",
+				"mock-stdio": "^1.0.3",
+				"npm-run-all": "^4.1.5",
+				"nyc": "^14.1.1",
+				"watch": "*"
+			},
+			"license": "MIT",
+			"dependencies": {
+				"bignumber.js": "^9.0.0",
+				"commander": "^3.0.0",
+				"json-text-sequence": "^0.1",
+				"nofilter": "^1.0.3"
+			},
+			"engines": {
+				"node": ">=6.0.0"
+			},
+			"man": [],
+			"gitHead": "7cb523c6fe77a6a4a1725ae98c70e6ba0c0dd8a6",
+			"bugs": {
+				"url": "https://github.com/hildjj/node-cbor/issues"
+			},
+			"_id": "cbor@4.3.0",
+			"_nodeVersion": "12.9.0",
+			"_npmVersion": "6.10.3",
+			"dist": {
+				"integrity": "sha512-CvzaxQlaJVa88sdtTWvLJ++MbdtPHtZOBBNjm7h3YKUHILMs9nQyD4AC6hvFZy7GBVB3I6bRibJcxeHydyT2IQ==",
+				"shasum": "0217c1cadd067d9112f44336dca07e72020bb804",
+				"tarball": "https://registry.npmjs.org/cbor/-/cbor-4.3.0.tgz",
+				"fileCount": 23,
+				"unpackedSize": 89192,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdZEuTCRA9TVsSAnZWagAA/MQQAI0SOjcTjyp3Bpa06hlh\nYlgKGaQYW6Vw73zsIM6hJh+2UtPHfdoBT5gTkTneZjSOrfJmG/GI8ezuuYun\nuqdt6Sq0WtzH23B/3rg8VFfMyCJt8N+LW+7GjLYIZZuxEiO1rCNQuHGnNNxW\nHabPjrF+aEBl32pWyUkWe2U+WfvsTbVwHKWCmV864xzMFWD/5cLV3Y7UiDB1\n6hr2poVw5IpJFFc7QcPxMOnxb5K2vWQCIQpbQ5wA4Kiyy9GKyUnXv3PU65Eg\nfMJcr/5hOvmYS6rFQewhO84XXOge6FdIs/3fAU3YVvIs/K4yU5TXhgEcEaG8\nLHFT8ApP2z9c41WQCnMzD0049xYvBs+yzoDyAImQC9M3NnNQm4xCp0ScYgVN\nF/bGSK0cEwVyZpOY0EiApuP3ReTqIjqSbeLRxeoW0qY+kEIR9P4tIdH6PiBN\nzUR0EBMODatN43kK0IiRk07txE+7gewqRbhRqWCfvwnGDZjUtgacw+HGBaBc\npaY0zt6FAASv+G8NCTSmZ4rjvCXRMTYzAQjVuJRORQKUCu8xfYGpelmcW+vT\nrnJzDUBCsyCMMfWuxi8xyeklXFqahL0dLik10fyw/atPwDB1nG04IGuT1g3t\nxqyjkTGscZO4hwpmmPqzgDCRkgCd2Jyyp4/suRYU5Iy+pcKMJlp9V7JGw0vN\nWqrJ\r\n=Pf04\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "dotcypress",
+					"email": "dotcypress@gmail.com"
+				},
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				},
+				{
+					"name": "paroga",
+					"email": "paroga@paroga.com"
+				}
+			],
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/cbor_4.3.0_1566854034577_0.8543355056953099"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-08-26T21:13:58.440Z",
+		"created": "2014-01-11T02:50:45.608Z",
+		"0.0.0": "2014-01-11T02:50:48.988Z",
+		"0.0.1": "2014-01-16T14:36:32.005Z",
+		"0.3.0": "2014-03-10T19:00:26.030Z",
+		"0.3.1": "2014-03-11T03:57:55.042Z",
+		"0.3.2": "2014-03-11T19:42:50.323Z",
+		"0.3.3": "2014-03-17T21:48:56.460Z",
+		"0.3.4": "2014-03-18T05:44:31.688Z",
+		"0.3.5": "2014-03-23T04:04:07.621Z",
+		"0.3.6": "2014-03-24T22:26:33.943Z",
+		"0.3.7": "2014-03-28T21:16:55.505Z",
+		"0.3.8": "2014-04-25T22:54:42.870Z",
+		"0.3.9": "2014-05-08T20:58:48.885Z",
+		"0.3.10": "2014-06-16T04:59:51.122Z",
+		"0.3.12": "2015-05-25T22:47:46.579Z",
+		"0.3.13": "2015-05-26T17:00:01.651Z",
+		"0.3.14": "2015-05-27T01:23:43.399Z",
+		"1.0.1": "2015-10-09T21:55:43.915Z",
+		"1.0.2": "2016-04-21T21:29:18.028Z",
+		"1.0.3": "2016-04-21T21:30:20.408Z",
+		"1.0.4": "2016-04-29T21:40:00.229Z",
+		"1.0.5": "2016-08-20T19:51:44.399Z",
+		"1.0.6": "2016-08-24T18:54:28.607Z",
+		"2.0.0": "2016-10-10T18:11:32.473Z",
+		"2.0.1": "2016-10-24T21:24:58.924Z",
+		"2.0.2": "2016-10-26T14:02:57.342Z",
+		"3.0.0": "2016-11-20T23:32:35.880Z",
+		"3.0.2": "2017-07-18T03:52:01.218Z",
+		"3.0.3": "2017-08-01T00:57:56.084Z",
+		"4.0.0": "2018-02-18T16:15:24.517Z",
+		"4.1.0": "2018-06-03T20:14:43.672Z",
+		"4.1.1": "2018-07-13T13:49:15.881Z",
+		"4.1.2": "2018-11-26T23:39:32.272Z",
+		"4.1.3": "2018-11-27T00:38:58.900Z",
+		"4.1.4": "2018-12-17T19:02:41.225Z",
+		"4.1.5": "2019-01-28T20:35:46.062Z",
+		"4.2.0": "2019-08-07T00:37:59.589Z",
+		"4.2.1": "2019-08-08T11:24:59.435Z",
+		"4.3.0": "2019-08-26T21:13:54.708Z"
+	},
+	"dist-tags": {
+		"latest": "4.3.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"f1a83fcca89ca95e1ea40cbfdb5eb239\"",
+			"fetched": 1568994351515
+		}
+	},
+	"_distfiles": {
+		"cbor-0.0.0.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.0.0.tgz",
+			"sha": "609c74b9047d83da62bc22fc45d7b44a99caaeee",
+			"registry": "npmjs"
+		},
+		"cbor-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.0.1.tgz",
+			"sha": "376623d505b15ba3d1644d69294bd4b7b7a4c954",
+			"registry": "npmjs"
+		},
+		"cbor-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.3.0.tgz",
+			"sha": "fb527bcbb6089b1fd333f1aee3a6e5393a6d3042",
+			"registry": "npmjs"
+		},
+		"cbor-0.3.1.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.3.1.tgz",
+			"sha": "4214229fd5a7598328a2a45cd5602f255b0b947f",
+			"registry": "npmjs"
+		},
+		"cbor-0.3.2.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.3.2.tgz",
+			"sha": "9ba2035bd778c5ef6b74420ed7bca285762ae1f3",
+			"registry": "npmjs"
+		},
+		"cbor-0.3.3.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.3.3.tgz",
+			"sha": "224fb741253376cc764f0b5fdad25996687daf16",
+			"registry": "npmjs"
+		},
+		"cbor-0.3.4.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.3.4.tgz",
+			"sha": "bf060b1acfeae7df292e956234ddfa1931afbabd",
+			"registry": "npmjs"
+		},
+		"cbor-0.3.5.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.3.5.tgz",
+			"sha": "4b14a45cacd37926d6b43e83b96b6a40a593010b",
+			"registry": "npmjs"
+		},
+		"cbor-0.3.6.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.3.6.tgz",
+			"sha": "6d010db2ba268655fb0fa149125a9ec1d1d75a29",
+			"registry": "npmjs"
+		},
+		"cbor-0.3.7.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.3.7.tgz",
+			"sha": "2213ed6ca0e493272a57a849e57b141ddc82e0cd",
+			"registry": "npmjs"
+		},
+		"cbor-0.3.8.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.3.8.tgz",
+			"sha": "9fd3e00e0e2c5d34d8f628fc2f4a93c61edaa621",
+			"registry": "npmjs"
+		},
+		"cbor-0.3.9.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.3.9.tgz",
+			"sha": "6b729340ca366fd4684537b548b3a1d612b7298e",
+			"registry": "npmjs"
+		},
+		"cbor-0.3.10.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.3.10.tgz",
+			"sha": "2d84661c0e80884681894d015b58147d4a044a5d",
+			"registry": "npmjs"
+		},
+		"cbor-0.3.12.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.3.12.tgz",
+			"sha": "b35e05772ec29a35ec23b5692bc68e7653d4de1d",
+			"registry": "npmjs"
+		},
+		"cbor-0.3.13.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.3.13.tgz",
+			"sha": "5f744a9ce1e23a79a3f1493efd2bc9d5fdd32282",
+			"registry": "npmjs"
+		},
+		"cbor-0.3.14.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-0.3.14.tgz",
+			"sha": "747a7be953cbd3179e28b3b21736bdabf14788cf",
+			"registry": "npmjs"
+		},
+		"cbor-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-1.0.1.tgz",
+			"sha": "558d7e7d385513e2f4eae8a9340270ed7c5dafb0",
+			"registry": "npmjs"
+		},
+		"cbor-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-1.0.2.tgz",
+			"sha": "c88d619ed50aa2cbd4e323ab3bf2e000304a3817",
+			"registry": "npmjs"
+		},
+		"cbor-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-1.0.3.tgz",
+			"sha": "caca597378a57f33d7793a13dee5e87a385de14c",
+			"registry": "npmjs"
+		},
+		"cbor-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-1.0.4.tgz",
+			"sha": "80ace01e89a4a98a899255eba06ef3803204a20b",
+			"registry": "npmjs"
+		},
+		"cbor-1.0.5.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-1.0.5.tgz",
+			"sha": "03fbbfdc55edb543451825df1027635eca16de4f",
+			"registry": "npmjs"
+		},
+		"cbor-1.0.6.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-1.0.6.tgz",
+			"sha": "13c6a934f1b01b93dae7f635a53568126e2b6a02",
+			"registry": "npmjs"
+		},
+		"cbor-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-2.0.0.tgz",
+			"sha": "7eda5b9d8ab71f3cf3b60cdf1d780161275cd3ff",
+			"registry": "npmjs"
+		},
+		"cbor-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-2.0.1.tgz",
+			"sha": "b8848b46c197002bac37abb748d2d2008942ac72",
+			"registry": "npmjs"
+		},
+		"cbor-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-2.0.2.tgz",
+			"sha": "7e9f7f50017c6b8fc7b3fb9f030f2aed904ed428",
+			"registry": "npmjs"
+		},
+		"cbor-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-3.0.0.tgz",
+			"sha": "e2a383e38a98349d66f4e3fc0fa2ec3669a791a0",
+			"registry": "npmjs"
+		},
+		"cbor-3.0.2.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-3.0.2.tgz",
+			"sha": "e0cb8bed9388807f523c61ff0b80f3bf3543340e",
+			"registry": "npmjs"
+		},
+		"cbor-3.0.3.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-3.0.3.tgz",
+			"sha": "7caaa24f481996d246ef428cecdde053073a903e",
+			"registry": "npmjs"
+		},
+		"cbor-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-4.0.0.tgz",
+			"sha": "c69e0124dc225156c0a32a70ebf0bbaf032eac0a",
+			"registry": "npmjs"
+		},
+		"cbor-4.1.0.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-4.1.0.tgz",
+			"sha": "12535080a382defad294329c958b1cfe12541449",
+			"registry": "npmjs"
+		},
+		"cbor-4.1.1.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-4.1.1.tgz",
+			"sha": "a6bc17020b45685d315c6bbc971f3bb3c973fde9",
+			"registry": "npmjs"
+		},
+		"cbor-4.1.2.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-4.1.2.tgz",
+			"sha": "b6a7b3a1c983113dcfd6eac0da2c02f4db575a6b",
+			"registry": "npmjs"
+		},
+		"cbor-4.1.3.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-4.1.3.tgz",
+			"sha": "c6b69611ff8f916f0391f43a16291c7ca297d2f4",
+			"registry": "npmjs"
+		},
+		"cbor-4.1.4.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-4.1.4.tgz",
+			"sha": "fcf59ebdf78b0d3a403cc953ed98550253160c67",
+			"registry": "npmjs"
+		},
+		"cbor-4.1.5.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-4.1.5.tgz",
+			"sha": "c8ef3702b2f8710bde1425903c0c16a50419d369",
+			"registry": "npmjs"
+		},
+		"cbor-4.2.0.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-4.2.0.tgz",
+			"sha": "d371d851315fa62cffc1ae5db717f991a7eaf490",
+			"registry": "npmjs"
+		},
+		"cbor-4.2.1.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-4.2.1.tgz",
+			"sha": "141c1ec5acfb0e5964a88e0fc5fe179c50fbed95",
+			"registry": "npmjs"
+		},
+		"cbor-4.3.0.tgz": {
+			"url": "https://registry.npmjs.org/cbor/-/cbor-4.3.0.tgz",
+			"sha": "0217c1cadd067d9112f44336dca07e72020bb804",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-0e0a8574c72edf7f",
+	"_id": "cbor",
+	"readme": "cbor\n====\n\nEncode and parse data in the Concise Binary Object Representation (CBOR) data format ([RFC7049](http://tools.ietf.org/html/rfc7049)).\n\nInstallation:\n------------\n\n```bash\n$ npm install --save cbor\n```\n\n**NOTE**\nThis package now requires node.js 8.3 or higher.  It will work on node.js 6, in\na less-tested, less-featureful way.  Please start upgrading if it is possible\nfor you.\n\nDocumentation:\n-------------\nSee the full API [documentation](http://hildjj.github.io/node-cbor/).\n\nFrom the command line:\n```\n$ bin/json2cbor package.json > package.cbor\n$ bin/cbor2json package.cbor\n$ bin/cbor2diag package.cbor\n```\n\nExample:\n```javascript\nvar cbor = require('cbor');\nvar assert = require('assert');\n\nvar encoded = cbor.encode(true); // returns <Buffer f5>\ncbor.decodeFirst(encoded, function(error, obj) {\n  // error != null if there was an error\n  // obj is the unpacked object\n  assert.ok(obj === true);\n});\n\n// Use integers as keys?\nvar m = new Map();\nm.set(1, 2);\nencoded = cbor.encode(m); // <Buffer a1 01 02>\n```\n\nAllows streaming as well:\n\n```javascript\nvar cbor = require('cbor');\nvar fs = require('fs');\n\nvar d = new cbor.Decoder();\nd.on('data', function(obj){\n  console.log(obj);\n});\n\nvar s = fs.createReadStream('foo');\ns.pipe(d);\n\nvar d2 = new cbor.Decoder({input: '00', encoding: 'hex'});\nd.on('data', function(obj){\n  console.log(obj);\n});\n```\n\nThere is also support for synchronous decodes:\n\n```javascript\ntry {\n  console.log(cbor.decodeFirstSync('02')); // 2\n  console.log(cbor.decodeAllSync('0202')); // [2, 2]\n} catch (e) {\n  // throws on invalid input\n}\n```\n\nThe sync encoding and decoding are exported as a\n[leveldb encoding](https://github.com/Level/levelup#custom_encodings), as\n`cbor.leveldb`.\n\n## highWaterMark\n\nThe synchronous routines for encoding and decoding will have problems with\nobjects that are larger than 16kB, which the default buffer size for Node\nstreams.  There are a few ways to fix this:\n\n1) pass in a `highWaterMark` option with the value of the largest buffer size you think you will need:\n\n```javascript\ncbor.encodeOne(Buffer.alloc(40000), {highWaterMark: 65535})\n```\n\n2) use stream mode.  Catch the `data`, `finish`, and `error` events.  Make sure to call `end()` when you're done.\n\n```javascript\nconst enc = new cbor.Encoder()\nenc.on('data', buf => /* send the data somewhere */)\nenc.on('error', console.error)\nenc.on('finish', () => /* tell the consumer we are finished */)\n\nenc.end(['foo', 1, false])\n```\n\n3) use `encodeAsync()`, which uses the approach from approach 2 to return a memory-inefficient promise for a Buffer.\n\n## Supported types\n\nThe following types are supported for encoding:\n\n* boolean\n* number (including -0, NaN, and ±Infinity)\n* string\n* Array, Set (encoded as Array)\n* Object (including null), Map\n* undefined\n* Buffer\n* Date,\n* RegExp\n* url.URL\n* [bignumber](https://github.com/MikeMcl/bignumber.js)\n\nDecoding supports the above types, including the following CBOR tag numbers:\n\n| Tag | Generated Type |\n|-----|----------------|\n| 0   | Date           |\n| 1   | Date           |\n| 2   | bignumber      |\n| 3   | bignumber      |\n| 4   | bignumber      |\n| 5   | bignumber      |\n| 32  | url.URL        |\n| 35  | RegExp         |\n\n## Adding new Encoders\n\nThere are several ways to add a new encoder:\n\n### `encodeCBOR` method\n\nThis is the easiest approach, if you can modify the class being encoded.  Add an\n`encodeCBOR` method to your class, which takes a single parameter of the encoder\ncurrently being used.  Your method should return `true` on success, else `false`.\nYour method may call `encoder.push(buffer)` or `encoder.pushAny(any)` as needed.\n\nFor example:\n\n```javascript\nclass Foo {\n  constructor () {\n    this.one = 1\n    this.two = 2\n  }\n  encodeCBOR (encoder) {\n    const tagged = new Tagged(64000, [this.one, this.two])\n    return encoder.pushAny(tagged)\n  }\n}\n```\n\nYou can also modify an existing type by monkey-patching an `encodeCBOR` function\nonto its prototype, but this isn't recommended.\n\n### `addSemanticType`\n\nSometimes, you want to support an existing type without modification to that\ntype.  In this case, call `addSemanticType(type, encodeFunction)` on an existing\n`Encoder` instance. The `encodeFunction` takes an encoder and an object to\nencode, for example:\n\n```javascript\nclass Bar {\n  constructor () {\n    this.three = 3\n  }\n}\nconst enc = new Encoder()\nenc.addSemanticType(Bar, (encoder, b) => {\n  encoder.pushAny(b.three)\n})\n```\n\n## Adding new decoders\n\nMost of the time, you will want to add support for decoding a new tag type.  If\nthe Decoder class encounters a tag it doesn't support, it will generate a `Tagged`\ninstance that you can handle or ignore as needed.  To have a specific type\ngenerated instead, pass a `tags` option to the `Decoder`'s constructor, consisting\nof an object with tag number keys and function values.  The function will be\npassed the decoded value associated with the tag, and should return the decoded\nvalue.  For the `Foo` example above, this might look like:\n\n```javascript\nconst d = new Decoder({tags: { 64000: (val) => {\n  // check val to make sure it's an Array as expected, etc.\n  const foo = new Foo()\n  foo.one = val[0]\n  foo.two = val[1]\n  return foo\n}}})\n```\n\nDevelopers\n----------\n\nThe tests for this package use a set of test vectors from RFC 7049 appendix A by importing a machine readable version of them from https://github.com/cbor/test-vectors. For these tests to work, you will need to use the command `git submodule update --init` after cloning or pulling this code.   See https://gist.github.com/gitaarik/8735255#file-git_submodules-md for more information.\n\nGet a list of build steps with `npm run`.  I use `npm run dev`, which rebuilds,\nruns tests, and refreshes a browser window with coverage metrics every time I\nsave a `.js` file.  If you don't want to run the fuzz tests every time, set\na `NO_GARBAGE` environment variable:\n\n```\nenv NO_GARBAGE=1 npm run dev\n```\n\n[![Build Status](https://api.travis-ci.org/hildjj/node-cbor.svg)](https://travis-ci.org/hildjj/node-cbor)\n[![Coverage Status](https://coveralls.io/repos/hildjj/node-cbor/badge.svg?branch=master)](https://coveralls.io/r/hildjj/node-cbor?branch=master)\n[![Dependency Status](https://david-dm.org/hildjj/node-cbor.svg)](https://david-dm.org/hildjj/node-cbor)"
+}

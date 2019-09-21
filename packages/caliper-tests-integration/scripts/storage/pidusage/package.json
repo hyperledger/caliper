@@ -1,0 +1,3306 @@
+{
+	"name": "pidusage",
+	"versions": {
+		"0.0.1": {
+			"name": "pidusage",
+			"version": "0.0.1",
+			"description": "Process cpu % and memory use of a PID",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~1.9.1",
+				"mocha": "~1.18.2"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/soyuka/pidusage"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"_id": "pidusage@0.0.1",
+			"dist": {
+				"shasum": "f0f8c4db481960917d91ff32824992e9c71f7641",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-0.0.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.22",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.2": {
+			"name": "pidusage",
+			"version": "0.0.2",
+			"description": "Process cpu % and memory use of a PID",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~1.9.1",
+				"mocha": "~1.18.2"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/soyuka/pidusage"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"_id": "pidusage@0.0.2",
+			"dist": {
+				"shasum": "de3bbd02351b7f821135830522fd43d4fae7c4d2",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-0.0.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.3": {
+			"name": "pidusage",
+			"version": "0.0.3",
+			"description": "Process cpu % and memory use of a PID",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~1.9.1",
+				"mocha": "~1.18.2"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/soyuka/pidusage"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"_id": "pidusage@0.0.3",
+			"dist": {
+				"shasum": "50ab650285ee50d45ad4b74f2a23c1b9aa4ba2e4",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-0.0.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.22",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.4": {
+			"name": "pidusage",
+			"version": "0.0.4",
+			"description": "Process cpu % and memory use of a PID",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~1.9.1",
+				"mocha": "~1.18.2"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/soyuka/pidusage"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"_id": "pidusage@0.0.4",
+			"dist": {
+				"shasum": "aef25853d277d2edf64e868165a3725221ffc2ed",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-0.0.4.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.5": {
+			"name": "pidusage",
+			"version": "0.0.5",
+			"description": "Process cpu % and memory use of a PID",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~1.9.1",
+				"mocha": "~1.18.2"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/soyuka/pidusage"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"_id": "pidusage@0.0.5",
+			"dist": {
+				"shasum": "e95ba7d8d5062a60574b8d6c3524d1695d170e4e",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-0.0.5.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.6": {
+			"name": "pidusage",
+			"version": "0.0.6",
+			"description": "Process cpu % and memory use of a PID",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~1.9.1",
+				"mocha": "~1.18.2"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/soyuka/pidusage"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"_id": "pidusage@0.0.6",
+			"dist": {
+				"shasum": "ffb87131e7f69ba3f3d0b50c8c790dd914682b28",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-0.0.6.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.7": {
+			"name": "pidusage",
+			"version": "0.0.7",
+			"description": "Process cpu % and memory use of a PID",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~1.9.1",
+				"mocha": "~1.18.2"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/soyuka/pidusage"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"_id": "pidusage@0.0.7",
+			"dist": {
+				"shasum": "da8f6027d13d0d04e7f15dfface34158ed68495c",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-0.0.7.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.22",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.0": {
+			"name": "pidusage",
+			"version": "0.1.0",
+			"description": "Process cpu % and memory use of a PID",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~1.9.1",
+				"mocha": "~1.18.2"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/soyuka/pidusage"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"_id": "pidusage@0.1.0",
+			"dist": {
+				"shasum": "5c2495bfbfc9ff8952a53d51d80eeae7f8fa4af1",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-0.1.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.22",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.1": {
+			"name": "pidusage",
+			"version": "0.1.1",
+			"description": "Process cpu % and memory use of a PID",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~1.9.1",
+				"mocha": "~1.18.2"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min"
+			},
+			"repository": {
+				"type": "git",
+				"url": "https://github.com/soyuka/pidusage"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "e49af427a98bdb7e75e2afaf45d60039b4e1cfee",
+			"_id": "pidusage@0.1.1",
+			"_shasum": "7c8a2900538931ebbe1a62a9308e77b37b36a530",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "7c8a2900538931ebbe1a62a9308e77b37b36a530",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-0.1.1.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "pidusage",
+			"version": "1.0.0",
+			"description": "Process cpu % and memory use of a PID",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "0df9c8508b039604b4cba189a56c9e967f0b1d6c",
+			"_id": "pidusage@1.0.0",
+			"_shasum": "6dbe61d45c8966042809a4613797ae08b76a7b9d",
+			"_from": ".",
+			"_npmVersion": "3.3.12",
+			"_nodeVersion": "5.1.0",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "6dbe61d45c8966042809a4613797ae08b76a7b9d",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"name": "pidusage",
+			"version": "1.0.1",
+			"description": "Process cpu % and memory use of a PID",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "c1a5955d0176684e23b6fe36dc5ddadf88666860",
+			"_id": "pidusage@1.0.1",
+			"_shasum": "8ebc96c6c6d29650b86fa056e8edcf16b1a7bb35",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.1",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"shasum": "8ebc96c6c6d29650b86fa056e8edcf16b1a7bb35",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "pidusage",
+			"version": "1.0.2",
+			"description": "Process cpu % and memory use of a PID",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4",
+				"mockery": "1.4.0"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "f973a523d78c38ac3ec748966c23a8e61d58c1d4",
+			"_id": "pidusage@1.0.2",
+			"_shasum": "d260bb9a688c41ee85d5b831a503d2bcf7698910",
+			"_from": ".",
+			"_npmVersion": "3.9.3",
+			"_nodeVersion": "6.2.1",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"shasum": "d260bb9a688c41ee85d5b831a503d2bcf7698910",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/pidusage-1.0.2.tgz_1467272520527_0.8708875796291977"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"name": "pidusage",
+			"version": "1.0.3",
+			"description": "Process cpu % and memory use of a PID",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4",
+				"mockery": "1.4.0"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "d3ed8aa506483fef03df6ba3760436be243314a9",
+			"_id": "pidusage@1.0.3",
+			"_shasum": "c12cb22f26a2b06625464e6463b918643b55b85c",
+			"_from": ".",
+			"_npmVersion": "3.9.3",
+			"_nodeVersion": "6.2.1",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"shasum": "c12cb22f26a2b06625464e6463b918643b55b85c",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/pidusage-1.0.3.tgz_1467725927160_0.9265341404825449"
+			},
+			"directories": {}
+		},
+		"1.0.4": {
+			"name": "pidusage",
+			"version": "1.0.4",
+			"description": "Process cpu % and memory use of a PID",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4",
+				"mockery": "1.4.0"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "b9faae16898dd9500fc1eb7c69f760ff1c065110",
+			"_id": "pidusage@1.0.4",
+			"_shasum": "7a4d8c339d8ab5432b3214168ba2a7c305f6dfcd",
+			"_from": ".",
+			"_npmVersion": "3.8.9",
+			"_nodeVersion": "6.2.0",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"shasum": "7a4d8c339d8ab5432b3214168ba2a7c305f6dfcd",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/pidusage-1.0.4.tgz_1467748899145_0.2537387649063021"
+			},
+			"directories": {}
+		},
+		"1.0.5": {
+			"name": "pidusage",
+			"version": "1.0.5",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4",
+				"mockery": "1.4.0"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "be9cd4fbffcee34c73f4cda98092a6cf880cb65b",
+			"_id": "pidusage@1.0.5",
+			"_shasum": "b22e8303bfdb28a1a64f0b4d7c115559787398d8",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.4.0",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"shasum": "b22e8303bfdb28a1a64f0b4d7c115559787398d8",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/pidusage-1.0.5.tgz_1472419388063_0.14238408440724015"
+			},
+			"directories": {}
+		},
+		"1.0.6": {
+			"name": "pidusage",
+			"version": "1.0.6",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4",
+				"mockery": "1.4.0"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min && node test/stresstest.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "6e12abef7015cd858a90dd24bf24edec3aa6187d",
+			"_id": "pidusage@1.0.6",
+			"_shasum": "f2021bb89b641cdcab178d1186a992eb1e4fe066",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.1",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"shasum": "f2021bb89b641cdcab178d1186a992eb1e4fe066",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/pidusage-1.0.6.tgz_1473428456515_0.5888726646080613"
+			},
+			"directories": {}
+		},
+		"1.0.7": {
+			"name": "pidusage",
+			"version": "1.0.7",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4",
+				"mockery": "1.4.0"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min && node test/stresstest.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "c227e8970f00b7f756a9ebeb53a0cbcb83a7b8b3",
+			"_id": "pidusage@1.0.7",
+			"_shasum": "1208573bcd6eb78e85061e0d642e4fcf24fbcad0",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.1",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"shasum": "1208573bcd6eb78e85061e0d642e4fcf24fbcad0",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.7.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/pidusage-1.0.7.tgz_1473683906929_0.8103443474974483"
+			},
+			"directories": {}
+		},
+		"1.0.8": {
+			"name": "pidusage",
+			"version": "1.0.8",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4",
+				"mockery": "1.4.0"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min && node test/stresstest.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "9948cb8c8d734ce284bedfb1c9600945f5b7c1e6",
+			"_id": "pidusage@1.0.8",
+			"_shasum": "5b2978da55718fe0db109f8bc160d59a9a657d15",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.1",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"shasum": "5b2978da55718fe0db109f8bc160d59a9a657d15",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.8.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/pidusage-1.0.8.tgz_1474641656007_0.49691673275083303"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"name": "pidusage",
+			"version": "1.1.0",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4",
+				"mockery": "1.4.0"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min && node test/stresstest.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "7561cf7f6a64b09562d824e3df634e95aabd3db4",
+			"_id": "pidusage@1.1.0",
+			"_shasum": "ffd58339a97aec470cff7cfe1a9853ec5cd415f8",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.1",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"shasum": "ffd58339a97aec470cff7cfe1a9853ec5cd415f8",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/pidusage-1.1.0.tgz_1475769784191_0.30246779485605657"
+			},
+			"directories": {}
+		},
+		"1.1.1": {
+			"name": "pidusage",
+			"version": "1.1.1",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4",
+				"mockery": "1.4.0"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min && node test/stresstest.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "77801358dd8f3cf476b8ded0777dccc24c256c93",
+			"_id": "pidusage@1.1.1",
+			"_shasum": "5a46184da84549cc03c8380e0aeb68248fd214b3",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.0",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"shasum": "5a46184da84549cc03c8380e0aeb68248fd214b3",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/pidusage-1.1.1.tgz_1485849311582_0.3301673873793334"
+			},
+			"directories": {}
+		},
+		"1.1.2": {
+			"name": "pidusage",
+			"version": "1.1.2",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4",
+				"mockery": "1.4.0"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min && node test/stresstest.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "3586a68244a7a2a70f43d48399059fb4a47fa389",
+			"_id": "pidusage@1.1.2",
+			"_shasum": "6f045a55975a3687f26e1dc6b60fc74a0e64cf55",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"shasum": "6f045a55975a3687f26e1dc6b60fc74a0e64cf55",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/pidusage-1.1.2.tgz_1493211307299_0.8851401421707124"
+			},
+			"deprecated": "whoops, this release will break on windows please use 1.1.3",
+			"directories": {}
+		},
+		"1.1.3": {
+			"name": "pidusage",
+			"version": "1.1.3",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4",
+				"mockery": "1.4.0"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min && node test/stresstest.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "16c87c1e4a06ada9c7eb35631592520d6fb5f286",
+			"_id": "pidusage@1.1.3",
+			"_shasum": "b4929367a8de2a32432d11c28388c468474537fe",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"shasum": "b4929367a8de2a32432d11c28388c468474537fe",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.1.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/pidusage-1.1.3.tgz_1493211442076_0.6916924032848328"
+			},
+			"directories": {}
+		},
+		"1.1.4": {
+			"name": "pidusage",
+			"version": "1.1.4",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4",
+				"mockery": "1.4.0"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min && node test/stresstest.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "e3660d8a8e5e61afad9b02af67356a1e239d6bde",
+			"_id": "pidusage@1.1.4",
+			"_shasum": "ab83ffdec051fe345d8ea08cc23085a3e7684ebd",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.0",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"shasum": "ab83ffdec051fe345d8ea08cc23085a3e7684ebd",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.1.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/pidusage-1.1.4.tgz_1493651415998_0.08795129903592169"
+			},
+			"directories": {}
+		},
+		"1.1.5": {
+			"name": "pidusage",
+			"version": "1.1.5",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4",
+				"mockery": "1.4.0"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min && node test/stresstest.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "b77d37d87bd4262829443536af3842ac64613ec6",
+			"_id": "pidusage@1.1.5",
+			"_shasum": "b8c8d32bdfaf36212ca9e741028876ea33217e66",
+			"_from": ".",
+			"_npmVersion": "3.10.8",
+			"_nodeVersion": "6.9.0",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"shasum": "b8c8d32bdfaf36212ca9e741028876ea33217e66",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.1.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage-1.1.5.tgz_1496211486957_0.29822315601632"
+			},
+			"directories": {}
+		},
+		"1.1.6": {
+			"name": "pidusage",
+			"version": "1.1.6",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4",
+				"mockery": "1.4.0"
+			},
+			"engines": {
+				"node": ">=0.12"
+			},
+			"scripts": {
+				"test": "mocha test/test.js --reporter min && node test/stresstest.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "ade61ef6cee4d6714858f33264b7b8352f82a435",
+			"_id": "pidusage@1.1.6",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "6.10.3",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-ua0CWpD05cMMumfoeUcF1zcvpDkkWxedbkLfGQWwkTsHVkaBPUs7OY/0OmnVU/CrcEhRCwCx5VJ4nMKjnsgGIg==",
+				"shasum": "d708d8e38cc7ccfaa191fb6adac1fd674a4be184",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.1.6.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage-1.1.6.tgz_1501246809433_0.8540880591608584"
+			},
+			"directories": {}
+		},
+		"1.2.0": {
+			"name": "pidusage",
+			"version": "1.2.0",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"chai": "~3.4.1",
+				"mocha": "~2.3.4",
+				"mockery": "1.4.0",
+				"standard": "^10.0.3"
+			},
+			"engines": {
+				"node": ">=0.12"
+			},
+			"scripts": {
+				"test": "standard index.js lib/*.js test/*.js && mocha test/test.js --reporter min && node test/stresstest.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "347d9f78acd6c1b2e0b3664ab4e1e33b27683d45",
+			"_id": "pidusage@1.2.0",
+			"_npmVersion": "5.0.3",
+			"_nodeVersion": "8.1.3",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-OGo+iSOk44HRJ8q15AyG570UYxcm5u+R99DI8Khu8P3tKGkVu5EZX4ywHglWSTMNNXQ274oeGpYrvFEhDIFGPg==",
+				"shasum": "65ee96ace4e08a4cd3f9240996c85b367171ee92",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-1.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage-1.2.0.tgz_1508773976643_0.5153890980873257"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "pidusage",
+			"version": "2.0.0",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"mockery": "1.4.0",
+				"nanobench": "^2.1.1",
+				"standard": "^10.0.3",
+				"string-to-stream": "^1.1.0",
+				"tape": "^4.9.0",
+				"through": "^2.3.8"
+			},
+			"engines": {
+				"node": ">=0.12"
+			},
+			"scripts": {
+				"test": "standard index.js lib/*.js test/*.js && node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "7722d62b6689420398ad66681415d084f67a4c0a",
+			"_id": "pidusage@2.0.0",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.1.3",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-jfzm2RkQjrCTiCLuhmzWCl0yeW61qHb+Jv0THUPC+hNE/Up+70ZJ/Zu+jDPUjFZ9oSFTAsZqBKV9n9/XBCxJWQ==",
+				"shasum": "4e3b5d2b94a9fa2ad31e6af11c28a1f9fa66c9cc",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.0.tgz",
+				"fileCount": 23,
+				"unpackedSize": 32395
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.0_1521198482273_0.19708291204658046"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.1": {
+			"name": "pidusage",
+			"version": "2.0.1",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"mockery": "1.4.0",
+				"nanobench": "^2.1.1",
+				"ps-tree-ce": "^1.1.0",
+				"standard": "^10.0.3",
+				"string-to-stream": "^1.1.0",
+				"tape": "^4.9.0",
+				"through": "^2.3.8"
+			},
+			"engines": {
+				"node": ">=0.12"
+			},
+			"scripts": {
+				"test": "standard index.js lib/*.js test/*.js && node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "13c77048e51e5fba478cea845ff6e1084bfa9b15",
+			"_id": "pidusage@2.0.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-cMrode6V7P+Xzh3ZjmopullL7ZA57ffvSD2cgPzCZxRg22+oozmAQyK7j6Ak5e/Lfy76WXbgSKGY6a08lRRXew==",
+				"shasum": "bb54ca3203a9f9eba0ebc1c377d9ba5be2592f1f",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.1.tgz",
+				"fileCount": 23,
+				"unpackedSize": 34250
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.1_1521247160829_0.8110994827119513"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.2": {
+			"name": "pidusage",
+			"version": "2.0.2",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"mockery": "1.4.0",
+				"nanobench": "^2.1.1",
+				"ps-tree-ce": "^1.1.0",
+				"standard": "^10.0.3",
+				"string-to-stream": "^1.1.0",
+				"tape": "^4.9.0",
+				"through": "^2.3.8"
+			},
+			"engines": {
+				"node": ">=0.12"
+			},
+			"scripts": {
+				"test": "standard index.js lib/*.js test/*.js && node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "ed4e7dcd4f05c4dea550172caea28abefe030f83",
+			"_id": "pidusage@2.0.2",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-J4J0O/MOEjS8i1BprZL6OZNeZsytftfVySb2/2dr1A2l3JQKoJQnrlESOjRC8HwoRNbmp7wLQSYHxiEM/5/BNQ==",
+				"shasum": "9d717a3550fa4a7c8f50ce5eda1e7802e7b48a74",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.2.tgz",
+				"fileCount": 23,
+				"unpackedSize": 34620
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.2_1521288323953_0.1570737468452732"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.3": {
+			"name": "pidusage",
+			"version": "2.0.3",
+			"description": "Cross-platform process cpu % and memory usage of a PID — Edit",
+			"main": "index.js",
+			"dependencies": {},
+			"devDependencies": {
+				"faucet": "0.0.1",
+				"mockery": "1.4.0",
+				"nanobench": "^2.1.1",
+				"ps-tree-ce": "^1.1.0",
+				"standard": "^10.0.3",
+				"string-to-stream": "^1.1.0",
+				"tape": "^4.9.0",
+				"through": "^2.3.8"
+			},
+			"engines": {
+				"node": ">=0.12"
+			},
+			"scripts": {
+				"test": "standard index.js lib/*.js test/*.js && node test/test.js | faucet"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"author": {
+				"name": "soyuka"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"homepage": "https://github.com/soyuka/pidusage",
+			"gitHead": "e640eae3fb6a5919e1fa2b5efec94c07606a3716",
+			"_id": "pidusage@2.0.3",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-YuBIU2AuZ4vQ+tShCOTBjPVW9GOZ+eNPxdjP5L00ajZ8el0seB2XBRpa8cUiDrYJNljM2oNuhF+ekJfYi/MTFQ==",
+				"shasum": "f3f1cf29e77a37dcb94116cb1251647ecb4ceedb",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.3.tgz",
+				"fileCount": 23,
+				"unpackedSize": 34794
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.3_1521289467924_0.46578855037332234"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.4": {
+			"name": "pidusage",
+			"version": "2.0.4",
+			"description": "Cross-platform process cpu % and memory usage of a PID",
+			"license": "MIT",
+			"homepage": "https://github.com/soyuka/pidusage",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"author": {
+				"name": "soyuka"
+			},
+			"contributors": [
+				{
+					"name": "Simone Primarosa",
+					"email": "simonepri@outlook.com",
+					"url": "https://simoneprimarosa.com"
+				}
+			],
+			"main": "index.js",
+			"files": [
+				"lib",
+				"index.js"
+			],
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"lint": "standard index.js lib/**/*.js test/**/*.js",
+				"test": "npm run lint && nyc ava -m \"!*benchmark*\"",
+				"coverage": "codecov",
+				"bench": "ava -m \"*benchmark*\""
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"ava": "*",
+				"codecov": "^3.0.0",
+				"mockdate": "^2.0.2",
+				"mockery": "1.4.0",
+				"nyc": "*",
+				"pify": "^3.0.0",
+				"standard": "*",
+				"string-to-stream": "^1.1.0",
+				"through": "^2.3.8",
+				"time-span": "^2.0.0"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"ava": {
+				"verbose": true
+			},
+			"nyc": {
+				"reporter": [
+					"lcovonly",
+					"text"
+				]
+			},
+			"gitHead": "c0056b98a23ccaabe814585b9720f5a331fcf3fd",
+			"_id": "pidusage@2.0.4",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.1.3",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-xJLRM6wfRn3dzwuufrASrOCPctPNBn6c3VuNgf/96i6wj4y8SbR1R6hM8MOZNC9ID+36liTkUtVc5AjkmJoENw==",
+				"shasum": "7660f07d88db818d582f1103b61f9c6f825a7c99",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.4.tgz",
+				"fileCount": 10,
+				"unpackedSize": 20376
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.4_1521463543762_0.00024778125296087694"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.5": {
+			"name": "pidusage",
+			"version": "2.0.5",
+			"description": "Cross-platform process cpu % and memory usage of a PID",
+			"license": "MIT",
+			"homepage": "https://github.com/soyuka/pidusage",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"author": {
+				"name": "soyuka"
+			},
+			"contributors": [
+				{
+					"name": "Simone Primarosa",
+					"email": "simonepri@outlook.com",
+					"url": "https://simoneprimarosa.com"
+				}
+			],
+			"main": "index.js",
+			"files": [
+				"lib",
+				"index.js"
+			],
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"lint": "standard index.js lib/**/*.js test/**/*.js",
+				"test": "npm run lint && nyc ava -m \"!*benchmark*\"",
+				"coverage": "codecov",
+				"bench": "ava -m \"*benchmark*\""
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"ava": "*",
+				"codecov": "^3.0.0",
+				"mockdate": "^2.0.2",
+				"mockery": "1.4.0",
+				"nyc": "*",
+				"pify": "^3.0.0",
+				"standard": "*",
+				"string-to-stream": "^1.1.0",
+				"through": "^2.3.8",
+				"time-span": "^2.0.0"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"ava": {
+				"verbose": true
+			},
+			"nyc": {
+				"reporter": [
+					"lcovonly",
+					"text"
+				]
+			},
+			"gitHead": "b519d8a07e834ad4b3eaa2ae44415c50434cc7a9",
+			"_id": "pidusage@2.0.5",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.1.3",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-Q6BLpBVQbWgjxdVUn9TIsWpybNK2Z6YN/3hK2S6eKHjTCVs3oF1CkVZ+ppH58rwEWrT25KcQ8HaSl5TPmoOSMw==",
+				"shasum": "04bb6c4fd2b0bd573217111e235cd61978066907",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.5.tgz",
+				"fileCount": 10,
+				"unpackedSize": 20376
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.5_1521463602301_0.12410474902741919"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.6": {
+			"name": "pidusage",
+			"version": "2.0.6",
+			"description": "Cross-platform process cpu % and memory usage of a PID",
+			"license": "MIT",
+			"homepage": "https://github.com/soyuka/pidusage",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"author": {
+				"name": "soyuka"
+			},
+			"contributors": [
+				{
+					"name": "Simone Primarosa",
+					"email": "simonepri@outlook.com",
+					"url": "https://simoneprimarosa.com"
+				}
+			],
+			"main": "index.js",
+			"files": [
+				"lib",
+				"index.js"
+			],
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"lint": "standard index.js lib/**/*.js test/**/*.js",
+				"test": "npm run lint && nyc ava -m \"!*benchmark*\"",
+				"alpine": "docker run -v $(pwd):/var/pidusage pidusage:latest npm test",
+				"coverage": "codecov",
+				"bench": "ava -m \"*benchmark*\""
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"ava": "*",
+				"codecov": "^3.0.0",
+				"mockdate": "^2.0.2",
+				"mockery": "1.4.0",
+				"nyc": "*",
+				"pify": "^3.0.0",
+				"standard": "*",
+				"string-to-stream": "^1.1.0",
+				"through": "^2.3.8",
+				"time-span": "^2.0.0"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"ava": {
+				"verbose": true
+			},
+			"nyc": {
+				"reporter": [
+					"lcovonly",
+					"text"
+				]
+			},
+			"gitHead": "e63dc1bc9eacbbfeb315ed093f78bf4a564a4fe5",
+			"_id": "pidusage@2.0.6",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.1.3",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-mk0HhtKlxN+9b7Vj/uI3eKzt2BQAb06ndMWNT8nykcIbTB4jT42hs3blMfVxgUNedpfD/U0OWn/hCcpa4ClfGg==",
+				"shasum": "32bc37e57ca828f46b1c1e679a9cfc56ef945850",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.6.tgz",
+				"fileCount": 13,
+				"unpackedSize": 26297
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.6_1521640129981_0.5756300000751131"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.7": {
+			"name": "pidusage",
+			"version": "2.0.7",
+			"description": "Cross-platform process cpu % and memory usage of a PID",
+			"license": "MIT",
+			"homepage": "https://github.com/soyuka/pidusage",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"author": {
+				"name": "soyuka"
+			},
+			"contributors": [
+				{
+					"name": "Simone Primarosa",
+					"email": "simonepri@outlook.com",
+					"url": "https://simoneprimarosa.com"
+				}
+			],
+			"main": "index.js",
+			"files": [
+				"lib",
+				"index.js"
+			],
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"lint": "standard",
+				"test": "standard &&nyc ava -m \"!*benchmark*\"",
+				"alpine": "docker run -v $(pwd):/var/pidusage pidusage:latest npm test",
+				"coverage": "codecov",
+				"bench": "ava -m \"*benchmark*\""
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"ava": "*",
+				"codecov": "^3.0.0",
+				"mockdate": "^2.0.2",
+				"mockery": "1.4.0",
+				"nyc": "*",
+				"pify": "^3.0.0",
+				"standard": "*",
+				"string-to-stream": "^1.1.0",
+				"through": "^2.3.8",
+				"time-span": "^2.0.0"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"ava": {
+				"verbose": true
+			},
+			"nyc": {
+				"reporter": [
+					"lcovonly",
+					"text"
+				]
+			},
+			"gitHead": "ed9f81d46e72526d42ded22255ee70c7c62000b9",
+			"_id": "pidusage@2.0.7",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.1.3",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-hY2hygVuUbY2fg5vHyCKLyP0WCYkdDD9KdoD+/3H2P+P2bwaxcAc8gdv+jrFSBsQ4YQPD84kP/wKEE3avBEsww==",
+				"shasum": "6759a1f1d56731b87006b195aeb9b405f9a1843f",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.7.tgz",
+				"fileCount": 13,
+				"unpackedSize": 26207,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbFPbYCRA9TVsSAnZWagAA0/UP/3p/CQCPPkpE87UOijjm\n8Hr3twico4svlfVYtunPvwLbcQ+cdrUqysvfZIBtyKYtTVPyNjY0VmZCNJ8r\nA7XNba1WLTuqhGxneqTkVsaBSx8PENbCHY9jVwnwbuI1dG1btSYS2Q6B55VJ\nRtY6lkuAecaiFnRkK+WNzKufmiVJgXmS/SjsN8Yh/J4k/lhT+LqkQb6owdxu\nQ4mrVL4Mh9OOfGTjcopG/J+EayMSWdvl72VsaWmLPw0etkzF3Kg4IXGZ9g4+\nXUflDsYqTu+UtckGFpFTcnvG9yoXqbU/tAdThABWASLAVrXPEbwfYbJyglb/\n7c1gP5/fXuJhjpqpUoHyBkIXclfGJX032WLlPLLRvNlH2mnkRJjPx4Hu87DX\ndasW1hYErB7dnVs4wvwJuRFUAfL6pDZA8J1x2OC2IgP6M+rqfCJzeccvXr2u\nFY2e8bV40XbGdyDinoHJIVBIzjw+pkcV+i3SD3tt3Mz2NZclYmHM/Y7eB2ZX\nrjI5S0QXp9bDSWTh28fdifGB3N2oj/IeYWKGJPwyYojJw720HHH1wRQgaamL\nsoZvndPNuN0fz8H7YxaCormNiOOii+4mrkoA72wV3HAHCQgrUGsePFzu3Q8L\nbq9qlJosgAWhVo7KbTYEha/LOy3QTaBORvMJusp+DlEjLPUtC89GaWN+RhuQ\nUtyn\r\n=OeK+\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.7_1528100567361_0.619321708783791"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.8": {
+			"name": "pidusage",
+			"version": "2.0.8",
+			"description": "Cross-platform process cpu % and memory usage of a PID",
+			"license": "MIT",
+			"homepage": "https://github.com/soyuka/pidusage",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"author": {
+				"name": "soyuka"
+			},
+			"contributors": [
+				{
+					"name": "Simone Primarosa",
+					"email": "simonepri@outlook.com",
+					"url": "https://simoneprimarosa.com"
+				}
+			],
+			"main": "index.js",
+			"files": [
+				"lib",
+				"index.js"
+			],
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"lint": "standard",
+				"test": "standard &&nyc ava -m \"!*benchmark*\"",
+				"alpine": "docker run -v $(pwd):/var/pidusage pidusage:latest npm test",
+				"coverage": "codecov",
+				"bench": "ava -m \"*benchmark*\""
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"ava": "*",
+				"codecov": "^3.0.0",
+				"mockdate": "^2.0.2",
+				"mockery": "2.1.0",
+				"nyc": "*",
+				"pify": "^3.0.0",
+				"standard": "*",
+				"string-to-stream": "^1.1.0",
+				"through": "^2.3.8",
+				"time-span": "^2.0.0"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"ava": {
+				"verbose": true
+			},
+			"nyc": {
+				"reporter": [
+					"lcovonly",
+					"text"
+				]
+			},
+			"gitHead": "64a6cdb8bf13008c1cc2db7809ca96b47722c712",
+			"_id": "pidusage@2.0.8",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.1",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-RCvA2zru4r/LkiYPGPcE2Gl0bPlUxKfM1klZwKKUiaZ9ZSYTqe1KnezrhCGzjHQtE4RE1uATjcGjZm92Oy6AJg==",
+				"shasum": "b782f150e49288dee1dc387ad8b09a61a7ef9744",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.8.tgz",
+				"fileCount": 13,
+				"unpackedSize": 26172,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbHsX/CRA9TVsSAnZWagAAQiQP+wfavNDzvNFLtUb+WtCy\nRoMGHNuNuNNHObwAIOuAWrkNNC+QvQH4l568t2mTpM7GvC9s0EZjDKe9xgqv\nU3oUuzK99h544dQDDxh54ZQiZN7zw+im5GhKZiz2st4LZf5ANBYZTyhCb3lW\nzxMa9CchYAgajS0Ukd3JQbuX97zsaXorC/aE1RJHz3On8o0b7jfm5tnIMUzo\nxYyGqN2MX77buzgy8ODDOEHyIn+521+i4sUBy7i9uMkp99YPQN3R0+XjOuuk\ndZ19P7FtNAdFMp93qSEG7NTic7N8Vtt0mSlpBn7TdoQw99xpqxlA99QOGWZM\nsErqqhRDYAchb9U7M9DS3Xmfun99CUmxV4GcPBz7ErYH64bPHRQtU0V9LIB9\nKkaa19VTFZsFUinbElfnX1ZUQRS5sXbFGLOiOtFwbGNZY21PF/J4Qt1f7kNF\n8y/AfIEbYEZsS5gI9K6dfi6pXrD4gzE0MP3J8Y71ZvTHJ+Rcehid51WLeWBK\nkSgq0y9iRFvRny9/5KKiGF2EJ+/r1Eq87DmLzyGltU65BEwBM/M7CzJmJvli\ndcph/5cS7iYmMr4r6VNg1yWLQfI/h+s0QWU2MdMWbZ5CesDSCfwSRRgqTfi7\nfq1nc+3y8y8s/Sa7CfAlvhv1aqvzocqX+NQ3nIcCTKBacIhbdnXBaSxW8h3c\n1wXl\r\n=Z/Hw\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.8_1528743421853_0.2302551409653042"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.9": {
+			"name": "pidusage",
+			"version": "2.0.9",
+			"description": "Cross-platform process cpu % and memory usage of a PID",
+			"license": "MIT",
+			"homepage": "https://github.com/soyuka/pidusage",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"author": {
+				"name": "soyuka"
+			},
+			"contributors": [
+				{
+					"name": "Simone Primarosa",
+					"email": "simonepri@outlook.com",
+					"url": "https://simoneprimarosa.com"
+				}
+			],
+			"main": "index.js",
+			"files": [
+				"lib",
+				"index.js"
+			],
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"lint": "standard",
+				"test": "standard &&nyc ava -m \"!*benchmark*\"",
+				"alpine": "docker run -v $(pwd):/var/pidusage pidusage:latest npm test",
+				"coverage": "codecov",
+				"bench": "ava -m \"*benchmark*\""
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"ava": "*",
+				"codecov": "^3.0.0",
+				"mockdate": "^2.0.2",
+				"mockery": "2.1.0",
+				"nyc": "*",
+				"pify": "^3.0.0",
+				"standard": "*",
+				"string-to-stream": "^1.1.0",
+				"through": "^2.3.8",
+				"time-span": "^2.0.0"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"ava": {
+				"verbose": true
+			},
+			"nyc": {
+				"reporter": [
+					"lcovonly",
+					"text"
+				]
+			},
+			"gitHead": "f72ec959fe51a51b40fddbabc34deefaa54470e2",
+			"_id": "pidusage@2.0.9",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.11.2",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-srFdGARRLGaXSNqD3rsxfJm4GDp3QSMKmw6w6P80F5seWeE7+q0yzzGBXqXxOE8lmPffUIlBzYk28EQB7Om+pA==",
+				"shasum": "6174ef580cecf2bc722195723e03d0656931c266",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.9.tgz",
+				"fileCount": 13,
+				"unpackedSize": 26173,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbH+xPCRA9TVsSAnZWagAAfYQQAJnbTZvsk9gj1Ud5yyR+\n3kt96Tmb/T6i8eWPlqN29Z0C9ki/VoLOdThEX5p4UfwqV2p+CEcqhFS5s0mK\neEiUCAzEpI0m1SjHaxqQPe1x1flHIsUIyV2LTFMSpGSrBcrRFDdSWc0vBwSj\nLAQx1kNL9bhPYzBa3zjkpjqL0OStQ8yr+PslGO4N5Q1zsJ+28hF25OT/PfqX\nehbU7V7VTuN3sbNnSaPWcWsr3omfz/49Nw7UfkoHAnkpt4xVZrgD3R59Fcdq\niIHnrpQgLjVswnuPmdLEReJ+YX04G5mCgzGFFDPMyLakn4/VjRaaqJ47bsKN\nrvW+fL/GEnPOndBn+yNSK7SHiMv2thoUoLB1UqigeIKRrUtE6rT87xoortdf\nCxkAMlnG2xq39KgsoAHL9SxED1oEpCP8/z4UXCe910xJThVozdZO5HZD5+mJ\nQbcOUu5p+iwR10xIdh/eBY7ttEqTk0llfzBaTsDeZvlNObJjdrvCs2KNAGzh\nIj0fD7U7Y5br6N5y1qyM5HX2RifmhsMTTdANZfKmyf8zIP1IN7WlH4g9Nduk\nIOZD6dQ9cIeeWktDraGETTJyd7kTZ4WXpEJ7VOc72H0ljqa0Jz4gYekVHwOH\nADMZwDBky9vLyJKuu0wpCiZHFi2O7T/lXK9NwVN58Pj1zTSbL0B6+fmLZSoo\nZ0xQ\r\n=0q3u\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.9_1528818767248_0.6193259021870992"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.10": {
+			"name": "pidusage",
+			"version": "2.0.10",
+			"description": "Cross-platform process cpu % and memory usage of a PID",
+			"license": "MIT",
+			"homepage": "https://github.com/soyuka/pidusage",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"author": {
+				"name": "soyuka"
+			},
+			"contributors": [
+				{
+					"name": "Simone Primarosa",
+					"email": "simonepri@outlook.com",
+					"url": "https://simoneprimarosa.com"
+				}
+			],
+			"main": "index.js",
+			"files": [
+				"lib",
+				"index.js"
+			],
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"lint": "standard",
+				"test": "standard && nyc ava -m \"!*benchmark*\"",
+				"alpine": "docker run -v $(pwd):/var/pidusage pidusage:latest npm test",
+				"coverage": "codecov",
+				"bench": "ava -m \"*benchmark*\""
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"ava": "*",
+				"codecov": "^3.0.0",
+				"mockdate": "^2.0.2",
+				"mockery": "2.1.0",
+				"nyc": "*",
+				"pify": "^3.0.0",
+				"standard": "*",
+				"string-to-stream": "^1.1.0",
+				"through": "^2.3.8",
+				"time-span": "^2.0.0"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"ava": {
+				"verbose": true
+			},
+			"nyc": {
+				"reporter": [
+					"lcovonly",
+					"text"
+				]
+			},
+			"gitHead": "969e158c92db17a8a203adb7785d1ffcd1929120",
+			"_id": "pidusage@2.0.10",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-o5ey+bb7IkmY0D/daYjEfmMmZCtBDzaRRjdjKLm41Z+KT4J6he9vMCNRhXWQyu1VByMPZJZN4XinMYi2oeROYQ==",
+				"shasum": "d09aa5002d52ff467f1f82b5b78017066581a821",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.10.tgz",
+				"fileCount": 13,
+				"unpackedSize": 28177,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbImuRCRA9TVsSAnZWagAAyu8QAIwZFonoWzdlATUcveMz\nRo36mEbHBGK/LsbC3NGW2z20VmxDT+qYRSlBVMC8IoM2GmNLeIAWwROlvaM0\n05vzAP77VY6YnW4segFKWKyy63SQiXL8YZneK9lJ+BJGKIAZU7gagrZX5LtL\nBx978FpnYLSwjhHhz1EUFEq+6EhoQryoo6NZ4ai3miMs39360VDolIML4jIz\n/rfPj7QGojZFh5dJP3w3hCC7B7LPeU9ofhnEH/QFmtrEBj48emSU/xCrSxHc\nfPhIbBBhZbe+Cs/T/xT4jM3sKWYRpKkw1npBgiIdKiG025nGo2W6dZqM7ud1\nmVP8e7Rxdz7Yvf7d75SdjHVAugeGXJ6ga1/KHkd+qLvysbPqxmS2+M597xbk\nE/Tq7n6og4mGKft9Yb02+xC0qxVsZsakoQSlKTmq2Du4TzypEQ78prttguxq\n2aDJa9aSy4+5V39He0tYT4Q5WvMQvIKQ36u94WgOM5mGQbBImdmRShUsj+uU\nNeNiwDRtaEMtu1n4umvfg1jUuBvO4Lci9CG0/CytSp82VvcMI2SlX+DQbnaF\ncZ49sjXb+e1ohayoKOC8LSWKou+rngoTP/7Qq9DxkLGWKnyDoP3UxL91vGfq\nZ8ttQT5CkhPaYNrsm3mC27xEfkEhHFH18Qpddl6EAAEuubZj/zXa+/mu7IoG\nRgJz\r\n=Iijd\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.10_1528982411887_0.43447096221541215"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.11": {
+			"name": "pidusage",
+			"version": "2.0.11",
+			"description": "Cross-platform process cpu % and memory usage of a PID",
+			"license": "MIT",
+			"homepage": "https://github.com/soyuka/pidusage",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"author": {
+				"name": "soyuka"
+			},
+			"contributors": [
+				{
+					"name": "Simone Primarosa",
+					"email": "simonepri@outlook.com",
+					"url": "https://simoneprimarosa.com"
+				}
+			],
+			"main": "index.js",
+			"files": [
+				"lib",
+				"index.js"
+			],
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"lint": "standard",
+				"test": "standard && nyc ava -m \"!*benchmark*\"",
+				"alpine": "docker run -v $(pwd):/var/pidusage pidusage:latest npm test",
+				"coverage": "codecov",
+				"bench": "ava -m \"*benchmark*\""
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"ava": "*",
+				"codecov": "^3.0.2",
+				"mockdate": "^2.0.2",
+				"mockery": "2.1.0",
+				"nyc": "^13.0.0",
+				"pify": "^3.0.0",
+				"standard": "*",
+				"string-to-stream": "^1.1.0",
+				"through": "^2.3.8",
+				"time-span": "^2.0.0"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"ava": {
+				"verbose": true
+			},
+			"nyc": {
+				"reporter": [
+					"lcovonly",
+					"text"
+				]
+			},
+			"gitHead": "fb59a8049851c31ea0e764da6911fc15754904c8",
+			"_id": "pidusage@2.0.11",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "8.11.3",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-vr0a6ZnliAcycxq4iTbCtWOTNIrDtzdJp5JpLDDi6tQ96JdfGKKhtDaFwz0ZfnNgoxr/eehPb5/Yg4lbSVv9zg==",
+				"shasum": "cd1442c7a2a77ab23be0dea1ca2acfb3799dc806",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.11.tgz",
+				"fileCount": 13,
+				"unpackedSize": 28165,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbPcpXCRA9TVsSAnZWagAAUjEP/iP23in9BxvPmuLf71VM\nHqETAFQMQbAvLH65MmX+FTvr18j4/y8nB4oXB49fAEjGXAO7ffiwvg0YpiEA\nV4r9mT4JhuQMcfIfGONKZSs5im/YW0mgKj4SL3tQsjm3TtRCOYN17kY1G+E6\nC1Clkt4Gry2UBMb2IB28sRBzPTDZd906aIj+H1LBs3njzPpUBrRKu4toL1Cr\nz5a71FZOxcpy/ZWM6HQa+N7tRLF+P0SCCuvihqDlpHFjqp4BEWdwlhzsP/8f\n8rqI+skHJ1G6Ck8p7k7p8Vpc5YLxrWk6MIE62gqQWAIkQk+zEPp0f+wYZiV5\nHP2/uPEoOy4B8Fwzn5YTsKBIhQDCUiIKOI3o/X9/SnaZ/lIcZjGVflBWcc1N\nUL5MRGiE7hlkgmaaJidZAG19F+nf7SWy5Ik4AG5DQ+mskK8amWp73p55l3j2\nXgyyNcHxh3OqwNYCWIiRcyrpOLiS0ZngIlfo6Hhpy+VsKdQ/oyNq28zlmfgB\n9iSDVYAhp3L+DUseowMIoxZs4u7ytMNBrzca16+9y+ZVmLyCodBo9t8XxZ3G\nfHxVNMIoe8I3DeUVdNKd9fOyp9PJPXp3oDGxkSd7TdnOB6D5gVRnajRZT0zQ\nnSfwR9a//+2+pRLkqtSFMvfmHNl+vvf9IbcYazMlutydT5wBnjHJ8EPyfIot\n41bE\r\n=s7hq\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.11_1530776151052_0.8344894876096189"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.13": {
+			"name": "pidusage",
+			"version": "2.0.13",
+			"description": "Cross-platform process cpu % and memory usage of a PID",
+			"license": "MIT",
+			"homepage": "https://github.com/soyuka/pidusage",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"author": {
+				"name": "soyuka"
+			},
+			"contributors": [
+				{
+					"name": "Simone Primarosa",
+					"email": "simonepri@outlook.com",
+					"url": "https://simoneprimarosa.com"
+				}
+			],
+			"main": "index.js",
+			"files": [
+				"lib",
+				"index.js"
+			],
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"lint": "standard",
+				"test": "standard && nyc ava -m \"!*benchmark*\"",
+				"alpine": "docker run -v $(pwd):/var/pidusage pidusage:latest npm test",
+				"coverage": "codecov",
+				"bench": "ava -m \"*benchmark*\""
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"ava": "*",
+				"codecov": "^3.0.2",
+				"mockdate": "^2.0.2",
+				"mockery": "2.1.0",
+				"nyc": "^13.0.0",
+				"pify": "^3.0.0",
+				"standard": "*",
+				"string-to-stream": "^1.1.0",
+				"through": "^2.3.8",
+				"time-span": "^2.0.0"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"ava": {
+				"verbose": true
+			},
+			"nyc": {
+				"reporter": [
+					"lcovonly",
+					"text"
+				]
+			},
+			"gitHead": "f2ef6d3e09f54a4e83ef52bcc30156254bf42b61",
+			"_id": "pidusage@2.0.13",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "8.11.3",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-YCe7ns8Val5L+GE84aE8lcl5iozuDvWf/rP4S9CXnsliK++EyJleAc6BmK4Fo8aFUjDQSe+lrkcFtap1mJimsg==",
+				"shasum": "2f0492463b09e8179d763e68faa665a1b2fbe11c",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.13.tgz",
+				"fileCount": 13,
+				"unpackedSize": 28178,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbSLFoCRA9TVsSAnZWagAAcPUQAItraLHBSlBMc3YbWobf\nqsdMQDGfxJOzZ+fPyc3sarou3z7zGfZspLkBXi3Psb93yvWjweMO8ptXP+fs\nvntG6/PFwWK9CPMw4xIBcLrP6GUQeWX8xe4+vKoojupCX+I91w/MXHM+QiQm\nCsNerZAtWETuC51pPrVGk0q9QXEsPq1hKkdUUtjhyWXfbIeQaNkClT2stel6\n8mzDEmRqbLaEaGZ8m4sMgswhRyl8YQ5ZnhqiB2l5jcozLc3u/UV0LdELwHy/\n+1MXi1ZFISduMT/PmoKO+OFtL9afLFX2Rrh7K07tk+FTgU0/yBK8B2iXgtgZ\n9SracD58vj6Un+1QcS62qvXO95RBeOBqQgMfolycKnRsFsaB0hXS5M9O7JMk\ntLUDaizwn6IM9FYOWFH5Xq++9kiFVJi5NtVrPgViQTMlE/B3F/gPhXN7Bg+Q\nC8blul50HOGWbtah2JxH5T9UeZL6d23r8RFHZxA6Dan2ZO/q63SNhzQN3++k\nKzd/MttGnA/3yT7nnVwzxRDTfcA8DHAS2Hm0G3PFEVDXg6Mklz3eNlEj6x4a\nJ56AP3hPsSx4QgFZG/XVAHBrupGZetVQZCvT17MLPfRQuTak5kbs3qpy09Vd\nLUu2OgCcZkrUIf7cbKH01YDGBUf02U8BO1s0gnetlVcZHENjLs4J1kB9ZMYC\nLN5E\r\n=6fxQ\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.13_1531490664635_0.008066556968691074"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.12": {
+			"name": "pidusage",
+			"version": "2.0.12",
+			"description": "Cross-platform process cpu % and memory usage of a PID",
+			"license": "MIT",
+			"homepage": "https://github.com/soyuka/pidusage",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"author": {
+				"name": "soyuka"
+			},
+			"contributors": [
+				{
+					"name": "Simone Primarosa",
+					"email": "simonepri@outlook.com",
+					"url": "https://simoneprimarosa.com"
+				}
+			],
+			"main": "index.js",
+			"files": [
+				"lib",
+				"index.js"
+			],
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"lint": "standard",
+				"test": "standard && nyc ava -m \"!*benchmark*\"",
+				"alpine": "docker run -v $(pwd):/var/pidusage pidusage:latest npm test",
+				"coverage": "codecov",
+				"bench": "ava -m \"*benchmark*\""
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"ava": "*",
+				"codecov": "^3.0.2",
+				"mockdate": "^2.0.2",
+				"mockery": "2.1.0",
+				"nyc": "^13.0.0",
+				"pify": "^3.0.0",
+				"standard": "*",
+				"string-to-stream": "^1.1.0",
+				"through": "^2.3.8",
+				"time-span": "^2.0.0"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"ava": {
+				"verbose": true
+			},
+			"nyc": {
+				"reporter": [
+					"lcovonly",
+					"text"
+				]
+			},
+			"gitHead": "120e7b96150b7b26c4db5d37f3225f6a40c3d2d5",
+			"_id": "pidusage@2.0.12",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "10.4.1",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-ru3WTimcOpB1BCRedFXFTjGy4IAwPgsVjbICRPpDohd7iU1etvNvckZ75u06gcy4rskHWTZA2N9f8K3Cg0j6Tg==",
+				"shasum": "fca9f948731a8f6e1f3d979a6832ac98e21322c4",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.12.tgz",
+				"fileCount": 13,
+				"unpackedSize": 28168,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbUDpDCRA9TVsSAnZWagAAkgQP/1v46JQAlL8jl5iPGKL8\nLglwD/XDan1M3phHi0V4CBj0qEegB4zGPoVb9WKb1FlrlGNbV/TsRXYVmMhA\nRJZ3RVSFr1bh8BUMP3cTBCkefZKDbXhTNb2kp1f00PDHQ+mGYCb4Vjsi5nxH\nQcwObqYH96M7Ic2ZbeON4L5FrkwI98Iino28WbmY8zfV82qELqLRs06VMqY4\nPnHjVTCbchXJzq7GkkGBLbahoPk7Gmc1BTfMqttP14+kw5ulHQeFdwHxZj+v\nS4orA9cGZO2p2NJz6U+0gRMcCuxAlofVFyCv29K8E4oJQUiyb0UdszCmn7gC\nOZYSMVaELeISJSHjLZjbRBoNt8qXXQ3Fq9ryfHy+YGR5Kd5oxf5DmlK34M40\nQGVX7ee0acD4zEoyHpkssj7UfkSsNk/9tp0eGDWlSlytuDtttzXv6zxfQhkc\nKRRTL7eOoSPRsnTr/vDptI1xy/+g3PA7Qg79VFQ7cXqASs0xs7HZpa6t2YF1\nGA+lz9u/+O76gzdAgXSOY7HVMMpuBZ07MV9828SDmGByZDFZ7slcyWh9CidU\n5XZXXuG1zNFWqipVopA35KnlF1+j13hgq8ayct1fwLwRsPVwAQc/wxm3Vhef\nPRSKjbBvcLeBtlhkpNTDSqEiXM00RB0kObGpZ7nHV5S8ofDmWgCOpwjhoIJS\nv9T7\r\n=VXOn\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.12_1531984451421_0.07825763818385556"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.15": {
+			"name": "pidusage",
+			"version": "2.0.15",
+			"description": "Cross-platform process cpu % and memory usage of a PID",
+			"license": "MIT",
+			"homepage": "https://github.com/soyuka/pidusage",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"author": {
+				"name": "soyuka"
+			},
+			"contributors": [
+				{
+					"name": "Simone Primarosa",
+					"email": "simonepri@outlook.com",
+					"url": "https://simoneprimarosa.com"
+				}
+			],
+			"main": "index.js",
+			"files": [
+				"lib",
+				"index.js"
+			],
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"lint": "standard",
+				"test": "standard && nyc ava -m \"!*benchmark*\"",
+				"alpine": "docker run -v $(pwd):/var/pidusage pidusage:latest npm test",
+				"coverage": "codecov",
+				"bench": "ava -m \"*benchmark*\""
+			},
+			"dependencies": {
+				"safe-buffer": "^5.1.2"
+			},
+			"devDependencies": {
+				"ava": "*",
+				"codecov": "^3.0.2",
+				"mockdate": "^2.0.2",
+				"mockery": "2.1.0",
+				"nyc": "^13.0.0",
+				"pify": "^3.0.0",
+				"standard": "*",
+				"string-to-stream": "^1.1.0",
+				"through": "^2.3.8",
+				"time-span": "^2.0.0"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"ava": {
+				"verbose": true
+			},
+			"nyc": {
+				"reporter": [
+					"lcovonly",
+					"text"
+				]
+			},
+			"gitHead": "8ca3181df4f3bf1a657cd49d22cfa7c995ae6e8b",
+			"_id": "pidusage@2.0.15",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.9.4",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-BBBxCv1xOvcbqdWDr5vZ5JunA7TcKjnapO0xmdauxCU4oW35MaMkXpeDQPbZFDqEm8t42IeM9AvGps2OkMfxcQ==",
+				"shasum": "d83995a800b8af8277d08d507b5b58d984095103",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.15.tgz",
+				"fileCount": 13,
+				"unpackedSize": 28242,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbV6mBCRA9TVsSAnZWagAAiD0P/1ZZs1p3jxJGahKEgAPI\ndzFT7vb9/jWppw17jD2cRVWdC43sMWHCD5FnNOUhpR3Gyoc0xLRrgiX8Hlic\nkuFoXHGndEH6yRoCDnsbolzlVU+OXlsERC0QxTIxk173zUw/2w7kXvtwhjRn\nGH7XIGfz1BKOpzVLzQiSDx0ajECGlP49Y/KuHOyhyuyG6GptqlVkSvynnpZL\nWujQDY2FE5+paV7dhToc3OguuV+Nzuznq3FNq1pMPrUhHLUQ7bzRsTqf5Cdo\n2LwVXS9rEZHUCjvS1qRpimDsp950VV8WsF4ayQsytb0xGDyOjo0vbnly7BfN\nJu6a1L4TUXi0gAoPO5IJXJCOACh7STy95heQyyW4w4S8tvfrcGvxqcVuKLOt\nq15YoGwf0//NgsfPUTd1XNs54o4VXpCeMtRcPMv2T1EddApoFgFvk68eKbTt\nJCBf3u2H+W+9Oxd3IOOC6FXj10YXJ0GPubY/SqVyp34ocifsCewmdI4JOClu\nD117D+m2LieQ/Ju7On6tim5RFS0yncEzlq1q4YXf/711tgGyPNNL6ox+lkjN\nblq1Vhjxh2QYRFEPAY2FsQ6C4A3RpOx5Ig91V9+PXLqI1cVxBjU1SZB7OD3r\nXgo9Hg0j0rfk6Vtf+UKTMozyEDi+Ghg5OESBOlCwhHKPziJODnLu4vsiYUdd\nuu9j\r\n=AQkN\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.15_1532471681371_0.13552768319667208"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.16": {
+			"name": "pidusage",
+			"version": "2.0.16",
+			"description": "Cross-platform process cpu % and memory usage of a PID",
+			"license": "MIT",
+			"homepage": "https://github.com/soyuka/pidusage",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"author": {
+				"name": "soyuka"
+			},
+			"contributors": [
+				{
+					"name": "Simone Primarosa",
+					"email": "simonepri@outlook.com",
+					"url": "https://simoneprimarosa.com"
+				}
+			],
+			"main": "index.js",
+			"files": [
+				"lib",
+				"index.js"
+			],
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"lint": "standard",
+				"test": "standard && nyc ava -m \"!*benchmark*\"",
+				"alpine": "docker run -v $(pwd):/var/pidusage pidusage:latest npm test",
+				"coverage": "codecov",
+				"bench": "ava -m \"*benchmark*\""
+			},
+			"dependencies": {
+				"safe-buffer": "^5.1.2"
+			},
+			"devDependencies": {
+				"ava": "*",
+				"codecov": "^3.0.2",
+				"mockdate": "^2.0.2",
+				"mockery": "2.1.0",
+				"nyc": "^13.0.0",
+				"pify": "^3.0.0",
+				"standard": "*",
+				"string-to-stream": "^1.1.0",
+				"through": "^2.3.8",
+				"time-span": "^2.0.0"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"ava": {
+				"verbose": true
+			},
+			"nyc": {
+				"reporter": [
+					"lcovonly",
+					"text"
+				]
+			},
+			"gitHead": "cef10b95a7797d66e2f223d3d802c24676c7d5d3",
+			"_id": "pidusage@2.0.16",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "8.11.3",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-9dhSBxpGvvpyycCukU8CqTqJ+YT8aVZ/AI1/hGWhU5nAAOs0zYBYMyIYBU/grKeCYuTS26TVllIRvf5vAfsgvw==",
+				"shasum": "46e2e3185eaef253ef6303f766f7aae72f74f98c",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.16.tgz",
+				"fileCount": 13,
+				"unpackedSize": 28205,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbfQqNCRA9TVsSAnZWagAA9NkP/RU6AtItIBbnht0T1CYG\nz/c7KLBUoZ/OiV/yc/sy6jhYDBueB73801lo/pEQbxv+zx++1SM1AD/asBS9\nwBoVl58k/mkg8Z8XWjkZRvY6otZxtEgp5zNMhYjbzz76C6xzKGIyJZKMlhiR\nupoaCBWEvIKn13J4CeiyaFttRShqHdxh/Ec9T67xwgYqI8T/XbdWbyqGqtru\no9tET24GZeDUkCOPbIaq3F2WnInysFlu0dVdYahFn2QK/9CQS2go3FWoBop2\nptjp0XID44JaQ4463tc94+O8ck3T3Xj5NkwjkUN6uZbjvIASN+X84wInb7V5\niqKYcds7Pq4mLhLCnELirwj0RTTmlP7rcCO95yE2jNnRrQzIWeAaE97IR02i\nFFYcCy9pWFVfHixhbhJwAfd5v1C9GxwHJ554ZhdwZoX9y4/XFSJcDSFQZsdZ\n7yTtci7x19D2Z6qoouU9GURtpWm7jQdMOAxqYlGP2VunZJLh8tqchWBEqbnj\nGhRm2K150lCpS5ci4+8ClAAtVJbsSdE0yVOLvOQCCowv/QL84aq13nXivKR4\n9ct29SzkxmoAia6RQO1sxjK6BCCNaoUOdXaYVbym1JpeoM2yNGYe39oVTlC7\ngf8/pLVGVT5t5VnkpODrKchW9wzE8VwVMLfEsJZmkV42IKZ9xJ7zo9s30iAN\nK1R0\r\n=f8Mk\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.16_1534921357046_0.3740993643380115"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.17": {
+			"name": "pidusage",
+			"version": "2.0.17",
+			"description": "Cross-platform process cpu % and memory usage of a PID",
+			"license": "MIT",
+			"homepage": "https://github.com/soyuka/pidusage",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/soyuka/pidusage.git"
+			},
+			"bugs": {
+				"url": "https://github.com/soyuka/pidusage/issues"
+			},
+			"author": {
+				"name": "soyuka"
+			},
+			"contributors": [
+				{
+					"name": "Simone Primarosa",
+					"email": "simonepri@outlook.com",
+					"url": "https://simoneprimarosa.com"
+				}
+			],
+			"main": "index.js",
+			"engines": {
+				"node": ">=4"
+			},
+			"scripts": {
+				"lint": "standard",
+				"test": "standard && nyc ava -m \"!*benchmark*\"",
+				"alpine": "docker run -v $(pwd):/var/pidusage pidusage:latest npm test",
+				"coverage": "codecov",
+				"bench": "ava -m \"*benchmark*\""
+			},
+			"dependencies": {
+				"safe-buffer": "^5.1.2"
+			},
+			"devDependencies": {
+				"ava": "*",
+				"codecov": "^3.0.2",
+				"mockdate": "^2.0.2",
+				"mockery": "2.1.0",
+				"nyc": "13.0.0",
+				"pify": "^3.0.0",
+				"standard": "*",
+				"string-to-stream": "^1.1.0",
+				"through": "^2.3.8",
+				"time-span": "^2.0.0"
+			},
+			"keywords": [
+				"pid",
+				"usage",
+				"ps",
+				"cpu",
+				"memory",
+				"proc"
+			],
+			"ava": {
+				"verbose": true
+			},
+			"nyc": {
+				"reporter": [
+					"lcovonly",
+					"text"
+				]
+			},
+			"gitHead": "74ad6b3fed9bc865896cafb12881e05043c1b171",
+			"_id": "pidusage@2.0.17",
+			"_npmVersion": "6.1.0",
+			"_nodeVersion": "8.11.3",
+			"_npmUser": {
+				"name": "soyuka",
+				"email": "soyuka@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-N8X5v18rBmlBoArfS83vrnD0gIFyZkXEo7a5pAS2aT0i2OLVymFb2AzVg+v8l/QcXnE1JwZcaXR8daJcoJqtjw==",
+				"shasum": "6b4a2b4a09026f0e9828f7e5627837e4c0672581",
+				"tarball": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.17.tgz",
+				"fileCount": 13,
+				"unpackedSize": 30980,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbmM/0CRA9TVsSAnZWagAA5YgP+wYTINI1EghQaM8s6sCE\n3iHBdDfT6uJgq1O8UR7WeXo8lxWLxnNWm+Fm8IRI8xpk9iSt235Su+hetDJ/\nPfg2KaKfWVPW9FzjzXivTvh2WlamltOeV9Awm/LYeFaap1RASoMk7OOLzBQB\nYtrEo7tEW8rR0CEDzkSzWI1WNaoUFCAtDK/cet5NVO+zVMtKp8iPahJ+P1C0\n7RRTV2oPljVgIDoYu3ZvYosyuCAplHgkG2sIdh0fNHgFy5oEg9WMnJVtW4uG\nVHlh0mMzne4b1LMG/jr2thk+BFfsjwnuCJsUtqB1eMFjPkcJ1rOttJiQvPh+\n+abwOmx4jCoJ4Pmm8TayqIqGT4+kvfLX4LqHAUMHo5jfp0UYEoeBIZxQlsFI\nPRVyktHyTiH3JnXNJ+AA83S/1wVdHbtZGi47GESp1iw9hvU/eKbJq0VmrLiI\nnvhvD7ICj+lpC6JhksFjeHwgjvXD/ixgNF6bxlQ0dHIPOcPpIGh303BN5DzE\nRSrOHQbWA/lNOj7jun3yVrMAKR8qIiJjo3pfB0Ev6dnFtHiDYb3GVnHSjips\nEKgOCAz4z7ADtaZH/S818DBFTuu8aibeumtXTpByvS1OSkqDeTUMN13nUnFQ\n2pN0WV1NOScTBCZjmahcsKPfemnnU/hBjRUCnS1rhcGz9SlbLucHdIP8MEP3\nsNRa\r\n=Wz/q\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "soyuka",
+					"email": "soyuka@gmail.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/pidusage_2.0.17_1536741363118_0.26250533462038605"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-01-05T03:47:41.385Z",
+		"created": "2014-05-08T16:28:59.323Z",
+		"0.0.1": "2014-05-08T16:28:59.323Z",
+		"0.0.2": "2014-05-09T12:52:48.092Z",
+		"0.0.3": "2014-05-09T19:22:42.032Z",
+		"0.0.4": "2014-05-15T12:36:24.169Z",
+		"0.0.5": "2014-06-03T10:12:08.003Z",
+		"0.0.6": "2014-06-04T15:45:22.196Z",
+		"0.0.7": "2014-08-10T14:26:26.136Z",
+		"0.1.0": "2014-08-22T18:12:47.082Z",
+		"0.1.1": "2015-02-03T20:53:14.004Z",
+		"1.0.0": "2015-12-17T08:32:48.083Z",
+		"1.0.1": "2015-12-29T14:47:21.220Z",
+		"1.0.2": "2016-06-30T07:42:01.973Z",
+		"1.0.3": "2016-07-05T13:38:49.327Z",
+		"1.0.4": "2016-07-05T20:01:41.540Z",
+		"1.0.5": "2016-08-28T21:23:10.111Z",
+		"1.0.6": "2016-09-09T13:40:58.133Z",
+		"1.0.7": "2016-09-12T12:38:28.700Z",
+		"1.0.8": "2016-09-23T14:40:57.014Z",
+		"1.1.0": "2016-10-06T16:03:06.080Z",
+		"1.1.1": "2017-01-31T07:55:13.536Z",
+		"1.1.2": "2017-04-26T12:55:09.293Z",
+		"1.1.3": "2017-04-26T12:57:23.984Z",
+		"1.1.4": "2017-05-01T15:10:17.675Z",
+		"1.1.5": "2017-05-31T06:18:07.981Z",
+		"1.1.6": "2017-07-28T13:00:10.400Z",
+		"1.2.0": "2017-10-23T15:52:57.558Z",
+		"2.0.0": "2018-03-16T11:08:02.322Z",
+		"2.0.1": "2018-03-17T00:39:20.940Z",
+		"2.0.2": "2018-03-17T12:05:24.070Z",
+		"2.0.3": "2018-03-17T12:24:27.975Z",
+		"2.0.4": "2018-03-19T12:45:43.813Z",
+		"2.0.5": "2018-03-19T12:46:42.447Z",
+		"2.0.6": "2018-03-21T13:48:50.154Z",
+		"2.0.7": "2018-06-04T08:22:47.446Z",
+		"2.0.8": "2018-06-11T18:57:01.933Z",
+		"2.0.9": "2018-06-12T15:52:47.340Z",
+		"2.0.10": "2018-06-14T13:20:12.028Z",
+		"2.0.11": "2018-07-05T07:35:51.121Z",
+		"2.0.13": "2018-07-13T14:04:24.710Z",
+		"2.0.12": "2018-07-19T07:14:11.523Z",
+		"2.0.14": "2018-07-24T17:26:14.912Z",
+		"2.0.15": "2018-07-24T22:34:41.436Z",
+		"2.0.16": "2018-08-22T07:02:37.101Z",
+		"2.0.17": "2018-09-12T08:36:03.321Z"
+	},
+	"dist-tags": {
+		"latest": "2.0.17"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"c70d61318a1f0233ce815ae52a2dd7a8\"",
+			"fetched": 1568994334319
+		}
+	},
+	"_distfiles": {
+		"pidusage-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-0.0.1.tgz",
+			"sha": "f0f8c4db481960917d91ff32824992e9c71f7641",
+			"registry": "npmjs"
+		},
+		"pidusage-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-0.0.2.tgz",
+			"sha": "de3bbd02351b7f821135830522fd43d4fae7c4d2",
+			"registry": "npmjs"
+		},
+		"pidusage-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-0.0.3.tgz",
+			"sha": "50ab650285ee50d45ad4b74f2a23c1b9aa4ba2e4",
+			"registry": "npmjs"
+		},
+		"pidusage-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-0.0.4.tgz",
+			"sha": "aef25853d277d2edf64e868165a3725221ffc2ed",
+			"registry": "npmjs"
+		},
+		"pidusage-0.0.5.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-0.0.5.tgz",
+			"sha": "e95ba7d8d5062a60574b8d6c3524d1695d170e4e",
+			"registry": "npmjs"
+		},
+		"pidusage-0.0.6.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-0.0.6.tgz",
+			"sha": "ffb87131e7f69ba3f3d0b50c8c790dd914682b28",
+			"registry": "npmjs"
+		},
+		"pidusage-0.0.7.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-0.0.7.tgz",
+			"sha": "da8f6027d13d0d04e7f15dfface34158ed68495c",
+			"registry": "npmjs"
+		},
+		"pidusage-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-0.1.0.tgz",
+			"sha": "5c2495bfbfc9ff8952a53d51d80eeae7f8fa4af1",
+			"registry": "npmjs"
+		},
+		"pidusage-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-0.1.1.tgz",
+			"sha": "7c8a2900538931ebbe1a62a9308e77b37b36a530",
+			"registry": "npmjs"
+		},
+		"pidusage-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.0.tgz",
+			"sha": "6dbe61d45c8966042809a4613797ae08b76a7b9d",
+			"registry": "npmjs"
+		},
+		"pidusage-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.1.tgz",
+			"sha": "8ebc96c6c6d29650b86fa056e8edcf16b1a7bb35",
+			"registry": "npmjs"
+		},
+		"pidusage-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.2.tgz",
+			"sha": "d260bb9a688c41ee85d5b831a503d2bcf7698910",
+			"registry": "npmjs"
+		},
+		"pidusage-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.3.tgz",
+			"sha": "c12cb22f26a2b06625464e6463b918643b55b85c",
+			"registry": "npmjs"
+		},
+		"pidusage-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.4.tgz",
+			"sha": "7a4d8c339d8ab5432b3214168ba2a7c305f6dfcd",
+			"registry": "npmjs"
+		},
+		"pidusage-1.0.5.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.5.tgz",
+			"sha": "b22e8303bfdb28a1a64f0b4d7c115559787398d8",
+			"registry": "npmjs"
+		},
+		"pidusage-1.0.6.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.6.tgz",
+			"sha": "f2021bb89b641cdcab178d1186a992eb1e4fe066",
+			"registry": "npmjs"
+		},
+		"pidusage-1.0.7.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.7.tgz",
+			"sha": "1208573bcd6eb78e85061e0d642e4fcf24fbcad0",
+			"registry": "npmjs"
+		},
+		"pidusage-1.0.8.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.0.8.tgz",
+			"sha": "5b2978da55718fe0db109f8bc160d59a9a657d15",
+			"registry": "npmjs"
+		},
+		"pidusage-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.1.0.tgz",
+			"sha": "ffd58339a97aec470cff7cfe1a9853ec5cd415f8",
+			"registry": "npmjs"
+		},
+		"pidusage-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.1.1.tgz",
+			"sha": "5a46184da84549cc03c8380e0aeb68248fd214b3",
+			"registry": "npmjs"
+		},
+		"pidusage-1.1.2.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.1.2.tgz",
+			"sha": "6f045a55975a3687f26e1dc6b60fc74a0e64cf55",
+			"registry": "npmjs"
+		},
+		"pidusage-1.1.3.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.1.3.tgz",
+			"sha": "b4929367a8de2a32432d11c28388c468474537fe",
+			"registry": "npmjs"
+		},
+		"pidusage-1.1.4.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.1.4.tgz",
+			"sha": "ab83ffdec051fe345d8ea08cc23085a3e7684ebd",
+			"registry": "npmjs"
+		},
+		"pidusage-1.1.5.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.1.5.tgz",
+			"sha": "b8c8d32bdfaf36212ca9e741028876ea33217e66",
+			"registry": "npmjs"
+		},
+		"pidusage-1.1.6.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.1.6.tgz",
+			"sha": "d708d8e38cc7ccfaa191fb6adac1fd674a4be184",
+			"registry": "npmjs"
+		},
+		"pidusage-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-1.2.0.tgz",
+			"sha": "65ee96ace4e08a4cd3f9240996c85b367171ee92",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.0.tgz",
+			"sha": "4e3b5d2b94a9fa2ad31e6af11c28a1f9fa66c9cc",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.1.tgz",
+			"sha": "bb54ca3203a9f9eba0ebc1c377d9ba5be2592f1f",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.2.tgz",
+			"sha": "9d717a3550fa4a7c8f50ce5eda1e7802e7b48a74",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.3.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.3.tgz",
+			"sha": "f3f1cf29e77a37dcb94116cb1251647ecb4ceedb",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.4.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.4.tgz",
+			"sha": "7660f07d88db818d582f1103b61f9c6f825a7c99",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.5.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.5.tgz",
+			"sha": "04bb6c4fd2b0bd573217111e235cd61978066907",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.6.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.6.tgz",
+			"sha": "32bc37e57ca828f46b1c1e679a9cfc56ef945850",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.7.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.7.tgz",
+			"sha": "6759a1f1d56731b87006b195aeb9b405f9a1843f",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.8.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.8.tgz",
+			"sha": "b782f150e49288dee1dc387ad8b09a61a7ef9744",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.9.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.9.tgz",
+			"sha": "6174ef580cecf2bc722195723e03d0656931c266",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.10.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.10.tgz",
+			"sha": "d09aa5002d52ff467f1f82b5b78017066581a821",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.11.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.11.tgz",
+			"sha": "cd1442c7a2a77ab23be0dea1ca2acfb3799dc806",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.13.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.13.tgz",
+			"sha": "2f0492463b09e8179d763e68faa665a1b2fbe11c",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.12.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.12.tgz",
+			"sha": "fca9f948731a8f6e1f3d979a6832ac98e21322c4",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.15.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.15.tgz",
+			"sha": "d83995a800b8af8277d08d507b5b58d984095103",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.16.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.16.tgz",
+			"sha": "46e2e3185eaef253ef6303f766f7aae72f74f98c",
+			"registry": "npmjs"
+		},
+		"pidusage-2.0.17.tgz": {
+			"url": "https://registry.npmjs.org/pidusage/-/pidusage-2.0.17.tgz",
+			"sha": "6b4a2b4a09026f0e9828f7e5627837e4c0672581",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-7c94191dc990835c",
+	"_id": "pidusage",
+	"readme": "# pidusage\n\n[![Mac/Linux Build Status](https://img.shields.io/travis/soyuka/pidusage/master.svg?label=MacOS%20%26%20Linux)](https://travis-ci.org/soyuka/pidusage)\n[![Windows Build status](https://img.shields.io/appveyor/ci/soyuka/pidusage/master.svg?label=Windows)](https://ci.appveyor.com/project/soyuka/pidusage)\n[![Code coverage](https://img.shields.io/codecov/c/github/soyuka/pidusage/master.svg)](https://codecov.io/gh/soyuka/pidusage)\n[![npm version](https://img.shields.io/npm/v/pidusage.svg)](https://www.npmjs.com/package/pidusage)\n[![license](https://img.shields.io/github/license/soyuka/pidusage.svg)](https://github.com/soyuka/pidusage/tree/master/license)\n\nCross-platform process cpu % and memory usage of a PID.\n\n## Synopsis\n\nIdeas from https://github.com/arunoda/node-usage but with no C-bindings.\n\nPlease note that if you need to check a Node.JS script process cpu and memory usage, you can use [`process.cpuUsage`][node:cpuUsage] and [`process.memoryUsage`][node:memUsage] since node v6.1.0. This script remain useful when you have no control over the remote script, or if the process is not a Node.JS process.\n\n\n## Usage\n\n```js\nvar pidusage = require('pidusage')\n\n// Compute statistics every second:\nsetInterval(function () {\n  pidusage(process.pid, function (err, stats) {\n    console.log(stats)\n    // => {\n    //   cpu: 10.0,            // percentage (from 0 to 100*vcore)\n    //   memory: 357306368,    // bytes\n    //   ppid: 312,            // PPID\n    //   pid: 727,             // PID\n    //   ctime: 867000,        // ms user + system time\n    //   elapsed: 6650000,     // ms since the start of the process\n    //   timestamp: 864000000  // ms since epoch\n    // }\n  })\n}, 1000)\n\n// It supports also multiple pids\npidusage([727, 1234], function (err, stats) {\n  console.log(stats)\n  // => {\n  //   727: {\n  //     cpu: 10.0,            // percentage (from 0 to 100*vcore)\n  //     memory: 357306368,    // bytes\n  //     ppid: 312,            // PPID\n  //     pid: 727,             // PID\n  //     ctime: 867000,        // ms user + system time\n  //     elapsed: 6650000,     // ms since the start of the process\n  //     timestamp: 864000000  // ms since epoch\n  //   },\n  //   1234: {\n  //     cpu: 0.1,             // percentage (from 0 to 100*vcore)\n  //     memory: 3846144,      // bytes\n  //     ppid: 727,            // PPID\n  //     pid: 1234,            // PID\n  //     ctime: 0,             // ms user + system time\n  //     elapsed: 20000,       // ms since the start of the process\n  //     timestamp: 864000000  // ms since epoch\n  //   }\n  // }\n})\n\n// If no callback is given it returns a promise instead\nconst stats = await pidusage(process.pid)\nconsole.log(stats)\n// => {\n//   cpu: 10.0,            // percentage (from 0 to 100*vcore)\n//   memory: 357306368,    // bytes\n//   ppid: 312,            // PPID\n//   pid: 727,             // PID\n//   ctime: 867000,        // ms user + system time\n//   elapsed: 6650000,     // ms since the start of the process\n//   timestamp: 864000000  // ms since epoch\n// }\n```\n\n## Compatibility\n\n| Property | Linux | FreeBSD | NetBSD | SunOS | macOS | Win | AIX | Alpine\n| ---         | --- | --- | --- | --- | --- | --- | --- | --- |\n| `cpu`       | ✅ | ❓ | ❓ | ❓ | ✅ | ℹ️ | ❓ | ✅ |\n| `memory`    | ✅ | ❓ | ❓ | ❓ | ✅ | ✅ | ❓ | ✅ |\n| `pid`       | ✅ | ❓ | ❓ | ❓ | ✅ | ✅ | ❓ | ✅ |\n| `ctime`     | ✅ | ❓ | ❓ | ❓ | ✅ | ✅ | ❓ | ✅ |\n| `elapsed`   | ✅ | ❓ | ❓ | ❓ | ✅ | ✅ | ❓ | ✅ |\n| `timestamp` | ✅ | ❓ | ❓ | ❓ | ✅ | ✅ | ❓ | ✅ |\n\n✅ = Working\nℹ️ = Not Accurate\n❓ = Should Work\n❌ = Not Working\n\nPlease if your platform is not supported or if you have reported wrong readings\n[file an issue][new issue].\n\n## API\n\n<a name=\"pidusage\"></a>\n\n### pidusage(pids, [options = {}], [callback]) ⇒ <code>[Promise.&lt;Object&gt;]</code>\nGet pid informations.\n\n**Kind**: global function\n**Returns**: <code>Promise.&lt;Object&gt;</code> - Only when the callback is not provided.\n**Access**: public\n\n| Param | Type | Description |\n| --- | --- | --- |\n| pids | <code>Number</code> \\| <code>Array.&lt;Number&gt;</code> \\| <code>String</code> \\| <code>Array.&lt;String&gt;</code> | A pid or a list of pids. |\n| [callback] | <code>function</code> | Called when the statistics are ready. If not provided a promise is returned instead. |\n\n### pidusage.clear()\n\nIf needed this function can be used to clear the event loop. Indeed, we're registering an interval to free up the in-memory metrics. By calling this, it will clear this interval and all delete all in-memory data.\n\n## Related\n- [pidusage-tree][gh:pidusage-tree] -\nCompute a pidusage tree\n\n## Authors\n- **Antoine Bluchet** - [soyuka][github:soyuka]\n- **Simone Primarosa** - [simonepri][github:simonepri]\n\nSee also the list of [contributors][contributors] who participated in this project.\n\n## License\nThis project is licensed under the MIT License - see the [LICENSE][license] file for details.\n\n<!-- Links -->\n[new issue]: https://github.com/soyuka/pidusage/issues/new\n[license]: https://github.com/soyuka/pidusage/tree/master/LICENSE\n[contributors]: https://github.com/soyuka/pidusage/contributors\n\n[github:soyuka]: https://github.com/soyuka\n[github:simonepri]: https://github.com/simonepri\n\n[gh:pidusage-tree]: https://github.com/soyuka/pidusage-tree\n\n[node:cpuUsage]: https://nodejs.org/api/process.html#process_process_cpuusage_previousvalue\n[node:memUsage]: https://nodejs.org/api/process.html#process_process_memoryusage"
+}

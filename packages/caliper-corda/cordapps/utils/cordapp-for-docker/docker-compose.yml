@@ -1,0 +1,35 @@
+version: '3'
+services:
+  notary:
+    container_name: notary
+    build: "${HOME}/caliper/packages/caliper-corda/cordapps/finance/build/nodes/Notary"
+    ports:
+      - 7051:7051
+      - 8051:8051
+      - 9051:9051
+      - 2222:2222
+  partya:
+    container_name: partya
+    build: "${HOME}/caliper/packages/caliper-corda/cordapps/finance/build/nodes/PartyA"
+    ports:
+      - 7052:7052
+      - 8052:8052
+      - 9052:9052
+      - 2223:2223
+  partyb:
+    container_name: partyb
+    build: "${HOME}/caliper/packages/caliper-corda/cordapps/finance/build/nodes/PartyB"
+    ports:
+      - 7053:7053
+      - 8053:8053
+      - 9053:9053
+      - 2224:2224
+  partyc:
+    container_name: partyc
+    build: "${HOME}/caliper/packages/caliper-corda/cordapps/finance/build/nodes/PartyC"
+    ports:
+      - 7054:7054
+      - 8054:8054
+      - 9054:9054
+      - 2225:2225
+

@@ -1,0 +1,46 @@
+apply plugin: 'org.springframework.boot'
+
+sourceSets {
+    main {
+        resources {
+            srcDir rootProject.file("config/dev")
+        }
+    }
+}
+
+dependencies {
+    // Corda dependencies.
+    compile "$corda_release_group:corda-rpc:$corda_release_version"
+    compile "$corda_release_group:corda-confidential-identities:$corda_release_version"
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+
+
+    // CorDapp dependencies.
+    compile project(":contracts")
+    compile project(":workflows")
+
+    compile("org.springframework.boot:spring-boot-starter-websocket:$spring_boot_version") {
+        exclude group: "org.springframework.boot", module: "spring-boot-starter-logging"
+    }
+
+    compile "org.apache.logging.log4j:log4j-slf4j-impl:${log4j_version}"
+    compile "org.apache.logging.log4j:log4j-web:${log4j_version}"
+    compile "org.slf4j:jul-to-slf4j:$slf4j_version"
+}
+
+
+springBoot {
+    mainClassName = "com.template.webserver.ServerKt"
+}
+
+task runTemplateClient(type: JavaExec, dependsOn: assemble) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'com.template.ClientKt'
+    args 'localhost:10006', 'user1', 'test'
+}
+
+task runTemplateServer(type: JavaExec, dependsOn: assemble) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'com.template.webserver.ServerKt'
+    args '--server.port=10050', '--config.rpc.host=localhost', '--config.rpc.port=8052', '--config.rpc.username=user1', '--config.rpc.password=test'
+}

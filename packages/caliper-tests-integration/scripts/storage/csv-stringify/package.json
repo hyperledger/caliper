@@ -1,0 +1,2815 @@
+{
+	"name": "csv-stringify",
+	"versions": {
+		"0.0.0": {
+			"version": "0.0.0",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-stringify"
+			},
+			"dependencies": {
+				"produce": "latest"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"_id": "csv-stringify@0.0.0",
+			"dist": {
+				"shasum": "eac6f52cd87dc96c5a776bcf80729bdc72b82acb",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.11",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.1": {
+			"version": "0.0.1",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-stringify"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"csv-generate": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv-stringify@0.0.1",
+			"dist": {
+				"shasum": "22e8b6094e49f0a1e5761c94d0e514ea5105aa5e",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.4",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.2": {
+			"version": "0.0.2",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-stringify"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"csv-generate": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"test": "make test"
+			},
+			"_id": "csv-stringify@0.0.2",
+			"dist": {
+				"shasum": "7caea4a78625a87bc9fc062eebc557ae64c26d3e",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.4",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.3": {
+			"version": "0.0.3",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"licenses": [
+				{
+					"type": "BSD",
+					"url": "https://github.com/wdavidw/node-csv-stringify/blob/master/LICENSE"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-stringify"
+			},
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"csv-generate": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"test": "make test"
+			},
+			"gitHead": "1341800d69ddc5c0f8e1f3c00fc3927b5b61f34f",
+			"_id": "csv-stringify@0.0.3",
+			"_shasum": "cfe9ae46f5bf1111afaec17843e08d8b10358d0b",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "cfe9ae46f5bf1111afaec17843e08d8b10358d0b",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.3.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.4": {
+			"version": "0.0.4",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"licenses": [
+				{
+					"type": "BSD",
+					"url": "https://github.com/wdavidw/node-csv-stringify/blob/master/LICENSE"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"csv-generate": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"test": "make test"
+			},
+			"gitHead": "a762626096de0d5f43b39232274e57ec8dc1a8c5",
+			"_id": "csv-stringify@0.0.4",
+			"_shasum": "9335c3c21b1da8dc039168e501f9334d7144e98e",
+			"_from": ".",
+			"_npmVersion": "1.4.14",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "9335c3c21b1da8dc039168e501f9334d7144e98e",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.4.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.5": {
+			"version": "0.0.5",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"licenses": [
+				{
+					"type": "BSD",
+					"url": "https://github.com/wdavidw/node-csv-stringify/blob/master/LICENSE"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"csv-generate": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"test": "make test"
+			},
+			"gitHead": "73b6babc222afb3436a56e0c8a90db70e04d8f55",
+			"_id": "csv-stringify@0.0.5",
+			"_shasum": "03dee7c8ede25fd19455fa5acf00083c9e606cfd",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "03dee7c8ede25fd19455fa5acf00083c9e606cfd",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.5.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.6": {
+			"version": "0.0.6",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"licenses": [
+				{
+					"type": "BSD",
+					"url": "https://github.com/wdavidw/node-csv-stringify/blob/master/LICENSE"
+				}
+			],
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"csv-generate": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"test": "make test"
+			},
+			"gitHead": "09c3520084335df14c35f10fd4c85385e38b6182",
+			"_id": "csv-stringify@0.0.6",
+			"_shasum": "7cf09e868b1b18a497dac1553420bdabb99b6b62",
+			"_from": ".",
+			"_npmVersion": "2.1.17",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "7cf09e868b1b18a497dac1553420bdabb99b6b62",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.6.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.7": {
+			"version": "0.0.7",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"licenses": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"csv-generate": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter dot"
+			},
+			"gitHead": "7385e0f46595454ec7ae7e775b8ecf212966eb71",
+			"_id": "csv-stringify@0.0.7",
+			"_shasum": "116ae90098b5bebedeedf1a0426f13e2c8e7a530",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "116ae90098b5bebedeedf1a0426f13e2c8e7a530",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.7.tgz"
+			},
+			"directories": {}
+		},
+		"0.0.8": {
+			"version": "0.0.8",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"csv-generate": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter dot"
+			},
+			"gitHead": "b2bdf23aecb1f486f19639319dab155112c9e37d",
+			"_id": "csv-stringify@0.0.8",
+			"_shasum": "52cc3b3dfc197758c55ad325a95be85071f9e51b",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "52cc3b3dfc197758c55ad325a95be85071f9e51b",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.8.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.1": {
+			"version": "1.0.1",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "^4.0.0"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"csv-generate": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter dot"
+			},
+			"gitHead": "18227cb89d965d54ad4c4ff02131fd67f0f147af",
+			"_id": "csv-stringify@1.0.1",
+			"_shasum": "d2b958447b167956bd8d97a95010810781984275",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "d2b958447b167956bd8d97a95010810781984275",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-1.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"version": "1.0.2",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "^4.0.0"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"csv-generate": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter dot"
+			},
+			"gitHead": "09b98225b252d63c1b3029cd33fcb3d299f80f29",
+			"_id": "csv-stringify@1.0.2",
+			"_shasum": "62e86627fd94392c82162c82d6543d95700cb741",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "62e86627fd94392c82162c82d6543d95700cb741",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-1.0.2.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-6-west.internal.npmjs.com",
+				"tmp": "tmp/csv-stringify-1.0.2.tgz_1455120424840_0.17426725989207625"
+			},
+			"directories": {}
+		},
+		"1.0.3": {
+			"version": "1.0.3",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "^4.0.0"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"csv-generate": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter dot"
+			},
+			"gitHead": "16c500f3686fd47f2a67bdc04e21200d206a23a3",
+			"_id": "csv-stringify@1.0.3",
+			"_shasum": "575ea535cb5719df1ebcfa0ba9291a41e09c84d6",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.0.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "575ea535cb5719df1ebcfa0ba9291a41e09c84d6",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-1.0.3.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/csv-stringify-1.0.3.tgz_1462561516536_0.9372987458482385"
+			},
+			"directories": {}
+		},
+		"1.0.4": {
+			"version": "1.0.4",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/wdavidw/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "^4.0.0"
+			},
+			"devDependencies": {
+				"coffee-script": "latest",
+				"csv-generate": "latest",
+				"mocha": "latest",
+				"should": "latest"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter dot"
+			},
+			"gitHead": "35706bc22bfb39803e46e379acdcbcc2946459ea",
+			"_id": "csv-stringify@1.0.4",
+			"_shasum": "bc18bab9ad4cef3195fd257980b58b479c42d3e5",
+			"_from": ".",
+			"_npmVersion": "3.8.6",
+			"_nodeVersion": "6.0.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"dist": {
+				"shasum": "bc18bab9ad4cef3195fd257980b58b479c42d3e5",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-1.0.4.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/csv-stringify-1.0.4.tgz_1462998218169_0.9001891198568046"
+			},
+			"directories": {}
+		},
+		"1.1.0": {
+			"version": "1.1.0",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"coffeescript": "~2.0.1",
+				"csv-generate": "~1.0.0",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha test/**/*.coffee"
+			},
+			"gitHead": "8767774fd3f5819ba2350ce3327bc636ca3541aa",
+			"_id": "csv-stringify@1.1.0",
+			"_shasum": "79e5ae9d639dd7c5acefe1564f7dc9f7629f278c",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"shasum": "79e5ae9d639dd7c5acefe1564f7dc9f7629f278c",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify-1.1.0.tgz_1508495369864_0.9398626287002116"
+			},
+			"directories": {}
+		},
+		"1.1.1": {
+			"version": "1.1.1",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"coffee-script": "~1.12.7",
+				"csv-generate": "~1.0.0",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha test/**/*.coffee"
+			},
+			"gitHead": "843026a68cce1b8d082a857cb080df94f9bcc18d",
+			"_id": "csv-stringify@1.1.1",
+			"_shasum": "256f6f8d7c68d5603ac21e22ec86814f5d3e67ce",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"shasum": "256f6f8d7c68d5603ac21e22ec86814f5d3e67ce",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-1.1.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify-1.1.1.tgz_1508499877997_0.3282936920877546"
+			},
+			"directories": {}
+		},
+		"1.1.2": {
+			"version": "1.1.2",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"coffee-script": "~1.12.7",
+				"csv-generate": "~1.0.0",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha test/**/*.coffee"
+			},
+			"gitHead": "9dcfa38c2ce818c47328be7e9db31c7d3eecbb89",
+			"_id": "csv-stringify@1.1.2",
+			"_shasum": "77a41526581bce3380f12b00d7c5bbac70c82b58",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"shasum": "77a41526581bce3380f12b00d7c5bbac70c82b58",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-1.1.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify-1.1.2.tgz_1508500017729_0.008963113883510232"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"version": "2.0.0",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"coffeescript": "~2.0.1",
+				"csv-generate": "~2.0.0",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "NODE_ENV=test ./node_modules/.bin/mocha test/**/*.coffee"
+			},
+			"gitHead": "81765d1185a46a5a65a3b3cd8b80786b6d5d8368",
+			"_id": "csv-stringify@2.0.0",
+			"_shasum": "927bb55fd1408205ce444d2880184627b24b64f1",
+			"_from": ".",
+			"_npmVersion": "3.10.9",
+			"_nodeVersion": "6.9.2",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"shasum": "927bb55fd1408205ce444d2880184627b24b64f1",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-2.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify-2.0.0.tgz_1508501162767_0.5796847662422806"
+			},
+			"directories": {}
+		},
+		"2.0.1": {
+			"version": "2.0.1",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"coffeescript": "~2.0.1",
+				"csv-generate": "~2.0.0",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && rm -rf lib && npm test",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "f1e3f9012f0a8ad77364701cf99695a93265cee4",
+			"_id": "csv-stringify@2.0.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-qoWgXJHmANfwIZFogezZjfN7KeaALrSe2zA5velb2tVEx0r7tgVuMfideB5gq12x5Z7LkvgOayXplOwlKcXnKQ==",
+				"shasum": "bba2a1e1129818bb3e6712914ec3c84d45a9d8c0",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-2.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify-2.0.1.tgz_1513766641338_0.9623681735247374"
+			},
+			"directories": {}
+		},
+		"2.0.2": {
+			"version": "2.0.2",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"coffeescript": "~2.0.1",
+				"csv-generate": "~2.0.0",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src",
+				"pretest": "coffee -b -o lib src",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "bf49f42d6a98afe5aec4f2f94e467f5641cbd86a",
+			"_id": "csv-stringify@2.0.2",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-R3sxeYfsafRMjAc5sLHI5nxIL4EAI8hrJST9dU1N2ICnzINhrz0GjvRpD6PEZ/0IezkxthzKB8iEqyINPePKPg==",
+				"shasum": "3d1459fe448a8786d86c87278c2c41961ae173ab",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-2.0.2.tgz",
+				"fileCount": 10,
+				"unpackedSize": 18747
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_2.0.2_1518037222567_0.3255506247830404"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.3": {
+			"version": "2.0.3",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1",
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"coffeescript": "~2.0.1",
+				"csv-generate": "~2.0.0",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "7a52afcf43b877977e7c8c2d3265e473c2833d90",
+			"_id": "csv-stringify@2.0.3",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-CoFlSotpr0kxBd5UJYE+Fb8T5AfMHncYaE9e2oYtxBUR+zWtb/YKvsJSsuNjcOnicChybD/WEBI/kbsg+91qHw==",
+				"shasum": "a5eca2d54ac531d49d2f941798a9cfde4784976b",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-2.0.3.tgz",
+				"fileCount": 14,
+				"unpackedSize": 89965
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_2.0.3_1518640862378_0.41073810085253837"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.4": {
+			"version": "2.0.4",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1",
+				"coffeescript": "~2.0.1",
+				"csv-generate": "~2.0.0",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "9f81347dfa17239de7cf9b534d4332a16e198188",
+			"_id": "csv-stringify@2.0.4",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-rm8JxNYXglaDKExA2KqCKY+jx8qVBSkXm8/bgw2BIyzLq1/qni/QMSPBchAkd8RGsJhMJDQ+ZxikG/Qgvck+gQ==",
+				"shasum": "9ace220df98ffa7ca91314ac77ff8cba0a08c863",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-2.0.4.tgz",
+				"fileCount": 14,
+				"unpackedSize": 90006
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_2.0.4_1518699172001_0.8526933211970731"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.1.0": {
+			"version": "2.1.0",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1",
+				"coffeescript": "~2.0.1",
+				"csv-generate": "~2.0.0",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "1c64639b4ce482bc57a5a327a6623ce2075f8420",
+			"_id": "csv-stringify@2.1.0",
+			"_npmVersion": "5.4.2",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-wEmZksjlGEZEP0Ai7eyCQuVd68CUqP1TmQ7ay4bchtxTY37tAm1DgM1xPj2L9isEylGEmvfFwA6RXwnqLzKfuA==",
+				"shasum": "b144445a2a5e17cc1cf668282fce421482c23272",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-2.1.0.tgz",
+				"fileCount": 14,
+				"unpackedSize": 90409
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_2.1.0_1522789391980_0.6256881615688163"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.0.0": {
+			"version": "3.0.0",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1",
+				"coffeescript": "~2.0.1",
+				"csv-generate": "~2.0.0",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"gitHead": "93a95f23c8fe26c86a7b90851a0fdeb5faf1a5ff",
+			"_id": "csv-stringify@3.0.0",
+			"_npmVersion": "5.4.2",
+			"_nodeVersion": "8.7.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-My0hdeq8dhDOa68KgsvJzCeK3306TpYffOB5evSG1HBaRf7RzpUgfUkYVsELbfFo9fUsAKtVGFdsdRGjkUuW1A==",
+				"shasum": "ed2b4eaae5a3be382309f7864168458970307d7f",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-3.0.0.tgz",
+				"fileCount": 14,
+				"unpackedSize": 90480
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_3.0.0_1522789546236_0.4505546493774595"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.1.0": {
+			"version": "3.1.0",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1",
+				"coffeescript": "~2.0.1",
+				"csv-generate": "~2.0.0",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib/*.js && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "15dad653cb5033665fd4591bb76600301ea66db1",
+			"_id": "csv-stringify@3.1.0",
+			"_npmVersion": "6.0.1",
+			"_nodeVersion": "10.0.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-4NnbqdZty7yUkpv2YqSnBiD+lIm5hdhldMk6PRK1wPp5wHiItlQCy4pAWN3dA19tMXor4AB9M+GpuqPUoo30Tw==",
+				"shasum": "1f7f8eb133a91128154df0db1502d05ce30ae9a6",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-3.1.0.tgz",
+				"fileCount": 16,
+				"unpackedSize": 93935,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbHXnvCRA9TVsSAnZWagAA1LgP/0S3CeBQoSzFSDn8nrsv\neRoNq0A+NL0WrZwX65wPcUFfSb7KECyVxn3ZQ6b6CW58sSsO0lFQZbwZtnCE\nKiG5ylfm/QQo+6DLISUwuFbl4BBOLJ4MZrmvu5XI5tIWqfY42P5wHSQ5k+Z+\nuQ7qErxiTPJlP6C7NutiyM+IDzQyuYB3cBNGKyfK2NbygNtobiiN+dGlQBjL\n+2dw8r0cIfXKRGf8i3mToeeuH4dVWvMbV64sGC7tP49rUT54KTocpEVVkx2Z\nSXNj69zKhHE7zp1J8hidllwPNC4wOgu87Eby7w/74hdEjgBl8v5ZhdJSfWVt\nQA2UrUO6BjoCdWcdWrjvYI0bjk9xoXuMC4EcWuC7RYNPpbTsX18vAPp6jidH\njMAI/3L3RmpPoe3Z88Ro/QHSSCqxeZRiWr1IXH5e4N0gcAzx79CQSYPmjvgS\na3m2MsDAWvWy8DhA5xWgk5apWP4GyLwAo6GhcHS85fjAgRpG+6Ss5ooiuCG2\nKF5xEEhNb1cw22UNxhrkwiwRmjEtJwA/zNVGX53vM0uxs/lcr3ERG2HszMEA\nVAOxZHPrLQzn/lGEOY72p7l36F3o8o/Bxce6hRi9w3v82phTzHyO9ZjMS4dI\nNYeVZa3h8fg/6u9Zou5fCLc8z79AHUVoDmGGHBJPJW9B+K28dVs16Qhc2q6i\nchVW\r\n=ESwh\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_3.1.0_1528658414510_0.03493352435941466"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.1.1": {
+			"version": "3.1.1",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1",
+				"coffeescript": "~2.0.1",
+				"csv-generate": "~2.0.0",
+				"mocha": "~4.0.1",
+				"should": "~13.1.2"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib/*.js && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "7e3aa8ee772a037d7f352d946b8d0fe1d4430c3d",
+			"_id": "csv-stringify@3.1.1",
+			"_npmVersion": "6.0.1",
+			"_nodeVersion": "10.0.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-Ni9r/BdQM2cGnWzwAP09zp12LVOAMHLJ86azNHGC7s4OUo2WidGfcM3QwYEjD8c4ELCL/a4AzfIsVCzroeys+g==",
+				"shasum": "3a4e180a84f9c45a6a0a0401c1b41b315b9131f0",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-3.1.1.tgz",
+				"fileCount": 16,
+				"unpackedSize": 94011,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbH3sWCRA9TVsSAnZWagAAd5UP/1keqrHKSoXygAsEyfgx\nw6nIo2Kypr8lZZSiQ8wcTid539zUye+H+lxnC6zjCgQP4t942TcQULQ8f3cS\ng/Dj7SrVjFyxSjLYbQcTuriJfk6BqW7d2hUkqpRE2ml/YAbsKIp51aoX4Ncb\nBQOMMKLsvKgykVC27xfnXn8oYSDJtBHGuAN87KAuV4ATvlbGORXjCBZhGFM+\nL7yKFpaDLuHnfy+56MT0BJLTUULu8m+V05QlPw2nZ2CcZbJkKc72YE+9MdbH\nzJI3/e8BBsZ2C9+8blatezg/TlH0h3wyewI+wJkADUQDYNaYHuLzhEKVZl9e\nYe2mtp6D1vciXWK3DqMQyltSYtkqK8feRD9/2NgzdFPGgSJbomfJFSnz+EyK\nTiBs5z8NRbY+nDZKI6fvQv7dQwUqTAozwTJf32Hh+OiiOHCLOlXbYcpthYPl\nwKlwLggNJxKW76OhiHDvWBcccDWBThNIoQim+1mjz30NOe3IQmgFCBYIaz8C\n9VTLoad3R1ixriLYE32CRruLeCu5rN6VaCvJ41D8xL5dnTAxg+2AcOLf+JhD\nxi8Yohl4TjC1zr0Rkez+6Ub5pSnf7HQ7zv68QpOLYGN4kwXRbTzLnUWTYxNs\neTpqUtVG1+iFuWZoQNIKAzoVR7wZfx7RzV7pm2kGt5m0Ga7A+XQsSFdZPcAh\nW8Kn\r\n=fmsY\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_3.1.1_1528789781675_0.6682390196610317"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.0.0": {
+			"version": "4.0.0",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1",
+				"coffeescript": "~2.3.1",
+				"csv-generate": "~2.1.0",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib/*.js && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "1028e24c70bcb229a00fb4c695393b6ffdf1066d",
+			"_id": "csv-stringify@4.0.0",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "10.0.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-QMQubI0OaAGGnXGJf3KDc9yW+oEmphU816FQUwiD3IISQjD8A0E82WlMM7iYmyTIXTXFwvajprebPwNsWD2oBw==",
+				"shasum": "32205d94574fb47af7e404ab0202a628e2ae50e1",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-4.0.0.tgz",
+				"fileCount": 16,
+				"unpackedSize": 95016,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbhF03CRA9TVsSAnZWagAAUWAQAI+uuinUXomBZoTmw3eE\nXgB2kINep7sz8eTedleXmJzxq0k4j2BOcJrjKTfhbTzkLlHYEfcL4KSvAPvl\neo7YJ23JuiEG/iPiMYQJ1RHwWYg+HwV7KvyHjnEMm4bsQEagW3ijP6pL1+e0\nGlF0dKafN1Erv+DhlHhvdHjju18pbduJEYLdOOzDpv0HB1rjNWNVr8OcXcZX\nKE/iIGy8pJEhBtqgC2sVO95Qo8vIEEbJVkaKDClfx0lraTcnfMFkT9CVO6zE\nOfdyLPmjtTSwqU6KIGpYME8fXG2Y7De00T3fXYsX8nAgx0i/ZDRfGOeWE+/N\nG1D9BGACDyLgDHTfdU5HmzmObOzb77AOckIv8jhjlriPeonkbJccs/GxM39l\nFQGMiriv+HM3v8nc0WwGPprJPz7oe3Fc3ylbL8IlCMnoTJmyfQHFNBIVKBbU\n5Y9ZjZXYr35cRU0JQ8VASvlXyU/soEHqhIoph0d9N7nrL0c1jPh2E4OKWUsh\nUwaDxbW8+VuxNzG1bo2MSu52cJ2BCXhKoFrNbhzZSbtti2QyItQCGKx0vF0s\nfgysqWmkzQEnvuK+Kq8bFPRM0O48fIUD7oh6iaRKclTUQJz4Ex9mpeTYXCfg\nknZwwLxVkklws+ijgz8pH8RPY1HXO39ifcyFvZxgpwuRf1eDvVEWT5R9V7nb\nVYM0\r\n=apt3\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_4.0.0_1535401270711_0.9481270122971572"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.0.1": {
+			"version": "4.0.1",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "http://www.github.com/adaltas/node-csv-stringify"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1",
+				"coffeescript": "~2.3.1",
+				"csv-generate": "~2.1.0",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib/*.js && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "fa3fe914fb5465cc2c48da070e476c2d2229057b",
+			"_id": "csv-stringify@4.0.1",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "10.0.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-DktJsSMYf8ju40rQTwkGBTV8L2G6RmCf1Voje5nABiprxtrUua8AS7bD//XfNTTYXwhUbuByLJXBokY4oM6WjQ==",
+				"shasum": "2cb3be20c7ca52e6cf8b8104e6d9faf79e3facf5",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-4.0.1.tgz",
+				"fileCount": 16,
+				"unpackedSize": 95128,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbhGaaCRA9TVsSAnZWagAA/CcP/ixexHNvPOqjtt7QVN1x\nTMAXa3bTSKH2bJW9oS0+/zfowkzh9C+9U/X1iSjAjHvrKA/twb0DMki3qPbC\nuZZ9/RfC2Ge5+CMZ20dOl/7o4K5RuRGsZPYApO3ZmnbHiWh+D8ezkUQFkd0N\nHawolEIWnAiHGLm83Om7K/d7pdDqYYYYoxqlP4Gbd9oN90z8L3IK/9MLIeDh\n2NboIvONYcbuVnibd2AkCZO1oNv39KTCwmerwPX7DJhuXaDNBg9bamTPBfvj\nMQH/Up1B0zoKQWZtY+M1sCTJ5QPlJSZaD6OxHg9gTwXwFzLC0Qv5HYQMUCB2\n2bPY1aZh5uGY4JK4xE+8seV5C5Pwo/4j5vRC/vMwuwj5qd+IOglfgG1SY0VV\negeT5si7MBY9JfREwv+czmPEGffa6bK3ETUXlZi6bBT9SOdMVZArkYJVzGdD\n4CQ4kxcAvsDnsu7LveHNwqqrsVXttdFTo6oNN29fUKcpk5BKPD2CUcY5cSZR\nYjxtFZy/dkD4KR7/mYrVyr/FKBxKkk1LRJCCxrGdKfp8S19MZTmVbMnGupNh\nkDeW4yVH++z0U48BdSzLqDYnAe3Y0URui0uI1kd0OYMvUnwI2F64TBdYFYkF\nRtV2CzFAYAvMYm9Y0k2DK+8ywsYcLR2DbFoiS6BecTd4Y6tRwtAaL3pWpt3a\nkBtq\r\n=/bio\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_4.0.1_1535403673440_0.4920725439732434"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.1.0": {
+			"version": "4.1.0",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-stringify.git"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"babel-cli": "^6.26.0",
+				"babel-preset-es2015": "^6.24.1",
+				"coffeescript": "~2.3.1",
+				"csv-generate": "~2.1.0",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib/*.js && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "11876313b050063a12c4bffe4ad1519665689263",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-stringify/issues"
+			},
+			"_id": "csv-stringify@4.1.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.11.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-a4MN3JsNseuAhLcf/KheflnlsJW+4/Cje80YMHCMKte4Xp+8PguguH8P/VZzp5xoMeiaXw0AN/KdiwPuzhf0XQ==",
+				"shasum": "65fb5980b9f2eb18e69df90b9de52502769f271d",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-4.1.0.tgz",
+				"fileCount": 16,
+				"unpackedSize": 39858,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbreKDCRA9TVsSAnZWagAAnscP/1wMmaDspYeHoSqX6Bw3\natjm4NJV7pklS2qhDq18AjSBxUmn0Z2YhIJQlFmM5AytUkkdn8h/9YYfyPAY\nj0s/VeG9v+nLSDfZZdmUFboDvK+8YxtjNIABL2vdMHkveFQ9+5pnEI1pXkr3\nXEIErPnxFM5TDhxjxTXyjSMAa/oD+OMlykkeGIRZ+oE/eFX6d6KXiQWAHEuX\nlAg2xAu+cewIAWnOYAY2yrxxKc3AwwIbw4zThydrV7DLW+SoODPQfnWALGGZ\n5IRZ6jyNW6uPkwb3jp8jAn4uZ6/PEDru2wOdykOKJrwLE9+7DvBNysMd1ieY\n5MloDg345dWpJ07p+dJgEwx1373VUUS0pinFGldlsc64Xe+qjhc9Kqu3a+0v\ne3mn6cYyeclQ0cxIf6KskTbDyPIiceytGKSEwTDyTbGzuTSOwcAjUxTfehJ/\nXaAqsr5sv0ae8SPeP7wnHe0zeKzIFBiVFAow05LWYOi/wxmwcKm9TRGexQk7\niW6h3Qe3zoutISBEgQTLkvZJj1D093vyDFoY7zbEyvfjaS/VDjp0gPZRDMjr\npTq6S9eqWAGzaKOVzVOA6DRRt9y+PaBDj7cioc1FGw/vl330WBfhRvQbGk8J\n1jx7UCwSzCmCC24Pxydgu/bdEmzMMOgwMsgDjLFKlYhyM2SZyP8Oqezy1u9p\nuyA9\r\n=R1do\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_4.1.0_1538122370603_0.8691717184834666"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.2.0": {
+			"version": "4.2.0",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-stringify.git"
+			},
+			"homepage": "http://csv.adaltas.com/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"coffeescript": "~2.3.1",
+				"csv-generate": "~2.1.0",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib/*.js && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "b8e1d7db2fb16f124264d7f72eb9b4c080467573",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-stringify/issues"
+			},
+			"_id": "csv-stringify@4.2.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.11.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-NUK5y8UXQpiuTjgVjgBfOnGWPoFGYUHVrqxhWUv6FdK9NYlcGv71+MaCm4ZnRNBEsgLP9pXUQYDXCRFvUn47dA==",
+				"shasum": "a8dea976943802fbdd284834f2d81bff32cd1349",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-4.2.0.tgz",
+				"fileCount": 16,
+				"unpackedSize": 41234,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbrkg7CRA9TVsSAnZWagAA91IP/jE2JnaZpgcExOUxnFVl\nYoZ9B2oLzgZcDPFed9ky+HFc3S4fW9ZHzuk3kYp7gweLHHbRluOoSYmSa7Yt\nOTSgQ3QxhHZZCxEQNvcyQ5wdpn1qxoCdtqrYSyx+nXWgeKYk9u02DYqUK/qn\nCAeVijKIKsa7JtmRBWKtcENz08r1j8Q7oVw0uhg8zRydg6xoLY9pG4goiW+f\n8e8lIcVAOsjnymgZdSyHudrlwoXdxzcob9O650saMLAtypxBLA+RVvXTHcic\ntru2TqwTGXhZ/jE3+kjGD2JlU3IIx/345Wjrm9VGdcVtcfy0xo3C2ifa4yav\nbk9LvVFZ2sDNXN9NSrFEr1XzjVLkfBng0k37XVCvQOFHCmFMlMFQtVBdedwO\nsuTKhVKhoXpCtAqTnb80IUo6DlN+V0IyKZOdN5oH0KCkexs+VOog30v86joN\nmxvShRUKNmBHg02GjsiPmBySnwsMF4+sNnOR6HQUGQD2nVqTx9t0v2qgDHD3\noA8bzyrQPafiemqaZ9IRKL+7wRSeYt5cqCz2Y4SDZVb7dLKlRYji2Sxw8W/s\n5bIWeaoroqPfATS0ChwLwq77nAYWC7wHPdSnqxNWtqSuOXR4Uht8mlFCaqt8\nrETT0J/ME0n7FSK5LDLQSMnOu00G3F3KOVfmBzAfSvYaQ5GP5mx6746yvfI4\n3b4k\r\n=ghhn\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_4.2.0_1538148410293_0.8757521427975874"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.3.0": {
+			"version": "4.3.0",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-stringify.git"
+			},
+			"homepage": "https://csv.js.org/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"coffeescript": "~2.3.1",
+				"csv-generate": "~2.1.0",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib/*.js && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "80e26a5966c9ac070d37ac51e7908fe81b000e26",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-stringify/issues"
+			},
+			"_id": "csv-stringify@4.3.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.11.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-W+ENL78X+jyPY0K3NBvk+MesDB4jAAdpZ5hKajU4R/uGU3stX6fX904v8Mwkt4vXU3KddXflGoVyi1dYqj16AA==",
+				"shasum": "8734a42ea18f4d8d78ab9f9f456d94159337a6fc",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-4.3.0.tgz",
+				"fileCount": 16,
+				"unpackedSize": 40892,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbrpoKCRA9TVsSAnZWagAAGt0P/Rhr7PrfXtcjpuDB3bEU\nqQ0RzcGKHwWdAmYsG9MLh1GP+JCddK9A8thnDaPjlDMIFHca1Qhqzs7yVU+s\nLs6w6Y55r/QWErrNJg4L9z/Bi6+OdzZOZ4qSp31QgG8yOpgfqJM4+H33UJCU\nszhvtjqoPbdF+FoSMygf5OR4Nt8bQmK1tw3R5nFb2M4s1L+TXAcNPbgA+ncH\nIMWrXRi7B/vSYG1S9J43HAybLEND793q1L3a0erOoutVDrdy+ZB5y6KJn4qA\ny4fRYMq31yAhmpUrXmGPRE0eX+JLrnIXyXKZuMM1nAvm3uYx5zsKa+hv+PVY\nU2H/PnQgHmAKJzSQXVJfbHNjh5iIk2Lw41TSzlBn4WyWAqTJoUPuqD2tWR/g\n/bcUeh2XaWCpkhYIQBQTm/cYFqxi8CRryrStWWswvNVqRIaG4Tzyo5zbjtZ6\np80uO5R+dRff45hdzTvIp8cdxEEj3ScPZW7mogwrpuSKWnQQxdpGt5PEanGv\nE/Z1vzSPVkLMeQ5CSJiJfso98fR6OPLDs3h4fytN9XaJRNKvEItOiuoiKaxy\nt5kV82GsHwm/MD1zNvu6ZpNTOfc15WRzqipJ5mMXylok67TTUEa5ys5ouRpA\nUYAa4znCpSfILYVcTSgXgFTA5HI2f+/npWFp7i5j7fAKqVlPdfvjbst1Yf6y\nFede\r\n=gwIi\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_4.3.0_1538169353332_0.18542118016327813"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.3.1": {
+			"version": "4.3.1",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-stringify.git"
+			},
+			"homepage": "https://csv.js.org/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"coffeescript": "~2.3.1",
+				"csv-generate": "~2.1.0",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib/*.js && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "97bcb6336b3f39eb4e966798dd3210f99643306d",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-stringify/issues"
+			},
+			"_id": "csv-stringify@4.3.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.11.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-VRjPYIUzex5kfbsOY7LaJcNE2qMWGQQAanb3/Vv85WbOgA+dAfDNfwntRvv335icJgGYrnTX403WxJxRVpLDFA==",
+				"shasum": "7bee36f746ef555dd481a735a9e2938965f8478b",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-4.3.1.tgz",
+				"fileCount": 16,
+				"unpackedSize": 40934,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbrp3jCRA9TVsSAnZWagAA0r8QAJ6RfdWajuvyk0ue/j9O\nBAf7Nt+v0rTZJvDKuMVHrQ/9UNCw4u9EiyXNEsKM+a6Izb0sWToX/tkMLabT\nAU+Xsv8s6Ua2aorUGVKmxddQP7oxtzsZ8xquTocOHq3NJXp5V9/C4FQOLWDX\nqj1PRLN6jE+CQgnXQerDBh1SU+KXQuc+k+bIpO3F/edotN6B4/lhdAkzIjpQ\nBDDTe5dHbsN7f62dzBKjV8ggokBDTVLopx0+qcmhCDz3XIfw4h++wI655O8u\nsAy19XO671bYIsIEOnmrLISDN3JGUZ5jLBKw/W0bAx3PUx+WQpNhK+bEkm+4\nfT3z+9l1+geWu0ezlftjCQzSrUoAGSpp9rjJgl54o6+vPZvrXJViBYs1wTJy\n0sZnfs/ctDZhjOG7c0+sI6V6sRyOuHGUoui27QONQ+78/Uy42voj9sSBjEAP\nQIh8VXdIKujuXg+WPYJHvO8dDO8/A/kX9kM+39ciPc+Rp2REhP9ZRXTpghlf\ngpymTD7tlxPwImdPsvy+mOWSeNTSxqVONrBNacBetuvqxgXR8fa4e6zToiA1\nxiocMDiN5dk4sQRj292qX2RB1qJqzGORuOYR9WdYzUg2tJzkdIcs9cHVWDat\nD9fRcoyME7TcTXiQNxlzRkngapYw4ue65FgKtcHVYcSsGaJI9vK4A4LUFcpD\nmsYM\r\n=mkGS\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_4.3.1_1538170339307_0.23310821136471627"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.0.0": {
+			"version": "5.0.0",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-stringify.git"
+			},
+			"homepage": "https://csv.js.org/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.1.0",
+				"@babel/core": "^7.1.0",
+				"@babel/preset-env": "^7.1.0",
+				"coffeescript": "~2.3.1",
+				"csv-generate": "~2.1.0",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib/*.js && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "3b6a85e1a5d2ecff44af389b5fbbd3a4b8cd3d70",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-stringify/issues"
+			},
+			"_id": "csv-stringify@5.0.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-Zb2k2+oZcmQDn0nd0XpMTd8W+B2JfjI3kVfZBijYnw7zAx+K627z4LfvCfhP7B7dwyLmuzLOeuhW6T9HWIpQXg==",
+				"shasum": "7248acd769a6cf74201fd43ded7b806dd51aff1f",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.0.0.tgz",
+				"fileCount": 16,
+				"unpackedSize": 44983,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb9cC7CRA9TVsSAnZWagAAz5kP/jHhqZboLk9fLDxpBNqf\nLC2kyppjrnwFeNsszcTeduo9/ZnauYTO8YJQ8Y2zlNviblmLYCyR7F0xyVHR\nJLCoEbNHLtX4cdrgCqIYQo5QDQFYWQBObqEwU5eEJ+uZGBsl6rrTjLd5uOuN\nmWJQTG3zrkZtzr+7TAgxjicGSgN+hryj+5OJ30Yq38M3n/8RI1w24j9C2o/1\nylUbMn95kzR4Jn6Pr3jS55Yx3xDuoHKCXhfzFI+CY/U6wll7Fc4zyVWTHDY1\n5KNyYX8Jf4uE/CSozN1S7wqOHL+BMMECw5TCMRGbhAkp3ptbs5IYuWtLEzaM\nDeyj70UAYilmv/aTRzWJszMShSPfRNi3oEz4qjndOxNdz0pGk6b1sqb9SbFs\nw7xKaD2miwYccBdtPPIHFm2f/irBKqrVkUPUriSvzVz+0+T4MW48DtF8D4x1\nJLnNLtw1BCkASXWGhxz5itPDTm5QJUwW8Z12WO+TTc71TbfR8qc7PvzYW5BA\nwnNjANzEKHdzh7hEhig7P3F7exnUL0CbjLkgAQOero9hojAAu7+RHiAyp8Zl\nQ0A1IyiVrPj/AgPfoIa02MN9lZoIw1pr7WGy5HK44wVIgkFotAHxREUJlAXI\nwLJqa1ZV1kju2+IiPBmJCEDga2BlUnNtIUZ9dvDpl6ylVEmpwkEA6JdCeuH8\nwyHT\r\n=ipcT\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_5.0.0_1542832315033_0.28053727379525495"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.1.0": {
+			"version": "5.1.0",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-stringify.git"
+			},
+			"homepage": "https://csv.js.org/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.0",
+				"@babel/core": "^7.2.0",
+				"@babel/preset-env": "^7.2.0",
+				"coffeescript": "~2.3.2",
+				"csv-generate": "~3.2.0",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib/*.js && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "5efdf58a039ad5aeea70dfee19b1da70edb8399b",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-stringify/issues"
+			},
+			"_id": "csv-stringify@5.1.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-sAXlGnGHfF5k3W2IiZNx56on8HuFLTbX1HLp86wD67LRyVMkWU6IF+WH8lo4ayguOEQ/NDp/af83B13tXGcuow==",
+				"shasum": "ca42dc18d8cfdd4764ef365114c4036397c6abc7",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.1.0.tgz",
+				"fileCount": 17,
+				"unpackedSize": 54113,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcB848CRA9TVsSAnZWagAArboP+gN+BvKxMNlSlFQ+Pvih\nqElFwKjI7AiZujy2+JfFTHE0M+qYkaNLbHGL/93hLdNzRFjqJyP0BY+iniH5\nwCY9VvdWqMe2G/uQVDygSYUpso53ZpnMp/1CZ7ePH9P1ngtOx5PJikRKISNP\n0JkQwJNkSK2UYAPNmrvi3Hn4iFaRKGIK7NvZVWRXXqCfjYiBkYypfca6RFRU\nc18mho4u9EQtZ2cBsQndEHM8CdAiFPshUM2fU8tR8RWB7LSjgKwqeTQLlWWH\n/nIFHXu0i8gqj5Gy8PG/c62XS8Ix7fOr/03F79e1Oxc5uaeUc5ne3CifPhZ+\nsHaR36mA+DoDlwSBlStSzCdubf3/by6ge7qEyMtrSSTf5Z1MG/nNsM8uAKCE\nqb5tZ3RDgNpLlVWkOpxdb89xYklkhFhuJajxRTTRJ0R3Up4UGAYOAVIfoEpa\nq8UgSyd7HUBXGAebcK/YHSEDqsm6kYlBwPNNhQvH49jvItaOxxsaoLFUAwdM\nEwQQvuTi3LN9REss9AyH054uqh+j9eWmqnTEkOSHV07RIwF9+RWEzgfS33qj\n5WRp6rZbIOKXQaKsvxMObEUoOELN4m2aaXlV2ptx5p1XHU9WgG/+VcbWWwRr\nwOJGD+KLJxa7SgCH6/ug7lizZFCsGZGvkiUgEIFghqw3YAUw1HWNh+Q3EAJs\nn10o\r\n=+BeH\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_5.1.0_1544015419736_0.7404588276953017"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.1.1": {
+			"version": "5.1.1",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-stringify.git"
+			},
+			"homepage": "https://csv.js.org/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.0",
+				"@babel/core": "^7.2.0",
+				"@babel/preset-env": "^7.2.0",
+				"coffeescript": "~2.3.2",
+				"csv-generate": "~3.2.0",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib/*.js && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "3dc898f392b725f72e25fdc63c03a41f470a652d",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-stringify/issues"
+			},
+			"_id": "csv-stringify@5.1.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-QWD7SS9eLWolYlpRzwmhjSBBM0DM415dDyslRvENx5aSPK1oS2M7ynLLDyku9ziPTecfvEQAu6dp2wnz2jCy4Q==",
+				"shasum": "3989b8fc40b6cf12d2808529c86ca0fde019f560",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.1.1.tgz",
+				"fileCount": 17,
+				"unpackedSize": 54187,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcCF/uCRA9TVsSAnZWagAAAdAP+QH8JEIxOyJDdtGIhMuj\nA3E8HFBN04RfuEyAFITxsnu2//8cCAOEqJZWISMmXR15KAlHV4HdtEUK85Jy\nna9SRUstkp6ZBSNRvypEOeLHmT+1w2JTxhEncK8IdpoIq34fOc1uZSvInTCf\neBtY7q5vLNrnYsrQQQzkq+lmPgv/eUhKka5mMn4AzwbuVkUKCALO88bzAAsg\nyiSs/FHgQg244uGAT0TtEukxqkDIukRMXQ+aHLNySftjt84eymFfMtrVGUPU\nvqp1HhiGvHDelTpvbWGvKjICuQKDl9PSNjN8HLBg28c1CTuPdhn/j87F8aBv\nnB5fWFpksU7ozGXPzC5AHLcMq9lKYKdZTh10//2ZEH2iuXNwowgwBqA3DRlA\nPGsGPx1HXTPaVRXVbRt1zgwbikwCEAQfs4Wvu7WeU9ImkLkVANu8XaZBolfb\nJqmKRvIPV9TBVj9uPhaO0n2EJGv6/puWXTUibYFiLifsuCL+kW+UzmtA/exn\nldx4n2ReuqmHW9sXkmNQYGFhTPDbsGsgnsujBDUr5INsEn2PMoIOhVuhGnDV\nL/Ik4pwLC4zCx3slKqEzv+hM/yIHqUVvowR2IrjPGtXxzHdic/72b3MQEKmu\nbkRnbJWDqnI0u1Wa244kHH2cJdpjQIJf8uTFbUToAY3vY7w7iTefHTb6/fvx\nCs3T\r\n=smi1\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_5.1.1_1544052718007_0.12783482097617527"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.1.2": {
+			"version": "5.1.2",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-stringify.git"
+			},
+			"homepage": "https://csv.js.org/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.0",
+				"@babel/core": "^7.2.0",
+				"@babel/preset-env": "^7.2.0",
+				"coffeescript": "~2.3.2",
+				"csv-generate": "~3.2.0",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib/*.js && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "27dfc07881883d49a1ce135c4e70ca37725d71a3",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-stringify/issues"
+			},
+			"_id": "csv-stringify@5.1.2",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-rvNEMy8IwVe/gnCjnF4a/3cxKPm8oaAZEBB8RIzlx9HcNrLrn3NlgacUIFZBRH86tKF76WVA13nkFF0mX7G2EQ==",
+				"shasum": "0c594ff13f3ae30d40348805eeb0d1f4faf1d9c2",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.1.2.tgz",
+				"fileCount": 19,
+				"unpackedSize": 54488,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcF3l6CRA9TVsSAnZWagAAFRwP/R1POsleJdG+JSrUKjl/\nkwVIG+rD/MEIigMW+IV3412GzRpc893ivpu9s++RUP2T2WpVUURD5yX/Kns2\nZ1rK8eGLhV+vfzDLC1iUlRYwphppxWSklWrz3/udUtt57uIAywRMMxtkhRK4\nzc4gLD29v9GSD0Msv9FvwRYp1twq7KhC6ZOWzYZgH7nd8S4axeitwG9f7vKO\nqVo4LM+MimSMoc49yn214mkMhz1UonY1npoRTA/ZIPa8OT+xY6j1MsKl7/OU\nWDZx0DeafuFoa9Q8KXHs7Nyckld9uMTHCvoEoNqO+rvYxAfXzHnpEZYLIZCC\nC+v5dAtOSNWnDrNT3Tnh1k91QfwK5Rt0+XKXPPo/EzzBIXWWzzsQJXIzl2DD\n2mny/kc2zrnnfJQy1N3euEwLy1Il19IkhwFYrmEGVbiDcLV7rK3gwNz62Kby\nqRceiGRaUq6l1QepNjQGXzw5hPdJFWd3WMlNeYuqeRnZ+mHKb806rbnwRCgh\nn/WJHO46NsPYZ7IPSR6YlhidmTcWBE1EWz/Amv+0tnXEyd2tALwQpZHdxYP3\nV6V+n79g1qkd2gPb9CgMe7SjGcSye2R9C1aEY5cznLy7rFgQ1K7z3EQtScS2\nH0/4Igo8mra7I6GFLEMKZWchuNOuWpbtccW0w2FQtwb6we2v9kpQwuhvpKM2\nxjyf\r\n=sQ0/\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_5.1.2_1545042298071_0.37622638497460237"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.2.0": {
+			"version": "5.2.0",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-stringify.git"
+			},
+			"homepage": "https://csv.js.org/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.0",
+				"@babel/core": "^7.2.0",
+				"@babel/preset-env": "^7.2.0",
+				"coffeescript": "~2.3.2",
+				"csv-generate": "~3.2.0",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "rm -rf lib/*.js && npm test && grep '## Trunk' CHANGELOG.md",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js  -d es5 && cd ..",
+				"test": "mocha test/**/*.coffee"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "d2b7330fa41789e188fd92584ac22fd685d6e08b",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-stringify/issues"
+			},
+			"_id": "csv-stringify@5.2.0",
+			"_npmVersion": "6.5.0",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-xDvTC+LQCzRzadItryRG5MnGSb556Nu2Y+r9w8lHIHWQkua+TH1rQcseXhA325Slq0IVh+zt2sqe69TkUSvbfw==",
+				"shasum": "f1bcee0fbeadb6a53a1b126a958aa97c80b5b047",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.2.0.tgz",
+				"fileCount": 19,
+				"unpackedSize": 55810,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcPwfaCRA9TVsSAnZWagAAr5UQAI3YPkmVCPFb3c/Bc8oC\npg50hAd2RnfaHN4zZOUUjE7EA5bKFxtKVeimodXgRKnfHWjWXcmg911DkmVq\n5qrzDZ1yZKiI8wAdBXC1ODgByG1xQWkbk4e4Z34BJzlc3QsHLjeyxG+V8n3h\nPhLWMEpkg4jQxWtjBSReHKYtd0N6cZLruuFnqq0YJhr8qZ1SzmsryYn/g9+U\n247DUvDCac2uLHqglY93TgpsTfFATXTK0Sya0N3+oUVQ3gZdqpzjKBB6X6Tl\nkmDokP6ugWZ0u8jThDWsmKdhqqh/HbrmZnFiK8aAGPx9N0Kz4UY4MDzB8wo7\nFWM8bJIOpaOleNGxtj07E30E1zKS4bZxa1ZJo86z3b0NjaLxyAcYbkn5F03Y\nY0xCnvcKT3a+dExL8Jh+3v2Fz3rQ3HNrgU8LNt6sIxoEoJCJBPC6upI8dQrS\nPIWrru8PN1fhaTGHwpbg308JZhBeC5N/kFmxlE+R34DUJ3N2WwEMVAYZK0Zw\nDhR13Gztjd6bybdeb+i3ytIYVr4DvojYQIgy0j3MbkcXqUik2Kf6fH90CIqS\nl7+E9XG6vo6HCPblkpTF3A8yntwuK8i07aQ5aDlGre23mVTD/bvgcyN44Z3W\nLspElSVA+ArofDDtBfH2/yxnJuMdm04hcOL+SW77FxCm6L0RV0KRQ9HG7nRk\nTWNF\r\n=mVQk\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_5.2.0_1547634649887_0.30554873734643984"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.3.0": {
+			"version": "5.3.0",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "BSD-3-Clause",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-stringify.git"
+			},
+			"homepage": "https://csv.js.org/stringify/",
+			"dependencies": {
+				"lodash.get": "~4.4.2"
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.2.3",
+				"@babel/core": "^7.2.2",
+				"@babel/preset-env": "^7.2.3",
+				"@types/mocha": "^5.2.5",
+				"@types/node": "^10.12.18",
+				"@types/should": "^13.0.0",
+				"coffeescript": "~2.3.2",
+				"csv-generate": "~3.2.0",
+				"mocha": "~5.2.0",
+				"should": "~13.2.3",
+				"ts-node": "^7.0.1",
+				"typescript": "^3.2.4"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && rm -rf lib/*.js && npm test && cp lib/*.ts lib/es5",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"coffee": "coffee -b -o lib src && cd lib && babel *.js -d es5 && cd ..",
+				"pretest": "coffee -b -o lib src && cd lib && babel *.js -d es5 && cd ..",
+				"test": "mocha test/**/*.{coffee,ts}"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "1ed9547db752d00ec4168506290a24002954e2d0",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-stringify/issues"
+			},
+			"_id": "csv-stringify@5.3.0",
+			"_npmVersion": "6.5.0",
+			"_nodeVersion": "10.12.0",
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"dist": {
+				"integrity": "sha512-VMYPbE8zWz475smwqb9VbX9cj0y4J0PBl59UdcqzLkzXHZZ8dh4Rmbb0ZywsWEtUml4A96Hn7Q5MW9ppVghYzg==",
+				"shasum": "ff2dfafa6fcccd455ff5039be9c202475aa3bbe0",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.3.0.tgz",
+				"fileCount": 21,
+				"unpackedSize": 64665,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcRcpWCRA9TVsSAnZWagAAZjAP+wXQqc+Gh/3SUDKmUONS\nEYZ9HmuZZDKenCgZkniMTc+bbEzUU18KnYGt+G2X7XHzj9YLERG43+QK3Gne\nvNI4JXfbsHzupqpdLh+uCKYKhtRdd2y8jfdqA86KyPI6yehN2sdONMd9PezO\ntJt2BYbESFXx3BIYsxvcy9LHTL5ak0/usvUdgiC4qT/bDXqQUDUbSI4dsQAj\nnZMD46bPdMTLdkMQ8V7aV2DJEO0gAgL5VBCuNWQJnW13ej7K5cYHOjJXy6f6\nXrUeMUBeqBbeqyfjU/uN7NPfUg5nT/jEmRQj6gxlbgsDsCMVJAViCvNJgmGI\n+RUMg9H7gNd2ff66dyx1lvGNgMo1ivxwWCLDmJ2PUaf/2vW7AUZX5kkFIlup\nNDEl16Wf5FvUhY+dFmHWKXSI2SkkT93XnF5I9WLZn+xUee6cq8N6SQXaTIqH\nTXu506X/RO7aMUqRsR0lH/QQC6jzdhAZhabeHRJeH4XBF03lpkZPbrBoYQez\nrzC2CmZ98ifJCTZ0csPy8MkRgqhESK+F4wxzym2SAiO1rn18WCFQdhZUQwOc\nAqFPWiwpzHD1YMBe9gYqPKsH2TeL9uDU2D1Z1TMS5YikPl1t7/Jok0U0NxlT\nzBlC23oG3LHQgBs4wnu+eQxYSGBCSdujactT3txcaTFFMBArXNykcRULvD4t\nGon/\r\n=KfQN\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_5.3.0_1548077653568_0.004122240586094561"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.3.1": {
+			"version": "5.3.1",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-stringify.git"
+			},
+			"homepage": "https://csv.js.org/stringify/",
+			"coffeelintConfig": {
+				"indentation": {
+					"level": "error",
+					"value": 2
+				},
+				"line_endings": {
+					"level": "error",
+					"value": "unix"
+				},
+				"max_line_length": {
+					"level": "ignore"
+				}
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.5.5",
+				"@babel/core": "^7.5.5",
+				"@babel/preset-env": "^7.5.5",
+				"@types/mocha": "^5.2.7",
+				"@types/node": "^12.6.9",
+				"@types/should": "^13.0.0",
+				"coffeescript": "~2.4.1",
+				"csv-generate": "~3.2.3",
+				"mocha": "~6.2.0",
+				"should": "~13.2.3",
+				"ts-node": "^8.3.0",
+				"typescript": "^3.5.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && rm -rf lib/*.js && npm test && cp lib/*.ts lib/es5 && git add lib/es5/*.ts",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"build": "coffee -b -o lib src && cd lib && babel *.js -d es5 && cd ..",
+				"pretest": "npm run build",
+				"test": "mocha test/**/*.{coffee,ts}"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "adf84592e1e44214bf39717147b4fdb2b6a5a9cb",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-stringify/issues"
+			},
+			"dependencies": {},
+			"_id": "csv-stringify@5.3.1",
+			"_nodeVersion": "12.7.0",
+			"_npmVersion": "6.10.1",
+			"dist": {
+				"integrity": "sha512-f2hnYzPu5fsZL6G7GQnjp9C6WOZ4ilfDl+ybrI+nbNx+h/SrHOi4t5D1SUMhAlnCmU4KEfu9vEqMaqrPF4uQfA==",
+				"shasum": "e4a2525554a8833d82576f0acfc115619c78edbf",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.3.1.tgz",
+				"fileCount": 12,
+				"unpackedSize": 66214,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdSe2MCRA9TVsSAnZWagAAGKYP/RlCnaD9X/NTGfOTobpw\nb50ebx1mxXvCk2CPhcNFVl5s4oJK8ZGSu14iu4OcQ/B7wN9nahJew0WEHwwP\nBn87KmyRIs8vybdfojyNF24RPTUQkPGx39BhJynKaxM2YEI9ooKnvAhUNS9l\nI+2o6JoBfjUyU63YCWt7pgyMXOkoZYSc1H5maYfCd7BCp+cND7EizVV+oX2G\n4aYgPTwmZUGNupQ+Ci1FtQeVYjLFkMFRIgC2v5xgByI3y+blxH13IoH3iHeb\n85e3hSBV+7AcalS1xu13IuRPcNsIgdblc/cClS+1lQNeaEdHKohbyGKLYyM2\nxfi1xlp23TBn8uKWv5sEaWZOWn2bN5QDz4sMuesHh3T2CQZxWvhX/HqeeovP\nhW7srv+eftKU3B4+03vopMg/s7loSKrLngYX1TE8luFHPSKspeTLiAoL4AR5\noSyfkHcpKkXl9XpJZYhV35rztvgFiNOcQaqLUStsa4DKkkM0LvGW6fZZPfPj\nhIMXlasNgY5vi4aQiFdz4PnDBicW9yHm4qY+j961R57HQmzt9yFSVDx/DKzy\niTVTrWipM6MjC7s5b10MarvkqSAf79/nIxphtvRa7zoo+8xGQ3NvDNIhdaei\nPe/6NRNArhR2kcXAbVIzKBty8D2n+hdvy6PByPNFGkA747KvQZXeDrfSPpuC\nUAui\r\n=4Vi4\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_5.3.1_1565126028151_0.4879749407269969"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.3.2": {
+			"version": "5.3.2",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-stringify.git"
+			},
+			"homepage": "https://csv.js.org/stringify/",
+			"coffeelintConfig": {
+				"indentation": {
+					"level": "error",
+					"value": 2
+				},
+				"line_endings": {
+					"level": "error",
+					"value": "unix"
+				},
+				"max_line_length": {
+					"level": "ignore"
+				}
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.5.5",
+				"@babel/core": "^7.5.5",
+				"@babel/preset-env": "^7.5.5",
+				"@types/mocha": "^5.2.7",
+				"@types/node": "^12.6.9",
+				"@types/should": "^13.0.0",
+				"coffeescript": "~2.4.1",
+				"csv-generate": "~3.2.3",
+				"mocha": "~6.2.0",
+				"should": "~13.2.3",
+				"ts-node": "^8.3.0",
+				"typescript": "^3.5.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && rm -rf lib/*.js && npm test && cp lib/*.ts lib/es5 && git add lib/es5/*.ts",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"build": "coffee -b -o lib src && cd lib && babel *.js -d es5 && cd ..",
+				"pretest": "npm run build",
+				"test": "mocha test/**/*.{coffee,ts}"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "57abc9b583964b9b09044ed474abdf69879b1b9f",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-stringify/issues"
+			},
+			"dependencies": {},
+			"_id": "csv-stringify@5.3.2",
+			"_nodeVersion": "12.7.0",
+			"_npmVersion": "6.10.1",
+			"dist": {
+				"integrity": "sha512-KJ02a6zCFFVdG0z1de18gfk8bnKNlxJZa6BU5RKyxNSkptGHERXjF0F922yLwktFDq4Uinr2YkhYTsYm9DADhw==",
+				"shasum": "66952cb22aff962168d809b781ab0ef7a9385397",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.3.2.tgz",
+				"fileCount": 12,
+				"unpackedSize": 66278,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdTdURCRA9TVsSAnZWagAASPAQAJoIFYm5D2bVzkNuPW4A\nlQFWjH0CvtfTQeY/FzH/fmr0QMnRtro03wm5fqkEctJgvuPnydjksFFz93zS\njh4BD2/K5kizElN/955WlJE1QcLMWEHdNNx91dZ1twaPpnEqD0lxhA1ZuMcz\n6SzyiSSqRAc3H0eDtCq/9zPKR+Y0SwfagP5UbJqET43bwqHX6Pv04/TO9A16\n9rJhXQ3syR9tIJ6LF/CqABhK6+q/z6fDwJhaBi5KwteDPaWRMQyZE3LNlrBa\nhh69yE8vnOr2FDGWJwYAJm+lJT3ExSaSNSYa4vl44GhKhzw8UxngrDD6fg12\nOxQYrfDFJwnu1Ujcp+4TKFGGwbAb8eamzfR+1d25t6IJ00ng452cP+xKF5g8\n+l3m3l2qi9tnW4vHhQmupNZr545JWD1wXsQKqJu56ExQlurmA4P1PFKXjFtn\n649w56YHs3VBMWNwLE0GuadYzGRO5cKoC//rCeZ9UXm3DdFjyRdXfZHkf2hz\n30RzuhwXLLef75cJ3SjSFYCbC2JzRUl4aAmHVxOWIf4Fm8Jh9VRrydEVqNhr\ngkhQskn5nbVZiX5Pryl6AXpDUnhUIz/i+bpKvTQtiOxV9vdyyOkfp7Jc5K1r\nwxp9pmr/YpFFq4HVyxNhOsWmEzrwH2vKFHIzYOuS5lUJVrHNF4bz+luEzoHr\nFvgv\r\n=u7bw\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_5.3.2_1565381904924_0.19736665973893341"
+			},
+			"_hasShrinkwrap": false
+		},
+		"5.3.3": {
+			"version": "5.3.3",
+			"name": "csv-stringify",
+			"description": "CSV stringifier implementing the Node.js `stream.Transform` API",
+			"keywords": [
+				"csv",
+				"stringify",
+				"stringifier"
+			],
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/adaltas/node-csv-stringify.git"
+			},
+			"homepage": "https://csv.js.org/stringify/",
+			"coffeelintConfig": {
+				"indentation": {
+					"level": "error",
+					"value": 2
+				},
+				"line_endings": {
+					"level": "error",
+					"value": "unix"
+				},
+				"max_line_length": {
+					"level": "ignore"
+				}
+			},
+			"devDependencies": {
+				"@babel/cli": "^7.5.5",
+				"@babel/core": "^7.5.5",
+				"@babel/preset-env": "^7.5.5",
+				"@types/mocha": "^5.2.7",
+				"@types/node": "^12.6.9",
+				"@types/should": "^13.0.0",
+				"coffeescript": "~2.4.1",
+				"csv-generate": "~3.2.3",
+				"mocha": "~6.2.0",
+				"should": "~13.2.3",
+				"ts-node": "^8.3.0",
+				"typescript": "^3.5.3"
+			},
+			"optionalDependencies": {},
+			"main": "./lib",
+			"scripts": {
+				"preversion": "grep '## Trunk' CHANGELOG.md && rm -rf lib/*.js && npm test && cp lib/*.ts lib/es5 && git add lib/es5/*.ts",
+				"version": "version=`grep '^  \"version\": ' package.json | sed 's/.*\"\\([0-9\\.]*\\)\".*/\\1/'` && sed -i \"s/## Trunk/## Version $version/\" CHANGELOG.md && git add CHANGELOG.md",
+				"postversion": "git push && git push --tags && npm publish",
+				"patch": "npm version patch -m 'Bump to version %s'",
+				"minor": "npm version minor -m 'Bump to version %s'",
+				"major": "npm version major -m 'Bump to version %s'",
+				"build": "coffee -b -o lib src && cd lib && babel *.js -d es5 && cd ..",
+				"pretest": "npm run build",
+				"test": "mocha test/**/*.{coffee,ts}"
+			},
+			"types": "./lib/index.d.ts",
+			"gitHead": "368a2c62afef128d4c6b9efc7a9e0472c217f3ce",
+			"bugs": {
+				"url": "https://github.com/adaltas/node-csv-stringify/issues"
+			},
+			"dependencies": {},
+			"_id": "csv-stringify@5.3.3",
+			"_nodeVersion": "12.7.0",
+			"_npmVersion": "6.10.1",
+			"dist": {
+				"integrity": "sha512-q8Qj+/lN74LRmG7Mg0LauE5WcnJOD5MEGe1gI57IYJCB61KWuEbAFHm1uIPDkI26aqElyBB57SlE2GGwq2EY5A==",
+				"shasum": "c4725686a33db9f61e70d87af712285baefebe21",
+				"tarball": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.3.3.tgz",
+				"fileCount": 12,
+				"unpackedSize": 68254,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdTzAmCRA9TVsSAnZWagAAi74P/01ju28/fAVU4DTfGPcx\nO4KXSD9JrpeIQDHpM15hkDEhhCRwhAYSLvF5tElnWmkL1CLqDvt4NoVO3UYC\nTGbPWUEy6lLFFTGH+M00s6p40ulxGzVph6DIvBchLTK1i4hC+/8IDziwTlka\nOttdbOuXCPpzL5jjByZ1oQvVLZKXGfHMbEWGOl+1sLeU24NE/0sJlc0NCa8m\n36eJeMpLIC9ShOulJn1bD7NaBmrCwwCmcYmS2DGb0L9Qobmvf+v+T4JuVCbZ\nDkPJxZgM/AWPIGfYvCm81dVrOPOl5qnPAN+4czukyXulfi46DszLSi7FgpOW\n6j2oMsUxZ1GSGCZ73wOg0aTh6/QA0Z3OOExV6mmwAbE3EQcWmEY/jGCMzR2Y\nbtYmAlwH3ZBeyX6dxidp9iuhcO1gGH2XJkJGHIPXMDGHboY6esqpBZiQCQVj\nTRaINb7zu6iJEMvqjtaIDODqSXWPoKAfX5uHq3Ii2s4ZPdUTkIfvGGee2kxh\ncTv2fbsuaP6gZ6tiGocuwJwPY1Z7k5brVYD7qNzcVCc0b/I5dW26mKQGsPgI\nr0Dv8/BIjECtQKX2meuPA4u8wj4L0aZvEMyx7JM3FbI3+TTaEy3VMoOKA1jX\nogl7j44NCnjV6lYSo9FnLIJyjBXunrQ7Dj6Vyv1svuWyshnvYqy5B1SsLkBU\nHY+v\r\n=Cljn\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "david",
+					"email": "david@adaltas.com"
+				}
+			],
+			"_npmUser": {
+				"name": "david",
+				"email": "david@adaltas.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/csv-stringify_5.3.3_1565470757996_0.44348353308604826"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-08-10T20:59:20.771Z",
+		"created": "2013-10-25T15:19:43.402Z",
+		"0.0.0": "2013-10-25T15:19:44.499Z",
+		"0.0.1": "2014-03-22T22:03:55.294Z",
+		"0.0.2": "2014-04-05T08:46:49.930Z",
+		"0.0.3": "2014-06-20T07:37:59.330Z",
+		"0.0.4": "2014-11-18T23:40:53.766Z",
+		"0.0.5": "2014-12-10T17:02:39.001Z",
+		"0.0.6": "2015-01-26T21:06:37.979Z",
+		"0.0.7": "2015-05-29T09:29:24.573Z",
+		"0.0.8": "2015-06-09T09:53:08.343Z",
+		"1.0.1": "2016-01-23T19:34:06.294Z",
+		"1.0.2": "2016-02-10T16:07:07.838Z",
+		"1.0.3": "2016-05-06T19:05:19.067Z",
+		"1.0.4": "2016-05-11T20:23:40.652Z",
+		"1.1.0": "2017-10-20T10:29:30.780Z",
+		"1.1.1": "2017-10-20T11:44:38.903Z",
+		"1.1.2": "2017-10-20T11:46:58.538Z",
+		"2.0.0": "2017-10-20T12:06:03.633Z",
+		"2.0.1": "2017-12-20T10:44:02.363Z",
+		"2.0.2": "2018-02-07T21:00:23.253Z",
+		"2.0.3": "2018-02-14T20:41:04.637Z",
+		"2.0.4": "2018-02-15T12:52:52.820Z",
+		"2.1.0": "2018-04-03T21:03:12.090Z",
+		"3.0.0": "2018-04-03T21:05:46.359Z",
+		"3.1.0": "2018-06-10T19:20:14.600Z",
+		"3.1.1": "2018-06-12T07:49:41.823Z",
+		"4.0.0": "2018-08-27T20:21:10.849Z",
+		"4.0.1": "2018-08-27T21:01:13.586Z",
+		"4.1.0": "2018-09-28T08:12:50.817Z",
+		"4.2.0": "2018-09-28T15:26:50.454Z",
+		"4.3.0": "2018-09-28T21:15:53.509Z",
+		"4.3.1": "2018-09-28T21:32:19.495Z",
+		"5.0.0": "2018-11-21T20:31:55.129Z",
+		"5.1.0": "2018-12-05T13:10:19.838Z",
+		"5.1.1": "2018-12-05T23:31:58.121Z",
+		"5.1.2": "2018-12-17T10:24:58.243Z",
+		"5.2.0": "2019-01-16T10:30:50.034Z",
+		"5.3.0": "2019-01-21T13:34:13.683Z",
+		"5.3.1": "2019-08-06T21:13:48.336Z",
+		"5.3.2": "2019-08-09T20:18:25.084Z",
+		"5.3.3": "2019-08-10T20:59:18.125Z"
+	},
+	"dist-tags": {
+		"latest": "5.3.3"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"87faf118c2d0a5d7cc0c33c1b9156830\"",
+			"fetched": 1568994345848
+		}
+	},
+	"_distfiles": {
+		"csv-stringify-0.0.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.0.tgz",
+			"sha": "eac6f52cd87dc96c5a776bcf80729bdc72b82acb",
+			"registry": "npmjs"
+		},
+		"csv-stringify-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.1.tgz",
+			"sha": "22e8b6094e49f0a1e5761c94d0e514ea5105aa5e",
+			"registry": "npmjs"
+		},
+		"csv-stringify-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.2.tgz",
+			"sha": "7caea4a78625a87bc9fc062eebc557ae64c26d3e",
+			"registry": "npmjs"
+		},
+		"csv-stringify-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.3.tgz",
+			"sha": "cfe9ae46f5bf1111afaec17843e08d8b10358d0b",
+			"registry": "npmjs"
+		},
+		"csv-stringify-0.0.4.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.4.tgz",
+			"sha": "9335c3c21b1da8dc039168e501f9334d7144e98e",
+			"registry": "npmjs"
+		},
+		"csv-stringify-0.0.5.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.5.tgz",
+			"sha": "03dee7c8ede25fd19455fa5acf00083c9e606cfd",
+			"registry": "npmjs"
+		},
+		"csv-stringify-0.0.6.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.6.tgz",
+			"sha": "7cf09e868b1b18a497dac1553420bdabb99b6b62",
+			"registry": "npmjs"
+		},
+		"csv-stringify-0.0.7.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.7.tgz",
+			"sha": "116ae90098b5bebedeedf1a0426f13e2c8e7a530",
+			"registry": "npmjs"
+		},
+		"csv-stringify-0.0.8.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-0.0.8.tgz",
+			"sha": "52cc3b3dfc197758c55ad325a95be85071f9e51b",
+			"registry": "npmjs"
+		},
+		"csv-stringify-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-1.0.1.tgz",
+			"sha": "d2b958447b167956bd8d97a95010810781984275",
+			"registry": "npmjs"
+		},
+		"csv-stringify-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-1.0.2.tgz",
+			"sha": "62e86627fd94392c82162c82d6543d95700cb741",
+			"registry": "npmjs"
+		},
+		"csv-stringify-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-1.0.3.tgz",
+			"sha": "575ea535cb5719df1ebcfa0ba9291a41e09c84d6",
+			"registry": "npmjs"
+		},
+		"csv-stringify-1.0.4.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-1.0.4.tgz",
+			"sha": "bc18bab9ad4cef3195fd257980b58b479c42d3e5",
+			"registry": "npmjs"
+		},
+		"csv-stringify-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-1.1.0.tgz",
+			"sha": "79e5ae9d639dd7c5acefe1564f7dc9f7629f278c",
+			"registry": "npmjs"
+		},
+		"csv-stringify-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-1.1.1.tgz",
+			"sha": "256f6f8d7c68d5603ac21e22ec86814f5d3e67ce",
+			"registry": "npmjs"
+		},
+		"csv-stringify-1.1.2.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-1.1.2.tgz",
+			"sha": "77a41526581bce3380f12b00d7c5bbac70c82b58",
+			"registry": "npmjs"
+		},
+		"csv-stringify-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-2.0.0.tgz",
+			"sha": "927bb55fd1408205ce444d2880184627b24b64f1",
+			"registry": "npmjs"
+		},
+		"csv-stringify-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-2.0.1.tgz",
+			"sha": "bba2a1e1129818bb3e6712914ec3c84d45a9d8c0",
+			"registry": "npmjs"
+		},
+		"csv-stringify-2.0.2.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-2.0.2.tgz",
+			"sha": "3d1459fe448a8786d86c87278c2c41961ae173ab",
+			"registry": "npmjs"
+		},
+		"csv-stringify-2.0.3.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-2.0.3.tgz",
+			"sha": "a5eca2d54ac531d49d2f941798a9cfde4784976b",
+			"registry": "npmjs"
+		},
+		"csv-stringify-2.0.4.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-2.0.4.tgz",
+			"sha": "9ace220df98ffa7ca91314ac77ff8cba0a08c863",
+			"registry": "npmjs"
+		},
+		"csv-stringify-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-2.1.0.tgz",
+			"sha": "b144445a2a5e17cc1cf668282fce421482c23272",
+			"registry": "npmjs"
+		},
+		"csv-stringify-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-3.0.0.tgz",
+			"sha": "ed2b4eaae5a3be382309f7864168458970307d7f",
+			"registry": "npmjs"
+		},
+		"csv-stringify-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-3.1.0.tgz",
+			"sha": "1f7f8eb133a91128154df0db1502d05ce30ae9a6",
+			"registry": "npmjs"
+		},
+		"csv-stringify-3.1.1.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-3.1.1.tgz",
+			"sha": "3a4e180a84f9c45a6a0a0401c1b41b315b9131f0",
+			"registry": "npmjs"
+		},
+		"csv-stringify-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-4.0.0.tgz",
+			"sha": "32205d94574fb47af7e404ab0202a628e2ae50e1",
+			"registry": "npmjs"
+		},
+		"csv-stringify-4.0.1.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-4.0.1.tgz",
+			"sha": "2cb3be20c7ca52e6cf8b8104e6d9faf79e3facf5",
+			"registry": "npmjs"
+		},
+		"csv-stringify-4.1.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-4.1.0.tgz",
+			"sha": "65fb5980b9f2eb18e69df90b9de52502769f271d",
+			"registry": "npmjs"
+		},
+		"csv-stringify-4.2.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-4.2.0.tgz",
+			"sha": "a8dea976943802fbdd284834f2d81bff32cd1349",
+			"registry": "npmjs"
+		},
+		"csv-stringify-4.3.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-4.3.0.tgz",
+			"sha": "8734a42ea18f4d8d78ab9f9f456d94159337a6fc",
+			"registry": "npmjs"
+		},
+		"csv-stringify-4.3.1.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-4.3.1.tgz",
+			"sha": "7bee36f746ef555dd481a735a9e2938965f8478b",
+			"registry": "npmjs"
+		},
+		"csv-stringify-5.0.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.0.0.tgz",
+			"sha": "7248acd769a6cf74201fd43ded7b806dd51aff1f",
+			"registry": "npmjs"
+		},
+		"csv-stringify-5.1.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.1.0.tgz",
+			"sha": "ca42dc18d8cfdd4764ef365114c4036397c6abc7",
+			"registry": "npmjs"
+		},
+		"csv-stringify-5.1.1.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.1.1.tgz",
+			"sha": "3989b8fc40b6cf12d2808529c86ca0fde019f560",
+			"registry": "npmjs"
+		},
+		"csv-stringify-5.1.2.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.1.2.tgz",
+			"sha": "0c594ff13f3ae30d40348805eeb0d1f4faf1d9c2",
+			"registry": "npmjs"
+		},
+		"csv-stringify-5.2.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.2.0.tgz",
+			"sha": "f1bcee0fbeadb6a53a1b126a958aa97c80b5b047",
+			"registry": "npmjs"
+		},
+		"csv-stringify-5.3.0.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.3.0.tgz",
+			"sha": "ff2dfafa6fcccd455ff5039be9c202475aa3bbe0",
+			"registry": "npmjs"
+		},
+		"csv-stringify-5.3.1.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.3.1.tgz",
+			"sha": "e4a2525554a8833d82576f0acfc115619c78edbf",
+			"registry": "npmjs"
+		},
+		"csv-stringify-5.3.2.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.3.2.tgz",
+			"sha": "66952cb22aff962168d809b781ab0ef7a9385397",
+			"registry": "npmjs"
+		},
+		"csv-stringify-5.3.3.tgz": {
+			"url": "https://registry.npmjs.org/csv-stringify/-/csv-stringify-5.3.3.tgz",
+			"sha": "c4725686a33db9f61e70d87af712285baefebe21",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-11948e0ba82e46eb",
+	"_id": "csv-stringify",
+	"readme": "[![Build Status](https://api.travis-ci.org/adaltas/node-csv-stringify.svg)](https://travis-ci.org/#!/adaltas/node-csv-stringify)\n\nThis package is a stringifier converting records into a CSV text and\nimplementing the Node.js [`stream.Transform`\nAPI](https://nodejs.org/api/stream.html). It also provides the easier\nsynchronous and callback-based APIs for conveniency. It is both extremely easy\nto use and powerful. It was first released in 2010 and is tested against big\ndata sets by a large community.\n\n## Documentation\n\n* [Project homepage](http://csv.js.org/stringify/)\n* [API](http://csv.js.org/stringify/api/)\n* [Options](http://csv.js.org/stringify/options/)\n* [Examples](http://csv.js.org/stringify/examples/)\n\n## Main features\n\n* Follow the Node.js streaming API\n* Simplicity with the optional callback API\n* Support for custom formatters, delimiters, quotes, escape characters and header\n* Support big datasets\n* Complete test coverage and samples for inspiration\n* Only 1 external dependency\n* to be used conjointly with `csv-generate`, `csv-parse` and `stream-transform`\n* MIT License\n\n## Usage\n\nThe module is built on the Node.js Stream API. For the sake of simplicity, a\nsimple callback API is also provided. To give you a quick look, here's an\nexample of the callback API:\n\n```javascript\nvar stringify = require('csv-stringify');\n\ninput = [ [ '1', '2', '3', '4' ], [ 'a', 'b', 'c', 'd' ] ];\nstringify(input, function(err, output){\n  output.should.eql('1,2,3,4\\na,b,c,d\\n');\n});\n```\n\n## Development\n\nTests are executed with mocha. To install it, run `npm install` followed by `npm\ntest`. It will install mocha and its dependencies in your project \"node_modules\"\ndirectory and run the test suite. The tests run against the CoffeeScript source\nfiles.\n\nTo generate the JavaScript files, run `npm run coffee`.\n\nThe test suite is run online with\n[Travis](https://travis-ci.org/#!/adaltas/node-csv-stringify). See the [Travis\ndefinition\nfile](https://github.com/adaltas/node-csv-stringify/blob/master/.travis.yml) to\nview the tested Node.js version.\n\n## Contributors\n\n*   David Worms: <https://github.com/wdavidw>\n\n[csv_home]: https://github.com/adaltas/node-csv\n[stream_transform]: http://nodejs.org/api/stream.html#stream_class_stream_transform\n[examples]: http://csv.adaltas.com/stringify/examples/\n[csv]: https://github.com/adaltas/node-csv"
+}

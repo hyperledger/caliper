@@ -1,0 +1,31 @@
+---
+test:
+  name: corda
+  description: This is an example benchmark for caliper, to test the backend DLT's
+    performance with creating iou
+  clients:
+    type: local
+    number: 1
+  rounds:
+  - label: open
+    description: Test description for the creating an iou between two parties
+    txNumber: 100
+    sendingrate: 100
+    threads: 10
+#  - label: open
+#    description: Test description for the creating an iou between two parties
+#    txNumber: 10000
+#    sendingrate: 100
+#    threads: 10
+monitor:
+  type:
+  - docker
+  - process
+  docker:
+    name:
+    - all
+  process:
+  - command: node
+    arguments: local-client.js
+    multiOutput: avg
+  interval: 1

@@ -1,0 +1,1054 @@
+{
+	"name": "winston-transport",
+	"versions": {
+		"1.0.1": {
+			"name": "winston-transport",
+			"description": "Base stream implementations for winston@3 and up. ",
+			"version": "1.0.1",
+			"main": "index.js",
+			"scripts": {
+				"test": "istanbul cover ./node_modules/.bin/_mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston-transport.git"
+			},
+			"keywords": [
+				"winston",
+				"transport",
+				"winston3"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-transport/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-transport#readme",
+			"gitHead": "00a18bbc42c21ea1f6c2a87f9aff65c7dc07b6c4",
+			"_id": "winston-transport@1.0.1",
+			"_shasum": "05926035c86f765d9e1e5904f9bbb8f6a0e605ac",
+			"_from": ".",
+			"_npmVersion": "2.14.5",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "05926035c86f765d9e1e5904f9bbb8f6a0e605ac",
+				"tarball": "https://registry.npmjs.org/winston-transport/-/winston-transport-1.0.1.tgz"
+			},
+			"directories": {}
+		},
+		"1.0.2": {
+			"name": "winston-transport",
+			"description": "Base stream implementations for winston@3 and up. ",
+			"version": "1.0.2",
+			"main": "index.js",
+			"scripts": {
+				"test": "istanbul cover ./node_modules/.bin/_mocha test/*.test.js"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/winstonjs/winston-transport.git"
+			},
+			"keywords": [
+				"winston",
+				"transport",
+				"winston3"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-transport/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-transport#readme",
+			"gitHead": "7864a77ea8d5417ce7ef557e39c11a29a56827cb",
+			"_id": "winston-transport@1.0.2",
+			"_shasum": "2460dbaedb240dc402f377e2710efc7732ae8408",
+			"_from": ".",
+			"_npmVersion": "2.14.5",
+			"_nodeVersion": "4.2.2",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "2460dbaedb240dc402f377e2710efc7732ae8408",
+				"tarball": "https://registry.npmjs.org/winston-transport/-/winston-transport-1.0.2.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "winston-transport",
+			"description": "Base stream implementations for winston@3 and up.",
+			"version": "2.0.0",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/winstonjs/winston-transport.git"
+			},
+			"keywords": [
+				"winston",
+				"transport",
+				"winston3"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-transport/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-transport#readme",
+			"devDependencies": {
+				"abstract-winston-transport": ">= 0.2.0",
+				"assume": "^1.4.1",
+				"mocha": "^3.2.0",
+				"nyc": "^10.1.2",
+				"winston-compat": "0.0.1"
+			},
+			"gitHead": "7754e00c24e94bfa931132e99e2e113ab4b5ac53",
+			"_id": "winston-transport@2.0.0",
+			"_shasum": "bce4fb32f578e052617157c2bdf1abef1c6ce25d",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "bce4fb32f578e052617157c2bdf1abef1c6ce25d",
+				"tarball": "https://registry.npmjs.org/winston-transport/-/winston-transport-2.0.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/winston-transport-2.0.0.tgz_1491897332546_0.8032168550416827"
+			},
+			"directories": {}
+		},
+		"2.1.0": {
+			"name": "winston-transport",
+			"description": "Base stream implementations for winston@3 and up.",
+			"version": "2.1.0",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/winstonjs/winston-transport.git"
+			},
+			"keywords": [
+				"winston",
+				"transport",
+				"winston3"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-transport/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-transport#readme",
+			"devDependencies": {
+				"abstract-winston-transport": ">= 0.2.0",
+				"assume": "^1.4.1",
+				"mocha": "^3.2.0",
+				"nyc": "^10.1.2",
+				"winston-compat": "0.0.1"
+			},
+			"gitHead": "50af693da085af7ddb383dfc876a7abee946b144",
+			"_id": "winston-transport@2.1.0",
+			"_shasum": "84be38861f7b02fc7d03eb0a4d2e6c2c25df0783",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "84be38861f7b02fc7d03eb0a4d2e6c2c25df0783",
+				"tarball": "https://registry.npmjs.org/winston-transport/-/winston-transport-2.1.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-transport-2.1.0.tgz_1506493151450_0.6455985954962671"
+			},
+			"directories": {}
+		},
+		"2.1.1": {
+			"name": "winston-transport",
+			"description": "Base stream implementations for winston@3 and up.",
+			"version": "2.1.1",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/winstonjs/winston-transport.git"
+			},
+			"keywords": [
+				"winston",
+				"transport",
+				"winston3"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-transport/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-transport#readme",
+			"devDependencies": {
+				"abstract-winston-transport": ">= 0.2.0",
+				"assume": "^1.4.1",
+				"logform": "^1.1.0",
+				"mocha": "^3.2.0",
+				"nyc": "^10.1.2",
+				"winston-compat": "0.0.1"
+			},
+			"gitHead": "561e1eecbec56afcc9384f15fe70f5f44ead1a97",
+			"_id": "winston-transport@2.1.1",
+			"_shasum": "40db138217a86fd0ee2d1f8ac7e3509fb417564c",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "40db138217a86fd0ee2d1f8ac7e3509fb417564c",
+				"tarball": "https://registry.npmjs.org/winston-transport/-/winston-transport-2.1.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-transport-2.1.1.tgz_1506677052212_0.7367748394608498"
+			},
+			"directories": {}
+		},
+		"3.0.0": {
+			"name": "winston-transport",
+			"description": "Base stream implementations for winston@3 and up.",
+			"version": "3.0.0",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/winstonjs/winston-transport.git"
+			},
+			"keywords": [
+				"winston",
+				"transport",
+				"winston3"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-transport/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-transport#readme",
+			"devDependencies": {
+				"abstract-winston-transport": ">= 0.3.0",
+				"assume": "^1.4.1",
+				"logform": "^1.1.0",
+				"mocha": "^3.2.0",
+				"nyc": "^10.1.2",
+				"winston-compat": "0.0.1"
+			},
+			"gitHead": "ed9db719b4770f64641582f955ce5cce63e4705b",
+			"_id": "winston-transport@3.0.0",
+			"_shasum": "ccb2d8ee9220efa3fa55af55e11a4c77c1e64daa",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "ccb2d8ee9220efa3fa55af55e11a4c77c1e64daa",
+				"tarball": "https://registry.npmjs.org/winston-transport/-/winston-transport-3.0.0.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-transport-3.0.0.tgz_1506680468149_0.7875824284274131"
+			},
+			"directories": {}
+		},
+		"3.0.1": {
+			"name": "winston-transport",
+			"description": "Base stream implementations for winston@3 and up.",
+			"version": "3.0.1",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/winstonjs/winston-transport.git"
+			},
+			"keywords": [
+				"winston",
+				"transport",
+				"winston3"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-transport/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-transport#readme",
+			"devDependencies": {
+				"abstract-winston-transport": ">= 0.3.0",
+				"assume": "^1.4.1",
+				"logform": "^1.1.0",
+				"mocha": "^3.2.0",
+				"nyc": "^10.1.2",
+				"winston-compat": "0.0.1"
+			},
+			"gitHead": "629411406b8213713d20435f8190df70896272ff",
+			"_id": "winston-transport@3.0.1",
+			"_shasum": "8008b15eef5660c4fb3fa094d58ccbd08528c58d",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "8008b15eef5660c4fb3fa094d58ccbd08528c58d",
+				"tarball": "https://registry.npmjs.org/winston-transport/-/winston-transport-3.0.1.tgz"
+			},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-transport-3.0.1.tgz_1506913024395_0.6682442547753453"
+			},
+			"directories": {}
+		},
+		"3.1.0": {
+			"name": "winston-transport",
+			"description": "Base stream implementations for winston@3 and up.",
+			"version": "3.1.0",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/winstonjs/winston-transport.git"
+			},
+			"keywords": [
+				"winston",
+				"transport",
+				"winston3"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-transport/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-transport#readme",
+			"devDependencies": {
+				"abstract-winston-transport": ">= 0.3.0",
+				"assume": "^1.4.1",
+				"logform": "^1.4.0",
+				"mocha": "^5.0.5",
+				"nyc": "^11.6.0",
+				"winston-compat": "0.1.0",
+				"@types/node": "^9.6.1"
+			},
+			"gitHead": "c4955a48b40b111efcae605fbaa6216aab1f819f",
+			"_id": "winston-transport@3.1.0",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-an7m67xdTagPQI7EAhP5HfN2QN+t5+beLwdA7RJi95PGtSrHKBM53mbmglGLGz2tVpF7iy8bdh6NQBMW+Aw9aw==",
+				"shasum": "52b097176c5c26acf9c603630c57ffd575c42572",
+				"tarball": "https://registry.npmjs.org/winston-transport/-/winston-transport-3.1.0.tgz",
+				"fileCount": 14,
+				"unpackedSize": 37845
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-transport_3.1.0_1523032334959_0.312542642047029"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.2.0": {
+			"name": "winston-transport",
+			"description": "Base stream implementations for winston@3 and up.",
+			"version": "3.2.0",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/winstonjs/winston-transport.git"
+			},
+			"keywords": [
+				"winston",
+				"transport",
+				"winston3"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-transport/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-transport#readme",
+			"devDependencies": {
+				"abstract-winston-transport": ">= 0.3.0",
+				"assume": "^1.4.1",
+				"logform": "^1.4.0",
+				"mocha": "^5.0.5",
+				"nyc": "^11.6.0",
+				"winston-compat": "0.1.0",
+				"@types/node": "^9.6.1"
+			},
+			"gitHead": "b22b512cf25d2a0a443b665071ac44db000ce9a9",
+			"_id": "winston-transport@3.2.0",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-pS+DEChLHvvhrDAUWvq7Un4ZBHn2i+vQI8e/lI/8ADOLmExNt79E70VCIryYUP7hsImJkVHQM5zjTA4Wbb2BaA==",
+				"shasum": "a05b6ac93f02b4d7e95cf992f63ab218c18a193a",
+				"tarball": "https://registry.npmjs.org/winston-transport/-/winston-transport-3.2.0.tgz",
+				"fileCount": 16,
+				"unpackedSize": 41243,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa3MjCCRA9TVsSAnZWagAAbJ0P/1dWqBXYXKeQ0VRmYZYQ\nTS1Z7I0O//0QoZ1ctsfORPduSSFykakKowGTEcYZ7LnOTNNYH1SGMeKDQfjB\nzK2SqwtxmckF3PIFooGE1hjolw8D7sp9nl5ZKedCdO+Bbu1GiYMS0NXxpXES\nWSO2q5bHYfB8lAdEWpcfPqDNSwSjnC3Jo65FjDscdgbwMRjKp2SW923tJqIV\nCL30riDEPxzK5gcC3U+8sZU0h31xUquByvEjWAX8zm3whHjqVskb7w0yKnV3\n4CXPMAAcTGNEVxEiUYT+WogMfcut6Tt535iZWzwASxFogp4rrJ10iBMqRoRV\n99Lfg0WfSnCTaPEfrB6sRg0s0CpnD36abzmKTBRITCaOX0jCTkyR/XId36q9\nnowwO2wW7257U4bkak8sKxyAZ8VRuu2+BSkWfY0wu98AT8sRHyfWJK2YqHhf\nplIuAfWsrmU8G0rU/NZjK7RMFJYH/7iZgdNRNmW+FZPOSJZ/WjeQI68ERKjL\nQoKkJnM0+RAMfseL7/G3xDLsp0EsXvgE/356RY4kbkVcXVLfF/L8vu3FsALZ\nZ/nxK5Kp1HGqu9BqYRQMkiJva1v4/Ah2rUbaGgAwUfLMwoPASfA8RLH9m2CA\n75P1ANjVaT6uQFnO78CDxNvhFCD+JyaxHwk5x9SK3HcqAcPicLq3X7SSlGxB\np0F9\r\n=dbdZ\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-transport_3.2.0_1524418753096_0.07137646264340569"
+			},
+			"_hasShrinkwrap": false
+		},
+		"3.2.1": {
+			"name": "winston-transport",
+			"description": "Base stream implementations for winston@3 and up.",
+			"version": "3.2.1",
+			"main": "index.js",
+			"scripts": {
+				"test": "nyc mocha test/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/winstonjs/winston-transport.git"
+			},
+			"keywords": [
+				"winston",
+				"transport",
+				"winston3"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-transport/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-transport#readme",
+			"devDependencies": {
+				"abstract-winston-transport": ">= 0.3.0",
+				"assume": "^1.4.1",
+				"logform": "^1.4.0",
+				"mocha": "^5.0.5",
+				"nyc": "^11.6.0",
+				"winston-compat": "0.1.0",
+				"@types/node": "^9.6.1"
+			},
+			"gitHead": "3c84e0614b7d1b842a41460a29920aabf363cacd",
+			"_id": "winston-transport@3.2.1",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-WPqbdAmMK/kfWCWKM2bA1o997wWPZ0jg5NpO8JPqoaDZgCiZnFpIEddcf7Ur4UZV2sYRUdySVBWKx0+gQQ/jrg==",
+				"shasum": "5b79b294096b1a18bfe502e769491553a2cb1042",
+				"tarball": "https://registry.npmjs.org/winston-transport/-/winston-transport-3.2.1.tgz",
+				"fileCount": 16,
+				"unpackedSize": 41382,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa4L0jCRA9TVsSAnZWagAAJusP/isPrOeyenHoSVV3RmVo\n4IQtEqw8X/j9eK7gmM0/iPzx3/MNpB5LAh92F6gUQpC4a8nsGFyKvISgdLcH\nl7eEHlUy41BWMBkTcoiMV6y7R+1S65Y+t2p4xyOa8g0U4k0HeeRoR518+x4I\nvoFT3ZR7YIPoK9LPX2eJ23wbT7JB+Ds1JPESbOcyBmmudaoaD8dWuX2k04j8\n1ttQAd0WfkQ5onRm5I6DaelpOLPc2rHyW1Z0TyJOOQzEjZrApkYlR/fPV6lr\n+K31vA8G7b8R5uMuU9c6GYIzw2/v1vGqXUZQ1MkuaAsrfRJuJX8QYDUfhTgm\nV4gSlipuP49GX7eFNZzkp7T1h4LH+Hua5la2SM0vsEXg5jeW9KVcti2ri0UL\niotKt320rEyAXCzKSpzemjfhOMB5G+m+oVVay2rI24CfKPBIC7vghFLGqqaJ\ngtQiWMxY49xaVTcrcn+YTM1I1NofHn8q4cCwYlRp5Wiszhd840v5zyURLvPp\na+Wm6/gkPLUrLrlRXiBJ61CcCP2jsC8GSPaliokMxXng+uXaU/r2je2g6FSQ\nAAgUEZhpgGiGuTGk7T8BDikWKWvGa3sJOW7tLGeimwpaJlS1xz48T2+rVL4l\neJN9sxVFLWCoDtcXsNEfb1F2HpLX8oojDmyt6x3IPsh5rca/+BSZJ4BVkRYS\nsL21\r\n=tqwP\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-transport_3.2.1_1524677922944_0.5133706887232528"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.0.0": {
+			"name": "winston-transport",
+			"description": "Base stream implementations for winston@3 and up.",
+			"version": "4.0.0",
+			"main": "index.js",
+			"scripts": {
+				"lint": "populist config/*.js index.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/winstonjs/winston-transport.git"
+			},
+			"keywords": [
+				"winston",
+				"transport",
+				"winston3"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-transport/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-transport#readme",
+			"dependencies": {
+				"triple-beam": "^1.2.0"
+			},
+			"devDependencies": {
+				"@types/node": "^9.6.1",
+				"abstract-winston-transport": ">= 0.3.0",
+				"assume": "^1.4.1",
+				"eslint-config-populist": "^4.1.0",
+				"logform": "^1.4.0",
+				"mocha": "^5.0.5",
+				"nyc": "^11.6.0",
+				"winston-compat": "0.1.0"
+			},
+			"engines": {
+				"node": ">= 6.4.0"
+			},
+			"gitHead": "6791f29890ae4408c8eb535b015385ee7d84002d",
+			"_id": "winston-transport@4.0.0",
+			"_npmVersion": "5.8.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-0f2989AvU0GAzj8R7sG2/VWunlG9xd10eEQ3fP+MbP04249DXECww5H5HHvk5zY3Eflz7DtA5NTNXal5+RmAYQ==",
+				"shasum": "173f379280a9e1217ddee3cdccb686b7b9f185ec",
+				"tarball": "https://registry.npmjs.org/winston-transport/-/winston-transport-4.0.0.tgz",
+				"fileCount": 17,
+				"unpackedSize": 45412,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbBmwZCRA9TVsSAnZWagAAsL0P/iD8q3glZwqS9gPySCBF\nXo5AKAuKneNARB3KVDupjhpuMxZyItcnGvsAvn/mn5e+lrDvANDrtOrvWowf\nvG6pjOdOonCwsSnng2jeV/tHXse+DrI0FIKC0rLLEh5byr1zxlJap8FhGW37\neDzWqAnGx9zbjdiS4TgKNJFnZZV51e9sTYa8XTvADHhMbkyry/GKCA/YyMfF\nDWmb2o4ms9PtpzkEHD9J0aga3ZAYMvLWRYmo8rq8AQdPvZ4XDcl+Q9k6COmo\n2Hl5H06PE+IyjCvhXBJ5vRLO8nuNxO+jeF6nFRgE6vkDLrjOZCONs4LsaOyH\nDe7rRGCOj4UV3DUQN0pTcOGwTJjUha+/0fwvs5l9MXVs8PxBdEAFHSfq1/F5\noyG5MefdS6nMECVCWch6/iPLMiknotHfnqCsslRcuErXqdNhTE11hq7YQCbZ\nTDuTK1xs804BadGiDC/zQeZyNsKseeYynRibth5Co6p+2d0QZi7g7SBJNOg7\n9Z8GnO8k1/QY3KxH8CBzrBQScHv7/GoLr3iQ4vuNkUiErboVif1ImB+M0Ozn\nodmMYA9cMMfcvaAIMTnYi/Uj22XRtRfVuojYyZYAHH32ae/aRDK8tivKdWdm\n7qOOWIvCByNRss7D4rpX+fz4GXE4zYYxgpUMztYu2FJMj7bS5v1v2d7aOudb\nE7Mk\r\n=BRd7\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-transport_4.0.0_1527147545547_0.2228837739767553"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.1.0": {
+			"name": "winston-transport",
+			"description": "Base stream implementations for winston@3 and up.",
+			"version": "4.1.0",
+			"main": "index.js",
+			"scripts": {
+				"lint": "populist config/*.js index.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/winstonjs/winston-transport.git"
+			},
+			"keywords": [
+				"winston",
+				"transport",
+				"winston3"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-transport/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-transport#readme",
+			"dependencies": {
+				"triple-beam": "^1.2.0"
+			},
+			"devDependencies": {
+				"@types/node": "^10.1.4",
+				"abstract-winston-transport": ">= 0.3.0",
+				"assume": "^2.0.1",
+				"eslint-config-populist": "^4.1.0",
+				"logform": "^1.4.0",
+				"mocha": "^5.0.5",
+				"nyc": "^11.6.0",
+				"winston-compat": "0.1.0"
+			},
+			"engines": {
+				"node": ">= 6.4.0"
+			},
+			"gitHead": "7242dbb8948887a123bd0ad3d33e6dc38a7012a8",
+			"_id": "winston-transport@4.1.0",
+			"_npmVersion": "5.10.0",
+			"_nodeVersion": "8.6.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-rNMfXfGfTyiOrAJ9KLLy0nlow98NyD0oNCOSnP3jnNVHoKsJGLDsa8BaOH+ftKDR5pZKJMBhbQNEft7Vr+dJLw==",
+				"shasum": "4eedb6e3ad79bdd8a682e380abebd7b80951e797",
+				"tarball": "https://registry.npmjs.org/winston-transport/-/winston-transport-4.1.0.tgz",
+				"fileCount": 19,
+				"unpackedSize": 47757,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbD/+XCRA9TVsSAnZWagAAUlwP/0HYnlm+SGc8j11cyRst\nuX4jGkrwL/DEK1GH+tUNKVKKfNXseEgMywZw4TG6JaqLy5Ak2JspPecoC/g/\nb3T7kCLt/LL/lqlIk0iwovtseh9aFqYrAhnhcr0iIKEE0B+RViGsz0WeZZZH\nXX4itiWR/T62dGnNq4TqxXdtCN5VDHbQJTL6fXMK74tEtUzVIUf/3xNRSr6i\nK9ZkGoJUqmW7s0faw3HyxkSa1qiEshxrQ5kW/W3DdJS8c20m4CtNe85M89ho\nypD7yDwzoUGgQMqOVL4aMHEx24tfPl6sY04ywPa4xgKBB/LDvJGttTgdef75\ncduD6zBBbOmtSv6GuajdXBpMpm+DBrxBB8lc0AaNLZ61FQlXanQVYS0YaJZs\nFzXnHuXiVqf5XKIOwhYirALXWeoCptNYgBaW6no+qyh70g3y6ZnCzez2A543\neR39IZQvCKy0f7rwkCScQ49JlHCxAZ2M909IdEK/LrhceeF9Hg0TryIKiGwj\nXhD911UKUH7y84rgfNIuKWyOjUR3PVGOZccuqhA0A8VFM3h/Dsge8AZUTCKb\npsXG1iRgAf5WwKCjQVAIBESP3DkUQrWGbYRkOR5OfPDQLHw59iDycDUR07n0\nmjq9PEyJ/ZG5o+xaqGHGdr8OLBjrs7vWWLVvtV1dvBif+R4NAWKTVPiv3d1T\nkULw\r\n=eYvN\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-transport_4.1.0_1527775126573_0.5548332302874595"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.2.0": {
+			"name": "winston-transport",
+			"description": "Base stream implementations for winston@3 and up.",
+			"version": "4.2.0",
+			"main": "index.js",
+			"scripts": {
+				"lint": "populist config/*.js index.js",
+				"pretest": "npm run lint",
+				"test": "nyc mocha test/*.test.js",
+				"report": "nyc report --reporter=lcov"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/winstonjs/winston-transport.git"
+			},
+			"keywords": [
+				"winston",
+				"transport",
+				"winston3"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-transport/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-transport#readme",
+			"dependencies": {
+				"readable-stream": "^2.3.6",
+				"triple-beam": "^1.2.0"
+			},
+			"devDependencies": {
+				"@types/node": "^10.1.4",
+				"abstract-winston-transport": ">= 0.3.0",
+				"assume": "^2.0.1",
+				"eslint-config-populist": "^4.1.0",
+				"logform": "^1.4.0",
+				"mocha": "^5.0.5",
+				"nyc": "^11.6.0",
+				"winston-compat": "0.1.0"
+			},
+			"engines": {
+				"node": ">= 6.4.0"
+			},
+			"gitHead": "47babab719bdddadf836ddd96fdf20b66431174c",
+			"_id": "winston-transport@4.2.0",
+			"_npmVersion": "5.10.0",
+			"_nodeVersion": "10.3.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-0R1bvFqxSlK/ZKTH86nymOuKv/cT1PQBMuDdA7k7f0S9fM44dNH6bXnuxwXPrN8lefJgtZq08BKdyZ0DZIy/rg==",
+				"shasum": "a20be89edf2ea2ca39ba25f3e50344d73e6520e5",
+				"tarball": "https://registry.npmjs.org/winston-transport/-/winston-transport-4.2.0.tgz",
+				"fileCount": 19,
+				"unpackedSize": 52692,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbHz6DCRA9TVsSAnZWagAAAxcP/ikDWbryuq3XeoTPD1YO\nz5GoZK6gnwy166+q3KHznXS6XT/6g4/dVJzG55fq1aGu8JHRfTKMOAsiXEZu\nE0wcV4urOnjORurJ0rFrv88ZxkFJOMB3VScb70J0zAFYF0cV6YAdXLPG/Wbg\neBmxQFFGNhtu/RxquRn71iGvrOk6oAJMRMBlKHEfldOdTH6sxaFfrrGyfKbZ\nAiH8jh28Bva+JvK2cJBsr2jNiHSA2kWPv3cr6ePGpkx6xIZuF21j0s98A6Ky\nAcfKWo09ESCrZTjVSG5X4W2qDpGeAx580JAHqJM83YesO4KxmYEPYT4UpNJl\njaGCLjN5gO/LqeVIFbymDVrV1EO3mWz4HFxp8cK07LGzaDVFaeGK63CUJYbE\n+udYm6Aj1hDpeL9n0raa47WaI+UCAuDW+34FEsc1bKIaJ7PAHn/V4A+VK1Ka\nm9/qoX4wQjjF+2w3u5ewEndOcrbIr6VS0op7Ugz+IciCR6J4t+kv7vTIhpQ2\nFCg+uZOTKC32Effdt3x4v9H+o3eUfhAYacf8VIhwy8AWc0aikXiDwQLgC+0L\nryW94NTmGkAksbdEZtQx62GWssFsz3Pima4B8ZUFjjN0SFDefQzHFg+HYCdR\n+MHlWgvpXVYn2lFbtpa2pT+IhBd3MP29VdMqDOUUDaFR/B7rL/bouUl+teNd\n2wH+\r\n=UQ2B\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-transport_4.2.0_1528774274395_0.5742983333370337"
+			},
+			"_hasShrinkwrap": false
+		},
+		"4.3.0": {
+			"name": "winston-transport",
+			"description": "Base stream implementations for winston@3 and up.",
+			"version": "4.3.0",
+			"main": "index.js",
+			"browser": "dist/index.js",
+			"scripts": {
+				"lint": "populist config/*.js index.js",
+				"pretest": "npm run lint && npm run build",
+				"test": "nyc mocha test/*.test.js",
+				"report": "nyc report --reporter=lcov",
+				"build": "rimraf dist && babel *.js -d ./dist",
+				"prepublishOnly": "npm run build"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+ssh://git@github.com/winstonjs/winston-transport.git"
+			},
+			"keywords": [
+				"winston",
+				"transport",
+				"winston3"
+			],
+			"author": {
+				"name": "Charlie Robbins",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/winstonjs/winston-transport/issues"
+			},
+			"homepage": "https://github.com/winstonjs/winston-transport#readme",
+			"dependencies": {
+				"readable-stream": "^2.3.6",
+				"triple-beam": "^1.2.0"
+			},
+			"devDependencies": {
+				"@types/node": "^10.1.4",
+				"abstract-winston-transport": ">= 0.3.0",
+				"assume": "^2.0.1",
+				"babel-cli": "^6.26.0",
+				"babel-preset-env": "^1.7.0",
+				"eslint-config-populist": "^4.1.0",
+				"logform": "^1.4.0",
+				"mocha": "^5.0.5",
+				"nyc": "^11.6.0",
+				"rimraf": "^2.6.2",
+				"winston-compat": "~0.1.0"
+			},
+			"engines": {
+				"node": ">= 6.4.0"
+			},
+			"gitHead": "07f75f0f6e86054c685afde056a6311d5447116a",
+			"_id": "winston-transport@4.3.0",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "8.10.0",
+			"_npmUser": {
+				"name": "indexzero",
+				"email": "charlie.robbins@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "indexzero",
+					"email": "charlie.robbins@gmail.com"
+				},
+				{
+					"name": "jcrugzz",
+					"email": "jcrugzz@gmail.com"
+				}
+			],
+			"dist": {
+				"integrity": "sha512-B2wPuwUi3vhzn/51Uukcao4dIduEiPOcOt9HJ3QeaXgkJ5Z7UwpBzxS4ZGNHtrxrUvTwemsQiSys0ihOf8Mp1A==",
+				"shasum": "df68c0c202482c448d9b47313c07304c2d7c2c66",
+				"tarball": "https://registry.npmjs.org/winston-transport/-/winston-transport-4.3.0.tgz",
+				"fileCount": 28,
+				"unpackedSize": 123061,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcIA2lCRA9TVsSAnZWagAAIt8QAJDCyrZ5b44/Qd4vkUK0\nzGBY+8YzCn3ZQs6UFDhxHC//K8QqiCbbesQIfxUhY3ehbUDkCNg0dv3bRgdk\ni75hkF3c8f8Ir2YesijNNIFJ94CaYS+8KRaNumsx/YI2szboopTTqjqufECT\nScKBSfz1OBqmzqyGkEeQ363syQkJ91NCS/szK9pkv192AjPdfK1FgloSns+E\nZ5q3I5CGu3d7+E5ok20pFs0KkN1R1weaih8KxA73Vu/mCsLuX9HJ6pSd7KoT\ncv0kCitjsz3KsUBhNQt0EPpBrZD7Smjz/ntc9IwgcRjhYwjxDhuWFpAAto/k\nrj0bE3Oo9rRHC9JLwpbJQ0QVyykKR/iDwfHc/bD0Y/M4UxnMAGlUmCkZulOg\nscWNrNkjmNaVJhu6dtNmIeANA1g3/wx54hSCE7UYeCbS8Dfk4Rk2u6xOvMRd\nLTb+/MHxihobGeCjVwjSlHgvkE0yvC+ikt/hHAmF/nRR+dJx7Y5H4HbhLpp/\nzj90kSFl08tpy0FqP5WLgolJKRgkV58XQpctiRGMgoveLA1uQ3XQUmDaJX6p\nv2or2MhKCigk3M6IyMPsmU7ZXDsYJs7RIPNnn1n+4SvY3a2qq+AVeKy4uEk2\nVwX2lXWeAAl/NrmjQzHu7IpwkNy5o98Gs10YukLo77BJr7Au1w4NrTS50s0m\nSibs\r\n=AbrE\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/winston-transport_4.3.0_1545604516964_0.9063787369574752"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-01-05T19:46:28.688Z",
+		"created": "2015-11-27T18:58:33.151Z",
+		"1.0.1": "2015-11-27T18:58:33.151Z",
+		"1.0.2": "2015-11-30T12:47:16.320Z",
+		"2.0.0": "2017-04-11T07:55:34.324Z",
+		"2.1.0": "2017-09-27T06:19:12.432Z",
+		"2.1.1": "2017-09-29T09:24:13.109Z",
+		"3.0.0": "2017-09-29T10:21:09.066Z",
+		"3.0.1": "2017-10-02T02:57:05.356Z",
+		"3.1.0": "2018-04-06T16:32:15.072Z",
+		"3.2.0": "2018-04-22T17:39:13.156Z",
+		"3.2.1": "2018-04-25T17:38:43.032Z",
+		"3.3.0": "2018-05-24T06:21:27.391Z",
+		"4.0.0": "2018-05-24T07:39:05.659Z",
+		"4.1.0": "2018-05-31T13:58:46.661Z",
+		"4.2.0": "2018-06-12T03:31:14.518Z",
+		"4.3.0": "2018-12-23T22:35:17.085Z"
+	},
+	"dist-tags": {
+		"latest": "4.3.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"2ef9566261d02fee4491f040e8deb761\"",
+			"fetched": 1568994338762
+		}
+	},
+	"_distfiles": {
+		"winston-transport-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/winston-transport/-/winston-transport-1.0.1.tgz",
+			"sha": "05926035c86f765d9e1e5904f9bbb8f6a0e605ac",
+			"registry": "npmjs"
+		},
+		"winston-transport-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/winston-transport/-/winston-transport-1.0.2.tgz",
+			"sha": "2460dbaedb240dc402f377e2710efc7732ae8408",
+			"registry": "npmjs"
+		},
+		"winston-transport-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/winston-transport/-/winston-transport-2.0.0.tgz",
+			"sha": "bce4fb32f578e052617157c2bdf1abef1c6ce25d",
+			"registry": "npmjs"
+		},
+		"winston-transport-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/winston-transport/-/winston-transport-2.1.0.tgz",
+			"sha": "84be38861f7b02fc7d03eb0a4d2e6c2c25df0783",
+			"registry": "npmjs"
+		},
+		"winston-transport-2.1.1.tgz": {
+			"url": "https://registry.npmjs.org/winston-transport/-/winston-transport-2.1.1.tgz",
+			"sha": "40db138217a86fd0ee2d1f8ac7e3509fb417564c",
+			"registry": "npmjs"
+		},
+		"winston-transport-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/winston-transport/-/winston-transport-3.0.0.tgz",
+			"sha": "ccb2d8ee9220efa3fa55af55e11a4c77c1e64daa",
+			"registry": "npmjs"
+		},
+		"winston-transport-3.0.1.tgz": {
+			"url": "https://registry.npmjs.org/winston-transport/-/winston-transport-3.0.1.tgz",
+			"sha": "8008b15eef5660c4fb3fa094d58ccbd08528c58d",
+			"registry": "npmjs"
+		},
+		"winston-transport-3.1.0.tgz": {
+			"url": "https://registry.npmjs.org/winston-transport/-/winston-transport-3.1.0.tgz",
+			"sha": "52b097176c5c26acf9c603630c57ffd575c42572",
+			"registry": "npmjs"
+		},
+		"winston-transport-3.2.0.tgz": {
+			"url": "https://registry.npmjs.org/winston-transport/-/winston-transport-3.2.0.tgz",
+			"sha": "a05b6ac93f02b4d7e95cf992f63ab218c18a193a",
+			"registry": "npmjs"
+		},
+		"winston-transport-3.2.1.tgz": {
+			"url": "https://registry.npmjs.org/winston-transport/-/winston-transport-3.2.1.tgz",
+			"sha": "5b79b294096b1a18bfe502e769491553a2cb1042",
+			"registry": "npmjs"
+		},
+		"winston-transport-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/winston-transport/-/winston-transport-4.0.0.tgz",
+			"sha": "173f379280a9e1217ddee3cdccb686b7b9f185ec",
+			"registry": "npmjs"
+		},
+		"winston-transport-4.1.0.tgz": {
+			"url": "https://registry.npmjs.org/winston-transport/-/winston-transport-4.1.0.tgz",
+			"sha": "4eedb6e3ad79bdd8a682e380abebd7b80951e797",
+			"registry": "npmjs"
+		},
+		"winston-transport-4.2.0.tgz": {
+			"url": "https://registry.npmjs.org/winston-transport/-/winston-transport-4.2.0.tgz",
+			"sha": "a20be89edf2ea2ca39ba25f3e50344d73e6520e5",
+			"registry": "npmjs"
+		},
+		"winston-transport-4.3.0.tgz": {
+			"url": "https://registry.npmjs.org/winston-transport/-/winston-transport-4.3.0.tgz",
+			"sha": "df68c0c202482c448d9b47313c07304c2d7c2c66",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-54d59b6c537fc8ae",
+	"_id": "winston-transport",
+	"readme": "# winston-transport\n\nThe base `TransportStream` implementation for `winston >= 3`. Use these to\nwrite ecosystem Transports for `winston`.\n\n## Usage\n\n``` js\nconst Transport = require('winston-transport');\nconst util = require('util');\n\n//\n// Inherit from `winston-transport` so you can take advantage\n// of the base functionality and `.exceptions.handle()`.\n//\nmodule.exports = class CustomTransport extends Transport {\n  constructor(opts) {\n    super(opts);\n\n    //\n    // Consume any custom options here. e.g.:\n    // - Connection information for databases\n    // - Authentication information for APIs (e.g. loggly, papertrail,\n    //   logentries, etc.).\n    //\n  }\n\n  log(info, callback) {\n    setImmediate(() => {\n      this.emit('logged', info);\n    });\n\n    // Perform the writing to the remote service\n\n    callback();\n  }\n};\n```\n\n## Tests\n\nTests are written with `mocha`, `nyc`, `assume`, and \n`abstract-winston-transport`. They can be run with `npm`:\n\n``` bash\nnpm test\n```\n\n##### Author: [Charlie Robbins](https://github.com/indexzero)\n##### LICENSE: MIT"
+}

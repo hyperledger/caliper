@@ -1,0 +1,189 @@
+{
+	"name": "signed-varint",
+	"versions": {
+		"1.0.0": {
+			"name": "signed-varint",
+			"description": "efficiently store signed integers in varint",
+			"version": "1.0.0",
+			"homepage": "https://github.com/dominictarr/signed-varint",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/dominictarr/signed-varint.git"
+			},
+			"dependencies": {
+				"varint": "~1.2.0"
+			},
+			"devDependencies": {
+				"tape": "~2.12.3"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"author": {
+				"name": "Dominic Tarr",
+				"email": "dominic.tarr@gmail.com",
+				"url": "http://dominictarr.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/dominictarr/signed-varint/issues"
+			},
+			"_id": "signed-varint@1.0.0",
+			"_shasum": "72251ebcccef4cbed8c9a43c8c0d5b29ec39d541",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "dominictarr",
+				"email": "dominic.tarr@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "dominictarr",
+					"email": "dominic.tarr@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "72251ebcccef4cbed8c9a43c8c0d5b29ec39d541",
+				"tarball": "https://registry.npmjs.org/signed-varint/-/signed-varint-1.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.0": {
+			"name": "signed-varint",
+			"description": "efficiently store signed integers in varint",
+			"version": "2.0.0",
+			"homepage": "https://github.com/dominictarr/signed-varint",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/dominictarr/signed-varint.git"
+			},
+			"dependencies": {
+				"varint": "~3.0.0"
+			},
+			"devDependencies": {
+				"tape": "~2.12.3"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"author": {
+				"name": "Dominic Tarr",
+				"email": "dominic.tarr@gmail.com",
+				"url": "http://dominictarr.com"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/dominictarr/signed-varint/issues"
+			},
+			"_id": "signed-varint@2.0.0",
+			"_shasum": "4b5f6e629499b3eeca82ceab17e052881a3cdc45",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "dominictarr",
+				"email": "dominic.tarr@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "dominictarr",
+					"email": "dominic.tarr@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "4b5f6e629499b3eeca82ceab17e052881a3cdc45",
+				"tarball": "https://registry.npmjs.org/signed-varint/-/signed-varint-2.0.0.tgz"
+			},
+			"directories": {}
+		},
+		"2.0.1": {
+			"name": "signed-varint",
+			"description": "efficiently store signed integers in varint",
+			"version": "2.0.1",
+			"homepage": "https://github.com/dominictarr/signed-varint",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com/dominictarr/signed-varint.git"
+			},
+			"dependencies": {
+				"varint": "~5.0.0"
+			},
+			"devDependencies": {
+				"tape": "~2.12.3"
+			},
+			"scripts": {
+				"test": "node test.js"
+			},
+			"author": {
+				"name": "Dominic Tarr",
+				"email": "dominic.tarr@gmail.com",
+				"url": "http://dominictarr.com"
+			},
+			"license": "MIT",
+			"gitHead": "4f572951f727ed2d7409873715bae2127d53ed4b",
+			"bugs": {
+				"url": "https://github.com/dominictarr/signed-varint/issues"
+			},
+			"_id": "signed-varint@2.0.1",
+			"_shasum": "50a9989da7c98c2c61dad119bc97470ef8528129",
+			"_from": ".",
+			"_npmVersion": "3.9.3",
+			"_nodeVersion": "6.4.0",
+			"_npmUser": {
+				"name": "dominictarr",
+				"email": "dominic.tarr@gmail.com"
+			},
+			"dist": {
+				"shasum": "50a9989da7c98c2c61dad119bc97470ef8528129",
+				"tarball": "https://registry.npmjs.org/signed-varint/-/signed-varint-2.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "dominictarr",
+					"email": "dominic.tarr@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/signed-varint-2.0.1.tgz_1478351854409_0.6567636290565133"
+			},
+			"directories": {}
+		}
+	},
+	"time": {
+		"modified": "2016-11-05T13:18:24.753Z",
+		"created": "2014-05-13T09:21:31.797Z",
+		"1.0.0": "2014-05-13T09:21:31.797Z",
+		"2.0.0": "2014-07-30T19:50:12.267Z",
+		"2.0.1": "2016-11-05T13:17:34.951Z"
+	},
+	"dist-tags": {
+		"latest": "2.0.1"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"6b82ba08ba28d3e5a0db784785791211\"",
+			"fetched": 1568994351816
+		}
+	},
+	"_distfiles": {
+		"signed-varint-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/signed-varint/-/signed-varint-1.0.0.tgz",
+			"sha": "72251ebcccef4cbed8c9a43c8c0d5b29ec39d541",
+			"registry": "npmjs"
+		},
+		"signed-varint-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/signed-varint/-/signed-varint-2.0.0.tgz",
+			"sha": "4b5f6e629499b3eeca82ceab17e052881a3cdc45",
+			"registry": "npmjs"
+		},
+		"signed-varint-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/signed-varint/-/signed-varint-2.0.1.tgz",
+			"sha": "50a9989da7c98c2c61dad119bc97470ef8528129",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-a819f9d5b660661c",
+	"_id": "signed-varint",
+	"readme": "# signed-varint\n\nstore signed integers efficiently, as per protocol-buffers.\n\nFor unsigned integers use\n[varint](https://github.com/chrisdickinson/varint).\n\nIntegers are mapped to positive integers, so that positive integers\nbecome positive even numbers (n*2)\nand negative integers become positive odd numbers. (n*-2 - 1)\n\nThis is the same as moving the sign bit from the most significant\npossition to the least significant. Otherwise, varint will encode\nnegative numbers as large integers.\n\n``` js\nvar varint = require('varint')\nvar svarint = require('signed-varint')\n\nconsole.log('unsigned', varint.encode(-1))\nconsole.log('signed', svarint.encode(-1))\n\n//=> unsigned [255,255,255, 15]\n//   signed [1]\n```\n## License\n\nMIT"
+}

@@ -1,0 +1,675 @@
+{
+	"name": "nofilter",
+	"versions": {
+		"0.0.0": {
+			"name": "nofilter",
+			"version": "0.0.0",
+			"description": "Read and write a growable buffer as a stream",
+			"main": "lib/index.js",
+			"scripts": {
+				"test": "gulp test",
+				"prepublish": "gulp prepublish",
+				"ci": "gulp ci"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hildjj/nofilter.git"
+			},
+			"keywords": [
+				"buffer",
+				"stream",
+				"duplex",
+				"transform",
+				"#nofilter",
+				"no-filter",
+				"concat"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/nofilter/issues"
+			},
+			"homepage": "https://github.com/hildjj/nofilter#readme",
+			"devDependencies": {
+				"chai": "^3.3",
+				"coffee-script": "^1.10",
+				"del": "^2.0",
+				"gulp": "^3.9",
+				"gulp-codo": "^1.0",
+				"gulp-coffee": "^2.3",
+				"gulp-coffeelint": "^0.5",
+				"gulp-coveralls": "^0.1.4",
+				"gulp-istanbul": "^0.10",
+				"gulp-live-server": "^0.0",
+				"gulp-mocha": "^2.1",
+				"gulp-sourcemaps": "^1.6",
+				"gulp-util": "^3.0",
+				"mocha": "^2.3",
+				"open": "^0.0"
+			},
+			"gitHead": "96cee07c9e232f419e607ba9bdca85ff6990f31e",
+			"_id": "nofilter@0.0.0",
+			"_shasum": "3cefaa1f3a72ca41568242d05bf2bd9bb2756719",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.1",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "3cefaa1f3a72ca41568242d05bf2bd9bb2756719",
+				"tarball": "https://registry.npmjs.org/nofilter/-/nofilter-0.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.1": {
+			"name": "nofilter",
+			"version": "0.0.1",
+			"description": "Read and write a growable buffer as a stream",
+			"main": "lib/index.js",
+			"scripts": {
+				"test": "gulp test",
+				"prepublish": "gulp prepublish",
+				"ci": "gulp ci"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hildjj/nofilter.git"
+			},
+			"keywords": [
+				"buffer",
+				"stream",
+				"duplex",
+				"transform",
+				"#nofilter",
+				"no-filter",
+				"concat"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/nofilter/issues"
+			},
+			"homepage": "https://github.com/hildjj/nofilter#readme",
+			"devDependencies": {
+				"chai": "^3.3",
+				"coffee-script": "^1.10",
+				"del": "^2.0",
+				"gulp": "^3.9",
+				"gulp-codo": "^1.0",
+				"gulp-coffee": "^2.3",
+				"gulp-coffeelint": "^0.5",
+				"gulp-coveralls": "^0.1.4",
+				"gulp-istanbul": "^0.10",
+				"gulp-live-server": "^0.0",
+				"gulp-mocha": "^2.1",
+				"gulp-sourcemaps": "^1.6",
+				"gulp-util": "^3.0",
+				"mocha": "^2.3",
+				"open": "^0.0"
+			},
+			"gitHead": "799fe48b019f8161e2d3701efe5af10260e7f797",
+			"_id": "nofilter@0.0.1",
+			"_shasum": "3671276d99a40a3712e79629cb9783de3b91d3dc",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.1",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "3671276d99a40a3712e79629cb9783de3b91d3dc",
+				"tarball": "https://registry.npmjs.org/nofilter/-/nofilter-0.0.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.2": {
+			"name": "nofilter",
+			"version": "0.0.2",
+			"description": "Read and write a growable buffer as a stream",
+			"main": "lib/index.js",
+			"scripts": {
+				"test": "gulp test",
+				"prepublish": "gulp prepublish",
+				"ci": "gulp ci"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hildjj/nofilter.git"
+			},
+			"keywords": [
+				"buffer",
+				"stream",
+				"duplex",
+				"transform",
+				"#nofilter",
+				"no-filter",
+				"concat"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/nofilter/issues"
+			},
+			"homepage": "https://github.com/hildjj/nofilter#readme",
+			"devDependencies": {
+				"chai": "^3.3",
+				"coffee-script": "^1.10",
+				"del": "^2.0",
+				"gulp": "^3.9",
+				"gulp-codo": "^1.0",
+				"gulp-coffee": "^2.3",
+				"gulp-coffeelint": "^0.5",
+				"gulp-coveralls": "^0.1.4",
+				"gulp-git": "^1.5",
+				"gulp-istanbul": "^0.10",
+				"gulp-live-server": "^0.0",
+				"gulp-mocha": "^2.1",
+				"gulp-release-tasks": "0.0.3",
+				"gulp-sourcemaps": "^1.6",
+				"gulp-util": "^3.0",
+				"mocha": "^2.3",
+				"open": "^0.0"
+			},
+			"gitHead": "90b0b64227849f1f6054518d9df712e1ee2c17bb",
+			"_id": "nofilter@0.0.2",
+			"_shasum": "63f39aebbca12e70387c29431ca5f6f70d1f6822",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.1",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "63f39aebbca12e70387c29431ca5f6f70d1f6822",
+				"tarball": "https://registry.npmjs.org/nofilter/-/nofilter-0.0.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			],
+			"directories": {}
+		},
+		"0.0.3": {
+			"name": "nofilter",
+			"version": "0.0.3",
+			"description": "Read and write a growable buffer as a stream",
+			"main": "lib/index.js",
+			"scripts": {
+				"clean": "rm -rf coverage lib doc man/* **/.DS_Store",
+				"lint": "coffeelint src test",
+				"coffee": "coffee -cm -o lib/ src",
+				"coverage": "nyc -r none npm test",
+				"precoverage": "npm run coffee -s",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "mocha test/*.coffee",
+				"pretest": "npm run coffee -s",
+				"doc": "codo src",
+				"prepublish": "npm run coffee && npm run doc",
+				"watch": "watch 'npm run coveragehtml' src/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hildjj/nofilter.git"
+			},
+			"keywords": [
+				"buffer",
+				"stream",
+				"duplex",
+				"transform",
+				"#nofilter",
+				"no-filter",
+				"concat"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/nofilter/issues"
+			},
+			"homepage": "https://github.com/hildjj/nofilter#readme",
+			"devDependencies": {
+				"chai": "^3.3",
+				"codo": "^2.1",
+				"coffee-script": "^1.10",
+				"coveralls": "^2.11",
+				"mocha": "^3.0",
+				"nyc": "^8.1"
+			},
+			"gitHead": "cfafb26d594080c29d8e3fca612c550798cdcd99",
+			"_id": "nofilter@0.0.3",
+			"_shasum": "241e342078177a8693a3043e83f37567e276410c",
+			"_from": ".",
+			"_npmVersion": "3.10.3",
+			"_nodeVersion": "6.3.1",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"shasum": "241e342078177a8693a3043e83f37567e276410c",
+				"tarball": "https://registry.npmjs.org/nofilter/-/nofilter-0.0.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/nofilter-0.0.3.tgz_1471718441240_0.3280492576304823"
+			},
+			"directories": {}
+		},
+		"1.0.0": {
+			"name": "nofilter",
+			"version": "1.0.0",
+			"description": "Read and write a growable buffer as a stream",
+			"main": "lib/index.js",
+			"scripts": {
+				"clean": "rm -rf coverage doc man/* **/.DS_Store",
+				"lint": "eslint lib/*.js bin/* test/*.js",
+				"coverage": "nyc -r none npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "mocha test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"watch": "watch 'npm run coveragehtml' src/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hildjj/nofilter.git"
+			},
+			"keywords": [
+				"buffer",
+				"stream",
+				"duplex",
+				"transform",
+				"#nofilter",
+				"no-filter",
+				"concat"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/nofilter/issues"
+			},
+			"homepage": "https://github.com/hildjj/nofilter#readme",
+			"devDependencies": {
+				"chai": "^4.1",
+				"coveralls": "^3.0.2",
+				"jsdoc": "^3.5.5",
+				"minami": "^1.2.3",
+				"mocha": "^5.2.0",
+				"nyc": "^12.0.2"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "5e596e4bbd95c7a3117df033171d8ae68643651a",
+			"_id": "nofilter@1.0.0",
+			"_npmVersion": "6.3.0",
+			"_nodeVersion": "10.8.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"integrity": "sha512-tFREJ9hfglAHiwoOsAEEwtiaeeeX7xjPoz7uCtvZoqpBs93mC2hBFLR0zf2UZZQ7BdsvwPLDuIPRflVPU0UIrQ==",
+				"shasum": "8d01f19d046dddb6d449b8088f33a242e006f663",
+				"tarball": "https://registry.npmjs.org/nofilter/-/nofilter-1.0.0.tgz",
+				"fileCount": 4,
+				"unpackedSize": 24544,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbb94ZCRA9TVsSAnZWagAAlcQQAKGqMonfkqiTYIt+ruJy\nzgE3faK8c1A5jma9sPUKcl3EPEEd7NAxqegdX8YkFXdpfIjZ2hFMEPN+RYiS\nWsqbPS3I5xt4+gMYqWU5meSbTn1JE8ma3AhGDSpT56ErZBulZ4XT6dXSUIGU\n2xVtowJBrfU9UEOE2qHdPhetRMEqjEewheaegU6rCp7MQ4XD3JCQ1fPuppoI\nuXrVIzrddKlJfWhVcxSr5d+Tl88I9rm4RA1MaRHUR3WAJji6Qnn6izLhCSmf\nRAGTu9f5ulTXYgoBxWYH/FR9qHwAz4Ns0Z5xSMle9++ISofxZ+855e981DU5\nMZHxmHGGtkxx2VNBC5MEdM2tcXmcimvvNmBMmK+NebJ6Y8hkdLziGAGo7ORA\nNIeYHEs5WvxqEIAkaDaDW/fA6StSB3V8Zd2K3x992ot1b4BjvudTInTCABfo\nTBFeVoyO2TZEBfpbfZDyQwz8ysSDMBUZvW4hRcxwbH87Nm1S00nTLjhgiUk/\nLW0o2+bUurZVg4sA8CEeHDf1eVaFNtg/L6Ta6Q7rLtkgf9kWfkZnLGaL1nJw\nFuA2k/dI9DpccPBNloCa7v0+znb0KZBM9SYTnQXv3caS/Byt3ShuHF1yBY/Q\nLr9nPlepA3EsacE0zhr+AFxZEQh6MCwC1QcMbL1pdw4M9EkCDip59RfRjLjT\nlEVF\r\n=4LBV\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/nofilter_1.0.0_1534058008854_0.22991692421045218"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.1": {
+			"name": "nofilter",
+			"version": "1.0.1",
+			"description": "Read and write a growable buffer as a stream",
+			"main": "lib/index.js",
+			"scripts": {
+				"clean": "rm -rf coverage doc man/* **/.DS_Store",
+				"lint": "eslint lib/*.js bin/* test/*.js",
+				"coverage": "nyc -r none npm test",
+				"coveragehtml": "nyc report -r html",
+				"precoveragehtml": "npm run coverage",
+				"test": "mocha test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"watch": "watch 'npm run coveragehtml' src/ test/",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hildjj/nofilter.git"
+			},
+			"keywords": [
+				"buffer",
+				"stream",
+				"duplex",
+				"transform",
+				"#nofilter",
+				"no-filter",
+				"concat"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/nofilter/issues"
+			},
+			"homepage": "https://github.com/hildjj/nofilter#readme",
+			"devDependencies": {
+				"chai": "^4.2",
+				"coveralls": "^3.0.2",
+				"jsdoc": "^3.5.5",
+				"minami": "^1.2.3",
+				"mocha": "^5.2.0",
+				"nyc": "^13.1.0"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "7a010d60a266133ecf1fa9f18779646f1bc32bab",
+			"_id": "nofilter@1.0.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "11.2.0",
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"dist": {
+				"integrity": "sha512-p2J1rODXWkqM5NAT7TMUmKGAcnUreT4uSTUar+vdrquOXV5vn8oHW2hBU0LeQSh6nwz4xkxcpRE89UGk+eQUcw==",
+				"shasum": "5e6e9a7666a293b092791e7cb58c74b125f1cd11",
+				"tarball": "https://registry.npmjs.org/nofilter/-/nofilter-1.0.1.tgz",
+				"fileCount": 4,
+				"unpackedSize": 24541,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJb/JCNCRA9TVsSAnZWagAAd6QQAKLabCEBPrXMkrvMupSO\nCWCn3scyT44CMAgr4j+kf3LmN59Fqp5lWDm5pn5J3Rqt0SILrXEQAN45D3Rk\nvLqfv5rAdZ3T2sEMss8WSCGGWBbuGykW0/bHtUKd7hNCZV13cCryExkGC5CW\n5wNh/YiQHYzUH0zwFo4YZJl6Oey1ojJjlx30umSCFh5ImHrHo7R7G1S7MJFL\n41Y6/1Va5fn9Lkk5CknTyV9DfZS7QaihZD9LiZ9VAOY6XV4rfibQ/XOfWwiW\nntxUBEEdmPZOe8qfCA+IE0sZGj9gtNrPoYgbqy7x+3HlSsqsTx1v3ZxXXuHw\n+31kIGWOjJV+e43p0xelvVhvxWPkSilWC8hd8UolctsLSRWX2Q3vESLUJT1H\nhgqcHyQCAYRRDIHwyMVAKGXqCLZIL0/zHiYg0pouVhbj/fQ1bUgY8r3jQvFW\n2T63O5ZOshY5LyCjJ620neRqxWPQOs5+SjI/vVNX5j6geIRgEJ/VyeIfEIoK\nxA1Ijhh9IeOnaf7fDuY2+7+g2AktgLntTVWX6aVFIXWgMmlFbCXtNdhHrJ1G\nfXK4qZK4psOQekloj4Bc1M+2fMNQj7lDAX1yO90dra5lacMvl7HF7r6dXm6T\nmhXvevAlgi+oSO2yIB3HtrqW02jldA9CSqMgPRWdob/G3IZLwUhyOC8WdZG3\nMOCx\r\n=4loq\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			],
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/nofilter_1.0.1_1543278732718_0.7139147188766788"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.2": {
+			"name": "nofilter",
+			"version": "1.0.2",
+			"description": "Read and write a growable buffer as a stream",
+			"main": "lib/index.js",
+			"scripts": {
+				"clean": "rm -rf coverage doc man/* **/.DS_Store",
+				"lint": "eslint lib/*.js bin/* test/*.js",
+				"coverage": "nyc -r html npm test",
+				"test": "mocha test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hildjj/nofilter.git"
+			},
+			"keywords": [
+				"buffer",
+				"stream",
+				"duplex",
+				"transform",
+				"#nofilter",
+				"no-filter",
+				"concat"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/nofilter/issues"
+			},
+			"homepage": "https://github.com/hildjj/nofilter#readme",
+			"devDependencies": {
+				"chai": "^4.2",
+				"coveralls": "^3.0.3",
+				"jsdoc": "^3.5.5",
+				"minami": "^1.2.3",
+				"mocha": "^6.0.2",
+				"nyc": "^13.3.0"
+			},
+			"engines": {
+				"node": ">=6"
+			},
+			"gitHead": "1b3dd411afcd8526fe91ad521b23fd9fc0a9a127",
+			"_id": "nofilter@1.0.2",
+			"_nodeVersion": "11.10.0",
+			"_npmVersion": "6.7.0",
+			"dist": {
+				"integrity": "sha512-d38SORxm9UNoDsnPXajV9nBEebKX4/paXAlyRGnSjZuFbLLZDFUO4objr+tbybqsbqGXDWllb6gQoKUDc9q3Cg==",
+				"shasum": "d2887b9e76531fa251f20038c3843b993f1b3e26",
+				"tarball": "https://registry.npmjs.org/nofilter/-/nofilter-1.0.2.tgz",
+				"fileCount": 4,
+				"unpackedSize": 25112,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcfF0cCRA9TVsSAnZWagAAZGUP/2xuZSi7mLYKrEIbGLK/\nyQ9khC09+aFgTqzpCQsIWC+TVODy7fP8wR806iDDSpp5dPCAouNUycTXF7mb\nFWM0cNJZg229PmBge/84HR1zC3Ct67T6LJxFeuxXKjBbzbAV+Dd0g3mFEwde\no0YD+bngdRXMd1crY9F61PCovXslgWkRFqMKI+3UiG8hDYiRpd3GUbJOdMD4\n+7nmXCC628Ef3KAhGFBiWTNGQ2D6ojFVMryTffYyuQg1ThDzRi9i7uqA4HVb\npOe9JbI1lU+9R1/EiZkueTRGGFTqelYpSpLRUJMYLo2dPqa2WprnYJzxThuF\nFkD8scNAIyVV67YtOERi8aihvAnj9yV+ZH1Rjn+8viKnr982HQFGdHfbRUtm\nrP0X8wDPOGhCW9qSmeit2AHrbYkrcFnYIgZzE7pPhyxpHKmjXVksgfBucOCK\nmRMBeJatKt6RGLat8v15jYr68+czSOECoSISX0tCVYyvu0A6igGiSqsa/Sd3\nchhJawhH7+ozgV/fKd5Tc/bJ/xoEsDFlrc3Od1+yrhkTTf4ppd1+B4gSnE/C\nRWATIUgueeVP+WosmYZoh4jDLPX58MhBW4801awr0Kb50tCUfExSD2FsWchq\nusEDr7GmQJVnqVb++BvemCh2HD7HxuC3ZTk4ZR0eYFLG+iUPM1n+xfJfgwhK\nGDmi\r\n=ulPi\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			],
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/nofilter_1.0.2_1551654171473_0.6838163032110072"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.0.3": {
+			"name": "nofilter",
+			"version": "1.0.3",
+			"description": "Read and write a growable buffer as a stream",
+			"main": "lib/index.js",
+			"scripts": {
+				"clean": "rm -rf coverage doc **/.DS_Store",
+				"lint": "eslint lib/*.js test/*.js",
+				"coverage": "nyc -r html npm test",
+				"test": "mocha test/*.js",
+				"doc": "jsdoc -c .jsdoc.conf",
+				"release": "npm version patch && git push --follow-tags && npm publish",
+				"coveralls": "nyc report --reporter=text-lcov | coveralls"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/hildjj/nofilter.git"
+			},
+			"keywords": [
+				"buffer",
+				"stream",
+				"duplex",
+				"transform",
+				"#nofilter",
+				"no-filter",
+				"concat"
+			],
+			"author": {
+				"name": "Joe Hildebrand",
+				"email": "joe-github@cursive.net"
+			},
+			"license": "MIT",
+			"bugs": {
+				"url": "https://github.com/hildjj/nofilter/issues"
+			},
+			"homepage": "https://github.com/hildjj/nofilter#readme",
+			"devDependencies": {
+				"@types/node": "^12.6.9",
+				"chai": "^4.2",
+				"coveralls": "^3.0.5",
+				"jsdoc": "^3.6.3",
+				"minami": "^1.2.3",
+				"mocha": "^6.2.0",
+				"nyc": "^14.1.1"
+			},
+			"engines": {
+				"node": ">=8"
+			},
+			"gitHead": "d3dd67fdc76340d67f0290e9f0e328e994785e7e",
+			"_id": "nofilter@1.0.3",
+			"_nodeVersion": "12.7.0",
+			"_npmVersion": "6.10.0",
+			"dist": {
+				"integrity": "sha512-FlUlqwRK6reQCaFLAhMcF+6VkVG2caYjKQY3YsRDTl4/SEch595Qb3oLjJRDr8dkHAAOVj2pOx3VknfnSgkE5g==",
+				"shasum": "34e54b4cc9757de0cad38cc0d19462489b1b7f5d",
+				"tarball": "https://registry.npmjs.org/nofilter/-/nofilter-1.0.3.tgz",
+				"fileCount": 4,
+				"unpackedSize": 26020,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdR/InCRA9TVsSAnZWagAAGdcP/1d8zito4e4RZcVQq2SJ\n0qrO+xD3rMeXkXx2RVxJZFELeRlCmy61jD6tlOBejJNu/M7d/idzzzN/9eIT\nAl2uvNf8Xg2AM8IALZgXjAKbKnc6MMxEUHkcclY+A2PCNXVDPBS8gQoAnavy\nid4i/E/YfXI3bLN6yefmkg3W5/Y2uvGQ0xiBPEYJF9LzXDuu16G038GpqEex\nVzSfN6OyZqkBdlmaKgyXBoNMMi43sza0bHNQVpbiaAmATjAao3xZRRFvB5G0\n0kZ0sh43QfoJzDWgXH9L79vT0AUvq1jzeA1b92KQ6rO8hQjKrCyruyYI81Us\njgxRDyZ56X9j1Ms1fDNqhxtj8pfvP0H6ONROzStb0mzxIW1paoQ2x14nCv7+\nDxyVrUk/lDohB2yI7gAAJncoWYT0JJWOuL8rrU9qaHtUlQWp8N/sTghelFxu\nV45HbhEb6ayaVXFgIw0i+VYgNeE8DsEdENybxLCYeLelDlDizZkkh/JvkNjH\nxbOgGbUL0WeRCfJmlgvL6Lf517xAKYEXPaTryBjFfxx+AMcvlbhzo+iA56ir\nx36go2FZMQPQgrv09gagiHN6LjyVqmQRkEr2tZz9NhJZHPUBRLsmh524eve2\nrbCuyQWbB2ADeeff+gYzKcKIAxf59z22QEQ25x6XIM9ZaFSJiIasR5N73TYt\nw8Ky\r\n=Cn47\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "hildjj",
+					"email": "joe-github@cursive.net"
+				}
+			],
+			"_npmUser": {
+				"name": "hildjj",
+				"email": "joe-github@cursive.net"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/nofilter_1.0.3_1564996134831_0.6588995680505447"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-08-05T09:08:57.454Z",
+		"created": "2015-10-07T22:14:14.713Z",
+		"0.0.0": "2015-10-07T22:14:14.713Z",
+		"0.0.1": "2015-10-08T05:49:39.948Z",
+		"0.0.2": "2015-10-08T19:21:21.653Z",
+		"0.0.3": "2016-08-20T18:40:43.887Z",
+		"1.0.0": "2018-08-12T07:13:28.971Z",
+		"1.0.1": "2018-11-27T00:32:12.859Z",
+		"1.0.2": "2019-03-03T23:02:51.570Z",
+		"1.0.3": "2019-08-05T09:08:54.976Z"
+	},
+	"dist-tags": {
+		"latest": "1.0.3"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"d97b73fa3e1fb4d94ce9d22edc7bbad7\"",
+			"fetched": 1568994351669
+		}
+	},
+	"_distfiles": {
+		"nofilter-0.0.0.tgz": {
+			"url": "https://registry.npmjs.org/nofilter/-/nofilter-0.0.0.tgz",
+			"sha": "3cefaa1f3a72ca41568242d05bf2bd9bb2756719",
+			"registry": "npmjs"
+		},
+		"nofilter-0.0.1.tgz": {
+			"url": "https://registry.npmjs.org/nofilter/-/nofilter-0.0.1.tgz",
+			"sha": "3671276d99a40a3712e79629cb9783de3b91d3dc",
+			"registry": "npmjs"
+		},
+		"nofilter-0.0.2.tgz": {
+			"url": "https://registry.npmjs.org/nofilter/-/nofilter-0.0.2.tgz",
+			"sha": "63f39aebbca12e70387c29431ca5f6f70d1f6822",
+			"registry": "npmjs"
+		},
+		"nofilter-0.0.3.tgz": {
+			"url": "https://registry.npmjs.org/nofilter/-/nofilter-0.0.3.tgz",
+			"sha": "241e342078177a8693a3043e83f37567e276410c",
+			"registry": "npmjs"
+		},
+		"nofilter-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/nofilter/-/nofilter-1.0.0.tgz",
+			"sha": "8d01f19d046dddb6d449b8088f33a242e006f663",
+			"registry": "npmjs"
+		},
+		"nofilter-1.0.1.tgz": {
+			"url": "https://registry.npmjs.org/nofilter/-/nofilter-1.0.1.tgz",
+			"sha": "5e6e9a7666a293b092791e7cb58c74b125f1cd11",
+			"registry": "npmjs"
+		},
+		"nofilter-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/nofilter/-/nofilter-1.0.2.tgz",
+			"sha": "d2887b9e76531fa251f20038c3843b993f1b3e26",
+			"registry": "npmjs"
+		},
+		"nofilter-1.0.3.tgz": {
+			"url": "https://registry.npmjs.org/nofilter/-/nofilter-1.0.3.tgz",
+			"sha": "34e54b4cc9757de0cad38cc0d19462489b1b7f5d",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-5214655fb7b90e64",
+	"_id": "nofilter",
+	"readme": "[![Build Status](https://travis-ci.org/hildjj/nofilter.svg?branch=master)](https://travis-ci.org/hildjj/nofilter)\n[![Coverage Status](https://coveralls.io/repos/hildjj/nofilter/badge.svg?branch=master&service=github)](https://coveralls.io/github/hildjj/nofilter?branch=master)\n\n# NoFilter\n\nA node.js package to read and write a stream of data into or out of what looks\nlike a growable [Buffer](https://nodejs.org/api/buffer.html).\n\nI kept needing this, and none of the existing packages seemed to have enough\nfeatures, test coverage, etc.\n\n# Examples\n\nAs a data sink:\n```javascript\nvar NoFilter = require('nofilter');\nnf = new NoFilter();\nnf.on('finish', function() {\n  console.log(nf.toString('base64'));\n});\nprocess.stdin.pipe(nf);\n```\n\nAs a data source:\n```javascript\nvar NoFilter = require('nofilter');\nnf = new NoFilter('010203', 'hex');\nnf.pipe(process.stdout);\n```\n\nRead the [API Docs](http://hildjj.github.io/nofilter/)."
+}

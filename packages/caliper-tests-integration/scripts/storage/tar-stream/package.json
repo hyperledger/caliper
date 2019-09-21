@@ -1,0 +1,4045 @@
+{
+	"name": "tar-stream",
+	"versions": {
+		"0.1.0": {
+			"name": "tar-stream",
+			"version": "0.1.0",
+			"description": "tar-stream is an alternative tar parser. It is streams2, does not have a fstream dependency and does not do any file io.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dependencies": {
+				"end-of-stream": "~0.1.3",
+				"bl": "~0.6.0"
+			},
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.1.0",
+			"dist": {
+				"shasum": "cc9b9bfd9d47cba1fc1ee48c1c78109f3c06a3d0",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.1.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.1": {
+			"name": "tar-stream",
+			"version": "0.1.1",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means easily you can extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dependencies": {
+				"end-of-stream": "~0.1.3",
+				"bl": "~0.6.0"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.1.1",
+			"dist": {
+				"shasum": "efd896a159ef21024964a23f9bbc0bdb495ab8a8",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.1.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.1.2": {
+			"name": "tar-stream",
+			"version": "0.1.2",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means easily you can extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dependencies": {
+				"end-of-stream": "~0.1.3",
+				"bl": "~0.6.0"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.1.2",
+			"dist": {
+				"shasum": "731ed228041c2c3dd7609c41f187f0508a2810f8",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.1.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.0": {
+			"name": "tar-stream",
+			"version": "0.2.0",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dependencies": {
+				"end-of-stream": "~0.1.3",
+				"bl": "~0.6.0"
+			},
+			"devDependencies": {
+				"tap": "~0.4.6",
+				"concat-stream": "~1.2.1"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.2.0",
+			"dist": {
+				"shasum": "ed2b9a0b933ab2a2d53f7b58fcf8f1a37dfdc3e3",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.2.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.1": {
+			"name": "tar-stream",
+			"version": "0.2.1",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dependencies": {
+				"end-of-stream": "~0.1.3",
+				"bl": "~0.6.0"
+			},
+			"devDependencies": {
+				"tap": "~0.4.6",
+				"concat-stream": "~1.2.1"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.2.1",
+			"dist": {
+				"shasum": "c57b99e9888712f174b82ba5102a01e73943d6ec",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.2.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.2": {
+			"name": "tar-stream",
+			"version": "0.2.2",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dependencies": {
+				"end-of-stream": "~0.1.3",
+				"bl": "~0.6.0"
+			},
+			"devDependencies": {
+				"tap": "~0.4.6",
+				"concat-stream": "~1.2.1"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.2.2",
+			"dist": {
+				"shasum": "a69a40ba0768a546c852736fa237be1fa252342a",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.2.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.17",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.3": {
+			"name": "tar-stream",
+			"version": "0.2.3",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dependencies": {
+				"end-of-stream": "~0.1.3",
+				"bl": "~0.6.0"
+			},
+			"devDependencies": {
+				"tap": "~0.4.6",
+				"concat-stream": "~1.2.1"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.2.3",
+			"dist": {
+				"shasum": "6ad3bae7f4fdc6dd55a0cea0b3ed10681d4123ff",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.2.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.17",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.4": {
+			"name": "tar-stream",
+			"version": "0.2.4",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"end-of-stream": "~0.1.3",
+				"bl": "~0.6.0"
+			},
+			"devDependencies": {
+				"tap": "~0.4.6",
+				"concat-stream": "~1.2.1",
+				"readable-stream": "~1.1.9"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.2.4",
+			"dist": {
+				"shasum": "15b0ca1ba40dc45845bdb68983e3e66fcfc7ce27",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.2.4.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.17",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.2.5": {
+			"name": "tar-stream",
+			"version": "0.2.5",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"end-of-stream": "~0.1.3",
+				"bl": "~0.6.0"
+			},
+			"devDependencies": {
+				"tap": "~0.4.6",
+				"concat-stream": "~1.2.1",
+				"readable-stream": "~1.1.9"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.2.5",
+			"dist": {
+				"shasum": "3212630dcdee5dddd38128e04ea7c98536d44edf",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.2.5.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.3.21",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.0": {
+			"name": "tar-stream",
+			"version": "0.3.0",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"end-of-stream": "~0.1.3",
+				"bl": "~0.6.0"
+			},
+			"devDependencies": {
+				"tap": "~0.4.6",
+				"concat-stream": "~1.2.1",
+				"readable-stream": "~1.1.9"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.3.0",
+			"dist": {
+				"shasum": "5769793f8e6ae8f46813a3d80fa194187d494efd",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.3.0.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.1": {
+			"name": "tar-stream",
+			"version": "0.3.1",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "~0.6.0",
+				"end-of-stream": "~0.1.3",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"tap": "~0.4.6",
+				"concat-stream": "~1.2.1"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.3.1",
+			"dist": {
+				"shasum": "95b4d0239c617d2cd701bb382700908ce09c81a5",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.3.1.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.2": {
+			"name": "tar-stream",
+			"version": "0.3.2",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "~0.6.0",
+				"end-of-stream": "~0.1.3",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"tap": "~0.4.6",
+				"concat-stream": "~1.2.1"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.3.2",
+			"dist": {
+				"shasum": "b492bc55ce3bd8b55a043fc77d8dea8cf999ce36",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.3.2.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.3.3": {
+			"name": "tar-stream",
+			"version": "0.3.3",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "~0.6.0",
+				"end-of-stream": "~0.1.3",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"tap": "~0.4.6",
+				"concat-stream": "~1.2.1"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.3.3",
+			"dist": {
+				"shasum": "23ca53bd738b8702272a80e26cc938bc4b84b87b",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.3.3.tgz"
+			},
+			"_from": ".",
+			"_npmVersion": "1.4.3",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"directories": {}
+		},
+		"0.4.0": {
+			"name": "tar-stream",
+			"version": "0.4.0",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "~0.6.0",
+				"end-of-stream": "~0.1.3",
+				"readable-stream": "~1.0.26-4"
+			},
+			"devDependencies": {
+				"tap": "~0.4.6",
+				"concat-stream": "~1.2.1"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.4.0",
+			"_shasum": "58f0e893d8a90b333795f6f62b28a39acd9b52cb",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "58f0e893d8a90b333795f6f62b28a39acd9b52cb",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.0.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.1": {
+			"name": "tar-stream",
+			"version": "0.4.1",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "~0.6.0",
+				"end-of-stream": "~0.1.3",
+				"readable-stream": "~1.0.26-4",
+				"xtend": "^3.0.0"
+			},
+			"devDependencies": {
+				"tap": "~0.4.6",
+				"concat-stream": "~1.2.1"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.4.1",
+			"_shasum": "3ac4e8ba7de71b8532efd8f30f491355c8665934",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "3ac4e8ba7de71b8532efd8f30f491355c8665934",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.1.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.2": {
+			"name": "tar-stream",
+			"version": "0.4.2",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "~0.6.0",
+				"end-of-stream": "~0.1.3",
+				"readable-stream": "~1.0.26-4",
+				"xtend": "~3.0.0"
+			},
+			"devDependencies": {
+				"tap": "~0.4.6",
+				"concat-stream": "~1.2.1"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.4.2",
+			"_shasum": "a86dde835c84ab377747cc72cf25d9804c589c86",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "a86dde835c84ab377747cc72cf25d9804c589c86",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.2.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.3": {
+			"name": "tar-stream",
+			"version": "0.4.3",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "~0.8.1",
+				"end-of-stream": "~0.1.3",
+				"readable-stream": "~1.0.26-4",
+				"xtend": "~3.0.0"
+			},
+			"devDependencies": {
+				"tap": "~0.4.6",
+				"concat-stream": "~1.2.1"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"_id": "tar-stream@0.4.3",
+			"_shasum": "16d0038c0de0bcf8edc96b82c95b17b155ae6789",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "16d0038c0de0bcf8edc96b82c95b17b155ae6789",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.3.tgz"
+			},
+			"directories": {}
+		},
+		"0.4.4": {
+			"name": "tar-stream",
+			"version": "0.4.4",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "~0.8.1",
+				"end-of-stream": "~0.1.3",
+				"readable-stream": "~1.0.26-4",
+				"xtend": "~3.0.0"
+			},
+			"devDependencies": {
+				"tap": "~0.4.6",
+				"concat-stream": "~1.2.1"
+			},
+			"scripts": {
+				"test": "tap test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"_id": "tar-stream@0.4.4",
+			"_shasum": "55733222ca3e1ebf58f2805b5b666596e1f8d5f3",
+			"_from": ".",
+			"_npmVersion": "1.4.9",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "55733222ca3e1ebf58f2805b5b666596e1f8d5f3",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.4.tgz"
+			}
+		},
+		"0.4.5": {
+			"name": "tar-stream",
+			"version": "0.4.5",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^0.9.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^1.0.27-1",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"tape": "^2.14.0"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"gitHead": "6dfff6b2728f42f67d235b831e0d3f80a7a13f8d",
+			"_id": "tar-stream@0.4.5",
+			"_shasum": "a5e0a7521f57974c919b2b99fdae55589aeefa46",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "a5e0a7521f57974c919b2b99fdae55589aeefa46",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.5.tgz"
+			}
+		},
+		"0.4.6": {
+			"name": "tar-stream",
+			"version": "0.4.6",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^0.9.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^1.0.27-1",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"tape": "^2.14.0"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"gitHead": "0b57f1c1c6aaaea09574e2a0fd1845639a006f6b",
+			"_id": "tar-stream@0.4.6",
+			"_shasum": "1857d5d517181d5b2ab80b127c6c1e30e2832f48",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "1857d5d517181d5b2ab80b127c6c1e30e2832f48",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.6.tgz"
+			}
+		},
+		"0.4.7": {
+			"name": "tar-stream",
+			"version": "0.4.7",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^0.9.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^1.0.27-1",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"tape": "^2.14.0"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"gitHead": "3bd4c7a0c34e4357105940baf1ff18b1f05a041b",
+			"_id": "tar-stream@0.4.7",
+			"_shasum": "1f1d2ce9ebc7b42765243ca0e8f1b7bfda0aadcd",
+			"_from": ".",
+			"_npmVersion": "1.4.23",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "1f1d2ce9ebc7b42765243ca0e8f1b7bfda0aadcd",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.7.tgz"
+			}
+		},
+		"1.0.0": {
+			"name": "tar-stream",
+			"version": "1.0.0",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^0.9.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^1.0.27-1",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"tape": "^2.14.0"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"gitHead": "b51602478a26458e17ca9d8f72fb9ccd8db5e8eb",
+			"_id": "tar-stream@1.0.0",
+			"_shasum": "6d28e2a0693ecd5669750e3326d004baa27ebd69",
+			"_from": ".",
+			"_npmVersion": "2.0.0",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "6d28e2a0693ecd5669750e3326d004baa27ebd69",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.0.0.tgz"
+			}
+		},
+		"1.0.2": {
+			"name": "tar-stream",
+			"version": "1.0.2",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^0.9.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^1.0.27-1",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"tape": "^2.14.0"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"gitHead": "97ad73faca5f3957cbdb314dcce420e72000caa2",
+			"_id": "tar-stream@1.0.2",
+			"_shasum": "fd19b4a17900fa704f6a133e3045aead0562ab95",
+			"_from": ".",
+			"_npmVersion": "1.4.28",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "fd19b4a17900fa704f6a133e3045aead0562ab95",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.0.2.tgz"
+			}
+		},
+		"1.1.1": {
+			"name": "tar-stream",
+			"version": "1.1.1",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^0.9.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^1.0.27-1",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"tape": "^2.14.0"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"gitHead": "5d6f693f952df77259c6f427994f91083ae645bf",
+			"_id": "tar-stream@1.1.1",
+			"_shasum": "7a9324331ebb74c5b5721f1177086e58a1c6a9cc",
+			"_from": ".",
+			"_npmVersion": "2.1.8",
+			"_nodeVersion": "0.10.33",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "7a9324331ebb74c5b5721f1177086e58a1c6a9cc",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.1.1.tgz"
+			}
+		},
+		"1.1.2": {
+			"name": "tar-stream",
+			"version": "1.1.2",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^0.9.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^1.0.33",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"gitHead": "d1b85db2af5ad57591bc255739ace5c6ad513e25",
+			"_id": "tar-stream@1.1.2",
+			"_shasum": "14652d7bdb5a557ef58e55ccee68a4d642963d6e",
+			"_from": ".",
+			"_npmVersion": "2.1.17",
+			"_nodeVersion": "0.10.35",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "14652d7bdb5a557ef58e55ccee68a4d642963d6e",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.1.2.tgz"
+			}
+		},
+		"1.1.3": {
+			"name": "tar-stream",
+			"version": "1.1.3",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^0.9.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "~1.0.33",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"gitHead": "05d3af9d1b9ac4df2b4483aad1eef0205519bc6c",
+			"_id": "tar-stream@1.1.3",
+			"_shasum": "e6f15e92d0a49187fda8d7e6e69cd8878aaee7cc",
+			"_from": ".",
+			"_npmVersion": "2.7.5",
+			"_nodeVersion": "1.6.4",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "e6f15e92d0a49187fda8d7e6e69cd8878aaee7cc",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.1.3.tgz"
+			}
+		},
+		"1.1.4": {
+			"name": "tar-stream",
+			"version": "1.1.4",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"repository": {
+				"type": "git",
+				"url": "git://github.com:mafintosh/tar-stream.git"
+			},
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^0.9.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "~1.0.33",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"gitHead": "5fe70a962c8d4000921f04d304fe2d85adb3b0f7",
+			"_id": "tar-stream@1.1.4",
+			"_shasum": "e6c3ffc4305f7d537b6ec697823dd86e4d61ca63",
+			"_from": ".",
+			"_npmVersion": "2.7.5",
+			"_nodeVersion": "1.6.4",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				}
+			],
+			"dist": {
+				"shasum": "e6c3ffc4305f7d537b6ec697823dd86e4d61ca63",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.1.4.tgz"
+			}
+		},
+		"1.1.5": {
+			"name": "tar-stream",
+			"version": "1.1.5",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^0.9.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "~1.0.33",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "72e8736c83455192fdcc20c0252d9df9f83350df",
+			"_id": "tar-stream@1.1.5",
+			"_shasum": "be9218c130c20029e107b0f967fb23de0579d13c",
+			"_from": ".",
+			"_npmVersion": "2.9.0",
+			"_nodeVersion": "2.0.0",
+			"_npmUser": {
+				"name": "maxogden",
+				"email": "max@maxogden.com"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"dist": {
+				"shasum": "be9218c130c20029e107b0f967fb23de0579d13c",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.1.5.tgz"
+			}
+		},
+		"1.2.0": {
+			"name": "tar-stream",
+			"version": "1.2.0",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^0.9.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "1092f7a61687f1eaac5b3f31fd602c40fbaf239b",
+			"_id": "tar-stream@1.2.0",
+			"_shasum": "76d1220d462afd41e8cf14cda439b797b46ed5c1",
+			"_from": ".",
+			"_npmVersion": "2.11.0",
+			"_nodeVersion": "2.2.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "76d1220d462afd41e8cf14cda439b797b46ed5c1",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.2.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			]
+		},
+		"1.2.1": {
+			"name": "tar-stream",
+			"version": "1.2.1",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "02bbe131f2c7df3fa1f44fecdf96d6241d0cf412",
+			"_id": "tar-stream@1.2.1",
+			"_shasum": "7b09e93b93f02bce74f060d5f2146ac7cccf6021",
+			"_from": ".",
+			"_npmVersion": "2.11.0",
+			"_nodeVersion": "2.2.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "7b09e93b93f02bce74f060d5f2146ac7cccf6021",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.2.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			]
+		},
+		"1.2.2": {
+			"name": "tar-stream",
+			"version": "1.2.2",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "afd4441700640230446d99604c1162dcc4395190",
+			"_id": "tar-stream@1.2.2",
+			"_shasum": "9632f23d98fd33d41661bbdec05489120dec6028",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "9632f23d98fd33d41661bbdec05489120dec6028",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.2.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			]
+		},
+		"1.3.0": {
+			"name": "tar-stream",
+			"version": "1.3.0",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "788b6e94285f709ff8ee62ce42c47f6b04b35521",
+			"_id": "tar-stream@1.3.0",
+			"_shasum": "7626cc66149f1b1a7c88b0eae3af62c9e45ec8ee",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "7626cc66149f1b1a7c88b0eae3af62c9e45ec8ee",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.3.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			]
+		},
+		"1.3.1": {
+			"name": "tar-stream",
+			"version": "1.3.1",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"standard": "^5.3.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "8e3b1749a322937238236ad05a3ec1122f32ed22",
+			"_id": "tar-stream@1.3.1",
+			"_shasum": "490ec2ad1ec5823fce63f18bb904c7469cd70897",
+			"_from": ".",
+			"_npmVersion": "2.14.4",
+			"_nodeVersion": "4.1.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "490ec2ad1ec5823fce63f18bb904c7469cd70897",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.3.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			]
+		},
+		"1.3.2": {
+			"name": "tar-stream",
+			"version": "1.3.2",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"standard": "^5.3.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "2332d878a61de8a0d6b739502eb3d11deb955b01",
+			"_id": "tar-stream@1.3.2",
+			"_shasum": "724d1ab4801c9b3149cdea765fe8c90ea71f6606",
+			"_from": ".",
+			"_npmVersion": "2.14.7",
+			"_nodeVersion": "4.2.3",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "724d1ab4801c9b3149cdea765fe8c90ea71f6606",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.3.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-5-east.internal.npmjs.com",
+				"tmp": "tmp/tar-stream-1.3.2.tgz_1455706289617_0.9983606818132102"
+			}
+		},
+		"1.4.0": {
+			"name": "tar-stream",
+			"version": "1.4.0",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"standard": "^5.3.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "7ce8960772190c8f13a5f49a7fee2f231cdb9235",
+			"_id": "tar-stream@1.4.0",
+			"_shasum": "19f7fbc0868b3ec283fa87df4ca906d4b16854f2",
+			"_from": ".",
+			"_npmVersion": "2.14.20",
+			"_nodeVersion": "4.4.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "19f7fbc0868b3ec283fa87df4ca906d4b16854f2",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.4.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/tar-stream-1.4.0.tgz_1459791293246_0.602965455269441"
+			}
+		},
+		"1.5.0": {
+			"name": "tar-stream",
+			"version": "1.5.0",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"standard": "^5.3.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "17a6500850bab799f0ed6fc03237098b4acbe7de",
+			"_id": "tar-stream@1.5.0",
+			"_shasum": "6ad0dba3af49463d713ea2c0ab6cefdae5236a0c",
+			"_from": ".",
+			"_npmVersion": "2.14.20",
+			"_nodeVersion": "4.4.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "6ad0dba3af49463d713ea2c0ab6cefdae5236a0c",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/tar-stream-1.5.0.tgz_1459887022859_0.016089207958430052"
+			}
+		},
+		"1.5.1": {
+			"name": "tar-stream",
+			"version": "1.5.1",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"standard": "^5.3.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "71439bf2df547900b4e098916042ddf294c11b17",
+			"_id": "tar-stream@1.5.1",
+			"_shasum": "516c74d1bea3e131cc0b9348929c9a83f0a2ad11",
+			"_from": ".",
+			"_npmVersion": "2.14.20",
+			"_nodeVersion": "4.4.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "516c74d1bea3e131cc0b9348929c9a83f0a2ad11",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.1.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/tar-stream-1.5.1.tgz_1459970127346_0.5329633220098913"
+			}
+		},
+		"1.5.2": {
+			"name": "tar-stream",
+			"version": "1.5.2",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"standard": "^5.3.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "7c279d66989a3bdde45f1eb661edaa846540d984",
+			"_id": "tar-stream@1.5.2",
+			"_shasum": "fbc6c6e83c1a19d4cb48c7d96171fc248effc7bf",
+			"_from": ".",
+			"_npmVersion": "2.15.1",
+			"_nodeVersion": "4.4.3",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "fbc6c6e83c1a19d4cb48c7d96171fc248effc7bf",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.2.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-16-east.internal.npmjs.com",
+				"tmp": "tmp/tar-stream-1.5.2.tgz_1461071501210_0.40823886124417186"
+			}
+		},
+		"1.5.3": {
+			"name": "tar-stream",
+			"version": "1.5.3",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"standard": "^5.3.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "f4a2cf1e16901de6c18847cce10c5ead56b89b8c",
+			"_id": "tar-stream@1.5.3",
+			"_shasum": "62707bc5fd18c3cdb9b8765e9ea60e26b6f6c109",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.9.5",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "62707bc5fd18c3cdb9b8765e9ea60e26b6f6c109",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.3.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/tar-stream-1.5.3.tgz_1494508339541_0.7545076759997755"
+			}
+		},
+		"1.5.4": {
+			"name": "tar-stream",
+			"version": "1.5.4",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"standard": "^5.3.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "c5f214402dea8071a7a7d51c0c5ad4eee883eb40",
+			"_id": "tar-stream@1.5.4",
+			"_shasum": "36549cf04ed1aee9b2a30c0143252238daf94016",
+			"_from": ".",
+			"_npmVersion": "3.10.10",
+			"_nodeVersion": "6.9.5",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"shasum": "36549cf04ed1aee9b2a30c0143252238daf94016",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.4.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-18-east.internal.npmjs.com",
+				"tmp": "tmp/tar-stream-1.5.4.tgz_1494517059169_0.4700461607426405"
+			}
+		},
+		"1.5.5": {
+			"name": "tar-stream",
+			"version": "1.5.5",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"standard": "^5.3.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "209ceac59b8b38ae4ad760b524dc8509f51349ef",
+			"_id": "tar-stream@1.5.5",
+			"_npmVersion": "5.5.1",
+			"_nodeVersion": "8.9.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-mQdgLPc/Vjfr3VWqWbfxW8yQNiJCbAZ+Gf6GDu1Cy0bdb33ofyiNGBtAY96jHFhDuivCwgW1H9DgTON+INiXgg==",
+				"shasum": "5cad84779f45c83b1f2508d96b09d88c7218af55",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.5.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/tar-stream-1.5.5.tgz_1510572680855_0.9013987586367875"
+			}
+		},
+		"1.5.6": {
+			"name": "tar-stream",
+			"version": "1.5.6",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"buffer-alloc": "^1.1.0",
+				"end-of-stream": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"to-buffer": "^1.1.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.4.6",
+				"standard": "^5.3.1",
+				"tape": "^3.0.3"
+			},
+			"scripts": {
+				"test": "standard && tape test/extract.js test/pack.js",
+				"test-all": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "b6dd099d17f558959eea92bff3ffb53e03f3ae46",
+			"_id": "tar-stream@1.5.6",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.11.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-tFG9xPbc4Y7CubEwriTss87tdcBQDsw81ejJyCbT4ALNYkNsdPqCfCD6Gkg3OpRkUkq6VO7qpNfwoQAuk/aeNQ==",
+				"shasum": "b0d86269e04bf286ceb59215a499b026e1ab52c8",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.6.tgz",
+				"fileCount": 7,
+				"unpackedSize": 26470,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa4bnaCRA9TVsSAnZWagAArlYQAIzNg8RgJSWdrJPnQf0z\nENZ67w+nhvlzXbYGv41q5I8UrJNuHPbmizs5nUQtcJ4Vp/N1KOXrmtCLKGB3\nm8m5r1V9O3dqljfAsvrOQz/6F/8bBhi/2oNSle/zS2U059Dhc0FxjUImgqnS\nShiWV/4Dko3RG5PxrNJpmByl9t6CPJ1CoIMbmbSmklMDUqRlW4KS4KiDCBLn\nhpHGh/qRtS83zuSaOYRmvQt3j/H6f5OS8uYp/GAsCLxXVv5mXRYSmAaSNDzM\n+CiH70jPxVwxV97LCCLwv6wn+jU6KsNl1jPet/tMsI/bPf9VZ3OBnSVvb9yd\n9TZw9j5BjDA/0UnLy2RfUq2QW5nrdu69ycnCFi6uZ3XQNe1cnjabt+049S2k\nrnwFk0yls+7UMHKPIq5IyBnmadwyeCX7QLLlZ1i+1tk25CzhO7wmsTh7qoG7\nRT7QebbTtHUdFVDtFOZ51TMMhuUDcQRTc75q4qnrJTAMHQmboUR8TiGi0vIV\nVHLN1aMH/nUHYN9kCMflcX4fgI1zNSDnhF7MUJ9pKvD1kF7k2kbT22mMm5fP\ndFgc7RscGBBU/DtYjK5UiAefKOe3IjXdGuuPY9dyVzJ+ufAJJSH0Apjwivu7\noppXbGQ/7AcxrSPVpVCcSeXLm7Cr1CyAClDbWv7K5JiSKTkf1KHy14Jgptd5\naEBT\r\n=7Ywt\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/tar-stream_1.5.6_1524742616773_0.38943661981076083"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.5.7": {
+			"name": "tar-stream",
+			"version": "1.5.7",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"buffer-alloc": "^1.1.0",
+				"end-of-stream": "^1.0.0",
+				"fs-constants": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"to-buffer": "^1.1.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.6.2",
+				"standard": "^11.0.1",
+				"tape": "^4.9.0"
+			},
+			"scripts": {
+				"test": "standard && tape test/extract.js test/pack.js",
+				"test-all": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "c0b13f7329d0459310d75e4dacf16aa9e960b7b5",
+			"_id": "tar-stream@1.5.7",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.11.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-euyxmyeJpl6wjWGnzPfZRQ1IGLNbqEDJWuYyue9sixDY2vfqVBRiIqZLWYhWG5da031WF4qEN9D9Ek9lZHiH1Q==",
+				"shasum": "7f54380f49019231a8c5ddffbd1da882d2f66057",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.7.tgz",
+				"fileCount": 7,
+				"unpackedSize": 26503,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa4ejWCRA9TVsSAnZWagAAuRoP/3emhaHLCDeBeV+6aFE3\nePMQzs1mPCOxcDeiZqcMAKybCcyAv+mfJlbdz6jdTYfexQev5yTGfLcF5E8y\nrghetoGltu+PYrPpeL74JqOx8ECHWFVkLd5rwALaTGtUNJtN+pOnZ+GSoxc1\nwgKZ7gdhG6GHFlbef3WIqZcfo/nM2UD/v+IXHhILpHgLmMsbJVMXOgnEZOz4\necl4nBPOIrwx0PvVspIjqf9EmMI4b2nSMUwRCv53hzSz8L8vaS9E3k+jz1yt\nNXZOgO2kwqybWPnE7+SCL7g9et6F6v12dqtzpeVzS0I7e8P+Z+UMtpfsJdW7\nyJ9uU9/zbTUQ1paQOFowBqg5FvciEGPUjZvSqDaEDg62yIHF0Ylf/vs20Aum\ngIhVvI2E4JqDjzcmgtUndvHadueffO68tA/xYGc+Xp3FXewJzX0jaKU1q0nH\nAIgr9RyuyfVhdZDxEErGPFHKzLSLvD2MBV/savCM4vZy+2Yyt+nygdHkU28i\nk5kc5aoJ1qUU4KrSru9mlzKpvcNxgRrLTvKtYJkSTqRqW/LtXBY5RLO1KbhY\ncy+OPNPZAsryDKD6LrE+KYzmtuwRDvxCGi+kmQywQrG2Fmw0JCGp7yR17v1s\ny9uZPSWAkS+HaRfYiBDxxZ2MtoWOkKxdsF7+DV5sURWxKCO+6P+17S9fMBzE\n1pX1\r\n=RJed\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/tar-stream_1.5.7_1524754645379_0.1452860403660743"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.6.0": {
+			"name": "tar-stream",
+			"version": "1.6.0",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"buffer-alloc": "^1.1.0",
+				"end-of-stream": "^1.0.0",
+				"fs-constants": "^1.0.0",
+				"readable-stream": "^2.0.0",
+				"to-buffer": "^1.1.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.6.2",
+				"standard": "^11.0.1",
+				"tape": "^4.9.0"
+			},
+			"scripts": {
+				"test": "standard && tape test/extract.js test/pack.js",
+				"test-all": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "59abdc85c0eb1406c845d4bdba973ebf95c009ca",
+			"_id": "tar-stream@1.6.0",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.11.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-lh2iAPG/BHNmN6WB9Ybdynk9rEJ5GD/dy4zscHmVlwa1dq2tpE+BH78i5vjYwYVWEaOXGBjzxr89aVACF17Cpw==",
+				"shasum": "a50efaa7b17760b82c27b3cae4a301a8254a5715",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.6.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 26782,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa40meCRA9TVsSAnZWagAARWcP/3Zmn4pquiN2OxaYJTOp\nvxFrQhbJuU4qMJ7vRTuagpXpCvKkA9k3iHE4+J2Yo2WczVEItvyAc14XE4J9\n+nmxXw3TDU4ZXvl1q5IiqVf7o4u02tTwWD1QbduKkZHsLQLe70q9ty7lj5VI\n7PgiSxjtIR3lEjLQBt5SwUYYoE4TWsCosQ53AdjGsdmQrjay4CLNZNfk0fW+\ntiVLI5D7Je+PKSzlit2gets6VZm0xOh8JoRhyPY/tfppMqg/8t+k0SlqAdg+\nVvf6rFvBhTfqEQBiAdhpDk36ZrJXzx+yLigmm+mm5flagBiJm69lqw3lKlfT\n2nOV7uJZw5UwbglgHw5blw2jWeYO9TChBtDkEp2u+3OYkm6XpFGCPd9Es8uW\nlWZyGBM+KBLCcLTsT+Twjk8EJQvwrZ/vjgA5W2vfMdn6vXUlf1ILa0Q4PU+k\nWlGV2eQLlSDQg3gX2aFcXySbmMeMCul5paRGhewZZoiCL0E8XdQxrnsTJY4Q\nzHE/F6zVLx0d+E31Cq2bjRSNFv7/W/mIv1Xre0cTqcASTRed4D7qnaDDBVgB\neueTZvRodYL9K1MGh2pSUahCLQTrTWyWz5HFFKTIOZJRb6iQT9JMHkSSCY77\n79Ff/n4dXR/fIu/MCP5DQVCMKdHiztRiwjrvgE/1/Hdho1LZEF6W04eeBB6Z\nxShw\r\n=rFBi\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/tar-stream_1.6.0_1524844957036_0.1675912968248512"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.6.1": {
+			"name": "tar-stream",
+			"version": "1.6.1",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"buffer-alloc": "^1.1.0",
+				"end-of-stream": "^1.0.0",
+				"fs-constants": "^1.0.0",
+				"readable-stream": "^2.3.0",
+				"to-buffer": "^1.1.0",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.6.2",
+				"standard": "^11.0.1",
+				"tape": "^4.9.0"
+			},
+			"scripts": {
+				"test": "standard && tape test/extract.js test/pack.js",
+				"test-all": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"files": [
+				"*.js",
+				"LICENSE"
+			],
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "9f9ccbc127ffd599e6219af94e8cfe2dd1ca823a",
+			"_id": "tar-stream@1.6.1",
+			"_npmVersion": "5.6.0",
+			"_nodeVersion": "9.11.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-IFLM5wp3QrJODQFPm6/to3LJZrONdBY/otxcvDIQzu217zKye6yVR3hhi9lAjrC2Z+m/j5oDxMPb1qcd8cIvpA==",
+				"shasum": "f84ef1696269d6223ca48f6e1eeede3f7e81f395",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.6.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 26782,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa+f1JCRA9TVsSAnZWagAAnWkP/jHPHuyNZ/H3BaXHWUQ7\nIZ3ukXdSYH+ZGSgM6/JcRz91xFiejwnCuX8tjwgjjpeHn7wpM4/taINZge3I\n13Xc9uF+zabqnO542jH4pCjrztE8hovGM1IDoZtwi6H4uinuLkYY27WsTGCO\ncSC74aUDU9LZx7hrIfnvq5PYhm4X3rEV0EcSmG9I+lusha2GU6BKw2CFQpAO\nvERga3WM4tFOSKFagu1gvReU/77Lyw376M1eAghMV2ZjUV/CyVMyzzvC4S2u\n1k/Lq81XcODc2mNl9M8HNuQMaPusqT4XzJnjzL4kVUYiwhdr7Lncq29dufDZ\n7TS1HZgWJQezFg+pnlspTgpkLrS5uDk6JncCM/wbgpyGP1q8lv/LKYbvk1D4\nvBpTzK7Qay7h8/Re7liu0zJXnO1cXwHauaO+WQXkpPBFGOoDvPugbyq6E8OV\nMtzm6QMrvmfe9hkgndII3Oj08ga6DKP9DF/nDxNZ9UPGkriczhVYsHJO4Ujp\nmH+UxqC18uruZzJlUju6VXsV4ufEBraaZ8KkGBjnV376054tnkOJIDTwjk1M\nbfdABGfeMXHJsM9+exUVnGEhIKeSszxiYpACiQFgUNpP1hDFU3aUchOYEUc0\nXamSbx7md5wqCVN0l6q+1YADEzJoWpkGBWojWZZY30jw5PJvuT0e4/VsKxrg\noD/a\r\n=qby5\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/tar-stream_1.6.1_1526332743849_0.4437324256027526"
+			},
+			"_hasShrinkwrap": false
+		},
+		"1.6.2": {
+			"name": "tar-stream",
+			"version": "1.6.2",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"engines": {
+				"node": ">= 0.8.0"
+			},
+			"dependencies": {
+				"bl": "^1.0.0",
+				"buffer-alloc": "^1.2.0",
+				"end-of-stream": "^1.0.0",
+				"fs-constants": "^1.0.0",
+				"readable-stream": "^2.3.0",
+				"to-buffer": "^1.1.1",
+				"xtend": "^4.0.0"
+			},
+			"devDependencies": {
+				"concat-stream": "^1.6.2",
+				"standard": "^11.0.1",
+				"tape": "^4.9.0"
+			},
+			"scripts": {
+				"test": "standard && tape test/extract.js test/pack.js",
+				"test-all": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "a9927c7c989dc5ee2f16d1d9e27a1c028c9de708",
+			"_id": "tar-stream@1.6.2",
+			"_npmVersion": "6.2.0",
+			"_nodeVersion": "10.11.0",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-rzS0heiNf8Xn7/mpdSVVSMAWAoy9bfb1WOTYC78Z0UQKeKa/CWS8FOq0lKGNa8DWKAn9gxjCvMLYc5PGXYlK2A==",
+				"shasum": "8ea55dab37972253d9a9af90fdcd559ae435c555",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.6.2.tgz",
+				"fileCount": 7,
+				"unpackedSize": 26782,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbpjdBCRA9TVsSAnZWagAA6qMP/2NLa3eMJBbvkSu6C+bD\n6dCiNPs5Y01QcivkSgtlTHBH2MT/kdOpUUV0S8Rgn++sIwNXKsPp+QJ+YPmW\n8Gb8PY35GwA/FHeMJ6hXKxcov96somIJ+lTsHvxeZxqB08fGvsGYMgTCqNfX\nVw8HA5cBC80t50cYWXKv8yVBqVBwJcIxEqJMdokx3ABbgJXvJM5zQiFGH+0m\n1QkNFUcOhAWGcUfZ144rMp/Pl5zvb94sGr2295FDlQDK4PUzh1FrE4HapF6Y\nRXBqV4TklnlWvHFHjI5+F8ziXBNKBa18fDWvHz9qICD92Ml2+vgkjFdGcqsB\nhRFjDfJmGEQOpkloMR60HPbXijLJNrnC1PG6TnM5z6fOLZukeojwAQ1EbbNm\nUO8EwoMIJ9dbbdycOLSGkEGZGh2GImMRzyFHwhnUg3qELkxG1nyQehB6+UBC\ntTlXQIDPKAjW4fsl2NBEDU1m814cxOqb0XTh+jmy2JbZBqX+qSIe3kFEdcNo\n8N5WP6BfkHK57T09N2QZkn1PIK6ldsjLiWhNZpuBeYwpBzfLkixA4mYPzDV0\nI3fVKHdSZUn5HKbpSRM+YKe9XIY0fORUZpZBjfg/eOxXxDfgXTYxls2GBZMi\nThTAxj40vKKE0W/qsSLP0GRSgDcnL0hHr+lM9JIJtZfvh698ehAgs3zGWMs3\nEAaa\r\n=Lqwy\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/tar-stream_1.6.2_1537619777167_0.6014045653605695"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.0": {
+			"name": "tar-stream",
+			"version": "2.0.0",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dependencies": {
+				"bl": "^2.2.0",
+				"end-of-stream": "^1.4.1",
+				"fs-constants": "^1.0.0",
+				"inherits": "^2.0.3",
+				"readable-stream": "^3.1.1"
+			},
+			"devDependencies": {
+				"concat-stream": "^2.0.0",
+				"standard": "^12.0.1",
+				"tape": "^4.9.2"
+			},
+			"scripts": {
+				"test": "standard && tape test/extract.js test/pack.js",
+				"test-all": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "9b5d814fa740ccb149f68773f122e7eee55cda29",
+			"_id": "tar-stream@2.0.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-n2vtsWshZOVr/SY4KtslPoUlyNh06I2SGgAOCZmquCEjlbV/LjY2CY80rDtdQRHFOYXNlgBDo6Fr3ww2CWPOtA==",
+				"shasum": "8829bbf83067bc0288a9089db49c56be395b6aea",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-2.0.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 26568,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcWAo/CRA9TVsSAnZWagAAiYcQAJVGHHslbALub1j2ArUD\nNe9H79/3mldQ4JAlhyJ+qp3BJg5bPIHg9hsRhsfN6FKdFWdV1MuyS+VAcgrT\naVDo7a8zSYCQ3Y+Xf3NtIXvclkFED1ZFJ1QlddK/NF8smUnoY2Ogwlbs7Y5o\n7vkgozTruHX5Qhu59kNVyaLETi+P51uIKfEHFJP41TDO4+V3Nne0N97NSjWs\nPJE+xfR/dZlHOA3HFhr8wvSGikvZkL1E8yOJ+MDfPy/uTqsKUgGUz4CiYwgZ\nnmco63ScvHoM6cy1yXoat2XfXXr4gv1+eaTVpEiCj0/k5d+KD2Bbe84IDQKD\nxd8CC2Na9xg4Obqk/mIdnV/rUiGN4qpjMraAFaDrV+L0259NccoYRgNaNnFW\nZnT/vb5DfGmF5G7lcgF43b0Rut56YagCNQnyQyhrTSvXXLwkPWbSffCbNQ0k\nUawbpz7S+abHwf74GSODXazy9M4fAT3iwDQEBnNA4LGQyGt5yDgLO2Zj2j9r\n4nKAjS60zoB0/f45x3vupJy0QSrvg817xizktcon/lyp3p6/m9tolIf5zlhs\niR7sErOJxCE9UAX0Ku+iHjdhH3gbh1mFNT8MMs2A8E6OVYo+P/CshjfiBmFS\n38Qr21/2lV/2/INUvk+vBXzb8Rt2i/GuxpjH9mL+2BW2Bw9XrT3haEwrLXKR\nHRI4\r\n=H6Ka\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/tar-stream_2.0.0_1549273662664_0.7972210682300505"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.0.1": {
+			"name": "tar-stream",
+			"version": "2.0.1",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dependencies": {
+				"bl": "^3.0.0",
+				"end-of-stream": "^1.4.1",
+				"fs-constants": "^1.0.0",
+				"inherits": "^2.0.3",
+				"readable-stream": "^3.1.1"
+			},
+			"devDependencies": {
+				"concat-stream": "^2.0.0",
+				"standard": "^12.0.1",
+				"tape": "^4.9.2"
+			},
+			"scripts": {
+				"test": "standard && tape test/extract.js test/pack.js",
+				"test-all": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "b6392bdc8a3c28288a33508f152cfb98eb0c776f",
+			"_id": "tar-stream@2.0.1",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-I6OJF7wE62BC6zNPdHDtseK0D0187PBjbKSLYY4ffvVkBM6tyBn2O9plDvVM2229/mozfEL/X3++qSvYYQE2xw==",
+				"shasum": "42fbe41cd1cc5e6657c813e7d98e7afca2858a8c",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-2.0.1.tgz",
+				"fileCount": 7,
+				"unpackedSize": 26568,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcd8KPCRA9TVsSAnZWagAAOVAQAIO6JdBtaB+WHMWiTJao\n3/6+Qivpawir7MHOCyHhOMDcLHOjay0DMIN8bztTk/d9vqrsPBpzQNdxdTg/\nXYZZWB+OY69aiBbX/WX3yQt366G1ykYNYAlALZBrxK6qPUofFNpcFOiFoH3L\nFLqTaNfyirW3mPDmiZudFD6+E98r6Xe8+U75P1j52qCbWPbIKAh58ArljHFS\nyXk6RUQqKp7qQyCNwXhVvCaERBwBGTdlKdZlnIycun9NmiUBeZVPyJfzTVcK\nzpY93u/X6WyqKJ85mXS4kaSWmd/GLJgF94OFaH973NW4/9J1KPG2uYFZZ8OW\ngTCbO8nUG19NaYbWApoZ5B2N+CKo0ApyC5aZfYD40jr6Chfeylh3ofXVY/OV\nUIPuJ9p4Jl/ODtWoZ4+AQsaSpKYCw+mnRLCjXzBQJoNI9aKgljht8AoZlJhB\noGIGoi49fkEFECW/5KCxZaCKWSCDlBZAe4O9TmyMPK/MDIylPIgR3iEo5H2h\nQSNPJXGRSX97mu2CAGnfhRbgawgIK2A9ZYqdwKIuPMdC59s3h0ZLXaIXSqY6\nfxgSUUdWZ1htlV/Oev/TqOUrTmDyYY4eykRo8PaCk2NDNlJBhjEI/1gDMZLA\nbkOz3cMnAzcLvx0MWSf5Jkpk9NVPPfKddE/iykA/Cs0GC4LBDjw1861/SMAX\n8oDl\r\n=2yYj\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/tar-stream_2.0.1_1551352463108_0.836535531557645"
+			},
+			"_hasShrinkwrap": false
+		},
+		"2.1.0": {
+			"name": "tar-stream",
+			"version": "2.1.0",
+			"description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+			"author": {
+				"name": "Mathias Buus",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dependencies": {
+				"bl": "^3.0.0",
+				"end-of-stream": "^1.4.1",
+				"fs-constants": "^1.0.0",
+				"inherits": "^2.0.3",
+				"readable-stream": "^3.1.1"
+			},
+			"devDependencies": {
+				"concat-stream": "^2.0.0",
+				"standard": "^12.0.1",
+				"tape": "^4.9.2"
+			},
+			"scripts": {
+				"test": "standard && tape test/extract.js test/pack.js",
+				"test-all": "standard && tape test/*.js"
+			},
+			"keywords": [
+				"tar",
+				"tarball",
+				"parse",
+				"parser",
+				"generate",
+				"generator",
+				"stream",
+				"stream2",
+				"streams",
+				"streams2",
+				"streaming",
+				"pack",
+				"extract",
+				"modify"
+			],
+			"bugs": {
+				"url": "https://github.com/mafintosh/tar-stream/issues"
+			},
+			"homepage": "https://github.com/mafintosh/tar-stream",
+			"main": "index.js",
+			"directories": {
+				"test": "test"
+			},
+			"license": "MIT",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/mafintosh/tar-stream.git"
+			},
+			"gitHead": "9f10b5fc261cb600bd3c8e3c8d66ff7837e594a2",
+			"_id": "tar-stream@2.1.0",
+			"_npmVersion": "6.4.1",
+			"_nodeVersion": "10.15.1",
+			"_npmUser": {
+				"name": "mafintosh",
+				"email": "mathiasbuus@gmail.com"
+			},
+			"dist": {
+				"integrity": "sha512-+DAn4Nb4+gz6WZigRzKEZl1QuJVOLtAwwF+WUxy1fJ6X63CaGaUAxJRD2KEn1OMfcbCjySTYpNC6WmfQoIEOdw==",
+				"shasum": "d1aaa3661f05b38b5acc9b7020efdca5179a2cc3",
+				"tarball": "https://registry.npmjs.org/tar-stream/-/tar-stream-2.1.0.tgz",
+				"fileCount": 7,
+				"unpackedSize": 27320,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJc9sR2CRA9TVsSAnZWagAAgsgP/ii3l92+LRzyiQxrBeTX\n92A65nTNrZpbAEZL5qB24fFCUy8Fps4PQq/NyYujLc0BvHG+xZ+EHBnP2vrm\nwn/I/xQHsuCCcp9Lxr6UZovbxNozkSA9TKeYuQxPuvXxf0l1rGF1i8q0jqet\nUHRg9T5Qv3KNmrs2HOm2iQKO3k4tqzLJh/YDtD3+ma61G5eCUnBCF4opxAHd\n0dqihSRz7jsTRTKSFWNDHdHEcGV/OvFTvw1oE9l4oLJBCUnVHvQcai5xgdk6\nFmeTqWdwe9cwZ2pbb1pf3QlzsOEUC9doVosnsU0OiZ7qW+UOEdOtOELYjzsi\nBAS4hAC8IV1XwV+IeGBbpczRjFYBrBLukRESotkn74UkNT+miKghhQ3yT73y\nLI080JNFiXuqfRP5pz1Ihu0Pfv4aRFjBWo2UlbuUuX+UBQto4NJG2eU4swAH\nnGhZPMfweOlvKX2LCFGibDNdJBzzBDHr2Y3gIrH/57jFoCzNlMouDiwhhq64\nARc3314/s8jhTONi36sb9yUqW9OSEY1V5BNeSx8lHJhfWSCvbp2/yVaExrcJ\nd4lB0yneYoyUggflYkvpCgfCfQjNce54cS2vLRxcLADkh69nWsM6HB/Q78JZ\nLiiLiXzlu6vdI22+hebLZgGCO2lvxeQJYdhuFsn8U8mLfkuhw0DM/Y6sQNoj\nx0uS\r\n=evjK\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "mafintosh",
+					"email": "mathiasbuus@gmail.com"
+				},
+				{
+					"name": "maxogden",
+					"email": "max@maxogden.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/tar-stream_2.1.0_1559676021154_0.27249664943694163"
+			},
+			"_hasShrinkwrap": false
+		}
+	},
+	"time": {
+		"modified": "2019-06-04T19:20:25.646Z",
+		"created": "2013-12-20T14:21:12.813Z",
+		"0.1.0": "2013-12-20T14:21:12.813Z",
+		"0.1.1": "2013-12-20T19:57:40.873Z",
+		"0.1.2": "2013-12-20T20:02:53.388Z",
+		"0.2.0": "2013-12-21T01:35:45.343Z",
+		"0.2.1": "2013-12-21T02:12:01.498Z",
+		"0.2.2": "2013-12-23T00:43:45.694Z",
+		"0.2.3": "2013-12-23T13:27:25.219Z",
+		"0.2.4": "2014-01-06T08:56:28.147Z",
+		"0.2.5": "2014-01-13T20:37:59.453Z",
+		"0.3.0": "2014-03-24T14:55:20.947Z",
+		"0.3.1": "2014-04-02T21:58:45.362Z",
+		"0.3.2": "2014-04-03T00:31:00.726Z",
+		"0.3.3": "2014-04-11T12:27:14.102Z",
+		"0.4.0": "2014-05-30T11:56:59.914Z",
+		"0.4.1": "2014-05-30T12:22:45.536Z",
+		"0.4.2": "2014-05-30T14:48:16.738Z",
+		"0.4.3": "2014-06-27T07:20:13.464Z",
+		"0.4.4": "2014-06-30T07:59:17.934Z",
+		"0.4.5": "2014-08-19T08:04:24.894Z",
+		"0.4.6": "2014-09-23T13:53:58.603Z",
+		"0.4.7": "2014-09-23T14:29:44.924Z",
+		"1.0.0": "2014-09-24T04:14:50.529Z",
+		"1.0.1": "2014-10-23T06:29:12.854Z",
+		"1.0.2": "2014-10-23T06:33:10.514Z",
+		"1.1.0": "2014-11-18T14:13:21.895Z",
+		"1.1.1": "2014-11-18T14:14:58.747Z",
+		"1.1.2": "2015-01-07T09:19:42.552Z",
+		"1.1.3": "2015-04-07T16:09:41.687Z",
+		"1.1.4": "2015-04-18T19:32:23.941Z",
+		"1.1.5": "2015-05-15T00:03:55.182Z",
+		"1.2.0": "2015-06-16T20:09:29.654Z",
+		"1.2.1": "2015-06-21T22:28:14.672Z",
+		"1.2.2": "2015-10-15T15:54:00.312Z",
+		"1.3.0": "2015-10-28T17:10:59.760Z",
+		"1.3.1": "2015-11-06T23:30:43.887Z",
+		"1.3.2": "2016-02-17T10:51:31.964Z",
+		"1.4.0": "2016-04-04T17:34:55.417Z",
+		"1.5.0": "2016-04-05T20:10:25.147Z",
+		"1.5.1": "2016-04-06T19:15:30.189Z",
+		"1.5.2": "2016-04-19T13:11:42.644Z",
+		"1.5.3": "2017-05-11T13:12:21.158Z",
+		"1.5.4": "2017-05-11T15:37:39.859Z",
+		"1.5.5": "2017-11-13T11:31:21.776Z",
+		"1.5.6": "2018-04-26T11:36:56.873Z",
+		"1.5.7": "2018-04-26T14:57:25.539Z",
+		"1.6.0": "2018-04-27T16:02:37.117Z",
+		"1.6.1": "2018-05-14T21:19:03.931Z",
+		"1.6.2": "2018-09-22T12:36:17.334Z",
+		"2.0.0": "2019-02-04T09:47:42.806Z",
+		"2.0.1": "2019-02-28T11:14:23.257Z",
+		"2.1.0": "2019-06-04T19:20:21.638Z"
+	},
+	"dist-tags": {
+		"latest": "2.1.0"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"da3168192f3d8e9fd1547b88dd57955e\"",
+			"fetched": 1568994335351
+		}
+	},
+	"_distfiles": {
+		"tar-stream-0.1.0.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.1.0.tgz",
+			"sha": "cc9b9bfd9d47cba1fc1ee48c1c78109f3c06a3d0",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.1.1.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.1.1.tgz",
+			"sha": "efd896a159ef21024964a23f9bbc0bdb495ab8a8",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.1.2.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.1.2.tgz",
+			"sha": "731ed228041c2c3dd7609c41f187f0508a2810f8",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.2.0.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.2.0.tgz",
+			"sha": "ed2b9a0b933ab2a2d53f7b58fcf8f1a37dfdc3e3",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.2.1.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.2.1.tgz",
+			"sha": "c57b99e9888712f174b82ba5102a01e73943d6ec",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.2.2.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.2.2.tgz",
+			"sha": "a69a40ba0768a546c852736fa237be1fa252342a",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.2.3.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.2.3.tgz",
+			"sha": "6ad3bae7f4fdc6dd55a0cea0b3ed10681d4123ff",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.2.4.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.2.4.tgz",
+			"sha": "15b0ca1ba40dc45845bdb68983e3e66fcfc7ce27",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.2.5.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.2.5.tgz",
+			"sha": "3212630dcdee5dddd38128e04ea7c98536d44edf",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.3.0.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.3.0.tgz",
+			"sha": "5769793f8e6ae8f46813a3d80fa194187d494efd",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.3.1.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.3.1.tgz",
+			"sha": "95b4d0239c617d2cd701bb382700908ce09c81a5",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.3.2.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.3.2.tgz",
+			"sha": "b492bc55ce3bd8b55a043fc77d8dea8cf999ce36",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.3.3.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.3.3.tgz",
+			"sha": "23ca53bd738b8702272a80e26cc938bc4b84b87b",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.4.0.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.0.tgz",
+			"sha": "58f0e893d8a90b333795f6f62b28a39acd9b52cb",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.4.1.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.1.tgz",
+			"sha": "3ac4e8ba7de71b8532efd8f30f491355c8665934",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.4.2.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.2.tgz",
+			"sha": "a86dde835c84ab377747cc72cf25d9804c589c86",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.4.3.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.3.tgz",
+			"sha": "16d0038c0de0bcf8edc96b82c95b17b155ae6789",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.4.4.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.4.tgz",
+			"sha": "55733222ca3e1ebf58f2805b5b666596e1f8d5f3",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.4.5.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.5.tgz",
+			"sha": "a5e0a7521f57974c919b2b99fdae55589aeefa46",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.4.6.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.6.tgz",
+			"sha": "1857d5d517181d5b2ab80b127c6c1e30e2832f48",
+			"registry": "npmjs"
+		},
+		"tar-stream-0.4.7.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-0.4.7.tgz",
+			"sha": "1f1d2ce9ebc7b42765243ca0e8f1b7bfda0aadcd",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.0.0.tgz",
+			"sha": "6d28e2a0693ecd5669750e3326d004baa27ebd69",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.0.2.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.0.2.tgz",
+			"sha": "fd19b4a17900fa704f6a133e3045aead0562ab95",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.1.1.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.1.1.tgz",
+			"sha": "7a9324331ebb74c5b5721f1177086e58a1c6a9cc",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.1.2.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.1.2.tgz",
+			"sha": "14652d7bdb5a557ef58e55ccee68a4d642963d6e",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.1.3.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.1.3.tgz",
+			"sha": "e6f15e92d0a49187fda8d7e6e69cd8878aaee7cc",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.1.4.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.1.4.tgz",
+			"sha": "e6c3ffc4305f7d537b6ec697823dd86e4d61ca63",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.1.5.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.1.5.tgz",
+			"sha": "be9218c130c20029e107b0f967fb23de0579d13c",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.2.0.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.2.0.tgz",
+			"sha": "76d1220d462afd41e8cf14cda439b797b46ed5c1",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.2.1.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.2.1.tgz",
+			"sha": "7b09e93b93f02bce74f060d5f2146ac7cccf6021",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.2.2.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.2.2.tgz",
+			"sha": "9632f23d98fd33d41661bbdec05489120dec6028",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.3.0.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.3.0.tgz",
+			"sha": "7626cc66149f1b1a7c88b0eae3af62c9e45ec8ee",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.3.1.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.3.1.tgz",
+			"sha": "490ec2ad1ec5823fce63f18bb904c7469cd70897",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.3.2.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.3.2.tgz",
+			"sha": "724d1ab4801c9b3149cdea765fe8c90ea71f6606",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.4.0.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.4.0.tgz",
+			"sha": "19f7fbc0868b3ec283fa87df4ca906d4b16854f2",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.5.0.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.0.tgz",
+			"sha": "6ad0dba3af49463d713ea2c0ab6cefdae5236a0c",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.5.1.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.1.tgz",
+			"sha": "516c74d1bea3e131cc0b9348929c9a83f0a2ad11",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.5.2.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.2.tgz",
+			"sha": "fbc6c6e83c1a19d4cb48c7d96171fc248effc7bf",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.5.3.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.3.tgz",
+			"sha": "62707bc5fd18c3cdb9b8765e9ea60e26b6f6c109",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.5.4.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.4.tgz",
+			"sha": "36549cf04ed1aee9b2a30c0143252238daf94016",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.5.5.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.5.tgz",
+			"sha": "5cad84779f45c83b1f2508d96b09d88c7218af55",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.5.6.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.6.tgz",
+			"sha": "b0d86269e04bf286ceb59215a499b026e1ab52c8",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.5.7.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.5.7.tgz",
+			"sha": "7f54380f49019231a8c5ddffbd1da882d2f66057",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.6.0.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.6.0.tgz",
+			"sha": "a50efaa7b17760b82c27b3cae4a301a8254a5715",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.6.1.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.6.1.tgz",
+			"sha": "f84ef1696269d6223ca48f6e1eeede3f7e81f395",
+			"registry": "npmjs"
+		},
+		"tar-stream-1.6.2.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-1.6.2.tgz",
+			"sha": "8ea55dab37972253d9a9af90fdcd559ae435c555",
+			"registry": "npmjs"
+		},
+		"tar-stream-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-2.0.0.tgz",
+			"sha": "8829bbf83067bc0288a9089db49c56be395b6aea",
+			"registry": "npmjs"
+		},
+		"tar-stream-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-2.0.1.tgz",
+			"sha": "42fbe41cd1cc5e6657c813e7d98e7afca2858a8c",
+			"registry": "npmjs"
+		},
+		"tar-stream-2.1.0.tgz": {
+			"url": "https://registry.npmjs.org/tar-stream/-/tar-stream-2.1.0.tgz",
+			"sha": "d1aaa3661f05b38b5acc9b7020efdca5179a2cc3",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-35bf0c02e71e1418",
+	"_id": "tar-stream",
+	"readme": "# tar-stream\n\ntar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.\n\nNote that you still need to gunzip your data if you have a `.tar.gz`. We recommend using [gunzip-maybe](https://github.com/mafintosh/gunzip-maybe) in conjunction with this.\n\n```\nnpm install tar-stream\n```\n\n[![build status](https://secure.travis-ci.org/mafintosh/tar-stream.png)](http://travis-ci.org/mafintosh/tar-stream)\n[![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)\n\n## Usage\n\ntar-stream exposes two streams, [pack](https://github.com/mafintosh/tar-stream#packing) which creates tarballs and [extract](https://github.com/mafintosh/tar-stream#extracting) which extracts tarballs. To [modify an existing tarball](https://github.com/mafintosh/tar-stream#modifying-existing-tarballs) use both.\n\n\nIt implementes USTAR with additional support for pax extended headers. It should be compatible with all popular tar distributions out there (gnutar, bsdtar etc)\n\n## Related\n\nIf you want to pack/unpack directories on the file system check out [tar-fs](https://github.com/mafintosh/tar-fs) which provides file system bindings to this module.\n\n## Packing\n\nTo create a pack stream use `tar.pack()` and call `pack.entry(header, [callback])` to add tar entries.\n\n``` js\nvar tar = require('tar-stream')\nvar pack = tar.pack() // pack is a streams2 stream\n\n// add a file called my-test.txt with the content \"Hello World!\"\npack.entry({ name: 'my-test.txt' }, 'Hello World!')\n\n// add a file called my-stream-test.txt from a stream\nvar entry = pack.entry({ name: 'my-stream-test.txt', size: 11 }, function(err) {\n  // the stream was added\n  // no more entries\n  pack.finalize()\n})\n\nentry.write('hello')\nentry.write(' ')\nentry.write('world')\nentry.end()\n\n// pipe the pack stream somewhere\npack.pipe(process.stdout)\n```\n\n## Extracting\n\nTo extract a stream use `tar.extract()` and listen for `extract.on('entry', (header, stream, next) )`\n\n``` js\nvar extract = tar.extract()\n\nextract.on('entry', function(header, stream, next) {\n  // header is the tar header\n  // stream is the content body (might be an empty stream)\n  // call next when you are done with this entry\n\n  stream.on('end', function() {\n    next() // ready for next entry\n  })\n\n  stream.resume() // just auto drain the stream\n})\n\nextract.on('finish', function() {\n  // all entries read\n})\n\npack.pipe(extract)\n```\n\nThe tar archive is streamed sequentially, meaning you **must** drain each entry's stream as you get them or else the main extract stream will receive backpressure and stop reading.\n\n## Headers\n\nThe header object using in `entry` should contain the following properties.\nMost of these values can be found by stat'ing a file.\n\n``` js\n{\n  name: 'path/to/this/entry.txt',\n  size: 1314,        // entry size. defaults to 0\n  mode: 0644,        // entry mode. defaults to to 0755 for dirs and 0644 otherwise\n  mtime: new Date(), // last modified date for entry. defaults to now.\n  type: 'file',      // type of entry. defaults to file. can be:\n                     // file | link | symlink | directory | block-device\n                     // character-device | fifo | contiguous-file\n  linkname: 'path',  // linked file name\n  uid: 0,            // uid of entry owner. defaults to 0\n  gid: 0,            // gid of entry owner. defaults to 0\n  uname: 'maf',      // uname of entry owner. defaults to null\n  gname: 'staff',    // gname of entry owner. defaults to null\n  devmajor: 0,       // device major version. defaults to 0\n  devminor: 0        // device minor version. defaults to 0\n}\n```\n\n## Modifying existing tarballs\n\nUsing tar-stream it is easy to rewrite paths / change modes etc in an existing tarball.\n\n``` js\nvar extract = tar.extract()\nvar pack = tar.pack()\nvar path = require('path')\n\nextract.on('entry', function(header, stream, callback) {\n  // let's prefix all names with 'tmp'\n  header.name = path.join('tmp', header.name)\n  // write the new entry to the pack stream\n  stream.pipe(pack.entry(header, callback))\n})\n\nextract.on('finish', function() {\n  // all entries done - lets finalize it\n  pack.finalize()\n})\n\n// pipe the old tarball to the extractor\noldTarballStream.pipe(extract)\n\n// pipe the new tarball the another stream\npack.pipe(newTarballStream)\n```\n\n## Saving tarball to fs\n\n\n``` js\nvar fs = require('fs')\nvar tar = require('tar-stream')\n\nvar pack = tar.pack() // pack is a streams2 stream\nvar path = 'YourTarBall.tar'\nvar yourTarball = fs.createWriteStream(path)\n\n// add a file called YourFile.txt with the content \"Hello World!\"\npack.entry({name: 'YourFile.txt'}, 'Hello World!', function (err) {\n  if (err) throw err\n  pack.finalize()\n})\n\n// pipe the pack stream to your file\npack.pipe(yourTarball)\n\nyourTarball.on('close', function () {\n  console.log(path + ' has been written')\n  fs.stat(path, function(err, stats) {\n    if (err) throw err\n    console.log(stats)\n    console.log('Got file info successfully!')\n  })\n})\n```\n\n## Performance\n\n[See tar-fs for a performance comparison with node-tar](https://github.com/mafintosh/tar-fs/blob/master/README.md#performance)\n\n# License\n\nMIT"
+}
