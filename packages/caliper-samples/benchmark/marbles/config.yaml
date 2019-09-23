@@ -23,6 +23,7 @@ test:
     - 500
     - 500
     - 500
+    - 500
     rateControl:
     - type: fixed-rate
       opts:
@@ -33,18 +34,25 @@ test:
     - type: fixed-rate
       opts:
         tps: 75
+    - type: fixed-rate
+      opts:
+        tps: 100
     callback: benchmark/marbles/init.js
   - label: query
     txNumber:
-    - 15
-    - 15
+    - 100
+    - 100
+    - 100
     rateControl:
     - type: fixed-rate
       opts:
         tps: 5
     - type: fixed-rate
       opts:
-        tps: 15
+        tps: 25
+    - type: fixed-rate
+      opts:
+        tps: 50
     callback: benchmark/marbles/query.js
 monitor:
   type:
