@@ -48,7 +48,7 @@ function set(name, value) {
  * @param {any} defaultValue The value to return in case the key is not found.
  * @return {any} The value of the configuration or the defaultValue parameter if not found.
  */
-function get(name, defaultValue) {
+function get(name, defaultValue = undefined) {
     return _getConfigInstance().get(name, defaultValue);
 }
 

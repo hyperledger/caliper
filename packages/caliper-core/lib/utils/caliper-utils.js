@@ -49,13 +49,12 @@ class CaliperUtils {
     /**
      * Returns a logger configured with the given module name.
      * @param {string} name The name of module who will use the logger.
-     * @param {winston.LoggerInstance} parentLogger Optional. The logger of the parent module. Defaults to the global Caliper logger.
-     * @returns {winston.LoggerInstance} The configured logger instance.
+     * @returns {Logger} The configured logger instance.
      */
-    static getLogger(name, parentLogger) {
+    static getLogger(name) {
         // logger should be accessed through the Util class
         // but delegates to logging-util.js
-        return loggingUtil.getLogger(name, parentLogger);
+        return loggingUtil.getLogger(name);
     }
 
     /**
