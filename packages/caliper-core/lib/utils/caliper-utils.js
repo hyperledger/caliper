@@ -74,7 +74,7 @@ class CaliperUtils {
             return relOrAbsPath;
         }
 
-        return path.join(root_path, relOrAbsPath);
+        return path.resolve(root_path, relOrAbsPath);
     }
 
     /**

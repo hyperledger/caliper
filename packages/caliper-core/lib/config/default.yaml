@@ -23,6 +23,14 @@ caliper:
         cwd:
         # The additional args to pass to the binding (i.e., npm install) command
         args:
+    # Report file-related options
+    report:
+        # The absolute or workspace-relative path of the report file.
+        path: 'report.html'
+        # The options to pass to fs.writeFile
+        options:
+            flag: 'w'
+            mode: 0666
     # Workspace directory that contains all configuration information
     workspace: './'
     # The file path for the project-level configuration file. Can be relative to the workspace.
