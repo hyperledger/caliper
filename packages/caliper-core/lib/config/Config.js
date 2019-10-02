@@ -27,6 +27,10 @@ const keys = {
         Args: 'caliper-bind-args',
         Cwd: 'caliper-bind-cwd'
     },
+    Report: {
+        Path: 'caliper-report-path',
+        Options: 'caliper-report-options'
+    },
     Workspace: 'caliper-workspace',
     ProjectConfig: 'caliper-projectconfig',
     UserConfig: 'caliper-userconfig',

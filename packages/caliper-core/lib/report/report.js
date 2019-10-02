@@ -347,11 +347,10 @@ class Report {
 
     /**
      * Print the generated report to file
-     * @param {string} outFile the name of the file to write
      * @async
      */
-    async finalize(outFile) {
-        await this.reportBuilder.generate(outFile);
+    async finalize() {
+        await this.reportBuilder.generate();
     }
 }
 

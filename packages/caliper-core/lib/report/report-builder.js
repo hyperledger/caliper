@@ -15,7 +15,9 @@
 
 'use strict';
 
-const Logger = require('../utils/caliper-utils').getLogger('caliper-flow');
+const Config = require('../config/config-util');
+const Utils = require('../utils/caliper-utils');
+const Logger = Utils.getLogger('caliper-flow');
 const fs = require('fs');
 const Mustache = require('mustache');
 const path = require('path');
@@ -285,15 +287,18 @@ class ReportBuilder {
 
     /**
     * generate a HTML report for the benchmark
-    * @param {String} output filename of the output
     * @async
     */
-    async generate(output) {
+    async generate() {
         let templateStr = fs.readFileSync(this.template).toString();
         let html = Mustache.render(templateStr, this.data);
         try {
-            await fs.writeFileSync(output, html);
-            Logger.info(`Generated report with path ${output}`);
+            let filePath = Config.get(Config.keys.Report.Path, 'report.html');
+            filePath = Utils.resolvePath(filePath, Config.get(Config.keys.Workspace, './'));
+            let writeOptions = Config.get(Config.keys.Report.Options, { flag: 'w', mode: 0o666 });
+
+            await fs.writeFileSync(filePath, html, writeOptions);
+            Logger.info(`Generated report with path ${filePath}`);
         } catch (err) {
             Logger.info(`Failed to generate report, with error ${err}`);
             throw err;

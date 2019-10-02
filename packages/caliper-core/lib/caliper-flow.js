@@ -23,7 +23,6 @@ const DefaultTest = require('./test-runners/default-test');
 const TestObserver = require('./test-observers/test-observer');
 const BenchValidator = require('./utils/benchmark-validator');
 
-const path = require('path');
 const logger = CaliperUtils.getLogger('caliper-flow');
 
 /**
@@ -120,9 +119,7 @@ module.exports.run = async function(absConfigFile, absNetworkFile, admin, client
             report.printResultsByRound();
             await monitorOrchestrator.stopAllMonitors();
 
-            const date = new Date().toISOString().replace(/-/g,'').replace(/:/g,'').substr(0,15);
-            const outFile = path.join(process.cwd(), `report-${date}.html`);
-            await report.finalize(outFile);
+            await report.finalize();
 
             clientOrchestrator.stop();
 
