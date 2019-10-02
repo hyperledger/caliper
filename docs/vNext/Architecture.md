@@ -104,7 +104,16 @@ The master implements a default test flow which contains three stages:
 
 * Testing stage: In this stage, the master starts a loop to perform tests according to the benchmark configuration file. Tasks will be generated and assigned to clients according to the defined workload. Performance statistics return by clients will be stored for later analyzing.
 
-* Reporting stage: Statistics from all clients of each test round are analyzed, and a HTML format report will be generated automatically. A report example is as below:
+* Reporting stage: Statistics from all clients of each test round are analyzed, and a HTML format report will be generated automatically.
+  
+  The default directory path for the generated report is the workspace directory, and the file is named `report.html`. You can override this setting the following ways:
+  * From the command line: `--caliper-report-path subdir/customName.html`
+  * From an environment variable: `export CALIPER_REPORT_PATH=subdir/customName.html`
+  * Using a [configuration file](./Runtime_Configuration.md) to override the `caliper.report.path` property.
+  
+  > __Note:__ It is the user's responsibility to ensure that the directory hierarchy exists between the workspace and the report file.
+  
+  A report example is as below:
 
 
 <img src="{{ site.baseurl }}/assets/img/report.png" alt="report example">
