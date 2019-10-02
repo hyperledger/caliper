@@ -25,6 +25,12 @@ caliper:
         args:
     # Workspace directory that contains all configuration information
     workspace: './'
+    # The file path for the project-level configuration file. Can be relative to the workspace.
+    projectconfig:
+    # The file path for the user-level configuration file. Can be relative to the workspace.
+    userconfig:
+    # The file path for the user-level configuration file. Can be relative to the workspace.
+    machineconfig:
     # Path to the benchmark workload file that describes the test client(s), test rounds and monitor
     benchconfig:
     # Path to the blockchain configuration file that contains information required to interact with the SUT

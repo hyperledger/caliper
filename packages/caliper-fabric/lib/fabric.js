@@ -21,6 +21,7 @@ const {BlockchainInterface, CaliperUtils, TxStatus, Version, ConfigUtil} = requi
 const logger = CaliperUtils.getLogger('adapters/fabric');
 
 const FabricNetwork = require('./fabricNetwork.js');
+const ConfigValidator = require('./configValidator.js');
 const fs = require('fs');
 
 
@@ -138,10 +139,15 @@ class Fabric extends BlockchainInterface {
         this.workspaceRoot = workspace_root;
         this.version = new Version(require('fabric-client/package').version);
 
-        // NOTE: regardless of the version of the Fabric backend, the SDK must be at least v1.1.0 in order to
-        // use the common connection profile feature
-        if (this.version.lessThan('1.1.0')) {
-            throw new Error(`Fabric SDK ${this.version.toString()} is not supported, use at least version 1.1.0`);
+        this.network = undefined;
+        if (typeof networkConfig === 'string') {
+            let configPath = CaliperUtils.resolvePath(networkConfig, workspace_root);
+            this.network = CaliperUtils.parseYaml(configPath);
+        } else if (typeof networkConfig === 'object' && networkConfig !== null) {
+            // clone the object to prevent modification by other objects
+            this.network = CaliperUtils.parseYamlString(CaliperUtils.stringifyYaml(networkConfig));
+        } else {
+            throw new Error('[FabricNetwork.constructor] Parameter \'networkConfig\' is neither a file path nor an object');
         }
 
         this.clientProfiles = new Map();
@@ -150,18 +156,11 @@ class Fabric extends BlockchainInterface {
         this.eventSources = [];
         this.clientIndex = 0;
         this.txIndex = -1;
-        this.networkUtil = new FabricNetwork(networkConfig, workspace_root);
         this.randomTargetPeerCache = new Map();
         this.channelEventSourcesCache = new Map();
         this.randomTargetOrdererCache = new Map();
-        this.defaultInvoker = Array.from(this.networkUtil.getClients())[0];
         this.wallet = undefined;
-        this.fileWalletPath = this.networkUtil.fileWalletPath;
         this.userContracts = new Map();
-
-        if (this.networkUtil.isInCompatibilityMode() && this.version.greaterThan('1.1.0')) {
-            throw new Error(`Fabric 1.0 compatibility mode is detected, but SDK version ${this.version.toString()} is used`);
-        }
 
         // this value is hardcoded, if it's used, that means that the provided timeouts are not sufficient
         this.configSmallestTimeout = 1000;
@@ -181,6 +180,23 @@ class Fabric extends BlockchainInterface {
         this.configUseGateway = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway, false);
         this.configLocalHost = ConfigUtil.get(ConfigUtil.keys.Fabric.GatewayLocalHost, true);
         this.configDiscovery = ConfigUtil.get(ConfigUtil.keys.Fabric.Discovery, false);
+
+        ConfigValidator.validateNetwork(this.network, CaliperUtils.getFlowOptions(),
+            this.configDiscovery, this.configUseGateway);
+
+        this.networkUtil = new FabricNetwork(this.network, workspace_root);
+        this.fileWalletPath = this.networkUtil.getFileWalletPath();
+        this.defaultInvoker = Array.from(this.networkUtil.getClients())[0];
+
+        // NOTE: regardless of the version of the Fabric backend, the SDK must be at least v1.1.0 in order to
+        // use the common connection profile feature
+        if (this.version.lessThan('1.1.0')) {
+            throw new Error(`Fabric SDK ${this.version.toString()} is not supported, use at least version 1.1.0`);
+        }
+
+        if (this.networkUtil.isInCompatibilityMode() && this.version.greaterThan('1.1.0')) {
+            throw new Error(`Fabric 1.0 compatibility mode is detected, but SDK version ${this.version.toString()} is used`);
+        }
 
         // Network Wallet/Gateway is only available in SDK versions greater than v1.4.0
         if ((this.configUseGateway || this.fileWalletPath) && this.version.lessThan('1.4.0')) {

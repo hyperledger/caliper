@@ -1,0 +1,587 @@
+/*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
+'use strict';
+
+const j = require('@hapi/joi');
+
+/**
+ * Utility class for the declarative validation of Fabric network configuration objects.
+ */
+class ConfigValidator {
+    /**
+     * Validates the entire network configuration object.
+     * @param {object} config The network configuration object.
+     * @param {object} flowOptions Contains the flow control options for Caliper.
+     * @param {boolean} discovery Indicates whether discovery is configured or not.
+     * @param {boolean} gateway Indicates whether gateway mode is configured or not.
+     */
+    static validateNetwork(config, flowOptions, discovery, gateway) {
+
+        // Current limitation is that default Caliper transactions do not work with discovery, since full network knowledge is required; it is required to use a gateway
+        if (discovery && !gateway) {
+            throw new Error('Use of discovery is only supported through a gateway transaction');
+        }
+
+        // Not possible to use discovery to perform admin operations (init/install) since full knowledge is required
+        if (discovery && (flowOptions.performInit || flowOptions.performInstall)) {
+            throw new Error('Use of service discovery is only valid with a `caliper-flow-only-test` flag');
+        }
+
+        let tls; // undefined => we don't know yet
+        // the TLS setting might not be known after the individual section if they are missing
+        // the first existing node will determine its value, and after that every node is validated against that value
+        // see the lines: "tls = ... || nodeUrl.startsWith(...);"
+
+        // can't validate mutual TLS now
+        ConfigValidator._validateTopLevel(config, flowOptions, discovery, gateway, tls);
+
+        // validate CA section
+        let cas = [];
+        if (config.certificateAuthorities) {
+            cas = Object.keys(config.certificateAuthorities);
+            for (let ca of cas) {
+                try {
+                    ConfigValidator.validateCertificateAuthority(config.certificateAuthorities[ca], tls);
+                    tls = (tls || false) || config.certificateAuthorities[ca].url.startsWith('https://');
+                } catch (err) {
+                    throw new Error(`Invalid "${ca}" CA configuration: ${err.message}`);
+                }
+            }
+        }
+
+        // validate orderer section
+        let orderers = [];
+        if (config.orderers) {
+            orderers = Object.keys(config.orderers);
+            for (let orderer of orderers) {
+                try {
+                    ConfigValidator.validateOrderer(config.orderers[orderer], tls);
+                    tls = (tls || false) || config.orderers[orderer].url.startsWith('grpcs://');
+                } catch (err) {
+                    throw new Error(`Invalid "${orderer}" orderer configuration: ${err.message}`);
+                }
+            }
+        }
+
+        // validate peer section
+        let peers = [];
+        if (config.peers) {
+            let eventUrl;
+            peers = Object.keys(config.peers);
+            for (let peer of peers) {
+                try {
+                    ConfigValidator.validatePeer(config.peers[peer], tls, eventUrl);
+                    tls = (tls || false) || config.peers[peer].url.startsWith('grpcs://');
+                    eventUrl = !!config.peers[peer].eventUrl; // the first peer will decide it
+                } catch (err) {
+                    throw new Error(`Invalid "${peer}" peer configuration: ${err.message}`);
+                }
+            }
+        }
+
+        // validate organization section
+        let orgs = [];
+        let mspIds = [];
+        if (config.organizations) {
+            orgs = Object.keys(config.organizations);
+            for (let org of orgs) {
+                try {
+                    ConfigValidator.validateOrganization(config.organizations[org], peers, cas);
+                    mspIds.push(config.organizations[org].mspid);
+                } catch (err) {
+                    throw new Error(`Invalid "${org}" organization configuration: ${err.message}`);
+                }
+            }
+        }
+
+        // validate client section
+        if (config.clients) {
+            let clients = Object.keys(config.clients);
+            for (let client of clients) {
+                try {
+                    ConfigValidator.validateClient(config.clients[client], orgs, config.wallet !== undefined);
+                } catch (err) {
+                    throw new Error(`Invalid "${client}" client configuration: ${err.message}`);
+                }
+            }
+        }
+
+        // validate channels section
+        if (config.channels) {
+            let channels = Object.keys(config.channels);
+            let takenContractIds = [];
+            for (let channel of channels) {
+                try {
+                    ConfigValidator.validateChannel(config.channels[channel], orderers, peers, mspIds, takenContractIds, flowOptions, discovery);
+                    takenContractIds.push(config.channels[channel].chaincodes.map(cc => cc.contractID || cc.id));
+                } catch (err) {
+                    throw new Error(`Invalid "${channel}" channel configuration: ${err.message}`);
+                }
+            }
+        }
+
+        // now we can validate mutual TLS
+        ConfigValidator._validateTopLevel(config, flowOptions, discovery, gateway, tls);
+    }
+
+    /**
+     * Validates the top-level properties of the configuration.
+     * @param {object} config The network configuration object.
+     * @param {object} flowOptions Contains the flow control options for Caliper.
+     * @param {boolean} discovery Indicates whether discovery is configured or not.
+     * @param {boolean} gateway Indicates whether gateway mode is configured or not.
+     * @param {boolean} tls Indicates whether TLS is enabled or known at this point.
+     * @private
+     */
+    static _validateTopLevel(config, flowOptions, discovery, gateway, tls) {
+        // some utility vars for the sake of readability
+        const onlyScript = !flowOptions.performInit && !flowOptions.performInstall && !flowOptions.performTest;
+
+        // to dynamically call the modifier functions
+        const modif = onlyScript ? 'optional' : 'required';
+        const ordererModif = (onlyScript || discovery) ? 'optional' : 'required';
+
+        // if server TLS is explicitly disabled, can't enable mutual TLS
+        let mutualTlsValid = tls === undefined ? [ true, false ] : (tls ? [ true, false ] : [ false ]);
+
+        const schema = j.object().keys({
+            // simple attributes
+            name: j.string().min(1).required(),
+            version: j.string().valid('1.0').required(),
+            'mutual-tls': j.boolean().valid(mutualTlsValid).optional(),
+            wallet: j.string().min(1).optional(),
+            caliper: j.object().keys({
+                blockchain: j.string().valid('fabric').required(),
+                command: j.object().keys({
+                    start: j.string().min(1).optional(),
+                    end: j.string().min(1).optional()
+                }).or('start', 'end').optional(),
+            }).required(),
+            info: j.object().optional(),
+
+            // complicated parts with custom keys
+            clients: j.object()[modif](), // only required for full workflow
+            channels: j.object()[modif](), // only required for full workflow
+            organizations: j.object()[modif](), // only required for full workflow
+            orderers: j.object()[ordererModif](), // only required for full workflow without discovery
+            peers: j.object()[modif](), // only required for full workflow
+            certificateAuthorities: j.object().optional()
+        });
+
+        let options = {
+            abortEarly: false,
+            allowUnknown: false
+        };
+        let result = j.validate(config, schema, options);
+        if (result.error) {
+            throw result.error;
+        }
+    }
+
+    /**
+     * Validates the given channel configuration object
+     * @param {object} config The configuration object.
+     * @param {string[]} validOrderers The array of valid orderer names.
+     * @param {string[]} validPeers The array of valid peer names.
+     * @param {string[]} validMspIds The array of valid MSP IDs.
+     * @param {string[]} takenContractIds The array of invalid/taken contract IDs.
+     * @param {object} flowOptions Contains the flow control options for Caliper.
+     * @param {boolean} discovery Indicates whether discovery is configured or not.
+     */
+    static validateChannel(config, validOrderers, validPeers, validMspIds, takenContractIds, flowOptions, discovery) {
+        // ugly hack, but there are too many declarative conditional modifiers otherwise
+        const created = typeof config.created === 'boolean' ? config.created : false;
+        const binary = !!config.configBinary;
+        const def = !!config.definition;
+        const ordererModif = discovery ? 'optional' : 'required';
+
+        let binaryModif;
+        let defModif;
+        let needXor = false;
+        let needOptionalXor = false;
+
+        if (!created) {
+            if (def) {
+                defModif = 'required'; // definition takes precedence
+                binaryModif = 'forbidden'; // if it's not specified, this won't matter
+            } else if (binary) { // && !def
+                binaryModif = 'required';
+                defModif = 'forbidden'; // doesn't matter, it's not specified
+            } else {
+                // nothing is specified, so make them optional, but require one
+                defModif = 'optional';
+                binaryModif = 'optional';
+                needXor = true;
+            }
+        } else {
+            // nothing is required, but keep the oxor rule if both is specified
+            defModif = 'optional';
+            binaryModif = 'optional';
+            needOptionalXor = true;
+        }
+
+        let createPeersSchema = () => {
+            let peersSchema = {};
+            for (let peer of validPeers) {
+                peersSchema[peer] = j.object().keys({
+                    endorsingPeer: j.boolean().optional(),
+                    chaincodeQuery: j.boolean().optional(),
+                    ledgerQuery: j.boolean().optional(),
+                    eventSource: j.boolean().optional(),
+                }).optional();
+            }
+
+            return peersSchema;
+        };
+
+        let createEndorsementPolicySchema = () => {
+            // recursive schema of "X-of" objects
+            // array element objects either have a "signed-by" key, or a recursive "X-of"
+            let policySchema = j.array().sparse(false).min(1).items(j.object().min(1)
+                .pattern(/^signed-by$/, j.number().integer().min(0))
+                .pattern(/^[1-9]\d*-of$/,
+                    j.lazy(() => policySchema).description('Policy schema'))
+            );
+
+            return j.object().keys({
+                identities: j.array().sparse(false).items(j.object().keys({
+                    role: j.object().keys({
+                        name: j.string().valid('member', 'admin').required(),
+                        mspId: j.string().valid(validMspIds).required()
+                    }).required()
+                })).unique().required(),
+
+                // at the top level, allow exactly one "[integer>0]-of" key
+                // the schema of that top level key will be recursive
+                policy: j.object().pattern(/^[1-9]\d*-of$/, policySchema).length(1).required()
+            });
+        };
+
+        let contractIdComparator = (a, b) => {
+            if (a.contractID) {
+                if (b.contractID) {
+                    return a.contractID === b.contractID;
+                }
+
+                return a.contractID === b.id;
+            } else {
+                if (b.contractID) {
+                    return a.id === b.contractID;
+                }
+
+                return a.id === b.id;
+            }
+        };
+
+        const collectionsConfigObjectSchema = j.array().sparse(false).min(1).items(j.object().keys({
+            name: j.string().min(1).required(),
+            policy: createEndorsementPolicySchema().required(),
+            requiredPeerCount: j.number().integer().min(0).max(j.ref('maxPeerCount')).required(),
+            maxPeerCount: j.number().integer().min(j.ref('requiredPeerCount')).required(),
+            blockToLive: j.number().integer().min(0).required()
+        })).unique('name');
+
+        let schema = j.object().keys({
+            created: j.boolean().optional(),
+
+            configBinary: j.string().min(1)[binaryModif](),
+
+            definition: j.object().keys({
+                capabilities: j.array().sparse(false).required(),
+                consortium: j.string().min(1).required(),
+                msps: j.array().sparse(false).items(j.string().valid(validMspIds)).unique().required(),
+                version: j.number().integer().min(0).required()
+            })[defModif](),
+
+            orderers: j.array().sparse(false).items(j.string().valid(validOrderers)).unique()[ordererModif](),
+            peers: j.object().keys(createPeersSchema()).required(),
+
+            // leave this embedded, so the validation error messages are more meaningful
+            chaincodes: j.array().sparse(false).items(j.object().keys({
+                id: j.string().min(1).required(),
+                version: j.string().min(1).required(),
+                contractID: j.string().min(1).disallow(takenContractIds).optional(),
+
+                language: j.string().valid('golang', 'node', 'java').optional(),
+                path: j.string().min(1).optional(),
+                metadataPath: j.string().min(1).optional(),
+                init: j.array().sparse(false).items(j.string()).optional(),
+                function: j.string().optional(),
+                // every key must be a string
+                initTransientMap: j.object().pattern(j.string(), j.string()).optional(),
+
+                'collections-config': j.alternatives().try(j.string().min(1), collectionsConfigObjectSchema).optional(),
+
+                'endorsement-policy': createEndorsementPolicySchema().optional(),
+                targetPeers: j.array().sparse(false).min(1).unique().items(j.string().valid(validPeers)).optional()
+            }) // constraints for the chaincode properties
+                .with('metadataPath', 'path') // if metadataPath is provided, installation needs the path
+                .with('path', 'language') // if path is provided, installation needs the language
+                // the following properties indicate instantiation, which needs the language property
+                .with('init', 'language')
+                .with('function', 'language')
+                .with('initTransientMap', 'language')
+                .with('collections-config', 'language')
+                .with('endorsement-policy', 'language')
+            ).unique(contractIdComparator).required() // for the chaincodes collection
+        });
+
+        if (needXor) {
+            schema = schema.xor('configBinary', 'definition');
+        } else if (needOptionalXor) {
+            schema = schema.oxor('configBinary', 'definition');
+        }
+
+        let options = {
+            abortEarly: false,
+            allowUnknown: false
+        };
+        let result = j.validate(config, schema, options);
+        if (result.error) {
+            throw result.error;
+        }
+    }
+
+    /**
+     * Validates the given CA configuration object.
+     * @param {object} config The configuration object.
+     * @param {boolean} tls Indicates whether TLS is enabled or known at this point.
+     */
+    static validateCertificateAuthority(config, tls) {
+        let urlRegex = tls === undefined ? /^(https|http):\/\// : (tls ? /^https:\/\// : /^http:\/\//);
+
+        const schema = j.object().keys({
+            url: j.string().uri().regex(urlRegex).required(),
+
+            httpOptions: j.object().optional(),
+
+            // required when using https
+            tlsCACerts: j.object().keys({
+                pem: j.string().min(1).optional(),
+                path: j.string().min(1).optional()
+            }).xor('pem', 'path').when('url', {
+                is: j.string().regex(/^https:\/\//),
+                then: j.required(),
+                otherwise: j.forbidden()
+            }),
+
+            registrar: j.array().items(j.object().keys({
+                enrollId: j.string().min(1).required(),
+                enrollSecret: j.string().min(1).required()
+            })).min(1).sparse(false).unique('enrollId').required()
+        });
+
+        let options = {
+            abortEarly: false,
+            allowUnknown: false
+        };
+        let result = j.validate(config, schema, options);
+        if (result.error) {
+            throw result.error;
+        }
+    }
+
+    /**
+     * Validates the given peer configuration object.
+     * @param {object} config The configuration object.
+     * @param {boolean} tls Indicates whether TLS is enabled or known at this point.
+     * @param {boolean} eventUrl Indicates whether other peers specified event URLs or not.
+     */
+    static validatePeer(config, tls, eventUrl) {
+        let urlRegex = tls === undefined ? /^(grpcs|grpc):\/\// : (tls ? /^grpcs:\/\// : /^grpc:\/\//);
+        let eventModif = eventUrl === undefined ? 'optional' : (eventUrl ? 'required' : 'forbidden');
+
+        const schema = j.object().keys({
+            url: j.string().uri().regex(urlRegex).required(),
+            // match the protocol of the base "url"
+            // NOTE: Fabric v1.0.0 can only be detected through the presence of "eventUrl"
+            eventUrl: j.string().uri().when('url', {
+                is: j.string().regex(/^grpcs:\/\//),
+                then: j.string().regex(/^grpcs:\/\//),
+                otherwise: j.string().regex(/^grpc:\/\//)
+            })[eventModif](),
+            grpcOptions: j.object().optional(),
+
+            // required when using https
+            tlsCACerts: j.object().keys({
+                pem: j.string().min(1).optional(),
+                path: j.string().min(1).optional()
+            }).xor('pem', 'path').when('url', {
+                is: j.string().regex(/^grpcs:\/\//),
+                then: j.required(),
+                otherwise: j.forbidden()
+            })
+        });
+
+        let options = {
+            abortEarly: false,
+            allowUnknown: false
+        };
+        let result = j.validate(config, schema, options);
+        if (result.error) {
+            throw result.error;
+        }
+    }
+
+    /**
+     * Validates the given orderer configuration object.
+     * @param {object} config The configuration object.
+     * @param {boolean} tls Indicates whether TLS is enabled or known at this point.
+     */
+    static validateOrderer(config, tls) {
+        let urlRegex = tls === undefined ? /^(grpcs|grpc):\/\// : (tls ? /^grpcs:\/\// : /^grpc:\/\//);
+
+        const schema = j.object().keys({
+            url: j.string().uri().regex(urlRegex).required(),
+            grpcOptions: j.object().optional(),
+
+            // required when using https
+            tlsCACerts: j.object().keys({
+                pem: j.string().min(1).optional(),
+                path: j.string().min(1).optional()
+            }).xor('pem', 'path').when('url', {
+                is: j.string().regex(/^grpcs:\/\//),
+                then: j.required(),
+                otherwise: j.forbidden()
+            })
+        });
+
+        let options = {
+            abortEarly: false,
+            allowUnknown: false
+        };
+        let result = j.validate(config, schema, options);
+        if (result.error) {
+            throw result.error;
+        }
+    }
+
+    /**
+     * Validates the given organization configuration object.
+     * @param {object} config The configuration object.
+     * @param {string[]} validPeers The array of valid peer names.
+     * @param {string[]} validCAs The array of valid CA names.
+     */
+    static validateOrganization(config, validPeers, validCAs) {
+        const schema = j.object().keys({
+            mspid: j.string().min(1).required(),
+            // optional: to include orderer admin clients, and orderer org must be added, which doesn't have peers
+            peers: j.array().items(j.string().valid(validPeers))
+                .min(1).sparse(false).unique().optional(),
+            certificateAuthorities: j.array().items(j.string().valid(validCAs))
+                .min(1).sparse(false).unique().optional(),
+
+            // admin client for orgs are optional
+            adminPrivateKey: j.object().keys({
+                pem: j.string().min(1).optional(),
+                path: j.string().min(1).optional()
+            }).xor('pem', 'path').optional(),
+
+            // admin client for orgs are optional
+            signedCert: j.object().keys({
+                pem: j.string().min(1).optional(),
+                path: j.string().min(1).optional()
+            }).xor('pem', 'path').optional(),
+        }).and('adminPrivateKey', 'signedCert');
+
+        let options = {
+            abortEarly: false,
+            allowUnknown: false
+        };
+        let result = j.validate(config, schema, options);
+        if (result.error) {
+            throw result.error;
+        }
+    }
+
+    /**
+     * Validates the given client configuration object.
+     * @param {object} config The configuration object.
+     * @param {string[]} validOrgs The array of valid organization names.
+     * @param {boolean} wallet Indicates whether a wallet is configured.
+     */
+    static validateClient(config, validOrgs, wallet) {
+        const walletModif = wallet ? 'forbidden' : 'optional';
+        const credModif = wallet ? 'forbidden' : 'required';
+
+        let clientSchema = j.object().keys({
+            organization: j.string().valid(validOrgs).required(),
+            // this part is implementation-specific
+            credentialStore: j.object().keys({
+                path: j.string().min(1).required(),
+                cryptoStore: j.object().keys({
+                    path: j.string().min(1).required(),
+                }).required(),
+            })[credModif](),
+
+            clientPrivateKey: j.object().keys({
+                pem: j.string().min(1).optional(),
+                path: j.string().min(1).optional()
+            }).xor('pem', 'path')[walletModif](),
+
+            clientSignedCert: j.object().keys({
+                pem: j.string().min(1).optional(),
+                path: j.string().min(1).optional()
+            }).xor('pem', 'path')[walletModif](),
+
+            affiliation: j.string().min(1)[walletModif](),
+            attributes: j.array().items(j.object().keys({
+                name: j.string().min(1).required(),
+                value: j.string().required(),
+                ecert: j.boolean().optional()
+            })).min(1).sparse(false).unique('name')[walletModif](),
+
+            enrollmentSecret: j.string().min(1)[walletModif](),
+
+            connection: j.object().keys({
+                timeout: j.object().keys({
+                    peer: j.object().keys({
+                        endorser: j.number().positive().optional(),
+                        eventHub: j.number().positive().optional(),
+                        eventReg: j.number().positive().optional()
+                    }).or('endorser', 'eventHub', 'eventReg').optional(),
+                    orderer: j.number().positive().optional()
+                }).or('peer', 'orderer').required()
+            }).optional()
+        });
+
+        if (!wallet) {
+            // additional constraints for the different "client init" methods without wallet
+            // 1) registration and enrollment specified, attributes require affiliation
+            // 2) static credentials provided, must be set together
+            // 3) only a single method can be specified (enrollment-only has no additional constraints)
+            clientSchema = clientSchema
+                .with('attributes', 'affiliation') // 1)
+                // static init/loading
+                .and('clientPrivateKey', 'clientSignedCert') // 2)
+                .xor('affiliation', 'enrollmentSecret', 'clientSignedCert'); // 3)
+        }
+
+        const schema = j.object().keys({
+            client: clientSchema.required()
+        });
+
+        let options = {
+            abortEarly: false,
+            allowUnknown: false
+        };
+        let result = j.validate(config, schema, options);
+        if (result.error) {
+            throw result.error;
+        }
+    }
+}
+
+module.exports = ConfigValidator;
