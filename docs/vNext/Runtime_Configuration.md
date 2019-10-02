@@ -3,6 +3,7 @@ layout: pageNext
 title:  "Runtime Configuration"
 categories: reference
 permalink: /vNext/runtime-config/
+order: 3
 ---
 
 Caliper relies on the [nconf](https://github.com/indexzero/nconf) package to provide a flexible and hierarchical configuration mechanism for runtime-related settings. Hierarchical configuration means that a runtime setting can be set or overridden from multiple sources/locations, and there is a priority order among them.
