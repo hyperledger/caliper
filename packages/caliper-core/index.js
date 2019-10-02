@@ -16,7 +16,6 @@
 
 module.exports.BlockchainInterface = require('./lib/blockchain-interface');
 module.exports.CaliperLocalClient = require('./lib/client/caliper-local-client');
-module.exports.CaliperZooClient = require('./lib/client/caliper-zoo-client');
 module.exports.TxStatus = require('./lib/transaction-status');
 module.exports.CaliperUtils = require('./lib/utils/caliper-utils');
 module.exports.Version = require('./lib/utils/version');

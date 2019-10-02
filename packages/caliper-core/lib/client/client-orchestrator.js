@@ -15,75 +15,8 @@
 
 'use strict';
 
-const CLIENT_LOCAL = 'local';
-const CLIENT_ZOO   = 'zookeeper';
-
-const zkUtil  = require('./zoo-util.js');
-const ZooKeeper = require('node-zookeeper-client');
-const clientUtil = require('./client-util.js');
-
 const util = require('../utils/caliper-utils');
 const logger = util.getLogger('client.js');
-
-
-/**
- * Callback function to handle messages received from zookeeper clients
- * @param {Object} data message data
- * @param {Array} updates array to save txUpdate results
- * @param {Array} results array to save test results
- * @return {Promise} boolean value that indicates whether the test of corresponding client has already stopped
- */
-function zooMessageCallback(data, updates, results) {
-    let msg  = JSON.parse(data.toString());
-    let stop = false;
-    switch(msg.type) {
-    case 'testResult':
-        results.push(msg.data);
-        stop = true;   // stop watching
-        break;
-    case 'error':
-        logger.error('Client encountered error, ' + msg.data);
-        stop = true;   // stop watching
-        break;
-    case 'txUpdated':
-        updates.push(msg.data);
-        stop = false;
-        break;
-    default:
-        logger.warn('Unknown message type: ' + msg.type);
-        stop = false;
-        break;
-    }
-    return Promise.resolve(stop);
-}
-
-/**
- * Start watching zookeeper
- * @param {JSON} zoo zookeeper service informations
- * @param {Array} updates array to save txUpdate data
- * @param {Array} results array to save test resultss
- * @return {Promsise} promise object
- */
-function zooStartWatch(zoo, updates, results) {
-    let promises = [];
-    let zk   = zoo.zk;
-    zoo.hosts.forEach((host)=>{
-        let path = host.outnode;
-        let p = zkUtil.watchMsgQueueP(
-            zk,
-            path,
-            (data)=>{
-                return zooMessageCallback(data, updates, results).catch((err) => {
-                    logger.error('Exception encountered when watching message from zookeeper, due to:' + err);
-                    return Promise.resolve(true);
-                });
-            },
-            'Failed to watch zookeeper children'
-        );
-        promises.push(p);
-    });
-    return Promise.all(promises);
-}
 
 /**
  * Class for Client Orchestration
@@ -96,35 +29,21 @@ class ClientOrchestrator {
     constructor(config) {
         let conf = util.parseYaml(config);
         this.config = conf.test.clients;
-        this.results = [];                        // output of recent test round
         this.updates = {id:0, data:[]};           // contains txUpdated messages
+        this.processes  = {};
     }
 
     /**
-    * Initialise client object
+    * Initialize client object
     * @return {Promise} promise object
     */
     async init() {
-        if(this.config.hasOwnProperty('type')) {
-            switch(this.config.type) {
-            case CLIENT_LOCAL:
-                this.type = CLIENT_LOCAL;
-                if(this.config.hasOwnProperty('number')) {
-                    this.number = this.config.number;
-                }
-                else {
-                    this.number = 1;
-                }
-                return this.number;
-            case CLIENT_ZOO:
-                return await this._initZoo();
-            default:
-                throw new Error('Unknown client type, should be local or zookeeper');
-            }
+        if(this.config.hasOwnProperty('number')) {
+            this.number = this.config.number;
+        } else {
+            this.number = 1;
         }
-        else {
-            throw new Error('Failed to find client type in config file');
-        }
+        return this.number;
     }
 
     /**
@@ -139,46 +58,117 @@ class ClientOrchestrator {
     *              cb  :   path of the callback js file,
     *              config: path of the blockchain config file   // TODO: how to deal with the local config file when transfer it to a remote client (via zookeeper), as well as any local materials like cyrpto keys??
     *            };
-    * @param {JSON} message start message
+    * @param {JSON} test test specification
     * @param {Array} clientArgs each element of the array contains arguments that should be passed to corresponding test client
-    * @param {Report} report the report being built
-    * @param {any} finishArgs arguments that should be passed to finishCB, the callback is invoke as finishCB(this.results, finshArgs)
-    * @param {Object} clientFactory a factor used to spawn test clients
+    * @param {Object} clientFactory a factory used to spawn test clients
+    * @returns {Object[]} the test results array
     * @async
     */
-    async startTest(message, clientArgs, report, finishArgs, clientFactory) {
-        this.results = [];
+    async startTest(test, clientArgs, clientFactory) {
         this.updates.data = [];
         this.updates.id++;
 
-        switch(this.type) {
-        case CLIENT_LOCAL:
-            await this._startLocalTest(message, clientArgs, clientFactory);
-            break;
-        case CLIENT_ZOO:
-            await this._startZooTest(message, clientArgs);
-            break;
-        default:
-            throw new Error(`Unknown client type: ${this.type}`);
-        }
-
-        await report.processResult(this.results, finishArgs);
+        const results = [];
+        await this._startTest(this.number, test, clientArgs, this.updates.data, results, clientFactory);
+        const testOutput = this.formatResults(results);
+        return testOutput;
     }
 
     /**
-     * Stop the client
+     * Start a test
+     * @param {Number} number test clients' count
+     * @param {JSON} test test specification
+     * @param {Array} clientArgs each element contains specific arguments for a client
+     * @param {Array} updates array to save txUpdate results
+     * @param {Array} results array to save the test results
+     * @param {Object} clientFactory a factory to spawn test clients
+     * @async
+     */
+    async _startTest(number, test, clientArgs, updates, results, clientFactory) {
+
+        // Conditionally launch clients on the test round. Subsequent tests should re-use existing clients.
+        if (Object.keys(this.processes).length === 0) {
+            // launch clients
+            const readyPromises = [];
+            this.processes = {};
+            for (let i = 0 ; i < number ; i++) {
+                this.launchClient(updates, results, clientFactory, readyPromises);
+            }
+            // wait for all clients to have initialized
+            logger.info(`Waiting for ${readyPromises.length} clients to be ready... `);
+
+            await Promise.all(readyPromises);
+
+            logger.info(`${readyPromises.length} clients ready, starting test phase`);
+        } else {
+            logger.info(`Existing ${Object.keys(this.processes).length} clients will be reused in next test round... `);
+        }
+
+        let txPerClient;
+        let totalTx = test.numb;
+        if (test.numb) {
+            // Run specified number of transactions
+            txPerClient  = Math.floor(test.numb / number);
+
+            // trim should be based on client number if specified with txNumber
+            if (test.trim) {
+                test.trim = Math.floor(test.trim / number);
+            }
+
+            if(txPerClient < 1) {
+                txPerClient = 1;
+            }
+            test.numb = txPerClient;
+        } else if (test.txDuration) {
+            // Run for time specified txDuration based on clients
+            // Do nothing, we run for the time specified within test.txDuration
+        } else {
+            throw new Error('Unconditioned transaction rate driving mode');
+        }
+
+        let promises = [];
+        let idx = 0;
+        for (let id in this.processes) {
+            let client = this.processes[id];
+            let p = new Promise((resolve, reject) => {
+                client.obj.promise = {
+                    resolve: resolve,
+                    reject:  reject
+                };
+            });
+            promises.push(p);
+            client.results = results;
+            client.updates = updates;
+            test.clientArgs = clientArgs[idx];
+            test.clientIdx = idx;
+            test.totalClients = number;
+
+            if(totalTx % number !== 0 && idx === number-1){
+                test.numb = totalTx - txPerClient*(number - 1);
+            }
+
+            // send test specification to client and update idx
+            client.obj.send(test);
+            idx++;
+        }
+
+        await Promise.all(promises);
+        // clear promises
+        for (let client in this.processes) {
+            if (client.obj && client.ob.promise) {
+                delete client.obj.promise;
+            }
+        }
+    }
+
+    /**
+     * Stop all test clients(child processes)
      */
     stop() {
-        switch(this.type) {
-        case CLIENT_ZOO:
-            this._stopZoo();
-            break;
-        case CLIENT_LOCAL:
-            clientUtil.stop();
-            break;
-        default:
-                 // nothing to do
+        for (let pid in this.processes) {
+            this.processes[pid].obj.kill();
         }
+        this.processes = {};
     }
 
     /**
@@ -190,210 +180,150 @@ class ClientOrchestrator {
     }
 
     /**
-    * functions for CLIENT_LOCAL
-    */
+     * Call the Promise function for a process
+     * @param {String} pid pid of the client process
+     * @param {Boolean} isResolve indicates resolve(true) or reject(false)
+     * @param {Object} msg input for the Promise function
+     * @param {Boolean} isReady indicates promise type ready(true) promise(false)
+     */
+    setPromise(pid, isResolve, msg, isReady) {
+        const client = this.processes[pid];
+        if (client) {
+            const type = isReady ? 'ready' : 'promise';
+            const clientObj = client.obj;
+            if(clientObj && clientObj[type] && typeof clientObj[type] !== 'undefined') {
+                if(isResolve) {
+                    clientObj[type].resolve(msg);
+                }
+                else {
+                    clientObj[type].reject(msg);
+                }
+            } else {
+                throw new Error('Unconditioned case within setPromise()');
+            }
+        }
+    }
 
     /**
-     * Start the test
-     * @param {JSON} message start messages
-     * @param {Array} clientArgs arguments for the test clients
+     * Push test result from a child process into the global array
+     * @param {String} pid pid of the child process
+     * @param {Object} data test result
+     */
+    pushResult(pid, data) {
+        let p = this.processes[pid];
+        if (p && p.results && typeof p.results !== 'undefined') {
+            p.results.push(data);
+        }
+    }
+
+    /**
+     * Push update value from a child process into the global array
+     * @param {String} pid pid of the child process
+     * @param {Object} data update value
+     */
+    pushUpdate(pid, data) {
+        let p = this.processes[pid];
+        if (p && p.updates && typeof p.updates !== 'undefined') {
+            p.updates.push(data);
+        }
+    }
+
+    /**
+     * Launch a client process to do the test
+     * @param {Array} updates array to save txUpdate results
+     * @param {Array} results array to save the test results
      * @param {Object} clientFactory a factory to spawn clients
-     * @return {Promise} promise object
-     * @async
+     * @param {Array} readyPromises array to hold ready promises
      */
-    async _startLocalTest(message, clientArgs, clientFactory) {
-        message.totalClients = this.number;
-        return await clientUtil.startTest(this.number, message, clientArgs, this.updates.data, this.results, clientFactory);
-    }
+    launchClient(updates, results, clientFactory, readyPromises) {
+        let client = clientFactory.spawnWorker();
+        let pid   = client.pid.toString();
 
-    /**
-    * functions for CLIENT_ZOO
-    */
-    /**
-    * zookeeper structure
-    * /caliper---clients---client_xxx   // list of clients
-    *         |         |--client_yyy
-    *         |         |--....
-    *         |--client_xxx_in---msg_xxx {message}
-    *         |               |--msg_xxx {message}
-    *         |               |--......
-    *         |--client_xxx_out---msg_xxx {message}
-    *         |                |--msg_xxx {message}
-    *         |--client_yyy_in---...
-    */
+        logger.info('Launching client with PID ', pid);
+        this.processes[pid] = {obj: client, results: results, updates: updates};
 
-    /**
-     * Connect to zookeeper server and look up available test clients
-     * @return {Promise} number of available test clients
-     */
-    _initZoo() {
-        const TIMEOUT = 5000;
-        this.type = CLIENT_ZOO;
-        this.zoo  = {
-            server: '',
-            zk: null,
-            hosts: [],    // {id, innode, outnode}
-            clientsPerHost: 1
-        };
-
-        if(!this.config.hasOwnProperty('zoo')) {
-            return Promise.reject('Failed to find zoo property in config file');
-        }
-
-        let configZoo = this.config.zoo;
-        if(configZoo.hasOwnProperty('server')) {
-            this.zoo.server = configZoo.server;
-        }
-        else {
-            return Promise.reject(new Error('Failed to find zookeeper server address in config file'));
-        }
-        if(configZoo.hasOwnProperty('clientsPerHost')) {
-            this.zoo.clientsPerHost = configZoo.clientsPerHost;
-        }
-
-        let zk = ZooKeeper.createClient(this.zoo.server, {
-            sessionTimeout: TIMEOUT,
-            spinDelay : 1000,
-            retries: 0
-        });
-        this.zoo.zk = zk;
-        let zoo = this.zoo;
-        let connectHandle = setTimeout(()=>{
-            logger.error('Could not connect to ZooKeeper');
-            Promise.reject('Could not connect to ZooKeeper');
-        }, TIMEOUT+100);
         let p = new Promise((resolve, reject) => {
-            zk.once('connected', () => {
-                logger.info('Connected to ZooKeeper');
-                clearTimeout(connectHandle);
-                zkUtil.existsP(zk, zkUtil.NODE_CLIENT, 'Failed to find clients due to').then((found)=>{
-                    if(!found) {
-                        // since zoo-client(s) should create the node if it does not exist,no caliper node means no valid zoo-client now.
-                        throw new Error('Could not found clients node in zookeeper');
-                    }
-
-                    return zkUtil.getChildrenP(
-                        zk,
-                        zkUtil.NODE_CLIENT,
-                        null,
-                        'Failed to list clients due to');
-                }).then((clients) => {
-                    // TODO: not support add/remove zookeeper clients now
-                    logger.info('get zookeeper clients:' + clients);
-                    for (let i = 0 ; i < clients.length ; i++) {
-                        let clientID = clients[i];
-                        zoo.hosts.push({
-                            id: clientID,
-                            innode: zkUtil.getInNode(clientID),
-                            outnode:zkUtil.getOutNode(clientID)
-                        });
-                    }
-                    resolve(clients.length * zoo.clientsPerHost);
-                }).catch((err)=>{
-                    zk.close();
-                    return reject(err);
-                });
-            });
+            client.ready = {
+                resolve: resolve,
+                reject:  reject
+            };
         });
-        logger.info('Connecting to ZooKeeper......');
-        zk.connect();
-        return p;
-    }
 
-    /**
-     * Start test on zookeeper mode
-     * @param {JSON} message start message
-     * @param {Array} clientArgs arguments for test clients
-     * @return {Promise} promise object
-     */
-    _startZooTest(message, clientArgs) {
-        let number = this.zoo.hosts.length;
-        if (message.numb) {
-            // Run specified number of transactions
-            message.numb  = Math.floor(message.numb / number);
-            if(message.numb < 1) {
-                message.numb = 1;
-            }
-            // trim should be based on client number if specified with txNumber
-            if (message.trim) {
-                message.trim = Math.floor(message.trim / number);
-            }
-        } else if (message.txDuration) {
-            // Run each client for time specified txDuration
-            // do nothing
-        } else {
-            return Promise.reject(new Error('Unconditioned transaction rate driving mode'));
-        }
+        readyPromises.push(p);
 
-        message.clients = this.zoo.clientsPerHost;
-        message.totalClients = this.zoo.clientsPerHost * number;
-        return this._sendZooMessage(message, clientArgs).then((number)=>{
-            if(number > 0) {
-                return zooStartWatch(this.zoo, this.updates.data,  this.results);
+        const self = this;
+        client.on('message', function(msg) {
+            if (msg.type === 'ready') {
+                logger.info('Client ready message received');
+                self.setPromise(pid, true, null, true);
+            } else if (msg.type === 'txUpdated') {
+                self.pushUpdate(pid, msg.data);
+            } else if (msg.type === 'txReset') {
+                self.pushUpdate(pid, msg.data);
+            } else if (msg.type === 'testResult') {
+                self.pushResult(pid, msg.data);
+                self.setPromise(pid, true, null);
+            } else if (msg.type === 'error') {
+                self.setPromise(pid, false, new Error('Client encountered error:' + msg.data));
+            } else {
+                self.setPromise(pid, false, new Error('Client returned unexpected message type:' + msg.type));
             }
-            else {
-                return Promise.reject(new Error('Failed to start the remote test'));
-            }
-        }).catch((err)=>{
-            logger.error('Failed to start the remote test');
-            return Promise.reject(err);
+        });
+
+        client.on('error', function() {
+            self.setPromise(pid, false, new Error('Client encountered unexpected error'));
+        });
+
+        client.on('exit', function(code, signal) {
+            logger.info(`Client exited with code ${code}`);
+            self.setPromise(pid, false, new Error('Client already exited'));
         });
     }
 
     /**
-     * Send message to test clients via zookeeper service
-     * @param {JSON} message message to be sent
-     * @param {Array} clientArgs arguments for test clients
-     * @return {Number} actual number of sent messages
+     * Send message to all child processes
+     * @param {JSON} message message
+     * @return {Number} number of child processes
      */
-    _sendZooMessage(message, clientArgs) {
-        let promises = [];
-        let succ = 0;
-        let argsSlice, msgBuffer;
-        if(Array.isArray(clientArgs)) {
-            argsSlice = clientArgs.length / this.zoo.hosts.length;
+    sendMessage(message) {
+        for (let pid in this.processes) {
+            this.processes[pid].obj.send(message);
         }
-        else {
-            msgBuffer = new Buffer(JSON.stringify(message));
-        }
-        this.zoo.hosts.forEach((host, idx)=>{
-            let data;
-            if(Array.isArray(clientArgs)) {
-                let msg = message;
-                msg.clientargs = clientArgs.slice(idx * argsSlice, idx * argsSlice+argsSlice);
-                data = new Buffer(JSON.stringify(msg));
-            }
-            else {
-                data = msgBuffer;
-            }
-
-            let p = zkUtil.createP(this.zoo.zk, host.innode+'/msg_', data, ZooKeeper.CreateMode.EPHEMERAL_SEQUENTIAL, 'Failed to send message (create node) due to').then((path)=>{
-                succ++;
-                return Promise.resolve();
-            }).catch((err)=>{
-                return Promise.resolve();
-            });
-            promises.push(p);
-        });
-        return Promise.all(promises).then(()=>{
-            return Promise.resolve(succ);
-        });
+        return this.processes.length;
     }
 
     /**
-     * Stop the client
+     * Format the final test results for subsequent consumption from [ {result: [], start: val, end: val}, {result: [], start: val, end: val}, {result: [], start: val, end: val}]
+     * to {results: [val, val], start: val, end: val}
+     * @param {JSON[]} results an Array of JSON objects
+     * @return {JSON} an appropriately formatted result
      */
-    _stopZoo() {
-        if(this.zoo && this.zoo.zk) {
-            let msg = {type: 'quit'};
-            this._sendZooMessage(msg).then(()=>{
-                setTimeout(()=>{
-                    this.zoo.zk.close();
-                    this.zoo.hosts = [];
-                }, 1000);
-            });
+    formatResults(results) {
+
+        let resultArray = [];
+        let allStartedTime = null;
+        let allFinishedTime = null;
+        for (const clientResult of results){
+            // Start building the array of all client results
+            resultArray = resultArray.concat(clientResult.results);
+
+            // Track all started/complete times
+            if (!allStartedTime || clientResult.start > allStartedTime) {
+                allStartedTime = clientResult.start;
+            }
+
+            if (!allFinishedTime || clientResult.end < allFinishedTime) {
+                allFinishedTime = clientResult.end;
+            }
         }
+
+        return {
+            results: resultArray,
+            start: allStartedTime,
+            end: allFinishedTime
+        };
     }
+
 }
 
 module.exports = ClientOrchestrator;

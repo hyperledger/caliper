@@ -1,5 +1,6 @@
 {
   "name": "@hyperledger/caliper-burrow",
+  "description": "Hyperledger Burrow adaptor for Caliper, enabling the running of a performance benchmarks that interact with Burrow",
   "version": "0.1.0",
   "repository": {
     "type": "git",

@@ -16,28 +16,19 @@
 test:
   clients:
     type: local
-    number: 5
+    number: 2
   rounds:
   - label: init
     txNumber:
-    - 500
-    - 500
-    - 500
+    - 250
     rateControl:
     - type: fixed-rate
       opts:
         tps: 25
-    - type: fixed-rate
-      opts:
-        tps: 50
-    - type: fixed-rate
-      opts:
-        tps: 75
     callback: benchmark/marbles/init.js
-  - label: query
+  - label: init2
     txNumber:
-    - 15
-    - 15
+    - 250
     rateControl:
     - type: fixed-rate
       opts:
@@ -45,8 +36,12 @@ test:
     - type: fixed-rate
       opts:
         tps: 5
-    callback: benchmark/marbles/query.js
+    callback: benchmark/marbles/init.js
+observer:
+  interval: 1
+  type: local
 monitor:
+  interval: 1
   type:
   - docker
   - process
@@ -55,6 +50,5 @@ monitor:
     - all
   process:
   - command: node
-    arguments: local-client.js
+    arguments: fabricClientWorker.js
     multiOutput: avg
-  interval: 1

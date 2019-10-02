@@ -1,5 +1,6 @@
 {
   "name": "@hyperledger/caliper-core",
+  "description": "Core Hyperledger Caliper module, used for running performance benchmarks that interact with blockchain technologies",
   "version": "0.1.0",
   "repository": {
     "type": "git",
@@ -41,7 +42,7 @@
     "mocha": "3.4.2",
     "nyc": "11.1.0",
     "rewire": "^4.0.0",
-    "sinon": "2.3.8",
+    "sinon": "^7.3.2",
     "license-check-and-add": "2.3.6"
   },
   "license-check-and-add-config": {
@@ -86,14 +87,14 @@
   },
   "nyc": {
     "exclude": [
-      "lib/**"
+      "test/**"
     ],
     "reporter": [
       "text-summary",
       "html"
     ],
     "all": true,
-    "check-coverage": false,
+    "check-coverage": true,
     "statements": 1,
     "branches": 1,
     "functions": 1,

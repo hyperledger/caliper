@@ -71,7 +71,7 @@ class LinearRateController extends RateInterface{
      * @param {number} msg.txDuration The length of the round in SECONDS.
      * @param {number} msg.totalClients The number of clients executing the round.
      * @param {number} msg.clients The number of clients executing the round.
-     * @param {object} msg.clientargs Arguments for the client.
+     * @param {object} msg.clientArgs Arguments for the client.
      * @param {number} msg.clientIdx The 0-based index of the current client.
      * @param {number} msg.roundIdx The 1-based index of the current round.
      * @async

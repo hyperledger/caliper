@@ -15,7 +15,7 @@
 
 'use strict';
 
-const logger = require('../utils/caliper-utils').getLogger('caliper-flow');
+const Logger = require('../utils/caliper-utils').getLogger('caliper-flow');
 const fs = require('fs');
 const Mustache = require('mustache');
 const path = require('path');
@@ -152,7 +152,7 @@ class ReportBuilder {
             this.data.tests[index].rounds.push({
                 'id' : 'round ' + id,
                 'performance' : {'head':[], 'result': []},
-                'resource' : {'head':[], 'results': []}
+                'resources': []
             });
             return id;
         } else {
@@ -163,7 +163,7 @@ class ReportBuilder {
                 'rounds': [{
                     'id' : 'round 0',
                     'performance' : {'head':[], 'result': []},
-                    'resource' : {'head':[], 'results': []}
+                    'resources': []
                 }]
             });
             return 0;
@@ -207,7 +207,16 @@ class ReportBuilder {
     }
 
     /**
-    * set resource consumption table of a specific round
+    * Add new resource consumption table of a specific round within:
+    * {
+    *   'description' : this.descriptionmap.get(label),
+    *   'label' : label,
+    *   'rounds': [{
+    *       'id' : 'round 0',
+    *        'performance' : {'head':[], 'result': []},
+    *        'resources': [ {'head':[], 'results': []} ]
+    *       }]
+    * }
     * @param {String} label the round label
     * @param {Number} id id of the round
     * @param {Array} table table array containing the resource consumption values
@@ -234,13 +243,22 @@ class ReportBuilder {
             throw new Error('unrecognized report table');
         }
 
-        this.data.tests[index].rounds[id].resource.head = table[0];
+        const results = [];
         for(let i = 1 ; i < table.length ; i++) {
             if(!Array.isArray(table)) {
                 throw new Error('unrecognized report table');
             }
-            this.data.tests[index].rounds[id].resource.results.push({'result' : table[i]});
+            results.push({'result' : table[i]});
         }
+
+        // Build a new object and add into resources array
+        const resource = {
+            head: table[0],
+            results
+        };
+        this.data.tests[index].rounds[id].resources.push(resource);
+
+        Logger.debug('resources count:', this.data.tests[index].rounds[id].resources.length);
     }
 
     /**
@@ -275,9 +293,9 @@ class ReportBuilder {
         let html = Mustache.render(templateStr, this.data);
         try {
             await fs.writeFileSync(output, html);
-            logger.info(`Generated report with path ${output}`);
+            Logger.info(`Generated report with path ${output}`);
         } catch (err) {
-            logger.info(`Failed to generate report, with error ${err}`);
+            Logger.info(`Failed to generate report, with error ${err}`);
             throw err;
         }
     }

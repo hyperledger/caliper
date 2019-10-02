@@ -1,5 +1,6 @@
 {
   "name": "@hyperledger/caliper-cli",
+  "description": "Hyperledger Caliper CLI, for convenience running of a performance benchmark to test blockchain technologies",
   "version": "0.1.0",
   "repository": {
     "type": "git",

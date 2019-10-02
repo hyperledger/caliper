@@ -17,14 +17,13 @@
 const Blockchain = require('./blockchain');
 const CaliperUtils = require('./utils/caliper-utils');
 const ClientOrchestrator  = require('./client/client-orchestrator');
-
-const Monitor = require('./monitor/monitor');
+const MonitorOrchestrator = require('./monitor/monitor-orchestrator');
 const Report = require('./report/report');
-const Test = require('./test/defaultTest');
+const DefaultTest = require('./test-runners/default-test');
+const TestObserver = require('./test-observers/test-observer');
+const BenchValidator = require('./utils/benchmark-validator');
 
-const demo = require('./gui/src/demo.js');
 const path = require('path');
-
 const logger = CaliperUtils.getLogger('caliper-flow');
 
 /**
@@ -44,17 +43,24 @@ module.exports.run = async function(absConfigFile, absNetworkFile, admin, client
 
     // Retrieve flow conditioning options
     const flowOpts = CaliperUtils.getFlowOptions();
+    let configObject = CaliperUtils.parseYaml(absConfigFile);
+    let networkObject = CaliperUtils.parseYaml(absNetworkFile);
+
+    // Validate configObject (benchmark configuration file)
+    BenchValidator.validateObject(configObject);
 
     logger.info('####### Caliper Test #######');
     const adminClient = new Blockchain(admin);
     const clientOrchestrator  = new ClientOrchestrator(absConfigFile);
-    const monitor = new Monitor(absConfigFile);
-    const report = new Report(monitor);
-    report.createReport(absConfigFile, absNetworkFile, adminClient.gettype());
-    demo.init();
+    const monitorOrchestrator = new MonitorOrchestrator(absConfigFile);
 
-    let configObject = CaliperUtils.parseYaml(absConfigFile);
-    let networkObject = CaliperUtils.parseYaml(absNetworkFile);
+    // Test observer is dynamically loaded, but defaults to none
+    const observerType = (configObject.observer && configObject.observer.type) ? configObject.observer.type : 'none';
+    const testObserver = new TestObserver(observerType, absConfigFile);
+
+    // Report
+    const report = new Report(monitorOrchestrator);
+    report.createReport(absConfigFile, absNetworkFile, adminClient.getType());
 
     try {
         // Conditional running of 'start' commands
@@ -71,7 +77,7 @@ module.exports.run = async function(absConfigFile, absNetworkFile, admin, client
             }
         }
 
-        // Conditional network initialisation
+        // Conditional network initialization
         if (!flowOpts.performInit) {
             logger.info('Skipping initialization phase due to benchmark flow conditioning');
         } else {
@@ -89,19 +95,19 @@ module.exports.run = async function(absConfigFile, absNetworkFile, admin, client
         if (!flowOpts.performTest) {
             logger.info('Skipping benchmark test phase due to benchmark flow conditioning');
         } else {
-            // Start the monitors
+            // Start all the monitors
             try {
-                await monitor.start();
-                logger.info('Started monitor successfully');
+                await monitorOrchestrator.startAllMonitors();
+                logger.info('Started monitors successfully');
             } catch (err) {
-                logger.error('Could not start monitor, ' + (err.stack ? err.stack : err));
+                logger.error('Could not start monitors, ' + (err.stack ? err.stack : err));
             }
 
             let testIdx = 0;
             let numberOfClients = await clientOrchestrator.init();
             let clientArgs = await adminClient.prepareClients(numberOfClients);
 
-            const tester = new Test(clientArgs, absNetworkFile, clientOrchestrator, clientFactory, workspace, report, demo, monitor);
+            const tester = new DefaultTest(clientArgs, absNetworkFile, clientOrchestrator, clientFactory, workspace, report, testObserver, monitorOrchestrator);
             const allTests = configObject.test.rounds;
             for (let test of allTests) {
                 ++testIdx;
@@ -112,16 +118,13 @@ module.exports.run = async function(absConfigFile, absNetworkFile, admin, client
 
             logger.info('---------- Finished Test ----------\n');
             report.printResultsByRound();
-            monitor.printMaxStats();
-            await monitor.stop();
+            await monitorOrchestrator.stopAllMonitors();
 
             const date = new Date().toISOString().replace(/-/g,'').replace(/:/g,'').substr(0,15);
             const outFile = path.join(process.cwd(), `report-${date}.html`);
             await report.finalize(outFile);
 
             clientOrchestrator.stop();
-
-            demo.stopWatch();
 
             // NOTE: keep the below multi-line formatting intact, otherwise the indents will interfere with the template literal
             let testSummary = `# Test summary: ${successes} succeeded, ${failures} failed #`;
@@ -136,6 +139,8 @@ ${'#'.repeat(testSummary.length)}
         logger.error(`Error: ${err.stack ? err.stack : err}`);
         errorStatus = 1;
     } finally {
+        await testObserver.stopWatch();
+
         // Conditional running of 'end' commands
         if (flowOpts.performEnd) {
             if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('command') && networkObject.caliper.command.hasOwnProperty('end')) {

@@ -1,5 +1,6 @@
 {
   "name": "@hyperledger/caliper-iroha",
+  "description": "Hyperledger Iroha adaptor for Caliper, enabling the running of a performance benchmarks that interact with Iroha",
   "version": "0.1.0",
   "repository": {
     "type": "git",

@@ -38,6 +38,9 @@ test:
       opts:
         tps: 1
     callback: benchmark/drm/query.js
+observer:
+  interval: 1
+  type: local
 monitor:
   type: docker
   docker:

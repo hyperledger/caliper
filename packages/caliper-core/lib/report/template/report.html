@@ -139,7 +139,7 @@
             <p>{{description}}</p>
                 {{#rounds}}
                 <h3>{{id}}</h3>
-                <strong class="tag">performance metrics</strong>
+                <strong class="tag">Performance metrics</strong>
                 {{#performance}}
                 <table>
                     <tr>
@@ -150,19 +150,23 @@
                     </tr>
                 </table>
                 {{/performance}}
-                <strong class="tag">resource consumption</strong>
-                {{#resource}}
+                <strong class="tag">Resource consumption</strong>
+                {{#resources}}
                 <table>
                     <tr>
-                        {{#head}} <th>{{.}}</th>{{/head}}
+                    <table>
+                        <tr>
+                            {{#head}} <th>{{.}}</th>{{/head}}
+                        </tr>
+                        {{#results}}
+                        <tr>
+                            {{#result}} <td>{{.}}</td>{{/result}}
+                        </tr>
+                        {{/results}}
+                    </table>
                     </tr>
-                    {{#results}}
-                    <tr>
-                        {{#result}} <td>{{.}}</td>{{/result}}
-                    </tr>
-                    {{/results}}
                 </table>
-                {{/resource}}
+                {{/resources}}
                 {{/rounds}}
         </div>
         {{/tests}}

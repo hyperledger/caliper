@@ -366,7 +366,7 @@ class Fabric extends BlockchainInterface {
                 // resolve the failed transaction with the current time and error message
                 resolve({
                     successful: false,
-                    message: `Commit timeout on ${eventSource.peer}`,
+                    message: `Commit timeout on ${eventSource.peer} for transaction ${txId}`,
                     time: time
                 });
             }, this._getRemainingTimeout(startTime, timeout));
@@ -1728,7 +1728,6 @@ class Fabric extends BlockchainInterface {
 
         // the exception should propagate up for an invalid channel name, indicating a user callback module error
         let channel = invoker.getChannel(querySettings.channel, true);
-
 
         if (countAsLoad && context.engine) {
             context.engine.submitCallback(1);
