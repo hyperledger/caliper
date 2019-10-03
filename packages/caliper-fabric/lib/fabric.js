@@ -1077,7 +1077,7 @@ class Fabric extends BlockchainInterface {
 
         // Optional on mutual auth
         if (this.networkUtil.isMutualTlsEnabled()) {
-            opts.clientTlsIdentity = 'tlsId';
+            opts.clientTlsIdentity = userId;
         }
 
         // Retrieve gateway using ccp and options
