@@ -21,10 +21,11 @@ const PrometheusMonitor = require('./monitor-prometheus.js');
 const Util  = require('../utils/caliper-utils');
 const logger= Util.getLogger('monitor.js');
 
+const NONE = 'none';
 const DOCKER = 'docker';
 const PROCESS = 'process';
 const PROMETHEUS = 'prometheus';
-const VALID_MONITORS = [DOCKER, PROCESS, PROMETHEUS];
+const VALID_MONITORS = [NONE, DOCKER, PROCESS, PROMETHEUS];
 
 /**
  * MonitorOrchestrator class, containing a map of user specified monitor types and operations to interact with the Monitor interface that they implement
@@ -50,7 +51,7 @@ class MonitorOrchestrator {
         }
 
         const monitorTypes = Array.isArray(m.type) ? m.type : [m.type];
-        for(let type of monitorTypes) {
+        for (let type of monitorTypes) {
             let monitor = null;
             if(type === DOCKER) {
                 monitor = new DockerMonitor(m.docker, m.interval);
@@ -58,6 +59,8 @@ class MonitorOrchestrator {
                 monitor = new ProcessMonitor(m.process, m.interval);
             } else if(type === PROMETHEUS) {
                 monitor = new PrometheusMonitor(m.prometheus);
+            } else if(type === NONE) {
+                continue;
             } else {
                 const msg = `Unsupported monitor type ${type}, must be one of ${VALID_MONITORS}`;
                 logger.error(msg);
