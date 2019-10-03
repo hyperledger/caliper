@@ -15,16 +15,178 @@
 'use strict';
 
 const path = require('path');
-const moment  = require('moment');
-const winston = require('winston');
+
+const { createLogger, format, transports } = require('winston');
 require('winston-daily-rotate-file');
-const fs = require('fs');
-const configUtil = require('../config/config-util.js');
-const util = require('./caliper-utils');
+
+const conf = require('../config/config-util.js');
+
+/**
+ * Returns the common message format for printing messages.
+ * @return {Format} The message format.
+ * @private
+ */
+function _messageFormat() {
+    let template = conf.get(conf.keys.Logging.Template,
+        '%time% %level% [%label%] [%module%] %message% %meta%');
+
+    let timeRegex = /%time%/gi;
+    let levelRegex = /%level%/gi;
+    let labelRegex = /%label%/gi;
+    let moduleRegex = /%module%/gi;
+    let messageRegex = /%message%/gi;
+    let metaRegex = /%meta%/gi;
+
+    return format.printf(info => {
+        // NOTE: info will contain the mandatory "level" and "message" properties
+        // additionally it contains the "moduleName" due to our wrapping approach
+        // plus it might contain the "timestamp" and "label" properties, if those formats are enabled
+
+        let output = template.replace(timeRegex, info.timestamp || '');
+        output = output.replace(levelRegex, info.level || '');
+        output = output.replace(labelRegex, info.label || '');
+        output = output.replace(moduleRegex, info.moduleName || '');
+        output = output.replace(messageRegex, info.message || '');
+        return output.replace(metaRegex, info.meta ? JSON.stringify(info.meta) : '');
+    });
+}
+
+/**
+ * Assembles a default format for the default logger, with aligning, padding, colors, stack traces and timestamps.
+ * @return {Format} The combined format.
+ * @private
+ */
+function _assembleDefaultFormat() {
+    let formats = [];
+
+    // enable aligning log messages
+    formats.push(format.align());
+
+    // enable colors for log levels
+    formats.push(format.colorize({
+        level: true,
+        message: false,
+        colors: {
+            info: 'green',
+            error: 'red',
+            warn: 'yellow',
+            debug: 'grey'
+        }
+    }));
+
+    // enable printing stacktrace
+    formats.push(format.errors({
+        stack: true
+    }));
+
+    // add timestamp
+    formats.push(format.timestamp({
+        format: 'YYYY.MM.DD-HH:mm:ss.SSS'
+    }));
+
+    formats.push(format.padLevels());
+
+    // message format
+    formats.push(_messageFormat());
+
+    return format.combine(...formats);
+}
+
+/**
+ * Processes the format configuration and assembles the combined format.
+ * @return {Format} The combined format.
+ * @private
+ */
+function _processFormatOptions() {
+    let formats = [];
+
+    // NOTES:
+    // 1) The format options are queried directly (i.e., not using the "logging.formats" root object),
+    //    so the user can change them from the command line or from evn vars
+    // 2) The sub-properties of the formats are also queried directly for the same reason
+
+
+    let formatKey = conf.keys.Logging.Formats;
+
+    // aligning
+    let align = conf.get(formatKey.Align);
+    if (align && align === true) {
+        formats.push(format.align());
+    }
+
+    // colorize
+    let colorize = conf.get(formatKey.ColorizeRoot);
+    if (colorize && colorize !== false) {
+        let opts = {
+            level: conf.get(formatKey.Colorize.Level),
+            message: conf.get(formatKey.Colorize.Message),
+            colors: {
+                info: conf.get(formatKey.Colorize.Colors.Info),
+                error: conf.get(formatKey.Colorize.Colors.Error),
+                warn: conf.get(formatKey.Colorize.Colors.Warn),
+                debug: conf.get(formatKey.Colorize.Colors.Debug)
+            }
+        };
+        formats.push(format.colorize(opts));
+    } else {
+        formats.push(format.uncolorize({
+            level: true,
+            message: true
+        }));
+    }
+
+    // errors
+    let errors = conf.get(formatKey.ErrorsRoot);
+    if (errors && errors !== false) {
+        let opts = {
+            stack: conf.get(formatKey.Errors.Stack)
+        };
+        formats.push(format.errors(opts));
+    }
+
+    // JSON
+    let json = conf.get(formatKey.JsonRoot);
+    if (json && json !== false) {
+        let opts = {
+            space: conf.get(formatKey.Json.Space)
+        };
+        formats.push(format.json(opts));
+    }
+
+    // label
+    let label = conf.get(formatKey.LabelRoot);
+    if (label && label !== false) {
+        let opts = {
+            label: conf.get(formatKey.Label.Label),
+            message: conf.get(formatKey.Label.Message)
+        };
+        formats.push(format.label(opts));
+    }
+
+    // timestamp
+    let timestamp = conf.get(formatKey.TimestampRoot);
+    if (timestamp && timestamp !== false) {
+        let opts = {
+            format: conf.get(formatKey.Timestamp.Format)
+        };
+        formats.push(format.timestamp(opts));
+    }
+
+    // padding
+    let pad = conf.get(formatKey.Pad);
+    if (pad && pad === true) {
+        formats.push(format.padLevels());
+    }
+
+    // message format
+    formats.push(_messageFormat());
+
+    return format.combine(...formats);
+}
 
 /**
  * Saves the global logger object in the caliper namespace. For internal use only!
- * @param {winston.LoggerInstance} logger  The configured winston logger instance.
+ * @param {Logger} logger  The configured winston logger instance.
  * @private
  */
 function _saveLogger(logger) {
@@ -39,9 +201,9 @@ function _saveLogger(logger) {
 
 /**
  * Wraps the debug, info, warn and error functions of the given logger so they append the given name before the logs.
- * @param {winston.LoggerInstance} logger The original winston logger instance.
+ * @param {Logger} logger The original winston logger instance.
  * @param {string} name The name of the module using the logger.
- * @return {winston.LoggerInstance}   the  logger after inserting a new line.
+ * @return {Logger}   the  logger after inserting a new line.
  * @private
  */
 function _wrapWithLoggerName(logger, name) {
@@ -49,13 +211,21 @@ function _wrapWithLoggerName(logger, name) {
     ['debug', 'info', 'warn', 'error'].forEach((method) => {
         const originalFunction = logger[method];
 
-        // replace with the wrapper function
+        // NOTE: this needs some explanation due to the magical winston mechanics
+        // 1) Without wrapping, the winston info/warn/etc. functions receive a message as first argument
+        // 2) They can also accept any extra arguments (metadata), that will be merged into the "info" object passed to the format pipeline
+        // 3) The "function (message, ...metadata)" signature matches this interface
+        // 4) To flexibly handle the extra module name, it is not prepended to the message, like before
+        // 5) Instead, a new "metadata" object is constructed, that contains the "moduleName" key, plus every originally passed metadata, if any
+        // 6) Don't pass "metadata" to the "meta" field if it's empty (as is the case when no extra args were passed...)
         newLogger[method] = (function (context, loggerName, f) {
-            return function () {
-                if (arguments.length > 0) {
-                    arguments[0] = '[' + loggerName + ']: ' + arguments[0];
-                }
-                f.apply(context, arguments);
+            return function (message, ...metadata) {
+                let logMeta = {
+                    moduleName: loggerName,
+                    meta: metadata.length > 0 ? metadata : undefined
+                };
+
+                f.apply(context, [message, logMeta]);
             };
         })(logger, name, originalFunction);
     });
@@ -64,168 +234,117 @@ function _wrapWithLoggerName(logger, name) {
 }
 
 /**
- * Custom formatter for log messages.
- * @param {object} options Winston's object containing the log message parts.
- * @returns {string} The formatted text.
- * @private
- */
-function _formatter(options){
-    return  options.timestamp() + ' - ' +
-        options.level.toUpperCase() +
-        ' ' +(options.message ? options.message : '') +
-        (options.meta && Object.keys(options.meta).length ? '\n\t' + JSON.stringify(options.meta) : ' ') +
-        '\r\n';
-}
-
-/**
- * Creates a default logger instance if the configuration is omitted.
- * An info-level console and debug-level file target is created.
- * @return {winston.LoggerInstance} The default logger instance.
+ * Creates a default logger instance if the configuration is omitted. Only an info-level console target is created.
+ * @return {Logger} The default logger instance.
  * @private
  */
 function _createDefaultLogger() {
-    let winstonOptions = {};
-    winstonOptions.transports = [];
-
-    winstonOptions.transports.push(new (winston.transports.Console)({
-        name: 'console',
-        level: 'info',
-        colorize: true,
-        handleExceptions: true
-    }));
-
-    let fileName = path.join(configUtil.get(configUtil.keys.Workspace, '.'), 'log/caliper-%DATE%.log');
-    let dirName = path.dirname(fileName);
-    if (!fs.existsSync(dirName)) {
-        fs.mkdirSync(dirName);
-    }
-    winstonOptions.transports.push(new (winston.transports.DailyRotateFile)({
-        name: 'file',
-        level: 'debug',
-        handleExceptions: true,
-        timestamp: () => moment().format(),
-        formatter: _formatter,
-        filename: fileName,
-        datePattern: 'YYYY-MM-DD-HH',
-        json: false,
-        maxSize: '5m',
-        zippedArchive: false
-    }));
-
-    return new winston.Logger(winstonOptions);
+    return createLogger({
+        format: _assembleDefaultFormat(),
+        transports: [new transports.Console({
+            name: 'console',
+            level: 'info'
+        })]
+    });
 }
 
 /**
  * Creates a logger according to the provided target configurations.
- * @param {object} logConfig The configuration object containing the target specifications.
- * @return {winston.LoggerInstance} The configured logger instance.
+ * @return {Logger} The configured logger instance.
  * @private
  */
-function _createConfiguredLogger(logConfig) {
+function _createConfiguredLogger() {
     let winstonOptions = {};
+    let logFormats = conf.get(conf.keys.Logging.FormatsRoot);
+
+    // if the "logging.formats" key/object exists, then probably it contains settings to process
+    winstonOptions.format = typeof logFormats === 'object'
+        ? _processFormatOptions()
+        : _assembleDefaultFormat();
+
     winstonOptions.transports = [];
 
-    let config = (typeof logConfig === 'string') ? util.parseYamlString(logConfig) : logConfig;
-
-    if (typeof config !== 'object') {
-        throw new Error('The \'core:logging\' attribute must be an object conforming to the documented format');
+    let logTargets = conf.get(conf.keys.Logging.Targets);
+    if (typeof logTargets !== 'object') {
+        throw new Error('The "caliper-logging-targets" attribute must be an object');
     }
 
     // create the transports based on the provided configuration
-    for (let target in config) {
-        if (!config.hasOwnProperty(target)) {
-            continue;
-        }
+    for (let target of Object.keys(logTargets)) {
+        let targetSettings = logTargets[target];
 
-        let targetSettings = config[target];
         if (!targetSettings.target) {
-            throw new Error(`Mandatory 'target' attribute is missing for the ${target} logging target`);
+            throw new Error(`Mandatory "target" attribute is missing for the "${target}" logging target`);
         }
 
-        if (!targetSettings.level) {
-            throw new Error(`Mandatory 'level' attribute is missing for the ${target} logging target`);
-        }
-
-        if (!['debug', 'info', 'warning', 'error'].includes(targetSettings.level)) {
-            throw new Error(`Unknown level value '${targetSettings.level}' for the ${target} logging target`);
+        // skip disabled targets
+        // NOTE: read property directly from config, so it can be overridden
+        let enabled = conf.get(`caliper-logging-targets-${target}-enabled`);
+        if (enabled && enabled === false) {
+            continue;
         }
 
         switch (targetSettings.target) {
         case 'console': {
-            winstonOptions.transports.push(new (winston.transports.Console)({
-                name: target.toString(),
-                level: targetSettings.level,
-                handleExceptions: true
-            }));
+            let consoleOptions = targetSettings.options || {};
+            consoleOptions.name = target;
+            winstonOptions.transports.push(new transports.Console(consoleOptions));
             break;
         }
         case 'file': {
-            let filePath = targetSettings.filename || 'log/caliper.log';
-            filePath = path.isAbsolute(filePath) ? filePath : path.join(configUtil.get(configUtil.keys.Workspace, '.'), filePath);
-            let dirName = path.dirname(filePath);
-            if (!fs.existsSync(dirName)) {
-                fs.mkdirSync(dirName);
+            // NOTE: the parent directories should already exist
+            // This is the responsibility of the user
+            // Only the user knows the necessary dir permissions
+            // And the user can also configure the file creation mode/permissions
+
+            let fileOptions = targetSettings.options || {};
+            // resolve filename
+            if (fileOptions.filename && !path.isAbsolute(fileOptions.filename)) {
+                let workspace = conf.get(conf.keys.Workspace, './');
+                fileOptions.filename = path.join(workspace, fileOptions.filename);
             }
-            winstonOptions.transports.push(new (winston.transports.File)({
-                name: target.toString(),
-                level: targetSettings.level,
-                handleExceptions: true,
-                timestamp: () => moment().format(),
-                formatter: _formatter,
-                filename: filePath,
-                json: false,
-                maxsize: targetSettings.maxsize,
-                maxFiles: targetSettings.maxFiles,
-                tailable: targetSettings.tailable,
-                zippedArchive: targetSettings.zippedArchive
-            }));
+            fileOptions.name = target;
+
+            winstonOptions.transports.push(new transports.File(fileOptions));
             break;
         }
         case 'daily-rotate-file': {
-            let filePath = targetSettings.filename || 'log/caliper-%DATE%.log';
-            filePath = path.isAbsolute(filePath) ? filePath : path.join(configUtil.get(configUtil.keys.Workspace, '.'), filePath);
-            let dirName = path.dirname(filePath);
-            if (!fs.existsSync(dirName)) {
-                fs.mkdirSync(dirName);
+            // NOTE: the parent directories should already exist
+            // This is the responsibility of the user
+            // Only the user knows the necessary dir permissions
+            // And the user can also configure the file creation mode/permissions
+
+            let fileOptions = targetSettings.options || {};
+            // resolve filename
+            if (fileOptions.filename && !path.isAbsolute(fileOptions.filename)) {
+                let workspace = conf.get(conf.keys.Workspace, './');
+                fileOptions.filename = path.join(workspace, fileOptions.filename);
             }
-            winstonOptions.transports.push(new (winston.transports.DailyRotateFile)({
-                name: target.toString(),
-                level: targetSettings.level,
-                handleExceptions: true,
-                timestamp: () => moment().format(),
-                formatter: _formatter,
-                dirname: dirName,
-                filename: filePath,
-                datePattern: targetSettings.datePattern || 'YYYY-MM-DD-HH',
-                json: false,
-                frequency: targetSettings.frequency,
-                maxSize: targetSettings.maxSize,
-                maxFiles: targetSettings.maxFiles,
-                tailable: targetSettings.tailable,
-                zippedArchive: targetSettings.zippedArchive
-            }));
+            fileOptions.name = target;
+
+            winstonOptions.transports.push(new transports.DailyRotateFile(fileOptions));
             break;
         }
         default:
-            throw new Error(`Unsupported target type '${targetSettings.target}' for the ${target} logging target`);
+            throw new Error(`Unsupported target type "${targetSettings.target}" for the "${target}" logging target`);
         }
     }
 
-    return new winston.Logger(winstonOptions);
+    // if every logger is disabled, this error will trigger a warning and creation of the default logger
+    if (winstonOptions.transports.length < 1) {
+        throw new Error('Every configured logger target is disabled');
+    }
+
+    return createLogger(winstonOptions);
 }
 
 /**
  * Returns a logger configured with the given module name.
  * @param {string} name The name of module who will use the logger.
- * @param {winston.LoggerInstance} parentLogger Optional. The logger of the parent module. Defaults to the global Caliper logger.
- * @returns {winston.LoggerInstance} The configured logger instance.
+ * @returns {Logger} The configured logger instance.
  */
-function getLogger(name, parentLogger) {
-    if (parentLogger) {
-        return _wrapWithLoggerName(parentLogger, name);
-    }
-
-    // if the parent isn't specified, use the global Caliper logger if exists
+function getLogger(name) {
+    // wrap the global Caliper logger if exists
     if (global.caliper && global.caliper.logger) {
         return _wrapWithLoggerName(global.caliper.logger, name);
     }
@@ -233,28 +352,31 @@ function getLogger(name, parentLogger) {
     // The global Caliper logger must be created
 
     // Check if there are any logger targets configured
-    let logConfig = configUtil.get(configUtil.keys.Logging, undefined);
+    let logConfig = conf.get(conf.keys.LoggingRoot);
 
-    // if not, just create a default logger with console and file targets
+    // if not, just create a default logger with a console target
     if (!logConfig) {
         let logger = _createDefaultLogger();
         _saveLogger(logger);
-        logger.debug(`Returning a default winston logger to [${name}]`);
-        return _wrapWithLoggerName(logger, name);
+        let wrappedLogger = _wrapWithLoggerName(logger, name);
+        wrappedLogger.debug('Triggered the construction of a default logger');
+        return wrappedLogger;
     }
 
     try {
-        let logger = _createConfiguredLogger(logConfig);
-        logger.debug('Constructed a winston logger with the specified targets:', logConfig);
+        let logger = _createConfiguredLogger();
         _saveLogger(logger);
-        return _wrapWithLoggerName(logger, name);
+        let wrappedLogger = _wrapWithLoggerName(logger, name);
+        wrappedLogger.debug('Constructed a winston logger with the specified settings');
+        return wrappedLogger;
     } catch (err) {
         // parsing the logging configuration failed
         // construct the default logger, log a warning and return it
         let logger = _createDefaultLogger();
         _saveLogger(logger);
-        logger.log('warn', `Failed to parse logging settings 'core:logging', using a default logger. Error: ${err.message || err}`);
-        return _wrapWithLoggerName(logger, name);
+        let wrappedLogger = _wrapWithLoggerName(logger, name);
+        wrappedLogger.warn('Failed to parse logging settings, using a default logger. Error:', err);
+        return wrappedLogger;
     }
 
 }

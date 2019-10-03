@@ -40,7 +40,44 @@ const keys = {
     ZooAddress: 'caliper-zooaddress',
     ZooConfig: 'caliper-zooconfig',
     TxUpdateTime: 'caliper-txupdatetime',
-    Logging: 'caliper-logging',
+    LoggingRoot: 'caliper-logging',
+    Logging: {
+        Template: 'caliper-logging-template',
+        FormatsRoot: 'caliper-logging-formats',
+        Formats: {
+            Align: 'caliper-logging-formats-align',
+            Pad: 'caliper-logging-formats-pad',
+            ColorizeRoot: 'caliper-logging-formats-colorize',
+            Colorize: {
+                Level: 'caliper-logging-formats-colorize-level',
+                Message: 'caliper-logging-formats-colorize-message',
+                Colors: {
+                    Info: 'caliper-logging-formats-colorize-colors-info',
+                    Error: 'caliper-logging-formats-colorize-colors-error',
+                    Warn: 'caliper-logging-formats-colorize-colors-warn',
+                    Debug: 'caliper-logging-formats-colorize-colors-debug',
+                }
+            },
+            ErrorsRoot: 'caliper-logging-formats-errors',
+            Errors: {
+                Stack: 'caliper-logging-formats-errors-stack'
+            },
+            JsonRoot: 'caliper-logging-formats-json',
+            Json: {
+                Space: 'caliper-logging-formats-json-space'
+            },
+            LabelRoot: 'caliper-logging-formats-label',
+            Label: {
+                Label: 'caliper-logging-formats-label-label',
+                Message: 'caliper-logging-formats-label-message'
+            },
+            TimestampRoot: 'caliper-logging-formats-timestamp',
+            Timestamp: {
+                Format: 'caliper-logging-formats-timestamp-format'
+            }
+        },
+        Targets: 'caliper-logging-targets'
+    },
     Flow: {
         Skip: {
             Start : 'caliper-flow-skip-start',

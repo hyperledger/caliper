@@ -19,6 +19,7 @@ zookeeper.out
 .idea/
 **/node_modules/
 **/log/
+*.log
 
 # Ignore any composer logs
 composer-logs/

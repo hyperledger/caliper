@@ -51,18 +51,59 @@ caliper:
     txupdatetime: 1000
     # Configurations related to the logging mechanism
     logging:
-        # Defines a console target with info level
-        consolelogger:
-            target: console
-            level: info
-        # Defines a daily rotating file target with debug level
-        filelogger:
-            target: daily-rotate-file
-            level: debug
-            filename: log/caliper-%DATE%.log
-            datePattern: YYYY-MM-DD-HH
-            maxSize: 5m
-            zippedArchive: true
+        # Specifies the message structure through placeholders
+        template: '%time% %level% [%label%] [%module%] %message% %meta%'
+        # Enables the different formats to apply to the log messages FOR ALL transports
+        # Each format can be disabled by setting it to false
+        formats:
+            # adds a tab delimiter before the message to align it in the same place
+            align: true
+            # pads the levels to be the same length
+            pad: true
+            # defines coloring for the different levels
+            colorize:
+                # Apply it to levels
+                level: true
+                # Apply it to messages
+                message: false
+                # The colors for each level
+                colors:
+                    info: green
+                    error: red
+                    warn: yellow
+                    debug: grey
+            # specifies whether to print stack traces
+            errors:
+                stack: true
+            # serializes the log messages as JSON
+            json: false
+            # Adds a specified label to every message. Useful for distributed client scenario
+            label:
+                label: caliper
+                message: false
+            # Adds a timestamp to the messages
+            timestamp:
+                # The timestamp format string
+                format: YYYY.MM.DD-HH:mm:ss.SSS
+        # Lists the targets (winston transports)
+        targets:
+            console:
+                target: console # Defines a console target
+                enabled: true # Enables the target
+                options: # These are passed to the winston console target as-is
+                    level: info
+            # Defines a target with debug level
+            file:
+                target: file
+                enabled: true
+                options:
+                    level: debug
+                    filename: caliper.log
+                    maxSize: 5m
+                    zippedArchive: false
+                    options:
+                        flags: a
+                        mode: 0666
 
     # Caliper flow options
     flow:
