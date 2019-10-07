@@ -61,7 +61,7 @@ channels:
     definition:
         capabilities: []
         consortium: 'SampleConsortium'
-        msps: ['Org1MSP', 'Org2MSP', 'Org3MSP']
+        msps: ['Org1MSP', 'Org2MSP']
         version: 0
     orderers:
     - orderer.example.com

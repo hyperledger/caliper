@@ -52,15 +52,31 @@ caliper:
     # Configurations related to the logging mechanism
     logging:
         # Specifies the message structure through placeholders
-        template: '%time% %level% [%label%] [%module%] %message% %meta%'
+        template: '%timestamp%%level%%label%%module%%message%%metadata%'
         # Enables the different formats to apply to the log messages FOR ALL transports
         # Each format can be disabled by setting it to false
         formats:
-            # adds a tab delimiter before the message to align it in the same place
-            align: true
+            # Adds a timestamp to the messages with the following format
+            timestamp: 'YYYY.MM.DD-HH:mm:ss.SSS'
+            # Adds a specified label to every message. Useful for distributed client scenario
+            label: caliper
+            # serializes the log messages as JSON
+            json: false
             # pads the levels to be the same length
             pad: true
-            # defines coloring for the different levels
+            # adds a tab delimiter before the message to align it in the same place
+            align: true
+            # specifies formatting strings for different log message attributes
+            attributeformat:
+                # add a space before the level
+                level: ' %attribute%'
+                # put [] around the label and space before it
+                label: ' [%attribute%]'
+                # put [] around the module name and space before/after it
+                module: ' [%attribute%] '
+                # put () around the metadata and space before it
+                metadata: ' (%attribute%)'
+            # defines coloring for the different levels for each (or all) message property
             colorize:
                 # Apply it to levels
                 level: true
@@ -72,19 +88,6 @@ caliper:
                     error: red
                     warn: yellow
                     debug: grey
-            # specifies whether to print stack traces
-            errors:
-                stack: true
-            # serializes the log messages as JSON
-            json: false
-            # Adds a specified label to every message. Useful for distributed client scenario
-            label:
-                label: caliper
-                message: false
-            # Adds a timestamp to the messages
-            timestamp:
-                # The timestamp format string
-                format: YYYY.MM.DD-HH:mm:ss.SSS
         # Lists the targets (winston transports)
         targets:
             console:

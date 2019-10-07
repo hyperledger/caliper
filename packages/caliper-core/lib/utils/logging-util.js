@@ -17,6 +17,7 @@
 const path = require('path');
 
 const { createLogger, format, transports } = require('winston');
+const { ColorizerExtra, PadLevelExtra, AttributeFormat } = require('./log-formats.js');
 require('winston-daily-rotate-file');
 
 const conf = require('../config/config-util.js');
@@ -28,26 +29,26 @@ const conf = require('../config/config-util.js');
  */
 function _messageFormat() {
     let template = conf.get(conf.keys.Logging.Template,
-        '%time% %level% [%label%] [%module%] %message% %meta%');
+        '%timestamp%%level%%label%%module%%message%%metadata%');
 
-    let timeRegex = /%time%/gi;
+    let timestampRegex = /%timestamp%/gi;
     let levelRegex = /%level%/gi;
     let labelRegex = /%label%/gi;
     let moduleRegex = /%module%/gi;
     let messageRegex = /%message%/gi;
-    let metaRegex = /%meta%/gi;
+    let metadataRegex = /%metadata%/gi;
 
     return format.printf(info => {
         // NOTE: info will contain the mandatory "level" and "message" properties
-        // additionally it contains the "moduleName" due to our wrapping approach
+        // additionally it contains the "module" due to our wrapping approach
         // plus it might contain the "timestamp" and "label" properties, if those formats are enabled
 
-        let output = template.replace(timeRegex, info.timestamp || '');
+        let output = template.replace(timestampRegex, info.timestamp || '');
         output = output.replace(levelRegex, info.level || '');
         output = output.replace(labelRegex, info.label || '');
-        output = output.replace(moduleRegex, info.moduleName || '');
+        output = output.replace(moduleRegex, info.module || '');
         output = output.replace(messageRegex, info.message || '');
-        return output.replace(metaRegex, info.meta ? JSON.stringify(info.meta) : '');
+        return output.replace(metadataRegex, info.meta || '');
     });
 }
 
@@ -59,13 +60,27 @@ function _messageFormat() {
 function _assembleDefaultFormat() {
     let formats = [];
 
+    // add timestamp
+    formats.push(format.timestamp({
+        format: 'YYYY.MM.DD-HH:mm:ss.SSS'
+    }));
+
+    // pad level strings
+    formats.push(PadLevelExtra());
+
     // enable aligning log messages
     formats.push(format.align());
 
-    // enable colors for log levels
-    formats.push(format.colorize({
-        level: true,
-        message: false,
+    formats.push(AttributeFormat({
+        level: ' %attribute%',
+        label: ' [%attribute%]',
+        module: ' [%attribute%] ',
+        metadata: ' (%attribute%)'
+    }));
+
+    // enable colors for every attribute
+    formats.push(ColorizerExtra({
+        all: true,
         colors: {
             info: 'green',
             error: 'red',
@@ -73,18 +88,6 @@ function _assembleDefaultFormat() {
             debug: 'grey'
         }
     }));
-
-    // enable printing stacktrace
-    formats.push(format.errors({
-        stack: true
-    }));
-
-    // add timestamp
-    formats.push(format.timestamp({
-        format: 'YYYY.MM.DD-HH:mm:ss.SSS'
-    }));
-
-    formats.push(format.padLevels());
 
     // message format
     formats.push(_messageFormat());
@@ -104,22 +107,80 @@ function _processFormatOptions() {
     // 1) The format options are queried directly (i.e., not using the "logging.formats" root object),
     //    so the user can change them from the command line or from evn vars
     // 2) The sub-properties of the formats are also queried directly for the same reason
+    // 3) The formats are applied in the following order: timestamp, label, json,
+    //    if not json, then padding, align, attributeformat, colorize
 
 
     let formatKey = conf.keys.Logging.Formats;
 
+    // timestamp
+    let timestamp = conf.get(formatKey.Timestamp);
+    if (timestamp && typeof timestamp === 'string') {
+        let opts = {
+            format: timestamp
+        };
+        formats.push(format.timestamp(opts));
+    }
+
+    // label
+    let label = conf.get(formatKey.Label);
+    if (label && typeof label === 'string') {
+        let opts = {
+            label: label,
+            message: false
+        };
+        formats.push(format.label(opts));
+    }
+
+    // JSON
+    let json = conf.get(formatKey.JsonRoot);
+    if (json && typeof json === 'object') {
+        let opts = {
+            space: conf.get(formatKey.Json.Space, 0)
+        };
+        formats.push(format.json(opts));
+
+        // return now, since the other formats are mutually exclusive with the JSON format
+        return format.combine(...formats);
+    }
+
+    // padding
+    let pad = conf.get(formatKey.Pad);
+    if (pad === true) {
+        formats.push(PadLevelExtra());
+    }
+
     // aligning
     let align = conf.get(formatKey.Align);
-    if (align && align === true) {
+    if (align === true) {
         formats.push(format.align());
+    }
+
+    // attribute formatter
+    let attributeFormat = conf.get(formatKey.AttributeFormatRoot);
+    if (attributeFormat && typeof attributeFormat === 'object') {
+        let opts = {
+            timestamp: conf.get(formatKey.AttributeFormat.Timestamp),
+            label: conf.get(formatKey.AttributeFormat.Label),
+            level: conf.get(formatKey.AttributeFormat.Level),
+            module: conf.get(formatKey.AttributeFormat.Module),
+            message: conf.get(formatKey.AttributeFormat.Message),
+            metadata: conf.get(formatKey.AttributeFormat.Metadata)
+        };
+        formats.push(AttributeFormat(opts));
     }
 
     // colorize
     let colorize = conf.get(formatKey.ColorizeRoot);
-    if (colorize && colorize !== false) {
+    if (colorize && typeof colorize === 'object') {
         let opts = {
+            all: conf.get(formatKey.Colorize.All),
+            timestamp: conf.get(formatKey.Colorize.Timestamp),
+            label: conf.get(formatKey.Colorize.Label),
             level: conf.get(formatKey.Colorize.Level),
+            module: conf.get(formatKey.Colorize.Module),
             message: conf.get(formatKey.Colorize.Message),
+            metadata: conf.get(formatKey.Colorize.Metadata),
             colors: {
                 info: conf.get(formatKey.Colorize.Colors.Info),
                 error: conf.get(formatKey.Colorize.Colors.Error),
@@ -127,55 +188,7 @@ function _processFormatOptions() {
                 debug: conf.get(formatKey.Colorize.Colors.Debug)
             }
         };
-        formats.push(format.colorize(opts));
-    } else {
-        formats.push(format.uncolorize({
-            level: true,
-            message: true
-        }));
-    }
-
-    // errors
-    let errors = conf.get(formatKey.ErrorsRoot);
-    if (errors && errors !== false) {
-        let opts = {
-            stack: conf.get(formatKey.Errors.Stack)
-        };
-        formats.push(format.errors(opts));
-    }
-
-    // JSON
-    let json = conf.get(formatKey.JsonRoot);
-    if (json && json !== false) {
-        let opts = {
-            space: conf.get(formatKey.Json.Space)
-        };
-        formats.push(format.json(opts));
-    }
-
-    // label
-    let label = conf.get(formatKey.LabelRoot);
-    if (label && label !== false) {
-        let opts = {
-            label: conf.get(formatKey.Label.Label),
-            message: conf.get(formatKey.Label.Message)
-        };
-        formats.push(format.label(opts));
-    }
-
-    // timestamp
-    let timestamp = conf.get(formatKey.TimestampRoot);
-    if (timestamp && timestamp !== false) {
-        let opts = {
-            format: conf.get(formatKey.Timestamp.Format)
-        };
-        formats.push(format.timestamp(opts));
-    }
-
-    // padding
-    let pad = conf.get(formatKey.Pad);
-    if (pad && pad === true) {
-        formats.push(format.padLevels());
+        formats.push(ColorizerExtra(opts));
     }
 
     // message format
@@ -208,26 +221,31 @@ function _saveLogger(logger) {
  */
 function _wrapWithLoggerName(logger, name) {
     const newLogger = Object.assign({}, logger);
+
+    // wrap the following methods of the winston logger
     ['debug', 'info', 'warn', 'error'].forEach((method) => {
         const originalFunction = logger[method];
 
-        // NOTE: this needs some explanation due to the magical winston mechanics
-        // 1) Without wrapping, the winston info/warn/etc. functions receive a message as first argument
-        // 2) They can also accept any extra arguments (metadata), that will be merged into the "info" object passed to the format pipeline
-        // 3) The "function (message, ...metadata)" signature matches this interface
-        // 4) To flexibly handle the extra module name, it is not prepended to the message, like before
-        // 5) Instead, a new "metadata" object is constructed, that contains the "moduleName" key, plus every originally passed metadata, if any
-        // 6) Don't pass "metadata" to the "meta" field if it's empty (as is the case when no extra args were passed...)
-        newLogger[method] = (function (context, loggerName, f) {
-            return function (message, ...metadata) {
-                let logMeta = {
-                    moduleName: loggerName,
-                    meta: metadata.length > 0 ? metadata : undefined
+        // NOTE: the winston info/warn/etc functions expect a message, and a metadata/info object.
+        // This wrapper function adds the "module" name as part of the winston metadata, collecting other
+        // passed objects (if any) under a single "metadata" property (unwrapping arrays if it can).
+        // The "info" object will be extended by winston with the "message" and "level" properties automatically,
+        // and this "info" objects will be processed by the format pipeline
+        const wrapMethod = function (context, loggerName, f) {
+            return function (message, ...objects) {
+                let info = {
+                    module: loggerName
                 };
 
-                f.apply(context, [message, logMeta]);
+                if (objects.length > 0) {
+                    info.metadata = objects.length === 1 ? objects[0] : objects;
+                }
+
+                f.apply(context, [message, info]);
             };
-        })(logger, name, originalFunction);
+        };
+
+        newLogger[method] = wrapMethod(logger, name, originalFunction);
     });
 
     return newLogger;
