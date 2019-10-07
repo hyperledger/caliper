@@ -20,7 +20,7 @@ Caliper builds on the [winston](https://github.com/winstonjs/winston) logger mod
 2. Configuring logging targets
 3. Creating your own loggers
 
-The first two points can be achieved through the [runtime configuration mechanism](./Runtime_Configuration.md) of Caliper. So make sure that you are familiar with the different way of overriding runtime settings before reading on.
+The first two points can be achieved through the [runtime configuration mechanism](./Runtime_Configuration.md) of Caliper. So make sure that you are familiar with the different way of overriding runtime settings before reading on. The examples below only set the different options through the command line. Naturally, any other setting source could be used.
 
 The runtime configuration settings corresponding to logging reside under the `caliper-logging` key hierarchy. See the `caliper.logging` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/config/default.yaml) bundled with Caliper for the general structure of the settings.
 
@@ -28,7 +28,7 @@ The runtime configuration settings corresponding to logging reside under the `ca
 
 The two main aspects of the logging style are the message structure and the different formats that modify the message appearance if applied. The corresponding attributes are the `caliper.logging.template` property and the entire `caliper.logging.formats` property hierarchy, respectively.
 
-These properties are special in a sense that their values can be overridden one-by-one, even from the command line or from environment variables. As you will see later, this is not the case for the logging target settings.
+The `caliper.logging.formats` hierarchy is special in a sense that every leaf property can be overridden one-by-one, even from the command line or from environment variables. As you will see later, this is not the case for the logging target settings.
 
 > __Note:__ the following style settings apply to every specified logging target!
 
@@ -41,73 +41,110 @@ Let's start with examining the default structure:
 ```yaml
 caliper:
   logging:
-    template: '%time% %level% [%label%] [%module%] %message% %meta%'
+    template: '%timestamp% %level% [%label%] [%module%] %message% (%metadata%)'
 ```
 
 The following placeholders are available at the moment.
 
 | Placeholder | Required format | Description                                                                       |
 |:-----------:|:---------------:|:----------------------------------------------------------------------------------|
-| `%time%`    | _timestamp_     | Will be replaced with the timestamp of the log message.                           |
+| `%timestamp%`    | _timestamp_     | Will be replaced with the timestamp of the log message.                           |
 | `%level%`   | -               | Will be replaced the severity level (e.g., info, warn, error) of the log message. |
 | `%label%`   | _label_         | Will be replaced with the configured label of the process.                        |
 | `%module%`  | -               | Will be replaced with the module name that logged the message.                    |
 | `%message%` | -               | Will be replaced with the actual message.                                         |
-| `%meta%`    | -               | Will be replaced with the one-line JSON string of additional logging arguments.   |
+| `%metadata%`    | -               | Will be replaced with the string representation of additional logging arguments.   |
 
-You can override this template (i.e., the `caliper-logging-template` setting key) from multiple sources.
+You can override this template by changing the `caliper-logging-template` setting key, for example, from the command line: `--caliper-logging-template="%time%: %message%"`
 
-* From the command line: `--caliper-logging-template="%time%: %message%"`
-* From an environment variable: `export CALIPER_LOGGING_TEMPLATE="%time%: %message%"`
-  > __Note:__ do not forget the two enclosing `". . ."`, since the template can contain spaces!
-* From a [configuration file](./Runtime_Configuration.md#configuration-files) with the following content:
-  ```yaml
-  caliper:
-    logging:
-      template: '%time%: %message%'
-  ```
+> __Note:__ 
+> 1. Do not forget the two enclosing quotes, since the template can contain spaces!
+> 2. This template if applied after every format has been applied!
+> 3. Adding spaces and different brackets this way is fine for simple coloring scenarios (or when coloring is disabled). However, when coloring the entire log message (or just parts that should be surrounded with additional characters), the result looks inconsistent when formatted this way. See the [Tips & Tricks](#tips--tricks) section for advanced message formatting scenarios.
 
 ### Applying formats
 
-The logging subsystem relies on winston's [logform](https://github.com/winstonjs/logform) library to apply additional formatting to the messages. The corresponding settings are under the `caliper.logging.formats` property.
+The logging subsystem relies on winston's [format mechanism](https://github.com/winstonjs/logform#understanding-formats) to further modify the log messages. The corresponding settings are under the `caliper.logging.formats` property.
 
-Each of these formats can be easily disabled by setting its property to `false`. For example, to disable the `colorize` format, set its corresponding `caliper.logging.formats.colorize` property to false, from any of the following sources.
-
-* From the command line: `--caliper-logging-formats-colorize=false`
-* From an environment variable: `export CALIPER_LOGGING_FORMATS_COLORIZE=false`
-* From a [configuration file](./Runtime_Configuration.md#configuration-files) with the following content:
-  ```yaml
-  caliper:
-    logging:
-      formats:
-        colorize: false
-  ```
+Each of these formats can be easily disabled by setting its property to `false`. For example, to disable the `colorize` format, set its corresponding `caliper.logging.formats.colorize` property to false, for example, from the command line: `--caliper-logging-formats-colorize=false` 
   
-Similarly, any subproperty of a format can be easily overridden. For example, changing the `caliper.logging.formats.colorize.colors.info` property can be done from any of the following sources:
+Similarly, any sub-property of a format can be easily overridden. For example, changing the `caliper.logging.formats.colorize.colors.info` property from the command line: `--caliper-logging-formats-colorize-colors-info=blue`
 
-* From the command line: `--caliper-logging-formats-colorize-colors-info=blue`
-* From an environment variable: `export CALIPER_LOGGING_FORMATS_COLORIZE_COLORS_INFO=blue`
-* From a [configuration file](./Runtime_Configuration.md#configuration-files) with the following content:
-  ```yaml
-  caliper:
-    logging:
-      formats:
-        colorize:
-          colors:
-            info: blue
-  ```
+The following formats and their options (sub-properties) are supported.
 
-The following formats and their options are supported (click on the name for the official documentation):
+> __Note:__ the different formats are applied in the order they are presented, which is important (see the [Tips & Tricks](#tips--tricks) section for the reason).
 
-| Format | Supported options |
-|:------:|:-----------------:|
-| [Align](https://github.com/winstonjs/logform#align) | N.A. |
-| [Pad](https://github.com/winstonjs/logform#padlevels) | N.A. |
-| [Colorize](https://github.com/winstonjs/logform#colorize) | `level`, `message`, `colors` |
-| [Errors](https://github.com/winstonjs/logform#errors) | `stack` |
-| [JSON](https://github.com/winstonjs/logform#json) | `space` |
-| [Label](https://github.com/winstonjs/logform#label) | `label`, `message` |
-| [Timestamp](https://github.com/winstonjs/logform#timestamp) | `format` |
+#### Timestamp
+Adds the timestamp to the message in the specified format. The format string must conform to the rules of the [fecha](https://github.com/taylorhakes/fecha#formatting-tokens) package.
+
+For example: `--caliper-logging-formats-timestamp="YYYY.MM.DD-HH:mm:ss.SSS"`
+
+> __Note:__ the format makes the `timestamp` attribute available in the message, thus it can be referenced in the message template, or in other formats that can access message attributes.
+
+#### Label
+Adds a custom label to the message. This is useful for differentiating multiple Caliper instances (or the distributed client instances) after collecting their logs.
+
+For example: `--caliper-logging-formats-label="caliper-test-1"`
+
+> __Note:__ the format makes the `label` attribute available in the message, thus it can be referenced in the message template, or in other formats that can access message attributes.
+
+#### JSON
+Outputs the messages as JSON strings. Useful for file-based logs that will be processed automatically by another tool. The format accepts a `space` sub-property as an options, which corresponds to the `space` parameter of the [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#Syntax) function.
+
+For example: `--caliper-logging-formats-json="{space:0}"`
+
+> __Note:__
+> 1. Enabling this format is eaiser from a configuration file. See the [Tips & Tricks](#tips--tricks) section.
+> 2. Setting `space` to a non-zero number will effectively format the JSON output with indentations on multiple lines. This could "spam" the console a bit (not a problem for log files, unless you care about the extra newlines).
+> 3. If this format is enabled, the rest of the formats won't be applied, since their purpose is mainly to make console logs more readable.
+
+#### Padding
+Makes every log level string the same length, i.e., adds an extra space after `"info"` and `"warn"` make them the same length as `"error"` and `"debug"`.
+
+For example: `--caliper-logging-formats-pad=true`
+
+#### Align
+Prepends the message part of the log with a tabulator (`"\t"`) to align the messages of different logs in the same place.
+
+For example: `--caliper-logging-formats-align=true`
+
+> __Note:__ if the message format contains other information with variable lengths (e.g., the module name), it can cause misaligned messages. So this is just a "best effort" format to make console messages more readable.
+
+#### Attribute format
+Defines string formatting options for the different attributes of a message. A "format string" can be provided for each message attribute that will "reformat" its value. The format string can use the `%attribute%` placeholder to reference the original value.
+
+A format string can be specified for the following message attributes:
+* timestamp
+* level
+* label
+* module
+* message
+* metadata
+
+For example, to customize the level information of the log (enclose it in the `LEVEL[<level>]` string):
+
+`--caliper-logging-formats-attributeformat-level="LEVEL[%attribute%]"`
+
+> __Note:__ if the attribute is not a string (which can be the case for the "metadata" attribute), then first the attribute value is converted to string, using `JSON.stringify`, and then it's inserted into the format string.
+
+#### Colorize
+Applies color coding for the different attributes of a message. Enabling/disabling coloring is specified on an attribute basis. The following sub-properties can be set to `true/false` to enable/disable coloring for the corresponding attribute:
+
+* timestamp
+* level
+* label
+* module
+* message
+* metadata
+* __all:__ setting it to true enables coloring for every attribute  
+
+For example, to colorize every part of the message: `--caliper-logging-formats-colorize-all=true`
+
+Additionally, the format exposes a `colors` attribute, which contains coloring information for the `info`, `error`, `warn` and `debug` levels. The value of a level can be set to colors and styles provided by the [colors](https://github.com/Marak/colors.js#colors-and-styles) package. To apply multiple styles, separate the values with a space.
+
+For example, to really highlight error-level logs: `--caliper-logging-formats-colorize-colors-error="white bgRed bold italic"`
+
+> __Note:__ the `colors` package offers some exotic styles which seem tempting at first, but don't overdo it, for the sake of your eyes. Keep it simple.
 
 ## Configuring logging targets
 
@@ -211,10 +248,10 @@ const logger = require('@hyperledger/caliper-core').CaliperUtils.getLogger('my-m
 
 // ...
 
-logger.debug('My custom debug message', metadataObject);
+logger.debug('My custom debug message', metadataObject1, metadataObject2);
 ```
 
-Once a logger instance is created, it exposes the usual `info`, `warn`, `debug` and `error` functions that each take as parameter a log message and an optional object, considered as "metadata".
+Once a logger instance is created, it exposes the usual `info`, `warn`, `debug` and `error` functions that each take as parameter a log message and optional objects, considered as "metadata".
 
 This "metadata" is especially useful for debug level logs. When you perform an operation based on a complex input parameter/object, you can log the following at the beginning of your function:
 
@@ -225,11 +262,167 @@ function complexCalculation(complexInput) {
 }
 ```
 
-This "metadata" can also be an array of object, if you would like to log multiple inputs. The "metadata" will appear at the place of the `%meta%` placeholder, as discussed in the message template section.
+The "metadata" will appear at the place of the `%metadata%` placeholder, as discussed in the message template section.
 
-> __Note:__ the "metadata" object will be serialized as a JSON string. This can hurt the performance of logging if done in a loop with larger objects. Only use "metadata" logging for debug messages, since the debug level can be switched off in production code.
+> __Note:__ passing large metadata objects can hurt the performance of logging if done in a loop/hot path. Only use "metadata" logging for debug messages, since the debug level is usually switched off in production code.
 
 ## Tips & tricks
+
+### The format pipeline
+
+Winston formats are a powerful feature that allow the arbitrary manipulation of log messages. From the user's perspective, a log message is a simple string displayed on the console, or saved in a file. However, to fully utilize the logging styles described in this documentation, it might help knowing what really happens under the hood. 
+
+> __Note:__ in the remainder of this section, we'll refer to log messages as LOG. 
+
+LOG can be considered an item/object, that is generated when issuing a call to `logger.info(...)` or similar functions. A LOG can have several attributes attached to it. Every LOG has the `level` and `message` attributes, containing the severity and the "description" of LOG. Additionally, Caliper automatically adds the `module` attribute to LOGs of every logger created through the Caliper API, denoting the name of the module who issued the log.  
+
+Let's introduce the format pipeline through an example.
+
+#### Assumptions
+
+Let's assume that the following `caliper.logging` configuration is used:
+
+```yaml
+template: '%timestamp%%level%%label%%module%%message%%metadata%'
+formats:
+    timestamp: 'YYYY.MM.DD-HH:mm:ss.SSS'
+    label: caliper
+    json: false
+    pad: true
+    align: false
+    attributeformat:
+        level: ' %attribute%'
+        label: ' [%attribute%]'
+        module: ' [%attribute%] '
+        metadata: ' (%attribute%)'
+    colorize:
+        all: true
+        colors:
+            info: green
+            error: red
+            warn: yellow
+            debug: grey
+```
+
+This means that the following formats will be applied to every LOG:
+* module (automatically added by Caliper)
+* timestamp
+* label
+* padding
+* attribute formats
+* colorizing
+* template substitution
+
+Furthermore, let's assume that the following code initiates the LOG:
+
+```js
+const logger = require('@hyperledger/caliper-core').CaliperUtils.getLogger('my-module');
+
+// ...
+
+logger.info('Doing operation X with:', 'someSetting', 'anotherSetting');
+```
+
+#### The life of a LOG
+
+The `logger.info` call generates the initial LOG with the following attributes:
+
+```yaml
+level: 'info'
+message: 'Doing operation X with:'
+```
+
+Before LOG enters the format pipeline, Caliper also adds the module name, and collects the additional parameters as metadata. Now LOG has the following attributes:
+
+```yaml
+level: 'info'
+message: 'Doing operation X with:'
+module: 'my-module'
+metadata: ['someSetting', 'anotherSetting']
+```
+
+This is the initial LOG entity that enters the format pipeline. Every enabled format is "just" a transformation on the attributes of LOG. A format can manipulate the value of an existing attribute or/and add/remove arbitrary attributes.
+
+The first step of the pipeline is the timestamp format. This adds the `timestamp` attribute containing the current time, in the specified format. After this step, LOG looks like this:
+
+```yaml
+level: 'info'
+message: 'Doing operation X with:'
+module: 'my-module'
+metadata: ['someSetting', 'anotherSetting']
+timestamp: '2019.10.07-12:45:47.962'
+```
+
+The next step if the label format, which adds the `label` attribute with the specified value (`caliper`, in this case):
+
+```yaml
+level: 'info'
+message: 'Doing operation X with:'
+module: 'my-module'
+metadata: ['someSetting', 'anotherSetting']
+timestamp: '2019.10.07-12:45:47.962'
+label: 'caliper'
+```
+
+The next step is the padding format, which ensure that every logging level string has the same length. This means, that an extra space is appended at the end of the `level` attribute:
+
+```yaml
+level: 'info '
+message: 'Doing operation X with:'
+module: 'my-module'
+metadata: ['someSetting', 'anotherSetting']
+timestamp: '2019.10.07-12:45:47.962'
+label: 'caliper'
+```
+
+The next step is the attribute formatter. This formatter is configured to modify multiple attributes of LOG, based on a string template:
+
+* level: add a space before it
+* label: enclose in `[]` and add a space before it
+* module: enclose in `[]` and add a space before and after it
+* metadata: enclose in `()` and add a space before it
+
+After these transformation, LOG looks like the following:
+```yaml
+level: ' info '
+message: 'Doing operation X with:'
+module: ' [my-module] '
+metadata: ' (["someSetting", "anotherSetting"])'
+timestamp: '2019.10.07-12:45:47.962'
+label: ' [caliper]'
+```
+
+> __Note:__ some remarks:
+> 1. `metadata` was an Array, not a string, so it was stringified before the formatting was applied.
+> 2. `message` and `timestamp` is unchanged.
+
+The next step is the colorizing format, which adds certain color/style codes to the configured values. Since `all` is set true, and the `level` of LOG is `info`, every attribute is surrounded with the color code for green (denoted by `<green>` for sake of readability):
+
+```yaml
+level: '<green> info <green>'
+message: '<green>Doing operation X with:<green>'
+module: '<green> [my-module] <green>'
+metadata: '<green> (["someSetting", "anotherSetting"])<green>'
+timestamp: '<green>2019.10.07-12:45:47.962<green>'
+label: '<green> [caliper]<green>'
+```
+
+The last step in the pipeline (since the JSON format is disabled) is substituting the attributes into the logging template, to create the final message, that will appear in the console and in the file. The result is the concatenation of LOG's attributes in the following order:
+1. timestamp
+2. level
+3. label
+4. module
+5. message
+6. metadata
+
+Omitting the color code for the sake of readability, this results in:
+```
+2019.10.07-12:45:47.962 info  [caliper] [my-module] Doing operation X with: (["someSetting", "anotherSetting"])
+```
+
+> __Note:__ try adding other characters to the template string. And then be surprised that they are not colorized with the rest of the line. Actually, this is not surprising at all. The template string is "evaluated" after the colorizing format. Since these extra characters are not part of any attributes of LOG, they won't be colorized.  
+
+### Use a configuration file
 
 Logging settings are usually determined by your log analysis requirements. This means that once you settle on some logging style and targets, those settings will rarely change.
 
