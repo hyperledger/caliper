@@ -52,6 +52,10 @@ elif [[ "${BENCHMARK}" == "fabric" ]]; then
         rc=$?
         exit $rc;
     fi
+elif [[ "${BENCHMARK}" == "ethereum" ]]; then
+    ${CALL_METHOD} benchmark run --caliper-benchconfig benchmark/simple/config.yaml --caliper-networkconfig network/ethereum/1node-clique/ethereum.json --caliper-workspace ../caliper-samples/
+    rc=$?
+    exit $rc;
 else
     echo "Unknown target benchmark ${BENCHMARK}"
     exit 1

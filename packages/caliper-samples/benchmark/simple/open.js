@@ -79,6 +79,11 @@ function generateWorkload() {
                 chaincodeFunction: 'open',
                 chaincodeArguments: [acc_id, initMoney.toString()],
             });
+        } else if (bc.bcType === 'ethereum') {
+                workload.push({
+                    verb: 'open',
+                    args: [acc_id, initMoney]
+                });
         } else {
             workload.push({
                 'verb': 'open',

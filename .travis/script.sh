@@ -44,6 +44,8 @@ if [[ "${BENCHMARK}" == "composer" ]]; then
     npx caliper bind --caliper-bind-sut composer
 elif [[ "${BENCHMARK}" == "fabric" ]]; then
     npx caliper bind --caliper-bind-sut fabric
+elif [[ "${BENCHMARK}" == "ethereum" ]]; then
+    npx caliper bind --caliper-bind-sut ethereum
 else
     echo "Unknown target benchmark ${BENCHMARK}"
     npm run cleanup

@@ -81,3 +81,7 @@ sut:
             settings:
             - *new-node-old-grpc
         latest: *composer-latest
+    ethereum:
+        1.2.1: &ethereum-latest
+            packages: ['web3@1.2.1']
+        latest: *ethereum-latest
