@@ -21,6 +21,7 @@ Steps for configuring a benchmark that targets a supported blockchain technology
 
 - [Burrow](./Burrow_Configuration.md)
 - [Composer](./Composer_Configuration.md)
+- [Ethereum](./Ethereum_Configuration.md)
 - [Fabric](./Fabric_Configuration.md)
 - [Iroha](./Iroha_Configuration.md)
 - [Sawtooth](./Sawtooth_Configuration.md)
