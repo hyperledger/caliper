@@ -32,6 +32,10 @@
       "benchmark/smallbank/.Rhistory",
       "network/burrow/simple/chain/keys/names",
       "network/sawtooth/simplenetwork/Dockerfile",
+      "network/ethereum/1node/keys",
+      "network/ethereum/1node/Dockerfile",
+      "network/ethereum/1node-clique/keys",
+      "network/ethereum/1node-clique/Dockerfile",
       "network/fabric-v1.0/config/.gitignore",
       "network/fabric-v1.1/config/.gitignore",
       "network/fabric-v1.2/config/.gitignore",
@@ -67,7 +71,8 @@
       ".list",
       ".sol",
       ".proto",
-      ".cfg"
+      ".cfg",
+      ".dat"
     ],
     "insert_license": false,
     "license_formats": {

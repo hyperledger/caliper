@@ -1,0 +1,22 @@
+{
+    "caliper": {
+        "blockchain": "ethereum",
+        "command" : {
+            "start": "docker-compose -f network/ethereum/1node-clique/docker-compose.yml up -d && sleep 3",
+            "end" : "docker-compose -f network/ethereum/1node-clique/docker-compose.yml down"
+          }
+    },
+    "ethereum": {
+        "url": "http://localhost:8545",
+        "contractDeployerAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2",
+        "contractDeployerAddressPassword": "password",
+        "fromAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2",
+        "fromAddressPassword": "password",
+        "transactionConfirmationBlocks": 2,
+        "contracts": {
+            "simple": {
+                "path": "src/contract/ethereum/simple/simple.json"
+            }
+        }
+    }
+}

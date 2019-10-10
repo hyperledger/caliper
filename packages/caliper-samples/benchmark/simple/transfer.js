@@ -44,6 +44,11 @@ module.exports.run = function () {
             chaincodeFunction: 'transfer',
             chaincodeArguments: [account1, account2, initmoney.toString()],
         };
+    } else if (bc.bcType === 'ethereum') {
+        args = {
+            verb: 'transfer',
+            args: [account1, account2, initmoney]
+        };
     } else {
         args = {
             'verb': 'transfer',

@@ -5,6 +5,7 @@ matrix:
     include:
         - env: BENCHMARK=composer
         - env: BENCHMARK=fabric
+        - env: BENCHMARK=ethereum
 dist: trusty
 before_install: |
     set -ev
