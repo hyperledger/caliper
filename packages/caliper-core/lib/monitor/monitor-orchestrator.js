@@ -39,7 +39,6 @@ class MonitorOrchestrator {
         this.config = Util.parseYaml(configPath);
         this.started = false;
         this.monitors = new Map();
-
         // Parse the config and retrieve the monitor types
         const m = this.config.monitor;
         if(typeof m === 'undefined') {
