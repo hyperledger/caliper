@@ -158,15 +158,15 @@ describe('Prometheus monitor implementation', () => {
         it('should return a map with keys that correspond to the passed `include` keys, with default entries populated', () => {
 
             const mon = new PrometheusMonitorRewire(include);
-            const map = mon.getResultColumnMapForQueryTag('query', 'tag');
+            const map = mon.getResultColumnMapForQueryTag('query', 'MyTag');
 
             // Three keys
             map.size.should.equal(3);
 
-            // Tags, and Type should contain the corect information
+            // Tags, and Type should contain the correct information
             map.get('Prometheus Query').should.equal('query');
             map.get('Name').should.equal('N/A');
-            map.get('tag').should.equal('N/A');
+            map.get('Metric').should.equal('MyTag');
         });
     });
 

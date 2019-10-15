@@ -131,21 +131,21 @@ describe('client orchestrator implementation', () => {
         ClientOrchestratorRewire.__set__('util.parseYaml', FakeParseYaml);
         const myOrchestrator = new ClientOrchestratorRewire();
 
-        it('should group all client results into an array under a txStats label', () => {
-            const result0 = {result: [1] , start: new Date(2018, 11, 24, 10, 33), end: new Date(2018, 11, 24, 11, 33)};
-            const result1 = {result: [2] , start: new Date(2018, 11, 24, 10, 34), end: new Date(2018, 11, 24, 11, 23)};
-            const result2 = {result: [3] , start: new Date(2018, 11, 24, 10, 35), end: new Date(2018, 11, 24, 11, 13)};
+        it('should group all client results into an array under a results label', () => {
+            const result0 = {results: [1] , start: new Date(2018, 11, 24, 10, 33), end: new Date(2018, 11, 24, 11, 33)};
+            const result1 = {results: [2] , start: new Date(2018, 11, 24, 10, 34), end: new Date(2018, 11, 24, 11, 23)};
+            const result2 = {results: [3] , start: new Date(2018, 11, 24, 10, 35), end: new Date(2018, 11, 24, 11, 13)};
             const testData = [result0, result1, result2];
 
             const output = myOrchestrator.formatResults(testData);
-            output.txStats.should.deep.equal([1,2,3]);
+            output.results.should.deep.equal([1,2,3]);
         });
 
         it('should determine and persist the time when all clients have started', () => {
             const compareStart = new Date(2018, 11, 24, 10, 35);
-            const result0 = {result: [1] , start: new Date(2018, 11, 24, 10, 33), end: new Date(2018, 11, 24, 11, 33)};
-            const result1 = {result: [2] , start: new Date(2018, 11, 24, 10, 34), end: new Date(2018, 11, 24, 11, 13)};
-            const result2 = {result: [3] , start: compareStart, end: new Date(2018, 11, 24, 11, 23)};
+            const result0 = {results: [1] , start: new Date(2018, 11, 24, 10, 33), end: new Date(2018, 11, 24, 11, 33)};
+            const result1 = {results: [2] , start: new Date(2018, 11, 24, 10, 34), end: new Date(2018, 11, 24, 11, 13)};
+            const result2 = {results: [3] , start: compareStart, end: new Date(2018, 11, 24, 11, 23)};
             const testData = [result0, result1, result2];
 
             const output = myOrchestrator.formatResults(testData);
@@ -154,9 +154,9 @@ describe('client orchestrator implementation', () => {
 
         it('should determine and persist the last time when all clients were running', () => {
             const compareEnd = new Date(2018, 11, 24, 11, 13);
-            const result0 = {result: [1] , start: new Date(2018, 11, 24, 10, 33), end: new Date(2018, 11, 24, 11, 33)};
-            const result1 = {result: [2] , start: new Date(2018, 11, 24, 10, 34), end: compareEnd};
-            const result2 = {result: [3] , start:  new Date(2018, 11, 24, 10, 35), end: new Date(2018, 11, 24, 11, 23)};
+            const result0 = {results: [1] , start: new Date(2018, 11, 24, 10, 33), end: new Date(2018, 11, 24, 11, 33)};
+            const result1 = {results: [2] , start: new Date(2018, 11, 24, 10, 34), end: compareEnd};
+            const result2 = {results: [3] , start:  new Date(2018, 11, 24, 10, 35), end: new Date(2018, 11, 24, 11, 23)};
             const testData = [result0, result1, result2];
 
             const output = myOrchestrator.formatResults(testData);
