@@ -46,20 +46,40 @@
       ".pm2/touch",
       "storage",
       "scripts/storage",
-      "log"
+      "log",
+      "fabric_tests/.gitignore",
+      "fabric_tests/config/.gitignore"
     ],
     "file_type_method": "EXCLUDE",
     "file_types": [
+      ".pm2",
+      ".pid",
       ".yml",
       ".log",
-      ".pm2",
+      ".acl",
+      ".md",
+      ".toml",
+      ".sample",
+      ".service",
+      ".priv",
+      ".pub",
+      ".pem",
       ".html",
-      ".pid",
-      ".md"
+      ".bin",
+      ".crt",
+      ".key",
+      ".tx",
+      ".block",
+      ".sh",
+      ".qry",
+      ".list",
+      ".sol",
+      ".proto",
+      ".cfg"
     ],
     "insert_license": false,
     "license_formats": {
-      "js": {
+      "js|go": {
         "prepend": "/*",
         "append": "*/",
         "eachLine": {

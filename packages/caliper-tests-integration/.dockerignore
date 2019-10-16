@@ -16,5 +16,6 @@
 scripts/*
 node_modules/*
 log/*
+fabric_tests/*
 caliper.Dockerfile
 package.json
