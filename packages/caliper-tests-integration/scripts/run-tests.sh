@@ -40,15 +40,18 @@ if [[ "${BENCHMARK}" == "composer" ]]; then
     rc=$?
     exit $rc;
 elif [[ "${BENCHMARK}" == "fabric" ]]; then
+    export CALIPER_FABRIC_SLEEPAFTER_CREATECHANNEL=10000
+    export CALIPER_FABRIC_SLEEPAFTER_JOINCHANNEL=10000
+    export CALIPER_FABRIC_SLEEPAFTER_INSTANTIATECHAINCODE=10000
     # Run with channel creation using a createChannelTx in couchDB, using a Gateway
 
-    ${CALL_METHOD} benchmark run --caliper-benchconfig benchmark/simple/config.yaml --caliper-networkconfig network/fabric-v1.4/2org1peercouchdb/fabric-node.yaml --caliper-workspace ../caliper-samples/ --caliper-fabric-usegateway
+    ${CALL_METHOD} benchmark run --caliper-benchconfig benchmark/simple/config.yaml --caliper-networkconfig network/fabric-v1.4.1/2org1peercouchdb/fabric-node.yaml --caliper-workspace ../caliper-samples/ --caliper-fabric-usegateway
     rc=$?
     if [[ $rc != 0 ]]; then
         exit $rc;
     else
         # Run with channel creation using an existing tx file in LevelDB, using a low level Caliper client
-        ${CALL_METHOD} benchmark run --caliper-benchconfig benchmark/simple/config.yaml --caliper-networkconfig network/fabric-v1.4/2org1peergoleveldb/fabric-go.yaml --caliper-workspace ../caliper-samples/
+        ${CALL_METHOD} benchmark run --caliper-benchconfig benchmark/simple/config.yaml --caliper-networkconfig network/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml --caliper-workspace ../caliper-samples/
         rc=$?
         exit $rc;
     fi

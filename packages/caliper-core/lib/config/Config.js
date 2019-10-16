@@ -45,12 +45,32 @@ const keys = {
         Template: 'caliper-logging-template',
         FormatsRoot: 'caliper-logging-formats',
         Formats: {
-            Align: 'caliper-logging-formats-align',
+            Timestamp: 'caliper-logging-formats-timestamp',
+            Label: 'caliper-logging-formats-label',
+            JsonRoot: 'caliper-logging-formats-json',
+            Json: {
+                Space: 'caliper-logging-formats-json-space'
+            },
             Pad: 'caliper-logging-formats-pad',
+            Align: 'caliper-logging-formats-align',
+            AttributeFormatRoot: 'caliper-logging-formats-attributeformat',
+            AttributeFormat: {
+                Timestamp: 'caliper-logging-formats-attributeformat-timestamp',
+                Label: 'caliper-logging-formats-attributeformat-label',
+                Level: 'caliper-logging-formats-attributeformat-level',
+                Module: 'caliper-logging-formats-attributeformat-module',
+                Message: 'caliper-logging-formats-attributeformat-message',
+                Metadata: 'caliper-logging-formats-attributeformat-metadata'
+            },
             ColorizeRoot: 'caliper-logging-formats-colorize',
             Colorize: {
+                All: 'caliper-logging-formats-colorize-all',
+                Timestamp: 'caliper-logging-formats-colorize-timestamp',
+                Label: 'caliper-logging-formats-colorize-label',
                 Level: 'caliper-logging-formats-colorize-level',
+                Module: 'caliper-logging-formats-colorize-module',
                 Message: 'caliper-logging-formats-colorize-message',
+                Metadata: 'caliper-logging-formats-colorize-metadata',
                 Colors: {
                     Info: 'caliper-logging-formats-colorize-colors-info',
                     Error: 'caliper-logging-formats-colorize-colors-error',
@@ -58,23 +78,6 @@ const keys = {
                     Debug: 'caliper-logging-formats-colorize-colors-debug',
                 }
             },
-            ErrorsRoot: 'caliper-logging-formats-errors',
-            Errors: {
-                Stack: 'caliper-logging-formats-errors-stack'
-            },
-            JsonRoot: 'caliper-logging-formats-json',
-            Json: {
-                Space: 'caliper-logging-formats-json-space'
-            },
-            LabelRoot: 'caliper-logging-formats-label',
-            Label: {
-                Label: 'caliper-logging-formats-label-label',
-                Message: 'caliper-logging-formats-label-message'
-            },
-            TimestampRoot: 'caliper-logging-formats-timestamp',
-            Timestamp: {
-                Format: 'caliper-logging-formats-timestamp-format'
-            }
         },
         Targets: 'caliper-logging-targets'
     },
