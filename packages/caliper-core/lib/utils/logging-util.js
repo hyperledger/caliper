@@ -298,7 +298,7 @@ function _createConfiguredLogger() {
         // skip disabled targets
         // NOTE: read property directly from config, so it can be overridden
         let enabled = conf.get(`caliper-logging-targets-${target}-enabled`);
-        if (enabled && enabled === false) {
+        if (enabled !== undefined && enabled === false) {
             continue;
         }
 

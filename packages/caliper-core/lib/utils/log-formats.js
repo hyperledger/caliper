@@ -30,7 +30,11 @@ const colorizeExtra = format((info, opts) => {
         if (info[key] !== undefined && (opts.all || opts[key])) {
             // surround the value with the style codes one by one
             for (let style of colorStyles) {
-                info[key] = colors[style](info[key]);
+                try {
+                    info[key] = colors[style](info[key]);
+                } catch (e) {
+                    // silent fail, can't log here
+                }
             }
         }
     }

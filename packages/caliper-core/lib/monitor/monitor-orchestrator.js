@@ -42,7 +42,8 @@ class MonitorOrchestrator {
         // Parse the config and retrieve the monitor types
         const m = this.config.monitor;
         if(typeof m === 'undefined') {
-            throw new Error('Failed to find a monitor in the config file');
+            logger.info('No monitor specified, will default to "none"');
+            return;
         }
 
         if(typeof m.type === 'undefined') {

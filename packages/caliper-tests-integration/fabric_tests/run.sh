@@ -13,9 +13,8 @@
 # limitations under the License.
 #
 
-# Exit on first error, print all commands.
-set -ev
-set -o pipefail
+# Print all commands.
+set -v
 
 # Grab the parent (fabric_tests) directory.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -34,10 +33,16 @@ export CALL_METHOD="node ../../caliper-cli/caliper.js"
 # change default settings (add config paths too)
 export CALIPER_PROJECTCONFIG=../caliper.yaml
 
+dispose () {
+    ${CALL_METHOD} benchmark run --caliper-workspace phase5 --caliper-flow-only-end
+}
+
 # PHASE 1: just starting the network
 ${CALL_METHOD} benchmark run --caliper-workspace phase1 --caliper-flow-only-start
 rc=$?
 if [[ ${rc} != 0 ]]; then
+    echo "Failed CI step 1";
+    dispose;
     exit ${rc};
 fi
 
@@ -46,6 +51,8 @@ fi
 ${CALL_METHOD} benchmark run --caliper-workspace phase2 --caliper-flow-only-init
 rc=$?
 if [[ ${rc} != 0 ]]; then
+    echo "Failed CI step 2";
+    dispose;
     exit ${rc};
 fi
 
@@ -53,6 +60,8 @@ fi
 ${CALL_METHOD} benchmark run --caliper-workspace phase3 --caliper-flow-skip-start --caliper-flow-skip-end --caliper-flow-skip-test
 rc=$?
 if [[ ${rc} != 0 ]]; then
+    echo "Failed CI step 3";
+    dispose;
     exit ${rc};
 fi
 
@@ -60,6 +69,8 @@ fi
 ${CALL_METHOD} benchmark run --caliper-workspace phase3 --caliper-flow-skip-start --caliper-flow-skip-end --caliper-flow-skip-test
 rc=$?
 if [[ ${rc} != 0 ]]; then
+    echo "Failed CI step 4";
+    dispose;
     exit ${rc};
 fi
 
@@ -67,6 +78,8 @@ fi
 ${CALL_METHOD} benchmark run --caliper-workspace phase4 --caliper-flow-only-test
 rc=$?
 if [[ ${rc} != 0 ]]; then
+    echo "Failed CI step 5";
+    dispose;
     exit ${rc};
 fi
 
@@ -74,6 +87,8 @@ fi
 ${CALL_METHOD} benchmark run --caliper-workspace phase4 --caliper-flow-only-test --caliper-fabric-usegateway
 rc=$?
 if [[ ${rc} != 0 ]]; then
+    echo "Failed CI step 6";
+    dispose;
     exit ${rc};
 fi
 
@@ -81,5 +96,6 @@ fi
 ${CALL_METHOD} benchmark run --caliper-workspace phase5 --caliper-flow-only-end
 rc=$?
 if [[ ${rc} != 0 ]]; then
+    echo "Failed CI step 7";
     exit ${rc};
 fi

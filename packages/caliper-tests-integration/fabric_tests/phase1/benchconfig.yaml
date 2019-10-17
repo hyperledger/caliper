@@ -30,9 +30,3 @@ test:
       txNumber: [100]
       rateControl: [{ type: 'linear-rate', opts: { startingTps: 10, finishingTps: 20 } }]
       callback: ../query.js
-observer:
-    interval: 1
-    type: none
-monitor:
-    interval: 1
-    type: ['none']
