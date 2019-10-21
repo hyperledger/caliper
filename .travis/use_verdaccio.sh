@@ -29,6 +29,10 @@ export CALL_METHOD="npx caliper"
 echo "---- Publishing packages locally"
 cd ./packages/caliper-tests-integration/
 
+# clean up the bootstrap modules, they interfere
+rm -rf node_modules
+# reinstall the dev deps (pm2, verdaccio, etc)
+npm i --only=dev
 npm run start_verdaccio
 npm run npm_publish_local
 
@@ -46,6 +50,4 @@ npx caliper bind
 echo "---- Running Integration test for adaptor ${BENCHMARK}"
 npm run run_tests
 
-# shouldn't leave the CLI among the deps
-npm uninstall --save @hyperledger/caliper-cli
 npm run cleanup
