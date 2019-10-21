@@ -12,7 +12,9 @@ before_install: |
     set -o pipefail
     npm install -g @alrra/travis-scripts
 
-script: ./.travis/avoid_verdaccio.sh
+script:
+- ./scripts/check-package-names.sh
+- ./.travis/avoid_verdaccio.sh
 
 cache:
   directories:
