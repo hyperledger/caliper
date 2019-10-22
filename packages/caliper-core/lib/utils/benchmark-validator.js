@@ -58,7 +58,8 @@ class BenchmarkValidator {
         }
 
         // If prometheus monitor specified, must be a prometheus observer
-        if (benchConfig.monitor.type.includes('prometheus') && !(benchConfig.observer.type.localeCompare('prometheus') === 0) ) {
+        if (benchConfig.monitor && benchConfig.monitor.type &&
+            benchConfig.monitor.type.includes('prometheus') && !(benchConfig.observer.type.localeCompare('prometheus') === 0) ) {
             BenchmarkValidator.throwIncompatibleTypeBenchmarkError('observer.type.local', 'monitor.type.prometheus');
         }
     }

@@ -119,12 +119,12 @@ async function joinChannels(config) {
 
         // Collect Organisation peers
         let peerNames = org.peers;
-        let peers = new Array();
+        let peers = [];
         peerNames.forEach((peer) => {
             peers.push(config.composer.network.peers[peer]);
         });
 
-        if(!peers || peers.length === 0) {
+        if(peers.length === 0) {
             return Promise.reject('No peers defined within org.config: unable to join peers to channel(s).');
         }
 

@@ -1,0 +1,70 @@
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+version: "3"
+
+services:
+  node0:
+    image: fiscoorg/fiscobcos:v2.1.0
+    ports:
+      - "20914:20914"
+      - "8914:8914"
+      - "30914:30914"
+    working_dir: /data
+    volumes:
+      - ./node0:/data
+    container_name: node0
+    command: /usr/local/bin/fisco-bcos -c config.ini
+
+  node1:
+    image: fiscoorg/fiscobcos:v2.1.0
+    ports:
+      - "20915:20915"
+      - "8915:8915"
+      - "30915:30915"
+    working_dir: "/data"
+    volumes:
+      - ./node1:/data
+    container_name: node1
+    command: /usr/local/bin/fisco-bcos -c config.ini
+    depends_on:
+      - "node0"
+
+  node2:
+    image: fiscoorg/fiscobcos:v2.1.0
+    ports:
+      - "20916:20916"
+      - "8916:8916"
+      - "30916:30916"
+    working_dir: "/data"
+    volumes:
+      - ./node2:/data
+    container_name: node2
+    command: /usr/local/bin/fisco-bcos -c config.ini
+    depends_on:
+      - "node1"
+
+  node3:
+    image: fiscoorg/fiscobcos:v2.1.0
+    ports:
+      - "20917:20917"
+      - "8917:8917"
+      - "30917:30917"
+    working_dir: "/data"
+    volumes:
+      - ./node3:/data
+    container_name: node3
+    command: /usr/local/bin/fisco-bcos -c config.ini
+    depends_on:
+      - "node2"

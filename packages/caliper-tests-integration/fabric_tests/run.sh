@@ -27,9 +27,6 @@ cd ./config
 # back to this dir
 cd ${DIR}
 
-# TODO: should come from the Travis script, once every test uses the same dir hierarchy
-export CALL_METHOD="node ../../caliper-cli/caliper.js"
-
 # change default settings (add config paths too)
 export CALIPER_PROJECTCONFIG=../caliper.yaml
 

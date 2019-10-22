@@ -1,0 +1,71 @@
+{
+    "caliper": {
+        "blockchain": "fisco-bcos",
+        "command": {
+            "start": "docker-compose -f config/docker-compose.yaml up -d; sleep 10s",
+            "end": "docker-compose -f config/docker-compose.yaml down"
+        }
+    },
+    "fisco-bcos": {
+        "config": {
+            "privateKey": "bcec428d5205abe0f0cc8a734083908d9eb8563e31f943d760786edf42ad67dd",
+            "account": "0x64fa644d2a694681bd6addd6c5e36cccd8dcdde3"
+        },
+        "network": {
+            "nodes": [
+                {
+                    "ip": "127.0.0.1",
+                    "rpcPort": "8914",
+                    "channelPort": "20914"
+                },
+                {
+                    "ip": "127.0.0.1",
+                    "rpcPort": "8915",
+                    "channelPort": "20915"
+                },
+                {
+                    "ip": "127.0.0.1",
+                    "rpcPort": "8916",
+                    "channelPort": "20916"
+                },
+                {
+                    "ip": "127.0.0.1",
+                    "rpcPort": "8917",
+                    "channelPort": "20917"
+                }
+            ],
+            "authentication": {
+                "key": "config/sdk/node.key",
+                "cert": "config/sdk/node.crt",
+                "ca": "config/sdk/ca.crt"
+            },
+            "groupID": 1,
+            "timeout": 100000
+        },
+        "smartContracts": [
+            {
+                "id": "helloworld",
+                "path": "src/helloworld/HelloWorld.sol",
+                "language": "solidity",
+                "version": "v0"
+            },
+            {
+                "id": "parallelok",
+                "path": "src/transfer/ParallelOk.sol",
+                "language": "solidity",
+                "version": "v0"
+            },
+            {
+                "id": "dagtransfer",
+                "address": "0x0000000000000000000000000000000000005002",
+                "language": "precompiled",
+                "version": "v0"
+            }
+        ]
+    },
+    "info": {
+        "Version": "2.0.0",
+        "Size": "4 Nodes",
+        "Distribution": "Single Host"
+    }
+}

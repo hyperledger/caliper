@@ -34,17 +34,9 @@ if [[ "${BENCHMARK}" = "" ]]; then
     exit 1
 fi
 
-# Run benchmark adaptor
-if [[ "${BENCHMARK}" == "composer" ]]; then
-    ${CALL_METHOD} benchmark run --caliper-benchconfig benchmark/composer/config.yaml --caliper-networkconfig network/fabric-v1.3/2org1peercouchdb/composer.json --caliper-workspace ../caliper-samples/
-    rc=$?
-    exit $rc;
-elif [[ "${BENCHMARK}" == "fabric" ]]; then
-    ./fabric_tests/run.sh
-elif [[ "${BENCHMARK}" == "ethereum" ]]; then
-    ${CALL_METHOD} benchmark run --caliper-benchconfig benchmark/simple/config.yaml --caliper-networkconfig network/ethereum/1node-clique/ethereum.json --caliper-workspace ../caliper-samples/
-    rc=$?
-    exit $rc;
+TEST_DIR="${BENCHMARK}_tests"
+if [[ -d "${TEST_DIR}" ]]; then
+    "${TEST_DIR}"/run.sh
 else
     echo "Unknown target benchmark ${BENCHMARK}"
     exit 1

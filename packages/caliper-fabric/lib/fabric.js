@@ -1537,7 +1537,7 @@ class Fabric extends BlockchainInterface {
                         }
                     });
                 } catch (err) {
-                    new Error(`Couldn't join peers ${peersToJoin.toString()} to ${channelName}: ${err.message}`);
+                    throw new Error(`Couldn't join peers ${peersToJoin.toString()} to ${channelName}: ${err.message}`);
                 }
 
                 if (errors.length > 0) {
