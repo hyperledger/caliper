@@ -7,13 +7,14 @@ permalink: /vNext/fisco-config/
 
 >*The required minimal version of FISCO BCOS is v2.0.0*
 
-FISCO BCOS is a secure and reliable financial-grade open-source blockchain platform led by Chinese enterprises. Its performance has reached over 10,000 TPS with single-chain setup. The platform provides rich features including group architecture, cross-chain communication protocols, pluggable consensus mechanisms, privacy protection algorithms, OSCCA-approved (Office of state Commercial Cryptography Administration) cryptography algorithms, and distributed storage. Its performance, usability and security has been testified by many institutional users and successful business applications in live production environment.
+This page introduces the FISCO BCOS adapter that may be used by Caliper. For general information on FISCO BCOS, please refer to their [documenation pages](https://fisco-bcos-documentation.readthedocs.io/en/latest).
 
 ### Node Configuration
 
 A FISCO BCOS node uses several configuration files to control the network settings and certificates for connecting verification, which are described below:
 
 *\*we refer the root directory of node as `node/`*
+
 | Name | Location | Function |
 | :--- | :---- | :---- |
 | config.ini | `node/` | `ini` format, contains network ports (PRC, P2P and channel), black list of nodes, path of data and certificates, etc.
