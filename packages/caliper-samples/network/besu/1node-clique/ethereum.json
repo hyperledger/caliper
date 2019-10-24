@@ -1,0 +1,22 @@
+{
+    "caliper": {
+        "blockchain": "ethereum",
+        "command" : {
+            "start": "docker-compose -f network/besu/1node-clique/docker-compose.yml up -d && sleep 10",
+            "end" : "docker-compose -f network/besu/1node-clique/docker-compose.yml down"
+          }
+    },
+    "ethereum": {
+        "url": "http://localhost:8545",
+        "contractDeployerAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2",
+        "contractDeployerAddressPrivateKey": "0xa67bee5d6fb43acd42e307eb67547ab5006ad2fbb9567829e9b4b2ef3580acea",
+        "fromAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2",
+        "fromAddressPrivateKey": "0xa67bee5d6fb43acd42e307eb67547ab5006ad2fbb9567829e9b4b2ef3580acea",
+        "transactionConfirmationBlocks": 2,
+        "contracts": {
+            "simple": {
+                "path": "src/contract/ethereum/simple/simple.json"
+            }
+        }
+    }
+}

@@ -52,7 +52,11 @@ class Ethereum extends BlockchainInterface {
      * @return {object} Promise<boolean> True if the account got unlocked successful otherwise false.
      */
     init() {
-        return this.web3.eth.personal.unlockAccount(this.ethereumConfig.contractDeployerAddress, this.ethereumConfig.contractDeployerAddressPassword, 1000);
+        if (this.ethereumConfig.contractDeployerAddressPrivateKey) {
+            this.web3.eth.accounts.wallet.add(this.ethereumConfig.contractDeployerAddressPrivateKey);
+        } else if (this.ethereumConfig.contractDeployerAddressPassword) {
+            return this.web3.eth.personal.unlockAccount(this.ethereumConfig.contractDeployerAddress, this.ethereumConfig.contractDeployerAddressPassword, 1000);
+        }
     }
 
     /**
@@ -90,7 +94,13 @@ class Ethereum extends BlockchainInterface {
         for (const key of Object.keys(args.contracts)) {
             context.contracts[key] = new this.web3.eth.Contract(args.contracts[key].abi, args.contracts[key].address);
         }
-        await context.web3.eth.personal.unlockAccount(this.ethereumConfig.fromAddress, this.ethereumConfig.fromAddressPassword, 1000);
+        context.nonces = {};
+        context.nonces[this.ethereumConfig.fromAddress] = await this.web3.eth.getTransactionCount(this.ethereumConfig.fromAddress);
+        if (this.ethereumConfig.fromAddressPrivateKey) {
+            this.web3.eth.accounts.wallet.add(this.ethereumConfig.fromAddressPrivateKey);
+        } else if (this.ethereumConfig.fromAddressPassword) {
+            await context.web3.eth.personal.unlockAccount(this.ethereumConfig.fromAddress, this.ethereumConfig.fromAddressPassword, 1000);
+        }
         return context;
     }
 
@@ -161,17 +171,24 @@ class Ethereum extends BlockchainInterface {
      */
     async sendTransaction(context, contractID, contractVer, methodCall, timeout) {
         let status = new TxStatus();
+        let params = {from: context.fromAddress};
         try {
             context.engine.submitCallback(1);
             let receipt = null;
             let methodType = 'send';
             if (methodCall.isView) {
                 methodType = 'call';
+            } else {
+                let nonce = context.nonces[context.fromAddress];
+                context.nonces[context.fromAddress] = nonce + 1;
+                params.nonce = nonce;
             }
             if (methodCall.args) {
-                receipt = await context.contracts[contractID].methods[methodCall.verb](...methodCall.args)[methodType]({from: context.fromAddress});
+                params.gas = 1000 + await context.contracts[contractID].methods[methodCall.verb](...methodCall.args).estimateGas();
+                receipt = await context.contracts[contractID].methods[methodCall.verb](...methodCall.args)[methodType](params);
             } else {
-                receipt = await context.contracts[contractID].methods[methodCall.verb]()[methodType]({from: context.fromAddress});
+                params.gas = 1000 + await context.contracts[contractID].methods[methodCall.verb].estimateGas(params);
+                receipt = await context.contracts[contractID].methods[methodCall.verb]()[methodType](params);
             }
             status.SetID(receipt.transactionHash);
             status.SetResult(receipt);
@@ -179,7 +196,7 @@ class Ethereum extends BlockchainInterface {
             status.SetStatusSuccess();
         } catch (err) {
             status.SetStatusFail();
-            logger.error('Failed tx on ' + contractID + ' calling method ' + methodCall.verb);
+            logger.error('Failed tx on ' + contractID + ' calling method ' + methodCall.verb + ' nonce ' + params.nonce);
             logger.error(err);
         }
         return Promise.resolve(status);
