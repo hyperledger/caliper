@@ -30,8 +30,9 @@
       "coverage",
       "log",
       "benchmark/smallbank/.Rhistory",
+      "network/besu/1node-clique/keys",
+      "network/besu/1node-clique/Dockerfile",
       "network/burrow/simple/chain/keys/names",
-      "network/sawtooth/simplenetwork/Dockerfile",
       "network/ethereum/1node/keys",
       "network/ethereum/1node/Dockerfile",
       "network/ethereum/1node-clique/keys",
@@ -44,6 +45,7 @@
       "network/fabric-v1.4/kafka/config/.gitignore",
       "network/fabric-v1.4.1/config/.gitignore",
       "network/fabric-v1.4.1/raft/config/.gitignore",
+      "network/sawtooth/simplenetwork/Dockerfile",
       "src/contract/sawtooth/simple/simple_python/simple-tp-python",
       "src/contract/sawtooth/simple/simple_python/packaging/systemd/sawtooth-simple-tp-python",
       "src/contract/sawtooth/docker/sawtooth-int-simple-tp-python"
