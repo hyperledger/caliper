@@ -1,10 +1,11 @@
 {
     "name": "@hyperledger/caliper-fisco-bcos",
     "version": "0.1.0",
-    "description": "Caliper adapter of FISCO BCOS blockchain backend",
+    "description": "FISCO BCOS adaptor for Caliper, enabling the running of a performance benchmarks that interact with FISCO BCOS",
     "repository": {
         "type": "git",
-        "url": "https://github.com/hyperledger/caliper"
+        "url": "https://github.com/hyperledger/caliper",
+        "directory": "packages/caliper-fisco-bcos"
     },
     "scripts": {
         "pretest": "npm run licchk",
@@ -13,20 +14,14 @@
         "lint": "npx eslint .",
         "nyc": "nyc mocha --recursive -t 10000"
     },
-    "engineStrict": true,
     "engines": {
         "node": ">=8.10.0",
         "npm": ">=5.6.0"
     },
-    "files": [
-        "*",
-        "src/comm/template/report.html"
-    ],
     "dependencies": {
-        "caliper-core": "^0.1.0",
+        "@hyperledger/caliper-core": "0.1.0",
         "nconf": "^0.10.0",
         "isarray": "^2.0.4",
-        "web3": "0.20.7",
         "fs-extra": "^8.0.1",
         "bn.js": "^4.11.8",
         "ethereumjs-util": "^6.1.0",
@@ -38,6 +33,7 @@
         "request-promise": "^4.2.1"
     },
     "devDependencies": {
+        "web3": "0.20.7",
         "license-check-and-add": "2.3.6"
     },
     "license-check-and-add-config": {
@@ -89,11 +85,5 @@
         "functions": 7,
         "lines": 5
     },
-    "license": "Apache-2.0",
-    "licenses": [
-        {
-            "type": "Apache-2.0",
-            "url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
-        }
-    ]
+    "license": "Apache-2.0"
 }

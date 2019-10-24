@@ -17,7 +17,7 @@
 const {
     BlockchainInterface,
     CaliperUtils
-} = require('caliper-core');
+} = require('@hyperledger/caliper-core');
 const installSmartContractImpl = require('./installSmartContract');
 const invokeSmartContractImpl = require('./invokeSmartContract');
 const generateRawTransactionImpl = require('./generateRawTransactions');

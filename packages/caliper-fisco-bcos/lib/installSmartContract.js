@@ -14,7 +14,7 @@
 
 'use strict';
 
-const CaliperUtils = require('caliper-core').CaliperUtils;
+const CaliperUtils = require('@hyperledger/caliper-core').CaliperUtils;
 const isArray = require('isarray');
 const fs = require('fs-extra');
 const path = require('path');

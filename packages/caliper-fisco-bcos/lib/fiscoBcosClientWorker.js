@@ -17,7 +17,7 @@
 const {
     CaliperLocalClient,
     CaliperUtils
-} = require('caliper-core');
+} = require('@hyperledger/caliper-core');
 const fiscoBcosClient = require('./fiscoBcos');
 
 let caliperClient;
