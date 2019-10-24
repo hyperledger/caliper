@@ -30,6 +30,7 @@
     "@hyperledger/caliper-iroha": "^0.1.0",
     "@hyperledger/caliper-sawtooth": "^0.1.0",
     "@hyperledger/caliper-ethereum": "^0.1.0",
+    "@hyperledger/caliper-fisco-bcos": "^0.1.0",
     "chalk": "1.1.3",
     "yargs": "10.0.3"
   },

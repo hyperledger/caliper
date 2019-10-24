@@ -48,7 +48,8 @@
       "scripts/storage",
       "log",
       "fabric_tests/.gitignore",
-      "fabric_tests/config/.gitignore"
+      "fabric_tests/config/.gitignore",
+      ".DS_Store"
     ],
     "file_type_method": "EXCLUDE",
     "file_types": [

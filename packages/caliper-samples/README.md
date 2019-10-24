@@ -18,6 +18,11 @@ caliper benchmark run -w <workspace path> -c benchmark/composer/config.yaml -n n
 caliper benchmark run -w <workspace path> -c benchmark/simple/config-sawtooth.yaml -n network/sawtooth/simplenetwork/sawtooth.json 
 ```
 
+- FISCO BCOS
+```
+caliper benchmark run -w <workspace path> -c benchmark/fisco-bcos/transfer/solidity/config.yaml -n network/fisco-bcos/4nodes1group/fisco-bcos.json
+```
+
 ## Benchmarks Under Construction
 
 - Burrow
@@ -28,6 +33,11 @@ caliper benchmark run -w <workspace path> -c benchmark/simple/config.yaml -n net
 - Iroha
 ```bash
 caliper benchmark run -w <workspace path> -c benchmark/simple/config-iroha.yaml -n network/iroha/simplenetwork/iroha.json 
+```
+
+- FISCO BCOS
+```bash
+caliper benchmark run -w <workspace path> -c benchmark/fisco-bcos/transfer/solidity/config.yaml -n network/fisco-bcos/4nodes1group/fisco-bcos.json
 ```
 
 ## Starting and using a Zookeeper client

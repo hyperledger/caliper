@@ -31,6 +31,7 @@ const packages = [
     'caliper-fabric',
     'caliper-iroha',
     'caliper-sawtooth',
+    'caliper-fisco-bcos',
     'caliper-cli'
 ];
 

@@ -48,7 +48,10 @@
       "network/sawtooth/simplenetwork/Dockerfile",
       "src/contract/sawtooth/simple/simple_python/simple-tp-python",
       "src/contract/sawtooth/simple/simple_python/packaging/systemd/sawtooth-simple-tp-python",
-      "src/contract/sawtooth/docker/sawtooth-int-simple-tp-python"
+      "src/contract/sawtooth/docker/sawtooth-int-simple-tp-python",
+      "network/fisco-bcos/4nodes1group",
+      "src/contract/fisco-bcos/helloworld/HelloWorld.address",
+      "src/contract/fisco-bcos/transfer/ParallelOk.address"
     ],
     "file_type_method": "EXCLUDE",
     "file_types": [
