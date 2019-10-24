@@ -9,7 +9,9 @@ permalink: /vNext/ethereum-config/
 
 This page introduces the Ethereum adapter suitable for all the Ethereum clients that expose the web3 RPC interface over HTTP.
 
-> Geth is currently the only tested client but, under fully web3 compliance, there would not be any reason to not work with other clients.
+> Hyperledger Besu and Geth are the current tested clients. The tests are driven via standard Ethereum JSON-RPC APIs so other clients should be compatible once docker configurations exist.
+
+> Hyperledger Besu does not provide wallet services so the `contractDeployerPassword` and `fromAddressPassword` options are not supported and the private key variants must be used.
 
 > Some highlights of the provided features:
 > * configurable confirmation blocks threshold
@@ -59,8 +61,10 @@ Furthermore, it also contains two optional commands: a `start` command to execut
 These are the keys to provide inside the configuration file under the `ethereum` one:
 * [URL](#url) of the node to connect to. Only http is currently supported.
 * [Deployer address](#deployer-address) with which deploy required contracts
+* [Deployer address private key](#deployer-address-private-key) the private key of the deployer address
 * [Deployer address password](#deployer-address-password) to unlock the deployer address
 * [Address](#benchmark-address) from which invoke methods of the benchmark
+* [Private Key](#benchmark-address-private-key) the private key of the benchmark address
 * [Password](#benchmark-address-password) to unlock the benchmark address
 * Number of [confirmation blocks](#confirmation-blocks) to wait to consider a transaction as successfully accepted in the chain
 * [Contracts configuration](#contracts-configuration)
@@ -83,9 +87,17 @@ The address to use to deploy contracts of the network. Without particular or spe
 "contractDeployerAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2"
 ```
 
+## Deployer address private key
+
+The private key for the [deployer address](#deployer-address). If present then transactions are signed inside caliper and sent "raw" to the ethereum node.
+
+```json
+"contractDeployerAddressPrivateKey": "0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d8"
+```
+
 ## Deployer address password
 
-The password to use to unlock [deployer address](#deployer-address). If there isn't an unlock password, this key must be present as empty string.
+The password to use to unlock [deployer address](#deployer-address). If there isn't an unlock password, this key must be present as empty string. If the deployer address private key is present this is not used.
 
 ```json
 "contractDeployerAddressPassword": "gottacatchemall"
@@ -99,9 +111,17 @@ The address to use while invoking all the methods of the benchmark. Its private 
 "fromAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2"
 ```
 
+## Benchmark address private key
+
+The private key for the [benchmark address](#benchmark-address). If present then transactions are signed inside caliper and sent "raw" to the ethereum node.
+
+```json
+"fromAddressPassword": "0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d8"
+```
+
 ## Benchmark address password
 
-The password to use to unlock [benchmark address](#benchmark-address). If there isn't an unlock password, this key must be present as empty string.
+The password to use to unlock [benchmark address](#benchmark-address). If there isn't an unlock password, this key must be present as empty string. If the benchmark address private key is present this is not used.
 
 ```json
 "fromAddressPassword": "gottacatchemall"
