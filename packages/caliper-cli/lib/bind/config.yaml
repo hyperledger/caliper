@@ -81,6 +81,10 @@ sut:
             settings:
             - *new-node-old-grpc
         latest: *composer-latest
+    fisco-bcos:
+        2.0.0: &fisco-latest
+            packages: ['web3@0.20.7']
+        latest: *fisco-latest
     ethereum:
         1.2.1: &ethereum-latest
             packages: ['web3@1.2.1']

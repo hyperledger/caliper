@@ -15,7 +15,7 @@
 'use strict';
 
 const fs = require('fs');
-const { CaliperUtils, TxStatus } = require('caliper-core');
+const { CaliperUtils, TxStatus } = require('@hyperledger/caliper-core');
 const { Color, TxErrorEnum, findContractAddress } = require('./common');
 const uuid = require('uuid/v4');
 const fiscoBcosApi = require('./fiscoBcosApi');

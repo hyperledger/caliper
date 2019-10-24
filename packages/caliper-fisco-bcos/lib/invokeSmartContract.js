@@ -17,7 +17,7 @@
 const {
     CaliperUtils,
     TxStatus
-} = require('caliper-core');
+} = require('@hyperledger/caliper-core');
 const fiscoBcosApi = require('./fiscoBcosApi');
 const { TxErrorEnum, Color, findContractAddress } = require('./common');
 const commLogger = CaliperUtils.getLogger('invokeSmartContract.js');
