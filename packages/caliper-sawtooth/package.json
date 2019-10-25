@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "@hyperledger/caliper-core": "0.1.0",
-    "request-promise": "^4.2.1"
+    "request-promise": "^4.2.1",
+    "protocol-buffers": "^4.1.0"
   },
   "devDependencies": {
     "sawtooth-sdk": "^1.0.5",

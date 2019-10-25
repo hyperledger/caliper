@@ -38,19 +38,10 @@ npm i --registry http://localhost:4873 --only=prod @hyperledger/caliper-cli
 # These are common for each scenario
 export CALIPER_BIND_SDK=latest
 export CALIPER_BIND_ARGS="--no-save"
+export CALIPER_BIND_SUT="${BENCHMARK}"
 
 echo "---- Binding CLI"
-if [[ "${BENCHMARK}" == "composer" ]]; then
-    npx caliper bind --caliper-bind-sut composer
-elif [[ "${BENCHMARK}" == "fabric" ]]; then
-    npx caliper bind --caliper-bind-sut fabric
-elif [[ "${BENCHMARK}" == "ethereum" ]]; then
-    npx caliper bind --caliper-bind-sut ethereum
-else
-    echo "Unknown target benchmark ${BENCHMARK}"
-    npm run cleanup
-    exit 1
-fi
+npx caliper bind
 
 echo "---- Running Integration test for adaptor ${BENCHMARK}"
 npm run run_tests

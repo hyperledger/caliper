@@ -3,9 +3,11 @@ node_js:
 - '8'
 matrix:
     include:
-        - env: BENCHMARK=composer
         - env: BENCHMARK=fabric
         - env: BENCHMARK=ethereum
+        - env: BENCHMARK=sawtooth
+        - env: BENCHMARK=besu
+        - env: BENCHMARK=fisco-bcos
 dist: trusty
 before_install: |
     set -ev

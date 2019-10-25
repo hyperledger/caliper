@@ -21,7 +21,7 @@
     "src/comm/template/report.html"
   ],
   "dependencies": {
-    "@hyperledger/caliper-core": "^0.1.0"
+    "@hyperledger/caliper-core": "0.1.0"
   },
   "devDependencies": {
     "web3": "^1.2.0",

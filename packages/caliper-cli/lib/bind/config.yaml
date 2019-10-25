@@ -55,6 +55,7 @@ sut:
         1.4.4: &fabric-latest
             packages: ['grpc@1.14.2', 'fabric-ca-client@1.4.4', 'fabric-client@1.4.4', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.4']
         latest: *fabric-latest
+
     sawtooth:
         1.0.0:
             packages: [ 'sawtooth-sdk@1.0.0' ]
@@ -67,25 +68,35 @@ sut:
         1.0.5: &sawtooth-latest
             packages: [ 'sawtooth-sdk@1.0.5' ]
         latest: *sawtooth-latest
+
     burrow:
         0.23.0: &burrow-latest
             packages: [ '@monax/burrow@0.23.0' ]
         latest: *burrow-latest
+
     iroha:
         0.6.3: &iroha-latest
             packages: [ 'iroha-helpers@0.6.3' ]
         latest: *iroha-latest
+
     composer:
         0.20.8: &composer-latest
             packages: ['fabric-ca-client@1.4.0', 'fabric-client@1.4.0', 'composer-admin@0.20.8', 'composer-client@0.20.8', 'composer-common@0.20.8' ]
             settings:
             - *new-node-old-grpc
         latest: *composer-latest
+
     fisco-bcos:
         2.0.0: &fisco-latest
             packages: ['web3@0.20.7']
         latest: *fisco-latest
+
     ethereum:
         1.2.1: &ethereum-latest
-            packages: ['web3@1.2.1']
+            packages: ['web3@1.2.0']
         latest: *ethereum-latest
+
+    besu:
+        1.3.2: &besu-latest
+            packages: ['web3@1.2.0']
+        latest: *besu-latest

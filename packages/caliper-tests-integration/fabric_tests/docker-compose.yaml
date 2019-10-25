@@ -16,7 +16,6 @@ version: '3'
 
 volumes:
     prometheus_data: {}
-    grafana_storage: {}
 
 services:
 
