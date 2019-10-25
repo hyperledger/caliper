@@ -1,10 +1,11 @@
 {
   "name": "@hyperledger/caliper-fabric",
-  "description": "Hyperledger Fabric adaptor for Caliper, enabling the running of a performance benchmarks that interact with Fabric",
-  "version": "0.1.0",
+  "description": "Hyperledger Fabric adaptor for Caliper, enabling the running of performance benchmarks that interact with Fabric",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hyperledger/caliper"
+    "url": "https://github.com/hyperledger/caliper",
+    "directory": "packages/caliper-fabric"
   },
   "scripts": {
     "pretest": "npm run licchk",
@@ -13,18 +14,13 @@
     "lint": "npx eslint .",
     "nyc": "nyc mocha --recursive -t 10000"
   },
-  "engineStrict": true,
   "engines": {
     "node": ">=8.10.0",
     "npm": ">=5.6.0"
   },
-  "files": [
-    "*",
-    "src/comm/template/report.html"
-  ],
   "dependencies": {
     "@hapi/joi": "^15.1.1",
-    "@hyperledger/caliper-core": "0.1.0"
+    "@hyperledger/caliper-core": "0.2.0"
   },
   "devDependencies": {
     "fabric-ca-client": "^1.4.0",
@@ -36,7 +32,7 @@
     "mocha": "3.4.2",
     "nyc": "11.1.0",
     "rewire": "^4.0.0",
-    "sinon": "2.3.8",
+    "sinon": "^7.3.2",
     "license-check-and-add": "2.3.6"
   },
   "license-check-and-add-config": {
@@ -53,6 +49,7 @@
     "file_type_method": "EXCLUDE",
     "file_types": [
       ".yml",
+      ".md",
       ".log"
     ],
     "insert_license": false,
@@ -88,11 +85,5 @@
     "functions": 1,
     "lines": 1
   },
-  "license": "Apache-2.0",
-  "licenses": [
-    {
-      "type": "Apache-2.0",
-      "url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
-    }
-  ]
+  "license": "Apache-2.0"
 }

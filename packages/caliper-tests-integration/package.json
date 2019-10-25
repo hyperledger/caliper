@@ -1,6 +1,6 @@
 {
   "name": "caliper-tests-integration",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Integration tests for Hyperledger Caliper",
   "scripts": {
     "cleanup": "./scripts/cleanup.sh",
@@ -35,15 +35,15 @@
     "license-check-and-add": "2.3.6"
   },
   "dependencies": {
-      "@hyperledger/caliper-cli" : "0.1.0",
-      "@hyperledger/caliper-core" : "0.1.0",
-      "@hyperledger/caliper-burrow": "0.1.0",
-      "@hyperledger/caliper-composer": "0.1.0",
-      "@hyperledger/caliper-fabric": "0.1.0",
-      "@hyperledger/caliper-iroha": "0.1.0",
-      "@hyperledger/caliper-sawtooth": "0.1.0",
-      "@hyperledger/caliper-ethereum": "0.1.0",
-      "@hyperledger/caliper-fisco-bcos": "0.1.0"
+    "@hyperledger/caliper-burrow": "0.2.0",
+    "@hyperledger/caliper-cli": "0.2.0",
+    "@hyperledger/caliper-composer": "0.2.0",
+    "@hyperledger/caliper-core": "0.2.0",
+    "@hyperledger/caliper-ethereum": "0.2.0",
+    "@hyperledger/caliper-fabric": "0.2.0",
+    "@hyperledger/caliper-fisco-bcos": "0.2.0",
+    "@hyperledger/caliper-iroha": "0.2.0",
+    "@hyperledger/caliper-sawtooth": "0.2.0"
   },
   "license-check-and-add-config": {
     "folder": ".",
@@ -62,6 +62,7 @@
       "fabric_tests/config/.gitignore",
       "fabric_tests/config/bin",
       "fabric_tests/config/config",
+      "fabric_tests/config/crypto-config",
       "composer_tests/.gitignore",
       "composer_tests/config/.gitignore",
       "composer_tests/config/bin",

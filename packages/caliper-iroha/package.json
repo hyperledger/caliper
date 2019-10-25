@@ -1,10 +1,11 @@
 {
   "name": "@hyperledger/caliper-iroha",
-  "description": "Hyperledger Iroha adaptor for Caliper, enabling the running of a performance benchmarks that interact with Iroha",
-  "version": "0.1.0",
+  "description": "Hyperledger Iroha adaptor for Caliper, enabling the running of performance benchmarks that interact with Iroha",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hyperledger/caliper"
+    "url": "https://github.com/hyperledger/caliper",
+    "directory": "packages/caliper-iroha"
   },
   "scripts": {
     "pretest": "npm run licchk",
@@ -17,10 +18,8 @@
     "node": ">=8.10.0",
     "npm": ">=5.6.0"
   },
-  "engine-strict": true,
-  "engineStrict": true,
   "dependencies": {
-    "@hyperledger/caliper-core": "0.1.0"
+    "@hyperledger/caliper-core": "0.2.0"
   },
   "devDependencies": {
     "iroha-helpers": "0.6.3",
@@ -29,7 +28,7 @@
     "mocha": "3.4.2",
     "nyc": "11.1.0",
     "rewire": "^4.0.0",
-    "sinon": "2.3.8",
+    "sinon": "^7.3.2",
     "license-check-and-add": "2.3.6"
   },
   "license-check-and-add-config": {
@@ -46,6 +45,7 @@
     "file_type_method": "EXCLUDE",
     "file_types": [
       ".yml",
+      ".md",
       ".log"
     ],
     "insert_license": false,
@@ -81,11 +81,5 @@
     "functions": 7,
     "lines": 5
   },
-  "license": "Apache-2.0",
-  "licenses": [
-    {
-      "type": "Apache-2.0",
-      "url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
-    }
-  ]
+  "license": "Apache-2.0"
 }

@@ -13,7 +13,6 @@
 Welcome to the Hyperledger Caliper project. Caliper is a blockchain performance benchmark framework, which allows users to test different blockchain solutions with predefined use cases, and get a set of performance test results.
 
 Currently supported blockchain solutions:
-
 * [Hyperledger Fabric v1.X](https://github.com/hyperledger/fabric)
 * [Hyperledger Sawtooth 1.0+](https://github.com/hyperledger/sawtooth-core)
 * [Hyperledger Iroha 1.0 beta-3](https://github.com/hyperledger/iroha)
