@@ -3,6 +3,7 @@ layout: page
 title:  "Runtime Configuration"
 categories: reference
 permalink: /vLatest/runtime-config/
+order: 3
 ---
 
 Caliper relies on the [nconf](https://github.com/indexzero/nconf) package to provide a flexible and hierarchical configuration mechanism for runtime-related settings. Hierarchical configuration means that a runtime setting can be set or overridden from multiple sources/locations, and there is a priority order among them.
@@ -126,7 +127,7 @@ will be parsed as the `mymodule-performance-shouldbefast` string key associated 
 If you have a group of settings that are always overridden in your Caliper benchmark project, then it is recommended to define them as a project-level configuration file. This file will usually consist of a subset of settings defined in the default configuration file (and probably your custom settings associated with your custom user module).
 
 The project-level configuration file can be included into the hierarchy in two ways:
-* Define the overridden settings in the `caliper.yaml` file in the **current working directory**
+* Define the overridden settings in the `caliper.yaml` file in the **workspace directory**
 * Or set the path of the configuration file explicitly through the `caliper-projectconfig` setting key using one of the higher priority locations above (i.e., in-memory, command line argument or environment variable):
 
   * The command line approach: 

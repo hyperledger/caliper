@@ -13,7 +13,9 @@ Caliper is a blockchain performance benchmark framework, which allows users to t
 **Currently supported blockchain solutions:**
 * [Hyperledger Burrow](https://github.com/hyperledger/burrow)
 * [Hyperledger Composer](https://github.com/hyperledger/composer)
+* [Ethereum](https://github.com/ethereum/)
 * [Hyperledger Fabric](https://github.com/hyperledger/fabric)
+* [FISCO BCOS](https://github.com/FISCO-BCOS/FISCO-BCOS)
 * [Hyperledger Iroha](https://github.com/hyperledger/iroha)
 * [Hyperledger Sawtooth](https://github.com/hyperledger/sawtooth-core)
 
@@ -23,6 +25,7 @@ Steps for configuring a benchmark that targets a supported blockchain technology
 - [Composer](./Composer_Configuration.md)
 - [Ethereum](./Ethereum_Configuration.md)
 - [Fabric](./Fabric_Configuration.md)
+- [FISCO BCOS](./FISCO_BCOS_Configuration.md)
 - [Iroha](./Iroha_Configuration.md)
 - [Sawtooth](./Sawtooth_Configuration.md)
 
@@ -74,6 +77,9 @@ Only one `only` flag is permitted to be supplied at a time, and may not be used 
 ```bash
 caliper benchmark run --caliper-workspace ./packages/caliper-samples --caliper-benchconfig benchmark/simple/config.yaml --caliper-networkconfig network/fabric-v1.4/2org1peercouchdb/fabric-node.yaml --caliper-flow-only-test
 ```
+
+## Sample Networks
+See the [Sample Networks](./Sample_Networks.md) page.
 
 ## How to Contribute
 

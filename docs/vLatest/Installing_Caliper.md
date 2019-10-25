@@ -6,28 +6,11 @@ permalink: /vLatest/installing-caliper/
 order: 2
 ---
 
-## Table of Contents
+## Table of contents
+{:.no_toc}
 
-* [Overview](#overview)
-* [The Caliper CLI](#the-caliper-cli)
-  * [The bind command](#the-bind-command)
-  * [The benchmark command](#the-benchmark-command)
-* [Installing from NPM](#installing-from-npm)
-  * [Pre-requisites](#pre-requisites)
-  * [Local NPM install](#local-npm-install)
-  * [Global NPM install](#global-npm-install)
-* [Using the Docker image](#using-the-docker-image)
-  * [Starting a container](#starting-a-container)
-  * [Using Docker Compose](#using-docker-compose)
-* [Installing locally from source](#installing-locally-from-source)
-  * [Bootstrapping the repository](#bootstrapping-the-caliper-repository)
-  * [Modifying and testing the code](#testing-the-code)
-  * [Publishing package changes locally](#publishing-to-local-npm-repository)
-    * [Starting Verdaccio](#starting-verdaccio)
-    * [Publishing the packages](#publishing-the-packages)
-    * [Running package-based tests](#running-package-based-tests)
-  * [Building the Docker image](#building-the-docker-image)
-* [Licence](#license)
+- TOC
+{:toc}
 
 ## Overview
 
@@ -50,7 +33,7 @@ The entry point of the CLI is the `caliper` binary. You can confirm whether the 
 
 ```console
 user@ubuntu:~/caliper-benchmarks$ npx caliper --version
-v0.1.0
+v0.2.0
 ```
 
 The CLI provides multiple commands to perform different tasks. To check the available commands and their descriptions, execute:
@@ -106,17 +89,19 @@ Options:
 
 The following SUT name (column header) and SDK version (column value) combinations are supported:
 
-| burrow | composer | fabric | iroha  | sawtooth |
-|:------:|:--------:|:------:|:------:|:--------:|
-| 0.23.0 | 0.20.8   | 1.0.0  | 0.6.3  | 1.0.0    |
-| latest | latest   | 1.1.0  | latest | 1.0.1    |
-|        |          | 1.2.0  |        | 1.0.2    |
-|        |          | 1.3.0  |        | 1.0.4    |
-|        |          | 1.4.0  |        | 1.0.5    |
-|        |          | 1.4.1  |        | latest   |
-|        |          | 1.4.3  |        |          |
-|        |          | 1.4.4  |        |          |
-|        |          | latest |        |          |
+
+| besu   | burrow | composer | ethereum | fabric | fisco-bcos | iroha  | sawtooth |
+|:------:|:------:|:--------:|:--------:|:------:|:----------:|:------:|:--------:|
+| 1.3.2  | 0.23.0 | 0.20.8   | 1.2.1    | 1.0.0  | 2.0.0      | 0.6.3  | 1.0.0    |
+| latest | latest | latest   | latest   | 1.1.0  | latest     | latest | 1.0.1    |
+|        |        |          |          | 1.2.0  |            |        | 1.0.2    |
+|        |        |          |          | 1.3.0  |            |        | 1.0.4    |
+|        |        |          |          | 1.4.0  |            |        | 1.0.5    |
+|        |        |          |          | 1.4.1  |            |        | latest   |
+|        |        |          |          | 1.4.3  |            |        |          |
+|        |        |          |          | 1.4.4  |            |        |          |
+|        |        |          |          | latest |            |        |          |
+
 
 > __Note:__ the `latest` value always points to the last explicit versions in the columns. However, it is recommended to explicitly specify the SDK version to avoid any surprise between two benchmark runs.
 
@@ -158,7 +143,7 @@ The following tools are required to install the CLI from NPM:
 > __Note:__ this is the highly recommended way to install Caliper for your project. Keeping the project dependencies local makes it easier to setup multiple Caliper projects. Global dependencies would require re-binding every time before a new benchmark run (to ensure the correct global dependencies). 
 
 1. Set your NPM project details with `npm init` (or just execute `npm init -y`) in your workspace directory (if you haven't done this already, i.e., you don't have a `package.json` file).
-2. Install the Caliper CLI (optionally specifying the version, e.g., `@hyperledger/caliper-cli@0.1.0`).
+2. Install the Caliper CLI (optionally specifying the version, e.g., `@hyperledger/caliper-cli@0.2.0`).
 3. Bind the CLI to the required platform SDK (e.g., `fabric` with the `1.4.0` SDK).
 4. Invoke the local CLI binary (using [npx](https://www.npmjs.com/package/npx)) with the appropriate parameters. You can repeat this step for as many Fabric 1.4.0 benchmarks as you would like.
  
@@ -223,9 +208,11 @@ This has the following implications:
 ### Starting a container
 
 Parts of starting a Caliper container (following the recommendations above):
-1. Optionally pick the required image version
+1. Pick the required image version/tag
 2. Mount your local working directory to a container directory
 3. Set the required binding and run parameters
+
+> __Note:__ the __latest__ tag is __not supported__, i.e, you explicitly have to specify the image version/tag you want: `hyperledger/caliper:0.2.0`  
 
 Putting it all together, split into multiple lines for clarity, and naming the container `caliper`:
 
@@ -236,7 +223,7 @@ user@ubuntu:~/caliper-benchmarks$ docker run \
     -e CALIPER_BIND_SDK=1.4.0 \
     -e CALIPER_BENCHCONFIG=benchmarks/scenario/simple/config.yaml \
     -e CALIPER_NETWORKCONFIG=networks/fabric/fabric-v1.4/2org1peergoleveldb/fabric-go.yaml \
-    --name caliper hyperledger/caliper
+    --name caliper hyperledger/caliper:0.2.0
 ```
 
 > __Note:__ the above network configuration file contains a start script to spin up a local Docker-based Fabric network, which will not work in this form. So make sure to remove the start (and end) script, and change the node endpoints to remote addresses.
@@ -250,7 +237,7 @@ version: '2'
 services:
     caliper:
         container_name: caliper
-        image: hyperledger/caliper
+        image: hyperledger/caliper:0.2.0
         environment:
         - CALIPER_BIND_SUT=fabric
         - CALIPER_BIND_SDK=1.4.0
@@ -293,15 +280,18 @@ user@ubuntu:~/caliper$ npm i && npm run repoclean -- --yes && npm run bootstrap
 
 ### Testing the code
 
-The easiest way to test your changes is to run the CI process locally. Currently, the CI process runs benchmarks for specific adapters. You can trigger these tests by running one of the following commands from the root directory of the repository:
-* Composer tests:
-  ```console
-  user@ubuntu:~/caliper$ BENCHMARK=composer ./.travis/avoid_verdaccio.sh
-  ```
-* Fabric tests:
-  ```console
-  user@ubuntu:~/caliper$ BENCHMARK=fabric ./.travis/avoid_verdaccio.sh
-  ```
+The easiest way to test your changes is to run the CI process locally. Currently, the CI process runs benchmarks for specific adapters. You can trigger these tests by running the following script from the root directory of the repository, setting the `BENCHMARK` environment variable to the platform name:
+
+```console
+user@ubuntu:~/caliper$ BENCHMARK=fabric ./.travis/avoid_verdaccio.sh
+```
+
+The following platform tests (i.e., valid `BENCHMARK` values) are available:
+* besu
+* ethereum
+* fabric
+* fisco-bcos
+* sawtooth
 
 The scripts will perform the following tests (also necessary for a successful pull request):
 * Linting checks

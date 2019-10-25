@@ -13,7 +13,9 @@ Caliper is a blockchain performance benchmark framework, which allows users to t
 **Currently supported blockchain solutions:**
 * [Hyperledger Burrow](https://github.com/hyperledger/burrow)
 * [Hyperledger Composer](https://github.com/hyperledger/composer)
+* [Ethereum](https://github.com/ethereum/)
 * [Hyperledger Fabric](https://github.com/hyperledger/fabric)
+* [FISCO BCOS](https://github.com/FISCO-BCOS/FISCO-BCOS)
 * [Hyperledger Iroha](https://github.com/hyperledger/iroha)
 * [Hyperledger Sawtooth](https://github.com/hyperledger/sawtooth-core)
 
@@ -21,7 +23,9 @@ Steps for configuring a benchmark that targets a supported blockchain technology
 
 - [Burrow](./Burrow_Configuration.md)
 - [Composer](./Composer_Configuration.md)
+- [Ethereum](./Ethereum_Configuration.md)
 - [Fabric](./Fabric_Configuration.md)
+- [FISCO BCOS](./FISCO_BCOS_Configuration.md)
 - [Iroha](./Iroha_Configuration.md)
 - [Sawtooth](./Sawtooth_Configuration.md)
 
@@ -73,39 +77,8 @@ Only one `only` flag is permitted to be supplied at a time, and may not be used 
 ```bash
 caliper benchmark run --caliper-workspace ./packages/caliper-samples --caliper-benchconfig benchmark/simple/config.yaml --caliper-networkconfig network/fabric-v1.4/2org1peercouchdb/fabric-node.yaml --caliper-flow-only-test
 ```
-
-## Run Benchmark with Distributed Clients (Experimental)
-
-In this way, multiple clients can be launched on distributed hosts to run the same benchmark.
-
-1. Start the ZooKeeper service using the Caliper CLI: 
-```bash
-caliper zooservice start
-```
-2. Launch a caliper-zoo-client on each target machine using the Caliper CLI:
-```bash
-caliper zooclient start -w ~/myCaliperProject -a <host-address>:<port>  -n my-sut-config.yaml
-```
-
-3. Modify the client type setting in configuration file to 'zookeeper'.
-
-    Example:
-    ```
-    "clients": {
-      "type": "zookeeper",
-      "zoo" : {
-        "server": "10.229.42.159:2181",
-        "clientsPerHost": 5
-      }
-    }
-    ```
-
-4. Launch the benchmark on any machine as usual.
-
-> Note:
-> * Zookeeper is used to register clients and exchange messages. A launched client will add a new znode under /caliper/clients/. The benchmark checks the directory to learn how many clients are there, and assign tasks to each client according to the workload.
-> * There is no automatic time synchronization between the clients. You should manually synchronize time between target machines, for example using 'ntpdate'.
-> * The blockchain configuration file must exist on machines which run the client, and the relative path (relative to the caliper folder) of the file must be identical. All referenced files in the configuration must also exist.   
+## Sample Networks
+See the [Sample Networks](./Sample_Networks.md) page.
 
 ## How to Contribute
 
