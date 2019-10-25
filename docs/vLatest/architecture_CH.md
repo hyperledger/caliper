@@ -92,16 +92,8 @@ monitor:
 ```
 * **test** - 定义测试的元数据和指定工作负载下的多轮测试。
   * **name&description** : 测试名及其描述，该信息会被报告生成器使用，并显示在测试报告中。
-  * **clients** : 定义客户端类型和相关参数，其中'type'应该设置为'local'或'zookeeper'。
+  * **clients** : 定义客户端类型和相关参数，其中'type'应该设置为'local'。
     * local: 此例中，Caliper的主进程将会创建多个子进程，每个子进程将会作为客户端向后端区块链系统发送交易。客户端的数量由'number'定义。
-    * zookeeper: Caliper客户端可以部署在不同的机器上，并且从zookeeper master承接任务。采用此种模式需要定义Zookeeper master地址和每个Zookeeper节点上需要启动的Caliper客户端的数量。Zookeeper配置示例如下：
-      ```
-      "type": "zookeeper",
-      "zoo" : {
-        "server": "10.229.42.159:2181",
-        "clientsPerHost": 5
-      }
-      ```
   * **label** : 当前测试标签名称。例如，可以使用当前交易目的名称（如开户）作为标签名称，来说明当前性能测试的交易类型。该值还可用作blockchain.getContext()中的Context名称。又例如，开发人员可能希望测试不同Fabric通道的性能，在这种情况下，具有不同标签的测试可以绑定到不同的Fabric通道。 
   * **txNumber** : 定义一个子轮测试数组，每个轮次有不同的交易数量。例如, [5000,400] 表示在第一轮中将生成总共5000个交易，在第二轮中将生成400个交易。
   * **txDuration** : 定义基于时间测试的子轮数组。例如 [150,400] 表示将进行两次测试，第一次测试将运行150秒，第二次运行将运行400秒。如果当前配置文件中同时指定了txNumber和txDuration，系统将优先根据txDuration设置运行测试。
@@ -140,14 +132,6 @@ monitor:
 测试时客户端将调用用户定义的测试模块，该模块包含了自定义的测试逻辑。测试模块的相关信息后文会给出解释。
 
 本地客户端在第一轮测试时启动，并在完成所有测试后被销毁。
-
-#### Zookeeper Clients
-
-在此模式下，将独立启动多个zookeeper客户端。zookeeper客户端将在启动后注册并监视测试任务。测试后，将创建包含性能统计结果的znode。
-
-如上所述，zookeeper客户端还会创建多个子进程（本地客户端）来执行实际的测试工作。
-
-有关更多详细信息，请参阅 [Zookeper Client Design](./Zookeeper_Client_Design.md)。
 
 ### User Defined Test Module
 

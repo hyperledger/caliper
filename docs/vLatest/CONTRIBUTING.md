@@ -38,7 +38,7 @@ This contains samples that may be run using the caliper-cli, and extended to inc
 - network: contains blockchain (network) configuration files
 
 ### caliper-cli
-This is the Caliper CLI that enables the running of a benchmark and interaction with zookeeper clients/services. 
+This is the Caliper CLI that enables the running of a benchmark
 
 ### caliper-core
 Contains all the Caliper core code. Interested developers can follow the code flow from the above `run-benchmark.js` file, that enters `caliper-flow.js` in the core package.

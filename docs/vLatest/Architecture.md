@@ -19,12 +19,12 @@ Hyperledger Caliper can be abstracted into two components:
 
 <img src="{{ site.baseurl }}/assets/img/architecture.png" alt="architecture">
 
-
 ## Benchmark Engine
 
 <img src="{{ site.baseurl }}/assets/img/test-framework.png" alt="Benchmark Engine">
 
 ### Configuration File
+
 Two kinds of configuration files are used. One is the benchmark configuration file, which defines the arguments of the benchmark like workload. Another is the blockchain configuration file, which specify necessary information to help interacting with the SUT.  
 
 Below is a benchmark configuration file example:
@@ -82,16 +82,8 @@ monitor:
 ```
 * **test** - defines the metadata of the test, as well as multiple test rounds with specified workload:
   * **name&description** : human readable name and description of the benchmark, the value is used by the report generator to show in the testing report.
-  * **clients** : defines the client type as well as relevant arguments, the 'type' property must be 'local' or 'zookeeper'
+  * **clients** : defines the client type as well as relevant arguments, the 'type' property must be 'local'
     * local: In this case, local processes will be forked and act as blockchain clients. The number of forked clients should be defined by 'number' property.
-    * zookeeper: In this case, clients could be located on different machines and take tasks from master via zookeeper. Zookeeper server address as well as the number of simulated blockchain clients which launch locally by zookeeper client should be defined. A example of zookeeper configuration defined is as below:
-      ```
-      "type": "zookeeper",
-      "zoo" : {
-        "server": "10.229.42.159:2181",
-        "clientsPerHost": 5
-      }
-      ```
   * **label** : hint for the test. For example, you can use the transaction name as the label name to tell which transaction is mainly used to test the performance. The value is also used as the context name for *blockchain.getContext()*. For example, developers may want to test performance of different Fabric channels, in that case, tests with different label can be bound to different fabric channels.  
   * **txNumber** : defines an array of sub-rounds with different transaction numbers to be run in each round. For example, [5000,400] means totally 5000 transactions will be generated in the first round and 400 will be generated in the second.
   * **txDuration** : defines an array of sub-rounds with time based test runs. For example [150,400] means two runs will be made, the first test will run for 150 seconds, and the second will run for 400 seconds. If specified in addition to txNumber, the txDuration option will take precedence.
@@ -102,7 +94,7 @@ monitor:
 * **monitor** - defines the type of resource monitors and monitored objects, as well as the time interval for the monitoring.
   * docker : a docker monitor is used to monitor specified docker containers on local or remote hosts. Docker Remote API is used to retrieve remote container's stats. Reserved container name 'all' means all containers on the host will be watched. In above example, the monitor will retrieve the stats of two containers per second, one is a local container named 'peer0.org1.example.com' and another is a remote container named 'orderer.example.com' located on host '192.168.1.100', 2375 is the listening port of Docker on that host.
   * process : a process monitor is used to monitor specified local process. For example, users can use this monitor to watch the resource consumption of simulated blockchain clients. The 'command' and 'arguments' properties are used to specify the processes. The 'multiOutput' property is used to define the meaning of the output if multiple processes are found. 'avg' means the output is the average resource consumption of those processes, while 'sum' means the output is the summing consumption.  
-  * others : to be implemented.
+  * prometheus : uses a configured Prometheus server to publish and query metrics
 
 ### Master
 
@@ -112,7 +104,16 @@ The master implements a default test flow which contains three stages:
 
 * Testing stage: In this stage, the master starts a loop to perform tests according to the benchmark configuration file. Tasks will be generated and assigned to clients according to the defined workload. Performance statistics return by clients will be stored for later analyzing.
 
-* Reporting stage: Statistics from all clients of each test round are analyzed, and a HTML format report will be generated automatically. A report example is as below:
+* Reporting stage: Statistics from all clients of each test round are analyzed, and a HTML format report will be generated automatically.
+  
+  The default directory path for the generated report is the workspace directory, and the file is named `report.html`. You can override this setting the following ways:
+  * From the command line: `--caliper-report-path subdir/customName.html`
+  * From an environment variable: `export CALIPER_REPORT_PATH=subdir/customName.html`
+  * Using a [configuration file](./Runtime_Configuration.md) to override the `caliper.report.path` property.
+  
+  > __Note:__ It is the user's responsibility to ensure that the directory hierarchy exists between the workspace and the report file.
+  
+  A report example is as below:
 
 
 <img src="{{ site.baseurl }}/assets/img/report.png" alt="report example">
@@ -130,14 +131,6 @@ The total workload are divided and assigned equally to child processes. A child 
 The client invokes a test module which implements user defined testing logic.The module is explained later.
 
 A local client will only be launched once at beginning of the first test round, and be destroyed after finishing all the tests.
-
-#### Zookeeper Clients
-
-In this mode, multiple zookeeper clients are launched independently. A zookeeper client will register itself after launch and watch for testing tasks. After testing, a znode which contains the result of performance statistics will be created.
-
-A zookeeper client also forks multiple child processes (local clients) to do the actual testing work as described above.
-
-For more details, please refer to [Zookeper Client Design](./Zookeeper_Client_Design.md).
 
 ### User Defined Test Module
 

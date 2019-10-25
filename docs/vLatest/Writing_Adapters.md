@@ -3,6 +3,7 @@ layout: page
 title:  "Writing Adapters"
 categories: reference
 permalink: /vLatest/writing-adaptors/
+order: 2
 ---
 
 ## How to write your own blockchain adapter
