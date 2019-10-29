@@ -36,6 +36,15 @@ class CmdUtil {
     }
 
     /**
+     * Perform a sleep
+     * @param {*} ms the time to sleep, in ms
+     * @returns {Promise} a completed promise
+     */
+    static sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    /**
      * Invokes a given command in a spawned child process and attaches all standard IO.
      * @param {string} cmd The command to be run.
      * @param {string[]} args The array of arguments to pass to the command.
@@ -48,7 +57,7 @@ class CmdUtil {
             let proc = spawn(cmd, args, {
                 stdio: 'inherit',
                 cwd: cwd || './',
-                env: env || process.env
+                env: { ...process.env, ...env }
             });
 
             proc.on('exit', (code, signal) => {

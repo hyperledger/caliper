@@ -1,22 +1,57 @@
 language: node_js
 node_js:
-- '8'
-matrix:
-    include:
-        - env: BENCHMARK=fabric
-        - env: BENCHMARK=ethereum
-        - env: BENCHMARK=sawtooth
-        - env: BENCHMARK=besu
-        - env: BENCHMARK=fisco-bcos
+- "8"
+
+services:
+- docker
+
 dist: trusty
+
 before_install: |
     set -ev
     set -o pipefail
     npm install -g @alrra/travis-scripts
 
-script:
-- ./scripts/check-package-names.sh
-- ./.travis/avoid_verdaccio.sh
+env:
+    global:
+    - secure: "mD9J2+bDr0qiayYCLii/0qYdPoW6Gy4Bu5Q8t+ZhGRlNnXadt8SuE1Atuw21LnO+QDpIH0fre287glOAMloBDsMc1fko4QHvoAWT5YdVMY6HoeCNwxJRtGxGyZCOMpXn8tF8GSclJ74dcN1C/fEKfyp83zjS7IWT1iftAmZ18TdyiNad5vPCAnlCrAug9snOdWPgbGH+IiO/uNc5DPOK6AUWkRBR4OHqZsyVq461rF1et3P7LEhwFGTbhMeNoITwP8wGAFKjC7nbkdaPbUkd/oXwYRDnJu/RLu7z/KWsfsDJiId8q32pnFofHBi2OEBWfKW5yZiPJIDg9WYoxVvrpR47PKMYJtSQUIgiSHtYy7ewaFNPXWxFEeKiVOmeDiJkeOXjSwRNQIRM6PPhvvhk9vYj9ZHBqSLSUqX+5M+9TKqd7o4NLTd0beNWEdqRqjkYtu0o/EtaYSuYCEMI9eBkqFP8t27yYKPfnWi/mpFkKioD6fZ3wJuJyJg5SFWva6pDURhMA9VHTFR3Zlxg8IQ6GYDf7W45jIPiwIdzExzTDozFPv89+FnDN3K+1agzHNKNydAmqK/uuKFNGFiuyT7Sst0t6ghsmvP0aRH3vLlX50RMgDHbzdvtzadDOJnBG3oL1fJdJGmpK68Ryk7GH0fsJ7FNbSLZCQOw2CHSeZ970Oo="
+    - secure: "p1QBs4AtRAid9uhOvZHORtsFLfWYoGVH1Z+fJdR46ZbfnLu8luQ+bDaNLSMCl/X0szk0km1/f56cKDnLKzrcamyD2PX71duC8FBDAC+UcHWK+Lwqmf/rkxySJl0Dtv9nRCERgKV2BLNFpmRUZfvumc966xCXJdDCAE7AcpVpcbODcPM8ae2lCiWhwzoxGNOOOvnpvwHmXkDVOWwTCMFJFTmrOrv4OrIxfgoCtGwlru3BYBqIeBeRm6blEqb7OTlpeUpd+fptjCUeA1dGA/gFzOVUDsqG0TE3n0PmmjqlDFwG637JJzyh0Gzcozo0QH8rczFAWGhrs1MqNG9jg1P+BEal3MstIhIcQH5577bi/zoEy56UV9RVfZbOc44J/sxzr/xiEWhMAIzoI2tPtSJSmoCyC47vSGl8NNc5KJVzKbdQk9PnT+lxHY+UoeBrN1ApZUvePiq+HKDXUqrVIuOXX3oVNRLirCk5qWmjItCvuIWnQnmeCUZ9HaDn0LuHD/04W8bn5GF9GqrMDnlbxdpvINU81bZxPtCA7dlS25c0XX79/gNUlgN3UyMheI35jQI+ROP6oxE/5IvzgGf5ukbA72CK8CLFW7y7VxntTf39kVXsxNmw67Si6GV/aFgC6J/0D3zjTVjHkTVsERBuYxQxT5a/6ZQc7M1vlmwHXqMfWPw="
+
+# NOTE: the unit test and integration test jobs are only run "for the PR". In this case the encrypted env vars are not present (are blank).
+# The NPM and Docker Hub publish jobs are only run when the PR is merged. In this case the encrypted env vars are present, since the repo slug is hyperledger/caliper.
+# So the presence of encrypted vars are used as conditions for the jobs.
+jobs:
+    include:
+    - stage: checks and unit tests
+      if: env(NPM_TOKEN) IS blank
+      name: Package name check, license check, lint check, unit tests
+      script: ./.travis/checks-and-unit-tests.sh
+
+    # parallel integrations tests
+    - stage: benchmark integration tests
+      if: env(NPM_TOKEN) IS blank
+      name: HL Fabric integration test
+      script: BENCHMARK=fabric ./.travis/benchmark-integration-test-direct.sh
+    - name: Ethereum integration test
+      script: BENCHMARK=ethereum ./.travis/benchmark-integration-test-direct.sh
+    - name: HL Sawtooth integration test
+      script: BENCHMARK=sawtooth ./.travis/benchmark-integration-test-direct.sh
+    - name: HL Besu integration test
+      script: BENCHMARK=besu ./.travis/benchmark-integration-test-direct.sh
+    - name: FISCO-BCOS integration test
+      script: BENCHMARK=fisco-bcos ./.travis/benchmark-integration-test-direct.sh
+
+    # publish npm packages
+    - stage: npm publish
+      name: Publishing to NPM
+      if: env(NPM_TOKEN) IS present
+      script: ./.travis/npm-publish.sh
+
+      # publish docker image
+    - stage: docker publish
+      name: Publishing to Docker Hub
+      if: env(DOCKER_TOKEN) IS present
+      script: ./.travis/docker-publish.sh
 
 cache:
   directories:

@@ -20,13 +20,31 @@ set -o pipefail
 # Bootstrap the project again
 npm i && npm run repoclean -- --yes && npm run bootstrap
 
-# Run linting, license check and unit tests
-npm test
+# Call CLI through the local binary
+export CALL_METHOD="npx caliper"
 
-# Call CLI directly
-# The CWD will be in one of the caliper-tests-integration/*_tests directories
-export CALL_METHOD="node ../../caliper-cli/caliper.js"
+echo "---- Publishing packages locally"
+cd ./packages/caliper-tests-integration/
+
+# clean up the bootstrap modules, they interfere
+rm -rf node_modules
+# reinstall the dev deps (pm2, verdaccio, etc)
+npm i --only=dev
+npm run start_verdaccio
+npm run npm_publish_local
+
+echo "---- Installing CLI"
+npm i --registry http://localhost:4873 --only=prod @hyperledger/caliper-cli
+
+# These are common for each scenario
+export CALIPER_BIND_SDK=latest
+export CALIPER_BIND_ARGS="--no-save"
+export CALIPER_BIND_SUT="${BENCHMARK}"
+
+echo "---- Binding CLI"
+npx caliper bind
 
 echo "---- Running Integration test for adaptor ${BENCHMARK}"
-cd ./packages/caliper-tests-integration/
 npm run run_tests
+
+npm run cleanup

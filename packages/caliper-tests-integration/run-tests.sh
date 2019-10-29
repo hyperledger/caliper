@@ -17,18 +17,9 @@
 set -ev
 set -o pipefail
 
-# Set ARCH
-ARCH=`uname -m`
-
-# Grab the parent (root) directory.
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
-
-# Switch into the integration tests directory to access required npm run commands
-cd "${DIR}"
-
 # Barf if we don't recognize this test adaptor.
 if [[ "${BENCHMARK}" = "" ]]; then
-    echo You must set BENCHMARK to one of the desired test adaptors 'besu|ethereum|fabric|fisco|sawtooth'
+    echo You must set BENCHMARK to one of the desired test adaptors 'besu|ethereum|fabric|fisco-bcos|sawtooth'
     echo For example:
     echo  export BENCHMARK=fabric
     exit 1
