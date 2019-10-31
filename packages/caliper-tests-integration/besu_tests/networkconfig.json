@@ -15,7 +15,12 @@
         "transactionConfirmationBlocks": 2,
         "contracts": {
             "simple": {
-                "path": "src/simple/simple.json"
+                "path": "src/simple/simple.json",
+                "gas": {
+                    "open": 45000,
+                    "query": 100000,
+                    "transfer": 36000
+                }
             }
         }
     }
