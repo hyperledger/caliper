@@ -67,11 +67,13 @@ class Ethereum extends BlockchainInterface {
         logger.info('Creating contracts...');
         for (const key of Object.keys(this.ethereumConfig.contracts)) {
             let contractData = require(CaliperUtils.resolvePath(this.ethereumConfig.contracts[key].path, this.workspaceRoot)); // TODO remove path property
+            let contractGas = this.ethereumConfig.contracts[key].gas;
             this.ethereumConfig.contracts[key].abi = contractData.abi;
             promises.push(new Promise(async function(resolve, reject) {
                 let contractInstance = await self.deployContract(contractData);
                 logger.info('Deployed contract ' + contractData.name + ' at ' + contractInstance.options.address);
                 self.ethereumConfig.contracts[key].address = contractInstance.options.address;
+                self.ethereumConfig.contracts[key].gas = contractGas;
                 resolve(contractInstance);
             }));
         }
@@ -82,17 +84,24 @@ class Ethereum extends BlockchainInterface {
      * Return the Ethereum context associated with the given callback module name.
      * @param {string} name The name of the callback module as defined in the configuration files.
      * @param {object} args Unused.
+     * @param {integer} clientIdx the client index
      * @return {object} The assembled Ethereum context.
      * @async
      */
-    async getContext(name, args) {
-        let context = {fromAddress: this.ethereumConfig.fromAddress};
-        context.web3 = this.web3;
-        context.contracts = {};
+    async getContext(name, args, clientIdx) {
+        let context = {
+            clientIdx: clientIdx,
+            contracts: {},
+            fromAddress: this.ethereumConfig.fromAddress,
+            nonces: {},
+            web3: this.web3,
+        };
         for (const key of Object.keys(args.contracts)) {
-            context.contracts[key] = new this.web3.eth.Contract(args.contracts[key].abi, args.contracts[key].address);
+            context.contracts[key] = {
+                contract: new this.web3.eth.Contract(args.contracts[key].abi, args.contracts[key].address),
+                gas: args.contracts[key].gas
+            };
         }
-        context.nonces = {};
         context.nonces[this.ethereumConfig.fromAddress] = await this.web3.eth.getTransactionCount(this.ethereumConfig.fromAddress);
         if (this.ethereumConfig.fromAddressPrivateKey) {
             this.web3.eth.accounts.wallet.add(this.ethereumConfig.fromAddressPrivateKey);
@@ -170,6 +179,7 @@ class Ethereum extends BlockchainInterface {
     async sendTransaction(context, contractID, contractVer, methodCall, timeout) {
         let status = new TxStatus();
         let params = {from: context.fromAddress};
+        let contractInfo = context.contracts[contractID];
         try {
             context.engine.submitCallback(1);
             let receipt = null;
@@ -182,11 +192,19 @@ class Ethereum extends BlockchainInterface {
                 params.nonce = nonce;
             }
             if (methodCall.args) {
-                params.gas = 1000 + await context.contracts[contractID].methods[methodCall.verb](...methodCall.args).estimateGas();
-                receipt = await context.contracts[contractID].methods[methodCall.verb](...methodCall.args)[methodType](params);
+                if (contractInfo.gas && contractInfo.gas[methodCall.verb]) {
+                    params.gas = contractInfo.gas[methodCall.verb];
+                } else {
+                    params.gas = 1000 + await contractInfo.contract.methods[methodCall.verb](...methodCall.args).estimateGas();
+                }
+                receipt = await contractInfo.contract.methods[methodCall.verb](...methodCall.args)[methodType](params);
             } else {
-                params.gas = 1000 + await context.contracts[contractID].methods[methodCall.verb].estimateGas(params);
-                receipt = await context.contracts[contractID].methods[methodCall.verb]()[methodType](params);
+                if (contractInfo.gas && contractInfo.gas[methodCall.verb]) {
+                    params.gas = contractInfo.gas[methodCall.verb];
+                } else {
+                    params.gas = 1000 + await contractInfo.contract.methods[methodCall.verb].estimateGas(params);
+                }
+                receipt = await contractInfo.contract.methods[methodCall.verb]()[methodType](params);
             }
             status.SetID(receipt.transactionHash);
             status.SetResult(receipt);
