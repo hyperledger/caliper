@@ -151,7 +151,7 @@ The following tools are required to install the CLI from NPM:
 user@ubuntu:~/caliper-benchmarks$ npm init -y
 user@ubuntu:~/caliper-benchmarks$ npm install --only=prod @hyperledger/caliper-cli
 user@ubuntu:~/caliper-benchmarks$ npx caliper bind --caliper-bind-sut fabric --caliper-bind-sdk 1.4.0
-user@ubuntu:~/caliper-benchmarks$ npx caliper benchmark run --caliper-workspace . --caliper-benchconfig benchmarks/scenario/simple/config.yaml --caliper-networkconfig networks/fabric/fabric-v1.4/2org1peergoleveldb/fabric-go.yaml
+user@ubuntu:~/caliper-benchmarks$ npx caliper benchmark run --caliper-workspace . --caliper-benchconfig benchmarks/scenario/simple/config.yaml --caliper-networkconfig networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml
 ```
 
 > __Note:__ specifying the `--only=prod` parameter in step 2 will ensure that the default __latest__ SDK dependencies for __every__ platform will __not__ be installed. Since we perform an explicit binding anyway (and only for a single platform), this is the desired approach, while also saving some storage and time.
@@ -172,7 +172,7 @@ There are some minor differences compared to the local install:
 ```console
 user@ubuntu:~$ npm install -g --only=prod @hyperledger/caliper-cli
 user@ubuntu:~$ caliper bind --caliper-bind-sut fabric --caliper-bind-sdk 1.4.0 --caliper-bind-args=-g
-user@ubuntu:~$ caliper benchmark run --caliper-workspace ~/caliper-benchmarks --caliper-benchconfig benchmarks/scenario/simple/config.yaml --caliper-networkconfig networks/fabric/fabric-v1.4/2org1peergoleveldb/fabric-go.yaml
+user@ubuntu:~$ caliper benchmark run --caliper-workspace ~/caliper-benchmarks --caliper-benchconfig benchmarks/scenario/simple/config.yaml --caliper-networkconfig networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml
 ```
 
 > __Note:__ for global install you don't need to change the directory to your workspace, you can simply specify `--caliper-workspace ~/caliper-benchmarks`. But this way you can't utilize the auto complete feature of your commandline for the relative artifact paths. 
@@ -222,7 +222,7 @@ user@ubuntu:~/caliper-benchmarks$ docker run \
     -e CALIPER_BIND_SUT=fabric \
     -e CALIPER_BIND_SDK=1.4.0 \
     -e CALIPER_BENCHCONFIG=benchmarks/scenario/simple/config.yaml \
-    -e CALIPER_NETWORKCONFIG=networks/fabric/fabric-v1.4/2org1peergoleveldb/fabric-go.yaml \
+    -e CALIPER_NETWORKCONFIG=networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml \
     --name caliper hyperledger/caliper:0.2.0
 ```
 
@@ -242,7 +242,7 @@ services:
         - CALIPER_BIND_SUT=fabric
         - CALIPER_BIND_SDK=1.4.0
         - CALIPER_BENCHCONFIG=benchmarks/scenario/simple/config.yaml
-        - CALIPER_NETWORKCONFIG=networks/fabric/fabric-v1.4/2org1peergoleveldb/fabric-go.yaml
+        - CALIPER_NETWORKCONFIG=networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml
         volumes:
         - ~/caliper-benchmarks:/home/node/hyperledger/caliper/workspace
 ```
