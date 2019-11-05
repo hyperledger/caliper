@@ -14,10 +14,10 @@
 
 'use strict';
 
-module.exports.BlockchainInterface = require('./lib/blockchain-interface');
-module.exports.CaliperLocalClient = require('./lib/client/caliper-local-client');
-module.exports.TxStatus = require('./lib/transaction-status');
-module.exports.CaliperUtils = require('./lib/utils/caliper-utils');
-module.exports.Version = require('./lib/utils/version');
-module.exports.ConfigUtil = require('./lib/config/config-util');
-module.exports.CaliperFlow = require('./lib/caliper-flow');
+module.exports.BlockchainInterface = require('./lib/common/core/blockchain-interface');
+module.exports.CaliperLocalClient = require('./lib/worker/client/caliper-local-client');
+module.exports.TxStatus = require('./lib/common/core/transaction-status');
+module.exports.CaliperUtils = require('./lib/common/utils/caliper-utils');
+module.exports.Version = require('./lib/common/utils/version');
+module.exports.ConfigUtil = require('./lib/common/config/config-util');
+module.exports.CaliperFlow = require('./lib/master/caliper-flow');
