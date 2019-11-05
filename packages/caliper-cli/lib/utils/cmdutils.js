@@ -23,18 +23,6 @@ const { spawn }= require('child_process');
  */
 class CmdUtil {
 
-
-    /** Simple log method to output to the console
-     * Used to put a single console.log() here, so eslinting is easier.
-     * And if this needs to written to a file at some point it is also eaiser
-     */
-    static log(){
-        Array.from(arguments).forEach((s)=>{
-            // eslint-disable-next-line no-console
-            console.log(s);
-        });
-    }
-
     /**
      * Invokes a given command in a spawned child process and attaches all standard IO.
      * @param {string} cmd The command to be run.

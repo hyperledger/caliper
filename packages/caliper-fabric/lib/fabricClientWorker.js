@@ -14,49 +14,34 @@
 
 'use strict';
 
-const {CaliperLocalClient, CaliperUtils} = require('@hyperledger/caliper-core');
+const { MessageHandler } = require('@hyperledger/caliper-core');
 const FabricClient = require('./fabric');
 
-const logger = CaliperUtils.getLogger('fabric/fabricClientWorker');
-let caliperClient;
+/**
+ * Handles the init message. Constructs and initializes the Fabric adapter.
+ * @param {object} context The context of the message handler object.
+ * @param {object} message The message object.
+ * @return {Promise<FabricClient>} The initialized adapter instance.
+ * @async
+ */
+async function initHandler(context, message) {
+    const blockchain = new FabricClient(context.networkConfigPath, context.workspacePath);
+
+    // reload the profiles silently
+    await blockchain._initializeRegistrars(false);
+    await blockchain._initializeAdmins(false);
+    await blockchain._initializeUsers(false);
+
+    return blockchain;
+}
+
+const handlerContext = new MessageHandler({
+    init: initHandler
+});
+
 /**
  * Message handler
  */
 process.on('message', async (message) => {
-
-    if (!message.hasOwnProperty('type')) {
-        process.send({type: 'error', data: 'unknown message type'});
-        return;
-    }
-
-    try {
-        switch (message.type) {
-        case 'init': {
-            const blockchain = new FabricClient(message.absNetworkFile, message.networkRoot);
-            // reload the profiles silently
-            await blockchain._initializeRegistrars(false);
-            await blockchain._initializeAdmins(false);
-            await blockchain._initializeUsers(false);
-
-            caliperClient = new CaliperLocalClient(blockchain);
-            process.send({type: 'ready', data: {pid: process.pid, complete: true}});
-
-            logger.info('Client ready');
-            break;
-        }
-        case 'test': {
-            let result = await caliperClient.doTest(message);
-
-            await CaliperUtils.sleep(200);
-            process.send({type: 'testResult', data: result});
-            break;
-        }
-        default: {
-            process.send({type: 'error', data: 'unknown message type [' + message.type + ']'});
-        }
-        }
-    }
-    catch (err) {
-        process.send({type: 'error', data: err.toString()});
-    }
+    await MessageHandler.handle(handlerContext, message);
 });

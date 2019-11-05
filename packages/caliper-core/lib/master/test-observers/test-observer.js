@@ -26,22 +26,24 @@ const TestObserver = class {
 
     /**
      * Instantiates the proxy test observer and creates the configured observer behind it.
-     * @param {String} observerType The observer to use.
-     * @param {String} absConfigFile The absolute path to the benchmark config file
+     * @param {object} benchmarkConfig The benchmark configuration object.
      */
-    constructor(observerType, absConfigFile) {
-        Logger.debug(`Creating test observer of type ${observerType}`);
+    constructor(benchmarkConfig) {
+        // Test observer is dynamically loaded, but defaults to none
+        const observerType = (benchmarkConfig.observer && benchmarkConfig.observer.type) ? benchmarkConfig.observer.type : 'none';
+
+        Logger.debug(`Creating test observer of type "${observerType}"`);
 
         // resolve the type to a module path
         let modulePath = builtInObservers.has(observerType)
-            ? builtInObservers.get(observerType) : CaliperUtils.resolvePath(observerType);
+            ? builtInObservers.get(observerType) : CaliperUtils.resolvePath(observerType); // TODO: what if it's an external module name?
 
         let factoryFunction = require(modulePath).createTestObserver;
         if (!factoryFunction) {
             throw new Error(`${observerType} does not export the mandatory factory function 'createTestObserver'`);
         }
 
-        this.observer = factoryFunction(absConfigFile);
+        this.observer = factoryFunction(benchmarkConfig);
     }
 
     /**

@@ -21,27 +21,16 @@ const path = require('path');
  * Class used to spawn FISCO BCOS client workers
  */
 class FiscoBcosClientFactory {
-    /**
-     * Require paths to configuration data used when calling new on fiscoBcos.js
-     * @param {String} absNetworkFile absolute workerPath
-     * @param {Sting} workspace_root root location
-     */
-    constructor(absNetworkFile, workspace_root) {
-        this.absNetworkFile = absNetworkFile;
-        this.workspaceRoot = workspace_root;
-    }
 
     /**
      * Spawn the worker and perform required init
      * @returns {Object} the child process
      */
     spawnWorker() {
-        const child = childProcess.fork(path.join(__dirname, './fiscoBcosClientWorker.js'), process.argv.slice(1), { env: process.env });
+        const child = childProcess.fork(path.join(__dirname, './fiscoBcosClientWorker.js'), process.argv.slice(2), { env: process.env });
 
         const msg = {
-            type: 'init',
-            absNetworkFile: this.absNetworkFile,
-            networkRoot: this.workspaceRoot
+            type: 'init'
         };
         child.send(msg);
 

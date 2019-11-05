@@ -14,20 +14,31 @@
 
 'use strict';
 
-const Util = require('../../common/utils/caliper-utils');
+const logger = require('../../common/utils/caliper-utils').getLogger('observer-base');
 
 /**
  * Interface of test observer. Test observer implementations must follow a naming convention that is <type>-observer.js so
- * that they may be dynamically loaded within Caliper flow
+ * that they may be dynamically loaded in the RoundOrchestrator
  */
 class TestObserverInterface {
 
     /**
      * Constructor
-     * @param {string} configPath the config file path
+     * @param {object} benchmarkConfig The benchmark configuration object.
      */
-    constructor(configPath) {
-        this.config = Util.parseYaml(configPath);
+    constructor(benchmarkConfig) {
+        this.benchmarkConfig = benchmarkConfig;
+    }
+
+    /**
+     * Logs and throws a "not implemented" error for the given function.
+     * @param {string} functionName The name of the function.
+     * @private
+     */
+    _throwNotImplementedError(functionName) {
+        let msg = `The function "${functionName}" is not implemented for this test observer`;
+        logger.error(msg);
+        throw new Error(msg);
     }
 
     /**
@@ -35,7 +46,7 @@ class TestObserverInterface {
      * @async
      */
     async update() {
-        throw new Error('update is not implemented for this test observer');
+        this._throwNotImplementedError('update');
     }
 
     /**
@@ -43,7 +54,7 @@ class TestObserverInterface {
      * @param {ClientOrchestrator} clientOrchestrator  the client orchestrator
      */
     startWatch(clientOrchestrator) {
-        throw new Error('startWatch is not implemented for this test observer');
+        this._throwNotImplementedError('startWatch');
     }
 
     /**
@@ -51,7 +62,7 @@ class TestObserverInterface {
      * @async
      */
     async stopWatch() {
-        throw new Error('stopWatch is not implemented for this test observer');
+        this._throwNotImplementedError('stopWatch');
     }
 
     /**
@@ -59,7 +70,7 @@ class TestObserverInterface {
      * @param {String} name the benchmark name
      */
     setBenchmark(name) {
-        throw new Error('setBenchmark is not implemented for this test observer');
+        this._throwNotImplementedError('setBenchmark');
     }
 
     /**
@@ -67,7 +78,7 @@ class TestObserverInterface {
      * @param{*} roundIdx the round index
      */
     setRound(roundIdx) {
-        throw new Error('setRound is not implemented for this test observer');
+        this._throwNotImplementedError('setRound');
     }
 
 }

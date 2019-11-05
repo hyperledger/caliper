@@ -2,7 +2,7 @@
     "caliper": {
         "blockchain": "ethereum",
         "command" : {
-            "start": "docker-compose -f config/docker-compose.yml up -d && sleep 10s",
+            "start": "docker-compose -f config/docker-compose.yml up -d && sleep 30s",
             "end" : "docker-compose -f config/docker-compose.yml down"
           }
     },

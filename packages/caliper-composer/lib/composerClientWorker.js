@@ -14,41 +14,27 @@
 
 'use strict';
 
-const {CaliperLocalClient, CaliperUtils} = require('@hyperledger/caliper-core');
+const { MessageHandler } = require('@hyperledger/caliper-core');
 const ComposerClient = require('./composer');
 
-let caliperClient;
+/**
+ * Handles the init message. Constructs the Composer adapter.
+ * @param {object} context The context of the message handler object.
+ * @param {object} message The message object.
+ * @return {Promise<ComposerClient>} The initialized adapter instance.
+ * @async
+ */
+async function initHandler(context, message) {
+    return new ComposerClient(context.networkConfigPath, context.workspacePath);
+}
+
+const handlerContext = new MessageHandler({
+    init: initHandler
+});
+
 /**
  * Message handler
  */
 process.on('message', async (message) => {
-
-    if (!message.hasOwnProperty('type')) {
-        process.send({type: 'error', data: 'unknown message type'});
-        return;
-    }
-
-    try {
-        switch (message.type) {
-        case 'init': {
-            const blockchain = new ComposerClient(message.absNetworkFile, message.networkRoot);
-            caliperClient = new CaliperLocalClient(blockchain);
-            process.send({type: 'ready', data: {pid: process.pid, complete: true}});
-            break;
-        }
-        case 'test': {
-            let result = await caliperClient.doTest(message);
-
-            await CaliperUtils.sleep(200);
-            process.send({type: 'testResult', data: result});
-            break;
-        }
-        default: {
-            process.send({type: 'error', data: 'unknown message type [' + message.type + ']'});
-        }
-        }
-    }
-    catch (err) {
-        process.send({type: 'error', data: err.toString()});
-    }
+    await MessageHandler.handle(handlerContext, message);
 });

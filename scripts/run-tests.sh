@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,21 +13,23 @@
 # limitations under the License.
 #
 
----
-test:
-    clients:
-        type: local
-        number: 2
-    rounds:
-    - label: init1
-      txNumber: 100
-      rateControl: { type: 'fixed-rate', opts: { tps: 20 } }
-      callback: ../init.js
-    - label: init2
-      txNumber: 200
-      rateControl: { type: 'fixed-feedback-rate', opts: { tps: 20, unfinished_per_client: 5 } }
-      callback: ../init.js
-    - label: query
-      txNumber: 100
-      rateControl: { type: 'linear-rate', opts: { startingTps: 10, finishingTps: 20 } }
-      callback: ../query.js
+# Exit on first error, print all commands.
+set -e
+set -o pipefail
+
+# Run linting, license check and unit tests
+npm test
+
+# Call CLI directly
+# The CWD will be in one of the caliper-tests-integration/*_tests directories
+export CALL_METHOD="node ../../caliper-cli/caliper.js"
+
+IFS=' ' read -r -a array <<< "${TESTS}"
+
+cd ./packages/caliper-tests-integration/
+
+for element in "${array[@]}"
+do
+    export BENCHMARK="${element}"
+    npm run run_tests
+done

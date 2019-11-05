@@ -2,7 +2,7 @@
     "caliper": {
         "blockchain": "ethereum",
         "command" : {
-            "start": "docker-compose -f config/docker-compose.yml up -d && sleep 15",
+            "start": "docker-compose -f config/docker-compose.yml up -d && sleep 30",
             "end" : "docker-compose -f config/docker-compose.yml down"
           }
     },
@@ -16,9 +16,10 @@
         "contracts": {
             "simple": {
                 "path": "src/simple/simple.json",
-                "estimateGas": true,
                 "gas": {
-                    "transfer": 70000
+                    "open": 45000,
+                    "query": 100000,
+                    "transfer": 36000
                 }
             }
         }

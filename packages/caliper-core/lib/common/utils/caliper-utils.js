@@ -64,7 +64,7 @@ class CaliperUtils {
      * @param {String} root_path root path to use
      * @return {String} The resolved absolute path.
      */
-    static resolvePath(relOrAbsPath, root_path) {
+    static resolvePath(relOrAbsPath, root_path = undefined) {
         if (!relOrAbsPath) {
             throw new Error('Util.resolvePath: Parameter is undefined');
         }
@@ -73,7 +73,7 @@ class CaliperUtils {
             return relOrAbsPath;
         }
 
-        return path.resolve(root_path, relOrAbsPath);
+        return path.resolve(root_path || Config.get(Config.keys.Workspace), relOrAbsPath);
     }
 
     /**

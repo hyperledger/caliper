@@ -48,7 +48,7 @@ function _messageFormat() {
         output = output.replace(labelRegex, info.label || '');
         output = output.replace(moduleRegex, info.module || '');
         output = output.replace(messageRegex, info.message || '');
-        return output.replace(metadataRegex, info.meta || '');
+        return output.replace(metadataRegex, info.metadata || '');
     });
 }
 

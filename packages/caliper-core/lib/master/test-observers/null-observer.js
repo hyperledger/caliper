@@ -16,8 +16,7 @@
 'use strict';
 
 const TestObserverInterface = require('./observer-interface');
-const Utils = require('../../common/utils/caliper-utils');
-const Logger = Utils.getLogger('null-observer');
+const Logger = require('../../common/utils/caliper-utils').getLogger('null-observer');
 
 /**
  * NullObserver class used to omit test statistics observation
@@ -26,11 +25,11 @@ class NullObserver extends TestObserverInterface {
 
     /**
      * Constructor
-     * @param {String} configPath path of the configuration file
+     * @param {object} benchmarkConfig The benchmark configuration object.
      */
-    constructor(configPath) {
-        super(configPath);
-        Logger.info('Configured observer');
+    constructor(benchmarkConfig) {
+        super(benchmarkConfig);
+        Logger.info('Configured "null" observer');
     }
 
     /**
@@ -75,12 +74,12 @@ class NullObserver extends TestObserverInterface {
 }
 
 /**
- * Creates a new rate controller instance.
- * @param {String} absConfigFile The absolute path to the benchmark config file
- * @return {ObserverInterface} The rate controller instance.
+ * Creates a new NullObserver instance.
+ * @param {object} benchmarkConfig The benchmark configuration object.
+ * @return {TestObserverInterface} The NullObserver instance.
  */
-function createTestObserver(absConfigFile) {
-    return new NullObserver(absConfigFile);
+function createTestObserver(benchmarkConfig) {
+    return new NullObserver(benchmarkConfig);
 }
 
 module.exports.createTestObserver = createTestObserver;

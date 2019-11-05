@@ -26,13 +26,13 @@ class LocalObserver extends TestObserverInterface {
 
     /**
      * Constructor
-     * @param {String} configPath path of the configuration file
+     * @param {object} benchmarkConfig The benchmark configuration object.
      */
-    constructor(configPath) {
-        super(configPath);
+    constructor(benchmarkConfig) {
+        super(benchmarkConfig);
 
         // set the observer interval
-        const interval = (this.config.observer && this.config.observer.interval) ? this.config.observer.interval : 1;
+        const interval = (this.benchmarkConfig.observer && this.benchmarkConfig.observer.interval) ? this.benchmarkConfig.observer.interval : 1;
         this.observeInterval = interval * 1000;
         Logger.info(`Observer interval set to ${interval} seconds`);
         this.observeIntervalObject = null;
@@ -232,9 +232,9 @@ class LocalObserver extends TestObserverInterface {
         if(this.observeIntervalObject) {
             clearInterval(this.observeIntervalObject);
             this.observeIntervalObject = null;
+            await Utils.sleep(this.observeInterval);
+            await this.update();
         }
-        await Utils.sleep(this.observeInterval);
-        this.update();
     }
 
     /**
@@ -254,12 +254,12 @@ class LocalObserver extends TestObserverInterface {
 }
 
 /**
- * Creates a new rate controller instance.
- * @param {String} absConfigFile The absolute path to the benchmark config file
- * @return {ObserverInterface} The rate controller instance.
+ * Creates a new LocalObserver instance.
+ * @param {object} benchmarkConfig The benchmark configuration object.
+ * @return {TestObserverInterface} The LocalObserver instance.
  */
-function createTestObserver(absConfigFile) {
-    return new LocalObserver(absConfigFile);
+function createTestObserver(benchmarkConfig) {
+    return new LocalObserver(benchmarkConfig);
 }
 
 module.exports.createTestObserver = createTestObserver;
