@@ -19,7 +19,7 @@
                 "gas": {
                     "open": 45000,
                     "query": 100000,
-                    "transfer": 36000
+                    "transfer": 70000
                 }
             }
         }
