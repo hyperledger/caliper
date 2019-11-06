@@ -15,7 +15,8 @@
 'use strict';
 
 const Util = require('../../common/utils/caliper-utils.js');
-
+const ConfigUtil = require('../../common/config/config-util');
+const ChartBuilder = require('../charts/chart-builder');
 const Logger = Util.getLogger('monitor-prometheus.js');
 const MonitorInterface = require('./monitor-interface');
 const PrometheusPushClient = require('../../common/prometheus/prometheus-push-client');
@@ -34,6 +35,7 @@ class PrometheusMonitor extends MonitorInterface {
      */
     constructor(monitorConfig, interval) {
         super(monitorConfig, interval);
+        this.precision = ConfigUtil.get(ConfigUtil.keys.Report.Precision, 3);
         this.prometheusPushClient = new PrometheusPushClient(monitorConfig.push_url);
         this.prometheusQueryClient = new PrometheusQueryClient(monitorConfig.url);
         // User defined options for monitoring
@@ -120,15 +122,16 @@ class PrometheusMonitor extends MonitorInterface {
 
     /**
      * Get statistics from Prometheus via queries that target the Prometheus server
+     * @param {string} testLabel the current test label
      * @returns {Map<string, string>[]} Array of Maps detailing the resource utilization requests
      * @async
      */
-    async getStatistics() {
+    async getStatistics(testLabel) {
         this.endTime = Date.now()/1000;
 
         if (this.include) {
             const resourceStats = [];
-
+            const chartArray = [];
             for (const metricKey of Object.keys(this.include)) {
                 let newKey = true;
                 // Each metric is of the form
@@ -144,23 +147,42 @@ class PrometheusMonitor extends MonitorInterface {
                 // Retrieve base mapped statistics and coerce into correct format
                 const resultMap = PrometheusQueryHelper.extractStatisticFromRange(response, params.statistic, params.label);
 
+                const metricArray = [];
                 for (const [key, value] of resultMap.entries()) {
                     // Filter here
                     if (this.ignore.includes(key)) {
                         continue;
                     } else {
-                        // Transfer into display array
+                        // Build report table information
                         const watchItemStat = newKey ? this.getResultColumnMapForQueryTag(params.query, metricKey) : this.getResultColumnMapForQueryTag('', '');
                         watchItemStat.set('Name', key);
                         const multiplier = params.multiplier ? params.multiplier : 1;
-                        watchItemStat.set('Value', (value*multiplier).toFixed(2));
+                        watchItemStat.set('Value', (value*multiplier).toPrecision(this.precision));
                         // Store
                         resourceStats.push(watchItemStat);
                         newKey = false;
+
+                        // Build separate charting information
+                        const metricMap = new Map();
+                        metricMap.set('Name',  watchItemStat.get('Name'));
+                        metricMap.set(metricKey, watchItemStat.get('Value'));
+                        metricArray.push(metricMap);
                     }
                 }
+                chartArray.push(metricArray);
             }
-            return resourceStats;
+
+            // Retrieve Chart data
+            const chartTypes = this.monitorConfig.charting;
+            const chartStats = [];
+            if (chartTypes) {
+                for (const metrics of chartArray) {
+                    const stats = ChartBuilder.retrieveChartStats(this.constructor.name, chartTypes, `${testLabel}_${metrics[0].get('Name')}`, metrics);
+                    chartStats.push(...stats);
+                }
+            }
+
+            return { resourceStats, chartStats };
         } else {
             Logger.debug('No include options specified for monitor - skipping action');
         }

@@ -36,6 +36,7 @@ observer:
 monitor:
     interval: 1
     type: ['process', 'docker']
-    process: [{ command: 'node', arguments: 'fabricClientWorker.js', multiOutput: 'avg' }]
+    process:
+        processes: [{ command: 'node', arguments: 'fabricClientWorker.js', multiOutput: 'avg' }]
     docker:
-        name: ['peer0.org1.example.com', 'peer0.org2.example.com', 'orderer0.example.com', 'orderer1.example.com']
+        containers: ['peer0.org1.example.com', 'peer0.org2.example.com', 'orderer0.example.com', 'orderer1.example.com']

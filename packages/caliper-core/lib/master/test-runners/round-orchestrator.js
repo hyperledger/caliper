@@ -190,9 +190,9 @@ class RoundOrchestrator {
                 // - TPS
                 let idx;
                 if (this.monitorOrchestrator.hasMonitor('prometheus')) {
-                    idx = await this.report.processPrometheusTPSResults({start, end}, roundConfig.label, index);
+                    idx = await this.report.processPrometheusTPSResults({start, end}, roundConfig, index);
                 } else {
-                    idx = await this.report.processLocalTPSResults(results, roundConfig.label);
+                    idx = await this.report.processLocalTPSResults(results, roundConfig);
                 }
 
                 // - Resource utilization
@@ -214,8 +214,6 @@ class RoundOrchestrator {
             }
         }
 
-        let benchEndTime = Date.now();
-
         // clean up, with "silent" failure handling
         try {
             this.report.printResultsByRound();
@@ -236,6 +234,7 @@ class RoundOrchestrator {
             logger.error(`Error while stopping clients: ${err.stack || err}`);
         }
 
+        let benchEndTime = Date.now();
         logger.info(`Benchmark finished in ${(benchEndTime - benchStartTime)/1000.0} seconds. Total rounds: ${success + failed}. Successful rounds: ${success}. Failed rounds: ${failed}.`);
     }
 }

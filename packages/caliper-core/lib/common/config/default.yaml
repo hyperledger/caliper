@@ -31,6 +31,13 @@ caliper:
         options:
             flag: 'w'
             mode: 0666
+        # Precision (significant figures) for the report output
+        precision: 3
+        # Charting options
+        charting:
+            hue: 21
+            scheme: 'triade'
+            transparency: 0.6
     # Workspace directory that contains all configuration information
     workspace: './'
     # The file path for the project-level configuration file. Can be relative to the workspace.
@@ -43,10 +50,6 @@ caliper:
     benchconfig:
     # Path to the blockchain configuration file that contains information required to interact with the SUT
     networkconfig:
-    # Address of a ZooKeeper node used by distributed clients
-    zooaddress:
-    # Path to a zookeeper service yaml file
-    zooconfig:
     # Sets the frequency of the progress reports in milliseconds
     txupdatetime: 1000
     # Configurations related to the logging mechanism

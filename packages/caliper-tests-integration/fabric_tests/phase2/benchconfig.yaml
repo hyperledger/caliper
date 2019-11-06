@@ -36,4 +36,5 @@ observer:
 monitor:
     interval: 1
     type: ['process']
-    process: [{ command: 'node', arguments: 'fabricClientWorker.js', multiOutput: 'avg' }]
+    process:
+        processes: [{ command: 'node', arguments: 'fabricClientWorker.js', multiOutput: 'avg' }]

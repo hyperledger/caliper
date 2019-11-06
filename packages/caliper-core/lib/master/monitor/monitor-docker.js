@@ -19,6 +19,7 @@ const Util = require('../../common/utils/caliper-utils');
 const Logger = Util.getLogger('monitor-docker');
 const MonitorInterface = require('./monitor-interface');
 const MonitorUtilities = require('./monitor-utilities');
+const ChartBuilder = require('../charts/chart-builder');
 
 const URL = require('url');
 const Docker = require('dockerode');
@@ -35,10 +36,10 @@ class MonitorDocker extends MonitorInterface {
      */
     constructor(monitorConfig, interval) {
         super(monitorConfig, interval);
-        this.containers   = null;
-        this.isReading    = false;
-        this.intervalObj  = null;
-        this.stats = {'time': []};
+        this.containers = null;
+        this.isReading = false;
+        this.intervalObj = null;
+        this.stats = { 'time': [] };
         /* this.stats : used to record statistics of each container
             {
                 'time' : [] // time slot
@@ -63,47 +64,47 @@ class MonitorDocker extends MonitorInterface {
      */
     async findContainers() {
         this.containers = [];
-        let filterName = {local:[], remote:{}};
+        let filterName = { local: [], remote: {} };
         // Split docker items that are local or remote
-        if(this.monitorConfig.hasOwnProperty('name')) {
-            for(let key in this.monitorConfig.name) {
-                let name = this.monitorConfig.name[key];
-                if(name.indexOf('http://') === 0) {
+        if (this.monitorConfig.hasOwnProperty('containers')) {
+            for (let key in this.monitorConfig.containers) {
+                let container = this.monitorConfig.containers[key];
+                if (container.indexOf('http://') === 0) {
                     // Is remote
-                    let remote = URL.parse(name, true);
-                    if(remote.hostname === null || remote.port === null || remote.pathname === '/') {
-                        Logger.warn('unrecognized host, ' + name);
-                    } else if(filterName.remote.hasOwnProperty(remote.hostname)) {
+                    let remote = URL.parse(container, true);
+                    if (remote.hostname === null || remote.port === null || remote.pathname === '/') {
+                        Logger.warn('unrecognized host, ' + container);
+                    } else if (filterName.remote.hasOwnProperty(remote.hostname)) {
                         filterName.remote[remote.hostname].containers.push(remote.pathname);
                     } else {
-                        filterName.remote[remote.hostname] = {port: remote.port, containers: [remote.pathname]};
+                        filterName.remote[remote.hostname] = { port: remote.port, containers: [remote.pathname] };
                     }
                 } else {
                     // Is local
-                    filterName.local.push(name);
+                    filterName.local.push(container);
                 }
             }
         }
 
         // Filter local containers by name
-        if(filterName.local.length > 0) {
+        if (filterName.local.length > 0) {
             try {
                 const containers = await SystemInformation.dockerContainers('active');
                 let size = containers.length;
-                if(size === 0) {
+                if (size === 0) {
                     Logger.error('Could not find any active local containers');
                 } else {
-                    if(filterName.local.indexOf('all') !== -1) {
+                    if (filterName.local.indexOf('all') !== -1) {
                         // Add all containers
-                        for(let i = 0 ; i < size ; i++){
-                            this.containers.push({id: containers[i].id, name: containers[i].name, remote: null});
+                        for (let i = 0; i < size; i++) {
+                            this.containers.push({ id: containers[i].id, name: containers[i].name, remote: null });
                             this.stats[containers[i].id] = this.newContainerStat();
                         }
                     } else {
                         // Filter containers
-                        for(let i = 0 ; i < size ; i++){
-                            if(filterName.local.indexOf(containers[i].name) !== -1) {
-                                this.containers.push({id: containers[i].id, name: containers[i].name, remote: null});
+                        for (let i = 0; i < size; i++) {
+                            if (filterName.local.indexOf(containers[i].name) !== -1) {
+                                this.containers.push({ id: containers[i].id, name: containers[i].name, remote: null });
                                 this.stats[containers[i].id] = this.newContainerStat();
                             }
                         }
@@ -114,7 +115,7 @@ class MonitorDocker extends MonitorInterface {
             }
         }
         // Filter remote containers by name
-        for(let h in filterName.remote) {
+        for (let h in filterName.remote) {
             try {
                 // Instantiate for the host/port
                 let docker = new Docker({
@@ -127,17 +128,17 @@ class MonitorDocker extends MonitorInterface {
                 if (containers.length === 0) {
                     Logger.error('monitor-docker: could not find remote container at ' + h);
                 } else {
-                    if(filterName.remote[h].containers.indexOf('/all') !== -1) {
-                        for(let i = 0 ; i < containers.length ; i++) {
+                    if (filterName.remote[h].containers.indexOf('/all') !== -1) {
+                        for (let i = 0; i < containers.length; i++) {
                             let container = docker.getContainer(containers[i].Id);
-                            this.containers.push({id: containers[i].Id, name: h + containers[i].Names[0], remote: container});
+                            this.containers.push({ id: containers[i].Id, name: h + containers[i].Names[0], remote: container });
                             this.stats[containers[i].Id] = this.newContainerStat();
                         }
                     } else {
-                        for(let i = 0 ; i < containers.length ; i++) {
-                            if(filterName.remote[h].containers.indexOf(containers[i].Names[0]) !== -1) {
+                        for (let i = 0; i < containers.length; i++) {
+                            if (filterName.remote[h].containers.indexOf(containers[i].Names[0]) !== -1) {
                                 let container = docker.getContainer(containers[i].Id);
-                                this.containers.push({id: containers[i].Id, name: h + containers[i].Names[0], remote: container});
+                                this.containers.push({ id: containers[i].Id, name: h + containers[i].Names[0], remote: container });
                                 this.stats[containers[i].Id] = this.newContainerStat();
                             }
                         }
@@ -155,13 +156,13 @@ class MonitorDocker extends MonitorInterface {
      */
     newContainerStat() {
         return {
-            mem_usage:   [],
+            mem_usage: [],
             mem_percent: [],
             cpu_percent: [],
-            netIO_rx:    [],
-            netIO_tx:    [],
-            blockIO_rx:  [],
-            blockIO_wx:  []
+            netIO_rx: [],
+            netIO_tx: [],
+            blockIO_rx: [],
+            blockIO_wx: []
         };
     }
 
@@ -177,19 +178,19 @@ class MonitorDocker extends MonitorInterface {
             this.isReading = true;
             let startPromises = [];
             try {
-                for (let i = 0 ;i < this.containers.length ; i++){
+                for (let i = 0; i < this.containers.length; i++) {
                     if (this.containers[i].remote === null) {
                         // local
                         startPromises.push(SystemInformation.dockerContainerStats(this.containers[i].id));
                     } else {
                         // remote
-                        startPromises.push(this.containers[i].remote.stats({stream: false}));
+                        startPromises.push(this.containers[i].remote.stats({ stream: false }));
                     }
                 }
 
-                const results = await  Promise.all(startPromises);
-                this.stats.time.push(Date.now()/1000);
-                for (let i = 0 ; i < results.length ; i++) {
+                const results = await Promise.all(startPromises);
+                this.stats.time.push(Date.now() / 1000);
+                for (let i = 0; i < results.length; i++) {
                     let stat = results[i];
                     let id = stat.id;
                     if (this.containers.length <= i) {
@@ -206,7 +207,7 @@ class MonitorDocker extends MonitorInterface {
                         let cpuDelta = stat.cpu_stats.cpu_usage.total_usage - stat.precpu_stats.cpu_usage.total_usage;
                         let sysDelta = stat.cpu_stats.system_cpu_usage - stat.precpu_stats.system_cpu_usage;
                         if (cpuDelta > 0 && sysDelta > 0) {
-                            if(stat.cpu_stats.cpu_usage.hasOwnProperty('percpu_usage') && stat.cpu_stats.cpu_usage.percpu_usage !== null) {
+                            if (stat.cpu_stats.cpu_usage.hasOwnProperty('percpu_usage') && stat.cpu_stats.cpu_usage.percpu_usage !== null) {
                                 this.stats[id].cpu_percent.push(cpuDelta / sysDelta * this.coresInUse(stat.cpu_stats) * 100.0);
                             } else {
                                 this.stats[id].cpu_percent.push(cpuDelta / sysDelta * 100.0);
@@ -243,14 +244,14 @@ class MonitorDocker extends MonitorInterface {
                         this.stats[id].netIO_rx.push(ioRx);
                         this.stats[id].netIO_tx.push(ioTx);
                         let diskR = 0, diskW = 0;
-                        if (stat.blkio_stats && stat.blkio_stats.hasOwnProperty('io_service_bytes_recursive')){
+                        if (stat.blkio_stats && stat.blkio_stats.hasOwnProperty('io_service_bytes_recursive')) {
                             //Logger.debug(stat.blkio_stats.io_service_bytes_recursive);
                             let temp = stat.blkio_stats.io_service_bytes_recursive;
-                            for (let dIo =0; dIo<temp.length; dIo++){
-                                if (temp[dIo].op.toLowerCase() === 'read'){
-                                    diskR +=temp[dIo].value;
+                            for (let dIo = 0; dIo < temp.length; dIo++) {
+                                if (temp[dIo].op.toLowerCase() === 'read') {
+                                    diskR += temp[dIo].value;
                                 }
-                                if (temp[dIo].op.toLowerCase() === 'write'){
+                                if (temp[dIo].op.toLowerCase() === 'write') {
                                     diskW += temp[dIo].value;
                                 }
                             }
@@ -293,7 +294,7 @@ class MonitorDocker extends MonitorInterface {
             if (key === 'time') {
                 this.stats[key] = [];
             } else {
-                for(let v in this.stats[key]) {
+                for (let v in this.stats[key]) {
                     this.stats[key][v] = [];
                 }
             }
@@ -309,7 +310,7 @@ class MonitorDocker extends MonitorInterface {
     async stop() {
         clearInterval(this.intervalObj);
         this.containers = [];
-        this.stats      = {'time': []};
+        this.stats = { 'time': [] };
         await Util.sleep(100);
     }
 
@@ -318,26 +319,26 @@ class MonitorDocker extends MonitorInterface {
      * @return {Map} Map of items to build results for, with default null entries
      */
     getResultColumnMap() {
-        const columns = ['Type', 'Name', 'Memory(max)', 'Memory(avg)', 'CPU% (max)', 'CPU% (avg)', 'Traffic In', 'Traffic Out', 'Disc Read','Disc Write'];
+        const columns = ['Name', 'Memory(max)', 'Memory(avg)', 'CPU%(max)', 'CPU%(avg)', 'Traffic In', 'Traffic Out', 'Disc Read', 'Disc Write'];
         const resultMap = new Map();
 
         for (const item of columns) {
             resultMap.set(item, 'N/A');
         }
 
-        // This is a Docker Type, so set here
-        resultMap.set('Type', 'Docker');
         return resultMap;
     }
 
     /**
      * Get statistics from the monitor in the form of an Array containing Map<string, string> detailing key/value pairs
-     * @return {Map<string, string>[]} an array of resource maps for watched containers
+     * @param {string} testLabel the current test label
+     * @return {Object} an object containing an array of resource maps for watched containers, and a possible array of charting information
      * @async
      */
-    async getStatistics() {
+    async getStatistics(testLabel) {
         try {
-            const watchItemStats = [];
+            const resourceStats = [];
+
             // Build a statistic for each monitored container and push into watchItems array
             for (const container of this.containers) {
                 if (container.hasOwnProperty('id')) {
@@ -356,26 +357,39 @@ class MonitorDocker extends MonitorInterface {
                     // Store in a Map
                     const watchItemStat = this.getResultColumnMap();
                     watchItemStat.set('Name', container.name);
-                    watchItemStat.set('Memory(max)', MonitorUtilities.byteNormalize(mem_stat.max));
-                    watchItemStat.set('Memory(avg)', MonitorUtilities.byteNormalize(mem_stat.avg));
+                    watchItemStat.set('Memory(max)', mem_stat.max);
+                    watchItemStat.set('Memory(avg)', mem_stat.avg);
                     watchItemStat.set('CPU% (max)', cpu_stat.max.toFixed(2));
                     watchItemStat.set('CPU% (avg)', cpu_stat.avg.toFixed(2));
-                    watchItemStat.set('Traffic In', MonitorUtilities.byteNormalize((net.in[net.in.length-1] - net.in[0])));
-                    watchItemStat.set('Traffic Out', MonitorUtilities.byteNormalize((net.out[net.out.length-1] - net.out[0])));
-                    watchItemStat.set('Disc Write', MonitorUtilities.byteNormalize((disc.write[disc.write.length-1] - disc.write[0])));
-                    watchItemStat.set('Disc Read', MonitorUtilities.byteNormalize((disc.read[disc.read.length-1] - disc.read[0])));
+                    watchItemStat.set('Traffic In', (net.in[net.in.length - 1] - net.in[0]));
+                    watchItemStat.set('Traffic Out', (net.out[net.out.length - 1] - net.out[0]));
+                    watchItemStat.set('Disc Write', (disc.write[disc.write.length - 1] - disc.write[0]));
+                    watchItemStat.set('Disc Read', (disc.read[disc.read.length - 1] - disc.read[0]));
 
                     // append return array
-                    watchItemStats.push(watchItemStat);
+                    resourceStats.push(watchItemStat);
                 }
             }
-            return watchItemStats;
-        } catch(error) {
+
+            // Normalize the resource stats to a single unit
+            const normalizeStats = ['Memory(max)', 'Memory(avg)', 'Traffic In', 'Traffic Out', 'Disc Write', 'Disc Read'];
+            for (const stat of normalizeStats) {
+                MonitorUtilities.normalizeStats(stat, resourceStats);
+            }
+
+            // Retrieve Chart data
+            const chartTypes = this.monitorConfig.charting;
+            let chartStats = [];
+            if (chartTypes) {
+                chartStats = ChartBuilder.retrieveChartStats(this.constructor.name, chartTypes, testLabel, resourceStats);
+            }
+
+            return { resourceStats, chartStats };
+        } catch (error) {
             Logger.error('Failed to read monitoring data, ' + (error.stack ? error.stack : error));
             return [];
         }
     }
-
 
     /**
      * Get history of memory usage
@@ -401,7 +415,7 @@ class MonitorDocker extends MonitorInterface {
      * @return {Array} array of network IO usage
      */
     getNetworkHistory(key) {
-        return {'in': this.stats[key].netIO_rx, 'out': this.stats[key].netIO_tx};
+        return { 'in': this.stats[key].netIO_rx, 'out': this.stats[key].netIO_tx };
     }
 
     /**
@@ -410,7 +424,7 @@ class MonitorDocker extends MonitorInterface {
      * @return {Array} array of disc usage
      */
     getDiscHistory(key) {
-        return {'read': this.stats[key].blockIO_rx, 'write': this.stats[key].blockIO_wx};
+        return { 'read': this.stats[key].blockIO_rx, 'write': this.stats[key].blockIO_wx };
     }
 
     /**

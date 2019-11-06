@@ -50,10 +50,10 @@ class Report {
         let test = this.benchmarkConfig.test;
         this.reportBuilder.addMetadata('DLT', this.networkConfig.caliper.blockchain);
         try{
-            this.reportBuilder.addMetadata('Benchmark', test.name);
+            this.reportBuilder.addMetadata('Name', test.name);
         }
         catch(err) {
-            this.reportBuilder.addMetadata('Benchmark', ' ');
+            this.reportBuilder.addMetadata('Name', ' ');
         }
         try {
             this.reportBuilder.addMetadata('Description', test.description);
@@ -61,21 +61,11 @@ class Report {
         catch(err) {
             this.reportBuilder.addMetadata('Description', ' ');
         }
-        try{
-            let r = 0;
-            let rounds = test.rounds;
-            for(let i = 0 ; i < rounds.length ; i++) {
-                if(rounds[i].hasOwnProperty('txNumber')) {
-                    r += rounds[i].txNumber.length;
-                } else if (rounds[i].hasOwnProperty('txDuration')) {
-                    r += rounds[i].txDuration.length;
-                }
-            }
-            this.reportBuilder.addMetadata('Test Rounds', r);
-            this.reportBuilder.setBenchmarkInfo(JSON.stringify(test, null, 2));
+        try {
+            this.reportBuilder.addMetadata('Benchmark Rounds', test.rounds.length);
         }
         catch(err) {
-            this.reportBuilder.addMetadata('Test Rounds', ' ');
+            this.reportBuilder.addMetadata('Benchmark Rounds', ' ');
         }
 
         if(this.networkConfig.hasOwnProperty('info')) {
@@ -83,6 +73,7 @@ class Report {
                 this.reportBuilder.addSUTInfo(key, this.networkConfig.info[key]);
             }
         }
+        this.reportBuilder.setBenchmarkInfo(JSON.stringify(test, null, 2));
         this.reportBuilder.addLabelDescriptionMap(test.rounds);
     }
 
@@ -262,10 +253,10 @@ class Report {
     /**
      * Augment the report with details generated through extraction from local process reporting
      * @param {JSON} results JSON object {tsStats: txStats[], start: number, end: number} containing an array of txStatistics
-     * @param {String} label label of the test round
+     * @param {Object} roundConfig test round configuration object
      * @return {Promise} promise object containing the current report index
      */
-    async processLocalTPSResults(results, label){
+    async processLocalTPSResults(results, roundConfig){
         try {
             let resultSet;
 
@@ -275,7 +266,7 @@ class Report {
                 resultSet = results[0];
             }
 
-            const resultMap = this.getLocalResultValues(label, resultSet);
+            const resultMap = this.getLocalResultValues(roundConfig.label, resultSet);
             // Add this set of results to the main round collection
             this.resultsByRound.push(resultMap);
 
@@ -285,8 +276,8 @@ class Report {
             this.printTable(tableArray);
 
             // Add TPS to the report
-            let idx = this.reportBuilder.addBenchmarkRound(label);
-            this.reportBuilder.setRoundPerformance(label, idx, tableArray);
+            let idx = this.reportBuilder.addBenchmarkRound(roundConfig);
+            this.reportBuilder.setRoundPerformance(roundConfig.label, idx, tableArray);
 
             return idx;
         } catch(error) {
@@ -303,14 +294,13 @@ class Report {
     async buildRoundResourceStatistics(idx, label) {
         // Retrieve statistics from all monitors
         const types = this.monitorOrchestrator.getAllMonitorTypes();
-        for (let type of types) {
-            const statsMap = await this.monitorOrchestrator.getStatisticsForMonitor(type);
-            const resourceTable = this.convertToTable(statsMap);
+        for (const type of types) {
+            const { resourceStats, chartStats } = await this.monitorOrchestrator.getStatisticsForMonitor(type, label);
+            const resourceTable = this.convertToTable(resourceStats);
             if (resourceTable.length > 0) {
-                // print to console for view and add to report
                 Logger.info(`### ${type} resource stats ###'`);
                 this.printTable(resourceTable);
-                this.reportBuilder.setRoundResource(label, idx, resourceTable);
+                this.reportBuilder.setRoundResourceTable(label, idx, resourceTable, chartStats, type);
             }
         }
     }
@@ -319,14 +309,14 @@ class Report {
      * Augment the report with details generated through extraction from Prometheus
      * @param {JSON} timing JSON object containing start/end times required to query
      * the prometheus server
-     * @param {String} label label of the test round
+     * @param {Object} roundConfig test round configuration object
      * @param {number} round the current test round
      * @return {Promise} promise object containing the report index
      * @async
      */
-    async processPrometheusTPSResults(timing, label, round){
+    async processPrometheusTPSResults(timing, roundConfig, round){
         try {
-            const resultMap = await this.getPrometheusResultValues(label, round, timing.start, timing.end);
+            const resultMap = await this.getPrometheusResultValues(roundConfig.label, round, timing.start, timing.end);
 
             // Add this set of results to the main round collection
             this.resultsByRound.push(resultMap);
@@ -337,8 +327,8 @@ class Report {
             this.printTable(tableArray);
 
             // Add TPS to the report
-            let idx = this.reportBuilder.addBenchmarkRound(label);
-            this.reportBuilder.setRoundPerformance(label, idx, tableArray);
+            let idx = this.reportBuilder.addBenchmarkRound(roundConfig);
+            this.reportBuilder.setRoundPerformance(roundConfig.label, idx, tableArray);
 
             return idx;
         } catch (error) {

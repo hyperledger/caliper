@@ -150,11 +150,12 @@ class MonitorOrchestrator {
     /**
     * Get an Array of statistics maps for a named resource monitor
     * @param {String} type the monitor type
+    * @param {String} testLabel the current test label
     * @return {Map<string, string>[]} an array of resource maps
     * @async
     */
-    async getStatisticsForMonitor(type) {
-        return await this.monitors.get(type).getStatistics();
+    async getStatisticsForMonitor(type, testLabel) {
+        return await this.monitors.get(type).getStatistics(testLabel);
     }
 }
 
