@@ -37,34 +37,20 @@ test:
     number: 5
   rounds:
   - label: open
-    txNumber:
-    - 5000
-    - 5000
-    - 5000
+    txNumber: 5000
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts: 
         tps: 100
-    - type: fixed-rate
-      opts:
-        tps: 200
-    - type: fixed-rate
-      opts:
-        tps: 300
     arguments:
       money: 10000
     callback: benchmark/simple/open.js
   - label: query
-    txNumber:
-    - 5000
-    - 5000
+    txNumber: 5000
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 300
-    - type: fixed-rate
-      opts:
-        tps: 400
     callback" : benchmark/simple/query.js
 monitor:
   type:
@@ -85,9 +71,9 @@ monitor:
   * **clients** : defines the client type as well as relevant arguments, the 'type' property must be 'local'
     * local: In this case, local processes will be forked and act as blockchain clients. The number of forked clients should be defined by 'number' property.
   * **label** : hint for the test. For example, you can use the transaction name as the label name to tell which transaction is mainly used to test the performance. The value is also used as the context name for *blockchain.getContext()*. For example, developers may want to test performance of different Fabric channels, in that case, tests with different label can be bound to different fabric channels.  
-  * **txNumber** : defines an array of sub-rounds with different transaction numbers to be run in each round. For example, [5000,400] means totally 5000 transactions will be generated in the first round and 400 will be generated in the second.
-  * **txDuration** : defines an array of sub-rounds with time based test runs. For example [150,400] means two runs will be made, the first test will run for 150 seconds, and the second will run for 400 seconds. If specified in addition to txNumber, the txDuration option will take precedence.
-  * **rateControl** : defines an array of custom rate controls to use during the benchmarking test sub-rounds. If not specified will default to 'fixed-rate' that will drive the benchmarking at a set 1 TPS rate. If defined, the rate control mechanism must exist, and may be provided with options to use to control the rate at which messages are sent, or to specify a message rate profile. Each round, specified within **txNumber** or **txDuration** must have a corresponding rate control item within the **rateControl** array. For more information on available rate controllers and how to implement custom rate controllers, refer to the [rate controllers section](./Rate_Controllers.md)
+  * **txNumber** : defines the number of transactions to be generated in the corresponding round. Mutually exclusive with the `txDuration` attribute.
+  * **txDuration** : defines the length of the corresponding round in seconds. Mutually exclusive with the `txNumber` attribute.
+  * **rateControl** : defines the rate controller that will drive the transaction generation during the round. For more information on available rate controllers and how to implement custom rate controllers, refer to the [rate controllers section](./Rate_Controllers.md)
   * **trim** : performs a trimming operation on the client results to eliminate the warm-up and cool-down phase being included within tests reports. If specified, the trim option will respect the round measurement. For example, if `txNumber` is the driving test mode the a value of 30 means the initial and final 30 transactions of the results from each client will be ignored when generating result statistics; if `txDuration` is being used, the the initial and final 30seconds of the the results from each client will be ignored.
   * **arguments** : user defined arguments which will be passed directly to the user defined test module.
   * **callback** : specifies the user defined module used in this test round. Please see [User defined test module](./Writing_Benchmarks.md) to learn more details.
