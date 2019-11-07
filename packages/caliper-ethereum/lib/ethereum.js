@@ -68,12 +68,14 @@ class Ethereum extends BlockchainInterface {
         for (const key of Object.keys(this.ethereumConfig.contracts)) {
             let contractData = require(CaliperUtils.resolvePath(this.ethereumConfig.contracts[key].path, this.workspaceRoot)); // TODO remove path property
             let contractGas = this.ethereumConfig.contracts[key].gas;
+            let estimateGas = this.ethereumConfig.contracts[key].estimateGas;
             this.ethereumConfig.contracts[key].abi = contractData.abi;
             promises.push(new Promise(async function(resolve, reject) {
                 let contractInstance = await self.deployContract(contractData);
                 logger.info('Deployed contract ' + contractData.name + ' at ' + contractInstance.options.address);
                 self.ethereumConfig.contracts[key].address = contractInstance.options.address;
                 self.ethereumConfig.contracts[key].gas = contractGas;
+                self.ethereumConfig.contracts[key].estimateGas = estimateGas;
                 resolve(contractInstance);
             }));
         }
@@ -99,11 +101,12 @@ class Ethereum extends BlockchainInterface {
         for (const key of Object.keys(args.contracts)) {
             context.contracts[key] = {
                 contract: new this.web3.eth.Contract(args.contracts[key].abi, args.contracts[key].address),
-                gas: args.contracts[key].gas
+                gas: args.contracts[key].gas,
+                estimateGas: args.contracts[key].estimateGas
             };
         }
-        context.nonces[this.ethereumConfig.fromAddress] = await this.web3.eth.getTransactionCount(this.ethereumConfig.fromAddress);
         if (this.ethereumConfig.fromAddressPrivateKey) {
+            context.nonces[this.ethereumConfig.fromAddress] = await this.web3.eth.getTransactionCount(this.ethereumConfig.fromAddress);
             this.web3.eth.accounts.wallet.add(this.ethereumConfig.fromAddressPrivateKey);
         } else if (this.ethereumConfig.fromAddressPassword) {
             await context.web3.eth.personal.unlockAccount(this.ethereumConfig.fromAddress, this.ethereumConfig.fromAddressPassword, 1000);
@@ -186,7 +189,7 @@ class Ethereum extends BlockchainInterface {
             let methodType = 'send';
             if (methodCall.isView) {
                 methodType = 'call';
-            } else {
+            } else if (context.nonces && context.nonces[context.fromAddress]) {
                 let nonce = context.nonces[context.fromAddress];
                 context.nonces[context.fromAddress] = nonce + 1;
                 params.nonce = nonce;
@@ -194,14 +197,14 @@ class Ethereum extends BlockchainInterface {
             if (methodCall.args) {
                 if (contractInfo.gas && contractInfo.gas[methodCall.verb]) {
                     params.gas = contractInfo.gas[methodCall.verb];
-                } else {
+                } else if (contractInfo.estimateGas) {
                     params.gas = 1000 + await contractInfo.contract.methods[methodCall.verb](...methodCall.args).estimateGas();
                 }
                 receipt = await contractInfo.contract.methods[methodCall.verb](...methodCall.args)[methodType](params);
             } else {
                 if (contractInfo.gas && contractInfo.gas[methodCall.verb]) {
                     params.gas = contractInfo.gas[methodCall.verb];
-                } else {
+                } else if (contractInfo.estimateGas) {
                     params.gas = 1000 + await contractInfo.contract.methods[methodCall.verb].estimateGas(params);
                 }
                 receipt = await contractInfo.contract.methods[methodCall.verb]()[methodType](params);
