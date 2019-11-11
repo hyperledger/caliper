@@ -30,58 +30,60 @@ class Report {
     /**
      * Constructor for the Report object
      * @param {MonitorOrchestrator} monitorOrchestrator the test monitor
+     * @param {object} benchmarkConfig The benchmark configuration object.
+     * @param {object} networkConfig The network configuration object.
      */
-    constructor(monitorOrchestrator) {
+    constructor(monitorOrchestrator, benchmarkConfig, networkConfig) {
+        this.benchmarkConfig = benchmarkConfig;
+        this.networkConfig = networkConfig;
         this.monitorOrchestrator = monitorOrchestrator;
+
         this.reportBuilder = new ReportBuilder();
         this.resultsByRound = [];
         this.queryClient = (monitorOrchestrator && monitorOrchestrator.hasMonitor('prometheus')) ? monitorOrchestrator.getMonitor('prometheus').getQueryClient() : null;
     }
 
     /**
-     * Generate mustache template for test report
-     * @param {String} absConfigFile the config file used by this flow
-     * @param {String} absNetworkFile the network config file used by this flow
-     * @param {String} blockchainType the blockchain target type
+     * Generate mustache template for test report.
      */
-    createReport(absConfigFile, absNetworkFile, blockchainType) {
-        let config = CaliperUtils.parseYaml(absConfigFile);
-        this.reportBuilder.addMetadata('DLT', blockchainType);
+    createReport() {
+        let test = this.benchmarkConfig.test;
+        this.reportBuilder.addMetadata('DLT', this.networkConfig.caliper.blockchain);
         try{
-            this.reportBuilder.addMetadata('Benchmark', config.test.name);
+            this.reportBuilder.addMetadata('Benchmark', test.name);
         }
         catch(err) {
             this.reportBuilder.addMetadata('Benchmark', ' ');
         }
         try {
-            this.reportBuilder.addMetadata('Description', config.test.description);
+            this.reportBuilder.addMetadata('Description', test.description);
         }
         catch(err) {
             this.reportBuilder.addMetadata('Description', ' ');
         }
         try{
             let r = 0;
-            for(let i = 0 ; i < config.test.rounds.length ; i++) {
-                if(config.test.rounds[i].hasOwnProperty('txNumber')) {
-                    r += config.test.rounds[i].txNumber.length;
-                } else if (config.test.rounds[i].hasOwnProperty('txDuration')) {
-                    r += config.test.rounds[i].txDuration.length;
+            let rounds = test.rounds;
+            for(let i = 0 ; i < rounds.length ; i++) {
+                if(rounds[i].hasOwnProperty('txNumber')) {
+                    r += rounds[i].txNumber.length;
+                } else if (rounds[i].hasOwnProperty('txDuration')) {
+                    r += rounds[i].txDuration.length;
                 }
             }
             this.reportBuilder.addMetadata('Test Rounds', r);
-            this.reportBuilder.setBenchmarkInfo(JSON.stringify(config.test, null, 2));
+            this.reportBuilder.setBenchmarkInfo(JSON.stringify(test, null, 2));
         }
         catch(err) {
             this.reportBuilder.addMetadata('Test Rounds', ' ');
         }
 
-        let sut = CaliperUtils.parseYaml(absNetworkFile);
-        if(sut.hasOwnProperty('info')) {
-            for(let key in sut.info) {
-                this.reportBuilder.addSUTInfo(key, sut.info[key]);
+        if(this.networkConfig.hasOwnProperty('info')) {
+            for(let key in this.networkConfig.info) {
+                this.reportBuilder.addSUTInfo(key, this.networkConfig.info[key]);
             }
         }
-        this.reportBuilder.addLabelDescriptionMap(config.test.rounds);
+        this.reportBuilder.addLabelDescriptionMap(test.rounds);
     }
 
     /**

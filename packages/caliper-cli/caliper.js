@@ -16,9 +16,7 @@
 'use strict';
 
 process.env.SUPPRESS_NO_CONFIG_WARNING = true;
-const cmdUtil = require('./lib/utils/cmdutils');
 const yargs = require('yargs');
-const chalk = require('chalk');
 const version = 'v' + require('./package.json').version;
 
 let results = yargs
@@ -35,11 +33,7 @@ let results = yargs
     .argv;
 
 results.thePromise.then( () => {
-    if (!results.quiet) {
-        cmdUtil.log(chalk.green('\nCommand succeeded\n'));
-    }
     process.exit(0);
 }).catch((error) => {
-    cmdUtil.log(error.stack+chalk.red('\nCommand failed\n'));
     process.exit(1);
 });

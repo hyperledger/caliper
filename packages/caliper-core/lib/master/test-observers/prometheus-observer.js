@@ -28,17 +28,17 @@ class PrometheusObserver extends TestObserverInterface {
 
     /**
      * Constructor
-     * @param {String} configPath path of the configuration file
+     * @param {object} benchmarkConfig The benchmark configuration object.
      */
-    constructor(configPath) {
-        super(configPath);
+    constructor(benchmarkConfig) {
+        super(benchmarkConfig);
 
         // determine interval
-        const interval = (this.config.observer && this.config.observer.interval) ? this.config.observer.interval : 1;
+        const interval = (this.benchmarkConfig.observer && this.benchmarkConfig.observer.interval) ? this.benchmarkConfig.observer.interval : 1;
         this.observeInterval = interval * 1000;
 
         // Define the query client
-        const queryUrl = this.config.monitor.prometheus.url;
+        const queryUrl = this.benchmarkConfig.monitor.prometheus.url;
         this.queryClient = new PrometheusQueryClient(queryUrl);
         Logger.info(`Configured observer to query URL ${queryUrl} every ${interval} seconds`);
     }
@@ -92,9 +92,9 @@ class PrometheusObserver extends TestObserverInterface {
         if(this.observeIntervalObject) {
             clearInterval(this.observeIntervalObject);
             this.observeIntervalObject = null;
+            await Utils.sleep(this.observeInterval);
+            await this.update();
         }
-        await Utils.sleep(this.observeInterval);
-        this.update();
     }
 
     /**
@@ -115,12 +115,12 @@ class PrometheusObserver extends TestObserverInterface {
 }
 
 /**
- * Creates a new rate controller instance.
- * @param {String} absConfigFile The absolute path to the benchmark config file
- * @return {ObserverInterface} The rate controller instance.
+ * Creates a new PrometheusObserver instance.
+ * @param {object} benchmarkConfig The benchmark configuration object.
+ * @return {TestObserverInterface} The PrometheusObserver instance.
  */
-function createTestObserver(absConfigFile) {
-    return new PrometheusObserver(absConfigFile);
+function createTestObserver(benchmarkConfig) {
+    return new PrometheusObserver(benchmarkConfig);
 }
 
 module.exports.createTestObserver = createTestObserver;

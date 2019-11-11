@@ -15,43 +15,40 @@
 'use strict';
 
 const rewire = require('rewire');
-const ClientOrchestratorRewire = rewire('../../../lib/worker/client/client-orchestrator');
+const ClientOrchestratorRewire = rewire('../../../lib/master/client/client-orchestrator');
 
 const chai = require('chai');
 chai.should();
 const sinon = require('sinon');
 
 describe('client orchestrator implementation', () => {
+    const benchmarkConfig = {
+        test: {
+            clients: {
+                number: 7
+            }
+        }
+    };
+    const workerArguments = [1,2,3];
+    const workerFactory = {};
 
-
-    describe('#init', () => {
+    describe('#constructor', () => {
 
         it('should read the number of test clients if present in the config file', () => {
-            const FakeParseYaml = sinon.stub().returns({ test: { clients: {number: 7}}});
-            ClientOrchestratorRewire.__set__('util.parseYaml', FakeParseYaml);
+            const myOrchestrator = new ClientOrchestratorRewire(benchmarkConfig, workerFactory, workerArguments);
 
-            const myOrchestrator = new ClientOrchestratorRewire();
-            myOrchestrator.init();
             myOrchestrator.number.should.equal(7);
-
         });
 
         it('should default to one client in the test if not specified in the config file ', () => {
-            const FakeParseYaml = sinon.stub().returns({ test: { clients: {notNumber: 2}}});
-            ClientOrchestratorRewire.__set__('util.parseYaml', FakeParseYaml);
+            const myOrchestrator = new ClientOrchestratorRewire({ test: { clients: {notNumber: 2}}}, workerFactory, workerArguments);
 
-            const myOrchestrator = new ClientOrchestratorRewire();
-            myOrchestrator.init();
             myOrchestrator.number.should.equal(1);
         });
     });
 
     describe('#startTest', () => {
-
-        const FakeParseYaml = sinon.stub().returns({ test: { clients: {number: 7}}});
-        ClientOrchestratorRewire.__set__('util.parseYaml', FakeParseYaml);
-        const myOrchestrator = new ClientOrchestratorRewire();
-        myOrchestrator.init();
+        const myOrchestrator = new ClientOrchestratorRewire(benchmarkConfig, workerFactory, workerArguments);
         let _startTestStub;
         let formatResultsStub;
 
@@ -65,10 +62,7 @@ describe('client orchestrator implementation', () => {
         it('should increment the updates.id variable', async () => {
             myOrchestrator.updates.id = 41;
             const testMsg = {msg: 'test msg'};
-            const clientArgs = [1,2,3];
-            const factory = {};
-
-            await  myOrchestrator.startTest(testMsg, clientArgs, factory);
+            await myOrchestrator.startTest(testMsg);
 
             myOrchestrator.updates.id.should.equal(42);
         });
@@ -76,22 +70,16 @@ describe('client orchestrator implementation', () => {
         it('should call _startTest with known arguments', async () => {
             myOrchestrator.updates.id = 0;
             const testMsg = {msg: 'test msg'};
-            const clientArgs = [1,2,3];
-            const factory = {factory: 'a factory'};
-
-            await  myOrchestrator.startTest(testMsg, clientArgs, factory);
+            await  myOrchestrator.startTest(testMsg);
 
             sinon.assert.calledOnce(_startTestStub);
-            sinon.assert.calledWith(_startTestStub, 7, testMsg, clientArgs, [], [], factory);
+            sinon.assert.calledWith(_startTestStub, 7, testMsg, [], []);
         });
 
         it('should call formatResults', async() => {
             myOrchestrator.updates.id = 0;
             const testMsg = {msg: 'test msg'};
-            const clientArgs = [1,2,3];
-            const factory = {};
-
-            await  myOrchestrator.startTest(testMsg, clientArgs, factory);
+            await  myOrchestrator.startTest(testMsg);
 
             sinon.assert.calledOnce(formatResultsStub);
         });
@@ -99,10 +87,8 @@ describe('client orchestrator implementation', () => {
         it('should return the response from formatResults', async () => {
             myOrchestrator.updates.id = 0;
             const testMsg = {msg: 'test msg'};
-            const clientArgs = [1,2,3];
-            const factory = {};
+            const response = await  myOrchestrator.startTest(testMsg);
 
-            const response = await  myOrchestrator.startTest(testMsg, clientArgs, factory);
             response.should.equal('formatted');
         });
 
@@ -110,10 +96,7 @@ describe('client orchestrator implementation', () => {
 
 
     describe('#getUpdates', () => {
-
-        const FakeParseYaml = sinon.stub().returns({ test: { clients: {number: 7}}});
-        ClientOrchestratorRewire.__set__('util.parseYaml', FakeParseYaml);
-        const myOrchestrator = new ClientOrchestratorRewire();
+        const myOrchestrator = new ClientOrchestratorRewire(benchmarkConfig, workerFactory, workerArguments);
 
         it('should return the updates', () => {
             const checkVal = 'this is my update';
@@ -126,10 +109,7 @@ describe('client orchestrator implementation', () => {
     });
 
     describe('#formatResults', () => {
-
-        const FakeParseYaml = sinon.stub().returns({ test: { clients: {number: 7}}});
-        ClientOrchestratorRewire.__set__('util.parseYaml', FakeParseYaml);
-        const myOrchestrator = new ClientOrchestratorRewire();
+        const myOrchestrator = new ClientOrchestratorRewire(benchmarkConfig, workerFactory, workerArguments);
 
         it('should group all client results into an array under a results label', () => {
             const result0 = {results: [1] , start: new Date(2018, 11, 24, 10, 33), end: new Date(2018, 11, 24, 11, 33)};

@@ -307,7 +307,7 @@ class CaliperLocalClient {
      */
     async doTest(test) {
         Logger.debug('doTest() with:', test);
-        let cb = require(CaliperUtils.resolvePath(test.cb, test.root));
+        let cb = require(CaliperUtils.resolvePath(test.cb));
 
         this.beforeTest(test);
 

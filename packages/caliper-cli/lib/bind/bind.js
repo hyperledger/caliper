@@ -15,7 +15,6 @@
 'use strict';
 
 const { CaliperUtils, ConfigUtil } = require('@hyperledger/caliper-core');
-const chalk = require('chalk');
 const cmdUtil = require('../utils/cmdutils');
 const path = require('path');
 
@@ -107,7 +106,7 @@ class Bind {
             settings = {};
         }
 
-        cmdUtil.log(chalk.blue.bold(`Binding for ${sut}@${sdk}. This might take some time...`));
+        logger.info(`Binding for ${sut}@${sdk}. This might take some time...`);
         try {
             // combine, then convert the arguments to an array
             let npmArgs;

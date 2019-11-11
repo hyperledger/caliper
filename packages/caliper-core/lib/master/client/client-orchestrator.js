@@ -25,26 +25,25 @@ const logger = util.getLogger('client.js');
 class ClientOrchestrator {
     /**
      * Constructor
-     * @param {String} config path of the configuration file
+     * @param {object} benchmarkConfig The benchmark configuration object.
+     * @param {object} workerFactory The factory for the worker processes.
+     * @param {object[]} workerArguments Array of arbitrary arguments to pass to the worker processes.
      */
-    constructor(config) {
-        let conf = util.parseYaml(config);
-        this.config = conf.test.clients;
-        this.updates = {id:0, data:[]};           // contains txUpdated messages
-        this.processes  = {};
-    }
+    constructor(benchmarkConfig, workerFactory, workerArguments) {
+        this.config = benchmarkConfig.test.clients;
+        this.workerFactory = workerFactory;
+        this.workerArguments = workerArguments;
 
-    /**
-    * Initialize client object
-    * @return {Promise} promise object
-    */
-    async init() {
         if(this.config.hasOwnProperty('number')) {
             this.number = this.config.number;
         } else {
             this.number = 1;
         }
-        return this.number;
+
+        logger.info(`Configured number of worker processes: ${this.number}`);
+
+        this.updates = {id:0, data:[]};           // contains txUpdated messages
+        this.processes  = {};
     }
 
     /**
@@ -60,17 +59,15 @@ class ClientOrchestrator {
     *              config: path of the blockchain config file   // TODO: how to deal with the local config file when transfer it to a remote client (via zookeeper), as well as any local materials like crypto keys??
     *            };
     * @param {JSON} test test specification
-    * @param {Array} clientArgs each element of the array contains arguments that should be passed to corresponding test client
-    * @param {Object} clientFactory a factory used to spawn test clients
     * @returns {Object[]} the test results array
     * @async
     */
-    async startTest(test, clientArgs, clientFactory) {
+    async startTest(test) {
         this.updates.data = [];
         this.updates.id++;
 
         const results = [];
-        await this._startTest(this.number, test, clientArgs, this.updates.data, results, clientFactory);
+        await this._startTest(this.number, test, this.updates.data, results);
         const testOutput = this.formatResults(results);
         return testOutput;
     }
@@ -79,13 +76,11 @@ class ClientOrchestrator {
      * Start a test
      * @param {Number} number test clients' count
      * @param {JSON} test test specification
-     * @param {Array} clientArgs each element contains specific arguments for a client
      * @param {Array} updates array to save txUpdate results
      * @param {Array} results array to save the test results
-     * @param {Object} clientFactory a factory to spawn test clients
      * @async
      */
-    async _startTest(number, test, clientArgs, updates, results, clientFactory) {
+    async _startTest(number, test, updates, results) {
 
         // Conditionally launch clients on the test round. Subsequent tests should re-use existing clients.
         if (Object.keys(this.processes).length === 0) {
@@ -93,7 +88,7 @@ class ClientOrchestrator {
             const readyPromises = [];
             this.processes = {};
             for (let i = 0 ; i < number ; i++) {
-                this.launchClient(updates, results, clientFactory, readyPromises);
+                this.launchClient(updates, results, readyPromises);
             }
             // wait for all clients to have initialized
             logger.info(`Waiting for ${readyPromises.length} clients to be ready... `);
@@ -140,7 +135,7 @@ class ClientOrchestrator {
             promises.push(p);
             client.results = results;
             client.updates = updates;
-            test.clientArgs = clientArgs[idx];
+            test.clientArgs = this.workerArguments[idx];
             test.clientIdx = idx;
             test.totalClients = number;
 
@@ -233,11 +228,10 @@ class ClientOrchestrator {
      * Launch a client process to do the test
      * @param {Array} updates array to save txUpdate results
      * @param {Array} results array to save the test results
-     * @param {Object} clientFactory a factory to spawn clients
      * @param {Array} readyPromises array to hold ready promises
      */
-    launchClient(updates, results, clientFactory, readyPromises) {
-        let client = clientFactory.spawnWorker();
+    launchClient(updates, results, readyPromises) {
+        let client = this.workerFactory.spawnWorker();
         let pid   = client.pid.toString();
 
         logger.info('Launching client with PID ', pid);

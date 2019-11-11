@@ -14,9 +14,8 @@
 
 'use strict';
 
-const {CaliperFlow, CaliperUtils, ConfigUtil} = require('@hyperledger/caliper-core');
-const chalk = require('chalk');
-const cmdUtil = require('../../utils/cmdutils');
+const {CaliperEngine, CaliperUtils, ConfigUtil} = require('@hyperledger/caliper-core');
+const logger = CaliperUtils.getLogger('CLI');
 const path = require('path');
 const fs = require('fs');
 /**
@@ -30,46 +29,66 @@ class RunBenchmark {
     * @param {string} argv argument list from caliper benchmark command
     */
     static async handler(argv) {
-        let workspace = ConfigUtil.get(ConfigUtil.keys.Workspace, './');
-        let benchConfigFile = ConfigUtil.get(ConfigUtil.keys.BenchConfig, undefined);
-        let blockchainConfigFile = ConfigUtil.get(ConfigUtil.keys.NetworkConfig, undefined);
+        let workspacePath = ConfigUtil.get(ConfigUtil.keys.Workspace);
+        let benchmarkConfigPath = ConfigUtil.get(ConfigUtil.keys.BenchConfig);
+        let networkConfigPath = ConfigUtil.get(ConfigUtil.keys.NetworkConfig);
 
         // Workspace is expected to be the root location of working folders
-        workspace = path.resolve(workspace);
-        benchConfigFile = path.isAbsolute(benchConfigFile) ? benchConfigFile : path.join(workspace, benchConfigFile);
-        blockchainConfigFile = path.isAbsolute(blockchainConfigFile) ? blockchainConfigFile : path.join(workspace, blockchainConfigFile);
+        workspacePath = path.resolve(workspacePath);
+        benchmarkConfigPath = CaliperUtils.resolvePath(benchmarkConfigPath, workspacePath);
+        networkConfigPath = CaliperUtils.resolvePath(networkConfigPath, workspacePath);
 
-        if(!benchConfigFile || !fs.existsSync(benchConfigFile)) {
-            throw(new Error(`Benchmark configuration file "${benchConfigFile || 'UNSET'}" does not exist`));
+        if(!benchmarkConfigPath || !fs.existsSync(benchmarkConfigPath)) {
+            let msg = `Benchmark configuration file "${benchmarkConfigPath || 'UNSET'}" does not exist`;
+            logger.error(msg);
+            throw new Error(msg);
         }
 
-        if(!blockchainConfigFile || !fs.existsSync(blockchainConfigFile)) {
-            throw(new Error(`Network configuration file "${blockchainConfigFile || 'UNSET'}" does not exist`));
+        if(!networkConfigPath || !fs.existsSync(networkConfigPath)) {
+            let msg = `Network configuration file "${networkConfigPath || 'UNSET'}" does not exist`;
+            logger.error(msg);
+            throw new Error(msg);
         }
+
+        let benchmarkConfig = CaliperUtils.parseYaml(benchmarkConfigPath);
+        let networkConfig = CaliperUtils.parseYaml(networkConfigPath);
 
         let blockchainType = '';
-        let networkObject = CaliperUtils.parseYaml(blockchainConfigFile);
-        if (networkObject.hasOwnProperty('caliper') && networkObject.caliper.hasOwnProperty('blockchain')) {
-            blockchainType = networkObject.caliper.blockchain;
+        if (networkConfig.caliper && networkConfig.caliper.blockchain) {
+            blockchainType = networkConfig.caliper.blockchain;
         } else {
-            throw new Error('The configuration file [' + blockchainConfigFile + '] is missing its "caliper.blockchain" attribute');
+            let msg = `Network configuration file "${networkConfigPath}" is missing its "caliper.blockchain" attribute`;
+            logger.error(msg);
+            throw new Error(msg);
         }
 
-        try {
-            cmdUtil.log(chalk.blue.bold('Benchmark for target Blockchain type ' + blockchainType + ' about to start'));
-            const {AdminClient, ClientFactory} = require('@hyperledger/caliper-' + blockchainType);
-            const adminClient = new AdminClient(blockchainConfigFile, workspace);
-            const clientFactory = new ClientFactory(blockchainConfigFile, workspace);
+        let knownError = false;
 
-            const response = await CaliperFlow.run(benchConfigFile, blockchainConfigFile, adminClient, clientFactory, workspace);
+        try {
+            logger.info(`Set workspace path: ${workspacePath}`);
+            logger.info(`Set benchmark configuration path: ${benchmarkConfigPath}`);
+            logger.info(`Set network configuration path: ${networkConfigPath}`);
+            logger.info(`Detected SUT type: ${blockchainType}`);
+
+            const {AdminClient, ClientFactory} = require(`@hyperledger/caliper-${blockchainType}`);
+            const blockchainAdapter = new AdminClient(networkConfigPath, workspacePath);
+            const workerFactory = new ClientFactory();
+
+            const engine = new CaliperEngine(benchmarkConfig, networkConfig, blockchainAdapter, workerFactory);
+            const response = await engine.run();
 
             if (response === 0) {
-                cmdUtil.log(chalk.blue.bold('Benchmark run successful'));
+                logger.info('Benchmark successfully finished');
             } else {
-                cmdUtil.log(chalk.red.bold('Benchmark failure'));
-                throw new Error('Benchmark failure');
+                knownError = true;
+                let msg = `Benchmark failed with error code ${response}`;
+                logger.error(msg);
+                throw new Error(msg);
             }
         } catch (err) {
+            if (!knownError) {
+                logger.error(`Unexpected error during benchmark execution: ${err.stack || err}`);
+            }
             throw err;
         }
     }

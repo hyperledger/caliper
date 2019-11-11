@@ -19,12 +19,12 @@ test:
         number: 2
     rounds:
     - label: set
-      txNumber: [1000]
-      rateControl: [{ type: 'fixed-rate', opts: { tps: 100 } }]
+      txNumber: 1000
+      rateControl: { type: 'fixed-rate', opts: { tps: 100 } }
       callback: set.js
     - label: get
-      txNumber: [1000]
-      rateControl: [{ type: 'linear-rate', opts: { startingTps: 100, finishingTps: 200 } }]
+      txNumber: 1000
+      rateControl: { type: 'linear-rate', opts: { startingTps: 100, finishingTps: 200 } }
       callback: get.js
 observer:
     interval: 1

@@ -34,7 +34,7 @@ class PrometheusMonitor extends MonitorInterface {
      */
     constructor(monitorConfig, interval) {
         super(monitorConfig, interval);
-        this.prometheusPushClient = new PrometheusPushClient(monitorConfig.pushUrl);
+        this.prometheusPushClient = new PrometheusPushClient(monitorConfig.push_url);
         this.prometheusQueryClient = new PrometheusQueryClient(monitorConfig.url);
         // User defined options for monitoring
         if (monitorConfig.hasOwnProperty('metrics')) {

@@ -14,61 +14,27 @@
 
 'use strict';
 
-const {
-    CaliperLocalClient,
-    CaliperUtils
-} = require('@hyperledger/caliper-core');
-const fiscoBcosClient = require('./fiscoBcos');
-
-let caliperClient;
+const { MessageHandler } = require('@hyperledger/caliper-core');
+const FiscoBcosClient = require('./fiscoBcos');
 
 /**
- * Messages handler
+ * Handles the init message. Constructs the FISCO-BCOS adapter.
+ * @param {object} context The context of the message handler object.
+ * @param {object} message The message object.
+ * @return {Promise<FiscoBcosClient>} The initialized adapter instance.
+ * @async
+ */
+async function initHandler(context, message) {
+    return new FiscoBcosClient(context.networkConfigPath, context.workspacePath);
+}
+
+const handlerContext = new MessageHandler({
+    init: initHandler
+});
+
+/**
+ * Message handler
  */
 process.on('message', async (message) => {
-    if (!message.hasOwnProperty('type')) {
-        process.send({
-            type: 'error',
-            data: 'unknown message type'
-        });
-        return;
-    }
-
-    try {
-        switch (message.type) {
-        case 'init': {
-            const blockchain = new fiscoBcosClient(message.absNetworkFile, message.networkRoot);
-            caliperClient = new CaliperLocalClient(blockchain);
-            process.send({
-                type: 'ready',
-                data: {
-                    pid: process.pid,
-                    complete: true
-                }
-            });
-            break;
-        }
-        case 'test': {
-            let result = await caliperClient.doTest(message);
-
-            await CaliperUtils.sleep(200);
-            process.send({
-                type: 'testResult',
-                data: result
-            });
-            break;
-        }
-        default: {
-            process.send({
-                type: 'error',
-                data: `unknown message type [${message.type}]`
-            });
-        }
-        }
-    } catch (error) {
-        process.send({
-            type: 'error',
-            data: error.toString()
-        });
-    }
+    await MessageHandler.handle(handlerContext, message);
 });

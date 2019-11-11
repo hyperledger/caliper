@@ -33,32 +33,32 @@ const VALID_MONITORS = [NONE, DOCKER, PROCESS, PROMETHEUS];
 class MonitorOrchestrator {
     /**
      * Constructor
-     * @param {String} configPath path of the configuration file
+     * @param {object} benchmarkConfig The benchmark configuration object.
      */
-    constructor(configPath) {
-        this.config = Util.parseYaml(configPath);
+    constructor(benchmarkConfig) {
         this.started = false;
         this.monitors = new Map();
         // Parse the config and retrieve the monitor types
-        const m = this.config.monitor;
-        if(typeof m === 'undefined') {
+        const monitorConfig = benchmarkConfig.monitor;
+        if(typeof monitorConfig === 'undefined') {
             logger.info('No monitor specified, will default to "none"');
             return;
         }
 
-        if(typeof m.type === 'undefined') {
+        if(typeof monitorConfig.type === 'undefined') {
             throw new Error('Failed to find monitor types in config file');
         }
 
-        const monitorTypes = Array.isArray(m.type) ? m.type : [m.type];
+        let monitorTypes = Array.isArray(monitorConfig.type) ? monitorConfig.type : [monitorConfig.type];
+        monitorTypes = Array.from(new Set(monitorTypes)); // remove duplicates
         for (let type of monitorTypes) {
             let monitor = null;
             if(type === DOCKER) {
-                monitor = new DockerMonitor(m.docker, m.interval);
+                monitor = new DockerMonitor(monitorConfig.docker, monitorConfig.interval);
             } else if(type === PROCESS) {
-                monitor = new ProcessMonitor(m.process, m.interval);
+                monitor = new ProcessMonitor(monitorConfig.process, monitorConfig.interval);
             } else if(type === PROMETHEUS) {
-                monitor = new PrometheusMonitor(m.prometheus);
+                monitor = new PrometheusMonitor(monitorConfig.prometheus, monitorConfig.interval);
             } else if(type === NONE) {
                 continue;
             } else {
