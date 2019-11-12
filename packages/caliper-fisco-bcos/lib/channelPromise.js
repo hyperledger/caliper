@@ -46,7 +46,12 @@ let lastBytesRead = new Map();
 function parseResponse(response) {
     let seq = response.slice(6, 38).toString();
     let result = JSON.parse(response.slice(42).toString());
-    let emitter = emitters.get(seq).emitter;
+    let emitter = emitters.get(seq);
+    if(!emitter) {
+        //Stale message receieved
+        return;
+    }
+    emitter = emitter.emitter;
 
     if (emitter) {
         let readOnly = Object.getOwnPropertyDescriptor(emitter, 'readOnly').value;
