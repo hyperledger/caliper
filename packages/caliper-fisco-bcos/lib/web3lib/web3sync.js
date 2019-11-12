@@ -24,7 +24,7 @@ const Transaction = require('./transactionObject').Transaction;
  */
 function genRandomID() {
     let uuid = uuidv4();
-    uuid = uuid.replace(/-/g, '');
+    uuid = '0x' + uuid.replace(/-/g, '');
 
     return uuid;
 }
@@ -88,7 +88,7 @@ function getSignTx(groupId, account, privateKey, to, func, params, blockLimit) {
         blockLimit: blockLimit,
         chainId: 1,
         groupId: groupId,
-        extraData: ''
+        extraData: '0x0'
     };
 
     return signTransaction(postdata, privateKey, null);
@@ -115,7 +115,7 @@ function getSignDeployTx(groupId, account, privateKey, bin, blockLimit) {
         blockLimit: blockLimit,
         chainId: 1,
         groupId: groupId,
-        extraData: ''
+        extraData: '0x0'
     };
 
     return signTransaction(postdata, privateKey, null);

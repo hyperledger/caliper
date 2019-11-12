@@ -22,7 +22,7 @@ const installSmartContractImpl = require('./installSmartContract');
 const invokeSmartContractImpl = require('./invokeSmartContract');
 const generateRawTransactionImpl = require('./generateRawTransactions');
 const sendRawTransactionImpl = require('./sendRawTransactions');
-const Color = require('./common');
+const Color = require('./common').Color;
 const commLogger = CaliperUtils.getLogger('fiscoBcos.js');
 
 /**
