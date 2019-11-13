@@ -19,10 +19,9 @@ test:
     number: 1
   rounds:
   - label: open
-    txNumber:
-    - 50
+    txNumber: 50
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 50
     arguments:
@@ -30,10 +29,9 @@ test:
       txnPerBatch: 10
     callback: benchmark/simple/open.js
   - label: query
-    txNumber:
-    - 50
+    txNumber: 50
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 50
     callback: benchmark/simple/query.js

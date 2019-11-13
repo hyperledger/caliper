@@ -21,22 +21,20 @@ test:
     number: 2
   rounds:
   - label: basic-sample-network
-    txNumber:
-    - 25
+    txNumber: 25
     trim: 0
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 5
     arguments:
       testAssets: 25
     callback: benchmark/composer/composer-samples/basic-sample-network.js
   - label: basic-sample-network
-    txNumber:
-    - 50
+    txNumber: 50
     trim: 0
     rateControl:
-    - type: fixed-backlog
+      type: fixed-backlog
       opts:
         unfinished_per_client: 5
     arguments:

@@ -22,10 +22,9 @@ test:
     number: 5
   rounds:
   - label: open
-    txDuration:
-    - 30
+    txDuration: 30
     rateControl:
-    - type: composite-rate
+      type: composite-rate
       opts:
         weights:
         - 10

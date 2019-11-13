@@ -22,24 +22,18 @@ test:
     number: 5
   rounds:
   - label: open
-    txDuration:
-    - 3600
+    txDuration: 3600
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts:
-        tps: 1000
+        tps: 100
     arguments:
       money: 10000
     callback: benchmark/simple/open.js
   - label: query
-    txNumber:
-    - 1000
-    - 1000
+    txNumber: 1000
     rateControl:
-    - type: fixed-rate
-      opts:
-        tps: 100
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 200
     callback: benchmark/simple/query.js

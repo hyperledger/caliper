@@ -22,19 +22,17 @@ test:
   rounds:
   - label: get
     description: Test performance of getting name
-    txNumber:
-    - 10000
+    txNumber: 10000
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 1000
     callback: benchmark/fisco-bcos/helloworld/get.js
   - label: set
     description: Test performance of setting name
-    txNumber:
-    - 10000
+    txNumber: 10000
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 1000
     callback: benchmark/fisco-bcos/helloworld/set.js

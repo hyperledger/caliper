@@ -21,20 +21,18 @@ test:
     number: 1
   rounds:
   - label: publish
-    txNumber:
-    - 10
+    txNumber: 10
     arguments:
       itemBytes: 2048000
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 1
     callback: benchmark/drm/publish.js
   - label: query
-    txNumber:
-    - 10
+    txNumber: 10
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 1
     callback: benchmark/drm/query.js
