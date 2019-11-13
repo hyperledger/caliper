@@ -143,8 +143,8 @@ class CaliperEngine {
             if (!flowOpts.performTest) {
                 logger.info('Skipping benchmark test phase due to benchmark flow conditioning');
             } else {
-                let numberSet = this.benchmarkConfig.tests && this.benchmarkConfig.tests.clients && this.benchmarkConfig.tests.clients.number;
-                let numberOfClients = numberSet ? this.benchmarkConfig.tests.clients.number : 1;
+                let numberSet = this.benchmarkConfig.test && this.benchmarkConfig.test.clients && this.benchmarkConfig.test.clients.number;
+                let numberOfClients = numberSet ? this.benchmarkConfig.test.clients.number : 1;
                 let workerArguments = await blockchainWrapper.prepareClients(numberOfClients);
 
                 const roundOrchestrator = new RoundOrchestrator(this.benchmarkConfig, this.networkConfig, this.workerFactory, workerArguments);

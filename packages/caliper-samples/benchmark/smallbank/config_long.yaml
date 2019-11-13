@@ -21,10 +21,9 @@ test:
     number: 5
   rounds:
   - label: smallOperations
-    txDuration:
-    - 3600
+    txDuration: 3600
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 300
     arguments:
@@ -32,10 +31,9 @@ test:
       txnPerBatch: 1
     callback: benchmark/smallbank/smallbankOperations.js
   - label: query
-    txNumber:
-    - 5000
+    txNumber: 5000
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 500
     callback: benchmark/smallbank/query.js

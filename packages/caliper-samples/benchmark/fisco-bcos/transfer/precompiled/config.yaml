@@ -22,19 +22,17 @@ test:
   rounds:
   - label: addUser
     description: generate users for transfer test later
-    txNumber:
-    - 1000
+    txNumber: 1000
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 1000
     callback: benchmark/fisco-bcos/transfer/precompiled/addUser.js
   - label: transfer
     description: transfer money between users
-    txNumber:
-    - 10000
+    txNumber: 10000
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 1000
     arguments:

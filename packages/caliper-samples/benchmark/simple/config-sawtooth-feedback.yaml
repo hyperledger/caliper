@@ -21,10 +21,9 @@ test:
     number: 1
   rounds:
   - label: open
-    txNumber:
-    - 2000
+    txNumber: 2000
     rateControl:
-    - type: fixed-feedback-rate
+      type: fixed-feedback-rate
       opts:
         tps: 30
         sleep_time: 200
@@ -34,10 +33,9 @@ test:
       txnPerBatch: 1
     callback: benchmark/simple/open.js
   - label: query
-    txNumber:
-    - 5
+    txNumber: 5
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 1
     callback: benchmark/simple/query.js

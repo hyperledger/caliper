@@ -19,21 +19,16 @@ test:
     number: 2
   rounds:
   - label: init
-    txNumber:
-    - 250
+    txNumber: 250
     rateControl:
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 25
     callback: benchmark/marbles/init.js
   - label: init2
-    txNumber:
-    - 250
+    txNumber: 250
     rateControl:
-    - type: fixed-rate
-      opts:
-        tps: 5
-    - type: fixed-rate
+      type: fixed-rate
       opts:
         tps: 5
     callback: benchmark/marbles/init.js

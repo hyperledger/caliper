@@ -22,10 +22,9 @@ test:
     number: 5
   rounds:
   - label: open
-    txDuration:
-    - 15
+    txDuration: 15
     rateControl:
-    - type: linear-rate
+      type: linear-rate
       opts:
         startingTps: 25
         finishingTps: 75
