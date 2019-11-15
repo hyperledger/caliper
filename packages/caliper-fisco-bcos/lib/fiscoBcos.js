@@ -22,7 +22,6 @@ const installSmartContractImpl = require('./installSmartContract');
 const invokeSmartContractImpl = require('./invokeSmartContract');
 const generateRawTransactionImpl = require('./generateRawTransactions');
 const sendRawTransactionImpl = require('./sendRawTransactions');
-const Color = require('./common').Color;
 const commLogger = CaliperUtils.getLogger('fiscoBcos.js');
 
 /**
@@ -59,7 +58,7 @@ class FiscoBcos extends BlockchainInterface {
         try {
             await installSmartContractImpl.run(fiscoBcosSettings, this.workspaceRoot);
         } catch (error) {
-            commLogger.error(Color.error(`FISCO BCOS smart contract install failed: ${(error.stack ? error.stack : error)}`));
+            commLogger.error(`FISCO BCOS smart contract install failed: ${(error.stack ? error.stack : error)}`);
             throw error;
         }
     }
@@ -116,7 +115,7 @@ class FiscoBcos extends BlockchainInterface {
 
             return await Promise.all(promises);
         } catch (error) {
-            commLogger.error(Color.error(`FISCO BCOS smart contract invoke failed: ${(error.stack ? error.stack : JSON.stringify(error))}`));
+            commLogger.error(`FISCO BCOS smart contract invoke failed: ${(error.stack ? error.stack : JSON.stringify(error))}`);
             throw error;
         }
     }
@@ -134,7 +133,7 @@ class FiscoBcos extends BlockchainInterface {
         try {
             return invokeSmartContractImpl.run(context, this.fiscoBcosSettings, contractID, fcn, key, this.workspaceRoot, true);
         } catch (error) {
-            commLogger.error(Color.error(`FISCO BCOS smart contract query failed: ${(error.stack ? error.stack : error)}`));
+            commLogger.error(`FISCO BCOS smart contract query failed: ${(error.stack ? error.stack : error)}`);
             throw error;
         }
     }

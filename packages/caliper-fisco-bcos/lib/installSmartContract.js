@@ -20,7 +20,6 @@ const fs = require('fs-extra');
 const path = require('path');
 const fiscoBcosApi = require('./fiscoBcosApi');
 const assert = require('assert');
-const Color = require('./common').Color;
 const commLogger = CaliperUtils.getLogger('installSmartContract.js');
 
 module.exports.run = async function (fiscoBcosSettings, workspaceRoot) {
@@ -35,10 +34,10 @@ module.exports.run = async function (fiscoBcosSettings, workspaceRoot) {
         throw new Error('No available configuration for smart contracts');
     }
 
-    commLogger.info(Color.info('Deploying smart contracts ...'));
+    commLogger.info('Deploying smart contracts ...');
 
     for (let smartContract of smartContracts) {
-        commLogger.info(Color.info(`Deploying ${smartContract.id} ...`));
+        commLogger.info(`Deploying ${smartContract.id} ...`);
         let contractType = smartContract.language;
         if (contractType === 'solidity') {
             let contractPath = path.join(workspaceRoot, smartContract.path);
@@ -53,23 +52,23 @@ module.exports.run = async function (fiscoBcosSettings, workspaceRoot) {
 
                         let contractName = path.basename(contractPath, '.sol');
                         fs.outputFileSync(path.join(path.dirname(contractPath), `${contractName}.address`), contractAddress);
-                        commLogger.info(Color.success(`Deployed smart contract ${smartContract.id}, path=${smartContract.path}, address=${contractAddress}`));
+                        commLogger.info(`Deployed smart contract ${smartContract.id}, path=${smartContract.path}, address=${contractAddress}`);
                     } else {
-                        commLogger.error(Color.error(`Deploy receipt status error: ${JSON.stringify(body)}`));
+                        commLogger.error(`Deploy receipt status error: ${JSON.stringify(body)}`);
                     }
                 }).catch((reason)=>{
-                    commLogger.error(Color.error(`Depolying error: ${reason}`));
+                    commLogger.error(`Depolying error: ${reason}`);
                 });
 
                 await deployPromise;
             } catch (error) {
-                commLogger.error(Color.failure(`Failed to install smart contract ${smartContract.id}, path=${contractPath}`));
+                commLogger.error(`Failed to install smart contract ${smartContract.id}, path=${contractPath}`);
                 throw error;
             }
         } else if (contractType === 'precompiled') {
-            commLogger.info(Color.success(`Precompiled smart contract ${smartContract.id} appointed, address=${smartContract.address}`));
+            commLogger.info(`Precompiled smart contract ${smartContract.id} appointed, address=${smartContract.address}`);
         } else {
-            commLogger.error(Color.error(`Smart contract of ${contractType} is not supported yet`));
+            commLogger.error(`Smart contract of ${contractType} is not supported yet`);
             throw new Error('Smart contract type not supported');
         }
     }

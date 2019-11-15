@@ -15,20 +15,10 @@
 'use strict';
 
 const isArray = require('isarray');
-const chalk = require('chalk');
 const path = require('path');
 const fs = require('fs');
 const CaliperUtils = require('@hyperledger/caliper-core').CaliperUtils;
 const commLogger = CaliperUtils.getLogger('common.js');
-
-const Color = {
-    error: chalk.red.bold,
-    warn: chalk.yellow.bold,
-    info: chalk.blue.bold,
-    success: chalk.green.bold,
-    failure: chalk.red.bold
-};
-module.exports.Color = Color;
 
 const TxErrorEnum = {
     NoError: 0,
@@ -38,7 +28,7 @@ module.exports.TxErrorEnum = TxErrorEnum;
 
 module.exports.findContractAddress = function(workspaceRoot, smartContracts, contractID) {
     if (!isArray(smartContracts)) {
-        commLogger.error(Color.error('smartContracts should be an array'));
+        commLogger.error('smartContracts should be an array');
         return null;
     }
 
@@ -47,7 +37,7 @@ module.exports.findContractAddress = function(workspaceRoot, smartContracts, con
     });
 
     if (smartContract === undefined) {
-        commLogger.error(Color.error(`Smart contract ${contractID} undefined`));
+        commLogger.error(`Smart contract ${contractID} undefined`);
         return null;
     }
 
@@ -61,7 +51,7 @@ module.exports.findContractAddress = function(workspaceRoot, smartContracts, con
             return address;
         } catch (error) {
             if (error.code === 'ENOENT') {
-                commLogger.error(Color.error(`Address of smart contract ${smartContract.id} can't be determinied, please install it first!`));
+                commLogger.error(`Address of smart contract ${smartContract.id} can't be determinied, please install it first!`);
             }
             return null;
         }
@@ -69,7 +59,7 @@ module.exports.findContractAddress = function(workspaceRoot, smartContracts, con
         let address = smartContract.address;
         return address;
     } else {
-        commLogger.error(Color.error(`Smart contract of ${contractType} is not supported yet`));
+        commLogger.error(`Smart contract of ${contractType} is not supported yet`);
         return null;
     }
 };

@@ -16,7 +16,7 @@
 
 const fs = require('fs');
 const { CaliperUtils, TxStatus } = require('@hyperledger/caliper-core');
-const { Color, TxErrorEnum, findContractAddress } = require('./common');
+const { TxErrorEnum, findContractAddress } = require('./common');
 const uuid = require('uuid/v4');
 const fiscoBcosApi = require('./fiscoBcosApi');
 const commLogger = CaliperUtils.getLogger('generateRawTransactions.js');
@@ -61,7 +61,7 @@ module.exports.run = async function (fiscoBcosSettings, workspaceRoot, context, 
         invokeStatus.SetStatusSuccess();
         return invokeStatus;
     } catch (error) {
-        commLogger.error(Color.error(`FISCO BCOS generate raw transaction failed: ${(error.stack ? error.stack : JSON.stringify(error))}`));
+        commLogger.error(`FISCO BCOS generate raw transaction failed: ${(error.stack ? error.stack : JSON.stringify(error))}`);
         throw error;
     }
 };
