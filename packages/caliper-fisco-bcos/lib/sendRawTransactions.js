@@ -15,7 +15,7 @@
 'use strict';
 
 const { CaliperUtils, TxStatus } = require('@hyperledger/caliper-core');
-const { Color, TxErrorEnum } = require('./common');
+const { TxErrorEnum } = require('./common');
 const uuid = require('uuid/v4');
 const fiscoBcosApi = require('./fiscoBcosApi');
 const commLogger = CaliperUtils.getLogger('generateRawTransactions.js');
@@ -40,7 +40,7 @@ module.exports.run = async function (fiscoBcosSettings, context, transactions) {
             if (receipt.error === undefined && (receipt.status === '0x0' || (receipt.result && receipt.result.status === '0x0'))) {
                 invokeStatus.SetStatusSuccess();
             } else {
-                commLogger.error(Color.failure('Failed to invoke smart contract: ' + JSON.stringify(receipt)));
+                commLogger.error('Failed to invoke smart contract: ' + JSON.stringify(receipt));
                 invokeStatus.SetStatusFail();
             }
 

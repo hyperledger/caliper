@@ -23,7 +23,6 @@ const isArray = require('isarray');
 const web3Sync = require('./web3lib/web3sync');
 const channelPromise = require('./channelPromise');
 const requestPromise = require('request-promise');
-const Color = require('./common').Color;
 const assert = require('assert');
 const events = require('events');
 const commLogger = CaliperUtils.getLogger('fiscoBcosApi.js');
@@ -44,7 +43,7 @@ async function compileContract(contractPath, outputDir) {
             resolve();
         });
         execEmitter.on('error', (stdout, stderr) => {
-            commLogger.error(Color.error(`Compiling error: ${stdout}\n${stderr}`));
+            commLogger.error(`Compiling error: ${stdout}\n${stderr}`);
             reject();
         });
     });
@@ -123,7 +122,7 @@ async function updateCurrentBlockNumber(networkConfig) {
             setTimeout(updateCurrentBlockNumber, 2000, networkConfig);
             return Promise.resolve(true);
         } else {
-            commLogger.warn(Color.warn(`Update current block number failed, result=${JSON.stringify(result)}`));
+            commLogger.warn(`Update current block number failed, result=${JSON.stringify(result)}`);
             return Promise.reject();
         }
     }).catch(async (reason) => {

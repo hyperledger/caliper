@@ -19,7 +19,7 @@ const {
     TxStatus
 } = require('@hyperledger/caliper-core');
 const fiscoBcosApi = require('./fiscoBcosApi');
-const { TxErrorEnum, Color, findContractAddress } = require('./common');
+const { TxErrorEnum, findContractAddress } = require('./common');
 const commLogger = CaliperUtils.getLogger('invokeSmartContract.js');
 
 module.exports.run = async function (context, fiscoBcosSettings, contractID, fcn, args, workspaceRoot, readOnly = false) {
@@ -54,13 +54,13 @@ module.exports.run = async function (context, fiscoBcosSettings, contractID, fcn
         if (receipt.error === undefined && (receipt.status === '0x0' || (receipt.result && receipt.result.status === '0x0'))) {
             invokeStatus.SetStatusSuccess();
         } else {
-            commLogger.error(Color.failure('Failed to invoke smart contract: ' + JSON.stringify(receipt)));
+            commLogger.error('Failed to invoke smart contract: ' + JSON.stringify(receipt));
             invokeStatus.SetStatusFail();
         }
 
         return invokeStatus;
     } catch (error) {
-        commLogger.error(Color.failure(`Failed to invoke smart contract ${contractID}: ${JSON.stringify(error)}`));
+        commLogger.error(`Failed to invoke smart contract ${contractID}: ${JSON.stringify(error)}`);
         throw error;
     }
 };
