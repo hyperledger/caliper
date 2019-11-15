@@ -79,13 +79,6 @@ sut:
             packages: [ 'iroha-helpers@0.6.3' ]
         latest: *iroha-latest
 
-    composer:
-        0.20.8: &composer-latest
-            packages: ['fabric-ca-client@1.4.0', 'fabric-client@1.4.0', 'composer-admin@0.20.8', 'composer-client@0.20.8', 'composer-common@0.20.8' ]
-            settings:
-            - *new-node-old-grpc
-        latest: *composer-latest
-
     fisco-bcos:
         2.0.0: &fisco-latest
             packages: ['web3@0.20.7']

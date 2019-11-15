@@ -8,11 +8,6 @@ Basic CLI driven sample(s)
 caliper benchmark run -w <workspace path> -c benchmark/simple/config.yaml -n network/fabric-v1.4/2org1peercouchdb/fabric-node.yaml
 ```
 
-- Composer
-```bash
-caliper benchmark run -w <workspace path> -c benchmark/composer/config.yaml -n network/fabric-v1.3/2org1peercouchdb/composer.json
-```
-
 - Sawtooth
 ```bash
 caliper benchmark run -w <workspace path> -c benchmark/simple/config-sawtooth.yaml -n network/sawtooth/simplenetwork/sawtooth.json 

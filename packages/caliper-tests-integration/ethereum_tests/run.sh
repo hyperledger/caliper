@@ -16,7 +16,7 @@
 # Print all commands.
 set -v
 
-# Grab the parent (composer_tests) directory.
+# Grab the parent directory.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "${DIR}"
 

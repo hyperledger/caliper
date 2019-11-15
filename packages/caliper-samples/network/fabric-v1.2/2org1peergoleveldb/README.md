@@ -21,11 +21,6 @@ The configuration files names (with or without the `(-mutual)-tls` part) indicat
 
 The following network configuration files are available for the different platforms, containing the listed chaincodes that will be deployed (installed and instantiated).
 
-### Composer
-* `composer(-tls).json`
-  * `basic-sample-network` 
-  * `vehicle-lifecycle-network`
-
 ### Fabric
 * `fabric-go((-mutual)-tls)` (__golang__ implementations) 
   * `marbles` __with__ CouchDB index metadata and rich query support.

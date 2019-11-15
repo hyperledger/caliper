@@ -25,7 +25,6 @@
   "dependencies": {
     "@hyperledger/caliper-core" : "0.2.0",
     "@hyperledger/caliper-burrow": "0.2.0",
-    "@hyperledger/caliper-composer": "0.2.0",
     "@hyperledger/caliper-fabric": "0.2.0",
     "@hyperledger/caliper-iroha": "0.2.0",
     "@hyperledger/caliper-sawtooth": "0.2.0",
