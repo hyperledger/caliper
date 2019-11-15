@@ -39,7 +39,7 @@
         "composer-connector-embedded": "next",
         "composer-cucumber-steps": "next",
         "cucumber": "^2.2.0",
-        "eslint": "^4.18.2",
+        "eslint": "^5.16.0",
         "istanbul": "^0.4.5",
         "jsdoc": "^3.4.1",
         "license-check": "^1.1.5",

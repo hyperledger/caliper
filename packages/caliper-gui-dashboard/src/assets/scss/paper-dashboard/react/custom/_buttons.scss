@@ -1,0 +1,38 @@
+.btn,
+.navbar .navbar-nav > a.btn{
+  &.btn-icon {
+    &.btn-sm{
+      .fa,
+      .far,
+      .fas,
+      .fal,
+      .fab,
+      .nc-icon{
+        font-size: $btn-icon-font-size-small;
+      }
+    }
+    &.btn-lg{
+      .fa,
+      .far,
+      .fas,
+      .fal,
+      .fab,
+      .nc-icon{
+        font-size: $btn-icon-font-size-lg;
+      }
+    }
+    &:not(.btn-footer) .nc-icon,
+    &:not(.btn-footer) .fa,
+    &:not(.btn-footer) .far,
+    &:not(.btn-footer) .fas,
+    &:not(.btn-footer) .fal,
+    &:not(.btn-footer) .fas{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-12px, -12px);
+      line-height: 1.5626rem;
+      width: 24px;
+    }
+  }
+}
