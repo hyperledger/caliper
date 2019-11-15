@@ -22,7 +22,7 @@
     "@hyperledger/caliper-core": "0.2.0"
   },
   "devDependencies": {
-    "web3": "^1.2.0",
+    "web3": "1.2.2",
     "chai": "^3.5.0",
     "eslint": "^4.19.1",
     "mocha": "3.4.2",
