@@ -90,17 +90,17 @@ Options:
 The following SUT name (column header) and SDK version (column value) combinations are supported:
 
 
-| besu   | burrow | composer | ethereum | fabric | fisco-bcos | iroha  | sawtooth |
-|:------:|:------:|:--------:|:--------:|:------:|:----------:|:------:|:--------:|
-| 1.3.2  | 0.23.0 | 0.20.8   | 1.2.1    | 1.0.0  | 2.0.0      | 0.6.3  | 1.0.0    |
-| latest | latest | latest   | latest   | 1.1.0  | latest     | latest | 1.0.1    |
-|        |        |          |          | 1.2.0  |            |        | 1.0.2    |
-|        |        |          |          | 1.3.0  |            |        | 1.0.4    |
-|        |        |          |          | 1.4.0  |            |        | 1.0.5    |
-|        |        |          |          | 1.4.1  |            |        | latest   |
-|        |        |          |          | 1.4.3  |            |        |          |
-|        |        |          |          | 1.4.4  |            |        |          |
-|        |        |          |          | latest |            |        |          |
+| besu   | burrow | ethereum | fabric | fisco-bcos | iroha  | sawtooth |
+|:------:|:------:|:--------:|:------:|:----------:|:------:|:--------:|
+| 1.3.2  | 0.23.0 | 1.2.1    | 1.0.0  | 2.0.0      | 0.6.3  | 1.0.0    |
+| latest | latest | latest   | 1.1.0  | latest     | latest | 1.0.1    |
+|        |        |          | 1.2.0  |            |        | 1.0.2    |
+|        |        |          | 1.3.0  |            |        | 1.0.4    |
+|        |        |          | 1.4.0  |            |        | 1.0.5    |
+|        |        |          | 1.4.1  |            |        | latest   |
+|        |        |          | 1.4.3  |            |        |          |
+|        |        |          | 1.4.4  |            |        |          |
+|        |        |          | latest |            |        |          |
 
 
 > __Note:__ the `latest` value always points to the last explicit versions in the columns. However, it is recommended to explicitly specify the SDK version to avoid any surprise between two benchmark runs.
