@@ -35,7 +35,6 @@ Contains all the Caliper core code. Interested developers can follow the code fl
 ### caliper-adaptor
 Each `caliper-<adapter>` is a separate package that contains a distinct adaptor implementation to interact with different blockchain technologies. Current adaptors include:
 - caliper-burrow
-- caliper-composer
 - caliper-fabric
 - caliper-iroha
 - caliper-sawtooth

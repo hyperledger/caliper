@@ -26,7 +26,6 @@ const registry = args[0];
 const packages = [
     'caliper-core',
     'caliper-burrow',
-    'caliper-composer',
     'caliper-ethereum',
     'caliper-fabric',
     'caliper-iroha',

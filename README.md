@@ -21,7 +21,6 @@ Currently supported blockchain solutions:
 * [Ethereum](https://github.com/ethereum/go-ethereum)
 * [Hyperledger Besu](https://github.com/hyperledger/besu), utilizing the Ethereum adapter.
 * [FISCO BCOS](https://github.com/FISCO-BCOS/FISCO-BCOS)
-* [Hyperledger Composer](https://github.com/hyperledger/composer) support has been deprecated, and will be removed in 0.3.0.
 
 Currently supported performance indicators:
 * Success rate
@@ -45,7 +44,6 @@ If you have any issues using Caliper that the documentation does not help you so
 Caliper interacts with multiple blockchain technologies and consequently it *might* be an issue with the underlying blockchain technology being interacted with. You can seek specific help on these technologies within the following Rocket Chat channels:
 * [Hyperledger Besu](https://chat.hyperledger.org/channel/besu)
 * [Hyperledger Burrow](https://chat.hyperledger.org/channel/burrow)
-* [Hyperledger Composer](https://chat.hyperledger.org/channel/composer)
 * [Hyperledger Fabric](https://chat.hyperledger.org/channel/fabric)
 * [Hyperledger Iroha](https://chat.hyperledger.org/channel/iroha)
 * [Hyperledger Sawtooth](https://chat.hyperledger.org/channel/sawtooth)

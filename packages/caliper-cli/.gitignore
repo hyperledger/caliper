@@ -20,9 +20,6 @@ zookeeper.out
 **/node_modules/
 **/log/
 
-# Ignore any composer logs
-composer-logs/
-
 # Ignore code coverage logs
 **/.nyc_output/
 **/coverage/

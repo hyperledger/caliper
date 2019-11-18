@@ -37,7 +37,6 @@
   "dependencies": {
     "@hyperledger/caliper-burrow": "0.2.0",
     "@hyperledger/caliper-cli": "0.2.0",
-    "@hyperledger/caliper-composer": "0.2.0",
     "@hyperledger/caliper-core": "0.2.0",
     "@hyperledger/caliper-ethereum": "0.2.0",
     "@hyperledger/caliper-fabric": "0.2.0",
@@ -63,10 +62,6 @@
       "fabric_tests/config/bin",
       "fabric_tests/config/config",
       "fabric_tests/config/crypto-config",
-      "composer_tests/.gitignore",
-      "composer_tests/config/.gitignore",
-      "composer_tests/config/bin",
-      "composer_tests/config/config",
       "ethereum_tests/.gitignore",
       "ethereum_tests/config/data",
       "ethereum_tests/config/keys",
