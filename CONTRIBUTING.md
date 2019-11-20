@@ -20,12 +20,6 @@ There is also a [RocketChat Channel](https://chat.hyperledger.org/channel/calipe
 ## Caliper Structure
 Caliper is modularised under `packages` into the following components:
 
-### caliper-samples
-This contains samples that may be run using the caliper-cli, and extended to include more adaptor scenarios. The package contains the following folders:
-- benchmark: contains benchmark configuration files
-- src: contains smart contracts to be tested
-- network: contains blockchain (network) configuration files
-
 ### caliper-cli
 This is the Caliper CLI that enables the running of a benchmark and interaction with zookeeper clients/services. 
 
@@ -44,15 +38,7 @@ Each adaptor implements the `BlockchainInterface` from the core package, as well
 
 ### caliper-tests-integration
 This is the integration test suite used for caliper; it runs in the Travis build and can (*should*) be run locally when checking code changes. Please see the readme within the package for more details.
-
-## Creating a New Test Case
-
-Currently the easiest way to create a new test case is to extend or add to the `caliper-samples` package. You have options from this point:
-- run the integration tests to get the CLI module installed, then use the command line comand `caliper benchmark run -c benchmark/my-config.yaml -n network/my-network.yaml -w <path>/caliper-samples`
-- directly run `node ./packages/caliper-cli/caliper.js benchmark run -c benchmark/my-config.yaml -n network/my-network.yaml -w ./packages/caliper-samples` from the root folder
-
-Before adding a benchmark, please inspect the `caliper-samples` structure and example benchmarks; you will need to add your own configuration files for the blockchain system under test, the benchmark configuration, smart contracts, and test files (callbacks) that interact with the deployed smart contract. You can then run the benchmark using the `run-benchmark.js` script and passing your configuration files that describe that benchmark.
-    
+   
 ## Add an Adaptor for a New DLT
   
 New adaptors must be added within a new package, under `packages`, with the naming convention `caliper-<adaptor_name>`. Each adaptor must implement a new class inherited from `BlockchainInterface` as the adaptor for the DLT, as well as a `ClientFactory` and `ClientWorker`. For more information, consult our main documentation.
