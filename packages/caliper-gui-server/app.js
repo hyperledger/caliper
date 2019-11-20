@@ -31,7 +31,7 @@
 
 let express = require('express');
 const PORT = 3001;
-let apiV1 = require('./src/api/api1.js.js.js');
+let apiV1 = require('./src/api/api1.js');
 // var apiV2 = require("./src/api/api2.js");
 let app = express();
 const cors = require('cors');
