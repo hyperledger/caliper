@@ -14,6 +14,7 @@
 
 'use strict';
 
+const EthereumHDKey = require('ethereumjs-wallet/hdkey');
 const Web3 = require('web3');
 const {BlockchainInterface, CaliperUtils, TxStatus} = require('@hyperledger/caliper-core');
 const logger = CaliperUtils.getLogger('ethereum.js');
@@ -94,9 +95,8 @@ class Ethereum extends BlockchainInterface {
         let context = {
             clientIdx: clientIdx,
             contracts: {},
-            fromAddress: this.ethereumConfig.fromAddress,
             nonces: {},
-            web3: this.web3,
+            web3: this.web3
         };
         for (const key of Object.keys(args.contracts)) {
             context.contracts[key] = {
@@ -105,7 +105,16 @@ class Ethereum extends BlockchainInterface {
                 estimateGas: args.contracts[key].estimateGas
             };
         }
-        if (this.ethereumConfig.fromAddressPrivateKey) {
+        if (this.ethereumConfig.fromAddress) {
+            context.fromAddress = this.ethereumConfig.fromAddress;
+        }
+        if (this.ethereumConfig.fromAddressSeed) {
+            let hdwallet = EthereumHDKey.fromMasterSeed(this.ethereumConfig.fromAddressSeed);
+            let wallet = hdwallet.derivePath('m/44\'/60\'/' + clientIdx + '\'/0/0').getWallet();
+            context.fromAddress = wallet.getChecksumAddressString();
+            context.nonces[context.fromAddress] = await this.web3.eth.getTransactionCount(context.fromAddress);
+            this.web3.eth.accounts.wallet.add(wallet.getPrivateKeyString());
+        } else if (this.ethereumConfig.fromAddressPrivateKey) {
             context.nonces[this.ethereumConfig.fromAddress] = await this.web3.eth.getTransactionCount(this.ethereumConfig.fromAddress);
             this.web3.eth.accounts.wallet.add(this.ethereumConfig.fromAddressPrivateKey);
         } else if (this.ethereumConfig.fromAddressPassword) {
