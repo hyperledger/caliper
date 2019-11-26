@@ -15,8 +15,8 @@
 
 'use strict';
 
-const ClientOrchestrator  = require('../client/client-orchestrator');
-const MonitorOrchestrator = require('../monitor/monitor-orchestrator');
+const WorkerOrchestrator  = require('../orchestrators/worker-orchestrator');
+const MonitorOrchestrator = require('../monitors/monitor-orchestrator');
 const Report = require('../report/report');
 const TestObserver = require('../test-observers/test-observer');
 const CaliperUtils = require('../../common/utils/caliper-utils');
@@ -32,13 +32,13 @@ class RoundOrchestrator {
      * @param {object} benchmarkConfig The benchmark configuration object.
      * @param {object} networkConfig The network configuration object.
      * @param {object} workerFactory The factory for worker processes.
-     * @param {object[]} workerArguments List of arbitrary arguments to pass for each worker processes.
+     * @param {object[]} workerArguments List of adaptor specific arguments to pass for each worker processes.
      */
     constructor(benchmarkConfig, networkConfig, workerFactory, workerArguments) {
         this.networkConfig = networkConfig;
         this.benchmarkConfig = benchmarkConfig;
 
-        this.clientOrchestrator = new ClientOrchestrator(this.benchmarkConfig, workerFactory, workerArguments);
+        this.workerOrchestrator = new WorkerOrchestrator(this.benchmarkConfig, workerFactory, workerArguments);
         this.monitorOrchestrator = new MonitorOrchestrator(this.benchmarkConfig);
         this.report = new Report(this.monitorOrchestrator, this.benchmarkConfig, this.networkConfig);
         this.testObserver = new TestObserver(this.benchmarkConfig);
@@ -139,10 +139,9 @@ class RoundOrchestrator {
         // validate each round before starting any
         rounds.forEach((round, index) => RoundOrchestrator._validateRoundConfig(round, index));
 
-        // create messages for clients from each round config
+        // create messages for workers from each round config
         let roundConfigs = rounds.map((round, index) => {
             let config = {
-                type: 'test',
                 label: round.label,
                 rateControl: round.rateControl,
                 trim: round.trim || 0,
@@ -182,8 +181,12 @@ class RoundOrchestrator {
             this.testObserver.setRound(index);
 
             try {
-                this.testObserver.startWatch(this.clientOrchestrator);
-                const {results, start, end} = await this.clientOrchestrator.startTest(roundConfig);
+                // Run test preparation (cb.init() function if specified)
+                await this.workerOrchestrator.prepareTestRound(roundConfig);
+
+                // Run main test round
+                this.testObserver.startWatch(this.workerOrchestrator);
+                const {results, start, end} = await this.workerOrchestrator.startTest(roundConfig);
                 await this.testObserver.stopWatch();
 
                 // Build the report
@@ -229,9 +232,9 @@ class RoundOrchestrator {
         }
 
         try {
-            this.clientOrchestrator.stop();
+            this.workerOrchestrator.stop();
         } catch (err) {
-            logger.error(`Error while stopping clients: ${err.stack || err}`);
+            logger.error(`Error while stopping workers: ${err.stack || err}`);
         }
 
         let benchEndTime = Date.now();

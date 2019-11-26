@@ -15,40 +15,40 @@
 'use strict';
 
 const rewire = require('rewire');
-const ClientOrchestratorRewire = rewire('../../../lib/master/client/client-orchestrator');
+const WorkerOrchestratorRewire = rewire('../../../lib/master/orchestrators/worker-orchestrator');
 
 const chai = require('chai');
 chai.should();
 const sinon = require('sinon');
 
-describe('client orchestrator implementation', () => {
+describe('worker orchestrator implementation', () => {
     const benchmarkConfig = {
         test: {
-            clients: {
+            workers: {
                 number: 7
             }
         }
     };
-    const workerArguments = [1,2,3];
+
     const workerFactory = {};
 
     describe('#constructor', () => {
 
-        it('should read the number of test clients if present in the config file', () => {
-            const myOrchestrator = new ClientOrchestratorRewire(benchmarkConfig, workerFactory, workerArguments);
+        it('should read the number of test workers if present in the config file', () => {
+            const myOrchestrator = new WorkerOrchestratorRewire(benchmarkConfig, workerFactory);
 
             myOrchestrator.number.should.equal(7);
         });
 
-        it('should default to one client in the test if not specified in the config file ', () => {
-            const myOrchestrator = new ClientOrchestratorRewire({ test: { clients: {notNumber: 2}}}, workerFactory, workerArguments);
+        it('should default to one worker in the test if not specified in the config file ', () => {
+            const myOrchestrator = new WorkerOrchestratorRewire({ test: { workers: {notNumber: 2}}}, workerFactory);
 
             myOrchestrator.number.should.equal(1);
         });
     });
 
     describe('#startTest', () => {
-        const myOrchestrator = new ClientOrchestratorRewire(benchmarkConfig, workerFactory, workerArguments);
+        const myOrchestrator = new WorkerOrchestratorRewire(benchmarkConfig, workerFactory);
         let _startTestStub;
         let formatResultsStub;
 
@@ -73,7 +73,7 @@ describe('client orchestrator implementation', () => {
             await  myOrchestrator.startTest(testMsg);
 
             sinon.assert.calledOnce(_startTestStub);
-            sinon.assert.calledWith(_startTestStub, 7, testMsg, [], []);
+            sinon.assert.calledWith(_startTestStub, testMsg);
         });
 
         it('should call formatResults', async() => {
@@ -96,7 +96,7 @@ describe('client orchestrator implementation', () => {
 
 
     describe('#getUpdates', () => {
-        const myOrchestrator = new ClientOrchestratorRewire(benchmarkConfig, workerFactory, workerArguments);
+        const myOrchestrator = new WorkerOrchestratorRewire(benchmarkConfig, workerFactory);
 
         it('should return the updates', () => {
             const checkVal = 'this is my update';
@@ -109,9 +109,9 @@ describe('client orchestrator implementation', () => {
     });
 
     describe('#formatResults', () => {
-        const myOrchestrator = new ClientOrchestratorRewire(benchmarkConfig, workerFactory, workerArguments);
+        const myOrchestrator = new WorkerOrchestratorRewire(benchmarkConfig, workerFactory);
 
-        it('should group all client results into an array under a results label', () => {
+        it('should group all worker results into an array under a results label', () => {
             const result0 = {results: [1] , start: new Date(2018, 11, 24, 10, 33), end: new Date(2018, 11, 24, 11, 33)};
             const result1 = {results: [2] , start: new Date(2018, 11, 24, 10, 34), end: new Date(2018, 11, 24, 11, 23)};
             const result2 = {results: [3] , start: new Date(2018, 11, 24, 10, 35), end: new Date(2018, 11, 24, 11, 13)};
@@ -121,7 +121,7 @@ describe('client orchestrator implementation', () => {
             output.results.should.deep.equal([1,2,3]);
         });
 
-        it('should determine and persist the time when all clients have started', () => {
+        it('should determine and persist the time when all workers have started', () => {
             const compareStart = new Date(2018, 11, 24, 10, 35);
             const result0 = {results: [1] , start: new Date(2018, 11, 24, 10, 33), end: new Date(2018, 11, 24, 11, 33)};
             const result1 = {results: [2] , start: new Date(2018, 11, 24, 10, 34), end: new Date(2018, 11, 24, 11, 13)};
@@ -132,7 +132,7 @@ describe('client orchestrator implementation', () => {
             output.start.should.equal(compareStart);
         });
 
-        it('should determine and persist the last time when all clients were running', () => {
+        it('should determine and persist the last time when all workers were running', () => {
             const compareEnd = new Date(2018, 11, 24, 11, 13);
             const result0 = {results: [1] , start: new Date(2018, 11, 24, 10, 33), end: new Date(2018, 11, 24, 11, 33)};
             const result1 = {results: [2] , start: new Date(2018, 11, 24, 10, 34), end: compareEnd};

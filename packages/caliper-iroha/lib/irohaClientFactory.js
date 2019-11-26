@@ -28,12 +28,6 @@ class IrohaClientFactory {
      */
     spawnWorker() {
         const child = childProcess.fork(path.join(__dirname, './irohaClientWorker.js'), process.argv.slice(2), { env: process.env});
-
-        const msg = {
-            type: 'init'
-        };
-        child.send(msg);
-
         return child;
     }
 }

@@ -41,11 +41,13 @@ class BlockchainInterface {
     }
 
     /**
-     * Perform required preparation for test clients
-     * @param {Number} number count of test clients
-     * @return {Promise} obtained material for test clients
+     * Retrieve required arguments for test workers, e.g. retrieve information from the adaptor that is generated during an admin phase such as contract installation.
+     * Information returned here is passed to the worker through the messaging protocol on test.
+     * @param {Number} number total count of test workers
+     * @return {Promise} array of obtained material for each test worker
+     * @async
      */
-    async prepareClients (number) {
+    async prepareWorkerArguments(number) {
         let result = [];
         for(let i = 0 ; i< number ; i++) {
             result[i] = {}; // as default, return an empty object for each client
@@ -61,9 +63,8 @@ class BlockchainInterface {
      * }
      * @param {String} name name of the context
      * @param {Object} args adapter specific arguments
-     * @param {Integer} clientIdx the client index
      */
-    async getContext(name, args, clientIdx) {
+    async getContext(name, args) {
         throw new Error('getContext is not implemented for this blockchain system');
     }
 

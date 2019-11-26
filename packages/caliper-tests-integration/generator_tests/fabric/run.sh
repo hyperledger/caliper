@@ -37,8 +37,8 @@ cd ./config
 # back to this dir
 cd ${DIR}
 
-# Run benchmark generator using generator defaults
-${GENERATOR_METHOD} -- --workspace 'myWorkspace' --chaincodeId 'mymarbles' --version 'v0' --chaincodeFunction 'queryMarblesByOwner' --chaincodeArguments '["Alice"]' --clients 'marbles' --benchmarkName 'A name for the marbles benchmark' --benchmarkDescription 'A description for the marbles benchmark' --label 'A label for the round' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 'marbles'
+# Run benchmark generator using generator defaults (by specifying invalid values)
+${GENERATOR_METHOD} -- --workspace 'myWorkspace' --chaincodeId 'mymarbles' --version 'v0' --chaincodeFunction 'queryMarblesByOwner' --chaincodeArguments '["Alice"]' --workers 'marbles' --benchmarkName 'A name for the marbles benchmark' --benchmarkDescription 'A description for the marbles benchmark' --label 'A label for the round' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 'marbles'
 # start network and run benchmark test
 cd ../
 ${CALL_METHOD} benchmark run --caliper-workspace 'fabric/myWorkspace' --caliper-networkconfig 'networkconfig.yaml' --caliper-benchconfig 'benchmarks/config.yaml' --caliper-flow-skip-end
@@ -53,7 +53,7 @@ fi
 cd ${DIR}
 # Run benchmark generator not using generator defaults
 rm -r myWorkspace/benchmarks
-${GENERATOR_METHOD} -- --workspace 'myWorkspace' --chaincodeId 'mymarbles' --version 'v0' --chaincodeFunction 'queryMarblesByOwner' --chaincodeArguments '["Alice"]' --clients 3 --benchmarkName 'A name for the marbles benchmark' --benchmarkDescription 'A description for the marbles benchmark' --label 'A label for the round' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 30
+${GENERATOR_METHOD} -- --workspace 'myWorkspace' --chaincodeId 'mymarbles' --version 'v0' --chaincodeFunction 'queryMarblesByOwner' --chaincodeArguments '["Alice"]' --workers 3 --benchmarkName 'A name for the marbles benchmark' --benchmarkDescription 'A description for the marbles benchmark' --label 'A label for the round' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 30
 
 # Run benchmark test
 cd ../

@@ -14,7 +14,7 @@
 
 'use strict';
 
-const { MessageHandler } = require('@hyperledger/caliper-core');
+const { ConfigUtil, Messenger, MessageHandler } = require('@hyperledger/caliper-core');
 const FabricClient = require('./fabric');
 
 /**
@@ -25,23 +25,32 @@ const FabricClient = require('./fabric');
  * @async
  */
 async function initHandler(context, message) {
-    const blockchain = new FabricClient(context.networkConfigPath, context.workspacePath);
+    const worker = new FabricClient(context.networkConfigPath, context.workspacePath, context.workerId);
+    await worker._initializeRegistrars(false);
+    await worker._initializeAdmins(false);
+    await worker._initializeUsers(false);
 
-    // reload the profiles silently
-    await blockchain._initializeRegistrars(false);
-    await blockchain._initializeAdmins(false);
-    await blockchain._initializeUsers(false);
-
-    return blockchain;
+    return worker;
 }
 
-const handlerContext = new MessageHandler({
-    init: initHandler
-});
-
 /**
- * Message handler
+ * Main process
  */
-process.on('message', async (message) => {
-    await MessageHandler.handle(handlerContext, message);
-});
+async function main (){
+
+    // Create the message client using the specified type
+    const type = `${ConfigUtil.get(ConfigUtil.keys.Worker.Communication.Method)}-worker`;
+    const messenger = new Messenger({type, sut: 'fabric'});
+    await messenger.initialize();
+
+    // Create a handler context for this worker
+    const handlerContext = new MessageHandler({
+        init: initHandler
+    }, messenger);
+
+    // Pass to the messenger to configure
+    messenger.configure(handlerContext);
+
+}
+
+main();

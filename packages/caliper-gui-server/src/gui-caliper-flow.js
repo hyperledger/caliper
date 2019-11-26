@@ -109,8 +109,7 @@ module.exports.run = async function(absConfigFile, absNetworkFile, admin, client
         await adminClient.init(); // bug is in here! #1434 of fabric.js
         await adminClient.installSmartContract();
         let numberOfClients = await clientOrchestrator.init();
-        let clientArgs = await adminClient.prepareClients(numberOfClients);
-
+        let clientArgs = await adminClient.prepareWorkerArguments(numberOfClients);
 
         try {
             await monitorOrchestrator.startAllMonitors();

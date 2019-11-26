@@ -16,7 +16,7 @@
 test:
   name: smallbank
   description: This is smallbank benchmark for caliper
-  clients:
+  workers:
     type: local
     number: 2
   rounds:

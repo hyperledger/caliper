@@ -36,14 +36,16 @@ class Ethereum extends BlockchainInterface {
      * Create a new instance of the {Ethereum} class.
      * @param {string} config_path The path of the network configuration file.
      * @param {string} workspace_root The absolute path to the root location for the application configuration files.
+     * @param {number} clientIndex The client index
      */
-    constructor(config_path, workspace_root) {
+    constructor(config_path, workspace_root, clientIndex) {
         super(config_path);
         this.bcType = 'ethereum';
         this.workspaceRoot = workspace_root;
         this.ethereumConfig = require(config_path).ethereum;
         this.web3 = new Web3(this.ethereumConfig.url);
         this.web3.transactionConfirmationBlocks = this.ethereumConfig.transactionConfirmationBlocks;
+        this.clientIndex = clientIndex;
     }
 
     /**
@@ -87,17 +89,17 @@ class Ethereum extends BlockchainInterface {
      * Return the Ethereum context associated with the given callback module name.
      * @param {string} name The name of the callback module as defined in the configuration files.
      * @param {object} args Unused.
-     * @param {integer} clientIdx the client index
      * @return {object} The assembled Ethereum context.
      * @async
      */
-    async getContext(name, args, clientIdx) {
+    async getContext(name, args) {
         let context = {
-            clientIdx: clientIdx,
+            clientIndex: this.clientIndex,
             contracts: {},
             nonces: {},
             web3: this.web3
         };
+
         for (const key of Object.keys(args.contracts)) {
             context.contracts[key] = {
                 contract: new this.web3.eth.Contract(args.contracts[key].abi, args.contracts[key].address),
@@ -110,7 +112,7 @@ class Ethereum extends BlockchainInterface {
         }
         if (this.ethereumConfig.fromAddressSeed) {
             let hdwallet = EthereumHDKey.fromMasterSeed(this.ethereumConfig.fromAddressSeed);
-            let wallet = hdwallet.derivePath('m/44\'/60\'/' + clientIdx + '\'/0/0').getWallet();
+            let wallet = hdwallet.derivePath('m/44\'/60\'/' + this.clientIndex + '\'/0/0').getWallet();
             context.fromAddress = wallet.getChecksumAddressString();
             context.nonces[context.fromAddress] = await this.web3.eth.getTransactionCount(context.fromAddress);
             this.web3.eth.accounts.wallet.add(wallet.getPrivateKeyString());
@@ -273,13 +275,14 @@ class Ethereum extends BlockchainInterface {
     }
 
     /**
-     * It passes deployed contracts addresses to all clients
+     * It passes deployed contracts addresses to all clients (only known after deploy contract)
      * @param {Number} number of clients to prepare
      * @returns {Array} client args
+     * @async
      */
-    async prepareClients(number) {
+    async prepareWorkerArguments(number) {
         let result = [];
-        for (let i = 0 ; i< number ; i++) {
+        for (let i = 0 ; i<= number ; i++) {
             result[i] = {contracts: this.ethereumConfig.contracts};
         }
         return result;

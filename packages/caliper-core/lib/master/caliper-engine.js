@@ -96,6 +96,7 @@ class CaliperEngine {
         const blockchainWrapper = new Blockchain(this.blockchainAdapter);
 
         try {
+
             // Conditional running of 'start' commands
             if (!flowOpts.performStart)  {
                 logger.info('Skipping start commands due to benchmark flow conditioning');
@@ -143,9 +144,9 @@ class CaliperEngine {
             if (!flowOpts.performTest) {
                 logger.info('Skipping benchmark test phase due to benchmark flow conditioning');
             } else {
-                let numberSet = this.benchmarkConfig.test && this.benchmarkConfig.test.clients && this.benchmarkConfig.test.clients.number;
-                let numberOfClients = numberSet ? this.benchmarkConfig.test.clients.number : 1;
-                let workerArguments = await blockchainWrapper.prepareClients(numberOfClients);
+                let numberSet = this.benchmarkConfig.test && this.benchmarkConfig.test.workers && this.benchmarkConfig.test.workers.number;
+                let numberOfWorkers = numberSet ? this.benchmarkConfig.test.workers.number : 1;
+                let workerArguments = await blockchainWrapper.prepareWorkerArguments(numberOfWorkers);
 
                 const roundOrchestrator = new RoundOrchestrator(this.benchmarkConfig, this.networkConfig, this.workerFactory, workerArguments);
                 await roundOrchestrator.run();

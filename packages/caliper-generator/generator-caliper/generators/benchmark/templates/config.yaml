@@ -16,9 +16,9 @@
 test:
   name: <%= benchmarkName %>
   description: <%= benchmarkDescription %>
-  clients:
+  workers:
     type: local
-    number: <%= clients %>
+    number: <%= workers %>
   rounds:
   - label: <%= label %>
     chaincodeId: <%= chaincodeId %>
@@ -26,5 +26,5 @@ test:
     rateControl: { type: <%= rateController %>, opts: { <%= opts %> } }
     callback: benchmarks/callbacks/<%= callback %>
 monitor:
-  type: 
+  type:
   - none

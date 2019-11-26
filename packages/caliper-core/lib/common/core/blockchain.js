@@ -46,13 +46,13 @@ class Blockchain {
     }
 
     /**
-     * Perform required preparation for test clients, e.g. enroll clients and obtain key pairs
-     * @param {Number} number count of test clients
-     * @return {Promise} array of obtained material for test clients
-     * @async
+     * Retrieve required arguments for test workers, e.g. retrieve information from the adaptor that is generated during an admin phase such as contract installation.
+     * Information returned here is passed to the worker through the messaging protocol on test.
+     * @param {Number} number total count of test workers
+     * @return {Promise} array of obtained material for each test worker
      */
-    async prepareClients (number) {
-        return await this.bcObj.prepareClients(number);
+    async prepareWorkerArguments(number) {
+        return await this.bcObj.prepareWorkerArguments(number);
     }
 
     /**
@@ -67,13 +67,11 @@ class Blockchain {
      * Get a context for subsequent operations, e.g. invoke smart contract or query state
      * @param {String} name name of the context
      * @param {Object} args adapter specific arguments
-     * @param {Integer} clientIdx the client index
-     * @param {Object} txFile the file information for reading or writing.
      * @return {Promise} obtained context object
      * @async
      */
-    async getContext(name, args, clientIdx, txFile) {
-        return await this.bcObj.getContext(name, args, clientIdx, txFile);
+    async getContext(name, args) {
+        return await this.bcObj.getContext(name, args);
     }
 
     /**

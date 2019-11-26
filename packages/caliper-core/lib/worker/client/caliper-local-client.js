@@ -20,7 +20,7 @@ const bc   = require('../../common/core/blockchain.js');
 const RateControl = require('../rate-control/rateControl.js');
 const PrometheusClient = require('../../common/prometheus/prometheus-push-client');
 
-const Logger = CaliperUtils.getLogger('local-client.js');
+const Logger = CaliperUtils.getLogger('caliper-local-client.js');
 /**
  * Class for Client Interaction
  */
@@ -29,9 +29,16 @@ class CaliperLocalClient {
     /**
      * Create the test client
      * @param {Object} bcClient blockchain client
+     * @param {number} clientIndex the client index
+     * @param {Messenger} messenger a configured Messenger instance used to communicate with the orchestrator
      */
-    constructor(bcClient) {
+    constructor(bcClient, clientIndex, messenger) {
         this.blockchain = new bc(bcClient);
+        this.clientIndex = clientIndex;
+        this.messenger = messenger;
+        this.context = undefined;
+
+        // Internal stats
         this.results      = [];
         this.txNum        = 0;
         this.txLastNum    = 0;
@@ -44,6 +51,13 @@ class CaliperLocalClient {
         this.prometheusClient = new PrometheusClient();
         this.totalTxCount = 0;
         this.totalTxDelay = 0;
+    }
+
+    /**
+     * Initialization update
+     */
+    initUpdate() {
+        Logger.info('Initialization ongoing...');
     }
 
     /**
@@ -88,7 +102,8 @@ class CaliperLocalClient {
             this.prometheusClient.push('caliper_txn_pending', (this.txNum - (this.totalTxnSuccess + this.totalTxnFailure)));
         } else {
             // client-orchestrator based update
-            process.send({type: 'txUpdated', data: {type: 'txUpdate', submitted: newNum, committed: newStats}});
+            // send(to, type, data)
+            this.messenger.send(['orchestrator'],'txUpdate', {submitted: newNum, committed: newStats});
         }
 
         if (this.resultStats.length === 0) {
@@ -119,11 +134,13 @@ class CaliperLocalClient {
     }
 
     /**
-     * Method to reset values between `init` and `test` phase
+     * Method to reset values
      */
     txReset(){
 
         // Reset txn counters
+        this.results  = [];
+        this.resultStats = [];
         this.txNum = 0;
         this.txLastNum = 0;
 
@@ -136,7 +153,8 @@ class CaliperLocalClient {
             this.prometheusClient.push('caliper_txn_pending', 0);
         } else {
             // Reset Local
-            process.send({type: 'txReset', data: {type: 'txReset'}});
+            // send(to, type, data)
+            this.messenger.send(['orchestrator'],'txReset', {type: 'txReset'});
         }
     }
 
@@ -154,16 +172,12 @@ class CaliperLocalClient {
         }
     }
 
-
     /**
      * Call before starting a new test
      * @param {JSON} msg start test message
      */
     beforeTest(msg) {
-        this.results  = [];
-        this.resultStats = [];
-        this.txNum = 0;
-        this.txLastNum = 0;
+        this.txReset();
 
         // TODO: once prometheus is enabled, trim occurs as part of the retrieval query
         // conditionally trim beginning and end results for this test run
@@ -189,7 +203,7 @@ class CaliperLocalClient {
                 this.prometheusClient.setGateway(msg.pushUrl);
             }
             // - set target for this round test/round/client
-            this.prometheusClient.configureTarget(msg.label, msg.testRound, msg.clientIdx);
+            this.prometheusClient.configureTarget(msg.label, msg.testRound, this.clientIndex);
         }
     }
 
@@ -223,7 +237,7 @@ class CaliperLocalClient {
      * @async
      */
     async runFixedNumber(cb, number, rateController) {
-        Logger.info('Info: client ' + process.pid +  ' start test runFixedNumber()' + (cb.info ? (':' + cb.info) : ''));
+        Logger.info('Info: client ' + this.clientIndex +  ' start test runFixedNumber()' + (cb.info ? (':' + cb.info) : ''));
         this.startTime = Date.now();
 
         let promises = [];
@@ -252,7 +266,7 @@ class CaliperLocalClient {
      * @async
      */
     async runDuration(cb, duration, rateController) {
-        Logger.info('Info: client ' + process.pid +  ' start test runDuration()' + (cb.info ? (':' + cb.info) : ''));
+        Logger.info('Info: client ' + this.clientIndex +  ' start test runDuration()' + (cb.info ? (':' + cb.info) : ''));
         this.startTime = Date.now();
 
         let promises = [];
@@ -287,10 +301,9 @@ class CaliperLocalClient {
     }
 
     /**
-     * Perform the test
-     * @param {JSON} test start test message
+     * Perform test init within Benchmark
+     * @param {JSON} test the test details
      * message = {
-     *              type: 'test',
      *              label : label name,
      *              numb:   total number of simulated txs,
      *              rateControl: rate controller to use
@@ -298,8 +311,59 @@ class CaliperLocalClient {
      *              args:   user defined arguments,
      *              cb  :   path of the callback js file,
      *              config: path of the blockchain config file
-     *              clientIdx = this client index,
-     *              clientArgs = clientArgs[clientIdx],
+     *              totalClients = total number of clients,
+     *              pushUrl = the url for the push gateway
+     *            };
+     * @async
+     */
+    async prepareTest(test) {
+        Logger.debug('prepareTest() with:', test);
+        let cb = require(CaliperUtils.resolvePath(test.cb));
+
+        this.txUpdateTime = Config.get(Config.keys.TxUpdateTime, 1000);
+        const self = this;
+        let initUpdateInter = setInterval( () => { self.initUpdate();  } , self.txUpdateTime);
+
+        try {
+            // Retrieve context for this round
+            this.context = await this.blockchain.getContext(test.label, test.clientArgs);
+            if (typeof this.context === 'undefined') {
+                this.context = {
+                    engine : {
+                        submitCallback : (count) => { self.submitCallback(count); }
+                    }
+                };
+            } else {
+                this.context.engine = {
+                    submitCallback : (count) => { self.submitCallback(count); }
+                };
+            }
+
+            // Run init phase of callback
+            Logger.info(`Info: client ${this.clientIndex} prepare test ${(cb.info ? (':' + cb.info) : 'phase starting...')}`);
+            await cb.init(this.blockchain, this.context, test.args);
+            Logger.info(`Info: client ${this.clientIndex} prepare test ${(cb.info ? (':' + cb.info) : 'phase complete')}`);
+            await CaliperUtils.sleep(this.txUpdateTime);
+        } catch (err) {
+            Logger.info(`Client[${this.clientIndex}] encountered an error during prepare test phase: ${(err.stack ? err.stack : err)}`);
+            throw err;
+        } finally {
+            clearInterval(initUpdateInter);
+            Logger.info(`Info: client ${this.clientIndex} prepare test ${(cb.info ? (':' + cb.info) : 'phase complete')}`);
+        }
+    }
+
+    /**
+     * Perform the test
+     * @param {JSON} test start test message
+     * message = {
+     *              label : label name,
+     *              numb:   total number of simulated txs,
+     *              rateControl: rate controller to use
+     *              trim:   trim options
+     *              args:   user defined arguments,
+     *              cb  :   path of the callback js file,
+     *              config: path of the blockchain config file
      *              totalClients = total number of clients,
      *              pushUrl = the url for the push gateway
      *            };
@@ -317,29 +381,10 @@ class CaliperLocalClient {
         let txUpdateInter = setInterval( () => { self.txUpdate();  } , self.txUpdateTime);
 
         try {
-            let context = await this.blockchain.getContext(test.label, test.clientArgs, test.clientIdx, test.txFile);
-            if (typeof context === 'undefined') {
-                context = {
-                    engine : {
-                        submitCallback : (count) => { self.submitCallback(count); }
-                    }
-                };
-            } else {
-                context.engine = {
-                    submitCallback : (count) => { self.submitCallback(count); }
-                };
-            }
 
             // Configure
-            let rateController = new RateControl(test.rateControl, test.clientIdx, test.testRound);
+            let rateController = new RateControl(test.rateControl, this.clientIndex, test.testRound);
             await rateController.init(test);
-
-            // Run init phase of callback
-            Logger.info(`Info: client ${process.pid} init test ${(cb.info ? (':' + cb.info) : 'phase')}`);
-            await cb.init(this.blockchain, context, test.args);
-            // Reset and sleep the configured update duration to flush any results that are resulting from the 'init' stage
-            this.txReset();
-            await CaliperUtils.sleep(this.txUpdateTime);
 
             // Run the test loop
             if (test.txDuration) {
@@ -352,7 +397,7 @@ class CaliperLocalClient {
 
             // Clean up
             await rateController.end();
-            await this.blockchain.releaseContext(context);
+            await this.blockchain.releaseContext(this.context);
             this.clearUpdateInter(txUpdateInter);
             await cb.end();
 
@@ -372,8 +417,10 @@ class CaliperLocalClient {
             }
         } catch (err) {
             this.clearUpdateInter();
-            Logger.info(`Client[${process.pid}] encountered an error: ${(err.stack ? err.stack : err)}`);
+            Logger.info(`Client[${this.clientIndex}] encountered an error: ${(err.stack ? err.stack : err)}`);
             throw err;
+        } finally {
+            this.txReset();
         }
     }
 }

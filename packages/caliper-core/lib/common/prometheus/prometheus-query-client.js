@@ -109,7 +109,7 @@ class PrometheusQueryClient {
             if (response.status.localeCompare('success') === 0 ) {
                 return response;
             } else {
-                Logger.error(`Prometheus query to ${this.requestParams.href} failed`);
+                Logger.error(`Prometheus query to ${targetParams.requestParams.href} failed with: ${JSON.stringify(response)}`);
                 return null;
             }
         } catch (error) {

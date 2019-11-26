@@ -43,8 +43,6 @@ const keys = {
     MachineConfig: 'caliper-machineconfig',
     BenchConfig: 'caliper-benchconfig',
     NetworkConfig: 'caliper-networkconfig',
-    ZooAddress: 'caliper-zooaddress',
-    ZooConfig: 'caliper-zooconfig',
     TxUpdateTime: 'caliper-txupdatetime',
     LoggingRoot: 'caliper-logging',
     Logging: {
@@ -86,6 +84,14 @@ const keys = {
             },
         },
         Targets: 'caliper-logging-targets'
+    },
+    Worker: {
+        Remote: 'caliper-worker-remote',
+        PollInterval: 'caliper-worker-pollinterval',
+        Communication: {
+            Method: 'caliper-worker-communication-method',
+            Address: 'caliper-worker-communication-address',
+        }
     },
     Flow: {
         Skip: {

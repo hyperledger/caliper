@@ -2,9 +2,9 @@
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
-* 
+*
 * http://www.apache.org/licenses/LICENSE-2.0
-* 
+*
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -31,7 +31,7 @@ describe ('benchmark configuration generator', () => {
         chaincodeArguments: '["args1", "args2", "args3"]',
         benchmarkName: 'x contract benchmark',
         benchmarkDescription: 'benchmark for contract x',
-        clients: 10,
+        workers: 10,
         label: 'function test',
         chaincodeId: 'xContract',
         txType: 'txDuration',
@@ -42,7 +42,7 @@ describe ('benchmark configuration generator', () => {
         test: {
             name: 'x contract benchmark',
             description: 'benchmark for contract x',
-            clients: {
+            workers: {
                 type: 'local',
                 number: 10
             },
@@ -76,13 +76,13 @@ describe ('benchmark configuration generator', () => {
             .withPrompts(options);
         tmpConfigPath = path.join(dir, configPath);
     };
-    
+
     it('should create a workspace directory with a name defined by the user', async () => {
         options.txDuration = 30;
         await runGenerator();
         assert.file(`${options.workspace}/`);
     });
-    
+
     it('should create a folder called benchmarks inside the workspace', async () => {
         options.txDuration = 30;
         await runGenerator();
@@ -142,7 +142,7 @@ describe ('benchmark configuration generator', () => {
         options.txDuration = 30;
         options.rateController = 'linear-rate';
         await runGenerator();
-        
+
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
         const fileContains = configStr.includes('"type":"linear-rate"');
@@ -154,7 +154,7 @@ describe ('benchmark configuration generator', () => {
         options.txType = 'txDuration';
         options.txDuration = 30;
         await runGenerator();
-        
+
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
         const fileContains = configStr.includes('"txDuration"');
@@ -166,7 +166,7 @@ describe ('benchmark configuration generator', () => {
         options.txType = 'txNumber';
         options.txNumber = 30;
         await runGenerator();
-        
+
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
         const fileContains = configStr.includes('"txNumber"');
@@ -174,24 +174,24 @@ describe ('benchmark configuration generator', () => {
         fileContains.should.equal(true);
     });
 
-    it('should provide a default client value if user answered prompt with a string for clients', async () => {
-        options.clients = "penguin";
+    it('should provide a default client value if user answered prompt with a string for workers', async () => {
+        options.workers = "penguin";
         await runGenerator();
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
-        const fileContains = configStr.includes('"clients":{"type":"local","number":5');
+        const fileContains = configStr.includes('"workers":{"type":"local","number":5');
 
         fileContains.should.equal(true);
     });
 
-    it('should provide an absolute value for client if user answered prompt with a negative number for clients', async () => {
-        options.clients = -10;
+    it('should provide an absolute value for client if user answered prompt with a negative number for workers', async () => {
+        options.workers = -10;
         await runGenerator();
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
-        const fileContains = configStr.includes('"clients":{"type":"local","number":10');
+        const fileContains = configStr.includes('"workers":{"type":"local","number":10');
 
         fileContains.should.equal(true);
     });

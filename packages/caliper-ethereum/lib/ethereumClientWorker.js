@@ -14,7 +14,7 @@
 
 'use strict';
 
-const { MessageHandler } = require('@hyperledger/caliper-core');
+const { ConfigUtil, Messenger, MessageHandler } = require('@hyperledger/caliper-core');
 const EthereumClient = require('./ethereum');
 
 /**
@@ -25,16 +25,27 @@ const EthereumClient = require('./ethereum');
  * @async
  */
 async function initHandler(context, message) {
-    return new EthereumClient(context.networkConfigPath, context.workspacePath);
+    return new EthereumClient(context.networkConfigPath, context.workspacePath, context.workerId);
 }
 
-const handlerContext = new MessageHandler({
-    init: initHandler
-});
-
 /**
- * Message handler
+ * Main process
  */
-process.on('message', async (message) => {
-    await MessageHandler.handle(handlerContext, message);
-});
+async function main (){
+
+    // Create the message client using the specified type
+    const type = `${ConfigUtil.get(ConfigUtil.keys.Worker.Communication.Method)}-worker`;
+    const messenger = new Messenger({type, sut: 'ethereum'});
+    await messenger.initialize();
+
+    // Create a handler context for this worker
+    const handlerContext = new MessageHandler({
+        init: initHandler
+    }, messenger);
+
+    // Pass to the messenger to configure
+    messenger.configure(handlerContext);
+
+}
+
+main();
