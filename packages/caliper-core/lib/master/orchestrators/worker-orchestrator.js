@@ -94,7 +94,7 @@ class WorkerOrchestrator {
     }
 
     /**
-     * Send a global message to topic, indicating that orchestrator is pending worker registration
+     * Send a global message to all workers, indicating that orchestrator is pending worker registration
      */
     pollForWorkers() {
         this.messenger.send(['all'], TYPES.REGISTER, {});
