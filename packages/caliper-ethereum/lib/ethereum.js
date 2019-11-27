@@ -198,7 +198,7 @@ class Ethereum extends BlockchainInterface {
             let methodType = 'send';
             if (methodCall.isView) {
                 methodType = 'call';
-            } else if (context.nonces && context.nonces[context.fromAddress]) {
+            } else if (context.nonces && (typeof context.nonces[context.fromAddress] !== 'undefined')) {
                 let nonce = context.nonces[context.fromAddress];
                 context.nonces[context.fromAddress] = nonce + 1;
                 params.nonce = nonce;
