@@ -29,7 +29,13 @@ const keys = {
     },
     Report: {
         Path: 'caliper-report-path',
-        Options: 'caliper-report-options'
+        Options: 'caliper-report-options',
+        Precision: 'caliper-report-precision',
+        Charting: {
+            Hue: 'caliper-report-charting-hue',
+            Scheme: 'caliper-report-charting-scheme',
+            Transparency: 'caliper-report-charting-transparency'
+        }
     },
     Workspace: 'caliper-workspace',
     ProjectConfig: 'caliper-projectconfig',

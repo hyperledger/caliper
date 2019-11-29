@@ -19,6 +19,7 @@
     "npm": ">=5.6.0"
   },
   "dependencies": {
+    "color-scheme": "^1.0.1",
     "compare-versions": "^3.4.0",
     "dockerode": "^2.5.0",
     "fs-extra": "^8.0.1",

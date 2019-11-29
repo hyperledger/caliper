@@ -53,3 +53,8 @@ monitor:
                     label: name
                     statistic: max
                     multiplier: 0.000001
+        charting:
+            polar:
+                metrics: [Max Memory (MB)]
+            bar:
+                metrics: [all]

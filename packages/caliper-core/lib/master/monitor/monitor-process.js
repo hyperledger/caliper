@@ -18,6 +18,7 @@ const MonitorInterface = require('./monitor-interface');
 const MonitorUtilities = require('./monitor-utilities');
 const Util = require('../../common/utils/caliper-utils');
 const Logger = Util.getLogger('monitor-process');
+const ChartBuilder = require('../charts/chart-builder');
 
 const ps = require('ps-node');
 const usage = require('pidusage');
@@ -48,11 +49,11 @@ class MonitorProcess extends MonitorInterface {
         */
         this.stats  = {'time': []};
         this.watchItems = [];
-        for(let i = 0 ; i < this.monitorConfig.length ; i++) {
-            if(this.monitorConfig[i].hasOwnProperty('command')) {
-                let id = this.getId(this.monitorConfig[i]);
+        for(let i = 0 ; i < this.monitorConfig.processes.length ; i++) {
+            if(this.monitorConfig.processes[i].hasOwnProperty('command')) {
+                let id = this.getId(this.monitorConfig.processes[i]);
                 this.stats[id] = this.newStat();
-                this.watchItems.push(this.monitorConfig[i]);
+                this.watchItems.push(this.monitorConfig.processes[i]);
             }
         }
     }
@@ -254,26 +255,25 @@ class MonitorProcess extends MonitorInterface {
      * @return {Map} Map of items to build results for, with default null entries
      */
     getResultColumnMap() {
-        const columns = ['Type', 'Name', 'Memory(max)', 'Memory(avg)', 'CPU% (max)', 'CPU% (avg)'];
+        const columns = ['Name', 'Memory(max)', 'Memory(avg)', 'CPU%(max)', 'CPU%(avg)'];
         const resultMap = new Map();
 
         for (const item of columns) {
             resultMap.set(item, 'N/A');
         }
 
-        // This is a Process Type, so set here
-        resultMap.set('Type', 'Process');
         return resultMap;
     }
 
     /**
      * Get statistics from the monitor in the form of an Array containing Map<string, string> detailing key/value pairs
+     * @param {string} testLabel the current test label
      * @return {Map<string, string>[]} an array of resource maps for watched containers
      * @async
      */
-    async getStatistics() {
+    async getStatistics(testLabel) {
         try {
-            const watchItemStats = [];
+            const resourceStats = [];
             for (const watchItem of this.watchItems) {
                 const key = this.getId(watchItem);
 
@@ -292,9 +292,23 @@ class MonitorProcess extends MonitorInterface {
                 watchItemStat.set('CPU% (avg)', cpu_stat.avg.toFixed(2));
 
                 // append return array
-                watchItemStats.push(watchItemStat);
+                resourceStats.push(watchItemStat);
             }
-            return watchItemStats;
+
+            // Normalize the resource stats to a single unit
+            const normalizeStats = ['Memory(max)', 'Memory(avg)', 'CPU% (max)', 'CPU% (avg)'];
+            for (const stat of normalizeStats) {
+                MonitorUtilities.normalizeStats(stat, resourceStats);
+            }
+
+            // Retrieve Chart data
+            const chartTypes = this.monitorConfig.charting;
+            let chartStats = [];
+            if (chartTypes) {
+                chartStats = ChartBuilder.retrieveChartStats(this.constructor.name, chartTypes, testLabel, resourceStats);
+            }
+
+            return { resourceStats, chartStats };
         } catch (error) {
             Logger.error('Failed to read monitoring data, ' + (error.stack ? error.stack : error));
             return [];

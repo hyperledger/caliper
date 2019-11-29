@@ -15,6 +15,8 @@
 
 'use strict';
 
+const ConfigUtil = require('../../common/config/config-util');
+
 /**
  * Static utility methods for monitors
  */
@@ -61,6 +63,64 @@ class MonitorUtilities {
         }
         else{
             return (data / gb).toFixed(1) + 'GB';
+        }
+    }
+
+    /**
+     * Normalize all data in the passed Array of Map items
+     * @param {String} stat the stat to work on
+     * @param {Map[]} watchItemStats the full array of items to work on
+     */
+    static normalizeStats(stat, watchItemStats) {
+        // Collect and determine largest value to normalize to
+        let maxValue = 0;
+        const values = [];
+        for (const watchItem of watchItemStats) {
+            const value = watchItem.get(stat);
+            values.push(value);
+            if (!isNaN(value) && value > maxValue) {
+                maxValue = value;
+            }
+        }
+
+        // Determine divisor and new title
+        let divisor = 1;
+        let newStat;
+        let kb = 1024;
+        let mb = kb * 1024;
+        let gb = mb * 1024;
+        if (maxValue < kb) {
+            // Bytes
+            newStat = `${stat} [B]`;
+        } else if (maxValue < mb) {
+            // KB
+            newStat = `${stat} [KB]`;
+            divisor = kb;
+        } else if(maxValue < gb) {
+            // MB
+            newStat = `${stat} [MB]`;
+            divisor = mb;
+        } else {
+            // GB
+            newStat = `${stat} [GB]`;
+            divisor = gb;
+        }
+
+        // Normalize values
+        const precision = ConfigUtil.get(ConfigUtil.keys.Report.Precision, 3);
+        const normValues = [];
+        for (const value of values) {
+            if(isNaN(value)) {
+                normValues.push('-');
+            } else {
+                normValues.push((value / divisor).toPrecision(precision));
+            }
+        }
+
+        for (const watchItem of watchItemStats) {
+            const modVal = normValues.shift();
+            watchItem.set(newStat, modVal);
+            watchItem.delete(stat);
         }
     }
 
