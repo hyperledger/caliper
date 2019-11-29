@@ -1,0 +1,89 @@
+{
+  "private": true,
+  "name": "generator-caliper",
+  "description": "Yeoman generator for Hyperledger Caliper",
+  "version": "0.2.0",
+  "author": "Lynn Muswere",
+  "homepage": "https://hyperledger.github.io/caliper/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyperledger/caliper"
+  },
+  "main": "generators/callback/index.js",
+  "keywords": [
+    "yeoman-generator",
+    "hyperledger",
+    "caliper"
+  ],
+  "scripts": {
+    "pretest": "npm run licchk",
+    "licchk": "license-check-and-add",
+    "test": "npm run lint && npm run nyc",
+    "lint": "npx eslint .",
+    "nyc": "nyc mocha --recursive -t 10000"
+  },
+  "engines": {
+    "node": ">=8.10.0",
+    "npm": ">=5.6.0"
+  },
+  "files": [
+    "generators"
+  ],
+  "dependencies": {
+    "yeoman-generator": "4.1.0",
+    "yosay": "^2.0.1"
+  },
+  "devDependencies": {
+    "js-yaml": "^3.13.1",
+    "fs-extra": "^8.0.1",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^1.7.0",
+    "mocha": "6.2.1",
+    "sinon": "7.5.0",
+    "chai": "^4.0.0",
+    "sinon-chai": "^3.3.0",
+    "eslint": "^4.19.1",
+    "rewire": "^4.0.0",
+    "nyc": "14.1.1",
+    "license-check-and-add": "2.3.6"
+  },
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
+    }
+  ],
+  "license-check-and-add-config": {
+    "folder": ".",
+    "license": "../../../LICENSE.txt",
+    "exact_paths_method": "EXCLUDE",
+    "exact_paths": [
+      "node_modules",
+      ".nyc_output",
+      "coverage"
+    ],
+    "file_type_method": "EXCLUDE",
+    "file_types": [
+      ".yml",
+      ".md"
+    ],
+    "insert_license": false,
+    "license_formats": {
+      "js": {
+        "prepend": "/*",
+        "append": "*/",
+        "eachLine": {
+          "prepend": "* "
+        }
+      },
+      "editorconfig|yaml": {
+        "prepend": "#",
+        "append": "#",
+        "eachLine": {
+          "prepend": "# "
+        }
+      }
+    }
+  }
+}
