@@ -14,8 +14,8 @@
 
 ---
 test:
-  name: <%= name %>
-  description: <%= description %>
+  name: <%= benchmarkName %>
+  description: <%= benchmarkDescription %>
   clients:
     type: local
     number: <%= clients %>

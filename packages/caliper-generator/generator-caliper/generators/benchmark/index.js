@@ -36,17 +36,17 @@ module.exports = class extends Generator {
             type: 'input',
             name: 'chaincodeId',
             message: 'What is the name of your smart contract?',
-            when: () => !this.option.chaincodeId
+            when: () => !this.options.chaincodeId
         }, {
             type: 'input',
             name: 'version',
             message: 'What is the version of your smart contract?',
-            when: () => !this.option.version
+            when: () => !this.options.version
         }, {
             type: 'input',
             name: 'chaincodeFunction',
             message: 'Which smart contract function would you like to perform the benchmark on?',
-            when: () => !this.option.chaincodeFunction
+            when: () => !this.options.chaincodeFunction
         }];
         callbackAnswers = await this.prompt(callbackQuestions);
 
@@ -54,14 +54,14 @@ module.exports = class extends Generator {
         const configQuestions = {
             initialQuestions: [{
                 type: 'input',
-                name: 'name',
+                name: 'benchmarkName',
                 message: 'What would you like to name your benchmark?',
-                when: () => !this.options.name
+                when: () => !this.options.benchmarkName
             }, {
                 type: 'input',
-                name: 'description',
+                name: 'benchmarkDescription',
                 message: 'What description would you like to provide for your benchamrk?',
-                when: () => !this.options.description
+                when: () => !this.options.benchmarkDescription
             }],
             clientQuestions: [{
                 type: 'input',
@@ -101,21 +101,21 @@ module.exports = class extends Generator {
                 name: 'txDuration',
                 message: 'How long would you like the round to last?',
                 default: defaultTxValue,
-                when: () => !this.option.txDuration
+                when: () => !this.options.txDuration
             }],
             txNumberQuestion : [{
                 type: 'input',
                 name: 'txNumber',
                 message: 'How many transactions would you like to have in this round?',
                 default: defaultTxValue,
-                when: () => !this.option.txNumber
+                when: () => !this.options.txNumber
             }]
         }
 
         inititalAnswers = await this.prompt(configQuestions.initialQuestions);
 
         clientAnswer = await this.prompt(configQuestions.clientQuestions);
-        if (isNaN(parseFloat(clientAnswer.clients)) || clientAnswer.clients < 0) {
+        if (isNaN(parseFloat(this.options.clients)) || this.options.clients < 0) {
             this.log(`Error: Not a valid input. Using default client value of ${defaultClientValue}.`)
         }
 
@@ -151,8 +151,8 @@ module.exports = class extends Generator {
     }
 
     _configWrite() {
-        answersObject.name = promptAnswers.name;
-        answersObject.description = promptAnswers.description;
+        answersObject.benchmarkName = promptAnswers.benchmarkName;
+        answersObject.benchmarkDescription = promptAnswers.benchmarkDescription;
         answersObject.clients = promptAnswers.clients
         answersObject.label = promptAnswers.label;
         answersObject.txType = promptAnswers.txType;
