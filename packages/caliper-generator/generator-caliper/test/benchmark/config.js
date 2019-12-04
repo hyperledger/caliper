@@ -27,9 +27,9 @@ describe ('benchmark configuration generator', () => {
     let options = {
         subgenerator: 'benchmark',
         chaincodeFunction: 'callback',
-        name: 'x contract benchmark',
-        description: 'benchmark for contract x',
-        clients: 5,
+        benchmarkName: 'x contract benchmark',
+        benchmarkDescription: 'benchmark for contract x',
+        clients: 10,
         label: 'function test',
         chaincodeId: 'xContract',
         txType: 'txDuration',
@@ -42,7 +42,7 @@ describe ('benchmark configuration generator', () => {
             description: 'benchmark for contract x',
             clients: {
                 type: 'local',
-                number: 5
+                number: 10
             },
             rounds: [
                 {
@@ -75,7 +75,7 @@ describe ('benchmark configuration generator', () => {
         tmpConfigPath = path.join(dir, configPath);
     };
     
-    it('should create a workspace directory with a name based on answer to workspace prompt', async () => {
+    it('should create a workspace directory with a name defined by the user', async () => {
         options.txDuration = 30;
         await runGenerator();
         assert.file(`${options.workspace}/`);
@@ -148,7 +148,7 @@ describe ('benchmark configuration generator', () => {
         fileContains.should.equal(true);
     });
 
-    it ('should ask for the txDuration of user answered "txDuration" for tyType prompt', async () => {
+    it ('should ask for the txDuration if user answered "txDuration" for tyType prompt', async () => {
         options.txType = 'txDuration';
         options.txDuration = 30;
         await runGenerator();
@@ -160,7 +160,7 @@ describe ('benchmark configuration generator', () => {
         fileContains.should.equal(true);
     });
 
-    it('should ask for the txNumber of user answered "txNumber" for txType prompt', async () => {
+    it('should ask for the txNumber if user answered "txNumber" for txType prompt', async () => {
         options.txType = 'txNumber';
         options.txNumber = 30;
         await runGenerator();
@@ -172,7 +172,7 @@ describe ('benchmark configuration generator', () => {
         fileContains.should.equal(true);
     });
 
-    it('should provide a default txDuration if user answered prompt with a negative number for clients', async () => {
+    it('should provide a default client value if user answered prompt with a string for clients', async () => {
         options.clients = "penguin";
         await runGenerator();
 
@@ -183,7 +183,7 @@ describe ('benchmark configuration generator', () => {
         fileContains.should.equal(true);
     });
 
-    it('should provide a default txDuration if user answered prompt with a string for clients', async () => {
+    it('should provide a default client if user answered prompt with a negative number for clients', async () => {
         options.clients = -10;
         await runGenerator();
 
