@@ -31,7 +31,7 @@ module.exports.init = async function(blockchain, context, args) {
 module.exports.run = function() {
     let myArgs = {
         chaincodeFunction: '<%= chaincodeFunction %>',
-        chaincodeArguments: []
+        chaincodeArguments: <%- chaincodeArguments %>
     };
 
     return bc.invokeSmartContract(ctx, contractId, version, myArgs, 60);

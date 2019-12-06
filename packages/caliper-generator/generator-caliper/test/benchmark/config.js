@@ -24,9 +24,11 @@ chai.should();
 const path = require('path');
 
 describe ('benchmark configuration generator', () => {
+    let dir, tmpConfigPath;
     let options = {
         subgenerator: 'benchmark',
         chaincodeFunction: 'callback',
+        chaincodeArguments: '["args1", "args2", "args3"]',
         benchmarkName: 'x contract benchmark',
         benchmarkDescription: 'benchmark for contract x',
         clients: 10,
@@ -63,8 +65,8 @@ describe ('benchmark configuration generator', () => {
             type: [ 'none' ]
         }
     };
+
     const configPath = `${options.workspace}/benchmarks/config.yaml`;
-    let dir, tmpConfigPath;
 
     const runGenerator = async () => {
         await helpers.run(path.join(__dirname, '../../generators/app'))
@@ -183,37 +185,37 @@ describe ('benchmark configuration generator', () => {
         fileContains.should.equal(true);
     });
 
-    it('should provide a default client if user answered prompt with a negative number for clients', async () => {
+    it('should provide an absolute value for client if user answered prompt with a negative number for clients', async () => {
         options.clients = -10;
         await runGenerator();
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
-        const fileContains = configStr.includes('"clients":{"type":"local","number":5');
+        const fileContains = configStr.includes('"clients":{"type":"local","number":10');
 
         fileContains.should.equal(true);
     });
 
-    it('should provide a default txDuration if user answered prompt with a negative number for txDuration', async () => {
+    it('should provide an absolute value for txDuration if user answered prompt with a negative number for txDuration', async () => {
         options.txType = 'txDuration';
         options.txDuration = -30;
         await runGenerator();
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
-        const fileContains = configStr.includes('"txDuration":[50]');
+        const fileContains = configStr.includes('"txDuration":[30]');
 
         fileContains.should.equal(true);
     });
 
-    it('should provide a default txNumber if user answered prompt with a negative number for txNumber', async () => {
+    it('should provide an absolute value for txNumber if user answered prompt with a negative number for txNumber', async () => {
         options.txType = 'txNumber';
         options.txNumber = -30;
         await runGenerator();
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
-        const fileContains = configStr.includes('"txNumber":[50]');
+        const fileContains = configStr.includes('"txNumber":[30]');
 
         fileContains.should.equal(true);
     });

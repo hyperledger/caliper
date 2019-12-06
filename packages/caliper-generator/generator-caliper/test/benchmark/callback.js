@@ -14,16 +14,18 @@
 
 const assert = require('yeoman-assert');
 const helpers = require('yeoman-test');
+const fs = require('fs');
 const chai = require('chai');
 chai.should();
 
 const path = require('path');
 
 describe('', () => {
-    let dir, callbackFile;
+    let dir, tmpCallbackPath;
     let options = {
         subgenerator: 'benchmark',
         chaincodeFunction: 'callback',
+        chaincodeArguments: `["args1", "args2", "args3"]`,
         name: 'x contract benchmark',
         description: 'benchmark for contract x',
         clients: 5,
@@ -36,24 +38,29 @@ describe('', () => {
         workspace: 'workspace',
     };
 
-    beforeEach(() => {
-        callbackFile = `${options.workspace}/benchmarks/callbacks/${options.chaincodeFunction}.js`;
-        return helpers.run(path.join(__dirname, '../../generators/app'))
-        .inTmpDir((dir_) => {
-            dir = dir_;
-        })
-        .withPrompts(options);
-    });
+    const callbackFile = `${options.workspace}/benchmarks/callbacks/${options.chaincodeFunction}.js`;
 
-    it('should create a callbacks folder', () => {
+    const runGenerator = async () => {
+        await helpers.run(path.join(__dirname, '../../generators/app'))
+            .inTmpDir((dir_) => {
+                dir = dir_;
+            })
+            .withPrompts(options);
+        tmpCallbackPath = path.join(dir, callbackFile);
+    };
+
+    it('should create a callbacks folder', async () => {
+        await runGenerator();
         assert.file([`${options.workspace}/benchmarks/callbacks/`]);
     });
 
-    it('should create callback file inside the callback folder named based on user prompt answer', () => {
+    it('should create callback file inside the callback folder named based on user prompt answer', async () => {
+        await runGenerator();
         assert.file([callbackFile]);
     });
 
-    it('should populate the file based on answers to user prompts', () => {
+    it('should populate the file based on answers to user prompts', async () => {
+        await runGenerator();
         let callbackFileContent = `/*\n` + 
         `* Licensed under the Apache License, Version 2.0 (the "License");\n` +
         `* you may not use this file except in compliance with the License.\n` +
@@ -87,7 +94,7 @@ describe('', () => {
         `module.exports.run = function() {\n` +
         `    let myArgs = {\n` +
         `        chaincodeFunction: '${options.chaincodeFunction}',\n` +
-        `        chaincodeArguments: []\n` +
+        `        chaincodeArguments: ${options.chaincodeArguments}\n` +
         `    };\n` +
         `\n` +
         `    return bc.invokeSmartContract(ctx, contractId, version, myArgs, 60);\n` +
@@ -98,5 +105,33 @@ describe('', () => {
         `};\n`
 
         assert.fileContent(callbackFile, callbackFileContent);
+    });
+
+    it('should default to empty array for chaincode arguments if no user input supplied', async () => {
+        options.chaincodeArguments = '';
+        await runGenerator();
+
+        assert.fileContent(`${options.workspace}/benchmarks/callbacks/${options.chaincodeFunction}.js`, "chaincodeArguments: []");
+    });
+
+    it('should default to an empty array if user input for chaincode argument does not start with [', async () => {
+        options.chaincodeArguments = `"args1", "args2", "args3"]`;
+        await runGenerator();
+
+        assert.fileContent(`${options.workspace}/benchmarks/callbacks/${options.chaincodeFunction}.js`, "chaincodeArguments: []");
+    });
+
+    it('should default to an empty array if user input for chaincode argument does not end with ]', async () => {
+        options.chaincodeArguments = `["args1", "args2", "args3"`;
+        await runGenerator();
+
+        assert.fileContent(`${options.workspace}/benchmarks/callbacks/${options.chaincodeFunction}.js`, "chaincodeArguments: []");
+    });
+
+    it('should default to an empty array if user input is not the correct format', async () => {
+        options.chaincodeArguments = `[args1, "args2" "args3"]`;
+        await runGenerator();
+
+        assert.fileContent(`${options.workspace}/benchmarks/callbacks/${options.chaincodeFunction}.js`, "chaincodeArguments: []");
     });
 });
