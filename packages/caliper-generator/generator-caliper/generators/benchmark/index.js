@@ -47,8 +47,21 @@ module.exports = class extends Generator {
             name: 'chaincodeFunction',
             message: 'Which smart contract function would you like to perform the benchmark on?',
             when: () => !this.options.chaincodeFunction
+        }, {
+            type: 'input',
+            name: 'chaincodeArguments',
+            message: 'What are the arguments of your smart contract function? (e.g. ["arg1", "arg2"])',
+            when: () => !this.options.chaincodeArguments
         }];
         callbackAnswers = await this.prompt(callbackQuestions);
+
+        if (callbackAnswers.chaincodeArguments) {
+            try {
+                JSON.parse(callbackAnswers.chaincodeArguments);
+            } catch (error) {
+                this.log(`Error: Incorrect array format. Using empty array for arguments. Defaulting to '[]' for arguments`);
+            }
+        }
 
         this.log("Now for the benchmark configuration file...");
         const configQuestions = {
@@ -64,7 +77,7 @@ module.exports = class extends Generator {
                 when: () => !this.options.benchmarkDescription
             }],
             clientQuestions: [{
-                type: 'input',
+                type: 'number',
                 name: 'clients',
                 message: 'How many clients would you like to have?',
                 default: defaultClientValue,
@@ -97,14 +110,14 @@ module.exports = class extends Generator {
                 when: () => !this.options.txType
             }],
             txDurationQuestion : [{
-                type: 'input',
+                type: 'number',
                 name: 'txDuration',
                 message: 'How long would you like the round to last?',
                 default: defaultTxValue,
                 when: () => !this.options.txDuration
             }],
             txNumberQuestion : [{
-                type: 'input',
+                type: 'number',
                 name: 'txNumber',
                 message: 'How many transactions would you like to have in this round?',
                 default: defaultTxValue,
@@ -115,22 +128,31 @@ module.exports = class extends Generator {
         inititalAnswers = await this.prompt(configQuestions.initialQuestions);
 
         clientAnswer = await this.prompt(configQuestions.clientQuestions);
-        if (isNaN(parseFloat(this.options.clients)) || this.options.clients < 0) {
+        if (isNaN(parseFloat(this.options.clients)) && isNaN(parseFloat(clientAnswer.clients))) {
             this.log(`Error: Not a valid input. Using default client value of ${defaultClientValue}.`)
+        }
+        if (this.options.clients < 0 || clientAnswer.clients < 0) {
+            this.log(`Error: Negative values not accepted. Defaulting to ${Math.abs(clientAnswer.clients)}.`)
         }
 
         roundAnswers = await this.prompt(configQuestions.roundQuestions);
 
         if (roundAnswers.txType === "txDuration") {
             txValueAnswer = await this.prompt(configQuestions.txDurationQuestion);
-            if (isNaN(parseFloat(txValueAnswer.txDuration)) || txValueAnswer.txDuration < 0) {
+            if (isNaN(parseFloat(txValueAnswer.txDuration))) {
               this.log(`Error: Not a valid input. Using default txDuration value of ${defaultTxValue}.`)
+            }
+            if (txValueAnswer.txDuration < 0) {
+                this.log(`Error: Negative values not accepted. Defaulting to ${Math.abs(txValueAnswer.txDuration)}.`)
             }
         }
         if (roundAnswers.txType === "txNumber") {
             txValueAnswer = await this.prompt(configQuestions.txNumberQuestion);
-            if (isNaN(parseFloat(txValueAnswer.txNumber)) || txValueAnswer.txNumber < 0) {
+            if (isNaN(parseFloat(txValueAnswer.txNumber))) {
               this.log(`Error: Not a valid input. Using default txNumber value of ${defaultTxValue}.`)
+            }
+            if (txValueAnswer.txNumber < 0) {
+                this.log(`Error: Negative values not accepted. Defaulting to ${Math.abs(txValueAnswer.txNumber)}.`)
             }
         }
 
@@ -143,6 +165,20 @@ module.exports = class extends Generator {
         answersObject.version = promptAnswers.version;
         answersObject.chaincodeFunction = promptAnswers.chaincodeFunction;
         answersObject.callbackPath = `callbacks/${ promptAnswers.chaincodeFunction }.js`;
+
+        const argsString = promptAnswers.chaincodeArguments;
+        if (!argsString) {
+            answersObject.chaincodeArguments = '[]';
+        } else {
+            try {
+                // Should be able to parse the user input
+                JSON.parse(argsString);
+                // Successfully parsed, now set it
+                answersObject.chaincodeArguments = argsString;
+            } catch (error) {
+                answersObject.chaincodeArguments = '[]'; 
+            }
+        }
 
         this.fs.copyTpl(
             this.templatePath('callback.js'),
@@ -158,23 +194,35 @@ module.exports = class extends Generator {
         answersObject.txType = promptAnswers.txType;
         answersObject.chaincodeId = promptAnswers.chaincodeId;
 
-        if (typeof promptAnswers.clients === 'string' || promptAnswers.clients < 0) {
+        if (isNaN(promptAnswers.clients)) {
             answersObject.clients = defaultClientValue;
+        } else if (promptAnswers.clients < 0) {
+            answersObject.clients = Math.abs(promptAnswers.clients);
         }
-        else answersObject.clients = promptAnswers.clients;
+        else {
+            answersObject.clients = promptAnswers.clients;
+        }
 
         if (promptAnswers.txType === 'txDuration') {
-            if (typeof promptAnswers.txDuration === 'string' || promptAnswers.txDuration < 0) {
+            if (isNaN(promptAnswers.txDuration)) {
               answersObject.txValue = defaultTxValue;
+            } else if (promptAnswers.txDuration < 0) {
+                answersObject.txValue = Math.abs(promptAnswers.txDuration);
+            } else {
+                answersObject.txValue = promptAnswers.txDuration;
             }
-            else answersObject.txValue = promptAnswers.txDuration;
         };
         
+        
         if (promptAnswers.txType === 'txNumber') {
-            if (typeof promptAnswers.txNumber === 'string' || promptAnswers.txNumber < 0) {
+            if (isNaN(promptAnswers.txNumber)) {
               answersObject.txValue = defaultTxValue;
+            } else if (promptAnswers.txNumber < 0) {
+                answersObject.txValue = Math.abs(promptAnswers.txNumber);
             }
-            else answersObject.txValue = promptAnswers.txNumber;
+            else {
+                answersObject.txValue = promptAnswers.txNumber;
+            }
         };
 
         this.fs.copyTpl(
@@ -187,6 +235,7 @@ module.exports = class extends Generator {
         console.log('Generating benchmark files...');
         this._callbackWrite();
         answersObject.rateController = promptAnswers.rateController;
+        
         switch(promptAnswers.rateController) {
             case 'fixed-rate':
             answersObject.opts = `tps: 10`;

@@ -136,6 +136,21 @@ func main() {
 // Init initializes chaincode
 // ===========================
 func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
+	marbles := []marble{
+		marble{ObjectType: "marble", Name: "marble1", Color: "Green", Size: 5, Owner: "Alice"},
+		marble{ObjectType: "marble", Name: "marble2", Color: "Yellow", Size: 10, Owner: "Bob"},
+		marble{ObjectType: "marble", Name: "marble3", Color: "Blue", Size: 15, Owner: "Tom"},
+	}
+
+	for i, marble := range marbles {
+		marbleAsBytes, _ := json.Marshal(marble)
+		err := ctx.GetStub().PutState(marbles[i].Name, marbleAsBytes)
+
+		if err != nil {
+			return fmt.Errorf("Failed to put to world state. %s", err.Error())
+		}
+	}
+
 	return shim.Success(nil)
 }
 
