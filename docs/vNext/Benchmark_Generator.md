@@ -44,7 +44,7 @@ You will then get the following output where you will be prompted to name your w
 ```console
 Welcome to the Hyperledger Caliper benchmark generator!
 Let's start off by creating a workspace folder!
-? What would you like to call your workspace? myBenchmark
+? What would you like to call your workspace? myWorkspace
 ```
 
 ### Callback Prompts
@@ -52,23 +52,25 @@ The benchmark generator will inititally take you through generating the callback
 * the **name** of your smart contract,
 * the **version** of your smart contract,
 * a smart contract **function**
+* the argument variables of your smart contract function, which must be entered in array format
 
 By the end, you should have something similar to the following:
 
 ```console
 Now for the callback file...
-? What is the name of your smart contract? Fabcar
-? What is the version of your smart contract? 1.0.0
-? Which smart contract function would you like to perform the benchmark on? createCar
+? What is the name of your smart contract? fabcar
+? What is the version of your smart contract? 0.0.1
+? Which smart contract function would you like to perform the benchmark on? changeCarOwner
+? What are the arguments of your smart contract function? (e.g. ["arg1", "arg2"]) ["CAR001", "Tom"]
 ```
 
 ### Configuration Prompts
 Next, you will be taken through generating the [configuration file](./Architecture#ConfigurationFile) and you will be prompted for:
 * the **name** of the benchmark
 * a **description** of the benchmark
-* the number of **clients**
+* the number of **workers**
 
-> __Note:__ On an invalid input value for clients, a default value will be used.
+> __Note:__ On an invalid input value for workers, a default value will be used.
 
 * a **label** for differentiating between multiple rounds
 * the **rate controller** you would like to use. The generator currently provides the rate controllers displayed below as options. The generated configuration file will use default `opts` for whichever rate controller is chosen.
@@ -89,7 +91,7 @@ Next, you will be taken through generating the [configuration file](./Architectu
 ```
 * a value for either `txNumber` or `txDuration` depending on the answer to previous prompt.
 
-> __Note:__ On an invalid input value for either **txDuration** or **txNumber**, a default value will be used
+> __Note:__ On an invalid input value for either **txDuration** or **txNumber**, a default value will be used.
 
 By the end, you should have something similar to the following:
 
@@ -97,8 +99,8 @@ By the end, you should have something similar to the following:
 Now for the benchmark configuration file...
 ? What would you like to name your benchmark? Fabcar benchmark
 ? What description would you like to provide for your benchamrk? Benchmark for performance testing fabcar contract modules
-? How many clients would you like to have? 5
-? What label (hint for test) would you like to provide for your benchmark?  Round for creating a car 
+? How many workers would you like to have? 5
+? What label (hint for test) would you like to provide for your benchmark? Round for changing car owner
 ? Which rate controller would you like to use? Fixed Rate
 ? How would you like to measure the length of the round? Transaction Number
 ? How many transactions would you like to have in this round? 60
@@ -108,10 +110,37 @@ On successful generation, you should see the following:
 
 ```console
 Generating benchmarking files...
-   create myBenchmark/benchmarks/callbacks/createCar.js
+   create myBenchmark/benchmarks/callbacks/changeCarOwner.js
    create myBenchmark/benchmarks/config.yaml
 Finished generating benchmarking files
 ```
+
+The generator can also be run non-interactively from the command line using the following command line options:
+
+| Options                  | Default | Description                                                                                    |
+| ------------------------ | ------- | ---------------------------------------------------------------------------------------------- |
+| `--workspace`            |         | A workspace to put all the generate benchmark files.                                           |
+| `--chaincodeId`          |         | The name of your smart contract.                                                               |
+| `--version`              |         | The version of your smart contract.                                                            |
+| `--chaincodeFunction`    |         | Your smart contract function.                                                                  |
+| `--chaincodeArguments`   | []      | The arguments of your smart contract function. These must be in an array format.               |
+| `--benchmarkName`        |         | A name for your benchmark.                                                                     |
+| `--benchmarkDescription` |         | A description for your benchmark.                                                              |
+| `--workers`              | 5       | A value for the number of workers.                                                             |
+| `--label`                |         | A label for the round.                                                                         |
+| `--rateController`       |         | The rate controller.                                                                           |
+| `--txType`               |         | The way you would like to measure the length of the round - either "txDuration" or "txNumber". |
+| `--txDuration`           | 50      | The value for transaction duration if "txDuration" was entered for txType.                     |
+| `--txNumber`             | 50      | The value for transaction number if "txNumber" was entered for txType.                         |
+
+
+Below is an example of the generator being run non-interactively from the command line using the options above:
+
+```console
+yo caliper:benchmark -- --workspace 'myWorkspace' --chaincodeId 'fabcar' --version '0.0.1' --chaincodeFunction 'changeCarOwner' --chaincodeArguments '["CAR001", "Tom"]' --benchmarkName 'Fabcar benchmark' --benchmarkDescription 'Benchmark for performance testing fabcar contract modules' --workers 5 --label 'Round for changing car owner' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 50
+```
+
+> __Note:__ All the options above are required when using the generator non-interactively.
 
 ## Next Steps
 
@@ -121,7 +150,7 @@ The generated files will be placed within the workspace directory you named at t
 .myWorkspace
 └── benchmarks
     │  callbacks
-    │  └── createCar.js
+    │  └── changeCarOwner.js
     └─ config.yaml
 ```
 
