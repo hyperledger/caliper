@@ -26,7 +26,6 @@ class Blockchain {
      */
     constructor(bcObj) {
         this.bcObj = bcObj;
-        this.bcType = bcObj.bcType;
     }
 
     /**
@@ -34,7 +33,7 @@ class Blockchain {
      * @return {string} type of the blockchain
      */
     getType() {
-        return this.bcType;
+        return this.bcObj.getType();
     }
 
     /**

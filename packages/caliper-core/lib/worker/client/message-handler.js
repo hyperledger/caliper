@@ -88,7 +88,7 @@ class MessageHandler {
         if (error) {
             // send(to, type, data)
             context.messenger.send(['orchestrator'], type, {error: error.toString()});
-            logger.error(`Handled unsuccessful "init" message for worker ${context.workerId} with error ${error.toString()}`);
+            logger.error(`Handled unsuccessful "init" message for worker ${context.workerId}, with error: ${error.toString()}`);
         } else {
             context.workerClient = new CaliperLocalClient(context.adapter, context.workerId, context.messenger);
             context.messenger.send(['orchestrator'], type, {});

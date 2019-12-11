@@ -15,7 +15,6 @@
 'use strict';
 
 const { CaliperUtils, ConfigUtil } = require('@hyperledger/caliper-core');
-const cmdUtil = require('../utils/cmdutils');
 const path = require('path');
 
 const logger = CaliperUtils.getLogger('bind');
@@ -83,7 +82,7 @@ class Bind {
             let nodeVersion;
             logger.info('Querying node version');
             try {
-                nodeVersion = await cmdUtil.getCommandOutput('node', ['-v']);
+                nodeVersion = await CaliperUtils.getCommandOutput('node', ['-v']);
             } catch (e) {
                 logger.error(e.message);
                 throw e;
@@ -132,7 +131,7 @@ class Bind {
 
             logger.info(`Binding working directory: ${cwd}`);
             logger.info(`Calling npm with: ${argArray.join(' ')}`);
-            await cmdUtil.invokeCommand('npm', argArray, settings.env, path.resolve(cwd));
+            await CaliperUtils.invokeCommand('npm', argArray, settings.env, path.resolve(cwd));
         } catch (e) {
             logger.error(e.message);
             throw e;
