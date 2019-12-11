@@ -17,19 +17,17 @@
 set -e
 set -o pipefail
 
+# check reference Caliper package names
+# publishNpmPackages.js contains the package dir names as caliper-*, those are fine
+if grep -rnE --exclude="publishNpmPackages.js" "['\"]caliper-(cli|core|burrow|composer|ethereum|fabric|fisco-bcos|iroha|sawtooth)['\"]" . ; then
+    echo "^^^ Found incorrect Caliper package names. Use the @hyperledger/ prefix for Caliper packages, e.g., @hyperledger/caliper-core"
+    exit 1
+fi
+
+echo "Caliper package names are correct."
+
+# Bootstrap the project again
+npm i && npm run repoclean -- --yes && npm run bootstrap
+
 # Run linting, license check and unit tests
 npm test
-
-# Call CLI directly
-# The CWD will be in one of the caliper-tests-integration/*_tests directories
-export CALL_METHOD="node ../../caliper-cli/caliper.js"
-
-IFS=' ' read -r -a array <<< "${TESTS}"
-
-cd ./packages/caliper-tests-integration/
-
-for element in "${array[@]}"
-do
-    export BENCHMARK="${element}"
-    ./run-tests.sh
-done

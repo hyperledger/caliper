@@ -1,8 +1,21 @@
 {
-	"lerna": "2.0.0",
+    "command": {
+        "bootstrap": {
+            "npmClientArgs": ["--no-package-lock"]
+        }
+    },
 	"packages": [
-	  "packages/*"
+	    "packages/caliper-core",
+        "packages/caliper-burrow",
+        "packages/caliper-composer",
+        "packages/caliper-ethereum",
+        "packages/caliper-fabric",
+        "packages/caliper-fisco-bcos",
+        "packages/caliper-iroha",
+        "packages/caliper-sawtooth",
+        "packages/caliper-cli",
+        "packages/caliper-tests-integration"
 	],
-	"version": "0.1.0",
+	"version": "0.3.0-unstable",
 	"hoist": true
   }

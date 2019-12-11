@@ -1,6 +1,7 @@
 {
   "name": "caliper-tests-integration",
-  "version": "0.2.0",
+  "version": "0.3.0-unstable",
+  "private": true,
   "description": "Integration tests for Hyperledger Caliper",
   "scripts": {
     "cleanup": "./scripts/cleanup.sh",
@@ -9,10 +10,7 @@
     "pretest": "npm run licchk",
     "licchk": "license-check-and-add",
     "npm_publish_local": "ARCH=`uname -m` npm_config_registry=http://localhost:4873 node ./scripts/publishNpmPackages.js http://localhost:4873",
-    "npm_publish": "node ./scripts/publishNpmPackages.js",
-    "docker_build_local": "node ./scripts/buildDockerImage.js current http://localhost:4873",
-    "docker_build": "node ./scripts/buildDockerImage.js current",
-    "run_tests": "./scripts/run-tests.sh",
+    "docker_build_local": "node ./scripts/buildDockerImage.js http://localhost:4873",
     "test": "exit 0"
   },
   "repository": {
@@ -35,14 +33,14 @@
     "license-check-and-add": "2.3.6"
   },
   "dependencies": {
-    "@hyperledger/caliper-burrow": "0.2.0",
-    "@hyperledger/caliper-cli": "0.2.0",
-    "@hyperledger/caliper-core": "0.2.0",
-    "@hyperledger/caliper-ethereum": "0.2.0",
-    "@hyperledger/caliper-fabric": "0.2.0",
-    "@hyperledger/caliper-fisco-bcos": "0.2.0",
-    "@hyperledger/caliper-iroha": "0.2.0",
-    "@hyperledger/caliper-sawtooth": "0.2.0"
+    "@hyperledger/caliper-burrow": "0.3.0-unstable",
+    "@hyperledger/caliper-cli": "0.3.0-unstable",
+    "@hyperledger/caliper-core": "0.3.0-unstable",
+    "@hyperledger/caliper-ethereum": "0.3.0-unstable",
+    "@hyperledger/caliper-fabric": "0.3.0-unstable",
+    "@hyperledger/caliper-fisco-bcos": "0.3.0-unstable",
+    "@hyperledger/caliper-iroha": "0.3.0-unstable",
+    "@hyperledger/caliper-sawtooth": "0.3.0-unstable"
   },
   "license-check-and-add-config": {
     "folder": ".",
