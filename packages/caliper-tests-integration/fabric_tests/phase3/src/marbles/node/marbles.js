@@ -40,8 +40,31 @@ let Chaincode = class {
      * @return {Promise<SuccessResponse>} Returns a promise of a response indicating the result of the invocation.
      */
     async Init(stub) {
-        let ret = stub.getFunctionAndParameters();
-        console.info(ret);
+        const marbles = [
+            {
+                name: 'marble1',
+                color: 'Green',
+                size: '5',
+                owner: 'Alice'
+            },
+            {
+                name: 'marble2',
+                color: 'Yellow',
+                size: '15',
+                owner: 'Bob'
+            },
+            {
+                name: 'marble3',
+                color: 'Blue',
+                size: '10',
+                owner: 'Tom'
+            }
+        ]
+        for (let i=0; i < marbles.length; i++) {
+            marbles[i].docType = 'marble';
+            await stub.putState(marbles[i].name, Buffer.from(JSON.stringify(marbles[i])));
+            console.info('Added <--> ', marbles[i]);
+        }
         console.info('=========== Instantiated Marbles Chaincode ===========');
         return shim.success();
     }
