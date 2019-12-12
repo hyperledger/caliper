@@ -52,6 +52,7 @@
         "file_type_method": "EXCLUDE",
         "file_types": [
             ".yml",
+            ".md",
             ".log"
         ],
         "insert_license": false,
