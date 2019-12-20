@@ -22,13 +22,9 @@ test:
   rounds:
   - label: <%= label %>
     chaincodeId: <%= chaincodeId %>
-    <%= txType %>:
-    - <%= txValue %>
-    rateControl:
-    - type: <%= rateController %>
-      opts:
-        <%= opts %>
-    callback: <%= callbackPath %>
+    <%= txType %>: <%= txValue %>
+    rateControl: { type: <%= rateController %>, opts: { <%= opts %> } }
+    callback: benchmarks/callbacks/<%= callback %>
 monitor:
   type: 
   - none
