@@ -14,8 +14,8 @@ before_install: |
 
 env:
     global:
-    - secure: "mD9J2+bDr0qiayYCLii/0qYdPoW6Gy4Bu5Q8t+ZhGRlNnXadt8SuE1Atuw21LnO+QDpIH0fre287glOAMloBDsMc1fko4QHvoAWT5YdVMY6HoeCNwxJRtGxGyZCOMpXn8tF8GSclJ74dcN1C/fEKfyp83zjS7IWT1iftAmZ18TdyiNad5vPCAnlCrAug9snOdWPgbGH+IiO/uNc5DPOK6AUWkRBR4OHqZsyVq461rF1et3P7LEhwFGTbhMeNoITwP8wGAFKjC7nbkdaPbUkd/oXwYRDnJu/RLu7z/KWsfsDJiId8q32pnFofHBi2OEBWfKW5yZiPJIDg9WYoxVvrpR47PKMYJtSQUIgiSHtYy7ewaFNPXWxFEeKiVOmeDiJkeOXjSwRNQIRM6PPhvvhk9vYj9ZHBqSLSUqX+5M+9TKqd7o4NLTd0beNWEdqRqjkYtu0o/EtaYSuYCEMI9eBkqFP8t27yYKPfnWi/mpFkKioD6fZ3wJuJyJg5SFWva6pDURhMA9VHTFR3Zlxg8IQ6GYDf7W45jIPiwIdzExzTDozFPv89+FnDN3K+1agzHNKNydAmqK/uuKFNGFiuyT7Sst0t6ghsmvP0aRH3vLlX50RMgDHbzdvtzadDOJnBG3oL1fJdJGmpK68Ryk7GH0fsJ7FNbSLZCQOw2CHSeZ970Oo="
-    - secure: "p1QBs4AtRAid9uhOvZHORtsFLfWYoGVH1Z+fJdR46ZbfnLu8luQ+bDaNLSMCl/X0szk0km1/f56cKDnLKzrcamyD2PX71duC8FBDAC+UcHWK+Lwqmf/rkxySJl0Dtv9nRCERgKV2BLNFpmRUZfvumc966xCXJdDCAE7AcpVpcbODcPM8ae2lCiWhwzoxGNOOOvnpvwHmXkDVOWwTCMFJFTmrOrv4OrIxfgoCtGwlru3BYBqIeBeRm6blEqb7OTlpeUpd+fptjCUeA1dGA/gFzOVUDsqG0TE3n0PmmjqlDFwG637JJzyh0Gzcozo0QH8rczFAWGhrs1MqNG9jg1P+BEal3MstIhIcQH5577bi/zoEy56UV9RVfZbOc44J/sxzr/xiEWhMAIzoI2tPtSJSmoCyC47vSGl8NNc5KJVzKbdQk9PnT+lxHY+UoeBrN1ApZUvePiq+HKDXUqrVIuOXX3oVNRLirCk5qWmjItCvuIWnQnmeCUZ9HaDn0LuHD/04W8bn5GF9GqrMDnlbxdpvINU81bZxPtCA7dlS25c0XX79/gNUlgN3UyMheI35jQI+ROP6oxE/5IvzgGf5ukbA72CK8CLFW7y7VxntTf39kVXsxNmw67Si6GV/aFgC6J/0D3zjTVjHkTVsERBuYxQxT5a/6ZQc7M1vlmwHXqMfWPw="
+    - secure: "p+qn6YW8myj1mH9edoNfNCf7gQmsKeK5yy6BXarjaEUuuoH2OtXq1+GKQZFM4V60hxvy/4ab0+r8OPlhIJqiKe9/k6XkJTtjWBPIIYT6KuS1psFHAqWGaWE5vxJ7yRGivw4AhEiXl8gTYJkB2+WktuMNdvVfEINLXDJHEHh+EJV25q2ZtfajcFXPqQJXt1EFICeWT1yYeLo1R09kZvulfWc/i4F8T+oCCHUqa0NVn38kLbh6jPPgZAe91W9zRKiEhFPbCOvQuJcIDelJbqjpzeWCirJzBf9jqSz9DlEmKflnPTZ7FW3Kz4QtPZvtXgRjboiYBzhYxNSvxoGyMFdUuuvDZI+732B9T+bl6SyZXmG/xUJgYyLxx/YFQZ+ATpB2SK8URiftmBuRAeF5LDuJmfBEmjV0mcgepoVG5rwOFMcErHpr5+JVZkqdjImZo5/D8XS8+yMl2qtv0cBpPUtXaNKJHV/yHvP2RRTJqncSP3UPQFQX7TzQwEiYCfdwx9ZA7JsYaIDOZwj4OFgSl6QE2QFgsIK6us73mQgo+gtaw1X87GInuJYRl8UoG1+OSVUof4pMDKX3FVkonuEJQdrFFd60SRv2kktlAXwvYnKSiBUtRCZZaFJHjogYzAFhsJ/CCcmzMnMxl98E6VuQzx0If3qaZ8mxLLITi8n0ca9gJcM="
+    - secure: "KCsIcbtShjcZTa+MFzbULdp5npWCi6MuTYPIaGHOhdGlNINa3wuzUai1DvROKx3758wlMzGg4YGKRwVNRLpE+d0oZqThiBW6LWGmZskDcqdB4a0/+Ft9fSyO3a93rH8ieoINrbHM2fg9QB+ldsAHI/9gxtPQ44KblB5swKYqQTGRzVPtNgrLkaR5pYnWUE26C8pa3K8SKjw3gxK3E9JC5fmoMiEzOZqlT6LvWARFcZS4ETlwo2SDJAUoV5y8wRJrTCb6n7hXnR4AjloqGkHkOIvLL0XcRjAvzD++BzTVcFzUr9WMDnIomQXzvqJ0CxcvnGrNt81dVBEfNCBjHQQvarnlfjBdEj+aNtGLdDTo6tIQkRsWpnIrjyoJpsQqGuS/NIhhoBjZbqIREGA41BoQnOMNJ63xvOJ7w0l3JpoaBVTRd1qooz9VwWDGdp0bGc/Nvk8+jQKGr+m4HdALZx278bxsAVAOghgSJ5QnpF+KdKzisAPvEqwx6bZx+g7gdEuK81mDV92pu8SNGbLA+DHGVweo0STli5ykZNzCso9Lz6fp418/93Go4byPaIhZ1scrDmJkB5awtvNjUv368ZfeuzuSH7SqLjPYlw7Cq/BxKa80nAYiVLTUPQZyy/8FaVqmxOKEF9dQMH0zMnGFuw9vGleyVtfDAVk961rGYWCXDRI="
 
 # NOTE: the unit test and integration test jobs are only run "for the PR". In this case the encrypted env vars are not present (are blank).
 # The NPM and Docker Hub publish jobs are only run when the PR is merged. In this case the encrypted env vars are present, since the repo slug is hyperledger/caliper.
@@ -23,7 +23,9 @@ env:
 jobs:
     include:
     - stage: checks and unit tests
-      if: env(NPM_TOKEN) IS blank
+      name: Show various information about the CI build
+      script: ./.travis/build-info.sh
+    - if: env(NPM_TOKEN) IS blank
       name: Package name check, license check, lint check, unit tests
       script: ./.travis/checks-and-unit-tests.sh
 
