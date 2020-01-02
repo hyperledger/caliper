@@ -49,6 +49,14 @@ class FiscoBcos extends BlockchainInterface {
     }
 
     /**
+     * Retrieve the blockchain type the implementation relates to
+     * @returns {string} the blockchain type
+     */
+    getType() {
+        return this.bcType;
+    }
+
+    /**
      * Initialize the {FISCO BCOS} object.
      * @async
      * @return {Promise<object>} The promise for the result of the execution.

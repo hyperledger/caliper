@@ -203,6 +203,14 @@ class Iroha extends BlockchainInterface {
     }
 
     /**
+     * Retrieve the blockchain type the implementation relates to
+     * @returns {string} the blockchain type
+     */
+    getType() {
+        return this.bcType;
+    }
+
+    /**
      *Initialize the {iroha} object.
      * @async
      * @returns{promise} promise

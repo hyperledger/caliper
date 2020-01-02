@@ -49,6 +49,14 @@ class Ethereum extends BlockchainInterface {
     }
 
     /**
+     * Retrieve the blockchain type the implementation relates to
+     * @returns {string} the blockchain type
+     */
+    getType() {
+        return this.bcType;
+    }
+
+    /**
      * Initialize the {Ethereum} object.
      * @return {object} Promise<boolean> True if the account got unlocked successful otherwise false.
      */

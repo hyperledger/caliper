@@ -330,6 +330,14 @@ class Sawtooth extends BlockchainInterface {
     }
 
     /**
+     * Retrieve the blockchain type the implementation relates to
+     * @returns {string} the blockchain type
+     */
+    getType() {
+        return this.bcType;
+    }
+
+    /**
      * Initialize the {Sawtooth} object.
      * Nothing to do now
      * @return {Promise} The return promise.

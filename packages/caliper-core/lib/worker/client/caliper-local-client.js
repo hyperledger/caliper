@@ -340,16 +340,15 @@ class CaliperLocalClient {
             }
 
             // Run init phase of callback
-            Logger.info(`Info: client ${this.clientIndex} prepare test ${(cb.info ? (':' + cb.info) : 'phase starting...')}`);
+            Logger.info(`Info: client ${this.clientIndex} prepare test ${(cb.info ? (':' + cb.info + 'phase starting...') : 'phase starting...')}`);
             await cb.init(this.blockchain, this.context, test.args);
-            Logger.info(`Info: client ${this.clientIndex} prepare test ${(cb.info ? (':' + cb.info) : 'phase complete')}`);
             await CaliperUtils.sleep(this.txUpdateTime);
         } catch (err) {
             Logger.info(`Client[${this.clientIndex}] encountered an error during prepare test phase: ${(err.stack ? err.stack : err)}`);
             throw err;
         } finally {
             clearInterval(initUpdateInter);
-            Logger.info(`Info: client ${this.clientIndex} prepare test ${(cb.info ? (':' + cb.info) : 'phase complete')}`);
+            Logger.info(`Info: client ${this.clientIndex} prepare test ${(cb.info ? (':' + cb.info + 'phase complete') : 'phase complete')}`);
         }
     }
 

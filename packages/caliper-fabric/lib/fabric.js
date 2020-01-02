@@ -29,17 +29,27 @@ const Fabric = class extends BlockchainInterface {
      */
     constructor(networkConfig, workspace_root, clientIndex) {
         super(networkConfig);
-        const version = require('fabric-client/package').version;
-        const useGateway = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway, false);
+        // Switch adaptors on the fabric-ca-client, which is a common package across all fabric-sdk-node releases
+        const packageVersion = require('fabric-ca-client/package').version;
+        const version = semver.coerce(packageVersion);
+        const useGateway = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.UseGateway, false);
 
         Logger.info(`Initializing ${useGateway ? 'gateway' : 'standard' } adaptor compatible with installed SDK: ${version}`);
 
         // Match returned version on the major semantic version number
         let modulePath;
-        if (semver.satisfies(version, '=1.x') && !useGateway) {
-            modulePath = './adaptor-versions/fabric-v1.js';
-        } else if (semver.satisfies(version, '=1.x') && useGateway) {
-            modulePath = './adaptor-versions/fabric-gateway-v1.js';
+        if (semver.satisfies(version, '=1.x')) {
+            if (!useGateway) {
+                modulePath = './adaptor-versions/v1/fabric-v1.js';
+            } else {
+                modulePath = './adaptor-versions/v1/fabric-gateway-v1.js';
+            }
+        } else if (semver.satisfies(version, '=2.x')) {
+            if (!useGateway) {
+                modulePath = './adaptor-versions/v2/fabric-v2.js';
+            } else {
+                modulePath = './adaptor-versions/v2/fabric-gateway-v2.js';
+            }
         } else {
             throw new Error(`Installed SDK version ${version} did not match any compatible Fabric adaptors`);
         }
@@ -71,11 +81,12 @@ const Fabric = class extends BlockchainInterface {
     }
 
     /**
-     * Initializes the Fabric adapter: sets up clients, admins, registrars, channels and chaincodes.
+     * Initializes the Fabric adapter and configures the SUT: sets up clients, admins, registrars, channels and chaincodes.
+     * @param {boolean} clientOnly boolean value to only configure the client or not
      * @async
      */
-    async init() {
-        await this.fabric.init();
+    async init(clientOnly) {
+        await this.fabric.init(clientOnly);
     }
 
     /**

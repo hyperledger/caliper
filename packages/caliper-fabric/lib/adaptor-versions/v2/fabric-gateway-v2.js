@@ -15,15 +15,26 @@
 'use strict';
 
 const FabricClient = require('fabric-client');
-let FabricNetworkAPI = require('fabric-network');
-const {google, common} = require('fabric-protos');
-const {BlockchainInterface, CaliperUtils, TxStatus, Version, ConfigUtil} = require('@hyperledger/caliper-core');
+let { DefaultEventHandlerStrategies, DefaultQueryHandlerStrategies, Gateway, Wallets } = require('fabric-network');
+const { google, common } = require('fabric-protos');
+const { BlockchainInterface, CaliperUtils, TxStatus, Version, ConfigUtil } = require('@hyperledger/caliper-core');
 const logger = CaliperUtils.getLogger('adapters/fabric');
 
-const FabricNetwork = require('../fabricNetwork.js');
-const ConfigValidator = require('../configValidator.js');
+const FabricNetwork = require('../../fabricNetwork.js');
+const ConfigValidator = require('../../configValidator.js');
 const fs = require('fs');
 
+const EventStrategies = {
+    msp_all : DefaultEventHandlerStrategies.MSPID_SCOPE_ALLFORTX,
+    msp_any : DefaultEventHandlerStrategies.MSPID_SCOPE_ANYFORTX,
+    network_all : DefaultEventHandlerStrategies.NETWORK_SCOPE_ALLFORTX,
+    network_any : DefaultEventHandlerStrategies.NETWORK_SCOPE_ANYFORTX,
+};
+
+const QueryStrategies = {
+    msp_single : DefaultQueryHandlerStrategies.MSPID_SCOPE_SINGLE,
+    msp_round_robin : DefaultQueryHandlerStrategies.MSPID_SCOPE_ROUND_ROBIN,
+};
 
 //////////////////////
 // TYPE DEFINITIONS //
@@ -148,6 +159,7 @@ class Fabric extends BlockchainInterface {
         this.txIndex = -1;
         this.wallet = undefined;
         this.userContracts = new Map();
+        this.userGateways = new Map();
 
         // this value is hardcoded, if it's used, that means that the provided timeouts are not sufficient
         this.configSmallestTimeout = 1000;
@@ -165,8 +177,10 @@ class Fabric extends BlockchainInterface {
         this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountQueryAsLoad, true);
 
         // Gateway adaptor
-        this.configLocalHost = ConfigUtil.get(ConfigUtil.keys.Fabric.GatewayLocalHost, true);
-        this.configDiscovery = ConfigUtil.get(ConfigUtil.keys.Fabric.Discovery, false);
+        this.configLocalHost = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.GatewayLocalHost, true);
+        this.configDiscovery = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.Discovery, false);
+        this.eventStrategy = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.EventStrategy, 'msp_all');
+        this.queryStrategy = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.QueryStrategy, 'msp_single');
 
         ConfigValidator.validateNetwork(this.network, CaliperUtils.getFlowOptions(),
             this.configDiscovery, true);
@@ -179,13 +193,27 @@ class Fabric extends BlockchainInterface {
         if (this.version.lessThan('1.4.0')) {
             throw new Error(`Fabric SDK ${this.version.toString()} is not supported when using a Fabric Gateway object, use at least version 1.4.0`);
         }
-
-        this._prepareWallet();
     }
 
     ////////////////////////////////
     // INTERNAL UTILITY FUNCTIONS //
     ////////////////////////////////
+
+    /**
+     * Initialize the adaptor
+     */
+    async _initAdaptor() {
+        let tlsInfo = this.networkUtil.isMutualTlsEnabled() ? 'mutual'
+            : (this.networkUtil.isTlsEnabled() ? 'server' : 'none');
+        let compMode = this.networkUtil.isInCompatibilityMode() ? '; Fabric v1.0 compatibility mode' : '';
+        logger.info(`Fabric SDK version: ${this.version.toString()}; TLS: ${tlsInfo}${compMode}`);
+
+        await this._prepareWallet();
+        await this._initializeRegistrars(true);
+        await this._initializeAdmins(true);
+        await this._initializeUsers(true);
+        this.initPhaseCompleted = true;
+    }
 
     /**
      * Assembles the event sources based on explicitly given target peers.
@@ -843,13 +871,21 @@ class Fabric extends BlockchainInterface {
      * @param {string} org, the organization name
      * @param {string} certificate the user certificate
      * @param {string} key the private key matching the certificate
-     * @param {string} name the name to store the User as within the wallet
+     * @param {string} identityName the name to store the User as within the wallet
      * @async
      */
-    async _addToWallet(org, certificate, key, name) {
-        const walletId = FabricNetworkAPI.X509WalletMixin.createIdentity(this.networkUtil.getMspIdOfOrganization(org), certificate, key);
-        await this.wallet.import(name, walletId);
-        logger.info(`Identity ${name} created and imported to wallet`);
+    async _addToWallet(org, certificate, key, identityName) {
+        const identity = {
+            credentials: {
+                certificate: certificate,
+                privateKey: key,
+            },
+            mspId: this.networkUtil.getMspIdOfOrganization(org),
+            type: 'X.509',
+        };
+        logger.info(`Adding identity for ${identityName} to wallet`);
+        await this.wallet.put(identityName, identity);
+        logger.info(`Identity ${identityName} created and imported to wallet`);
     }
 
     /**
@@ -858,27 +894,28 @@ class Fabric extends BlockchainInterface {
      */
     async _initializeContracts() {
         // Prepare client contracts based on wallet identities only
-        const walletInfoList = await this.wallet.list();
-        for (const info of walletInfoList) {
-            logger.info(`Retrieving and persisting contract map for identity ${info.label}`);
+        const walletIdentities = await this.wallet.list();
+        for (const identity of walletIdentities) {
+            logger.info(`Retrieving and persisting contract map for identity ${identity}`);
             // Retrieve
-            const contractMap = await this._retrieveContractsForUser(info.label);
+            const contractMap = await this._retrieveContractsForUser(identity);
             // Persist
-            this.userContracts.set(info.label, contractMap);
+            this.userContracts.set(identity, contractMap);
         }
     }
 
     /**
      * Retrieve all Contracts from the passed client gateway object
      * @param {string} userName, the unique client user name
-     * @returns {Map<FabricNetworkAPI.Contract>} A map of all Contracts retrieved from the client Gateway
+     * @returns {Map<Contract>} A map of all Contracts retrieved from the client Gateway
      * @async
      */
     async _retrieveContractsForUser(userName) {
 
-        // Retrieve the gateway for the passed user
+        // Retrieve the gateway for the passed user. The gateway object is persisted for easier cleanup.
         // - userName must match that created for wallet userId in init phases
         const gateway = await this._retrieveUserGateway(userName);
+        this.userGateways.set(userName, gateway);
 
         // Work on all channels to build a contract map
         logger.info(`Generating contract map for user ${userName}`);
@@ -913,7 +950,13 @@ class Fabric extends BlockchainInterface {
                 asLocalhost: this.configLocalHost,
                 enabled: this.configDiscovery
             },
-            eventHandlerOptions: { commitTimeout: this.configDefaultTimeout }
+            eventHandlerOptions: {
+                commitTimeout: this.configDefaultTimeout,
+                strategy: EventStrategies[this.eventStrategy]
+            },
+            queryHandlerOptions: {
+                strategy: QueryStrategies[this.queryStrategy]
+            }
         };
 
         // Optional on mutual auth
@@ -922,7 +965,7 @@ class Fabric extends BlockchainInterface {
         }
 
         // Retrieve gateway using ccp and options
-        const gateway = new FabricNetworkAPI.Gateway();
+        const gateway = new Gateway();
 
         logger.info(`Connecting user ${userId} to a Network Gateway`);
         await gateway.connect(this.networkUtil.getNetworkObject(), opts);
@@ -1388,13 +1431,13 @@ class Fabric extends BlockchainInterface {
      * Conditionally initializes a wallet depending on user provided options
      * @private
      */
-    _prepareWallet() {
+    async _prepareWallet() {
         if (this.fileWalletPath) {
             logger.info(`Using defined file wallet path ${this.fileWalletPath}`);
-            this.wallet = new FabricNetworkAPI.FileSystemWallet(this.fileWalletPath);
+            this.wallet = await Wallets.newFileSystemWallet(this.fileWalletPath);
         } else {
             logger.info('Creating new InMemoryWallet to persist user identities');
-            this.wallet = new FabricNetworkAPI.InMemoryWallet();
+            this.wallet = await Wallets.newInMemoryWallet();
         }
     }
 
@@ -1426,7 +1469,7 @@ class Fabric extends BlockchainInterface {
         // load the general network data from a clone of the network object
         // NOTE: if we provide a common object instead, the Client class will use it directly,
         // and it will be overwritten when loading the next client
-        let profile = FabricClient.loadFromConfig(this.networkUtil.getNewNetworkObject());
+        let profile = await FabricClient.loadFromConfig(this.networkUtil.getNewNetworkObject());
         profile.loadFromConfig({
             version: '1.0',
             client: this.networkUtil.getClientObject(client)
@@ -1531,7 +1574,7 @@ class Fabric extends BlockchainInterface {
         let invokeStatus = new TxStatus(txId);
         invokeStatus.Set('request_type', 'query');
 
-        if(context.engine) {
+        if (context.engine) {
             context.engine.submitCallback(1);
         }
 
@@ -1617,33 +1660,34 @@ class Fabric extends BlockchainInterface {
 
         // We are done - return the networkUtil object
         return {
-            networkInfo: this.networkUtil
+            networkInfo: this.networkUtil,
+            clientIdx: this.clientIndex
         };
     }
 
     /**
      * Initializes the Fabric adapter: sets up clients, admins, registrars, channels and chaincodes.
+     * @param {boolean} clientOnly boolean value to only configure the client or not
      * @async
      */
-    async init() {
+    async init(clientOnly = false) {
         let tlsInfo = this.networkUtil.isMutualTlsEnabled() ? 'mutual'
             : (this.networkUtil.isTlsEnabled() ? 'server' : 'none');
         let compMode = this.networkUtil.isInCompatibilityMode() ? '; Fabric v1.0 compatibility mode' : '';
         logger.info(`Fabric SDK version: ${this.version.toString()}; TLS: ${tlsInfo}${compMode}`);
 
-        await this._initializeRegistrars(true);
-        await this._initializeAdmins(true);
-        await this._initializeUsers(true);
-        this.initPhaseCompleted = true;
+        await this._initAdaptor();
 
-        if (await this._createChannels()) {
-            logger.info(`Sleeping ${this.configSleepAfterCreateChannel / 1000.0}s...`);
-            await CaliperUtils.sleep(this.configSleepAfterCreateChannel);
-        }
+        if (!clientOnly) {
+            if (await this._createChannels()) {
+                logger.info(`Sleeping ${this.configSleepAfterCreateChannel / 1000.0}s...`);
+                await CaliperUtils.sleep(this.configSleepAfterCreateChannel);
+            }
 
-        if (await this._joinChannels()) {
-            logger.info(`Sleeping ${this.configSleepAfterJoinChannel / 1000.0}s...`);
-            await CaliperUtils.sleep(this.configSleepAfterJoinChannel);
+            if (await this._joinChannels()) {
+                logger.info(`Sleeping ${this.configSleepAfterJoinChannel / 1000.0}s...`);
+                await CaliperUtils.sleep(this.configSleepAfterJoinChannel);
+            }
         }
     }
 
@@ -1654,9 +1698,7 @@ class Fabric extends BlockchainInterface {
     async installSmartContract() {
         // With flow conditioning, this phase is conditionally required
         if (!this.initPhaseCompleted ) {
-            await this._initializeRegistrars(true);
-            await this._initializeAdmins(true);
-            await this._initializeUsers(true);
+            await this._initAdaptor();
         }
 
         await this._installChaincodes();
@@ -1677,7 +1719,6 @@ class Fabric extends BlockchainInterface {
      * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
      */
     async invokeSmartContract(context, contractID, contractVersion, invokeSettings, timeout) {
-        timeout = timeout || this.configDefaultTimeout;
         let promises = [];
         let settingsArray;
 
@@ -1718,7 +1759,6 @@ class Fabric extends BlockchainInterface {
      * @return {Promise<TxStatus[]>} The result and stats of the transaction query.
      */
     async querySmartContract(context, contractID, contractVersion, querySettings, timeout) {
-        timeout = timeout || this.configDefaultTimeout;
         let promises = [];
         let settingsArray;
 
@@ -1755,17 +1795,12 @@ class Fabric extends BlockchainInterface {
      * @async
      */
     async releaseContext(context) {
-        // Disconnect from gateways
-        const walletInfoList = await this.wallet.list();
-        for (const info of walletInfoList) {
-            logger.info(`Retrieving and persisting contract map for identity ${info.label}`);
-            // Retrieve gateway
-            const gateway = await this._retrieveUserGateway(info.label);
-            // disconnect
+        // Disconnect from all persisted user gateways
+        for (const userName of this.userGateways.keys()) {
+            const gateway = this.userGateways.get(userName);
+            logger.info(`disconnecting gateway for user ${userName}`);
             gateway.disconnect();
         }
-
-    }
-}
+    }}
 
 module.exports = Fabric;

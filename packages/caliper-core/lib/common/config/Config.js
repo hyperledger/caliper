@@ -129,9 +129,13 @@ const keys = {
         LatencyThreshold: 'caliper-fabric-latencythreshold',
         CountQueryAsLoad: 'caliper-fabric-countqueryasload',
         SkipCreateChannelPrefix: 'caliper-fabric-skipcreatechannel-',
-        Gateway: 'caliper-fabric-usegateway',
-        GatewayLocalHost: 'caliper-fabric-gatewaylocalhost',
-        Discovery: 'caliper-fabric-discovery'
+        Gateway: {
+            Discovery: 'caliper-fabric-gateway-discovery',
+            EventStrategy: 'caliper-fabric-gateway-eventstrategy',
+            GatewayLocalHost: 'caliper-fabric-gateway-gatewaylocalhost',
+            QueryStrategy: 'caliper-fabric-gateway-querystrategy',
+            UseGateway: 'caliper-fabric-gateway-usegateway',
+        }
     }
 };
 
