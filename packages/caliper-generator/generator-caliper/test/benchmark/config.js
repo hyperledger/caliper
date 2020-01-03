@@ -50,14 +50,14 @@ describe ('benchmark configuration generator', () => {
                 {
                     label: 'function test',
                     chaincodeId: 'xContract',
-                    txDuration: [ 30 ],
-                    rateControl: [{
+                    txDuration: 30,
+                    rateControl: {
                         type: 'fixed-rate',
                         opts: {
                             tps: 10
                         }
-                    }],
-                    callback: 'callbacks/callback.js'
+                    },
+                    callback: 'benchmarks/callbacks/callback.js'
                 }
             ]
         },
@@ -203,7 +203,7 @@ describe ('benchmark configuration generator', () => {
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
-        const fileContains = configStr.includes('"txDuration":[30]');
+        const fileContains = configStr.includes('"txDuration":30');
 
         fileContains.should.equal(true);
     });
@@ -215,7 +215,7 @@ describe ('benchmark configuration generator', () => {
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
-        const fileContains = configStr.includes('"txNumber":[30]');
+        const fileContains = configStr.includes('"txNumber":30');
 
         fileContains.should.equal(true);
     });
@@ -227,7 +227,7 @@ describe ('benchmark configuration generator', () => {
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
-        const fileContains = configStr.includes('"txDuration":[50]');
+        const fileContains = configStr.includes('"txDuration":50');
 
         fileContains.should.equal(true);
     });
@@ -239,7 +239,7 @@ describe ('benchmark configuration generator', () => {
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
-        const fileContains = configStr.includes('"txNumber":[50]');
+        const fileContains = configStr.includes('"txNumber":50');
 
         fileContains.should.equal(true);
     });

@@ -164,7 +164,7 @@ module.exports = class extends Generator {
         answersObject.chaincodeId = promptAnswers.chaincodeId;
         answersObject.version = promptAnswers.version;
         answersObject.chaincodeFunction = promptAnswers.chaincodeFunction;
-        answersObject.callbackPath = `callbacks/${ promptAnswers.chaincodeFunction }.js`;
+        answersObject.callback = `${ promptAnswers.chaincodeFunction }.js`;
 
         const argsString = promptAnswers.chaincodeArguments;
         if (!argsString) {
@@ -182,7 +182,7 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('callback.js'),
-            this.destinationPath(`${ promptAnswers.workspace }/benchmarks/${ answersObject.callbackPath }`), answersObject
+            this.destinationPath(`${ promptAnswers.workspace }/benchmarks/callbacks/${ answersObject.callback }`), answersObject
             )
     }
 
@@ -246,13 +246,11 @@ module.exports = class extends Generator {
             this._configWrite();
             break;
         case 'linear-rate':
-            answersObject.opts = `startingTps: 25
-        finishingTps: 75`;
+            answersObject.opts = `startingTps: 25, finishingTps: 75`;
             this._configWrite();
             break;
         case 'fixed-feedback-rate':
-            answersObject.opts = `tps: 100
-        unfinished_per_client: 100`;
+            answersObject.opts = `tps: 100, unfinished_per_client: 100`;
             this._configWrite();
             break;
         }
