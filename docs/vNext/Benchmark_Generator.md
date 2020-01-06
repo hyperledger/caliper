@@ -23,7 +23,7 @@ npm install -g yo
 
 Once Yeoman is installed, use the following command to install the generator:
 ```bash
-npm install -g generator-caliper
+npm install -g @hyperledger/generator-caliper
 ```
 
 ## Using the Generator
