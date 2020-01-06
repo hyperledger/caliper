@@ -14,21 +14,8 @@
 #
 
 # Exit on first error, print all commands.
-set -ev
+set -e
 set -o pipefail
 
-# Barf if we don't recognize this test adaptor.
-if [[ "${BENCHMARK}" = "" ]]; then
-    echo You must set BENCHMARK to one of the desired test adaptors 'besu|ethereum|fabric|fisco-bcos|generator|sawtooth'
-    echo For example:
-    echo  export BENCHMARK=fabric
-    exit 1
-fi
-
-TEST_DIR="${BENCHMARK}_tests"
-if [[ -d "${TEST_DIR}" ]]; then
-    "${TEST_DIR}"/run.sh
-else
-    echo "Unknown target benchmark ${BENCHMARK}"
-    exit 1
-fi
+# Generator tests for Hyperledger Fabric
+generator_tests/fabric/run.sh

@@ -40,7 +40,9 @@
     "@hyperledger/caliper-fabric": "0.3.0-unstable",
     "@hyperledger/caliper-fisco-bcos": "0.3.0-unstable",
     "@hyperledger/caliper-iroha": "0.3.0-unstable",
-    "@hyperledger/caliper-sawtooth": "0.3.0-unstable"
+    "@hyperledger/caliper-sawtooth": "0.3.0-unstable",
+    "yeoman-generator": "4.1.0",
+    "yosay": "^2.0.1"
   },
   "license-check-and-add-config": {
     "folder": ".",
@@ -72,7 +74,10 @@
       "fisco-bcos_tests/config/node1",
       "fisco-bcos_tests/config/node2",
       "fisco-bcos_tests/config/node3",
-      "fisco-bcos_tests/config/sdk"
+      "fisco-bcos_tests/config/sdk",
+      "generator_tests/fabric/.gitignore",
+      "generator_tests/fabric/config/.gitignore"
+
     ],
     "file_type_method": "EXCLUDE",
     "file_types": [
