@@ -3,10 +3,11 @@
 
 ## Get Started
 
-Open two terminal windows:
+Both the dashboard and server must be started:
+1. Start `caliper-gui-server` with the command `npm start`
+2. Start `caliper-gui-dashboard` with the command `npm start`
 
-1. Change both terminals into `caliper-gui` directory, and then run `npm run server` and `npm run client` in two directories respectively.
-2. If using MongDB or some other databases, pleaes make sure the DB are installed and connected.
+If using MongDB or some other databases, please make sure the DB are installed and connected.
 
 ## Caliper Server
 The server provides an API that supports the configuration files and testing result data transmission between Caliper GUI and Caliper-core modules.
@@ -23,7 +24,7 @@ Caliper GUI provides multiple visualizations for the benchmark data from Caliper
 - Read latency
 - Read throughput
 
-*TODO: using Redux to support global state tree, and making all the test functionties globally accessible in the GUI applications*
+*TODO: using Redux to support global state tree, and making all the test functionalities globally accessible in the GUI applications*
 
 *TODO: consider using Electron to wrap the GUI and make it a desktop application for Mac/Linux/Windows.*
 
