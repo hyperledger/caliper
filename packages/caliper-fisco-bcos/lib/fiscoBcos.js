@@ -38,6 +38,12 @@ class FiscoBcos extends BlockchainInterface {
         this.bcType = 'fisco-bcos';
         this.workspaceRoot = workspace_root;
         this.fiscoBcosSettings = CaliperUtils.parseYaml(this.configPath)['fisco-bcos'];
+
+        if (this.fiscoBcosSettings.network && this.fiscoBcosSettings.network.authentication) {
+            for (let k in this.fiscoBcosSettings.network.authentication) {
+                this.fiscoBcosSettings.network.authentication[k] = CaliperUtils.resolvePath(this.fiscoBcosSettings.network.authentication[k], workspace_root);
+            }
+        }
     }
 
     /**
@@ -54,7 +60,7 @@ class FiscoBcos extends BlockchainInterface {
      * @async
      */
     async installSmartContract() {
-        const fiscoBcosSettings = CaliperUtils.parseYaml(this.configPath)['fisco-bcos'];
+        const fiscoBcosSettings = this.fiscoBcosSettings;
         try {
             await installSmartContractImpl.run(fiscoBcosSettings, this.workspaceRoot);
         } catch (error) {
