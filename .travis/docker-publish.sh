@@ -16,9 +16,10 @@
 # Exit on first error
 set -e
 
-if [[ -z ${DOCKER_TOKEN+x} ]]; then
-    echo "DOCKER_TOKEN is not set, yet the script is called!";
-    exit 1
+if [[ -z "${DOCKER_TOKEN}" ]]
+then
+      echo "No encrypted variables detected, skipping publish steps"
+      exit 0
 fi
 
 # login to docker with secret token
