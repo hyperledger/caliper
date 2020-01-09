@@ -28,4 +28,18 @@ echo "TRAVIS_REPO_SLUG: ${TRAVIS_REPO_SLUG}"
 # this is just a boolean var
 echo "TRAVIS_SECURE_ENV_VARS: ${TRAVIS_SECURE_ENV_VARS}"
 
+if [[ -z "${NPM_TOKEN}" ]]
+then
+      echo "NPM_TOKEN is not set"
+else
+      echo "NPM_TOKEN is decrypted"
+fi
+
+if [[ -z "${DOCKER_TOKEN}" ]]
+then
+      echo "DOCKER_TOKEN is not set"
+else
+      echo "DOCKER_TOKEN is decrypted"
+fi
+
 exit 0

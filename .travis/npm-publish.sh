@@ -16,9 +16,10 @@
 # Exit on first error
 set -e
 
-if [[ -z ${NPM_TOKEN+x} ]]; then
-    echo "NPM_TOKEN is not set, yet the script is called!";
-    exit 1
+if [[ -z "${NPM_TOKEN}" ]]
+then
+      echo "No encrypted variables detected, skipping publish steps"
+      exit 0
 fi
 
 # Set the NPM access token we will use to publish.

@@ -17,6 +17,12 @@
 set -e
 set -o pipefail
 
+if [[ ! -z "${NPM_TOKEN}" ]]
+then
+      echo "Encrypted variables detected, skipping PR checks"
+      exit 0
+fi
+
 # check reference Caliper package names
 # publishNpmPackages.js contains the package dir names as caliper-*, those are fine
 if grep -rnE --exclude="publishNpmPackages.js" "['\"]caliper-(cli|core|burrow|composer|ethereum|fabric|fisco-bcos|iroha|sawtooth)['\"]" . ; then
