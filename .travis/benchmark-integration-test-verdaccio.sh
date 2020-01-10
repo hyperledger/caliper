@@ -22,6 +22,7 @@ npm i && npm run repoclean -- --yes && npm run bootstrap
 
 # Call CLI through the local binary
 export CALL_METHOD="npx caliper"
+export GENERATOR_METHOD="yo caliper:benchmark"
 
 echo "---- Publishing packages locally"
 cd ./packages/caliper-tests-integration/

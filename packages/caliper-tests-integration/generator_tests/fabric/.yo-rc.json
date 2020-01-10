@@ -1,0 +1,13 @@
+{
+  "generator-caliper-benchmarks": {
+    "promptValues": {
+      "subgenerator": "benchmark"
+    },
+    "workspace": {}
+  },
+  "generator-caliper": {
+    "promptValues": {
+      "subgenerator": "benchmark"
+    }
+  }
+}
