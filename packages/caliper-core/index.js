@@ -21,4 +21,5 @@ module.exports.CaliperUtils = require('./lib/common/utils/caliper-utils');
 module.exports.Version = require('./lib/common/utils/version');
 module.exports.ConfigUtil = require('./lib/common/config/config-util');
 module.exports.MessageHandler = require('./lib/worker/client/message-handler');
+module.exports.Messenger = require('./lib/common/messaging/messenger');
 module.exports.CaliperEngine = require('./lib/master/caliper-engine');

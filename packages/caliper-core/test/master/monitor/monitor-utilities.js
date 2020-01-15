@@ -14,7 +14,7 @@
 
 'use strict';
 
-const Utilities = require('../../../lib/master/monitor/monitor-utilities');
+const Utilities = require('../../../lib/master/monitors/monitor-utilities');
 
 const mocha = require('mocha');
 const fail = mocha.fail;

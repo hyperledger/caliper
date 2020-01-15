@@ -235,13 +235,16 @@ class CaliperUtils {
     /**
      * Executes the given command asynchronously.
      * @param {string} command The command to execute through a newly spawn shell.
+     * @param {boolean} logAction Boolean flag to inform the command being run, default true
      * @return {Promise} The return promise is resolved upon the successful execution of the command, or rejected with an Error instance.
      * @async
      */
-    static execAsync(command) {
+    static execAsync(command, logAction = true) {
         const logger = CaliperUtils.getLogger('caliper-utils');
         return new Promise((resolve, reject) => {
-            logger.info(`Executing command: ${command}`);
+            if (logAction) {
+                logger.info(`Executing command: ${command}`);
+            }
             let child = exec(command, (err, stdout, stderr) => {
                 if (err) {
                     logger.error(`Unsuccessful command execution. Error code: ${err.code}. Terminating signal: ${err.signal}`);
@@ -347,6 +350,7 @@ class CaliperUtils {
         return flowOpts;
 
     }
+
 }
 
 module.exports = CaliperUtils;

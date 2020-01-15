@@ -32,8 +32,9 @@ class FiscoBcos extends BlockchainInterface {
      * Create a new instance of the {FISCO BCOS} class.
      * @param {string} config_path The absolute path of the FISCO BCOS network configuration file.
      * @param {string} workspace_root The absolute path to the root location for the application configuration files.
+     * @param {number} clientIdx The client index
      */
-    constructor(config_path, workspace_root) {
+    constructor(config_path, workspace_root, clientIdx) {
         super(config_path);
         this.bcType = 'fisco-bcos';
         this.workspaceRoot = workspace_root;
@@ -44,6 +45,7 @@ class FiscoBcos extends BlockchainInterface {
                 this.fiscoBcosSettings.network.authentication[k] = CaliperUtils.resolvePath(this.fiscoBcosSettings.network.authentication[k], workspace_root);
             }
         }
+        this.clientIdx = clientIdx;
     }
 
     /**
@@ -77,10 +79,9 @@ class FiscoBcos extends BlockchainInterface {
      * }
      * @param {String} name name of the context
      * @param {Object} args adapter specific arguments
-     * @param {Integer} clientIdx the client index
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    async getContext(name, args, clientIdx) {
+    async getContext(name, args) {
         return Promise.resolve();
     }
 

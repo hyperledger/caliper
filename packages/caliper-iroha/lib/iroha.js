@@ -195,10 +195,11 @@ function irohaQuery(queryOptions, commands) {
  * Implements {BlockchainInterface} for a Iroha backend.
  */
 class Iroha extends BlockchainInterface {
-    constructor(config_path, workspace_root) {
+    constructor(config_path, workspace_root, clientIndex) {
         super(config_path);
         this.bcType = 'iroha';
         this.workspaceRoot = workspace_root;
+        this.clientIndex = clientIndex;
     }
 
     /**
@@ -223,11 +224,11 @@ class Iroha extends BlockchainInterface {
     }
 
     /**
-     * Perform required preparation for test clients
+     * Perform required information for test clients
      * @param {Number} number count of test clients
      * @return {Promise} obtained material for test clients
      */
-    async prepareClients(number) {
+    async prepareWorkerArguments(number) {
         try{
             // get admin info
             let config = require(this.configPath);
@@ -239,13 +240,13 @@ class Iroha extends BlockchainInterface {
             let adminPriv    = fs.readFileSync(privPath).toString();
             let adminPub     = fs.readFileSync(pubPath).toString();
             // test
-            logger.info(`Admin's private key: ${adminPriv}`);
-            logger.info(`Admin's public key: ${adminPub}`);
+            logger.debug(`Admin's private key: ${adminPriv}`);
+            logger.debug(`Admin's public key: ${adminPub}`);
 
             // create account for each client
             let result = [];
             let node = this._findNode();
-            logger.info('node: ' + node.torii);
+            logger.debug('node: ' + node.torii);
 
             let commandService = new CommandService_v1Client(
                 node.torii,
@@ -325,20 +326,18 @@ class Iroha extends BlockchainInterface {
         }
         catch(err){
             logger.error(err);
-            return Promise.reject(new Error('Failed when prepareClients'));
+            return Promise.reject(new Error('Failed in prepareWorkerArguments'));
         }
     }
 
     /**
      * Return the Iroha context associated with the given callback module name.
      * @param {string} name The name of the callback module as defined in the configuration files, for example open or query.
-     * @param {object} args Unused, the client material returned by function prepareClient.
-     * @param {Integer} clientIdx The client index.
-     * @param {Object} txFile the file information for reading or writing.
+     * @param {object} args The client material returned by function prepareWorkerArguments.
      * @return {object} The assembled Iroha context.
      * @async
      */
-    async getContext(name, args, clientIdx, txFile) {
+    async getContext(name, args) {
         try {
             if(!args.hasOwnProperty('name') || !args.hasOwnProperty('domain') || !args.hasOwnProperty('id') || !args.hasOwnProperty('pubKey') || !args.hasOwnProperty('privKey')) {
                 throw new Error('Invalid Iroha::getContext arguments');

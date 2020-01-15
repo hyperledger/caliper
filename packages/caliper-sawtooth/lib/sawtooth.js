@@ -319,12 +319,14 @@ class Sawtooth extends BlockchainInterface {
      * Constructor
      * @param {String} config_path path of the Sawtooth configuration file
      * @param {string} workspace_root The absolute path to the root location for the application configuration files.
+     * @param {number} clientIndex The client index
      */
-    constructor(config_path, workspace_root) {
+    constructor(config_path, workspace_root, clientIndex) {
         super(config_path);
         configPath = config_path;
         this.bcType = 'sawtooth';
         this.workspaceRoot = workspace_root;
+        this.clientIndex = clientIndex;
     }
 
     /**

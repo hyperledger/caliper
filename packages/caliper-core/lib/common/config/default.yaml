@@ -110,7 +110,18 @@ caliper:
                     options:
                         flags: a
                         mode: 0666
-
+    # Worker options
+    worker:
+        # Indicate if workers are in distributed mode
+        remote: false
+        # Polling interval to use once created, in milliseconds
+        pollinterval: 5000
+        # Worker communication details
+        communication:
+            # Method used (process | mqtt)
+            method: process
+            # Address used for mqtt communications
+            address: mqtt://localhost:1883
     # Caliper flow options
     flow:
         # Skip options

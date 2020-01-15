@@ -14,7 +14,7 @@
 
 ---
 test:
-    clients:
+    workers:
         type: local
         number: 2
     rounds:

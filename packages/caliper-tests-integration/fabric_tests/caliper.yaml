@@ -41,7 +41,11 @@ caliper:
                 target: console
                 enabled: true
                 options:
-                    level: debug
+                    level: info
             file:
                 target: file
                 enabled: false
+    worker:
+        communication:
+            method: mqtt
+            address: mqtt://localhost:1883

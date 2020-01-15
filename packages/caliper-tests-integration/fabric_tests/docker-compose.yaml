@@ -298,3 +298,19 @@ services:
         ports:
         - 8080:8080
         restart: always
+
+###############
+# MQTT BROKER #
+###############
+
+    mosquitto:
+        image: eclipse-mosquitto
+        hostname: mosquitto
+        container_name: mosquitto
+        restart: always
+        ports:
+        - "1883:1883"
+        - "9001:9001"
+        volumes:
+        - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+

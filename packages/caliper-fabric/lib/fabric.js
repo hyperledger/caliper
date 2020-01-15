@@ -101,7 +101,7 @@ const fs = require('fs');
  *           profiles for each defined registrar. Maps the custom organization names to the Client instances
  *           (since only one registrar per org is supported).
  * @property {EventSource[]} eventSources Collection of potential event sources to listen to for transaction confirmation events.
- * @property {number} clientIndex The index of the client process using the adapter that is set when calling @link{getContext}.
+ * @property {number} clientIndex The index of the client process using the adapter that is set in the constructor
  * @property {number} txIndex A counter for keeping track of the index of the currently submitted transaction.
  * @property {FabricNetwork} networkUtil Utility object containing easy-to-query information about the topology
  *           and settings of the network.
@@ -132,8 +132,9 @@ class Fabric extends BlockchainInterface {
      * Initializes the Fabric adapter.
      * @param {string|object} networkConfig The relative or absolute file path, or the object itself of the Common Connection Profile settings.
      * @param {string} workspace_root The absolute path to the root location for the application configuration files.
+     * @param {number} clientIndex the client index
      */
-    constructor(networkConfig, workspace_root) {
+    constructor(networkConfig, workspace_root, clientIndex) {
         super(networkConfig);
         this.bcType = 'fabric';
         this.workspaceRoot = workspace_root;
@@ -154,7 +155,7 @@ class Fabric extends BlockchainInterface {
         this.adminProfiles = new Map();
         this.registrarProfiles = new Map();
         this.eventSources = [];
-        this.clientIndex = 0;
+        this.clientIndex = clientIndex;
         this.txIndex = -1;
         this.randomTargetPeerCache = new Map();
         this.channelEventSourcesCache = new Map();
@@ -2195,13 +2196,11 @@ class Fabric extends BlockchainInterface {
      *
      * @param {string} name Unused.
      * @param {Array<string>} args Unused.
-     * @param {number} clientIdx The client index.
      * @return {Promise<{networkInfo : FabricNetwork, eventSources: EventSource[]}>} Returns the network utility object.
      * @async
      */
-    async getContext(name, args, clientIdx) {
-        // Set client index and reset counter for new test round
-        this.clientIndex = clientIdx;
+    async getContext(name, args) {
+        // Reset counter for new test round
         this.txIndex = -1;
 
         // Branch on use of a Gateway or standard Caliper client
@@ -2212,8 +2211,7 @@ class Fabric extends BlockchainInterface {
 
             // We are done - return the networkUtil object
             return {
-                networkInfo: this.networkUtil,
-                clientIdx
+                networkInfo: this.networkUtil
             };
         } else {
             // Configure the adaptor
@@ -2291,8 +2289,7 @@ class Fabric extends BlockchainInterface {
             }
 
             return {
-                networkInfo: this.networkUtil,
-                clientIdx
+                networkInfo: this.networkUtil
             };
         }
     }

@@ -2,9 +2,9 @@
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
-* 
+*
 * http://www.apache.org/licenses/LICENSE-2.0
-* 
+*
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -78,10 +78,10 @@ module.exports = class extends Generator {
             }],
             clientQuestions: [{
                 type: 'number',
-                name: 'clients',
-                message: 'How many clients would you like to have?',
+                name: 'workers',
+                message: 'How many workers would you like to have?',
                 default: defaultClientValue,
-                when: () => !this.options.clients
+                when: () => !this.options.workers
             }],
             roundQuestions: [{
                 type: 'input',
@@ -128,11 +128,11 @@ module.exports = class extends Generator {
         inititalAnswers = await this.prompt(configQuestions.initialQuestions);
 
         clientAnswer = await this.prompt(configQuestions.clientQuestions);
-        if (isNaN(parseFloat(this.options.clients)) && isNaN(parseFloat(clientAnswer.clients))) {
+        if (isNaN(parseFloat(this.options.workers)) && isNaN(parseFloat(clientAnswer.workers))) {
             this.log(`Error: Not a valid input. Using default client value of ${defaultClientValue}.`)
         }
-        if (this.options.clients < 0 || clientAnswer.clients < 0) {
-            this.log(`Error: Negative values not accepted. Defaulting to ${Math.abs(clientAnswer.clients)}.`)
+        if (this.options.workers < 0 || clientAnswer.workers < 0) {
+            this.log(`Error: Negative values not accepted. Defaulting to ${Math.abs(clientAnswer.workers)}.`)
         }
 
         roundAnswers = await this.prompt(configQuestions.roundQuestions);
@@ -176,7 +176,7 @@ module.exports = class extends Generator {
                 // Successfully parsed, now set it
                 answersObject.chaincodeArguments = argsString;
             } catch (error) {
-                answersObject.chaincodeArguments = '[]'; 
+                answersObject.chaincodeArguments = '[]';
             }
         }
 
@@ -189,18 +189,18 @@ module.exports = class extends Generator {
     _configWrite() {
         answersObject.benchmarkName = promptAnswers.benchmarkName;
         answersObject.benchmarkDescription = promptAnswers.benchmarkDescription;
-        answersObject.clients = promptAnswers.clients
+        answersObject.workers = promptAnswers.workers
         answersObject.label = promptAnswers.label;
         answersObject.txType = promptAnswers.txType;
         answersObject.chaincodeId = promptAnswers.chaincodeId;
 
-        if (isNaN(promptAnswers.clients)) {
-            answersObject.clients = defaultClientValue;
-        } else if (promptAnswers.clients < 0) {
-            answersObject.clients = Math.abs(promptAnswers.clients);
+        if (isNaN(promptAnswers.workers)) {
+            answersObject.workers = defaultClientValue;
+        } else if (promptAnswers.workers < 0) {
+            answersObject.workers = Math.abs(promptAnswers.workers);
         }
         else {
-            answersObject.clients = promptAnswers.clients;
+            answersObject.workers = promptAnswers.workers;
         }
 
         if (promptAnswers.txType === 'txDuration') {
@@ -212,8 +212,8 @@ module.exports = class extends Generator {
                 answersObject.txValue = promptAnswers.txDuration;
             }
         };
-        
-        
+
+
         if (promptAnswers.txType === 'txNumber') {
             if (isNaN(promptAnswers.txNumber)) {
               answersObject.txValue = defaultTxValue;
@@ -235,7 +235,7 @@ module.exports = class extends Generator {
         console.log('Generating benchmark files...');
         this._callbackWrite();
         answersObject.rateController = promptAnswers.rateController;
-        
+
         switch(promptAnswers.rateController) {
             case 'fixed-rate':
             answersObject.opts = `tps: 10`;
