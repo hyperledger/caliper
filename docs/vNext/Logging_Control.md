@@ -3,7 +3,7 @@ layout: pageNext
 title:  "Logging Control"
 categories: reference
 permalink: /vNext/logging/
-order: 6
+order: 8
 ---
 
 ## Table of contents
