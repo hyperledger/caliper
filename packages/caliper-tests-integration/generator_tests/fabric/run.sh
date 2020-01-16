@@ -37,7 +37,7 @@ cd ./config
 # back to this dir
 cd ${DIR}
 
-# Run benchmark generator using generator defaults (by specifying invalid values)
+# Run benchmark generator using generator defaults (specify invalid values for options)
 ${GENERATOR_METHOD} -- --workspace 'myWorkspace' --chaincodeId 'mymarbles' --version 'v0' --chaincodeFunction 'queryMarblesByOwner' --chaincodeArguments '["Alice"]' --workers 'marbles' --benchmarkName 'A name for the marbles benchmark' --benchmarkDescription 'A description for the marbles benchmark' --label 'A label for the round' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 'marbles'
 # start network and run benchmark test
 cd ../

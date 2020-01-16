@@ -26,9 +26,7 @@ const FabricClient = require('./fabric');
  */
 async function initHandler(context, message) {
     const worker = new FabricClient(context.networkConfigPath, context.workspacePath, context.workerId);
-    await worker._initializeRegistrars(false);
-    await worker._initializeAdmins(false);
-    await worker._initializeUsers(false);
+    await worker.init(true);
 
     return worker;
 }

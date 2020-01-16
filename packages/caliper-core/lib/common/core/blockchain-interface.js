@@ -27,6 +27,13 @@ class BlockchainInterface {
     }
 
     /**
+     * Retrieve the blockchain type the implementation relates to
+     */
+    getType() {
+        throw new Error('getType is not implemented for this blockchain system');
+    }
+
+    /**
      * Initialise test environment
      */
     async init() {

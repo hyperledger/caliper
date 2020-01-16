@@ -14,8 +14,7 @@
 
 'use strict';
 
-const childProcess = require('child_process');
-const exec = childProcess.exec;
+const {exec, spawn} = require('child_process');
 const path = require('path');
 require('winston-daily-rotate-file');
 const fs = require('fs');
@@ -254,6 +253,60 @@ class CaliperUtils {
             });
             child.stdout.pipe(process.stdout);
             child.stderr.pipe(process.stderr);
+        });
+    }
+
+    /**
+     * Invokes a given command in a spawned child process and attaches all standard IO.
+     * @param {string} cmd The command to be run.
+     * @param {string[]} args The array of arguments to pass to the command.
+     * @param {Map<string, string>} env The key-value pairs of environment variables to set.
+     * @param {string} cwd The current working directory to set.
+     * @returns {Promise} A Promise that is resolved or rejected.
+     */
+    static invokeCommand(cmd, args, env, cwd) {
+        return new Promise((resolve, reject) => {
+            let proc = spawn(cmd, args, {
+                stdio: 'inherit',
+                cwd: cwd || './',
+                env: env || process.env
+            });
+
+            proc.on('exit', (code, signal) => {
+                if(code !== 0) {
+                    return reject(new Error(`Failed to execute "${cmd}" with return code ${code}.${signal ? ` Signal: ${signal}` : ''}`));
+                }
+                resolve();
+            });
+        });
+    }
+
+    /**
+     * Invokes a given command in a spawned child process and returns its output.
+     * @param {string} cmd The command to be run.
+     * @param {string[]} args The array of arguments to pass to the command.
+     * @param {Map<string, string>} env The key-value pairs of environment variables to set.
+     * @param {string} cwd The current working directory to set.
+     * @returns {Promise} A Promise that is resolved with the command output or rejected with an Error.
+     */
+    static getCommandOutput(cmd, args, env, cwd) {
+        return new Promise((resolve, reject) => {
+            let output = '';
+            let proc = spawn(cmd, args, {
+                cwd: cwd || './',
+                env: env || process.env
+            });
+
+            proc.stdout.on('data', (data) => {
+                output += data.toString();
+            });
+
+            proc.on('exit', (code, signal) => {
+                if(code !== 0) {
+                    return reject(new Error(`Failed to execute "${cmd}" with return code ${code}.${signal ? ` Signal: ${signal}` : ''}`));
+                }
+                resolve(output.trim());
+            });
         });
     }
 
