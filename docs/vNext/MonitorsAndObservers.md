@@ -268,9 +268,9 @@ monitor:
     - all
     charting:
     bar:
-    - metrics: [Memory(avg), CPU%(avg)]
+      metrics: [Memory(avg), CPU%(avg)]
     polar:
-    - metrics: [all]
+      metrics: [all]
 ```
 
 ### Prometheus Charting
