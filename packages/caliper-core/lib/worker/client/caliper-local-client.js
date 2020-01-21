@@ -320,7 +320,7 @@ class CaliperLocalClient {
         Logger.debug('prepareTest() with:', test);
         let cb = require(CaliperUtils.resolvePath(test.cb));
 
-        this.txUpdateTime = Config.get(Config.keys.TxUpdateTime, 1000);
+        this.txUpdateTime = Config.get(Config.keys.TxUpdateTime, 5000);
         const self = this;
         let initUpdateInter = setInterval( () => { self.initUpdate();  } , self.txUpdateTime);
 
