@@ -60,7 +60,8 @@
             ".nyc_output",
             "coverage",
             ".gitignore",
-            "log"
+            "log",
+            ".DS_Store"
         ],
         "file_type_method": "EXCLUDE",
         "file_types": [

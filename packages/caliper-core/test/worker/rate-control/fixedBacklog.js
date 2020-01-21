@@ -21,70 +21,97 @@ const chai = require('chai');
 chai.should();
 const sinon = require('sinon');
 
-describe ('fixedBacklog controller implementation', () => {
+describe('fixedBacklog controller implementation', () => {
 
     let controller;
-    let opts = {
-        unfinished_per_client: 30,
-        sleep_time: 40
-    };
 
-    describe ('#init', () => {
+    describe('#init', () => {
 
-        it ('should set a default sleep time if no sleep time specified', () => {
-            controller = new FixedBacklog.createRateController({});
-            controller.init();
-            controller.sleep_time.should.equal(100);
-        });
+        let msg = {totalClients: 1};
+        let opts = {
+            unfinished_per_client: 30,
+            startingTps: 10
+        };
 
-        it ('should set the sleep time if specified', () => {
+        it('should set the sleep time for a single client if no clients are specified and the startingTps is specified', () => {
+            let msg = {};
             controller = new FixedBacklog.createRateController(opts);
-            controller.init();
-            controller.sleep_time.should.equal(40);
+            controller.init(msg);
+            controller.sleepTime.should.equal(100);
         });
 
-        it ('should set a default transaction backlog for multiple clients if not specified', () => {
+        it('should set the sleep time for a single client if no clients are specified and the startingTps is not specified', () => {
+            let msg = {};
+            let opts = {
+                unfinished_per_client: 30
+            };
+            controller = new FixedBacklog.createRateController(opts);
+            controller.init(msg);
+            controller.sleepTime.should.equal(1000);
+        });
+
+        it('should set the sleep time for a multiple clients it the startingTps is specified', () => {
+            controller = new FixedBacklog.createRateController(opts);
+            controller.init(msg);
+            controller.sleepTime.should.equal(100);
+        });
+
+        it('should set the sleep time for a multiple clients it the startingTps is not specified', () => {
+            let opts = {
+                unfinished_per_client: 30
+            };
+            controller = new FixedBacklog.createRateController(opts);
+            controller.init(msg);
+            controller.sleepTime.should.equal(1000);
+        });
+
+        it('should set a default transaction backlog for multiple clients if not specified', () => {
             controller = new FixedBacklog.createRateController({});
-            controller.init();
+            controller.init(msg);
             controller.unfinished_per_client.should.equal(10);
         });
 
-        it ('should set the transaction backlog for multiple clients if specified', () => {
+        it('should set the transaction backlog for multiple clients if specified', () => {
             controller = new FixedBacklog.createRateController(opts);
-            controller.init();
+            controller.init(msg);
             controller.unfinished_per_client.should.equal(30);
         });
 
     });
 
-    describe ('#applyRateControl', () => {
+    describe('#applyRateControl', async () => {
 
         let sleepStub;
+        let opts = {
+            unfinished_per_client: 30,
+            startingTps: 10
+        };
 
         beforeEach(() => {
             sleepStub = sinon.stub();
             FixedBacklog.__set__('Sleep', sleepStub);
 
             controller = new FixedBacklog.createRateController(opts);
-            controller.init();
+            controller.sleepTime = 1000;
+            controller.unfinished_per_client = 30;
         });
 
-        it ('should sleep if resultStats.length < 2', () => {
+        it('should sleep if resultStats.length < 2', () => {
             controller.applyRateControl(null, 1, [], []);
             sinon.assert.calledOnce(sleepStub);
-            sinon.assert.calledWith(sleepStub, 40);
+            sinon.assert.calledWith(sleepStub, 1000);
         });
 
         it ('should sleep if no successful results are available', () => {
             controller.applyRateControl(null, 1, [], [{}]);
             sinon.assert.calledOnce(sleepStub);
-            sinon.assert.calledWith(sleepStub, 40);
+            sinon.assert.calledWith(sleepStub, 1000);
         });
 
         it ('should sleep if no delay results are available', () => {
             controller.applyRateControl(null, 1, [], [{}]);
             sinon.assert.calledOnce(sleepStub);
-            sinon.assert.calledWith(sleepStub, 40);
+            sinon.assert.calledWith(sleepStub, 1000);
         });
 
         it ('should not sleep if backlog transaction is below target', () => {
@@ -179,7 +206,7 @@ describe ('fixedBacklog controller implementation', () => {
             const unfinshed = idx - completeTransactions;
 
             const error = unfinshed - 30;
-            const message = 'Backlog error: ' + error;
+            const message = 'Difference between current and desired transaction backlog: ' + error;
 
             sinon.assert.calledOnce(debugStub);
             sinon.assert.calledWith(debugStub, message);

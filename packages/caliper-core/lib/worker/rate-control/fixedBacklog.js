@@ -35,10 +35,33 @@ class FixedBacklog extends RateInterface {
     /**
      * Initialise the rate controller with a passed msg object
      * - Only requires the desired cnumber of unfinished transactions per client
-     * @param {JSON} msg the initialisation message
+     * @param {object} msg Client options with adjusted per-client load settings.
+     * @param {string} msg.type The type of the message. Currently always 'test'
+     * @param {string} msg.label The label of the round.
+     * @param {object} msg.rateControl The rate control to use for the round.
+     * @param {number} msg.trim The number/seconds of transactions to trim from the results.
+     * @param {object} msg.args The user supplied arguments for the round.
+     * @param {string} msg.cb The path of the user's callback module.
+     * @param {string} msg.config The path of the network's configuration file.
+     * @param {number} msg.numb The number of transactions to generate during the round.
+     * @param {number} msg.txDuration The length of the round in SECONDS.
+     * @param {number} msg.totalClients The number of clients executing the round.
+     * @param {number} msg.clients The number of clients executing the round.
+     * @param {object} msg.clientArgs Arguments for the client.
+     * @param {number} msg.clientIdx The 0-based index of the current client.
+     * @param {number} msg.roundIdx The 1-based index of the current round.
+     *
+     * @async
      */
-    init(msg) {
-        this.sleep_time = this.options.sleep_time ? parseFloat(this.options.sleep_time) : 100;
+    async init(msg) {
+        let tps;
+        if (this.options.startingTps) {
+            tps = this.options.startingTps;
+        } else {
+            tps = 1;
+        }
+        const tpsPerClient = msg.totalClients ? (tps / msg.totalClients) : tps;
+        this.sleepTime = 1000/tpsPerClient;
         this.unfinished_per_client = this.options.unfinished_per_client ? parseInt(this.options.unfinished_per_client) : 10;
     }
 
@@ -54,7 +77,7 @@ class FixedBacklog extends RateInterface {
 
         // Waiting until successful transactions occur.
         if(resultStats.length < 2 || !resultStats[0].succ || !resultStats[0].delay)  {
-            await Sleep(this.sleep_time);
+            await Sleep(this.sleepTime);
             return;
         }
 
@@ -74,7 +97,7 @@ class FixedBacklog extends RateInterface {
         const error = unfinished - this.unfinished_per_client;
 
         // Sleep for a count of the load error and the current average delay
-        Logger.debug('Backlog error: ' + error);
+        Logger.debug('Difference between current and desired transaction backlog: ' + error);
         await Sleep(error * avDelay);
     }
 
