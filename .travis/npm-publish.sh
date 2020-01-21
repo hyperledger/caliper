@@ -18,15 +18,20 @@ set -e
 
 if [[ -z "${NPM_TOKEN}" ]]
 then
-      echo "No encrypted variables detected, skipping publish steps"
-      exit 0
+      echo "ERROR: No decrypted NPM_TOKEN variable detected"
+      exit 1
 fi
 
 # Set the NPM access token we will use to publish.
 npm config set registry https://registry.npmjs.org/
 npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
 
-export DIST_TAG=unstable
+if grep '"version": ".*\-unstable",$' ./package.json
+then
+    export DIST_TAG=unstable
+else
+    export DIST_TAG=latest
+fi
 
 # Only install lerna, other package deps are not needed for publishing
 npm i

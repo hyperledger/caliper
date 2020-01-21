@@ -12,7 +12,7 @@
     "pretest": "npm run licchk",
     "licchk": "license-check-and-add",
     "test": "lerna run test",
-    "publish_npm": "lerna publish --dist-tag ${DIST_TAG} --yes --force-publish=* --ignore-scripts --ignore-prepublish -- -f"
+    "publish_npm": "lerna publish --dist-tag ${DIST_TAG} --yes --force-publish=* --ignore-scripts --no-git-reset"
   },
   "engines": {
     "node": ">=8.10.0",

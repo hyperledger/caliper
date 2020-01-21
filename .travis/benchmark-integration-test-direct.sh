@@ -17,12 +17,6 @@
 set -e
 set -o pipefail
 
-if [[ ! -z "${NPM_TOKEN}" ]]
-then
-      echo "Encrypted variables detected, skipping PR checks"
-      exit 0
-fi
-
 # Bootstrap the project again
 npm i && npm run repoclean -- --yes && npm run bootstrap
 

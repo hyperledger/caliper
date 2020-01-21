@@ -18,8 +18,8 @@ set -e
 
 if [[ -z "${DOCKER_TOKEN}" ]]
 then
-      echo "No encrypted variables detected, skipping publish steps"
-      exit 0
+      echo "ERROR: No decrypted DOCKER_TOKEN variable detected"
+      exit 1
 fi
 
 # login to docker with secret token
