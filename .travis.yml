@@ -5,7 +5,7 @@ node_js:
 services:
 - docker
 
-dist: trusty
+dist: xenial
 
 before_install: |
     set -ev
@@ -26,46 +26,46 @@ jobs:
       name: Show various information about the CI build
       script: ./.travis/build-info.sh
     - name: Package name check, license check, lint check, unit tests
-      if: env(TRAVIS_SECURE_ENV_VARS) is false
+      if: type = pull_request
       script: ./.travis/checks-and-unit-tests.sh
 
     # parallel integrations tests
     - stage: benchmark integration tests
       name: HL Fabric integration test
-      if: env(TRAVIS_SECURE_ENV_VARS) is false
+      if: type = pull_request
       script: BENCHMARK=fabric ./.travis/benchmark-integration-test-direct.sh
     - name: Ethereum integration test
-      if: env(TRAVIS_SECURE_ENV_VARS) is false
+      if: type = pull_request
       script: BENCHMARK=ethereum ./.travis/benchmark-integration-test-direct.sh
     - name: HL Sawtooth integration test
-      if: env(TRAVIS_SECURE_ENV_VARS) is false
+      if: type = pull_request
       script: BENCHMARK=sawtooth ./.travis/benchmark-integration-test-direct.sh
     - name: HL Besu integration test
-      if: env(TRAVIS_SECURE_ENV_VARS) is false
+      if: type = pull_request
       script: BENCHMARK=besu ./.travis/benchmark-integration-test-direct.sh
     - name: FISCO-BCOS integration test
-      if: env(TRAVIS_SECURE_ENV_VARS) is false
+      if: type = pull_request
       script: BENCHMARK=fisco-bcos ./.travis/benchmark-integration-test-direct.sh
     - name: Generator integration test
-      if: env(TRAVIS_SECURE_ENV_VARS) is false
+      if: type = pull_request
       script: BENCHMARK=generator ./.travis/benchmark-integration-test-direct.sh
 
     # publish npm packages
     - stage: npm publish
       name: Publishing to NPM
-      if: env(TRAVIS_SECURE_ENV_VARS) is true
+      if: type = push
       script: ./.travis/npm-publish.sh
 
       # publish docker image
     - stage: docker publish
       name: Publishing to Docker Hub
-      if: env(TRAVIS_SECURE_ENV_VARS) is true
+      if: type = push
       script: ./.travis/docker-publish.sh
 
 cache:
   directories:
     - node_modules
-sudo: required
+
 notifications:
   webhooks:
     on_success: always # default: always
