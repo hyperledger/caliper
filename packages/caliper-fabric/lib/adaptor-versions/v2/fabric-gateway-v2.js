@@ -160,6 +160,7 @@ class Fabric extends BlockchainInterface {
         this.wallet = undefined;
         this.userContracts = new Map();
         this.userGateways = new Map();
+        this.peerCache = new Map();
 
         // this value is hardcoded, if it's used, that means that the provided timeouts are not sufficient
         this.configSmallestTimeout = 1000;
@@ -975,6 +976,28 @@ class Fabric extends BlockchainInterface {
     }
 
     /**
+     * Initialize channel objects for use in peer targeting. Requires user gateways to have been
+     * formed in advance.
+     */
+    async _initializePeerCache() {
+
+        for (const userName of this.userGateways.keys()) {
+            const gateway = this.userGateways.get(userName);
+            // Loop over known channel names
+            const channelNames = this.networkUtil.getChannels();
+            for (const channelName of channelNames) {
+                const network = await gateway.getNetwork(channelName);
+                const channel = network.getChannel();
+
+                // Add all peers
+                for (const peerObject of channel.getPeers()) {
+                    this.peerCache.set(peerObject.getName(), peerObject);
+                }
+            }
+        }
+    }
+
+    /**
      * Install the specified chaincodes to their target peers.
      * @private
      * @async
@@ -1519,73 +1542,67 @@ class Fabric extends BlockchainInterface {
     }
 
     /**
-     * Submit a transaction using a Gateway contract
+     * Perform a transaction using a Gateway contract
      * @param {object} context The context previously created by the Fabric adapter.
      * @param {ChaincodeInvokeSettings} invokeSettings The settings associated with the transaction submission.
+     * @param {boolean} isSubmit boolean flag to indicate if the transaction is a submit or evaluate
      * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
      * @async
      */
-    async _submitGatewayTransaction(context, invokeSettings) {
+    async _performGatewayTransaction(context, invokeSettings, isSubmit) {
 
         // Retrieve the existing contract and a client
-        const contract = await this._getUserContract(invokeSettings.invokerIdentity, invokeSettings.chaincodeId);
-        const client = this.clientProfiles.get(invokeSettings.invokerIdentity);
+        const smartContract = await this._getUserContract(invokeSettings.invokerIdentity, invokeSettings.chaincodeId);
+
+        // Create a transaction
+        const transaction = smartContract.createTransaction(invokeSettings.chaincodeFunction);
 
         // Build the Caliper TxStatus, this is a reduced item when compared to the low level API capabilities
-        const txIdObject = client.newTransactionID();
-        const txId = txIdObject.getTransactionID();
+        const txId = transaction.getTransactionID();
         let invokeStatus = new TxStatus(txId);
-        invokeStatus.Set('request_type', 'transaction');
-
-        if(context.engine) {
-            context.engine.submitCallback(1);
-        }
-
-        try {
-            const result = await contract.submitTransaction(invokeSettings.chaincodeFunction, ...invokeSettings.chaincodeArguments);
-            invokeStatus.result = result;
-            invokeStatus.verified = true;
-            invokeStatus.SetStatusSuccess();
-            return invokeStatus;
-        } catch (err) {
-            logger.error(`Failed to submit transaction [${invokeSettings.chaincodeFunction}] using arguments [${invokeSettings.chaincodeArguments}],  with error: ${err.stack ? err.stack : err}`);
-            invokeStatus.SetStatusFail();
-            invokeStatus.result = [];
-            return invokeStatus;
-        }
-    }
-
-    /**
-     * Submit a transaction using a Gateway contract
-     * @param {object} context The context previously created by the Fabric adapter.
-     * @param {ChaincodeQuerySettings} querySettings The settings associated with the transaction evaluation.
-     * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
-     * @async
-     */
-    async _evaluateGatewayTransaction(context, querySettings) {
-
-        // Retrieve the existing contract and a client
-        const contract = await this._getUserContract(querySettings.invokerIdentity, querySettings.chaincodeId);
-        const client = this.clientProfiles.get(querySettings.invokerIdentity);
-
-        // Build the Caliper TxStatus, this is a reduced item when compared to the low level API capabilities
-        const txIdObject = client.newTransactionID();
-        const txId = txIdObject.getTransactionID();
-        let invokeStatus = new TxStatus(txId);
-        invokeStatus.Set('request_type', 'query');
 
         if (context.engine) {
             context.engine.submitCallback(1);
         }
 
+        // Add transient data if present
+        // - passed as key value pairing such as {"hello":"world"}
+        if (invokeSettings.transientData) {
+            const transientData = {};
+            const keys = Array.from(Object.keys(invokeSettings.transientData));
+            keys.forEach((key) => {
+                transientData[key] = Buffer.from(transientData[key]);
+            });
+            transaction.setTransient(transientData);
+        }
+
+        // Set endorsing peers if passed as a string array
+        if (invokeSettings.targetPeers) {
+            // Retrieved cached peer objects
+            const targetPeerObjects = [];
+            for (const name of invokeSettings.targetPeers) {
+                const peer = this.peerCache.get(name);
+                targetPeerObjects.push(peer);
+            }
+            // Set the peer objects in the transaction
+            transaction.setEndorsingPeers(targetPeerObjects);
+        }
+
         try {
-            const result = await contract.evaluateTransaction(querySettings.chaincodeFunction, ...querySettings.chaincodeArguments);
+            let result;
+            if (isSubmit) {
+                invokeStatus.Set('request_type', 'transaction');
+                result = await transaction.submit(...invokeSettings.chaincodeArguments);
+            } else {
+                invokeStatus.Set('request_type', 'query');
+                result = await transaction.evaluate(...invokeSettings.chaincodeArguments);
+            }
             invokeStatus.result = result;
             invokeStatus.verified = true;
             invokeStatus.SetStatusSuccess();
             return invokeStatus;
         } catch (err) {
-            logger.error(`Failed to evaluate transaction [${querySettings.chaincodeFunction}] using arguments [${querySettings.chaincodeArguments}],  with error: ${err.stack ? err.stack : err}`);
+            logger.error(`Failed to perform ${isSubmit ? 'submit' : 'query' } transaction [${invokeSettings.chaincodeFunction}] using arguments [${invokeSettings.chaincodeArguments}],  with error: ${err.stack ? err.stack : err}`);
             invokeStatus.SetStatusFail();
             invokeStatus.result = [];
             return invokeStatus;
@@ -1657,6 +1674,9 @@ class Fabric extends BlockchainInterface {
         // Build Gateway Network Contracts for possible users and return the network object
         // - within submit/evaluate, a contract will be used for a nominated user
         await this._initializeContracts();
+
+        // - use gateways to build a peer cache
+        await this._initializePeerCache();
 
         // We are done - return the networkUtil object
         return {
@@ -1742,7 +1762,7 @@ class Fabric extends BlockchainInterface {
                 settings.invokerIdentity = this.defaultInvoker;
             }
 
-            promises.push(this._submitGatewayTransaction(context, settings));
+            promises.push(this._performGatewayTransaction(context, settings, true));
         }
 
         return await Promise.all(promises);
@@ -1782,7 +1802,7 @@ class Fabric extends BlockchainInterface {
                 settings.invokerIdentity = this.defaultInvoker;
             }
 
-            promises.push(this._evaluateGatewayTransaction(context, settings));
+            promises.push(this._performGatewayTransaction(context, settings, false));
         }
 
         return await Promise.all(promises);

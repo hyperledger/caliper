@@ -51,7 +51,7 @@ caliper:
     # Path to the blockchain configuration file that contains information required to interact with the SUT
     networkconfig:
     # Sets the frequency of the progress reports in milliseconds
-    txupdatetime: 1000
+    txupdatetime: 5000
     # Configurations related to the logging mechanism
     logging:
         # Specifies the message structure through placeholders
