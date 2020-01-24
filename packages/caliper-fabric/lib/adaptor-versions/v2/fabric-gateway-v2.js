@@ -359,7 +359,7 @@ class Fabric extends BlockchainInterface {
                 username: userName,
                 mspid: this.networkUtil.getMspIdOfOrganization(org),
                 cryptoContent: cryptoContent,
-                skipPersistence: this.fileWalletPath
+                skipPersistence: this.fileWalletPath ? true : false
             });
         } catch (err) {
             throw new Error(`Couldn't create ${profileName || ''} user object: ${err.message}`);
@@ -611,18 +611,18 @@ class Fabric extends BlockchainInterface {
             if (this.fileWalletPath) {
                 // If a file wallet is provided, it is expected that *all* required identities are provided
                 // Admin is a super-user identity, and is consequently optional
-                const hasAdmin = await this.wallet.exists(adminName);
+                const hasAdmin = await this.wallet.get(adminName);
                 if (!hasAdmin) {
                     logger.info(`No ${adminName} found in wallet - unable to perform admin options`);
                     continue;
                 }
 
                 logger.info(`Retrieving credentials for ${adminName} from wallet`);
-                const identity = await this.wallet.export(adminName);
-                // Identity {type: string, mspId: string, privateKeyPEM: string, signedCertPEM: string}
+                const identity = await this.wallet.get(adminName);
+                // Identity {type: string, mspId: string, version: string, credentials: {privateKeyPEM: string, signedCertPEM: string} }
                 cryptoContent = {
-                    privateKeyPEM: identity.privateKey,
-                    signedCertPEM: identity.certificate
+                    privateKeyPEM: identity.credentials.privateKey,
+                    signedCertPEM: identity.credentials.certificate
                 };
             } else {
                 cryptoContent = this.networkUtil.getAdminCryptoContentOfOrganization(org);
@@ -733,11 +733,11 @@ class Fabric extends BlockchainInterface {
             let cryptoContent;
             if (this.fileWalletPath) {
                 logger.info(`Retrieving credentials for ${client} from wallet`);
-                const identity = await this.wallet.export(client);
-                // Identity {type: string, mspId: string, privateKeyPEM: string, signedCertPEM: string}
+                const identity = await this.wallet.get(client);
+                // Identity {type: string, mspId: string, version: string, credentials: {privateKeyPEM: string, signedCertPEM: string} }
                 cryptoContent = {
-                    privateKeyPEM: identity.privateKey,
-                    signedCertPEM: identity.certificate
+                    privateKeyPEM: identity.credentials.privateKey,
+                    signedCertPEM: identity.credentials.certificate
                 };
             } else {
                 cryptoContent = this.networkUtil.getClientCryptoContent(client);
