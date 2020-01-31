@@ -288,15 +288,15 @@ class MonitorProcess extends MonitorInterface {
                 watchItemStat.set('Name', key);
                 watchItemStat.set('Memory(max)', MonitorUtilities.byteNormalize(mem_stat.max));
                 watchItemStat.set('Memory(avg)', MonitorUtilities.byteNormalize(mem_stat.avg));
-                watchItemStat.set('CPU% (max)', cpu_stat.max.toFixed(2));
-                watchItemStat.set('CPU% (avg)', cpu_stat.avg.toFixed(2));
+                watchItemStat.set('CPU%(max)', cpu_stat.max.toFixed(2));
+                watchItemStat.set('CPU%(avg)', cpu_stat.avg.toFixed(2));
 
                 // append return array
                 resourceStats.push(watchItemStat);
             }
 
             // Normalize the resource stats to a single unit
-            const normalizeStats = ['Memory(max)', 'Memory(avg)', 'CPU% (max)', 'CPU% (avg)'];
+            const normalizeStats = ['Memory(max)', 'Memory(avg)'];
             for (const stat of normalizeStats) {
                 MonitorUtilities.normalizeStats(stat, resourceStats);
             }
