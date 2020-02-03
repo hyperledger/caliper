@@ -119,9 +119,10 @@ The `include` block is defined by:
 - step: the timing step size to use within the range query
 - label: a string to match on the returned query and used when populating the report
 - statistic: if multiple values are returned, for instance if looking at a specific resource over a time range, the statistic will condense the values to a single result to enable reporting. Permitted options are:
+  - avg: return the average from all values
   - max: return the maximum from all values
   - min: return the minimum from all values
-  - avg: return the average from all values
+  - sum: return the summation of all values
 - multiplier: An optional multiplier that may be used to convert exported metrics into a more convenient value (such as converting bytes to GB)
 
 The following declares a Prometheus monitor that will run two bespoke queries between each test within the benchmark
