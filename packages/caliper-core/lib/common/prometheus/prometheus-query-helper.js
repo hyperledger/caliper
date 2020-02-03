@@ -163,6 +163,8 @@ class PrometheusQueryHelper {
                 return values[0];
             }
         }
+        case 'sum':
+            return values.reduce((x, y) => x + y);
         default:
             Logger.error(`Unknown stat type passed: ${statType}`);
             throw new Error(`Unknown stat type passed: ${statType}`);
