@@ -410,6 +410,19 @@ describe('PrometheusQueryHelper implementation', () => {
             output.get('unknown').should.equal(2.8);
         });
 
+        it('should retrieve the sum value from a matrix response', () => {
+            const response = {
+                data: {
+                    resultType: 'matrix',
+                    result: [{ values: [[111, 1], [111, 1], [111, 2], [111, 2], [111, 8]] }]
+                }
+            };
+            const output = PrometheusQueryHelper.extractStatisticFromRange(response, 'sum');
+            output.should.be.an('map');
+            output.size.should.equal(1);
+            output.get('unknown').should.equal(14);
+        });
+
         it('should return `-` if passed too few results', () => {
             const response = {
                 data: {
