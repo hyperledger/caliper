@@ -23,9 +23,7 @@ env:
 jobs:
     include:
     - stage: checks and unit tests
-      name: Show various information about the CI build
-      script: ./.travis/build-info.sh
-    - name: Package name check, license check, lint check, unit tests
+      name: Package name check, license check, lint check, unit tests
       if: type = pull_request
       script: ./.travis/checks-and-unit-tests.sh
 
@@ -50,17 +48,11 @@ jobs:
       if: type = pull_request
       script: BENCHMARK=generator ./.travis/benchmark-integration-test-direct.sh
 
-    # publish npm packages
-    - stage: npm publish
-      name: Publishing to NPM
+    # publish packages
+    - stage: publish
+      name: Publishing to NPM and Docker Hub
       if: type = push
-      script: ./.travis/npm-publish.sh
-
-      # publish docker image
-    - stage: docker publish
-      name: Publishing to Docker Hub
-      if: type = push
-      script: ./.travis/docker-publish.sh
+      script: ./.travis/publish.sh
 
 cache:
   directories:

@@ -14,22 +14,10 @@
 #
 
 # Exit on first error, print all commands.
-set -ev
+set -e
 set -o pipefail
 
 # Set ARCH
 ARCH=`uname -m`
 
-# Grab the parent (root) directory.
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
-
-# Switch into the integration tests directory to access required npm run commands
-cd "${DIR}"
-
-# Verdaccio server requires a dummy user if publishing via npm
-echo '//localhost:4873/:_authToken="foo"' > ${HOME}/.npmrc
-echo fetch-retries=10 >> ${HOME}/.npmrc
-export npm_config_registry=http://localhost:4873
-
-# Start npm server
-PM2_HOME=.pm2 pm2 start verdaccio -- -l 0.0.0.0:4873 -c scripts/config.yaml
+docker build --network=host -t "${IMAGE}:${TAG}" -f caliper.Dockerfile --build-arg "caliper_version=${TAG}" --build-arg "npm_registry=${NPM_REGISTRY}" .

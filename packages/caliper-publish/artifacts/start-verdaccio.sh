@@ -14,20 +14,16 @@
 #
 
 # Exit on first error, print all commands.
-set -e
+set -ev
 set -o pipefail
 
-# check reference Caliper package names
-# publishNpmPackages.js contains the package dir names as caliper-*, those are fine
-if grep -rnE --exclude-dir="caliper-publish" "['\"]caliper-(cli|core|burrow|composer|ethereum|fabric|fisco-bcos|iroha|sawtooth)['\"]" . ; then
-    echo "^^^ Found incorrect Caliper package names. Use the @hyperledger/ prefix for Caliper packages, e.g., @hyperledger/caliper-core"
-    exit 1
-fi
+# Set ARCH
+ARCH=`uname -m`
 
-echo "Caliper package names are correct."
+# Verdaccio server requires a dummy user if publishing via npm
+echo "//${BIND}/:_authToken=\"foo\"" > ${HOME}/.npmrc
+echo fetch-retries=10 >> ${HOME}/.npmrc
+export npm_config_registry=http://${BIND}
 
-# Bootstrap the project again
-npm i && npm run repoclean -- --yes && npm run bootstrap
-
-# Run linting, license check and unit tests
-npm test
+# Start npm server
+PM2_HOME=.pm2 npx pm2 start verdaccio -- -l ${BIND} -c artifacts/verdaccio-config.yaml

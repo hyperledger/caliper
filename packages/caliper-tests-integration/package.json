@@ -28,8 +28,6 @@
   },
   "homepage": "https://github.com/hyperledger/caliper#readme",
   "devDependencies": {
-    "pm2": "2.10.1",
-    "verdaccio": "3.12.0",
     "license-check-and-add": "2.3.6"
   },
   "dependencies": {
