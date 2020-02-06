@@ -12,22 +12,27 @@
 # limitations under the License.
 #
 
-FROM node:10.16-alpine
+FROM node:10.16-alpine AS caliper-base
+WORKDIR /hyperledger/caliper
 
+# Common steps for all versions
+# 1. install packages for grpc compilation
+# 2. Create the default workspace directory
+# 3. Initialize the working directory
+RUN apk add --no-cache python2 make g++ git \
+    && mkdir -p /hyperledger/caliper/workspace \
+    && npm init -y
+
+
+FROM caliper-base
 # require to set these explicitly to avoid mistakes
 ARG npm_registry
 ARG caliper_version
 
 WORKDIR /hyperledger/caliper
 
-# 1. install packages for grpc compilation
-# 2. Create the default workspace directory
-# 3. Initialize the working directory
 # 4. Install the CLI into the working directory
-RUN apk add --no-cache python2 make g++ git \
-    && mkdir -p /hyperledger/caliper/workspace \
-    && npm init -y \
-    && npm install ${npm_registry} --only=prod @hyperledger/caliper-cli@${caliper_version}
+RUN npm install ${npm_registry} --only=prod @hyperledger/caliper-cli@${caliper_version}
 
 ENV CALIPER_WORKSPACE /hyperledger/caliper/workspace
 CMD npx caliper bind && npx caliper benchmark run

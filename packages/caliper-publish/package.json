@@ -1,0 +1,88 @@
+{
+    "name": "caliper-publish",
+    "description": "Hyperledger Caliper internal CLI for publishing packages",
+    "version": "0.3.0-unstable",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hyperledger/caliper",
+        "directory": "packages/caliper-publish"
+    },
+    "main": "publish.js",
+    "scripts": {
+        "pretest": "npm run licchk",
+        "licchk": "license-check-and-add",
+        "test": "npm run lint",
+        "lint": "npx eslint .",
+        "nyc": "nyc mocha --recursive -t 10000"
+    },
+    "engines": {
+        "node": ">=8.10.0",
+        "npm": ">=5.6.0"
+    },
+    "dependencies": {
+        "yargs": "^14.2.0"
+    },
+    "devDependencies": {
+        "chai": "^3.5.0",
+        "eslint": "^5.16.0",
+        "mocha": "3.4.2",
+        "nyc": "11.1.0",
+        "rewire": "^4.0.0",
+        "sinon": "^7.3.2",
+        "pm2": "2.10.1",
+        "verdaccio": "3.12.0",
+        "license-check-and-add": "2.3.6"
+    },
+    "license-check-and-add-config": {
+        "folder": ".",
+        "license": "../../LICENSE.txt",
+        "exact_paths_method": "EXCLUDE",
+        "exact_paths": [
+            "node_modules",
+            ".nyc_output",
+            "coverage",
+            ".gitignore",
+            "log"
+        ],
+        "file_type_method": "EXCLUDE",
+        "file_types": [
+            ".yml",
+            ".md",
+            ".log"
+        ],
+        "insert_license": false,
+        "license_formats": {
+            "js": {
+                "prepend": "/*",
+                "append": "*/",
+                "eachLine": {
+                    "prepend": "* "
+                }
+            },
+            "editorconfig|yaml|Dockerfile": {
+                "prepend": "#",
+                "append": "#",
+                "eachLine": {
+                    "prepend": "# "
+                }
+            }
+        }
+    },
+    "nyc": {
+        "exclude": [
+            "lib/**"
+        ],
+        "reporter": [
+            "text-summary",
+            "html"
+        ],
+        "all": true,
+        "check-coverage": false,
+        "statements": 5,
+        "branches": 8,
+        "functions": 7,
+        "lines": 5
+    },
+    "license": "Apache-2.0"
+}

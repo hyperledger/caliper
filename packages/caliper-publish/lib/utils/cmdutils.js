@@ -48,7 +48,7 @@ class CmdUtil {
      * Invokes a given command in a spawned child process and attaches all standard IO.
      * @param {string} cmd The command to be run.
      * @param {string[]} args The array of arguments to pass to the command.
-     * @param {Map<string, string>} env The key-value pairs of environment variables to set.
+     * @param {object} env The key-value pairs of environment variables to set.
      * @param {string} cwd The current working directory to set.
      * @returns {Promise} A Promise that is resolved or rejected.
      */
@@ -73,7 +73,7 @@ class CmdUtil {
      * Invokes a given command in a spawned child process and returns its output.
      * @param {string} cmd The command to be run.
      * @param {string[]} args The array of arguments to pass to the command.
-     * @param {Map<string, string>} env The key-value pairs of environment variables to set.
+     * @param {object} env The key-value pairs of environment variables to set.
      * @param {string} cwd The current working directory to set.
      * @returns {Promise} A Promise that is resolved with the command output or rejected with an Error.
      */
@@ -82,7 +82,10 @@ class CmdUtil {
             let output = '';
             let proc = spawn(cmd, args, {
                 cwd: cwd || './',
-                env: env || process.env
+                env: {
+                    ...process.env,
+                    ...env
+                }
             });
 
             proc.stdout.on('data', (data) => {

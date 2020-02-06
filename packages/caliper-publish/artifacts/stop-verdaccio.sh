@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,16 +13,15 @@
 # limitations under the License.
 #
 
-*.log
-.pm2/*
-scripts/*
-node_modules/*
-log/*
-fabric_tests/*
-besu_tests/*
-ethereum_tests/*
-fisco-bcos_tests/*
-sawtooth_tests/*
-caliper.Dockerfile
-package.json
-run-tests.sh
+# Exit on first error, print all commands.
+set -ev
+set -o pipefail
+
+# Set ARCH
+ARCH=`uname -m`
+
+PM2_HOME=.pm2 npx pm2 stop verdaccio
+rm -rf ./.pm2
+rm -rf ./artifacts/storage
+rm -rf ${HOME}/.config/verdaccio
+rm -rf ${HOME}/.npmrc

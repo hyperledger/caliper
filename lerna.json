@@ -14,6 +14,7 @@
         "packages/caliper-iroha",
         "packages/caliper-sawtooth",
         "packages/caliper-cli",
+        "packages/caliper-publish",
         "packages/caliper-tests-integration"
 	],
 	"version": "0.3.0-unstable",

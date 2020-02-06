@@ -14,22 +14,23 @@
 #
 
 # Exit on first error, print all commands.
-set -ev
+set -e
 set -o pipefail
 
 # Set ARCH
 ARCH=`uname -m`
 
-# Grab the parent (root) directory.
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+if [[ -z "${NPM_REGISTRY}" ]]
+then
+    if [[ -z "${NPM_TOKEN}" ]]
+    then
+        echo "NPM_TOKEN must be set when publishing to the public NPM registry."
+        exit 1
+    else
+        # Set the NPM access token we will use to publish.
+        npm config set registry https://registry.npmjs.org/
+        npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+    fi
+fi
 
-# Switch into the integration tests directory to access required npm run commands
-cd "${DIR}"
-
-echo "cleaning up from ${DIR}"
-npm run stop_verdaccio
-rm -rf ./.pm2
-rm -rf ./scripts/storage
-rm -rf ${HOME}/.config/verdaccio
-rm -rf ${HOME}/.npmrc
-echo "cleanup complete"
+npm publish --access public ${NPM_REGISTRY} ${DRY_RUN} --tag ${TAG}
