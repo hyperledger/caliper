@@ -25,7 +25,7 @@
         "@hyperledger/caliper-core": "0.3.1-unstable"
     },
     "devDependencies": {
-        "iroha-helpers": "0.6.3",
+        "iroha-helpers": "0.8.8",
         "chai": "^3.5.0",
         "eslint": "^5.16.0",
         "mocha": "3.4.2",

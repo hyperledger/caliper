@@ -81,8 +81,10 @@ sut:
         latest: *burrow-latest
 
     iroha:
-        0.6.3: &iroha-latest
+        0.6.3:
             packages: [ 'iroha-helpers@0.6.3' ]
+        0.8.8: &iroha-latest
+            packages: [ 'iroha-helpers@0.8.8' ]
         latest: *iroha-latest
 
     fisco-bcos:
