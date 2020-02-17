@@ -1793,12 +1793,21 @@ class Fabric extends BlockchainInterface {
             ///////////////////////////////////////////
 
             let targetOrderer = invokeSettings.orderer || this._getRandomTargetOrderer(invokeSettings.channel);
+            let orderer;
+
+            if (typeof(targetOrderer) === 'string' || targetOrderer instanceof String) {
+                // Using an orderer name
+                orderer = channel.getOrderer(targetOrderer);
+            } else {
+                // Have been passed an orderer as an object within invokeSettings.orderer
+                throw new Error('Orderer object passed within invokeSettings: must reference target orderer by name');
+            }
 
             /** @link{TransactionRequest} */
             const transactionRequest = {
                 proposalResponses: proposalResponses,
                 proposal: proposal,
-                orderer: targetOrderer
+                orderer
             };
 
             /** @link{BroadcastResponse} */
