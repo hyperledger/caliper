@@ -39,6 +39,12 @@ class ConfigValidator {
             throw new Error('Use of service discovery is only valid with a `caliper-flow-only-test` flag');
         }
 
+        // registrar requirement removed if only-test
+        let requireRegistrar = 'required';
+        if (flowOptions.performTest && (!flowOptions.performInit && !flowOptions.performInstall)) {
+            requireRegistrar = 'optional';
+        }
+
         let tls; // undefined => we don't know yet
         // the TLS setting might not be known after the individual section if they are missing
         // the first existing node will determine its value, and after that every node is validated against that value
@@ -53,7 +59,7 @@ class ConfigValidator {
             cas = Object.keys(config.certificateAuthorities);
             for (let ca of cas) {
                 try {
-                    ConfigValidator.validateCertificateAuthority(config.certificateAuthorities[ca], tls);
+                    ConfigValidator.validateCertificateAuthority(config.certificateAuthorities[ca], tls, requireRegistrar);
                     tls = (tls || false) || config.certificateAuthorities[ca].url.startsWith('https://');
                 } catch (err) {
                     throw new Error(`Invalid "${ca}" CA configuration: ${err.message}`);
@@ -206,6 +212,7 @@ class ConfigValidator {
         const binary = !!config.configBinary;
         const def = !!config.definition;
         const ordererModif = discovery ? 'optional' : 'required';
+        const peerModif = discovery ? 'optional' : 'required';
 
         let binaryModif;
         let defModif;
@@ -306,7 +313,7 @@ class ConfigValidator {
             })[defModif](),
 
             orderers: j.array().sparse(false).items(j.string().valid(validOrderers)).unique()[ordererModif](),
-            peers: j.object().keys(createPeersSchema()).required(),
+            peers: j.object().keys(createPeersSchema())[peerModif](),
 
             // leave this embedded, so the validation error messages are more meaningful
             chaincodes: j.array().sparse(false).items(j.object().keys({
@@ -358,11 +365,13 @@ class ConfigValidator {
      * Validates the given CA configuration object.
      * @param {object} config The configuration object.
      * @param {boolean} tls Indicates whether TLS is enabled or known at this point.
+     * @param {string} requireRegistrar Indicates whether a registrar is optional or required.
      */
-    static validateCertificateAuthority(config, tls) {
+    static validateCertificateAuthority(config, tls, requireRegistrar) {
         let urlRegex = tls === undefined ? /^(https|http):\/\// : (tls ? /^https:\/\// : /^http:\/\//);
 
         const schema = j.object().keys({
+            caName: j.string().optional(),
             url: j.string().uri().regex(urlRegex).required(),
 
             httpOptions: j.object().optional(),
@@ -380,7 +389,7 @@ class ConfigValidator {
             registrar: j.array().items(j.object().keys({
                 enrollId: j.string().min(1).required(),
                 enrollSecret: j.string().min(1).required()
-            })).min(1).sparse(false).unique('enrollId').required()
+            })).min(1).sparse(false).unique('enrollId')[requireRegistrar]()
         });
 
         let options = {
