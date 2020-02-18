@@ -70,11 +70,10 @@ class RunBenchmark {
             logger.info(`Set network configuration path: ${networkConfigPath}`);
             logger.info(`Detected SUT type: ${blockchainType}`);
 
-            const {AdminClient, ClientFactory} = require(`@hyperledger/caliper-${blockchainType}`);
+            const {AdminClient, WorkerFactory} = require(`@hyperledger/caliper-${blockchainType}`);
             const blockchainAdapter = new AdminClient(networkConfigPath, workspacePath);
-            const workerFactory = new ClientFactory();
 
-            const engine = new CaliperEngine(benchmarkConfig, networkConfig, blockchainAdapter, workerFactory);
+            const engine = new CaliperEngine(benchmarkConfig, networkConfig, blockchainAdapter, WorkerFactory);
             const response = await engine.run();
 
             if (response === 0) {

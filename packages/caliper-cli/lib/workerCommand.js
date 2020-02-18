@@ -14,5 +14,10 @@
 
 'use strict';
 
-module.exports.AdminClient = require('./lib/iroha');
-module.exports.WorkerFactory = require('./lib/irohaWorkerFactory');
+module.exports.command = 'worker <subcommand>';
+module.exports.describe = 'Caliper worker command';
+module.exports.builder = function (yargs){
+
+    return yargs.demandCommand(1, 'Incorrect command. Please see the list of commands above, or enter "caliper worker --help".')
+        .commandDir('./worker');
+};

@@ -16,24 +16,27 @@
 'use strict';
 
 process.env.SUPPRESS_NO_CONFIG_WARNING = true;
+const { CaliperUtils } = require('@hyperledger/caliper-core');
+const Logger = CaliperUtils.getLogger('cli');
 const yargs = require('yargs');
 const version = 'v' + require('./package.json').version;
 
 let results = yargs
     .commandDir('./lib')
     .help()
-    .example('caliper bind\ncaliper benchmark run\ncaliper zooclient start\ncaliper zooservice start  ')
+    .example('caliper bind\ncaliper benchmark run\n caliper worker launch')
     .demand(1)
     .wrap(null)
-    .strict()
     .epilogue('For more information on Hyperledger Caliper: https://hyperledger.github.io/caliper/')
     .alias('v', 'version')
     .version(version)
     .describe('v', 'show version information')
+    .strict(false)
     .argv;
 
 results.thePromise.then( () => {
     process.exit(0);
 }).catch((error) => {
+    Logger.error(error);
     process.exit(1);
 });

@@ -15,6 +15,8 @@
 'use strict';
 
 const { CaliperUtils, ConfigUtil } = require('@hyperledger/caliper-core');
+
+const fs = require('fs');
 const path = require('path');
 
 const logger = CaliperUtils.getLogger('bind');
@@ -34,31 +36,46 @@ class Bind {
         let sdk = ConfigUtil.get(ConfigUtil.keys.Bind.Sdk, undefined);
         let cwd = ConfigUtil.get(ConfigUtil.keys.Bind.Cwd, undefined);
         let userArgs = ConfigUtil.get(ConfigUtil.keys.Bind.Args, undefined);
+        let file = ConfigUtil.get(ConfigUtil.keys.Bind.File, undefined);
 
-        let bindOptions = CaliperUtils.parseYaml(path.join(__dirname, './config.yaml'));
+        let bindOptions;
+        const defaultBindOpts = CaliperUtils.parseYaml(path.join(__dirname, './config.yaml'));
+
+        if (file) {
+            // User has passed a configuration file to bind
+            if (!fs.existsSync(file)) {
+                let msg = `Passed bind file ${file} does not exist`;
+                logger.error(msg);
+                throw new Error(msg);
+            } else {
+                bindOptions = CaliperUtils.parseYaml(file);
+            }
+        } else {
+            bindOptions = defaultBindOpts;
+        }
 
         let sutList = Object.keys(bindOptions.sut);
         if (!sut) {
-            let msg = `SUT name is not specified. Available SUTs: ${sutList.join(' | ')}`;
+            let msg = `SUT name is not specified. Available SUTs: ${Object.keys(defaultBindOpts.sut).join(' | ')}`;
             logger.error(msg);
             throw new Error(msg);
         }
 
         if (!sutList.includes(sut)) {
-            let msg = `Unknown SUT name "${sut}". Available SUTs: ${sutList.join(' | ')}`;
+            let msg = `Unknown SUT name "${sut}". Available SUTs: ${Object.keys(defaultBindOpts.sut).join(' | ')}`;
             logger.error(msg);
             throw new Error(msg);
         }
 
         let sutSdkList = Object.keys(bindOptions.sut[sut]);
         if (!sdk) {
-            let msg = `"${sut}" SDK version is not specified. Available versions: ${sutSdkList.join(' | ')}`;
+            let msg = `"${sut}" SDK version is not specified. Available versions: ${Object.keys(defaultBindOpts.sut[sut]).join(' | ')}`;
             logger.error(msg);
             throw new Error(msg);
         }
 
         if (!sutSdkList.includes(sdk)) {
-            let msg = `Unknown "${sut}" SDK version "${sdk}". Available versions: ${sutSdkList.join(' | ')}`;
+            let msg = `Unknown "${sut}" SDK version "${sdk}". Available versions: ${Object.keys(defaultBindOpts.sut[sut]).join(' | ')}`;
             logger.error(msg);
             throw new Error(msg);
         }

@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "js-yaml": "^3.13.1",
-    "fs-extra": "^8.0.1",
+    "fs-extra": "8.1.0",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.7.0",
     "mocha": "6.2.1",

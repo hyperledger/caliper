@@ -18,18 +18,18 @@ const childProcess = require('child_process');
 const path = require('path');
 
 /**
- * Class used to spawn fabric client workers
+ * Class used to spawn fabric workers
  */
-class BurrowClientFactory {
+class FabricWorkerFactory {
 
     /**
      * Spawn the worker and perform required init
      * @returns {Object} the child process
      */
-    async spawnWorker() {
-        const child = childProcess.fork(path.join(__dirname, './burrowClientWorker.js'), process.argv.slice(2), { env: process.env});
+    static spawnWorker() {
+        const child = childProcess.fork(path.join(__dirname, './fabricWorker.js'), process.argv.slice(2), { env: process.env});
         return child;
     }
 }
 
-module.exports = BurrowClientFactory;
+module.exports = FabricWorkerFactory;

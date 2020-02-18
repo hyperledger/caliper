@@ -18,18 +18,18 @@ const childProcess = require('child_process');
 const path = require('path');
 
 /**
- * Class used to spawn fabric client workers
+ * Class used to spawn ethereum workers
  */
-class EthereumClientFactory {
+class EthereumWorkerFactory {
 
     /**
      * Spawn the worker and perform required init
      * @returns {Object} the child process
      */
-    spawnWorker() {
-        const child = childProcess.fork(path.join(__dirname, './ethereumClientWorker.js'), process.argv.slice(2), { env: process.env});
+    static spawnWorker() {
+        const child = childProcess.fork(path.join(__dirname, './ethereumWorker.js'), process.argv.slice(2), { env: process.env});
         return child;
     }
 }
 
-module.exports = EthereumClientFactory;
+module.exports = EthereumWorkerFactory;
