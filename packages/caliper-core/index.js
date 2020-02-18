@@ -23,3 +23,6 @@ module.exports.ConfigUtil = require('./lib/common/config/config-util');
 module.exports.MessageHandler = require('./lib/worker/client/message-handler');
 module.exports.Messenger = require('./lib/common/messaging/messenger');
 module.exports.CaliperEngine = require('./lib/master/caliper-engine');
+module.exports.MonitorOrchestrator = require('./lib/master/orchestrators/monitor-orchestrator');
+module.exports.RoundOrchestrator = require('./lib/master/orchestrators/round-orchestrator');
+module.exports.WorkerOrchestrator = require('./lib/master/orchestrators/worker-orchestrator');
