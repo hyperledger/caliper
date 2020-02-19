@@ -1,6 +1,6 @@
 # ![Hyperledger Caliper](https://wiki.hyperledger.org/download/attachments/2392434/Hyperledger_Caliper_Logo_Color.svg?version=1&modificationDate=1548883186000&api=v2)
 
-[![Build Status](https://travis-ci.org/hyperledger/caliper.svg?branch=master)](https://travis-ci.org/hyperledger/caliper)
+[![Build Status](https://travis-ci.com/hyperledger/caliper.svg?branch=master)](https://travis-ci.com/hyperledger/caliper)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2381/badge)](https://bestpractices.coreinfrastructure.org/projects/2381)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue)](https://github.com/aklenik/caliper/blob/master/LICENSE)
 [![node (scoped)](https://img.shields.io/node/v/@hyperledger/caliper-cli)](https://www.npmjs.com/package/@hyperledger/caliper-cli)
