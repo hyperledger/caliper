@@ -52,8 +52,10 @@ sut:
             packages: ['grpc@1.14.2', 'fabric-ca-client@1.4.1', 'fabric-client@1.4.1', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.1']
         1.4.3:
             packages: ['grpc@1.14.2', 'fabric-ca-client@1.4.2', 'fabric-client@1.4.3', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.2']
-        1.4.4: &fabric-latest
+        1.4.4:
             packages: ['grpc@1.14.2', 'fabric-ca-client@1.4.4', 'fabric-client@1.4.4', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.4']
+        1.4.5: &fabric-latest
+            packages: ['fabric-ca-client@1.4.5', 'fabric-client@1.4.5', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.5']
         latest: *fabric-latest
 
     sawtooth:
