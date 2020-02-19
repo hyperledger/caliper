@@ -825,20 +825,43 @@ describe('Class: ConfigValidator', () => {
         };
         let configString = JSON.stringify(config);
 
+        let configNoRegistrar = {
+            url: 'https://localhost:7054',
+            httpOptions:  {
+                verify: false
+            },
+            tlsCACerts: {
+                path: 'my/path/tocert'
+            }
+        };
+        let configStringNoRegistrar = JSON.stringify(configNoRegistrar);
+
         // reset the local config before every test
         beforeEach(() => {
             config = JSON.parse(configString);
+            configNoRegistrar = JSON.parse(configStringNoRegistrar);
         });
 
         /**
          * Wraps the actual call, so "should" can call this function without parameters
          */
         function call() {
-            ConfigValidator.validateCertificateAuthority(config, tls);
+            ConfigValidator.validateCertificateAuthority(config, tls, 'required');
+        }
+
+        /**
+         * Wraps the actual call, so "should" can call this function without parameters
+         */
+        function callNoRegistrar() {
+            ConfigValidator.validateCertificateAuthority(configNoRegistrar, tls, 'optional');
         }
 
         it('should not throw for a valid value', () => {
             call.should.not.throw();
+        });
+
+        it('should not throw for a valid value', () => {
+            callNoRegistrar.should.not.throw();
         });
 
         it('should throw for an unknown child property', () => {
