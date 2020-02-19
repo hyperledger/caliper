@@ -572,6 +572,15 @@ class FabricNetwork {
     }
 
     /**
+     * Get the orderer object from the network definition
+     * @param {string} ordererName the orderer name to return
+     * @returns {object} orderer object
+     */
+    getOrdererObject(ordererName) {
+        return this.network.orderers[ordererName];
+    }
+
+    /**
      * Gets the organization that the given CA belongs to.
      * @param {string} ca The name of the CA.
      * @return {string} The name of the organization.
