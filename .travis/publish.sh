@@ -16,6 +16,16 @@
 # Exit on first error
 set -e
 
+# distribute root README file before publishing
+cp ./README.md ./packages/caliper-burrow/README.md
+cp ./README.md ./packages/caliper-cli/README.md
+cp ./README.md ./packages/caliper-core/README.md
+cp ./README.md ./packages/caliper-ethereum/README.md
+cp ./README.md ./packages/caliper-fabric/README.md
+cp ./README.md ./packages/caliper-fisco-bcos/README.md
+cp ./README.md ./packages/caliper-iroha/README.md
+cp ./README.md ./packages/caliper-sawtooth/README.md
+
 cd ./packages/caliper-publish/
 npm i
 ./publish.js npm
