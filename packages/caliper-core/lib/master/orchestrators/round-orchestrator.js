@@ -15,8 +15,8 @@
 
 'use strict';
 
-const WorkerOrchestrator  = require('../orchestrators/worker-orchestrator');
-const MonitorOrchestrator = require('../monitors/monitor-orchestrator');
+const WorkerOrchestrator  = require('./worker-orchestrator');
+const MonitorOrchestrator = require('./monitor-orchestrator');
 const Report = require('../report/report');
 const TestObserver = require('../test-observers/test-observer');
 const CaliperUtils = require('../../common/utils/caliper-utils');

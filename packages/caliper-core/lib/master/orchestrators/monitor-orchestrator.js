@@ -15,9 +15,9 @@
 
 'use strict';
 
-const DockerMonitor = require('./monitor-docker.js');
-const ProcessMonitor = require('./monitor-process.js');
-const PrometheusMonitor = require('./monitor-prometheus.js');
+const DockerMonitor = require('../monitors/monitor-docker.js');
+const ProcessMonitor = require('../monitors/monitor-process.js');
+const PrometheusMonitor = require('../monitors/monitor-prometheus.js');
 const Util  = require('../../common/utils/caliper-utils');
 const logger= Util.getLogger('monitor.js');
 

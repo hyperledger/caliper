@@ -17,7 +17,7 @@
 const Blockchain = require('../common/core/blockchain');
 const CaliperUtils = require('../common/utils/caliper-utils');
 const ConfigUtils = require('../common/config/config-util');
-const RoundOrchestrator = require('./test-runners/round-orchestrator');
+const RoundOrchestrator = require('./orchestrators/round-orchestrator');
 const BenchValidator = require('../common/utils/benchmark-validator');
 
 const logger = CaliperUtils.getLogger('caliper-engine');
