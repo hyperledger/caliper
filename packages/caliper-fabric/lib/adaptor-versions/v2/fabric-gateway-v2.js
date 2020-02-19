@@ -21,7 +21,6 @@ const logger = CaliperUtils.getLogger('adapters/fabric');
 const FabricNetwork = require('../../fabricNetwork.js');
 const ConfigValidator = require('../../configValidator.js');
 const RegistrarHelper = require('./registrarHelper');
-const uuid = require('uuid/v1');
 
 const EventStrategies = {
     msp_all : DefaultEventHandlerStrategies.MSPID_SCOPE_ALLFORTX,
@@ -445,7 +444,8 @@ class Fabric extends BlockchainInterface {
         const transaction = smartContract.createTransaction(invokeSettings.chaincodeFunction);
 
         // Build the Caliper TxStatus, this is a reduced item when compared to the low level API capabilities
-        const invokeStatus = new TxStatus(uuid());
+        // - TxID is not available until after transaction submit/evaluate and must be set at that point
+        const invokeStatus = new TxStatus();
 
         // Add transient data if present
         // - passed as key value pairing such as {"hello":"world"}
@@ -489,11 +489,13 @@ class Fabric extends BlockchainInterface {
             invokeStatus.result = result;
             invokeStatus.verified = true;
             invokeStatus.SetStatusSuccess();
+            invokeStatus.SetID(transaction.getTransactionId());
             return invokeStatus;
         } catch (err) {
             logger.error(`Failed to perform ${isSubmit ? 'submit' : 'query' } transaction [${invokeSettings.chaincodeFunction}] using arguments [${invokeSettings.chaincodeArguments}],  with error: ${err.stack ? err.stack : err}`);
             invokeStatus.SetStatusFail();
             invokeStatus.result = [];
+            invokeStatus.SetID(transaction.getTransactionId());
             return invokeStatus;
         }
     }

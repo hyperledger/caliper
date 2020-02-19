@@ -61,7 +61,7 @@ sut:
         1.4.7: &fabric-latest
             packages: ['fabric-client@1.4.7', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.7']
         2.0.0:
-            packages: ['fabric-common@2.0.0-snapshot.387', 'fabric-protos@2.0.0-snapshot.245', 'fabric-network@2.0.0-snapshot.351']
+            packages: ['fabric-common@2.0.0-snapshot.388', 'fabric-protos@2.0.0-snapshot.246', 'fabric-network@2.0.0-snapshot.352']
         latest: *fabric-latest
 
     sawtooth:
