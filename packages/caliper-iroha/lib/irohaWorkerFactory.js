@@ -18,18 +18,18 @@ const childProcess = require('child_process');
 const path = require('path');
 
 /**
- * Class used to spawn FISCO BCOS client workers
+ * Class used to spawn iroha workers
  */
-class FiscoBcosClientFactory {
+class IrohaWorkerFactory {
 
     /**
      * Spawn the worker and perform required init
      * @returns {Object} the child process
      */
     spawnWorker() {
-        const child = childProcess.fork(path.join(__dirname, './fiscoBcosClientWorker.js'), process.argv.slice(2), { env: process.env });
+        const child = childProcess.fork(path.join(__dirname, './irohaWorker.js'), process.argv.slice(2), { env: process.env});
         return child;
     }
 }
 
-module.exports = FiscoBcosClientFactory;
+module.exports = IrohaWorkerFactory;

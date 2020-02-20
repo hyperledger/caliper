@@ -14,8 +14,8 @@
 
 'use strict';
 
-const Bind = require('./bind/bind.js');
-const Utils = require('./utility/utils');
+const Launch = require('./lib/launch.js');
+const Utils = require('../utility/utils');
 
 // enforces singletons
 const checkFn = (argv) => {
@@ -24,8 +24,8 @@ const checkFn = (argv) => {
 };
 
 module.exports._checkFn = checkFn;
-module.exports.command = 'bind [options]';
-module.exports.describe = 'Bind Caliper to a specific SUT and its SDK version';
+module.exports.command = 'launch [options]';
+module.exports.describe = 'Launch a Caliper worker for a target SUT with a bound SDK version';
 module.exports.builder = function (yargs){
 
     yargs.options({
@@ -35,9 +35,7 @@ module.exports.builder = function (yargs){
         'caliper-bind-args'  : {describe: 'Additional arguments to pass to "npm install". Use the "=" notation when setting this parameter', type: 'string' },
         'caliper-bind-file'  : {describe: 'Yaml file to override default (supported) package versions when binding an SDK', type: 'string' }
     });
-    yargs.usage('Usage:\n  caliper bind --caliper-bind-sut fabric --caliper-bind-sdk 1.4.1 --caliper-bind-cwd ./ --caliper-bind-args="-g"');
-    // enforce the option after these options
-    yargs.requiresArg(['caliper-bind-sut','caliper-bind-sdk','caliper-bind-args', 'caliper-bind-cwd']);
+    yargs.usage('Usage:\n caliper worker launch --caliper-bind-sut fabric --caliper-bind-sdk 1.4.1 --caliper-bind-cwd ./ --caliper-bind-args="-g"');
 
     // enforce singletons
     yargs.check(checkFn);
@@ -46,5 +44,5 @@ module.exports.builder = function (yargs){
 };
 
 module.exports.handler = (argv) => {
-    return argv.thePromise = Bind.handler(argv);
+    return argv.thePromise = Launch.handler(argv);
 };

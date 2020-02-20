@@ -18,18 +18,18 @@ const childProcess = require('child_process');
 const path = require('path');
 
 /**
- * Class used to spawn fabric client workers
+ * Class used to spawn sawtooth workers
  */
-class SawtoothClientFactory {
+class SawtoothWorkerFactory {
 
     /**
      * Spawn the worker and perform required init
      * @returns {Object} the child process
      */
     spawnWorker() {
-        const child = childProcess.fork(path.join(__dirname, './sawtoothClientWorker.js'), process.argv.slice(2), { env: process.env});
+        const child = childProcess.fork(path.join(__dirname, './sawtoothWorker.js'), process.argv.slice(2), { env: process.env});
         return child;
     }
 }
 
-module.exports = SawtoothClientFactory;
+module.exports = SawtoothWorkerFactory;

@@ -15,17 +15,12 @@
 'use strict';
 
 const RunBenchmark = require ('./lib/runBenchmark');
+const Utils = require('../utility/utils');
 
 // enforces singletons
 const checkFn = (argv, options) => {
-
-    ['caliper-benchconfig','caliper-networkconfig','caliper-workspace'].forEach((e)=>{
-        if (Array.isArray(argv[e])){
-            throw new Error(`Option ${e} can only be specified once`);
-        }
-    });
-
-    return true;
+    const uniqueArgs = ['caliper-benchconfig','caliper-networkconfig','caliper-workspace'];
+    return Utils.checkSingleton(argv, uniqueArgs);
 };
 module.exports._checkFn = checkFn;
 module.exports.command = 'run [options]';
@@ -38,9 +33,6 @@ module.exports.builder = function (yargs){
         'caliper-workspace'  : {describe:'Workspace directory that contains all configuration information', type: 'string'}
     });
     yargs.usage('caliper benchmark run --caliper-workspace ~/myCaliperProject --caliper-benchconfig my-app-test-config.yaml --caliper-networkconfig my-sut-config.yaml');
-
-    // enforce the option after these options
-    yargs.requiresArg(['caliper-benchconfig','caliper-networkconfig','caliper-workspace']);
 
     // enforce singletons
     yargs.check(checkFn);

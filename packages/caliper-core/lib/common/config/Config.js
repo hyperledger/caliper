@@ -25,7 +25,8 @@ const keys = {
         Sut: 'caliper-bind-sut',
         Sdk: 'caliper-bind-sdk',
         Args: 'caliper-bind-args',
-        Cwd: 'caliper-bind-cwd'
+        Cwd: 'caliper-bind-cwd',
+        File: 'caliper-bind-file'
     },
     Report: {
         Path: 'caliper-report-path',

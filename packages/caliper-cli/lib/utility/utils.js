@@ -14,22 +14,25 @@
 
 'use strict';
 
-const childProcess = require('child_process');
-const path = require('path');
-
 /**
- * Class used to spawn fabric client workers
+ * utility functions for CLI
  */
-class FabricClientFactory {
+class Utils {
 
     /**
-     * Spawn the worker and perform required init
-     * @returns {Object} the child process
+     * Utility function to check for singleton values
+     * @param {string[]} passedArgs arguments passed by user
+     * @param {string[]} uniqueArgs arguments that must be unique
+     * @returns {boolean} boolean true if passes check
      */
-    spawnWorker() {
-        const child = childProcess.fork(path.join(__dirname, './fabricClientWorker.js'), process.argv.slice(2), { env: process.env});
-        return child;
+    static checkSingleton(passedArgs, uniqueArgs) {
+        uniqueArgs.forEach((e) => {
+            if (Array.isArray(passedArgs[e])) {
+                throw new Error(`Option [${e}] can only be specified once`);
+            }
+        });
+        return true;
     }
 }
 
-module.exports = FabricClientFactory;
+module.exports = Utils;

@@ -14,5 +14,22 @@
 
 'use strict';
 
-module.exports.AdminClient = require('./lib/iroha');
-module.exports.WorkerFactory = require('./lib/irohaWorkerFactory');
+const childProcess = require('child_process');
+const path = require('path');
+
+/**
+ * Class used to spawn FISCO BCOS workers
+ */
+class FiscoBcosWorkerFactory {
+
+    /**
+     * Spawn the worker and perform required init
+     * @returns {Object} the child process
+     */
+    spawnWorker() {
+        const child = childProcess.fork(path.join(__dirname, './fiscoBcosWorker.js'), process.argv.slice(2), { env: process.env });
+        return child;
+    }
+}
+
+module.exports = FiscoBcosWorkerFactory;

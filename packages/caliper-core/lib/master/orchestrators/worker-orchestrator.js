@@ -46,7 +46,7 @@ class WorkerOrchestrator {
     /**
      * Constructor
      * @param {object} benchmarkConfig The benchmark configuration object.
-     * @param {object} workerFactory The factory for the worker processes.
+     * @param {WorkerFactory} workerFactory The factory for the worker processes.
      * @param {object[]} workerArguments List of adaptor specific arguments to pass for each worker processes.
      */
     constructor(benchmarkConfig, workerFactory, workerArguments) {
@@ -538,7 +538,6 @@ class WorkerOrchestrator {
 
         // Collect the launched process so it can be killed later
         this.workerObjects.push(worker);
-
     }
 
     /**

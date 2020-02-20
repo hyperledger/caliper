@@ -23,6 +23,8 @@ caliper:
         cwd:
         # The additional args to pass to the binding (i.e., npm install) command
         args:
+        # The file to use when binding (replace supported defaults)
+        file:
     # Report file-related options
     report:
         # The absolute or workspace-relative path of the report file.
