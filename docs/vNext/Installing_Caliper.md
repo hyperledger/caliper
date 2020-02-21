@@ -204,17 +204,7 @@ user@ubuntu:~$ caliper benchmark run \
 
 > __Note:__ for global install you don't need to change the directory to your workspace, you can simply specify `--caliper-workspace ~/caliper-benchmarks`. But this way you can't utilize the auto complete feature of your commandline for the relative paths of the artifacts. 
 
-Depending on your NPM settings, your user might need write access to directories outside of its home directory. This usually results in _"Access denied"_ errors. The following pointers can guide you to circumvent this problem:
-
-1. Check your global NPM install directory: `npm config get prefix`
-2. If the path is outside of your user's home directory:
-  * Grant write permission to your user for that directory
-  * Or change the global install path to a local directory (`~/.local` in the example below) and add it to `PATH`:
-    ```console
-    user@ubuntu:~$ mkdir ~/.local && npm config set prefix ~/.local
-    ```
-  * Or try using sudo for a quick and dirty solution (with unforeseen complications): `sudo npm install -g --only=prod @hyperledger/caliper-cli`
-  * Or just install the package locally instead.
+Depending on your NPM settings, your user might need write access to directories outside of its home directory. This usually results in _"Access denied"_ errors. The following pointers [here](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) can guide you to circumvent the problem.
 
 ## Using the Docker image
 
@@ -379,7 +369,7 @@ The Verdaccio server is now listening on the following address: `http://localhos
 Once Verdaccio is running, you can run the following command to publish every Caliper package locally:
 
 ```console
-user@ubuntu:~/caliper/packages/caliper-publish$ ./publish.js npm
+user@ubuntu:~/caliper/packages/caliper-publish$ ./publish.js npm --registry "http://localhost:4873"
 ...
 + @hyperledger/caliper-core@0.3.0-unstable-20200206065953
 [PUBLISH] Published package @hyperledger/caliper-core@0.3.0-unstable-20200206065953
