@@ -18,7 +18,7 @@
 =========================================================
 
 * Author: Jason You
-* GitHub: 
+* GitHub:
 * Licensed under the Apache 2.0 - https://www.apache.org/licenses/LICENSE-2.0
 
 Copyright (c) 2019 Jason You
@@ -123,7 +123,9 @@ class Sidebar extends React.Component {
               }}
               disabled={this.state.testStarted}
             >
-            <i className="nc-icon nc-button-power" />
+            {this.state.testStarted ? <i className="fas fa-stop-circle" /> :
+            <i className="fas fa-circle-notch" />
+            }
             &nbsp;
             {this.state.testStarted ? "Test Started" : "Start Test"}
             &nbsp;
@@ -131,7 +133,7 @@ class Sidebar extends React.Component {
             <Spinner style={{float:"right"}} size="sm" color="warning" />:
             ""
             }
-            </Button> 
+            </Button>
           </div>
         </div>
         <div className="sidebar-wrapper" ref={this.sidebar}>

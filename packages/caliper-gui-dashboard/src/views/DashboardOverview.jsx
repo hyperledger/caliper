@@ -18,7 +18,7 @@
 =========================================================
 
 * Author: Jason You
-* GitHub: 
+* GitHub:
 * Licensed under the Apache 2.0 - https://www.apache.org/licenses/LICENSE-2.0
 
 Copyright (c) 2019 Jason You
@@ -36,7 +36,7 @@ import {
     CardFooter,
 } from "reactstrap";
 
-import { 
+import {
   Line,
 } from "react-chartjs-2";
 
@@ -59,8 +59,8 @@ const DashboardOverview = function() {
             <CardBody>
               <Row>
                 <Col md="4" xs="5">
-                <div className="icon-big text-center icon-warning">
-                  <i className="nc-icon nc-delivery-fast text-warning" />
+                <div className="icon-big text-center">
+                  <i className="fas fa-bolt text-warning" />
                 </div>
                 </Col>
                 <Col md="8" xs="7">
@@ -91,8 +91,8 @@ const DashboardOverview = function() {
             <CardBody>
               <Row>
                 <Col md="4" xs="5">
-                <div className="icon-big text-center icon-warning">
-                  <i className="nc-icon nc-user-run text-warning" />
+                <div className="icon-big text-center">
+                  <i className="fas fa-cloud text-warning" />
                 </div>
                 </Col>
                 <Col md="8" xs="7">
@@ -123,8 +123,8 @@ const DashboardOverview = function() {
             <CardBody>
               <Row>
                 <Col md="4" xs="5">
-                <div className="icon-big text-center icon-warning">
-                  <i className="nc-icon nc-money-coins text-warning" />
+                <div className="icon-big text-center">
+                  <i className="fas fa-space-shuttle text-warning" />
                 </div>
                 </Col>
                 <Col md="8" xs="7">
@@ -156,7 +156,7 @@ const DashboardOverview = function() {
               <Row>
                 <Col md="4" xs="5">
                 <div className="icon-big text-center icon-warning">
-                  <i className="nc-icon nc-spaceship text-warning" />
+                  <i className="fas fa-newspaper text-warning" />
                 </div>
                 </Col>
                 <Col md="8" xs="7">
