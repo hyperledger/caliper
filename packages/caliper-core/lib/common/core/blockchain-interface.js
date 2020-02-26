@@ -18,13 +18,6 @@
  * Interface of blockchain adapters
  */
 class BlockchainInterface {
-    /**
-     * Constructor
-     * @param {String} configPath path of the blockchain configuration file
-     */
-    constructor(configPath) {
-        this.configPath = configPath;
-    }
 
     /**
      * Retrieve the blockchain type the implementation relates to
@@ -35,8 +28,9 @@ class BlockchainInterface {
 
     /**
      * Initialise test environment
+     * @param {boolean} workerInit Indicates whether the initialization happens in the worker process.
      */
-    async init() {
+    async init(workerInit) {
         throw new Error('init is not implemented for this blockchain system');
     }
 

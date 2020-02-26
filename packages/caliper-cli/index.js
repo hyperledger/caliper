@@ -14,4 +14,4 @@
 
 'use strict';
 
-module.exports.version = require('./package.json');
+module.exports.version = require('./package.json').version;

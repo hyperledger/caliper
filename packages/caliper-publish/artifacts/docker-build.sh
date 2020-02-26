@@ -20,4 +20,4 @@ set -o pipefail
 # Set ARCH
 ARCH=`uname -m`
 
-docker build --network=host -t "${IMAGE}:${TAG}" -f caliper.Dockerfile --build-arg "caliper_version=${TAG}" --build-arg "npm_registry=${NPM_REGISTRY}" .
+docker build --network=host -t "${IMAGE}:${IMAGE_TAG}" -f caliper.Dockerfile --build-arg "caliper_version=${CALIPER_TAG}" --build-arg "npm_registry=${NPM_REGISTRY}" .

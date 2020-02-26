@@ -62,6 +62,13 @@ class ProcessMasterMessenger extends MessengerInterface {
     }
 
     /**
+     * Clean up any resources associated with the messenger.
+     */
+    async dispose() {
+        // NOOP
+    }
+
+    /**
      * Send a message using the messenger
      * @param {object} message the message to send
      */

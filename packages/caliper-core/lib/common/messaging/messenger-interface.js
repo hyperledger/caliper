@@ -62,6 +62,14 @@ class MessengerInterface {
     }
 
     /**
+     * Clean up any resources associated with the messenger.
+     */
+    async dispose() {
+        // require an explicit noop dispose implementation from child classes
+        this._throwNotImplementedError('dispose');
+    }
+
+    /**
      * Logs and throws a "not implemented" error for the given function.
      * @param {string} functionName The name of the function.
      * @private

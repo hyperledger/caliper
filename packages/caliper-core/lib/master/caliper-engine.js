@@ -30,17 +30,15 @@ class CaliperEngine {
      * Initializes the CaliperEngine instance.
      * @param {object} benchmarkConfig The benchmark configuration object.
      * @param {object} networkConfig The network configuration object.
-     * @param {AdminClient} blockchainAdapter The blockchain adapter instance.
-     * @param {ClientFactory} workerFactory The worker process factory.
+     * @param {function} adapterFactory The factory function for creating an adapter instance.
      */
-    constructor(benchmarkConfig, networkConfig, blockchainAdapter, workerFactory) {
+    constructor(benchmarkConfig, networkConfig, adapterFactory) {
         this.benchmarkConfig = benchmarkConfig;
         this.networkConfig = networkConfig;
         this.workspace = ConfigUtils.get(ConfigUtils.keys.Workspace);
         this.returnCode = -1;
 
-        this.blockchainAdapter = blockchainAdapter;
-        this.workerFactory = workerFactory;
+        this.adapterFactory = adapterFactory;
     }
 
     /**
@@ -68,7 +66,7 @@ class CaliperEngine {
                 try {
                     await CaliperUtils.execAsync(`cd ${this.workspace}; ${command}`);
                 } catch (err) {
-                    let msg = `An error occurred while executing the ${commandName} command: ${err.message}`;
+                    let msg = `An error occurred while executing the ${commandName} command: ${err}`;
                     logger.error(msg);
                     this.returnCode = errorStatusStart + 3;
                     throw new Error(msg);
@@ -93,7 +91,8 @@ class CaliperEngine {
         BenchValidator.validateObject(this.benchmarkConfig);
 
         logger.info('Starting benchmark flow');
-        const blockchainWrapper = new Blockchain(this.blockchainAdapter);
+        let adapter = await this.adapterFactory(-1);
+        const blockchainWrapper = new Blockchain(adapter);
 
         try {
 
@@ -112,7 +111,7 @@ class CaliperEngine {
                 try {
                     await blockchainWrapper.init();
                 } catch (err) {
-                    let msg = `Error while performing "init" step: ${err.message}`;
+                    let msg = `Error while performing "init" step: ${err}`;
                     logger.error(msg);
                     this.returnCode = 4;
                     throw new Error(msg);
@@ -130,7 +129,7 @@ class CaliperEngine {
                 try {
                     await blockchainWrapper.installSmartContract();
                 } catch (err) {
-                    let msg = `Error while performing "install" step: ${err.message}`;
+                    let msg = `Error while performing "install" step: ${err}`;
                     logger.error(msg);
                     this.returnCode = 5;
                     throw new Error(msg);
@@ -148,14 +147,14 @@ class CaliperEngine {
                 let numberOfWorkers = numberSet ? this.benchmarkConfig.test.workers.number : 1;
                 let workerArguments = await blockchainWrapper.prepareWorkerArguments(numberOfWorkers);
 
-                const roundOrchestrator = new RoundOrchestrator(this.benchmarkConfig, this.networkConfig, this.workerFactory, workerArguments);
+                const roundOrchestrator = new RoundOrchestrator(this.benchmarkConfig, this.networkConfig, workerArguments);
                 await roundOrchestrator.run();
             }
         } catch (err) {
             // this means that we haven't handled/logged this failure yet
             if (this.returnCode < 0) {
                 // log full stack
-                let msg = `Error while performing "test" step: ${err.stack || err}`;
+                let msg = `Error while performing "test" step: ${err}`;
                 logger.error(msg);
                 this.returnCode = 6;
             }

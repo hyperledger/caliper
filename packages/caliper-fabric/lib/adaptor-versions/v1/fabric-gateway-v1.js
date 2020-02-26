@@ -558,11 +558,11 @@ class Fabric extends BlockchainInterface {
     /**
      * Initializes the admins of the organizations.
      *
-     * @param {boolean} initPhase Indicates whether to log admin init progress.
+     * @param {boolean} workerInit Indicates whether the initialization happens in the worker process.
      * @private
      * @async
      */
-    async _initializeAdmins(initPhase) {
+    async _initializeAdmins(workerInit) {
         let orgs = this.networkUtil.getOrganizations();
         for (let org of orgs) {
             let adminName = `admin.${org}`;
@@ -579,7 +579,7 @@ class Fabric extends BlockchainInterface {
                         this._setTlsAdminCertAndKey(org);
                     }
 
-                    if (initPhase) {
+                    if (!workerInit) {
                         logger.warn(`${org}'s admin's materials found locally in file system key-value stores. Make sure it is the right one!`);
                     }
 
@@ -633,11 +633,11 @@ class Fabric extends BlockchainInterface {
     /**
      * Initializes the registrars of the organizations.
      *
-     * @param {boolean} initPhase Indicates whether to log registrar init progress.
+     * @param {boolean} workerInit Indicates whether the initialization happens in the worker process.
      * @private
      * @async
      */
-    async _initializeRegistrars(initPhase) {
+    async _initializeRegistrars(workerInit) {
         let orgs = this.networkUtil.getOrganizations();
         for (let org of orgs) {
 
@@ -648,7 +648,7 @@ class Fabric extends BlockchainInterface {
             }
             let registrarInfo = this.networkUtil.getRegistrarOfOrganization(org);
             if (!registrarInfo) {
-                if (initPhase) {
+                if (!workerInit) {
                     logger.warn(`${org}'s registrar information not provided.`);
                 }
                 continue;
@@ -660,7 +660,7 @@ class Fabric extends BlockchainInterface {
             let registrar = await this._getUserContext(registrarProfile, registrarInfo.enrollId, `${org}'s registrar`);
 
             if (registrar) {
-                if (initPhase) {
+                if (!workerInit) {
                     logger.warn(`${org}'s registrar's materials found locally in file system key-value stores. Make sure it is the right one!`);
                 }
                 this.registrarProfiles.set(org, registrarProfile);
@@ -672,7 +672,7 @@ class Fabric extends BlockchainInterface {
                 registrarInfo.enrollSecret, `${org}'s registrar`);
 
             this.registrarProfiles.set(org, registrarProfile);
-            if (initPhase) {
+            if (!workerInit) {
                 logger.info(`${org}'s registrar enrolled successfully`);
             }
         }
@@ -681,11 +681,11 @@ class Fabric extends BlockchainInterface {
     /**
      * Registers and enrolls the specified users if necessary.
      *
-     * @param {boolean} initPhase Indicates whether to log user init progress.
+     * @param {boolean} workerInit Indicates whether the initialization happens in the worker process.
      * @private
      * @async
      */
-    async _initializeUsers(initPhase) {
+    async _initializeUsers(workerInit) {
         let clients = this.networkUtil.getClients();
 
         // register and enroll each client with its organization's CA
@@ -704,7 +704,7 @@ class Fabric extends BlockchainInterface {
                     clientProfile.setTlsClientCertAndKey(user.getIdentity()._certificate, user.getSigningIdentity()._signer._key.toBytes());
                 }
 
-                if (initPhase) {
+                if (!workerInit) {
                     logger.warn(`${client}'s materials found locally in file system key-value stores. Make sure it is the right one!`);
                 }
 
@@ -737,7 +737,7 @@ class Fabric extends BlockchainInterface {
                     clientProfile.setTlsClientCertAndKey(crypto.signedCertPEM.toString(), crypto.privateKeyPEM.toString());
                 }
 
-                if (initPhase) {
+                if (!workerInit) {
                     logger.info(`${client}'s materials are successfully loaded`);
                 }
 
@@ -767,7 +767,7 @@ class Fabric extends BlockchainInterface {
                     clientProfile.setTlsClientCertAndKey(Buffer.from(enrollment.certificate).toString(), enrollment.key.toString());
                 }
 
-                if (initPhase) {
+                if (!workerInit) {
                     logger.info(`${client} successfully enrolled`);
                 }
 
@@ -801,14 +801,14 @@ class Fabric extends BlockchainInterface {
                         await affService.getOne(userAffiliation, registrar);
                         affiliationExists = true;
                     } catch (err) {
-                        if (initPhase) {
+                        if (!workerInit) {
                             logger.info(`${userAffiliation} affiliation doesn't exists`);
                         }
                     }
 
                     if (!affiliationExists) {
                         await affService.create({name: userAffiliation, force: true}, registrar);
-                        if (initPhase) {
+                        if (!workerInit) {
                             logger.info(`${userAffiliation} affiliation added`);
                         }
                     }
@@ -827,7 +827,7 @@ class Fabric extends BlockchainInterface {
                 throw new Error(`Couldn't register ${client}: ${err.message}`);
             }
 
-            if (initPhase) {
+            if (!workerInit) {
                 logger.info(`${client} successfully registered`);
             }
 
@@ -843,7 +843,7 @@ class Fabric extends BlockchainInterface {
                 //this._setTlsClientCertAndKey(client);
             }
 
-            if (initPhase) {
+            if (!workerInit) {
                 logger.info(`${client} successfully enrolled`);
             }
 
@@ -1645,21 +1645,21 @@ class Fabric extends BlockchainInterface {
 
     /**
      * Initializes the Fabric adapter: sets up clients, admins, registrars, channels and chaincodes.
-     * @param {boolean} clientOnly boolean value to only configure the client or not
+     * @param {boolean} workerInit Indicates whether the initialization happens in the worker process.
      * @async
      */
-    async init(clientOnly = false) {
+    async init(workerInit = false) {
         let tlsInfo = this.networkUtil.isMutualTlsEnabled() ? 'mutual'
             : (this.networkUtil.isTlsEnabled() ? 'server' : 'none');
         let compMode = this.networkUtil.isInCompatibilityMode() ? '; Fabric v1.0 compatibility mode' : '';
         logger.info(`Fabric SDK version: ${this.version.toString()}; TLS: ${tlsInfo}${compMode}`);
 
-        await this._initializeRegistrars(true);
-        await this._initializeAdmins(true);
-        await this._initializeUsers(true);
+        await this._initializeRegistrars(workerInit);
+        await this._initializeAdmins(workerInit);
+        await this._initializeUsers(workerInit);
         this.initPhaseCompleted = true;
 
-        if (!clientOnly) {
+        if (!workerInit) {
             if (await this._createChannels()) {
                 logger.info(`Sleeping ${this.configSleepAfterCreateChannel / 1000.0}s...`);
                 await CaliperUtils.sleep(this.configSleepAfterCreateChannel);

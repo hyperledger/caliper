@@ -23,20 +23,26 @@ const version = 'v' + require('./package.json').version;
 
 let results = yargs
     .commandDir('./lib')
+    .completion()
+    .recommendCommands()
     .help()
-    .example('caliper bind\ncaliper benchmark run\n caliper worker launch')
-    .demand(1)
+    .demandCommand(1, 1, 'Please specify a command to continue')
+    .example('caliper bind\ncaliper launch master\ncaliper launch worker')
     .wrap(null)
     .epilogue('For more information on Hyperledger Caliper: https://hyperledger.github.io/caliper/')
-    .alias('v', 'version')
+    .alias('version', 'v')
+    .alias('help', 'h')
     .version(version)
-    .describe('v', 'show version information')
+    .describe('version', 'Show version information')
+    .describe('help', 'Show usage information')
     .strict(false)
     .argv;
 
 results.thePromise.then( () => {
-    process.exit(0);
+    // DO NOT EXIT THE PROCESS HERE
+    // The event loops of the workers are still running at this point
+    // The default exit code is 0 anyway
 }).catch((error) => {
-    Logger.error(error);
+    Logger.error(`Error during command execution: ${error}`);
     process.exit(1);
 });

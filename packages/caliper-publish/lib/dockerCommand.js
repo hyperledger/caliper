@@ -27,6 +27,12 @@ module.exports.builder = yargs => {
             type: 'string',
             describe: 'The name for the built image.'
         },
+        tag: {
+            alias: 't',
+            demand: false,
+            type: 'string',
+            describe: 'Overrides the version-based tag for testing purposes'
+        },
         registry: {
             alias: 'r',
             demand: false,
@@ -61,5 +67,5 @@ module.exports.builder = yargs => {
 };
 
 module.exports.handler = argv => {
-    argv.thePromise = Docker.handler(argv.image, argv.registry, argv.publish, argv.user, argv.retries);
+    argv.thePromise = Docker.handler(argv.image, argv.registry, argv.publish, argv.user, argv.retries, argv.tag);
 };

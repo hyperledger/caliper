@@ -18,17 +18,16 @@ const { BlockchainInterface, CaliperUtils, ConfigUtil } = require('@hyperledger/
 const Logger = CaliperUtils.getLogger('adapters/fabric');
 
 const semver = require('semver');
+const path = require('path');
 
 const Fabric = class extends BlockchainInterface {
 
     /**
      * Initializes the Fabric adapter.
-     * @param {string|object} networkConfig The relative or absolute file path, or the object itself of the Common Connection Profile settings.
-     * @param {string} workspace_root The absolute path to the root location for the application configuration files.
-     * @param {number} clientIndex the client index
+     * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process.
      */
-    constructor(networkConfig, workspace_root, clientIndex) {
-        super(networkConfig);
+    constructor(workerIndex) {
+        super();
         // Switch adaptors on the fabric-ca-client, which is a common package across all fabric-sdk-node releases
         const packageVersion = require('fabric-ca-client/package').version;
         const version = semver.coerce(packageVersion);
@@ -54,8 +53,11 @@ const Fabric = class extends BlockchainInterface {
             throw new Error(`Installed SDK version ${version} did not match any compatible Fabric adaptors`);
         }
 
+        let networkConfig = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
+        let workspaceRoot = path.resolve(ConfigUtil.get(ConfigUtil.keys.Workspace));
+
         let Fabric = require(modulePath);
-        this.fabric = new Fabric(networkConfig, workspace_root, clientIndex);
+        this.fabric = new Fabric(networkConfig, workspaceRoot, workerIndex);
     }
 
     /**
@@ -82,11 +84,11 @@ const Fabric = class extends BlockchainInterface {
 
     /**
      * Initializes the Fabric adapter and configures the SUT: sets up clients, admins, registrars, channels and chaincodes.
-     * @param {boolean} clientOnly boolean value to only configure the client or not
+     * @param {boolean} workerInit Indicates whether the initialization happens in the worker process.
      * @async
      */
-    async init(clientOnly) {
-        await this.fabric.init(clientOnly);
+    async init(workerInit) {
+        await this.fabric.init(workerInit);
     }
 
     /**
@@ -138,34 +140,34 @@ const Fabric = class extends BlockchainInterface {
     /**
      * Initializes the registrars of the organizations.
      *
-     * @param {boolean} initPhase Indicates whether to log registrar init progress.
+     * @param {boolean} masterInit Indicates whether the initialization happens in the master process.
      * @private
      * @async
      */
-    async _initializeRegistrars(initPhase) {
-        await this.fabric._initializeRegistrars(initPhase);
+    async _initializeRegistrars(masterInit) {
+        await this.fabric._initializeRegistrars(masterInit);
     }
 
     /**
      * Initializes the admins of the organizations.
      *
-     * @param {boolean} initPhase Indicates whether to log admin init progress.
+     * @param {boolean} masterInit Indicates whether the initialization happens in the master process.
      * @private
      * @async
      */
-    async _initializeAdmins(initPhase) {
-        await this.fabric._initializeAdmins(initPhase);
+    async _initializeAdmins(masterInit) {
+        await this.fabric._initializeAdmins(masterInit);
     }
 
     /**
      * Registers and enrolls the specified users if necessary.
      *
-     * @param {boolean} initPhase Indicates whether to log user init progress.
+     * @param {boolean} masterInit Indicates whether the initialization happens in the master process.
      * @private
      * @async
      */
-    async _initializeUsers(initPhase) {
-        await this.fabric._initializeUsers(initPhase);
+    async _initializeUsers(masterInit) {
+        await this.fabric._initializeUsers(masterInit);
     }
 
 };
