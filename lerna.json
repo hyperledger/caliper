@@ -15,7 +15,9 @@
         "packages/caliper-sawtooth",
         "packages/caliper-cli",
         "packages/caliper-publish",
-        "packages/caliper-tests-integration"
+        "packages/caliper-tests-integration",
+		"packages/caliper-gui-dashboard",
+		"packages/caliper-gui-server"
 	],
 	"version": "0.3.0-unstable",
 	"hoist": true

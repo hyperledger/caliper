@@ -1,0 +1,69 @@
+{
+  "name": "caliper",
+  "description": "Performance benchmarking for Hyperledger blockchain technologies.  You must install [Lerna](https://lernajs.io) to build this multi-package repository.",
+  "version": "0.3.0-unstable",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyperledger/caliper"
+  },
+  "scripts": {
+    "repoclean": "lerna clean",
+    "bootstrap": "lerna bootstrap",
+    "pretest": "npm run licchk",
+    "licchk": "license-check-and-add",
+    "test": "lerna run test",
+    "publish_npm": "lerna publish --dist-tag ${DIST_TAG} --yes --force-publish=* --ignore-scripts --no-git-reset"
+  },
+  "engines": {
+    "node": ">=8.10.0",
+    "npm": ">=5.6.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "lerna": "^3.18.3",
+    "license-check-and-add": "2.3.6"
+  },
+  "license-check-and-add-config": {
+    "folder": ".",
+    "license": "LICENSE.txt",
+    "exact_paths_method": "EXCLUDE",
+    "exact_paths": [
+      "CODEOWNERS",
+      "LICENSE",
+      ".idea",
+      "node_modules",
+      ".nyc_output",
+      "coverage",
+      "scripts",
+      ".git",
+      ".gitignore",
+      "packages",
+      "log"
+    ],
+    "file_type_method": "EXCLUDE",
+    "file_types": [
+      ".yml",
+      ".md",
+      ".log",
+      ".html"
+    ],
+    "insert_license": false,
+    "license_formats": {
+      "js|cto|qry|go": {
+        "prepend": "/*",
+        "append": "*/",
+        "eachLine": {
+          "prepend": "* "
+        }
+      },
+      "cfg|editorconfig|yaml|py": {
+        "prepend": "#",
+        "append": "#",
+        "eachLine": {
+          "prepend": "# "
+        }
+      }
+    }
+  },
+  "license": "Apache-2.0"
+}

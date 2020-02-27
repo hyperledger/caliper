@@ -1,7 +1,7 @@
 {
     "name": "@hyperledger/caliper-gui-server",
     "description": "Hyperledger Caliper GUI server module, for easily assembling configuration files and monitoring benchmark runs",
-    "version": "0.2.0",
+    "version": "0.3.0-unstable",
     "private": true,
     "repository": {
         "type": "git",
