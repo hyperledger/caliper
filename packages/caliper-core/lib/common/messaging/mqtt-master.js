@@ -111,6 +111,24 @@ class MqttMasterMessenger extends MessengerInterface {
         Logger.debug(`Published message: ${msg}`);
     }
 
+    /**
+     * Clean up any resources associated with the messenger.
+     */
+    async dispose() {
+        const messengerDisconnectedPromise = new Promise((resolve, reject) => {
+            this.messengerDisconnectedPromise = {
+                resolve: resolve,
+                reject:  reject
+            };
+        });
+
+        this.mqttClient.end(false, undefined, () => {
+            this.messengerDisconnectedPromise.resolve();
+        });
+
+        await messengerDisconnectedPromise;
+    }
+
 }
 
 /**

@@ -14,5 +14,4 @@
 
 'use strict';
 
-module.exports.AdminClient = require('./lib/ethereum');
-module.exports.WorkerFactory = require('./lib/ethereumWorkerFactory');
+module.exports.AdapterFactory = require('./lib/adapterFactory').adapterFactory;

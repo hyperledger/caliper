@@ -14,6 +14,5 @@
 
 'use strict';
 
-module.exports.AdminClient = require('./lib/sawtooth');
-module.exports.WorkerFactory = require('./lib/sawtoothWorkerFactory');
 module.exports.BatchBuilder = require('./lib/batch/BatchBuilder');
+module.exports.AdapterFactory = require('./lib/adapterFactory').adapterFactory;

@@ -23,7 +23,6 @@ nconf.formats.yaml = require('nconf-yaml');
 const keys = {
     Bind: {
         Sut: 'caliper-bind-sut',
-        Sdk: 'caliper-bind-sdk',
         Args: 'caliper-bind-args',
         Cwd: 'caliper-bind-cwd',
         File: 'caliper-bind-file'

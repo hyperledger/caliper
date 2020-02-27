@@ -16,16 +16,15 @@
 
 const fs = require('fs');
 const monax = require('@monax/burrow');
-const { BlockchainInterface, CaliperUtils, TxStatus } = require('@hyperledger/caliper-core');
+const { BlockchainInterface, CaliperUtils, ConfigUtil, TxStatus } = require('@hyperledger/caliper-core');
 const logger = CaliperUtils.getLogger('burrow.js');
 
 /**
     Read the connection details from the config file.
     @param {object} config Adapter config.
-    @param {string} workspace_root The absolute path to the root location for the configuration files.
     @return {object} url, account Connection settings.
 */
-function burrowConnect(config, workspace_root) {
+function burrowConnect(config) {
     let host = config.burrow.network.validator.host;
     if (host === null) {
         throw new Error('host url not set');
@@ -38,7 +37,7 @@ function burrowConnect(config, workspace_root) {
 
     let account;
     try {
-        account = fs.readFileSync(CaliperUtils.resolvePath(config.burrow.network.validator.address, workspace_root)).toString();
+        account = fs.readFileSync(CaliperUtils.resolvePath(config.burrow.network.validator.address)).toString();
     } catch (err) {
         account = config.burrow.network.validator.address.toString();
     }
@@ -60,14 +59,14 @@ class Burrow extends BlockchainInterface {
 
     /**
    * Create a new instance of the {Burrow} class.
-   * @param {string} config_path The path of the Burrow network configuration file.
-   * @param {string} workspace_root The absolute path to the root location for the application configuration files.
+   * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process. Currently unused.
    */
-    constructor(config_path, workspace_root) {
-        super(config_path);
+    constructor(workerIndex) {
+        super();
+        let configPath = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
+        this.config = require(configPath);
         this.statusInterval = null;
         this.bcType = 'burrow';
-        this.workspaceRoot = workspace_root;
     }
 
     /**
@@ -80,10 +79,10 @@ class Burrow extends BlockchainInterface {
 
     /**
      * Initialize the {Burrow} object.
-     * @return {time} sleep
+     * @param {boolean} workerInit Indicates whether the initialization happens in the worker process.
      */
-    init() {
-        return CaliperUtils.sleep(2000);
+    async init(workerInit) {
+        return await CaliperUtils.sleep(2000);
     }
 
     /**
@@ -91,14 +90,13 @@ class Burrow extends BlockchainInterface {
      * @return {object} Promise execution for namereg.
      */
     async installSmartContract() {
-        let config = require(this.configPath);
-        let connection = burrowConnect(config, this.workspaceRoot);
+        let connection = burrowConnect(this.config);
         let options = { objectReturn: true };
         let burrow = monax.createInstance(connection.url, connection.account, options);
 
         let data, abi, bytecode, contract;
         try {
-            data = JSON.parse(fs.readFileSync(CaliperUtils.resolvePath(config.contract.path, this.workspaceRoot)).toString());
+            data = JSON.parse(fs.readFileSync(CaliperUtils.resolvePath(this.config.contract.path)).toString());
             abi = data.Abi;
             bytecode = data.Evm.Bytecode.Object;
 
@@ -130,12 +128,11 @@ class Burrow extends BlockchainInterface {
      * @async
      */
     async getContext(name, args) {
-        let config = require(this.configPath);
-        let context = config.burrow.context;
+        let context = this.config.burrow.context;
 
         if (typeof context === 'undefined') {
 
-            let connection = burrowConnect(config, this.workspaceRoot);
+            let connection = burrowConnect(this.config);
             let options = { objectReturn: true };
             let burrow = monax.createInstance(connection.url, connection.account, options);
 

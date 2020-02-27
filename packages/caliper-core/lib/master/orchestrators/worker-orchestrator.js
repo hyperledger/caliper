@@ -15,6 +15,8 @@
 
 'use strict';
 
+const childProcess = require('child_process');
+
 const CaliperUtils = require('../../common/utils/caliper-utils');
 const ConfigUtils = require('../../common/config/config-util');
 const logger = CaliperUtils.getLogger('worker-orchestrator');
@@ -28,6 +30,7 @@ const TYPES = {
     INITIALIZE: 'initialize',
     PREPARE: 'prepare',
     TEST: 'test',
+    EXIT: 'exit',
 };
 
 // Add in worker message typings
@@ -46,12 +49,10 @@ class WorkerOrchestrator {
     /**
      * Constructor
      * @param {object} benchmarkConfig The benchmark configuration object.
-     * @param {WorkerFactory} workerFactory The factory for the worker processes.
      * @param {object[]} workerArguments List of adaptor specific arguments to pass for each worker processes.
      */
-    constructor(benchmarkConfig, workerFactory, workerArguments) {
+    constructor(benchmarkConfig, workerArguments) {
         this.config = benchmarkConfig.test.workers;
-        this.workerFactory = workerFactory;
         this.workerArguments = workerArguments;
 
         this.workers = {};
@@ -487,7 +488,10 @@ class WorkerOrchestrator {
     /**
      * Stop all test workers (child processes)
      */
-    stop() {
+    async stop() {
+        this.messenger.send(['all'], TYPES.EXIT, {});
+        await this.messenger.dispose();
+
         for (let workerObject of this.workerObjects) {
             workerObject.kill();
         }
@@ -534,7 +538,16 @@ class WorkerOrchestrator {
         logger.info(`Launching worker ${index} of ${this.number}`);
 
         // Spawn the worker. The index is assigned upon connection
-        let worker = this.workerFactory.spawnWorker();
+        let cliPath = process.argv[1];
+        let workerCommands = ['launch', 'worker'];
+        let remainingArgs = process.argv.slice(4);
+
+        let nodeArgs = workerCommands.concat(remainingArgs);
+
+        let worker = childProcess.fork(cliPath, nodeArgs, {
+            env: process.env,
+            cwd: process.cwd()
+        });
 
         // Collect the launched process so it can be killed later
         this.workerObjects.push(worker);

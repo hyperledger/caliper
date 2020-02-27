@@ -4,6 +4,8 @@ env:
     mocha: true
 extends: 'eslint:recommended'
 parserOptions:
+    ecmaFeatures:
+        experimentalObjectRestSpread: true
     ecmaVersion: 8
     sourceType:
         - script

@@ -15,7 +15,9 @@
 
 'use strict';
 
-const { BlockchainInterface, CaliperUtils, TxStatus }= require('@hyperledger/caliper-core');
+const path = require('path');
+
+const { BlockchainInterface, CaliperUtils, ConfigUtil, TxStatus }= require('@hyperledger/caliper-core');
 const logger = CaliperUtils.getLogger('sawtooth.js');
 
 const BatchBuilderFactory = require('./batch/BatchBuilderFactory.js');
@@ -317,16 +319,14 @@ async function submitBatches(block_num, batchBytes, timeout) {
 class Sawtooth extends BlockchainInterface {
     /**
      * Constructor
-     * @param {String} config_path path of the Sawtooth configuration file
-     * @param {string} workspace_root The absolute path to the root location for the application configuration files.
-     * @param {number} clientIndex The client index
+     * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process. Currently unused.
      */
-    constructor(config_path, workspace_root, clientIndex) {
-        super(config_path);
-        configPath = config_path;
+    constructor(workerIndex) {
+        super();
+        configPath = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
         this.bcType = 'sawtooth';
-        this.workspaceRoot = workspace_root;
-        this.clientIndex = clientIndex;
+        this.workspaceRoot = path.resolve(ConfigUtil.get(ConfigUtil.keys.Workspace));
+        this.clientIndex = workerIndex;
     }
 
     /**

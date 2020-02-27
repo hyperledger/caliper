@@ -12,28 +12,29 @@
 # limitations under the License.
 #
 
-FROM node:10.16-alpine AS caliper-base
-WORKDIR /hyperledger/caliper
+FROM node:10.16-alpine
 
-# Common steps for all versions
-# 1. install packages for grpc compilation
-# 2. Create the default workspace directory
-# 3. Initialize the working directory
-RUN apk add --no-cache python2 make g++ git \
-    && mkdir -p /hyperledger/caliper/workspace \
-    && npm init -y
-
-
-FROM caliper-base
 # require to set these explicitly to avoid mistakes
 ARG npm_registry
 ARG caliper_version
 
-WORKDIR /hyperledger/caliper
+# Install packages for dependency compilation
+RUN apk add --no-cache python g++ make git
 
-# 4. Install the CLI into the working directory
-RUN npm install ${npm_registry} --only=prod @hyperledger/caliper-cli@${caliper_version}
+# execute as the "node" user, created in the base image
+USER node:node
+WORKDIR /hyperledger/caliper/workspace
 
+# 1 & 2. change the NPM global install directory
+# https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally#manually-change-npms-default-directory
+# 3. install Caliper globally
+RUN mkdir /home/node/.npm-global \
+    && npm config set prefix '/home/node/.npm-global' \
+    && npm install ${npm_registry} -g --only=prod @hyperledger/caliper-cli@${caliper_version}
+
+ENV PATH /home/node/.npm-global/bin:$PATH
 ENV CALIPER_WORKSPACE /hyperledger/caliper/workspace
-CMD npx caliper bind && npx caliper benchmark run
+ENV CALIPER_BIND_ARGS -g
 
+ENTRYPOINT ["caliper"]
+CMD ["--version"]

@@ -120,6 +120,24 @@ class MqttWorkerMessenger extends MessengerInterface {
         });
     }
 
+    /**
+     * Clean up any resources associated with the messenger.
+     */
+    async dispose() {
+        const messengerDisconnectedPromise = new Promise((resolve, reject) => {
+            this.messengerDisconnectedPromise = {
+                resolve: resolve,
+                reject:  reject
+            };
+        });
+
+        this.mqttClient.end(true, undefined, () => {
+            this.messengerDisconnectedPromise.resolve();
+        });
+
+        await messengerDisconnectedPromise;
+    }
+
 }
 
 /**
