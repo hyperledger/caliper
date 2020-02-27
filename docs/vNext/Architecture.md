@@ -23,64 +23,9 @@ Hyperledger Caliper can be abstracted into two components:
 
 <img src="{{ site.baseurl }}/assets/img/test-framework.png" alt="Benchmark Engine">
 
-### Configuration File
+### Benchmark Configuration File
 
-Two kinds of configuration files are used. One is the benchmark configuration file, which defines the arguments of the benchmark like workload. Another is the blockchain configuration file, which specify necessary information to help interacting with the SUT.  
-
-Below is a benchmark configuration file example:
-```yaml
-test:
-  name: simple
-  description: This is an example benchmark for caliper
-  clients:
-    type: local
-    number: 5
-  rounds:
-  - label: open
-    txNumber: 5000
-    rateControl:
-      type: fixed-rate
-      opts: 
-        tps: 100
-    arguments:
-      money: 10000
-    callback: benchmark/simple/open.js
-  - label: query
-    txNumber: 5000
-    rateControl:
-      type: fixed-rate
-      opts:
-        tps: 300
-    callback" : benchmark/simple/query.js
-monitor:
-  type:
-  - docker
-  - process
-  docker:
-    name:
-    - peer0.org1.example.com
-    - http://192.168.1.100:2375/orderer.example.com
-  process:
-  - command: node
-    arguments: local-client.js
-    multiOutput: avg
-  interval: 1
-```
-* **test** - defines the metadata of the test, as well as multiple test rounds with specified workload:
-  * **name&description** : human readable name and description of the benchmark, the value is used by the report generator to show in the testing report.
-  * **clients** : defines the client type as well as relevant arguments, the 'type' property must be 'local'
-    * local: In this case, local processes will be forked and act as blockchain clients. The number of forked clients should be defined by 'number' property.
-  * **label** : hint for the test. For example, you can use the transaction name as the label name to tell which transaction is mainly used to test the performance. The value is also used as the context name for *blockchain.getContext()*. For example, developers may want to test performance of different Fabric channels, in that case, tests with different label can be bound to different fabric channels.  
-  * **txNumber** : defines the number of transactions to be generated in the corresponding round. Mutually exclusive with the `txDuration` attribute.
-  * **txDuration** : defines the length of the corresponding round in seconds. Mutually exclusive with the `txNumber` attribute.
-  * **rateControl** : defines the rate controller that will drive the transaction generation during the round. For more information on available rate controllers and how to implement custom rate controllers, refer to the [rate controllers section](./Rate_Controllers.md)
-  * **trim** : performs a trimming operation on the client results to eliminate the warm-up and cool-down phase being included within tests reports. If specified, the trim option will respect the round measurement. For example, if `txNumber` is the driving test mode the a value of 30 means the initial and final 30 transactions of the results from each client will be ignored when generating result statistics; if `txDuration` is being used, the the initial and final 30seconds of the the results from each client will be ignored.
-  * **arguments** : user defined arguments which will be passed directly to the user defined test module.
-  * **callback** : specifies the user defined module used in this test round. Please see [User defined test module](./Writing_Benchmarks.md) to learn more details.
-* **monitor** - defines the type of resource monitors and monitored objects, as well as the time interval for the monitoring.
-  * docker : a docker monitor is used to monitor specified docker containers on local or remote hosts. Docker Remote API is used to retrieve remote container's stats. Reserved container name 'all' means all containers on the host will be watched. In above example, the monitor will retrieve the stats of two containers per second, one is a local container named 'peer0.org1.example.com' and another is a remote container named 'orderer.example.com' located on host '192.168.1.100', 2375 is the listening port of Docker on that host.
-  * process : a process monitor is used to monitor specified local process. For example, users can use this monitor to watch the resource consumption of simulated blockchain clients. The 'command' and 'arguments' properties are used to specify the processes. The 'multiOutput' property is used to define the meaning of the output if multiple processes are found. 'avg' means the output is the average resource consumption of those processes, while 'sum' means the output is the summing consumption.  
-  * prometheus : uses a configured Prometheus server to publish and query metrics
+For the structure and documentation of the benchmark configuration file, refer to its [documentation page](./BenchmarkConfiguration.md).
 
 ### Master
 
