@@ -18,7 +18,7 @@
 =========================================================
 
 * Author: Jason You
-* GitHub: 
+* GitHub:
 * Licensed under the Apache 2.0 - https://www.apache.org/licenses/LICENSE-2.0
 
 Copyright (c) 2019 Jason You
@@ -63,6 +63,7 @@ const dashboardLatencyChart = {
               new Date("2019-08-01T17:09:05").toLocaleDateString("en-US", dateOptions),
               new Date("2019-08-01T17:10:05").toLocaleDateString("en-US", dateOptions),
               new Date("2019-08-01T17:12:05").toLocaleDateString("en-US", dateOptions),
+              new Date().toLocaleDateString("en-US", dateOptions)
           ],
           datasets: [{
                   borderColor: "#6bd098",
@@ -70,7 +71,7 @@ const dashboardLatencyChart = {
                   pointRadius: 0,
                   pointHoverRadius: 0,
                   borderWidth: 3,
-                  data: [300, 310, 316, 322, 330, 326, 333, 345, 338, 354]
+                  data: [300, 310, 316, 322, 330, 326, 333, 345, 338, 354, 360]
               },
               {
                   borderColor: "#fcc468",
@@ -78,7 +79,7 @@ const dashboardLatencyChart = {
                   pointRadius: 0,
                   pointHoverRadius: 0,
                   borderWidth: 3,
-                  data: [320, 340, 365, 360, 370, 385, 390, 384, 408, 420]
+                  data: [320, 340, 365, 360, 370, 385, 390, 384, 408, 420, 460]
               },
               {
                   borderColor: "#f17e5d",
@@ -86,7 +87,7 @@ const dashboardLatencyChart = {
                   pointRadius: 0,
                   pointHoverRadius: 0,
                   borderWidth: 3,
-                  data: [370, 394, 415, 409, 425, 445, 460, 450, 478, 484]
+                  data: [370, 394, 415, 409, 425, 445, 460, 450, 478, 484, 900]
               }
           ]
       };
