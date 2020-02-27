@@ -3,7 +3,7 @@ layout: pageNext
 title:  "Architecture (CH)"
 categories: docs
 permalink: /vNext/architecture-ch/
-order: 5
+order: 6
 ---
 
 ## Architecture
