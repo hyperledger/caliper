@@ -63,12 +63,6 @@ The client invokes a test module which implements user defined testing logic.The
 
 A local client will only be launched once at beginning of the first test round, and be destroyed after finishing all the tests.
 
-### User Defined Test Module
+### User Defined Workload Module
 
-A test module implements functions that actually generate and submit transactions. By this way, developers can implement their own testing logic and integrate it with the benchmark engine.  
-
-Three functions should be implemented and exported, all those functions should return a Promise object.
-
-* `init` - Will be called by a client at beginning of each test round with a given blockchain object and context, as well as user defined arguments read from the benchmark configuration file. The blockchain object and context should be saved for later use, and other initialization work could be implemented in here.
-* `run` - The actual transactions should be generated and submitted in here using Caliper's blockchain APIs. The client will call this function repeatedly according to the workload. It is recommended that only one transaction is submitted in each call, but this is not a MUST requirement. If multiple transactions are submitted each time, the actual workload may be different with the configured workload. The function should be ran in asynchronous way.
-* `end` - Will be called at the end of each test round, any clearing work should be implemented here.
+For details on how to implement and use a workload module, refer to the [workload module](./Workload_Module.md) documentation page.
