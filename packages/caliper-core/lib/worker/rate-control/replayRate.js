@@ -42,9 +42,13 @@ class ReplayRateController extends RateInterface{
      * Creates a new instance of the {ReplayRateController} class.
      * @constructor
      * @param {object} opts Options for the rate controller.
+     * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
+     * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
      */
-    constructor(opts) {
+    constructor(opts, clientIdx, roundIdx) {
         super(opts);
+        this.roundIdx = roundIdx;
+        this.clientIdx = clientIdx + 1;
         this.records = [];
 
         if (typeof opts.pathTemplate === 'undefined') {
@@ -123,9 +127,6 @@ class ReplayRateController extends RateInterface{
      * @async
      */
     async init(msg) {
-        this.roundIdx = msg.roundIdx;
-        this.clientIdx = msg.clientIdx + 1;
-
         // resolve template path placeholders
         this.pathTemplate = this.pathTemplate.replace(/<R>/gi, this.roundIdx.toString());
         this.pathTemplate = this.pathTemplate.replace(/<C>/gi, this.clientIdx.toString());

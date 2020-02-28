@@ -82,21 +82,20 @@ class CompositeRateController extends RateInterface{
 
         this.controllers = [];
         this.activeControllerIndex = 0;
-        this.clientIdx = -1;
+        this.clientIdx = clientIdx + 1;
+        this.roundIndex = roundIdx;
         this.controllerSwitch = null;
         this.logControllerChange = (this.options.logChange &&
             typeof(this.options.logChange) === 'boolean' && this.options.logChange) || false;
 
-        this.__prepareControllers(clientIdx, roundIdx);
+        this.__prepareControllers();
     }
 
     /**
      * Internal method for preparing the controllers for further use.
-     * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
-     * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
      * @private
      */
-    __prepareControllers(clientIdx, roundIdx) {
+    __prepareControllers() {
         let weights = this.options.weights;
         let rateControllers = this.options.rateControllers;
 
@@ -136,7 +135,7 @@ class CompositeRateController extends RateInterface{
                 continue;
             }
 
-            let info = new ControllerData(weights[i], rateControllers[i], new RateControl(rateControllers[i], clientIdx, roundIdx));
+            let info = new ControllerData(weights[i], rateControllers[i], new RateControl(rateControllers[i], this.clientIdx, this.roundIndex));
             this.controllers.push(info);
         }
 
