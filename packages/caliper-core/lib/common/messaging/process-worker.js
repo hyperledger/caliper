@@ -59,6 +59,13 @@ class ProcessWorkerMessenger extends MessengerInterface {
     }
 
     /**
+     * Clean up any resources associated with the messenger.
+     */
+    async dispose() {
+        // NOOP
+    }
+
+    /**
      * Configure the Messenger for use
      * @param {MessageHandler} handlerContext a configured message handler
      */

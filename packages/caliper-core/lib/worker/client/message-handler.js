@@ -196,7 +196,7 @@ class MessageHandler {
             case 'initialize': {
                 try {
                     await context.beforeInitHandler(context, message);
-                    context.adapter = await context.initHandler(context, message);
+                    context.adapter = await context.initHandler(context.workerId);
                     await context.afterInitHandler(context, message, undefined);
                 } catch (error) {
                     await context.afterInitHandler(context, message, error);
@@ -220,6 +220,13 @@ class MessageHandler {
                 context.testResult = await context.testHandler(context, message);
                 await context.afterTestHandler(context, message);
 
+                break;
+            }
+            case 'exit': {
+                logger.info('Handling "exit" message');
+                await context.messenger.dispose();
+                logger.info(`Handled "exit" message for worker ${context.workerId}`);
+                process.exit(0);
                 break;
             }
             default: {

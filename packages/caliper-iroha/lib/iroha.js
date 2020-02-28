@@ -24,7 +24,7 @@ const QueryService_v1Client = IrohaService_v1Client.QueryService_v1Client;
 
 const generateKeypair = require('iroha-helpers/lib/cryptoHelper.js').default;
 
-const {BlockchainInterface, CaliperUtils, TxStatus} = require('@hyperledger/caliper-core');
+const {BlockchainInterface, CaliperUtils, ConfigUtil, TxStatus} = require('@hyperledger/caliper-core');
 const logger = CaliperUtils.getLogger('iroha.js');
 
 const irohaQueries = require('iroha-helpers/lib/queries').default;
@@ -195,11 +195,15 @@ function irohaQuery(queryOptions, commands) {
  * Implements {BlockchainInterface} for a Iroha backend.
  */
 class Iroha extends BlockchainInterface {
-    constructor(config_path, workspace_root, clientIndex) {
-        super(config_path);
+    /**
+     * Create a new instance of the {Iroha} class.
+     * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process. Currently unused.
+     */
+    constructor(workerIndex) {
+        super();
+        this.configPath = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
         this.bcType = 'iroha';
-        this.workspaceRoot = workspace_root;
-        this.clientIndex = clientIndex;
+        this.clientIndex = workerIndex;
     }
 
     /**
@@ -243,8 +247,8 @@ class Iroha extends BlockchainInterface {
             let admin        = config.iroha.admin;
             let domain       = admin.domain;
             let adminAccount = admin.account + '@' + admin.domain;
-            let privPath     = CaliperUtils.resolvePath(admin['key-priv'], this.workspaceRoot);
-            let pubPath      = CaliperUtils.resolvePath(admin['key-pub'], this.workspaceRoot);
+            let privPath     = CaliperUtils.resolvePath(admin['key-priv']);
+            let pubPath      = CaliperUtils.resolvePath(admin['key-pub']);
             let adminPriv    = fs.readFileSync(privPath).toString();
             let adminPub     = fs.readFileSync(pubPath).toString();
             // test
@@ -370,7 +374,7 @@ class Iroha extends BlockchainInterface {
             for(let i = 0 ; i < fc.length ; i++) {
                 let contract = fc[i];
                 //load the fakeContract.
-                let facPath  = CaliperUtils.resolvePath(contract.factory,this.workspaceRoot);
+                let facPath  = CaliperUtils.resolvePath(contract.factory);
                 let factory  = require(facPath);
                 for(let j = 0 ; j < contract.id.length ; j++) {
                     let id = contract.id[j];

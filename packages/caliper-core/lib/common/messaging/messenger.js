@@ -13,14 +13,16 @@
 */
 'use strict';
 
-const CaliperUtils = require('..//utils/caliper-utils');
+const path = require('path');
+
+const CaliperUtils = require('./../utils/caliper-utils');
 const Logger = CaliperUtils.getLogger('messenger.js');
 
 const builtInMessengers = new Map([
-    ['mqtt-master', './mqtt-master.js'],
-    ['mqtt-worker', './mqtt-worker.js'],
-    ['process-master', './process-master.js'],
-    ['process-worker', './process-worker.js']
+    ['mqtt-master', path.join(__dirname, './mqtt-master.js')],
+    ['mqtt-worker', path.join(__dirname, './mqtt-worker.js')],
+    ['process-master', path.join(__dirname, './process-master.js')],
+    ['process-worker', path.join(__dirname, './process-worker.js')]
 ]);
 
 const Messenger = class {
@@ -34,15 +36,8 @@ const Messenger = class {
 
         Logger.info(`Creating messenger of type "${configuration.type}" ${configuration.sut ? ` for SUT ${configuration.sut}` : ''}`);
 
-        // resolve the type to a module path
-        let modulePath = builtInMessengers.has(configuration.type)
-            ? builtInMessengers.get(configuration.type) : CaliperUtils.resolvePath(configuration.type); // TODO: what if it's an external module name?
-
-        let factoryFunction = require(modulePath).createMessenger;
-        if (!factoryFunction) {
-            throw new Error(`${configuration.type} does not export the mandatory factory function 'createMessenger'`);
-        }
-
+        // resolve the type to a module's factory function
+        let factoryFunction = CaliperUtils.loadModuleFunction(builtInMessengers, configuration.type, 'createMessenger');
         this.messenger = factoryFunction(configuration);
     }
 
@@ -69,6 +64,13 @@ const Messenger = class {
      */
     getUUID() {
         return this.messenger.getUUID();
+    }
+
+    /**
+     * Clean up any resources associated with the messenger.
+     */
+    async dispose() {
+        await this.messenger.dispose();
     }
 
     /**

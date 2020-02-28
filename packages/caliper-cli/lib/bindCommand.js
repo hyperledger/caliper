@@ -14,13 +14,14 @@
 
 'use strict';
 
-const Bind = require('./bind/bind.js');
-const Utils = require('./utility/utils');
+const { CaliperUtils } = require('@hyperledger/caliper-core');
+
+const Bind = require('./lib/bind.js');
 
 // enforces singletons
 const checkFn = (argv) => {
-    const uniqueArgs = ['caliper-bind-sut','caliper-bind-sdk', 'caliper-bind-args', 'caliper-bind-cwd', 'caliper-bind-file'];
-    return Utils.checkSingleton(argv, uniqueArgs);
+    const uniqueArgs = ['caliper-bind-sut', 'caliper-bind-args', 'caliper-bind-cwd', 'caliper-bind-file'];
+    return CaliperUtils.checkSingleton(argv, uniqueArgs);
 };
 
 module.exports._checkFn = checkFn;
@@ -29,15 +30,14 @@ module.exports.describe = 'Bind Caliper to a specific SUT and its SDK version';
 module.exports.builder = function (yargs){
 
     yargs.options({
-        'caliper-bind-sut' : {describe: 'The name of the platform to bind to', type: 'string' },
-        'caliper-bind-sdk'  : {describe: 'Version of the platform SDK to bind to', type: 'string'},
+        'caliper-bind-sut' : {describe: 'The name and version of the platform and its SDK to bind to', type: 'string' },
         'caliper-bind-cwd'  : {describe: 'The working directory for performing the SDK install', type: 'string' },
         'caliper-bind-args'  : {describe: 'Additional arguments to pass to "npm install". Use the "=" notation when setting this parameter', type: 'string' },
         'caliper-bind-file'  : {describe: 'Yaml file to override default (supported) package versions when binding an SDK', type: 'string' }
     });
-    yargs.usage('Usage:\n  caliper bind --caliper-bind-sut fabric --caliper-bind-sdk 1.4.1 --caliper-bind-cwd ./ --caliper-bind-args="-g"');
+    yargs.usage('Usage:\n  caliper bind --caliper-bind-sut fabric:1.4.1 --caliper-bind-cwd ./ --caliper-bind-args="-g"');
     // enforce the option after these options
-    yargs.requiresArg(['caliper-bind-sut','caliper-bind-sdk','caliper-bind-args', 'caliper-bind-cwd']);
+    yargs.requiresArg(['caliper-bind-sut', 'caliper-bind-args', 'caliper-bind-cwd']);
 
     // enforce singletons
     yargs.check(checkFn);

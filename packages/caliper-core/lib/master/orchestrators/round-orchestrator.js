@@ -31,14 +31,13 @@ class RoundOrchestrator {
      * Initialize the RoundOrchestrator instance.
      * @param {object} benchmarkConfig The benchmark configuration object.
      * @param {object} networkConfig The network configuration object.
-     * @param {object} workerFactory The factory for worker processes.
      * @param {object[]} workerArguments List of adaptor specific arguments to pass for each worker processes.
      */
-    constructor(benchmarkConfig, networkConfig, workerFactory, workerArguments) {
+    constructor(benchmarkConfig, networkConfig, workerArguments) {
         this.networkConfig = networkConfig;
         this.benchmarkConfig = benchmarkConfig;
 
-        this.workerOrchestrator = new WorkerOrchestrator(this.benchmarkConfig, workerFactory, workerArguments);
+        this.workerOrchestrator = new WorkerOrchestrator(this.benchmarkConfig, workerArguments);
         this.monitorOrchestrator = new MonitorOrchestrator(this.benchmarkConfig);
         this.report = new Report(this.monitorOrchestrator, this.benchmarkConfig, this.networkConfig);
         this.testObserver = new TestObserver(this.benchmarkConfig);
@@ -232,7 +231,7 @@ class RoundOrchestrator {
         }
 
         try {
-            this.workerOrchestrator.stop();
+            await this.workerOrchestrator.stop();
         } catch (err) {
             logger.error(`Error while stopping workers: ${err.stack || err}`);
         }

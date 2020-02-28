@@ -45,9 +45,10 @@ class Docker {
      * @param {boolean} publish Indicates whether to publish the built image. Requires that DOCKER_TOKEN and "user" argument is set.
      * @param {string} user The user to use for publishing the built Docker image. Required when "publish" is true.
      * @param {number} retries The number of times to retry the build in case of failures.
+     * @param {string} tag Override for the version-based tag for testing purposes.
      * @async
      */
-    static async handler(image, registry, publish, user, retries) {
+    static async handler(image, registry, publish, user, retries, tag) {
         const cliPackageJsonPath = path.join(packagesRoot, 'caliper-cli', 'package.json');
         const cliPackageVersion = require(cliPackageJsonPath).version;
         const cliPackageName = `@hyperledger/caliper-cli@${cliPackageVersion}`;
@@ -85,9 +86,11 @@ class Docker {
         }
 
         // this object will configure the build script
+        let imageTag = tag || cliPackageVersion;
         let envs = {
             IMAGE: image,
-            TAG: cliPackageVersion
+            IMAGE_TAG: imageTag,
+            CALIPER_TAG: cliPackageVersion
         };
 
         if (registry !== '') {
@@ -97,24 +100,24 @@ class Docker {
         try {
             let built = false;
             for (let i = 0; i < retries; i++) {
-                log(`Building ${image}@${cliPackageVersion}. Attempt ${i+1}/${retries}:`);
+                log(`Building ${image}@${imageTag}. Attempt ${i+1}/${retries}:`);
                 try {
                     await utils.invokeCommand(buildScriptPath, [], envs, thisPackageRoot);
-                    log(`Built ${image}@${cliPackageVersion}\n`);
+                    log(`Built ${image}@${imageTag}\n`);
                     built = true;
                     break;
                 } catch (error) {
-                    log(`Failed to build ${image}@${cliPackageVersion} (attempt ${i+1}/${retries})`);
+                    log(`Failed to build ${image}@${imageTag} (attempt ${i+1}/${retries})`);
                     log(error);
                 }
             }
 
             if (!built) {
-                log(`Aborting, could not build ${image}@${cliPackageVersion}`);
+                log(`Aborting, could not build ${image}@${imageTag}`);
                 process.exit(1);
             }
         } catch (err) {
-            log(`Aborting, could not build ${image}@${cliPackageVersion}`);
+            log(`Aborting, could not build ${image}@${imageTag}`);
             log(err);
             process.exit(1);
         }
@@ -126,30 +129,30 @@ class Docker {
         let publishEnvs = {
             DOCKER_USER: user,
             IMAGE: image,
-            TAG: cliPackageVersion
+            TAG: imageTag
         };
 
         try {
             let published = false;
             for (let i = 0; i < retries; i++) {
-                log(`Publishing ${image}@${cliPackageVersion}. Attempt ${i+1}/${retries}:`);
+                log(`Publishing ${image}@${imageTag}. Attempt ${i+1}/${retries}:`);
                 try {
                     await utils.invokeCommand(publishScriptPath, [], publishEnvs, thisPackageRoot);
-                    log(`Published ${image}@${cliPackageVersion}\n`);
+                    log(`Published ${image}@${imageTag}\n`);
                     published = true;
                     break;
                 } catch (error) {
-                    log(`Failed to publish ${image}@${cliPackageVersion} (attempt ${i+1}/${retries})`);
+                    log(`Failed to publish ${image}@${imageTag} (attempt ${i+1}/${retries})`);
                     log(error);
                 }
             }
 
             if (!published) {
-                log(`Aborting, could not publish ${image}@${cliPackageVersion}`);
+                log(`Aborting, could not publish ${image}@${imageTag}`);
                 process.exit(1);
             }
         } catch (err) {
-            log(`Aborting, could not publish ${image}@${cliPackageVersion}`);
+            log(`Aborting, could not publish ${image}@${imageTag}`);
             log(err);
             process.exit(1);
         }

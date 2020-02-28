@@ -28,6 +28,141 @@ const Config = require('../config/config-util');
 class CaliperUtils {
 
     /**
+     * Indicates whether the process is a forked/child process, i.e., it has a parent process.
+     * @return {boolean} True, if the process has a parent process. Otherwise, false.
+     */
+    static isForkedProcess() {
+        return (process.send !== undefined) && (typeof process.send === 'function');
+    }
+
+    /**
+     * Assert that the core configuration file paths are set and exist.
+     */
+    static assertConfigurationFilePaths() {
+        // Workspace is expected to be the root location of working folders
+        let workspacePath = Config.get(Config.keys.Workspace); // default is "./"
+        workspacePath = path.resolve(workspacePath);
+
+        // check benchmark config path
+        let benchmarkConfigPath = Config.get(Config.keys.BenchConfig);
+        if(!benchmarkConfigPath) {
+            let msg = 'Benchmark configuration file path is not set';
+            throw new Error(msg);
+        }
+
+        benchmarkConfigPath = CaliperUtils.resolvePath(benchmarkConfigPath);
+        if(!fs.existsSync(benchmarkConfigPath)) {
+            let msg = `Benchmark configuration file "${benchmarkConfigPath}" does not exist`;
+            throw new Error(msg);
+        }
+
+        // check network config path
+        let networkConfigPath = Config.get(Config.keys.NetworkConfig);
+        if(!networkConfigPath) {
+            let msg = 'Network configuration file path is not set';
+            throw new Error(msg);
+        }
+
+        networkConfigPath = CaliperUtils.resolvePath(networkConfigPath, workspacePath);
+        if(!fs.existsSync(networkConfigPath)) {
+            let msg = `Network configuration file "${networkConfigPath}" does not exist`;
+            throw new Error(msg);
+        }
+
+        let networkConfig = CaliperUtils.parseYaml(networkConfigPath);
+        if (!networkConfig.caliper || !networkConfig.caliper.blockchain || (typeof networkConfig.caliper.blockchain !== 'string')) {
+            let msg = `Network configuration file "${networkConfigPath}" is missing its "caliper.blockchain" string attribute`;
+            throw new Error(msg);
+        }
+    }
+
+    /**
+     * Get the mapping of simple builtin adapter names to fully qualified package names.
+     * @return {Map<string, string>} The mapping from simple names to package names.
+     */
+    static getBuiltinAdapterPackageNames() {
+        return new Map([
+            ['burrow', '@hyperledger/caliper-burrow'],
+            ['ethereum', '@hyperledger/caliper-ethereum'],
+            ['fabric', '@hyperledger/caliper-fabric'],
+            ['fisco-bcos', '@hyperledger/caliper-fisco-bcos'],
+            ['iroha', '@hyperledger/caliper-iroha'],
+            ['sawtooth', '@hyperledger/caliper-sawtooth']
+        ]);
+    }
+
+    /**
+     * Loads the module at the given path.
+     * @param {string} modulePath The path to the module or its name.
+     * @param {Function} requireFunction The "require" function (with appropriate scoping) to use to load the module.
+     * @return {object} The loaded module.
+     */
+    static loadModule(modulePath, requireFunction = require) {
+        try {
+            return requireFunction(modulePath);
+        } catch (err) {
+            throw new Error(`Module "${modulePath}" could not be loaded: ${err}\nSearched paths: ${module.paths}`);
+        }
+    }
+
+    /**
+     * Loads the given function from the given module.
+     * @param {object} module The module exporting the function.
+     * @param {string} functionName The name of the function.
+     * @param {string} moduleName The name of the module.
+     * @return {function} The loaded function.
+     */
+    static loadFunction(module, functionName, moduleName) {
+        const func = module[functionName];
+        if (!func || typeof func !== 'function') {
+            throw new Error(`Function "${functionName}" could not be loaded for module "${moduleName}"`);
+        }
+
+        return func;
+    }
+
+    /**
+     * Loads the given function from the module at the given path.
+     * @param {Map<string, string>} builtInModules The mapping of built-in module names to their path.
+     * @param {string} moduleName The name of the module.
+     * @param {string} functionName The name of the function.
+     * @param {Function} requireFunction The "require" function (with appropriate scoping) to use to load the module.
+     * @return {Function} The loaded function.
+     */
+    static loadModuleFunction(builtInModules, moduleName, functionName, requireFunction = require) {
+        let modulePath;
+
+        // get correct module path
+        if (builtInModules.has(moduleName)) {
+            modulePath = builtInModules.get(moduleName);
+        } else if (moduleName.startsWith('./') || moduleName.startsWith('/')) {
+            // treat it as an external module, but resolve the path, so it's absolute
+            modulePath = CaliperUtils.resolvePath(moduleName);
+        } else {
+            // treat it as a package dependency (user must install it beforehand)
+            modulePath = moduleName;
+        }
+
+        let module = CaliperUtils.loadModule(modulePath, requireFunction);
+        return CaliperUtils.loadFunction(module, functionName, moduleName);
+    }
+
+    /**
+     * Utility function to check for singleton values
+     * @param {string[]} passedArgs arguments passed by user
+     * @param {string[]} uniqueArgs arguments that must be unique
+     * @returns {boolean} boolean true if passes check
+     */
+    static checkSingleton(passedArgs, uniqueArgs) {
+        uniqueArgs.forEach((e) => {
+            if (Array.isArray(passedArgs[e])) {
+                throw new Error(`Option [${e}] can only be specified once`);
+            }
+        });
+        return true;
+    }
+
+    /**
      * Perform a sleep
      * @param {*} ms the time to sleep, in ms
      * @returns {Promise} a completed promise
@@ -285,16 +420,16 @@ class CaliperUtils {
      * Invokes a given command in a spawned child process and returns its output.
      * @param {string} cmd The command to be run.
      * @param {string[]} args The array of arguments to pass to the command.
-     * @param {Map<string, string>} env The key-value pairs of environment variables to set.
+     * @param {object} env The key-value pairs of environment variables to set.
      * @param {string} cwd The current working directory to set.
      * @returns {Promise} A Promise that is resolved with the command output or rejected with an Error.
      */
-    static getCommandOutput(cmd, args, env, cwd) {
+    static getCommandOutput(cmd, args, env = {}, cwd = './') {
         return new Promise((resolve, reject) => {
             let output = '';
             let proc = spawn(cmd, args, {
-                cwd: cwd || './',
-                env: env || process.env
+                cwd: cwd,
+                env: { ...env, ...process.env }
             });
 
             proc.stdout.on('data', (data) => {

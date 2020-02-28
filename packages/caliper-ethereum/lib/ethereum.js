@@ -16,7 +16,7 @@
 
 const EthereumHDKey = require('ethereumjs-wallet/hdkey');
 const Web3 = require('web3');
-const {BlockchainInterface, CaliperUtils, TxStatus} = require('@hyperledger/caliper-core');
+const {BlockchainInterface, CaliperUtils, ConfigUtil, TxStatus} = require('@hyperledger/caliper-core');
 const logger = CaliperUtils.getLogger('ethereum.js');
 
 /**
@@ -34,18 +34,16 @@ class Ethereum extends BlockchainInterface {
 
     /**
      * Create a new instance of the {Ethereum} class.
-     * @param {string} config_path The path of the network configuration file.
-     * @param {string} workspace_root The absolute path to the root location for the application configuration files.
-     * @param {number} clientIndex The client index
+     * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process.
      */
-    constructor(config_path, workspace_root, clientIndex) {
-        super(config_path);
+    constructor(workerIndex) {
+        super();
+        let configPath = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
         this.bcType = 'ethereum';
-        this.workspaceRoot = workspace_root;
-        this.ethereumConfig = require(config_path).ethereum;
+        this.ethereumConfig = require(configPath).ethereum;
         this.web3 = new Web3(this.ethereumConfig.url);
         this.web3.transactionConfirmationBlocks = this.ethereumConfig.transactionConfirmationBlocks;
-        this.clientIndex = clientIndex;
+        this.clientIndex = workerIndex;
     }
 
     /**
@@ -58,9 +56,10 @@ class Ethereum extends BlockchainInterface {
 
     /**
      * Initialize the {Ethereum} object.
+     * @param {boolean} workerInit Indicates whether the initialization happens in the worker process.
      * @return {object} Promise<boolean> True if the account got unlocked successful otherwise false.
      */
-    init() {
+    init(workerInit) {
         if (this.ethereumConfig.contractDeployerAddressPrivateKey) {
             this.web3.eth.accounts.wallet.add(this.ethereumConfig.contractDeployerAddressPrivateKey);
         } else if (this.ethereumConfig.contractDeployerAddressPassword) {
@@ -77,7 +76,7 @@ class Ethereum extends BlockchainInterface {
         let self = this;
         logger.info('Creating contracts...');
         for (const key of Object.keys(this.ethereumConfig.contracts)) {
-            let contractData = require(CaliperUtils.resolvePath(this.ethereumConfig.contracts[key].path, this.workspaceRoot)); // TODO remove path property
+            let contractData = require(CaliperUtils.resolvePath(this.ethereumConfig.contracts[key].path)); // TODO remove path property
             let contractGas = this.ethereumConfig.contracts[key].gas;
             let estimateGas = this.ethereumConfig.contracts[key].estimateGas;
             this.ethereumConfig.contracts[key].abi = contractData.abi;

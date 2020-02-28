@@ -18,13 +18,7 @@ set -e
 set -o pipefail
 
 # check reference Caliper package names
-# publishNpmPackages.js contains the package dir names as caliper-*, those are fine
-if grep -rnE --exclude-dir="caliper-publish" "['\"]caliper-(cli|core|burrow|composer|ethereum|fabric|fisco-bcos|iroha|sawtooth)['\"]" . ; then
-    echo "^^^ Found incorrect Caliper package names. Use the @hyperledger/ prefix for Caliper packages, e.g., @hyperledger/caliper-core"
-    exit 1
-fi
-
-echo "Caliper package names are correct."
+./scripts/check-package-names.sh
 
 # Bootstrap the project again
 npm i && npm run repoclean -- --yes && npm run bootstrap

@@ -47,6 +47,8 @@ class RecordRateController extends RateInterface{
      */
     constructor(opts, clientIdx, roundIdx) {
         super(opts);
+        this.roundIdx = roundIdx;
+        this.clientIdx = clientIdx + 1;
         this.records = [];
 
         if (typeof opts.pathTemplate === 'undefined') {
@@ -137,9 +139,6 @@ class RecordRateController extends RateInterface{
      * @async
      */
     async init(msg) {
-        this.roundIdx = msg.roundIdx;
-        this.clientIdx = msg.clientIdx + 1;
-
         // if we know the number of transactions beforehand, pre-allocate the array
         if (msg.numb) {
             this.records = new Array(msg.numb);

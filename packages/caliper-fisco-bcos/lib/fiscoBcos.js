@@ -14,9 +14,12 @@
 
 'use strict';
 
+const path = require('path');
+
 const {
     BlockchainInterface,
-    CaliperUtils
+    CaliperUtils,
+    ConfigUtil
 } = require('@hyperledger/caliper-core');
 const installSmartContractImpl = require('./installSmartContract');
 const invokeSmartContractImpl = require('./invokeSmartContract');
@@ -30,22 +33,21 @@ const commLogger = CaliperUtils.getLogger('fiscoBcos.js');
 class FiscoBcos extends BlockchainInterface {
     /**
      * Create a new instance of the {FISCO BCOS} class.
-     * @param {string} config_path The absolute path of the FISCO BCOS network configuration file.
-     * @param {string} workspace_root The absolute path to the root location for the application configuration files.
-     * @param {number} clientIdx The client index
+     * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process.
      */
-    constructor(config_path, workspace_root, clientIdx) {
-        super(config_path);
+    constructor(workerIndex) {
+        super();
         this.bcType = 'fisco-bcos';
-        this.workspaceRoot = workspace_root;
-        this.fiscoBcosSettings = CaliperUtils.parseYaml(this.configPath)['fisco-bcos'];
+        this.workspaceRoot = path.resolve(ConfigUtil.get(ConfigUtil.keys.Workspace));
+        let networkConfig = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
+        this.fiscoBcosSettings = CaliperUtils.parseYaml(networkConfig)['fisco-bcos'];
 
         if (this.fiscoBcosSettings.network && this.fiscoBcosSettings.network.authentication) {
             for (let k in this.fiscoBcosSettings.network.authentication) {
-                this.fiscoBcosSettings.network.authentication[k] = CaliperUtils.resolvePath(this.fiscoBcosSettings.network.authentication[k], workspace_root);
+                this.fiscoBcosSettings.network.authentication[k] = CaliperUtils.resolvePath(this.fiscoBcosSettings.network.authentication[k]);
             }
         }
-        this.clientIdx = clientIdx;
+        this.clientIdx = workerIndex;
     }
 
     /**

@@ -14,5 +14,4 @@
 
 'use strict';
 
-module.exports.AdminClient = require('./lib/fabric');
-module.exports.WorkerFactory = require('./lib/fabricWorkerFactory');
+module.exports.AdapterFactory = require('./lib/adapterFactory').adapterFactory;
