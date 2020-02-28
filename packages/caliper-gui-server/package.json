@@ -42,7 +42,6 @@
         "babel-eslint": "10.0.1",
         "chai": "^3.5.0",
         "eslint": "^5.16.0",
-        "license-check-and-add": "2.3.6",
         "mocha": "3.4.2",
         "nyc": "11.1.0",
         "rewire": "^4.0.0",
@@ -58,8 +57,7 @@
             "coverage",
             ".gitignore",
             "log",
-            ".jshintrc",
-            "gui-client/caliper-gui-dashboard/.gitignore"
+            ".jshintrc"
         ],
         "file_type_method": "EXCLUDE",
         "file_types": [

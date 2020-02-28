@@ -59,7 +59,7 @@
         "chai": "^4.2.0",
         "eslint": "^6.8.0",
         "eslint-plugin-react": "^7.18.3",
-        "license-check-and-add": "3.0.4",
+        "license-check-and-add": "^2.3.6",
         "mocha": "7.1.0",
         "nyc": "15.0.0",
         "rewire": "^4.0.1",
@@ -93,7 +93,7 @@
             ".gitignore",
             "log",
             ".jshintrc",
-            "gui-client/caliper-gui-dashboard/.gitignore"
+            "src/assets/.DS_Store"
         ],
         "file_type_method": "EXCLUDE",
         "file_types": [

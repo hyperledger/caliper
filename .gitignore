@@ -49,3 +49,7 @@ lerna-debug.log
 
 # Ignore data
 data/
+
+# Ignore temp test files
+test/
+temp/
