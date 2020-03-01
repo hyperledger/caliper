@@ -159,3 +159,6 @@ Currently, the generator does not provide `invokerIdentity` or `chaincodeArgumen
 The generator only generates a single callback file for a single smart contract function. If you would like to test other smart contract functions, you may create more callback files under the callbacks directory. You will also need to update your benchmnark configuration file to take into account the extra callbacks.
 
 > __Note:__ The benchmark generator will only create the benchmark configuration file and the callback file. You will still need to provide a network configuration file to be able to perform the benchmark.
+
+## License
+The Caliper codebase is released under the [Apache 2.0 license](./LICENSE.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.
