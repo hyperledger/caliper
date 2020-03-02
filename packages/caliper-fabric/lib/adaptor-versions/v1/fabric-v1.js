@@ -1826,10 +1826,13 @@ class Fabric extends BlockchainInterface {
 
                 broadcastResponse = await responsePromise;
             } catch (err) {
-                // missing the ACK does not mean anything, the Tx could be already under ordering
-                // so let the events decide the final status, but log this error
+                // either an explicit deny from the orderer
+                // or a timeout occurred (eating up all the allocated time for the TX)
                 invokeStatus.Set(`broadcast_error_${targetOrderer}`, err.message);
-                logger.warn(`Broadcast error from ${targetOrderer}: ${err.message}`);
+                invokeStatus.SetVerification(true);
+
+                errors.push(new Error(`Broadcast error from ${targetOrderer}: ${err.message}`));
+                throw errors;
             }
 
             invokeStatus.Set('time_orderer_ack', Date.now());
