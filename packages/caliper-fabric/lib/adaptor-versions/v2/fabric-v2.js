@@ -710,12 +710,21 @@ class Fabric extends BlockchainInterface {
      * Initializes the given channel of every client profile to be able to verify proposal responses.
      * @param {Map<string, FabricClient>} profiles The collection of client profiles.
      * @param {string} channel The name of the channel to initialize.
+     * @param {boolean} admin Indicates whether the profiles are admin profiles.
      * @private
      * @async
      */
-    async _initializeChannel(profiles, channel) {
+    async _initializeChannel(profiles, channel, admin) {
         // initialize the channel for every client profile from the local config
         for (let profile of profiles.entries()) {
+            let profileOrg = admin ? profile[0] : this.networkUtil.getOrganizationOfClient(profile[0]);
+            let channelOrgs = this.networkUtil.getOrganizationsOfChannel(channel);
+
+            // skip init for profiles whose org is a not a member of the channel
+            if (!channelOrgs.has(profileOrg)) {
+                continue;
+            }
+
             let ch = profile[1].getChannel(channel, false);
             if (ch) {
                 try {
@@ -1962,8 +1971,8 @@ class Fabric extends BlockchainInterface {
         // Configure the adaptor
         for (let channel of this.networkUtil.getChannels()) {
             // initialize the channels by getting the config from the orderer
-            await this._initializeChannel(this.adminProfiles, channel);
-            await this._initializeChannel(this.clientProfiles, channel);
+            await this._initializeChannel(this.adminProfiles, channel, true);
+            await this._initializeChannel(this.clientProfiles, channel, false);
         }
 
         if (this.networkUtil.isInCompatibilityMode()) {
