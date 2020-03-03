@@ -17,6 +17,6 @@
         "packages/caliper-publish",
         "packages/caliper-tests-integration"
 	],
-	"version": "0.3.0-unstable",
+	"version": "0.3.0",
 	"hoist": true
   }
