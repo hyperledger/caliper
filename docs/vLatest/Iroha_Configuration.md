@@ -19,3 +19,6 @@ If you wish to use a specific Iroha version, it is necessary to modify the iroha
 ## Issues
 
 Iroha integration is currently in an early phase of development, if you think you can help us out, please send a PR!
+
+## License
+The Caliper codebase is released under the [Apache 2.0 license](./LICENSE.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.

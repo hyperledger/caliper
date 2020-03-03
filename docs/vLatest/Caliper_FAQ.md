@@ -23,10 +23,10 @@ c. There is another configuration file, namely `./config/default.yaml`, containi
 
 ### III. Testing a Blockchain Network  
 **Q:** What kind of networks does Caliper support currently?  
-**A:** Now you can use Caliper to test Fabric, Iroha, Composer, Sawtooth and Burrow networks. Caliper provides some example networks out-of-the-box. For Fabric, example networks are located in the `network/fabric-v<VERSION>/<X>org<Y>peer<STATEDB>` directories, where `<VERSION>` is the version of Fabric binaries comprising the network, `<X>` is the number of organizations in the network, `<Y>` is the number of peers each organization has and `<STATEDB>` denotes the type of the DB storing the world state (`goleveldb` or `couchdb`).
+**A:** Now you can use Caliper to test Besu, Burrow, Ethereum, Fabric, FISCO-SCOS, Iroha, and Sawtooth networks. Caliper provides some example networks out-of-the-box. For Fabric, example networks are located in the `network/fabric-v<VERSION>/<X>org<Y>peer<STATEDB>` directories, where `<VERSION>` is the version of Fabric binaries comprising the network, `<X>` is the number of organizations in the network, `<Y>` is the number of peers each organization has and `<STATEDB>` denotes the type of the DB storing the world state (`goleveldb` or `couchdb`).
 
 **Q:** How can I change the network topology that Caliper tests?  
-**A:** Caliper supports Fabric, Sawtooth, Iroha, Composer and Burrow and provides example configurations for each platform. Below are the steps needed to test a custom Fabric network:  
+**A:** Caliper provides example configurations for each platform. Below are the steps needed to test a custom Fabric network:  
 
 a.	Before the test, you should modify the `configtx.yaml` and `crypto-config.yaml` files (add extra organizations and/or peers) as needed and regenerate the artifacts (crypto materials, genesis block and channel configuration) used to bootstrap the network. 
  
@@ -61,3 +61,6 @@ The throughput is calculated by `Succ/(last committing time - first submitting t
 
 **Q:** How can I monitor remote Docker containers?  
 **A:** If you need to access the Docker daemon remotely, you need to explicitly enable remote access. Beware that the default setup provides unencrypted and unauthenticated direct access to the Docker daemon. For details, refer to the official [Docker documentation](https://success.docker.com/article/how-do-i-enable-the-remote-api-for-dockerd).
+
+## License
+The Caliper codebase is released under the [Apache 2.0 license](./LICENSE.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.

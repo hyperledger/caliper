@@ -6,138 +6,187 @@ permalink: /vLatest/architecture/
 order: 4
 ---
 
-Hyperledger Caliper can be abstracted into two components:
+## Table of contents
+{:.no_toc}
 
-**Caliper Core**: The Core packages implement core functions for the running of a benchmark, including: 
-* *Caliper CLI:* A CLI package is also provided for convenience running of a benchmark
-* *Client load genration:* Clients interact via adaptors to drive a benchmark load, determined by a rate control mechanism.
-* *Resource Monitoring:* contains operations to start/stop a monitor and fetch resource consumption status of backend blockchain system, including CPU, memory, network IO, etc.
-* *Performance Analysis:* contains operations to read predefined performance statistics (including TPS, delay, success ratio, etc) and print benchmark results. Key metrics are recorded while invoking blockchain NBIs and are are used later to generate the statistics.
-* *Report Generation:* contains operations to generate a HTML format testing report
+- TOC
+{:toc}
 
-**Caliper Adaptors**: Adaptors are used to integrate existing blockchain system into Caliper framework. Each adaptor implements the 'Caliper Blockchain Interface' by using corresponding blockchain's native SDK or RESTful API to map operations such as deploying smart contracts on backend blockchain, invoking contracts, querying states from the ledger etc.
+## Overview
 
-<img src="{{ site.baseurl }}/assets/img/architecture.png" alt="architecture">
+Caliper is a general framework for executing benchmarks against different blockchain platforms. Caliper was designed with scalability and extensibility in mind to easily integrate with today's popular monitoring and infrastructure solutions. Accordingly, the architecture of Caliper can seem a bit complicated at first.
 
-## Benchmark Engine
+This page aims to gradually ease you into the intricacies of Caliper's architecture, taking one step at a time. By the end of this page, you should be familiar with the general concepts and API of Caliper. As you read along, you will find references to other, more technical documentation pages. Feel free to explore them once you are familiar with the basic building blocks of Caliper.
 
-<img src="{{ site.baseurl }}/assets/img/test-framework.png" alt="Benchmark Engine">
+## Bird's eye view
 
-### Configuration File
+At its most simple form, Caliper is a service that generates a workload against a specific system under test (SUT) and continuously monitors its responses. Finally, Caliper generates a report based on the observed SUT responses. This simplistic view is depicted in the following figure. 
 
-Two kinds of configuration files are used. One is the benchmark configuration file, which defines the arguments of the benchmark like workload. Another is the blockchain configuration file, which specify necessary information to help interacting with the SUT.  
+<img src="{{ site.baseurl }}/assets/img/arch_high_level.png" alt="arch_high_level">
 
-Below is a benchmark configuration file example:
-```yaml
-test:
-  name: simple
-  description: This is an example benchmark for caliper
-  clients:
-    type: local
-    number: 5
-  rounds:
-  - label: open
-    txNumber:
-    - 5000
-    - 5000
-    - 5000
-    rateControl:
-    - type: fixed-rate
-      opts: 
-        tps: 100
-    - type: fixed-rate
-      opts:
-        tps: 200
-    - type: fixed-rate
-      opts:
-        tps: 300
-    arguments:
-      money: 10000
-    callback: benchmark/simple/open.js
-  - label: query
-    txNumber:
-    - 5000
-    - 5000
-    rateControl:
-    - type: fixed-rate
-      opts:
-        tps: 300
-    - type: fixed-rate
-      opts:
-        tps: 400
-    callback" : benchmark/simple/query.js
-monitor:
-  type:
-  - docker
-  - process
-  docker:
-    name:
-    - peer0.org1.example.com
-    - http://192.168.1.100:2375/orderer.example.com
-  process:
-  - command: node
-    arguments: local-client.js
-    multiOutput: avg
-  interval: 1
-```
-* **test** - defines the metadata of the test, as well as multiple test rounds with specified workload:
-  * **name&description** : human readable name and description of the benchmark, the value is used by the report generator to show in the testing report.
-  * **clients** : defines the client type as well as relevant arguments, the 'type' property must be 'local'
-    * local: In this case, local processes will be forked and act as blockchain clients. The number of forked clients should be defined by 'number' property.
-  * **label** : hint for the test. For example, you can use the transaction name as the label name to tell which transaction is mainly used to test the performance. The value is also used as the context name for *blockchain.getContext()*. For example, developers may want to test performance of different Fabric channels, in that case, tests with different label can be bound to different fabric channels.  
-  * **txNumber** : defines an array of sub-rounds with different transaction numbers to be run in each round. For example, [5000,400] means totally 5000 transactions will be generated in the first round and 400 will be generated in the second.
-  * **txDuration** : defines an array of sub-rounds with time based test runs. For example [150,400] means two runs will be made, the first test will run for 150 seconds, and the second will run for 400 seconds. If specified in addition to txNumber, the txDuration option will take precedence.
-  * **rateControl** : defines an array of custom rate controls to use during the benchmarking test sub-rounds. If not specified will default to 'fixed-rate' that will drive the benchmarking at a set 1 TPS rate. If defined, the rate control mechanism must exist, and may be provided with options to use to control the rate at which messages are sent, or to specify a message rate profile. Each round, specified within **txNumber** or **txDuration** must have a corresponding rate control item within the **rateControl** array. For more information on available rate controllers and how to implement custom rate controllers, refer to the [rate controllers section](./Rate_Controllers.md)
-  * **trim** : performs a trimming operation on the client results to eliminate the warm-up and cool-down phase being included within tests reports. If specified, the trim option will respect the round measurement. For example, if `txNumber` is the driving test mode the a value of 30 means the initial and final 30 transactions of the results from each client will be ignored when generating result statistics; if `txDuration` is being used, the the initial and final 30seconds of the the results from each client will be ignored.
-  * **arguments** : user defined arguments which will be passed directly to the user defined test module.
-  * **callback** : specifies the user defined module used in this test round. Please see [User defined test module](./Writing_Benchmarks.md) to learn more details.
-* **monitor** - defines the type of resource monitors and monitored objects, as well as the time interval for the monitoring.
-  * docker : a docker monitor is used to monitor specified docker containers on local or remote hosts. Docker Remote API is used to retrieve remote container's stats. Reserved container name 'all' means all containers on the host will be watched. In above example, the monitor will retrieve the stats of two containers per second, one is a local container named 'peer0.org1.example.com' and another is a remote container named 'orderer.example.com' located on host '192.168.1.100', 2375 is the listening port of Docker on that host.
-  * process : a process monitor is used to monitor specified local process. For example, users can use this monitor to watch the resource consumption of simulated blockchain clients. The 'command' and 'arguments' properties are used to specify the processes. The 'multiOutput' property is used to define the meaning of the output if multiple processes are found. 'avg' means the output is the average resource consumption of those processes, while 'sum' means the output is the summing consumption.  
-  * prometheus : uses a configured Prometheus server to publish and query metrics
+Caliper requires several inputs to run a benchmark, independently of the used SUT. The following subsections give a brief overview of these inputs.
 
-### Master
+### Benchmark configuration file
 
-The master implements a default test flow which contains three stages:
+The benchmark configuration file describes how the benchmark should be executed. It tells Caliper how many rounds it should execute, at what rate the TXs should be submitted, and which module will generate the TX content. It also includes settings about monitoring the SUT.
 
-* Preparing stage: In this stage, the master creates and initializes an internal blockchain object with the blockchain configuration file, deploys smart contracts as specified in the configuration and starts a monitor object to monitor the resource consumption of backend blockchain system.
+You can consider this file as the "flow orchestrator" of the benchmark. For the most part, the settings are independent of the SUT, so you can easily reuse them when performing multiple benchmarks against different SUT types or versions.
 
-* Testing stage: In this stage, the master starts a loop to perform tests according to the benchmark configuration file. Tasks will be generated and assigned to clients according to the defined workload. Performance statistics return by clients will be stored for later analyzing.
+> __Note:__ For a more technical introduction to the benchmark configuration file, see the [corresponding page](./BenchmarkConfiguration.md).
 
-* Reporting stage: Statistics from all clients of each test round are analyzed, and a HTML format report will be generated automatically.
-  
-  The default directory path for the generated report is the workspace directory, and the file is named `report.html`. You can override this setting the following ways:
-  * From the command line: `--caliper-report-path subdir/customName.html`
-  * From an environment variable: `export CALIPER_REPORT_PATH=subdir/customName.html`
-  * Using a [configuration file](./Runtime_Configuration.md) to override the `caliper.report.path` property.
-  
-  > __Note:__ It is the user's responsibility to ensure that the directory hierarchy exists between the workspace and the report file.
-  
-  A report example is as below:
+### Network configuration file
 
+The content of the network configuration file is SUT-specific. The file usually describes the topology of the SUT, where its nodes are (their endpoint addresses), what identities/clients are present in the network, and what smart contracts Caliper should deploy or interact with.
 
-<img src="{{ site.baseurl }}/assets/img/report.png" alt="report example">
+For the exact structure of the network configuration files, refer to the corresponding SUT adapter documentations (we'll discuss adapters a bit later on this page):
+* [Hyperledger Besu & Ethereum](./Ethereum_Configuration.md)
+* [Hyperledger Burrow](./Burrow_Configuration.md)
+* [Hyperledger Fabric](./Fabric_Configuration.md)
+* [Hyperledger Iroha](./Iroha_Configuration.md)
+* [Hyperledger Sawtooth](./Sawtooth_Configuration.md)
+* [FISCO BCOS](./FISCO_BCOS_Configuration.md)
 
-### Clients
+### Workload modules
 
-#### Local Clients
+Workload modules are the brain of a benchmark. Since Caliper is a general benchmark framework, it does not include any concrete benchmark implementation. When Caliper schedules TXs for a given round, it is the task of the round's workload module to generate the content of the TXs and submit it. Each round can have a different associated workload module, so separating your workload implementation based on phases/behavior should be easy.
 
-In this mode, the master uses Node.js cluster module to fork multiple local clients (child processes) to do the actual testing work. As Node.js is single-threaded by nature, local cluster could be useful to improve clients' performance on multi-core machine.
+Workload modules are simply Node.JS modules that must export a given API/functions. Other than that, the workload module logic can be arbitrary. Really, anything you can code in Node.JS.
 
-The total workload are divided and assigned equally to child processes. A child process acts as a blockchain client with a temporarily generated context to interact with the backend blockchain system. The context usually contains the client's identity and cryptographic materials, and will be released when the testing task is finished.
+> __Note:__ For a more technical introduction to workload modules, see the [corresponding page](./Workload_Module.md).
 
-* For Hyperledger Fabric, the context is also bound to a specific channel, the relationship is defined in fabric configuration file.
+### Benchmark artifacts
 
-The client invokes a test module which implements user defined testing logic.The module is explained later.
+There might be additional artifacts necessary to run a benchmark that can vary between different benchmarks and runs. These usually include the followings:
+* Crypto materials necessary to interact with the SUT.
+* Smart contract source code for Caliper to deploy (if the SUT adapter supports such operation).
+* [Runtime configuration](./Runtime_Configuration.md) files.
+* Pre-installed third party packages for your workload modules.
 
-A local client will only be launched once at beginning of the first test round, and be destroyed after finishing all the tests.
+Refer to the SUT adapter configuration pages for the additional necessary artifacts. 
 
-### User Defined Test Module
+> __Note:__ From here on out, we will refer to the introduced Caliper inputs simply as benchmark artifacts and denote them with the database symbol seen in the first figure. 
 
-A test module implements functions that actually generate and submit transactions. By this way, developers can implement their own testing logic and integrate it with the benchmark engine.  
+## Multi-platform support
 
-Three functions should be implemented and exported, all those functions should return a Promise object.
+Before we further dive into the architecture of Caliper, let's see how Caliper can support multiple SUT types. Caliper implements the well-known adapter/facade pattern to hide the peculiarities of different SUT types and provide a unified interface towards the Caliper (and external) modules.
 
-* `init` - Will be called by a client at beginning of each test round with a given blockchain object and context, as well as user defined arguments read from the benchmark configuration file. The blockchain object and context should be saved for later use, and other initialization work could be implemented in here.
-* `run` - The actual transactions should be generated and submitted in here using Caliper's blockchain APIs. The client will call this function repeatedly according to the workload. It is recommended that only one transaction is submitted in each call, but this is not a MUST requirement. If multiple transactions are submitted each time, the actual workload may be different with the configured workload. The function should be ran in asynchronous way.
-* `end` - Will be called at the end of each test round, any clearing work should be implemented here.
+> __Note:__ The adapter and facade design patterns have some overlap in the problems they aim to solve. Caliper borrows pieces from both. However, we use the adapter terminology throughout the entire documentation for consistency reasons.
+
+A SUT adapter provides a simplified interface towards internal Caliper modules, as well as towards the workload modules. Accordingly, Caliper can request the execution of simple things, like "initialize the adapter/SUT", and the adapter implementation will take care of the rest. The exact tasks to perform during the initialization are often determined by the content of the network configuration file (and by the remote administrative actions the SUT supports).
+
+> __Note:__ For the technical details of how to implement an adapter, refer to the [corresponding page](./Writing_Adapters.md).
+
+## Caliper processes
+
+Caliper considers scalability one of its most important goals (besides extensibility/flexibility). Workload generation from a single machine can quickly reach the resource limitations of the machine. If we want the workload rate to match the scalability and performance characteristics of the evaluated SUT then we need a distributed approach!
+
+Accordingly, Caliper (as a framework) comprises of two different services/processes: a master process and numerous worker processes.
+* The master process initializes the SUT (if supported) and coordinates the run of the benchmark (i.e., schedules the configured rounds) and handles the performance report generation based on the observed TX statistics.
+* The worker processes perform the actual workload generation, independently of each other. Even if a worker process reaches the limits of its host machine, using more worker processes (on multiple machines) can further increase the workload rate of Caliper. Thus worker processes are the backbone of Caliper's scalability.
+
+The described setup is illustrated in the next figure.
+
+<img src="{{ site.baseurl }}/assets/img/arch_processes.png" alt="arch_processes">
+
+> __Note:__ For the time being, we will ignore the technical details of the distributed architecture, like the messaging between the processes. We will come back to it in a later section.
+
+### The master process
+
+The Caliper master process is the orchestrator of the entire benchmark run. It goes through several predefined stages as depicted by the figure below.
+
+<img src="{{ site.baseurl }}/assets/img/arch_master_process.png" alt="arch_master_process">
+
+1. In the first stage, Caliper executes the startup script (if present) from the network configuration file. This step is mainly useful for local Caliper and SUT deployments as it provides a convenient way to start the network and Caliper in one step.
+  > __Note:__ The deployment of the SUT is not the responsibility of Caliper. Technically, Caliper only connects to an already running SUT, even if it was started through the startup script.
+2. In the second stage, Caliper initializes the SUT. The tasks performed here are highly dependent on the capabilities of the SUT and the SUT adapter. For example, the Hyperledger Fabric adapter uses this stage to create/join channels and register/enroll new users.
+3. In the third stage, Caliper deploys the smart contracts to the SUT, if the SUT and the adapter support such operation (like with the Hyperledger Fabric adapter). 
+4. In the fourth stage Caliper schedules and executes the configured rounds through the worker processes. This is the stage where the workload generation happens (through the workers!). 
+5. In the last stage, after executing the rounds and generating the report, Caliper executes the cleanup script (if present) from the network configuration file. This step is mainly useful for local Caliper and SUT deployments as it provides a convenient way to tear down the network and any temporary artifacts.
+
+If your SUT is already deployed an initialized, then you only need Caliper to execute the rounds and nothing else. Luckily, you can configure every stage one-by-one whether it should be executed or not. See the [flow control settings](./Runtime_Configuration.md#benchmark-phase-settings) for details.
+
+The above figure only shows the high-level steps of executing a benchmark. Some components are omitted for the sake of simplicity, like the monitor and worker progress observer components. To learn more about the purpose and configuration of these components, refer to the [Monitors and Observers](./MonitorsAndObservers.md) documentation page. 
+
+### The worker process
+
+The interesting things (from a user perspective) happen inside the worker processes. A worker process starts its noteworthy tasks when the master process sends a message to it about executing the next round (the 4th step in the previous section). The important components of a worker process are shown in the figure below.
+
+<img src="{{ site.baseurl }}/assets/img/arch_worker_process.png" alt="arch_worker_process">
+
+The worker process spends most of its time in the workload generation loop. The loop consists of two important steps:
+1. Waiting for the rate controller to enable the next TX. Think of the rate controller as a delay circuit. Based on what kind of rate controller is used, it delays/halts the execution of the worker (in an asynchronous manner) before enabling the next TX. For example, if a fixed 50 TXs per second (TPS) rate is configured, the rate controller will halt for 20ms between each TX.
+  > __Note:__ The rate controllers of each round can be configured in the [benchmark configuration file](./Benchmark_Configuration.md). For the available rate controllers, see the [Rate Controllers](./Rate_Controllers.md) page.
+2. Once the rate controller enables the next TX, the worker gives control to the workload module. The workload module assembles the parameters of the TX (specific to the SUT and smart contract API) and calls the simple API of the SUT adapter that will, in turn, send the TX request to the SUT (probably using the SDK of the SUT).
+  > __Note:__ The workload modules of each round can be configured in the [benchmark configuration file](./Benchmark_Configuration.md). For the technical details of workload modules, see the [Workload Modules](./Workload_Module.md) page. 
+
+During the workload loop, the worker process sends progress updates to the master process. Multiple approaches are available for signaling worker progress, achieved by different observers. For the available methods, see the [Monitors and Observers](./MonitorsAndOvservers.md) page.
+
+## Process distribution models
+
+The last part of the architecture discussion is demystifying the worker process management. Based on how worker processes are started and what messaging method is used between the master and worker processes, we can distinguish the following distribution/deployment models:
+1. Automatically spawned worker processes on the same host, using interprocess communication (IPC) with the master process.
+2. Automatically spawned worker processes on the same host, using a remote messaging mechanism with the master process.
+3. Manually started worker processes on an arbitrary number of hosts, using a remote messaging mechanism with the master process.
+
+Even though the third method is the way to go for more complex scenarios, the first two methods can help you get familiar with Caliper, and gradually aid you with the transition to the third method.
+
+### Modular message transport
+
+The different deployment approaches are made possible by how Caliper handles messaging internally, as shown by the following figure.
+
+<img src="{{ site.baseurl }}/assets/img/arch_messages.png" alt="arch_messages">
+
+The internal Caliper modules only deal with predefined messages whose content is independent of how the messages are sent. The module that sends the messages between the processes is swappable, thus enabling different communication methods.
+
+The deployment model is configurable with the following two setting keys:
+* `caliper-worker-remote`: if set to `false` (the default), then the master process will spawn the required number of worker processes locally, resulting in the models 1 or 2.
+* `caliper-worker-communication-method`: can take the values `process` (the default) or `mqtt` and determines the message transport implementation to use. The `process` communication corresponds to the first model, while `mqtt` denotes models 2 and 3.
+
+The following table summarizes the different models and how to select them:
+
+| `remote` value | `method` value | Corresponding deployment model |
+|:---:|:---:|:----|
+| `false` | `process` | 1. Interprocess communication with local workers |
+| `false` | `mqtt` | 2. Remote messaging-based communication with local workers |
+| `true` | `mqtt` | 3. Remote messaging-based communication with remote workers |
+| `true` | `process` | Invalid, since IPC does not apply to remote communication |
+
+> __Note:__ For the technical details on configuration the messaging transport, see the [Messengers](./Messengers.md) page. 
+
+### Interprocess communication
+
+The examples on the [Install & Usage](./Installing_Caliper.md) page all use the IPC approach since it is the default behavior. The setup is illustrated in the figure below.
+
+The `caliper launch master` CLI command starts the master process, which in turn will automatically spawn the configured number of worker processes (using the `caliper launch worker` CLI command). The communication between the processes is IPC, utilizing the built-in Node.JS method available for the parent-children process relationships.  
+
+<img src="{{ site.baseurl }}/assets/img/arch_ipc.png" alt="arch_ipc">
+
+This is the simplest deployment model for Caliper, requiring no additional configuration and third party messaging components. Accordingly, it is ideal when you first start using Caliper, or when you are still assembling the benchmark artifacts for your project, and just quickly want to test them. 
+
+Unfortunately, this model is constrained to a single host, thus suffers from scalability issues in the sense that only vertical scalability of the host is possible. 
+
+### Local message broker communication
+
+As a stepping stone towards the fully-distributed setup, the second deployment model replaces IPC with a third party messaging solution, while still hiding the worker process management from the user. The setup is illustrated in the figure below.
+
+<img src="{{ site.baseurl }}/assets/img/arch_local_mqtt.png" alt="arch_local_mqtt">
+
+Like before, the `caliper launch master` CLI command starts the master process, which in turn will automatically spawn the configured number of worker processes (using the `caliper launch worker` CLI command). However, the messaging happens through a separate component, which could be deployed anywhere as long as its endpoint is reachable by the Caliper processes.
+
+Unfortunately, this model is also constrained to a single host from the aspect of the Caliper processes. However, it is a useful model for taking your deployment to the next level once your benchmark artifacts are in place. Once you successfully integrated the messaging component, you are ready to move to the fully distributed Caliper setup. 
+
+### Distributed message broker communication
+
+When you take the management of the worker processes into your own hands, that's when the full potential of Caliper is unlocked. At this point, you can start as many workers on as many hosts as you would like, using the `caliper launch worker` CLI command. The setup is illustrated in the figure below.
+
+<img src="{{ site.baseurl }}/assets/img/arch_remote_mqtt.png" alt="arch_remote_mqtt">
+
+The fully distributed deployment enables the horizontal scaling of the worker processes, greatly increasing the achievable workload rate. To ease the management of the many Caliper processes, you will probably utilize some automatic deployment/management solution, like Docker Swarm or Kubernetes. Luckily, the flexibility of the [Caliper Docker image](./Installing_Caliper.md#using-the-docker-image) makes such integration painless.
+
+However, there are some caveats you have to keep in mind:
+1. Distributing the necessary benchmark artifacts to the Caliper processes is your responsibility. Different infrastructure solutions provide different means for this, so check your favorite vendor's documentation.
+2. Setting up proper networking in distributed systems is always a challenge. Make sure that the Caliper processes can access the configured messaging component and the SUT components.
+3. A single host may run multiple Caliper worker processes. When planning the worker distribution (or setting resource requirements for container management solutions) make sure that enough resources are allocated for workers to keep the configured TX scheduling precision.
+
+## License
+The Caliper codebase is released under the [Apache 2.0 license](./LICENSE.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.
