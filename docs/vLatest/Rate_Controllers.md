@@ -46,16 +46,15 @@ The fixed feedback rate controller, driving at 100 TPS, 100 unfinished transacti
 ## Fixed Backlog
 The fixed backlog rate controller is a controller for driving the tests at a target loading (backlog transactions). This controller will aim to maintain a defined backlog of transactions within the system by modifying the driven TPS. The result is the maximum possible TPS for the system whilst maintaining the backlog level.
 
-The modification of the TPS is performed by a basic controller, which aims to drive the backlog error (difference between current and desired transaction backlog) to zero. It works on the proportional (error size), derivative (rate of change of error) and integral (error history) to adjust the time between transaction submission such that the backlog is maintained at a set level.
 
-
-The PID rate controller, targeting a backlog of 5 transactions, is specified through the following controller option:
+The PID rate controller, targeting a backlog of 5 transactions with a starting TPS of 100, is specified through the following controller option:
 
 ```json
 {
   "type": "fixed-backlog",
   "opts": {
-    "unfinished_per_client": 5
+    "unfinished_per_client": 5,
+    "startingTps": 100
   }
 }
 ```
@@ -395,3 +394,6 @@ rateControl:
   opts: 
 
 ```
+
+## License
+The Caliper codebase is released under the [Apache 2.0 license](./LICENSE.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.
