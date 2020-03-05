@@ -351,7 +351,7 @@ class Iroha extends BlockchainInterface {
      */
     async getContext(name, args) {
         try {
-            if(!args.hasOwnProperty('name') || !args.hasOwnProperty('domain') || !args.hasOwnProperty('id') || !args.hasOwnProperty('pubKey') || !args.hasOwnProperty('privKey')) {
+            if(!CaliperUtils.checkProperty(args, 'name') || !CaliperUtils.checkProperty(args, 'domain') || !CaliperUtils.checkProperty(args, 'id') || !CaliperUtils.checkProperty(args, 'pubKey') || !CaliperUtils.checkProperty(args, 'privKey')) {
                 throw new Error('Invalid Iroha::getContext arguments');
             }
             let context = {};
@@ -378,11 +378,11 @@ class Iroha extends BlockchainInterface {
                 let factory  = require(facPath);
                 for(let j = 0 ; j < contract.id.length ; j++) {
                     let id = contract.id[j];
-                    if(!factory.contracts.hasOwnProperty(id)) {
+                    if(!CaliperUtils.checkProperty(factory.contracts, id)) {
                         throw new Error('Could not get function "' + id + '" in ' + facPath);
                     }
                     else {
-                        if(fakeContracts.hasOwnProperty(id)) {
+                        if(CaliperUtils.checkProperty(fakeContracts, id)) {
                             logger.warn('WARNING: multiple callbacks for ' + id + ' have been found');
                         }
                         else {
@@ -437,7 +437,7 @@ class Iroha extends BlockchainInterface {
      * @return {Promise<object>} The promise for the result of the execution.
      */
     async _invokeSmartContract(context, contractID, contractVer, args, timeout) {
-        if(!context.contract.hasOwnProperty(contractID)) {
+        if(!CaliperUtils.checkProperty(context.contract, contractID)) {
             throw new Error('Could not find contract named ' + contractID);
         }
         let commands = args.map(item => {
@@ -501,7 +501,7 @@ class Iroha extends BlockchainInterface {
      * @return {Promise<object>} The promise for the result of the execution.
      */
     async queryState(context, contractID, contractVer, account, fcn = 'query') {
-        if(!context.contract.hasOwnProperty(contractID)) {
+        if(!CaliperUtils.checkProperty(context.contract, contractID)) {
             throw new Error('Could not find contract named ' + contractID);
         }
         let accountId = account + '@' + context.domain;
@@ -541,8 +541,8 @@ class Iroha extends BlockchainInterface {
     _findNode() {
         let nodes  = [];
         let config = require(this.configPath);
-        for(let i in config.iroha.network) {
-            if(config.iroha.network[i].hasOwnProperty('torii')) {
+        for (let i in config.iroha.network) {
+            if (CaliperUtils.checkProperty(config.iroha.network[i], 'torii')) {
                 nodes.push(config.iroha.network[i]);
             }
         }

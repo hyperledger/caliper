@@ -16,6 +16,7 @@
 'use strict';
 
 const Logger = require('./caliper-utils').getLogger('benchmark-validator');
+const Utils = require('../utils/caliper-utils');
 
 const PermittedObservers = ['none', 'local', 'prometheus'];
 /**
@@ -37,12 +38,12 @@ class BenchmarkValidator {
      */
     static validateObserver(benchConfig) {
         // Must be specified
-        if (!benchConfig.hasOwnProperty('observer')) {
+        if (!Utils.checkProperty(benchConfig, 'observer')) {
             Logger.info('No observer specified, will default to `none`');
             return;
         }
         // If specified must have type specified [local, prometheus]
-        if (!benchConfig.observer.hasOwnProperty('type')) {
+        if (!Utils.checkProperty(benchConfig.observer, 'type')) {
             BenchmarkValidator.throwMissingPropertyBenchmarkError('observer.type');
         }
         if (!PermittedObservers.includes(benchConfig.observer.type)) {
@@ -50,7 +51,7 @@ class BenchmarkValidator {
         }
 
         // Must have an integer interval specified if a non-null observer specified
-        if (!(benchConfig.observer.type.localeCompare('none') === 0) && !benchConfig.observer.hasOwnProperty('interval')) {
+        if (!(benchConfig.observer.type.localeCompare('none') === 0) && !Utils.checkProperty(benchConfig.observer, 'interval')) {
             BenchmarkValidator.throwMissingPropertyBenchmarkError('observer.interval');
         }
         if (!PermittedObservers.includes(benchConfig.observer.type)) {

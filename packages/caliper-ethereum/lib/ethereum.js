@@ -80,6 +80,7 @@ class Ethereum extends BlockchainInterface {
             let contractGas = this.ethereumConfig.contracts[key].gas;
             let estimateGas = this.ethereumConfig.contracts[key].estimateGas;
             this.ethereumConfig.contracts[key].abi = contractData.abi;
+            // eslint-disable-next-line no-async-promise-executor
             promises.push(new Promise(async function(resolve, reject) {
                 let contractInstance = await self.deployContract(contractData);
                 logger.info('Deployed contract ' + contractData.name + ' at ' + contractInstance.options.address);

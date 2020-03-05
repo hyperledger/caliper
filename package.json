@@ -7,6 +7,8 @@
     "url": "https://github.com/hyperledger/caliper"
   },
   "scripts": {
+    "check-packages": "node ./scripts/version-check.js",
+    "fix-packages": "node ./scripts/version-check.js --fix",
     "repoclean": "lerna clean",
     "bootstrap": "lerna bootstrap",
     "pretest": "npm run licchk",

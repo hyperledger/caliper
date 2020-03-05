@@ -3,12 +3,12 @@ env:
     node: true
     mocha: true
 extends: 'eslint:recommended'
+parser: "babel-eslint"
 parserOptions:
     ecmaFeatures:
         experimentalObjectRestSpread: true
     ecmaVersion: 8
-    sourceType:
-        - script
+    sourceType: script
 rules:
     indent:
         - error

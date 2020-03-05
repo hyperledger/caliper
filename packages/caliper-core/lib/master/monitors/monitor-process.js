@@ -50,7 +50,7 @@ class MonitorProcess extends MonitorInterface {
         this.stats  = {'time': []};
         this.watchItems = [];
         for(let i = 0 ; i < this.monitorConfig.processes.length ; i++) {
-            if(this.monitorConfig.processes[i].hasOwnProperty('command')) {
+            if(Util.checkProperty(this.monitorConfig.processes[i], 'command')) {
                 let id = this.getId(this.monitorConfig.processes[i]);
                 this.stats[id] = this.newStat();
                 this.watchItems.push(this.monitorConfig.processes[i]);
@@ -76,11 +76,11 @@ class MonitorProcess extends MonitorInterface {
      */
     getId(proc) {
         let id = proc.command;
-        if (proc.hasOwnProperty('arguments')) {
+        if (Util.checkProperty(proc, 'arguments')) {
             id += ' ' + proc.arguments;
         }
 
-        if (proc.hasOwnProperty('multiOutput')) {
+        if (Util.checkProperty(proc, 'multiOutput')) {
             id += '(' + proc.multiOutput + ')';
         } else {
             id += '(sum)';

@@ -15,6 +15,7 @@
 'use strict';
 
 const Logger = require('../utils/caliper-utils').getLogger('prometheus-query-helper');
+const Utils = require('../utils/caliper-utils');
 
 /**
  * PrometheusQueryHelper - static helper functions used to help with return responses from Prometheus queries
@@ -55,7 +56,7 @@ class PrometheusQueryHelper {
         switch(response.data.resultType){
         case 'vector':
             // should have a result entry containing a 'value' field (not 'values')
-            if (response.data.result && response.data.result[0] && response.data.result[0].hasOwnProperty('value')) {
+            if (response.data.result && response.data.result[0] && Utils.checkProperty(response.data.result[0], 'value')) {
                 // value = [timeIndex, value]
                 const val = response.data.result[0].value[1];
                 if (isNumeric) {
@@ -106,7 +107,7 @@ class PrometheusQueryHelper {
         switch(response.data.resultType){
         case 'vector':
             // should have a result entry containing a 'value' field (not 'values')
-            if (response.data.result && response.data.result[0].hasOwnProperty('value')) {
+            if (response.data.result && Utils.checkProperty(response.data.result[0], 'value')) {
                 Logger.error(`Invalid response ${JSON.stringify(response)} passed for single value extraction`);
             }
             break;

@@ -12,16 +12,22 @@
 * limitations under the License.
 */
 
-var Generator = require('yeoman-generator');
+
+'use strict';
+
+const Generator = require('yeoman-generator');
 
 const defaultTxValue = 50;
 const defaultClientValue = 5;
 const answersObject = {};
 
-let promptAnswers, workspaceAnswers, callbackAnswers, inititalAnswers, clientAnswer, roundAnswers, txValueAnswer
+let promptAnswers, workspaceAnswers, callbackAnswers, initialAnswers, clientAnswer, roundAnswers, txValueAnswer;
 module.exports = class extends Generator {
+    /**
+     * prompting
+     */
     async prompting () {
-        this.log("Welcome to the Hyperledger Caliper benchmark generator!\nLet's start off by creating a workspace folder!");
+        this.log('Welcome to the Hyperledger Caliper benchmark generator!\nLet\'s start off by creating a workspace folder!');
 
         const workspaceQuestions = [{
             type: 'input',
@@ -31,7 +37,7 @@ module.exports = class extends Generator {
         }];
         workspaceAnswers = await this.prompt(workspaceQuestions);
 
-        this.log("Now for the callback file...");
+        this.log('Now for the callback file...');
         const callbackQuestions = [{
             type: 'input',
             name: 'chaincodeId',
@@ -50,7 +56,7 @@ module.exports = class extends Generator {
         }, {
             type: 'input',
             name: 'chaincodeArguments',
-            message: 'What are the arguments of your smart contract function? (e.g. ["arg1", "arg2"])',
+            message: 'What are the arguments of your smart contract function? (e.g. [\'arg1\', \'arg2\'])',
             when: () => !this.options.chaincodeArguments
         }];
         callbackAnswers = await this.prompt(callbackQuestions);
@@ -59,11 +65,11 @@ module.exports = class extends Generator {
             try {
                 JSON.parse(callbackAnswers.chaincodeArguments);
             } catch (error) {
-                this.log(`Error: Incorrect array format. Using empty array for arguments. Defaulting to '[]' for arguments`);
+                this.log('Error: Incorrect array format. Using empty array for arguments. Defaulting to [] for arguments');
             }
         }
 
-        this.log("Now for the benchmark configuration file...");
+        this.log('Now for the benchmark configuration file...');
         const configQuestions = {
             initialQuestions: [{
                 type: 'input',
@@ -73,7 +79,7 @@ module.exports = class extends Generator {
             }, {
                 type: 'input',
                 name: 'benchmarkDescription',
-                message: 'What description would you like to provide for your benchamrk?',
+                message: 'What description would you like to provide for your benchmark?',
                 when: () => !this.options.benchmarkDescription
             }],
             clientQuestions: [{
@@ -93,10 +99,10 @@ module.exports = class extends Generator {
                 name: 'rateController',
                 message: 'Which rate controller would you like to use?',
                 choices: [
-                {name: 'Fixed Rate', value: 'fixed-rate'},
-                {name: 'Fixed Backlog', value: 'fixed-backlog'},
-                {name: 'Linear Rate', value: 'linear-rate'},
-                {name: 'Fixed Feedback Rate', value: 'fixed-feedback-rate'}
+                    {name: 'Fixed Rate', value: 'fixed-rate'},
+                    {name: 'Fixed Backlog', value: 'fixed-backlog'},
+                    {name: 'Linear Rate', value: 'linear-rate'},
+                    {name: 'Fixed Feedback Rate', value: 'fixed-feedback-rate'}
                 ],
                 when: () => !this.options.rateController
             }, {
@@ -104,8 +110,8 @@ module.exports = class extends Generator {
                 name: 'txType',
                 message: 'How would you like to measure the length of the round?',
                 choices: [
-                {name: 'Transaction Duration', value:'txDuration'},
-                {name: 'Transaction Number', value: 'txNumber'}
+                    {name: 'Transaction Duration', value:'txDuration'},
+                    {name: 'Transaction Number', value: 'txNumber'}
                 ],
                 when: () => !this.options.txType
             }],
@@ -123,43 +129,46 @@ module.exports = class extends Generator {
                 default: defaultTxValue,
                 when: () => !this.options.txNumber
             }]
-        }
+        };
 
-        inititalAnswers = await this.prompt(configQuestions.initialQuestions);
+        initialAnswers = await this.prompt(configQuestions.initialQuestions);
 
         clientAnswer = await this.prompt(configQuestions.clientQuestions);
         if (isNaN(parseFloat(this.options.workers)) && isNaN(parseFloat(clientAnswer.workers))) {
-            this.log(`Error: Not a valid input. Using default client value of ${defaultClientValue}.`)
+            this.log(`Error: Not a valid input. Using default client value of ${defaultClientValue}.`);
         }
         if (this.options.workers < 0 || clientAnswer.workers < 0) {
-            this.log(`Error: Negative values not accepted. Defaulting to ${Math.abs(clientAnswer.workers)}.`)
+            this.log(`Error: Negative values not accepted. Defaulting to ${Math.abs(clientAnswer.workers)}.`);
         }
 
         roundAnswers = await this.prompt(configQuestions.roundQuestions);
 
-        if (roundAnswers.txType === "txDuration") {
+        if (roundAnswers.txType === 'txDuration') {
             txValueAnswer = await this.prompt(configQuestions.txDurationQuestion);
             if (isNaN(parseFloat(txValueAnswer.txDuration))) {
-              this.log(`Error: Not a valid input. Using default txDuration value of ${defaultTxValue}.`)
+                this.log(`Error: Not a valid input. Using default txDuration value of ${defaultTxValue}.`);
             }
             if (txValueAnswer.txDuration < 0) {
-                this.log(`Error: Negative values not accepted. Defaulting to ${Math.abs(txValueAnswer.txDuration)}.`)
+                this.log(`Error: Negative values not accepted. Defaulting to ${Math.abs(txValueAnswer.txDuration)}.`);
             }
         }
-        if (roundAnswers.txType === "txNumber") {
+        if (roundAnswers.txType === 'txNumber') {
             txValueAnswer = await this.prompt(configQuestions.txNumberQuestion);
             if (isNaN(parseFloat(txValueAnswer.txNumber))) {
-              this.log(`Error: Not a valid input. Using default txNumber value of ${defaultTxValue}.`)
+                this.log(`Error: Not a valid input. Using default txNumber value of ${defaultTxValue}.`);
             }
             if (txValueAnswer.txNumber < 0) {
-                this.log(`Error: Negative values not accepted. Defaulting to ${Math.abs(txValueAnswer.txNumber)}.`)
+                this.log(`Error: Negative values not accepted. Defaulting to ${Math.abs(txValueAnswer.txNumber)}.`);
             }
         }
 
-        Object.assign(this.options, workspaceAnswers, callbackAnswers, inititalAnswers, clientAnswer, roundAnswers, txValueAnswer);
+        Object.assign(this.options, workspaceAnswers, callbackAnswers, initialAnswers, clientAnswer, roundAnswers, txValueAnswer);
         promptAnswers = this.options;
     }
 
+    /**
+     * _callbackWrite
+     */
     _callbackWrite() {
         answersObject.chaincodeId = promptAnswers.chaincodeId;
         answersObject.version = promptAnswers.version;
@@ -183,13 +192,16 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath('callback.js'),
             this.destinationPath(`${ promptAnswers.workspace }/benchmarks/callbacks/${ answersObject.callback }`), answersObject
-            )
+        );
     }
 
+    /**
+     * _configWrite
+     */
     _configWrite() {
         answersObject.benchmarkName = promptAnswers.benchmarkName;
         answersObject.benchmarkDescription = promptAnswers.benchmarkDescription;
-        answersObject.workers = promptAnswers.workers
+        answersObject.workers = promptAnswers.workers;
         answersObject.label = promptAnswers.label;
         answersObject.txType = promptAnswers.txType;
         answersObject.chaincodeId = promptAnswers.chaincodeId;
@@ -205,58 +217,64 @@ module.exports = class extends Generator {
 
         if (promptAnswers.txType === 'txDuration') {
             if (isNaN(promptAnswers.txDuration)) {
-              answersObject.txValue = defaultTxValue;
+                answersObject.txValue = defaultTxValue;
             } else if (promptAnswers.txDuration < 0) {
                 answersObject.txValue = Math.abs(promptAnswers.txDuration);
             } else {
                 answersObject.txValue = promptAnswers.txDuration;
             }
-        };
+        }
 
 
         if (promptAnswers.txType === 'txNumber') {
             if (isNaN(promptAnswers.txNumber)) {
-              answersObject.txValue = defaultTxValue;
+                answersObject.txValue = defaultTxValue;
             } else if (promptAnswers.txNumber < 0) {
                 answersObject.txValue = Math.abs(promptAnswers.txNumber);
             }
             else {
                 answersObject.txValue = promptAnswers.txNumber;
             }
-        };
+        }
 
         this.fs.copyTpl(
             this.templatePath('config.yaml'),
             this.destinationPath(`${ promptAnswers.workspace }/benchmarks/config.yaml`), answersObject
-          );
+        );
     }
 
+    /**
+     * writing
+     */
     async writing () {
         console.log('Generating benchmark files...');
         this._callbackWrite();
         answersObject.rateController = promptAnswers.rateController;
 
         switch(promptAnswers.rateController) {
-            case 'fixed-rate':
-            answersObject.opts = `tps: 10`;
+        case 'fixed-rate':
+            answersObject.opts = 'tps: 10';
             this._configWrite();
             break;
         case 'fixed-backlog':
-            answersObject.opts = `unfinished_per_client: 5`;
+            answersObject.opts = 'unfinished_per_client: 5';
             this._configWrite();
             break;
         case 'linear-rate':
-            answersObject.opts = `startingTps: 25, finishingTps: 75`;
+            answersObject.opts = 'startingTps: 25, finishingTps: 75';
             this._configWrite();
             break;
         case 'fixed-feedback-rate':
-            answersObject.opts = `tps: 100, unfinished_per_client: 100`;
+            answersObject.opts = 'tps: 100, unfinished_per_client: 100';
             this._configWrite();
             break;
         }
     }
 
+    /**
+     * end()
+     */
     end(){
         console.log('Finished generating benchmark files');
-    };
-}
+    }
+};

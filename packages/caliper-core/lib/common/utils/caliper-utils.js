@@ -291,7 +291,7 @@ class CaliperUtils {
      * @return {boolean} True, if the property exists and it's defined and not null. Otherwise false.
      */
     static checkProperty(object, propertyName) {
-        return object.hasOwnProperty(propertyName) && object[propertyName] !== undefined &&
+        return Object.prototype.hasOwnProperty.call(object, propertyName) && object[propertyName] !== undefined &&
             object[propertyName] !== null;
     }
 
@@ -302,7 +302,7 @@ class CaliperUtils {
      * @param {string} propertyName The name of the property to check.
      */
     static assertProperty(object, objectName, propertyName) {
-        if (!object.hasOwnProperty(propertyName) || object[propertyName] === undefined ||
+        if (!Object.prototype.hasOwnProperty.call(object, propertyName) || object[propertyName] === undefined ||
             object[propertyName] === null) {
             throw new Error(`Property '${propertyName}' of ${objectName || 'object'} is missing, undefined or null`);
         }

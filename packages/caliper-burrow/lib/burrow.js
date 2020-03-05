@@ -103,6 +103,7 @@ class Burrow extends BlockchainInterface {
             contract = await burrow.contracts.deploy(abi, bytecode);
             logger.info(`Contract: ${contract.address}`);
         } catch (err) {
+            logger.error(`Error in installSmartContract: ${err.toString()}`);
             throw err;
         }
 

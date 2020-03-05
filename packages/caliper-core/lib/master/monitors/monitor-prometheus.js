@@ -39,16 +39,16 @@ class PrometheusMonitor extends MonitorInterface {
         this.prometheusPushClient = new PrometheusPushClient(monitorConfig.push_url);
         this.prometheusQueryClient = new PrometheusQueryClient(monitorConfig.url);
         // User defined options for monitoring
-        if (monitorConfig.hasOwnProperty('metrics')) {
+        if (Util.checkProperty(monitorConfig, 'metrics')) {
             // Might have an ignore list
-            if (monitorConfig.metrics.hasOwnProperty('ignore')) {
+            if (Util.checkProperty(monitorConfig.metrics, 'ignore')) {
                 this.ignore = monitorConfig.metrics.ignore;
             } else {
                 Logger.info('No monitor metrics `ignore` option specified, will provide statistics on all items retrieved by queries');
             }
 
             // Might have user specified queries to run
-            if (monitorConfig.metrics.hasOwnProperty('include')) {
+            if (Util.checkProperty(monitorConfig.metrics, 'include')) {
                 this.include =  monitorConfig.metrics.include;
             } else {
                 Logger.info('No monitor metrics `include` options specified, unable to provide statistics on any resources');

@@ -362,8 +362,8 @@ class ReportBuilder {
      */
     addLabelDescriptionMap(rounds){
         const descriptionMap = new Map();
-        for(let i = 0 ; i < rounds.length ; i++) {
-            if(rounds[i].hasOwnProperty('description')) {
+        for (let i = 0 ; i < rounds.length ; i++) {
+            if (Utils.checkProperty(rounds[i], 'description')) {
                 descriptionMap.set(rounds[i].label, rounds[i].description);
             }
         }

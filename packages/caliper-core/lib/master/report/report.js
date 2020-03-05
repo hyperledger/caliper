@@ -68,7 +68,7 @@ class Report {
             this.reportBuilder.addMetadata('Benchmark Rounds', ' ');
         }
 
-        if(this.networkConfig.hasOwnProperty('info')) {
+        if(CaliperUtils.checkProperty(this.networkConfig, 'info')) {
             for(let key in this.networkConfig.info) {
                 this.reportBuilder.addSUTInfo(key, this.networkConfig.info[key]);
             }
@@ -152,14 +152,14 @@ class Report {
         Logger.debug ('getLocalResultValues called with: ', JSON.stringify(results));
         const resultMap = this.getResultColumnMap();
         resultMap.set('Name', testLabel ? testLabel : 'unknown');
-        resultMap.set('Succ', results.hasOwnProperty('succ') ? results.succ : '-');
-        resultMap.set('Fail', results.hasOwnProperty('fail') ? results.fail : '-');
-        resultMap.set('Max Latency (s)', (results.hasOwnProperty('delay') && results.delay.hasOwnProperty('max')) ? results.delay.max.toFixed(2) : '-');
-        resultMap.set('Min Latency (s)', (results.hasOwnProperty('delay') && results.delay.hasOwnProperty('min')) ? results.delay.min.toFixed(2) : '-');
-        resultMap.set('Avg Latency (s)', (results.hasOwnProperty('delay') && results.delay.hasOwnProperty('sum') && results.hasOwnProperty('succ')) ? (results.delay.sum / results.succ).toFixed(2) : '-');
+        resultMap.set('Succ', CaliperUtils.checkProperty(results, 'succ') ? results.succ : '-');
+        resultMap.set('Fail', CaliperUtils.checkProperty(results, 'fail') ? results.fail : '-');
+        resultMap.set('Max Latency (s)', (CaliperUtils.checkProperty(results, 'delay') && CaliperUtils.checkProperty(results.delay, 'max')) ? results.delay.max.toFixed(2) : '-');
+        resultMap.set('Min Latency (s)', (CaliperUtils.checkProperty(results, 'delay') && CaliperUtils.checkProperty(results.delay, 'min')) ? results.delay.min.toFixed(2) : '-');
+        resultMap.set('Avg Latency (s)', (CaliperUtils.checkProperty(results, 'delay') && CaliperUtils.checkProperty(results.delay, 'sum') && CaliperUtils.checkProperty(results, 'succ')) ? (results.delay.sum / results.succ).toFixed(2) : '-');
 
         // Send rate needs a little more conditioning than sensible for a ternary op
-        if (results.hasOwnProperty('succ') && results.hasOwnProperty('fail') && results.hasOwnProperty('create') && results.create.hasOwnProperty('max') && results.create.hasOwnProperty('min')) {
+        if (CaliperUtils.checkProperty(results, 'succ') && CaliperUtils.checkProperty(results, 'fail') && CaliperUtils.checkProperty(results, 'create') && CaliperUtils.checkProperty(results.create, 'max') && CaliperUtils.checkProperty(results.create, 'min')) {
             const sendRate = (results.create.max === results.create.min) ? (results.succ + results.fail) : ((results.succ + results.fail) / (results.create.max - results.create.min)).toFixed(1);
             resultMap.set('Send Rate (TPS)', sendRate);
         } else {
@@ -167,7 +167,7 @@ class Report {
         }
 
         // Observed TPS needs a little more conditioning than sensible for a ternary op
-        if (results.hasOwnProperty('succ') && results.hasOwnProperty('final') && results.final.hasOwnProperty('last') && results.hasOwnProperty('create') && results.create.hasOwnProperty('min')) {
+        if (CaliperUtils.checkProperty(results, 'succ') && CaliperUtils.checkProperty(results, 'final') && CaliperUtils.checkProperty(results.final, 'last') && CaliperUtils.checkProperty(results, 'create') && CaliperUtils.checkProperty(results.create, 'min')) {
             const tps = (results.final.last === results.create.min) ? results.succ  : (results.succ / (results.final.last - results.create.min)).toFixed(1);
             resultMap.set('Throughput (TPS)', tps);
         } else {

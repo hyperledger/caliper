@@ -282,7 +282,7 @@ class FabricNetwork {
         let result = new Set();
         let cas = this.network.certificateAuthorities;
         for (let key in cas) {
-            if (!cas.hasOwnProperty(key)) {
+            if (!CaliperUtils.checkProperty(cas, key)) {
                 continue;
             }
 
@@ -330,7 +330,7 @@ class FabricNetwork {
         let channels = this.network.channels;
 
         for (let key in channels) {
-            if (!channels.hasOwnProperty(key)) {
+            if (!CaliperUtils.checkProperty(channels, key)) {
                 continue;
             }
 
@@ -423,7 +423,7 @@ class FabricNetwork {
         let clients = this.network.clients;
 
         for (let key in clients) {
-            if (!clients.hasOwnProperty(key)) {
+            if (!CaliperUtils.checkProperty(clients, key)) {
                 continue;
             }
 
@@ -552,7 +552,7 @@ class FabricNetwork {
         let orderers = this.network.orderers;
 
         for (let key in orderers) {
-            if (!orderers.hasOwnProperty(key)) {
+            if (!CaliperUtils.checkProperty(orderers, key)) {
                 continue;
             }
 
@@ -631,7 +631,7 @@ class FabricNetwork {
         let orgs = this.network.organizations;
 
         for (let key in orgs) {
-            if (!orgs.hasOwnProperty(key)) {
+            if (!CaliperUtils.checkProperty(orgs, key)) {
                 continue;
             }
 
@@ -674,7 +674,7 @@ class FabricNetwork {
     getPeerNameForAddress(address) {
         let peers = this.network.peers;
         for (let peer in peers) {
-            if (!peers.hasOwnProperty(peer)) {
+            if (!CaliperUtils.checkProperty(peers, peer)) {
                 continue;
             }
 
@@ -708,7 +708,7 @@ class FabricNetwork {
         let peers = this.network.peers;
 
         for (let peerKey in peers) {
-            if (!peers.hasOwnProperty(peerKey)) {
+            if (!CaliperUtils.checkProperty(peers, peerKey)) {
                 continue;
             }
 
@@ -728,7 +728,7 @@ class FabricNetwork {
         let result = new Set();
 
         for (let key in peers) {
-            if (!peers.hasOwnProperty(key)) {
+            if (!CaliperUtils.checkProperty(peers, key)) {
                 continue;
             }
 
@@ -798,7 +798,7 @@ class FabricNetwork {
         let results = new Set();
         let peers = this.network.channels[channel].peers;
         for (let key in peers) {
-            if (!peers.hasOwnProperty(key)) {
+            if (!CaliperUtils.checkProperty(peers, key)) {
                 continue;
             }
 
@@ -866,7 +866,7 @@ class FabricNetwork {
         }
 
         for (let key in cc.initTransientMap) {
-            if (!cc.initTransientMap.hasOwnProperty(key)) {
+            if (!CaliperUtils.checkProperty(cc.initTransientMap, key)) {
                 continue;
             }
 

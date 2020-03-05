@@ -173,7 +173,7 @@ class MessageHandler {
      * @param {object} message The message object.
      */
     static async handle(context, message) {
-        if (!message.hasOwnProperty('type')) {
+        if (!CaliperUtils.checkProperty(message, 'type')) {
             let msg = 'Message type is missing';
             logger.error(msg, message);
             context.messenger.send(['orchestrator'], 'error', {error: msg});

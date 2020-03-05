@@ -1577,6 +1577,7 @@ class Fabric extends BlockchainInterface {
         // no exception should escape, query failures have to be handled gracefully
         try {
             // NOTE: wrap it in a Promise to enforce user-provided timeout
+            // eslint-disable-next-line no-async-promise-executor
             let resultPromise = new Promise(async (resolve, reject) => {
                 let timeoutHandle = setTimeout(() => {
                     reject(new Error('TIMEOUT'));
@@ -1823,6 +1824,7 @@ class Fabric extends BlockchainInterface {
             let broadcastResponse;
             try {
                 // wrap it in a Promise to add explicit timeout to the call
+                // eslint-disable-next-line no-async-promise-executor
                 let responsePromise = new Promise(async (resolve, reject) => {
                     let timeoutHandle = setTimeout(() => {
                         reject(new Error('TIMEOUT'));

@@ -32,12 +32,12 @@
         "fabric-client": "^1.4.7",
         "fabric-network": "^1.4.7",
         "fabric-protos": "2.0.0-snapshot.1",
-        "chai": "^3.5.0",
-        "eslint": "^5.16.0",
-        "mocha": "3.4.2",
-        "nyc": "11.1.0",
+        "chai": "4.2.0",
+        "eslint": "5.16.0",
+        "mocha": "7.1.0",
+        "nyc": "15.0.0",
         "rewire": "^4.0.0",
-        "sinon": "^7.3.2",
+        "sinon": "9.0.0",
         "license-check-and-add": "2.3.6"
     },
     "license-check-and-add-config": {

@@ -9,9 +9,9 @@
     "stop_verdaccio": "PM2_HOME=.pm2 pm2 stop verdaccio || true",
     "pretest": "npm run licchk",
     "licchk": "license-check-and-add",
+    "test": "exit 0",
     "npm_publish_local": "ARCH=`uname -m` npm_config_registry=http://localhost:4873 node ./scripts/publishNpmPackages.js http://localhost:4873",
-    "docker_build_local": "node ./scripts/buildDockerImage.js http://localhost:4873",
-    "test": "exit 0"
+    "docker_build_local": "node ./scripts/buildDockerImage.js http://localhost:4873"
   },
   "repository": {
     "type": "git",

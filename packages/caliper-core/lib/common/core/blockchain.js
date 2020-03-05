@@ -15,6 +15,7 @@
 'use strict';
 
 const Logger = require('../utils/caliper-utils').getLogger('blockchain');
+const Utils = require('../utils/caliper-utils');
 
 /**
  * BlockChain class, define operations to interact with the blockchain system under test
@@ -264,7 +265,7 @@ class Blockchain {
             for(let i = 0 ; i < resultArray.length ; i++) {
                 let result = resultArray[i];
 
-                if(!result.hasOwnProperty('succ') || !result.hasOwnProperty('fail') || (result.succ + result.fail) === 0) {
+                if(!Utils.checkProperty(result, 'succ') || !Utils.checkProperty(result, 'fail') || (result.succ + result.fail) === 0) {
                     skip++;
                 }
                 else {
@@ -283,7 +284,7 @@ class Blockchain {
             let r = resultArray[0];
             for(let i = 1 ; i < resultArray.length ; i++) {
                 let v = resultArray[i];
-                if(!v.hasOwnProperty('succ') || !v.hasOwnProperty('fail') || (v.succ + v.fail) === 0) {
+                if(!Utils.checkProperty(v, 'succ') || !Utils.checkProperty(v, 'fail') || (v.succ + v.fail) === 0) {
                     continue;
                 }
                 r.succ += v.succ;

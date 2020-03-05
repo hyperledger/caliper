@@ -1,21 +1,26 @@
 {
     "command": {
         "bootstrap": {
-            "npmClientArgs": ["--no-package-lock"]
+            "npmClientArgs": [
+                "--no-package-lock"
+            ]
         }
     },
-	"packages": [
-	    "packages/caliper-core",
+    "packages": [
         "packages/caliper-burrow",
+        "packages/caliper-cli",
+        "packages/caliper-core",
         "packages/caliper-ethereum",
         "packages/caliper-fabric",
         "packages/caliper-fisco-bcos",
+        "packages/caliper-generator/generator-caliper",
+        "packages/caliper-gui-dashboard",
+        "packages/caliper-gui-server",
         "packages/caliper-iroha",
-        "packages/caliper-sawtooth",
-        "packages/caliper-cli",
         "packages/caliper-publish",
+        "packages/caliper-sawtooth",
         "packages/caliper-tests-integration"
-	],
-	"version": "0.3.1-unstable",
-	"hoist": true
-  }
+    ],
+    "version": "0.3.1-unstable",
+    "hoist": true
+}

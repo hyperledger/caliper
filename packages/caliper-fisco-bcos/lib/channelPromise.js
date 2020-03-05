@@ -215,6 +215,7 @@ function channelPromise(node, authentication, data, timeout, readOnly = false) {
 
     tlsSocket.socketID = uuid;
     let packagedData = dataPackage.packagedData;
+    // eslint-disable-next-line no-async-promise-executor
     let channelPromise = new Promise(async (resolve, reject) => {
         let eventEmitter = new events.EventEmitter();
         Object.defineProperty(eventEmitter, 'readOnly', {

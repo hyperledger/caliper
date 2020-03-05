@@ -66,7 +66,7 @@ class MonitorDocker extends MonitorInterface {
         this.containers = [];
         let filterName = { local: [], remote: {} };
         // Split docker items that are local or remote
-        if (this.monitorConfig.hasOwnProperty('containers')) {
+        if (Util.checkProperty(this.monitorConfig, 'containers')) {
             for (let key in this.monitorConfig.containers) {
                 let container = this.monitorConfig.containers[key];
                 if (container.indexOf('http://') === 0) {
@@ -74,7 +74,7 @@ class MonitorDocker extends MonitorInterface {
                     let remote = URL.parse(container, true);
                     if (remote.hostname === null || remote.port === null || remote.pathname === '/') {
                         Logger.warn('unrecognized host, ' + container);
-                    } else if (filterName.remote.hasOwnProperty(remote.hostname)) {
+                    } else if (Util.checkProperty(filterName.remote, remote.hostname)) {
                         filterName.remote[remote.hostname].containers.push(remote.pathname);
                     } else {
                         filterName.remote[remote.hostname] = { port: remote.port, containers: [remote.pathname] };
@@ -207,7 +207,7 @@ class MonitorDocker extends MonitorInterface {
                         let cpuDelta = stat.cpu_stats.cpu_usage.total_usage - stat.precpu_stats.cpu_usage.total_usage;
                         let sysDelta = stat.cpu_stats.system_cpu_usage - stat.precpu_stats.system_cpu_usage;
                         if (cpuDelta > 0 && sysDelta > 0) {
-                            if (stat.cpu_stats.cpu_usage.hasOwnProperty('percpu_usage') && stat.cpu_stats.cpu_usage.percpu_usage !== null) {
+                            if (Util.checkProperty(stat.cpu_stats.cpu_usage, 'percpu_usage') && stat.cpu_stats.cpu_usage.percpu_usage !== null) {
                                 this.stats[id].cpu_percent.push(cpuDelta / sysDelta * this.coresInUse(stat.cpu_stats) * 100.0);
                             } else {
                                 this.stats[id].cpu_percent.push(cpuDelta / sysDelta * 100.0);
@@ -227,7 +227,7 @@ class MonitorDocker extends MonitorInterface {
                         let cpuDelta = stat.cpu_stats.cpu_usage.total_usage - stat.precpu_stats.cpu_usage.total_usage;
                         let sysDelta = stat.cpu_stats.system_cpu_usage - stat.precpu_stats.system_cpu_usage;
                         if (cpuDelta > 0 && sysDelta > 0) {
-                            if (stat.cpu_stats.cpu_usage.hasOwnProperty('percpu_usage') && stat.cpu_stats.cpu_usage.percpu_usage !== null) {
+                            if (Util.checkProperty(stat.cpu_stats.cpu_usage, 'percpu_usage') && stat.cpu_stats.cpu_usage.percpu_usage !== null) {
                                 // this.stats[id].cpu_percent.push(cpuDelta / sysDelta * stat.cpu_stats.cpu_usage.percpu_usage.length * 100.0);
                                 this.stats[id].cpu_percent.push(cpuDelta / sysDelta * this.coresInUse(stat.cpu_stats) * 100.0);
                             } else {
@@ -244,7 +244,7 @@ class MonitorDocker extends MonitorInterface {
                         this.stats[id].netIO_rx.push(ioRx);
                         this.stats[id].netIO_tx.push(ioTx);
                         let diskR = 0, diskW = 0;
-                        if (stat.blkio_stats && stat.blkio_stats.hasOwnProperty('io_service_bytes_recursive')) {
+                        if (stat.blkio_stats && Util.checkProperty(stat.blkio_stats, 'io_service_bytes_recursive')) {
                             //Logger.debug(stat.blkio_stats.io_service_bytes_recursive);
                             let temp = stat.blkio_stats.io_service_bytes_recursive;
                             for (let dIo = 0; dIo < temp.length; dIo++) {
@@ -341,7 +341,7 @@ class MonitorDocker extends MonitorInterface {
 
             // Build a statistic for each monitored container and push into watchItems array
             for (const container of this.containers) {
-                if (container.hasOwnProperty('id')) {
+                if (Util.checkProperty(container, 'id')) {
 
                     // Grab the key
                     const key = container.id;

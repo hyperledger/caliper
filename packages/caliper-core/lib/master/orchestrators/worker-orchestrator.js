@@ -72,7 +72,7 @@ class WorkerOrchestrator {
         this.workersAssigned = false;
         this.workersReady = false;
 
-        if (this.config.hasOwnProperty('number')) {
+        if (CaliperUtils.checkProperty(this.config, 'number')) {
             this.number = this.config.number;
         } else {
             this.number = 1;
