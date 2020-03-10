@@ -2,7 +2,7 @@
   "private": true,
   "name": "@hyperledger/generator-caliper",
   "description": "Yeoman generator for Hyperledger Caliper",
-  "version": "0.2.0",
+  "version": "0.3.1-unstable",
   "author": "Lynn Muswere",
   "homepage": "https://hyperledger.github.io/caliper/",
   "repository": {

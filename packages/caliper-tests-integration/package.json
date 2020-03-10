@@ -1,6 +1,6 @@
 {
   "name": "caliper-tests-integration",
-  "version": "0.3.0-unstable",
+  "version": "0.3.1-unstable",
   "private": true,
   "description": "Integration tests for Hyperledger Caliper",
   "scripts": {
@@ -31,14 +31,14 @@
     "license-check-and-add": "2.3.6"
   },
   "dependencies": {
-    "@hyperledger/caliper-burrow": "0.3.0-unstable",
-    "@hyperledger/caliper-cli": "0.3.0-unstable",
-    "@hyperledger/caliper-core": "0.3.0-unstable",
-    "@hyperledger/caliper-ethereum": "0.3.0-unstable",
-    "@hyperledger/caliper-fabric": "0.3.0-unstable",
-    "@hyperledger/caliper-fisco-bcos": "0.3.0-unstable",
-    "@hyperledger/caliper-iroha": "0.3.0-unstable",
-    "@hyperledger/caliper-sawtooth": "0.3.0-unstable",
+    "@hyperledger/caliper-burrow": "0.3.1-unstable",
+    "@hyperledger/caliper-cli": "0.3.1-unstable",
+    "@hyperledger/caliper-core": "0.3.1-unstable",
+    "@hyperledger/caliper-ethereum": "0.3.1-unstable",
+    "@hyperledger/caliper-fabric": "0.3.1-unstable",
+    "@hyperledger/caliper-fisco-bcos": "0.3.1-unstable",
+    "@hyperledger/caliper-iroha": "0.3.1-unstable",
+    "@hyperledger/caliper-sawtooth": "0.3.1-unstable",
     "yeoman-generator": "4.1.0",
     "yosay": "^2.0.1"
   },
