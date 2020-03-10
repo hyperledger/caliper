@@ -1804,7 +1804,7 @@ class Fabric extends BlockchainInterface {
             let targetOrderer = invokeSettings.orderer || this._getRandomTargetOrderer(invokeSettings.channel);
             let orderer;
 
-            if (!(typeof(targetOrderer) === 'string' || targetOrderer instanceof String)) {
+            if (typeof(targetOrderer) === 'string' || targetOrderer instanceof String) {
                 // Using an orderer name
                 orderer = channel.getOrderer(targetOrderer);
             } else {
