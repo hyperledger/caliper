@@ -7,7 +7,6 @@
 	"packages": [
 	    "packages/caliper-core",
         "packages/caliper-burrow",
-        "packages/caliper-composer",
         "packages/caliper-ethereum",
         "packages/caliper-fabric",
         "packages/caliper-fisco-bcos",
@@ -19,6 +18,6 @@
 		"packages/caliper-gui-dashboard",
 		"packages/caliper-gui-server"
 	],
-	"version": "0.3.0-unstable",
+	"version": "0.3.1-unstable",
 	"hoist": true
   }
