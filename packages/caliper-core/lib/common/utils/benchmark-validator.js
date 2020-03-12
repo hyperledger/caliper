@@ -57,9 +57,9 @@ class BenchmarkValidator {
             BenchmarkValidator.throwInvalidPropertyBenchmarkError('observer.type', benchConfig.observer.type);
         }
 
-        // If prometheus monitor specified, must be a prometheus observer
+        // If prometheus monitor specified, must be a prometheus observer or none
         if (benchConfig.monitor && benchConfig.monitor.type &&
-            benchConfig.monitor.type.includes('prometheus') && !(benchConfig.observer.type.localeCompare('prometheus') === 0) ) {
+            benchConfig.monitor.type.includes('prometheus') && (benchConfig.observer.type.localeCompare('local') === 0) ) {
             BenchmarkValidator.throwIncompatibleTypeBenchmarkError('observer.type.local', 'monitor.type.prometheus');
         }
     }
