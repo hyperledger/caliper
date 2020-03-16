@@ -33,7 +33,7 @@
         "@hyperledger/caliper-sawtooth": "0.3.1-unstable",
         "@hyperledger/caliper-ethereum": "0.3.1-unstable",
         "@hyperledger/caliper-fisco-bcos": "0.3.1-unstable",
-        "yargs": "15.1.0"
+        "yargs": "15.3.1"
     },
     "devDependencies": {
         "chai": "^3.5.0",
