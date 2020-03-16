@@ -148,6 +148,31 @@ class CaliperUtils {
     }
 
     /**
+     * Check if a named module is installed and accessible by caliper
+     * @param {string} moduleName the name of the module to check
+     * @param {Function} requireFunction The "require" function (with appropriate scoping) to use to load the module.
+     * @returns {boolean} boolean value for existence of accessible package
+     */
+    static moduleIsInstalled(moduleName, requireFunction = require) {
+        let modulePath;
+        if (moduleName.startsWith('./') || moduleName.startsWith('/')) {
+            // treat it as an external module, but resolve the path, so it's absolute
+            modulePath = CaliperUtils.resolvePath(moduleName);
+        } else {
+            // treat it as a package dependency (user must install it beforehand)
+            modulePath = moduleName;
+        }
+
+        try {
+            CaliperUtils.loadModule(modulePath, requireFunction);
+            return true;
+        } catch (err) {
+            // If the module can not be found, an error is thrown
+            return false;
+        }
+    }
+
+    /**
      * Utility function to check for singleton values
      * @param {string[]} passedArgs arguments passed by user
      * @param {string[]} uniqueArgs arguments that must be unique
