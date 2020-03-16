@@ -21,7 +21,7 @@
         "npm": ">=5.6.0"
     },
     "dependencies": {
-        "yargs": "15.1.0"
+        "yargs": "15.3.1"
     },
     "devDependencies": {
         "chai": "^3.5.0",
