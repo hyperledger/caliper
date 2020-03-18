@@ -28,9 +28,20 @@ const Fabric = class extends BlockchainInterface {
      */
     constructor(workerIndex) {
         super();
-        // Switch adaptors on the fabric-ca-client, which is a common package across all fabric-sdk-node releases
-        const packageVersion = require('fabric-ca-client/package').version;
-        const version = semver.coerce(packageVersion);
+        // Switch adaptors based on installed packages
+        // - will either have fabric-client, or fabric-network
+        let version;
+        if (CaliperUtils.moduleIsInstalled('fabric-client')) {
+            const packageVersion = require('fabric-client/package').version;
+            version = semver.coerce(packageVersion);
+        } else if (CaliperUtils.moduleIsInstalled('fabric-network')) {
+            const packageVersion = require('fabric-network/package').version;
+            version = semver.coerce(packageVersion);
+        } else {
+            const msg = 'Unable to detect required Fabric binding packages';
+            throw new Error(msg);
+        }
+
         const useGateway = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.UseGateway, false);
 
         Logger.info(`Initializing ${useGateway ? 'gateway' : 'standard' } adaptor compatible with installed SDK: ${version}`);
