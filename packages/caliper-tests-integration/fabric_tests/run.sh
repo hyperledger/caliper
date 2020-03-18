@@ -81,7 +81,7 @@ if [[ ${rc} != 0 ]]; then
 fi
 
 # PHASE 4 again: testing through the gateway API
-${CALL_METHOD} launch master --caliper-workspace phase4 --caliper-flow-only-test --caliper-fabric-usegateway
+${CALL_METHOD} launch master --caliper-workspace phase4 --caliper-flow-only-test --caliper-fabric-gateway-usegateway
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 6";
