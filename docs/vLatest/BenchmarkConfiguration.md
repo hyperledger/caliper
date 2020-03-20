@@ -35,9 +35,9 @@ The settings related to the benchmark workload all reside under the root `test` 
 |:----------|:------------|
 | test.name | Short name of the benchmark to display in the report. |
 | test.description | Detailed description of the benchmark to display in the report. |
-| test.clients | Object of worker-related configurations. |
-| test.clients.type | Currently unused. |
-| test.clients.number | Specifies the number of worker processes to use for executing the workload. |
+| test.workers | Object of worker-related configurations. |
+| test.workers.type | Currently unused. |
+| test.workers.number | Specifies the number of worker processes to use for executing the workload. |
 | test.rounds | Array of objects, each describing the settings of a round. |
 | test.rounds[i].label | A short name of the rounds, usually corresponding to the types of submitted TXs. |
 | test.rounds[i].txNumber | The number of TXs Caliper should submit during the round. |
