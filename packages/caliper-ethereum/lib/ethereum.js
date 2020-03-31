@@ -101,11 +101,21 @@ class Ethereum extends BlockchainInterface {
      */
     async getContext(name, args) {
         let context = {
+            chainId: 1,
             clientIndex: this.clientIndex,
+            gasPrice: 0,
             contracts: {},
             nonces: {},
             web3: this.web3
         };
+
+        context.gasPrice = this.ethereumConfig.gasPrice !== undefined
+            ? this.ethereumConfig.gasPrice
+            : await this.web3.eth.getGasPrice();
+
+        context.chainId = this.ethereumConfig.chainId !== undefined
+            ? this.ethereumConfig.chainId
+            : await this.web3.eth.getChainId();
 
         for (const key of Object.keys(args.contracts)) {
             context.contracts[key] = {
@@ -211,7 +221,13 @@ class Ethereum extends BlockchainInterface {
                 let nonce = context.nonces[context.fromAddress];
                 context.nonces[context.fromAddress] = nonce + 1;
                 params.nonce = nonce;
+                // leaving these values unset causes web3 to fetch gasPrice and
+                // chainId on the fly. This can cause transactions to be
+                // reordered, which in turn causes nonce failures
+                params.gasPrice = context.gasPrice;
+                params.chainId = context.chainId;
             }
+
             if (methodCall.args) {
                 if (contractInfo.gas && contractInfo.gas[methodCall.verb]) {
                     params.gas = contractInfo.gas[methodCall.verb];
