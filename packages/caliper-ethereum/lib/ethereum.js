@@ -211,48 +211,66 @@ class Ethereum extends BlockchainInterface {
         let status = new TxStatus();
         let params = {from: context.fromAddress};
         let contractInfo = context.contracts[contractID];
-        try {
-            context.engine.submitCallback(1);
-            let receipt = null;
-            let methodType = 'send';
-            if (methodCall.isView) {
-                methodType = 'call';
-            } else if (context.nonces && (typeof context.nonces[context.fromAddress] !== 'undefined')) {
-                let nonce = context.nonces[context.fromAddress];
-                context.nonces[context.fromAddress] = nonce + 1;
-                params.nonce = nonce;
-                // leaving these values unset causes web3 to fetch gasPrice and
-                // chainId on the fly. This can cause transactions to be
-                // reordered, which in turn causes nonce failures
-                params.gasPrice = context.gasPrice;
-                params.chainId = context.chainId;
-            }
 
-            if (methodCall.args) {
-                if (contractInfo.gas && contractInfo.gas[methodCall.verb]) {
-                    params.gas = contractInfo.gas[methodCall.verb];
-                } else if (contractInfo.estimateGas) {
-                    params.gas = 1000 + await contractInfo.contract.methods[methodCall.verb](...methodCall.args).estimateGas();
-                }
-                receipt = await contractInfo.contract.methods[methodCall.verb](...methodCall.args)[methodType](params);
-            } else {
-                if (contractInfo.gas && contractInfo.gas[methodCall.verb]) {
-                    params.gas = contractInfo.gas[methodCall.verb];
-                } else if (contractInfo.estimateGas) {
-                    params.gas = 1000 + await contractInfo.contract.methods[methodCall.verb].estimateGas(params);
-                }
-                receipt = await contractInfo.contract.methods[methodCall.verb]()[methodType](params);
-            }
-            status.SetID(receipt.transactionHash);
-            status.SetResult(receipt);
-            status.SetVerification(true);
-            status.SetStatusSuccess();
-        } catch (err) {
+        context.engine.submitCallback(1);
+        let receipt = null;
+        let methodType = 'send';
+        if (methodCall.isView) {
+            methodType = 'call';
+        } else if (context.nonces && (typeof context.nonces[context.fromAddress] !== 'undefined')) {
+            let nonce = context.nonces[context.fromAddress];
+            context.nonces[context.fromAddress] = nonce + 1;
+            params.nonce = nonce;
+
+            // leaving these values unset causes web3 to fetch gasPrice and
+            // chainId on the fly. This can cause transactions to be
+            // reordered, which in turn causes nonce failures
+            params.gasPrice = context.gasPrice;
+            params.chainId = context.chainId;
+        }
+
+        const onFailure = (err) => {
             status.SetStatusFail();
             logger.error('Failed tx on ' + contractID + ' calling method ' + methodCall.verb + ' nonce ' + params.nonce);
             logger.error(err);
+        };
+
+        const onSuccess = (rec) => {
+            status.SetID(rec.transactionHash);
+            status.SetResult(rec);
+            status.SetVerification(true);
+            status.SetStatusSuccess();
+        };
+
+        if (methodCall.args) {
+            if (contractInfo.gas && contractInfo.gas[methodCall.verb]) {
+                params.gas = contractInfo.gas[methodCall.verb];
+            } else if (contractInfo.estimateGas) {
+                params.gas = 1000 + await contractInfo.contract.methods[methodCall.verb](...methodCall.args).estimateGas();
+            }
+
+            try {
+                receipt = await contractInfo.contract.methods[methodCall.verb](...methodCall.args)[methodType](params);
+                onSuccess(receipt);
+            } catch (err) {
+                onFailure(err);
+            }
+        } else {
+            if (contractInfo.gas && contractInfo.gas[methodCall.verb]) {
+                params.gas = contractInfo.gas[methodCall.verb];
+            } else if (contractInfo.estimateGas) {
+                params.gas = 1000 + await contractInfo.contract.methods[methodCall.verb].estimateGas(params);
+            }
+
+            try {
+                receipt = await contractInfo.contract.methods[methodCall.verb]()[methodType](params);
+                onSuccess(receipt);
+            } catch (err) {
+                onFailure(err);
+            }
         }
-        return Promise.resolve(status);
+
+        return status;
     }
 
     /**
