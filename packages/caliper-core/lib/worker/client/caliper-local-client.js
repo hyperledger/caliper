@@ -396,9 +396,9 @@ class CaliperLocalClient {
 
             // Clean up
             await rateController.end();
+            await cb.end();
             await this.blockchain.releaseContext(this.context);
             this.clearUpdateInter(txUpdateInter);
-            await cb.end();
 
             // Return the results and time stamps
             if (this.resultStats.length > 0) {
