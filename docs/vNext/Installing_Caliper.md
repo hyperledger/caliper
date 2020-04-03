@@ -93,9 +93,9 @@ The following SUT name (column header) and SDK version (column value) combinatio
 | besu   | burrow | ethereum | fabric | fisco-bcos | iroha  | sawtooth |
 |:------:|:------:|:--------:|:------:|:----------:|:------:|:--------:|
 | 1.3.2  | 0.23.0 | 1.2.1    | 1.0.0  | 2.0.0      | 0.6.3  | 1.0.0    |
-| latest | latest | latest   | 1.1.0  | latest     | latest | 1.0.1    |
-|        |        |          | 1.2.0  |            |        | 1.0.2    |
-|        |        |          | 1.3.0  |            |        | 1.0.4    |
+| 1.3    | latest | latest   | 1.1.0  | latest     | latest | 1.0.1    |
+| 1.4    |        |          | 1.2.0  |            |        | 1.0.2    |
+| latest |        |          | 1.3.0  |            |        | 1.0.4    |
 |        |        |          | 1.4.0  |            |        | 1.0.5    |
 |        |        |          | 1.4.1  |            |        | latest   |
 |        |        |          | 1.4.3  |            |        |          |
@@ -104,6 +104,8 @@ The following SUT name (column header) and SDK version (column value) combinatio
 
 
 > __Note:__ the `latest` value always points to the last explicit versions in the columns. However, it is recommended to explicitly specify the SDK version to avoid any surprise between two benchmark runs.
+
+> __Note:__ all patch versions of Besu are supported for each version.  The `1.3.2` SUT is deprecated and it is recommended you use `1.3` instead.
 
 ### The benchmark command
 

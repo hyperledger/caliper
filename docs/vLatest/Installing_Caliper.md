@@ -105,6 +105,8 @@ The following SUT name (column header) and SDK version (column value) combinatio
 
 > __Note:__ the `latest` value always points to the last explicit versions in the columns. However, it is recommended to explicitly specify the SDK version to avoid any surprise between two benchmark runs.
 
+> __Note:__ the 1.3.2 binding of Besu supports all versions of Besu from 1.3.2 onward.
+
 ### The benchmark command
 
 Once the CLI is bound to a specific platform and SDK version, the `benchmark run` CLI command can be used to start a benchmark. 
