@@ -36,7 +36,7 @@ const {
 const request = require('request-promise');
 const _ = require('lodash');
 
-let configPath;
+let config;
 let lastKnownBlockId=null;
 //let blockCommitSatus = new Map();
 let batchCommitStatus = new Map();
@@ -48,7 +48,6 @@ let currentEndpoint= 0;
 * @return {String} rest endpoint url
 */
 function getRESTUrl() {
-    let config = require(configPath);
     let restApiUrls = config.sawtooth.network.restapi.urls;
     currentEndpoint++;
     if(currentEndpoint >= restApiUrls.length) {
@@ -270,7 +269,6 @@ function getState(address) {
  * @return {Promise<object>} The promise for the result of the execution.
  */
 function querybycontext(context, contractID, contractVer, address, workspaceRoot) {
-    let config = require(configPath);
     const builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer, config, workspaceRoot);
     const addr = builder.calculateAddress(address);
     if(context.engine) {
@@ -323,7 +321,8 @@ class Sawtooth extends BlockchainInterface {
      */
     constructor(workerIndex) {
         super();
-        configPath = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
+        let configPath = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
+        config = require(configPath);
         this.bcType = 'sawtooth';
         this.workspaceRoot = path.resolve(ConfigUtil.get(ConfigUtil.keys.Workspace));
         this.clientIndex = workerIndex;
@@ -365,7 +364,6 @@ class Sawtooth extends BlockchainInterface {
      * @return {Promise} The return promise.
      */
     getContext(name, args) {
-        let config  = require(this.configPath);
         let context = config.sawtooth.context;
         if(typeof context === 'undefined') {
             let validatorUrl = config.sawtooth.network.validator.url;
@@ -403,7 +401,6 @@ class Sawtooth extends BlockchainInterface {
      */
     async invokeSmartContract(context, contractID, contractVer, args, timeout) {
         try {
-            let config = require(configPath);
             let builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer, config, this.workspaceRoot);
             const batchBytes = builder.buildBatch(args);
             if(context.engine) {
