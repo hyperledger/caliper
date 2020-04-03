@@ -18,9 +18,16 @@ order: 5
   * [Local observer](#local-observer)
   * [Prometheus observer](#prometheus-observer)
   * [Grafana](#grafana-visualization)
+* [Resource Charting](#resource-charting)
+  * [Process charting](#process-charting)
+  * [Docker charting](#docker-charting)
+  * [Prometheus charting](#prometheus-charting)
+
 
 ## Overview
-Caliper monitors are used to collect statistics on resource utilization during benchmarking, the statistics are collated into a report at the culmination of the benchmark process. Caliper also enables real time reporting of current transaction status through observers, or enhanced data visualization using Prometheus and Grafana.
+Caliper monitors are used to collect statistics on resource utilization during benchmarking, the statistics are collated into a report at the culmination of the benchmark process, rendered charts may also be output as part of the report. Caliper also enables real time reporting of current transaction status through observers, or enhanced data visualization using Prometheus and Grafana.
+
+The operational precision of the monitors is set through the default Caliper configuration file, and may be overridden by the user to increase or decrease the numeric precision used in the output reports.
 
 ## Monitors
 The type of monitoring to be performed during a benchmark is declared in the `benchmark configuration file` through the specification one or more monitor types in an array under the label `monitor.type`. The integer interval at which monitors fetch information from their targets, in seconds, is specified as an integer under the label `monitor.interval`.
@@ -62,10 +69,11 @@ The following declares the monitoring of all local `node` processes that match `
 monitor:
   type:
   - process
-  process:  
-  - command: node
-    arguments: fabricClientWorker.js
-    multiOutput: avg
+  process: 
+    processes:
+    - command: node
+      arguments: fabricClientWorker.js
+      multiOutput: avg
 ```
 ### Docker Monitor
 The docker monitor definition consists of an array of container names that may relate to local or remote docker containers that are listed under a name label. If all local docker containers are to be monitored, this may be achieved by providing `all` as a name
@@ -76,7 +84,7 @@ monitor:
   type:
   - docker
   docker:  
-    name:
+    containers:
     - peer0.org1.example.com
     - http://192.168.1.100:2375/orderer.example.com
 ```
@@ -87,7 +95,7 @@ monitor:
   type:
   - docker
   docker:  
-    name:
+    containers:
     - all
 ```
 
@@ -111,9 +119,10 @@ The `include` block is defined by:
 - step: the timing step size to use within the range query
 - label: a string to match on the returned query and used when populating the report
 - statistic: if multiple values are returned, for instance if looking at a specific resource over a time range, the statistic will condense the values to a single result to enable reporting. Permitted options are:
+  - avg: return the average from all values
   - max: return the maximum from all values
   - min: return the minimum from all values
-  - avg: return the average from all values
+  - sum: return the summation of all values
 - multiplier: An optional multiplier that may be used to convert exported metrics into a more convenient value (such as converting bytes to GB)
 
 The following declares a Prometheus monitor that will run two bespoke queries between each test within the benchmark
@@ -202,3 +211,100 @@ Grafana is an analytics platform that may be used to query and visualize metrics
   - client: the client identifier that is sending the information
 
  We are currently working on a Grafana dashboard to give you immediate access to the metrics published above, but in the interim please feel free to create custom queries to view the above metrics that are accessible in real time.
+
+## Resource Charting
+The data from each monitor is capable of being output in chart form within the generated Caliper report, via an option within the benchmark configuration file for each monitor. In addition to tabulated data for resource monitors, Caliper currently supports rendering of the following charts using `charting.js`:
+ - horizontal bar
+ - polar area
+
+Charting is an option that is available for each resource monitor, and the specification of the charting to be produced is specified under each monitor type within the benchmark configuration file, under a `charting` block. It is possible to specify multiple charting options for a single resource monitor.
+
+A chart will contain data for all items that are being tracked by the monitor; it is only possible to filter on the metrics that are to be charted. The following declares the charting block that is valid for the listed monitors:
+```
+charting:
+  bar:
+  - metrics: [all | <sting list>]
+  polar:
+  - metrics: [all | <sting list>]
+```
+
+If the `all` option is specified, then a chart will be output for each metric and include all monitored items within each chart. It is possible to filter on metrics by providing a comma separated list. The provided list is matched against metrics using a string comparison, and so it is only required to provide the initial part of the required match. The following declares a charting block that specifies a bar chart for all available metrics, and a polar chart for only metric0 and metric1:
+```
+charting:
+  bar:
+  - metrics: [all]
+  polar:
+  - metrics: [metric0, metric1]
+```
+### Process Charting
+The process resource monitor exposes the following metrics: Memory(max), Memory(avg), CPU%(max), CPU%(avg).
+
+The following declares the monitoring of any running processes named `fabricClientWorker.js` and `runBenchmarkCommand.js`, with charting options specified to produce bar charts for `all` available metrics. Charts will be produced containing data from all monitored processes:
+```
+monitor:
+  type:
+  - process
+  process:
+    processes:    
+    - command: node
+      arguments: fabricClientWorker.js
+      multiOutput: avg
+    - command: node
+      arguments: runBenchmarkCommand.js
+      multiOutput: avg
+    charting:
+      bar:
+        metrics: [all]
+```
+### Docker Charting
+The docker resource monitor exposes the following metrics: Memory(max), Memory(avg), CPU%(max), CPU%(avg), Traffic In, Traffic Out, Disc Read, Disc Write.
+
+The following declares the monitoring of all local docker containers, with charting options specified to produce bar charts for `Memory(avg)` and `CPU%(avg)`, and polar charts for `all` metrics. Charts will be produced containing data from all monitored containers:
+```
+monitor:
+  type:
+  - docker
+  docker:  
+    containers:
+    - all
+    charting:
+    bar:
+      metrics: [Memory(avg), CPU%(avg)]
+    polar:
+      metrics: [all]
+```
+
+### Prometheus Charting
+The Prometheus monitor enables user definition of all metrics within the configuration file. 
+
+The following declares the monitoring of two user defined metrics `Endorse Time(s)` and `Max Memory(MB)`. Charting options are specified to produce polar charts filtered on the metric `Max Memory (MB)`, and bar charts of all user defined metrics.
+```
+monitor:
+  type:
+  - prometheus
+  prometheus:
+    push_url: "http://localhost:9091"
+    url: "http://localhost:9090"
+    metrics:
+      ignore: [prometheus, pushGateway, cadvisor, grafana, node-exporter]
+      include:
+        Endorse Time(s):
+          query: rate(endorser_propsal_duration_sum{chaincode="marbles:v0"}[5m])/rate(endorser_propsal_duration_count{chaincode="marbles:v0"}[5m])
+          step: 1
+          label: instance		
+          statistic: avg
+        Max Memory(MB):
+          query: sum(container_memory_rss{name=~".+"}) by (name)
+          step: 10
+          label: name		
+          statistic: max
+          multiplier: 0.000001
+    charting:
+      polar:
+        metrics: [Max Memory (MB)]
+      bar:
+        metrics: [all]
+```
+
+## License
+The Caliper codebase is released under the [Apache 2.0 license](./LICENSE.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.

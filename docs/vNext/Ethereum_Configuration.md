@@ -111,12 +111,24 @@ The address to use while invoking all the methods of the benchmark. Its private 
 "fromAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2"
 ```
 
+## Benchmark address seed
+
+As an alternative to `fromAddress`, `fromAddressPrivateKey`, and `fromAddressPassword` the network configuration can use a fixed seed and derive needed addresses via [BIP-44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) key derivation.  Each caliper test worker will generate an address for use as `fromAddress` and `fromAddressPrivateKey` using the derivation path `m/44'/60'/<x>'/0/0`, where <x> is the `clientIdx` passed into `getContext`.
+
+This configuration does not override `fromAddress`, but it takes priority over `fromAddressPrivateKey` and `fromAddressPassword`.
+
+```json
+"fromAddressSeed": "0x3f841bf589fdf83a521e55d51afddc34fa65351161eead24f064855fc29c9580"
+```
+
 ## Benchmark address private key
 
 The private key for the [benchmark address](#benchmark-address). If present then transactions are signed inside caliper and sent "raw" to the ethereum node.
 
+This configuration takes priority over `fromAddressPassword`.
+
 ```json
-"fromAddressPassword": "0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d8"
+"fromAddressPrivateKey": "0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d8"
 ```
 
 ## Benchmark address password
@@ -263,3 +275,6 @@ The standard information provided by the type are the following:
 * `GetTimeCreate():number` returns the epoch when the transaction was submitted.
 * `GetTimeFinal():number` return the epoch when the transaction was finished.
 * `IsVerified():boolean` indicates whether we are sure about the final status of the transaction. Always true for successful transactions. False in all other cases.
+
+## License
+The Caliper codebase is released under the [Apache 2.0 license](./LICENSE.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.

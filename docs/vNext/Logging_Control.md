@@ -3,7 +3,7 @@ layout: pageNext
 title:  "Logging Control"
 categories: reference
 permalink: /vNext/logging/
-order: 6
+order: 8
 ---
 
 ## Table of contents
@@ -461,3 +461,6 @@ caliper:
             flags: a
             mode: 0666
 ```
+
+## License
+The Caliper codebase is released under the [Apache 2.0 license](./LICENSE.md). Any documentation developed by the Caliper Project is licensed under the Creative Commons Attribution 4.0 International License. You may obtain a copy of the license, titled CC-BY-4.0, at http://creativecommons.org/licenses/by/4.0/.

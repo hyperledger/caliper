@@ -3,7 +3,7 @@ layout: page
 title:  "Architecture (CH)"
 categories: docs
 permalink: /vLatest/architecture-ch/
-order: 5
+order: 6
 ---
 
 ## Architecture
@@ -12,7 +12,7 @@ order: 5
 
 ### Adaptation Layer(适配层)
 
-适配层用于将现有的区块链系统集成到Caliper框架中。每个适配器使用相应的区块链SDK或RESTful API实现'Caliper Blockchain NBI'。目前支持Hyperledger Fabric1.0-1.4、Sawtooth、Iroha、composer和burrow。Caliper后续将实现对以太坊和其他区块链系统的支持。
+适配层用于将现有的区块链系统集成到Caliper框架中。每个适配器使用相应的区块链SDK或RESTful API实现'Caliper Blockchain NBI'。目前支持Hyperledger Fabric1.0-1.4、Sawtooth、Iroha、和burrow。Caliper后续将实现对以太坊和其他区块链系统的支持。
 
 ### Interface&Core Layer（接口及核心层）
 接口和核心层提供 Blockchain NBI、资源监控、性能监控、报告生成模块，并为上层应用提供四种相应的北向接口：
