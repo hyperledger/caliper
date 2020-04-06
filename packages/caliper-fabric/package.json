@@ -27,7 +27,6 @@
         "semver":"7.1.1"
     },
     "devDependencies": {
-        "grpc": "1.14.2",
         "fabric-ca-client": "^1.4.7",
         "fabric-client": "^1.4.7",
         "fabric-network": "^1.4.7",

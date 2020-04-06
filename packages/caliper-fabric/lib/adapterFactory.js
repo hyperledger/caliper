@@ -23,7 +23,7 @@ const FabricAdapter = require('./fabric');
  * @async
  */
 async function adapterFactory(workerIndex) {
-    let adapter = new FabricAdapter(workerIndex);
+    const adapter = new FabricAdapter(workerIndex);
 
     // the master process explicitly calls "init"
     if (workerIndex > -1) {

@@ -57,7 +57,7 @@ class ConfigValidator {
         let cas = [];
         if (config.certificateAuthorities) {
             cas = Object.keys(config.certificateAuthorities);
-            for (let ca of cas) {
+            for (const ca of cas) {
                 try {
                     ConfigValidator.validateCertificateAuthority(config.certificateAuthorities[ca], tls, requireRegistrar);
                     tls = (tls || false) || config.certificateAuthorities[ca].url.startsWith('https://');
@@ -71,7 +71,7 @@ class ConfigValidator {
         let orderers = [];
         if (config.orderers) {
             orderers = Object.keys(config.orderers);
-            for (let orderer of orderers) {
+            for (const orderer of orderers) {
                 try {
                     ConfigValidator.validateOrderer(config.orderers[orderer], tls);
                     tls = (tls || false) || config.orderers[orderer].url.startsWith('grpcs://');
@@ -86,7 +86,7 @@ class ConfigValidator {
         if (config.peers) {
             let eventUrl;
             peers = Object.keys(config.peers);
-            for (let peer of peers) {
+            for (const peer of peers) {
                 try {
                     ConfigValidator.validatePeer(config.peers[peer], tls, eventUrl);
                     tls = (tls || false) || config.peers[peer].url.startsWith('grpcs://');
@@ -99,10 +99,10 @@ class ConfigValidator {
 
         // validate organization section
         let orgs = [];
-        let mspIds = [];
+        const mspIds = [];
         if (config.organizations) {
             orgs = Object.keys(config.organizations);
-            for (let org of orgs) {
+            for (const org of orgs) {
                 try {
                     ConfigValidator.validateOrganization(config.organizations[org], peers, cas);
                     mspIds.push(config.organizations[org].mspid);
@@ -114,8 +114,8 @@ class ConfigValidator {
 
         // validate client section
         if (config.clients) {
-            let clients = Object.keys(config.clients);
-            for (let client of clients) {
+            const clients = Object.keys(config.clients);
+            for (const client of clients) {
                 try {
                     ConfigValidator.validateClient(config.clients[client], orgs, config.wallet !== undefined);
                 } catch (err) {
@@ -126,9 +126,9 @@ class ConfigValidator {
 
         // validate channels section
         if (config.channels) {
-            let channels = Object.keys(config.channels);
-            let takenContractIds = [];
-            for (let channel of channels) {
+            const channels = Object.keys(config.channels);
+            const takenContractIds = [];
+            for (const channel of channels) {
                 try {
                     ConfigValidator.validateChannel(config.channels[channel], orderers, peers, mspIds, takenContractIds, flowOptions, discovery);
                     takenContractIds.push(config.channels[channel].chaincodes.map(cc => cc.contractID || cc.id));
@@ -160,7 +160,7 @@ class ConfigValidator {
         const ordererModif = (onlyScript || discovery) ? 'optional' : 'required';
 
         // if server TLS is explicitly disabled, can't enable mutual TLS
-        let mutualTlsValid = tls === undefined ? [ true, false ] : (tls ? [ true, false ] : [ false ]);
+        const mutualTlsValid = tls === undefined ? [ true, false ] : (tls ? [ true, false ] : [ false ]);
 
         const schema = j.object().keys({
             // simple attributes
@@ -186,11 +186,11 @@ class ConfigValidator {
             certificateAuthorities: j.object().optional()
         });
 
-        let options = {
+        const options = {
             abortEarly: false,
             allowUnknown: false
         };
-        let result = j.validate(config, schema, options);
+        const result = j.validate(config, schema, options);
         if (result.error) {
             throw result.error;
         }
@@ -239,9 +239,9 @@ class ConfigValidator {
             needOptionalXor = true;
         }
 
-        let createPeersSchema = () => {
-            let peersSchema = {};
-            for (let peer of validPeers) {
+        const createPeersSchema = () => {
+            const peersSchema = {};
+            for (const peer of validPeers) {
                 peersSchema[peer] = j.object().keys({
                     endorsingPeer: j.boolean().optional(),
                     chaincodeQuery: j.boolean().optional(),
@@ -253,10 +253,10 @@ class ConfigValidator {
             return peersSchema;
         };
 
-        let createEndorsementPolicySchema = () => {
+        const createEndorsementPolicySchema = () => {
             // recursive schema of "X-of" objects
             // array element objects either have a "signed-by" key, or a recursive "X-of"
-            let policySchema = j.array().sparse(false).min(1).items(j.object().min(1)
+            const policySchema = j.array().sparse(false).min(1).items(j.object().min(1)
                 .pattern(/^signed-by$/, j.number().integer().min(0))
                 .pattern(/^[1-9]\d*-of$/,
                     j.lazy(() => policySchema).description('Policy schema'))
@@ -276,7 +276,7 @@ class ConfigValidator {
             });
         };
 
-        let contractIdComparator = (a, b) => {
+        const contractIdComparator = (a, b) => {
             if (a.contractID) {
                 if (b.contractID) {
                     return a.contractID === b.contractID;
@@ -351,11 +351,11 @@ class ConfigValidator {
             schema = schema.oxor('configBinary', 'definition');
         }
 
-        let options = {
+        const options = {
             abortEarly: false,
             allowUnknown: false
         };
-        let result = j.validate(config, schema, options);
+        const result = j.validate(config, schema, options);
         if (result.error) {
             throw result.error;
         }
@@ -368,7 +368,7 @@ class ConfigValidator {
      * @param {string} requireRegistrar Indicates whether a registrar is optional or required.
      */
     static validateCertificateAuthority(config, tls, requireRegistrar) {
-        let urlRegex = tls === undefined ? /^(https|http):\/\// : (tls ? /^https:\/\// : /^http:\/\//);
+        const urlRegex = tls === undefined ? /^(https|http):\/\// : (tls ? /^https:\/\// : /^http:\/\//);
 
         const schema = j.object().keys({
             caName: j.string().optional(),
@@ -392,11 +392,11 @@ class ConfigValidator {
             })).min(1).sparse(false).unique('enrollId')[requireRegistrar]()
         });
 
-        let options = {
+        const options = {
             abortEarly: false,
             allowUnknown: false
         };
-        let result = j.validate(config, schema, options);
+        const result = j.validate(config, schema, options);
         if (result.error) {
             throw result.error;
         }
@@ -409,8 +409,8 @@ class ConfigValidator {
      * @param {boolean} eventUrl Indicates whether other peers specified event URLs or not.
      */
     static validatePeer(config, tls, eventUrl) {
-        let urlRegex = tls === undefined ? /^(grpcs|grpc):\/\// : (tls ? /^grpcs:\/\// : /^grpc:\/\//);
-        let eventModif = eventUrl === undefined ? 'optional' : (eventUrl ? 'required' : 'forbidden');
+        const urlRegex = tls === undefined ? /^(grpcs|grpc):\/\// : (tls ? /^grpcs:\/\// : /^grpc:\/\//);
+        const eventModif = eventUrl === undefined ? 'optional' : (eventUrl ? 'required' : 'forbidden');
 
         const schema = j.object().keys({
             url: j.string().uri().regex(urlRegex).required(),
@@ -434,11 +434,11 @@ class ConfigValidator {
             })
         });
 
-        let options = {
+        const options = {
             abortEarly: false,
             allowUnknown: false
         };
-        let result = j.validate(config, schema, options);
+        const result = j.validate(config, schema, options);
         if (result.error) {
             throw result.error;
         }
@@ -450,7 +450,7 @@ class ConfigValidator {
      * @param {boolean} tls Indicates whether TLS is enabled or known at this point.
      */
     static validateOrderer(config, tls) {
-        let urlRegex = tls === undefined ? /^(grpcs|grpc):\/\// : (tls ? /^grpcs:\/\// : /^grpc:\/\//);
+        const urlRegex = tls === undefined ? /^(grpcs|grpc):\/\// : (tls ? /^grpcs:\/\// : /^grpc:\/\//);
 
         const schema = j.object().keys({
             url: j.string().uri().regex(urlRegex).required(),
@@ -467,11 +467,11 @@ class ConfigValidator {
             })
         });
 
-        let options = {
+        const options = {
             abortEarly: false,
             allowUnknown: false
         };
-        let result = j.validate(config, schema, options);
+        const result = j.validate(config, schema, options);
         if (result.error) {
             throw result.error;
         }
@@ -505,11 +505,11 @@ class ConfigValidator {
             }).xor('pem', 'path').optional(),
         }).and('adminPrivateKey', 'signedCert');
 
-        let options = {
+        const options = {
             abortEarly: false,
             allowUnknown: false
         };
-        let result = j.validate(config, schema, options);
+        const result = j.validate(config, schema, options);
         if (result.error) {
             throw result.error;
         }
@@ -582,11 +582,11 @@ class ConfigValidator {
             client: clientSchema.required()
         });
 
-        let options = {
+        const options = {
             abortEarly: false,
             allowUnknown: false
         };
-        let result = j.validate(config, schema, options);
+        const result = j.validate(config, schema, options);
         if (result.error) {
             throw result.error;
         }

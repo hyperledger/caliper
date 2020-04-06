@@ -56,7 +56,7 @@ const Fabric = class extends BlockchainInterface {
             }
         } else if (semver.satisfies(version, '=2.x')) {
             if (!useGateway) {
-                modulePath = './adaptor-versions/v2/fabric-v2.js';
+                throw new Error(`Caliper currently only supports gateway based operation using the ${version} Fabric-SDK. Please retry with the gateway flag`);
             } else {
                 modulePath = './adaptor-versions/v2/fabric-gateway-v2.js';
             }
@@ -64,10 +64,10 @@ const Fabric = class extends BlockchainInterface {
             throw new Error(`Installed SDK version ${version} did not match any compatible Fabric adaptors`);
         }
 
-        let networkConfig = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
-        let workspaceRoot = path.resolve(ConfigUtil.get(ConfigUtil.keys.Workspace));
+        const networkConfig = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
+        const workspaceRoot = path.resolve(ConfigUtil.get(ConfigUtil.keys.Workspace));
 
-        let Fabric = require(modulePath);
+        const Fabric = require(modulePath);
         this.fabric = new Fabric(networkConfig, workspaceRoot, workerIndex);
     }
 

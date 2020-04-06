@@ -199,7 +199,7 @@ describe('Class: ConfigValidator', () => {
                 }
             }
         };
-        let configString = JSON.stringify(config);
+        const configString = JSON.stringify(config);
 
         beforeEach(() => {
             config = JSON.parse(configString);
@@ -452,7 +452,7 @@ describe('Class: ConfigValidator', () => {
             peers: { peer1: {} },
             certificateAuthorities: { ca1: {} }
         };
-        let configString = JSON.stringify(config);
+        const configString = JSON.stringify(config);
 
         beforeEach(() => {
             config = JSON.parse(configString);
@@ -823,7 +823,7 @@ describe('Class: ConfigValidator', () => {
                 { enrollId: 'admin2', enrollSecret: 'secret2' }
             ]
         };
-        let configString = JSON.stringify(config);
+        const configString = JSON.stringify(config);
 
         let configNoRegistrar = {
             url: 'https://localhost:7054',
@@ -834,7 +834,7 @@ describe('Class: ConfigValidator', () => {
                 path: 'my/path/tocert'
             }
         };
-        let configStringNoRegistrar = JSON.stringify(configNoRegistrar);
+        const configStringNoRegistrar = JSON.stringify(configNoRegistrar);
 
         // reset the local config before every test
         beforeEach(() => {
@@ -1098,7 +1098,7 @@ describe('Class: ConfigValidator', () => {
         };
 
         let eventUrl = true;
-        let configString = JSON.stringify(config);
+        const configString = JSON.stringify(config);
 
         beforeEach(() => {
             config = JSON.parse(configString);
@@ -1318,7 +1318,7 @@ describe('Class: ConfigValidator', () => {
                 path: 'my/path/tocert'
             }
         };
-        let configString = JSON.stringify(config);
+        const configString = JSON.stringify(config);
 
         beforeEach(() => {
             config = JSON.parse(configString);
@@ -1507,7 +1507,7 @@ describe('Class: ConfigValidator', () => {
                 path: 'path'
             }
         };
-        let configString = JSON.stringify(config);
+        const configString = JSON.stringify(config);
 
         beforeEach(() => {
             config = JSON.parse(configString);
@@ -1801,7 +1801,7 @@ describe('Class: ConfigValidator', () => {
                 // other properties are added during the tests
             }
         };
-        let configString = JSON.stringify(config);
+        const configString = JSON.stringify(config);
 
         let wallet = false;
 
@@ -2519,7 +2519,7 @@ describe('Class: ConfigValidator', () => {
 
             // additional properties added by the tests
         };
-        let configString = JSON.stringify(config);
+        const configString = JSON.stringify(config);
 
         beforeEach(() => {
             config = JSON.parse(configString);

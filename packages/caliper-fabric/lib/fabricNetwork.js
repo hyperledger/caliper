@@ -40,7 +40,7 @@ class FabricNetwork {
 
         this.network = undefined;
         if (typeof networkConfig === 'string') {
-            let configPath = CaliperUtils.resolvePath(networkConfig, workspace_root);
+            const configPath = CaliperUtils.resolvePath(networkConfig, workspace_root);
             this.network = CaliperUtils.parseYaml(configPath);
         } else if (typeof networkConfig === 'object' && networkConfig !== null) {
             // clone the object to prevent modification by other objects
@@ -72,11 +72,11 @@ class FabricNetwork {
         }
 
         if (this.network.clients) {
-            let clients = this.getClients();
-            for (let client of clients) {
+            const clients = this.getClients();
+            for (const client of clients) {
                 this.clientConfigs[client] = this.network.clients[client];
 
-                let cObj = this.network.clients[client].client;
+                const cObj = this.network.clients[client].client;
                 // normalize paths
                 if (cObj.credentialStore) {
                     cObj.credentialStore.path = CaliperUtils.resolvePath(cObj.credentialStore.path, workspaceRoot);
@@ -94,11 +94,11 @@ class FabricNetwork {
         }
 
         if (this.network.channels) {
-            let channels = this.getChannels();
-            for (let channel of channels) {
-                let cObj = this.network.channels[channel];
+            const channels = this.getChannels();
+            for (const channel of channels) {
+                const cObj = this.network.channels[channel];
 
-                for (let cc of cObj.chaincodes) {
+                for (const cc of cObj.chaincodes) {
                     if (!cc.contractID) {
                         cc.contractID = cc.id;
                     }
@@ -112,9 +112,9 @@ class FabricNetwork {
         }
 
         if (this.network.organizations) {
-            let orgs = this.getOrganizations();
-            for (let org of orgs) {
-                let oObj = this.network.organizations[org];
+            const orgs = this.getOrganizations();
+            for (const org of orgs) {
+                const oObj = this.network.organizations[org];
 
                 if (oObj.adminPrivateKey && oObj.adminPrivateKey.path) {
                     oObj.adminPrivateKey.path = CaliperUtils.resolvePath(oObj.adminPrivateKey.path, workspaceRoot);
@@ -127,9 +127,9 @@ class FabricNetwork {
         }
 
         if (this.network.orderers) {
-            let orderers = this.getOrderers();
-            for (let orderer of orderers) {
-                let oObj = this.network.orderers[orderer];
+            const orderers = this.getOrderers();
+            for (const orderer of orderers) {
+                const oObj = this.network.orderers[orderer];
 
                 this.tls |= oObj.url.startsWith('grpcs://');
 
@@ -140,9 +140,9 @@ class FabricNetwork {
         }
 
         if (this.network.peers) {
-            let peers = this.getPeers();
-            for (let peer of peers) {
-                let pObj = this.network.peers[peer];
+            const peers = this.getPeers();
+            for (const peer of peers) {
+                const pObj = this.network.peers[peer];
 
                 this.tls |= pObj.url.startsWith('grpcs://');
 
@@ -157,9 +157,9 @@ class FabricNetwork {
         }
 
         if (this.network.certificateAuthorities) {
-            let cas = this.getCertificateAuthorities();
-            for (let ca of cas) {
-                let caObj = this.network.certificateAuthorities[ca];
+            const cas = this.getCertificateAuthorities();
+            for (const ca of cas) {
+                const caObj = this.network.certificateAuthorities[ca];
 
                 this.tls |= caObj.url.startsWith('https://');
 
@@ -188,15 +188,15 @@ class FabricNetwork {
      * @returns {{privateKeyPEM: Buffer, signedCertPEM: Buffer}} The object containing the signing key and cert in PEM format.
      */
     getAdminCryptoContentOfOrganization(org) {
-        let orgObject = this.network.organizations[org];
+        const orgObject = this.network.organizations[org];
 
         // if either is missing, the result is undefined
         if (!CaliperUtils.checkAllProperties(orgObject, 'adminPrivateKey', 'signedCert')) {
             return undefined;
         }
 
-        let privateKey = orgObject.adminPrivateKey;
-        let signedCert = orgObject.signedCert;
+        const privateKey = orgObject.adminPrivateKey;
+        const signedCert = orgObject.signedCert;
 
         let privateKeyPEM;
         let signedCertPEM;
@@ -242,10 +242,10 @@ class FabricNetwork {
      * @return {Set<string>} The set of peer names functioning as an event source.
      */
     getAllEventSources() {
-        let result = new Set();
-        for (let channel of this.getChannels()) {
-            for (let peer of this.getPeersOfChannel(channel)) {
-                let peerObject = this.network.channels[channel].peers[peer];
+        const result = new Set();
+        for (const channel of this.getChannels()) {
+            for (const peer of this.getPeersOfChannel(channel)) {
+                const peerObject = this.network.channels[channel].peers[peer];
                 // defaults to true, or explicitly set
                 if (!CaliperUtils.checkProperty(peerObject, 'eventSource') || peerObject.eventSource) {
                     result.add(peer);
@@ -279,9 +279,9 @@ class FabricNetwork {
      * @returns {Set<string>} The set of CA names.
      */
     getCertificateAuthorities() {
-        let result = new Set();
-        let cas = this.network.certificateAuthorities;
-        for (let key in cas) {
+        const result = new Set();
+        const cas = this.network.certificateAuthorities;
+        for (const key in cas) {
             if (!cas.hasOwnProperty(key)) {
                 continue;
             }
@@ -308,6 +308,20 @@ class FabricNetwork {
     }
 
     /**
+     * Gets the CA object corresponding to the passed name.
+     * @param {string} caName The CA name.
+     * @returns {object} The CA object.
+     */
+    getCertificateAuthority(caName) {
+        if (!CaliperUtils.checkProperty(this.network, 'certificateAuthorities') ||
+            !CaliperUtils.checkProperty(this.network.certificateAuthorities, caName) ) {
+            return undefined;
+        }
+
+        return this.network.certificateAuthorities[caName];
+    }
+
+    /**
      * Gets the chaincode names and versions belonging to the given channel.
      * @param {string} channel The channel name.
      * @returns {Set<{id: string, version: string}>} The set of chaincode names.
@@ -326,10 +340,10 @@ class FabricNetwork {
      * @returns {Set<string>} The set of channel names.
      */
     getChannels() {
-        let result = new Set();
-        let channels = this.network.channels;
+        const result = new Set();
+        const channels = this.network.channels;
 
-        for (let key in channels) {
+        for (const key in channels) {
             if (!channels.hasOwnProperty(key)) {
                 continue;
             }
@@ -346,7 +360,7 @@ class FabricNetwork {
      * @return {string[]} The array of channel names the peer belongs to.
      */
     getChannelsOfPeer(peer) {
-        let result = [...this.getChannels()].filter(c => this.getPeersOfChannel(c).has(peer));
+        const result = [...this.getChannels()].filter(c => this.getPeersOfChannel(c).has(peer));
 
         if (result.length === 0) {
             throw new Error(`${peer} does not belong to any channel`);
@@ -361,14 +375,14 @@ class FabricNetwork {
      * @returns {{privateKeyPEM: Buffer, signedCertPEM: Buffer}} The object containing the signing key and cert.
      */
     getClientCryptoContent(client) {
-        let clientObject = this.network.clients[client].client;
+        const clientObject = this.network.clients[client].client;
 
         if (!CaliperUtils.checkAllProperties(clientObject, 'clientPrivateKey', 'clientSignedCert')) {
             return undefined;
         }
 
-        let privateKey = clientObject.clientPrivateKey;
-        let signedCert = clientObject.clientSignedCert;
+        const privateKey = clientObject.clientPrivateKey;
+        const signedCert = clientObject.clientSignedCert;
         let privateKeyPEM;
         let signedCertPEM;
 
@@ -419,10 +433,10 @@ class FabricNetwork {
      * @returns {Set<string>} The set of client names.
      */
     getClients() {
-        let result = new Set();
-        let clients = this.network.clients;
+        const result = new Set();
+        const clients = this.network.clients;
 
-        for (let key in clients) {
+        for (const key in clients) {
             if (!clients.hasOwnProperty(key)) {
                 continue;
             }
@@ -439,10 +453,10 @@ class FabricNetwork {
      * @returns {Set<string>} The set of client names.
      */
     getClientsOfOrganization(org) {
-        let clients = this.getClients();
-        let result = new Set();
+        const clients = this.getClients();
+        const result = new Set();
 
-        for (let client of clients) {
+        for (const client of clients) {
             if (this.network.clients[client].client.organization === org) {
                 result.add(client);
             }
@@ -468,16 +482,16 @@ class FabricNetwork {
      * @private
      */
     getDefaultEndorsementPolicy(channel, chaincodeInfo) {
-        let targetPeers = this.getTargetPeersOfChaincodeOfChannel(chaincodeInfo, channel);
-        let targetOrgs = new Set();
+        const targetPeers = this.getTargetPeersOfChaincodeOfChannel(chaincodeInfo, channel);
+        const targetOrgs = new Set();
 
-        for (let peer of targetPeers) {
+        for (const peer of targetPeers) {
             targetOrgs.add(this.getOrganizationOfPeer(peer));
         }
 
-        let orgArray = Array.from(targetOrgs).sort();
+        const orgArray = Array.from(targetOrgs).sort();
 
-        let policy = {
+        const policy = {
             identities: [],
             policy: {}
         };
@@ -506,8 +520,8 @@ class FabricNetwork {
      * @return {object} An object containing the GRPC options of the peer.
      */
     getGrpcOptionsOfPeer(peer) {
-        let peerObj = this.network.peers[peer];
-        let grpcObj = peerObj.grpcOptions;
+        const peerObj = this.network.peers[peer];
+        const grpcObj = peerObj.grpcOptions;
 
         if (CaliperUtils.checkProperty(peerObj, 'tlsCACerts')) {
             grpcObj.pem = this.getTlsCaCertificateOfPeer(peer);
@@ -548,10 +562,10 @@ class FabricNetwork {
      * @returns {Set<string>} The set of orderer names.
      */
     getOrderers() {
-        let result = new Set();
-        let orderers = this.network.orderers;
+        const result = new Set();
+        const orderers = this.network.orderers;
 
-        for (let key in orderers) {
+        for (const key in orderers) {
             if (!orderers.hasOwnProperty(key)) {
                 continue;
             }
@@ -586,8 +600,8 @@ class FabricNetwork {
      * @return {string} The name of the organization.
      */
     getOrganizationOfCertificateAuthority(ca) {
-        let orgs = this.getOrganizations();
-        for (let org of orgs) {
+        const orgs = this.getOrganizations();
+        for (const org of orgs) {
             if (this.network.organizations[org].certificateAuthorities.includes(ca)) {
                 return org;
             }
@@ -611,9 +625,9 @@ class FabricNetwork {
      * @returns {string} The organization name.
      */
     getOrganizationOfPeer(peer) {
-        let orgs = this.getOrganizations();
-        for (let org of orgs) {
-            let peers = this.getPeersOfOrganization(org);
+        const orgs = this.getOrganizations();
+        for (const org of orgs) {
+            const peers = this.getPeersOfOrganization(org);
             if (peers.has(peer)) {
                 return org;
             }
@@ -627,10 +641,10 @@ class FabricNetwork {
      * @returns {Set<string>} The set of organization names.
      */
     getOrganizations() {
-        let result = new Set();
-        let orgs = this.network.organizations;
+        const result = new Set();
+        const orgs = this.network.organizations;
 
-        for (let key in orgs) {
+        for (const key in orgs) {
             if (!orgs.hasOwnProperty(key)) {
                 continue;
             }
@@ -647,10 +661,10 @@ class FabricNetwork {
      * @returns {Set<string>} The set of organization names.
      */
     getOrganizationsOfChannel(channel) {
-        let peers = this.getPeersOfChannel(channel);
-        let result = new Set();
+        const peers = this.getPeersOfChannel(channel);
+        const result = new Set();
 
-        for (let peer of peers) {
+        for (const peer of peers) {
             result.add(this.getOrganizationOfPeer(peer));
         }
 
@@ -672,14 +686,14 @@ class FabricNetwork {
      * @return {string} The name of the peer.
      */
     getPeerNameForAddress(address) {
-        let peers = this.network.peers;
-        for (let peer in peers) {
+        const peers = this.network.peers;
+        for (const peer in peers) {
             if (!peers.hasOwnProperty(peer)) {
                 continue;
             }
 
             // remove protocol from address in the config
-            let url = peers[peer].url.replace(/(^\w+:|^)\/\//, '');
+            const url = peers[peer].url.replace(/(^\w+:|^)\/\//, '');
             if (url === address) {
                 return peer.toString();
             }
@@ -694,7 +708,7 @@ class FabricNetwork {
      * @return {string} The name of the peer.
      */
     getPeerNameOfEventHub(eventHub) {
-        let peerAddress = eventHub.getPeerAddr();
+        const peerAddress = eventHub.getPeerAddr();
         return this.getPeerNameForAddress(peerAddress);
     }
 
@@ -704,10 +718,10 @@ class FabricNetwork {
      * @returns {Set<string>} The set of peer names.
      */
     getPeers() {
-        let result = new Set();
-        let peers = this.network.peers;
+        const result = new Set();
+        const peers = this.network.peers;
 
-        for (let peerKey in peers) {
+        for (const peerKey in peers) {
             if (!peers.hasOwnProperty(peerKey)) {
                 continue;
             }
@@ -724,10 +738,10 @@ class FabricNetwork {
      * @returns {Set<string>} The set of peer names.
      */
     getPeersOfChannel(channel) {
-        let peers = this.network.channels[channel].peers;
-        let result = new Set();
+        const peers = this.network.channels[channel].peers;
+        const result = new Set();
 
-        for (let key in peers) {
+        for (const key in peers) {
             if (!peers.hasOwnProperty(key)) {
                 continue;
             }
@@ -754,8 +768,8 @@ class FabricNetwork {
      * @returns {Set<string>} The set of peer names.
      */
     getPeersOfOrganizationAndChannel(org, channel) {
-        let peersInOrg = this.getPeersOfOrganization(org);
-        let peersInChannel = this.getPeersOfChannel(channel);
+        const peersInOrg = this.getPeersOfOrganization(org);
+        const peersInChannel = this.getPeersOfChannel(channel);
 
         // return the intersection of the two sets
         return new Set([...peersInOrg].filter(p => peersInChannel.has(p)));
@@ -767,7 +781,7 @@ class FabricNetwork {
      * @returns {{enrollId: string, enrollSecret: string}} The enrollment ID and secret of the registrar.
      */
     getRegistrarOfOrganization(org) {
-        let ca = this.getCertificateAuthorityOfOrganization(org);
+        const ca = this.getCertificateAuthorityOfOrganization(org);
 
         if (!ca || !CaliperUtils.checkProperty(this.network.certificateAuthorities[ca], 'registrar')) {
             return undefined;
@@ -784,7 +798,7 @@ class FabricNetwork {
      * @returns {Set<string>} The set of peer names.
      */
     getTargetPeersOfChaincodeOfChannel(chaincodeInfo, channel) {
-        let cc = this.network.channels[channel].chaincodes.find(
+        const cc = this.network.channels[channel].chaincodes.find(
             cc => cc.id === chaincodeInfo.id && cc.version === chaincodeInfo.version);
 
         CaliperUtils.assertDefined(cc, `Could not find the following chaincode in the configuration: ${chaincodeInfo.id}@${chaincodeInfo.version}`);
@@ -795,14 +809,14 @@ class FabricNetwork {
 
         // we need to gather the target peers from the channel's peer section
         // based on their provided functionality (endorsing and cc query)
-        let results = new Set();
-        let peers = this.network.channels[channel].peers;
-        for (let key in peers) {
+        const results = new Set();
+        const peers = this.network.channels[channel].peers;
+        for (const key in peers) {
             if (!peers.hasOwnProperty(key)) {
                 continue;
             }
 
-            let peer = peers[key];
+            const peer = peers[key];
             // if only the peer name is present in the config, then it is a target based on the default values
             if (!CaliperUtils.checkDefined(peer)) {
                 results.add(key.toString());
@@ -831,13 +845,13 @@ class FabricNetwork {
      * @return {string} The PEM encoded CA certificate.
      */
     getTlsCaCertificateOfPeer(peer) {
-        let peerObject = this.network.peers[peer];
+        const peerObject = this.network.peers[peer];
 
         if (!CaliperUtils.checkProperty(peerObject, 'tlsCACerts')) {
             return undefined;
         }
 
-        let tlsCACert = peerObject.tlsCACerts;
+        const tlsCACert = peerObject.tlsCACerts;
         let tlsPEM;
 
         if (CaliperUtils.checkProperty(tlsCACert, 'path')) {
@@ -857,20 +871,20 @@ class FabricNetwork {
      * @return {Map<string, Buffer>} The map of attribute names to byte arrays.
      */
     getTransientMapOfChaincodeOfChannel(chaincode, channel) {
-        let map = {};
-        let cc = this.network.channels[channel].chaincodes.find(
+        const map = {};
+        const cc = this.network.channels[channel].chaincodes.find(
             cc => cc.id === chaincode.id && cc.version === chaincode.version);
 
         if (!CaliperUtils.checkProperty(cc, 'initTransientMap')) {
             return map;
         }
 
-        for (let key in cc.initTransientMap) {
+        for (const key in cc.initTransientMap) {
             if (!cc.initTransientMap.hasOwnProperty(key)) {
                 continue;
             }
 
-            let value = cc.initTransientMap[key];
+            const value = cc.initTransientMap[key];
             map[key.toString()] = Buffer.from(value.toString());
         }
 
