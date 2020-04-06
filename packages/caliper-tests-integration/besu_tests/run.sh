@@ -20,6 +20,12 @@ set -v
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "${DIR}"
 
+# bind during CI tests, using the package dir as CWD
+# Note: do not use env variables for binding settings, as subsequent launch calls will pick them up and bind again
+if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
+    ${CALL_METHOD} bind --caliper-bind-sut besu:latest --caliper-bind-cwd ./../../caliper-ethereum/ --caliper-bind-args="--no-save"
+fi
+
 # change default settings (add config paths too)
 export CALIPER_PROJECTCONFIG=../caliper.yaml
 

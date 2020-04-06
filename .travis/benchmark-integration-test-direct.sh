@@ -23,6 +23,8 @@ npm i && npm run repoclean -- --yes && npm run bootstrap
 # Call CLI directly
 # The CWD will be in one of the caliper-tests-integration/*_tests directories
 export CALL_METHOD="node ../../caliper-cli/caliper.js"
+# Use explicit binding for
+export BIND_IN_PACKAGE_DIR=true
 export GENERATOR_METHOD="yo ../../../caliper-generator/generator-caliper/generators/benchmark/index.js"
 
 echo "---- Running Integration test for adaptor ${BENCHMARK}"

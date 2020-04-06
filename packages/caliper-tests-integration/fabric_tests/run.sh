@@ -27,6 +27,12 @@ cd ./config
 # back to this dir
 cd ${DIR}
 
+# bind during CI tests, using the package dir as CWD
+# Note: do not use env variables for binding settings, as subsequent launch calls will pick them up and bind again
+if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
+    ${CALL_METHOD} bind --caliper-bind-sut fabric:1.4.7 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--no-save"
+fi
+
 # change default settings (add config paths too)
 export CALIPER_PROJECTCONFIG=../caliper.yaml
 
