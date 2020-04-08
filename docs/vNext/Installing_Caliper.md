@@ -42,7 +42,7 @@ The entry point of the CLI is the `caliper` binary. You can confirm whether the 
 
 ```console
 user@ubuntu:~/caliper-benchmarks$ npx caliper --version
-v0.2.0
+v0.3.0
 ```
 
 The CLI provides multiple commands to perform different tasks. To check the available commands and their descriptions, execute:
@@ -219,7 +219,7 @@ The following tools are required to install the CLI from NPM:
 > __Note:__ this is the highly recommended way to install Caliper for your project. Keeping the project dependencies local makes it easier to setup multiple Caliper projects. Global dependencies would require re-binding every time before a new benchmark run (to ensure the correct global dependencies). 
 
 1. Set your NPM project details with `npm init` (or just execute `npm init -y`) in your workspace directory (if you haven't done this already, i.e., you don't have a `package.json` file).
-2. Install the Caliper CLI as you would any other NPM package. It is highly recommended to explicitly specify the version number, e.g., `@hyperledger/caliper-cli@0.2.0` 
+2. Install the Caliper CLI as you would any other NPM package. It is highly recommended to explicitly specify the version number, e.g., `@hyperledger/caliper-cli@0.3.0` 
 3. Bind the CLI to the required platform SDK (e.g., `fabric` with the `1.4.0` SDK).
 4. Invoke the local CLI binary (using [npx](https://www.npmjs.com/package/npx)) with the appropriate parameters. You can repeat this step for as many Fabric 1.4.0 benchmarks as you would like.
 
@@ -227,7 +227,7 @@ Putting it all together:
 ```console
 user@ubuntu:~/caliper-benchmarks$ npm init -y
 user@ubuntu:~/caliper-benchmarks$ npm install --only=prod \
-    @hyperledger/caliper-cli@0.2.0
+    @hyperledger/caliper-cli@0.3.0
 user@ubuntu:~/caliper-benchmarks$ npx caliper bind \
     --caliper-bind-sut fabric:1.4.0
 user@ubuntu:~/caliper-benchmarks$ npx caliper launch master \
@@ -240,7 +240,7 @@ We could also perform the binding automatically when launching the master proces
 ```console
 user@ubuntu:~/caliper-benchmarks$ npm init -y
 user@ubuntu:~/caliper-benchmarks$ npm install --only=prod \
-    @hyperledger/caliper-cli@0.2.0
+    @hyperledger/caliper-cli@0.3.0
 user@ubuntu:~/caliper-benchmarks$ npx caliper launch master \
     --caliper-bind-sut fabric:1.4.0 \
     --caliper-workspace . \
@@ -264,7 +264,7 @@ There are some minor differences compared to the local install:
 5. You can omit the `npx` command, since `caliper` will be in your `PATH`. 
 
 ```console
-user@ubuntu:~$ npm install -g --only=prod @hyperledger/caliper-cli@0.2.0
+user@ubuntu:~$ npm install -g --only=prod @hyperledger/caliper-cli@0.3.0
 user@ubuntu:~$ caliper bind \
     --caliper-bind-sut fabric:1.4.0 \
     --caliper-bind-args=-g
@@ -303,7 +303,7 @@ Parts of starting a Caliper container (following the recommendations above):
 2. Mount your local working directory to a container directory
 3. Set the required binding and run parameters
 
-> __Note:__ the __latest__ (or any other) tag is __not supported__, i.e, you explicitly have to specify the image version you want: `hyperledger/caliper:0.2.0`, just like it's the recommended approach for the [NPM packages](#versioning-semantics).
+> __Note:__ the __latest__ (or any other) tag is __not supported__, i.e, you explicitly have to specify the image version you want: `hyperledger/caliper:0.3.0`, just like it's the recommended approach for the [NPM packages](#versioning-semantics).
 
 Putting it all together, split into multiple lines for clarity, and naming the container `caliper`:
 
@@ -313,7 +313,7 @@ user@ubuntu:~/caliper-benchmarks$ docker run \
     -e CALIPER_BIND_SUT=fabric:1.4.0 \
     -e CALIPER_BENCHCONFIG=benchmarks/scenario/simple/config.yaml \
     -e CALIPER_NETWORKCONFIG=networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml \
-    --name caliper hyperledger/caliper:0.2.0 launch master
+    --name caliper hyperledger/caliper:0.3.0 launch master
 ```
 
 > __Note:__ the above network configuration file contains a start script to spin up a local Docker-based Fabric network, which will not work in this form. So make sure to remove the start (and end) script, and change the node endpoints to remote addresses.
@@ -327,7 +327,7 @@ version: '2'
 services:
     caliper:
         container_name: caliper
-        image: hyperledger/caliper:0.2.0
+        image: hyperledger/caliper:0.3.0
         command: launch master
         environment:
         - CALIPER_BIND_SUT=fabric:1.4.0
