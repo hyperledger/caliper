@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "License"
 categories: opensource
 permalink: /vNext/license/

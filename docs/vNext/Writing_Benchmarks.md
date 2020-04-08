@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Writing Benchmarks"
 categories: reference
 permalink: /vNext/writing-benchmarks/

@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Ethereum Configuration"
 categories: config
 permalink: /vNext/ethereum-config/

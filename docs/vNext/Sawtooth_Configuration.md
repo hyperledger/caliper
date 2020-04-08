@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Sawtooth Configuration"
 categories: config
 permalink: /vNext/sawtooth-config/

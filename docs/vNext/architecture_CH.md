@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Architecture (CH)"
 categories: docs
 permalink: /vNext/architecture-ch/

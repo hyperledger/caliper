@@ -23,7 +23,9 @@ repository: hyperledger/caliper # GitHub username/repo-name e.g. "mmistakes/mini
 repo      : caliper
 
 caliper:
-  current_release: vLatest
+  v0_2: v0.2
+  v0_3: v0.3
+  current_release: v0.3
   next_release: vNext
 
 # Build settings

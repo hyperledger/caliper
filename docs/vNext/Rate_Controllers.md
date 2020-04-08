@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Rate Controllers"
 categories: reference
 permalink: /vNext/rate-controllers/

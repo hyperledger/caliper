@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Logging Control"
 categories: reference
 permalink: /vNext/logging/
