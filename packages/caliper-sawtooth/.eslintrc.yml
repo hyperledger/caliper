@@ -5,8 +5,7 @@ env:
 extends: 'eslint:recommended'
 parserOptions:
     ecmaVersion: 8
-    sourceType:
-        - script
+    sourceType: script
 rules:
     indent:
         - error
@@ -36,6 +35,7 @@ rules:
     no-useless-call: error
     no-with: error
     operator-linebreak: error
+    prefer-const: error
     require-jsdoc:
         - error
         - require:
