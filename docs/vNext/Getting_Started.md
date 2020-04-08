@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Getting Started"
 categories: docs
 permalink: /vNext/getting-started/

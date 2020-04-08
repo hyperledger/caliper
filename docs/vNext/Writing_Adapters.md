@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Writing Adapters"
 categories: reference
 permalink: /vNext/writing-adaptors/

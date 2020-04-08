@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Caliper FAQ"
 categories: opensource
 permalink: /vNext/caliper-faq/

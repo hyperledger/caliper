@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Runtime Configuration"
 categories: reference
 permalink: /vNext/runtime-config/

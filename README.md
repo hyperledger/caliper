@@ -66,3 +66,6 @@ order: 1
 * tile is the title of the page, that will appear under a menu category
 * categories names the category under which the apge will appear and is one of [docs, config, reference, opensource]
 * order specifies the order in which the page title will appear within the category list
+
+## Bumping the docs
+When releasing new docs (moving vNext content to a versioned release) use the `bumpDocs` npm script. It relies on information within the root level `docs.json` file that indicates the candidate version that will be used to place the content from the vNext folder.

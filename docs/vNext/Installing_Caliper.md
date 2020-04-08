@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Installing and Running Caliper"
 categories: docs
 permalink: /vNext/installing-caliper/

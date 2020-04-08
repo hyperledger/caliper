@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Fabric Configuration"
 categories: config
 permalink: /vNext/fabric-config/
@@ -15,7 +15,7 @@ permalink: /vNext/fabric-config/
 
 This page introduces the Fabric adapter that utilizes the Common Connection Profile (CCP) feature of the Fabric SDK to provide compatibility and a unified programming model across different Fabric versions. 
 
-> The latest supported version of Hyperledger Fabric is v1.4.X
+> The latest supported version of Hyperledger Fabric is v2.0.0
 
 The adapter exposes many SDK features directly to the user callback modules, making it possible to implement complex scenarios.
 
@@ -27,7 +27,7 @@ The adapter exposes many SDK features directly to the user callback modules, mak
 > * support for TLS and mutual TLS communication
 > * dynamic registration of users with custom affiliations and attributes
 > * option to select the identity for submitting a TX/query
-> * transparent support for every version of Fabric since v1.0 (currently up to v1.4.X)
+> * transparent support for every version of Fabric since v1.0 (currently up to v2.0.0)
 > * detailed execution data for every TX
 
 ## Installing dependencies
@@ -48,11 +48,19 @@ user@ubuntu:~/caliper-benchmarks$ npx caliper bind
 ```
 or from various [other sources](./Runtime_Configuration.md).
 
+### Binding with Fabric SDK 2.0.x
+> Note that when using the binding target for the Fabric SDK 2.0.x there are capability restrictions:
+> * The 2.0 SDK does not facilitate administration actions. It it not possible to create/join channels, nor install/instantiate chaincode. Consequently the 2.0 binding only facilitates operation with a `--caliper-flow-only-test` flag
+> * The 2.0 SDK currently only supports operation using a `gateway`. Consequently the 2.0.0 binding requires a `--caliper-fabric-gateway-usegateway` flag
+>
+> When testing with the 2.0 SDK, it is recommended to configure the system in advance with a network tool of your choice, or using Caliper bound to a 1.4 SDK. The 2.0 SDK may then be bound to Caliper and used for testing.
+> Caliper does not support the Fabric v2.0 chaincode lifecycle, however the legacy commands of install/instantiate are still valid, and so Caliper can perform basic network configuration using 1.4 SDK bindings.
+
 ## Runtime settings
 
 ### Common settings
 
-Some runtime properties of the adapter can be set through Caliper's [runtime configuration mechanism](./Runtime_Configuration.md). For the available settings, see the `caliper.fabric` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/config/default.yaml) and its embedded documentation.
+Some runtime properties of the adapter can be set through Caliper's [runtime configuration mechanism](./Runtime_Configuration.md). For the available settings, see the `caliper.fabric` section of the [default configuration file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/config/default.yaml) and its embedded documentation.
 
 The above settings are processed when starting Caliper. Modifying them during testing will have no effect. However, you can override the default values _before Caliper starts_ from the usual configuration sources.
 
@@ -60,12 +68,13 @@ The above settings are processed when starting Caliper. Modifying them during te
 > ```yaml
 > caliper:
 >   fabric:
->     usegateway: true
->     discovery: true
+>     gateway:
+>       usegateway: true
+>       discovery: true
 > ```
 > After naming the [project settings](./Runtime_Configuration.md#project-level) file `caliper.yaml` and placing it in the root of your workspace directory, it will override the following two setting keys with the following values:
-> * Setting `caliper-fabric-usegateway` is set to `true`
-> * Setting `caliper-fabric-discovery` is set to `true`
+> * Setting `caliper-fabric-gateway-usegateway` is set to `true`
+> * Setting `caliper-fabric-gateway-discovery` is set to `true`
 >
 > __The other settings remain unchanged.__
 

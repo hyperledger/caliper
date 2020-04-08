@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Contributing"
 categories: opensource
 permalink: /vNext/contributing/

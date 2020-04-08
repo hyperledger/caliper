@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Benchmark Generator"
 categories: reference
 permalink: /vNext/benchmark-generator/

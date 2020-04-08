@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Burrow Configuration"
 categories: config
 permalink: /vNext/burrow-config/

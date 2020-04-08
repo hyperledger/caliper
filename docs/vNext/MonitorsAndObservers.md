@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Monitors and Observers"
 categories: reference
 permalink: /vNext/caliper-monitors/
