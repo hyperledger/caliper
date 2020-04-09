@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Benchmark Configuration"
 categories: docs
 permalink: /vNext/bench-config/

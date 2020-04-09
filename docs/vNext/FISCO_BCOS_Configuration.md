@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "FISCO BCOS Configuration"
 categories: config
 permalink: /vNext/fisco-config/

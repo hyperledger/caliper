@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Iroha Configuration"
 categories: config
 permalink: /vNext/iroha-config/

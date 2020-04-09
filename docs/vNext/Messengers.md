@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Messengers"
 categories: reference
 permalink: /vNext/caliper-messengers/

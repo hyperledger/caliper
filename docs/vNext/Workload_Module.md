@@ -1,5 +1,5 @@
 ---
-layout: pageNext
+layout: vNext
 title:  "Workload Modules"
 categories: docs
 permalink: /vNext/workload-module/
