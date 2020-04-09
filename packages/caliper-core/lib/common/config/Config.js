@@ -91,7 +91,8 @@ const keys = {
         Communication: {
             Method: 'caliper-worker-communication-method',
             Address: 'caliper-worker-communication-address',
-        }
+        },
+        MaxTxPromises: 'caliper-worker-maxtxpromises'
     },
     Flow: {
         Skip: {
