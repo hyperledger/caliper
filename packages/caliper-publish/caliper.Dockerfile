@@ -27,11 +27,14 @@ WORKDIR /hyperledger/caliper/workspace
 
 # 1 & 2. change the NPM global install directory
 # https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally#manually-change-npms-default-directory
-# 3. install Caliper globally
+# 3. install Caliper globally (also install the core package, so it's bumped to the global root directory, so external modules can access it)
 RUN mkdir /home/node/.npm-global \
     && npm config set prefix '/home/node/.npm-global' \
-    && npm install ${npm_registry} -g --only=prod @hyperledger/caliper-cli@${caliper_version}
+    && npm install ${npm_registry} -g --only=prod @hyperledger/caliper-core@${caliper_version} @hyperledger/caliper-cli@${caliper_version}
 
+# Set NODE_PATH to the global install directory, so the global Caliper core module can be required by external modules
+# https://nodejs.org/docs/latest-v10.x/api/modules.html#modules_loading_from_the_global_folders
+ENV NODE_PATH /home/node/.npm-global/lib/node_modules
 ENV PATH /home/node/.npm-global/bin:$PATH
 ENV CALIPER_WORKSPACE /hyperledger/caliper/workspace
 ENV CALIPER_BIND_ARGS -g
