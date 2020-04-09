@@ -98,6 +98,10 @@ sut:
         latest: *ethereum-latest
 
     besu:
-        1.3.2: &besu-latest
+        1.3.2:
+            packages: ['web3@1.2.0']
+        1.3: 
+            packages: ['web3@1.2.0']
+        1.4: &besu-latest
             packages: ['web3@1.2.0']
         latest: *besu-latest
