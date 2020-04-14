@@ -118,13 +118,17 @@ class Report {
 
     /**
      * print table
-     * @param {Map | Map[]} tableArray a table array containing performance information compatible with the npm table module
+     * @param {string[]} tableArray a table array containing performance information compatible with the npm table module
      */
     printTable(tableArray) {
         // tableArray[0] = array of column titles
         // tableArray[1+] = array column values
-        let t = table.table(tableArray, {border: table.getBorderCharacters('ramac')});
-        Logger.info('\n' + t);
+        if (tableArray.length > 0) {
+            let t = table.table(tableArray, {border: table.getBorderCharacters('ramac')});
+            Logger.info('\n' + t);
+        } else {
+            Logger.error('No data within test result; implies error within configuration files');
+        }
     }
 
     /**
