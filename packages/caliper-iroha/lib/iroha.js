@@ -37,7 +37,7 @@ const DEFAULT_OPTIONS = {
     quorum: 1,
     commandService: null,
     timeoutLimit: 5000
-}
+};
 
 /**
  * Wrap the provided set of commands as Iroha transactions and send them to a peer node
@@ -48,7 +48,7 @@ const DEFAULT_OPTIONS = {
  * commandService: null,
  * timeoutLimit: 5000
  * }
- * @param {Object} commandOptions
+ * @param {Object} commandOptions Common options for the commands
  * @param {Array} commands - commands to turn into transactions
  * @returns {Promise} promise with sent transactions
  */
@@ -259,7 +259,7 @@ class Iroha extends BlockchainInterface {
                             assetId: assetId,
                             description: 'init top up',
                             amount: assetAmount
-                        }))
+                        }));
                     }
                     return Promise.resolve(result);
                 }));
@@ -270,9 +270,9 @@ class Iroha extends BlockchainInterface {
             return Promise.all(promises)
                 .then(res => {
                     logger.info('created clients succesfully');
-                    return Promise.resolve(result)
+                    return Promise.resolve(result);
                 })
-                .catch(e => Promise.reject(e))
+                .catch(e => Promise.reject(e));
         } catch (err) {
             logger.error(err);
             return Promise.reject(
@@ -445,7 +445,7 @@ class Iroha extends BlockchainInterface {
             .catch(e => {
                 status.SetStatusFail();
                 return Promise.resolve(status);
-            })
+            });
     }
 
     /**
