@@ -23,7 +23,6 @@
     },
     "dependencies": {
         "@hyperledger/caliper-burrow": "0.3.1-unstable",
-        "@hyperledger/caliper-composer": "0.3.1-unstable",
         "@hyperledger/caliper-core": "0.3.1-unstable",
         "@hyperledger/caliper-fabric": "0.3.1-unstable",
         "@hyperledger/caliper-iroha": "0.3.1-unstable",

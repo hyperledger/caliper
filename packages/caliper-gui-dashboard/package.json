@@ -14,7 +14,7 @@
         "test": "npm run lint",
         "lint": "npx eslint .",
         "nyc": "nyc mocha --recursive -t 10000",
-        "start": "react-scripts start",
+        "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
         "build": "react-scripts build",
         "eject": "react-scripts eject",
         "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
