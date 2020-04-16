@@ -13,22 +13,27 @@
 # limitations under the License.
 #
 
-# Exit on first error, print all commands.
-set -ev
-set -o pipefail
+# Print all commands.
+# set -v
 
-# Barf if we don't recognize this test adaptor.
-if [[ "${BENCHMARK}" = "" ]]; then
-    echo You must set BENCHMARK to one of the desired test adaptors 'besu|ethereum|fabric|fisco-bcos|generator|sawtooth|iroha'
-    echo For example:
-    echo  export BENCHMARK=fabric
-    exit 1
-fi
+# Work out the absolute path to current directory.
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+echo $DIR
 
-TEST_DIR="${BENCHMARK}_tests"
-if [[ -d "${TEST_DIR}" ]]; then
-    "${TEST_DIR}"/run.sh
-else
-    echo "Unknown target benchmark ${BENCHMARK}"
-    exit 1
+cd "${DIR}"
+
+# change default settings (add config paths too)
+export CALIPER_PROJECTCONFIG=caliper.yaml
+
+dispose () {
+    ${CALL_METHOD} launch master --caliper-flow-only-end
+}
+
+# running the test
+${CALL_METHOD} launch master
+rc=$?
+if [[ ${rc} != 0 ]]; then
+    echo 'Failed CI test';
+    dispose;
+    exit ${rc};
 fi
