@@ -175,7 +175,7 @@ describe ('benchmark configuration generator', () => {
     });
 
     it('should provide a default client value if user answered prompt with a string for workers', async () => {
-        options.workers = "penguin";
+        options.workers = 'penguin';
         await runGenerator();
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
@@ -222,7 +222,7 @@ describe ('benchmark configuration generator', () => {
 
     it('should provide a default txDuration if user answered prompt with a string for txDuration', async () => {
         options.txType = 'txDuration';
-        options.txDuration = "penguin";
+        options.txDuration = 'penguin';
         await runGenerator();
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
@@ -234,7 +234,7 @@ describe ('benchmark configuration generator', () => {
 
     it('should provide a default txNumber if user answered prompt with a string for txNumber', async () => {
         options.txType = 'txNumber';
-        options.txNumber = "penguin";
+        options.txNumber = 'penguin';
         await runGenerator();
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');

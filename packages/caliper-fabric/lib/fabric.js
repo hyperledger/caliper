@@ -28,9 +28,20 @@ const Fabric = class extends BlockchainInterface {
      */
     constructor(workerIndex) {
         super();
-        // Switch adaptors on the fabric-ca-client, which is a common package across all fabric-sdk-node releases
-        const packageVersion = require('fabric-ca-client/package').version;
-        const version = semver.coerce(packageVersion);
+        // Switch adaptors based on installed packages
+        // - will either have fabric-client, or fabric-network
+        let version;
+        if (CaliperUtils.moduleIsInstalled('fabric-client')) {
+            const packageVersion = require('fabric-client/package').version;
+            version = semver.coerce(packageVersion);
+        } else if (CaliperUtils.moduleIsInstalled('fabric-network')) {
+            const packageVersion = require('fabric-network/package').version;
+            version = semver.coerce(packageVersion);
+        } else {
+            const msg = 'Unable to detect required Fabric binding packages';
+            throw new Error(msg);
+        }
+
         const useGateway = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.UseGateway, false);
 
         Logger.info(`Initializing ${useGateway ? 'gateway' : 'standard' } adaptor compatible with installed SDK: ${version}`);
@@ -45,7 +56,7 @@ const Fabric = class extends BlockchainInterface {
             }
         } else if (semver.satisfies(version, '=2.x')) {
             if (!useGateway) {
-                modulePath = './adaptor-versions/v2/fabric-v2.js';
+                throw new Error(`Caliper currently only supports gateway based operation using the ${version} Fabric-SDK. Please retry with the gateway flag`);
             } else {
                 modulePath = './adaptor-versions/v2/fabric-gateway-v2.js';
             }
@@ -53,10 +64,10 @@ const Fabric = class extends BlockchainInterface {
             throw new Error(`Installed SDK version ${version} did not match any compatible Fabric adaptors`);
         }
 
-        let networkConfig = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
-        let workspaceRoot = path.resolve(ConfigUtil.get(ConfigUtil.keys.Workspace));
+        const networkConfig = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
+        const workspaceRoot = path.resolve(ConfigUtil.get(ConfigUtil.keys.Workspace));
 
-        let Fabric = require(modulePath);
+        const Fabric = require(modulePath);
         this.fabric = new Fabric(networkConfig, workspaceRoot, workerIndex);
     }
 

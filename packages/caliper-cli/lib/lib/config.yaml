@@ -60,7 +60,10 @@ sut:
             packages: ['fabric-client@1.4.6', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.6']
         1.4.7: &fabric-latest
             packages: ['fabric-client@1.4.7', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.7']
+        2.1.0: &fabric-latest-v2
+            packages: ['fabric-common@2.1.0', 'fabric-protos@2.1.0', 'fabric-network@2.1.0', fabric-ca-client@2.1.0']
         latest: *fabric-latest
+        latest-v2: *fabric-latest-v2
 
     sawtooth:
         1.0.0:
@@ -81,8 +84,10 @@ sut:
         latest: *burrow-latest
 
     iroha:
-        0.6.3: &iroha-latest
+        0.6.3:
             packages: [ 'iroha-helpers@0.6.3' ]
+        0.8.8: &iroha-latest
+            packages: [ 'iroha-helpers@0.8.8' ]
         latest: *iroha-latest
 
     fisco-bcos:
@@ -96,6 +101,10 @@ sut:
         latest: *ethereum-latest
 
     besu:
-        1.3.2: &besu-latest
+        1.3.2:
+            packages: ['web3@1.2.0']
+        1.3:
+            packages: ['web3@1.2.0']
+        1.4: &besu-latest
             packages: ['web3@1.2.0']
         latest: *besu-latest

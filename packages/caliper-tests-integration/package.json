@@ -88,7 +88,11 @@
       "fisco-bcos_tests/config/node3",
       "fisco-bcos_tests/config/sdk",
       "generator_tests/fabric/.gitignore",
-      "generator_tests/fabric/config/.gitignore"
+      "generator_tests/fabric/config/.gitignore",
+      "iroha_tests/.gitignore",
+      "iroha_tests/config/node0",
+      "iroha_tests/config/node1",
+      "iroha_tests/config/node2"
 
     ],
     "file_type_method": "EXCLUDE",

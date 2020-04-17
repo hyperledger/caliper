@@ -88,7 +88,7 @@ class MessageHandler {
         if (error) {
             // send(to, type, data)
             context.messenger.send(['orchestrator'], type, {error: error.toString()});
-            logger.error(`Handled unsuccessful "init" message for worker ${context.workerId}, with error: ${error.toString()}`);
+            logger.error(`Handled unsuccessful "init" message for worker ${context.workerId}, with error: ${error.stack}`);
         } else {
             context.workerClient = new CaliperLocalClient(context.adapter, context.workerId, context.messenger);
             context.messenger.send(['orchestrator'], type, {});
@@ -117,7 +117,7 @@ class MessageHandler {
         if (error) {
             // send(to, type, data)
             context.messenger.send(['orchestrator'], type, {error: error.toString()});
-            logger.error(`Handled unsuccessful "prepare" message for worker ${context.workerId} and test round ${message.testRound} with error ${error.toString()}`);
+            logger.error(`Handled unsuccessful "prepare" message for worker ${context.workerId} and test round ${message.testRound} with error ${error.stack}`);
         } else {
             context.messenger.send(['orchestrator'], type, {});
             logger.info(`Handled successful "prepare" message for worker ${context.workerId} and test round ${message.testRound}`);
@@ -139,12 +139,19 @@ class MessageHandler {
      * Called after processing the "test" message.
      * @param {object} context The context/state of the message handler.
      * @param {object} message The message object.
+     * @param {object} error An error conditioning message
      */
-    static async afterTest(context, message) {
-        await CaliperUtils.sleep(200);
+    static async afterTest(context, message, error) {
         const type = 'testResult';
-        context.messenger.send(['orchestrator'], type, context.testResult);
-        logger.info(`Handled "test" message for worker ${context.workerId}`);
+
+        if (error) {
+            // send(to, type, data)
+            context.messenger.send(['orchestrator'], type, {error: error.toString()});
+            logger.error(`Handled unsuccessful "test" message for worker ${context.workerId} and test round ${message.testRound} with error ${error.stack}`);
+        } else {
+            context.messenger.send(['orchestrator'], type, context.testResult);
+            logger.info(`Handled successful "test" message for worker ${context.workerId} and test round ${message.testRound}`);
+        }
     }
 
     /**
@@ -216,9 +223,13 @@ class MessageHandler {
                 break;
             }
             case 'test': {
-                await context.beforeTestHandler(context, message);
-                context.testResult = await context.testHandler(context, message);
-                await context.afterTestHandler(context, message);
+                try {
+                    await context.beforeTestHandler(context, message);
+                    context.testResult = await context.testHandler(context, message);
+                    await context.afterTestHandler(context, message, undefined);
+                } catch (err) {
+                    await context.afterTestHandler(context, message, err);
+                }
 
                 break;
             }

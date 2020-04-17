@@ -5,8 +5,7 @@ env:
 extends: 'eslint:recommended'
 parserOptions:
     ecmaVersion: 8
-    sourceType:
-        - script
+    sourceType: script
 rules:
     indent:
         - error
@@ -14,6 +13,8 @@ rules:
     linebreak-style:
         - error
         - unix
+    prefer-const:
+        - error
     quotes:
         - error
         - single

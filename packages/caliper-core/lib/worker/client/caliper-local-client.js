@@ -16,6 +16,7 @@
 
 const Config = require('../../common/config/config-util.js');
 const CaliperUtils = require('../../common/utils/caliper-utils.js');
+const CircularArray = require('../../common/utils/circular-array');
 const bc   = require('../../common/core/blockchain.js');
 const RateControl = require('../rate-control/rateControl.js');
 const PrometheusClient = require('../../common/prometheus/prometheus-push-client');
@@ -37,6 +38,8 @@ class CaliperLocalClient {
         this.clientIndex = clientIndex;
         this.messenger = messenger;
         this.context = undefined;
+        this.txUpdateTime = Config.get(Config.keys.TxUpdateTime, 5000);
+        this.maxTxPromises = Config.get(Config.keys.Worker.MaxTxPromises, 100);
 
         // Internal stats
         this.results      = [];
@@ -240,13 +243,13 @@ class CaliperLocalClient {
         Logger.info('Info: client ' + this.clientIndex +  ' start test runFixedNumber()' + (cb.info ? (':' + cb.info) : ''));
         this.startTime = Date.now();
 
-        let promises = [];
-        while(this.txNum < number) {
+        const circularArray = new CircularArray(this.maxTxPromises);
+        while (this.txNum < number) {
             // If this function calls cb.run() too quickly, micro task queue will be filled with unexecuted promises,
             // and I/O task(s) will get no chance to be execute and fall into starvation, for more detail info please visit:
             // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
             await this.setImmediatePromise(() => {
-                promises.push(cb.run().then((result) => {
+                circularArray.add(cb.run().then((result) => {
                     this.addResult(result);
                     return Promise.resolve();
                 }));
@@ -254,7 +257,7 @@ class CaliperLocalClient {
             await rateController.applyRateControl(this.startTime, this.txNum, this.results, this.resultStats);
         }
 
-        await Promise.all(promises);
+        await Promise.all(circularArray);
         this.endTime = Date.now();
     }
 
@@ -269,13 +272,14 @@ class CaliperLocalClient {
         Logger.info('Info: client ' + this.clientIndex +  ' start test runDuration()' + (cb.info ? (':' + cb.info) : ''));
         this.startTime = Date.now();
 
-        let promises = [];
+        // Use a circular array of Promises so that the Promise.all() call does not exceed the maximum permissable Array size
+        const circularArray = new CircularArray(this.maxTxPromises);
         while ((Date.now() - this.startTime)/1000 < duration) {
             // If this function calls cb.run() too quickly, micro task queue will be filled with unexecuted promises,
             // and I/O task(s) will get no chance to be execute and fall into starvation, for more detail info please visit:
             // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
             await this.setImmediatePromise(() => {
-                promises.push(cb.run().then((result) => {
+                circularArray.add(cb.run().then((result) => {
                     this.addResult(result);
                     return Promise.resolve();
                 }));
@@ -283,7 +287,7 @@ class CaliperLocalClient {
             await rateController.applyRateControl(this.startTime, this.txNum, this.results, this.resultStats);
         }
 
-        await Promise.all(promises);
+        await Promise.all(circularArray);
         this.endTime = Date.now();
     }
 
@@ -320,7 +324,6 @@ class CaliperLocalClient {
         Logger.debug('prepareTest() with:', test);
         let cb = require(CaliperUtils.resolvePath(test.cb));
 
-        this.txUpdateTime = Config.get(Config.keys.TxUpdateTime, 5000);
         const self = this;
         let initUpdateInter = setInterval( () => { self.initUpdate();  } , self.txUpdateTime);
 
@@ -374,7 +377,6 @@ class CaliperLocalClient {
 
         this.beforeTest(test);
 
-        this.txUpdateTime = Config.get(Config.keys.TxUpdateTime, 1000);
         Logger.info('txUpdateTime: ' + this.txUpdateTime);
         const self = this;
         let txUpdateInter = setInterval( () => { self.txUpdate();  } , self.txUpdateTime);
@@ -396,9 +398,9 @@ class CaliperLocalClient {
 
             // Clean up
             await rateController.end();
+            await cb.end();
             await this.blockchain.releaseContext(this.context);
             this.clearUpdateInter(txUpdateInter);
-            await cb.end();
 
             // Return the results and time stamps
             if (this.resultStats.length > 0) {

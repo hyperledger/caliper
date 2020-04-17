@@ -143,7 +143,7 @@ class Fabric extends BlockchainInterface {
 
         this.network = undefined;
         if (typeof networkConfig === 'string') {
-            let configPath = CaliperUtils.resolvePath(networkConfig, workspace_root);
+            const configPath = CaliperUtils.resolvePath(networkConfig, workspace_root);
             this.network = CaliperUtils.parseYaml(configPath);
         } else if (typeof networkConfig === 'object' && networkConfig !== null) {
             // clone the object to prevent modification by other objects
@@ -209,16 +209,16 @@ class Fabric extends BlockchainInterface {
      * @private
      */
     _assembleTargetEventSources(channel, targetPeers) {
-        let eventSources = [];
+        const eventSources = [];
         if (this.networkUtil.isInCompatibilityMode()) {
             // NOTE: for old event hubs we have a single connection to every peer set as an event source
             const EventHub = require('fabric-client/lib/EventHub.js');
 
-            for (let peer of targetPeers) {
-                let org = this.networkUtil.getOrganizationOfPeer(peer);
-                let admin = this.adminProfiles.get(org);
+            for (const peer of targetPeers) {
+                const org = this.networkUtil.getOrganizationOfPeer(peer);
+                const admin = this.adminProfiles.get(org);
 
-                let eventHub = new EventHub(admin);
+                const eventHub = new EventHub(admin);
                 eventHub.setPeerAddr(this.networkUtil.getPeerEventUrl(peer),
                     this.networkUtil.getGrpcOptionsOfPeer(peer));
 
@@ -229,11 +229,11 @@ class Fabric extends BlockchainInterface {
                 });
             }
         } else {
-            for (let peer of targetPeers) {
-                let org = this.networkUtil.getOrganizationOfPeer(peer);
-                let admin = this.adminProfiles.get(org);
+            for (const peer of targetPeers) {
+                const org = this.networkUtil.getOrganizationOfPeer(peer);
+                const admin = this.adminProfiles.get(org);
 
-                let eventHub = admin.getChannel(channel, true).newChannelEventHub(peer);
+                const eventHub = admin.getChannel(channel, true).newChannelEventHub(peer);
 
                 eventSources.push({
                     channel: [channel], // unused during chaincode instantiation
@@ -253,11 +253,11 @@ class Fabric extends BlockchainInterface {
      * @async
      */
     async _createChannels() {
-        let channels = this.networkUtil.getChannels();
+        const channels = this.networkUtil.getChannels();
         let channelCreated = false;
 
-        for (let channel of channels) {
-            let channelObject = this.networkUtil.getNetworkObject().channels[channel];
+        for (const channel of channels) {
+            const channelObject = this.networkUtil.getNetworkObject().channels[channel];
 
             if (CaliperUtils.checkProperty(channelObject, 'created') && channelObject.created) {
                 logger.info(`Channel '${channel}' is configured as created, skipping creation`);
@@ -285,10 +285,10 @@ class Fabric extends BlockchainInterface {
             }
 
             // NOTE: without knowing the system channel policies, signing with every org admin is a safe bet
-            let orgs = this.networkUtil.getOrganizationsOfChannel(channel);
+            const orgs = this.networkUtil.getOrganizationsOfChannel(channel);
             let admin; // declared here to keep the admin of the last org of the channel
-            let signatures = [];
-            for (let org of orgs) {
+            const signatures = [];
+            for (const org of orgs) {
                 admin = this.adminProfiles.get(org);
                 try {
                     signatures.push(admin.signChannelConfig(configUpdate));
@@ -297,8 +297,8 @@ class Fabric extends BlockchainInterface {
                 }
             }
 
-            let txId = admin.newTransactionID(true);
-            let request = {
+            const txId = admin.newTransactionID(true);
+            const request = {
                 config: configUpdate,
                 signatures: signatures,
                 name: channel,
@@ -307,7 +307,7 @@ class Fabric extends BlockchainInterface {
 
             try {
                 /** @link{BroadcastResponse} */
-                let broadcastResponse = await admin.createChannel(request);
+                const broadcastResponse = await admin.createChannel(request);
 
                 CaliperUtils.assertDefined(broadcastResponse, `The returned broadcast response for creating Channel '${channel}' is undefined`);
                 CaliperUtils.assertProperty(broadcastResponse, 'broadcastResponse', 'status');
@@ -364,7 +364,7 @@ class Fabric extends BlockchainInterface {
     async _enrollUser(profile, id, secret, profileName) {
         // this call will throw an error if the CA configuration is not found
         // this error should propagate up
-        let ca = profile.getCertificateAuthority();
+        const ca = profile.getCertificateAuthority();
         try {
             return await ca.enroll({
                 enrollmentID: id,
@@ -503,7 +503,7 @@ class Fabric extends BlockchainInterface {
      */
     _getChannelConfigFromFile(channelObject, channelName) {
         // extracting the config from the binary file
-        let binaryPath = CaliperUtils.resolvePath(channelObject.configBinary, this.workspaceRoot);
+        const binaryPath = CaliperUtils.resolvePath(channelObject.configBinary, this.workspaceRoot);
         let envelopeBytes;
 
         try {
@@ -517,23 +517,6 @@ class Fabric extends BlockchainInterface {
         } catch (err) {
             throw new Error(`Couldn't extract configuration object for ${channelName}: ${err.message}`);
         }
-    }
-
-    /**
-     * Calculates the remaining time to timeout based on the original timeout and a starting time.
-     * @param {number} start The epoch of the start time in ms.
-     * @param {number} original The original timeout in ms.
-     * @returns {number} The remaining time until the timeout in ms.
-     * @private
-     */
-    _getRemainingTimeout(start, original) {
-        let newTimeout = original - (Date.now() - start);
-        if (newTimeout < this.configSmallestTimeout) {
-            logger.warn(`Timeout is too small, default value of ${this.configSmallestTimeout}ms is used instead`);
-            newTimeout = this.configSmallestTimeout;
-        }
-
-        return newTimeout;
     }
 
     /**
@@ -563,15 +546,15 @@ class Fabric extends BlockchainInterface {
      * @async
      */
     async _initializeAdmins(workerInit) {
-        let orgs = this.networkUtil.getOrganizations();
-        for (let org of orgs) {
-            let adminName = `admin.${org}`;
+        const orgs = this.networkUtil.getOrganizations();
+        for (const org of orgs) {
+            const adminName = `admin.${org}`;
             // build the common part of the profile
-            let adminProfile = await this._prepareClientProfile(org, undefined, `${org}'s admin`);
+            const adminProfile = await this._prepareClientProfile(org, undefined, `${org}'s admin`);
 
             // Check if the materials already exist locally in file system key-value stores. Only valid if not using a file wallet
             if (!this.fileWalletPath){
-                let admin = await this._getUserContext(adminProfile, adminName, `${org}'s admin`);
+                const admin = await this._getUserContext(adminProfile, adminName, `${org}'s admin`);
                 if (admin) {
                     this.adminProfiles.set(org, adminProfile);
 
@@ -638,15 +621,15 @@ class Fabric extends BlockchainInterface {
      * @async
      */
     async _initializeRegistrars(workerInit) {
-        let orgs = this.networkUtil.getOrganizations();
-        for (let org of orgs) {
+        const orgs = this.networkUtil.getOrganizations();
+        for (const org of orgs) {
 
             // providing registrar information is optional and only needed for user registration and enrollment
             if (this.fileWalletPath) {
                 logger.info('skipping registrar initialization due to presence of file system wallet');
                 continue;
             }
-            let registrarInfo = this.networkUtil.getRegistrarOfOrganization(org);
+            const registrarInfo = this.networkUtil.getRegistrarOfOrganization(org);
             if (!registrarInfo) {
                 if (!workerInit) {
                     logger.warn(`${org}'s registrar information not provided.`);
@@ -655,9 +638,9 @@ class Fabric extends BlockchainInterface {
             }
 
             // build the common part of the profile
-            let registrarProfile = await this._prepareClientProfile(org, undefined, 'registrar');
+            const registrarProfile = await this._prepareClientProfile(org, undefined, 'registrar');
             // check if the materials already exist locally in the file system key-value stores
-            let registrar = await this._getUserContext(registrarProfile, registrarInfo.enrollId, `${org}'s registrar`);
+            const registrar = await this._getUserContext(registrarProfile, registrarInfo.enrollId, `${org}'s registrar`);
 
             if (registrar) {
                 if (!workerInit) {
@@ -686,14 +669,14 @@ class Fabric extends BlockchainInterface {
      * @async
      */
     async _initializeUsers(workerInit) {
-        let clients = this.networkUtil.getClients();
+        const clients = this.networkUtil.getClients();
 
         // register and enroll each client with its organization's CA
-        for (let client of clients) {
-            let org = this.networkUtil.getOrganizationOfClient(client);
+        for (const client of clients) {
+            const org = this.networkUtil.getOrganizationOfClient(client);
 
             // create the profile based on the connection profile
-            let clientProfile = await this._prepareClientProfile(org, client, client);
+            const clientProfile = await this._prepareClientProfile(org, client, client);
             this.clientProfiles.set(client, clientProfile);
 
             // check if the materials already exist locally in the file system key-value stores
@@ -733,7 +716,7 @@ class Fabric extends BlockchainInterface {
                 user = await this._createUser(clientProfile, org, client, cryptoContent, client);
                 if (this.networkUtil.isMutualTlsEnabled()) {
                     // the materials are included in the configuration file
-                    let crypto = this.networkUtil.getClientCryptoContent(client);
+                    const crypto = this.networkUtil.getClientCryptoContent(client);
                     clientProfile.setTlsClientCertAndKey(crypto.signedCertPEM.toString(), crypto.privateKeyPEM.toString());
                 }
 
@@ -751,9 +734,9 @@ class Fabric extends BlockchainInterface {
             // The user needs to be enrolled or even registered
 
             // if the enrollment ID and secret is provided, then enroll the already registered user
-            let enrollmentSecret = this.networkUtil.getClientEnrollmentSecret(client);
+            const enrollmentSecret = this.networkUtil.getClientEnrollmentSecret(client);
             if (enrollmentSecret) {
-                let enrollment = await this._enrollUser(clientProfile, client, enrollmentSecret, client);
+                const enrollment = await this._enrollUser(clientProfile, client, enrollmentSecret, client);
 
                 // create the new user based on the retrieved materials
                 user = await this._createUser(clientProfile, org, client,
@@ -780,22 +763,22 @@ class Fabric extends BlockchainInterface {
             // Otherwise, register then enroll the user
             let secret;
             try {
-                let registrarProfile = this.registrarProfiles.get(org);
+                const registrarProfile = this.registrarProfiles.get(org);
 
                 if (!registrarProfile) {
                     throw new Error(`Registrar identity is not provided for ${org}`);
                 }
 
-                let registrarInfo = this.networkUtil.getRegistrarOfOrganization(org);
-                let registrar = await registrarProfile.getUserContext(registrarInfo.enrollId, true);
+                const registrarInfo = this.networkUtil.getRegistrarOfOrganization(org);
+                const registrar = await registrarProfile.getUserContext(registrarInfo.enrollId, true);
                 // this call will throw an error if the CA configuration is not found
                 // this error should propagate up
-                let ca = clientProfile.getCertificateAuthority();
-                let userAffiliation = this.networkUtil.getAffiliationOfUser(client);
+                const ca = clientProfile.getCertificateAuthority();
+                const userAffiliation = this.networkUtil.getAffiliationOfUser(client);
 
                 // if not in compatibility mode (i.e., at least SDK v1.1), check whether the affiliation is already registered or not
                 if (!this.networkUtil.isInCompatibilityMode()) {
-                    let affService = ca.newAffiliationService();
+                    const affService = ca.newAffiliationService();
                     let affiliationExists = false;
                     try {
                         await affService.getOne(userAffiliation, registrar);
@@ -814,7 +797,7 @@ class Fabric extends BlockchainInterface {
                     }
                 }
 
-                let attributes = this.networkUtil.getAttributesOfUser(client);
+                const attributes = this.networkUtil.getAttributesOfUser(client);
                 attributes.push({name: 'hf.Registrar.Roles', value: 'client'});
 
                 secret = await ca.register({
@@ -831,7 +814,7 @@ class Fabric extends BlockchainInterface {
                 logger.info(`${client} successfully registered`);
             }
 
-            let enrollment = await this._enrollUser(clientProfile, client, secret, client);
+            const enrollment = await this._enrollUser(clientProfile, client, secret, client);
 
             // create the new user based on the retrieved materials
             user = await this._createUser(clientProfile, org, client,
@@ -962,34 +945,34 @@ class Fabric extends BlockchainInterface {
             process.env.GOPATH = CaliperUtils.resolvePath('.', this.workspaceRoot);
         }
 
-        let errors = [];
+        const errors = [];
 
-        let channels = this.networkUtil.getChannels();
-        for (let channel of channels) {
+        const channels = this.networkUtil.getChannels();
+        for (const channel of channels) {
             logger.info(`Installing chaincodes for ${channel}...`);
 
             // proceed cc by cc for the channel
-            let chaincodeInfos = this.networkUtil.getChaincodesOfChannel(channel);
-            for (let chaincodeInfo of chaincodeInfos) {
-                let ccObject = this.networkUtil.getNetworkObject().channels[channel].chaincodes.find(
+            const chaincodeInfos = this.networkUtil.getChaincodesOfChannel(channel);
+            for (const chaincodeInfo of chaincodeInfos) {
+                const ccObject = this.networkUtil.getNetworkObject().channels[channel].chaincodes.find(
                     cc => cc.id === chaincodeInfo.id && cc.version === chaincodeInfo.version);
 
-                let targetPeers = this.networkUtil.getTargetPeersOfChaincodeOfChannel(chaincodeInfo, channel);
+                const targetPeers = this.networkUtil.getTargetPeersOfChaincodeOfChannel(chaincodeInfo, channel);
                 if (targetPeers.size < 1) {
                     logger.info(`No target peers are defined for ${chaincodeInfo.id}@${chaincodeInfo.version} on ${channel}, skipping it`);
                     continue;
                 }
 
                 // find the peers that don't have the cc installed
-                let installTargets = [];
+                const installTargets = [];
 
-                for (let peer of targetPeers) {
-                    let org = this.networkUtil.getOrganizationOfPeer(peer);
-                    let admin = this.adminProfiles.get(org);
+                for (const peer of targetPeers) {
+                    const org = this.networkUtil.getOrganizationOfPeer(peer);
+                    const admin = this.adminProfiles.get(org);
 
                     try {
                         /** {@link ChaincodeQueryResponse} */
-                        let resp = await admin.queryInstalledChaincodes(peer, true);
+                        const resp = await admin.queryInstalledChaincodes(peer, true);
                         if (resp.chaincodes.some(cc => cc.name === chaincodeInfo.id && cc.version === chaincodeInfo.version)) {
                             logger.info(`${chaincodeInfo.id}@${chaincodeInfo.version} is already installed on ${peer}`);
                             continue;
@@ -1003,7 +986,7 @@ class Fabric extends BlockchainInterface {
 
                 if (errors.length > 0) {
                     let errorMsg = `Could not query whether ${chaincodeInfo.id}@${chaincodeInfo.version} is installed on some peers of ${channel}:`;
-                    for (let err of errors) {
+                    for (const err of errors) {
                         errorMsg += `\n\t- ${err.message}`;
                     }
 
@@ -1017,22 +1000,22 @@ class Fabric extends BlockchainInterface {
                 }
 
                 // install chaincodes org by org
-                let orgs = this.networkUtil.getOrganizationsOfChannel(channel);
-                for (let org of orgs) {
-                    let peersOfOrg = this.networkUtil.getPeersOfOrganization(org);
+                const orgs = this.networkUtil.getOrganizationsOfChannel(channel);
+                for (const org of orgs) {
+                    const peersOfOrg = this.networkUtil.getPeersOfOrganization(org);
                     // selecting the target peers for this org
-                    let orgPeerTargets = installTargets.filter(p => peersOfOrg.has(p));
+                    const orgPeerTargets = installTargets.filter(p => peersOfOrg.has(p));
 
                     // cc is installed on every target peer of the org in the channel
                     if (orgPeerTargets.length < 1) {
                         continue;
                     }
 
-                    let admin = this.adminProfiles.get(org);
+                    const admin = this.adminProfiles.get(org);
 
-                    let txId = admin.newTransactionID(true);
+                    const txId = admin.newTransactionID(true);
                     /** @{ChaincodeInstallRequest} */
-                    let request = {
+                    const request = {
                         targets: orgPeerTargets,
                         chaincodePath: ccObject.language === 'golang' ? ccObject.path : CaliperUtils.resolvePath(ccObject.path, this.workspaceRoot),
                         chaincodeId: ccObject.id,
@@ -1053,16 +1036,16 @@ class Fabric extends BlockchainInterface {
                     // install to necessary peers of org and process the results
                     try {
                         /** @link{ProposalResponseObject} */
-                        let propRespObject = await admin.installChaincode(request);
+                        const propRespObject = await admin.installChaincode(request);
                         CaliperUtils.assertDefined(propRespObject);
 
                         /** Array of @link{ProposalResponse} objects */
-                        let proposalResponses = propRespObject[0];
+                        const proposalResponses = propRespObject[0];
                         CaliperUtils.assertDefined(proposalResponses);
 
                         proposalResponses.forEach((propResponse, index) => {
                             if (propResponse instanceof Error) {
-                                let errMsg = `Install proposal error for ${chaincodeInfo.id}@${chaincodeInfo.version} on ${orgPeerTargets[index]}: ${propResponse.message}`;
+                                const errMsg = `Install proposal error for ${chaincodeInfo.id}@${chaincodeInfo.version} on ${orgPeerTargets[index]}: ${propResponse.message}`;
                                 errors.push(new Error(errMsg));
                                 return;
                             }
@@ -1071,11 +1054,11 @@ class Fabric extends BlockchainInterface {
                             CaliperUtils.assertProperty(propResponse, 'propResponse', 'response');
 
                             /** @link{ResponseObject} */
-                            let response = propResponse.response;
+                            const response = propResponse.response;
                             CaliperUtils.assertProperty(response, 'response', 'status');
 
                             if (response.status !== 200) {
-                                let errMsg = `Unsuccessful install status for ${chaincodeInfo.id}@${chaincodeInfo.version} on ${orgPeerTargets[index]}: ${propResponse.response.message}`;
+                                const errMsg = `Unsuccessful install status for ${chaincodeInfo.id}@${chaincodeInfo.version} on ${orgPeerTargets[index]}: ${propResponse.response.message}`;
                                 errors.push(new Error(errMsg));
                             }
                         });
@@ -1093,7 +1076,7 @@ class Fabric extends BlockchainInterface {
 
                 if (errors.length > 0) {
                     let errorMsg = `Could not install ${chaincodeInfo.id}@${chaincodeInfo.version} on some peers of ${channel}:`;
-                    for (let err of errors) {
+                    for (const err of errors) {
                         errorMsg += `\n\t- ${err.message}`;
                     }
 
@@ -1111,17 +1094,17 @@ class Fabric extends BlockchainInterface {
      * @async
      */
     async _instantiateChaincodes() {
-        let channels = this.networkUtil.getChannels();
+        const channels = this.networkUtil.getChannels();
         let chaincodeInstantiated = false;
 
         // chaincodes needs to be installed channel by channel
-        for (let channel of channels) {
-            let chaincodeInfos = this.networkUtil.getChaincodesOfChannel(channel);
+        for (const channel of channels) {
+            const chaincodeInfos = this.networkUtil.getChaincodesOfChannel(channel);
 
-            for (let chaincodeInfo of chaincodeInfos) {
+            for (const chaincodeInfo of chaincodeInfos) {
                 logger.info(`Instantiating ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel}. This might take some time...`);
 
-                let ccObject = this.networkUtil.getNetworkObject().channels[channel].chaincodes.find(
+                const ccObject = this.networkUtil.getNetworkObject().channels[channel].chaincodes.find(
                     cc => cc.id === chaincodeInfo.id && cc.version === chaincodeInfo.version);
 
                 // check chaincode language
@@ -1130,7 +1113,7 @@ class Fabric extends BlockchainInterface {
                     throw new Error(`${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel}: unknown chaincode type ${ccObject.language}`);
                 }
 
-                let targetPeers = Array.from(this.networkUtil.getTargetPeersOfChaincodeOfChannel(chaincodeInfo, channel));
+                const targetPeers = Array.from(this.networkUtil.getTargetPeersOfChaincodeOfChannel(chaincodeInfo, channel));
                 if (targetPeers.length < 1) {
                     logger.info(`No target peers are defined for ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel}, skipping it`);
                     continue;
@@ -1139,8 +1122,8 @@ class Fabric extends BlockchainInterface {
                 // select a target peer for the chaincode to see if it's instantiated
                 // these are the same as the install targets, so if one of the peers has already instantiated the chaincode,
                 // then the other targets also had done the same
-                let org = this.networkUtil.getOrganizationOfPeer(targetPeers[0]);
-                let admin = this.adminProfiles.get(org);
+                const org = this.networkUtil.getOrganizationOfPeer(targetPeers[0]);
+                const admin = this.adminProfiles.get(org);
 
                 /** @link{ChaincodeQueryResponse} */
                 let queryResponse;
@@ -1161,9 +1144,9 @@ class Fabric extends BlockchainInterface {
 
                 chaincodeInstantiated = true;
 
-                let txId = admin.newTransactionID(true);
+                const txId = admin.newTransactionID(true);
                 /** @link{ChaincodeInstantiateUpgradeRequest} */
-                let request = {
+                const request = {
                     targets: targetPeers,
                     chaincodeId: ccObject.id,
                     chaincodeVersion: ccObject.version,
@@ -1192,9 +1175,9 @@ class Fabric extends BlockchainInterface {
                 CaliperUtils.assertDefined(response);
 
                 /** @link{Array<ProposalResponse>} */
-                let proposalResponses = response[0];
+                const proposalResponses = response[0];
                 /** @link{Proposal} */
-                let proposal = response[1];
+                const proposal = response[1];
                 CaliperUtils.assertDefined(proposalResponses);
                 CaliperUtils.assertDefined(proposal);
 
@@ -1210,15 +1193,15 @@ class Fabric extends BlockchainInterface {
                 });
 
                 // connect to every event source of every org in the channel
-                let eventSources = this._assembleTargetEventSources(channel, targetPeers);
-                let eventPromises = [];
+                const eventSources = this._assembleTargetEventSources(channel, targetPeers);
+                const eventPromises = [];
 
                 try {
                     // NOTE: everything is resolved, errors are signaled through an Error object
                     // this makes error handling and reporting easier
                     eventSources.forEach((es) => {
-                        let promise = new Promise((resolve) => {
-                            let timeoutHandle = setTimeout(() => {
+                        const promise = new Promise((resolve) => {
+                            const timeoutHandle = setTimeout(() => {
                                 // unregister manually
                                 es.eventHub.unregisterTxEvent(txId.getTransactionID(), false);
                                 resolve(new Error(`Commit timeout for ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel} from ${es.peer}`));
@@ -1243,7 +1226,7 @@ class Fabric extends BlockchainInterface {
                     });
 
                     /** @link{TransactionRequest} */
-                    let ordererRequest = {
+                    const ordererRequest = {
                         txId: txId,
                         proposalResponses: proposalResponses,
                         proposal: proposal
@@ -1265,13 +1248,13 @@ class Fabric extends BlockchainInterface {
                     }
 
                     // since every event promise is resolved, this shouldn't throw an error
-                    let eventResults = await Promise.all(eventPromises);
+                    const eventResults = await Promise.all(eventPromises);
 
                     // if we received an error, propagate it
                     if (eventResults.some(er => er instanceof Error)) {
                         let errMsg = `The following errors occured while instantiating ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel}:`;
                         let err; // keep the last error
-                        for (let eventResult of eventResults) {
+                        for (const eventResult of eventResults) {
                             if (eventResult instanceof Error) {
                                 err = eventResult;
                                 errMsg += `\n\t- ${eventResult.message}`;
@@ -1303,25 +1286,25 @@ class Fabric extends BlockchainInterface {
      * @async
      */
     async _joinChannels() {
-        let channels = this.networkUtil.getChannels();
+        const channels = this.networkUtil.getChannels();
         let channelJoined = false;
-        let errors = [];
+        const errors = [];
 
-        for (let channelName of channels) {
+        for (const channelName of channels) {
             let genesisBlock = null;
-            let orgs = this.networkUtil.getOrganizationsOfChannel(channelName);
+            const orgs = this.networkUtil.getOrganizationsOfChannel(channelName);
 
-            for (let org of orgs) {
-                let admin = this.adminProfiles.get(org);
-                let channelObject = admin.getChannel(channelName, true);
+            for (const org of orgs) {
+                const admin = this.adminProfiles.get(org);
+                const channelObject = admin.getChannel(channelName, true);
 
-                let peers = this.networkUtil.getPeersOfOrganizationAndChannel(org, channelName);
-                let peersToJoin = [];
+                const peers = this.networkUtil.getPeersOfOrganizationAndChannel(org, channelName);
+                const peersToJoin = [];
 
-                for (let peer of peers) {
+                for (const peer of peers) {
                     try {
                         /** {@link ChannelQueryResponse} */
-                        let resp = await admin.queryChannels(peer, true);
+                        const resp = await admin.queryChannels(peer, true);
                         if (resp.channels.some(ch => ch.channel_id === channelName)) {
                             logger.info(`${peer} has already joined ${channelName}`);
                             continue;
@@ -1335,7 +1318,7 @@ class Fabric extends BlockchainInterface {
 
                 if (errors.length > 0) {
                     let errMsg = `The following errors occurred while querying ${channelName} information from ${org}'s peers:`;
-                    for (let err of errors) {
+                    for (const err of errors) {
                         errMsg += `\n\t- ${err.message}`;
                     }
 
@@ -1353,9 +1336,9 @@ class Fabric extends BlockchainInterface {
                 // only retrieve the genesis block once, and "cache" it
                 if (genesisBlock === null) {
                     try {
-                        let genesisTxId = admin.newTransactionID(true);
+                        const genesisTxId = admin.newTransactionID(true);
                         /** @link{OrdererRequest} */
-                        let genesisRequest = {
+                        const genesisRequest = {
                             txId: genesisTxId
                         };
                         genesisBlock = await channelObject.getGenesisBlock(genesisRequest);
@@ -1364,8 +1347,8 @@ class Fabric extends BlockchainInterface {
                     }
                 }
 
-                let joinTxId = admin.newTransactionID(true);
-                let joinRequest = {
+                const joinTxId = admin.newTransactionID(true);
+                const joinRequest = {
                     block: genesisBlock,
                     txId: joinTxId,
                     targets: peersToJoin
@@ -1373,7 +1356,7 @@ class Fabric extends BlockchainInterface {
 
                 try {
                     /**{@link ProposalResponse} array*/
-                    let joinRespArray = await channelObject.joinChannel(joinRequest);
+                    const joinRespArray = await channelObject.joinChannel(joinRequest);
                     CaliperUtils.assertDefined(joinRespArray);
 
                     // Some errors are returned as Error instances, some as error messages
@@ -1390,7 +1373,7 @@ class Fabric extends BlockchainInterface {
 
                 if (errors.length > 0) {
                     let errMsg = `The following errors occurred while ${org}'s peers tried to join ${channelName}:`;
-                    for (let err of errors) {
+                    for (const err of errors) {
                         errMsg += `\n\t- ${err.message}`;
                     }
 
@@ -1434,7 +1417,7 @@ class Fabric extends BlockchainInterface {
         if (!client) {
             CaliperUtils.assertDefined(org);
             // base it on the first client connection profile of the org
-            let clients = this.networkUtil.getClientsOfOrganization(org);
+            const clients = this.networkUtil.getClientsOfOrganization(org);
 
             // NOTE: this assumes at least one client per org, which is reasonable, the clients will interact with the network
             if (clients.size < 1) {
@@ -1447,7 +1430,7 @@ class Fabric extends BlockchainInterface {
         // load the general network data from a clone of the network object
         // NOTE: if we provide a common object instead, the Client class will use it directly,
         // and it will be overwritten when loading the next client
-        let profile = FabricClient.loadFromConfig(this.networkUtil.getNewNetworkObject());
+        const profile = FabricClient.loadFromConfig(this.networkUtil.getNewNetworkObject());
         profile.loadFromConfig({
             version: '1.0',
             client: this.networkUtil.getClientObject(client)
@@ -1470,8 +1453,8 @@ class Fabric extends BlockchainInterface {
      * @private
      */
     _setTlsAdminCertAndKey(org) {
-        let profile = this.adminProfiles.get(org);
-        let crypto = this.networkUtil.getAdminCryptoContentOfOrganization(org);
+        const profile = this.adminProfiles.get(org);
+        const crypto = this.networkUtil.getAdminCryptoContentOfOrganization(org);
         profile.setTlsClientCertAndKey(crypto.signedCertPEM.toString(), crypto.privateKeyPEM.toString());
     }
 
@@ -1497,73 +1480,69 @@ class Fabric extends BlockchainInterface {
     }
 
     /**
-     * Submit a transaction using a Gateway contract
+     * Perform a transaction using a Gateway contract
      * @param {object} context The context previously created by the Fabric adapter.
-     * @param {ChaincodeInvokeSettings} invokeSettings The settings associated with the transaction submission.
+     * @param {ChaincodeInvokeSettings | ChaincodeQuerySettings} invokeSettings The settings associated with the transaction submission.
+     * @param {boolean} isSubmit boolean flag to indicate if the transaction is a submit or evaluate
      * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
      * @async
      */
-    async _submitGatewayTransaction(context, invokeSettings) {
+    async _performGatewayTransaction(context, invokeSettings, isSubmit) {
 
         // Retrieve the existing contract and a client
-        const contract = await this._getUserContract(invokeSettings.invokerIdentity, invokeSettings.chaincodeId);
-        const client = this.clientProfiles.get(invokeSettings.invokerIdentity);
+        const smartContract = await this._getUserContract(invokeSettings.invokerIdentity, invokeSettings.chaincodeId);
 
-        // Build the Caliper TxStatus, this is a reduced item when compared to the low level API capabilities
-        const txIdObject = client.newTransactionID();
-        const txId = txIdObject.getTransactionID();
-        let invokeStatus = new TxStatus(txId);
-        invokeStatus.Set('request_type', 'transaction');
+        // Create a transaction
+        const transaction = smartContract.createTransaction(invokeSettings.chaincodeFunction);
 
-        if(context.engine) {
-            context.engine.submitCallback(1);
+        // Build the Caliper TxStatus
+        const invokeStatus = new TxStatus(transaction.getTransactionID());
+
+        // Add transient data if present
+        // - passed as key value pairing such as {"hello":"world"}
+        if (invokeSettings.transientData) {
+            const transientData = {};
+            const keys = Array.from(Object.keys(invokeSettings.transientData));
+            keys.forEach((key) => {
+                transientData[key] = Buffer.from(invokeSettings.transientData[key]);
+            });
+            transaction.setTransient(transientData);
+        }
+
+        // Set endorsing peers if passed as a string array
+        if (invokeSettings.targetPeers) {
+            // Retrieved cached peer objects
+            const targetPeerObjects = [];
+            for (const name of invokeSettings.targetPeers) {
+                const peer = this.peerCache.get(name);
+                targetPeerObjects.push(peer);
+            }
+            // Set the peer objects in the transaction
+            transaction.setEndorsingPeers(targetPeerObjects);
         }
 
         try {
-            const result = await contract.submitTransaction(invokeSettings.chaincodeFunction, ...invokeSettings.chaincodeArguments);
+            let result;
+            if (isSubmit) {
+                if (context.engine) {
+                    context.engine.submitCallback(1);
+                }
+                invokeStatus.Set('request_type', 'transaction');
+                result = await transaction.submit(...invokeSettings.chaincodeArguments);
+            } else {
+                const countAsLoad = invokeSettings.countAsLoad === undefined ? this.configCountQueryAsLoad : invokeSettings.countAsLoad;
+                if (context.engine && countAsLoad) {
+                    context.engine.submitCallback(1);
+                }
+                invokeStatus.Set('request_type', 'query');
+                result = await transaction.evaluate(...invokeSettings.chaincodeArguments);
+            }
             invokeStatus.result = result;
             invokeStatus.verified = true;
             invokeStatus.SetStatusSuccess();
             return invokeStatus;
         } catch (err) {
-            logger.error(`Failed to submit transaction [${invokeSettings.chaincodeFunction}] using arguments [${invokeSettings.chaincodeArguments}],  with error: ${err.stack ? err.stack : err}`);
-            invokeStatus.SetStatusFail();
-            invokeStatus.result = [];
-            return invokeStatus;
-        }
-    }
-
-    /**
-     * Submit a transaction using a Gateway contract
-     * @param {object} context The context previously created by the Fabric adapter.
-     * @param {ChaincodeQuerySettings} querySettings The settings associated with the transaction evaluation.
-     * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
-     * @async
-     */
-    async _evaluateGatewayTransaction(context, querySettings) {
-
-        // Retrieve the existing contract and a client
-        const contract = await this._getUserContract(querySettings.invokerIdentity, querySettings.chaincodeId);
-        const client = this.clientProfiles.get(querySettings.invokerIdentity);
-
-        // Build the Caliper TxStatus, this is a reduced item when compared to the low level API capabilities
-        const txIdObject = client.newTransactionID();
-        const txId = txIdObject.getTransactionID();
-        let invokeStatus = new TxStatus(txId);
-        invokeStatus.Set('request_type', 'query');
-
-        if(context.engine) {
-            context.engine.submitCallback(1);
-        }
-
-        try {
-            const result = await contract.evaluateTransaction(querySettings.chaincodeFunction, ...querySettings.chaincodeArguments);
-            invokeStatus.result = result;
-            invokeStatus.verified = true;
-            invokeStatus.SetStatusSuccess();
-            return invokeStatus;
-        } catch (err) {
-            logger.error(`Failed to evaluate transaction [${querySettings.chaincodeFunction}] using arguments [${querySettings.chaincodeArguments}],  with error: ${err.stack ? err.stack : err}`);
+            logger.error(`Failed to perform ${isSubmit ? 'submit' : 'query' } transaction [${invokeSettings.chaincodeFunction}] using arguments [${invokeSettings.chaincodeArguments}],  with error: ${err.stack ? err.stack : err}`);
             invokeStatus.SetStatusFail();
             invokeStatus.result = [];
             return invokeStatus;
@@ -1649,9 +1628,9 @@ class Fabric extends BlockchainInterface {
      * @async
      */
     async init(workerInit = false) {
-        let tlsInfo = this.networkUtil.isMutualTlsEnabled() ? 'mutual'
+        const tlsInfo = this.networkUtil.isMutualTlsEnabled() ? 'mutual'
             : (this.networkUtil.isTlsEnabled() ? 'server' : 'none');
-        let compMode = this.networkUtil.isInCompatibilityMode() ? '; Fabric v1.0 compatibility mode' : '';
+        const compMode = this.networkUtil.isInCompatibilityMode() ? '; Fabric v1.0 compatibility mode' : '';
         logger.info(`Fabric SDK version: ${this.version.toString()}; TLS: ${tlsInfo}${compMode}`);
 
         await this._initializeRegistrars(workerInit);
@@ -1702,7 +1681,7 @@ class Fabric extends BlockchainInterface {
      * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
      */
     async invokeSmartContract(context, contractID, contractVersion, invokeSettings, timeout) {
-        let promises = [];
+        const promises = [];
         let settingsArray;
 
         if (!Array.isArray(invokeSettings)) {
@@ -1711,8 +1690,8 @@ class Fabric extends BlockchainInterface {
             settingsArray = invokeSettings;
         }
 
-        for (let settings of settingsArray) {
-            let contractDetails = this.networkUtil.getContractDetails(contractID);
+        for (const settings of settingsArray) {
+            const contractDetails = this.networkUtil.getContractDetails(contractID);
             if (!contractDetails) {
                 throw new Error(`Could not find details for contract ID ${contractID}`);
             }
@@ -1725,7 +1704,7 @@ class Fabric extends BlockchainInterface {
                 settings.invokerIdentity = this.defaultInvoker;
             }
 
-            promises.push(this._submitGatewayTransaction(context, settings));
+            promises.push(this._performGatewayTransaction(context, settings, true));
         }
 
         return await Promise.all(promises);
@@ -1742,7 +1721,7 @@ class Fabric extends BlockchainInterface {
      * @return {Promise<TxStatus[]>} The result and stats of the transaction query.
      */
     async querySmartContract(context, contractID, contractVersion, querySettings, timeout) {
-        let promises = [];
+        const promises = [];
         let settingsArray;
 
         if (!Array.isArray(querySettings)) {
@@ -1751,8 +1730,8 @@ class Fabric extends BlockchainInterface {
             settingsArray = querySettings;
         }
 
-        for (let settings of settingsArray) {
-            let contractDetails = this.networkUtil.getContractDetails(contractID);
+        for (const settings of settingsArray) {
+            const contractDetails = this.networkUtil.getContractDetails(contractID);
             if (!contractDetails) {
                 throw new Error(`Could not find details for contract ID ${contractID}`);
             }
@@ -1765,7 +1744,7 @@ class Fabric extends BlockchainInterface {
                 settings.invokerIdentity = this.defaultInvoker;
             }
 
-            promises.push(this._evaluateGatewayTransaction(context, settings));
+            promises.push(this._performGatewayTransaction(context, settings, false));
         }
 
         return await Promise.all(promises);

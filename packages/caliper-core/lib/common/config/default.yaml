@@ -122,6 +122,7 @@ caliper:
             method: process
             # Address used for mqtt communications
             address: mqtt://localhost:1883
+        maxtxpromises: 100
     # Caliper flow options
     flow:
         # Skip options

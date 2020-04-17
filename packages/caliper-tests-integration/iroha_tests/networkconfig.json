@@ -1,0 +1,41 @@
+{
+    "caliper": {
+        "blockchain": "iroha",
+        "command" : {
+            "start": "docker-compose up -d && sleep 5s",
+            "end": "docker-compose down"
+          }
+    },
+    "iroha": {
+        "admin": {
+            "account": "admin",
+            "domain": "test",
+            "key-priv": "config/keys/admin.priv",
+            "key-pub": "config/keys/admin.pub"
+        },
+        "asset": {
+            "id": "coin",
+            "domain": "test",
+            "amount": "15000.00"
+        },
+        "network": {
+            "node0": {
+                "torii": "localhost:50051"
+            },
+            "node1": {
+                "torii": "localhost:50052"
+            },
+            "node2": {
+                "torii": "localhost:50053"
+            }
+        },
+        "fakecontract": [
+            {"factory": "src/simple/factory.js", "id":["simple"]}
+        ]
+    },
+    "info" : {
+        "Version": "1.1.1",
+        "Size": "3 Peers",
+        "Distribution": "Single Host"
+    }
+}
