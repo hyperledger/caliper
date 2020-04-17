@@ -100,20 +100,22 @@ Options:
 The following SUT name (column header) and SDK version (column value) combinations are supported:
 
 
-| besu   | burrow | ethereum | fabric | fisco-bcos | iroha  | sawtooth |
-|:------:|:------:|:--------:|:------:|:----------:|:------:|:--------:|
-| 1.3.2  | 0.23.0 | 1.2.1    | 1.0.0  | 2.0.0      | 0.6.3  | 1.0.0    |
-| 1.3    | latest | latest   | 1.1.0  | latest     | latest | 1.0.1    |
-| 1.4    |        |          | 1.2.0  |            |        | 1.0.2    |
-| latest |        |          | 1.3.0  |            |        | 1.0.4    |
-|        |        |          | 1.4.0  |            |        | 1.0.5    |
-|        |        |          | 1.4.1  |            |        | latest   |
-|        |        |          | 1.4.3  |            |        |          |
-|        |        |          | 1.4.4  |            |        |          |
-|        |        |          | 1.4.5  |            |        |          |
-|        |        |          | 1.4.6  |            |        |          |
-|        |        |          | 1.4.7  |            |        |          |
-|        |        |          | latest |            |        |          |
+| besu   | burrow | ethereum | fabric    | fisco-bcos | iroha  | sawtooth |
+|:------:|:------:|:--------:|:---------:|:----------:|:------:|:--------:|
+| 1.3.2  | 0.23.0 | 1.2.1    | 1.0.0     | 2.0.0      | 0.6.3  | 1.0.0    |
+| 1.3    | latest | latest   | 1.1.0     | latest     | latest | 1.0.1    |
+| 1.4    |        |          | 1.2.0     |            |        | 1.0.2    |
+| latest |        |          | 1.3.0     |            |        | 1.0.4    |
+|        |        |          | 1.4.0     |            |        | 1.0.5    |
+|        |        |          | 1.4.1     |            |        | latest   |
+|        |        |          | 1.4.3     |            |        |          |
+|        |        |          | 1.4.4     |            |        |          |
+|        |        |          | 1.4.5     |            |        |          |
+|        |        |          | 1.4.6     |            |        |          |
+|        |        |          | 1.4.7     |            |        |          |
+|        |        |          | latest    |            |        |          |
+|        |        |          | 2.1.0     |            |        |          |
+|        |        |          | latest-v2 |            |        |          |
 
 
 > __Note:__ the `latest` value always points to the last explicit versions in the columns. However, it is recommended to explicitly specify the SDK version to avoid any surprise between two benchmark runs.
@@ -189,7 +191,18 @@ Options:
   --caliper-bind-file  Yaml file to override default (supported) package versions when binding an SDK  [string]
 ```
 
-As you can see, you can configure the worker processes the same way as the master process. Including the optional binding step, but also the three mandatory parameters mentioned in the previous section. 
+As you can see, you can configure the worker processes the same way as the master process. Including the optional binding step, but also the three mandatory parameters mentioned in the previous section.
+
+#### Caliper test phase control
+
+Caliper commands are capable of passing all [runtime configuration settings](./Runtime_Configuration.md). A subset of these commands are for flow control that provide direct control over the following Caliper phases:
+- start
+- init
+- install
+- test
+- end
+
+It is possible to skip, or perform only one of the above phases through use of the correct flag. For instance, it is common to have an existing network that may be targeted by Caliper through the provision of a `--caliper-flow-only-test` flag.
 
 ## Installing from NPM
 
