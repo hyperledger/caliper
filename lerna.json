@@ -14,7 +14,8 @@
         "packages/caliper-sawtooth",
         "packages/caliper-cli",
         "packages/caliper-publish",
-        "packages/caliper-tests-integration"
+        "packages/caliper-tests-integration",
+        "packages/caliper-generator/generator-caliper"
 	],
 	"version": "0.3.1-unstable",
 	"hoist": true

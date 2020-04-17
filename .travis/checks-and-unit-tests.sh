@@ -23,5 +23,9 @@ set -o pipefail
 # Bootstrap the project again
 npm i && npm run repoclean -- --yes && npm run bootstrap
 
+pushd ./packages/caliper-publish/
+./publish.js version check
+popd
+
 # Run linting, license check and unit tests
 npm test
