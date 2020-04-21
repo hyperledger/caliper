@@ -124,9 +124,16 @@ class Ethereum extends BlockchainInterface {
                 estimateGas: args.contracts[key].estimateGas
             };
         }
+
         if (this.ethereumConfig.fromAddress) {
             context.fromAddress = this.ethereumConfig.fromAddress;
         }
+
+        if (this.ethereumConfig.contractDeployerAddress) {
+            context.contractDeployerAddress = this.ethereumConfig.contractDeployerAddress;
+            context.contractDeployerAddressPrivateKey = this.ethereumConfig.contractDeployerAddressPrivateKey;
+        }
+
         if (this.ethereumConfig.fromAddressSeed) {
             let hdwallet = EthereumHDKey.fromMasterSeed(this.ethereumConfig.fromAddressSeed);
             let wallet = hdwallet.derivePath('m/44\'/60\'/' + this.clientIndex + '\'/0/0').getWallet();
