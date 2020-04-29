@@ -233,10 +233,6 @@
         }
     }
 
-    .section-nucleo-icons .icons-container{
-        margin-top: 65px;
-    }
-
     .navbar-nav{
         .nav-link{
             i.fa,
@@ -334,10 +330,6 @@
                 margin: 7px $padding-base-horizontal;
             }
         }
-    }
-
-    .section-nucleo-icons .icons-container{
-        margin: 0 0 0 auto;
     }
 
     .dropdown-menu .dropdown-item{
@@ -520,18 +512,6 @@
     .footer{
         .copyright{
             text-align: center;
-        }
-    }
-
-    .section-nucleo-icons{
-        .icons-container{
-            i{
-                font-size: 30px;
-
-                &:nth-child(6){
-                    font-size: 48px;
-                }
-            }
         }
     }
 

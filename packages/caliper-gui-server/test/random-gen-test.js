@@ -29,28 +29,11 @@
  */
 /*jshint esversion: 6 */
 
-var express = require("express");
+let dataConstructor = require('../src/utility/random-data-generator.js').dataConstructor;
 
-var app = express();
+data = new dataConstructor();
 
-app.get("/random/:min/:max", (req, res) => {
-    var min = parseInt(req.params.min);
-    var max = parseInt(req.params.max);
+console.log(data);
 
-    if (isNaN(min) || isNaN(max)) {
-        res.status(400);
-        res.json({
-            error: "Bad request"
-        });
-        return;
-    }
-
-    var result = Math.round((Math.random() * (max - min)) + min);
-    res.json({
-        result: result
-    });
-});
-
-app.listen(3000, () => {
-    console.log("App started on port 3000");
-});
+// data.refresh();
+// console.log(`data: ${data}`);

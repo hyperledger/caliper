@@ -5,7 +5,7 @@
 =========================================================
 
 * Author: Jason You
-* GitHub: 
+* GitHub:
 * Licensed under the Apache 2.0 - https://www.apache.org/licenses/LICENSE-2.0
 
 Copyright (c) 2019 Jason You
@@ -42,15 +42,14 @@ Copyright (c) 2019 Jason You
 @import "paper-dashboard/misc";
 @import "paper-dashboard/checkboxes-radio";
 
-
 // components
 @import "paper-dashboard/navbar";
 @import "paper-dashboard/page-header";
 @import "paper-dashboard/dropdown";
 @import "paper-dashboard/alerts";
 @import "paper-dashboard/images";
-@import "paper-dashboard/nucleo-outline";
 @import "paper-dashboard/tables";
+@import "paper-dashboard/icons";
 @import "paper-dashboard/sidebar-and-main-panel";
 @import "paper-dashboard/footers";
 @import "paper-dashboard/fixed-plugin";
@@ -62,8 +61,4 @@ Copyright (c) 2019 Jason You
 @import "paper-dashboard/cards/card-user";
 @import "paper-dashboard/cards/card-map";
 @import "paper-dashboard/cards/card-stats";
-
 @import "paper-dashboard/responsive";
-
-// html to react differences
-@import "paper-dashboard/react/react-differences.scss";

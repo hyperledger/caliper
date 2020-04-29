@@ -18,7 +18,7 @@
 =========================================================
 
 * Author: Jason You
-* GitHub: 
+* GitHub:
 * Licensed under the Apache 2.0 - https://www.apache.org/licenses/LICENSE-2.0
 
 Copyright (c) 2019 Jason You
@@ -91,7 +91,7 @@ class Header extends React.Component {
     });
   }
   getBrand() {
-    let brandName = "Default Brand";
+    let brandName = "Hyperledger Caliper GUI";
     routes.map((prop, key) => {
       if (window.location.href.indexOf(prop.layout + prop.path) !== -1) {
         brandName = prop.name;
@@ -175,7 +175,7 @@ class Header extends React.Component {
             <Nav navbar>
               <NavItem>
                 <Link to="/dashboard" className="nav-link btn-magnify">
-                  <i className="nc-icon nc-layout-11" />
+                  <i className="fas fa-home" />
                   <p>
                     <span className="d-lg-none d-md-block">Dashboard Overview</span>
                   </p>
@@ -188,7 +188,7 @@ class Header extends React.Component {
                 toggle={e => this.dropdownToggle(e)}
               >
                 <DropdownToggle caret nav>
-                  <i className="nc-icon nc-chart-bar-32" />
+                  <i className="fas fa-chart-pie" />
                   <p>
                     <span className="d-lg-none d-md-block">Chart Details</span>
                   </p>
@@ -220,7 +220,7 @@ class Header extends React.Component {
               </Dropdown>
               <NavItem>
                 <Link to="/admin/configuration" className="nav-link btn-rotate">
-                  <i className="nc-icon nc-settings-gear-65" />
+                  <i className="fas fa-cogs" />
                   <p>
                     <span className="d-lg-none d-md-block">Configuration</span>
                   </p>

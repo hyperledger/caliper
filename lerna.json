@@ -15,6 +15,8 @@
         "packages/caliper-cli",
         "packages/caliper-publish",
         "packages/caliper-tests-integration",
+		    "packages/caliper-gui-dashboard",
+		    "packages/caliper-gui-server",
         "packages/caliper-generator/generator-caliper"
 	],
 	"version": "0.3.1-unstable",

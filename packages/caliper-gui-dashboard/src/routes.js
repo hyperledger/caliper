@@ -51,35 +51,35 @@ let routes = [
     {
         path: '/dashboard',
         name: 'Dashboard',
-        icon: 'nc-icon nc-chart-bar-32',
+        icon: 'fas fa-chart-area',
         component: Dashboard,
         layout: '/admin'
     },
     // {
     //   path: "/network-graph",
     //   name: "Network Graph",
-    //   icon: "nc-icon nc-vector",
+    //   icon: "fas fa-network-wired",
     //   component: NetworkGraph,
     //   layout: "/admin"
     // },
     {
         path: '/history',
         name: 'History Benchmarks',
-        icon: 'nc-icon nc-cloud-upload-94',
+        icon: 'fas fa-archive',
         component: History,
         layout: '/admin'
     },
     {
         path: '/documentation',
         name: 'Documentation',
-        icon: 'nc-icon nc-single-copy-04',
+        icon: 'fas fa-file-alt',
         component: Documentation,
         layout: '/admin'
     },
     {
         path: '/configuration',
         name: 'Configuration',
-        icon: 'nc-icon nc-settings',
+        icon: 'fas fa-cogs',
         component: Configuration,
         layout: '/admin'
     },

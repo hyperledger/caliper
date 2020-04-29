@@ -18,7 +18,7 @@
 =========================================================
 
 * Author: Jason You
-* GitHub: 
+* GitHub:
 * Licensed under the Apache 2.0 - https://www.apache.org/licenses/LICENSE-2.0
 
 Copyright (c) 2019 Jason You
@@ -76,7 +76,7 @@ class FixedPlugin extends Component {
                 className="btn-round"
                 outline
               >
-                <i className="nc-icon nc-settings" /> Configuration
+                <i className="fas fa-cogs" /> Configuration
               </Button>
             </li>
             <li className="button-container">
@@ -87,7 +87,7 @@ class FixedPlugin extends Component {
                 className="btn-round"
                 target="_blank"
               >
-                <i className="nc-icon nc-send"></i> Hyperledger Caliper
+                <i className="fas fa-paper-plane"></i> Hyperledger Caliper
               </Button>
             </li>
           </ul>

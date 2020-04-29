@@ -23,7 +23,6 @@
     },
     "dependencies": {
         "@hyperledger/caliper-burrow": "0.3.1-unstable",
-        "@hyperledger/caliper-composer": "0.3.1-unstable",
         "@hyperledger/caliper-core": "0.3.1-unstable",
         "@hyperledger/caliper-fabric": "0.3.1-unstable",
         "@hyperledger/caliper-iroha": "0.3.1-unstable",
@@ -36,13 +35,12 @@
         "mongodb": "^3.3.0",
         "multer": "^1.4.2",
         "shelljs": "^0.8.3",
-        "yargs": "14.2.0"
+        "yargs": "15.3.1"
     },
     "devDependencies": {
         "babel-eslint": "10.0.1",
         "chai": "^3.5.0",
         "eslint": "^5.16.0",
-        "license-check-and-add": "2.3.6",
         "mocha": "3.4.2",
         "nyc": "11.1.0",
         "rewire": "^4.0.0",
@@ -58,8 +56,7 @@
             "coverage",
             ".gitignore",
             "log",
-            ".jshintrc",
-            "gui-client/caliper-gui-dashboard/.gitignore"
+            ".jshintrc"
         ],
         "file_type_method": "EXCLUDE",
         "file_types": [

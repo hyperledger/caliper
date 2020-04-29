@@ -66,7 +66,12 @@ $default-states-color:       #403D39 !default;
 $smoke-bg:                   #F5F5F5 !default;
 $pale-bg:                    #FFFCF5 !default;
 $medium-pale-bg:             #F1EAE0 !default;
-$default-body-bg:                 #f4f3ef !default;
+$default-body-bg:            #f4f3ef !default;
+
+// The theme color picked from Hyperledger Caliper Logo
+$caliper-color:              #FAB526 !default;
+$caliper-states-color:       darken($caliper-color, 10%) !default;
+$caliper-color-opacity:      rgba(250, 181, 38, .8);
 
 $primary-color:              #51cbce !default;
 $primary-states-color:       darken($primary-color, 10%) !default;

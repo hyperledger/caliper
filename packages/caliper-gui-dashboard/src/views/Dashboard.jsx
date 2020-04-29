@@ -18,7 +18,7 @@
 =========================================================
 
 * Author: Jason You
-* GitHub: 
+* GitHub:
 * Licensed under the Apache 2.0 - https://www.apache.org/licenses/LICENSE-2.0
 
 Copyright (c) 2019 Jason You
@@ -76,7 +76,7 @@ class Dashboard extends React.Component {
       autoDismiss: 7
     });
   }
-  
+
   // notifications for alert and debug
   componentDidMount() {
     this.notify();    // a notification tab
@@ -95,19 +95,19 @@ class Dashboard extends React.Component {
         break;
       case "tx-throughput":
         name = "Transaction Throughput";
-        icon = <i className="nc-icon nc-delivery-fast text-warning" />;
+        icon = <i className="fas fa-bolt text-primary" />;
         break;
       case "tx-latency":
         name = "Transaction Latency";
-        icon = <i className="nc-icon nc-user-run text-warning" />;
+        icon = <i className="fas fa-cloud text-primary" />;
         break;
       case "read-throughput":
         name = "Read Throughput";
-        icon = <i className="nc-icon nc-money-coins text-warning" />;
+        icon = <i className="fas fa-space-shuttle text-primary" />;
         break;
       case "read-latency":
         name = "Read Latency";
-        icon = <i className="nc-icon nc-spaceship text-warning" />;
+        icon = <i className="fas fa-newspaper text-primary" />;
         break;
       default:
         name = "";
