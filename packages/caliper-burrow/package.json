@@ -22,10 +22,12 @@
         "npm": ">=5.6.0"
     },
     "dependencies": {
-        "@hyperledger/caliper-core": "0.3.1-unstable"
+        "@hyperledger/caliper-core": "0.3.1-unstable",
+        "google-protobuf": "^3.11.4"
     },
     "devDependencies": {
-        "@monax/burrow": "0.23.0",
+        "@hyperledger/burrow": "0.30.2",
+        "google-protobuf": "^3.11.4",
         "chai": "^3.5.0",
         "eslint": "^5.16.0",
         "mocha": "3.4.2",

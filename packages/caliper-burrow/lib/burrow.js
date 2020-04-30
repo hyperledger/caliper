@@ -15,7 +15,7 @@
 'use strict';
 
 const fs = require('fs');
-const monax = require('@monax/burrow');
+const burrowTS = require('@hyperledger/burrow');
 const { BlockchainInterface, CaliperUtils, ConfigUtil, TxStatus } = require('@hyperledger/caliper-core');
 const logger = CaliperUtils.getLogger('burrow.js');
 
@@ -91,33 +91,32 @@ class Burrow extends BlockchainInterface {
      */
     async installSmartContract() {
         let connection = burrowConnect(this.config);
-        let options = { objectReturn: true };
-        let burrow = monax.createInstance(connection.url, connection.account, options);
-
+        let burrow = new burrowTS.Burrow(connection.url, connection.account);
         let data, abi, bytecode, contract;
         try {
             data = JSON.parse(fs.readFileSync(CaliperUtils.resolvePath(this.config.contract.path)).toString());
             abi = data.Abi;
             bytecode = data.Evm.Bytecode.Object;
-
             contract = await burrow.contracts.deploy(abi, bytecode);
-            logger.info(`Contract: ${contract.address}`);
+            logger.info('contract address:',contract.address);
+
         } catch (err) {
+            logger.error('deploy contract error',err);
             throw err;
         }
-
-        let setPayload = {
-            Input: {
-                Address: Buffer.from(connection.account, 'hex'),
-                Amount: 50000
-            },
-            Name: 'DOUG',
-            Data: contract.address,
-            Fee: 5000
-        };
-
-        // this stores the contract address in a namereg for easy retrieval
-        return burrow.transact.NameTxSync(setPayload);
+        return  new Promise(function (resolve, reject) {
+            burrow.namereg.set('DOUG', contract.address, 50000, 5000,(err, data) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(data);
+                }
+            });
+        }).then(function (result) {
+            return result;
+        },err => {
+            logger.info('namereg reject error:',err);
+        });
     }
 
     /**
@@ -129,18 +128,29 @@ class Burrow extends BlockchainInterface {
      */
     async getContext(name, args) {
         let context = this.config.burrow.context;
-
         if (typeof context === 'undefined') {
-
             let connection = burrowConnect(this.config);
-            let options = { objectReturn: true };
-            let burrow = monax.createInstance(connection.url, connection.account, options);
-
+            let burrow = new burrowTS.Burrow(connection.url, connection.account);
+            let contractMetaData = JSON.parse(fs.readFileSync(CaliperUtils.resolvePath(this.config.contract.path)).toString());
             // get the contract address from the namereg
-            let address = (await burrow.query.GetName({ Name: 'DOUG' })).Data;
-            context = { account: connection.account, address: address, burrow: burrow };
+            return  new Promise(function (resolve, reject) {
+                burrow.namereg.get('DOUG', (err, result) => {
+                    if(err){
+                        reject(err);
+                    }else{
+                        let address=result.getData();
+                        let  contract = new burrowTS.Contract(contractMetaData.Abi,contractMetaData.Evm.Bytecode.Object,address,burrow);
+                        context = { account: connection.account, address: address,contract:contract, burrow: burrow };
+                        resolve(context);
+                    }
+                });
+            }).then(function(result){
+                return Promise.resolve(result);
+            },err => {
+                logger.info('getContext reject error:',err);
+                Promise.reject(err);
+            });
         }
-
         return Promise.resolve(context);
     }
 
@@ -152,20 +162,45 @@ class Burrow extends BlockchainInterface {
     async releaseContext(context) {
         // nothing to do
     }
-
+    /**
+     * Query state from the ledger using a smart contract
+     * @param {Object} context context object
+     * @param {String} contractID identity of the contract
+     * @param {String} contractVer version of the contract
+     * @param {Array} args array of JSON formatted arguments
+     * @param {Number} timeout request timeout, in seconds
+     * @return {Promise} query response object
+     */
+    async querySmartContract(context, contractID, contractVer, args, timeout) {
+        let promises = [];
+        args.forEach((item, index) => {
+            promises.push(this.doInvoke(context, contractID, contractVer, item, timeout));
+        });
+        return await Promise.all(promises);
+    }
     /**
    * Invoke a smart contract.
    * @param {Object} context Context object.
    * @param {String} contractID Identity of the contract.
    * @param {String} contractVer Version of the contract.
-   * @param {Array} args Array of JSON formatted arguments for multiple transactions.
+   * @param {Array} args eg {'verb':'invoke','funName': 'getInt','funArgs': []}
    * @param {Number} timeout Request timeout, in seconds.
    * @return {Promise<object>} The promise for the result of the execution.
    */
     async invokeSmartContract(context, contractID, contractVer, args, timeout) {
         let promises = [];
         args.forEach((item, index) => {
-            promises.push(this.burrowTransaction(context, contractID, contractVer, item, timeout));
+            if(item.verb==='transfer'){
+                promises.push(this.acccountTransfer(context, item, timeout));
+            }else if(item.verb==='invoke'){
+                if (!item.hasOwnProperty('funName')) {
+                    return Promise.reject(new Error(' missed argument:funName '));
+                }
+                if (!item.hasOwnProperty('funArgs')) {
+                    return Promise.reject(new Error(' missed argument:funArgs '));
+                }
+                promises.push(this.doInvoke(context, contractID, contractVer, item, timeout));
+            }
         });
         return await Promise.all(promises);
     }
@@ -175,35 +210,69 @@ class Burrow extends BlockchainInterface {
    * @param {Object} context Context object.
    * @param {String} contractID Identity of the contract.
    * @param {String} contractVer Version of the contract.
-   * @param {Array} args Array of JSON formatted arguments for multiple transactions.
+   * @param {Object} arg eg:{'funName': 'setInt','funArgs': [1000]}
    * @param {Number} timeout Request timeout, in seconds.
    * @return {Promise<TxStatus>} Result and stats of the transaction invocation.
    */
-    async burrowTransaction(context, contractID, contractVer, args, timeout) {
-        let status = new TxStatus(args.account);
+    async doInvoke(context, contractID, contractVer, arg, timeout) {
+        let status = new TxStatus();
+        if (context.engine) {
+            context.engine.submitCallback(1);
+        }
+        //let contract = await context.burrow.contracts.address(context.address);
+        //Todo: can't get contract with burrow.contracts.address
+        return  context.contract[arg.funName](...arg.funArgs).then(function (result) {
+            status.SetStatusSuccess();
+            return status;
+        },err => {
+            status.SetStatusFail();
+            logger.info('invoke reject error:',err);
+            return status;
+        });
+    }
+    /**
+   * Submit a transaction to the burrow daemon with the specified options.
+   * @param {Object} context Context object.
+   * @param {String} arg {toAccount:'',money:''}
+   * @param {Number} timeout Request timeout, in seconds.
+   * @return {Promise<TxStatus>} Result and stats of the transaction invocation.
+   */
+    async acccountTransfer(context, arg, timeout) {
+        let account=context.account;
+        let toAccount=arg.toAccount;
+        let amount= parseFloat(arg.money);
+        let status = new TxStatus(toAccount);
         if (context.engine) {
             context.engine.submitCallback(1);
         }
 
-        let tx = {
-            Input: {
-                Address: Buffer.from(context.account, 'hex'),
-                Amount: args.money
-            },
-            Address: Buffer.from(context.address, 'hex'),
-            GasLimit: 5000,
-            Fee: 5000
-        };
+        let inputTx=new burrowTS.payload.TxInput();
+        inputTx.setAddress(Buffer.from(account, 'hex'));
+        inputTx.setAmount(amount);
 
-        try {
-            let execution = await context.burrow.transact.CallTxSync(tx);
-            status.SetID(execution.TxHash.toString());
-            status.SetStatusSuccess();
-        } catch (err) {
-            status.SetStatusFail();
-        }
-
-        return status;
+        let sendTx=new burrowTS.payload.SendTx();
+        sendTx.addInputs(inputTx);
+        let outputTx=new burrowTS.payload.TxInput();
+        outputTx.setAddress(Buffer.from(toAccount, 'hex'));
+        outputTx.setAmount(amount);
+        sendTx.addOutputs(outputTx);
+        return new Promise(function (resolve, reject) {
+            context.burrow.tc.sendTxSync(sendTx, (err, data) => {
+                if(err){
+                    status.SetStatusFail();
+                    reject(err);
+                }else{
+                    status.SetID(data.getReceipt().getTxhash_asB64());
+                    status.SetStatusSuccess();
+                    resolve(data);
+                }
+            });
+        }).then(function (result) {
+            return status;
+        },err => {
+            logger.info('sendTx reject error:',err);
+            return status;
+        });
     }
 
     /**
@@ -220,9 +289,10 @@ class Burrow extends BlockchainInterface {
         if (context.engine) {
             context.engine.submitCallback(1);
         }
-
         return new Promise(function (resolve, reject) {
-            context.burrow.query.GetAccount({ Address: Buffer.from(context.address, 'hex') }, function (error, data) {
+            let getAccountParam=new burrowTS.rpcquery.GetAccountParam();
+            getAccountParam.setAddress(Buffer.from(context.address, 'hex'));
+            context.burrow.qc.getAccount(getAccountParam, function (error, data) {
                 if (error) {
                     status.SetStatusFail();
                     reject(error);
@@ -232,6 +302,9 @@ class Burrow extends BlockchainInterface {
                 }
             });
         }).then(function (result) {
+            return status;
+        },error => {
+            logger.info('queryState reject error:',error);
             return status;
         });
     }

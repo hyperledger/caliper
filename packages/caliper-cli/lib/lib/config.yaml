@@ -79,8 +79,10 @@ sut:
         latest: *sawtooth-latest
 
     burrow:
-        0.23.0: &burrow-latest
+        0.23.0:
             packages: [ '@monax/burrow@0.23.0' ]
+        0.30.2: &burrow-latest
+            packages: [ '@hyperledger/burrow@0.30.2' ]
         latest: *burrow-latest
 
     iroha:
