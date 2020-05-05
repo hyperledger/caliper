@@ -20,7 +20,8 @@
   "dependencies": {},
   "devDependencies": {
     "lerna": "^3.18.3",
-    "license-check-and-add": "2.3.6"
+    "license-check-and-add": "2.3.6",
+    "repolinter": "0.8.2"
   },
   "license-check-and-add-config": {
     "folder": ".",

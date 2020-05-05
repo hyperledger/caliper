@@ -11,9 +11,6 @@ architecture.pptx
 output.log
 lerna-debug.log
 
-# Ignore zookeeper files
-zookeeper.out
-
 # We prefer to not use lock files
 **/package-lock.json
 
