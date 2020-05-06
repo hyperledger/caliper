@@ -64,7 +64,7 @@ The top-level `caliper` attribute specifies the type of the blockchain platform,
 Furthermore, it also contains two optional commands: a `start` command to execute once before the tests and an `end` command to execute once after the tests. Using these commands is an easy way, for example, to automatically start and stop a test network. When connecting to an already deployed network, you can omit these commands.
 
 These are the keys to provide inside the configuration file under the `ethereum` one:
-* [URL](#url) of the node to connect to. Only websockets are currently supported.
+* [URL](#url) of the RPC endpoint to connect to. Only websocket is currently supported.
 * [Deployer address](#deployer-address) with which deploy required contracts
 * [Deployer address private key](#deployer-address-private-key) the private key of the deployer address
 * [Deployer address password](#deployer-address-password) to unlock the deployer address
@@ -78,7 +78,7 @@ The following sections detail each part separately. For a complete example, plea
 
 ## URL
 
-The URL of the node to connect to. Any host and port can be used if it is reachable. Currently only websockets are supported.
+The URL of the node to connect to. Any host and port can be used if it is reachable. Currently only websocket is supported.
 
 ```json
 "url": "ws://localhost:8545"
