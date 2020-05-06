@@ -1,7 +1,7 @@
 {
     "name": "@hyperledger/caliper-burrow",
     "description": "Hyperledger Burrow adaptor for Caliper, enabling the running of performance benchmarks that interact with Burrow",
-    "version": "0.3.1-unstable",
+    "version": "0.3.1",
     "repository": {
         "type": "git",
         "url": "https://github.com/hyperledger/caliper",
@@ -22,7 +22,7 @@
         "npm": ">=5.6.0"
     },
     "dependencies": {
-        "@hyperledger/caliper-core": "0.3.1-unstable",
+        "@hyperledger/caliper-core": "0.3.1",
         "google-protobuf": "^3.11.4"
     },
     "devDependencies": {
