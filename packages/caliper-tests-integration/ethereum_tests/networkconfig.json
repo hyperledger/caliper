@@ -7,7 +7,7 @@
           }
     },
     "ethereum": {
-        "url": "http://localhost:8545",
+        "url": "ws://localhost:8546",
         "contractDeployerAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2",
         "contractDeployerAddressPassword": "password",
         "fromAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2",
