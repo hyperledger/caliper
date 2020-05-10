@@ -38,12 +38,41 @@ class Ethereum extends BlockchainInterface {
      */
     constructor(workerIndex) {
         super();
-        let configPath = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
         this.bcType = 'ethereum';
-        this.ethereumConfig = require(configPath).ethereum;
+
+        let configPath = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
+        let ethereumConfig = require(configPath).ethereum;
+
+        // throws on configuration error
+        this.checkConfig(ethereumConfig);
+
+        this.ethereumConfig = ethereumConfig;
         this.web3 = new Web3(this.ethereumConfig.url);
         this.web3.transactionConfirmationBlocks = this.ethereumConfig.transactionConfirmationBlocks;
         this.clientIndex = workerIndex;
+    }
+
+    /**
+     * Check the ethereum networkconfig file for errors, throw if invalid
+     * @param {object} ethereumConfig The ethereum networkconfig to check.
+     */
+    checkConfig(ethereumConfig) {
+        if (!ethereumConfig.url) {
+            throw new Error(
+                'No URL given to access the Ethereum SUT. Please check your network configuration. ' +
+                'Please see https://hyperledger.github.io/caliper/v0.3/ethereum-config/ for more info.'
+            );
+        }
+
+        if (ethereumConfig.url.toLowerCase().indexOf('http') === 0) {
+            throw new Error(
+                'Ethereum benchmarks must not use http(s) RPC connections, as there is no way to guarantee the ' +
+                'order of submitted transactions when using other transports. For more information, please see ' +
+                'https://github.com/hyperledger/caliper/issues/776#issuecomment-624771622'
+            );
+        }
+
+        //TODO: add validation logic for the rest of the configuration object
     }
 
     /**
