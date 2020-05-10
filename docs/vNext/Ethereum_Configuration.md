@@ -5,13 +5,13 @@ categories: config
 permalink: /vNext/ethereum-config/
 ---
 
-> This adapter relies on web3js 1.2.x that is the stable version coming from 1.0.0-beta.37
+This page introduces the Ethereum adapter suitable for all the Ethereum clients that expose the web3 RPC interface over websockets.
 
-This page introduces the Ethereum adapter suitable for all the Ethereum clients that expose the web3 RPC interface over HTTP.
+> This adapter relies on web3js 1.2.x that is the stable version coming from 1.0.0-beta.37
 
 > Hyperledger Besu and Geth are the current tested clients. The tests are driven via standard Ethereum JSON-RPC APIs so other clients should be compatible once docker configurations exist.
 
-> Hyperledger Besu does not provide wallet services so the `contractDeployerPassword` and `fromAddressPassword` options are not supported and the private key variants must be used.
+> Hyperledger Besu does not provide wallet services, so the `contractDeployerPassword` and `fromAddressPassword` options are not supported and the private key variants must be used.
 
 > Some highlights of the provided features:
 > * configurable confirmation blocks threshold
@@ -39,7 +39,7 @@ We will provide an example of the configuration and then we'll in deep key by ke
           }
     },
     "ethereum": {
-        "url": "http://localhost:8545",
+        "url": "ws://localhost:8545",
         "contractDeployerAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2",
         "contractDeployerAddressPassword": "password",
         "fromAddress": "0xc0A8e4D217eB85b812aeb1226fAb6F588943C2C2",
@@ -47,7 +47,12 @@ We will provide an example of the configuration and then we'll in deep key by ke
         "transactionConfirmationBlocks": 12,
         "contracts": {
             "simple": {
-                "path": "src/contract/ethereum/simple/simple.json"
+                "path": "src/contract/ethereum/simple/simple.json",
+                "gas": {
+                    "open": 45000,
+                    "query": 100000,
+                    "transfer": 70000
+                }
             }
         }
     }
@@ -59,7 +64,7 @@ The top-level `caliper` attribute specifies the type of the blockchain platform,
 Furthermore, it also contains two optional commands: a `start` command to execute once before the tests and an `end` command to execute once after the tests. Using these commands is an easy way, for example, to automatically start and stop a test network. When connecting to an already deployed network, you can omit these commands.
 
 These are the keys to provide inside the configuration file under the `ethereum` one:
-* [URL](#url) of the node to connect to. Only http is currently supported.
+* [URL](#url) of the RPC endpoint to connect to. Only websocket is currently supported.
 * [Deployer address](#deployer-address) with which deploy required contracts
 * [Deployer address private key](#deployer-address-private-key) the private key of the deployer address
 * [Deployer address password](#deployer-address-password) to unlock the deployer address
@@ -73,11 +78,16 @@ The following sections detail each part separately. For a complete example, plea
 
 ## URL
 
-The URL of the node to connect to. Any host and port can be used if it is reachable. Currently only HTTP is supported.
+The URL of the node to connect to. Any host and port can be used if it is reachable. Currently only websocket is supported.
 
 ```json
-"url": "http://localhost:8545"
+"url": "ws://localhost:8545"
 ```
+
+Unfortunately, HTTP connections are explicitly disallowed, as
+
+1. there is no efficient way to guarantee the order of transactions submitted over http, which leads to nonce errors, and
+2. this adapter relies on web3.js, and this library has deprecated its support for RPC over HTTP.
 
 ## Deployer address
 
@@ -148,15 +158,29 @@ It is the number of blocks the adapter will wait before warn Caliper that a tran
 ```
 
 ## Contract configuration
-It is the list, provided as a json object, of contracts to deploy on the network before running the benchmark. You should provide a json entry for each contract; the key will represent the contract identifier to invoke methods on that contract. For each key you must provide a JSON object with the `path` field pointing to the [contract definition file](#contract-definition-file).
+It is the list, provided as a json object, of contracts to deploy on the network before running the benchmark. You should provide a json entry for each contract; the key will represent the contract identifier to invoke methods on that contract.
+
+For each key you must provide a JSON object with the `path` field pointing to the [contract definition file](#contract-definition-file).
+
+It is also strongly recommended to specify a `gas` field, which is an object with one field per contract function that you will call in your test. The value of these fields should be set to the amount of gas that will be required to execute your transaction. There is no need for this number to be an exact match, as it's used to set the gas limit for the transaction, so if your transaction might have a variable gas cost, just set this value to the highest gas usage that you would expect to see for your transaction.
+
+**Note**: If you do not specify the gas for your contract functions, web3 will automatically call out to your node to estimate the gas requirement before submitting the transaction. This causes three problems. First, it means that your transaction will effectively execute twice, doubling the load on the node serving as your RPC endpoint. Second, the extra call will add significant additional latency to every transaction. Third, your transactions may be reordered, causing transaction failures due to out of order nonces.
 
 ```json
 "contracts": {
     "simple": {
-        "path": "src/contract/ethereum/simple/simple.json"
+        "path": "src/contract/ethereum/simple/simple.json",
+        "gas": {
+            "open": 45000,
+            "query": 100000,
+            "transfer": 70000
+        }
     },
     "second": {
-        "path": "src/contract/ethereum/second/second.json"
+        "path": "src/contract/ethereum/second/second.json",
+        "gas": {
+            "function": 12345
+        }
     }
 }
 ```
