@@ -1,106 +1,106 @@
 {
-  "private": true,
-  "name": "@hyperledger/generator-caliper",
-  "description": "Yeoman generator for Hyperledger Caliper",
-  "version": "0.3.1-unstable",
-  "author": "Lynn Muswere",
-  "homepage": "https://hyperledger.github.io/caliper/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hyperledger/caliper"
-  },
-  "main": "generators/callback/index.js",
-  "keywords": [
-    "yeoman-generator",
-    "hyperledger",
-    "caliper"
-  ],
-  "scripts": {
-    "pretest": "npm run licchk",
-    "licchk": "license-check-and-add",
-    "test": "npm run lint && npm run nyc",
-    "lint": "npx eslint .",
-    "nyc": "nyc mocha --recursive -t 10000"
-  },
-  "engines": {
-    "node": ">=8.10.0",
-    "npm": ">=5.6.0"
-  },
-  "files": [
-    "generators"
-  ],
-  "dependencies": {
-    "yeoman-generator": "4.1.0",
-    "yosay": "^2.0.1"
-  },
-  "devDependencies": {
-    "js-yaml": "^3.12.0",
-    "fs-extra": "8.1.0",
-    "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^1.7.0",
-    "mocha": "3.4.2",
-    "sinon": "^7.3.2",
-    "chai": "^3.5.0",
-    "sinon-chai": "^3.3.0",
-    "eslint": "^5.16.0",
-    "rewire": "^4.0.0",
-    "nyc": "11.1.0",
-    "license-check-and-add": "2.3.6"
-  },
-  "license": "Apache-2.0",
-  "licenses": [
-    {
-      "type": "Apache-2.0",
-      "url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
-    }
-  ],
-  "license-check-and-add-config": {
-    "folder": ".",
-    "license": "../../../LICENSE.txt",
-    "exact_paths_method": "EXCLUDE",
-    "exact_paths": [
-      "node_modules",
-      ".nyc_output",
-      "coverage"
+    "private": true,
+    "name": "@hyperledger/generator-caliper",
+    "description": "Yeoman generator for Hyperledger Caliper",
+    "version": "0.3.1",
+    "author": "Lynn Muswere",
+    "homepage": "https://hyperledger.github.io/caliper/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hyperledger/caliper"
+    },
+    "main": "generators/callback/index.js",
+    "keywords": [
+        "yeoman-generator",
+        "hyperledger",
+        "caliper"
     ],
-    "file_type_method": "EXCLUDE",
-    "file_types": [
-      ".yml",
-      ".md"
+    "scripts": {
+        "pretest": "npm run licchk",
+        "licchk": "license-check-and-add",
+        "test": "npm run lint && npm run nyc",
+        "lint": "npx eslint .",
+        "nyc": "nyc mocha --recursive -t 10000"
+    },
+    "engines": {
+        "node": ">=8.10.0",
+        "npm": ">=5.6.0"
+    },
+    "files": [
+        "generators"
     ],
-    "insert_license": false,
-    "license_formats": {
-      "js": {
-        "prepend": "/*",
-        "append": "*/",
-        "eachLine": {
-          "prepend": "* "
+    "dependencies": {
+        "yeoman-generator": "4.1.0",
+        "yosay": "^2.0.1"
+    },
+    "devDependencies": {
+        "js-yaml": "^3.12.0",
+        "fs-extra": "8.1.0",
+        "yeoman-assert": "^3.1.1",
+        "yeoman-test": "^1.7.0",
+        "mocha": "3.4.2",
+        "sinon": "^7.3.2",
+        "chai": "^3.5.0",
+        "sinon-chai": "^3.3.0",
+        "eslint": "^5.16.0",
+        "rewire": "^4.0.0",
+        "nyc": "11.1.0",
+        "license-check-and-add": "2.3.6"
+    },
+    "license": "Apache-2.0",
+    "licenses": [
+        {
+            "type": "Apache-2.0",
+            "url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
         }
-      },
-      "editorconfig|yaml": {
-        "prepend": "#",
-        "append": "#",
-        "eachLine": {
-          "prepend": "# "
+    ],
+    "license-check-and-add-config": {
+        "folder": ".",
+        "license": "../../../LICENSE.txt",
+        "exact_paths_method": "EXCLUDE",
+        "exact_paths": [
+            "node_modules",
+            ".nyc_output",
+            "coverage"
+        ],
+        "file_type_method": "EXCLUDE",
+        "file_types": [
+            ".yml",
+            ".md"
+        ],
+        "insert_license": false,
+        "license_formats": {
+            "js": {
+                "prepend": "/*",
+                "append": "*/",
+                "eachLine": {
+                    "prepend": "* "
+                }
+            },
+            "editorconfig|yaml": {
+                "prepend": "#",
+                "append": "#",
+                "eachLine": {
+                    "prepend": "# "
+                }
+            }
         }
-      }
+    },
+    "nyc": {
+        "exclude": [
+            "test/**",
+            "coverage/**",
+            "generators/benchmark/templates/**"
+        ],
+        "reporter": [
+            "text-summary",
+            "html"
+        ],
+        "all": true,
+        "check-coverage": true,
+        "statements": 1,
+        "branches": 1,
+        "functions": 1,
+        "lines": 1
     }
-  },
-  "nyc": {
-    "exclude": [
-      "test/**",
-      "coverage/**",
-      "generators/benchmark/templates/**"
-    ],
-    "reporter": [
-      "text-summary",
-      "html"
-    ],
-    "all": true,
-    "check-coverage": true,
-    "statements": 1,
-    "branches": 1,
-    "functions": 1,
-    "lines": 1
-  }
 }

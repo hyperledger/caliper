@@ -1,3 +1,28 @@
+## 0.3.1 (May 11, 2020)
+
+* Core changes
+  * Relax constraints for monitor/observer combinations ([PR#761](https://github.com/hyperledger/caliper/pull/761))
+  * Call the `end` function of workload modules sooner, so they can still access the adapter context ([PR#779](https://github.com/hyperledger/caliper/pull/779))
+  * Improved error reporting in the worker processes ([PR#782](https://github.com/hyperledger/caliper/pull/782))
+  * Improve TX handling/waiting approach for worker processes, thus enabling long-term benchmarks ([PR#794](https://github.com/hyperledger/caliper/pull/794)) 
+  * Improve core package management for the Docker image ([PR#795](https://github.com/hyperledger/caliper/pull/795))
+  * Improve handling of benchmark errors upon monitoring data reporing ([PR#797](https://github.com/hyperledger/caliper/pull/797))
+  
+* Hyperledger Fabric adapter changes
+  * Fix orderer name check for Fabric v2 adapter ([PR#762](https://github.com/hyperledger/caliper/pull/762))  
+  * Add support for stable Fabric v2 SDK packages
+
+* Ethereum/Hyperledger Besu adapter changes
+  * Improve connection/TX management to SUT ([PR#780](https://github.com/hyperledger/caliper/pull/780))
+  * Update HL Besu versions ([PR#786](https://github.com/hyperledger/caliper/pull/786))
+  * Make `contractDeployerAddress` available in the adapter context ([PR#808](https://github.com/hyperledger/caliper/pull/808))
+  
+* Hyperledger Sawtooth adapter changes
+  * Refactored adapter to be more OO-like, and fixed non-existing variable reference bug ([PR#782](https://github.com/hyperledger/caliper/pull/782))
+  
+* Hyperledger Burrow adapter changes
+  * Switch SDK package to `@hyperledger/burrow` ([PR#804](https://github.com/hyperledger/caliper/pull/804))
+
 ## 0.3.0 (March 4, 2020)
 
 * Core changes
