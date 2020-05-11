@@ -1,7 +1,7 @@
 {
     "name": "@hyperledger/caliper-iroha",
     "description": "Hyperledger Iroha adaptor for Caliper, enabling the running of performance benchmarks that interact with Iroha",
-    "version": "0.3.1",
+    "version": "0.4.0-unstable",
     "repository": {
         "type": "git",
         "url": "https://github.com/hyperledger/caliper",
@@ -22,7 +22,7 @@
         "npm": ">=5.6.0"
     },
     "dependencies": {
-        "@hyperledger/caliper-core": "0.3.1"
+        "@hyperledger/caliper-core": "0.4.0-unstable"
     },
     "devDependencies": {
         "iroha-helpers": "0.8.8",

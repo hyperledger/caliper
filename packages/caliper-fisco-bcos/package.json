@@ -1,6 +1,6 @@
 {
     "name": "@hyperledger/caliper-fisco-bcos",
-    "version": "0.3.1",
+    "version": "0.4.0-unstable",
     "description": "FISCO BCOS adaptor for Caliper, enabling the running of a performance benchmarks that interact with FISCO BCOS",
     "repository": {
         "type": "git",
@@ -22,7 +22,7 @@
         "npm": ">=5.6.0"
     },
     "dependencies": {
-        "@hyperledger/caliper-core": "0.3.1",
+        "@hyperledger/caliper-core": "0.4.0-unstable",
         "nconf": "^0.10.0",
         "isarray": "^2.0.4",
         "fs-extra": "8.1.0",
