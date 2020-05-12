@@ -4,7 +4,7 @@ A [Yeoman](http://yeoman.io) generator for scaffolding Hyperledger Caliper resou
 * Benchmark files: the benchmark configuration and callback files used to perform benchmarks.
 
 ## Getting started
-* Install: npm install -g generator-caliper
+* Install: npm install -g @hyperledger/generator-caliper
 * Run: yo caliper
 
 See the [documentation](https://hyperledger.github.io/caliper/vNext/benchmark-generator) for more information.
