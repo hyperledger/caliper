@@ -27,7 +27,7 @@ const packages = [
     'caliper-sawtooth',
     'caliper-fisco-bcos',
     'caliper-cli',
-    'caliper-generator/generator-caliper'
+    'generator-caliper'
 ];
 
 // impl => lib => caliper-publish

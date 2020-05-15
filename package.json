@@ -38,14 +38,18 @@
             ".git",
             ".gitignore",
             "packages",
-            "log"
+            "log",
+            "_site",
+            ".sass-cache",
+            ".DS_Store"
         ],
         "file_type_method": "EXCLUDE",
         "file_types": [
             ".yml",
             ".md",
             ".log",
-            ".html"
+            ".html",
+            ".lock"
         ],
         "insert_license": false,
         "license_formats": {
