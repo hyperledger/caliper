@@ -26,8 +26,7 @@ const packages = [
     'caliper-iroha',
     'caliper-sawtooth',
     'caliper-fisco-bcos',
-    'caliper-cli',
-    'caliper-generator/generator-caliper'
+    'caliper-cli'
 ];
 
 // impl => lib => caliper-publish
