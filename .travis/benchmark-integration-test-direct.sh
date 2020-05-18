@@ -25,7 +25,7 @@ npm i && npm run repoclean -- --yes && npm run bootstrap
 export CALL_METHOD="node ../../caliper-cli/caliper.js"
 # Use explicit binding for
 export BIND_IN_PACKAGE_DIR=true
-export GENERATOR_METHOD="yo ../../../caliper-generator/generator-caliper/generators/benchmark/index.js"
+export GENERATOR_METHOD="yo ../../../generator-caliper/generators/benchmark/index.js"
 
 echo "---- Running Integration test for adaptor ${BENCHMARK}"
 cd ./packages/caliper-tests-integration/
