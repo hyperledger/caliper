@@ -56,7 +56,7 @@
     ],
     "license-check-and-add-config": {
         "folder": ".",
-        "license": "../../../LICENSE.txt",
+        "license": "../../LICENSE.txt",
         "exact_paths_method": "EXCLUDE",
         "exact_paths": [
             "node_modules",

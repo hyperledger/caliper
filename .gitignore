@@ -48,5 +48,4 @@ lerna-debug.log
 data/
 
 # Ignore temp test files
-test/
 temp/
