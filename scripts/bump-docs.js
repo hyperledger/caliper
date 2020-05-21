@@ -29,8 +29,8 @@ const configFilePath = path.join(__dirname, '../_config.yml');
 const _config = yaml.safeLoad(fs.readFileSync(configFilePath),'utf8');
 if (_config.caliper.current_release.localeCompare(targetRelease) !== 0) {
 	// Need to update config file
-	_config.caliper[targetRelease.replace('.', '_')] = targetRelease;
-	_config.caliper.current_release = targetRelease;
+	_config.caliper[targetRelease.replace(/\./g, '_')] = targetRelease + '/';
+	_config.caliper.current_release = targetRelease + '/';
 
 	const newConfig = yaml.safeDump(_config);
     fs.writeFileSync(configFilePath, newConfig, 'utf8');
@@ -45,7 +45,7 @@ if (_config.caliper.current_release.localeCompare(targetRelease) !== 0) {
 	let replaceTarget = '<option value="/caliper/vNext/getting-started/" selected>vNext</option>';
 	let replaceString = `<option value="/caliper/${targetRelease}/getting-started/" selected>${targetRelease}</option>\n    ` + '<option value="/caliper/vNext/getting-started/">vNext</option>';
 	let newInclude = include.replace(replaceTarget, replaceString);
-	newInclude = newInclude.replace(/next_release/g, `${targetRelease.replace('.','_')}`);
+	newInclude = newInclude.replace(/next_release/g, `${targetRelease.replace(/\./g, '_')}`);
 	fs.writeFileSync(path.join(__dirname, `../_includes/${targetRelease}.html`), newInclude);
 
 	// Need to update other versions to indicate existence of new targetRelease
