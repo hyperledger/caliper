@@ -321,9 +321,9 @@ A default/fallback configuration file is shipped with the Caliper-related packag
 | caliper-fabric-countqueryasload | Indicates whether to count queries as workload, i.e., whether the generated report should include them. |
 | caliper-fabric-gateway-discovery | Indicates whether to use the Fabric discovery mechanism (via Gateway API). |
 | caliper-fabric-gateway-eventstrategy | Sets the event strategy to use. |
-| caliper-fabric-gateway-gatewaylocalhost | Indicates whether to use the localhost default within the Fabric Gateway API. |
+| caliper-fabric-gateway-localhost | Indicates whether to use the localhost default within the Fabric Gateway API. |
 | caliper-fabric-gateway-querystrategy | Sets the query strategy to use. |
-| caliper-fabric-gateway-usegateway | Indicates whether to use the gateway-based SDK API. |
+| caliper-fabric-gateway-enabled | Indicates whether to use the Fabric gateway-based SDK API. |
 | caliper-fabric-latencythreshold | Determines the reported commit time of a transaction based on the given percentage of event sources. |
 | caliper-fabric-loadbalancing | Determines how automatic load balancing is applied. |
 | caliper-fabric-overwritegopath | Indicates whether to temporarily set the GOPATH environment variable to the workspace directory. |

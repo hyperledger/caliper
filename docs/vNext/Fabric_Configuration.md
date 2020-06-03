@@ -51,7 +51,7 @@ or from various [other sources](./Runtime_Configuration.md).
 ### Binding with Fabric SDK 2.0.x
 > Note that when using the binding target for the Fabric SDK 2.0.x there are capability restrictions:
 > * The 2.0 SDK does not facilitate administration actions. It it not possible to create/join channels, nor install/instantiate chaincode. Consequently the 2.0 binding only facilitates operation with a `--caliper-flow-only-test` flag
-> * The 2.0 SDK currently only supports operation using a `gateway`. Consequently the 2.0.0 binding requires a `--caliper-fabric-gateway-usegateway` flag
+> * The 2.0 SDK currently only supports operation using a `gateway`. Consequently the 2.0.0 binding requires a `--caliper-fabric-gateway-enabled` flag
 >
 > When testing with the 2.0 SDK, it is recommended to configure the system in advance with a network tool of your choice, or using Caliper bound to a 1.4 SDK. The 2.0 SDK may then be bound to Caliper and used for testing.
 > Caliper does not support the Fabric v2.0 chaincode lifecycle, however the legacy commands of install/instantiate are still valid, and so Caliper can perform basic network configuration using 1.4 SDK bindings.
@@ -69,11 +69,11 @@ The above settings are processed when starting Caliper. Modifying them during te
 > caliper:
 >   fabric:
 >     gateway:
->       usegateway: true
+>       enabled: true
 >       discovery: true
 > ```
 > After naming the [project settings](./Runtime_Configuration.md#project-level) file `caliper.yaml` and placing it in the root of your workspace directory, it will override the following two setting keys with the following values:
-> * Setting `caliper-fabric-gateway-usegateway` is set to `true`
+> * Setting `caliper-fabric-gateway-enabled` is set to `true`
 > * Setting `caliper-fabric-gateway-discovery` is set to `true`
 >
 > __The other settings remain unchanged.__
