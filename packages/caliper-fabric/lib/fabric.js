@@ -52,11 +52,16 @@ const Fabric = class extends BlockchainInterface {
             if (!useGateway) {
                 modulePath = './adaptor-versions/v1/fabric-v1.js';
             } else {
-                modulePath = './adaptor-versions/v1/fabric-gateway-v1.js';
+                // gateway with default event handlers appears in SDK > 1.4.2
+                if (semver.satisfies(version, '>=1.4.2')) {
+                    modulePath = './adaptor-versions/v1/fabric-gateway-v1.js';
+                } else {
+                    throw new Error('Caliper currently only supports Fabric gateway based operation using Fabric-SDK 1.4.2 and higher. Please retry with a different SDK binding');
+                }
             }
         } else if (semver.satisfies(version, '=2.x')) {
             if (!useGateway) {
-                throw new Error(`Caliper currently only supports gateway based operation using the ${version} Fabric-SDK. Please retry with the gateway flag`);
+                throw new Error(`Caliper currently only supports Fabric gateway based operation using the ${version} Fabric-SDK. Please retry with the gateway flag`);
             } else {
                 modulePath = './adaptor-versions/v2/fabric-gateway-v2.js';
             }
