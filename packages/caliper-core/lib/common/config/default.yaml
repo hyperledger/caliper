@@ -187,9 +187,10 @@ caliper:
         countqueryasload: true
         # Settings for the Fabric Gateway API
         gateway:
-            usegateway: false
+            # Indicates whether to use the Fabric Gateway API
+            enabled: false
             # Indicates whether to use the localhost default within the Fabric Gateway API
-            gatewaylocalhost: true
+            localhost: true
             # Indicates whether to use the Fabric discovery mechanism (via Gateway API)
             discovery: false
             # Which event strategy to use

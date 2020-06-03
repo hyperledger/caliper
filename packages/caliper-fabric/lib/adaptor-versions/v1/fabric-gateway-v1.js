@@ -21,7 +21,6 @@ const { BlockchainInterface, CaliperUtils, TxStatus, ConfigUtil } = require('@hy
 const logger = CaliperUtils.getLogger('adapters/fabric');
 
 const FabricNetwork = require('../../fabricNetwork.js');
-const ConfigValidator = require('../../configValidator.js');
 const fs = require('fs');
 const semver = require('semver');
 
@@ -132,26 +131,18 @@ const QueryStrategies = {
 class Fabric extends BlockchainInterface {
     /**
      * Initializes the Fabric adapter.
-     * @param {string|object} networkConfig The relative or absolute file path, or the object itself of the Common Connection Profile settings.
+     * @param {object} networkObject The parsed network configuration.
      * @param {string} workspace_root The absolute path to the root location for the application configuration files.
      * @param {number} clientIndex the client index
      */
-    constructor(networkConfig, workspace_root, clientIndex) {
-        super(networkConfig);
+    constructor(networkObject, workspace_root, clientIndex) {
+        super(networkObject);
         this.bcType = 'fabric';
         this.workspaceRoot = workspace_root;
         this.version = require('fabric-client/package').version;
 
-        this.network = undefined;
-        if (typeof networkConfig === 'string') {
-            const configPath = CaliperUtils.resolvePath(networkConfig, workspace_root);
-            this.network = CaliperUtils.parseYaml(configPath);
-        } else if (typeof networkConfig === 'object' && networkConfig !== null) {
-            // clone the object to prevent modification by other objects
-            this.network = CaliperUtils.parseYamlString(CaliperUtils.stringifyYaml(networkConfig));
-        } else {
-            throw new Error('[FabricNetwork.constructor] Parameter \'networkConfig\' is neither a file path nor an object');
-        }
+        // clone the object to prevent modification by other objects
+        this.network = CaliperUtils.parseYamlString(CaliperUtils.stringifyYaml(networkObject));
 
         this.clientProfiles = new Map();
         this.adminProfiles = new Map();
@@ -179,13 +170,10 @@ class Fabric extends BlockchainInterface {
         this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountQueryAsLoad, true);
 
         // Gateway adaptor
-        this.configLocalHost = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.GatewayLocalHost, true);
+        this.configLocalHost = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.LocalHost, true);
         this.configDiscovery = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.Discovery, false);
         this.eventStrategy = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.EventStrategy, 'msp_all');
         this.queryStrategy = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.QueryStrategy, 'msp_single');
-
-        ConfigValidator.validateNetwork(this.network, CaliperUtils.getFlowOptions(),
-            this.configDiscovery, true);
 
         this.networkUtil = new FabricNetwork(this.network, workspace_root);
         this.fileWalletPath = this.networkUtil.getFileWalletPath();
