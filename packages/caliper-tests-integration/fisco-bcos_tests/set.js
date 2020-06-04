@@ -14,40 +14,31 @@
 
 'use strict';
 
-module.exports.info = ' setting name';
-
-let bc, contx;
-let txnPerBatch;
-
-module.exports.init = function (blockchain, context, args) {
-    txnPerBatch = 1;
-    bc = blockchain;
-    contx = context;
-    return Promise.resolve();
-};
+const { WorkloadModuleBase } = require('@hyperledger/caliper-core');
 
 /**
- * Generates simple workload
- * @return {Object} array of json objects
+ * Workload module for simple set operations.
  */
-function generateWorkload() {
-    let workload = [];
-    for (let i = 0; i < txnPerBatch; i++) {
-        let w = {
+class HelloSetWorkload extends WorkloadModuleBase {
+    /**
+     * Assemble TXs for set operation.
+     * @return {Promise<TxStatus[]>}
+     */
+    async submitTransaction() {
+        const args = {
             'transaction_type': 'set(string)',
-            'name': 'hello! - from ' + process.pid.toString(),
+            'name': 'hello! - from ' + this.workerIndex.toString(),
         };
-        workload.push(w);
+        return this.sutAdapter.invokeSmartContract(this.sutContext, 'helloworld', 'v0', args, null);
     }
-    return workload;
 }
 
-module.exports.run = function () {
-    let args = generateWorkload();
-    return bc.invokeSmartContract(contx, 'helloworld', 'v0', args, null);
-};
+/**
+ * Create a new instance of the workload module.
+ * @return {WorkloadModuleInterface}
+ */
+function createWorkloadModule() {
+    return new HelloSetWorkload();
+}
 
-module.exports.end = function () {
-    // Do nothing
-    return Promise.resolve();
-};
+module.exports.createWorkloadModule = createWorkloadModule;

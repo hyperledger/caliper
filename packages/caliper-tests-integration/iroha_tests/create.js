@@ -14,68 +14,107 @@
 
 "use strict";
 
-module.exports.info = "creating accounts";
+const { WorkloadModuleBase, CaliperUtils } = require('@hyperledger/caliper-core');
+const Logger = CaliperUtils.getLogger('simple-workload-open');
 
-let accounts = [];
-let txnPerBatch;
-let bc, contx;
-
-module.exports.init = function(blockchain, context, args) {
-    if (!args.hasOwnProperty("txnPerBatch")) {
-        args.txnPerBatch = 1;
-    }
-    txnPerBatch = args.txnPerBatch;
-    bc = blockchain;
-    contx = context;
-
-    return Promise.resolve();
-};
-
-// generate random name, [a-z]
-let seed = "abcdefghijklmnopqrstuvwxyz";
+const Dictionary = 'abcdefghijklmnopqrstuvwxyz';
 
 /**
- * Generate unique account name for the transaction
- * @returns {String} account name
+ * Workload module for initializing the SUT with various accounts.
  */
-const generateName = function() {
-    let name = "";
-    for (let i = 0; i < 8; i++) {
-        name += seed.charAt(Math.floor(Math.random() * seed.length));
-    }
-    if (accounts.indexOf(name) < 0) {
-        return name;
-    } else {
-        return generateName();
-    }
-};
+class SimpleCreateWorkload extends WorkloadModuleBase {
 
-/**
- * Generates simple workload
- * @returns {Object} array of json objects
- */
-function generateWorkload() {
-    let workload = [];
-    for (let i = 0; i < txnPerBatch; i++) {
-        let acc_name = generateName();
-        accounts.push(acc_name);
-
-        workload.push({
-            verb: "create",
-            account: acc_name
-        });
+    /**
+     * Initializes the parameters of the workload.
+     */
+    constructor() {
+        super();
+        this.accountPrefix = '';
+        this.txIndex = -1;
     }
-    return workload;
+
+    /**
+     * Generate string by picking characters from the dictionary variable.
+     * @param {number} number Character to select.
+     * @returns {string} string Generated string based on the input number.
+     * @private
+     */
+    static _get26Num(number){
+        let result = '';
+
+        while(number > 0) {
+            result += Dictionary.charAt(number % Dictionary.length);
+            number = parseInt(number / Dictionary.length);
+        }
+
+        return result;
+    }
+
+    /**
+     * Generate unique account key for the transaction.
+     * @returns {string} The account key.
+     * @private
+     */
+    _generateAccount() {
+        return this.accountPrefix + SimpleCreateWorkload._get26Num(this.txIndex + 1);
+    }
+
+    /**
+     * Generates simple workload.
+     * @returns {{verb: String, args: Object[]}[]} Array of workload argument objects.
+     */
+    _generateWorkload() {
+        let workload = [];
+        for(let i= 0; i < this.roundArguments.txnPerBatch; i++) {
+            this.txIndex++;
+
+            let accountId = this._generateAccount();
+
+            workload.push({
+                verb: 'create',
+                account: accountId
+            });
+        }
+        return workload;
+    }
+
+    /**
+     * Initialize the workload module with the given parameters.
+     * @param {number} workerIndex The 0-based index of the worker instantiating the workload module.
+     * @param {number} totalWorkers The total number of workers participating in the round.
+     * @param {number} roundIndex The 0-based index of the currently executing round.
+     * @param {Object} roundArguments The user-provided arguments for the round from the benchmark configuration file.
+     * @param {BlockchainInterface} sutAdapter The adapter of the underlying SUT.
+     * @param {Object} sutContext The custom context object provided by the SUT adapter.
+     * @async
+     */
+    async initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext) {
+        await super.initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext);
+
+        if(!this.roundArguments.txnPerBatch) {
+            this.roundArguments.txnPerBatch = 1;
+        }
+
+        this.accountPrefix = SimpleCreateWorkload._get26Num(workerIndex);
+    }
+
+    /**
+     * Assemble TXs for opening new accounts.
+     * @return {Promise<TxStatus[]>}
+     */
+    async submitTransaction() {
+        let args = this._generateWorkload();
+        Logger.debug(`Worker ${this.workerIndex} for TX ${this.txIndex}: ${JSON.stringify(args)}`);
+        return this.sutAdapter.invokeSmartContract(this.sutContext, 'simple', 'v0', args, 100);
+    }
 }
 
-module.exports.run = function() {
-    let args = generateWorkload();
-    let resp = bc.invokeSmartContract(contx, "simple", "v0", args, 50);
-    return resp;
-};
+/**
+ * Create a new instance of the workload module.
+ * @return {WorkloadModuleInterface}
+ */
+function createWorkloadModule() {
+    return new SimpleCreateWorkload();
+}
 
-module.exports.end = function() {
-    return Promise.resolve();
-};
-
-module.exports.accounts = accounts;
+module.exports.createWorkloadModule = createWorkloadModule;

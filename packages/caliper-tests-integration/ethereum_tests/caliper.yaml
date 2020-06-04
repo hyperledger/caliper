@@ -15,6 +15,7 @@
 caliper:
     benchconfig: benchconfig.yaml
     networkconfig: networkconfig.json
+    txupdatetime: 1000
     workspace: ./
     report:
         path: report.html

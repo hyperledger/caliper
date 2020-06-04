@@ -14,22 +14,27 @@
 
 'use strict';
 
-module.exports.info = ' querying name';
+const { WorkloadModuleBase } = require('@hyperledger/caliper-core');
 
-let bc, contx;
+/**
+ * Workload module for simple get operations.
+ */
+class HelloGetWorkload extends WorkloadModuleBase {
+    /**
+     * Assemble TXs for set operation.
+     * @return {Promise<TxStatus[]>}
+     */
+    async submitTransaction() {
+        return this.sutAdapter.queryState(this.sutContext, 'helloworld', 'v0', null, 'get()');
+    }
+}
 
-module.exports.init = function (blockchain, context, args) {
-    // Do nothing
-    bc = blockchain;
-    contx = context;
-    return Promise.resolve();
-};
+/**
+ * Create a new instance of the workload module.
+ * @return {WorkloadModuleInterface}
+ */
+function createWorkloadModule() {
+    return new HelloGetWorkload();
+}
 
-module.exports.run = function () {
-    return bc.queryState(contx, 'helloworld', 'v0', null, 'get()');
-};
-
-module.exports.end = function () {
-    // Do nothing
-    return Promise.resolve();
-};
+module.exports.createWorkloadModule = createWorkloadModule;

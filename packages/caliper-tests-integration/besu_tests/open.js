@@ -14,94 +14,115 @@
 
 'use strict';
 
-module.exports.info  = 'opening accounts';
+const { WorkloadModuleBase, CaliperUtils } = require('@hyperledger/caliper-core');
+const Logger = CaliperUtils.getLogger('simple-workload-open');
 
-let account_array = [];
-let txnPerBatch;
-let initMoney;
-let bc, contx;
-module.exports.init = function(blockchain, context, args) {
-    if(!args.hasOwnProperty('money')) {
-        return Promise.reject(new Error('simple.open - \'money\' is missed in the arguments'));
-    }
-
-    if(!args.hasOwnProperty('txnPerBatch')) {
-        args.txnPerBatch = 1;
-    }
-    initMoney = args.money;
-    txnPerBatch = args.txnPerBatch;
-    bc = blockchain;
-    contx = context;
-
-    return Promise.resolve();
-};
-
-const dic = 'abcdefghijklmnopqrstuvwxyz';
-/**
- * Generate string by picking characters from dic variable
- * @param {*} number character to select
- * @returns {String} string generated based on @param number
- */
-function get26Num(number){
-    let result = '';
-    while(number > 0) {
-        result += dic.charAt(number % 26);
-        number = parseInt(number/26);
-    }
-    return result;
-}
-
-let prefix;
-/**
- * Generate unique account key for the transaction
- * @returns {String} account key
- */
-function generateAccount() {
-    // should be [a-z]{1,9}
-    if(typeof prefix === 'undefined') {
-        prefix = get26Num(process.pid);
-    }
-    return prefix + get26Num(account_array.length+1);
-}
+const Dictionary = 'abcdefghijklmnopqrstuvwxyz';
 
 /**
- * Generates simple workload
- * @returns {Object} array of json objects
+ * Workload module for initializing the SUT with various accounts.
  */
-function generateWorkload() {
-    let workload = [];
-    for(let i= 0; i < txnPerBatch; i++) {
-        let acc_id = generateAccount();
-        account_array.push(acc_id);
+class SimpleOpenWorkload extends WorkloadModuleBase {
 
-        if (bc.getType() === 'fabric') {
+    /**
+     * Initializes the parameters of the workload.
+     */
+    constructor() {
+        super();
+        this.accountPrefix = '';
+        this.txIndex = -1;
+    }
+
+    /**
+     * Generate string by picking characters from the dictionary variable.
+     * @param {number} number Character to select.
+     * @returns {string} string Generated string based on the input number.
+     * @private
+     */
+    static _get26Num(number){
+        let result = '';
+
+        while(number > 0) {
+            result += Dictionary.charAt(number % Dictionary.length);
+            number = parseInt(number / Dictionary.length);
+        }
+
+        return result;
+    }
+
+    /**
+     * Generate unique account key for the transaction.
+     * @returns {string} The account key.
+     * @private
+     */
+    _generateAccount() {
+        return this.roundArguments.accountPhasePrefix + this.accountPrefix + SimpleOpenWorkload._get26Num(this.txIndex + 1);
+    }
+
+    /**
+     * Generates simple workload.
+     * @returns {{verb: String, args: Object[]}[]} Array of workload argument objects.
+     */
+    _generateWorkload() {
+        let workload = [];
+        for(let i= 0; i < this.roundArguments.txnPerBatch; i++) {
+            this.txIndex++;
+
+            let accountId = this._generateAccount();
+
             workload.push({
-                chaincodeFunction: 'open',
-                chaincodeArguments: [acc_id, initMoney.toString()],
-            });
-        } else if (bc.getType() === 'ethereum') {
-                workload.push({
-                    verb: 'open',
-                    args: [acc_id, initMoney]
-                });
-        } else {
-            workload.push({
-                'verb': 'open',
-                'account': acc_id,
-                'money': initMoney
+                verb: 'open',
+                args: [accountId, this.roundArguments.money]
             });
         }
+        return workload;
     }
-    return workload;
+
+    /**
+     * Initialize the workload module with the given parameters.
+     * @param {number} workerIndex The 0-based index of the worker instantiating the workload module.
+     * @param {number} totalWorkers The total number of workers participating in the round.
+     * @param {number} roundIndex The 0-based index of the currently executing round.
+     * @param {Object} roundArguments The user-provided arguments for the round from the benchmark configuration file.
+     * @param {BlockchainInterface} sutAdapter The adapter of the underlying SUT.
+     * @param {Object} sutContext The custom context object provided by the SUT adapter.
+     * @async
+     */
+    async initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext) {
+        await super.initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext);
+
+        if(!this.roundArguments.money) {
+            throw new Error('simple.open - the "money" argument is missing');
+        }
+
+        if(!this.roundArguments.accountPhasePrefix) {
+            throw new Error('simple.open - the "accountPhasePrefix" argument is missing');
+        }
+
+        if(!this.roundArguments.txnPerBatch) {
+            this.roundArguments.txnPerBatch = 1;
+        }
+
+        this.accountPrefix = SimpleOpenWorkload._get26Num(workerIndex);
+    }
+
+    /**
+     * Assemble TXs for opening new accounts.
+     * @return {Promise<TxStatus[]>}
+     */
+    async submitTransaction() {
+        let args = this._generateWorkload();
+        Logger.debug(`Worker ${this.workerIndex} for TX ${this.txIndex}: ${JSON.stringify(args)}`);
+        return this.sutAdapter.invokeSmartContract(this.sutContext, 'simple', 'v0', args, 100);
+    }
 }
 
-module.exports.run = function() {
-    let args = generateWorkload();
-    return bc.invokeSmartContract(contx, 'simple', 'v0', args, 100);
-};
+/**
+ * Create a new instance of the workload module.
+ * @return {WorkloadModuleInterface}
+ */
+function createWorkloadModule() {
+    return new SimpleOpenWorkload();
+}
 
-module.exports.end = function() {
-    return Promise.resolve();
-};
-
-module.exports.account_array = account_array;
+module.exports.createWorkloadModule = createWorkloadModule;

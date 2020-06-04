@@ -22,11 +22,23 @@ test:
       txNumber: 100
       rateControl: { type: 'fixed-rate', opts: { tps: 20 } }
       callback: ./../init.js
+      arguments:
+          marblePrefix: marbles_phase_5
     - label: init2
       txNumber: 200
       rateControl: { type: 'fixed-feedback-rate', opts: { tps: 20, unfinished_per_client: 5 } }
       callback: ./../init.js
+      arguments:
+          marblePrefix: marbles_phase_5
     - label: query
       txNumber: 100
       rateControl: { type: 'linear-rate', opts: { startingTps: 10, finishingTps: 20 } }
       callback: ./../query.js
+observer:
+    interval: 1
+    type: local
+monitor:
+    interval: 1
+    type: ['process']
+    process:
+        processes: [{ command: 'node', arguments: 'fabricClientWorker.js', multiOutput: 'avg' }]

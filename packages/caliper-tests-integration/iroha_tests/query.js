@@ -14,27 +14,90 @@
 
 "use strict";
 
-module.exports.info = "querying accounts";
+const { WorkloadModuleBase, CaliperUtils } = require('@hyperledger/caliper-core');
+const Logger = CaliperUtils.getLogger('simple-workload-query');
 
-let bc, contx;
-let accounts;
+const Dictionary = 'abcdefghijklmnopqrstuvwxyz';
 
-module.exports.init = function(blockchain, context, args) {
-    const open = require("./create.js");
-    bc = blockchain;
-    contx = context;
-    accounts = open.accounts;
+/**
+ * Workload module for querying various accounts.
+ */
+class SimpleQueryWorkload extends WorkloadModuleBase {
 
-    return Promise.resolve();
-};
+    /**
+     * Initializes the parameters of the workload.
+     */
+    constructor() {
+        super();
+        this.accountPrefix = '';
+        this.numberOfAccountsPerWorker = -1;
+    }
 
-module.exports.run = function() {
-    const acc = accounts[Math.floor(Math.random() * accounts.length)];
+    /**
+     * Generate string by picking characters from the dictionary variable.
+     * @param {number} number Character to select.
+     * @returns {string} string Generated string based on the input number.
+     * @private
+     */
+    static _get26Num(number){
+        let result = '';
 
-    return bc.queryState(contx, "simple", "v0", acc);
-};
+        while(number > 0) {
+            result += Dictionary.charAt(number % Dictionary.length);
+            number = parseInt(number / Dictionary.length);
+        }
 
-module.exports.end = function() {
-    // do nothing
-    return Promise.resolve();
-};
+        return result;
+    }
+
+    /**
+     * Generate unique account key for the transaction.
+     * @returns {string} The account key.
+     * @private
+     */
+    _generateAccount() {
+        // choose a random TX/account index based on the existing range, and restore the account name from the fragments
+        return this.accountPrefix + SimpleQueryWorkload._get26Num(Math.floor(Math.random() * this.numberOfAccountsPerWorker) + 1);
+    }
+
+    /**
+     * Initialize the workload module with the given parameters.
+     * @param {number} workerIndex The 0-based index of the worker instantiating the workload module.
+     * @param {number} totalWorkers The total number of workers participating in the round.
+     * @param {number} roundIndex The 0-based index of the currently executing round.
+     * @param {Object} roundArguments The user-provided arguments for the round from the benchmark configuration file.
+     * @param {BlockchainInterface} sutAdapter The adapter of the underlying SUT.
+     * @param {Object} sutContext The custom context object provided by the SUT adapter.
+     * @async
+     */
+    async initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext) {
+        await super.initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext);
+
+        if(!this.roundArguments.numberOfAccounts) {
+            throw new Error('simple.query - the "numberOfAccounts" argument is missing');
+        }
+
+        this.accountPrefix = SimpleQueryWorkload._get26Num(workerIndex);
+        this.numberOfAccountsPerWorker = this.roundArguments.numberOfAccounts / this.totalWorkers;
+    }
+
+    /**
+     * Assemble TXs for querying accounts.
+     * @return {Promise<TxStatus[]>}
+     */
+    async submitTransaction() {
+        const account = this._generateAccount();
+        Logger.debug(`Worker ${this.workerIndex} TX parameters: ${account}`);
+        return this.sutAdapter.queryState(this.sutContext, 'simple', 'v0', account);
+    }
+}
+
+/**
+ * Create a new instance of the workload module.
+ * @return {WorkloadModuleInterface}
+ */
+function createWorkloadModule() {
+    return new SimpleQueryWorkload();
+}
+
+module.exports.createWorkloadModule = createWorkloadModule;

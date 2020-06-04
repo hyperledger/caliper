@@ -14,34 +14,50 @@
 
 'use strict';
 
-const uuidv4 = require('uuid/v4');
+const { WorkloadModuleBase } = require('@hyperledger/caliper-core');
 
-module.exports.info  = 'Creating marbles.';
+/**
+ * Workload module for initializing the SUT with various marbles.
+ */
+class MarblesInitWorkload extends WorkloadModuleBase {
+    /**
+     * Initializes the parameters of the marbles workload.
+     */
+    constructor() {
+        super();
+        this.txIndex = -1;
+        this.colors = ['red', 'blue', 'green', 'black', 'white', 'pink', 'rainbow'];
+        this.owners = ['Alice', 'Bob', 'Claire', 'David'];
+    }
 
-let txIndex = 0;
-let colors = ['red', 'blue', 'green', 'black', 'white', 'pink', 'rainbow'];
-let owners = ['Alice', 'Bob', 'Claire', 'David'];
-let bc, contx;
+    /**
+     * Assemble TXs for creating new marbles.
+     * @return {Promise<TxStatus[]>}
+     */
+    async submitTransaction() {
+        this.txIndex++;
 
-module.exports.init = async function(blockchain, context, args) {
-    bc = blockchain;
-    contx = context;
-};
+        const marbleName = `marbles_${this.roundIndex}_${this.workerIndex}_${this.txIndex}`;
+        let marbleColor = this.colors[this.txIndex % this.colors.length];
+        let marbleSize = (((this.txIndex % 10) + 1) * 10).toString(); // [10, 100]
+        let marbleOwner = this.owners[this.txIndex % this.owners.length];
 
-module.exports.run = async function() {
-    txIndex++;
-    let marbleName = 'marble_' + txIndex.toString() + '_' + uuidv4();
-    let marbleColor = colors[txIndex % colors.length];
-    let marbleSize = (((txIndex % 10) + 1) * 10).toString(); // [10, 100]
-    let marbleOwner = owners[txIndex % owners.length];
+        let args = {
+            chaincodeFunction: 'initMarble',
+            chaincodeArguments: [marbleName, marbleColor, marbleSize, marbleOwner],
+        };
 
-    let args = {
-        chaincodeFunction: 'initMarble',
-        chaincodeArguments: [marbleName, marbleColor, marbleSize, marbleOwner],
-    };
+        let targetCC = this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles';
+        return this.sutAdapter.invokeSmartContract(this.sutContext, targetCC, 'v0', args, 5);
+    }
+}
 
-    let targetCC = txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles';
-    return bc.invokeSmartContract(contx, targetCC, 'v0', args, 5);
-};
+/**
+ * Create a new instance of the workload module.
+ * @return {WorkloadModuleInterface}
+ */
+function createWorkloadModule() {
+    return new MarblesInitWorkload();
+}
 
-module.exports.end = async function() {};
+module.exports.createWorkloadModule = createWorkloadModule;
