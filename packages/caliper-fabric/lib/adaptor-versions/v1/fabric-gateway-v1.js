@@ -17,12 +17,13 @@
 const FabricClient = require('fabric-client');
 const { DefaultEventHandlerStrategies, DefaultQueryHandlerStrategies, FileSystemWallet, Gateway, InMemoryWallet, X509WalletMixin } = require('fabric-network');
 const { google, common } = require('fabric-protos');
-const { BlockchainInterface, CaliperUtils, TxStatus, Version, ConfigUtil } = require('@hyperledger/caliper-core');
+const { BlockchainInterface, CaliperUtils, TxStatus, ConfigUtil } = require('@hyperledger/caliper-core');
 const logger = CaliperUtils.getLogger('adapters/fabric');
 
 const FabricNetwork = require('../../fabricNetwork.js');
 const ConfigValidator = require('../../configValidator.js');
 const fs = require('fs');
+const semver = require('semver');
 
 const EventStrategies = {
     msp_all : DefaultEventHandlerStrategies.MSPID_SCOPE_ALLFORTX,
@@ -139,7 +140,7 @@ class Fabric extends BlockchainInterface {
         super(networkConfig);
         this.bcType = 'fabric';
         this.workspaceRoot = workspace_root;
-        this.version = new Version(require('fabric-client/package').version);
+        this.version = require('fabric-client/package').version;
 
         this.network = undefined;
         if (typeof networkConfig === 'string') {
@@ -160,6 +161,7 @@ class Fabric extends BlockchainInterface {
         this.wallet = undefined;
         this.userContracts = new Map();
         this.userGateways = new Map();
+        this.peerCache = new Map();
 
         // this value is hardcoded, if it's used, that means that the provided timeouts are not sufficient
         this.configSmallestTimeout = 1000;
@@ -188,11 +190,6 @@ class Fabric extends BlockchainInterface {
         this.networkUtil = new FabricNetwork(this.network, workspace_root);
         this.fileWalletPath = this.networkUtil.getFileWalletPath();
         this.defaultInvoker = Array.from(this.networkUtil.getClients())[0];
-
-        // Network Wallet/Gateway is only available in SDK versions greater than v1.4.0
-        if (this.version.lessThan('1.4.0')) {
-            throw new Error(`Fabric SDK ${this.version.toString()} is not supported when using a Fabric Gateway object, use at least version 1.4.0`);
-        }
 
         this._prepareWallet();
     }
@@ -916,6 +913,7 @@ class Fabric extends BlockchainInterface {
                 strategy: EventStrategies[this.eventStrategy]
             },
             queryHandlerOptions: {
+                requestTimeout: this.configDefaultTimeout,
                 strategy: QueryStrategies[this.queryStrategy]
             }
         };
@@ -1389,6 +1387,27 @@ class Fabric extends BlockchainInterface {
     }
 
     /**
+     * Initialize channel objects for use in peer targeting. Requires user gateways to have been
+     * formed in advance.
+     */
+    async _initializePeerCache() {
+
+        for (const userName of this.userGateways.keys()) {
+            const gateway = this.userGateways.get(userName);
+            // Loop over known channel names
+            const channelNames = this.networkUtil.getChannels();
+            for (const channelName of channelNames) {
+                const network = await gateway.getNetwork(channelName);
+                const channel = network.getChannel();
+                // Add all peers
+                for (const peerObject of channel.getChannelPeers()) {
+                    this.peerCache.set(peerObject.getName(), peerObject);
+                }
+            }
+        }
+    }
+
+    /**
      * Conditionally initializes a wallet depending on user provided options
      * @private
      */
@@ -1500,11 +1519,11 @@ class Fabric extends BlockchainInterface {
 
         // Add transient data if present
         // - passed as key value pairing such as {"hello":"world"}
-        if (invokeSettings.transientData) {
+        if (invokeSettings.transientMap) {
             const transientData = {};
-            const keys = Array.from(Object.keys(invokeSettings.transientData));
+            const keys = Array.from(Object.keys(invokeSettings.transientMap));
             keys.forEach((key) => {
-                transientData[key] = Buffer.from(invokeSettings.transientData[key]);
+                transientData[key] = Buffer.from(invokeSettings.transientMap[key]);
             });
             transaction.setTransient(transientData);
         }
@@ -1515,10 +1534,14 @@ class Fabric extends BlockchainInterface {
             const targetPeerObjects = [];
             for (const name of invokeSettings.targetPeers) {
                 const peer = this.peerCache.get(name);
-                targetPeerObjects.push(peer);
+                if (peer) {
+                    targetPeerObjects.push(peer);
+                }
             }
             // Set the peer objects in the transaction
-            transaction.setEndorsingPeers(targetPeerObjects);
+            if (targetPeerObjects.length > 0) {
+                transaction.setEndorsingPeers(targetPeerObjects);
+            }
         }
 
         try {
@@ -1614,6 +1637,13 @@ class Fabric extends BlockchainInterface {
         // Build Gateway Network Contracts for possible users and return the network object
         // - within submit/evaluate, a contract will be used for a nominated user
         await this._initializeContracts();
+
+        // - use gateways to build a peer cache if the version supports it
+        if (semver.satisfies(semver.coerce(this.version), '>=1.4.5')) {
+            await this._initializePeerCache();
+        } else {
+            logger.warn(`Bound SDK ${this.version} is unable to use target peers; to enable target peer nomination for a gateway transaction, bind Caliper to Fabric 1.4.5 and above`);
+        }
 
         // We are done - return the networkUtil object
         return {
@@ -1763,6 +1793,9 @@ class Fabric extends BlockchainInterface {
             logger.info(`disconnecting gateway for user ${userName}`);
             gateway.disconnect();
         }
+
+        // Clear peer cache
+        this.peerCache.clear();
     }
 }
 

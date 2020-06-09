@@ -125,6 +125,7 @@ class MonitorOrchestrator {
     * @async
     */
     async stopAllMonitors() {
+        logger.info('Stopping all monitors');
         if(this.started === true) {
 
             for (let key of this.monitors.keys()) {

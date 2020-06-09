@@ -16,7 +16,7 @@
 
 const Config = require('../../common/config/config-util');
 const Utils = require('../../common/utils/caliper-utils');
-const Logger = Utils.getLogger('caliper-flow');
+const Logger = Utils.getLogger('report-builder');
 const fs = require('fs');
 const Mustache = require('mustache');
 const path = require('path');

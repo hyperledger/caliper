@@ -29,13 +29,13 @@ const Fabric = class extends BlockchainInterface {
     constructor(workerIndex) {
         super();
         // Switch adaptors based on installed packages
-        // - will either have fabric-client, or fabric-network
+        // - will either have fabric-network, or fabric-client
         let version;
-        if (CaliperUtils.moduleIsInstalled('fabric-client')) {
-            const packageVersion = require('fabric-client/package').version;
-            version = semver.coerce(packageVersion);
-        } else if (CaliperUtils.moduleIsInstalled('fabric-network')) {
+        if (CaliperUtils.moduleIsInstalled('fabric-network')) {
             const packageVersion = require('fabric-network/package').version;
+            version = semver.coerce(packageVersion);
+        } else if (CaliperUtils.moduleIsInstalled('fabric-client')) {
+            const packageVersion = require('fabric-client/package').version;
             version = semver.coerce(packageVersion);
         } else {
             const msg = 'Unable to detect required Fabric binding packages';
@@ -52,7 +52,12 @@ const Fabric = class extends BlockchainInterface {
             if (!useGateway) {
                 modulePath = './adaptor-versions/v1/fabric-v1.js';
             } else {
-                modulePath = './adaptor-versions/v1/fabric-gateway-v1.js';
+                // gateway with default event handlers appears in SDK > 1.4.2
+                if (semver.satisfies(version, '>=1.4.2')) {
+                    modulePath = './adaptor-versions/v1/fabric-gateway-v1.js';
+                } else {
+                    throw new Error('Caliper currently only supports Fabric gateway based operation using Fabric-SDK 1.4.2 and higher. Please retry with a different SDK binding');
+                }
             }
         } else if (semver.satisfies(version, '=2.x')) {
             if (!useGateway) {

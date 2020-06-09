@@ -115,6 +115,7 @@ class MqttMasterMessenger extends MessengerInterface {
      * Clean up any resources associated with the messenger.
      */
     async dispose() {
+        Logger.info('Disconnecting from MQTT service');
         const messengerDisconnectedPromise = new Promise((resolve, reject) => {
             this.messengerDisconnectedPromise = {
                 resolve: resolve,
@@ -122,7 +123,8 @@ class MqttMasterMessenger extends MessengerInterface {
             };
         });
 
-        this.mqttClient.end(false, undefined, () => {
+        this.mqttClient.end(false, {}, () => {
+            Logger.info('MQTT connection closed');
             this.messengerDisconnectedPromise.resolve();
         });
 

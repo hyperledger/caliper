@@ -12,16 +12,10 @@
 # limitations under the License.
 #
 
-version: "3"
-services:
-  node:
-    build:
-      context: .
-      dockerfile: caliper-besu-clique.Dockerfile
-    image: caliper-besu-clique
-    container_name: besu_clique
-    volumes:
-      - ./keys:/root/.ethereum/keystore
-    ports:
-      - 8545-8547:8545-8547
-    command: --revert-reason-enabled --rpc-ws-enabled --rpc-ws-host 0.0.0.0 --host-whitelist=* --rpc-ws-apis admin,eth,miner,web3,net --graphql-http-enabled --discovery-enabled=false
+name: Fabric
+version: "1.0"
+
+caliper:
+    blockchain: fabric
+    command:
+        end: docker-compose -p caliper down;(test -z \"$(docker ps -aq)\") || docker rm $(docker ps -aq);(test -z \"$(docker images dev* -q)\") || docker rmi $(docker images dev* -q);rm -rf /tmp/hfc-*

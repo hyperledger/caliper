@@ -30,7 +30,8 @@ module.exports.run = async function() {
     let marbleOwner = owners[txIndex % owners.length];
     let args = {
         chaincodeFunction: 'queryMarblesByOwner',
-        chaincodeArguments: [marbleOwner]
+        chaincodeArguments: [marbleOwner],
+        targetPeers: ['peer0.org1.example.com']
     };
 
     let targetCC = txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles';

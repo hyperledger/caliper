@@ -16,11 +16,12 @@
 
 const { DefaultEventHandlerStrategies, DefaultQueryHandlerStrategies, Gateway, Wallets } = require('fabric-network');
 const { BlockchainInterface, CaliperUtils, TxStatus, Version, ConfigUtil } = require('@hyperledger/caliper-core');
-const logger = CaliperUtils.getLogger('adapters/fabric');
 
 const FabricNetwork = require('../../fabricNetwork.js');
 const ConfigValidator = require('../../configValidator.js');
 const RegistrarHelper = require('./registrarHelper');
+
+const logger = CaliperUtils.getLogger('adapters/fabric');
 
 const EventStrategies = {
     msp_all : DefaultEventHandlerStrategies.MSPID_SCOPE_ALLFORTX,
@@ -135,10 +136,6 @@ class Fabric extends BlockchainInterface {
             throw new Error('[FabricNetwork.constructor] Parameter \'networkConfig\' is neither a file path nor an object');
         }
 
-        // validate the network
-        ConfigValidator.validateNetwork(this.network, CaliperUtils.getFlowOptions(),
-            this.configDiscovery, true);
-
         this.clientIndex = clientIndex;
         this.txIndex = -1;
         this.networkUtil = new FabricNetwork(this.network, workspace_root);
@@ -159,6 +156,9 @@ class Fabric extends BlockchainInterface {
         this.configDiscovery = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.Discovery, false);
         this.eventStrategy = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.EventStrategy, 'msp_all');
         this.queryStrategy = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.QueryStrategy, 'msp_single');
+
+        // validate the network
+        ConfigValidator.validateNetwork(this.network, CaliperUtils.getFlowOptions(), this.configDiscovery, true);
     }
 
     ////////////////////////////////
@@ -449,11 +449,11 @@ class Fabric extends BlockchainInterface {
 
         // Add transient data if present
         // - passed as key value pairing such as {"hello":"world"}
-        if (invokeSettings.transientData) {
+        if (invokeSettings.transientMap) {
             const transientData = {};
-            const keys = Array.from(Object.keys(invokeSettings.transientData));
+            const keys = Array.from(Object.keys(invokeSettings.transientMap));
             keys.forEach((key) => {
-                transientData[key] = Buffer.from(invokeSettings.transientData[key]);
+                transientData[key] = Buffer.from(invokeSettings.transientMap[key]);
             });
             transaction.setTransient(transientData);
         }
@@ -690,6 +690,9 @@ class Fabric extends BlockchainInterface {
             logger.info(`disconnecting gateway for user ${userName}`);
             gateway.disconnect();
         }
+
+        // Clear peer cache
+        this.peerCache.clear();
     }}
 
 module.exports = Fabric;
