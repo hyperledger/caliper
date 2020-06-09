@@ -99,7 +99,7 @@ sut:
 
     ethereum:
         1.2.1: &ethereum-latest
-            packages: ['web3@1.2.0']
+            packages: ['web3@1.2.2']
         latest: *ethereum-latest
 
     besu:
