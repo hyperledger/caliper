@@ -30,7 +30,7 @@ cd ${DIR}
 # bind during CI tests, using the package dir as CWD
 # Note: do not use env variables for binding settings, as subsequent launch calls will pick them up and bind again
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    ${CALL_METHOD} bind --caliper-bind-sut fabric:1.4.7 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev"
+    ${CALL_METHOD} bind --caliper-bind-sut fabric:1.4.8 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev"
 fi
 
 # change default settings (add config paths too)
@@ -95,10 +95,10 @@ if [[ ${rc} != 0 ]]; then
     exit ${rc};
 fi
 
-# UNBIND 1.4.7 SDK, using the package dir as CWD
+# UNBIND SDK, using the package dir as CWD
 # Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    ${CALL_METHOD} unbind --caliper-bind-sut fabric:1.4.7 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev" --caliper-projectconfig ./caliper.yaml
+    ${CALL_METHOD} unbind --caliper-bind-sut fabric:1.4.8 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev" --caliper-projectconfig ./caliper.yaml
 fi
 # BIND with 2.1.0 SDK, using the package dir as CWD
 # Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
