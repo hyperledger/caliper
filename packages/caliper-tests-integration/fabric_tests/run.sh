@@ -30,7 +30,7 @@ cd ${DIR}
 # bind during CI tests, using the package dir as CWD
 # Note: do not use env variables for binding settings, as subsequent launch calls will pick them up and bind again
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    ${CALL_METHOD} bind --caliper-bind-sut fabric:1.4.7 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--no-save"
+    ${CALL_METHOD} bind --caliper-bind-sut fabric:1.4.7 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev"
 fi
 
 # change default settings (add config paths too)
@@ -101,4 +101,10 @@ rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 7";
     exit ${rc};
+fi
+
+# unbind during CI tests, using the package dir as CWD
+# Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
+if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
+    ${CALL_METHOD} unbind --caliper-bind-sut fabric:1.4.7 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev" --caliper-projectconfig ./caliper.yaml
 fi

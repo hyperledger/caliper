@@ -25,17 +25,17 @@ const checkFn = (argv) => {
 };
 
 module.exports._checkFn = checkFn;
-module.exports.command = 'bind [options]';
-module.exports.describe = 'Bind Caliper to a specific SUT and its SDK version';
+module.exports.command = 'unbind [options]';
+module.exports.describe = 'Unbind Caliper from a previously bound SUT and its SDK version';
 module.exports.builder = function (yargs){
 
     yargs.options({
-        'caliper-bind-sut' : {describe: 'The name and version of the platform and its SDK to bind to', type: 'string' },
-        'caliper-bind-cwd'  : {describe: 'The working directory for performing the SDK install', type: 'string' },
-        'caliper-bind-args'  : {describe: 'Additional arguments to pass to "npm install". Use the "=" notation when setting this parameter', type: 'string' },
-        'caliper-bind-file'  : {describe: 'Yaml file to override default (supported) package versions when binding an SDK', type: 'string' }
+        'caliper-bind-sut' : {describe: 'The name and version of the platform and its SDK to unbind', type: 'string' },
+        'caliper-bind-cwd'  : {describe: 'The working directory for performing the SDK removal', type: 'string' },
+        'caliper-bind-args'  : {describe: 'Additional arguments to pass to "npm remove". Use the "=" notation when setting this parameter', type: 'string' },
+        'caliper-bind-file'  : {describe: 'Yaml file to override default (supported) package versions when unbinding an SDK', type: 'string' }
     });
-    yargs.usage('Usage:\n  caliper bind --caliper-bind-sut fabric:1.4.1 --caliper-bind-cwd ./ --caliper-bind-args="-g"');
+    yargs.usage('Usage:\n  caliper unbind --caliper-bind-sut fabric:1.4.1 --caliper-bind-cwd ./ --caliper-bind-args="-g"');
     // enforce the option after these options
     yargs.requiresArg(['caliper-bind-sut', 'caliper-bind-args', 'caliper-bind-cwd']);
 
@@ -46,5 +46,5 @@ module.exports.builder = function (yargs){
 };
 
 module.exports.handler = (argv) => {
-    return argv.thePromise = BindCommon.handler(argv, true);
+    return argv.thePromise = BindCommon.handler(argv, false);
 };

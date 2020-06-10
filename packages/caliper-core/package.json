@@ -1,7 +1,7 @@
 {
     "name": "@hyperledger/caliper-core",
     "description": "Core Hyperledger Caliper module, used for running performance benchmarks that interact with blockchain technologies",
-    "version": "0.4.0-unstable",
+    "version": "0.3.2-unstable",
     "repository": {
         "type": "git",
         "url": "https://github.com/hyperledger/caliper",
