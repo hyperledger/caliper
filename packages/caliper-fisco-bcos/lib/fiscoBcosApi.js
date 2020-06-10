@@ -17,7 +17,6 @@
 const CaliperUtils = require('@hyperledger/caliper-core').CaliperUtils;
 const fs = require('fs');
 const path = require('path');
-const childProcess = require('child_process');
 const ora = require('ora');
 const isArray = require('isarray');
 const web3Sync = require('./web3lib/web3sync');
@@ -26,52 +25,7 @@ const requestPromise = require('request-promise');
 const assert = require('assert');
 const events = require('events');
 const commLogger = CaliperUtils.getLogger('fiscoBcosApi.js');
-
-/**
- * Compile solidity contract locally
- * @param {String} contractPath Contract path
- * @param {String} outputDir Output directory
- * @return {Promise} Promise of compiling
- */
-async function compileContract(contractPath, outputDir) {
-    let spinner = ora(`Compiling ${contractPath} ...`).start();
-    let contractName = path.basename(contractPath);
-
-    let execEmitter = new events.EventEmitter();
-    let execPromise = new Promise((resolve, reject) => {
-        execEmitter.on('done', () => {
-            resolve();
-        });
-        execEmitter.on('error', (stdout, stderr) => {
-            commLogger.error(`Compiling error: ${stdout}\n${stderr}`);
-            reject();
-        });
-    });
-
-    let cmd = 'docker run --rm ' +
-        `-v ${path.dirname(contractPath)}:/sources ` +
-        `-v ${outputDir}:/output ` +
-        'ethereum/solc:0.4.25 ' +
-        '--overwrite --abi --bin ' +
-        '-o /output ' +
-        `/sources/${contractName}`;
-    childProcess.exec(
-        cmd,
-        (error, stdout, stderr) => {
-            if (!error) {
-                spinner.succeed();
-                execEmitter.emit('done');
-            }
-            else {
-                spinner.fail();
-                execEmitter.emit('error', stdout, stderr);
-            }
-        });
-
-    return execPromise;
-}
-
-module.exports.compileContract = compileContract;
+const solc = require('solc');
 
 /**
  * Select a node from node list randomly
@@ -154,11 +108,58 @@ async function getCurrentBlockNumber(networkConfig) {
 
 // Deploy solidity smart contract only
 module.exports.deploy = async function (networkConfig, account, privateKey, contractPath) {
-    let outputDir = path.join('/tmp', './solcOutput');
-    await compileContract(contractPath, outputDir);
-
     let contractName = path.basename(contractPath, '.sol');
-    let contractBin = fs.readFileSync(path.join(outputDir, contractName + '.bin'), 'utf-8');
+
+    // assume the imports are located at the same directory
+    let contractContent = fs.readFileSync(contractPath, 'utf-8');
+
+    const input = {
+        language: 'Solidity',
+        sources: {
+            [contractPath]: {
+                content: contractContent
+            }
+        },
+        settings: {
+            outputSelection: {
+                '*': {
+                    '*': ['evm.bytecode']
+                }
+            }
+        }
+    };
+
+    let outputJson = solc.compileStandard(JSON.stringify(input), pathDeclared => {
+        let importPath = pathDeclared;
+        try {
+            let content = fs.readFileSync(importPath, 'utf-8');
+            return { contents: content };
+        } catch (err) {
+            return { error: err.toString() };
+        }
+    });
+    commLogger.debug(`solc output: ${outputJson}`);
+
+    let output = JSON.parse(outputJson);
+
+    if ('errors' in output) {
+        let errorStr = '';
+
+        for(let error of output.errors) {
+            errorStr = errorStr + error.formattedMessage;
+        }
+        // Signal the error
+        throw new Error(errorStr);
+    }
+
+    // The concatenation may not be necessary if we are certain there will be only one contract
+    let contractBin = '';
+    for (let name in output.contracts[contractPath]) {
+        contractBin = contractBin + output.contracts[contractPath][name].evm.bytecode.object;
+    }
+
+    commLogger.debug(`contract bin: ${contractBin}`);
+
     let blockNumber = await getCurrentBlockNumber(networkConfig);
     let groupID = networkConfig.groupID;
     let signTx = web3Sync.getSignDeployTx(groupID, account, privateKey, contractBin, blockNumber + 500);
