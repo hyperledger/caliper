@@ -16,7 +16,7 @@
 
 const path = require('path');
 const { CaliperEngine, CaliperUtils, ConfigUtil } = require('@hyperledger/caliper-core');
-const Bind = require('./../../lib/bind');
+const BindCommon = require('./../../lib/bindCommon');
 const logger = CaliperUtils.getLogger('cli-launch-master');
 
 /**
@@ -44,7 +44,7 @@ class LaunchMaster {
 
         if (bindingSpec) {
             logger.info(`Binding specification is present, performing binding for "${bindingSpec}"`);
-            await Bind.handler(argv, sutType);
+            await BindCommon.handler(argv, true, sutType);
         }
 
         let knownError = false;

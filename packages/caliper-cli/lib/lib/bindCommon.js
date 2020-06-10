@@ -19,32 +19,31 @@ const { CaliperUtils, ConfigUtil } = require('@hyperledger/caliper-core');
 const fs = require('fs');
 const path = require('path');
 
-const logger = CaliperUtils.getLogger('bind');
-
 /**
- * Caliper benchmark Run command
- * @private
+ * Common class for the bind/unbind commands.
  */
-class Bind {
+class BindCommon {
 
     /**
-     * Command process for the bind command.
+     * Implementation of the bind/unbind command.
      * @param {object} argv Argument list from the caliper bind command. Unused, relying on ConfigUtil instead.
+     * @param {boolean} binding Indicates whether binding should be performed, or unbinding.
      * @param {string} networkConfigSut Optional SUT type read from the network configuration for cross-checking.
      */
-    static async handler(argv, networkConfigSut = undefined) {
-        const defaultBindOpts = CaliperUtils.parseYaml(path.join(__dirname, './config.yaml'));
+    static async handler(argv, binding, networkConfigSut = undefined) {
+        const logger = CaliperUtils.getLogger(binding ? 'bind' : 'unbind');
+        const defaultOpts = CaliperUtils.parseYaml(path.join(__dirname, './config.yaml'));
 
         let sutSpec = ConfigUtil.get(ConfigUtil.keys.Bind.Sut);
         if (!sutSpec) {
-            let msg = `SUT binding is not specified. Available SUTs: ${Object.keys(defaultBindOpts.sut).join(' | ')}`;
+            let msg = `SUT is not specified. Available SUTs: ${Object.keys(defaultOpts.sut).join(' | ')}`;
             logger.error(msg);
             throw new Error(msg);
         }
 
         let sutSpecParts = sutSpec.split(':');
         if (sutSpecParts.length < 1 || sutSpecParts.length > 2) {
-            let msg = `SUT binding specification is expected in the <SUT type>:<SDK version> format, not as "${sutSpec}"`;
+            let msg = `SUT specification is expected in the <SUT type>:<SDK version> format, not as "${sutSpec}"`;
             logger.error(msg);
             throw new Error(msg);
         }
@@ -60,31 +59,31 @@ class Bind {
         let userArgs = ConfigUtil.get(ConfigUtil.keys.Bind.Args);
         let file = ConfigUtil.get(ConfigUtil.keys.Bind.File);
 
-        let bindOptions;
+        let options;
         if (file) {
             // User has passed a configuration file to bind
             file = CaliperUtils.resolvePath(file);
             if (!fs.existsSync(file)) {
-                let msg = `Passed custom bind configuration file "${file}" does not exist`;
+                let msg = `Passed custom configuration file "${file}" does not exist`;
                 logger.error(msg);
                 throw new Error(msg);
             } else {
-                bindOptions = CaliperUtils.parseYaml(file);
+                options = CaliperUtils.parseYaml(file);
             }
         } else {
-            bindOptions = defaultBindOpts;
+            options = defaultOpts;
         }
 
-        // TODO: schema validation for the loaded binding configuration
+        // TODO: schema validation for the loaded configuration
         // until then, the error messages won't provide the available settings
-        let sutList = Object.keys(bindOptions.sut);
+        let sutList = Object.keys(options.sut);
         if (!sutList.includes(sut)) {
-            let msg = `Unknown SUT type "${sut}" for binding`;
+            let msg = `Unknown SUT type "${sut}"`;
             logger.error(msg);
             throw new Error(msg);
         }
 
-        let sutSdkList = Object.keys(bindOptions.sut[sut]);
+        let sutSdkList = Object.keys(options.sut[sut]);
         if (!sutSdkList.includes(sdk)) {
             let msg = `Unknown "${sut}" SDK version "${sdk}"`;
             logger.error(msg);
@@ -93,27 +92,27 @@ class Bind {
 
         // if a SUT type is provided by the launch commands, cross-check it with the explicit binding setting
         if (networkConfigSut && sut !== networkConfigSut) {
-            let msg = `SUT type in the network configuration (${networkConfigSut}) does not match SUT type in the binding specification (${sut})`;
+            let msg = `SUT type in the network configuration (${networkConfigSut}) does not match the passed SUT type (${sut})`;
             logger.error(msg);
             throw new Error(msg);
         }
 
         if (!cwd) {
-            logger.warn(`Working directory for binding not specified. Using "${path.resolve('./')}"`);
+            logger.warn(`Working directory not specified. Using "${path.resolve('./')}"`);
             cwd = path.resolve('./');
         } else {
             cwd = path.resolve(cwd);
         }
 
         if (userArgs) {
-            logger.info(`User-provided arguments for "npm install": "${userArgs}"`);
+            logger.info(`User-provided arguments for npm: "${userArgs}"`);
         }
 
-        let bindSpec = bindOptions.sut[sut][sdk];
+        let extraSpec = options.sut[sut][sdk];
         let settings;
 
         // select the first matching setting, if any
-        if (bindSpec.settings) {
+        if (extraSpec.settings) {
             let nodeVersion;
             logger.info('Querying node version');
             try {
@@ -124,7 +123,7 @@ class Bind {
             }
             logger.info(`Detected node version ${nodeVersion}`);
 
-            for (let setting of bindSpec.settings) {
+            for (let setting of extraSpec.settings) {
                 let regex = new RegExp(setting.versionRegexp, 'g');
                 if (regex.test(nodeVersion)) {
                     settings = setting;
@@ -140,7 +139,7 @@ class Bind {
             settings = {};
         }
 
-        logger.info(`Binding for ${sut}@${sdk}. This might take some time...`);
+        logger.info(`${binding ? 'Binding for' : 'Unbinding from'} ${sut}@${sdk}. This might take some time...`);
         try {
             // combine, then convert the arguments to an array
             let npmArgs;
@@ -155,18 +154,28 @@ class Bind {
                 }
             }
 
-            let argArray = [ 'install' ];
+            let argArray = [ binding ? 'install' : 'uninstall' ];
             if (npmArgs) {
                 // split by spaces
                 argArray = argArray.concat(npmArgs.split(' '));
             }
 
-            // add the packages at the end
-            argArray = argArray.concat(bindSpec.packages);
+            let packages = extraSpec.packages;
+            // remove version numbers when unbinding
+            if (!binding) {
+                packages = packages.map(pkg => {
+                    const versionIndex = pkg.lastIndexOf('@');
+                    // the version @ can't be the first (and only) character
+                    return versionIndex > 0 ? pkg.substring(0, versionIndex) : pkg;
+                });
+            }
 
-            logger.info(`Binding working directory: ${cwd}`);
+            // add the packages at the end
+            argArray = argArray.concat(packages);
+
+            logger.info(`Using working directory: ${cwd}`);
             logger.info(`Calling npm with: ${argArray.join(' ')}`);
-            await CaliperUtils.invokeCommand('npm', argArray, settings.env, cwd);
+            await CaliperUtils.invokeCommand('npm', argArray,  { ...settings.env, ...process.env }, cwd);
         } catch (e) {
             logger.error(e.message);
             throw e;
@@ -174,4 +183,4 @@ class Bind {
     }
 }
 
-module.exports = Bind;
+module.exports = BindCommon;
