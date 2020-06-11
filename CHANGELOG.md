@@ -1,3 +1,23 @@
+## 0.3.2 (June 11, 2020)
+
+* Core changes
+  * Addition of unbind command to Caliper CLI ([PR864](https://github.com/hyperledger/caliper/pull/864))
+  * Fix of MQTT messenger disposal process ([PR863](https://github.com/hyperledger/caliper/pull/863))
+  
+* Hyperledger Fabric adapter changes
+  * Fix network validation in V2 gateway adaptor ([PR863](https://github.com/hyperledger/caliper/pull/863))
+  * Aligned passage of private data in gateway transactions with the documented specification ([PR863](https://github.com/hyperledger/caliper/pull/863))
+  * Addition of 1.4.8 binding ([PR866](https://github.com/hyperledger/caliper/pull/866))
+
+* Ethereum/Hyperledger Besu adapter changes
+  * Update HL Besu binding web3 version ([PR#863](https://github.com/hyperledger/caliper/pull/863))
+
+* FISCO-BCOS adapter changes
+  * Removal of docker requirement for contract compilation ([PR#861](https://github.com/hyperledger/caliper/pull/861))
+
+* Hyperledger generator
+  * Enable publishing of generator ([PR#804](https://github.com/hyperledger/caliper/pull/804))
+
 ## 0.3.1 (May 11, 2020)
 
 * Core changes
