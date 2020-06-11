@@ -19,6 +19,6 @@
         "packages/caliper-gui-server",
         "packages/generator-caliper"
     ],
-	"version": "0.3.2-unstable",
+	"version": "0.3.2",
 	"hoist": true
   }
