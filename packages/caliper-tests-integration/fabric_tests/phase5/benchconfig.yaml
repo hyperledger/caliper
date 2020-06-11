@@ -19,22 +19,38 @@ test:
         number: 2
     rounds:
     - label: init1
-      txNumber: 100
-      rateControl: { type: 'fixed-rate', opts: { tps: 20 } }
-      callback: ../init.js
-    - label: init2
-      txNumber: 200
-      rateControl: { type: 'fixed-feedback-rate', opts: { tps: 20, unfinished_per_client: 5 } }
+      txNumber: 25
+      rateControl: { type: 'fixed-rate', opts: { tps: 5 } }
       callback: ../init.js
     - label: query
-      txNumber: 100
-      rateControl: { type: 'linear-rate', opts: { startingTps: 10, finishingTps: 20 } }
+      txNumber: 25
+      rateControl: { type: 'linear-rate', opts: { startingTps: 5, finishingTps: 10 } }
       callback: ../query.js
 observer:
     interval: 1
-    type: local
+    type: prometheus
 monitor:
     interval: 1
-    type: ['process']
-    process:
-        processes: [{ command: 'node', arguments: 'fabricClientWorker.js', multiOutput: 'avg' }]
+    type: ['prometheus']
+    prometheus:
+        url: "http://localhost:9090"
+        push_url: "http://localhost:9091"
+        metrics:
+            ignore: [prometheus, pushGateway, cadvisor, grafana, node-exporter]
+            include:
+                Endorse Time (s):
+                    query: rate(endorser_propsal_duration_sum{chaincode="marbles:v0"}[1m])/rate(endorser_propsal_duration_count{chaincode="marbles:v0"}[1m])
+                    step: 1
+                    label: instance
+                    statistic: avg
+                Max Memory (MB):
+                    query: sum(container_memory_rss{name=~".+"}) by (name)
+                    step: 10
+                    label: name
+                    statistic: max
+                    multiplier: 0.000001
+        charting:
+            polar:
+                metrics: [Max Memory (MB)]
+            bar:
+                metrics: [all]

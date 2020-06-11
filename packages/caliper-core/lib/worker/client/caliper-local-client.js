@@ -21,7 +21,8 @@ const bc   = require('../../common/core/blockchain.js');
 const RateControl = require('../rate-control/rateControl.js');
 const PrometheusClient = require('../../common/prometheus/prometheus-push-client');
 
-const Logger = CaliperUtils.getLogger('caliper-local-client.js');
+const Logger = CaliperUtils.getLogger('caliper-local-client');
+
 /**
  * Class for Client Interaction
  */

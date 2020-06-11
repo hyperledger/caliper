@@ -30,6 +30,7 @@ class MessageHandler {
      * @param {Messenger} messenger the Messenger to use for communication with the orchestrator
      */
     constructor(handlers, messenger) {
+
         if (!handlers.init) {
             let msg = 'Handler for "init" is not specified';
             logger.error(msg);
@@ -236,7 +237,7 @@ class MessageHandler {
             case 'exit': {
                 logger.info('Handling "exit" message');
                 await context.messenger.dispose();
-                logger.info(`Handled "exit" message for worker ${context.workerId}`);
+                logger.info(`Handled "exit" message for worker ${context.workerId}, exiting process`);
                 process.exit(0);
                 break;
             }

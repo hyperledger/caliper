@@ -11,7 +11,8 @@
         "bootstrap": "lerna bootstrap",
         "pretest": "npm run licchk",
         "licchk": "license-check-and-add",
-        "test": "lerna run test"
+        "test": "lerna run test",
+        "version-fix": "node ./packages/caliper-publish/publish.js version fix"
     },
     "engines": {
         "node": ">=8.10.0",

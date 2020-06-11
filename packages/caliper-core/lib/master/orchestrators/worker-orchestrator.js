@@ -56,7 +56,7 @@ class WorkerOrchestrator {
         this.workerArguments = workerArguments;
 
         this.workers = {};
-        this.workerObjects = [];
+        this.workerObjects = [];        // used in the process communications
         this.updates = {id:0, data:[]}; // contains txUpdated messages
         this.results = [];              // cumulative results
 
@@ -486,16 +486,17 @@ class WorkerOrchestrator {
     }
 
     /**
-     * Stop all test workers (child processes)
+     * Stop all test workers and disconnect from messenger
      */
     async stop() {
+        logger.info('Sending exit message to connected workers');
         this.messenger.send(['all'], TYPES.EXIT, {});
-        await this.messenger.dispose();
 
-        for (let workerObject of this.workerObjects) {
-            workerObject.kill();
-        }
+        // Internally spawned workers are killed within the messenger handling of 'exit', but clean the array of processes here
         this.workerObjects = [];
+
+        // dispose of master messenger
+        await this.messenger.dispose();
     }
 
     /**
@@ -538,13 +539,13 @@ class WorkerOrchestrator {
         logger.info(`Launching worker ${index} of ${this.number}`);
 
         // Spawn the worker. The index is assigned upon connection
-        let cliPath = process.argv[1];
-        let workerCommands = ['launch', 'worker'];
-        let remainingArgs = process.argv.slice(4);
+        const cliPath = process.argv[1];
+        const workerCommands = ['launch', 'worker'];
+        const remainingArgs = process.argv.slice(4);
 
-        let nodeArgs = workerCommands.concat(remainingArgs);
+        const nodeArgs = workerCommands.concat(remainingArgs);
 
-        let worker = childProcess.fork(cliPath, nodeArgs, {
+        const worker = childProcess.fork(cliPath, nodeArgs, {
             env: process.env,
             cwd: process.cwd()
         });

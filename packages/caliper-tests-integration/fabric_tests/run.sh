@@ -86,8 +86,8 @@ if [[ ${rc} != 0 ]]; then
     exit ${rc};
 fi
 
-# PHASE 4 again: testing through the gateway API
-${CALL_METHOD} launch master --caliper-workspace phase4 --caliper-flow-only-test --caliper-fabric-gateway-usegateway
+# PHASE 5: testing through the gateway API
+${CALL_METHOD} launch master --caliper-workspace phase5 --caliper-flow-only-test --caliper-fabric-gateway-usegateway
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 6";
@@ -95,16 +95,30 @@ if [[ ${rc} != 0 ]]; then
     exit ${rc};
 fi
 
-# PHASE 5: just disposing of the network
-${CALL_METHOD} launch master --caliper-workspace phase5 --caliper-flow-only-end
-rc=$?
-if [[ ${rc} != 0 ]]; then
-    echo "Failed CI step 7";
-    exit ${rc};
-fi
-
-# unbind during CI tests, using the package dir as CWD
+# UNBIND 1.4.7 SDK, using the package dir as CWD
 # Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
     ${CALL_METHOD} unbind --caliper-bind-sut fabric:1.4.7 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev" --caliper-projectconfig ./caliper.yaml
+fi
+# BIND with 2.1.0 SDK, using the package dir as CWD
+# Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
+if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
+    ${CALL_METHOD} bind --caliper-bind-sut fabric:2.1.0 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev"
+fi
+
+# PHASE 6: testing through the gateway API (v2 SDK)
+${CALL_METHOD} launch master --caliper-workspace phase5 --caliper-flow-only-test --caliper-fabric-gateway-usegateway
+rc=$?
+if [[ ${rc} != 0 ]]; then
+    echo "Failed CI step 7";
+    dispose;
+    exit ${rc};
+fi
+
+# PHASE 7: just disposing of the network
+${CALL_METHOD} launch master --caliper-workspace phase6 --caliper-flow-only-end --caliper-fabric-gateway-usegateway
+rc=$?
+if [[ ${rc} != 0 ]]; then
+    echo "Failed CI step 8";
+    exit ${rc};
 fi

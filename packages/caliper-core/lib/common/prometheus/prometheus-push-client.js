@@ -99,7 +99,7 @@ class PrometheusPushClient {
     useGateway(method, body) {
         Logger.debug(`Prometheus client sending body ${body} to target ${this.requestParams.href}`);
         // Convert body to binary, the newline is important
-        body = new Buffer(body + '\n', 'binary');
+        body = Buffer.from(body + '\n', 'binary');
 
         // Assign request options
         const options = Object.assign(this.requestParams, {

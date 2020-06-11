@@ -317,7 +317,7 @@ class Sawtooth extends BlockchainInterface {
                 const data = (JSON.parse(body)).data;
                 if (data.length > 0) {
                     const stateDataBase64 = data[0].data;
-                    const stateDataBuffer = new Buffer(stateDataBase64, 'base64');
+                    const stateDataBuffer = Buffer.from(stateDataBase64, 'base64');
                     const stateData = stateDataBuffer.toString('hex');
 
                     txStatus.SetStatusSuccess();
