@@ -1,7 +1,7 @@
 {
     "name": "@hyperledger/caliper-gui-server",
     "description": "Hyperledger Caliper GUI server module, for easily assembling configuration files and monitoring benchmark runs",
-    "version": "0.3.2",
+    "version": "0.4.0-unstable",
     "private": true,
     "repository": {
         "type": "git",
@@ -22,11 +22,11 @@
         "npm": ">=5.6.0"
     },
     "dependencies": {
-        "@hyperledger/caliper-burrow": "0.3.2",
-        "@hyperledger/caliper-core": "0.3.2",
-        "@hyperledger/caliper-fabric": "0.3.2",
-        "@hyperledger/caliper-iroha": "0.3.2",
-        "@hyperledger/caliper-sawtooth": "0.3.2",
+        "@hyperledger/caliper-burrow": "0.4.0-unstable",
+        "@hyperledger/caliper-core": "0.4.0-unstable",
+        "@hyperledger/caliper-fabric": "0.4.0-unstable",
+        "@hyperledger/caliper-iroha": "0.4.0-unstable",
+        "@hyperledger/caliper-sawtooth": "0.4.0-unstable",
         "chalk": "1.1.3",
         "cors": "^2.8.5",
         "express": "^4.17.1",

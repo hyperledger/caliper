@@ -15,6 +15,7 @@
 'use strict';
 
 const { BlockchainInterface, CaliperUtils, ConfigUtil } = require('@hyperledger/caliper-core');
+const ConfigValidator = require('./configValidator.js');
 const Logger = CaliperUtils.getLogger('adapters/fabric');
 
 const semver = require('semver');
@@ -42,7 +43,8 @@ const Fabric = class extends BlockchainInterface {
             throw new Error(msg);
         }
 
-        const useGateway = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.UseGateway, false);
+        const useGateway = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.Enabled, false);
+        const useDiscovery = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.Discovery, false);
 
         Logger.info(`Initializing ${useGateway ? 'gateway' : 'standard' } adaptor compatible with installed SDK: ${version}`);
 
@@ -72,8 +74,13 @@ const Fabric = class extends BlockchainInterface {
         const networkConfig = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
         const workspaceRoot = path.resolve(ConfigUtil.get(ConfigUtil.keys.Workspace));
 
+        // validate the passed network file before use in underlying adaptor(s)
+        const configPath = CaliperUtils.resolvePath(networkConfig, workspaceRoot);
+        const networkObject = CaliperUtils.parseYaml(configPath);
+        ConfigValidator.validateNetwork(networkObject, CaliperUtils.getFlowOptions(), useDiscovery, useGateway);
+
         const Fabric = require(modulePath);
-        this.fabric = new Fabric(networkConfig, workspaceRoot, workerIndex);
+        this.fabric = new Fabric(networkObject, workspaceRoot, workerIndex);
     }
 
     /**

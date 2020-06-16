@@ -132,10 +132,10 @@ const keys = {
         SkipCreateChannelPrefix: 'caliper-fabric-skipcreatechannel-',
         Gateway: {
             Discovery: 'caliper-fabric-gateway-discovery',
+            Enabled: 'caliper-fabric-gateway-enabled',
             EventStrategy: 'caliper-fabric-gateway-eventstrategy',
-            GatewayLocalHost: 'caliper-fabric-gateway-gatewaylocalhost',
+            LocalHost: 'caliper-fabric-gateway-localhost',
             QueryStrategy: 'caliper-fabric-gateway-querystrategy',
-            UseGateway: 'caliper-fabric-gateway-usegateway',
         }
     }
 };

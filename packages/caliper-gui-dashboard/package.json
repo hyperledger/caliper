@@ -1,7 +1,7 @@
 {
     "name": "@hyperledger/caliper-gui-dashboard",
     "description": "Hyperledger Caliper GUI dashboard module, for easily assembling configuration files and monitoring benchmark runs",
-    "version": "0.3.2",
+    "version": "0.4.0-unstable",
     "private": true,
     "repository": {
         "type": "git",
