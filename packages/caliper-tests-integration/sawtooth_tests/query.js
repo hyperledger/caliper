@@ -14,34 +14,68 @@
 
 'use strict';
 
-module.exports.info  = 'querying accounts';
+const { WorkloadModuleBase, CaliperUtils } = require('@hyperledger/caliper-core');
+const Logger = CaliperUtils.getLogger('smallbank-query-workload');
 
+/**
+ * Workload module for the smallbank workload.
+ */
+class SmallbankQueryWorkload extends WorkloadModuleBase {
 
-let bc, contx;
-let accounts;
-module.exports.init = function(blockchain, context, args) {
-    let acc = require('./smallbankOperations.js');
-    bc       = blockchain;
-    contx    = context;
-    accounts = acc.account_array;
-    return Promise.resolve();
-};
-
-module.exports.run = function() {
-    let acc_num  = accounts[Math.floor(Math.random()*(accounts.length))];
-    if (bc.bcType === 'fabric') {
-        let args = {
-            chaincodeFunction: 'query',
-            chaincodeArguments: [acc_num.toString()],
-        };
-        return bc.bcObj.querySmartContract(contx, 'smallbank', '1.0', args, 3);
-    } else {
-        // NOTE: the query API is inconsistent with the invoke API
-        return bc.queryState(contx, 'smallbank', '1.0', acc_num);
+    /**
+     * Initializes the parameters of the workload.
+     */
+    constructor() {
+        super();
+        this.prefix = -1;
     }
-};
 
-module.exports.end = function() {
-    // do nothing
-    return Promise.resolve();
-};
+    /**
+     * Get existing account.
+     * @return {Number} account key
+     */
+    _getAccount() {
+        return parseInt(`${this.prefix}${Math.ceil(Math.random() * this.roundArguments.accounts)}`);
+    }
+
+    /**
+     * Initialize the workload module with the given parameters.
+     * @param {number} workerIndex The 0-based index of the worker instantiating the workload module.
+     * @param {number} totalWorkers The total number of workers participating in the round.
+     * @param {number} roundIndex The 0-based index of the currently executing round.
+     * @param {Object} roundArguments The user-provided arguments for the round from the benchmark configuration file.
+     * @param {BlockchainInterface} sutAdapter The adapter of the underlying SUT.
+     * @param {Object} sutContext The custom context object provided by the SUT adapter.
+     * @async
+     */
+    async initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext) {
+        await super.initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext);
+
+        if (!this.roundArguments.accounts) {
+            throw new Error('smallbank.query - \'accounts\' argument missing');
+        }
+
+        this.prefix = workerIndex + 1;
+    }
+
+    /**
+     * Assemble TXs for opening new accounts.
+     * @return {Promise<TxStatus[]>}
+     */
+    async submitTransaction() {
+        const account  = this._getAccount();
+        Logger.debug(`Worker ${this.workerIndex} TX args: ${account}`);
+        // NOTE: the query API is inconsistent with the invoke API
+        return this.sutAdapter.queryState(this.sutContext, 'smallbank', '1.0', account);
+    }
+}
+
+/**
+ * Create a new instance of the workload module.
+ * @return {WorkloadModuleInterface}
+ */
+function createWorkloadModule() {
+    return new SmallbankQueryWorkload();
+}
+
+module.exports.createWorkloadModule = createWorkloadModule;

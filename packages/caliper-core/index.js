@@ -26,3 +26,5 @@ module.exports.CaliperEngine = require('./lib/master/caliper-engine');
 module.exports.MonitorOrchestrator = require('./lib/master/orchestrators/monitor-orchestrator');
 module.exports.RoundOrchestrator = require('./lib/master/orchestrators/round-orchestrator');
 module.exports.WorkerOrchestrator = require('./lib/master/orchestrators/worker-orchestrator');
+module.exports.WorkloadModuleInterface = require('./lib/worker/workload/workloadModuleInterface');
+module.exports.WorkloadModuleBase = require('./lib/worker/workload/workloadModuleBase');

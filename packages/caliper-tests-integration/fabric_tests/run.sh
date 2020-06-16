@@ -107,7 +107,7 @@ if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
 fi
 
 # PHASE 6: testing through the gateway API (v2 SDK)
-${CALL_METHOD} launch master --caliper-workspace phase5 --caliper-flow-only-test --caliper-fabric-gateway-enabled
+${CALL_METHOD} launch master --caliper-workspace phase6 --caliper-flow-only-test --caliper-fabric-gateway-enabled
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 7";
@@ -116,7 +116,7 @@ if [[ ${rc} != 0 ]]; then
 fi
 
 # PHASE 7: just disposing of the network
-${CALL_METHOD} launch master --caliper-workspace phase6 --caliper-flow-only-end --caliper-fabric-gateway-enabled
+${CALL_METHOD} launch master --caliper-workspace phase7 --caliper-flow-only-end --caliper-fabric-gateway-enabled
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 8";

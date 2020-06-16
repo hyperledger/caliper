@@ -14,34 +14,68 @@
 
 'use strict';
 
+const { WorkloadModuleBase } = require('@hyperledger/caliper-core');
 
+/**
+ * Workload module for initializing the SUT with various marbles.
+ */
+class MarblesInitWorkload extends WorkloadModuleBase {
+    /**
+     * Initializes the parameters of the marbles workload.
+     */
+    constructor() {
+        super();
+        this.txIndex = -1;
+        this.colors = ['red', 'blue', 'green', 'black', 'white', 'pink', 'rainbow'];
+        this.owners = ['Alice', 'Bob', 'Claire', 'David'];
+    }
 
-module.exports.info  = 'Creating marbles.';
+    /**
+     * Initialize the workload module with the given parameters.
+     * @param {number} workerIndex The 0-based index of the worker instantiating the workload module.
+     * @param {number} totalWorkers The total number of workers participating in the round.
+     * @param {number} roundIndex The 0-based index of the currently executing round.
+     * @param {Object} roundArguments The user-provided arguments for the round from the benchmark configuration file.
+     * @param {BlockchainInterface} sutAdapter The adapter of the underlying SUT.
+     * @param {Object} sutContext The custom context object provided by the SUT adapter.
+     * @async
+     */
+    async initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext) {
+        await super.initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext);
 
-let txIndex = 0;
-let colors = ['red', 'blue', 'green', 'black', 'white', 'pink', 'rainbow'];
-let owners = ['Alice', 'Bob', 'Claire', 'David'];
-let bc, contx;
+        if (!this.roundArguments.marblePrefix) {
+            throw new Error(`Argument "marblePrefix" is missing from benchmark configuration`);
+        }
+    }
 
-module.exports.init = async function(blockchain, context, args) {
-    bc = blockchain;
-    contx = context;
-};
+    /**
+     * Assemble TXs for creating new marbles.
+     * @return {Promise<TxStatus[]>}
+     */
+    async submitTransaction() {
+        this.txIndex++;
 
-module.exports.run = async function() {
-    txIndex++;
-    let marbleName = 'marble_' + txIndex.toString() + '_' + process.pid.toString();
-    let marbleColor = colors[txIndex % colors.length];
-    let marbleSize = (((txIndex % 10) + 1) * 10).toString(); // [10, 100]
-    let marbleOwner = owners[txIndex % owners.length];
+        const marbleName = `${this.roundArguments.marblePrefix}_${this.roundIndex}_${this.workerIndex}_${this.txIndex}`;
+        let marbleColor = this.colors[this.txIndex % this.colors.length];
+        let marbleSize = (((this.txIndex % 10) + 1) * 10).toString(); // [10, 100]
+        let marbleOwner = this.owners[this.txIndex % this.owners.length];
 
-    let args = {
-        chaincodeFunction: 'initMarble',
-        chaincodeArguments: [marbleName, marbleColor, marbleSize, marbleOwner],
-    };
+        let args = {
+            chaincodeFunction: 'initMarble',
+            chaincodeArguments: [marbleName, marbleColor, marbleSize, marbleOwner],
+        };
 
-    let targetCC = txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles';
-    return bc.invokeSmartContract(contx, targetCC, 'v0', args, 5);
-};
+        let targetCC = this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles';
+        return this.sutAdapter.invokeSmartContract(this.sutContext, targetCC, 'v0', args, 5);
+    }
+}
 
-module.exports.end = async function() {};
+/**
+ * Create a new instance of the workload module.
+ * @return {WorkloadModuleInterface}
+ */
+function createWorkloadModule() {
+    return new MarblesInitWorkload();
+}
+
+module.exports.createWorkloadModule = createWorkloadModule;

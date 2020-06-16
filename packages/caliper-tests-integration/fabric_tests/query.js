@@ -14,28 +14,46 @@
 
 'use strict';
 
-module.exports.info  = 'Querying marbles.';
+const { WorkloadModuleBase } = require('@hyperledger/caliper-core');
 
-let txIndex = 0;
-let owners = ['Alice', 'Bob', 'Claire', 'David'];
-let bc, contx;
+/**
+ * Workload module for querying the SUT for various marbles.
+ */
+class MarblesQueryWorkload extends WorkloadModuleBase {
+    /**
+     * Initializes the parameters of the marbles workload.
+     */
+    constructor() {
+        super();
+        this.txIndex = -1;
+        this.owners = ['Alice', 'Bob', 'Claire', 'David'];
+    }
 
-module.exports.init = async function(blockchain, context, args) {
-    bc = blockchain;
-    contx = context;
-};
+    /**
+     * Assemble TXs for querying existing marbles based on their owners.
+     * @return {Promise<TxStatus[]>}
+     */
+    async submitTransaction() {
+        this.txIndex++;
+        let marbleOwner = this.owners[this.txIndex % this.owners.length];
 
-module.exports.run = async function() {
-    txIndex++;
-    let marbleOwner = owners[txIndex % owners.length];
-    let args = {
-        chaincodeFunction: 'queryMarblesByOwner',
-        chaincodeArguments: [marbleOwner],
-        targetPeers: ['peer0.org1.example.com']
-    };
+        let args = {
+            chaincodeFunction: 'queryMarblesByOwner',
+            chaincodeArguments: [marbleOwner],
+            targetPeers: ['peer0.org1.example.com']
+        };
 
-    let targetCC = txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles';
-    return bc.querySmartContract(contx, targetCC, '', args, 10);
-};
+        let targetCC = this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles';
+        return this.sutAdapter.querySmartContract(this.sutContext, targetCC, 'v0', args, 10);
+    }
+}
 
-module.exports.end = async function() {};
+/**
+ * Create a new instance of the workload module.
+ * @return {WorkloadModuleInterface}
+ */
+function createWorkloadModule() {
+    return new MarblesQueryWorkload();
+}
+
+module.exports.createWorkloadModule = createWorkloadModule;

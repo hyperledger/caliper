@@ -37,6 +37,7 @@ class CaliperLocalClient {
     constructor(bcClient, clientIndex, messenger) {
         this.blockchain = new bc(bcClient);
         this.clientIndex = clientIndex;
+        this.currentRoundIndex = -1;
         this.messenger = messenger;
         this.context = undefined;
         this.txUpdateTime = Config.get(Config.keys.TxUpdateTime, 5000);
@@ -55,6 +56,12 @@ class CaliperLocalClient {
         this.prometheusClient = new PrometheusClient();
         this.totalTxCount = 0;
         this.totalTxDelay = 0;
+
+        /**
+         * The workload module instance associated with the current round, updated by {CaliperLocalClient.prepareTest}.
+         * @type {WorkloadModuleInterface}
+         */
+        this.workloadModule = undefined;
     }
 
     /**
@@ -235,25 +242,26 @@ class CaliperLocalClient {
 
     /**
      * Perform test with specified number of transactions
-     * @param {Object} cb callback module
      * @param {Object} number number of transactions to submit
      * @param {Object} rateController rate controller object
      * @async
      */
-    async runFixedNumber(cb, number, rateController) {
-        Logger.info('Info: client ' + this.clientIndex +  ' start test runFixedNumber()' + (cb.info ? (':' + cb.info) : ''));
+    async runFixedNumber(number, rateController) {
+        Logger.info(`Worker ${this.clientIndex} is starting TX number-based round ${this.currentRoundIndex + 1} (${number} TXs)`);
         this.startTime = Date.now();
 
         const circularArray = new CircularArray(this.maxTxPromises);
+        const self = this;
         while (this.txNum < number) {
-            // If this function calls cb.run() too quickly, micro task queue will be filled with unexecuted promises,
+            // If this function calls this.workloadModule.submitTransaction() too quickly, micro task queue will be filled with unexecuted promises,
             // and I/O task(s) will get no chance to be execute and fall into starvation, for more detail info please visit:
             // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
             await this.setImmediatePromise(() => {
-                circularArray.add(cb.run().then((result) => {
-                    this.addResult(result);
-                    return Promise.resolve();
-                }));
+                circularArray.add(self.workloadModule.submitTransaction()
+                    .then((result) => {
+                        this.addResult(result);
+                        return Promise.resolve();
+                    }));
             });
             await rateController.applyRateControl(this.startTime, this.txNum, this.results, this.resultStats);
         }
@@ -264,26 +272,27 @@ class CaliperLocalClient {
 
     /**
      * Perform test with specified test duration
-     * @param {Object} cb callback module
      * @param {Object} duration duration to run for
      * @param {Object} rateController rate controller object
      * @async
      */
-    async runDuration(cb, duration, rateController) {
-        Logger.info('Info: client ' + this.clientIndex +  ' start test runDuration()' + (cb.info ? (':' + cb.info) : ''));
+    async runDuration(duration, rateController) {
+        Logger.info(`Worker ${this.clientIndex} is starting duration-based round ${this.currentRoundIndex + 1} (${duration} seconds)`);
         this.startTime = Date.now();
 
         // Use a circular array of Promises so that the Promise.all() call does not exceed the maximum permissable Array size
         const circularArray = new CircularArray(this.maxTxPromises);
+        const self = this;
         while ((Date.now() - this.startTime)/1000 < duration) {
-            // If this function calls cb.run() too quickly, micro task queue will be filled with unexecuted promises,
+            // If this function calls this.workloadModule.submitTransaction() too quickly, micro task queue will be filled with unexecuted promises,
             // and I/O task(s) will get no chance to be execute and fall into starvation, for more detail info please visit:
             // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
             await this.setImmediatePromise(() => {
-                circularArray.add(cb.run().then((result) => {
-                    this.addResult(result);
-                    return Promise.resolve();
-                }));
+                circularArray.add(self.workloadModule.submitTransaction()
+                    .then((result) => {
+                        this.addResult(result);
+                        return Promise.resolve();
+                    }));
             });
             await rateController.applyRateControl(this.startTime, this.txNum, this.results, this.resultStats);
         }
@@ -323,7 +332,10 @@ class CaliperLocalClient {
      */
     async prepareTest(test) {
         Logger.debug('prepareTest() with:', test);
-        let cb = require(CaliperUtils.resolvePath(test.cb));
+        this.currentRoundIndex = test.testRound;
+
+        const workloadModuleFactory = CaliperUtils.loadModuleFunction(new Map(), test.cb, 'createWorkloadModule');
+        this.workloadModule = workloadModuleFactory();
 
         const self = this;
         let initUpdateInter = setInterval( () => { self.initUpdate();  } , self.txUpdateTime);
@@ -344,15 +356,15 @@ class CaliperLocalClient {
             }
 
             // Run init phase of callback
-            Logger.info(`Info: client ${this.clientIndex} prepare test ${(cb.info ? (':' + cb.info + 'phase starting...') : 'phase starting...')}`);
-            await cb.init(this.blockchain, this.context, test.args);
+            Logger.info(`Info: client ${this.clientIndex} prepare test phase for round ${this.currentRoundIndex + 1} is starting...`);
+            await this.workloadModule.initializeWorkloadModule(this.clientIndex, test.totalClients, this.currentRoundIndex, test.args, this.blockchain, this.context);
             await CaliperUtils.sleep(this.txUpdateTime);
         } catch (err) {
-            Logger.info(`Client[${this.clientIndex}] encountered an error during prepare test phase: ${(err.stack ? err.stack : err)}`);
+            Logger.info(`Client[${this.clientIndex}] encountered an error during prepare test phase for round ${this.currentRoundIndex + 1}: ${(err.stack ? err.stack : err)}`);
             throw err;
         } finally {
             clearInterval(initUpdateInter);
-            Logger.info(`Info: client ${this.clientIndex} prepare test ${(cb.info ? (':' + cb.info + 'phase complete') : 'phase complete')}`);
+            Logger.info(`Info: client ${this.clientIndex} prepare test phase for round ${this.currentRoundIndex + 1} is completed`);
         }
     }
 
@@ -374,7 +386,6 @@ class CaliperLocalClient {
      */
     async doTest(test) {
         Logger.debug('doTest() with:', test);
-        let cb = require(CaliperUtils.resolvePath(test.cb));
 
         this.beforeTest(test);
 
@@ -391,15 +402,15 @@ class CaliperLocalClient {
             // Run the test loop
             if (test.txDuration) {
                 const duration = test.txDuration; // duration in seconds
-                await this.runDuration(cb, duration, rateController);
+                await this.runDuration(duration, rateController);
             } else {
                 const number = test.numb;
-                await this.runFixedNumber(cb, number, rateController);
+                await this.runFixedNumber(number, rateController);
             }
 
             // Clean up
             await rateController.end();
-            await cb.end();
+            await this.workloadModule.cleanupWorkloadModule();
             await this.blockchain.releaseContext(this.context);
             this.clearUpdateInter(txUpdateInter);
 

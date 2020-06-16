@@ -12,42 +12,101 @@
 * limitations under the License.
 */
 
-"use strict";
+'use strict';
 
-module.exports.info = "transfering assets";
+const { WorkloadModuleBase, CaliperUtils } = require('@hyperledger/caliper-core');
+const Logger = CaliperUtils.getLogger('simple-workload-query');
 
-let bc, contx;
-let accounts;
-let amount;
+const Dictionary = 'abcdefghijklmnopqrstuvwxyz';
 
-module.exports.init = function(blockchain, context, args) {
-    const open = require("./create.js");
-    if (!args.hasOwnProperty("money")) {
-        args.money = "10.00";
+/**
+ * Workload module for transferring money between accounts.
+ */
+class SimpleTransferWorkload extends WorkloadModuleBase {
+
+    /**
+     * Initializes the parameters of the workload.
+     */
+    constructor() {
+        super();
+        this.accountPrefix = '';
+        this.numberOfAccountsPerWorker = -1;
     }
-    if (!args.hasOwnProperty("txnPerBatch")) {
-        args.txnPerBatch = 1;
+
+    /**
+     * Generate string by picking characters from the dictionary variable.
+     * @param {number} number Character to select.
+     * @returns {string} string Generated string based on the input number.
+     * @private
+     */
+    static _get26Num(number){
+        let result = '';
+
+        while(number > 0) {
+            result += Dictionary.charAt(number % Dictionary.length);
+            number = parseInt(number / Dictionary.length);
+        }
+
+        return result;
     }
-    bc = blockchain;
-    contx = context;
-    amount = args.money;
-    accounts = open.accounts;
 
-    return Promise.resolve();
-};
+    /**
+     * Generate unique account key for the transaction.
+     * @returns {string} The account key.
+     * @private
+     */
+    _generateAccount() {
+        // choose a random TX/account index based on the existing range, and restore the account name from the fragments
+        return this.accountPrefix + SimpleTransferWorkload._get26Num(Math.floor(Math.random() * this.numberOfAccountsPerWorker) + 1);
+    }
 
-module.exports.run = function() {
-    const account = accounts[Math.floor(Math.random() * accounts.length)];
-    let args = {
-        verb: "transfer",
-        account: account,
-        amount: amount
-    };
+    /**
+     * Initialize the workload module with the given parameters.
+     * @param {number} workerIndex The 0-based index of the worker instantiating the workload module.
+     * @param {number} totalWorkers The total number of workers participating in the round.
+     * @param {number} roundIndex The 0-based index of the currently executing round.
+     * @param {Object} roundArguments The user-provided arguments for the round from the benchmark configuration file.
+     * @param {BlockchainInterface} sutAdapter The adapter of the underlying SUT.
+     * @param {Object} sutContext The custom context object provided by the SUT adapter.
+     * @async
+     */
+    async initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext) {
+        await super.initializeWorkloadModule(workerIndex, totalWorkers, roundIndex, roundArguments, sutAdapter, sutContext);
 
-    return bc.invokeSmartContract(contx, "simple", "v0", args, 10);
-};
+        if(!this.roundArguments.money) {
+            throw new Error('simple.transfer - the "money" argument is missing');
+        }
 
-module.exports.end = function() {
-    // do nothing
-    return Promise.resolve();
-};
+        if(!this.roundArguments.numberOfAccounts) {
+            throw new Error('simple.transfer - the "numberOfAccounts" argument is missing');
+        }
+
+        this.accountPrefix = SimpleTransferWorkload._get26Num(workerIndex);
+        this.numberOfAccountsPerWorker = this.roundArguments.numberOfAccounts / this.totalWorkers;
+    }
+
+    /**
+     * Assemble TXs for transferring money.
+     * @return {Promise<TxStatus[]>}
+     */
+    async submitTransaction() {
+        const args = {
+            verb: 'transfer',
+            account: this._generateAccount(),
+            amount: this.roundArguments.money
+        };
+
+        Logger.debug(`Worker ${this.workerIndex} TX parameters: ${JSON.stringify(args)}`);
+        return this.sutAdapter.invokeSmartContract(this.sutContext, 'simple', 'v0', args, 10);
+    }
+}
+
+/**
+ * Create a new instance of the workload module.
+ * @return {WorkloadModuleInterface}
+ */
+function createWorkloadModule() {
+    return new SimpleTransferWorkload();
+}
+
+module.exports.createWorkloadModule = createWorkloadModule;

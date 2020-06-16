@@ -12,28 +12,10 @@
 # limitations under the License.
 #
 
----
-test:
-  name: smallbank
-  description: This is smallbank benchmark for caliper
-  workers:
-    type: local
-    number: 2
-  rounds:
-  - label: smallOperations
-    txNumber: 200
-    rateControl: { type: 'fixed-rate', opts: { tps: 20 } }
-    arguments:
-      accounts: 30
-      txnPerBatch: 10
-    callback: ./smallbankOperations.js
-  - label: query
-    txNumber: 100
-    rateControl: { type: 'fixed-rate', opts: { tps: 50 } }
-    callback: ./query.js
-    arguments:
-        accounts: 30
-observer:
-  interval: 1
-  type: local
+name: Fabric
+version: "1.0"
 
+caliper:
+    blockchain: fabric
+    command:
+        end: docker-compose -p caliper down;(test -z \"$(docker ps -aq)\") || docker rm $(docker ps -aq);(test -z \"$(docker images dev* -q)\") || docker rmi $(docker images dev* -q);rm -rf /tmp/hfc-*
