@@ -155,10 +155,17 @@ describe('fixedBacklog controller implementation', () => {
             let idx = 50;
             let currentResults = [];
             let item = {
-                succ: 5,
-                length: 5,
+                succ: 9,
+                fail: 1,
+                length: 10,
                 delay: {
                     sum: 5
+                },
+                create: {
+                    min: 1
+                },
+                final: {
+                    last: 21
                 }
             };
             const resultStats = [];
@@ -168,13 +175,13 @@ describe('fixedBacklog controller implementation', () => {
             controller.applyRateControl(null, idx, currentResults, resultStats);
 
             const completeTransactions = resultStats[0].length - currentResults.length;
-            const unfinshed = idx - completeTransactions;
+            const unfinished = idx - completeTransactions;
 
-            const error = unfinshed - 30;
-            const avDelay = ((resultStats[0].delay.sum)/completeTransactions)*1000;
+            const backlogDifference = unfinished - 30;
+            const determinedTPS = 0.5;
 
             sinon.assert.calledOnce(sleepStub);
-            sinon.assert.calledWith(sleepStub, error*avDelay);
+            sinon.assert.calledWith(sleepStub, backlogDifference*(1000/determinedTPS));
         });
 
         it('should log the backlog error as a debug message', () => {

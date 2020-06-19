@@ -76,7 +76,7 @@ class FixedBacklog extends RateInterface {
     async applyRateControl(start, idx, currentResults, resultStats) {
 
         // Waiting until successful transactions occur.
-        if(resultStats.length < 2 || !resultStats[0].succ || !resultStats[0].delay)  {
+        if (resultStats.length < 2 || !resultStats[0].succ || !resultStats[0].delay)  {
             await Sleep(this.sleepTime);
             return;
         }
@@ -85,20 +85,32 @@ class FixedBacklog extends RateInterface {
         const completeTransactions = resultStats[0].length + currentResults.length; // work from all processed results: resultStats[0]=all processed result stats
         let unfinished = idx - completeTransactions;
 
-        // Shortcut if we are below the target threshold
-        if(unfinished < this.unfinished_per_client) {
+        const targetBacklogError = unfinished - this.unfinished_per_client;
+
+        // Shortcut if we are below the target threshold and need to increase the loading
+        if (targetBacklogError < 0) {
+            Logger.debug('Difference between current and desired transaction backlog: ' + targetBacklogError);
             return;
         }
 
-        // Determines the sleep time according to the current number of
-        // unfinished transactions with that in the config file
-        const delay = resultStats[0].delay;
-        const avDelay = ((delay.sum)/completeTransactions)*1000;
-        const error = unfinished - this.unfinished_per_client;
+        // Determine the current TPS
+        // - use most recent statistics (resultStats[0] is average over complete round, resultStats[1] is the last txUpdate interval)
+        const resultStatistics = resultStats[1];
+        let tps = 0;
+        if (resultStatistics.hasOwnProperty('final') && resultStatistics.final.hasOwnProperty('last') && resultStatistics.hasOwnProperty('create') && resultStatistics.create.hasOwnProperty('min')) {
+            tps = (resultStatistics.succ + resultStatistics.fail ) / (resultStatistics.final.last - resultStatistics.create.min);
+        }
 
-        // Sleep for a count of the load error and the current average delay
-        Logger.debug('Difference between current and desired transaction backlog: ' + error);
-        await Sleep(error * avDelay);
+        // Determine the required sleep to reduce the backlog ( deltaTXN * 1/TPS = sleep in seconds to build the desired txn load)
+        let sleepTime = 0;
+        if (tps !== 0) {
+            sleepTime = targetBacklogError * 1000 / tps;
+        } else {
+            sleepTime = targetBacklogError * this.sleepTime;
+        }
+
+        Logger.debug('Difference between current and desired transaction backlog: ' + targetBacklogError);
+        await Sleep(sleepTime);
     }
 
     /**
