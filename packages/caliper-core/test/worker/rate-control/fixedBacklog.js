@@ -79,7 +79,7 @@ describe('fixedBacklog controller implementation', () => {
 
     });
 
-    describe('#applyRateControl', async () => {
+    describe('#applyRateControl', () => {
 
         let sleepStub;
         let opts = {
@@ -96,25 +96,25 @@ describe('fixedBacklog controller implementation', () => {
             controller.unfinished_per_client = 30;
         });
 
-        it('should sleep if resultStats.length < 2', () => {
-            controller.applyRateControl(null, 1, [], []);
+        it('should sleep if resultStats.length < 2', async () => {
+            await controller.applyRateControl(null, 1, [], []);
             sinon.assert.calledOnce(sleepStub);
             sinon.assert.calledWith(sleepStub, 1000);
         });
 
-        it ('should sleep if no successful results are available', () => {
-            controller.applyRateControl(null, 1, [], [{}]);
+        it ('should sleep if no successful results are available', async () => {
+            await controller.applyRateControl(null, 1, [], [{}]);
             sinon.assert.calledOnce(sleepStub);
             sinon.assert.calledWith(sleepStub, 1000);
         });
 
-        it ('should sleep if no delay results are available', () => {
-            controller.applyRateControl(null, 1, [], [{}]);
+        it ('should sleep if no delay results are available', async () => {
+            await controller.applyRateControl(null, 1, [], [{}]);
             sinon.assert.calledOnce(sleepStub);
             sinon.assert.calledWith(sleepStub, 1000);
         });
 
-        it ('should not sleep if backlog transaction is below target', () => {
+        it ('should not sleep if backlog transaction is below target', async () => {
             let idx = 50;
             let currentResults = [];
             let item = {
@@ -128,11 +128,11 @@ describe('fixedBacklog controller implementation', () => {
             resultStats.push(item);
             resultStats.push(item);
 
-            controller.applyRateControl(null, idx, currentResults, resultStats);
+            await controller.applyRateControl(null, idx, currentResults, resultStats);
             sinon.assert.notCalled(sleepStub);
         });
 
-        it ('should sleep if backlog transaction is at or above target', () => {
+        it ('should sleep if backlog transaction is at or above target', async () => {
             let idx = 50;
             let currentResults = [];
             let item = {
@@ -146,12 +146,12 @@ describe('fixedBacklog controller implementation', () => {
             resultStats.push(item);
             resultStats.push(item);
 
-            controller.applyRateControl(null, idx, currentResults, resultStats);
+            await controller.applyRateControl(null, idx, currentResults, resultStats);
 
             sinon.assert.calledOnce(sleepStub);
         });
 
-        it ('should sleep for a count of the load error and the current average delay', () => {
+        it ('should sleep for a count of the load error and the current average delay', async () => {
             let idx = 50;
             let currentResults = [];
             let item = {
@@ -172,7 +172,7 @@ describe('fixedBacklog controller implementation', () => {
             resultStats.push(item);
             resultStats.push(item);
 
-            controller.applyRateControl(null, idx, currentResults, resultStats);
+            await controller.applyRateControl(null, idx, currentResults, resultStats);
 
             const completeTransactions = resultStats[0].length - currentResults.length;
             const unfinished = idx - completeTransactions;
@@ -184,7 +184,7 @@ describe('fixedBacklog controller implementation', () => {
             sinon.assert.calledWith(sleepStub, backlogDifference*(1000/determinedTPS));
         });
 
-        it('should log the backlog error as a debug message', () => {
+        it('should log the backlog error as a debug message', async () => {
 
             const FakeLogger = {
                 debug : () => {},
@@ -207,7 +207,7 @@ describe('fixedBacklog controller implementation', () => {
             resultStats.push(item);
             resultStats.push(item);
 
-            controller.applyRateControl(null, idx, currentResults, resultStats);
+            await controller.applyRateControl(null, idx, currentResults, resultStats);
 
             const completeTransactions = resultStats[0].length - currentResults.length;
             const unfinshed = idx - completeTransactions;
