@@ -135,7 +135,7 @@ class CaliperUtils {
         // get correct module path
         if (builtInModules.has(moduleName)) {
             modulePath = builtInModules.get(moduleName);
-        } else if (moduleName.startsWith('./') || moduleName.startsWith('/')) {
+        } else if (moduleName.startsWith('./') || moduleName.startsWith('/') || moduleName.endsWith('.js')) {
             // treat it as an external module, but resolve the path, so it's absolute
             modulePath = CaliperUtils.resolvePath(moduleName);
         } else {
