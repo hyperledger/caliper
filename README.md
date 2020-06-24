@@ -32,8 +32,8 @@ See the [PSWG white paper](https://www.hyperledger.org/resources/publications/bl
 
 For more information on using Caliper, please consult the [documentation site](https://hyperledger.github.io/caliper/)
 
-## Install and usage
-See the [related documentation page](https://hyperledger.github.io/caliper/vLatest/installing-caliper/).
+## Configuration and usage
+See the [related documentation page](https://hyperledger.github.io/caliper/).
 
 ## How to contact us
 
