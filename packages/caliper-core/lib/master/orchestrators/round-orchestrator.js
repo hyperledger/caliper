@@ -94,23 +94,30 @@ class RoundOrchestrator {
                 throw new Error('"rateControl" attribute must not be an array');
             }
 
-            if (!round.callback) {
-                throw new Error('Missing "callback" attribute');
+            if (!round.workload) {
+                throw new Error('Missing "workload" attribute');
             }
 
-            if (typeof round.callback !== 'string') {
-                throw new Error('"callback" attribute must be a string');
+            if (typeof round.workload !== 'object') {
+                throw new Error('"workload" attribute must be an object');
+            }
+
+            if (!round.workload.module) {
+                throw new Error('Missing "workload.module" attribute');
+            }
+
+            if (typeof round.workload.module !== 'string') {
+                throw new Error('"workload.module" attribute must be a string');
+            }
+
+            // noinspection JSAnnotator
+            if (round.workload.arguments && typeof round.workload.arguments !== 'object') {
+                throw new Error('"workload.arguments" attribute must be an object');
             }
 
             if (round.trim && typeof round.trim !== 'number') {
                 throw new Error('"trim" attribute must be a number');
             }
-
-            // noinspection JSAnnotator
-            if (round.arguments && typeof round.arguments !== 'object') {
-                throw new Error('"arguments" attribute must be an object');
-            }
-
         } catch (err) {
             let msg = `Round ${index + 1} configuration validation error: ${err.message}`;
             logger.error(msg);
@@ -144,8 +151,7 @@ class RoundOrchestrator {
                 label: round.label,
                 rateControl: round.rateControl,
                 trim: round.trim || 0,
-                args: round.arguments,
-                cb: round.callback,
+                workload: round.workload,
                 testRound: index,
                 pushUrl: this.monitorOrchestrator.hasMonitor('prometheus') ? this.monitorOrchestrator.getMonitor('prometheus').getPushGatewayURL() : null
             };

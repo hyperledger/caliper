@@ -21,19 +21,22 @@ test:
     - label: init1
       txNumber: 100
       rateControl: { type: 'fixed-rate', opts: { tps: 20 } }
-      callback: ./../init.js
-      arguments:
-          marblePrefix: marbles_phase_5
+      workload:
+          module: ./../init.js
+          arguments:
+              marblePrefix: marbles_phase_5
     - label: init2
       txNumber: 200
       rateControl: { type: 'fixed-feedback-rate', opts: { tps: 20, unfinished_per_client: 5 } }
-      callback: ./../init.js
-      arguments:
-          marblePrefix: marbles_phase_5
+      workload:
+          module: ./../init.js
+          arguments:
+              marblePrefix: marbles_phase_5
     - label: query
       txNumber: 100
       rateControl: { type: 'linear-rate', opts: { startingTps: 10, finishingTps: 20 } }
-      callback: ./../query.js
+      workload:
+        module: ./../query.js
 observer:
     interval: 1
     type: local

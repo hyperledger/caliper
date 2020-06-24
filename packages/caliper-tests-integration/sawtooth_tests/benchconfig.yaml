@@ -23,16 +23,18 @@ test:
   - label: smallOperations
     txNumber: 200
     rateControl: { type: 'fixed-rate', opts: { tps: 20 } }
-    arguments:
-      accounts: 30
-      txnPerBatch: 10
-    callback: ./smallbankOperations.js
+    workload:
+        module: ./smallbankOperations.js
+        arguments:
+            accounts: 30
+            txnPerBatch: 10
   - label: query
     txNumber: 100
     rateControl: { type: 'fixed-rate', opts: { tps: 50 } }
-    callback: ./query.js
-    arguments:
-        accounts: 30
+    workload:
+        module: ./query.js
+        arguments:
+            accounts: 30
 observer:
   interval: 1
   type: local

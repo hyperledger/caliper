@@ -322,8 +322,7 @@ class CaliperWorker {
      *              numb:   total number of simulated txs,
      *              rateControl: rate controller to use
      *              trim:   trim options
-     *              args:   user defined arguments,
-     *              cb  :   path of the callback js file,
+     *              workload:  the workload object from the config,
      *              config: path of the blockchain config file
      *              totalClients = total number of clients,
      *              pushUrl = the url for the push gateway
@@ -334,7 +333,7 @@ class CaliperWorker {
         Logger.debug('prepareTest() with:', test);
         this.currentRoundIndex = test.testRound;
 
-        const workloadModuleFactory = CaliperUtils.loadModuleFunction(new Map(), test.cb, 'createWorkloadModule');
+        const workloadModuleFactory = CaliperUtils.loadModuleFunction(new Map(), test.workload.module, 'createWorkloadModule');
         this.workloadModule = workloadModuleFactory();
 
         const self = this;
@@ -357,7 +356,7 @@ class CaliperWorker {
 
             // Run init phase of callback
             Logger.info(`Info: worker ${this.workerIndex} prepare test phase for round ${this.currentRoundIndex + 1} is starting...`);
-            await this.workloadModule.initializeWorkloadModule(this.workerIndex, test.totalClients, this.currentRoundIndex, test.args, this.blockchain, this.context);
+            await this.workloadModule.initializeWorkloadModule(this.workerIndex, test.totalClients, this.currentRoundIndex, test.workload.arguments, this.blockchain, this.context);
             await CaliperUtils.sleep(this.txUpdateTime);
         } catch (err) {
             Logger.info(`Worker [${this.workerIndex}] encountered an error during prepare test phase for round ${this.currentRoundIndex + 1}: ${(err.stack ? err.stack : err)}`);
@@ -376,8 +375,7 @@ class CaliperWorker {
      *              numb:   total number of simulated txs,
      *              rateControl: rate controller to use
      *              trim:   trim options
-     *              args:   user defined arguments,
-     *              cb  :   path of the callback js file,
+     *              workload:  the workload object from the config,
      *              config: path of the blockchain config file
      *              totalClients = total number of clients,
      *              pushUrl = the url for the push gateway

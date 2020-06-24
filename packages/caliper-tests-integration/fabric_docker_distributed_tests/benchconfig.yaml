@@ -21,11 +21,13 @@ test:
     - label: init
       txNumber: 1000
       rateControl: { type: 'fixed-rate', opts: { tps: 20 } }
-      callback: ./init.js
+      workload:
+        module: ./init.js
     - label: query
       txNumber: 100
       rateControl: { type: 'linear-rate', opts: { startingTps: 5, finishingTps: 10 } }
-      callback: ./query.js
+      workload:
+        module: ./query.js
 observer:
     interval: 5
     type: local
