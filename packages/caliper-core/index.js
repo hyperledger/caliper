@@ -15,12 +15,12 @@
 'use strict';
 
 module.exports.BlockchainInterface = require('./lib/common/core/blockchain-interface');
-module.exports.CaliperLocalClient = require('./lib/worker/client/caliper-local-client');
+module.exports.CaliperWorker = require('./lib/worker/caliper-worker');
 module.exports.TxStatus = require('./lib/common/core/transaction-status');
 module.exports.CaliperUtils = require('./lib/common/utils/caliper-utils');
 module.exports.Version = require('./lib/common/utils/version');
 module.exports.ConfigUtil = require('./lib/common/config/config-util');
-module.exports.MessageHandler = require('./lib/worker/client/message-handler');
+module.exports.MessageHandler = require('./lib/worker/message-handler');
 module.exports.Messenger = require('./lib/common/messaging/messenger');
 module.exports.CaliperEngine = require('./lib/master/caliper-engine');
 module.exports.MonitorOrchestrator = require('./lib/master/orchestrators/monitor-orchestrator');

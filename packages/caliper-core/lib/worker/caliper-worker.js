@@ -14,29 +14,29 @@
 
 'use strict';
 
-const Config = require('../../common/config/config-util.js');
-const CaliperUtils = require('../../common/utils/caliper-utils.js');
-const CircularArray = require('../../common/utils/circular-array');
-const bc   = require('../../common/core/blockchain.js');
-const RateControl = require('../rate-control/rateControl.js');
-const PrometheusClient = require('../../common/prometheus/prometheus-push-client');
+const Config = require('../common/config/config-util.js');
+const CaliperUtils = require('../common/utils/caliper-utils.js');
+const CircularArray = require('../common/utils/circular-array');
+const bc   = require('../common/core/blockchain.js');
+const RateControl = require('./rate-control/rateControl.js');
+const PrometheusClient = require('../common/prometheus/prometheus-push-client');
 
-const Logger = CaliperUtils.getLogger('caliper-local-client');
+const Logger = CaliperUtils.getLogger('caliper-worker');
 
 /**
- * Class for Client Interaction
+ * Class for Worker Interaction
  */
-class CaliperLocalClient {
+class CaliperWorker {
 
     /**
-     * Create the test client
-     * @param {Object} bcClient blockchain client
-     * @param {number} clientIndex the client index
+     * Create the test worker
+     * @param {Object} connector blockchain worker connector
+     * @param {number} workerIndex the worker index
      * @param {Messenger} messenger a configured Messenger instance used to communicate with the orchestrator
      */
-    constructor(bcClient, clientIndex, messenger) {
-        this.blockchain = new bc(bcClient);
-        this.clientIndex = clientIndex;
+    constructor(connector, workerIndex, messenger) {
+        this.blockchain = new bc(connector);
+        this.workerIndex = workerIndex;
         this.currentRoundIndex = -1;
         this.messenger = messenger;
         this.context = undefined;
@@ -58,7 +58,7 @@ class CaliperLocalClient {
         this.totalTxDelay = 0;
 
         /**
-         * The workload module instance associated with the current round, updated by {CaliperLocalClient.prepareTest}.
+         * The workload module instance associated with the current round, updated by {CaliperWorker.prepareTest}.
          * @type {WorkloadModuleInterface}
          */
         this.workloadModule = undefined;
@@ -112,7 +112,7 @@ class CaliperLocalClient {
             this.prometheusClient.push('caliper_txn_failure', this.totalTxnFailure);
             this.prometheusClient.push('caliper_txn_pending', (this.txNum - (this.totalTxnSuccess + this.totalTxnFailure)));
         } else {
-            // client-orchestrator based update
+            // worker-orchestrator based update
             // send(to, type, data)
             this.messenger.send(['orchestrator'],'txUpdate', {submitted: newNum, committed: newStats});
         }
@@ -213,8 +213,8 @@ class CaliperLocalClient {
             if (!this.prometheusClient.gatewaySet()){
                 this.prometheusClient.setGateway(msg.pushUrl);
             }
-            // - set target for this round test/round/client
-            this.prometheusClient.configureTarget(msg.label, msg.testRound, this.clientIndex);
+            // - set target for this round test/round/worker
+            this.prometheusClient.configureTarget(msg.label, msg.testRound, this.workerIndex);
         }
     }
 
@@ -247,7 +247,7 @@ class CaliperLocalClient {
      * @async
      */
     async runFixedNumber(number, rateController) {
-        Logger.info(`Worker ${this.clientIndex} is starting TX number-based round ${this.currentRoundIndex + 1} (${number} TXs)`);
+        Logger.info(`Worker ${this.workerIndex} is starting TX number-based round ${this.currentRoundIndex + 1} (${number} TXs)`);
         this.startTime = Date.now();
 
         const circularArray = new CircularArray(this.maxTxPromises);
@@ -277,7 +277,7 @@ class CaliperLocalClient {
      * @async
      */
     async runDuration(duration, rateController) {
-        Logger.info(`Worker ${this.clientIndex} is starting duration-based round ${this.currentRoundIndex + 1} (${duration} seconds)`);
+        Logger.info(`Worker ${this.workerIndex} is starting duration-based round ${this.currentRoundIndex + 1} (${duration} seconds)`);
         this.startTime = Date.now();
 
         // Use a circular array of Promises so that the Promise.all() call does not exceed the maximum permissable Array size
@@ -356,15 +356,15 @@ class CaliperLocalClient {
             }
 
             // Run init phase of callback
-            Logger.info(`Info: client ${this.clientIndex} prepare test phase for round ${this.currentRoundIndex + 1} is starting...`);
-            await this.workloadModule.initializeWorkloadModule(this.clientIndex, test.totalClients, this.currentRoundIndex, test.args, this.blockchain, this.context);
+            Logger.info(`Info: worker ${this.workerIndex} prepare test phase for round ${this.currentRoundIndex + 1} is starting...`);
+            await this.workloadModule.initializeWorkloadModule(this.workerIndex, test.totalClients, this.currentRoundIndex, test.args, this.blockchain, this.context);
             await CaliperUtils.sleep(this.txUpdateTime);
         } catch (err) {
-            Logger.info(`Client[${this.clientIndex}] encountered an error during prepare test phase for round ${this.currentRoundIndex + 1}: ${(err.stack ? err.stack : err)}`);
+            Logger.info(`Worker [${this.workerIndex}] encountered an error during prepare test phase for round ${this.currentRoundIndex + 1}: ${(err.stack ? err.stack : err)}`);
             throw err;
         } finally {
             clearInterval(initUpdateInter);
-            Logger.info(`Info: client ${this.clientIndex} prepare test phase for round ${this.currentRoundIndex + 1} is completed`);
+            Logger.info(`Info: worker ${this.workerIndex} prepare test phase for round ${this.currentRoundIndex + 1} is completed`);
         }
     }
 
@@ -396,7 +396,7 @@ class CaliperLocalClient {
         try {
 
             // Configure
-            let rateController = new RateControl(test.rateControl, this.clientIndex, test.testRound);
+            let rateController = new RateControl(test.rateControl, this.workerIndex, test.testRound);
             await rateController.init(test);
 
             // Run the test loop
@@ -430,7 +430,7 @@ class CaliperLocalClient {
             }
         } catch (err) {
             this.clearUpdateInter();
-            Logger.info(`Client[${this.clientIndex}] encountered an error: ${(err.stack ? err.stack : err)}`);
+            Logger.info(`Worker [${this.workerIndex}] encountered an error: ${(err.stack ? err.stack : err)}`);
             throw err;
         } finally {
             this.txReset();
@@ -438,4 +438,4 @@ class CaliperLocalClient {
     }
 }
 
-module.exports = CaliperLocalClient;
+module.exports = CaliperWorker;
