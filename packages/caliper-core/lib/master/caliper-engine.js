@@ -14,7 +14,6 @@
 
 'use strict';
 
-const Blockchain = require('../common/core/blockchain');
 const CaliperUtils = require('../common/utils/caliper-utils');
 const ConfigUtils = require('../common/config/config-util');
 const RoundOrchestrator = require('./orchestrators/round-orchestrator');
@@ -91,8 +90,7 @@ class CaliperEngine {
         BenchValidator.validateObject(this.benchmarkConfig);
 
         logger.info('Starting benchmark flow');
-        let adapter = await this.adapterFactory(-1);
-        const blockchainWrapper = new Blockchain(adapter);
+        let connector = await this.adapterFactory(-1);
 
         try {
 
@@ -109,7 +107,7 @@ class CaliperEngine {
             } else {
                 let initStartTime = Date.now();
                 try {
-                    await blockchainWrapper.init();
+                    await connector.init();
                 } catch (err) {
                     let msg = `Error while performing "init" step: ${err}`;
                     logger.error(msg);
@@ -127,7 +125,7 @@ class CaliperEngine {
             } else {
                 let installStartTime = Date.now();
                 try {
-                    await blockchainWrapper.installSmartContract();
+                    await connector.installSmartContract();
                 } catch (err) {
                     let msg = `Error while performing "install" step: ${err}`;
                     logger.error(msg);
@@ -145,7 +143,7 @@ class CaliperEngine {
             } else {
                 let numberSet = this.benchmarkConfig.test && this.benchmarkConfig.test.workers && this.benchmarkConfig.test.workers.number;
                 let numberOfWorkers = numberSet ? this.benchmarkConfig.test.workers.number : 1;
-                let workerArguments = await blockchainWrapper.prepareWorkerArguments(numberOfWorkers);
+                let workerArguments = await connector.prepareWorkerArguments(numberOfWorkers);
 
                 const roundOrchestrator = new RoundOrchestrator(this.benchmarkConfig, this.networkConfig, workerArguments);
                 await roundOrchestrator.run();

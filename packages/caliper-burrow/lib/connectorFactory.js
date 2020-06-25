@@ -14,16 +14,16 @@
 
 'use strict';
 
-const FiscoBcosAdapter = require('./fiscoBcos');
+const BurrowConnector = require('./burrow-connector');
 
 /**
- * Constructs a FISCO-BCOS adapter.
+ * Constructs a Burrow adapter.
  * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process.
- * @return {Promise<BlockchainInterface>} The initialized adapter instance.
+ * @return {Promise<BlockchainConnector>} The initialized adapter instance.
  * @async
  */
-async function adapterFactory(workerIndex) {
-    return new FiscoBcosAdapter(workerIndex);
+async function connectorFactory(workerIndex) {
+    return new BurrowConnector(workerIndex, 'burrow');
 }
 
-module.exports.adapterFactory = adapterFactory;
+module.exports.connectorFactory = connectorFactory;

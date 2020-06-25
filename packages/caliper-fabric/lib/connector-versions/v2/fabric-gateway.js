@@ -15,12 +15,12 @@
 'use strict';
 
 const { DefaultEventHandlerStrategies, DefaultQueryHandlerStrategies, Gateway, Wallets } = require('fabric-network');
-const { BlockchainInterface, CaliperUtils, TxStatus, Version, ConfigUtil } = require('@hyperledger/caliper-core');
+const { BlockchainConnector, CaliperUtils, TxStatus, Version, ConfigUtil } = require('@hyperledger/caliper-core');
 
 const FabricNetwork = require('../../fabricNetwork.js');
 const RegistrarHelper = require('./registrarHelper');
 
-const logger = CaliperUtils.getLogger('adapters/fabric');
+const logger = CaliperUtils.getLogger('connectors/v2/fabric-gateway');
 
 const EventStrategies = {
     msp_all : DefaultEventHandlerStrategies.MSPID_SCOPE_ALLFORTX,
@@ -90,10 +90,10 @@ const QueryStrategies = {
 /////////////////////////////
 
 /**
- * Implements {BlockchainInterface} for a Fabric backend, utilizing the SDK's Common Connection Profile.
+ * Extends {BlockchainConnector} for a Fabric backend, utilizing the SDK's Common Connection Profile.
  *
  * @property {Version} version Contains the version information about the used Fabric SDK.
- * @property {number} clientIndex The index of the client process using the adapter that is set in the constructor
+ * @property {number} workerIndex The index of the client process using the adapter that is set in the constructor
  * @property {number} txIndex A counter for keeping track of the index of the currently submitted transaction.
  * @property {FabricNetwork} networkUtil Utility object containing easy-to-query information about the topology
  *           and settings of the network.
@@ -111,23 +111,22 @@ const QueryStrategies = {
  * @property {Map} userGateways A map of identities to the gateway they are connected
  * @property {Map} peerCache A cache of peer objects
  */
-class Fabric extends BlockchainInterface {
+class Fabric extends BlockchainConnector {
     /**
      * Initializes the Fabric adapter.
      * @param {object} networkObject The parsed network configuration.
      * @param {string} workspace_root The absolute path to the root location for the application configuration files.
-     * @param {number} clientIndex the client index
+     * @param {number} workerIndex the worker index
+     * @param {string} bcType The target SUT type
      */
-    constructor(networkObject, workspace_root, clientIndex) {
-        super(networkObject);
-        this.bcType = 'fabric';
+    constructor(networkObject, workspace_root, workerIndex, bcType) {
+        super(workerIndex, bcType);
         this.workspaceRoot = workspace_root;
         this.version = new Version(require('fabric-network/package').version);
 
         // clone the object to prevent modification by other objects
         this.network = CaliperUtils.parseYamlString(CaliperUtils.stringifyYaml(networkObject));
 
-        this.clientIndex = clientIndex;
         this.txIndex = -1;
         this.networkUtil = new FabricNetwork(this.network, workspace_root);
         this.defaultInvoker = Array.from(this.networkUtil.getClients())[0];
@@ -559,7 +558,7 @@ class Fabric extends BlockchainInterface {
         // We are done - return the networkUtil object
         return {
             networkInfo: this.networkUtil,
-            clientIdx: this.clientIndex
+            clientIdx: this.workerIndex
         };
     }
 

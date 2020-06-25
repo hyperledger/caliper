@@ -68,8 +68,8 @@ class LaunchWorker {
             throw new Error(msg);
         }
 
-        let adapterFactory = CaliperUtils.loadModuleFunction(CaliperUtils.getBuiltinAdapterPackageNames(),
-            sutType, 'AdapterFactory', require);
+        let connectorFactory = CaliperUtils.loadModuleFunction(CaliperUtils.getBuiltinConnectorPackageNames(),
+            sutType, 'ConnectorFactory', require);
 
         // Create the message client using the specified type
         const type = `${messagingMethod}-worker`;
@@ -78,7 +78,7 @@ class LaunchWorker {
 
         // Create a handler context for this worker
         const handlerContext = new MessageHandler({
-            init: adapterFactory
+            init: connectorFactory
         }, messenger);
 
         // Pass to the messenger to configure

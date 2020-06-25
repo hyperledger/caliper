@@ -14,16 +14,16 @@
 
 'use strict';
 
-const EthereumAdapter = require('./ethereum');
+const IrohaConnector = require('./iroha-connector');
 
 /**
- * Constructs an Ethereum adapter.
+ * Constructs an Iroha adapter.
  * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process.
- * @return {Promise<BlockchainInterface>} The initialized adapter instance.
+ * @return {Promise<BlockchainConnector>} The initialized adapter instance.
  * @async
  */
-async function adapterFactory(workerIndex) {
-    return new EthereumAdapter(workerIndex);
+async function connectorFactory(workerIndex) {
+    return new IrohaConnector(workerIndex, 'iroha');
 }
 
-module.exports.adapterFactory = adapterFactory;
+module.exports.connectorFactory = connectorFactory;

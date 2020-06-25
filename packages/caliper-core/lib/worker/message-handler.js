@@ -61,7 +61,7 @@ class MessageHandler {
         this.workspacePath = ConfigUtil.get(ConfigUtil.keys.Workspace);
         this.networkConfigPath = ConfigUtil.get(ConfigUtil.keys.NetworkConfig);
         this.networkConfigPath = CaliperUtils.resolvePath(this.networkConfigPath);
-        this.adapter = undefined;      // The adaptor to use when creating a CaliperWorker
+        this.connector = undefined;      // The connector to pass to the CaliperWorker
         this.worker = undefined; // An instantiated CaliperWorker
         this.workerId = undefined;     // The Caliper client index (zero based)
         this.testResult = undefined;   // The result of running a test
@@ -91,7 +91,7 @@ class MessageHandler {
             context.messenger.send(['orchestrator'], type, {error: error.toString()});
             logger.error(`Handled unsuccessful "init" message for worker ${context.workerId}, with error: ${error.stack}`);
         } else {
-            context.worker = new CaliperWorker(context.adapter, context.workerId, context.messenger);
+            context.worker = new CaliperWorker(context.connector, context.workerId, context.messenger);
             context.messenger.send(['orchestrator'], type, {});
             logger.info(`Handled successful "init" message for worker ${context.workerId}`);
         }
@@ -204,7 +204,7 @@ class MessageHandler {
             case 'initialize': {
                 try {
                     await context.beforeInitHandler(context, message);
-                    context.adapter = await context.initHandler(context.workerId);
+                    context.connector = await context.initHandler(context.workerId);
                     await context.afterInitHandler(context, message, undefined);
                 } catch (error) {
                     await context.afterInitHandler(context, message, error);

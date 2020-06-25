@@ -16,8 +16,8 @@
 
 const fs = require('fs');
 const burrowTS = require('@hyperledger/burrow');
-const { BlockchainInterface, CaliperUtils, ConfigUtil, TxStatus } = require('@hyperledger/caliper-core');
-const logger = CaliperUtils.getLogger('burrow.js');
+const { BlockchainConnector, CaliperUtils, ConfigUtil, TxStatus } = require('@hyperledger/caliper-core');
+const logger = CaliperUtils.getLogger('burrow-connector');
 
 /**
     Read the connection details from the config file.
@@ -53,28 +53,20 @@ function burrowConnect(config) {
 }
 
 /**
- * Implements {BlockchainInterface} for a Burrow backend.
+ * Extends {BlockchainConnector} for a Burrow backend.
  */
-class Burrow extends BlockchainInterface {
+class BurrowConnector extends BlockchainConnector {
 
     /**
    * Create a new instance of the {Burrow} class.
    * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process. Currently unused.
+   * @param {string} bcType The target SUT type
    */
-    constructor(workerIndex) {
-        super();
+    constructor(workerIndex, bcType) {
+        super(workerIndex, bcType);
         let configPath = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
         this.config = require(configPath);
         this.statusInterval = null;
-        this.bcType = 'burrow';
-    }
-
-    /**
-     * Retrieve the blockchain type the implementation relates to
-     * @returns {string} the blockchain type
-     */
-    getType() {
-        return this.bcType;
     }
 
     /**
@@ -183,16 +175,22 @@ class Burrow extends BlockchainInterface {
    * @param {Object} context Context object.
    * @param {String} contractID Identity of the contract.
    * @param {String} contractVer Version of the contract.
-   * @param {Array} args eg {'verb':'invoke','funName': 'getInt','funArgs': []}
+   * @param {Object | Array<Object>} invokeData eg {'verb':'invoke','funName': 'getInt','funArgs': []}
    * @param {Number} timeout Request timeout, in seconds.
    * @return {Promise<object>} The promise for the result of the execution.
    */
-    async invokeSmartContract(context, contractID, contractVer, args, timeout) {
+    async invokeSmartContract(context, contractID, contractVer, invokeData, timeout) {
         let promises = [];
-        args.forEach((item, index) => {
-            if(item.verb==='transfer'){
+        let invocations;
+        if (!Array.isArray(invokeData)) {
+            invocations = [invokeData];
+        } else {
+            invocations = invokeData;
+        }
+        invocations.forEach((item, index) => {
+            if (item.verb==='transfer') {
                 promises.push(this.acccountTransfer(context, item, timeout));
-            }else if(item.verb==='invoke'){
+            } else if(item.verb==='invoke'){
                 if (!item.hasOwnProperty('funName')) {
                     return Promise.reject(new Error(' missed argument:funName '));
                 }
@@ -309,13 +307,5 @@ class Burrow extends BlockchainInterface {
         });
     }
 
-    /**
-   * Get adapter specific transaction statistics.
-   * @param {JSON} stats txStatistics object
-   * @param {Array} results array of txStatus objects.
-   */
-    getDefaultTxStats(stats, results) {
-        // empty
-    }
 }
-module.exports = Burrow;
+module.exports = BurrowConnector;

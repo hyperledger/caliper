@@ -17,8 +17,8 @@
 
 const path = require('path');
 
-const { BlockchainInterface, CaliperUtils, ConfigUtil, TxStatus }= require('@hyperledger/caliper-core');
-const logger = CaliperUtils.getLogger('sawtooth.js');
+const { BlockchainConnector, CaliperUtils, ConfigUtil, TxStatus }= require('@hyperledger/caliper-core');
+const logger = CaliperUtils.getLogger('sawtooth-connector');
 
 const BatchBuilderFactory = require('./batch/BatchBuilderFactory.js');
 const SawtoothHelper = require('./helpers/sawtooth-helper');
@@ -40,16 +40,16 @@ const _ = require('lodash');
 /**
  * Sawtooth class, which implements the caliper's NBI for hyperledger sawtooth lake
  */
-class Sawtooth extends BlockchainInterface {
+class SawtoothConnector extends BlockchainConnector {
     /**
      * Constructor
      * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process. Currently unused.
+     * @param {string} bcType The target SUT type
      */
-    constructor(workerIndex) {
-        super();
+    constructor(workerIndex, bcType) {
+        super(workerIndex, bcType);
         const configPath = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
         this.config = require(configPath);
-        this.bcType = 'sawtooth';
         this.workspaceRoot = path.resolve(ConfigUtil.get(ConfigUtil.keys.Workspace));
         this.clientIndex = workerIndex;
 
@@ -59,14 +59,6 @@ class Sawtooth extends BlockchainInterface {
         this.currentBlockNum = 0;
         this.currentEndpoint = 0;
         this.restURL = this.getRESTUrl();
-    }
-
-    /**
-     * Retrieve the blockchain type the implementation relates to
-     * @returns {string} the blockchain type
-     */
-    getType() {
-        return this.bcType;
     }
 
     /**
@@ -193,17 +185,6 @@ class Sawtooth extends BlockchainInterface {
     queryState(context, contractID, contractVer, queryName) {
         return this.queryByContext(context, contractID, contractVer, queryName, this.workspaceRoot);
     }
-
-    /**
-     * Calculate basic statistics of the execution results.
-     * Nothing to do now.
-     * @param {object} stats Unused.
-     * @param {object[]} results Unused.
-     */
-    getDefaultTxStats(stats, results) {
-        // nothing to do now
-    }
-
 
     // ****************************
     // Sawtooth functions
@@ -384,4 +365,4 @@ class Sawtooth extends BlockchainInterface {
     }
 }
 
-module.exports = Sawtooth;
+module.exports = SawtoothConnector;

@@ -15,30 +15,49 @@
 'use strict';
 
 /**
- * Interface of blockchain adapters
+ * Base class for all blockchain connectors
  */
-class BlockchainInterface {
+class BlockchainConnector {
 
     /**
-     * Retrieve the blockchain type the implementation relates to
+     * Constructor
+     * @param {number} workerIndex The zero based worker index
+     * @param {string} bcType The target SUT type
      */
-    getType() {
-        throw new Error('getType is not implemented for this blockchain system');
+    constructor(workerIndex, bcType) {
+        this.workerIndex = workerIndex;
+        this.bcType = bcType;
     }
 
     /**
-     * Initialise test environment
+     * Retrieve the target SUT type for this connector
+     * @return {string} The list of event sources.
+     */
+    getType() {
+        return this.bcType;
+    }
+
+    /**
+     * Retrieve worker index
+     * @return {string} The list of event sources.
+     */
+    getWorkerIndex() {
+        return this.workerIndex;
+    }
+
+    /**
+     * Initialize test environment
      * @param {boolean} workerInit Indicates whether the initialization happens in the worker process.
      */
     async init(workerInit) {
-        throw new Error('init is not implemented for this blockchain system');
+        throw new Error('init is not implemented for this blockchain connector');
     }
 
     /**
      * Install smart contract(s)
      */
     async installSmartContract() {
-        throw new Error('installSmartContract is not implemented for this blockchain system');
+        throw new Error('installSmartContract is not implemented for this blockchain connector');
     }
 
     /**
@@ -66,7 +85,7 @@ class BlockchainInterface {
      * @param {Object} args adapter specific arguments
      */
     async getContext(name, args) {
-        throw new Error('getContext is not implemented for this blockchain system');
+        throw new Error('getContext is not implemented for this blockchain connector');
     }
 
     /**
@@ -74,7 +93,7 @@ class BlockchainInterface {
      * @param {Object} context adapter specific object
      */
     async releaseContext(context) {
-        throw new Error('releaseContext is not implemented for this blockchain system');
+        throw new Error('releaseContext is not implemented for this blockchain connector');
     }
 
     /**
@@ -86,7 +105,7 @@ class BlockchainInterface {
      * @param {Number} timeout request timeout, in seconds
      */
     async invokeSmartContract(context, contractID, contractVer, args, timeout) {
-        throw new Error('invokeSmartContract is not implemented for this blockchain system');
+        throw new Error('invokeSmartContract is not implemented for this blockchain connector');
     }
 
     /**
@@ -98,7 +117,7 @@ class BlockchainInterface {
      * @param {Number} timeout request timeout, in seconds
      */
     async querySmartContract(context, contractID, contractVer, args, timeout) {
-        throw new Error('querySmartContract is not implemented for this blockchain system');
+        throw new Error('querySmartContract is not implemented for this blockchain connector');
     }
 
     /**
@@ -110,17 +129,9 @@ class BlockchainInterface {
      * @param {String=} [fcn] The chaincode query function name
      */
     async queryState(context, contractID, contractVer, key, fcn) {
-        throw new Error('queryState is not implemented for this blockchain system');
+        throw new Error('queryState is not implemented for this blockchain connector');
     }
 
-    /**
-     * Get adapter specific transaction statistics
-     * @param {JSON} stats txStatistics object
-     * @param {Array} results array of txStatus objects
-     */
-    getDefaultTxStats(stats, results) {
-        throw new Error('getDefaultTxStats is not implemented for this blockchain system');
-    }
 }
 
-module.exports = BlockchainInterface;
+module.exports = BlockchainConnector;

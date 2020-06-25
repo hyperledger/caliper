@@ -16,12 +16,12 @@
 
 const FabricClient = require('fabric-client');
 const {google, common} = require('fabric-protos');
-const {BlockchainInterface, CaliperUtils, TxStatus, Version, ConfigUtil} = require('@hyperledger/caliper-core');
-const logger = CaliperUtils.getLogger('adapters/fabric');
-
+const {BlockchainConnector, CaliperUtils, TxStatus, Version, ConfigUtil} = require('@hyperledger/caliper-core');
 const FabricNetwork = require('../../fabricNetwork.js');
+
 const fs = require('fs');
 
+const logger = CaliperUtils.getLogger('connectors/v1/fabric');
 
 //////////////////////
 // TYPE DEFINITIONS //
@@ -87,7 +87,7 @@ const fs = require('fs');
 /////////////////////////////
 
 /**
- * Implements {BlockchainInterface} for a Fabric backend, utilizing the SDK's Common Connection Profile.
+ * Extends {BlockchainConnector} for a Fabric backend, utilizing the SDK's Common Connection Profile.
  *
  * @property {Version} version Contains the version information about the used Fabric SDK.
  * @property {Map<string, FabricClient>} clientProfiles Contains the initialized and user-specific SDK client profiles
@@ -99,7 +99,7 @@ const fs = require('fs');
  *           profiles for each defined registrar. Maps the custom organization names to the Client instances
  *           (since only one registrar per org is supported).
  * @property {EventSource[]} eventSources Collection of potential event sources to listen to for transaction confirmation events.
- * @property {number} clientIndex The index of the client process using the adapter that is set in the constructor
+ * @property {number} workerIndex The index of the client process using the adapter that is set in the constructor
  * @property {number} txIndex A counter for keeping track of the index of the currently submitted transaction.
  * @property {FabricNetwork} networkUtil Utility object containing easy-to-query information about the topology
  *           and settings of the network.
@@ -122,16 +122,16 @@ const fs = require('fs');
  * @property {string} configClientBasedLoadBalancing The value indicating the type of automatic load balancing to use.
  * @property {boolean} configCountQueryAsLoad Indicates whether queries should be counted as workload.
  */
-class Fabric extends BlockchainInterface {
+class Fabric extends BlockchainConnector {
     /**
      * Initializes the Fabric adapter.
      * @param {object} networkObject The parsed network configuration.
      * @param {string} workspace_root The absolute path to the root location for the application configuration files.
-     * @param {number} clientIndex the client index
+     * @param {number} workerIndex the worker index
+     * @param {string} bcType The target SUT type
      */
-    constructor(networkObject, workspace_root, clientIndex) {
-        super(networkObject);
-        this.bcType = 'fabric';
+    constructor(networkObject, workspace_root, workerIndex, bcType) {
+        super(workerIndex, bcType);
         this.workspaceRoot = workspace_root;
         this.version = new Version(require('fabric-client/package').version);
 
@@ -142,7 +142,6 @@ class Fabric extends BlockchainInterface {
         this.adminProfiles = new Map();
         this.registrarProfiles = new Map();
         this.eventSources = [];
-        this.clientIndex = clientIndex;
         this.txIndex = -1;
         this.randomTargetPeerCache = new Map();
         this.channelEventSourcesCache = new Map();
@@ -246,7 +245,7 @@ class Fabric extends BlockchainInterface {
             const peers = entries[1];
 
             // represents the load balancing mechanism
-            const loadBalancingCounter = this.configClientBasedLoadBalancing ? this.clientIndex : this.txIndex;
+            const loadBalancingCounter = this.configClientBasedLoadBalancing ? this.workerIndex : this.txIndex;
             targets.push(peers[loadBalancingCounter % peers.length]);
         }
 
@@ -608,7 +607,7 @@ class Fabric extends BlockchainInterface {
         const orderers = this.randomTargetOrdererCache.get(channel);
 
         // represents the load balancing mechanism
-        const loadBalancingCounter = this.configClientBasedLoadBalancing ? this.clientIndex : this.txIndex;
+        const loadBalancingCounter = this.configClientBasedLoadBalancing ? this.workerIndex : this.txIndex;
 
         return orderers[loadBalancingCounter % orderers.length];
     }
@@ -1935,15 +1934,6 @@ class Fabric extends BlockchainInterface {
     // PUBLIC API FUNCTIONS //
     //////////////////////////
 
-
-    /**
-     * Retrieve the blockchain type the implementation relates to
-     * @returns {string} the blockchain type
-     */
-    getType() {
-        return this.bcType;
-    }
-
     /**
      * Prepares the adapter by loading user data and connection to the event hubs.
      *
@@ -2031,7 +2021,7 @@ class Fabric extends BlockchainInterface {
 
         return {
             networkInfo: this.networkUtil,
-            clientIdx: this.clientIndex
+            clientIdx: this.workerIndex
         };
     }
 

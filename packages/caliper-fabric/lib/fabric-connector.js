@@ -14,21 +14,22 @@
 
 'use strict';
 
-const { BlockchainInterface, CaliperUtils, ConfigUtil } = require('@hyperledger/caliper-core');
+const { BlockchainConnector, CaliperUtils, ConfigUtil } = require('@hyperledger/caliper-core');
 const ConfigValidator = require('./configValidator.js');
-const Logger = CaliperUtils.getLogger('adapters/fabric');
+const Logger = CaliperUtils.getLogger('fabric-connector');
 
 const semver = require('semver');
 const path = require('path');
 
-const Fabric = class extends BlockchainInterface {
+const FabricConnector = class extends BlockchainConnector {
 
     /**
      * Initializes the Fabric adapter.
-     * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process.
+     * @param {number} workerIndex The index of the worker who wants to create an adapter instance. -1 for the master process.
+     * @param {string} bcType The target SUT type
      */
-    constructor(workerIndex) {
-        super();
+    constructor(workerIndex, bcType) {
+        super(workerIndex, bcType);
         // Switch adaptors based on installed packages
         // - will either have fabric-network, or fabric-client
         let version;
@@ -52,11 +53,11 @@ const Fabric = class extends BlockchainInterface {
         let modulePath;
         if (semver.satisfies(version, '=1.x')) {
             if (!useGateway) {
-                modulePath = './adaptor-versions/v1/fabric-v1.js';
+                modulePath = './connector-versions/v1/fabric.js';
             } else {
                 // gateway with default event handlers appears in SDK > 1.4.2
                 if (semver.satisfies(version, '>=1.4.2')) {
-                    modulePath = './adaptor-versions/v1/fabric-gateway-v1.js';
+                    modulePath = './connector-versions/v1/fabric-gateway.js';
                 } else {
                     throw new Error('Caliper currently only supports Fabric gateway based operation using Fabric-SDK 1.4.2 and higher. Please retry with a different SDK binding');
                 }
@@ -65,7 +66,7 @@ const Fabric = class extends BlockchainInterface {
             if (!useGateway) {
                 throw new Error(`Caliper currently only supports gateway based operation using the ${version} Fabric-SDK. Please retry with the gateway flag`);
             } else {
-                modulePath = './adaptor-versions/v2/fabric-gateway-v2.js';
+                modulePath = './connector-versions/v2/fabric-gateway.js';
             }
         } else {
             throw new Error(`Installed SDK version ${version} did not match any compatible Fabric adaptors`);
@@ -80,15 +81,7 @@ const Fabric = class extends BlockchainInterface {
         ConfigValidator.validateNetwork(networkObject, CaliperUtils.getFlowOptions(), useDiscovery, useGateway);
 
         const Fabric = require(modulePath);
-        this.fabric = new Fabric(networkObject, workspaceRoot, workerIndex);
-    }
-
-    /**
-     * Retrieve the blockchain type the implementation relates to
-     * @returns {string} the blockchain type
-     */
-    getType() {
-        return this.fabric.getType();
+        this.fabric = new Fabric(networkObject, workspaceRoot, workerIndex, bcType);
     }
 
     /**
@@ -160,39 +153,39 @@ const Fabric = class extends BlockchainInterface {
         await this.fabric.releaseContext(context);
     }
 
-    /**
-     * Initializes the registrars of the organizations.
-     *
-     * @param {boolean} masterInit Indicates whether the initialization happens in the master process.
-     * @private
-     * @async
-     */
-    async _initializeRegistrars(masterInit) {
-        await this.fabric._initializeRegistrars(masterInit);
-    }
+    // /**
+    //  * Initializes the registrars of the organizations.
+    //  *
+    //  * @param {boolean} masterInit Indicates whether the initialization happens in the master process.
+    //  * @private
+    //  * @async
+    //  */
+    // async _initializeRegistrars(masterInit) {
+    //     await this.fabric._initializeRegistrars(masterInit);
+    // }
 
-    /**
-     * Initializes the admins of the organizations.
-     *
-     * @param {boolean} masterInit Indicates whether the initialization happens in the master process.
-     * @private
-     * @async
-     */
-    async _initializeAdmins(masterInit) {
-        await this.fabric._initializeAdmins(masterInit);
-    }
+    // /**
+    //  * Initializes the admins of the organizations.
+    //  *
+    //  * @param {boolean} masterInit Indicates whether the initialization happens in the master process.
+    //  * @private
+    //  * @async
+    //  */
+    // async _initializeAdmins(masterInit) {
+    //     await this.fabric._initializeAdmins(masterInit);
+    // }
 
-    /**
-     * Registers and enrolls the specified users if necessary.
-     *
-     * @param {boolean} masterInit Indicates whether the initialization happens in the master process.
-     * @private
-     * @async
-     */
-    async _initializeUsers(masterInit) {
-        await this.fabric._initializeUsers(masterInit);
-    }
+    // /**
+    //  * Registers and enrolls the specified users if necessary.
+    //  *
+    //  * @param {boolean} masterInit Indicates whether the initialization happens in the master process.
+    //  * @private
+    //  * @async
+    //  */
+    // async _initializeUsers(masterInit) {
+    //     await this.fabric._initializeUsers(masterInit);
+    // }
 
 };
 
-module.exports = Fabric;
+module.exports = FabricConnector;

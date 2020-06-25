@@ -17,9 +17,9 @@
 const Config = require('../common/config/config-util.js');
 const CaliperUtils = require('../common/utils/caliper-utils.js');
 const CircularArray = require('../common/utils/circular-array');
-const bc   = require('../common/core/blockchain.js');
 const RateControl = require('./rate-control/rateControl.js');
 const PrometheusClient = require('../common/prometheus/prometheus-push-client');
+const TransactionStatistics = require('../common/core/transaction-statistics');
 
 const Logger = CaliperUtils.getLogger('caliper-worker');
 
@@ -35,7 +35,7 @@ class CaliperWorker {
      * @param {Messenger} messenger a configured Messenger instance used to communicate with the orchestrator
      */
     constructor(connector, workerIndex, messenger) {
-        this.blockchain = new bc(connector);
+        this.connector = connector;
         this.workerIndex = workerIndex;
         this.currentRoundIndex = -1;
         this.messenger = messenger;
@@ -87,10 +87,10 @@ class CaliperWorker {
         let newStats;
         let publish = true;
         if (newResults.length === 0) {
-            newStats = bc.createNullDefaultTxStats();
+            newStats = TransactionStatistics.createNullDefaultTxStats();
             publish = false; // no point publishing nothing!!
         } else {
-            newStats = this.blockchain.getDefaultTxStats(newResults, false);
+            newStats = TransactionStatistics.getDefaultTxStats(newResults, false);
         }
 
         // Update monitor
@@ -130,7 +130,7 @@ class CaliperWorker {
             case 2: // based on number
                 if (this.trim < newResults.length) {
                     newResults = newResults.slice(this.trim);
-                    newStats = this.blockchain.getDefaultTxStats(newResults, false);
+                    newStats = TransactionStatistics.getDefaultTxStats(newResults, false);
                     this.resultStats[0] = newStats;
                     this.trim = 0;
                 } else {
@@ -140,7 +140,7 @@ class CaliperWorker {
             }
         } else {
             this.resultStats[1] = newStats;
-            bc.mergeDefaultTxStats(this.resultStats);
+            TransactionStatistics.mergeDefaultTxStats(this.resultStats);
         }
     }
 
@@ -341,7 +341,7 @@ class CaliperWorker {
 
         try {
             // Retrieve context for this round
-            this.context = await this.blockchain.getContext(test.label, test.clientArgs);
+            this.context = await this.connector.getContext(test.label, test.clientArgs);
             if (typeof this.context === 'undefined') {
                 this.context = {
                     engine : {
@@ -356,7 +356,7 @@ class CaliperWorker {
 
             // Run init phase of callback
             Logger.info(`Info: worker ${this.workerIndex} prepare test phase for round ${this.currentRoundIndex + 1} is starting...`);
-            await this.workloadModule.initializeWorkloadModule(this.workerIndex, test.totalClients, this.currentRoundIndex, test.workload.arguments, this.blockchain, this.context);
+            await this.workloadModule.initializeWorkloadModule(this.workerIndex, test.totalClients, this.currentRoundIndex, test.workload.arguments, this.connector, this.context);
             await CaliperUtils.sleep(this.txUpdateTime);
         } catch (err) {
             Logger.info(`Worker [${this.workerIndex}] encountered an error during prepare test phase for round ${this.currentRoundIndex + 1}: ${(err.stack ? err.stack : err)}`);
@@ -409,7 +409,7 @@ class CaliperWorker {
             // Clean up
             await rateController.end();
             await this.workloadModule.cleanupWorkloadModule();
-            await this.blockchain.releaseContext(this.context);
+            await this.connector.releaseContext(this.context);
             this.clearUpdateInter(txUpdateInter);
 
             // Return the results and time stamps
@@ -421,7 +421,7 @@ class CaliperWorker {
                 };
             } else {
                 return {
-                    results: this.blockchain.createNullDefaultTxStats(),
+                    results: TransactionStatistics.createNullDefaultTxStats(),
                     start: this.startTime,
                     end: this.endTime
                 };

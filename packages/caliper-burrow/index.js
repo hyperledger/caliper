@@ -14,4 +14,4 @@
 
 'use strict';
 
-module.exports.AdapterFactory = require('./lib/adapterFactory').adapterFactory;
+module.exports.ConnectorFactory = require('./lib/connectorFactory').connectorFactory;
