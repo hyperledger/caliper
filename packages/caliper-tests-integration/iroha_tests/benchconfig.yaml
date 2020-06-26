@@ -24,23 +24,26 @@ test:
     - label: create
       txNumber: *accounts
       rateControl: { type: 'fixed-rate', opts: { tps: 10 } }
-      arguments:
-          txnPerBatch: 10
-      callback: ./create.js
+      workload:
+          module: ./create.js
+          arguments:
+              txnPerBatch: 10
     - label: query
       txNumber: 200
       rateControl: { type: 'fixed-feedback-rate', opts: { tps: 10, unfinished_per_client: 5 } }
-      callback: ./query.js
-      arguments:
-          numberOfAccounts: *accounts
+      workload:
+          module: ./query.js
+          arguments:
+              numberOfAccounts: *accounts
     - label: transfer
       txNumber: 200
       rateControl: { type: 'linear-rate', opts: { startingTps: 5, finishingTps: 20 } }
-      arguments:
-          txnPerBatch: 10
-          numberOfAccounts: *accounts
-          money: '10.00'
-      callback: ./transfer.js
+      workload:
+          module: ./transfer.js
+          arguments:
+              txnPerBatch: 10
+              numberOfAccounts: *accounts
+              money: '10.00'
 observer:
     interval: 1
     type: local

@@ -21,13 +21,15 @@ test:
     - label: init1
       txNumber: 50
       rateControl: { type: 'fixed-rate', opts: { tps: 5 } }
-      callback: ./../init.js
-      arguments:
-          marblePrefix: marbles_phase_4
+      workload:
+          module: ./../init.js
+          arguments:
+              marblePrefix: marbles_phase_4
     - label: query
       txNumber: 50
       rateControl: { type: 'linear-rate', opts: { startingTps: 5, finishingTps: 10 } }
-      callback: ./../query.js
+      workload:
+        module: ./../query.js
 observer:
     interval: 1
     type: prometheus

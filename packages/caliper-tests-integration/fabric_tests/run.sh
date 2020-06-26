@@ -37,7 +37,7 @@ fi
 export CALIPER_PROJECTCONFIG=../caliper.yaml
 
 dispose () {
-    ${CALL_METHOD} launch master --caliper-workspace phase5 --caliper-flow-only-end
+    ${CALL_METHOD} launch master --caliper-workspace phase7 --caliper-flow-only-end
 }
 
 # PHASE 1: just starting the network

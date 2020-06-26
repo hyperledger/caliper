@@ -25,25 +25,28 @@ test:
     - label: open
       txNumber: *accounts
       rateControl: { type: 'fixed-rate', opts: { tps: 10 } }
-      arguments:
-          accountPhasePrefix: *prefix
-          money: 10000
-      callback: ./open.js
+      workload:
+          module: ./open.js
+          arguments:
+              accountPhasePrefix: *prefix
+              money: 10000
     - label: query
       txNumber: 200
       rateControl: { type: 'fixed-feedback-rate', opts: { tps: 10, unfinished_per_client: 5 } }
-      callback: ./query.js
-      arguments:
-          numberOfAccounts: *accounts
-          accountPhasePrefix: *prefix
+      workload:
+          module: ./query.js
+          arguments:
+              numberOfAccounts: *accounts
+              accountPhasePrefix: *prefix
     - label: transfer
       txNumber: 100
       rateControl: { type: 'linear-rate', opts: { startingTps: 5, finishingTps: 20 } }
-      arguments:
-          accountPhasePrefix: *prefix
-          numberOfAccounts: *accounts
-          money: 100
-      callback: ./transfer.js
+      workload:
+          module: ./transfer.js
+          arguments:
+              accountPhasePrefix: *prefix
+              numberOfAccounts: *accounts
+              money: 100
 observer:
     interval: 1
     type: local
