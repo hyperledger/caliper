@@ -19,9 +19,9 @@ const childProcess = require('child_process');
 
 const CaliperUtils = require('../../common/utils/caliper-utils');
 const ConfigUtils = require('../../common/config/config-util');
-const logger = CaliperUtils.getLogger('worker-orchestrator');
 const Messenger = require('../../common/messaging/messenger');
 
+const logger = CaliperUtils.getLogger('worker-orchestrator');
 
 // Orchestrator message typings
 const TYPES = {

@@ -17,7 +17,7 @@
 const MessengerInterface = require('./messenger-interface');
 const Logger = require('../utils/caliper-utils').getLogger('mqtt-worker-messenger');
 const ConfigUtil = require('../config/config-util');
-const MessageHandler = require('../../worker/client/message-handler');
+const MessageHandler = require('../../worker/message-handler');
 
 const mqtt = require('mqtt');
 

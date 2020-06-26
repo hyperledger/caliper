@@ -14,9 +14,9 @@
 
 'use strict';
 
-const ConfigUtil = require('../../common/config/config-util.js');
-const CaliperUtils = require('../../common/utils/caliper-utils.js');
-const CaliperLocalClient = require('../../worker/client/caliper-local-client');
+const ConfigUtil = require('../common/config/config-util.js');
+const CaliperUtils = require('../common/utils/caliper-utils.js');
+const CaliperWorker = require('./caliper-worker');
 
 const logger = CaliperUtils.getLogger('message-handler');
 
@@ -61,8 +61,8 @@ class MessageHandler {
         this.workspacePath = ConfigUtil.get(ConfigUtil.keys.Workspace);
         this.networkConfigPath = ConfigUtil.get(ConfigUtil.keys.NetworkConfig);
         this.networkConfigPath = CaliperUtils.resolvePath(this.networkConfigPath);
-        this.adapter = undefined;      // The adaptor to use when creating a CaliperLocalClient
-        this.workerClient = undefined; // An instantiated CaliperLocalClient
+        this.adapter = undefined;      // The adaptor to use when creating a CaliperWorker
+        this.worker = undefined; // An instantiated CaliperWorker
         this.workerId = undefined;     // The Caliper client index (zero based)
         this.testResult = undefined;   // The result of running a test
 
@@ -91,7 +91,7 @@ class MessageHandler {
             context.messenger.send(['orchestrator'], type, {error: error.toString()});
             logger.error(`Handled unsuccessful "init" message for worker ${context.workerId}, with error: ${error.stack}`);
         } else {
-            context.workerClient = new CaliperLocalClient(context.adapter, context.workerId, context.messenger);
+            context.worker = new CaliperWorker(context.adapter, context.workerId, context.messenger);
             context.messenger.send(['orchestrator'], type, {});
             logger.info(`Handled successful "init" message for worker ${context.workerId}`);
         }
@@ -162,7 +162,7 @@ class MessageHandler {
      * @return {Promise<object>} The result object.
      */
     static async prepare(context, message) {
-        await context.workerClient.prepareTest(message);
+        await context.worker.prepareTest(message);
     }
 
     /**
@@ -172,7 +172,7 @@ class MessageHandler {
      * @return {Promise<object>} The result object.
      */
     static async test(context, message) {
-        return context.workerClient.doTest(message);
+        return context.worker.doTest(message);
     }
 
     /**
