@@ -1,7 +1,7 @@
 ---
 layout: vNext
 title:  "License"
-categories: opensource
+categories: general
 permalink: /vNext/license/
 ---
 

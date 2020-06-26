@@ -1,8 +1,9 @@
 ---
 layout: v0.3.2
-title:  "Iroha Configuration"
+title:  "Iroha"
 categories: config
 permalink: /v0.3.2/iroha-config/
+order: 5
 ---
 
 > The latest supported version of Hyperledger Iroha is v1.0 beta-3

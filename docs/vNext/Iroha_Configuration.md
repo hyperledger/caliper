@@ -1,8 +1,9 @@
 ---
 layout: vNext
-title:  "Iroha Configuration"
+title:  "Iroha"
 categories: config
 permalink: /vNext/iroha-config/
+order: 5
 ---
 
 > The latest supported version of Hyperledger Iroha is v1.0 beta-3

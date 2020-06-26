@@ -1,8 +1,9 @@
 ---
 layout: vNext
-title:  "Fabric Configuration"
+title:  "Fabric"
 categories: config
 permalink: /vNext/fabric-config/
+order: 3
 ---
 
 ## Table of contents

@@ -1,7 +1,7 @@
 ---
 layout: v0.2
 title:  "Caliper FAQ"
-categories: opensource
+categories: general
 permalink: /v0.2/caliper-faq/
 ---
 

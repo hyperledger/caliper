@@ -3,7 +3,7 @@ layout: vNext
 title:  "Architecture"
 categories: docs
 permalink: /vNext/architecture/
-order: 4
+order: 5
 ---
 
 ## Table of contents

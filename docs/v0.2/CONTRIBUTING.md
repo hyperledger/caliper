@@ -1,7 +1,7 @@
 ---
 layout: v0.2
 title:  "Contributing"
-categories: opensource
+categories: general
 permalink: /v0.2/contributing/
 ---
 

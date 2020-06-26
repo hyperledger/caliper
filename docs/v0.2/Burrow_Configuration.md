@@ -1,8 +1,9 @@
 ---
 layout: v0.2
-title:  "Burrow Configuration"
+title:  "Burrow"
 categories: config
 permalink: /v0.2/burrow-config/
+order: 1
 ---
 
 > The latest supported version of Hyperledger Burrow is v0.23.1

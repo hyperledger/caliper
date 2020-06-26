@@ -1,8 +1,9 @@
 ---
 layout: v0.2
-title:  "Composer Configuration"
+title:  "Composer"
 categories: config
 permalink: /v0.2/composer-config/
+order: 2
 ---
 
 > The latest supported version of Hyperledger Composer is v0.20

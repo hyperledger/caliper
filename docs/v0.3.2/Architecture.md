@@ -3,7 +3,7 @@ layout: v0.3.2
 title:  "Architecture"
 categories: docs
 permalink: /v0.3.2/architecture/
-order: 4
+order: 5
 ---
 
 ## Table of contents

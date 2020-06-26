@@ -1,9 +1,9 @@
 ---
 layout: v0.3.2
-title:  "Workload Modules"
+title:  "Workload Configuration"
 categories: docs
 permalink: /v0.3.2/workload-module/
-order: 6
+order: 4
 ---
 
 ## Table of contents

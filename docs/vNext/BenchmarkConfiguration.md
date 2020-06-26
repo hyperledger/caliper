@@ -3,7 +3,7 @@ layout: vNext
 title:  "Benchmark Configuration"
 categories: docs
 permalink: /vNext/bench-config/
-order: 5
+order: 3
 ---
 
 ## Table of contents
