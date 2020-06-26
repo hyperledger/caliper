@@ -1,8 +1,9 @@
 ---
 layout: v0.2
-title:  "Ethereum Configuration"
+title:  "Ethereum"
 categories: config
 permalink: /v0.2/ethereum-config/
+order: 3
 ---
 
 > This adapter relies on web3js 1.2.x that is the stable version coming from 1.0.0-beta.37

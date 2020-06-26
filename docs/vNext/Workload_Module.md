@@ -1,9 +1,9 @@
 ---
 layout: vNext
-title:  "Workload Modules"
+title:  "Workload Configuration"
 categories: docs
 permalink: /vNext/workload-module/
-order: 6
+order: 4
 ---
 
 ## Table of contents

@@ -1,7 +1,7 @@
 ---
 layout: vNext
 title:  "Caliper FAQ"
-categories: opensource
+categories: general
 permalink: /vNext/caliper-faq/
 ---
 

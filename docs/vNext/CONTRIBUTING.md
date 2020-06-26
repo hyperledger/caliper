@@ -1,7 +1,7 @@
 ---
 layout: vNext
 title:  "Contributing"
-categories: opensource
+categories: general
 permalink: /vNext/contributing/
 ---
 

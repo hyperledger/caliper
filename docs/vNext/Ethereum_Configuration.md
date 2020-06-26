@@ -1,8 +1,9 @@
 ---
 layout: vNext
-title:  "Ethereum Configuration"
+title:  "Ethereum"
 categories: config
 permalink: /vNext/ethereum-config/
+order: 2
 ---
 
 This page introduces the Ethereum adapter suitable for all the Ethereum clients that expose the web3 RPC interface over websockets.

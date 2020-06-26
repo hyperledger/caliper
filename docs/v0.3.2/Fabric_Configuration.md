@@ -1,8 +1,9 @@
 ---
 layout: v0.3.2
-title:  "Fabric Configuration"
+title:  "Fabric"
 categories: config
 permalink: /v0.3.2/fabric-config/
+order: 3
 ---
 
 ## Table of contents

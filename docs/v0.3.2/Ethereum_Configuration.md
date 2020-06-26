@@ -1,8 +1,9 @@
 ---
 layout: v0.3.2
-title:  "Ethereum Configuration"
+title:  "Ethereum"
 categories: config
 permalink: /v0.3.2/ethereum-config/
+order: 2
 ---
 
 This page introduces the Ethereum adapter suitable for all the Ethereum clients that expose the web3 RPC interface over websockets.

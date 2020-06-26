@@ -1,7 +1,7 @@
 ---
 layout: v0.3.2
 title:  "License"
-categories: opensource
+categories: general
 permalink: /v0.3.2/license/
 ---
 

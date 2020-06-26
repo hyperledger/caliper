@@ -1,8 +1,9 @@
 ---
 layout: v0.3.2
-title:  "FISCO BCOS Configuration"
+title:  "FISCO BCOS"
 categories: config
 permalink: /v0.3.2/fisco-config/
+order: 4
 ---
 
 >*The required minimal version of FISCO BCOS is v2.0.0*

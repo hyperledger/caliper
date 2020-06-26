@@ -8,6 +8,7 @@
   </select>
 </div>
 <hr>
+<h2>Overview</h2>
 {% assign sorted_pages = site.pages | sort:"order" %}
 {% for page in sorted_pages %}
 {% if page.categories contains 'docs'%}
@@ -20,6 +21,7 @@
 {% endif %}
 {% endfor %}
 <hr>
+<h2>Connector Configuration</h2>
 {% for page in sorted_pages %}
 {% if page.categories contains 'config' %}
 {% if page.permalink contains site.caliper.next_release %}
@@ -31,6 +33,7 @@
 {% endif %}
 {% endfor %}
 <hr>
+<h2>Reference</h2>
 {% for page in sorted_pages %}
 {% if page.categories contains 'reference' %}
 {% if page.permalink contains site.caliper.next_release %}
@@ -42,8 +45,9 @@
 {% endif %}
 {% endfor %}
 <hr>
+<h2>General</h2>
 {% for page in sorted_pages %}
-{% if page.categories contains 'opensource' %}
+{% if page.categories contains 'general' %}
 {% if page.permalink contains site.caliper.next_release %}
 <div class="item">
   <!-- <p>{{page.description}}</p> -->

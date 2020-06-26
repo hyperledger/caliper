@@ -3,7 +3,7 @@ layout: v0.3.2
 title:  "Benchmark Configuration"
 categories: docs
 permalink: /v0.3.2/bench-config/
-order: 5
+order: 3
 ---
 
 ## Table of contents
