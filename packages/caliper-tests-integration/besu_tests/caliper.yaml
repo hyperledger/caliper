@@ -18,7 +18,7 @@ caliper:
     txupdatetime: 1000
     workspace: ./
     report:
-        path: report.html
+        path: ./report/report.html
     logging:
         template: '%timestamp%%level%%module%%message%%metadata%'
         formats:

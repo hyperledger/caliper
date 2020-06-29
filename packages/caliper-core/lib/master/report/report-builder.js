@@ -345,13 +345,19 @@ class ReportBuilder {
         let html = Mustache.render(templateStr, this.data);
         try {
             let filePath = Config.get(Config.keys.Report.Path, 'report.html');
-            filePath = Utils.resolvePath(filePath, Config.get(Config.keys.Workspace, './'));
+            filePath = Utils.resolvePath(filePath);
             let writeOptions = Config.get(Config.keys.Report.Options, { flag: 'w', mode: 0o666 });
 
-            await fs.writeFileSync(filePath, html, writeOptions);
+            const dirPath = path.dirname(filePath);
+            if (!fs.existsSync(dirPath)) {
+                Logger.debug(`Creating parent directory for report: ${dirPath}`);
+                fs.mkdirSync(dirPath, { recursive: true, mode: writeOptions.mode });
+            }
+
+            fs.writeFileSync(filePath, html, writeOptions);
             Logger.info(`Generated report with path ${filePath}`);
         } catch (err) {
-            Logger.info(`Failed to generate report, with error ${err}`);
+            Logger.error(`Failed to generate report, with error ${err}`);
             throw err;
         }
     }
