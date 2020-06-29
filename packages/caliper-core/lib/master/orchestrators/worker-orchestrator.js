@@ -49,7 +49,7 @@ class WorkerOrchestrator {
     /**
      * Constructor
      * @param {object} benchmarkConfig The benchmark configuration object.
-     * @param {object[]} workerArguments List of adaptor specific arguments to pass for each worker processes.
+     * @param {object[]} workerArguments List of connector specific arguments to pass for each worker processes.
      */
     constructor(benchmarkConfig, workerArguments) {
         this.config = benchmarkConfig.test.workers;

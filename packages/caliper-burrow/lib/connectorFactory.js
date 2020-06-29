@@ -26,4 +26,4 @@ async function connectorFactory(workerIndex) {
     return new BurrowConnector(workerIndex, 'burrow');
 }
 
-module.exports.connectorFactory = connectorFactory;
+module.exports.ConnectorFactory = connectorFactory;

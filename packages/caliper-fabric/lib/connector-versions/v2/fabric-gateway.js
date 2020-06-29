@@ -141,7 +141,7 @@ class Fabric extends BlockchainConnector {
         this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.InvokeOrQuery, 60000);
         this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountQueryAsLoad, true);
 
-        // Gateway adaptor
+        // Gateway connector
         this.configLocalHost = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.LocalHost, true);
         this.configDiscovery = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.Discovery, false);
         this.eventStrategy = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.EventStrategy, 'msp_all');
@@ -153,9 +153,9 @@ class Fabric extends BlockchainConnector {
     ////////////////////////////////
 
     /**
-     * Initialize the adaptor
+     * Initialize the connector
      */
-    async _initAdaptor() {
+    async _initConnector() {
         const tlsInfo = this.networkUtil.isMutualTlsEnabled() ? 'mutual'
             : (this.networkUtil.isTlsEnabled() ? 'server' : 'none');
         logger.info(`Fabric SDK version: ${this.version.toString()}; TLS: ${tlsInfo}`);
@@ -573,7 +573,7 @@ class Fabric extends BlockchainConnector {
         logger.info(`Fabric SDK version: ${this.version.toString()}; TLS: ${tlsInfo}`);
 
         logger.warn(`Administrative actions are not possible with Fabric SDK version: ${this.version.toString()}`);
-        await this._initAdaptor();
+        await this._initConnector();
     }
 
     /**

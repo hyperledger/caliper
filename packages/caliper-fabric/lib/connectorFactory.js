@@ -33,4 +33,4 @@ async function connectorFactory(workerIndex) {
     return connector;
 }
 
-module.exports.connectorFactory = connectorFactory;
+module.exports.ConnectorFactory = connectorFactory;

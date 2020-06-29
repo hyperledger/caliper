@@ -1946,7 +1946,7 @@ class Fabric extends BlockchainConnector {
         // Reset counter for new test round
         this.txIndex = -1;
 
-        // Configure the adaptor
+        // Configure the connector
         for (const channel of this.networkUtil.getChannels()) {
             // initialize the channels by getting the config from the orderer
             await this._initializeChannel(this.adminProfiles, channel, true);

@@ -31,7 +31,7 @@ class RoundOrchestrator {
      * Initialize the RoundOrchestrator instance.
      * @param {object} benchmarkConfig The benchmark configuration object.
      * @param {object} networkConfig The network configuration object.
-     * @param {object[]} workerArguments List of adaptor specific arguments to pass for each worker processes.
+     * @param {object[]} workerArguments List of connector specific arguments to pass for each worker processes.
      */
     constructor(benchmarkConfig, networkConfig, workerArguments) {
         this.networkConfig = networkConfig;

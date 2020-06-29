@@ -61,7 +61,7 @@ class BlockchainConnector {
     }
 
     /**
-     * Retrieve required arguments for test workers, e.g. retrieve information from the adaptor that is generated during an admin phase such as contract installation.
+     * Retrieve required arguments for test workers, e.g. retrieve information from the connector that is generated during an admin phase such as contract installation.
      * Information returned here is passed to the worker through the messaging protocol on test.
      * @param {Number} number total count of test workers
      * @return {Promise} array of obtained material for each test worker

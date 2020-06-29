@@ -19,7 +19,7 @@ const Logger = require('../utils/caliper-utils').getLogger('messenger-base');
 
 /**
  * Interface of messenger. Messenger implementations must follow a naming convention that is <type>-observer.js so
- * that they may be dynamically loaded in the WorkerOrchestrator and WorkerAdaptor
+ * that they may be dynamically loaded in the WorkerOrchestrator and WorkerConnector
  */
 class MessengerInterface {
 

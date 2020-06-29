@@ -30,7 +30,7 @@ const FabricConnector = class extends BlockchainConnector {
      */
     constructor(workerIndex, bcType) {
         super(workerIndex, bcType);
-        // Switch adaptors based on installed packages
+        // Switch connectors based on installed packages
         // - will either have fabric-network, or fabric-client
         let version;
         if (CaliperUtils.moduleIsInstalled('fabric-network')) {
@@ -47,7 +47,7 @@ const FabricConnector = class extends BlockchainConnector {
         const useGateway = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.Enabled, false);
         const useDiscovery = ConfigUtil.get(ConfigUtil.keys.Fabric.Gateway.Discovery, false);
 
-        Logger.info(`Initializing ${useGateway ? 'gateway' : 'standard' } adaptor compatible with installed SDK: ${version}`);
+        Logger.info(`Initializing ${useGateway ? 'gateway' : 'standard' } connector compatible with installed SDK: ${version}`);
 
         // Match returned version on the major semantic version number
         let modulePath;
@@ -69,13 +69,13 @@ const FabricConnector = class extends BlockchainConnector {
                 modulePath = './connector-versions/v2/fabric-gateway.js';
             }
         } else {
-            throw new Error(`Installed SDK version ${version} did not match any compatible Fabric adaptors`);
+            throw new Error(`Installed SDK version ${version} did not match any compatible Fabric connectors`);
         }
 
         const networkConfig = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
         const workspaceRoot = path.resolve(ConfigUtil.get(ConfigUtil.keys.Workspace));
 
-        // validate the passed network file before use in underlying adaptor(s)
+        // validate the passed network file before use in underlying connector(s)
         const configPath = CaliperUtils.resolvePath(networkConfig, workspaceRoot);
         const networkObject = CaliperUtils.parseYaml(configPath);
         ConfigValidator.validateNetwork(networkObject, CaliperUtils.getFlowOptions(), useDiscovery, useGateway);

@@ -1,6 +1,6 @@
 {
     "name": "@hyperledger/caliper-ethereum",
-    "description": "Ethereum adaptor for Caliper, enabling the running of performance benchmarks that interact with Ethereum",
+    "description": "Ethereum connector for Caliper, enabling the running of performance benchmarks that interact with Ethereum",
     "version": "0.4.0-unstable",
     "repository": {
         "type": "git",
