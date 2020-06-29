@@ -26,7 +26,7 @@ const CaliperUtils = require('@hyperledger/caliper-core').CaliperUtils;
  * @property {boolean} compatibilityMode Indicates whether the configuration describes a v1.0 Fabric network.
  * @property {boolean} tls Indicates whether TLS communication is configured for the network.
  * @property {boolean} mutualTls Indicates whether mutual TLS communication is configured for the network.
- * @property {Map<string, {channel:string, id:string, version:string}>} The mapping of contract IDs to chaincode details.
+ * @property {Map<string, {channel:string, id:string, version:string}>} The mapping of contract IDs to contract details.
  */
 class FabricNetwork {
     /**
@@ -98,7 +98,7 @@ class FabricNetwork {
             for (const channel of channels) {
                 const cObj = this.network.channels[channel];
 
-                for (const cc of cObj.chaincodes) {
+                for (const cc of cObj.contracts) {
                     if (!cc.contractID) {
                         cc.contractID = cc.id;
                     }
@@ -322,12 +322,12 @@ class FabricNetwork {
     }
 
     /**
-     * Gets the chaincode names and versions belonging to the given channel.
+     * Gets the contract names and versions belonging to the given channel.
      * @param {string} channel The channel name.
-     * @returns {Set<{id: string, version: string}>} The set of chaincode names.
+     * @returns {Set<{id: string, version: string}>} The set of contract names.
      */
-    getChaincodesOfChannel(channel) {
-        return new Set(this.network.channels[channel].chaincodes.map(cc => {
+    getContractsOfChannel(channel) {
+        return new Set(this.network.channels[channel].contracts.map(cc => {
             return {
                 id: cc.id,
                 version: cc.version
@@ -475,14 +475,14 @@ class FabricNetwork {
     }
 
     /**
-     * Constructs an N-of-N endorsement policy for the given chaincode of the given channel.
+     * Constructs an N-of-N endorsement policy for the given contract of the given channel.
      * @param {string} channel The name of the channel.
-     * @param {{id: string, version: string}} chaincodeInfo The chaincode name and version.
+     * @param {{id: string, version: string}} contractInfo The contract name and version.
      * @return {object} The assembled endorsement policy.
      * @private
      */
-    getDefaultEndorsementPolicy(channel, chaincodeInfo) {
-        const targetPeers = this.getTargetPeersOfChaincodeOfChannel(chaincodeInfo, channel);
+    getDefaultEndorsementPolicy(channel, contractInfo) {
+        const targetPeers = this.getTargetPeersOfContractOfChannel(contractInfo, channel);
         const targetOrgs = new Set();
 
         for (const peer of targetPeers) {
@@ -792,16 +792,16 @@ class FabricNetwork {
     }
 
     /**
-     * Gets the peer names on which the given chaincode of the given channel should be installed and instantiated.
-     * @param {{id: string, version: string}} chaincodeInfo The chaincode name and version.
+     * Gets the peer names on which the given contract of the given channel should be installed and instantiated.
+     * @param {{id: string, version: string}} contractInfo The contract name and version.
      * @param {string} channel The channel name.
      * @returns {Set<string>} The set of peer names.
      */
-    getTargetPeersOfChaincodeOfChannel(chaincodeInfo, channel) {
-        const cc = this.network.channels[channel].chaincodes.find(
-            cc => cc.id === chaincodeInfo.id && cc.version === chaincodeInfo.version);
+    getTargetPeersOfContractOfChannel(contractInfo, channel) {
+        const cc = this.network.channels[channel].contracts.find(
+            cc => cc.id === contractInfo.id && cc.version === contractInfo.version);
 
-        CaliperUtils.assertDefined(cc, `Could not find the following chaincode in the configuration: ${chaincodeInfo.id}@${chaincodeInfo.version}`);
+        CaliperUtils.assertDefined(cc, `Could not find the following contract in the configuration: ${contractInfo.id}@${contractInfo.version}`);
         // targets are explicitly defined
         if (CaliperUtils.checkProperty(cc, 'targetPeers')) {
             return new Set(cc.targetPeers);
@@ -864,16 +864,16 @@ class FabricNetwork {
     }
 
     /**
-     * Gets the transient map for the given chaincode for the given channel.
-     * @param {{id: string, version: string}} chaincode The chaincode name and version.
+     * Gets the transient map for the given contract for the given channel.
+     * @param {{id: string, version: string}} contract The contract name and version.
      * @param {string} channel The channel name.
      *
      * @return {Map<string, Buffer>} The map of attribute names to byte arrays.
      */
-    getTransientMapOfChaincodeOfChannel(chaincode, channel) {
+    getTransientMapOfContractOfChannel(contract, channel) {
         const map = {};
-        const cc = this.network.channels[channel].chaincodes.find(
-            cc => cc.id === chaincode.id && cc.version === chaincode.version);
+        const cc = this.network.channels[channel].contracts.find(
+            cc => cc.id === contract.id && cc.version === contract.version);
 
         if (!CaliperUtils.checkProperty(cc, 'initTransientMap')) {
             return map;

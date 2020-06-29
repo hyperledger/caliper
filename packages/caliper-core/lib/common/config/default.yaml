@@ -158,8 +158,8 @@ caliper:
             createchannel: 5000
             # The time in milliseconds to sleep after joining the channels (if joined channels at all)
             joinchannel: 5000
-            # The time in milliseconds to sleep after instantiated the chaincodes (if instantiated chaincodes at all)
-            instantiatechaincode: 5000
+            # The time in milliseconds to sleep after instantiated the contracts (if instantiated contracts at all)
+            instantiatecontract: 5000
         # Enables extra verification steps during the transaction proposal phase
         verify:
             # Indicates whether to verify the identity of the endorsers and their signatures for each proposal response after endorsing a transaction.
@@ -169,10 +169,10 @@ caliper:
             readwritesets: true
         # Contains client-side timeouts related to the initialization part of the adapter
         timeout:
-            # Timeout in milliseconds for the endorsement part of a chaincode instantiation
-            chaincodeinstantiate: 300000
-            # Timeout in milliseconds for receiving the event about the result of a chaincode instantiation
-            chaincodeinstantiateevent: 100000
+            # Timeout in milliseconds for the endorsement part of a contract instantiation
+            contractinstantiate: 300000
+            # Timeout in milliseconds for receiving the event about the result of a contract instantiation
+            contractinstantiateevent: 100000
             # The default timeout in milliseconds to use for invoking or querying transactions (applied for the entire life-cycle)
             invokeorquery: 60000
         # Determines how automatic load balancing is applied if the client callback module doesn’t provide explicit targets.

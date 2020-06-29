@@ -27,13 +27,13 @@ describe ('benchmark configuration generator', () => {
     let dir, tmpConfigPath;
     let options = {
         subgenerator: 'benchmark',
-        chaincodeFunction: 'callback',
-        chaincodeArguments: '["args1", "args2", "args3"]',
+        contractFunction: 'callback',
+        contractArguments: '["args1", "args2", "args3"]',
         benchmarkName: 'x contract benchmark',
         benchmarkDescription: 'benchmark for contract x',
         workers: 10,
         label: 'function test',
-        chaincodeId: 'xContract',
+        contractId: 'xContract',
         txType: 'txDuration',
         rateController: 'fixed-rate',
         workspace: 'workspace'
@@ -49,7 +49,7 @@ describe ('benchmark configuration generator', () => {
             rounds: [
                 {
                     label: 'function test',
-                    chaincodeId: 'xContract',
+                    contractId: 'xContract',
                     txDuration: 30,
                     rateControl: {
                         type: 'fixed-rate',

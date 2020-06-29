@@ -43,8 +43,8 @@ class MarblesInitWorkload extends WorkloadModuleBase {
         let marbleOwner = this.owners[this.txIndex % this.owners.length];
 
         let args = {
-            chaincodeFunction: 'initMarble',
-            chaincodeArguments: [marbleName, marbleColor, marbleSize, marbleOwner],
+            contractFunction: 'initMarble',
+            contractArguments: [marbleName, marbleColor, marbleSize, marbleOwner],
         };
 
         let targetCC = this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles';

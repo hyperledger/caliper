@@ -121,7 +121,7 @@ describe('Class: ConfigValidator', () => {
                         'peer0.org1.example.com': {},
                         'peer0.org2.example.com': {}
                     },
-                    chaincodes: [ { id: 'drm', version: 'v0' } ]
+                    contracts: [ { id: 'drm', version: 'v0' } ]
                 },
                 channel2: {
                     created: false,
@@ -131,7 +131,7 @@ describe('Class: ConfigValidator', () => {
                         'peer0.org1.example.com': {},
                         'peer0.org2.example.com': {}
                     },
-                    chaincodes: [ { id: 'drm', contractID: 'drm2', version: 'v0' } ]
+                    contracts: [ { id: 'drm', contractID: 'drm2', version: 'v0' } ]
                 }
             },
             organizations: {
@@ -292,9 +292,9 @@ describe('Class: ConfigValidator', () => {
                 call.should.throw(err);
             });
 
-            it('should throw when a non-existing peer is referenced in a chaincode', () => {
-                const err = 'Invalid "channel1" channel configuration: child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "targetPeers" fails because ["targetPeers" at position 0 fails because ["0" must be one of [peer0.org1.example.com, peer0.org2.example.com]]]]]';
-                config.channels.channel1.chaincodes[0].targetPeers = ['peer5.org1.example.com'];
+            it('should throw when a non-existing peer is referenced in a contract', () => {
+                const err = 'Invalid "channel1" channel configuration: child "contracts" fails because ["contracts" at position 0 fails because [child "targetPeers" fails because ["targetPeers" at position 0 fails because ["0" must be one of [peer0.org1.example.com, peer0.org2.example.com]]]]]';
+                config.channels.channel1.contracts[0].targetPeers = ['peer5.org1.example.com'];
                 call.should.throw(err);
             });
         });
@@ -328,9 +328,9 @@ describe('Class: ConfigValidator', () => {
                 call.should.throw(err);
             });
 
-            it('should throw when a non-existing MSP ID is referenced in a chaincode endorsement policy', () => {
-                const err = 'Invalid "channel1" channel configuration: child "chaincodes" fails because ["chaincodes" at position 1 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" must be one of [Org1MSP, Org2MSP]]]]]]]]';
-                config.channels.channel1.chaincodes.push({
+            it('should throw when a non-existing MSP ID is referenced in a contract endorsement policy', () => {
+                const err = 'Invalid "channel1" channel configuration: child "contracts" fails because ["contracts" at position 1 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" must be one of [Org1MSP, Org2MSP]]]]]]]]';
+                config.channels.channel1.contracts.push({
                     id: 'marbles',
                     contractID: 'ContractMarbles',
                     version: 'v0',
@@ -350,13 +350,13 @@ describe('Class: ConfigValidator', () => {
                     }
                 });
 
-                config.channels.channel1.chaincodes[1]['endorsement-policy'].identities[0].role.mspId = 'Org5MSP';
+                config.channels.channel1.contracts[1]['endorsement-policy'].identities[0].role.mspId = 'Org5MSP';
                 call.should.throw(err);
             });
 
-            it('should throw when a non-existing MSP ID is referenced in a chaincode collections config policy', () => {
-                const err = 'Invalid "channel1" channel configuration: child "chaincodes" fails because ["chaincodes" at position 1 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" must be one of [Org1MSP, Org2MSP]]]]]]]]]]';
-                config.channels.channel1.chaincodes.push({
+            it('should throw when a non-existing MSP ID is referenced in a contract collections config policy', () => {
+                const err = 'Invalid "channel1" channel configuration: child "contracts" fails because ["contracts" at position 1 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" must be one of [Org1MSP, Org2MSP]]]]]]]]]]';
+                config.channels.channel1.contracts.push({
                     id: 'marbles',
                     contractID: 'ContractMarbles',
                     version: 'v0',
@@ -382,7 +382,7 @@ describe('Class: ConfigValidator', () => {
                     }]
                 });
 
-                config.channels.channel1.chaincodes[1]['collections-config'][0].policy.identities[0].role.mspId = 'Org5MSP';
+                config.channels.channel1.contracts[1]['collections-config'][0].policy.identities[0].role.mspId = 'Org5MSP';
                 call.should.throw(err);
             });
         });
@@ -2446,7 +2446,7 @@ describe('Class: ConfigValidator', () => {
                     ledgerQuery: true
                 }
             },
-            chaincodes: [
+            contracts: [
                 {
                     id: 'marbles',
                     contractID: 'ContractMarbles',
@@ -2851,63 +2851,63 @@ describe('Class: ConfigValidator', () => {
             });
         });
 
-        describe(prop('chaincodes'), () => {
+        describe(prop('contracts'), () => {
             it('should throw for missing required property', () => {
-                const err = 'child "chaincodes" fails because ["chaincodes" is required]';
-                delete config.chaincodes;
+                const err = 'child "contracts" fails because ["contracts" is required]';
+                delete config.contracts;
                 call.should.throw(err);
             });
 
             it('should throw for non-array value', () => {
-                const err = 'child "chaincodes" fails because ["chaincodes" must be an array]';
-                config.chaincodes = true;
+                const err = 'child "contracts" fails because ["contracts" must be an array]';
+                config.contracts = true;
                 call.should.throw(err);
             });
 
             it('should throw for an undefined item', () => {
-                const err = 'child "chaincodes" fails because ["chaincodes" must not be a sparse array]';
-                config.chaincodes.push(undefined);
+                const err = 'child "contracts" fails because ["contracts" must not be a sparse array]';
+                config.contracts.push(undefined);
                 call.should.throw(err);
             });
 
             it('should throw "metadataPath" is set without "path"', () => {
-                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because ["metadataPath" missing required peer "path"]]';
-                delete config.chaincodes[0].path;
+                const err = 'child "contracts" fails because ["contracts" at position 0 fails because ["metadataPath" missing required peer "path"]]';
+                delete config.contracts[0].path;
                 call.should.throw(err);
             });
 
             it('should throw "path" is set without "language"', () => {
-                const err = 'child "chaincodes" fails because ["chaincodes" at position 1 fails because ["path" missing required peer "language"]]';
-                // on second chaincode
-                config.chaincodes[1].path = 'path';
+                const err = 'child "contracts" fails because ["contracts" at position 1 fails because ["path" missing required peer "language"]]';
+                // on second contract
+                config.contracts[1].path = 'path';
                 call.should.throw(err);
             });
 
             it('should throw "init" is set without "language"', () => {
-                const err = 'child "chaincodes" fails because ["chaincodes" at position 1 fails because ["init" missing required peer "language"]]';
-                // on second chaincode
-                config.chaincodes[1].init = [];
+                const err = 'child "contracts" fails because ["contracts" at position 1 fails because ["init" missing required peer "language"]]';
+                // on second contract
+                config.contracts[1].init = [];
                 call.should.throw(err);
             });
 
             it('should throw "function" is set without "language"', () => {
-                const err = 'child "chaincodes" fails because ["chaincodes" at position 1 fails because ["function" missing required peer "language"]]';
-                // on second chaincode
-                config.chaincodes[1].function = 'init';
+                const err = 'child "contracts" fails because ["contracts" at position 1 fails because ["function" missing required peer "language"]]';
+                // on second contract
+                config.contracts[1].function = 'init';
                 call.should.throw(err);
             });
 
             it('should throw "initTransientMap" is set without "language"', () => {
-                const err = 'child "chaincodes" fails because ["chaincodes" at position 1 fails because ["initTransientMap" missing required peer "language"]]';
-                // on second chaincode
-                config.chaincodes[1].initTransientMap = {};
+                const err = 'child "contracts" fails because ["contracts" at position 1 fails because ["initTransientMap" missing required peer "language"]]';
+                // on second contract
+                config.contracts[1].initTransientMap = {};
                 call.should.throw(err);
             });
 
             it('should throw "collections-config" is set without "language"', () => {
-                const err = 'child "chaincodes" fails because ["chaincodes" at position 1 fails because ["collections-config" missing required peer "language"]]';
-                // on second chaincode
-                config.chaincodes[1]['collections-config'] = [{
+                const err = 'child "contracts" fails because ["contracts" at position 1 fails because ["collections-config" missing required peer "language"]]';
+                // on second contract
+                config.contracts[1]['collections-config'] = [{
                     name: 'name',
                     policy: {
                         identities: [
@@ -2929,9 +2929,9 @@ describe('Class: ConfigValidator', () => {
             });
 
             it('should throw "endorsement-policy" is set without "language"', () => {
-                const err = 'child "chaincodes" fails because ["chaincodes" at position 1 fails because ["endorsement-policy" missing required peer "language"]]';
-                // on second chaincode
-                config.chaincodes[1]['endorsement-policy'] = {
+                const err = 'child "contracts" fails because ["contracts" at position 1 fails because ["endorsement-policy" missing required peer "language"]]';
+                // on second contract
+                config.contracts[1]['endorsement-policy'] = {
                     identities: [
                         { role: { name: 'member', mspId: 'Org1MSP' }},
                         { role: { name: 'member', mspId: 'Org2MSP' }}
@@ -2948,449 +2948,449 @@ describe('Class: ConfigValidator', () => {
 
             describe(prop('[item].id'), () => {
                 it('should throw for missing required property', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "id" fails because ["id" is required]]]';
-                    delete config.chaincodes[0].id;
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "id" fails because ["id" is required]]]';
+                    delete config.contracts[0].id;
                     call.should.throw(err);
                 });
 
                 it('should throw for non-string value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "id" fails because ["id" must be a string]]]';
-                    config.chaincodes[0].id = true;
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "id" fails because ["id" must be a string]]]';
+                    config.contracts[0].id = true;
                     call.should.throw(err);
                 });
 
                 it('should throw for empty string value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "id" fails because ["id" is not allowed to be empty, "id" length must be at least 1 characters long]]]';
-                    config.chaincodes[0].id = '';
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "id" fails because ["id" is not allowed to be empty, "id" length must be at least 1 characters long]]]';
+                    config.contracts[0].id = '';
                     call.should.throw(err);
                 });
             });
 
             describe(prop('[item].version'), () => {
                 it('should throw for missing required property', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "version" fails because ["version" is required]]]';
-                    delete config.chaincodes[0].version;
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "version" fails because ["version" is required]]]';
+                    delete config.contracts[0].version;
                     call.should.throw(err);
                 });
 
                 it('should throw for non-string value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "version" fails because ["version" must be a string]]]';
-                    config.chaincodes[0].version = true;
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "version" fails because ["version" must be a string]]]';
+                    config.contracts[0].version = true;
                     call.should.throw(err);
                 });
 
                 it('should throw for empty string value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "version" fails because ["version" is not allowed to be empty, "version" length must be at least 1 characters long]]]';
-                    config.chaincodes[0].version = '';
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "version" fails because ["version" is not allowed to be empty, "version" length must be at least 1 characters long]]]';
+                    config.contracts[0].version = '';
                     call.should.throw(err);
                 });
             });
 
             describe(prop('[item].contractID'), () => {
                 it('should not throw for missing optional property', () => {
-                    delete config.chaincodes[0].contractID;
+                    delete config.contracts[0].contractID;
                     call.should.not.throw();
                 });
 
                 it('should throw for non-string value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "contractID" fails because ["contractID" must be a string]]]';
-                    config.chaincodes[0].contractID = true;
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "contractID" fails because ["contractID" must be a string]]]';
+                    config.contracts[0].contractID = true;
                     call.should.throw(err);
                 });
 
                 it('should throw for empty string value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "contractID" fails because ["contractID" is not allowed to be empty, "contractID" length must be at least 1 characters long]]]';
-                    config.chaincodes[0].contractID = '';
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "contractID" fails because ["contractID" is not allowed to be empty, "contractID" length must be at least 1 characters long]]]';
+                    config.contracts[0].contractID = '';
                     call.should.throw(err);
                 });
 
                 it('should throw for duplicate items based on "contractID" vs "contractID"', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" position 1 contains a duplicate value]';
-                    config.chaincodes[1].contractID = 'ContractMarbles';
+                    const err = 'child "contracts" fails because ["contracts" position 1 contains a duplicate value]';
+                    config.contracts[1].contractID = 'ContractMarbles';
                     call.should.throw(err);
                 });
 
                 it('should throw for duplicate items based on "contractID" vs "id"', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" position 1 contains a duplicate value]';
-                    config.chaincodes[1].id = 'ContractMarbles';
+                    const err = 'child "contracts" fails because ["contracts" position 1 contains a duplicate value]';
+                    config.contracts[1].id = 'ContractMarbles';
                     call.should.throw(err);
                 });
 
                 it('should throw for duplicate items based on "id" vs "contractID"', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" position 1 contains a duplicate value]';
-                    delete config.chaincodes[0].contractID;
-                    config.chaincodes[1].contractID = 'marbles';
+                    const err = 'child "contracts" fails because ["contracts" position 1 contains a duplicate value]';
+                    delete config.contracts[0].contractID;
+                    config.contracts[1].contractID = 'marbles';
                     call.should.throw(err);
                 });
 
                 it('should throw for duplicate items based on "id" vs "id"', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" position 1 contains a duplicate value]';
-                    delete config.chaincodes[0].contractID;
-                    config.chaincodes[1].id = 'marbles';
+                    const err = 'child "contracts" fails because ["contracts" position 1 contains a duplicate value]';
+                    delete config.contracts[0].contractID;
+                    config.contracts[1].id = 'marbles';
                     call.should.throw(err);
                 });
             });
 
-            // using the second chaincode
+            // using the second contract
             describe(prop('[item].language'), () => {
                 it('should not throw for missing optional property', () => {
-                    delete config.chaincodes[1].language;
+                    delete config.contracts[1].language;
                     call.should.not.throw();
                 });
 
                 it('should throw for non-string value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 1 fails because [child "language" fails because ["language" must be a string]]]';
-                    config.chaincodes[1].language = true;
+                    const err = 'child "contracts" fails because ["contracts" at position 1 fails because [child "language" fails because ["language" must be a string]]]';
+                    config.contracts[1].language = true;
                     call.should.throw(err);
                 });
 
                 it('should throw for empty string value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 1 fails because [child "language" fails because ["language" is not allowed to be empty, "language" must be one of [golang, node, java]]]]';
-                    config.chaincodes[1].language = '';
+                    const err = 'child "contracts" fails because ["contracts" at position 1 fails because [child "language" fails because ["language" is not allowed to be empty, "language" must be one of [golang, node, java]]]]';
+                    config.contracts[1].language = '';
                     call.should.throw(err);
                 });
 
                 it('should throw for invalid string value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 1 fails because [child "language" fails because ["language" must be one of [golang, node, java]]]]';
-                    config.chaincodes[1].language = 'noooode';
+                    const err = 'child "contracts" fails because ["contracts" at position 1 fails because [child "language" fails because ["language" must be one of [golang, node, java]]]]';
+                    config.contracts[1].language = 'noooode';
                     call.should.throw(err);
                 });
             });
 
             describe(prop('[item].path'), () => {
                 it('should not throw for missing optional property', () => {
-                    delete config.chaincodes[0].metadataPath;
-                    delete config.chaincodes[0].path;
+                    delete config.contracts[0].metadataPath;
+                    delete config.contracts[0].path;
                     call.should.not.throw();
                 });
 
                 it('should throw for non-string value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "path" fails because ["path" must be a string]]]';
-                    config.chaincodes[0].path = true;
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "path" fails because ["path" must be a string]]]';
+                    config.contracts[0].path = true;
                     call.should.throw(err);
                 });
 
                 it('should throw for empty string value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "path" fails because ["path" is not allowed to be empty, "path" length must be at least 1 characters long]]]';
-                    config.chaincodes[0].path = '';
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "path" fails because ["path" is not allowed to be empty, "path" length must be at least 1 characters long]]]';
+                    config.contracts[0].path = '';
                     call.should.throw(err);
                 });
             });
 
             describe(prop('[item].metadataPath'), () => {
                 it('should not throw for missing optional property', () => {
-                    delete config.chaincodes[0].metadataPath;
+                    delete config.contracts[0].metadataPath;
                     call.should.not.throw();
                 });
 
                 it('should throw for non-string value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "metadataPath" fails because ["metadataPath" must be a string]]]';
-                    config.chaincodes[0].metadataPath = true;
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "metadataPath" fails because ["metadataPath" must be a string]]]';
+                    config.contracts[0].metadataPath = true;
                     call.should.throw(err);
                 });
 
                 it('should throw for empty string value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "metadataPath" fails because ["metadataPath" is not allowed to be empty, "metadataPath" length must be at least 1 characters long]]]';
-                    config.chaincodes[0].metadataPath = '';
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "metadataPath" fails because ["metadataPath" is not allowed to be empty, "metadataPath" length must be at least 1 characters long]]]';
+                    config.contracts[0].metadataPath = '';
                     call.should.throw(err);
                 });
             });
 
             describe(prop('[item].init'), () => {
                 it('should not throw for missing optional property', () => {
-                    delete config.chaincodes[0].init;
+                    delete config.contracts[0].init;
                     call.should.not.throw();
                 });
 
                 it('should throw for non-array value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "init" fails because ["init" must be an array]]]';
-                    config.chaincodes[0].init = true;
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "init" fails because ["init" must be an array]]]';
+                    config.contracts[0].init = true;
                     call.should.throw(err);
                 });
 
                 it('should throw for undefined item', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "init" fails because ["init" must not be a sparse array]]]';
-                    config.chaincodes[0].init.push(undefined);
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "init" fails because ["init" must not be a sparse array]]]';
+                    config.contracts[0].init.push(undefined);
                     call.should.throw(err);
                 });
 
                 it('should throw for non-string item', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "init" fails because ["init" at position 0 fails because ["0" must be a string]]]]';
-                    config.chaincodes[0].init.push(true);
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "init" fails because ["init" at position 0 fails because ["0" must be a string]]]]';
+                    config.contracts[0].init.push(true);
                     call.should.throw(err);
                 });
             });
 
             describe(prop('[item].function'), () => {
                 it('should not throw for missing optional property', () => {
-                    delete config.chaincodes[0].function;
+                    delete config.contracts[0].function;
                     call.should.not.throw();
                 });
 
                 it('should throw for non-string value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "function" fails because ["function" must be a string]]]';
-                    config.chaincodes[0].function = true;
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "function" fails because ["function" must be a string]]]';
+                    config.contracts[0].function = true;
                     call.should.throw(err);
                 });
             });
 
             describe(prop('[item].initTransientMap'), () => {
                 it('should not throw for missing optional property', () => {
-                    delete config.chaincodes[0].initTransientMap;
+                    delete config.contracts[0].initTransientMap;
                     call.should.not.throw();
                 });
 
                 it('should throw for non-object value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "initTransientMap" fails because ["initTransientMap" must be an object]]]';
-                    config.chaincodes[0].initTransientMap = true;
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "initTransientMap" fails because ["initTransientMap" must be an object]]]';
+                    config.contracts[0].initTransientMap = true;
                     call.should.throw(err);
                 });
 
                 it('should throw for non-string child property key', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "initTransientMap" fails because [child "false" fails because ["false" must be a string]]]]';
-                    config.chaincodes[0].initTransientMap.false = true;
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "initTransientMap" fails because [child "false" fails because ["false" must be a string]]]]';
+                    config.contracts[0].initTransientMap.false = true;
                     call.should.throw(err);
                 });
 
                 it('should throw for non-string child property value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "initTransientMap" fails because [child "key" fails because ["key" must be a string]]]]';
-                    config.chaincodes[0].initTransientMap.key = true;
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "initTransientMap" fails because [child "key" fails because ["key" must be a string]]]]';
+                    config.contracts[0].initTransientMap.key = true;
                     call.should.throw(err);
                 });
             });
 
             describe(prop('[item].collections-config'), () => {
                 it('should not throw for missing optional property', () => {
-                    delete config.chaincodes[0]['collections-config'];
+                    delete config.contracts[0]['collections-config'];
                     call.should.not.throw();
                 });
 
                 it('should not throw for string form instead of object form', () => {
-                    config.chaincodes[0]['collections-config'] = 'path';
+                    config.contracts[0]['collections-config'] = 'path';
                     call.should.not.throw();
                 });
 
                 it('should throw for non-array value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" must be an array]]]';
-                    config.chaincodes[0]['collections-config'] = true;
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" must be an array]]]';
+                    config.contracts[0]['collections-config'] = true;
                     call.should.throw(err);
                 });
 
                 it('should throw for empty array value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" must contain at least 1 items]]]';
-                    config.chaincodes[0]['collections-config'] = [];
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" must contain at least 1 items]]]';
+                    config.contracts[0]['collections-config'] = [];
                     call.should.throw(err);
                 });
 
                 it('should throw for undefined item', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" must not be a sparse array]]]';
-                    config.chaincodes[0]['collections-config'].push(undefined);
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" must not be a sparse array]]]';
+                    config.contracts[0]['collections-config'].push(undefined);
                     call.should.throw(err);
                 });
 
                 it('should throw for unknown child property of item', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because ["unknown" is not allowed]]]]';
-                    config.chaincodes[0]['collections-config'][0].unknown = '';
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because ["unknown" is not allowed]]]]';
+                    config.contracts[0]['collections-config'][0].unknown = '';
                     call.should.throw(err);
                 });
 
                 describe(prop('[item].name'), () => {
                     it('should throw for missing required property', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "name" fails because ["name" is required]]]]]';
-                        delete config.chaincodes[0]['collections-config'][0].name;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "name" fails because ["name" is required]]]]]';
+                        delete config.contracts[0]['collections-config'][0].name;
                         call.should.throw(err);
                     });
 
                     it('should throw for non-string value', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "name" fails because ["name" must be a string]]]]]';
-                        config.chaincodes[0]['collections-config'][0].name = true;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "name" fails because ["name" must be a string]]]]]';
+                        config.contracts[0]['collections-config'][0].name = true;
                         call.should.throw(err);
                     });
 
                     it('should throw for empty string value', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "name" fails because ["name" is not allowed to be empty, "name" length must be at least 1 characters long]]]]]';
-                        config.chaincodes[0]['collections-config'][0].name = '';
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "name" fails because ["name" is not allowed to be empty, "name" length must be at least 1 characters long]]]]]';
+                        config.contracts[0]['collections-config'][0].name = '';
                         call.should.throw(err);
                     });
 
                     it('should throw for duplicate value', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" position 1 contains a duplicate value]]]';
-                        config.chaincodes[0]['collections-config'][0].name = 'name2';
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" position 1 contains a duplicate value]]]';
+                        config.contracts[0]['collections-config'][0].name = 'name2';
                         call.should.throw(err);
                     });
                 });
 
                 describe(prop('[item].requiredPeerCount'), () => {
                     it('should throw for missing required property', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "requiredPeerCount" fails because ["requiredPeerCount" is required], child "maxPeerCount" fails because ["maxPeerCount" references "requiredPeerCount" which is not a number]]]]]';
-                        delete config.chaincodes[0]['collections-config'][0].requiredPeerCount;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "requiredPeerCount" fails because ["requiredPeerCount" is required], child "maxPeerCount" fails because ["maxPeerCount" references "requiredPeerCount" which is not a number]]]]]';
+                        delete config.contracts[0]['collections-config'][0].requiredPeerCount;
                         call.should.throw(err);
                     });
 
                     it('should throw for non-integer value', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "requiredPeerCount" fails because ["requiredPeerCount" must be an integer]]]]]';
-                        config.chaincodes[0]['collections-config'][0].requiredPeerCount = 0.14;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "requiredPeerCount" fails because ["requiredPeerCount" must be an integer]]]]]';
+                        config.contracts[0]['collections-config'][0].requiredPeerCount = 0.14;
                         call.should.throw(err);
                     });
 
                     it('should throw for negative value', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "requiredPeerCount" fails because ["requiredPeerCount" must be larger than or equal to 0]]]]]';
-                        config.chaincodes[0]['collections-config'][0].requiredPeerCount = -1;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "requiredPeerCount" fails because ["requiredPeerCount" must be larger than or equal to 0]]]]]';
+                        config.contracts[0]['collections-config'][0].requiredPeerCount = -1;
                         call.should.throw(err);
                     });
 
                     it('should throw for value greater than "maxPeerCount"', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "requiredPeerCount" fails because ["requiredPeerCount" must be less than or equal to 2], child "maxPeerCount" fails because ["maxPeerCount" must be larger than or equal to 3]]]]]';
-                        config.chaincodes[0]['collections-config'][0].requiredPeerCount = 3;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "requiredPeerCount" fails because ["requiredPeerCount" must be less than or equal to 2], child "maxPeerCount" fails because ["maxPeerCount" must be larger than or equal to 3]]]]]';
+                        config.contracts[0]['collections-config'][0].requiredPeerCount = 3;
                         call.should.throw(err);
                     });
                 });
 
                 describe(prop('[item].maxPeerCount'), () => {
                     it('should throw for missing required property', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "requiredPeerCount" fails because ["requiredPeerCount" references "maxPeerCount" which is not a number], child "maxPeerCount" fails because ["maxPeerCount" is required]]]]]';
-                        delete config.chaincodes[0]['collections-config'][0].maxPeerCount;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "requiredPeerCount" fails because ["requiredPeerCount" references "maxPeerCount" which is not a number], child "maxPeerCount" fails because ["maxPeerCount" is required]]]]]';
+                        delete config.contracts[0]['collections-config'][0].maxPeerCount;
                         call.should.throw(err);
                     });
 
                     it('should throw for non-integer value', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "maxPeerCount" fails because ["maxPeerCount" must be an integer]]]]]';
-                        config.chaincodes[0]['collections-config'][0].maxPeerCount = 3.14;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "maxPeerCount" fails because ["maxPeerCount" must be an integer]]]]]';
+                        config.contracts[0]['collections-config'][0].maxPeerCount = 3.14;
                         call.should.throw(err);
                     });
 
                     it('should throw for negative value', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "requiredPeerCount" fails because ["requiredPeerCount" must be less than or equal to -1], child "maxPeerCount" fails because ["maxPeerCount" must be larger than or equal to 1]]]]]';
-                        config.chaincodes[0]['collections-config'][0].maxPeerCount = -1;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "requiredPeerCount" fails because ["requiredPeerCount" must be less than or equal to -1], child "maxPeerCount" fails because ["maxPeerCount" must be larger than or equal to 1]]]]]';
+                        config.contracts[0]['collections-config'][0].maxPeerCount = -1;
                         call.should.throw(err);
                     });
 
                     it('should throw for value less than "requiredPeerCount"', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "requiredPeerCount" fails because ["requiredPeerCount" must be less than or equal to 0], child "maxPeerCount" fails because ["maxPeerCount" must be larger than or equal to 1]]]]]';
-                        config.chaincodes[0]['collections-config'][0].maxPeerCount = 0;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "requiredPeerCount" fails because ["requiredPeerCount" must be less than or equal to 0], child "maxPeerCount" fails because ["maxPeerCount" must be larger than or equal to 1]]]]]';
+                        config.contracts[0]['collections-config'][0].maxPeerCount = 0;
                         call.should.throw(err);
                     });
                 });
 
                 describe(prop('[item].blockToLive'), () => {
                     it('should throw for missing required property', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "blockToLive" fails because ["blockToLive" is required]]]]]';
-                        delete config.chaincodes[0]['collections-config'][0].blockToLive;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "blockToLive" fails because ["blockToLive" is required]]]]]';
+                        delete config.contracts[0]['collections-config'][0].blockToLive;
                         call.should.throw(err);
                     });
 
                     it('should throw for non-integer value', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "blockToLive" fails because ["blockToLive" must be an integer]]]]]';
-                        config.chaincodes[0]['collections-config'][0].blockToLive = 3.14;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "blockToLive" fails because ["blockToLive" must be an integer]]]]]';
+                        config.contracts[0]['collections-config'][0].blockToLive = 3.14;
                         call.should.throw(err);
                     });
 
                     it('should throw for negative value', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "blockToLive" fails because ["blockToLive" must be larger than or equal to 0]]]]]';
-                        config.chaincodes[0]['collections-config'][0].blockToLive = -1;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "blockToLive" fails because ["blockToLive" must be larger than or equal to 0]]]]]';
+                        config.contracts[0]['collections-config'][0].blockToLive = -1;
                         call.should.throw(err);
                     });
                 });
 
                 describe(prop('[item].policy'), () => {
                     it('should throw for missing required property', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because ["policy" is required]]]]]';
-                        delete config.chaincodes[0]['collections-config'][0].policy;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because ["policy" is required]]]]]';
+                        delete config.contracts[0]['collections-config'][0].policy;
                         call.should.throw(err);
                     });
 
                     it('should throw for non-object value', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because ["policy" must be an object]]]]]';
-                        config.chaincodes[0]['collections-config'][0].policy = true;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because ["policy" must be an object]]]]]';
+                        config.contracts[0]['collections-config'][0].policy = true;
                         call.should.throw(err);
                     });
 
                     it('should throw for unknown child property', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because ["unknown" is not allowed]]]]]';
-                        config.chaincodes[0]['collections-config'][0].policy.unknown = '';
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because ["unknown" is not allowed]]]]]';
+                        config.contracts[0]['collections-config'][0].policy.unknown = '';
                         call.should.throw(err);
                     });
 
                     describe(prop('identities'), () => {
                         it('should throw for missing required property', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" is required]]]]]]';
-                            delete config.chaincodes[0]['collections-config'][0].policy.identities;
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" is required]]]]]]';
+                            delete config.contracts[0]['collections-config'][0].policy.identities;
                             call.should.throw(err);
                         });
 
                         it('should throw for non-array value', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" must be an array]]]]]]';
-                            config.chaincodes[0]['collections-config'][0].policy.identities = true;
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" must be an array]]]]]]';
+                            config.contracts[0]['collections-config'][0].policy.identities = true;
                             call.should.throw(err);
                         });
 
                         it('should throw for undefined item', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" must not be a sparse array]]]]]]';
-                            config.chaincodes[0]['collections-config'][0].policy.identities.push(undefined);
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" must not be a sparse array]]]]]]';
+                            config.contracts[0]['collections-config'][0].policy.identities.push(undefined);
                             call.should.throw(err);
                         });
 
                         it('should throw for duplicate items', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" position 2 contains a duplicate value]]]]]]';
-                            config.chaincodes[0]['collections-config'][0].policy.identities.push({role: {name: 'member', mspId: 'Org1MSP'}});
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" position 2 contains a duplicate value]]]]]]';
+                            config.contracts[0]['collections-config'][0].policy.identities.push({role: {name: 'member', mspId: 'Org1MSP'}});
                             call.should.throw(err);
                         });
 
                         it('should throw for unknown child property of items', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because ["unknown" is not allowed]]]]]]]';
-                            config.chaincodes[0]['collections-config'][0].policy.identities[0].unknown = '';
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because ["unknown" is not allowed]]]]]]]';
+                            config.contracts[0]['collections-config'][0].policy.identities[0].unknown = '';
                             call.should.throw(err);
                         });
 
                         describe(prop('[item].role'), () => {
                             it('should throw for missing required property', () => {
-                                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because ["role" is required]]]]]]]]';
-                                delete config.chaincodes[0]['collections-config'][0].policy.identities[0].role;
+                                const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because ["role" is required]]]]]]]]';
+                                delete config.contracts[0]['collections-config'][0].policy.identities[0].role;
                                 call.should.throw(err);
                             });
 
                             it('should throw for unknown child property', () => {
-                                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because ["unknown" is not allowed]]]]]]]]';
-                                config.chaincodes[0]['collections-config'][0].policy.identities[0].role.unknown = '';
+                                const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because ["unknown" is not allowed]]]]]]]]';
+                                config.contracts[0]['collections-config'][0].policy.identities[0].role.unknown = '';
                                 call.should.throw(err);
                             });
 
                             describe(prop('name'), () => {
                                 it('should throw for missing required property', () => {
-                                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "name" fails because ["name" is required]]]]]]]]]';
-                                    delete config.chaincodes[0]['collections-config'][0].policy.identities[0].role.name;
+                                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "name" fails because ["name" is required]]]]]]]]]';
+                                    delete config.contracts[0]['collections-config'][0].policy.identities[0].role.name;
                                     call.should.throw(err);
                                 });
 
                                 it('should throw for non-string value', () => {
-                                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "name" fails because ["name" must be a string]]]]]]]]]';
-                                    config.chaincodes[0]['collections-config'][0].policy.identities[0].role.name = true;
+                                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "name" fails because ["name" must be a string]]]]]]]]]';
+                                    config.contracts[0]['collections-config'][0].policy.identities[0].role.name = true;
                                     call.should.throw(err);
                                 });
 
                                 it('should throw for invalid value', () => {
-                                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "name" fails because ["name" must be one of [member, admin]]]]]]]]]]';
-                                    config.chaincodes[0]['collections-config'][0].policy.identities[0].role.name = 'not-member';
+                                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "name" fails because ["name" must be one of [member, admin]]]]]]]]]]';
+                                    config.contracts[0]['collections-config'][0].policy.identities[0].role.name = 'not-member';
                                     call.should.throw(err);
                                 });
                             });
 
                             describe(prop('mspId'), () => {
                                 it('should throw for missing required property', () => {
-                                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" is required]]]]]]]]]';
-                                    delete config.chaincodes[0]['collections-config'][0].policy.identities[0].role.mspId;
+                                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" is required]]]]]]]]]';
+                                    delete config.contracts[0]['collections-config'][0].policy.identities[0].role.mspId;
                                     call.should.throw(err);
                                 });
 
                                 it('should throw for non-string value', () => {
-                                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" must be a string]]]]]]]]]';
-                                    config.chaincodes[0]['collections-config'][0].policy.identities[0].role.mspId = true;
+                                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" must be a string]]]]]]]]]';
+                                    config.contracts[0]['collections-config'][0].policy.identities[0].role.mspId = true;
                                     call.should.throw(err);
                                 });
 
                                 it('should throw for invalid value', () => {
-                                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" must be one of [Org1MSP, Org2MSP]]]]]]]]]]';
-                                    config.chaincodes[0]['collections-config'][0].policy.identities[0].role.mspId = 'Org5MSP';
+                                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" must be one of [Org1MSP, Org2MSP]]]]]]]]]]';
+                                    config.contracts[0]['collections-config'][0].policy.identities[0].role.mspId = 'Org5MSP';
                                     call.should.throw(err);
                                 });
                             });
@@ -3399,71 +3399,71 @@ describe('Class: ConfigValidator', () => {
 
                     describe(prop('policy'), () => {
                         it('should throw for missing required property', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because ["policy" is required]]]]]]';
-                            delete config.chaincodes[0]['collections-config'][0].policy.policy;
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because ["policy" is required]]]]]]';
+                            delete config.contracts[0]['collections-config'][0].policy.policy;
                             call.should.throw(err);
                         });
 
                         it('should throw for non-object value', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because ["policy" must be an object]]]]]]';
-                            config.chaincodes[0]['collections-config'][0].policy.policy = true;
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because ["policy" must be an object]]]]]]';
+                            config.contracts[0]['collections-config'][0].policy.policy = true;
                             call.should.throw(err);
                         });
 
                         it('should throw for an empty value', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because ["policy" must have 1 children]]]]]]';
-                            config.chaincodes[0]['collections-config'][0].policy.policy = {};
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because ["policy" must have 1 children]]]]]]';
+                            config.contracts[0]['collections-config'][0].policy.policy = {};
                             call.should.throw(err);
                         });
 
                         it('should throw for an invalid child property', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because ["of2" is not allowed]]]]]]';
-                            config.chaincodes[0]['collections-config'][0].policy.policy.of2 = {};
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because ["of2" is not allowed]]]]]]';
+                            config.contracts[0]['collections-config'][0].policy.policy.of2 = {};
                             call.should.throw(err);
                         });
 
                         describe(prop('X-of'), () => {
                             it('should throw for non-array value', () => {
-                                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" must be an array]]]]]]]';
-                                config.chaincodes[0]['collections-config'][0].policy.policy['2-of'] = true;
+                                const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" must be an array]]]]]]]';
+                                config.contracts[0]['collections-config'][0].policy.policy['2-of'] = true;
                                 call.should.throw(err);
                             });
 
                             it('should throw for empty value', () => {
-                                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" must contain at least 1 items]]]]]]]';
-                                config.chaincodes[0]['collections-config'][0].policy.policy['2-of'] = [];
+                                const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" must contain at least 1 items]]]]]]]';
+                                config.contracts[0]['collections-config'][0].policy.policy['2-of'] = [];
                                 call.should.throw(err);
                             });
 
                             it('should throw for undefined item', () => {
-                                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" must not be a sparse array]]]]]]]';
-                                config.chaincodes[0]['collections-config'][0].policy.policy['2-of'].push(undefined);
+                                const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" must not be a sparse array]]]]]]]';
+                                config.contracts[0]['collections-config'][0].policy.policy['2-of'].push(undefined);
                                 call.should.throw(err);
                             });
 
                             it('should throw for item with invalid key', () => {
-                                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 2 fails because ["of2" is not allowed]]]]]]]]';
-                                config.chaincodes[0]['collections-config'][0].policy.policy['2-of'].push({ of2: true });
+                                const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 2 fails because ["of2" is not allowed]]]]]]]]';
+                                config.contracts[0]['collections-config'][0].policy.policy['2-of'].push({ of2: true });
                                 call.should.throw(err);
                             });
 
                             it('should throw for empty item', () => {
-                                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 2 fails because ["2" must have at least 1 children]]]]]]]]';
-                                config.chaincodes[0]['collections-config'][0].policy.policy['2-of'].push({});
+                                const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 2 fails because ["2" must have at least 1 children]]]]]]]]';
+                                config.contracts[0]['collections-config'][0].policy.policy['2-of'].push({});
                                 call.should.throw(err);
                             });
 
                             // the recursive X-of items are covered by the above tests
                             describe(prop('[item].signed-by'), () => {
                                 it('should throw for non-integer value', () => {
-                                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 0 fails because [child "signed-by" fails because ["signed-by" must be an integer]]]]]]]]]';
-                                    config.chaincodes[0]['collections-config'][0].policy.policy['2-of'][0]['signed-by'] = 3.14;
+                                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 0 fails because [child "signed-by" fails because ["signed-by" must be an integer]]]]]]]]]';
+                                    config.contracts[0]['collections-config'][0].policy.policy['2-of'][0]['signed-by'] = 3.14;
                                     call.should.throw(err);
                                 });
 
                                 it('should throw for negative value', () => {
-                                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 0 fails because [child "signed-by" fails because ["signed-by" must be larger than or equal to 0]]]]]]]]]';
-                                    config.chaincodes[0]['collections-config'][0].policy.policy['2-of'][0]['signed-by'] = -10;
+                                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "collections-config" fails because ["collections-config" must be a string, "collections-config" at position 0 fails because [child "policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 0 fails because [child "signed-by" fails because ["signed-by" must be larger than or equal to 0]]]]]]]]]';
+                                    config.contracts[0]['collections-config'][0].policy.policy['2-of'][0]['signed-by'] = -10;
                                     call.should.throw(err);
                                 });
                             });
@@ -3475,44 +3475,44 @@ describe('Class: ConfigValidator', () => {
 
             describe(prop('[item].endorsement-policy'), () => {
                 it('should not throw for missing optional property', () => {
-                    delete config.chaincodes[0]['endorsement-policy'];
+                    delete config.contracts[0]['endorsement-policy'];
                     call.should.not.throw();
                 });
 
                 it('should throw for non-object value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because ["endorsement-policy" must be an object]]]';
-                    config.chaincodes[0]['endorsement-policy'] = true;
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because ["endorsement-policy" must be an object]]]';
+                    config.contracts[0]['endorsement-policy'] = true;
                     call.should.throw(err);
                 });
 
                 it('should throw for unknown child property', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because ["unknown" is not allowed]]]';
-                    config.chaincodes[0]['endorsement-policy'].unknown = '';
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because ["unknown" is not allowed]]]';
+                    config.contracts[0]['endorsement-policy'].unknown = '';
                     call.should.throw(err);
                 });
 
                 describe(prop('identities'), () => {
                     it('should throw for missing required property', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" is required]]]]';
-                        delete config.chaincodes[0]['endorsement-policy'].identities;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" is required]]]]';
+                        delete config.contracts[0]['endorsement-policy'].identities;
                         call.should.throw(err);
                     });
 
                     it('should throw for non-array value', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" must be an array]]]]';
-                        config.chaincodes[0]['endorsement-policy'].identities = true;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" must be an array]]]]';
+                        config.contracts[0]['endorsement-policy'].identities = true;
                         call.should.throw(err);
                     });
 
                     it('should throw for undefined item', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" must not be a sparse array]]]]';
-                        config.chaincodes[0]['endorsement-policy'].identities.push(undefined);
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" must not be a sparse array]]]]';
+                        config.contracts[0]['endorsement-policy'].identities.push(undefined);
                         call.should.throw(err);
                     });
 
                     it('should throw for duplicate items', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" position 2 contains a duplicate value]]]]';
-                        config.chaincodes[0]['endorsement-policy'].identities.push({
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" position 2 contains a duplicate value]]]]';
+                        config.contracts[0]['endorsement-policy'].identities.push({
                             role: {
                                 name: 'member',
                                 mspId: 'Org1MSP'
@@ -3522,60 +3522,60 @@ describe('Class: ConfigValidator', () => {
                     });
 
                     it('should throw for unknown child property of items', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because ["unknown" is not allowed]]]]]';
-                        config.chaincodes[0]['endorsement-policy'].identities[0].unknown = '';
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because ["unknown" is not allowed]]]]]';
+                        config.contracts[0]['endorsement-policy'].identities[0].unknown = '';
                         call.should.throw(err);
                     });
 
                     describe(prop('[item].role'), () => {
                         it('should throw for missing required property', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because ["role" is required]]]]]]';
-                            delete config.chaincodes[0]['endorsement-policy'].identities[0].role;
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because ["role" is required]]]]]]';
+                            delete config.contracts[0]['endorsement-policy'].identities[0].role;
                             call.should.throw(err);
                         });
 
                         it('should throw for unknown child property', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because ["unknown" is not allowed]]]]]]';
-                            config.chaincodes[0]['endorsement-policy'].identities[0].role.unknown = '';
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because ["unknown" is not allowed]]]]]]';
+                            config.contracts[0]['endorsement-policy'].identities[0].role.unknown = '';
                             call.should.throw(err);
                         });
 
                         describe(prop('name'), () => {
                             it('should throw for missing required property', () => {
-                                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "name" fails because ["name" is required]]]]]]]';
-                                delete config.chaincodes[0]['endorsement-policy'].identities[0].role.name;
+                                const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "name" fails because ["name" is required]]]]]]]';
+                                delete config.contracts[0]['endorsement-policy'].identities[0].role.name;
                                 call.should.throw(err);
                             });
 
                             it('should throw for non-string value', () => {
-                                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "name" fails because ["name" must be a string]]]]]]]';
-                                config.chaincodes[0]['endorsement-policy'].identities[0].role.name = true;
+                                const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "name" fails because ["name" must be a string]]]]]]]';
+                                config.contracts[0]['endorsement-policy'].identities[0].role.name = true;
                                 call.should.throw(err);
                             });
 
                             it('should throw for invalid value', () => {
-                                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "name" fails because ["name" must be one of [member, admin]]]]]]]]';
-                                config.chaincodes[0]['endorsement-policy'].identities[0].role.name = 'not-member';
+                                const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "name" fails because ["name" must be one of [member, admin]]]]]]]]';
+                                config.contracts[0]['endorsement-policy'].identities[0].role.name = 'not-member';
                                 call.should.throw(err);
                             });
                         });
 
                         describe(prop('mspId'), () => {
                             it('should throw for missing required property', () => {
-                                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" is required]]]]]]]';
-                                delete config.chaincodes[0]['endorsement-policy'].identities[0].role.mspId;
+                                const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" is required]]]]]]]';
+                                delete config.contracts[0]['endorsement-policy'].identities[0].role.mspId;
                                 call.should.throw(err);
                             });
 
                             it('should throw for non-string value', () => {
-                                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" must be a string]]]]]]]';
-                                config.chaincodes[0]['endorsement-policy'].identities[0].role.mspId = true;
+                                const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" must be a string]]]]]]]';
+                                config.contracts[0]['endorsement-policy'].identities[0].role.mspId = true;
                                 call.should.throw(err);
                             });
 
                             it('should throw for invalid value', () => {
-                                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" must be one of [Org1MSP, Org2MSP]]]]]]]]';
-                                config.chaincodes[0]['endorsement-policy'].identities[0].role.mspId = 'Org5MSP';
+                                const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "identities" fails because ["identities" at position 0 fails because [child "role" fails because [child "mspId" fails because ["mspId" must be one of [Org1MSP, Org2MSP]]]]]]]]';
+                                config.contracts[0]['endorsement-policy'].identities[0].role.mspId = 'Org5MSP';
                                 call.should.throw(err);
                             });
                         });
@@ -3584,71 +3584,71 @@ describe('Class: ConfigValidator', () => {
 
                 describe(prop('policy'), () => {
                     it('should throw for missing required property', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because ["policy" is required]]]]';
-                        delete config.chaincodes[0]['endorsement-policy'].policy;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because ["policy" is required]]]]';
+                        delete config.contracts[0]['endorsement-policy'].policy;
                         call.should.throw(err);
                     });
 
                     it('should throw for non-object value', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because ["policy" must be an object]]]]';
-                        config.chaincodes[0]['endorsement-policy'].policy = true;
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because ["policy" must be an object]]]]';
+                        config.contracts[0]['endorsement-policy'].policy = true;
                         call.should.throw(err);
                     });
 
                     it('should throw for an empty value', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because ["policy" must have 1 children]]]]';
-                        config.chaincodes[0]['endorsement-policy'].policy = {};
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because ["policy" must have 1 children]]]]';
+                        config.contracts[0]['endorsement-policy'].policy = {};
                         call.should.throw(err);
                     });
 
                     it('should throw for an invalid child property', () => {
-                        const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because ["of2" is not allowed]]]]';
-                        config.chaincodes[0]['endorsement-policy'].policy.of2 = {};
+                        const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because ["of2" is not allowed]]]]';
+                        config.contracts[0]['endorsement-policy'].policy.of2 = {};
                         call.should.throw(err);
                     });
 
                     describe(prop('X-of'), () => {
                         it('should throw for non-array value', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" must be an array]]]]]';
-                            config.chaincodes[0]['endorsement-policy'].policy['2-of'] = true;
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" must be an array]]]]]';
+                            config.contracts[0]['endorsement-policy'].policy['2-of'] = true;
                             call.should.throw(err);
                         });
 
                         it('should throw for empty value', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" must contain at least 1 items]]]]]';
-                            config.chaincodes[0]['endorsement-policy'].policy['2-of'] = [];
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" must contain at least 1 items]]]]]';
+                            config.contracts[0]['endorsement-policy'].policy['2-of'] = [];
                             call.should.throw(err);
                         });
 
                         it('should throw for undefined item', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" must not be a sparse array]]]]]';
-                            config.chaincodes[0]['endorsement-policy'].policy['2-of'].push(undefined);
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" must not be a sparse array]]]]]';
+                            config.contracts[0]['endorsement-policy'].policy['2-of'].push(undefined);
                             call.should.throw(err);
                         });
 
                         it('should throw for item with invalid key', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 2 fails because ["of2" is not allowed]]]]]]';
-                            config.chaincodes[0]['endorsement-policy'].policy['2-of'].push({of2: true});
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 2 fails because ["of2" is not allowed]]]]]]';
+                            config.contracts[0]['endorsement-policy'].policy['2-of'].push({of2: true});
                             call.should.throw(err);
                         });
 
                         it('should throw for empty item', () => {
-                            const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 2 fails because ["2" must have at least 1 children]]]]]]';
-                            config.chaincodes[0]['endorsement-policy'].policy['2-of'].push({});
+                            const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 2 fails because ["2" must have at least 1 children]]]]]]';
+                            config.contracts[0]['endorsement-policy'].policy['2-of'].push({});
                             call.should.throw(err);
                         });
 
                         // the recursive X-of items are covered by the above tests
                         describe(prop('[item].signed-by'), () => {
                             it('should throw for non-integer value', () => {
-                                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 0 fails because [child "signed-by" fails because ["signed-by" must be an integer]]]]]]]';
-                                config.chaincodes[0]['endorsement-policy'].policy['2-of'][0]['signed-by'] = 3.14;
+                                const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 0 fails because [child "signed-by" fails because ["signed-by" must be an integer]]]]]]]';
+                                config.contracts[0]['endorsement-policy'].policy['2-of'][0]['signed-by'] = 3.14;
                                 call.should.throw(err);
                             });
 
                             it('should throw for negative value', () => {
-                                const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 0 fails because [child "signed-by" fails because ["signed-by" must be larger than or equal to 0]]]]]]]';
-                                config.chaincodes[0]['endorsement-policy'].policy['2-of'][0]['signed-by'] = -10;
+                                const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "endorsement-policy" fails because [child "policy" fails because [child "2-of" fails because ["2-of" at position 0 fails because [child "signed-by" fails because ["signed-by" must be larger than or equal to 0]]]]]]]';
+                                config.contracts[0]['endorsement-policy'].policy['2-of'][0]['signed-by'] = -10;
                                 call.should.throw(err);
                             });
                         });
@@ -3658,37 +3658,37 @@ describe('Class: ConfigValidator', () => {
 
             describe(prop('[item].targetPeers'), () => {
                 it('should not throw for missing optional property', () => {
-                    delete config.chaincodes[0].targetPeers;
+                    delete config.contracts[0].targetPeers;
                     call.should.not.throw();
                 });
 
                 it('should throw for non-array value', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "targetPeers" fails because ["targetPeers" must be an array]]]';
-                    config.chaincodes[0].targetPeers = true;
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "targetPeers" fails because ["targetPeers" must be an array]]]';
+                    config.contracts[0].targetPeers = true;
                     call.should.throw(err);
                 });
 
                 it('should throw for empty array', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "targetPeers" fails because ["targetPeers" must contain at least 1 items]]]';
-                    config.chaincodes[0].targetPeers = [];
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "targetPeers" fails because ["targetPeers" must contain at least 1 items]]]';
+                    config.contracts[0].targetPeers = [];
                     call.should.throw(err);
                 });
 
                 it('should throw for undefined item', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "targetPeers" fails because ["targetPeers" must not be a sparse array]]]';
-                    config.chaincodes[0].targetPeers.push(undefined);
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "targetPeers" fails because ["targetPeers" must not be a sparse array]]]';
+                    config.contracts[0].targetPeers.push(undefined);
                     call.should.throw(err);
                 });
 
                 it('should throw for invalid peer reference', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "targetPeers" fails because ["targetPeers" at position 2 fails because ["2" must be one of [peer0.org1.example.com, peer0.org2.example.com]]]]]';
-                    config.chaincodes[0].targetPeers.push('peer0.org5.example.com');
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "targetPeers" fails because ["targetPeers" at position 2 fails because ["2" must be one of [peer0.org1.example.com, peer0.org2.example.com]]]]]';
+                    config.contracts[0].targetPeers.push('peer0.org5.example.com');
                     call.should.throw(err);
                 });
 
                 it('should throw for duplicate peer reference', () => {
-                    const err = 'child "chaincodes" fails because ["chaincodes" at position 0 fails because [child "targetPeers" fails because ["targetPeers" position 2 contains a duplicate value]]]';
-                    config.chaincodes[0].targetPeers.push('peer0.org1.example.com');
+                    const err = 'child "contracts" fails because ["contracts" at position 0 fails because [child "targetPeers" fails because ["targetPeers" position 2 contains a duplicate value]]]';
+                    config.contracts[0].targetPeers.push('peer0.org1.example.com');
                     call.should.throw(err);
                 });
             });

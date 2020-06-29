@@ -114,15 +114,15 @@ const keys = {
         SleepAfter: {
             CreateChannel: 'caliper-fabric-sleepafter-createchannel',
             JoinChannel: 'caliper-fabric-sleepafter-joinchannel',
-            InstantiateChaincode: 'caliper-fabric-sleepafter-instantiatechaincode',
+            InstantiateContract: 'caliper-fabric-sleepafter-instantiatecontract',
         },
         Verify: {
             ProposalResponse: 'caliper-fabric-verify-proposalresponse',
             ReadWriteSets: 'caliper-fabric-verify-readwritesets',
         },
         Timeout: {
-            ChaincodeInstantiate: 'caliper-fabric-timeout-chaincodeinstantiate',
-            ChaincodeInstantiateEvent: 'caliper-fabric-timeout-chaincodeinstantiateevent',
+            ContractInstantiate: 'caliper-fabric-timeout-contractinstantiate',
+            ContractInstantiateEvent: 'caliper-fabric-timeout-contractinstantiateevent',
             InvokeOrQuery: 'caliper-fabric-timeout-invokeorquery',
         },
         LoadBalancing: 'caliper-fabric-loadbalancing',

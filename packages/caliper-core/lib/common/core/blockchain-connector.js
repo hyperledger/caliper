@@ -126,7 +126,7 @@ class BlockchainConnector {
      * @param {String} contractID identity of the contract
      * @param {String} contractVer version of the contract
      * @param {String} key lookup key
-     * @param {String=} [fcn] The chaincode query function name
+     * @param {String=} [fcn] The contract query function name
      */
     async queryState(context, contractID, contractVer, key, fcn) {
         throw new Error('queryState is not implemented for this blockchain connector');

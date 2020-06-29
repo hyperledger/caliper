@@ -39,49 +39,49 @@ const QueryStrategies = {
 //////////////////////
 
 /**
- * @typedef {Object} ChaincodeInvokeSettings
+ * @typedef {Object} ContractInvokeSettings
  *
- * @property {string} chaincodeId Required. The name/ID of the chaincode whose function
+ * @property {string} contractId Required. The name/ID of the contract whose function
  *           should be invoked.
- * @property {string} chaincodeVersion Required. The version of the chaincode whose function
+ * @property {string} contractVersion Required. The version of the contract whose function
  *           should be invoked.
- * @property {string} chaincodeFunction Required. The name of the function that should be
- *           invoked in the chaincode.
- * @property {string[]} chaincodeArguments Optional. The list of {string} arguments that should
- *           be passed to the chaincode.
+ * @property {string} contractFunction Required. The name of the function that should be
+ *           invoked in the contract.
+ * @property {string[]} contractArguments Optional. The list of {string} arguments that should
+ *           be passed to the contract.
  * @property {Map<string, Buffer>} transientMap Optional. The transient map that should be
- *           passed to the chaincode.
+ *           passed to the contract.
  * @property {string} invokerIdentity Required. The name of the client who should invoke the
- *           chaincode. If an admin is needed, use the organization name prefixed with a # symbol.
- * @property {string} channel Required. The name of the channel whose chaincode should be invoked.
+ *           contract. If an admin is needed, use the organization name prefixed with a # symbol.
+ * @property {string} channel Required. The name of the channel whose contract should be invoked.
  * @property {string[]} targetPeers Optional. An array of endorsing
  *           peer names as the targets of the invoke. When this
  *           parameter is omitted the target list will include the endorsing peers assigned
- *           to the target chaincode, or if it is also omitted, to the channel.
+ *           to the target contract, or if it is also omitted, to the channel.
  * @property {string} orderer Optional. The name of the orderer to whom the request should
  *           be submitted. If omitted, then the first orderer node of the channel will be used.
  */
 
 /**
- * @typedef {Object} ChaincodeQuerySettings
+ * @typedef {Object} ContractQuerySettings
  *
- * @property {string} chaincodeId Required. The name/ID of the chaincode whose function
+ * @property {string} contractId Required. The name/ID of the contract whose function
  *           should be invoked.
- * @property {string} chaincodeVersion Required. The version of the chaincode whose function
+ * @property {string} contractVersion Required. The version of the contract whose function
  *           should be invoked.
- * @property {string} chaincodeFunction Required. The name of the function that should be
- *           invoked in the chaincode.
- * @property {string[]} chaincodeArguments Optional. The list of {string} arguments that should
- *           be passed to the chaincode.
+ * @property {string} contractFunction Required. The name of the function that should be
+ *           invoked in the contract.
+ * @property {string[]} contractArguments Optional. The list of {string} arguments that should
+ *           be passed to the contract.
  * @property {Map<string, Buffer>} transientMap Optional. The transient map that should be
- *           passed to the chaincode.
+ *           passed to the contract.
  * @property {string} invokerIdentity Required. The name of the client who should invoke the
- *           chaincode. If an admin is needed, use the organization name prefixed with a # symbol.
- * @property {string} channel Required. The name of the channel whose chaincode should be invoked.
+ *           contract. If an admin is needed, use the organization name prefixed with a # symbol.
+ * @property {string} channel Required. The name of the channel whose contract should be invoked.
  * @property {string[]} targetPeers Optional. An array of endorsing
  *           peer names as the targets of the invoke. When this
  *           parameter is omitted the target list will include the endorsing peers assigned
- *           to the target chaincode, or if it is also omitted, to the channel.
+ *           to the target contract, or if it is also omitted, to the channel.
  * @property {boolean} countAsLoad Optional. Indicates whether to count this query as workload.
  */
 
@@ -321,11 +321,11 @@ class Fabric extends BlockchainConnector {
         for (const channel of channels) {
             // retrieve the channel network
             const network = await gateway.getNetwork(channel);
-            // Work on all chaincodes/smart contracts in the channel
-            const chaincodes = this.networkUtil.getChaincodesOfChannel(channel);
-            for (const chaincode of chaincodes) {
-                const contract = await network.getContract(chaincode.id);
-                contractMap.set(chaincode.id, contract);
+            // Work on all contracts/smart contracts in the channel
+            const contracts = this.networkUtil.getContractsOfChannel(channel);
+            for (const contract of contracts) {
+                const networkContract = await network.getContract(contract.id);
+                contractMap.set(contract.id, networkContract);
             }
         }
 
@@ -417,7 +417,7 @@ class Fabric extends BlockchainConnector {
     /**
      * Perform a transaction using a Gateway contract
      * @param {object} context The context previously created by the Fabric adapter.
-     * @param {ChaincodeInvokeSettings} invokeSettings The settings associated with the transaction submission.
+     * @param {ContractInvokeSettings} invokeSettings The settings associated with the transaction submission.
      * @param {boolean} isSubmit boolean flag to indicate if the transaction is a submit or evaluate
      * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
      * @async
@@ -425,10 +425,10 @@ class Fabric extends BlockchainConnector {
     async _performGatewayTransaction(context, invokeSettings, isSubmit) {
 
         // Retrieve the existing contract and a client
-        const smartContract = await this._getUserContract(invokeSettings.invokerIdentity, invokeSettings.chaincodeId);
+        const smartContract = await this._getUserContract(invokeSettings.invokerIdentity, invokeSettings.contractId);
 
         // Create a transaction
-        const transaction = smartContract.createTransaction(invokeSettings.chaincodeFunction);
+        const transaction = smartContract.createTransaction(invokeSettings.contractFunction);
 
         // Build the Caliper TxStatus, this is a reduced item when compared to the low level API capabilities
         // - TxID is not available until after transaction submit/evaluate and must be set at that point
@@ -464,14 +464,14 @@ class Fabric extends BlockchainConnector {
                     context.engine.submitCallback(1);
                 }
                 invokeStatus.Set('request_type', 'transaction');
-                result = await transaction.submit(...invokeSettings.chaincodeArguments);
+                result = await transaction.submit(...invokeSettings.contractArguments);
             } else {
                 const countAsLoad = invokeSettings.countAsLoad === undefined ? this.configCountQueryAsLoad : invokeSettings.countAsLoad;
                 if (context.engine && countAsLoad) {
                     context.engine.submitCallback(1);
                 }
                 invokeStatus.Set('request_type', 'query');
-                result = await transaction.evaluate(...invokeSettings.chaincodeArguments);
+                result = await transaction.evaluate(...invokeSettings.contractArguments);
             }
             invokeStatus.result = result;
             invokeStatus.verified = true;
@@ -479,7 +479,7 @@ class Fabric extends BlockchainConnector {
             invokeStatus.SetID(transaction.getTransactionId());
             return invokeStatus;
         } catch (err) {
-            logger.error(`Failed to perform ${isSubmit ? 'submit' : 'query' } transaction [${invokeSettings.chaincodeFunction}] using arguments [${invokeSettings.chaincodeArguments}],  with error: ${err.stack ? err.stack : err}`);
+            logger.error(`Failed to perform ${isSubmit ? 'submit' : 'query' } transaction [${invokeSettings.contractFunction}] using arguments [${invokeSettings.contractArguments}],  with error: ${err.stack ? err.stack : err}`);
             invokeStatus.SetStatusFail();
             invokeStatus.result = [];
             invokeStatus.SetID(transaction.getTransactionId());
@@ -563,7 +563,7 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
-     * Initializes the Fabric adapter: sets up clients, admins, registrars, channels and chaincodes.
+     * Initializes the Fabric adapter: sets up clients, admins, registrars, channels and contracts.
      * @param {boolean} workerInit unused
      * @async
      */
@@ -577,7 +577,7 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
-     * Installs and initializes the specified chaincodes.
+     * Installs and initializes the specified contracts.
      * @async
      */
     async installSmartContract() {
@@ -585,12 +585,12 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
-     * Invokes the specified chaincode according to the provided settings.
+     * Invokes the specified contract according to the provided settings.
      *
      * @param {object} context The context previously created by the Fabric adapter.
-     * @param {string} contractID The unique contract ID of the target chaincode.
+     * @param {string} contractID The unique contract ID of the target contract.
      * @param {string} contractVersion Unused.
-     * @param {ChaincodeInvokeSettings|ChaincodeInvokeSettings[]} invokeSettings The settings (collection) associated with the (batch of) transactions to submit.
+     * @param {ContractInvokeSettings|ContractInvokeSettings[]} invokeSettings The settings (collection) associated with the (batch of) transactions to submit.
      * @param {number} timeout The timeout override for the whole transaction life-cycle in seconds.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
      */
@@ -611,8 +611,8 @@ class Fabric extends BlockchainConnector {
             }
 
             settings.channel = contractDetails.channel;
-            settings.chaincodeId = contractDetails.id;
-            settings.chaincodeVersion = contractDetails.version;
+            settings.contractId = contractDetails.id;
+            settings.contractVersion = contractDetails.version;
 
             if (!settings.invokerIdentity) {
                 settings.invokerIdentity = this.defaultInvoker;
@@ -625,12 +625,12 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
-     * Queries the specified chaincode according to the provided settings.
+     * Queries the specified contract according to the provided settings.
      *
      * @param {object} context The context previously created by the Fabric adapter.
-     * @param {string} contractID The unique contract ID of the target chaincode.
+     * @param {string} contractID The unique contract ID of the target contract.
      * @param {string} contractVersion Unused.
-     * @param {ChaincodeQuerySettings|ChaincodeQuerySettings[]} querySettings The settings (collection) associated with the (batch of) query to submit.
+     * @param {ContractQuerySettings|ContractQuerySettings[]} querySettings The settings (collection) associated with the (batch of) query to submit.
      * @param {number} timeout Unused - timeouts are set using globally defined values in the gateway construction phase.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction query.
      */
@@ -651,8 +651,8 @@ class Fabric extends BlockchainConnector {
             }
 
             settings.channel = contractDetails.channel;
-            settings.chaincodeId = contractDetails.id;
-            settings.chaincodeVersion = contractDetails.version;
+            settings.contractId = contractDetails.id;
+            settings.contractVersion = contractDetails.version;
 
             if (!settings.invokerIdentity) {
                 settings.invokerIdentity = this.defaultInvoker;
