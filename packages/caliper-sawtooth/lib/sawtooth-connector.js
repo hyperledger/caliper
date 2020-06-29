@@ -43,7 +43,7 @@ const _ = require('lodash');
 class SawtoothConnector extends BlockchainConnector {
     /**
      * Constructor
-     * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process. Currently unused.
+     * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process.
      * @param {string} bcType The target SUT type
      */
     constructor(workerIndex, bcType) {
@@ -53,7 +53,7 @@ class SawtoothConnector extends BlockchainConnector {
         this.workspaceRoot = path.resolve(ConfigUtil.get(ConfigUtil.keys.Workspace));
         this.clientIndex = workerIndex;
 
-        // Internal properties required by Sawtooth adaptor
+        // Internal properties required by Sawtooth connector
         this.lastKnownBlockId = null;
         this.batchCommitStatus = new Map();
         this.currentBlockNum = 0;

@@ -26,4 +26,4 @@ async function connectorFactory(workerIndex) {
     return new FiscoBcosConnector(workerIndex, 'fisco-bcos');
 }
 
-module.exports.connectorFactory = connectorFactory;
+module.exports.ConnectorFactory = connectorFactory;

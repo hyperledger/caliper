@@ -26,4 +26,4 @@ async function connectorFactory(workerIndex) {
     return new IrohaConnector(workerIndex, 'iroha');
 }
 
-module.exports.connectorFactory = connectorFactory;
+module.exports.ConnectorFactory = connectorFactory;

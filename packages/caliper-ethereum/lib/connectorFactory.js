@@ -26,4 +26,4 @@ async function connectorFactory(workerIndex) {
     return new EthereumConnector(workerIndex, 'ethereum');
 }
 
-module.exports.connectorFactory = connectorFactory;
+module.exports.ConnectorFactory = connectorFactory;

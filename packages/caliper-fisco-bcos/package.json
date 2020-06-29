@@ -1,7 +1,7 @@
 {
     "name": "@hyperledger/caliper-fisco-bcos",
     "version": "0.4.0-unstable",
-    "description": "FISCO BCOS adaptor for Caliper, enabling the running of a performance benchmarks that interact with FISCO BCOS",
+    "description": "FISCO BCOS connector for Caliper, enabling the running of a performance benchmarks that interact with FISCO BCOS",
     "repository": {
         "type": "git",
         "url": "https://github.com/hyperledger/caliper",
