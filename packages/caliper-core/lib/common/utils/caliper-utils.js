@@ -77,10 +77,10 @@ class CaliperUtils {
     }
 
     /**
-     * Get the mapping of simple builtin adapter names to fully qualified package names.
+     * Get the mapping of simple builtin connector names to fully qualified package names.
      * @return {Map<string, string>} The mapping from simple names to package names.
      */
-    static getBuiltinAdapterPackageNames() {
+    static getBuiltinConnectorPackageNames() {
         return new Map([
             ['burrow', '@hyperledger/caliper-burrow'],
             ['ethereum', '@hyperledger/caliper-ethereum'],

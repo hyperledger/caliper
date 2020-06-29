@@ -17,7 +17,7 @@
 const path = require('path');
 
 const {
-    BlockchainInterface,
+    BlockchainConnector,
     CaliperUtils,
     ConfigUtil
 } = require('@hyperledger/caliper-core');
@@ -25,19 +25,19 @@ const installSmartContractImpl = require('./installSmartContract');
 const invokeSmartContractImpl = require('./invokeSmartContract');
 const generateRawTransactionImpl = require('./generateRawTransactions');
 const sendRawTransactionImpl = require('./sendRawTransactions');
-const commLogger = CaliperUtils.getLogger('fiscoBcos.js');
+const commLogger = CaliperUtils.getLogger('fiscoBcos-connector');
 
 /**
- * Implements {BlockchainInterface} for a FISCO BCOS backend.
+ * Extends {BlockchainConnector} for a FISCO BCOS backend.
  */
-class FiscoBcos extends BlockchainInterface {
+class FiscoBcosConnector extends BlockchainConnector {
     /**
-     * Create a new instance of the {FISCO BCOS} class.
+     * Create a new instance of the {FISCO BCOS} connector class.
      * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process.
+     * @param {string} bcType The target SUT type
      */
-    constructor(workerIndex) {
-        super();
-        this.bcType = 'fisco-bcos';
+    constructor(workerIndex, bcType) {
+        super(workerIndex, bcType);
         this.workspaceRoot = path.resolve(ConfigUtil.get(ConfigUtil.keys.Workspace));
         let networkConfig = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
         this.fiscoBcosSettings = CaliperUtils.parseYaml(networkConfig)['fisco-bcos'];
@@ -48,14 +48,6 @@ class FiscoBcos extends BlockchainInterface {
             }
         }
         this.clientIdx = workerIndex;
-    }
-
-    /**
-     * Retrieve the blockchain type the implementation relates to
-     * @returns {string} the blockchain type
-     */
-    getType() {
-        return this.bcType;
     }
 
     /**
@@ -109,14 +101,22 @@ class FiscoBcos extends BlockchainInterface {
      * @param {object} context The FISCO BCOS context returned by {getContext}.
      * @param {string} contractID The name of the smart contract.
      * @param {string} contractVer The version of the smart contract.
-     * @param {Array} args Array of JSON formatted arguments for transaction(s). Each element contains arguments (including the function name) passing to the smart contract. JSON attribute named transaction_type is used by default to specify the function name. If the attribute does not exist, the first attribute will be used as the function name.
+     * @param {Object | Array<Object>} invokeData Array of JSON formatted arguments for transaction(s). Each element contains arguments (including the function name) passing to the smart contract. JSON attribute named transaction_type is used by default to specify the function name. If the attribute does not exist, the first attribute will be used as the function name.
      * @param {number} timeout The timeout to set for the execution in seconds.
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    async invokeSmartContract(context, contractID, contractVer, args, timeout) {
+    async invokeSmartContract(context, contractID, contractVer, invokeData, timeout) {
         let promises = [];
+
+        let invocations;
+        if (!Array.isArray(invokeData)) {
+            invocations = [invokeData];
+        } else {
+            invocations = invokeData;
+        }
+
         try {
-            args.forEach((arg) => {
+            invocations.forEach((arg) => {
                 let fcn = null;
                 let fcArgs = [];
 
@@ -178,4 +178,4 @@ class FiscoBcos extends BlockchainInterface {
     }
 }
 
-module.exports = FiscoBcos;
+module.exports = FiscoBcosConnector;

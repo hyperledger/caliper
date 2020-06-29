@@ -16,8 +16,8 @@
 
 const ReportBuilder = require('./report-builder');
 const PrometheusQueryHelper = require('../../common/prometheus/prometheus-query-helper');
-const Blockchain = require('../../common/core/blockchain');
 const CaliperUtils = require('../../common/utils/caliper-utils');
+const TransactionStatistics = require('../../common/core/transaction-statistics');
 const Logger = CaliperUtils.getLogger('report-builder');
 
 const table = require('table');
@@ -264,8 +264,8 @@ class Report {
         try {
             let resultSet;
 
-            if (Blockchain.mergeDefaultTxStats(results) === 0) {
-                resultSet = Blockchain.createNullDefaultTxStats();
+            if (TransactionStatistics.mergeDefaultTxStats(results) === 0) {
+                resultSet = TransactionStatistics.createNullDefaultTxStats();
             } else {
                 resultSet = results[0];
             }

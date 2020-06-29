@@ -14,23 +14,16 @@
 
 'use strict';
 
-const FabricAdapter = require('./fabric');
+const FiscoBcosConnector = require('./fiscoBcos-connector');
 
 /**
- * Constructs a Fabric adapter.
+ * Constructs a FISCO-BCOS adapter.
  * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process.
- * @return {Promise<BlockchainInterface>} The initialized adapter instance.
+ * @return {Promise<BlockchainConnector>} The initialized adapter instance.
  * @async
  */
-async function adapterFactory(workerIndex) {
-    const adapter = new FabricAdapter(workerIndex);
-
-    // the master process explicitly calls "init"
-    if (workerIndex > -1) {
-        await adapter.init(true);
-    }
-
-    return adapter;
+async function connectorFactory(workerIndex) {
+    return new FiscoBcosConnector(workerIndex, 'fisco-bcos');
 }
 
-module.exports.adapterFactory = adapterFactory;
+module.exports.connectorFactory = connectorFactory;

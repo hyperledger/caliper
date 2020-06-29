@@ -14,16 +14,16 @@
 
 'use strict';
 
-const IrohaAdapter = require('./iroha');
+const SawtoothAdapter = require('./sawtooth-connector');
 
 /**
- * Constructs an Iroha adapter.
+ * Constructs a Sawtooth connector.
  * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process.
- * @return {Promise<BlockchainInterface>} The initialized adapter instance.
+ * @return {Promise<BlockchainConnector>} The initialized adapter instance.
  * @async
  */
-async function adapterFactory(workerIndex) {
-    return new IrohaAdapter(workerIndex);
+async function connectorFactory(workerIndex) {
+    return new SawtoothAdapter(workerIndex, 'sawtooth');
 }
 
-module.exports.adapterFactory = adapterFactory;
+module.exports.connectorFactory = connectorFactory;

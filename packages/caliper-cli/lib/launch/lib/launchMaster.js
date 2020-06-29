@@ -55,10 +55,10 @@ class LaunchMaster {
             logger.info(`Set network configuration path: ${networkConfigPath}`);
             logger.info(`Set SUT type: ${bindingSpec || sutType}`);
 
-            let adapterFactory = CaliperUtils.loadModuleFunction(CaliperUtils.getBuiltinAdapterPackageNames(),
-                sutType, 'AdapterFactory', require);
+            let connectorFactory = CaliperUtils.loadModuleFunction(CaliperUtils.getBuiltinConnectorPackageNames(),
+                sutType, 'ConnectorFactory', require);
 
-            const engine = new CaliperEngine(benchmarkConfig, networkConfig, adapterFactory);
+            const engine = new CaliperEngine(benchmarkConfig, networkConfig, connectorFactory);
             const response = await engine.run();
 
             if (response === 0) {

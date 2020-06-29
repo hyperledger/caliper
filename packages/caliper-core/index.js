@@ -14,7 +14,7 @@
 
 'use strict';
 
-module.exports.BlockchainInterface = require('./lib/common/core/blockchain-interface');
+module.exports.BlockchainConnector = require('./lib/common/core/blockchain-connector');
 module.exports.CaliperWorker = require('./lib/worker/caliper-worker');
 module.exports.TxStatus = require('./lib/common/core/transaction-status');
 module.exports.CaliperUtils = require('./lib/common/utils/caliper-utils');

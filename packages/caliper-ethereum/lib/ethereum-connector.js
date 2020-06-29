@@ -16,8 +16,8 @@
 
 const EthereumHDKey = require('ethereumjs-wallet/hdkey');
 const Web3 = require('web3');
-const {BlockchainInterface, CaliperUtils, ConfigUtil, TxStatus} = require('@hyperledger/caliper-core');
-const logger = CaliperUtils.getLogger('ethereum.js');
+const {BlockchainConnector, CaliperUtils, ConfigUtil, TxStatus} = require('@hyperledger/caliper-core');
+const logger = CaliperUtils.getLogger('ethereum-connector');
 
 /**
  * @typedef {Object} EthereumInvoke
@@ -28,17 +28,17 @@ const logger = CaliperUtils.getLogger('ethereum.js');
  */
 
 /**
- * Implements {BlockchainInterface} for a web3 Ethereum backend.
+ * Extends {BlockchainConnector} for a web3 Ethereum backend.
  */
-class Ethereum extends BlockchainInterface {
+class EthereumConnector extends BlockchainConnector {
 
     /**
      * Create a new instance of the {Ethereum} class.
      * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process.
+     * @param {string} bcType The target SUT type
      */
-    constructor(workerIndex) {
-        super();
-        this.bcType = 'ethereum';
+    constructor(workerIndex, bcType) {
+        super(workerIndex, bcType);
 
         let configPath = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
         let ethereumConfig = require(configPath).ethereum;
@@ -73,14 +73,6 @@ class Ethereum extends BlockchainInterface {
         }
 
         //TODO: add validation logic for the rest of the configuration object
-    }
-
-    /**
-     * Retrieve the blockchain type the implementation relates to
-     * @returns {string} the blockchain type
-     */
-    getType() {
-        return this.bcType;
     }
 
     /**
@@ -366,4 +358,4 @@ class Ethereum extends BlockchainInterface {
     }
 }
 
-module.exports = Ethereum;
+module.exports = EthereumConnector;

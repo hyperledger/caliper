@@ -14,22 +14,21 @@
 
 'use strict';
 
-const fs = require('fs');
-const grpc = require('grpc');
+const {BlockchainConnector, CaliperUtils, ConfigUtil, TxStatus} = require('@hyperledger/caliper-core');
+const logger = CaliperUtils.getLogger('iroha-connector');
 
 const IrohaService_v1Client = require('iroha-helpers/lib/proto/endpoint_grpc_pb');
 const CommandService_v1Client = IrohaService_v1Client.CommandService_v1Client;
 const QueryService_v1Client = IrohaService_v1Client.QueryService_v1Client;
 
 const generateKeypair = require('iroha-helpers/lib/cryptoHelper.js').default;
-
-const {BlockchainInterface, CaliperUtils, ConfigUtil, TxStatus} = require('@hyperledger/caliper-core');
-const logger = CaliperUtils.getLogger('iroha.js');
-
 const irohaCommands = require('iroha-helpers/lib/commands').default;
 const irohaQueries = require('iroha-helpers/lib/queries').default;
 const irohaUtil = require('iroha-helpers/lib/util.js');
 const txHelper = require('iroha-helpers/lib/txHelper.js').default;
+
+const fs = require('fs');
+const grpc = require('grpc');
 
 const DEFAULT_OPTIONS = {
     privateKeys: [''],
@@ -113,18 +112,18 @@ function irohaQuery(queryOptions, commands) {
 
 /* eslint-disable require-jsdoc */
 /**
- * Implements {BlockchainInterface} for a Iroha backend
+ * Extends {BlockchainConnector} for a Iroha backend
  */
-class Iroha extends BlockchainInterface {
+class IrohaConnector extends BlockchainConnector {
     /**
      * Create a new instance of the {Iroha} class.
      * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process. Currently unused.
+     * @param {string} bcType The target SUT type
      */
-    constructor(workerIndex) {
-        super();
+    constructor(workerIndex, bcType) {
+        super(workerIndex, bcType);
         this.configPath = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
         this.config = require(this.configPath).iroha;
-        this.bcType = 'iroha';
         this.clientIndex = workerIndex;
     }
 
@@ -375,18 +374,27 @@ class Iroha extends BlockchainInterface {
      * @param {Object} context Context object
      * @param {String} contractID Contract ID
      * @param {String} contractVer Version of the contract (currently unused)
-     * @param {Array} args Array of JSON-formatted arguments for multiple transactions
+     * @param {Object | Array<Object>} invokeData Array of JSON-formatted arguments for multiple transactions
      * @param {Number} timeout Request timeout, in seconds
      * @return {Promise<object>} The promise for the result of the execution
      */
-    async invokeSmartContract(context, contractID, contractVer, args, timeout) {
+    async invokeSmartContract(context, contractID, contractVer, invokeData, timeout) {
+
         if (!context.contract.hasOwnProperty(contractID)) {
             throw new Error('Could not find contract named ' + contractID);
         }
-        return this.executeCommands(
+
+        let invocations;
+        if (!Array.isArray(invokeData)) {
+            invocations = [invokeData];
+        } else {
+            invocations = invokeData;
+        }
+
+        return await this.executeCommands(
             context,
             contractID,
-            args,
+            invocations,
             timeout * 1000
         );
     }
@@ -506,5 +514,5 @@ class Iroha extends BlockchainInterface {
         return nodes[Math.floor(Math.random() * nodes.length)];
     }
 }
-module.exports = Iroha;
+module.exports = IrohaConnector;
 /* eslint-enable require-jsdoc */

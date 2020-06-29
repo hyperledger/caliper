@@ -14,16 +14,16 @@
 
 'use strict';
 
-const SawtoothAdapter = require('./sawtooth');
+const EthereumConnector = require('./ethereum-connector');
 
 /**
- * Constructs a Sawtooth adapter.
+ * Constructs an Ethereum adapter.
  * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process.
- * @return {Promise<BlockchainInterface>} The initialized adapter instance.
+ * @return {Promise<BlockchainConnector>} The initialized adapter instance.
  * @async
  */
-async function adapterFactory(workerIndex) {
-    return new SawtoothAdapter(workerIndex);
+async function connectorFactory(workerIndex) {
+    return new EthereumConnector(workerIndex, 'ethereum');
 }
 
-module.exports.adapterFactory = adapterFactory;
+module.exports.connectorFactory = connectorFactory;

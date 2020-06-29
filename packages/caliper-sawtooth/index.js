@@ -15,4 +15,4 @@
 'use strict';
 
 module.exports.BatchBuilder = require('./lib/batch/BatchBuilder');
-module.exports.AdapterFactory = require('./lib/adapterFactory').adapterFactory;
+module.exports.ConnectorFactory = require('./lib/connectorFactory').connectorFactory;
