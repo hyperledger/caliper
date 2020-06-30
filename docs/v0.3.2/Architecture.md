@@ -115,11 +115,11 @@ The interesting things (from a user perspective) happen inside the worker proces
 
 The worker process spends most of its time in the workload generation loop. The loop consists of two important steps:
 1. Waiting for the rate controller to enable the next TX. Think of the rate controller as a delay circuit. Based on what kind of rate controller is used, it delays/halts the execution of the worker (in an asynchronous manner) before enabling the next TX. For example, if a fixed 50 TXs per second (TPS) rate is configured, the rate controller will halt for 20ms between each TX.
-  > __Note:__ The rate controllers of each round can be configured in the [benchmark configuration file](./Benchmark_Configuration.md). For the available rate controllers, see the [Rate Controllers](./Rate_Controllers.md) page.
+  > __Note:__ The rate controllers of each round can be configured in the [benchmark configuration file](./BenchmarkConfiguration.md). For the available rate controllers, see the [Rate Controllers](./Rate_Controllers.md) page.
 2. Once the rate controller enables the next TX, the worker gives control to the workload module. The workload module assembles the parameters of the TX (specific to the SUT and smart contract API) and calls the simple API of the SUT adapter that will, in turn, send the TX request to the SUT (probably using the SDK of the SUT).
-  > __Note:__ The workload modules of each round can be configured in the [benchmark configuration file](./Benchmark_Configuration.md). For the technical details of workload modules, see the [Workload Modules](./Workload_Module.md) page.
+  > __Note:__ The workload modules of each round can be configured in the [benchmark configuration file](./BenchmarkConfiguration.md). For the technical details of workload modules, see the [Workload Modules](./Workload_Module.md) page.
 
-During the workload loop, the worker process sends progress updates to the master process. Multiple approaches are available for signaling worker progress, achieved by different observers. For the available methods, see the [Monitors and Observers](./MonitorsAndOvservers.md) page.
+During the workload loop, the worker process sends progress updates to the master process. Multiple approaches are available for signaling worker progress, achieved by different observers. For the available methods, see the [Monitors and Observers](./MonitorsAndObservers.md) page.
 
 ## Process distribution models
 
