@@ -120,10 +120,10 @@ The generator can also be run non-interactively from the command line using the 
 | Options                  | Default | Description                                                                                    |
 | ------------------------ | ------- | ---------------------------------------------------------------------------------------------- |
 | `--workspace`            |         | A workspace to put all the generate benchmark files.                                           |
-| `--chaincodeId`          |         | The name of your smart contract.                                                               |
+| `--contractId`          |         | The name of your smart contract.                                                               |
 | `--version`              |         | The version of your smart contract.                                                            |
-| `--chaincodeFunction`    |         | Your smart contract function.                                                                  |
-| `--chaincodeArguments`   | []      | The arguments of your smart contract function. These must be in an array format.               |
+| `--contractFunction`    |         | Your smart contract function.                                                                  |
+| `--contractArguments`   | []      | The arguments of your smart contract function. These must be in an array format.               |
 | `--benchmarkName`        |         | A name for your benchmark.                                                                     |
 | `--benchmarkDescription` |         | A description for your benchmark.                                                              |
 | `--workers`              | 5       | A value for the number of workers.                                                             |
@@ -137,7 +137,7 @@ The generator can also be run non-interactively from the command line using the 
 Below is an example of the generator being run non-interactively from the command line using the options above:
 
 ```console
-yo caliper:benchmark -- --workspace 'myWorkspace' --chaincodeId 'fabcar' --version '0.0.1' --chaincodeFunction 'changeCarOwner' --chaincodeArguments '["CAR001", "Tom"]' --benchmarkName 'Fabcar benchmark' --benchmarkDescription 'Benchmark for performance testing fabcar contract modules' --workers 5 --label 'Round for changing car owner' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 50
+yo caliper:benchmark -- --workspace 'myWorkspace' --contractId 'fabcar' --version '0.0.1' --contractFunction 'changeCarOwner' --contractArguments '["CAR001", "Tom"]' --benchmarkName 'Fabcar benchmark' --benchmarkDescription 'Benchmark for performance testing fabcar contract modules' --workers 5 --label 'Round for changing car owner' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 50
 ```
 
 > __Note:__ All the options above are required when using the generator non-interactively.
@@ -154,7 +154,7 @@ The generated files will be placed within the workspace directory you named at t
     └─ config.yaml
 ```
 
-Currently, the generator does not provide `invokerIdentity` or `chaincodeArguments` as inputs to your callback file. Should these be required, you will need to provide these in the `run` function of your callback file.
+Currently, the generator does not provide `invokerIdentity` or `contractArguments` as inputs to your callback file. Should these be required, you will need to provide these in the `run` function of your callback file.
 
 The generator only generates a single callback file for a single smart contract function. If you would like to test other smart contract functions, you may create more callback files under the callbacks directory. You will also need to update your benchmnark configuration file to take into account the extra callbacks.
 

@@ -23,8 +23,8 @@ The adapter exposes many SDK features directly to the user callback modules, mak
 > Some highlights of the provided features:
 > * supporting multiple orderers
 > * automatic load balancing between peers and orderers
-> * supporting multiple channels and chaincodes
-> * metadata and private collection support for chaincodes
+> * supporting multiple channels and contracts
+> * metadata and private collection support for contracts
 > * support for TLS and mutual TLS communication
 > * dynamic registration of users with custom affiliations and attributes
 > * option to select the identity for submitting a TX/query
@@ -51,11 +51,11 @@ or from various [other sources](./Runtime_Configuration.md).
 
 ### Binding with Fabric SDK 2.0.x
 > Note that when using the binding target for the Fabric SDK 2.0.x there are capability restrictions:
-> * The 2.0 SDK does not facilitate administration actions. It it not possible to create/join channels, nor install/instantiate chaincode. Consequently the 2.0 binding only facilitates operation with a `--caliper-flow-only-test` flag
+> * The 2.0 SDK does not facilitate administration actions. It it not possible to create/join channels, nor install/instantiate contract. Consequently the 2.0 binding only facilitates operation with a `--caliper-flow-only-test` flag
 > * The 2.0 SDK currently only supports operation using a `gateway`. Consequently the 2.0.0 binding requires a `--caliper-fabric-gateway-enabled` flag
 >
 > When testing with the 2.0 SDK, it is recommended to configure the system in advance with a network tool of your choice, or using Caliper bound to a 1.4 SDK. The 2.0 SDK may then be bound to Caliper and used for testing.
-> Caliper does not support the Fabric v2.0 chaincode lifecycle, however the legacy commands of install/instantiate are still valid, and so Caliper can perform basic network configuration using 1.4 SDK bindings.
+> Caliper does not support the Fabric v2.0 contract lifecycle, however the legacy commands of install/instantiate are still valid, and so Caliper can perform basic network configuration using 1.4 SDK bindings.
 
 ## Runtime settings
 
@@ -108,29 +108,29 @@ The `blockchain` object received (and saved) in the `init` callback is of type [
 
 The two main functions of the adapter are `invokeSmartContract` and `querySmartContract`, sharing a similar API.
 
-#### Invoking a chaincode
+#### Invoking a contract
 
 To submit a transaction, call the `blockchain.invokeSmartContract` function. It takes five parameters:
 1. `context`: the same `context` object saved in the `init` callback.
-2. `contractID`: the unique (Caliper-level) ID of the chaincode.
-3. `version`: the chaincode version. __Unused.__
+2. `contractID`: the unique (Caliper-level) ID of the contract.
+3. `version`: the contract version. __Unused.__
 4. `invokeSettings`:  an object containing different TX-related settings
 5. `timeout`: the timeout value for the transaction __in seconds__.
 
 The `invokeSettings` object has the following structure:
-* `chaincodeFunction`: _string. Required._ The name of the function to call in the chaincode.
-* `chaincodeArguments`: _string[]. Optional._ The list of __string__ arguments to pass to the chaincode.
-* `transientMap`: _Map<string, byte[]>. Optional._ The transient map to pass to the chaincode.
-* `invokerIdentity`: _string. Optional._ The name of the user who should invoke the chaincode. If an admin is needed, use the organization name prefixed with a `#` symbol (e.g., `#Org2`). Defaults to the first client in the network configuration file.
+* `contractFunction`: _string. Required._ The name of the function to call in the contract.
+* `contractArguments`: _string[]. Optional._ The list of __string__ arguments to pass to the contract.
+* `transientMap`: _Map<string, byte[]>. Optional._ The transient map to pass to the contract.
+* `invokerIdentity`: _string. Optional._ The name of the user who should invoke the contract. If an admin is needed, use the organization name prefixed with a `#` symbol (e.g., `#Org2`). Defaults to the first client in the network configuration file.
 * `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the transaction proposal. If omitted, the target list will include endorsing peers selected according to the specified load balancing method. 
 * `orderer`: _string. Optional._ The name of the target orderer for the transaction broadcast. If omitted, then an orderer node of the channel will be used, according to the specified load balancing method.
 
-So invoking a chaincode looks like the following (with automatic load balancing between endorsing peers and orderers):
+So invoking a contract looks like the following (with automatic load balancing between endorsing peers and orderers):
 
 ```js
 let settings = {
-    chaincodeFunction: 'initMarble',
-    chaincodeArguments: ['MARBLE#1', 'Red', '100', 'Attila'],
+    contractFunction: 'initMarble',
+    contractArguments: ['MARBLE#1', 'Red', '100', 'Attila'],
     invokerIdentity: 'client0.org2.example.com'
 };
 
@@ -141,31 +141,31 @@ return blockchain.invokeSmartContract(context, 'marbles', '', settings, 10);
 
 Using "batches" also increases the expected workload of the system, since the rate controller mechanism of Caliper cannot account for these "extra" transactions. However, the resulting report will accurately reflect the additional load.
 
-#### Querying a chaincode
+#### Querying a contract
 
 To query the world state, call the `blockchain.bcObj.querySmartContract` function. It takes five parameters: 
 1. `context`: the same `context` object saved in the `init` callback.
-2. `contractID`: the unique (Caliper-level) ID of the chaincode.
-3. `version`: the chaincode version. __Unused.__
+2. `contractID`: the unique (Caliper-level) ID of the contract.
+3. `version`: the contract version. __Unused.__
 4. `querySettings`:  an object containing different query-related settings
 5. `timeout`: the timeout value for the transaction __in seconds__.
 
 The `querySettings` object has the following structure:
-* `chaincodeFunction`: _string. Required._ The name of the function to call in the chaincode.
-* `chaincodeArguments`: _string[]. Optional._ The list of __string__ arguments passed to the chaincode.
-* `transientMap`: _Map<string, byte[]>. Optional._ The transient map passed to the chaincode.
-* `invokerIdentity`: _string. Optional._ The name of the user who should invoke the chaincode. If an admin is needed, use the organization name prefixed with a `#` symbol (e.g., `#Org2`). Defaults to the first client in the network configuration file.
+* `contractFunction`: _string. Required._ The name of the function to call in the contract.
+* `contractArguments`: _string[]. Optional._ The list of __string__ arguments passed to the contract.
+* `transientMap`: _Map<string, byte[]>. Optional._ The transient map passed to the contract.
+* `invokerIdentity`: _string. Optional._ The name of the user who should invoke the contract. If an admin is needed, use the organization name prefixed with a `#` symbol (e.g., `#Org2`). Defaults to the first client in the network configuration file.
 * `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the query. If omitted, the target list will include endorsing peers selected according to the specified load balancing method. 
 * `countAsLoad`: _boolean. Optional._ Indicates whether the query should be counted as workload and reflected in the generated report. If specified, overrides the adapter-level `caliper-fabric-countqueryasload` setting.
   
-  > Not counting a query in the workload is useful when _occasionally_ retrieving information from the ledger to use as a parameter in a transaction (might skew the latency results). However, count the queries into the workload if the test round specifically targets the query execution capabilities of the chaincode. 
+  > Not counting a query in the workload is useful when _occasionally_ retrieving information from the ledger to use as a parameter in a transaction (might skew the latency results). However, count the queries into the workload if the test round specifically targets the query execution capabilities of the contract. 
 
-So querying a chaincode looks like the following (with automatic load balancing between endorsing peers):
+So querying a contract looks like the following (with automatic load balancing between endorsing peers):
 
 ```js
 let settings = {
-    chaincodeFunction: 'readMarble',
-    chaincodeArguments: ['MARBLE#1'],
+    contractFunction: 'readMarble',
+    contractArguments: ['MARBLE#1'],
     invokerIdentity: 'client0.org2.example.com'
 };
 
@@ -186,7 +186,7 @@ The standard data provided are the following:
 * `GetTimeCreate():number` returns the epoch when the transaction was submitted.
 * `GetTimeFinal():number` return the epoch when the transaction was finished.
 * `IsVerified():boolean` indicates whether we are sure about the final status of the transaction. Unverified (considered failed) transactions could occur, for example, if the adapter loses the connection with every Fabric event hub, missing the final status of the transaction.
-* `GetResult():Buffer` returns one of the endorsement results returned by the chaincode as a `Buffer`. It is the responsibility of the user callback to decode it accordingly to the chaincode-side encoding.
+* `GetResult():Buffer` returns one of the endorsement results returned by the contract as a `Buffer`. It is the responsibility of the user callback to decode it accordingly to the contract-side encoding.
 
 The adapter also gathers the following platform-specific data (if observed) about each transaction, each exposed through a specific key name. The placeholders `<P>` and `<O>` in the key names are node names taking their values from the top-level [peers](#peers) and [orderers](#orderers) sections from the network configuration file (e.g., `endorsement_result_peer0.org1.example.com`). The `Get(key:string):any` function returns the value of the observation corresponding to the given key. Alternatively, the `GetCustomData():Map<string,any>` returns the entire collection of gathered data as a `Map`.
 
@@ -198,7 +198,7 @@ The adapter-specific data keys are the following:
 |         `time_endorse`         |  number   | The Unix epoch when the adapter received the proposal responses from the endorsers. Saved even in the case of endorsement errors.                                                                                                                                            |
 |        `proposal_error`        |  string   | The error message in case an error occurred during sending/waiting for the proposal responses from the endorsers.                                                                                                                                                            |
 | `proposal_response_error_<P>`  |  string   | The error message in case the endorser peer `<P>` returned an error as endorsement result.                                                                                                                                                                                   |
-|    `endorsement_result_<P>`    |  Buffer   | The encoded chaincode invocation result returned by the endorser peer `<P>`. It is the user callback's responsibility to decode the result.                                                                                                                                  |
+|    `endorsement_result_<P>`    |  Buffer   | The encoded contract invocation result returned by the endorser peer `<P>`. It is the user callback's responsibility to decode the result.                                                                                                                                  |
 | `endorsement_verify_error_<P>` |  string   | Has the value of `'INVALID'` if the signature and identity of the endorser peer `<P>` couldn't be verified. This verification step can be switched on/off through the [runtime configuration options](#runtime-settings).                                                    |
 | `endorsement_result_error<P>`  |  string   | If the transaction proposal or query execution at the endorser peer `<P>` results in an error, this field contains the error message.                                                                                                                                        |
 |     `read_write_set_error`     |  string   | Has the value of `'MISMATCH'` if the sent transaction proposals resulted in different read/write sets.                                                                                                                                                                       |
@@ -215,8 +215,8 @@ You can access these data in your user callback after calling `invokeSmartContra
 
 ```js
 let settings = {
-    chaincodeFunction: 'initMarble',
-    chaincodeArguments: ['MARBLE#1', 'Red', '100', 'Attila'],
+    contractFunction: 'initMarble',
+    contractArguments: ['MARBLE#1', 'Red', '100', 'Attila'],
     invokerIdentity: 'client0.org2.example.com'
 };
 
@@ -717,7 +717,7 @@ An organization object (e.g., `Org1`) can contain the following properties.
 *  <details><summary markdown="span">__adminPrivateKey__
    </summary>
    _Optional. Object._ <br>
-   Specifies the admin private key for the organization. Required, if an initialization step requires admin signing capabilities (e.g., creating channels, installing/instantiating chaincodes, etc.). <br> 
+   Specifies the admin private key for the organization. Required, if an initialization step requires admin signing capabilities (e.g., creating channels, installing/instantiating contracts, etc.). <br> 
    > Must contain __at most one__ of the following keys.
    
    *  <details><summary markdown="span">__path__
@@ -765,7 +765,7 @@ An organization object (e.g., `Org1`) can contain the following properties.
 *  <details><summary markdown="span">__signedCert__
    </summary>
    _Optional. Object._ <br>
-   Specifies the admin certificate for the organization. Required, if an initialization step requires admin signing capabilities (e.g., creating channels, installing/instantiating chaincodes, etc.). <br> 
+   Specifies the admin certificate for the organization. Required, if an initialization step requires admin signing capabilities (e.g., creating channels, installing/instantiating contracts, etc.). <br> 
    > Must contain __at most one__ of the following keys.
    
    *  <details><summary markdown="span">__path__
@@ -1267,19 +1267,19 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    *  <details><summary markdown="span">__endorsingPeer__
       </summary>
       _Optional. Boolean._ <br>
-      Indicates whether the peer will be sent transaction proposals for endorsement. The peer must have the chaincode installed. Caliper can also use this property to decide which peers to send the chaincode install request. Default: true
+      Indicates whether the peer will be sent transaction proposals for endorsement. The peer must have the contract installed. Caliper can also use this property to decide which peers to send the contract install request. Default: true
       </details>
     
    *  <details><summary markdown="span">__chaincodeQuery__
       </summary>
       _Optional. Boolean._ <br>
-      Indicates whether the peer will be sent query proposals. The peer must have the chaincode installed. Caliper can also use this property to decide which peers to send the chaincode install request. Default: true
+      Indicates whether the peer will be sent query proposals. The peer must have the contract installed. Caliper can also use this property to decide which peers to send the contract install request. Default: true
       </details>
 
    *  <details><summary markdown="span">__ledgerQuery__
       </summary>
       _Optional. Boolean._ <br>
-      Indicates whether the peer will be sent query proposals that do not require chaincodes, like `queryBlock()`, `queryTransaction()`, etc. Currently unused. Default: true
+      Indicates whether the peer will be sent query proposals that do not require contracts, like `queryBlock()`, `queryTransaction()`, etc. Currently unused. Default: true
       </details>
 
    *  <details><summary markdown="span">__eventSource__
@@ -1289,42 +1289,42 @@ A channel object (e.g., `mychannel`) can contain the following properties.
       </details>
    </details>
 
-*  <details><summary markdown="span">__chaincodes__
+*  <details><summary markdown="span">__contracts__
    </summary>
    _Required. Non-sparse array of objects._ <br>
-   Each array element contains information about a chaincode in the channel. 
+   Each array element contains information about a contract in the channel. 
 
-   > __Note:__ the `contractID` value of __every__ chaincode in __every__ channel must be unique on the configuration file level! If `contractID` is not specified for a chaincode then its default value is the `id` of the chaincode.
+   > __Note:__ the `contractID` value of __every__ contract in __every__ channel must be unique on the configuration file level! If `contractID` is not specified for a contract then its default value is the `id` of the contract.
    
    ```yaml
    channels:
      mychannel:
-       chaincodes:
+       contracts:
        - id: simple
          # other properties of simple CC
        - id: smallbank
          # other properties of smallbank CC
    ```
-   Some prorperties are required depending on whether a chaincode needs to be deployed. The following constraints apply:
+   Some prorperties are required depending on whether a contract needs to be deployed. The following constraints apply:
    > __Note:__ 
    >
-   > Constraints for installing chaincodes:
+   > Constraints for installing contracts:
    > * if `metadataPath` is provided, `path` is also required
    > * if `path` is provided, `language` is also required
    >
-   > Constraints for instantiating chaincodes:
+   > Constraints for instantiating contracts:
    > * if any of the following properties are provided, `language` is also needed: `init`, `function`, `initTransientMap`, `collections-config`, `endorsement-policy`
    Each element can contain the following properties.
    
    *  <details><summary markdown="span">__[item].id__
       </summary>
       _Required. Non-empty string._ <br>
-      The ID of the chaincode.
+      The ID of the contract.
 
       ```yaml
       channels:
         mychannel:
-          chaincodes:
+          contracts:
           - id: simple
             # other properties
       ```
@@ -1333,12 +1333,12 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    *  <details><summary markdown="span">__[item].version__
       </summary>
       _Required. Non-empty string._ <br>
-      The version string of the chaincode.
+      The version string of the contract.
       
       ```yaml
       channels:
         mychannel:
-          chaincodes:
+          contracts:
           - version: v1.0
             # other properties
       ```
@@ -1347,14 +1347,14 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    *  <details><summary markdown="span">__[item].contractID__
       </summary>
       _Optional. Non-empty string._ <br>
-      The Caliper-level unique ID of the chaincode. This ID will be referenced from the user callback modules. Can be an arbitrary name, it won't effect the chaincode properties on the Fabric side.
+      The Caliper-level unique ID of the contract. This ID will be referenced from the user callback modules. Can be an arbitrary name, it won't effect the contract properties on the Fabric side.
 
       If omitted, it defaults to the `id` property value.
 
       ```yaml
       channels:
         mychannel:
-          chaincodes:
+          contracts:
           - contractID: simpleContract
             # other properties
       ```
@@ -1363,12 +1363,12 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    *  <details><summary markdown="span">__[item].language__
       </summary>
       _Optional. Non-empty string._ <br>
-      Denotes the language of the chaincode. Currently supported values: `golang`, `node` and `java`.
+      Denotes the language of the contract. Currently supported values: `golang`, `node` and `java`.
       
       ```yaml
       channels:
         mychannel:
-          chaincodes:
+          contracts:
           - language: node
             # other properties
       ```
@@ -1377,12 +1377,12 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    *  <details><summary markdown="span">__[item].path__
       </summary>
       _Optional. Non-empty string._ <br>
-      The path to the chaincode directory. For golang chaincodes, it is the fully qualified package name (relative to the `GOPATH/src` directory). Note, that `GOPATH` is temporarily set to the workspace directory by default. To disable this behavior, set the `caliper-fabric-overwritegopath` setting key to `false`.
+      The path to the contract directory. For golang contracts, it is the fully qualified package name (relative to the `GOPATH/src` directory). Note, that `GOPATH` is temporarily set to the workspace directory by default. To disable this behavior, set the `caliper-fabric-overwritegopath` setting key to `false`.
 
       ```yaml
       channels:
         mychannel:
-          chaincodes:
+          contracts:
           - path: contracts/mycontract
             # other properties
       ```
@@ -1391,12 +1391,12 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    *  <details><summary markdown="span">__[item].metadataPath__
       </summary>
       _Optional. Non-empty string._ <br>
-      The directory path for additional metadata for the chaincode (like CouchDB indexes). Only supported since Fabric v1.1.
+      The directory path for additional metadata for the contract (like CouchDB indexes). Only supported since Fabric v1.1.
 
       ```yaml
       channels:
         mychannel:
-          chaincodes:
+          contracts:
           - metadataPath: contracts/mycontract/metadata
             # other properties
       ```
@@ -1405,12 +1405,12 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    *  <details><summary markdown="span">__[item].init__
       </summary>
       _Optional. Non-sparse array of strings._ <br>
-      The list of string arguments to pass to the chaincode's `Init` function during instantiation.
+      The list of string arguments to pass to the contract's `Init` function during instantiation.
 
       ```yaml
       channels:
         mychannel:
-          chaincodes:
+          contracts:
           - init: ['arg1', 'arg2']
             # other properties
       ```
@@ -1419,12 +1419,12 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    *  <details><summary markdown="span">__[item].function__
       </summary>
       _Optional. String._ <br>
-      The function name to pass to the chaincode's `Init` function during instantiation.
+      The function name to pass to the contract's `Init` function during instantiation.
 
       ```yaml
       channels:
         mychannel:
-          chaincodes:
+          contracts:
           - function: 'init'
             # other properties
       ```
@@ -1433,12 +1433,12 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    *  <details><summary markdown="span">__[item].initTransientMap__
       </summary>
       _Optional. Object containing string keys associated with string values._ <br>
-      The transient key-value map to pass to the `Init` function when instantiating a chaincode. The adapter encodes the values as byte arrays before sending them.
+      The transient key-value map to pass to the `Init` function when instantiating a contract. The adapter encodes the values as byte arrays before sending them.
 
       ```yaml
       channels:
         mychannel:
-          chaincodes:
+          contracts:
           - initTransientMap:
               pemContent: |
                 -----BEGIN PRIVATE KEY-----
@@ -1454,12 +1454,12 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    *  <details><summary markdown="span">__[item].collections-config__
       </summary>
       _Optional. Non-empty, non-sparse array of objects._ <br>
-      List of private collection definitions for the chaincode or a path to the JSON file containing the definitions. For details about the content of such definitions, refer to the [SDK page](https://fabric-sdk-node.github.io/release-1.4/tutorial-private-data.html).
+      List of private collection definitions for the contract or a path to the JSON file containing the definitions. For details about the content of such definitions, refer to the [SDK page](https://fabric-sdk-node.github.io/release-1.4/tutorial-private-data.html).
       
       ```yaml
       channels:
         mychannel:
-          chaincodes:
+          contracts:
           - collections-config:
             - name: twoOrgCollection
               policy:
@@ -1484,12 +1484,12 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    *  <details><summary markdown="span">__[item].endorsement-policy__
       </summary>
       _Optional. Object._ <br>
-      The endorsement policy of the chaincode as required by the Fabric Node.js SDK. If omitted, then a default N-of-N policy is used based on the target peers (thus organizations) of the chaincode.
+      The endorsement policy of the contract as required by the Fabric Node.js SDK. If omitted, then a default N-of-N policy is used based on the target peers (thus organizations) of the contract.
 
       ```yaml
       channels:
         mychannel:
-          chaincodes:
+          contracts:
           - endorsement-policy:
               identities:
               - role:
@@ -1509,12 +1509,12 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    *  <details><summary markdown="span">__[item].targetPeers__
       </summary>
       _Optional. Non-empty, non-sparse array of strings._ <br>
-      Specifies custom target peers (from the top-level `peers` section) for chaincode installation/instantiation. Overrides the peer role-based channel-level targets.
+      Specifies custom target peers (from the top-level `peers` section) for contract installation/instantiation. Overrides the peer role-based channel-level targets.
 
       ```yaml
       channels:
         mychannel:
-          chaincodes:
+          contracts:
           - targetPeers:
             - peer0.org1.example.com
             - peer1.org1.example.com
@@ -1534,7 +1534,7 @@ The following example is a Fabric v1.1 network configuration for the following n
 * the first organization has one user/client, the second has two (and the second user is dynamically registered and enrolled);
 * one orderer;
 * one channel named `mychannel` that is created by Caliper;
-* `marbles@v0` chaincode installed and instantiated in `mychannel` on every peer;
+* `marbles@v0` contract installed and instantiated in `mychannel` on every peer;
 * the nodes of the network use TLS communication, but not mutual TLS;
 * the local network is deployed and cleaned up automatically by Caliper.
 
@@ -1607,7 +1607,7 @@ channels:
       peer0.org2.example.com:
       peer1.org2.example.com:
 
-    chaincodes:
+    contracts:
     - id: marbles
       version: v0
       targetPeers:

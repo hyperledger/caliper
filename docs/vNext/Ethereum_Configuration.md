@@ -267,7 +267,7 @@ To query a state on a contract state, call the `blockchain.querySmartContract` f
   
   > Querying a value in a contract is always counted in the workload. So keep it in mind that if you think to query a value when executing a workload.
 
-Querying a chaincode looks like the following:
+Querying a contract looks like the following:
 
 ```js
 let queryData = [{
