@@ -98,7 +98,7 @@ Each connector exists as a distinct package within the Caliper repository, and t
     }
 ```
 
-Connectors are exposed by connector-factories that are used to create instances of the connector class for use by Caliper master and worker processes.
+Connectors are exposed by connector-factories that are used to create instances of the connector class for use by Caliper manager and worker processes.
 
 ```javascript
     'use strict';
@@ -107,7 +107,7 @@ Connectors are exposed by connector-factories that are used to create instances 
 
     /**
      * Constructs a MyBlockchain connector.
-     * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter connector. -1 for the master process.
+     * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter connector. -1 for the manager process.
      * @return {Promise<BlockchainConnector>} The initialized connector instance.
      * @async
      */

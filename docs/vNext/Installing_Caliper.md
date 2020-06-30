@@ -42,7 +42,7 @@ The entry point of the CLI is the `caliper` binary. You can confirm whether the 
 
 ```console
 user@ubuntu:~/caliper-benchmarks$ npx caliper --version
-v0.3.0
+v0.4.0
 ```
 
 The CLI provides multiple commands to perform different tasks. To check the available commands and their descriptions, execute:
@@ -53,7 +53,7 @@ caliper <command>
 
 Commands:
   caliper.js bind [options]       Bind Caliper to a specific SUT and its SDK version
-  caliper.js launch <subcommand>  Launch a Caliper process either in a master or worker role.
+  caliper.js launch <subcommand>  Launch a Caliper process either in a manager or worker role.
   caliper.js unbind [options]     Unbind Caliper from a previously bound SUT and its SDK version
   caliper.js completion           generate completion script
 
@@ -64,7 +64,7 @@ Options:
 Examples:
   caliper bind
   caliper unbind
-  caliper launch master
+  caliper launch manager
   caliper launch worker
 
 For more information on Hyperledger Caliper: https://hyperledger.github.io/caliper/
@@ -124,7 +124,7 @@ The following SUT name (column header) and SDK version (column value) combinatio
 
 > __Note:__ all patch versions of Besu are supported for each version.  The `1.3.2` SUT is deprecated and it is recommended you use `1.3` instead.
 
-The `bind` command is useful when you plan to run multiple benchmarks against the same SUT version. Bind once, then run different benchmarks without the need to bind again. As you will see in the next sections, the launcher commands for the master and worker processes can also perform the binding step if the required parameter is present.
+The `bind` command is useful when you plan to run multiple benchmarks against the same SUT version. Bind once, then run different benchmarks without the need to bind again. As you will see in the next sections, the launcher commands for the manager and worker processes can also perform the binding step if the required parameter is present.
 
 > __Note:__ the built-in bindings can be overridden by setting the `caliper-bind-file` parameter to a YAML file path. The file must match the structure of the [default binding file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-cli/lib/lib/config.yaml). This way you can use experimental SDK versions that are not (yet) officially supported by Caliper. __This also means that we cannot provide help for such SDK versions!__
 
@@ -153,17 +153,17 @@ Options:
 
 ### The launch command
 
-Caliper runs a benchmark by using _worker_ processes to generate the workload, and by using a _master_ process to coordinate the different benchmark rounds among the worker processes. Accordingly, the CLI provides commands for launching both master and worker processes.
+Caliper runs a benchmark by using _worker_ processes to generate the workload, and by using a _manager_ process to coordinate the different benchmark rounds among the worker processes. Accordingly, the CLI provides commands for launching both manager and worker processes.
 
 To have a look at the help page of the command, execute:
 ```console
 user@ubuntu:~/caliper-benchmarks$ npx caliper launch --help
 caliper launch <subcommand>
 
-Launch a Caliper process either in a master or worker role.
+Launch a Caliper process either in a manager or worker role.
 
 Commands:
-  caliper launch master [options]  Launch a Caliper master process to coordinate the benchmark run
+  caliper launch manager [options]  Launch a Caliper manager process to coordinate the benchmark run
   caliper launch worker [options]  Launch a Caliper worker process to generate the benchmark workload
 
 Options:
@@ -171,15 +171,15 @@ Options:
   --version   Show version information  [boolean]
 ```
 
-#### The launch master command
+#### The launch manager command
 
-The Caliper master process can be considered as the entry point of a distributed benchmark run. It coordinates (and optionally spawns) the worker processes throughout the benchmark run.
+The Caliper manager process can be considered as the entry point of a distributed benchmark run. It coordinates (and optionally spawns) the worker processes throughout the benchmark run.
 
 To have a look at the help page of the command, execute:
 ```console
-user@ubuntu:~/caliper-benchmarks$ npx caliper launch master --help
+user@ubuntu:~/caliper-benchmarks$ npx caliper launch manager --help
 Usage:
- caliper launch master --caliper-bind-sut fabric:1.4.1 [other options]
+ caliper launch manager --caliper-bind-sut fabric:1.4.1 [other options]
 
 Options:
   --help, -h           Show usage information  [boolean]
@@ -190,7 +190,7 @@ Options:
   --caliper-bind-file  Yaml file to override default (supported) package versions when binding an SDK  [string]
 ```
 
-As you can see, the `launch master` command can also process the parameters of the `bind` command, just in case you would like to perform the binding and the benchmark run in one step.
+As you can see, the `launch manager` command can also process the parameters of the `bind` command, just in case you would like to perform the binding and the benchmark run in one step.
 
 However, the command __requires__ the following parameters to be set:
 * __caliper-workspace:__ the directory serving as the root of your project. Every relative path in other configuration files or settings will be resolved from this directory. The workspace concept was introduced to make Caliper projects portable across different machines.
@@ -199,13 +199,13 @@ However, the command __requires__ the following parameters to be set:
 
 #### The launch worker command
 
-The Caliper worker processes are responsible for generating the workload during the benchmark run. Usually more than one worker process is running, coordinated by the single master process.
+The Caliper worker processes are responsible for generating the workload during the benchmark run. Usually more than one worker process is running, coordinated by the single manager process.
 
 To have a look at the help page of the command, execute:
 ```console
 user@ubuntu:~/caliper-benchmarks$ npx caliper launch worker --help
 Usage:
- caliper launch master --caliper-bind-sut fabric:1.4.1 [other options]
+ caliper launch manager --caliper-bind-sut fabric:1.4.1 [other options]
 
 Options:
   --help, -h           Show usage information  [boolean]
@@ -216,7 +216,7 @@ Options:
   --caliper-bind-file  Yaml file to override default (supported) package versions when binding an SDK  [string]
 ```
 
-As you can see, you can configure the worker processes the same way as the master process. Including the optional binding step, but also the three mandatory parameters mentioned in the previous section.
+As you can see, you can configure the worker processes the same way as the manager process. Including the optional binding step, but also the three mandatory parameters mentioned in the previous section.
 
 #### Caliper test phase control
 
@@ -243,7 +243,7 @@ But why is all this important to you? Because Caliper is still in its pre-releas
 
 Now that we ignored the tags, let's see the two types of version numbers you will encounter:
 * `0.2.0`: Version numbers of this form denote releases deemed _stable_ by the maintainers. Such versions have a corresponding GitHub tag, both in the `caliper` and `caliper-benchmarks` repositories. Moreover, the latest stable version is documented by the `latest` version of the documentation page. So make sure to align the different versions if you run into some issue.
-* `0.3.0-unstable-20200206065953`: Such version "numbers" denote _unstable_ releases that are published upon every merged pull request (hence the timestamp at the end), and eventually will become a stable version, e.g., `0.3.0`. This way you always have access to the NPM (and Docker) artifacts pertaining to the `master` branch of the repository. Let's find and fix the bugs of new features before they make it to the stable release!
+* `0.4.0-unstable-20200206065953`: Such version "numbers" denote _unstable_ releases that are published upon every merged pull request (hence the timestamp at the end), and eventually will become a stable version, e.g., `0.4.0`. This way you always have access to the NPM (and Docker) artifacts pertaining to the `manager` branch of the repository. Let's find and fix the bugs of new features before they make it to the stable release!
 
 > __Note:__ The newest unstable release always corresponds to the up-to-date version of the related repositories, and the `vNext` version of the documentation page!
 
@@ -259,7 +259,7 @@ The following tools are required to install the CLI from NPM:
 > __Note:__ this is the highly recommended way to install Caliper for your project. Keeping the project dependencies local makes it easier to setup multiple Caliper projects. Global dependencies would require re-binding every time before a new benchmark run (to ensure the correct global dependencies).
 
 1. Set your NPM project details with `npm init` (or just execute `npm init -y`) in your workspace directory (if you haven't done this already, i.e., you don't have a `package.json` file).
-2. Install the Caliper CLI as you would any other NPM package. It is highly recommended to explicitly specify the version number, e.g., `@hyperledger/caliper-cli@0.3.0`
+2. Install the Caliper CLI as you would any other NPM package. It is highly recommended to explicitly specify the version number, e.g., `@hyperledger/caliper-cli@0.4.0`
 3. Bind the CLI to the required platform SDK (e.g., `fabric` with the `1.4.0` SDK).
 4. Invoke the local CLI binary (using [npx](https://www.npmjs.com/package/npx)) with the appropriate parameters. You can repeat this step for as many Fabric 1.4.0 benchmarks as you would like.
 
@@ -267,21 +267,21 @@ Putting it all together:
 ```console
 user@ubuntu:~/caliper-benchmarks$ npm init -y
 user@ubuntu:~/caliper-benchmarks$ npm install --only=prod \
-    @hyperledger/caliper-cli@0.3.0
+    @hyperledger/caliper-cli@0.4.0
 user@ubuntu:~/caliper-benchmarks$ npx caliper bind \
     --caliper-bind-sut fabric:1.4.0
-user@ubuntu:~/caliper-benchmarks$ npx caliper launch master \
+user@ubuntu:~/caliper-benchmarks$ npx caliper launch manager \
     --caliper-workspace . \
     --caliper-benchconfig benchmarks/scenario/simple/config.yaml \
     --caliper-networkconfig networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml
 ```
 
-We could also perform the binding automatically when launching the master process (note the extra parameter for `caliper launch master`):
+We could also perform the binding automatically when launching the manager process (note the extra parameter for `caliper launch manager`):
 ```console
 user@ubuntu:~/caliper-benchmarks$ npm init -y
 user@ubuntu:~/caliper-benchmarks$ npm install --only=prod \
-    @hyperledger/caliper-cli@0.3.0
-user@ubuntu:~/caliper-benchmarks$ npx caliper launch master \
+    @hyperledger/caliper-cli@0.4.0
+user@ubuntu:~/caliper-benchmarks$ npx caliper launch manager \
     --caliper-bind-sut fabric:1.4.0 \
     --caliper-workspace . \
     --caliper-benchconfig benchmarks/scenario/simple/config.yaml \
@@ -304,11 +304,11 @@ There are some minor differences compared to the local install:
 5. You can omit the `npx` command, since `caliper` will be in your `PATH`.
 
 ```console
-user@ubuntu:~$ npm install -g --only=prod @hyperledger/caliper-cli@0.3.0
+user@ubuntu:~$ npm install -g --only=prod @hyperledger/caliper-cli@0.4.0
 user@ubuntu:~$ caliper bind \
     --caliper-bind-sut fabric:1.4.0 \
     --caliper-bind-args=-g
-user@ubuntu:~$ caliper launch master \
+user@ubuntu:~$ caliper launch manager \
     --caliper-workspace ~/caliper-benchmarks \
     --caliper-benchconfig benchmarks/scenario/simple/config.yaml \
     --caliper-networkconfig networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml
@@ -332,9 +332,9 @@ The important properties of the image are the following:
 
 This has the following implications:
 1. It is recommended to mount your local workspace to the `/hyperledger/caliper/workspace` container directory. The default `CALIPER_WORKSPACE` environment variable value points to this location, so you don't need to specify it explicitly, one less setting to modify.
-2. You need to choose a command to execute, either `launch master` or `launch worker`. Check the Docker and Docker-Compose examples for the exact syntax.
-3. The binding step is still necessary, similarly to the NPM install approach. Whether you use the `launch master` or `launch worker` command, you only need to set the required binding parameter. The easiest way to do this is through the `CALIPER_BIND_SUT` environment variable.
-4. You need to set the required parameters for the launched master or worker. The easiest way to do this is through the `CALIPER_BENCHCONFIG` and `CALIPER_NETWORKCONFIG` environment variables.
+2. You need to choose a command to execute, either `launch manager` or `launch worker`. Check the Docker and Docker-Compose examples for the exact syntax.
+3. The binding step is still necessary, similarly to the NPM install approach. Whether you use the `launch manager` or `launch worker` command, you only need to set the required binding parameter. The easiest way to do this is through the `CALIPER_BIND_SUT` environment variable.
+4. You need to set the required parameters for the launched manager or worker. The easiest way to do this is through the `CALIPER_BENCHCONFIG` and `CALIPER_NETWORKCONFIG` environment variables.
 
 ### Starting a container
 
@@ -343,7 +343,7 @@ Parts of starting a Caliper container (following the recommendations above):
 2. Mount your local working directory to a container directory
 3. Set the required binding and run parameters
 
-> __Note:__ the __latest__ (or any other) tag is __not supported__, i.e, you explicitly have to specify the image version you want: `hyperledger/caliper:0.3.0`, just like it's the recommended approach for the [NPM packages](#versioning-semantics).
+> __Note:__ the __latest__ (or any other) tag is __not supported__, i.e, you explicitly have to specify the image version you want: `hyperledger/caliper:0.4.0`, just like it's the recommended approach for the [NPM packages](#versioning-semantics).
 
 Putting it all together, split into multiple lines for clarity, and naming the container `caliper`:
 
@@ -353,7 +353,7 @@ user@ubuntu:~/caliper-benchmarks$ docker run \
     -e CALIPER_BIND_SUT=fabric:1.4.0 \
     -e CALIPER_BENCHCONFIG=benchmarks/scenario/simple/config.yaml \
     -e CALIPER_NETWORKCONFIG=networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml \
-    --name caliper hyperledger/caliper:0.3.0 launch master
+    --name caliper hyperledger/caliper:0.4.0 launch manager
 ```
 
 > __Note:__ the above network configuration file contains a start script to spin up a local Docker-based Fabric network, which will not work in this form. So make sure to remove the start (and end) script, and change the node endpoints to remote addresses.
@@ -367,8 +367,8 @@ version: '2'
 services:
     caliper:
         container_name: caliper
-        image: hyperledger/caliper:0.3.0
-        command: launch master
+        image: hyperledger/caliper:0.4.0
+        command: launch manager
         environment:
         - CALIPER_BIND_SUT=fabric:1.4.0
         - CALIPER_BENCHCONFIG=benchmarks/scenario/simple/config.yaml
@@ -434,7 +434,7 @@ If you would like to run other examples, then you can directly access the CLI in
 > __Note:__ the SDK dependencies in this case are fixed (the binding step is not supported with this approach), and you can check (and change) them in the `package.json` files of the corresponding packages. In this case the repository needs to be bootstrapped again.
 
 ```console
-user@ubuntu:~/caliper$ node ./packages/caliper-cli/caliper.js launch master \
+user@ubuntu:~/caliper$ node ./packages/caliper-cli/caliper.js launch manager \
     --caliper-workspace ~/caliper-benchmarks \
     --caliper-benchconfig benchmarks/scenario/simple/config.yaml \
     --caliper-networkconfig networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml
@@ -484,14 +484,14 @@ Once Verdaccio is running, you can run the following command to publish every Ca
 ```console
 user@ubuntu:~/caliper/packages/caliper-publish$ ./publish.js npm --registry "http://localhost:4873"
 ...
-+ @hyperledger/caliper-core@0.3.0-unstable-20200206065953
-[PUBLISH] Published package @hyperledger/caliper-core@0.3.0-unstable-20200206065953
++ @hyperledger/caliper-core@0.4.0-unstable-20200206065953
+[PUBLISH] Published package @hyperledger/caliper-core@0.4.0-unstable-20200206065953
 ...
-+ @hyperledger/caliper-fabric@0.3.0-unstable-20200206065953
-[PUBLISH] Published package @hyperledger/caliper-fabric@0.3.0-unstable-20200206065953
++ @hyperledger/caliper-fabric@0.4.0-unstable-20200206065953
+[PUBLISH] Published package @hyperledger/caliper-fabric@0.4.0-unstable-20200206065953
 ...
-+ @hyperledger/caliper-cli@0.3.0-unstable-20200206065953
-[PUBLISH] Published package @hyperledger/caliper-cli@0.3.0-unstable-20200206065953
++ @hyperledger/caliper-cli@0.4.0-unstable-20200206065953
+[PUBLISH] Published package @hyperledger/caliper-cli@0.4.0-unstable-20200206065953
 ```
 
 Take note of the dynamic version number you see in the logs, you will need it to install you modified Caliper version from Verdaccio (the `unstable` tag is also present on NPM, so Verdaccio would probably pull that version instead of your local one).
@@ -505,9 +505,9 @@ Once the packages are published to the local Verdaccio server, we can use the us
 ```console
 user@ubuntu:~/caliper-benchmarks$ npm init -y
 user@ubuntu:~/caliper-benchmarks$ npm install --registry=http://localhost:4873 --only=prod \
-    @hyperledger/caliper-cli@0.3.0-unstable-20200206065953
+    @hyperledger/caliper-cli@0.4.0-unstable-20200206065953
 user@ubuntu:~/caliper-benchmarks$ npx caliper bind --caliper-bind-sut fabric:1.4.0
-user@ubuntu:~/caliper-benchmarks$ npx caliper launch master \
+user@ubuntu:~/caliper-benchmarks$ npx caliper launch manager \
     --caliper-workspace . \
     --caliper-benchconfig benchmarks/scenario/simple/config.yaml \
     --caliper-networkconfig networks/fabric/fabric-v1.4.1/2org1peergoleveldb/fabric-go.yaml
@@ -523,8 +523,8 @@ To rebuild the Docker image, execute the following:
 ```console
 user@ubuntu:~/caliper/packages/caliper-publish$ ./publish.js docker
 ...
-Successfully tagged hyperledger/caliper:0.3.0-unstable-20200206065953
-[BUILD] Built Docker image "hyperledger/caliper:0.3.0-unstable-20200206065953"
+Successfully tagged hyperledger/caliper:manager-unstable-20200206065953
+[BUILD] Built Docker image "hyperledger/caliper:manager-unstable-20200206065953"
 ```
 
 Now you can proceed with the Docker-based benchmarking as described in the previous sections.

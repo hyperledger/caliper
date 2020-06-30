@@ -80,8 +80,8 @@ A SUT adapter provides a simplified interface towards internal Caliper modules, 
 
 Caliper considers scalability one of its most important goals (besides extensibility/flexibility). Workload generation from a single machine can quickly reach the resource limitations of the machine. If we want the workload rate to match the scalability and performance characteristics of the evaluated SUT then we need a distributed approach!
 
-Accordingly, Caliper (as a framework) comprises of two different services/processes: a master process and numerous worker processes.
-* The master process initializes the SUT (if supported) and coordinates the run of the benchmark (i.e., schedules the configured rounds) and handles the performance report generation based on the observed TX statistics.
+Accordingly, Caliper (as a framework) comprises of two different services/processes: a manager process and numerous worker processes.
+* The manager process initializes the SUT (if supported) and coordinates the run of the benchmark (i.e., schedules the configured rounds) and handles the performance report generation based on the observed TX statistics.
 * The worker processes perform the actual workload generation, independently of each other. Even if a worker process reaches the limits of its host machine, using more worker processes (on multiple machines) can further increase the workload rate of Caliper. Thus worker processes are the backbone of Caliper's scalability.
 
 The described setup is illustrated in the next figure.
@@ -90,11 +90,11 @@ The described setup is illustrated in the next figure.
 
 > __Note:__ For the time being, we will ignore the technical details of the distributed architecture, like the messaging between the processes. We will come back to it in a later section.
 
-### The master process
+### The manager process
 
-The Caliper master process is the orchestrator of the entire benchmark run. It goes through several predefined stages as depicted by the figure below.
+The Caliper manager process is the orchestrator of the entire benchmark run. It goes through several predefined stages as depicted by the figure below.
 
-<img src="{{ site.baseurl }}/assets/img/arch_master_process.png" alt="arch_master_process">
+<img src="{{ site.baseurl }}/assets/img/arch_master_process.png" alt="arch_manager_process">
 
 1. In the first stage, Caliper executes the startup script (if present) from the network configuration file. This step is mainly useful for local Caliper and SUT deployments as it provides a convenient way to start the network and Caliper in one step.
   > __Note:__ The deployment of the SUT is not the responsibility of Caliper. Technically, Caliper only connects to an already running SUT, even if it was started through the startup script.
@@ -109,7 +109,7 @@ The above figure only shows the high-level steps of executing a benchmark. Some 
 
 ### The worker process
 
-The interesting things (from a user perspective) happen inside the worker processes. A worker process starts its noteworthy tasks when the master process sends a message to it about executing the next round (the 4th step in the previous section). The important components of a worker process are shown in the figure below.
+The interesting things (from a user perspective) happen inside the worker processes. A worker process starts its noteworthy tasks when the manager process sends a message to it about executing the next round (the 4th step in the previous section). The important components of a worker process are shown in the figure below.
 
 <img src="{{ site.baseurl }}/assets/img/arch_worker_process.png" alt="arch_worker_process">
 
@@ -119,14 +119,14 @@ The worker process spends most of its time in the workload generation loop. The 
 2. Once the rate controller enables the next TX, the worker gives control to the workload module. The workload module assembles the parameters of the TX (specific to the SUT and smart contract API) and calls the simple API of the SUT adapter that will, in turn, send the TX request to the SUT (probably using the SDK of the SUT).
   > __Note:__ The workload modules of each round can be configured in the [benchmark configuration file](./Benchmark_Configuration.md). For the technical details of workload modules, see the [Workload Modules](./Workload_Module.md) page. 
 
-During the workload loop, the worker process sends progress updates to the master process. Multiple approaches are available for signaling worker progress, achieved by different observers. For the available methods, see the [Monitors and Observers](./MonitorsAndOvservers.md) page.
+During the workload loop, the worker process sends progress updates to the manager process. Multiple approaches are available for signaling worker progress, achieved by different observers. For the available methods, see the [Monitors and Observers](./MonitorsAndOvservers.md) page.
 
 ## Process distribution models
 
-The last part of the architecture discussion is demystifying the worker process management. Based on how worker processes are started and what messaging method is used between the master and worker processes, we can distinguish the following distribution/deployment models:
-1. Automatically spawned worker processes on the same host, using interprocess communication (IPC) with the master process.
-2. Automatically spawned worker processes on the same host, using a remote messaging mechanism with the master process.
-3. Manually started worker processes on an arbitrary number of hosts, using a remote messaging mechanism with the master process.
+The last part of the architecture discussion is demystifying the worker process management. Based on how worker processes are started and what messaging method is used between the manager and worker processes, we can distinguish the following distribution/deployment models:
+1. Automatically spawned worker processes on the same host, using interprocess communication (IPC) with the manager process.
+2. Automatically spawned worker processes on the same host, using a remote messaging mechanism with the manager process.
+3. Manually started worker processes on an arbitrary number of hosts, using a remote messaging mechanism with the manager process.
 
 Even though the third method is the way to go for more complex scenarios, the first two methods can help you get familiar with Caliper, and gradually aid you with the transition to the third method.
 
@@ -139,7 +139,7 @@ The different deployment approaches are made possible by how Caliper handles mes
 The internal Caliper modules only deal with predefined messages whose content is independent of how the messages are sent. The module that sends the messages between the processes is swappable, thus enabling different communication methods.
 
 The deployment model is configurable with the following two setting keys:
-* `caliper-worker-remote`: if set to `false` (the default), then the master process will spawn the required number of worker processes locally, resulting in the models 1 or 2.
+* `caliper-worker-remote`: if set to `false` (the default), then the manager process will spawn the required number of worker processes locally, resulting in the models 1 or 2.
 * `caliper-worker-communication-method`: can take the values `process` (the default) or `mqtt` and determines the message transport implementation to use. The `process` communication corresponds to the first model, while `mqtt` denotes models 2 and 3.
 
 The following table summarizes the different models and how to select them:
@@ -157,7 +157,7 @@ The following table summarizes the different models and how to select them:
 
 The examples on the [Install & Usage](./Installing_Caliper.md) page all use the IPC approach since it is the default behavior. The setup is illustrated in the figure below.
 
-The `caliper launch master` CLI command starts the master process, which in turn will automatically spawn the configured number of worker processes (using the `caliper launch worker` CLI command). The communication between the processes is IPC, utilizing the built-in Node.JS method available for the parent-children process relationships.  
+The `caliper launch manager` CLI command starts the manager process, which in turn will automatically spawn the configured number of worker processes (using the `caliper launch worker` CLI command). The communication between the processes is IPC, utilizing the built-in Node.JS method available for the parent-children process relationships.  
 
 <img src="{{ site.baseurl }}/assets/img/arch_ipc.png" alt="arch_ipc">
 
@@ -171,7 +171,7 @@ As a stepping stone towards the fully-distributed setup, the second deployment m
 
 <img src="{{ site.baseurl }}/assets/img/arch_local_mqtt.png" alt="arch_local_mqtt">
 
-Like before, the `caliper launch master` CLI command starts the master process, which in turn will automatically spawn the configured number of worker processes (using the `caliper launch worker` CLI command). However, the messaging happens through a separate component, which could be deployed anywhere as long as its endpoint is reachable by the Caliper processes.
+Like before, the `caliper launch manager` CLI command starts the manager process, which in turn will automatically spawn the configured number of worker processes (using the `caliper launch worker` CLI command). However, the messaging happens through a separate component, which could be deployed anywhere as long as its endpoint is reachable by the Caliper processes.
 
 Unfortunately, this model is also constrained to a single host from the aspect of the Caliper processes. However, it is a useful model for taking your deployment to the next level once your benchmark artifacts are in place. Once you successfully integrated the messaging component, you are ready to move to the fully distributed Caliper setup. 
 
