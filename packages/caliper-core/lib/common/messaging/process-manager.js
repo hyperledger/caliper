@@ -15,16 +15,16 @@
 'use strict';
 
 const MessengerInterface = require('./messenger-interface');
-const Logger = require('../utils/caliper-utils').getLogger('process-master-messenger');
+const Logger = require('../utils/caliper-utils').getLogger('process-manager-messenger');
 
 
 /**
  * Messenger that is based on an process implementation
  */
-class ProcessMasterMessenger extends MessengerInterface {
+class ProcessManagerMessenger extends MessengerInterface {
 
     /**
-     * Constructor for process Master
+     * Constructor for process Manager
      * @param {object} configuration configuration details
      */
     constructor(configuration) {
@@ -84,12 +84,12 @@ class ProcessMasterMessenger extends MessengerInterface {
 }
 
 /**
- * Creates a new ProcessMasterMessenger instance.
+ * Creates a new ProcessManagerMessenger instance.
  * @param {object} messengerConfig the messenger configuration
- * @return {ProcessMasterMessenger} The ProcessMasterMessenger instance.
+ * @return {ProcessManagerMessenger} The ProcessManagerMessenger instance.
  */
 function createMessenger(messengerConfig) {
-    return new ProcessMasterMessenger(messengerConfig);
+    return new ProcessManagerMessenger(messengerConfig);
 }
 
 module.exports.createMessenger = createMessenger;

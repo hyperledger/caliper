@@ -117,7 +117,7 @@ function irohaQuery(queryOptions, commands) {
 class IrohaConnector extends BlockchainConnector {
     /**
      * Create a new instance of the {Iroha} class.
-     * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process.
+     * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the manager process.
      * @param {string} bcType The target SUT type
      */
     constructor(workerIndex, bcType) {

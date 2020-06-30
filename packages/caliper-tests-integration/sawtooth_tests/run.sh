@@ -30,11 +30,11 @@ fi
 export CALIPER_PROJECTCONFIG=caliper.yaml
 
 dispose () {
-    ${CALL_METHOD} launch master --caliper-flow-only-end
+    ${CALL_METHOD} launch manager --caliper-flow-only-end
 }
 
 # PHASE 1: just starting the network
-${CALL_METHOD} launch master --caliper-flow-only-start
+${CALL_METHOD} launch manager --caliper-flow-only-start
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 1";
@@ -43,7 +43,7 @@ if [[ ${rc} != 0 ]]; then
 fi
 
 # PHASE 2: init, install, test
-${CALL_METHOD} launch master --caliper-flow-skip-start --caliper-flow-skip-end
+${CALL_METHOD} launch manager --caliper-flow-skip-start --caliper-flow-skip-end
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 2";
@@ -52,7 +52,7 @@ if [[ ${rc} != 0 ]]; then
 fi
 
 # PHASE 5: just disposing of the network
-${CALL_METHOD} launch master --caliper-flow-only-end
+${CALL_METHOD} launch manager --caliper-flow-only-end
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 3";

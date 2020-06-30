@@ -15,7 +15,7 @@
 'use strict';
 
 const rewire = require('rewire');
-const PrometheusMonitorRewire = rewire('../../../lib/master/monitors/monitor-prometheus');
+const PrometheusMonitorRewire = rewire('../../../lib/manager/monitors/monitor-prometheus');
 
 const chai = require('chai');
 const should = chai.should();

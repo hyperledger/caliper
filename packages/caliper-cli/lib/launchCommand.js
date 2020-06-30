@@ -15,7 +15,7 @@
 'use strict';
 
 module.exports.command = 'launch <subcommand>';
-module.exports.describe = 'Launch a Caliper process either in a master or worker role.';
+module.exports.describe = 'Launch a Caliper process either in a manager or worker role.';
 module.exports.builder = yargs => {
     return yargs
         .demandCommand(1, 'Incorrect command. Please see the list of commands above, or enter "caliper launch --help".')

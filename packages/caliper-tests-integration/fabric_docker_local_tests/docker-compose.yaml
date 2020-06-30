@@ -262,10 +262,10 @@ services:
 # CALIPER MASTER #
 ##################
 
-    caliper-master:
+    caliper-manager:
         image: caliper:test
-        container_name: caliper-master
-        command: launch master
+        container_name: caliper-manager
+        command: launch manager
         volumes:
         - ./:/hyperledger/caliper/workspace
         depends_on:

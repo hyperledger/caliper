@@ -19,9 +19,9 @@ const CaliperUtils = require('./../utils/caliper-utils');
 const Logger = CaliperUtils.getLogger('messenger.js');
 
 const builtInMessengers = new Map([
-    ['mqtt-master', path.join(__dirname, './mqtt-master.js')],
+    ['mqtt-manager', path.join(__dirname, './mqtt-manager.js')],
     ['mqtt-worker', path.join(__dirname, './mqtt-worker.js')],
-    ['process-master', path.join(__dirname, './process-master.js')],
+    ['process-manager', path.join(__dirname, './process-manager.js')],
     ['process-worker', path.join(__dirname, './process-worker.js')]
 ]);
 

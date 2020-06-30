@@ -56,8 +56,8 @@ class MqttWorkerMessenger extends MessengerInterface {
             Logger.info(`${this.configuration.sut} worker connected with mqtt clientId ${clientId}`);
 
             // Subscribe to the update topic
-            Logger.info(`${this.configuration.sut} worker with mqtt clientId ${clientId} subscribing to topic "master/update"`);
-            this.mqttClient.subscribe('master/update');
+            Logger.info(`${this.configuration.sut} worker with mqtt clientId ${clientId} subscribing to topic "manager/update"`);
+            this.mqttClient.subscribe('manager/update');
 
             // resolve promise so that connection can complete
             this.connected = true;
@@ -106,7 +106,7 @@ class MqttWorkerMessenger extends MessengerInterface {
     configure(handlerContext) {
         this.mqttClient.on('message', async (topic, message) => {
             switch (topic) {
-            case 'master/update':{
+            case 'manager/update':{
                 const msg = JSON.parse(message);
                 // Only action if intended for this client
                 if (msg.to.includes(this.getUUID()) || msg.to.includes('all')) {

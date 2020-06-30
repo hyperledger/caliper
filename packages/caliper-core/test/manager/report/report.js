@@ -14,7 +14,7 @@
 
 'use strict';
 
-const Report = require('../../../lib/master/report/report');
+const Report = require('../../../lib/manager/report/report');
 
 const chai = require('chai');
 chai.should();

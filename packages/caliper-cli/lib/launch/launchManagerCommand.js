@@ -14,7 +14,7 @@
 
 'use strict';
 
-const LaunchMaster = require('./lib/launchMaster');
+const LaunchManager = require('./lib/launchManager');
 const { CaliperUtils } = require('@hyperledger/caliper-core');
 
 // enforces singletons
@@ -24,8 +24,8 @@ const checkFn = (argv) => {
 };
 
 module.exports._checkFn = checkFn;
-module.exports.command = 'master [options]';
-module.exports.describe = 'Launch a Caliper master process to coordinate the benchmark run';
+module.exports.command = 'manager [options]';
+module.exports.describe = 'Launch a Caliper manager process to coordinate the benchmark run';
 module.exports.builder = yargs => {
 
     yargs.options({
@@ -34,7 +34,7 @@ module.exports.builder = yargs => {
         'caliper-bind-args'  : {describe: 'Additional arguments to pass to "npm install". Use the "=" notation when setting this parameter', type: 'string' },
         'caliper-bind-file'  : {describe: 'Yaml file to override default (supported) package versions when binding an SDK', type: 'string' }
     });
-    yargs.usage('Usage:\n caliper launch master --caliper-bind-sut fabric:1.4.1 [other options]');
+    yargs.usage('Usage:\n caliper launch manager --caliper-bind-sut fabric:1.4.1 [other options]');
 
     // enforce singletons
     yargs.check(checkFn);
@@ -43,5 +43,5 @@ module.exports.builder = yargs => {
 };
 
 module.exports.handler = (argv) => {
-    return argv.thePromise = LaunchMaster.handler(argv).then(() => process.exit(0));
+    return argv.thePromise = LaunchManager.handler(argv).then(() => process.exit(0));
 };

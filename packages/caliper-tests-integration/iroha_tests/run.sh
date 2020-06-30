@@ -26,11 +26,11 @@ cd "${DIR}"
 export CALIPER_PROJECTCONFIG=caliper.yaml
 
 dispose () {
-    ${CALL_METHOD} launch master --caliper-flow-only-end
+    ${CALL_METHOD} launch manager --caliper-flow-only-end
 }
 
 # running the test
-${CALL_METHOD} launch master
+${CALL_METHOD} launch manager
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo 'Failed CI test';

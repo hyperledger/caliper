@@ -37,11 +37,11 @@ fi
 export CALIPER_PROJECTCONFIG=../caliper.yaml
 
 dispose () {
-    ${CALL_METHOD} launch master --caliper-workspace phase7 --caliper-flow-only-end
+    ${CALL_METHOD} launch manager --caliper-workspace phase7 --caliper-flow-only-end
 }
 
 # PHASE 1: just starting the network
-${CALL_METHOD} launch master --caliper-workspace phase1 --caliper-flow-only-start
+${CALL_METHOD} launch manager --caliper-workspace phase1 --caliper-flow-only-start
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 1";
@@ -51,7 +51,7 @@ fi
 
 # PHASE 2: just initialize the network
 # TODO: contracts shouldn't be required at this point
-${CALL_METHOD} launch master --caliper-workspace phase2 --caliper-flow-only-init
+${CALL_METHOD} launch manager --caliper-workspace phase2 --caliper-flow-only-init
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 2";
@@ -60,7 +60,7 @@ if [[ ${rc} != 0 ]]; then
 fi
 
 # PHASE 3: just init network and install the contracts (channels marked as created)
-${CALL_METHOD} launch master --caliper-workspace phase3 --caliper-flow-skip-start --caliper-flow-skip-end --caliper-flow-skip-test
+${CALL_METHOD} launch manager --caliper-workspace phase3 --caliper-flow-skip-start --caliper-flow-skip-end --caliper-flow-skip-test
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 3";
@@ -69,7 +69,7 @@ if [[ ${rc} != 0 ]]; then
 fi
 
 # PHASE 3 again: deployed contracts should be detected
-${CALL_METHOD} launch master --caliper-workspace phase3 --caliper-flow-skip-start --caliper-flow-skip-end --caliper-flow-skip-test
+${CALL_METHOD} launch manager --caliper-workspace phase3 --caliper-flow-skip-start --caliper-flow-skip-end --caliper-flow-skip-test
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 4";
@@ -78,7 +78,7 @@ if [[ ${rc} != 0 ]]; then
 fi
 
 # PHASE 4: testing through the low-level API
-${CALL_METHOD} launch master --caliper-workspace phase4 --caliper-flow-only-test
+${CALL_METHOD} launch manager --caliper-workspace phase4 --caliper-flow-only-test
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 5";
@@ -87,7 +87,7 @@ if [[ ${rc} != 0 ]]; then
 fi
 
 # PHASE 5: testing through the gateway API
-${CALL_METHOD} launch master --caliper-workspace phase5 --caliper-flow-only-test --caliper-fabric-gateway-enabled
+${CALL_METHOD} launch manager --caliper-workspace phase5 --caliper-flow-only-test --caliper-fabric-gateway-enabled
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 6";
@@ -107,7 +107,7 @@ if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
 fi
 
 # PHASE 6: testing through the gateway API (v2 SDK)
-${CALL_METHOD} launch master --caliper-workspace phase6 --caliper-flow-only-test --caliper-fabric-gateway-enabled
+${CALL_METHOD} launch manager --caliper-workspace phase6 --caliper-flow-only-test --caliper-fabric-gateway-enabled
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 7";
@@ -116,7 +116,7 @@ if [[ ${rc} != 0 ]]; then
 fi
 
 # PHASE 7: just disposing of the network
-${CALL_METHOD} launch master --caliper-workspace phase7 --caliper-flow-only-end --caliper-fabric-gateway-enabled
+${CALL_METHOD} launch manager --caliper-workspace phase7 --caliper-flow-only-end --caliper-fabric-gateway-enabled
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 8";

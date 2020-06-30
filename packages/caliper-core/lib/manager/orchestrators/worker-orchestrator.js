@@ -61,7 +61,7 @@ class WorkerOrchestrator {
         this.results = [];              // cumulative results
 
         // Messenger information
-        const type = `${ConfigUtils.get(ConfigUtils.keys.Worker.Communication.Method)}-master`;
+        const type = `${ConfigUtils.get(ConfigUtils.keys.Worker.Communication.Method)}-manager`;
         this.messenger = new Messenger({type});
         this.messengerConfigured = false;
         this.workerPollingInterval = ConfigUtils.get(ConfigUtils.keys.Worker.PollInterval);
@@ -495,7 +495,7 @@ class WorkerOrchestrator {
         // Internally spawned workers are killed within the messenger handling of 'exit', but clean the array of processes here
         this.workerObjects = [];
 
-        // dispose of master messenger
+        // dispose of manager messenger
         await this.messenger.dispose();
     }
 

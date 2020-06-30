@@ -16,17 +16,17 @@
 
 const path = require('path');
 const { CaliperEngine, CaliperUtils, ConfigUtil } = require('@hyperledger/caliper-core');
-const BindCommon = require('./../../lib/bindCommon');
-const logger = CaliperUtils.getLogger('cli-launch-master');
+const BindCommon = require('../../lib/bindCommon');
+const logger = CaliperUtils.getLogger('cli-launch-manager');
 
 /**
- * Caliper command for launching a master process.
+ * Caliper command for launching a manager process.
  */
-class LaunchMaster {
+class LaunchManager {
 
     /**
-    * Command processing for the Launch Master command.
-    * @param {object} argv Argument list from the caliper Launch Master command. Unused, relying on ConfigUtil instead.
+    * Command processing for the Launch Manager command.
+    * @param {object} argv Argument list from the caliper Launch Manager command. Unused, relying on ConfigUtil instead.
     */
     static async handler(argv) {
         CaliperUtils.assertConfigurationFilePaths();
@@ -78,4 +78,4 @@ class LaunchMaster {
     }
 }
 
-module.exports = LaunchMaster;
+module.exports = LaunchManager;

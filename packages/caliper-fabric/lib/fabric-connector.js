@@ -25,7 +25,7 @@ const FabricConnector = class extends BlockchainConnector {
 
     /**
      * Initializes the Fabric adapter.
-     * @param {number} workerIndex The index of the worker who wants to create an adapter instance. -1 for the master process.
+     * @param {number} workerIndex The index of the worker who wants to create an adapter instance. -1 for the manager process.
      * @param {string} bcType The target SUT type
      */
     constructor(workerIndex, bcType) {
@@ -152,39 +152,6 @@ const FabricConnector = class extends BlockchainConnector {
     async releaseContext(context) {
         await this.fabric.releaseContext(context);
     }
-
-    // /**
-    //  * Initializes the registrars of the organizations.
-    //  *
-    //  * @param {boolean} masterInit Indicates whether the initialization happens in the master process.
-    //  * @private
-    //  * @async
-    //  */
-    // async _initializeRegistrars(masterInit) {
-    //     await this.fabric._initializeRegistrars(masterInit);
-    // }
-
-    // /**
-    //  * Initializes the admins of the organizations.
-    //  *
-    //  * @param {boolean} masterInit Indicates whether the initialization happens in the master process.
-    //  * @private
-    //  * @async
-    //  */
-    // async _initializeAdmins(masterInit) {
-    //     await this.fabric._initializeAdmins(masterInit);
-    // }
-
-    // /**
-    //  * Registers and enrolls the specified users if necessary.
-    //  *
-    //  * @param {boolean} masterInit Indicates whether the initialization happens in the master process.
-    //  * @private
-    //  * @async
-    //  */
-    // async _initializeUsers(masterInit) {
-    //     await this.fabric._initializeUsers(masterInit);
-    // }
 
 };
 
