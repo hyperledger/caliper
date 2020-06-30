@@ -57,7 +57,7 @@ channels:
             peer0.org2.example.com:
                 eventSource: true
 
-        chaincodes:
+        contracts:
         - id: marbles
           contractID: mymarbles
           version: v0
@@ -80,7 +80,7 @@ channels:
             peer0.org2.example.com:
                 eventSource: true
 
-        chaincodes:
+        contracts:
         - id: marbles
           contractID: yourmarbles
           version: v0

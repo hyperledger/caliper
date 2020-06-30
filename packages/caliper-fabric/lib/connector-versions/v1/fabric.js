@@ -36,49 +36,49 @@ const logger = CaliperUtils.getLogger('connectors/v1/fabric');
  */
 
 /**
- * @typedef {Object} ChaincodeInvokeSettings
+ * @typedef {Object} ContractInvokeSettings
  *
- * @property {string} chaincodeId Required. The name/ID of the chaincode whose function
+ * @property {string} contractId Required. The name/ID of the contract whose function
  *           should be invoked.
- * @property {string} chaincodeVersion Required. The version of the chaincode whose function
+ * @property {string} contractVersion Required. The version of the contract whose function
  *           should be invoked.
- * @property {string} chaincodeFunction Required. The name of the function that should be
- *           invoked in the chaincode.
- * @property {string[]} chaincodeArguments Optional. The list of {string} arguments that should
- *           be passed to the chaincode.
+ * @property {string} contractFunction Required. The name of the function that should be
+ *           invoked in the contract.
+ * @property {string[]} contractArguments Optional. The list of {string} arguments that should
+ *           be passed to the contract.
  * @property {Map<string, Buffer>} transientMap Optional. The transient map that should be
- *           passed to the chaincode.
+ *           passed to the contract.
  * @property {string} invokerIdentity Required. The name of the client who should invoke the
- *           chaincode. If an admin is needed, use the organization name prefixed with a # symbol.
- * @property {string} channel Required. The name of the channel whose chaincode should be invoked.
+ *           contract. If an admin is needed, use the organization name prefixed with a # symbol.
+ * @property {string} channel Required. The name of the channel whose contract should be invoked.
  * @property {string[]} targetPeers Optional. An array of endorsing
  *           peer names as the targets of the invoke. When this
  *           parameter is omitted the target list will include the endorsing peers assigned
- *           to the target chaincode, or if it is also omitted, to the channel.
+ *           to the target contract, or if it is also omitted, to the channel.
  * @property {string} orderer Optional. The name of the orderer to whom the request should
  *           be submitted. If omitted, then the first orderer node of the channel will be used.
  */
 
 /**
- * @typedef {Object} ChaincodeQuerySettings
+ * @typedef {Object} ContractQuerySettings
  *
- * @property {string} chaincodeId Required. The name/ID of the chaincode whose function
+ * @property {string} contractId Required. The name/ID of the contract whose function
  *           should be invoked.
- * @property {string} chaincodeVersion Required. The version of the chaincode whose function
+ * @property {string} contractVersion Required. The version of the contract whose function
  *           should be invoked.
- * @property {string} chaincodeFunction Required. The name of the function that should be
- *           invoked in the chaincode.
- * @property {string[]} chaincodeArguments Optional. The list of {string} arguments that should
- *           be passed to the chaincode.
+ * @property {string} contractFunction Required. The name of the function that should be
+ *           invoked in the contract.
+ * @property {string[]} contractArguments Optional. The list of {string} arguments that should
+ *           be passed to the contract.
  * @property {Map<string, Buffer>} transientMap Optional. The transient map that should be
- *           passed to the chaincode.
+ *           passed to the contract.
  * @property {string} invokerIdentity Required. The name of the client who should invoke the
- *           chaincode. If an admin is needed, use the organization name prefixed with a # symbol.
- * @property {string} channel Required. The name of the channel whose chaincode should be invoked.
+ *           contract. If an admin is needed, use the organization name prefixed with a # symbol.
+ * @property {string} channel Required. The name of the channel whose contract should be invoked.
  * @property {string[]} targetPeers Optional. An array of endorsing
  *           peer names as the targets of the invoke. When this
  *           parameter is omitted the target list will include the endorsing peers assigned
- *           to the target chaincode, or if it is also omitted, to the channel.
+ *           to the target contract, or if it is also omitted, to the channel.
  * @property {boolean} countAsLoad Optional. Indicates whether to count this query as workload.
  */
 
@@ -103,21 +103,21 @@ const logger = CaliperUtils.getLogger('connectors/v1/fabric');
  * @property {number} txIndex A counter for keeping track of the index of the currently submitted transaction.
  * @property {FabricNetwork} networkUtil Utility object containing easy-to-query information about the topology
  *           and settings of the network.
- * @property {Map<string, Map<string, Map<string, string[]>>>} randomTargetPeerCache Contains the target peers of chaincodes
- *           grouped by channels and organizations: Channel -> Chaincode -> Org -> Peers
+ * @property {Map<string, Map<string, Map<string, string[]>>>} randomTargetPeerCache Contains the target peers of contracts
+ *           grouped by channels and organizations: Channel -> Contract -> Org -> Peers
  * @property {Map<string, EventSource[]>} channelEventSourcesCache Contains the list of event sources for every channel.
  * @property {Map<string, string[]>} randomTargetOrdererCache Contains the list of target orderers of channels.
  * @property {string} defaultInvoker The name of the client to use if an invoker is not specified.
  * @property {number} configSmallestTimeout The timeout value to use when the user-provided timeout is too small.
  * @property {number} configSleepAfterCreateChannel The sleep duration in milliseconds after creating the channels.
  * @property {number} configSleepAfterJoinChannel The sleep duration in milliseconds after joining the channels.
- * @property {number} configSleepAfterInstantiateChaincode The sleep duration in milliseconds after instantiating the chaincodes.
+ * @property {number} configSleepAfterInstantiateContract The sleep duration in milliseconds after instantiating the contracts.
  * @property {boolean} configVerifyProposalResponse Indicates whether to verify the proposal responses of the endorsers.
  * @property {boolean} configVerifyReadWriteSets Indicates whether to verify the matching of the returned read-write sets.
  * @property {number} configLatencyThreshold The network latency threshold to use for calculating the final commit time of transactions.
  * @property {boolean} configOverwriteGopath Indicates whether GOPATH should be set to the Caliper root directory.
- * @property {number} configChaincodeInstantiateTimeout The timeout in milliseconds for the chaincode instantiation endorsement.
- * @property {number} configChaincodeInstantiateEventTimeout The timeout in milliseconds for receiving the chaincode instantion event.
+ * @property {number} configContractInstantiateTimeout The timeout in milliseconds for the contract instantiation endorsement.
+ * @property {number} configContractInstantiateEventTimeout The timeout in milliseconds for receiving the contract instantion event.
  * @property {number} configDefaultTimeout The default timeout in milliseconds to use for invoke/query transactions.
  * @property {string} configClientBasedLoadBalancing The value indicating the type of automatic load balancing to use.
  * @property {boolean} configCountQueryAsLoad Indicates whether queries should be counted as workload.
@@ -153,13 +153,13 @@ class Fabric extends BlockchainConnector {
 
         this.configSleepAfterCreateChannel = ConfigUtil.get(ConfigUtil.keys.Fabric.SleepAfter.CreateChannel, 5000);
         this.configSleepAfterJoinChannel = ConfigUtil.get(ConfigUtil.keys.Fabric.SleepAfter.JoinChannel, 3000);
-        this.configSleepAfterInstantiateChaincode = ConfigUtil.get(ConfigUtil.keys.Fabric.SleepAfter.InstantiateChaincode, 5000);
+        this.configSleepAfterInstantiateContract = ConfigUtil.get(ConfigUtil.keys.Fabric.SleepAfter.InstantiateContract, 5000);
         this.configVerifyProposalResponse = ConfigUtil.get(ConfigUtil.keys.Fabric.Verify.ProposalResponse, true);
         this.configVerifyReadWriteSets = ConfigUtil.get(ConfigUtil.keys.Fabric.Verify.ReadWriteSets, true);
         this.configLatencyThreshold = ConfigUtil.get(ConfigUtil.keys.Fabric.LatencyThreshold, 1.0);
         this.configOverwriteGopath = ConfigUtil.get(ConfigUtil.keys.Fabric.OverwriteGopath, true);
-        this.configChaincodeInstantiateTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.ChaincodeInstantiate, 300000);
-        this.configChaincodeInstantiateEventTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.ChaincodeInstantiateEvent, 300000);
+        this.configContractInstantiateTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.ContractInstantiate, 300000);
+        this.configContractInstantiateEventTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.ContractInstantiateEvent, 300000);
         this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.InvokeOrQuery, 60000);
         this.configClientBasedLoadBalancing = ConfigUtil.get(ConfigUtil.keys.Fabric.LoadBalancing, 'client') === 'client';
         this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountQueryAsLoad, true);
@@ -206,7 +206,7 @@ class Fabric extends BlockchainConnector {
                     this.networkUtil.getGrpcOptionsOfPeer(peer));
 
                 eventSources.push({
-                    channel: [channel], // unused during chaincode instantiation
+                    channel: [channel], // unused during contract instantiation
                     peer: peer,
                     eventHub: eventHub
                 });
@@ -219,7 +219,7 @@ class Fabric extends BlockchainConnector {
                 const eventHub = admin.getChannel(channel, true).newChannelEventHub(peer);
 
                 eventSources.push({
-                    channel: [channel], // unused during chaincode instantiation
+                    channel: [channel], // unused during contract instantiation
                     peer: peer,
                     eventHub: eventHub
                 });
@@ -230,18 +230,18 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
-     * Assembles random target peers for the channel from every organization that has the chaincode deployed.
+     * Assembles random target peers for the channel from every organization that has the contract deployed.
      * @param {string} channel The name of the channel.
-     * @param {string} chaincodeId The name/ID of the chaincode.
-     * @param {string} chaincodeVersion The version of the chaincode.
+     * @param {string} contractId The name/ID of the contract.
+     * @param {string} contractVersion The version of the contract.
      * @returns {string[]} Array containing a random peer from each needed organization.
      * @private
      */
-    _assembleRandomTargetPeers(channel, chaincodeId, chaincodeVersion) {
+    _assembleRandomTargetPeers(channel, contractId, contractVersion) {
         const targets = [];
-        const chaincodeOrgs = this.randomTargetPeerCache.get(channel).get(`${chaincodeId}@${chaincodeVersion}`);
+        const contractOrgs = this.randomTargetPeerCache.get(channel).get(`${contractId}@${contractVersion}`);
 
-        for (const entries of chaincodeOrgs.entries()) {
+        for (const entries of contractOrgs.entries()) {
             const peers = entries[1];
 
             // represents the load balancing mechanism
@@ -917,11 +917,11 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
-     * Install the specified chaincodes to their target peers.
+     * Install the specified contracts to their target peers.
      * @private
      * @async
      */
-    async _installChaincodes() {
+    async _installContracts() {
         if (this.configOverwriteGopath) {
             process.env.GOPATH = CaliperUtils.resolvePath('.', this.workspaceRoot);
         }
@@ -930,17 +930,17 @@ class Fabric extends BlockchainConnector {
 
         const channels = this.networkUtil.getChannels();
         for (const channel of channels) {
-            logger.info(`Installing chaincodes for ${channel}...`);
+            logger.info(`Installing contracts for ${channel}...`);
 
             // proceed cc by cc for the channel
-            const chaincodeInfos = this.networkUtil.getChaincodesOfChannel(channel);
-            for (const chaincodeInfo of chaincodeInfos) {
-                const ccObject = this.networkUtil.getNetworkObject().channels[channel].chaincodes.find(
-                    cc => cc.id === chaincodeInfo.id && cc.version === chaincodeInfo.version);
+            const contractInfos = this.networkUtil.getContractsOfChannel(channel);
+            for (const contractInfo of contractInfos) {
+                const ccObject = this.networkUtil.getNetworkObject().channels[channel].contracts.find(
+                    cc => cc.id === contractInfo.id && cc.version === contractInfo.version);
 
-                const targetPeers = this.networkUtil.getTargetPeersOfChaincodeOfChannel(chaincodeInfo, channel);
+                const targetPeers = this.networkUtil.getTargetPeersOfContractOfChannel(contractInfo, channel);
                 if (targetPeers.size < 1) {
-                    logger.info(`No target peers are defined for ${chaincodeInfo.id}@${chaincodeInfo.version} on ${channel}, skipping it`);
+                    logger.info(`No target peers are defined for ${contractInfo.id}@${contractInfo.version} on ${channel}, skipping it`);
                     continue;
                 }
 
@@ -954,25 +954,25 @@ class Fabric extends BlockchainConnector {
                     try {
                         /** {@link ChaincodeQueryResponse} */
                         const resp = await admin.queryInstalledChaincodes(peer, true);
-                        if (resp.chaincodes.some(cc => cc.name === chaincodeInfo.id && cc.version === chaincodeInfo.version)) {
-                            logger.info(`${chaincodeInfo.id}@${chaincodeInfo.version} is already installed on ${peer}`);
+                        if (resp.chaincodes.some(cc => cc.name === contractInfo.id && cc.version === contractInfo.version)) {
+                            logger.info(`${contractInfo.id}@${contractInfo.version} is already installed on ${peer}`);
                             continue;
                         }
 
                         installTargets.push(peer);
                     } catch (err) {
-                        errors.push(new Error(`Couldn't query installed chaincodes on ${peer}: ${err.message}`));
+                        errors.push(new Error(`Couldn't query installed contracts on ${peer}: ${err.message}`));
                     }
                 }
 
                 if (errors.length > 0) {
-                    let errorMsg = `Could not query whether ${chaincodeInfo.id}@${chaincodeInfo.version} is installed on some peers of ${channel}:`;
+                    let errorMsg = `Could not query whether ${contractInfo.id}@${contractInfo.version} is installed on some peers of ${channel}:`;
                     for (const err of errors) {
                         errorMsg += `\n\t- ${err.message}`;
                     }
 
                     logger.error(errorMsg);
-                    throw new Error(`Could not query whether ${chaincodeInfo.id}@${chaincodeInfo.version} is installed on some peers of ${channel}`);
+                    throw new Error(`Could not query whether ${contractInfo.id}@${contractInfo.version} is installed on some peers of ${channel}`);
                 }
 
                 // cc is installed on every target peer in the channel
@@ -980,7 +980,7 @@ class Fabric extends BlockchainConnector {
                     continue;
                 }
 
-                // install chaincodes org by org
+                // install contracts org by org
                 const orgs = this.networkUtil.getOrganizationsOfChannel(channel);
                 for (const org of orgs) {
                     const peersOfOrg = this.networkUtil.getPeersOfOrganization(org);
@@ -1010,7 +1010,7 @@ class Fabric extends BlockchainConnector {
                         if (!this.networkUtil.isInCompatibilityMode()) {
                             request.metadataPath = CaliperUtils.resolvePath(ccObject.metadataPath, this.workspaceRoot);
                         } else {
-                            throw new Error(`Installing ${chaincodeInfo.id}@${chaincodeInfo.version} with metadata is not supported in Fabric v1.0`);
+                            throw new Error(`Installing ${contractInfo.id}@${contractInfo.version} with metadata is not supported in Fabric v1.0`);
                         }
                     }
 
@@ -1026,7 +1026,7 @@ class Fabric extends BlockchainConnector {
 
                         proposalResponses.forEach((propResponse, index) => {
                             if (propResponse instanceof Error) {
-                                const errMsg = `Install proposal error for ${chaincodeInfo.id}@${chaincodeInfo.version} on ${orgPeerTargets[index]}: ${propResponse.message}`;
+                                const errMsg = `Install proposal error for ${contractInfo.id}@${contractInfo.version} on ${orgPeerTargets[index]}: ${propResponse.message}`;
                                 errors.push(new Error(errMsg));
                                 return;
                             }
@@ -1039,12 +1039,12 @@ class Fabric extends BlockchainConnector {
                             CaliperUtils.assertProperty(response, 'response', 'status');
 
                             if (response.status !== 200) {
-                                const errMsg = `Unsuccessful install status for ${chaincodeInfo.id}@${chaincodeInfo.version} on ${orgPeerTargets[index]}: ${propResponse.response.message}`;
+                                const errMsg = `Unsuccessful install status for ${contractInfo.id}@${contractInfo.version} on ${orgPeerTargets[index]}: ${propResponse.response.message}`;
                                 errors.push(new Error(errMsg));
                             }
                         });
                     } catch (err) {
-                        throw new Error(`Couldn't install ${chaincodeInfo.id}@${chaincodeInfo.version} on peers ${orgPeerTargets.toString()}: ${err.message}`);
+                        throw new Error(`Couldn't install ${contractInfo.id}@${contractInfo.version} on peers ${orgPeerTargets.toString()}: ${err.message}`);
                     }
 
                     // there were some install errors, proceed to the other orgs to gather more information
@@ -1052,50 +1052,50 @@ class Fabric extends BlockchainConnector {
                         continue;
                     }
 
-                    logger.info(`${chaincodeInfo.id}@${chaincodeInfo.version} successfully installed on ${org}'s peers: ${orgPeerTargets.toString()}`);
+                    logger.info(`${contractInfo.id}@${contractInfo.version} successfully installed on ${org}'s peers: ${orgPeerTargets.toString()}`);
                 }
 
                 if (errors.length > 0) {
-                    let errorMsg = `Could not install ${chaincodeInfo.id}@${chaincodeInfo.version} on some peers of ${channel}:`;
+                    let errorMsg = `Could not install ${contractInfo.id}@${contractInfo.version} on some peers of ${channel}:`;
                     for (const err of errors) {
                         errorMsg += `\n\t- ${err.message}`;
                     }
 
                     logger.error(errorMsg);
-                    throw new Error(`Could not install ${chaincodeInfo.id}@${chaincodeInfo.version} on some peers of ${channel}`);
+                    throw new Error(`Could not install ${contractInfo.id}@${contractInfo.version} on some peers of ${channel}`);
                 }
             }
         }
     }
 
     /**
-     * Instantiates the chaincodes on their channels.
-     * @return {boolean} True, if at least one chaincode was instantiated. Otherwise, false.
+     * Instantiates the contracts on their channels.
+     * @return {boolean} True, if at least one contract was instantiated. Otherwise, false.
      * @private
      * @async
      */
-    async _instantiateChaincodes() {
+    async _instantiateContracts() {
         const channels = this.networkUtil.getChannels();
-        let chaincodeInstantiated = false;
+        let contractInstantiated = false;
 
-        // chaincodes needs to be installed channel by channel
+        // contracts needs to be installed channel by channel
         for (const channel of channels) {
-            const chaincodeInfos = this.networkUtil.getChaincodesOfChannel(channel);
+            const contractInfos = this.networkUtil.getContractsOfChannel(channel);
 
-            for (const chaincodeInfo of chaincodeInfos) {
-                logger.info(`Instantiating ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel}. This might take some time...`);
+            for (const contractInfo of contractInfos) {
+                logger.info(`Instantiating ${contractInfo.id}@${contractInfo.version} in ${channel}. This might take some time...`);
 
-                const ccObject = this.networkUtil.getNetworkObject().channels[channel].chaincodes.find(
-                    cc => cc.id === chaincodeInfo.id && cc.version === chaincodeInfo.version);
+                const ccObject = this.networkUtil.getNetworkObject().channels[channel].contracts.find(
+                    cc => cc.id === contractInfo.id && cc.version === contractInfo.version);
 
-                const targetPeers = Array.from(this.networkUtil.getTargetPeersOfChaincodeOfChannel(chaincodeInfo, channel));
+                const targetPeers = Array.from(this.networkUtil.getTargetPeersOfContractOfChannel(contractInfo, channel));
                 if (targetPeers.length < 1) {
-                    logger.info(`No target peers are defined for ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel}, skipping it`);
+                    logger.info(`No target peers are defined for ${contractInfo.id}@${contractInfo.version} in ${channel}, skipping it`);
                     continue;
                 }
 
-                // select a target peer for the chaincode to see if it's instantiated
-                // these are the same as the install targets, so if one of the peers has already instantiated the chaincode,
+                // select a target peer for the contract to see if it's instantiated
+                // these are the same as the install targets, so if one of the peers has already instantiated the contract,
                 // then the other targets also had done the same
                 const org = this.networkUtil.getOrganizationOfPeer(targetPeers[0]);
                 const admin = this.adminProfiles.get(org);
@@ -1105,22 +1105,22 @@ class Fabric extends BlockchainConnector {
                 try {
                     queryResponse = await admin.getChannel(channel, true).queryInstantiatedChaincodes(targetPeers[0], true);
                 } catch (err) {
-                    throw new Error(`Couldn't query whether ${chaincodeInfo.id}@${chaincodeInfo.version} is instantiated on ${targetPeers[0]}: ${err.message}`);
+                    throw new Error(`Couldn't query whether ${contractInfo.id}@${contractInfo.version} is instantiated on ${targetPeers[0]}: ${err.message}`);
                 }
 
                 CaliperUtils.assertDefined(queryResponse);
                 CaliperUtils.assertProperty(queryResponse, 'queryResponse', 'chaincodes');
 
                 if (queryResponse.chaincodes.some(
-                    cc => cc.name === chaincodeInfo.id && cc.version === chaincodeInfo.version)) {
-                    logger.info(`${chaincodeInfo.id}@${chaincodeInfo.version} is already instantiated in ${channel}`);
+                    cc => cc.name === contractInfo.id && cc.version === contractInfo.version)) {
+                    logger.info(`${contractInfo.id}@${contractInfo.version} is already instantiated in ${channel}`);
                     continue;
                 }
 
-                chaincodeInstantiated = true;
+                contractInstantiated = true;
 
                 const txId = admin.newTransactionID(true);
-                /** @link{ChaincodeInstantiateUpgradeRequest} */
+                /** @link{ContractInstantiateUpgradeRequest} */
                 const request = {
                     targets: targetPeers,
                     chaincodeId: ccObject.id,
@@ -1130,30 +1130,30 @@ class Fabric extends BlockchainConnector {
                     fcn: ccObject.function || 'init',
                     'endorsement-policy': ccObject['endorsement-policy'] ||
                         this.networkUtil.getDefaultEndorsementPolicy(channel, { id: ccObject.id, version: ccObject.version }),
-                    transientMap: this.networkUtil.getTransientMapOfChaincodeOfChannel(chaincodeInfo, channel),
+                    transientMap: this.networkUtil.getTransientMapOfContractOfChannel(contractInfo, channel),
                     txId: txId
                 };
 
-                // check chaincode language
-                // other chaincodes types are not supported in every version
+                // check contract language
+                // other contracts types are not supported in every version
                 if (ccObject.language !== 'golang') {
                     if (ccObject.language === 'node' && this.networkUtil.isInCompatibilityMode()) {
-                        throw new Error(`${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel}: Node.js chaincodes are supported starting from Fabric v1.1`);
+                        throw new Error(`${contractInfo.id}@${contractInfo.version} in ${channel}: Node.js contracts are supported starting from Fabric v1.1`);
                     }
 
                     if (ccObject.language === 'java' && this.version.lessThan('1.3.0')) {
-                        throw new Error(`${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel}: Java chaincodes are supported starting from Fabric v1.3`);
+                        throw new Error(`${contractInfo.id}@${contractInfo.version} in ${channel}: Java contracts are supported starting from Fabric v1.3`);
                     }
 
                     if (!['golang', 'node', 'java'].includes(ccObject.language)) {
-                        throw new Error(`${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel}: unknown chaincode type ${ccObject.language}`);
+                        throw new Error(`${contractInfo.id}@${contractInfo.version} in ${channel}: unknown contract type ${ccObject.language}`);
                     }
                 }
 
                 // check private collection configuration
                 if (CaliperUtils.checkProperty(ccObject, 'collections-config')) {
                     if (this.version.lessThan('1.2.0')) {
-                        throw new Error(`${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel}: private collections are supported from Fabric v1.2`);
+                        throw new Error(`${contractInfo.id}@${contractInfo.version} in ${channel}: private collections are supported from Fabric v1.2`);
                     }
 
                     request['collections-config'] = ccObject['collections-config'];
@@ -1162,9 +1162,9 @@ class Fabric extends BlockchainConnector {
                 /** @link{ProposalResponseObject} */
                 let response;
                 try {
-                    response = await admin.getChannel(channel, true).sendInstantiateProposal(request, this.configChaincodeInstantiateTimeout);
+                    response = await admin.getChannel(channel, true).sendInstantiateProposal(request, this.configContractInstantiateTimeout);
                 } catch (err) {
-                    throw new Error(`Couldn't endorse ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel} on peers [${targetPeers.toString()}]: ${err.message}`);
+                    throw new Error(`Couldn't endorse ${contractInfo.id}@${contractInfo.version} in ${channel} on peers [${targetPeers.toString()}]: ${err.message}`);
                 }
 
                 CaliperUtils.assertDefined(response);
@@ -1181,9 +1181,9 @@ class Fabric extends BlockchainConnector {
                     CaliperUtils.assertDefined(propResp);
                     // an Error is returned for a rejected proposal
                     if (propResp instanceof Error) {
-                        throw new Error(`Invalid endorsement for ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel} from ${targetPeers[index]}: ${propResp.message}`);
+                        throw new Error(`Invalid endorsement for ${contractInfo.id}@${contractInfo.version} in ${channel} from ${targetPeers[index]}: ${propResp.message}`);
                     } else if (propResp.response.status !== 200) {
-                        throw new Error(`Invalid endorsement for ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel} from ${targetPeers[index]}: status code ${propResp.response.status}`);
+                        throw new Error(`Invalid endorsement for ${contractInfo.id}@${contractInfo.version} in ${channel} from ${targetPeers[index]}: status code ${propResp.response.status}`);
                     }
                 });
 
@@ -1199,19 +1199,19 @@ class Fabric extends BlockchainConnector {
                             const timeoutHandle = setTimeout(() => {
                                 // unregister manually
                                 es.eventHub.unregisterTxEvent(txId.getTransactionID(), false);
-                                resolve(new Error(`Commit timeout for ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel} from ${es.peer}`));
-                            }, this.configChaincodeInstantiateEventTimeout);
+                                resolve(new Error(`Commit timeout for ${contractInfo.id}@${contractInfo.version} in ${channel} from ${es.peer}`));
+                            }, this.configContractInstantiateEventTimeout);
 
                             es.eventHub.registerTxEvent(txId.getTransactionID(), (tx, code) => {
                                 clearTimeout(timeoutHandle);
                                 if (code !== 'VALID') {
-                                    resolve(new Error(`Invalid commit code for ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel} from ${es.peer}: ${code}`));
+                                    resolve(new Error(`Invalid commit code for ${contractInfo.id}@${contractInfo.version} in ${channel} from ${es.peer}: ${code}`));
                                 } else {
                                     resolve(code);
                                 }
                             }, /* Error handler */ (err) => {
                                 clearTimeout(timeoutHandle);
-                                resolve(new Error(`Event hub error from ${es.peer} during instantiating ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel}: ${err.message}`));
+                                resolve(new Error(`Event hub error from ${es.peer} during instantiating ${contractInfo.id}@${contractInfo.version} in ${channel}: ${err.message}`));
                             });
 
                             es.eventHub.connect();
@@ -1232,14 +1232,14 @@ class Fabric extends BlockchainConnector {
                     try {
                         broadcastResponse = await admin.getChannel(channel, true).sendTransaction(ordererRequest);
                     } catch (err) {
-                        throw new Error(`Orderer error for instantiating ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel}: ${err.message}`);
+                        throw new Error(`Orderer error for instantiating ${contractInfo.id}@${contractInfo.version} in ${channel}: ${err.message}`);
                     }
 
                     CaliperUtils.assertDefined(broadcastResponse);
                     CaliperUtils.assertProperty(broadcastResponse, 'broadcastResponse', 'status');
 
                     if (broadcastResponse.status !== 'SUCCESS') {
-                        throw new Error(`Orderer error for instantiating ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel}: ${broadcastResponse.status}`);
+                        throw new Error(`Orderer error for instantiating ${contractInfo.id}@${contractInfo.version} in ${channel}: ${broadcastResponse.status}`);
                     }
 
                     // since every event promise is resolved, this shouldn't throw an error
@@ -1247,7 +1247,7 @@ class Fabric extends BlockchainConnector {
 
                     // if we received an error, propagate it
                     if (eventResults.some(er => er instanceof Error)) {
-                        let errMsg = `The following errors occured while instantiating ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel}:`;
+                        let errMsg = `The following errors occured while instantiating ${contractInfo.id}@${contractInfo.version} in ${channel}:`;
                         let err; // keep the last error
                         for (const eventResult of eventResults) {
                             if (eventResult instanceof Error) {
@@ -1260,7 +1260,7 @@ class Fabric extends BlockchainConnector {
                         throw err;
                     }
 
-                    logger.info(`Successfully instantiated ${chaincodeInfo.id}@${chaincodeInfo.version} in ${channel}`);
+                    logger.info(`Successfully instantiated ${contractInfo.id}@${contractInfo.version} in ${channel}`);
                 } finally {
                     eventSources.forEach(es => {
                         if (es.eventHub.isconnected()) {
@@ -1271,7 +1271,7 @@ class Fabric extends BlockchainConnector {
             }
         }
 
-        return chaincodeInstantiated;
+        return contractInstantiated;
     }
 
     /**
@@ -1388,16 +1388,16 @@ class Fabric extends BlockchainConnector {
      * @private
      */
     _prepareCaches() {
-        // assemble random target peer cache for each channel's each chaincode
+        // assemble random target peer cache for each channel's each contract
         for (const channel of this.networkUtil.getChannels()) {
             this.randomTargetPeerCache.set(channel, new Map());
 
-            for (const chaincode of this.networkUtil.getChaincodesOfChannel(channel)) {
-                const idAndVersion = `${chaincode.id}@${chaincode.version}`;
+            for (const contract of this.networkUtil.getContractsOfChannel(channel)) {
+                const idAndVersion = `${contract.id}@${contract.version}`;
                 this.randomTargetPeerCache.get(channel).set(idAndVersion, new Map());
 
                 const targetOrgs = new Set();
-                const targetPeers = this.networkUtil.getTargetPeersOfChaincodeOfChannel(chaincode, channel);
+                const targetPeers = this.networkUtil.getTargetPeersOfContractOfChannel(contract, channel);
 
                 // get target orgs
                 for (const peer of targetPeers) {
@@ -1408,7 +1408,7 @@ class Fabric extends BlockchainConnector {
                 for (const org of targetOrgs) {
                     const peersOfOrg = this.networkUtil.getPeersOfOrganizationAndChannel(org, channel);
 
-                    // the peers of the org that target the given chaincode of the given channel
+                    // the peers of the org that target the given contract of the given channel
                     // one of these peers needs to be a target for every org
                     // NOTE: this assumes an n-of-n endorsement policy, which is a safe default
                     this.randomTargetPeerCache.get(channel).get(idAndVersion).set(org, [...peersOfOrg].filter(p => targetPeers.has(p)));
@@ -1498,10 +1498,10 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
-     * Queries the specified chaincode according to the provided settings.
+     * Queries the specified contract according to the provided settings.
      *
      * @param {object} context The context previously created by the Fabric adapter.
-     * @param {ChaincodeQuerySettings} querySettings The settings associated with the query.
+     * @param {ContractQuerySettings} querySettings The settings associated with the query.
      * @param {number} timeout The timeout for the call in milliseconds.
      * @return {Promise<TxStatus>} The result and stats of the transaction query.
      */
@@ -1539,13 +1539,13 @@ class Fabric extends BlockchainConnector {
         ////////////////////////////////
 
         const targetPeers = querySettings.targetPeers ||
-            this._assembleRandomTargetPeers(querySettings.channel, querySettings.chaincodeId, querySettings.chaincodeVersion);
+            this._assembleRandomTargetPeers(querySettings.channel, querySettings.contractId, querySettings.contractVersion);
 
         /** @link{ChaincodeInvokeRequest} */
         const proposalRequest = {
-            chaincodeId: querySettings.chaincodeId,
-            fcn: querySettings.chaincodeFunction,
-            args: querySettings.chaincodeArguments || [],
+            chaincodeId: querySettings.contractId,
+            fcn: querySettings.contractFunction,
+            args: querySettings.contractArguments || [],
             transientMap: querySettings.transientMap,
             targets: targetPeers
         };
@@ -1597,24 +1597,24 @@ class Fabric extends BlockchainConnector {
 
             if (errMsg) {
                 invokeStatus.SetStatusFail();
-                logger.error(`Query error for ${querySettings.chaincodeId}@${querySettings.chaincodeVersion} in ${querySettings.channel}:${errMsg}`);
+                logger.error(`Query error for ${querySettings.contractId}@${querySettings.contractVersion} in ${querySettings.channel}:${errMsg}`);
             } else {
                 invokeStatus.SetStatusSuccess();
             }
         } catch (err) {
             invokeStatus.SetStatusFail();
             invokeStatus.Set('unexpected_error', err.message);
-            logger.error(`Unexpected query error for ${querySettings.chaincodeId}@${querySettings.chaincodeVersion} in ${querySettings.channel}: ${err.stack ? err.stack : err}`);
+            logger.error(`Unexpected query error for ${querySettings.contractId}@${querySettings.contractVersion} in ${querySettings.channel}: ${err.stack ? err.stack : err}`);
         }
 
         return invokeStatus;
     }
 
     /**
-     * Invokes the specified chaincode according to the provided settings.
+     * Invokes the specified contract according to the provided settings.
      *
      * @param {object} context The context previously created by the Fabric adapter.
-     * @param {ChaincodeInvokeSettings} invokeSettings The settings associated with the transaction submission.
+     * @param {ContractInvokeSettings} invokeSettings The settings associated with the transaction submission.
      * @param {number} timeout The timeout for the whole transaction life-cycle in milliseconds.
      * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
      */
@@ -1659,13 +1659,13 @@ class Fabric extends BlockchainConnector {
         ////////////////////////////////
 
         const targetPeers = invokeSettings.targetPeers ||
-            this._assembleRandomTargetPeers(invokeSettings.channel, invokeSettings.chaincodeId, invokeSettings.chaincodeVersion);
+            this._assembleRandomTargetPeers(invokeSettings.channel, invokeSettings.contractId, invokeSettings.contractVersion);
 
         /** @link{ChaincodeInvokeRequest} */
         const proposalRequest = {
-            chaincodeId: invokeSettings.chaincodeId,
-            fcn: invokeSettings.chaincodeFunction,
-            args: invokeSettings.chaincodeArguments || [],
+            chaincodeId: invokeSettings.contractId,
+            fcn: invokeSettings.contractFunction,
+            args: invokeSettings.contractArguments || [],
             txId: txIdObject,
             transientMap: invokeSettings.transientMap,
             targets: targetPeers
@@ -1712,7 +1712,7 @@ class Fabric extends BlockchainConnector {
             proposalResponses.forEach((value, index) => {
                 const targetName = targetPeers[index];
 
-                // Errors from peers/chaincode are returned as an Error object
+                // Errors from peers/contract are returned as an Error object
                 if (value instanceof Error) {
                     invokeStatus.Set(`proposal_response_error_${targetName}`, value.message);
 
@@ -1725,7 +1725,7 @@ class Fabric extends BlockchainConnector {
                 /** @link{ProposalResponse} */
                 const proposalResponse = value;
 
-                // save a chaincode results/response
+                // save a contract results/response
                 // NOTE: the last one will be kept as result
                 invokeStatus.SetResult(proposalResponse.response.payload);
                 invokeStatus.Set(`endorsement_result_${targetName}`, proposalResponse.response.payload);
@@ -2026,7 +2026,7 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
-     * Initializes the Fabric adapter: sets up clients, admins, registrars, channels and chaincodes.
+     * Initializes the Fabric adapter: sets up clients, admins, registrars, channels and contracts.
      * @param {boolean} workerInit Indicates whether the initialization happens in the worker process.
      * @async
      */
@@ -2055,7 +2055,7 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
-     * Installs and initializes the specified chaincodes.
+     * Installs and initializes the specified contracts.
      * @async
      */
     async installSmartContract() {
@@ -2066,20 +2066,20 @@ class Fabric extends BlockchainConnector {
             await this._initializeUsers(true);
         }
 
-        await this._installChaincodes();
-        if (await this._instantiateChaincodes()) {
-            logger.info(`Sleeping ${this.configSleepAfterInstantiateChaincode / 1000.0}s...`);
-            await CaliperUtils.sleep(this.configSleepAfterInstantiateChaincode);
+        await this._installContracts();
+        if (await this._instantiateContracts()) {
+            logger.info(`Sleeping ${this.configSleepAfterInstantiateContract / 1000.0}s...`);
+            await CaliperUtils.sleep(this.configSleepAfterInstantiateContract);
         }
     }
 
     /**
-     * Invokes the specified chaincode according to the provided settings.
+     * Invokes the specified contract according to the provided settings.
      *
      * @param {object} context The context previously created by the Fabric adapter.
-     * @param {string} contractID The unique contract ID of the target chaincode.
+     * @param {string} contractID The unique contract ID of the target contract.
      * @param {string} contractVersion Unused.
-     * @param {ChaincodeInvokeSettings|ChaincodeInvokeSettings[]} invokeSettings The settings (collection) associated with the (batch of) transactions to submit.
+     * @param {ContractInvokeSettings|ContractInvokeSettings[]} invokeSettings The settings (collection) associated with the (batch of) transactions to submit.
      * @param {number} timeout The timeout for the whole transaction life-cycle in seconds.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
      */
@@ -2101,8 +2101,8 @@ class Fabric extends BlockchainConnector {
             }
 
             settings.channel = contractDetails.channel;
-            settings.chaincodeId = contractDetails.id;
-            settings.chaincodeVersion = contractDetails.version;
+            settings.contractId = contractDetails.id;
+            settings.contractVersion = contractDetails.version;
 
             if (!settings.invokerIdentity) {
                 settings.invokerIdentity = this.defaultInvoker;
@@ -2115,12 +2115,12 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
-     * Queries the specified chaincode according to the provided settings.
+     * Queries the specified contract according to the provided settings.
      *
      * @param {object} context The context previously created by the Fabric adapter.
-     * @param {string} contractID The unique contract ID of the target chaincode.
+     * @param {string} contractID The unique contract ID of the target contract.
      * @param {string} contractVersion Unused.
-     * @param {ChaincodeQuerySettings|ChaincodeQuerySettings[]} querySettings The settings (collection) associated with the (batch of) query to submit.
+     * @param {ContractQuerySettings|ContractQuerySettings[]} querySettings The settings (collection) associated with the (batch of) query to submit.
      * @param {number} timeout The timeout for the call in seconds.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction query.
      */
@@ -2142,8 +2142,8 @@ class Fabric extends BlockchainConnector {
             }
 
             settings.channel = contractDetails.channel;
-            settings.chaincodeId = contractDetails.id;
-            settings.chaincodeVersion = contractDetails.version;
+            settings.contractId = contractDetails.id;
+            settings.contractVersion = contractDetails.version;
 
             if (!settings.invokerIdentity) {
                 settings.invokerIdentity = this.defaultInvoker;

@@ -21,7 +21,7 @@ test:
     number: <%= workers %>
   rounds:
   - label: <%= label %>
-    chaincodeId: <%= chaincodeId %>
+    contractId: <%= contractId %>
     <%= txType %>: <%= txValue %>
     rateControl: { type: <%= rateController %>, opts: { <%= opts %> } }
     callback: benchmarks/callbacks/<%= callback %>

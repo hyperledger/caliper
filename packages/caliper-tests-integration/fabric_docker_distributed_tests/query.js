@@ -38,8 +38,8 @@ class MarblesQueryWorkload extends WorkloadModuleBase {
         let marbleOwner = this.owners[this.txIndex % this.owners.length];
 
         let args = {
-            chaincodeFunction: 'queryMarblesByOwner',
-            chaincodeArguments: [marbleOwner],
+            contractFunction: 'queryMarblesByOwner',
+            contractArguments: [marbleOwner],
         };
 
         let targetCC = this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles';

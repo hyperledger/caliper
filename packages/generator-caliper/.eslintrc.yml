@@ -24,7 +24,7 @@ rules:
     no-unused-vars:
         - error
         - args: none
-    no-console: off
+    no-console: 0
     curly: error
     eqeqeq: error
     no-throw-literal: error

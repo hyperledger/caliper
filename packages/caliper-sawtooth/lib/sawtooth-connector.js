@@ -72,7 +72,7 @@ class SawtoothConnector extends BlockchainConnector {
     }
 
     /**
-     * Deploy the chaincode specified in the network configuration file to all peers.
+     * Deploy the contract specified in the network configuration file to all peers.
      * Not supported now
      * @return {Promise} The return promise.
      */

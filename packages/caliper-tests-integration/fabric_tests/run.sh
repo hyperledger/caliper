@@ -50,7 +50,7 @@ if [[ ${rc} != 0 ]]; then
 fi
 
 # PHASE 2: just initialize the network
-# TODO: chaincodes shouldn't be required at this point
+# TODO: contracts shouldn't be required at this point
 ${CALL_METHOD} launch master --caliper-workspace phase2 --caliper-flow-only-init
 rc=$?
 if [[ ${rc} != 0 ]]; then

@@ -131,7 +131,7 @@ class ConfigValidator {
             for (const channel of channels) {
                 try {
                     ConfigValidator.validateChannel(config.channels[channel], orderers, peers, mspIds, takenContractIds, flowOptions, discovery);
-                    takenContractIds.push(config.channels[channel].chaincodes.map(cc => cc.contractID || cc.id));
+                    takenContractIds.push(config.channels[channel].contracts.map(cc => cc.contractID || cc.id));
                 } catch (err) {
                     throw new Error(`Invalid "${channel}" channel configuration: ${err.message}`);
                 }
@@ -316,7 +316,7 @@ class ConfigValidator {
             peers: j.object().keys(createPeersSchema())[peerModif](),
 
             // leave this embedded, so the validation error messages are more meaningful
-            chaincodes: j.array().sparse(false).items(j.object().keys({
+            contracts: j.array().sparse(false).items(j.object().keys({
                 id: j.string().min(1).required(),
                 version: j.string().min(1).required(),
                 contractID: j.string().min(1).disallow(takenContractIds).optional(),
@@ -333,7 +333,7 @@ class ConfigValidator {
 
                 'endorsement-policy': createEndorsementPolicySchema().optional(),
                 targetPeers: j.array().sparse(false).min(1).unique().items(j.string().valid(validPeers)).optional()
-            }) // constraints for the chaincode properties
+            }) // constraints for the contract properties
                 .with('metadataPath', 'path') // if metadataPath is provided, installation needs the path
                 .with('path', 'language') // if path is provided, installation needs the language
                 // the following properties indicate instantiation, which needs the language property
@@ -342,7 +342,7 @@ class ConfigValidator {
                 .with('initTransientMap', 'language')
                 .with('collections-config', 'language')
                 .with('endorsement-policy', 'language')
-            ).unique(contractIdComparator).required() // for the chaincodes collection
+            ).unique(contractIdComparator).required() // for the contracts collection
         });
 
         if (needXor) {

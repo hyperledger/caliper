@@ -12,5 +12,6 @@
 # limitations under the License.
 #
 
+coverage
 node_modules
 generators/benchmark/templates/callback.js

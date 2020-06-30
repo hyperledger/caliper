@@ -40,9 +40,9 @@ module.exports = class extends Generator {
         this.log('Now for the callback file...');
         const callbackQuestions = [{
             type: 'input',
-            name: 'chaincodeId',
+            name: 'contractId',
             message: 'What is the name of your smart contract?',
-            when: () => !this.options.chaincodeId
+            when: () => !this.options.contractId
         }, {
             type: 'input',
             name: 'version',
@@ -50,20 +50,20 @@ module.exports = class extends Generator {
             when: () => !this.options.version
         }, {
             type: 'input',
-            name: 'chaincodeFunction',
+            name: 'contractFunction',
             message: 'Which smart contract function would you like to perform the benchmark on?',
-            when: () => !this.options.chaincodeFunction
+            when: () => !this.options.contractFunction
         }, {
             type: 'input',
-            name: 'chaincodeArguments',
+            name: 'contractArguments',
             message: 'What are the arguments of your smart contract function? (e.g. ["arg1", "arg2"])',
-            when: () => !this.options.chaincodeArguments
+            when: () => !this.options.contractArguments
         }];
         callbackAnswers = await this.prompt(callbackQuestions);
 
-        if (callbackAnswers.chaincodeArguments) {
+        if (callbackAnswers.contractArguments) {
             try {
-                JSON.parse(callbackAnswers.chaincodeArguments);
+                JSON.parse(callbackAnswers.contractArguments);
             } catch (error) {
                 this.log('Error: Incorrect array format. Using empty array for arguments. Defaulting to \'[]\' for arguments');
             }
@@ -171,22 +171,22 @@ module.exports = class extends Generator {
      * @private
      */
     _callbackWrite() {
-        answersObject.chaincodeId = promptAnswers.chaincodeId;
+        answersObject.contractId = promptAnswers.contractId;
         answersObject.version = promptAnswers.version;
-        answersObject.chaincodeFunction = promptAnswers.chaincodeFunction;
-        answersObject.callback = `${ promptAnswers.chaincodeFunction }.js`;
+        answersObject.contractFunction = promptAnswers.contractFunction;
+        answersObject.callback = `${ promptAnswers.contractFunction }.js`;
 
-        const argsString = promptAnswers.chaincodeArguments;
+        const argsString = promptAnswers.contractArguments;
         if (!argsString) {
-            answersObject.chaincodeArguments = '[]';
+            answersObject.contractArguments = '[]';
         } else {
             try {
                 // Should be able to parse the user input
                 JSON.parse(argsString);
                 // Successfully parsed, now set it
-                answersObject.chaincodeArguments = argsString;
+                answersObject.contractArguments = argsString;
             } catch (error) {
-                answersObject.chaincodeArguments = '[]';
+                answersObject.contractArguments = '[]';
             }
         }
 
@@ -206,7 +206,7 @@ module.exports = class extends Generator {
         answersObject.workers = promptAnswers.workers;
         answersObject.label = promptAnswers.label;
         answersObject.txType = promptAnswers.txType;
-        answersObject.chaincodeId = promptAnswers.chaincodeId;
+        answersObject.contractId = promptAnswers.contractId;
 
         if (isNaN(promptAnswers.workers)) {
             answersObject.workers = defaultClientValue;

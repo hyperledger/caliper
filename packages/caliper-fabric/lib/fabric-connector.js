@@ -99,7 +99,7 @@ const FabricConnector = class extends BlockchainConnector {
     }
 
     /**
-     * Initializes the Fabric adapter and configures the SUT: sets up clients, admins, registrars, channels and chaincodes.
+     * Initializes the Fabric adapter and configures the SUT: sets up clients, admins, registrars, channels and contracts.
      * @param {boolean} workerInit Indicates whether the initialization happens in the worker process.
      * @async
      */
@@ -108,7 +108,7 @@ const FabricConnector = class extends BlockchainConnector {
     }
 
     /**
-     * Installs and initializes the specified chaincodes.
+     * Installs and initializes the specified contracts.
      * @async
      */
     async installSmartContract() {
@@ -116,12 +116,12 @@ const FabricConnector = class extends BlockchainConnector {
     }
 
     /**
-     * Invokes the specified chaincode according to the provided settings.
+     * Invokes the specified contract according to the provided settings.
      *
      * @param {object} context The context previously created by the Fabric adapter.
-     * @param {string} contractID The unique contract ID of the target chaincode.
+     * @param {string} contractID The unique contract ID of the target contract.
      * @param {string} contractVersion Unused.
-     * @param {ChaincodeInvokeSettings|ChaincodeInvokeSettings[]} invokeSettings The settings (collection) associated with the (batch of) transactions to submit.
+     * @param {ContractInvokeSettings|ContractInvokeSettings[]} invokeSettings The settings (collection) associated with the (batch of) transactions to submit.
      * @param {number} timeout The timeout for the whole transaction life-cycle in seconds.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
      */
@@ -130,12 +130,12 @@ const FabricConnector = class extends BlockchainConnector {
     }
 
     /**
-     * Queries the specified chaincode according to the provided settings.
+     * Queries the specified contract according to the provided settings.
      *
      * @param {object} context The context previously created by the Fabric adapter.
-     * @param {string} contractID The unique contract ID of the target chaincode.
+     * @param {string} contractID The unique contract ID of the target contract.
      * @param {string} contractVersion Unused.
-     * @param {ChaincodeQuerySettings|ChaincodeQuerySettings[]} querySettings The settings (collection) associated with the (batch of) query to submit.
+     * @param {ContractQuerySettings|ContractQuerySettings[]} querySettings The settings (collection) associated with the (batch of) query to submit.
      * @param {number} timeout The timeout for the call in seconds.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction query.
      */

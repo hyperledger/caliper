@@ -24,13 +24,13 @@ const path = require('path');
 describe('', () => {
     let options = {
         subgenerator: 'benchmark',
-        chaincodeFunction: 'callback',
-        chaincodeArguments: '["args1", "args2", "args3"]',
+        contractFunction: 'callback',
+        contractArguments: '["args1", "args2", "args3"]',
         name: 'x contract benchmark',
         description: 'benchmark for contract x',
         workers: 5,
         label: 'function test',
-        chaincodeId: 'xContract',
+        contractId: 'xContract',
         version: '1.0.0',
         txType: 'txDuration',
         txDuration: 30,
@@ -38,7 +38,7 @@ describe('', () => {
         workspace: 'workspace',
     };
 
-    const callbackFile = `${options.workspace}/benchmarks/callbacks/${options.chaincodeFunction}.js`;
+    const callbackFile = `${options.workspace}/benchmarks/callbacks/${options.contractFunction}.js`;
 
     const runGenerator = async () => {
         await helpers.run(path.join(__dirname, '../../generators/app'))
@@ -62,9 +62,9 @@ describe('', () => {
         '* Licensed under the Apache License, Version 2.0 (the "License");\n' +
         '* you may not use this file except in compliance with the License.\n' +
         '* You may obtain a copy of the License at\n' +
-        '* \n' +
+        '*\n' +
         '* http://www.apache.org/licenses/LICENSE-2.0\n' +
-        '* \n' +
+        '*\n' +
         '* Unless required by applicable law or agreed to in writing, software\n' +
         '* distributed under the License is distributed on an "AS IS" BASIS,\n' +
         '* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n' +
@@ -74,7 +74,7 @@ describe('', () => {
         '\n' +
         '\'use strict\';\n' +
         '\n' +
-        `const contractId = '${options.chaincodeId}';\n` +
+        `const contractId = '${options.contractId}';\n` +
         `const version = '${options.version}';\n` +
         '\n' +
         'let bc, ctx, clientArgs, clientIdx;\n' +
@@ -90,8 +90,8 @@ describe('', () => {
         '\n' +
         'module.exports.run = function() {\n' +
         '    let myArgs = {\n' +
-        `        chaincodeFunction: '${options.chaincodeFunction}',\n` +
-        `        chaincodeArguments: ${options.chaincodeArguments}\n` +
+        `        contractFunction: '${options.contractFunction}',\n` +
+        `        contractArguments: ${options.contractArguments}\n` +
         '    };\n' +
         '\n' +
         '    return bc.invokeSmartContract(ctx, contractId, version, myArgs, 60);\n' +
@@ -104,31 +104,31 @@ describe('', () => {
         assert.fileContent(callbackFile, callbackFileContent);
     });
 
-    it('should default to empty array for chaincode arguments if no user input supplied', async () => {
-        options.chaincodeArguments = '';
+    it('should default to empty array for contract arguments if no user input supplied', async () => {
+        options.contractArguments = '';
         await runGenerator();
 
-        assert.fileContent(`${options.workspace}/benchmarks/callbacks/${options.chaincodeFunction}.js`, 'chaincodeArguments: []');
+        assert.fileContent(`${options.workspace}/benchmarks/callbacks/${options.contractFunction}.js`, 'contractArguments: []');
     });
 
-    it('should default to an empty array if user input for chaincode argument does not start with [', async () => {
-        options.chaincodeArguments = '"args1", "args2", "args3"]';
+    it('should default to an empty array if user input for contract argument does not start with [', async () => {
+        options.contractArguments = '"args1", "args2", "args3"]';
         await runGenerator();
 
-        assert.fileContent(`${options.workspace}/benchmarks/callbacks/${options.chaincodeFunction}.js`, 'chaincodeArguments: []');
+        assert.fileContent(`${options.workspace}/benchmarks/callbacks/${options.contractFunction}.js`, 'contractArguments: []');
     });
 
-    it('should default to an empty array if user input for chaincode argument does not end with ]', async () => {
-        options.chaincodeArguments = '["args1", "args2", "args3"';
+    it('should default to an empty array if user input for contract argument does not end with ]', async () => {
+        options.contractArguments = '["args1", "args2", "args3"';
         await runGenerator();
 
-        assert.fileContent(`${options.workspace}/benchmarks/callbacks/${options.chaincodeFunction}.js`, 'chaincodeArguments: []');
+        assert.fileContent(`${options.workspace}/benchmarks/callbacks/${options.contractFunction}.js`, 'contractArguments: []');
     });
 
     it('should default to an empty array if user input is not the correct format', async () => {
-        options.chaincodeArguments = '[args1, "args2" "args3"]';
+        options.contractArguments = '[args1, "args2" "args3"]';
         await runGenerator();
 
-        assert.fileContent(`${options.workspace}/benchmarks/callbacks/${options.chaincodeFunction}.js`, 'chaincodeArguments: []');
+        assert.fileContent(`${options.workspace}/benchmarks/callbacks/${options.contractFunction}.js`, 'contractArguments: []');
     });
 });
