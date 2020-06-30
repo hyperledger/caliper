@@ -25,7 +25,7 @@ The benchmark configuration consists of three main parts:
 
 For a complete benchmark configuration example, refer to the [last section](#example).
 
-> __Note:__ The configuration file can be either a YAML or JSON file, conforming to the format described below. The benchmark configuration file path can be specified for the master and worker processes using the `caliper-benchconfig` setting key. 
+> __Note:__ The configuration file can be either a YAML or JSON file, conforming to the format described below. The benchmark configuration file path can be specified for the master and worker processes using the `caliper-benchconfig` setting key.
 
 ## Benchmark test settings
 
@@ -43,10 +43,11 @@ The settings related to the benchmark workload all reside under the root `test` 
 | test.rounds[i].txNumber | The number of TXs Caliper should submit during the round. |
 | test.rounds[i].txDuration | The length of the round in seconds during which Caliper will submit TXs. |
 | test.rounds[i].rateControl | The object describing the [rate controller](./Rate_Controllers.md) to use for the round. |
-| test.rounds[i].callback | The path to the benchmark [workload module](./Workload_Module.md) that will construct the TXs to submit |
-| test.rounds[i].arguments | Arbitrary object that will be passed to the workload module as configuration. |
+| test.rounds[i].workload | The object describing the [workload module](./Workload_Module.md) used for the round.
+| test.rounds[i].workload.module | The path to the benchmark workload module implementation that will construct the TXs to submit |
+| test.rounds[i].workload.arguments | Arbitrary object that will be passed to the workload module as configuration. |
 
-A benchmark configuration with the above structure will define a benchmark run that consists of multiple rounds. Each round is associated with a [rate controller](./Rate_Controllers.md) that is responsible for the scheduling of TXs, and a [workload module](./Workload_Module.md) that will generate the actual content of the scheduled TXs. 
+A benchmark configuration with the above structure will define a benchmark run that consists of multiple rounds. Each round is associated with a [rate controller](./Rate_Controllers.md) that is responsible for the scheduling of TXs, and a [workload module](./Workload_Module.md) that will generate the actual content of the scheduled TXs.
 
 ## Observer settings
 
@@ -81,14 +82,16 @@ test:
       type: fixed-rate
       opts:
         tps: 25
-    callback: benchmarks/samples/fabric/marbles/init.js
+    workload:
+      module: benchmarks/samples/fabric/marbles/init.js
   - label: query
     txDuration: 60
     rateControl:
     - type: fixed-rate
       opts:
         tps: 5
-    callback: benchmarks/samples/fabric/marbles/query.js
+    workload:
+      module: benchmarks/samples/fabric/marbles/query.js
 observer:
   type: prometheus
   interval: 5
