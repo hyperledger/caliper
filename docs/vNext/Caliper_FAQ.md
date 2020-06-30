@@ -17,7 +17,7 @@ When you run Caliper to test a blockchain network, you maybe encounter some erro
 
 a. **Benchmark configuration file**: The example benchmark configuration files are named like `config-xxx.yaml` and are located in the directories of the sample benchmarks. The configuration contains test round and monitoring settings. You can refer to the [Architecture documentation](./Architecture.md) for details.  
 
-b. **Blockchain configuration file**: The blockchain configuration file is named like `xxx-yyy.json/`, where `xxx` is the blockchain type (for example, `fabric`, `sawtooth`, `burrow` or `iroha`), and `yyy` is some deployment-specific information, like the language of the chaincodes (for example, `fabric-go.json` for a Fabric deployment). You can refer to the platform-specific configuration pages for more information.
+b. **Blockchain configuration file**: The blockchain configuration file is named like `xxx-yyy.json/`, where `xxx` is the blockchain type (for example, `fabric`, `sawtooth`, `burrow` or `iroha`), and `yyy` is some deployment-specific information, like the language of the contracts (for example, `fabric-go.json` for a Fabric deployment). You can refer to the platform-specific configuration pages for more information.
 
 c. There is another configuration file, namely `./config/default.yaml`, containing runtime setting for Caliper and the blockchain adapters. These settings can also be specified as command line arguments or environment variables.
 
@@ -32,7 +32,7 @@ a.	Before the test, you should modify the `configtx.yaml` and `crypto-config.yam
  
 b.	Modify a `docker-compose.yaml` file according to your new network topology, which can start the docker containers of the blockchain nodes.  
 
-c.	Modify the Fabric network configuration file according to your new Fabric network topology (possibly including a new chaincode to deploy and test).  
+c.	Modify the Fabric network configuration file according to your new Fabric network topology (possibly including a new contract to deploy and test).  
 
 d.	Run Caliper to test your blockchain network.   
 
@@ -47,8 +47,8 @@ The throughput is calculated by `Succ/(last committing time - first submitting t
 
 ### V. Other Questions Related to the Backend Blockchain System  
 
-**Q:** How can I test my own Fabric chaincode?  
-**A:** You can modify the chaincode property information in the blockchain network configuration file according to your own chaincode properties (path, arguments, etc.). You also can put the chaincode files into the `./src/contract/fabric` directory.
+**Q:** How can I test my own Fabric contract?  
+**A:** You can modify the contract property information in the blockchain network configuration file according to your own contract properties (path, arguments, etc.). You also can put the contract files into the `./src/contract/fabric` directory.
 
 **Q:** How can I test a Kafka ordering service for a Fabric network?  
 **A:** Kafka is one of the supported consensus algorithms in Fabric (details at the [Kafka consensus documentation](https://hyperledger-fabric.readthedocs.io/en/latest/kafka.html)). For the support of multiple orderer nodes, refer to the adapter configuration page. 

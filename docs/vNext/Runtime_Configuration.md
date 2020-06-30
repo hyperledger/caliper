@@ -329,9 +329,9 @@ A default/fallback configuration file is shipped with the Caliper-related packag
 | caliper-fabric-overwritegopath | Indicates whether to temporarily set the GOPATH environment variable to the workspace directory. |
 | caliper-fabric-sleepafter-createchannel | The time in milliseconds to sleep after creating the channels. |
 | caliper-fabric-sleepafter-joinchannel | The time in milliseconds to sleep after joining the channels. |
-| caliper-fabric-sleepafter-instantiatechaincode | The time in milliseconds to sleep after instantiated the chaincodes. |
-| caliper-fabric-timeout-chaincodeinstantiate | Timeout in milliseconds for the endorsement part of a chaincode instantiation. |
-| caliper-fabric-timeout-chaincodeinstantiateevent | Timeout in milliseconds for receiving the event about the result of a chaincode instantiation. |
+| caliper-fabric-sleepafter-instantiatecontract | The time in milliseconds to sleep after instantiated the contracts. |
+| caliper-fabric-timeout-contractinstantiate | Timeout in milliseconds for the endorsement part of a contract instantiation. |
+| caliper-fabric-timeout-contractinstantiateevent | Timeout in milliseconds for receiving the event about the result of a contract instantiation. |
 | caliper-fabric-timeout-invokeorquery | The default timeout in milliseconds to use for invoking or querying transactions. |
 | caliper-fabric-verify-proposalresponse | Indicates whether to verify the received proposal responses. |
 | caliper-fabric-verify-readwritesets | Indicates whether to verify that the read-write sets returned by the endorsers match. |
