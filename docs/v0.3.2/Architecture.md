@@ -20,7 +20,7 @@ This page aims to gradually ease you into the intricacies of Caliper's architect
 
 ## Bird's eye view
 
-At its most simple form, Caliper is a service that generates a workload against a specific system under test (SUT) and continuously monitors its responses. Finally, Caliper generates a report based on the observed SUT responses. This simplistic view is depicted in the following figure. 
+At its most simple form, Caliper is a service that generates a workload against a specific system under test (SUT) and continuously monitors its responses. Finally, Caliper generates a report based on the observed SUT responses. This simplistic view is depicted in the following figure.
 
 <img src="{{ site.baseurl }}/assets/img/arch_high_level.png" alt="arch_high_level">
 
@@ -62,9 +62,9 @@ There might be additional artifacts necessary to run a benchmark that can vary b
 * [Runtime configuration](./Runtime_Configuration.md) files.
 * Pre-installed third party packages for your workload modules.
 
-Refer to the SUT adapter configuration pages for the additional necessary artifacts. 
+Refer to the SUT adapter configuration pages for the additional necessary artifacts.
 
-> __Note:__ From here on out, we will refer to the introduced Caliper inputs simply as benchmark artifacts and denote them with the database symbol seen in the first figure. 
+> __Note:__ From here on out, we will refer to the introduced Caliper inputs simply as benchmark artifacts and denote them with the database symbol seen in the first figure.
 
 ## Multi-platform support
 
@@ -94,18 +94,18 @@ The described setup is illustrated in the next figure.
 
 The Caliper master process is the orchestrator of the entire benchmark run. It goes through several predefined stages as depicted by the figure below.
 
-<img src="{{ site.baseurl }}/assets/img/arch_master_process.png" alt="arch_master_process">
+<img src="{{ site.baseurl }}/assets/img/arch_manager_process.png" alt="arch_master_process">
 
 1. In the first stage, Caliper executes the startup script (if present) from the network configuration file. This step is mainly useful for local Caliper and SUT deployments as it provides a convenient way to start the network and Caliper in one step.
   > __Note:__ The deployment of the SUT is not the responsibility of Caliper. Technically, Caliper only connects to an already running SUT, even if it was started through the startup script.
 2. In the second stage, Caliper initializes the SUT. The tasks performed here are highly dependent on the capabilities of the SUT and the SUT adapter. For example, the Hyperledger Fabric adapter uses this stage to create/join channels and register/enroll new users.
-3. In the third stage, Caliper deploys the smart contracts to the SUT, if the SUT and the adapter support such operation (like with the Hyperledger Fabric adapter). 
-4. In the fourth stage Caliper schedules and executes the configured rounds through the worker processes. This is the stage where the workload generation happens (through the workers!). 
+3. In the third stage, Caliper deploys the smart contracts to the SUT, if the SUT and the adapter support such operation (like with the Hyperledger Fabric adapter).
+4. In the fourth stage Caliper schedules and executes the configured rounds through the worker processes. This is the stage where the workload generation happens (through the workers!).
 5. In the last stage, after executing the rounds and generating the report, Caliper executes the cleanup script (if present) from the network configuration file. This step is mainly useful for local Caliper and SUT deployments as it provides a convenient way to tear down the network and any temporary artifacts.
 
 If your SUT is already deployed an initialized, then you only need Caliper to execute the rounds and nothing else. Luckily, you can configure every stage one-by-one whether it should be executed or not. See the [flow control settings](./Runtime_Configuration.md#benchmark-phase-settings) for details.
 
-The above figure only shows the high-level steps of executing a benchmark. Some components are omitted for the sake of simplicity, like the monitor and worker progress observer components. To learn more about the purpose and configuration of these components, refer to the [Monitors and Observers](./MonitorsAndObservers.md) documentation page. 
+The above figure only shows the high-level steps of executing a benchmark. Some components are omitted for the sake of simplicity, like the monitor and worker progress observer components. To learn more about the purpose and configuration of these components, refer to the [Monitors and Observers](./MonitorsAndObservers.md) documentation page.
 
 ### The worker process
 
@@ -117,7 +117,7 @@ The worker process spends most of its time in the workload generation loop. The 
 1. Waiting for the rate controller to enable the next TX. Think of the rate controller as a delay circuit. Based on what kind of rate controller is used, it delays/halts the execution of the worker (in an asynchronous manner) before enabling the next TX. For example, if a fixed 50 TXs per second (TPS) rate is configured, the rate controller will halt for 20ms between each TX.
   > __Note:__ The rate controllers of each round can be configured in the [benchmark configuration file](./Benchmark_Configuration.md). For the available rate controllers, see the [Rate Controllers](./Rate_Controllers.md) page.
 2. Once the rate controller enables the next TX, the worker gives control to the workload module. The workload module assembles the parameters of the TX (specific to the SUT and smart contract API) and calls the simple API of the SUT adapter that will, in turn, send the TX request to the SUT (probably using the SDK of the SUT).
-  > __Note:__ The workload modules of each round can be configured in the [benchmark configuration file](./Benchmark_Configuration.md). For the technical details of workload modules, see the [Workload Modules](./Workload_Module.md) page. 
+  > __Note:__ The workload modules of each round can be configured in the [benchmark configuration file](./Benchmark_Configuration.md). For the technical details of workload modules, see the [Workload Modules](./Workload_Module.md) page.
 
 During the workload loop, the worker process sends progress updates to the master process. Multiple approaches are available for signaling worker progress, achieved by different observers. For the available methods, see the [Monitors and Observers](./MonitorsAndOvservers.md) page.
 
@@ -151,19 +151,19 @@ The following table summarizes the different models and how to select them:
 | `true` | `mqtt` | 3. Remote messaging-based communication with remote workers |
 | `true` | `process` | Invalid, since IPC does not apply to remote communication |
 
-> __Note:__ For the technical details on configuration the messaging transport, see the [Messengers](./Messengers.md) page. 
+> __Note:__ For the technical details on configuration the messaging transport, see the [Messengers](./Messengers.md) page.
 
 ### Interprocess communication
 
 The examples on the [Install & Usage](./Installing_Caliper.md) page all use the IPC approach since it is the default behavior. The setup is illustrated in the figure below.
 
-The `caliper launch master` CLI command starts the master process, which in turn will automatically spawn the configured number of worker processes (using the `caliper launch worker` CLI command). The communication between the processes is IPC, utilizing the built-in Node.JS method available for the parent-children process relationships.  
+The `caliper launch master` CLI command starts the master process, which in turn will automatically spawn the configured number of worker processes (using the `caliper launch worker` CLI command). The communication between the processes is IPC, utilizing the built-in Node.JS method available for the parent-children process relationships.
 
 <img src="{{ site.baseurl }}/assets/img/arch_ipc.png" alt="arch_ipc">
 
-This is the simplest deployment model for Caliper, requiring no additional configuration and third party messaging components. Accordingly, it is ideal when you first start using Caliper, or when you are still assembling the benchmark artifacts for your project, and just quickly want to test them. 
+This is the simplest deployment model for Caliper, requiring no additional configuration and third party messaging components. Accordingly, it is ideal when you first start using Caliper, or when you are still assembling the benchmark artifacts for your project, and just quickly want to test them.
 
-Unfortunately, this model is constrained to a single host, thus suffers from scalability issues in the sense that only vertical scalability of the host is possible. 
+Unfortunately, this model is constrained to a single host, thus suffers from scalability issues in the sense that only vertical scalability of the host is possible.
 
 ### Local message broker communication
 
@@ -173,7 +173,7 @@ As a stepping stone towards the fully-distributed setup, the second deployment m
 
 Like before, the `caliper launch master` CLI command starts the master process, which in turn will automatically spawn the configured number of worker processes (using the `caliper launch worker` CLI command). However, the messaging happens through a separate component, which could be deployed anywhere as long as its endpoint is reachable by the Caliper processes.
 
-Unfortunately, this model is also constrained to a single host from the aspect of the Caliper processes. However, it is a useful model for taking your deployment to the next level once your benchmark artifacts are in place. Once you successfully integrated the messaging component, you are ready to move to the fully distributed Caliper setup. 
+Unfortunately, this model is also constrained to a single host from the aspect of the Caliper processes. However, it is a useful model for taking your deployment to the next level once your benchmark artifacts are in place. Once you successfully integrated the messaging component, you are ready to move to the fully distributed Caliper setup.
 
 ### Distributed message broker communication
 
