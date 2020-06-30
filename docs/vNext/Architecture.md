@@ -38,7 +38,7 @@ You can consider this file as the "flow orchestrator" of the benchmark. For the 
 
 The content of the network configuration file is SUT-specific. The file usually describes the topology of the SUT, where its nodes are (their endpoint addresses), what identities/clients are present in the network, and what smart contracts Caliper should deploy or interact with.
 
-For the exact structure of the network configuration files, refer to the corresponding SUT adapter documentations (we'll discuss adapters a bit later on this page):
+For the exact structure of the network configuration files, refer to the corresponding SUT connector documentations (we will discuss connectors a bit later on this page):
 * [Hyperledger Besu & Ethereum](./Ethereum_Configuration.md)
 * [Hyperledger Burrow](./Burrow_Configuration.md)
 * [Hyperledger Fabric](./Fabric_Configuration.md)
@@ -58,23 +58,21 @@ Workload modules are simply Node.JS modules that must export a given API/functio
 
 There might be additional artifacts necessary to run a benchmark that can vary between different benchmarks and runs. These usually include the followings:
 * Crypto materials necessary to interact with the SUT.
-* Smart contract source code for Caliper to deploy (if the SUT adapter supports such operation).
+* Smart contract source code for Caliper to deploy (if the SUT connector supports such operation).
 * [Runtime configuration](./Runtime_Configuration.md) files.
 * Pre-installed third party packages for your workload modules.
 
-Refer to the SUT adapter configuration pages for the additional necessary artifacts.
+Refer to the SUT connector configuration pages for the additional necessary artifacts.
 
 > __Note:__ From here on out, we will refer to the introduced Caliper inputs simply as benchmark artifacts and denote them with the database symbol seen in the first figure.
 
 ## Multi-platform support
 
-Before we further dive into the architecture of Caliper, let's see how Caliper can support multiple SUT types. Caliper implements the well-known adapter/facade pattern to hide the peculiarities of different SUT types and provide a unified interface towards the Caliper (and external) modules.
+Before we further dive into the architecture of Caliper, let's see how Caliper can support multiple SUT types. Caliper uses connector modules to hide the peculiarities of different SUT types and provide a unified interface towards the Caliper (and external) modules.
 
-> __Note:__ The adapter and facade design patterns have some overlap in the problems they aim to solve. Caliper borrows pieces from both. However, we use the adapter terminology throughout the entire documentation for consistency reasons.
+A SUT connector provides a simplified interface towards internal Caliper modules, as well as towards the workload modules. Accordingly, Caliper can request the execution of simple things, like "initialize the connector/SUT", and the connector implementation will take care of the rest. The exact tasks to perform during the initialization are often determined by the content of the network configuration file (and by the remote administrative actions the SUT supports).
 
-A SUT adapter provides a simplified interface towards internal Caliper modules, as well as towards the workload modules. Accordingly, Caliper can request the execution of simple things, like "initialize the adapter/SUT", and the adapter implementation will take care of the rest. The exact tasks to perform during the initialization are often determined by the content of the network configuration file (and by the remote administrative actions the SUT supports).
-
-> __Note:__ For the technical details of how to implement an adapter, refer to the [corresponding page](./Writing_Adapters.md).
+> __Note:__ For the technical details of how to implement a connector, refer to the [corresponding page](./Writing_Connectors.md).
 
 ## Caliper processes
 
@@ -98,8 +96,8 @@ The Caliper manager process is the orchestrator of the entire benchmark run. It 
 
 1. In the first stage, Caliper executes the startup script (if present) from the network configuration file. This step is mainly useful for local Caliper and SUT deployments as it provides a convenient way to start the network and Caliper in one step.
   > __Note:__ The deployment of the SUT is not the responsibility of Caliper. Technically, Caliper only connects to an already running SUT, even if it was started through the startup script.
-2. In the second stage, Caliper initializes the SUT. The tasks performed here are highly dependent on the capabilities of the SUT and the SUT adapter. For example, the Hyperledger Fabric adapter uses this stage to create/join channels and register/enroll new users.
-3. In the third stage, Caliper deploys the smart contracts to the SUT, if the SUT and the adapter support such operation (like with the Hyperledger Fabric adapter).
+2. In the second stage, Caliper initializes the SUT. The tasks performed here are highly dependent on the capabilities of the SUT and the SUT connector. For example, the Hyperledger Fabric connector uses this stage to create/join channels and register/enroll new users.
+3. In the third stage, Caliper deploys the smart contracts to the SUT, if the SUT and the connector support such operation (like with the Hyperledger Fabric connector).
 4. In the fourth stage Caliper schedules and executes the configured rounds through the worker processes. This is the stage where the workload generation happens (through the workers!).
 5. In the last stage, after executing the rounds and generating the report, Caliper executes the cleanup script (if present) from the network configuration file. This step is mainly useful for local Caliper and SUT deployments as it provides a convenient way to tear down the network and any temporary artifacts.
 
@@ -115,11 +113,11 @@ The interesting things (from a user perspective) happen inside the worker proces
 
 The worker process spends most of its time in the workload generation loop. The loop consists of two important steps:
 1. Waiting for the rate controller to enable the next TX. Think of the rate controller as a delay circuit. Based on what kind of rate controller is used, it delays/halts the execution of the worker (in an asynchronous manner) before enabling the next TX. For example, if a fixed 50 TXs per second (TPS) rate is configured, the rate controller will halt for 20ms between each TX.
-  > __Note:__ The rate controllers of each round can be configured in the [benchmark configuration file](./Benchmark_Configuration.md). For the available rate controllers, see the [Rate Controllers](./Rate_Controllers.md) page.
-2. Once the rate controller enables the next TX, the worker gives control to the workload module. The workload module assembles the parameters of the TX (specific to the SUT and smart contract API) and calls the simple API of the SUT adapter that will, in turn, send the TX request to the SUT (probably using the SDK of the SUT).
-  > __Note:__ The workload modules of each round can be configured in the [benchmark configuration file](./Benchmark_Configuration.md). For the technical details of workload modules, see the [Workload Modules](./Workload_Module.md) page.
+  > __Note:__ The rate controllers of each round can be configured in the [benchmark configuration file](./BenchmarkConfiguration.md). For the available rate controllers, see the [Rate Controllers](./Rate_Controllers.md) page.
+2. Once the rate controller enables the next TX, the worker gives control to the workload module. The workload module assembles the parameters of the TX (specific to the SUT and smart contract API) and calls the simple API of the SUT connector that will, in turn, send the TX request to the SUT (probably using the SDK of the SUT).
+  > __Note:__ The workload modules of each round can be configured in the [benchmark configuration file](./BenchmarkConfiguration.md). For the technical details of workload modules, see the [Workload Modules](./Workload_Module.md) page.
 
-During the workload loop, the worker process sends progress updates to the manager process. Multiple approaches are available for signaling worker progress, achieved by different observers. For the available methods, see the [Monitors and Observers](./MonitorsAndOvservers.md) page.
+During the workload loop, the worker process sends progress updates to the manager process. Multiple approaches are available for signaling worker progress, achieved by different observers. For the available methods, see the [Monitors and Observers](./MonitorsAndObservers.md) page.
 
 ## Process distribution models
 

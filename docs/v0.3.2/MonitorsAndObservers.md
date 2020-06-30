@@ -14,7 +14,7 @@ order: 5
   * [Docker monitor](#docker-monitor)
   * [Prometheus monitor](#prometheus-monitor)
 * [Observers](#observers)
-  * [Null observer](#null-observer)
+  * [Null observer](#none-observer)
   * [Local observer](#local-observer)
   * [Prometheus observer](#prometheus-observer)
   * [Grafana](#grafana-visualization)
@@ -57,7 +57,7 @@ monitor:
 Each declared monitor must be accompanied by a block that describes the required configuration of the monitor.
 
 ### Process Monitor
-The process monitor definition consists of an array of `[command, arguments, multiOutput]` key:value pairs. 
+The process monitor definition consists of an array of `[command, arguments, multiOutput]` key:value pairs.
 - command: names the parent process to monitor
 - arguments: filters on the parent process being monitored
 - multiOutput: enables handling of the discovery of multiple processes and may be one of:
@@ -78,7 +78,7 @@ monitor:
 ### Docker Monitor
 The docker monitor definition consists of an array of container names that may relate to local or remote docker containers that are listed under a name label. If all local docker containers are to be monitored, this may be achieved by providing `all` as a name
 
-The following declares the monitoring of two named docker containers; one local and the other remote. 
+The following declares the monitoring of two named docker containers; one local and the other remote.
 ```
 monitor:
   type:
@@ -110,7 +110,7 @@ All data stored on Prometheus may be queried by Caliper using the Prometheus que
 The prometheus monitor definition consists of:
 - url: The Prometheus URL, used for direct queries
 - push_url: The Prometheus Push Gateway URL
-- metrics: The queries to be run for inclusion within the Caliper report, comprised of to keys: `ignore` and `include`. 
+- metrics: The queries to be run for inclusion within the Caliper report, comprised of to keys: `ignore` and `include`.
   - `ignore` a string array that is used as a blacklist for report results. Any results where the component label matches an item in the list, will *not* be included in a generated report.
   - `include` a series of blocks that describe the queries that are to be run at the end of each Caliper test.
 
@@ -205,7 +205,7 @@ Grafana is an analytics platform that may be used to query and visualize metrics
  - caliper_txn_failure
  - caliper_txn_pending
 
- Each of the above are sent to the PushGateway, tagged with the following labels: 
+ Each of the above are sent to the PushGateway, tagged with the following labels:
   - instance: the current test label
   - round: the current test round
   - client: the client identifier that is sending the information
@@ -275,7 +275,7 @@ monitor:
 ```
 
 ### Prometheus Charting
-The Prometheus monitor enables user definition of all metrics within the configuration file. 
+The Prometheus monitor enables user definition of all metrics within the configuration file.
 
 The following declares the monitoring of two user defined metrics `Endorse Time(s)` and `Max Memory(MB)`. Charting options are specified to produce polar charts filtered on the metric `Max Memory (MB)`, and bar charts of all user defined metrics.
 ```
