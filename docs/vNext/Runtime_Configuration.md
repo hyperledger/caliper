@@ -76,7 +76,7 @@ If we wish to influence the behavior of a third-party code (e.g., Caliper or a u
 Starting Caliper through the [CLI](./Installing_Caliper.md#the-caliper-cli), you can override runtime settings the following way:
 
 ```bash
-caliper launch master \
+caliper launch manager \
     --caliper-workspace yourworkspace/ \
     --caliper-benchconfig yourconfig.yaml \
     --caliper-networkconfig yournetwork.yaml \
@@ -86,7 +86,7 @@ caliper launch master \
 The arguments will be converted to lower-case letters and every `_` character will be replaced with `-`. So the above command can be written in a more user friendly way:
 
 ```bash
-caliper launch master \
+caliper launch manager \
     --caliper-workspace yourworkspace/ \
     --caliper-benchconfig yourconfig.yaml \
     --caliper-networkconfig yournetwork.yaml \
@@ -100,7 +100,7 @@ Note, that `nconf` will automatically parse values of common types, so the `true
 Moreover, `boolean` values can be specified as flags, without explicitly setting the `true` or `false` value (note the `no-` prefix for the second case):
 * Setting a key to `true`:
     ```bash
-    caliper launch master \
+    caliper launch manager \
         --caliper-workspace yourworkspace/ \
         --caliper-benchconfig yourconfig.yaml \
         --caliper-networkconfig yournetwork.yaml \
@@ -108,7 +108,7 @@ Moreover, `boolean` values can be specified as flags, without explicitly setting
     ```
 * Setting a key to `false`:
     ```bash
-    caliper launch master \
+    caliper launch manager \
         --caliper-workspace yourworkspace/ \
         --caliper-benchconfig yourconfig.yaml \
         --caliper-networkconfig yournetwork.yaml \
@@ -127,7 +127,7 @@ The example setting can be set the following way using an environment variable:
 export MYMODULE_PERFORMANCE_SHOULDBEFAST=true
 
 # calling some script containing the following command
-caliper launch master \
+caliper launch manager \
     --caliper-workspace yourworkspace/ \
     --caliper-benchconfig yourconfig.yaml \
     --caliper-networkconfig yournetwork.yaml
@@ -163,7 +163,7 @@ The project-level configuration file can be included into the hierarchy in two w
 
   * The command line approach: 
     ```bash
-    caliper launch master \
+    caliper launch manager \
         --caliper-workspace yourworkspace/ \
         --caliper-benchconfig yourconfig.yaml \
         --caliper-networkconfig yournetwork.yaml \
@@ -172,7 +172,7 @@ The project-level configuration file can be included into the hierarchy in two w
   * The environment variable approach: 
     ```bash
     export CALIPER_PROJECTCONFIG=mypath/project1-config.yaml
-    caliper launch master \
+    caliper launch manager \
         --caliper-workspace yourworkspace/ \
         --caliper-benchconfig yourconfig.yaml \
         --caliper-networkconfig yournetwork.yaml
@@ -186,7 +186,7 @@ If you find yourself overriding the same settings for multiple Caliper benchmark
 
 * The command line approach: 
     ```bash
-    caliper launch master \
+    caliper launch manager \
         --caliper-workspace yourworkspace/ \
         --caliper-benchconfig yourconfig.yaml \
         --caliper-networkconfig yournetwork.yaml \
@@ -195,7 +195,7 @@ If you find yourself overriding the same settings for multiple Caliper benchmark
 * The environment variable approach: 
     ```bash
     export CALIPER_USERCONFIG=~/.config/my-caliper-config.yaml
-    caliper launch master \
+    caliper launch manager \
         --caliper-workspace yourworkspace/ \
         --caliper-benchconfig yourconfig.yaml \
         --caliper-networkconfig yournetwork.yaml
@@ -213,7 +213,7 @@ If multiple users use the same workstation and want to share common settings acr
 
 * The command line approach: 
     ```bash
-    caliper launch master \
+    caliper launch manager \
         --caliper-workspace yourworkspace/ \
         --caliper-benchconfig yourconfig.yaml \
         --caliper-networkconfig yournetwork.yaml \
@@ -222,7 +222,7 @@ If multiple users use the same workstation and want to share common settings acr
 * The environment variable approach: 
     ```bash
     export CALIPER_MACHINECONFIG=/etc/config/caliper.yaml
-    caliper launch master \
+    caliper launch manager \
         --caliper-workspace yourworkspace/ \
         --caliper-benchconfig yourconfig.yaml \
         --caliper-networkconfig yournetwork.yaml
@@ -294,7 +294,7 @@ A default/fallback configuration file is shipped with the Caliper-related packag
 
 | Key | Description |
 |:----|:------------|
-| caliper-worker-communication-method | Indicates the type of the communication between the master and workers. |
+| caliper-worker-communication-method | Indicates the type of the communication between the manager and workers. |
 | caliper-worker-communication-address | The address of the MQTT broker used for distributed worker management. |
 | caliper-worker-pollinterval | The interval for polling for new available workers, in milliseconds. |
 | caliper-worker-remote | Indicates whether the workers operate in distributed mode. |

@@ -25,7 +25,7 @@ The benchmark configuration consists of three main parts:
 
 For a complete benchmark configuration example, refer to the [last section](#example).
 
-> __Note:__ The configuration file can be either a YAML or JSON file, conforming to the format described below. The benchmark configuration file path can be specified for the master and worker processes using the `caliper-benchconfig` setting key.
+> __Note:__ The configuration file can be either a YAML or JSON file, conforming to the format described below. The benchmark configuration file path can be specified for the manager and worker processes using the `caliper-benchconfig` setting key.
 
 ## Benchmark test settings
 
@@ -51,11 +51,11 @@ A benchmark configuration with the above structure will define a benchmark run t
 
 ## Observer settings
 
-The observer configuration determines how the master process gathers progress information from the worker processes. The configuration resides under the `observer` attribute. Refer to the [observer configuration page](./MonitorsAndObservers.md#observers) for the details.
+The observer configuration determines how the manager process gathers progress information from the worker processes. The configuration resides under the `observer` attribute. Refer to the [observer configuration page](./MonitorsAndObservers.md#observers) for the details.
 
 ## Monitoring settings
 
-The monitoring configuration determines what kind of metrics the master process can gather and from where. The configuration resides under the `monitor` attribute. Refer to the [monitor configuration page](./MonitorsAndObservers.md#monitors) for the details.
+The monitoring configuration determines what kind of metrics the manager process can gather and from where. The configuration resides under the `monitor` attribute. Refer to the [monitor configuration page](./MonitorsAndObservers.md#monitors) for the details.
 
 ## Example
 
@@ -66,9 +66,9 @@ The example configuration below says the following:
 * The content of the TXs are determined by the `init.js` workload module.
 * The second `query` round will submit TXs for 60 seconds at a fixed 5 TPS send rate.
 * The content of the TXs are determined by the `query.js` workload module.
-* The master process will observe the progress of the worker processes through a separate Prometheus instance at every 5 seconds.
-* The master process should include the predefined metrics of all local Docker containers in the report.
-* The master process should include the custom metric `Endorse Time (s)` based on the provided query for every available (peer) instance.
+* The manager process will observe the progress of the worker processes through a separate Prometheus instance at every 5 seconds.
+* The manager process should include the predefined metrics of all local Docker containers in the report.
+* The manager process should include the custom metric `Endorse Time (s)` based on the provided query for every available (peer) instance.
 
 ```yaml
 test:
