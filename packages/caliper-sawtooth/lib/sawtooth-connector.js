@@ -43,7 +43,7 @@ const _ = require('lodash');
 class SawtoothConnector extends BlockchainConnector {
     /**
      * Constructor
-     * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the master process.
+     * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the manager process.
      * @param {string} bcType The target SUT type
      */
     constructor(workerIndex, bcType) {

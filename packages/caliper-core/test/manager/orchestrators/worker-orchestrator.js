@@ -15,7 +15,7 @@
 'use strict';
 
 const rewire = require('rewire');
-const WorkerOrchestratorRewire = rewire('../../../lib/master/orchestrators/worker-orchestrator');
+const WorkerOrchestratorRewire = rewire('../../../lib/manager/orchestrators/worker-orchestrator');
 
 const chai = require('chai');
 chai.should();

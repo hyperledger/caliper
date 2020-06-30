@@ -15,7 +15,7 @@
 'use strict';
 
 const MessengerInterface = require('./messenger-interface');
-const Logger = require('../utils/caliper-utils').getLogger('mqtt-master-messenger');
+const Logger = require('../utils/caliper-utils').getLogger('mqtt-manager-messenger');
 const ConfigUtil = require('../config/config-util');
 
 const mqtt = require('mqtt');
@@ -23,7 +23,7 @@ const mqtt = require('mqtt');
 /**
  * Messenger that is based on an mqtt implementation
  */
-class MqttMasterMessenger extends MessengerInterface {
+class MqttManagerMessenger extends MessengerInterface {
 
     /**
      * Constructor for MQTT Master
@@ -107,7 +107,7 @@ class MqttMasterMessenger extends MessengerInterface {
     send(message) {
         // Convert to string and send
         const msg = JSON.stringify(message);
-        this.mqttClient.publish('master/update', msg);
+        this.mqttClient.publish('manager/update', msg);
         Logger.debug(`Published message: ${msg}`);
     }
 
@@ -139,7 +139,7 @@ class MqttMasterMessenger extends MessengerInterface {
  * @return {MqttMessenger} The MqttMasterMessenger instance.
  */
 function createMessenger(messengerConfig) {
-    return new MqttMasterMessenger(messengerConfig);
+    return new MqttManagerMessenger(messengerConfig);
 }
 
 module.exports.createMessenger = createMessenger;

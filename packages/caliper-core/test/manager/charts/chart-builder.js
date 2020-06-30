@@ -14,8 +14,8 @@
 
 'use strict';
 const rewire = require('rewire');
-const ChartBuilder = require('../../../lib/master/charts/chart-builder');
-const ChartBuilderRewire = rewire('../../../lib/master/charts/chart-builder');
+const ChartBuilder = require('../../../lib/manager/charts/chart-builder');
+const ChartBuilderRewire = rewire('../../../lib/manager/charts/chart-builder');
 
 const chai = require('chai');
 chai.should();

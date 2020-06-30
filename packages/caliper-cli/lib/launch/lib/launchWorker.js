@@ -40,7 +40,7 @@ class LaunchWorker {
 
         if (bindingSpec) {
             if (CaliperUtils.isForkedProcess()) {
-                logger.info('Worker is a locally forked process, skipping binding step already performed by the master process');
+                logger.info('Worker is a locally forked process, skipping binding step already performed by the manager process');
             }
             else {
                 logger.info(`Binding specification is present, performing binding for "${bindingSpec}"`);

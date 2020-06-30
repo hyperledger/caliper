@@ -47,12 +47,6 @@
         "license-check-and-add": "2.3.6"
     },
     "license": "Apache-2.0",
-    "licenses": [
-        {
-            "type": "Apache-2.0",
-            "url": "https://github.com/hyperledger/caliper/blob/master/LICENSE"
-        }
-    ],
     "license-check-and-add-config": {
         "folder": ".",
         "license": "../../LICENSE.txt",

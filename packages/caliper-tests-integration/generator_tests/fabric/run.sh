@@ -24,7 +24,7 @@ cd "${DIR}"
 export CALIPER_PROJECTCONFIG=../caliper.yaml
 
 dispose () {
-    ${CALL_METHOD} launch master --caliper-workspace 'fabric/myWorkspace' --caliper-flow-only-end
+    ${CALL_METHOD} launch manager --caliper-workspace 'fabric/myWorkspace' --caliper-flow-only-end
 }
 
 # Install yo
@@ -41,7 +41,7 @@ cd ${DIR}
 ${GENERATOR_METHOD} -- --workspace 'myWorkspace' --contractId 'mymarbles' --version 'v0' --contractFunction 'queryMarblesByOwner' --contractArguments '["Alice"]' --workers 'marbles' --benchmarkName 'A name for the marbles benchmark' --benchmarkDescription 'A description for the marbles benchmark' --label 'A label for the round' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 'marbles'
 # start network and run benchmark test
 cd ../
-${CALL_METHOD} launch master --caliper-workspace 'fabric/myWorkspace' --caliper-networkconfig 'networkconfig.yaml' --caliper-benchconfig 'benchmarks/config.yaml' --caliper-flow-skip-end
+${CALL_METHOD} launch manager --caliper-workspace 'fabric/myWorkspace' --caliper-networkconfig 'networkconfig.yaml' --caliper-benchconfig 'benchmarks/config.yaml' --caliper-flow-skip-end
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed start network";
@@ -57,7 +57,7 @@ ${GENERATOR_METHOD} -- --workspace 'myWorkspace' --contractId 'mymarbles' --vers
 
 # Run benchmark test
 cd ../
-${CALL_METHOD} launch master --caliper-workspace 'fabric/myWorkspace' --caliper-networkconfig 'networkconfig.yaml' --caliper-benchconfig 'benchmarks/config.yaml' --caliper-flow-only-test
+${CALL_METHOD} launch manager --caliper-workspace 'fabric/myWorkspace' --caliper-networkconfig 'networkconfig.yaml' --caliper-benchconfig 'benchmarks/config.yaml' --caliper-flow-only-test
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed run benchmark";
@@ -67,7 +67,7 @@ if [[ ${rc} != 0 ]]; then
 fi
 
 # dispose network
-${CALL_METHOD} launch master --caliper-workspace 'fabric/myWorkspace' --caliper-networkconfig 'networkconfig.yaml' --caliper-benchconfig 'benchmarks/config.yaml' --caliper-flow-only-end
+${CALL_METHOD} launch manager --caliper-workspace 'fabric/myWorkspace' --caliper-networkconfig 'networkconfig.yaml' --caliper-benchconfig 'benchmarks/config.yaml' --caliper-flow-only-end
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed end network";
