@@ -153,6 +153,7 @@ class Fabric extends BlockchainConnector {
         this.userContracts = new Map();
         this.userGateways = new Map();
         this.peerCache = new Map();
+        this.context = undefined;
 
         // this value is hardcoded, if it's used, that means that the provided timeouts are not sufficient
         this.configSmallestTimeout = 1000;
@@ -1599,26 +1600,17 @@ class Fabric extends BlockchainConnector {
     // PUBLIC API FUNCTIONS //
     //////////////////////////
 
-
-    /**
-     * Retrieve the blockchain type the implementation relates to
-     * @returns {string} the blockchain type
-     */
-    getType() {
-        return this.bcType;
-    }
-
     /**
      * Prepares the adapter by either:
      * - building a gateway object linked to a wallet ID
      * - loading user data and connection to the event hubs.
      *
-     * @param {string} name Unused.
+     * @param {Number} roundIndex The zero-based round index of the test.
      * @param {Array<string>} args Unused.
      * @return {Promise<{networkInfo : FabricNetwork, eventSources: EventSource[]}>} Returns the network utility object.
      * @async
      */
-    async getContext(name, args) {
+    async getContext(roundIndex, args) {
         // Reset counter for new test round
         this.txIndex = -1;
 
@@ -1634,10 +1626,12 @@ class Fabric extends BlockchainConnector {
         }
 
         // We are done - return the networkUtil object
-        return {
+        this.context = {
             networkInfo: this.networkUtil,
             clientIdx: this.workerIndex
         };
+
+        return this.context;
     }
 
     /**
@@ -1691,14 +1685,13 @@ class Fabric extends BlockchainConnector {
     /**
      * Invokes the specified contract according to the provided settings.
      *
-     * @param {object} context The context previously created by the Fabric adapter.
      * @param {string} contractID The unique contract ID of the target contract.
      * @param {string} contractVersion Unused.
      * @param {ContractInvokeSettings|ContractInvokeSettings[]} invokeSettings The settings (collection) associated with the (batch of) transactions to submit.
      * @param {number} timeout The timeout for the whole transaction life-cycle in seconds.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
      */
-    async invokeSmartContract(context, contractID, contractVersion, invokeSettings, timeout) {
+    async invokeSmartContract(contractID, contractVersion, invokeSettings, timeout) {
         const promises = [];
         let settingsArray;
 
@@ -1722,7 +1715,7 @@ class Fabric extends BlockchainConnector {
                 settings.invokerIdentity = this.defaultInvoker;
             }
 
-            promises.push(this._performGatewayTransaction(context, settings, true));
+            promises.push(this._performGatewayTransaction(this.context, settings, true));
         }
 
         return await Promise.all(promises);
@@ -1731,14 +1724,13 @@ class Fabric extends BlockchainConnector {
     /**
      * Queries the specified contract according to the provided settings.
      *
-     * @param {object} context The context previously created by the Fabric adapter.
      * @param {string} contractID The unique contract ID of the target contract.
      * @param {string} contractVersion Unused.
      * @param {ContractQuerySettings|ContractQuerySettings[]} querySettings The settings (collection) associated with the (batch of) query to submit.
      * @param {number} timeout The timeout for the call in seconds.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction query.
      */
-    async querySmartContract(context, contractID, contractVersion, querySettings, timeout) {
+    async querySmartContract(contractID, contractVersion, querySettings, timeout) {
         const promises = [];
         let settingsArray;
 
@@ -1762,7 +1754,7 @@ class Fabric extends BlockchainConnector {
                 settings.invokerIdentity = this.defaultInvoker;
             }
 
-            promises.push(this._performGatewayTransaction(context, settings, false));
+            promises.push(this._performGatewayTransaction(this.context, settings, false));
         }
 
         return await Promise.all(promises);
@@ -1771,10 +1763,9 @@ class Fabric extends BlockchainConnector {
     /**
      * Releases the resources of the adapter.
      *
-     * @param {object} context Unused.
      * @async
      */
-    async releaseContext(context) {
+    async releaseContext() {
         // Disconnect from all persisted user gateways
         for (const userName of this.userGateways.keys()) {
             const gateway = this.userGateways.get(userName);
@@ -1784,6 +1775,7 @@ class Fabric extends BlockchainConnector {
 
         // Clear peer cache
         this.peerCache.clear();
+        this.context = undefined;
     }
 }
 

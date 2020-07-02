@@ -100,7 +100,7 @@ class SimpleQueryWorkload extends WorkloadModuleBase {
         };
 
         Logger.debug(`Worker ${this.workerIndex} TX parameters: ${JSON.stringify(args)}`);
-        return this.sutAdapter.querySmartContract(this.sutContext, 'simple', 'v0', args, 100);
+        return this.sutAdapter.querySmartContract('simple', 'v0', args, 100);
     }
 }
 

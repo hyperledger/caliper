@@ -88,7 +88,7 @@ class SimpleQueryWorkload extends WorkloadModuleBase {
     async submitTransaction() {
         const account = this._generateAccount();
         Logger.debug(`Worker ${this.workerIndex} TX parameters: ${account}`);
-        return this.sutAdapter.queryState(this.sutContext, 'simple', 'v0', account);
+        return this.sutAdapter.queryState('simple', 'v0', account);
     }
 }
 

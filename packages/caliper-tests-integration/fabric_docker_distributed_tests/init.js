@@ -48,7 +48,7 @@ class MarblesInitWorkload extends WorkloadModuleBase {
         };
 
         let targetCC = this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles';
-        return this.sutAdapter.invokeSmartContract(this.sutContext, targetCC, 'v0', args, 5);
+        return this.sutAdapter.invokeSmartContract(targetCC, 'v0', args, 5);
     }
 }
 

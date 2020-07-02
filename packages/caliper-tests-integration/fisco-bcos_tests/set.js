@@ -29,7 +29,7 @@ class HelloSetWorkload extends WorkloadModuleBase {
             'transaction_type': 'set(string)',
             'name': 'hello! - from ' + this.workerIndex.toString(),
         };
-        return this.sutAdapter.invokeSmartContract(this.sutContext, 'helloworld', 'v0', args, null);
+        return this.sutAdapter.invokeSmartContract('helloworld', 'v0', args, null);
     }
 }
 

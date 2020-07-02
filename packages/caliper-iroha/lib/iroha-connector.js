@@ -125,14 +125,7 @@ class IrohaConnector extends BlockchainConnector {
         this.configPath = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
         this.config = require(this.configPath).iroha;
         this.clientIndex = workerIndex;
-    }
-
-    /**
-     * Retrieve the blockchain type the implementation relates to
-     * @returns {string} the blockchain type
-     */
-    getType() {
-        return this.bcType;
+        this.context = undefined;
     }
 
     /**
@@ -282,12 +275,12 @@ class IrohaConnector extends BlockchainConnector {
 
     /**
      * Return the Iroha context associated with the given callback module name
-     * @param {string} name The name of the callback module as defined in the configuration files, for example open or query
+     * @param {Number} roundIndex The zero-based round index of the test.
      * @param {object} args The client material returned by function prepareWorkerArguments
      * @return {object} The assembled Iroha context
      * @async
      */
-    async getContext(name, args) {
+    async getContext(roundIndex, args) {
         try {
             if (
                 !args.hasOwnProperty('name') ||
@@ -298,10 +291,10 @@ class IrohaConnector extends BlockchainConnector {
             ) {
                 throw new Error('Invalid Iroha::getContext arguments');
             }
-            let context = {};
+
             // save context for later use
             // since iroha requires sequential counter for messages from same account, the counter must be saved if getContext are invoked multiple times for the same account
-            context = {
+            this.context = {
                 name: args.name,
                 domain: args.domain,
                 id: args.id,
@@ -338,17 +331,17 @@ class IrohaConnector extends BlockchainConnector {
                 }
             }
             let node = this._findNode();
-            context.torii = node.torii;
-            context.contract = fakeContracts;
+            this.context.torii = node.torii;
+            this.context.contract = fakeContracts;
             this.grpcCommandClient = new CommandService_v1Client(
-                context.torii,
+                this.context.torii,
                 grpc.credentials.createInsecure()
             );
             this.grpcQueryClient = new QueryService_v1Client(
-                context.torii,
+                this.context.torii,
                 grpc.credentials.createInsecure()
             );
-            return Promise.resolve(context);
+            return Promise.resolve(this.context);
         } catch (err) {
             logger.error(
                 `Error within getContext: ${err.stack ? err.stack : err}`
@@ -361,26 +354,24 @@ class IrohaConnector extends BlockchainConnector {
 
     /**
      * Release the given Iroha context
-     * @param {object} context The Iroha context to release
      * @returns {Promise} promise.resolve
      * @async
      */
-    async releaseContext(context) {
-        return Promise.resolve();
+    async releaseContext() {
+        this.context = undefined;
     }
 
     /**
      * Invoke a smart contract
-     * @param {Object} context Context object
      * @param {String} contractID Contract ID
      * @param {String} contractVer Version of the contract (currently unused)
      * @param {Object | Array<Object>} invokeData Array of JSON-formatted arguments for multiple transactions
      * @param {Number} timeout Request timeout, in seconds
      * @return {Promise<object>} The promise for the result of the execution
      */
-    async invokeSmartContract(context, contractID, contractVer, invokeData, timeout) {
+    async invokeSmartContract(contractID, contractVer, invokeData, timeout) {
 
-        if (!context.contract.hasOwnProperty(contractID)) {
+        if (!this.context.contract.hasOwnProperty(contractID)) {
             throw new Error('Could not find contract named ' + contractID);
         }
 
@@ -392,7 +383,7 @@ class IrohaConnector extends BlockchainConnector {
         }
 
         return await this.executeCommands(
-            context,
+            this.context,
             contractID,
             invocations,
             timeout * 1000
@@ -458,32 +449,31 @@ class IrohaConnector extends BlockchainConnector {
 
     /**
      * Query the given smart contract according to the specified options
-     * @param {object} context The Iroha context returned by {getContext}
      * @param {string} contractID The name of the contract
      * @param {string} contractVer The version of the contract
      * @param {string} account The argument to pass to the smart contract query
      * @param {string} [fcn=query] The contract query function name
      * @return {Promise<object>} The promise for the result of the execution
      */
-    async queryState(context, contractID, contractVer, account, fcn = 'query') {
-        if (!context.contract.hasOwnProperty(contractID)) {
+    async queryState(contractID, contractVer, account, fcn = 'query') {
+        if (!this.context.contract.hasOwnProperty(contractID)) {
             throw new Error('Could not find contract named ' + contractID);
         }
-        let accountId = account + '@' + context.domain;
+        let accountId = account + '@' + this.context.domain;
         let argsIroha = { accountId: accountId, verb: fcn };
-        let commands = context.contract[contractID](context, argsIroha);
+        let commands = this.context.contract[contractID](this.context, argsIroha);
         if (commands.length === 0) {
             throw new Error('Empty output of contract ' + contractID);
         }
 
         let status = new TxStatus(null);
-        if (context.engine) {
-            context.engine.submitCallback(1);
+        if (this.context.engine) {
+            this.context.engine.submitCallback(1);
         }
         try {
             let queryOptions = {
-                privateKey: context.privKey,
-                creatorAccountId: context.id,
+                privateKey: this.context.privKey,
+                creatorAccountId: this.context.id,
                 queryService: this.grpcQueryClient,
                 timeoutLimit: 5000
             };

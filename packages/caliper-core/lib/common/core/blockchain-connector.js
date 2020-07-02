@@ -31,7 +31,7 @@ class BlockchainConnector {
 
     /**
      * Retrieve the target SUT type for this connector
-     * @return {string} The list of event sources.
+     * @return {string} The target SUT type
      */
     getType() {
         return this.bcType;
@@ -39,7 +39,7 @@ class BlockchainConnector {
 
     /**
      * Retrieve worker index
-     * @return {string} The list of event sources.
+     * @return {number} The zero-based worker index
      */
     getWorkerIndex() {
         return this.workerIndex;
@@ -70,68 +70,71 @@ class BlockchainConnector {
     async prepareWorkerArguments(number) {
         let result = [];
         for(let i = 0 ; i< number ; i++) {
-            result[i] = {}; // as default, return an empty object for each client
+            result[i] = {}; // as default, return an empty object for each worker
         }
         return result;
     }
 
     /**
-     * Get a context for subsequent operations
+     * Get a connector-specific context object for the workload module of the current round.
      * 'engine' attribute of returned context object must be reserved for benchmark engine to extend the context
      *  engine = {
      *   submitCallback: callback which must be called once new transaction(s) is submitted, it receives a number argument which tells how many transactions are submitted
      * }
-     * @param {String} name name of the context
-     * @param {Object} args adapter specific arguments
+     * @param {number} roundIndex The zero-based round index of the test.
+     * @param {object} args Connector arguments prepared by the connector in the manager process.
+     * @return {Promise<object>} The prepared context object for the workload module.
+     * @async
      */
-    async getContext(name, args) {
+    async getContext(roundIndex, args) {
         throw new Error('getContext is not implemented for this blockchain connector');
     }
 
     /**
-     * Release a context as well as related resources
-     * @param {Object} context adapter specific object
+     * Release the current context as well as related resources
      */
-    async releaseContext(context) {
+    async releaseContext() {
         throw new Error('releaseContext is not implemented for this blockchain connector');
     }
 
     /**
      * Invoke a smart contract
-     * @param {Object} context context object
      * @param {String} contractID identity of the contract
      * @param {String} contractVer version of the contract
-     * @param {Array} args array of JSON formatted arguments for multiple transactions
+     * @param {Object[]} args array of JSON formatted arguments for multiple transactions
      * @param {Number} timeout request timeout, in seconds
+     * @return {Promise<TxStatus[]>} The array of data about the executed transactions.
+     * @async
      */
-    async invokeSmartContract(context, contractID, contractVer, args, timeout) {
+    async invokeSmartContract(contractID, contractVer, args, timeout) {
         throw new Error('invokeSmartContract is not implemented for this blockchain connector');
     }
 
     /**
      * Query state from the ledger using a smart contract
-     * @param {Object} context context object
      * @param {String} contractID identity of the contract
      * @param {String} contractVer version of the contract
-     * @param {Array} args array of JSON formatted arguments
+     * @param {Object[]} args array of JSON formatted arguments
      * @param {Number} timeout request timeout, in seconds
+     * @return {Promise<TxStatus[]>} The array of data about the executed queries.
+     * @async
      */
-    async querySmartContract(context, contractID, contractVer, args, timeout) {
+    async querySmartContract(contractID, contractVer, args, timeout) {
         throw new Error('querySmartContract is not implemented for this blockchain connector');
     }
 
     /**
      * Query state from the ledger
-     * @param {Object} context context object from getContext
      * @param {String} contractID identity of the contract
      * @param {String} contractVer version of the contract
      * @param {String} key lookup key
-     * @param {String=} [fcn] The contract query function name
+     * @param {String} fcn The contract query function name
+     * @return {Promise<TxStatus[]>} The array of data about the executed queries.
+     * @deprecated
      */
-    async queryState(context, contractID, contractVer, key, fcn) {
+    async queryState(contractID, contractVer, key, fcn) {
         throw new Error('queryState is not implemented for this blockchain connector');
     }
-
 }
 
 module.exports = BlockchainConnector;

@@ -50,6 +50,7 @@ class EthereumConnector extends BlockchainConnector {
         this.web3 = new Web3(this.ethereumConfig.url);
         this.web3.transactionConfirmationBlocks = this.ethereumConfig.transactionConfirmationBlocks;
         this.clientIndex = workerIndex;
+        this.context = undefined;
     }
 
     /**
@@ -115,12 +116,12 @@ class EthereumConnector extends BlockchainConnector {
 
     /**
      * Return the Ethereum context associated with the given callback module name.
-     * @param {string} name The name of the callback module as defined in the configuration files.
+     * @param {Number} roundIndex The zero-based round index of the test.
      * @param {object} args Unused.
      * @return {object} The assembled Ethereum context.
      * @async
      */
-    async getContext(name, args) {
+    async getContext(roundIndex, args) {
         let context = {
             chainId: 1,
             clientIndex: this.clientIndex,
@@ -167,28 +168,28 @@ class EthereumConnector extends BlockchainConnector {
         } else if (this.ethereumConfig.fromAddressPassword) {
             await context.web3.eth.personal.unlockAccount(this.ethereumConfig.fromAddress, this.ethereumConfig.fromAddressPassword, 1000);
         }
+
+        this.context = context;
         return context;
     }
 
     /**
      * Release the given Ethereum context.
-     * @param {object} context The Ethereum context to release.
      * @async
      */
-    async releaseContext(context) {
+    async releaseContext() {
         // nothing to do
     }
 
     /**
      * Invoke a smart contract.
-     * @param {Object} context Context object.
      * @param {String} contractID Identity of the contract.
      * @param {String} contractVer Version of the contract.
      * @param {EthereumInvoke|EthereumInvoke[]} invokeData Smart contract methods calls.
      * @param {Number} timeout Request timeout, in seconds.
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    async invokeSmartContract(context, contractID, contractVer, invokeData, timeout) {
+    async invokeSmartContract(contractID, contractVer, invokeData, timeout) {
         let invocations;
         if (!Array.isArray(invokeData)) {
             invocations = [invokeData];
@@ -197,21 +198,20 @@ class EthereumConnector extends BlockchainConnector {
         }
         let promises = [];
         invocations.forEach((item, index) => {
-            promises.push(this.sendTransaction(context, contractID, contractVer, item, timeout));
+            promises.push(this.sendTransaction(this.context, contractID, contractVer, item, timeout));
         });
         return Promise.all(promises);
     }
 
     /**
      * Query a smart contract.
-     * @param {Object} context Context object.
      * @param {String} contractID Identity of the contract.
      * @param {String} contractVer Version of the contract.
      * @param {EthereumInvoke|EthereumInvoke[]} invokeData Smart contract methods calls.
      * @param {Number} timeout Request timeout, in seconds.
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    async querySmartContract(context, contractID, contractVer, invokeData, timeout) {
+    async querySmartContract(contractID, contractVer, invokeData, timeout) {
         let invocations;
         if (!Array.isArray(invokeData)) {
             invocations = [invokeData];
@@ -221,7 +221,7 @@ class EthereumConnector extends BlockchainConnector {
         let promises = [];
         invocations.forEach((item, index) => {
             item.isView = true;
-            promises.push(this.sendTransaction(context, contractID, contractVer, item, timeout));
+            promises.push(this.sendTransaction(this.context, contractID, contractVer, item, timeout));
         });
         return Promise.all(promises);
     }
@@ -303,20 +303,19 @@ class EthereumConnector extends BlockchainConnector {
 
     /**
      * Query the given smart contract according to the specified options.
-     * @param {object} context The Ethereum context returned by {getContext}.
      * @param {string} contractID The name of the contract.
      * @param {string} contractVer The version of the contract.
      * @param {string} key The argument to pass to the smart contract query.
      * @param {string} [fcn=query] The contract query function name.
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    async queryState(context, contractID, contractVer, key, fcn = 'query') {
+    async queryState(contractID, contractVer, key, fcn = 'query') {
         let methodCall = {
             verb: fcn,
             args: [key],
             isView: true
         };
-        return this.sendTransaction(context, contractID, contractVer, methodCall, 60);
+        return this.sendTransaction(this.context, contractID, contractVer, methodCall, 60);
     }
 
     /**

@@ -48,6 +48,7 @@ class FiscoBcosConnector extends BlockchainConnector {
             }
         }
         this.clientIdx = workerIndex;
+        this.context = undefined;
     }
 
     /**
@@ -79,33 +80,32 @@ class FiscoBcosConnector extends BlockchainConnector {
      *  engine = {
      *   submitCallback: callback which must be called once new transaction(s) is submitted, it receives a number argument which tells how many transactions are submitted
      * }
-     * @param {String} name name of the context
+     * @param {Number} roundIndex The zero-based round index of the test.
      * @param {Object} args adapter specific arguments
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    async getContext(name, args) {
-        return Promise.resolve();
+    async getContext(roundIndex, args) {
+        this.context = {};
+        return this.context;
     }
 
     /**
      * Release a context as well as related resources
-     * @param {Object} context adapter specific object
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    async releaseContext(context) {
-        return Promise.resolve();
+    async releaseContext() {
+        this.context = undefined;
     }
 
     /**
      * Invoke the given smart contract according to the specified options. Multiple transactions will be generated according to the length of args.
-     * @param {object} context The FISCO BCOS context returned by {getContext}.
      * @param {string} contractID The name of the smart contract.
      * @param {string} contractVer The version of the smart contract.
      * @param {Object | Array<Object>} invokeData Array of JSON formatted arguments for transaction(s). Each element contains arguments (including the function name) passing to the smart contract. JSON attribute named transaction_type is used by default to specify the function name. If the attribute does not exist, the first attribute will be used as the function name.
      * @param {number} timeout The timeout to set for the execution in seconds.
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    async invokeSmartContract(context, contractID, contractVer, invokeData, timeout) {
+    async invokeSmartContract(contractID, contractVer, invokeData, timeout) {
         let promises = [];
 
         let invocations;
@@ -127,7 +127,7 @@ class FiscoBcosConnector extends BlockchainConnector {
                         fcArgs.push(arg[key].toString());
                     }
                 }
-                promises.push(invokeSmartContractImpl.run(context, this.fiscoBcosSettings, contractID, fcn, fcArgs, this.workspaceRoot));
+                promises.push(invokeSmartContractImpl.run(this.context, this.fiscoBcosSettings, contractID, fcn, fcArgs, this.workspaceRoot));
             });
 
             return await Promise.all(promises);
@@ -139,16 +139,15 @@ class FiscoBcosConnector extends BlockchainConnector {
 
     /**
      * Query state from the ledger
-     * @param {Object} context The FISCO BCOS context returned by {getContext}
      * @param {String} contractID Identity of the contract
      * @param {String} contractVer Version of the contract
      * @param {String} key lookup key
      * @param {String} fcn The smart contract query function name
      * @return {Promise<object>} The result of the query.
      */
-    async queryState(context, contractID, contractVer, key, fcn) {
+    async queryState(contractID, contractVer, key, fcn) {
         try {
-            return invokeSmartContractImpl.run(context, this.fiscoBcosSettings, contractID, fcn, key, this.workspaceRoot, true);
+            return invokeSmartContractImpl.run(this.context, this.fiscoBcosSettings, contractID, fcn, key, this.workspaceRoot, true);
         } catch (error) {
             commLogger.error(`FISCO BCOS smart contract query failed: ${(error.stack ? error.stack : error)}`);
             throw error;
@@ -157,14 +156,13 @@ class FiscoBcosConnector extends BlockchainConnector {
 
     /**
      * Generate an raw transaction and store in local file
-     * @param {Object} context The FISCO BCOS context returned by {getContext}
      * @param {String} contractID Identity of the contract
      * @param {Object} arg Arguments of the transaction
      * @param {String} file File path which will be used to store then transaction
      * @return {TaskStatus} Indicates whether the transaction is written to the file successfully or not
      */
-    async generateRawTransaction(context, contractID, arg, file) {
-        return generateRawTransactionImpl.run(this.fiscoBcosSettings, this.workspaceRoot, context, contractID, arg, file);
+    async generateRawTransaction(contractID, arg, file) {
+        return generateRawTransactionImpl.run(this.fiscoBcosSettings, this.workspaceRoot, this.context, contractID, arg, file);
     }
 
     /**
