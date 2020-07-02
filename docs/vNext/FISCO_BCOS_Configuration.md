@@ -164,7 +164,7 @@ To run your own benchmarks on your own network topology, you should:
 
 - Deploy you own FISCO BCOS network. To complete this step, please follow the instructions in [installation tutorial](https://fisco-bcos-documentation.readthedocs.io/en/latest/docs/installation.html).
 - Add a new network configuration file.
-- Create a test script that includes an `init`, `run` and `end` phase.
+- Create a test script that adheres to the [workload module API](./Workload_Module.md#the-api).
 - Add the new test script to the test config file as a test round, making sure that the correct callback for Caliper is specified.
 
 ## License

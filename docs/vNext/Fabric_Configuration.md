@@ -14,7 +14,7 @@ order: 3
 
 ## Overview
 
-This page introduces the Fabric adapter that utilizes the Common Connection Profile (CCP) feature of the Fabric SDK to provide compatibility and a unified programming model across different Fabric versions. 
+This page introduces the Fabric adapter that utilizes the Common Connection Profile (CCP) feature of the Fabric SDK to provide compatibility and a unified programming model across different Fabric versions.
 
 > The latest supported version of Hyperledger Fabric is v2.0.0
 
@@ -89,40 +89,41 @@ user@ubuntu:~/caliper-benchmarks$ export CALIPER_FABRIC_SKIPCREATECHANNEL_MYCHAN
 
 > __Note:__ This settings is intended for easily skipping the creation of a channel that is specified in the network configuration file as "not created". However, if you know that the channel always will be created during benchmarking, then it is recommended to denote this explicitly in the network configuration file.
 
-Naturally, you can specify the above setting multiple ways (e.g., command line argument, configuration file entry). 
+Naturally, you can specify the above setting multiple ways (e.g., command line argument, configuration file entry).
 
-## The adapter API
+## The connector API
 
-The [user callback modules](./Architecture.md#user-defined-test-module) interact with the adapter at two phases of the tests: during the initialization of the user module (in the `init` callback), and when submitting invoke or query transactions (in the `run` callback).
+The [workload modules](./Workload_Module.md) interact with the adapter at two phases of the tests: during the initialization of the user module (in the `initializeWorkloadModule` callback), and when submitting invoke or query transactions (in the `submitTransaction` callback).
 
-### The `init` callback
+### The `initializeWorkloadModule` function
 
-The first argument of the `init` callback is a `blockchain` object. We will discuss it in the next section for the `run` callback.
+See the [corresponding documentation](./Workload_Module.md#initializeworkloadmodule) of the function for the description of its parameters.
 
-The second argument of the `init` callback is a `context`, which is a platform-specific object provided by the backend blockchain's adapter. The context object provided by this adapter exposes the following properties:
-* The `context.networkInfo` property is a `FabricNetwork` instance that provides simple string-based "queries" and results about the network topology, so user callbacks can be implemented in a more general way. For the current details/documentation of the API, refer to the [source code](https://github.com/hyperledger/caliper/blob/master/packages/caliper-fabric/lib/fabricNetwork.js).
+The last argument of the function is a `sutContext` object, which is a platform-specific object provided by the backend blockchain's connector. The context object provided by this connector is a `FabricNetwork` instance that provides simple string-based "queries" and results about the network topology, so user callbacks can be implemented in a more general way.
 
-### The `run` callback
+For the current details/documentation of the API, refer to the [source code](https://github.com/hyperledger/caliper/blob/master/packages/caliper-fabric/lib/fabricNetwork.js).
 
-The `blockchain` object received (and saved) in the `init` callback is of type [Blockchain](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/blockchain.js) and it wraps the adapter instance of type [Fabric](https://github.com/hyperledger/caliper/blob/master/packages/caliper-fabric/lib/fabric.js). The `blockchain.bcType` property has the `fabric` string value.
+### The `submitTransaction` function
+
+The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type [`BlockchainConnector`](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/core/blockchain-connector.js). Its `getType()` function returns the `fabric` string value.
 
 The two main functions of the adapter are `invokeSmartContract` and `querySmartContract`, sharing a similar API.
 
 #### Invoking a contract
 
-To submit a transaction, call the `blockchain.invokeSmartContract` function. It takes five parameters:
-1. `context`: the same `context` object saved in the `init` callback.
-2. `contractID`: the unique (Caliper-level) ID of the contract.
-3. `version`: the contract version. __Unused.__
-4. `invokeSettings`:  an object containing different TX-related settings
-5. `timeout`: the timeout value for the transaction __in seconds__.
+To submit a transaction, call the `sutAdapter.invokeSmartContract` function. It takes four parameters:
+
+1. `contractID`: the unique (Caliper-level) ID of the contract.
+2. `version`: the contract version. __Unused.__
+3. `invokeSettings`:  an object containing different TX-related settings
+4. `timeout`: the timeout value for the transaction __in seconds__.
 
 The `invokeSettings` object has the following structure:
 * `contractFunction`: _string. Required._ The name of the function to call in the contract.
 * `contractArguments`: _string[]. Optional._ The list of __string__ arguments to pass to the contract.
 * `transientMap`: _Map<string, byte[]>. Optional._ The transient map to pass to the contract.
 * `invokerIdentity`: _string. Optional._ The name of the user who should invoke the contract. If an admin is needed, use the organization name prefixed with a `#` symbol (e.g., `#Org2`). Defaults to the first client in the network configuration file.
-* `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the transaction proposal. If omitted, the target list will include endorsing peers selected according to the specified load balancing method. 
+* `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the transaction proposal. If omitted, the target list will include endorsing peers selected according to the specified load balancing method.
 * `orderer`: _string. Optional._ The name of the target orderer for the transaction broadcast. If omitted, then an orderer node of the channel will be used, according to the specified load balancing method.
 
 So invoking a contract looks like the following (with automatic load balancing between endorsing peers and orderers):
@@ -134,31 +135,31 @@ let settings = {
     invokerIdentity: 'client0.org2.example.com'
 };
 
-return blockchain.invokeSmartContract(context, 'marbles', '', settings, 10);
+return this.sutAdapter.invokeSmartContract('marbles', '', settings, 10);
 ```
 
-`invokeSmartContract` also accepts an array of `invokeSettings` as the second arguments. However, Fabric does not support submitting an atomic batch of transactions like Sawtooth, so there is no guarantee that the order of these transactions will remain the same, or whether they will reside in the same block. 
+`invokeSmartContract` also accepts an array of `invokeSettings` as the second arguments. However, Fabric does not support submitting an atomic batch of transactions like Sawtooth, so there is no guarantee that the order of these transactions will remain the same, or whether they will reside in the same block.
 
 Using "batches" also increases the expected workload of the system, since the rate controller mechanism of Caliper cannot account for these "extra" transactions. However, the resulting report will accurately reflect the additional load.
 
 #### Querying a contract
 
-To query the world state, call the `blockchain.bcObj.querySmartContract` function. It takes five parameters: 
-1. `context`: the same `context` object saved in the `init` callback.
-2. `contractID`: the unique (Caliper-level) ID of the contract.
-3. `version`: the contract version. __Unused.__
-4. `querySettings`:  an object containing different query-related settings
-5. `timeout`: the timeout value for the transaction __in seconds__.
+To query the world state, call the `sutAdapter.querySmartContract` function. It takes four parameters:
+
+1. `contractID`: the unique (Caliper-level) ID of the contract.
+2. `version`: the contract version. __Unused.__
+3. `querySettings`:  an object containing different query-related settings
+4. `timeout`: the timeout value for the transaction __in seconds__.
 
 The `querySettings` object has the following structure:
 * `contractFunction`: _string. Required._ The name of the function to call in the contract.
 * `contractArguments`: _string[]. Optional._ The list of __string__ arguments passed to the contract.
 * `transientMap`: _Map<string, byte[]>. Optional._ The transient map passed to the contract.
 * `invokerIdentity`: _string. Optional._ The name of the user who should invoke the contract. If an admin is needed, use the organization name prefixed with a `#` symbol (e.g., `#Org2`). Defaults to the first client in the network configuration file.
-* `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the query. If omitted, the target list will include endorsing peers selected according to the specified load balancing method. 
+* `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the query. If omitted, the target list will include endorsing peers selected according to the specified load balancing method.
 * `countAsLoad`: _boolean. Optional._ Indicates whether the query should be counted as workload and reflected in the generated report. If specified, overrides the adapter-level `caliper-fabric-countqueryasload` setting.
-  
-  > Not counting a query in the workload is useful when _occasionally_ retrieving information from the ledger to use as a parameter in a transaction (might skew the latency results). However, count the queries into the workload if the test round specifically targets the query execution capabilities of the contract. 
+
+  > Not counting a query in the workload is useful when _occasionally_ retrieving information from the ledger to use as a parameter in a transaction (might skew the latency results). However, count the queries into the workload if the test round specifically targets the query execution capabilities of the contract.
 
 So querying a contract looks like the following (with automatic load balancing between endorsing peers):
 
@@ -169,10 +170,10 @@ let settings = {
     invokerIdentity: 'client0.org2.example.com'
 };
 
-return blockchain.querySmartContract(context, 'marbles', '', settings, 3);
+return this.sutAdapter.querySmartContract('marbles', '', settings, 3);
 ```
 
-`querySmartContract` also accepts an array of `querySettings` as the second arguments. However, Fabric does not support submitting an atomic batch of queries, so there is no guarantee that their execution order will remain the same (although it's highly probably, since queries have shorter life-cycles than transactions). 
+`querySmartContract` also accepts an array of `querySettings` as the second arguments. However, Fabric does not support submitting an atomic batch of queries, so there is no guarantee that their execution order will remain the same (although it's highly probably, since queries have shorter life-cycles than transactions).
 
 Using "batches" also increases the expected workload of the system, since the rate controller mechanism of Caliper cannot account for these extra queries. However, the resulting report will accurately reflect the additional load.
 
@@ -188,7 +189,7 @@ The standard data provided are the following:
 * `IsVerified():boolean` indicates whether we are sure about the final status of the transaction. Unverified (considered failed) transactions could occur, for example, if the adapter loses the connection with every Fabric event hub, missing the final status of the transaction.
 * `GetResult():Buffer` returns one of the endorsement results returned by the contract as a `Buffer`. It is the responsibility of the user callback to decode it accordingly to the contract-side encoding.
 
-The adapter also gathers the following platform-specific data (if observed) about each transaction, each exposed through a specific key name. The placeholders `<P>` and `<O>` in the key names are node names taking their values from the top-level [peers](#peers) and [orderers](#orderers) sections from the network configuration file (e.g., `endorsement_result_peer0.org1.example.com`). The `Get(key:string):any` function returns the value of the observation corresponding to the given key. Alternatively, the `GetCustomData():Map<string,any>` returns the entire collection of gathered data as a `Map`.
+The adapter also gathers the following platform-specific data (if observed) about each transaction, each exposed through a specific key name. The placeholders `<P>` and `<O>` in the key names are node names taking their values from the top-level peers and orderers sections from the network configuration file (e.g., `endorsement_result_peer0.org1.example.com`). The `Get(key:string):any` function returns the value of the observation corresponding to the given key. Alternatively, the `GetCustomData():Map<string,any>` returns the entire collection of gathered data as a `Map`.
 
 The adapter-specific data keys are the following:
 
@@ -248,7 +249,7 @@ The following sections detail each part separately. For a complete example, plea
 
 <details><summary markdown="span">__name__
 </summary>
-_Required. Non-empty string._ <br> 
+_Required. Non-empty string._ <br>
 The name of the configuration file.
 
 ```yaml
@@ -258,7 +259,7 @@ name: Fabric
 
 <details><summary markdown="span">__version__
 </summary>
-_Required. Non-empty string._ <br> 
+_Required. Non-empty string._ <br>
 Specifies the YAML schema version that the Fabric SDK will use. Only the `'1.0'` string is allowed.
 
 ```yaml
@@ -285,36 +286,36 @@ Contains runtime information for Caliper. Can contain the following keys.
    </summary>
    _Required. Non-empty string._ <br>
    Only the `"fabric"` string is allowed for this adapter.
-   
+
    ```yaml
    caliper:
      blockchain: fabric
    ```
    </details>
-   
+
 *  <details><summary markdown="span">__command__
    </summary>
    _Optional. Non-empty object._ <br>
    Specifies the start and end scripts. <br>
    > Must contain __at least one__ of the following keys.
-   
+
    *  <details><summary markdown="span">__start__
       </summary>
       _Optional. Non-empty string._ <br>
       Contains the command to execute at startup time. The current working directory for the commands is set to the workspace.
-      
+
       ```yaml
       caliper:
         command:
           start: my-startup-script.sh
       ```
       </details>
-      
+
    *  <details><summary markdown="span">__end__
       </summary>
       _Optional. Non-empty string._ <br>
       Contains the command to execute at exit time. The current working directory for the commands is set to the workspace.
-      
+
       ```yaml
       caliper:
         command:
@@ -362,13 +363,13 @@ certificateAuthorities:
     # properties of CA
   ca.org2.example.com:
     # properties of CA
-``` 
+```
 
 *  <details><summary markdown="span">__url__
    </summary>
    _Required. Non-empty URI string._ <br>
    The endpoint of the CA. The protocol must be either `http://` or `https://`. Must be `https://` when using TLS.
-   
+
    ```yaml
    certificateAuthorities:
      ca.org1.example.com:
@@ -380,7 +381,7 @@ certificateAuthorities:
    </summary>
    _Optional. Object._ <br>
    The properties specified under this object are passed to the `http` client verbatim when sending the request to the Fabric-CA server.
-   
+
    ```yaml
    certificateAuthorities:
      ca.org1.example.com:
@@ -388,13 +389,13 @@ certificateAuthorities:
          verify: false
    ```
    </details>
-   
+
 *  <details><summary markdown="span">__tlsCACerts__
    </summary>
    _Required for TLS. Object._ <br>
-   Specifies the TLS certificate of the CA for TLS communication. Forbidden to set for non-TLS communication. <br> 
+   Specifies the TLS certificate of the CA for TLS communication. Forbidden to set for non-TLS communication. <br>
    > Must contain __at most one__ of the following keys.
-   
+
    *  <details><summary markdown="span">__path__
       </summary>
       _Optional. Non-empty string._ <br>
@@ -407,7 +408,7 @@ certificateAuthorities:
             path: path/to/cert.pem
       ```
       </details>
-      
+
    *  <details><summary markdown="span">__pem__
       </summary>
       _Optional. Non-empty string._ <br>
@@ -449,7 +450,7 @@ certificateAuthorities:
        - enrollId: admin
          enrollSecret: adminpw
    ```
-   
+
    *  <details><summary markdown="span">__[item].enrollId__
       </summary>
       _Required. Non-empty string._ <br>
@@ -467,7 +468,7 @@ certificateAuthorities:
 <details><summary markdown="span">__peers__
 </summary>
 _Required. Non-empty object._ <br>
-Contains one or more, arbitrary but unique peer names as keys, and each key has a corresponding object (sub-keys) that describes the properties of that peer. The names will be used in other sections to reference a peer. 
+Contains one or more, arbitrary but unique peer names as keys, and each key has a corresponding object (sub-keys) that describes the properties of that peer. The names will be used in other sections to reference a peer.
 
 Can be omitted if only the start/end scripts are executed during benchmarking.
 
@@ -477,19 +478,19 @@ peers:
     # properties of peer
   peer0.org2.example.com:
     # properties of peer
-``` 
+```
 
 A peer object (e.g., `peer0.org1.example.com`) can contain the following properties.
 *  <details><summary markdown="span">__url__
    </summary>
    _Required. Non-empty URI string._ <br>
    The (local or remote) endpoint of the peer to send the requests to. If TLS is configured, the protocol must be `grpcs://`, otherwise it must be `grpc://`.
-    
+
    ```yaml
    peers:
      peer0.org1.example.com:
        url: grpcs://localhost:7051   
-   ``` 
+   ```
    </details>
 
 *  <details><summary markdown="span">__eventUrl__
@@ -501,29 +502,29 @@ A peer object (e.g., `peer0.org1.example.com`) can contain the following propert
    peers:
      peer0.org1.example.com:
        eventUrl: grpcs://localhost:7053
-   ``` 
+   ```
    </details>
 
 *  <details><summary markdown="span">__grpcOptions__
    </summary>
    _Optional. Object._ <br>
    The properties specified under this object set the gRPC settings used on connections to the Fabric network. See the available options in the [gRPC settings tutorial](https://fabric-sdk-node.github.io/master/tutorial-grpc-settings.html) of the Fabric SDK.
-   
+
    ```yaml
    peers:
      peer0.org1.example.com:
        grpcOptions:
          ssl-target-name-override: peer0.org1.example.com
          grpc.keepalive_time_ms: 600000
-   ``` 
+   ```
    </details>
 
 *  <details><summary markdown="span">__tlsCACerts__
    </summary>
    _Required for TLS. Object._ <br>
-   Specifies the TLS certificate of the peer for TLS communication. Forbidden to set for non-TLS communication. <br> 
+   Specifies the TLS certificate of the peer for TLS communication. Forbidden to set for non-TLS communication. <br>
    > Must contain __at most one__ of the following keys.
-   
+
    *  <details><summary markdown="span">__path__
       </summary>
       _Optional. Non-empty string._ <br>
@@ -536,7 +537,7 @@ A peer object (e.g., `peer0.org1.example.com`) can contain the following propert
             path: path/to/cert.pem
       ```
       </details>
-      
+
    *  <details><summary markdown="span">__pem__
       </summary>
       _Optional. Non-empty string._ <br>
@@ -570,7 +571,7 @@ A peer object (e.g., `peer0.org1.example.com`) can contain the following propert
 <details><summary markdown="span">__orderers__
 </summary>
 _Required. Non-empty object._ <br>
-Contains one or more, arbitrary but unique orderer names as keys, and each key has a corresponding object (sub-keys) that describes the properties of that orderer. The names will be used in other sections to reference an orderer. 
+Contains one or more, arbitrary but unique orderer names as keys, and each key has a corresponding object (sub-keys) that describes the properties of that orderer. The names will be used in other sections to reference an orderer.
 
 Can be omitted if only the start/end scripts are executed during benchmarking, or if discovery is enabled.
 
@@ -580,41 +581,41 @@ orderers:
     # properties of orderer
   orderer2.example.com:
     # properties of orderer
-``` 
+```
 
 An orderer object (e.g., `orderer1.example.com`) can contain the following properties.
 *  <details><summary markdown="span">__url__
    </summary>
    _Required. Non-empty URI string._ <br>
    The (local or remote) endpoint of the orderer to send the requests to. If TLS is configured, the protocol must be `grpcs://`, otherwise it must be `grpc://`.
-    
+
    ```yaml
    orderers:
      orderer1.example.com:
        url: grpcs://localhost:7050   
-   ``` 
+   ```
    </details>
 
 *  <details><summary markdown="span">__grpcOptions__
    </summary>
    _Optional. Object._ <br>
    The properties specified under this object set the gRPC settings used on connections to the Fabric network. See the available options in the [gRPC settings tutorial](https://fabric-sdk-node.github.io/master/tutorial-grpc-settings.html) of the Fabric SDK.
-   
+
    ```yaml
    orderers:
      orderer1.example.com:
        grpcOptions:
          ssl-target-name-override: orderer1.example.com
          grpc.keepalive_time_ms: 600000
-   ``` 
+   ```
    </details>
 
 *  <details><summary markdown="span">__tlsCACerts__
    </summary>
    _Required for TLS. Object._ <br>
-   Specifies the TLS certificate of the orderer for TLS communication. Forbidden to set for non-TLS communication. <br> 
+   Specifies the TLS certificate of the orderer for TLS communication. Forbidden to set for non-TLS communication. <br>
    > Must contain __at most one__ of the following keys.
-   
+
    *  <details><summary markdown="span">__path__
       </summary>
       _Optional. Non-empty string._ <br>
@@ -627,7 +628,7 @@ An orderer object (e.g., `orderer1.example.com`) can contain the following prope
             path: path/to/cert.pem
       ```
       </details>
-      
+
    *  <details><summary markdown="span">__pem__
       </summary>
       _Optional. Non-empty string._ <br>
@@ -717,9 +718,9 @@ An organization object (e.g., `Org1`) can contain the following properties.
 *  <details><summary markdown="span">__adminPrivateKey__
    </summary>
    _Optional. Object._ <br>
-   Specifies the admin private key for the organization. Required, if an initialization step requires admin signing capabilities (e.g., creating channels, installing/instantiating contracts, etc.). <br> 
+   Specifies the admin private key for the organization. Required, if an initialization step requires admin signing capabilities (e.g., creating channels, installing/instantiating contracts, etc.). <br>
    > Must contain __at most one__ of the following keys.
-   
+
    *  <details><summary markdown="span">__path__
       </summary>
       _Optional. Non-empty string._ <br>
@@ -732,7 +733,7 @@ An organization object (e.g., `Org1`) can contain the following properties.
             path: path/to/cert.pem
       ```
       </details>
-      
+
    *  <details><summary markdown="span">__pem__
       </summary>
       _Optional. Non-empty string._ <br>
@@ -765,9 +766,9 @@ An organization object (e.g., `Org1`) can contain the following properties.
 *  <details><summary markdown="span">__signedCert__
    </summary>
    _Optional. Object._ <br>
-   Specifies the admin certificate for the organization. Required, if an initialization step requires admin signing capabilities (e.g., creating channels, installing/instantiating contracts, etc.). <br> 
+   Specifies the admin certificate for the organization. Required, if an initialization step requires admin signing capabilities (e.g., creating channels, installing/instantiating contracts, etc.). <br>
    > Must contain __at most one__ of the following keys.
-   
+
    *  <details><summary markdown="span">__path__
       </summary>
       _Optional. Non-empty string._ <br>
@@ -780,7 +781,7 @@ An organization object (e.g., `Org1`) can contain the following properties.
             path: path/to/cert.pem
       ```
       </details>
-      
+
    *  <details><summary markdown="span">__pem__
       </summary>
       _Optional. Non-empty string._ <br>
@@ -843,7 +844,7 @@ The `client` property of a client object (e.g., `client0.org1.example.com`) can 
 > * Each client name __must__ correspond to one of the identities within the provided wallet. If you wish to specify an `Admin Client` then the naming convention is that of `admin.<orgname>`. If no explicit admin client is provided for an organisation, it is assumed that the first listed client for that organisation is associated with an administrative identity.
 
 > __Note:__ the following constraints apply when __a file wallet is not configured__:
-> * `credentialStore` is required. 
+> * `credentialStore` is required.
 > * The following set of properties are mutually exclusive:
 >   * `clientPrivateKey`/`clientSignedCert` (if one is set, then the other must be set too)
 >   * `affiliation`/`attributes` (if `attributes` is set, then `affiliation` must be set too)
@@ -880,7 +881,7 @@ The `client` property of a client object (e.g., `client0.org1.example.com`) can 
               path: path/to/store
       ```
       </details>
-    
+
    *  <details><summary markdown="span">__cryptoStore__
       </summary>
       _Required. Non-empty object._ <br>
@@ -906,9 +907,9 @@ The `client` property of a client object (e.g., `client0.org1.example.com`) can 
 *  <details><summary markdown="span">__clientPrivateKey__
    </summary>
    _Optional. Object._ <br>
-   Specifies the private key for the client identity. <br> 
+   Specifies the private key for the client identity. <br>
    > Must contain __at most one__ of the following keys.
-   
+
    *  <details><summary markdown="span">__path__
       </summary>
       _Optional. Non-empty string._ <br>
@@ -922,7 +923,7 @@ The `client` property of a client object (e.g., `client0.org1.example.com`) can 
               path: path/to/cert.pem
       ```
       </details>
-      
+
    *  <details><summary markdown="span">__pem__
       </summary>
       _Optional. Non-empty string._ <br>
@@ -956,9 +957,9 @@ The `client` property of a client object (e.g., `client0.org1.example.com`) can 
 *  <details><summary markdown="span">__clientSignedCert__
    </summary>
    _Optional. Object._ <br>
-   Specifies the certificate for the client identity. <br> 
+   Specifies the certificate for the client identity. <br>
    > Must contain __at most one__ of the following keys.
-   
+
    *  <details><summary markdown="span">__path__
       </summary>
       _Optional. Non-empty string._ <br>
@@ -972,7 +973,7 @@ The `client` property of a client object (e.g., `client0.org1.example.com`) can 
               path: path/to/cert.pem
       ```
       </details>
-      
+
    *  <details><summary markdown="span">__pem__
       </summary>
       _Optional. Non-empty string._ <br>
@@ -1032,13 +1033,13 @@ The `client` property of a client object (e.g., `client0.org1.example.com`) can 
    ```
 
    Each attribute has the following properties.
-   
+
    *  <details><summary markdown="span">__[item].name__
       </summary>
       _Required. Non-empty string._ <br>
       The unique name of the attribute in the collection.
       </details>
-   
+
    *  <details><summary markdown="span">__[item].value__
       </summary>
       _Required. String._ <br>
@@ -1069,7 +1070,7 @@ The `client` property of a client object (e.g., `client0.org1.example.com`) can 
    </summary>
    _Optional. Non-empty object._ <br>
    Specifies connection details for the client. Currently, it includes timeout values for different node services. Must contain the following key.
-   
+
    *  <details><summary markdown="span">__timeout__
       </summary>
       _Required. Non-empty object._ <br>
@@ -1085,8 +1086,8 @@ The `client` property of a client object (e.g., `client0.org1.example.com`) can 
          *  <details><summary markdown="span">__endorser__
             </summary>
             _Optional. Positive integer._ <br>
-            Timeout value in _seconds_ to use for peer requests. 
-            
+            Timeout value in _seconds_ to use for peer requests.
+
             ```yaml
             clients:
               client0.org1.example.com:
@@ -1096,12 +1097,12 @@ The `client` property of a client object (e.g., `client0.org1.example.com`) can 
                       endorser: 120
             ```
             </details>
-         
+
          *  <details><summary markdown="span">__eventhub__
             </summary>
             _Optional. Positive integer._ <br>
-            Timeout value in _seconds_ to use for waiting for registered events to occur. 
-            
+            Timeout value in _seconds_ to use for waiting for registered events to occur.
+
             ```yaml
             clients:
               client0.org1.example.com:
@@ -1111,12 +1112,12 @@ The `client` property of a client object (e.g., `client0.org1.example.com`) can 
                       eventHub: 120
             ```
             </details>
-          
+
          *  <details><summary markdown="span">__eventReg__
             </summary>
             _Optional. Positive integer._ <br>
-            Timeout value in _seconds_ to use when connecting to an event hub. 
-            
+            Timeout value in _seconds_ to use when connecting to an event hub.
+
             ```yaml
             clients:
               client0.org1.example.com:
@@ -1158,7 +1159,7 @@ channels:
     # properties of the channel
   yourchannel:
     # properties of the channel
-``` 
+```
 
 A channel object (e.g., `mychannel`) can contain the following properties.
 
@@ -1166,9 +1167,9 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    </summary>
    _Optional. Boolean._ <br>
    Indicates whether the channel already exists or not. If `true`, then the adapter will not try to create the channel again (which would fail). Defaults to `false`.
-   
+
    > __Note:__ when a channel needs to be created, either `configBinary` or `definition` must be set!
-   
+
    ```yaml
    channels:
      mychannel:
@@ -1180,9 +1181,9 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    </summary>
    _Optional. Non-empty string._ <br>
    If a channel doesn't exist yet, the adapter will create it based on the provided path of a channel configuration binary (which is typically the output of the [configtxgen](https://hyperledger-fabric.readthedocs.io/en/latest/commands/configtxgen.html) tool).
-   
+
    > __Note:__ if `created` is false, and the `definition` property is provided, then this property is forbidden.
-   
+
    ```yaml
    channels:
      mychannel:
@@ -1194,7 +1195,7 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    </summary>
    _Optional. Object._ <br>
    If a channel doesn't exist yet, the adapter will create it based on the provided channel definition, consisting of multiple properties.
-   
+
    ```yaml
    channels:
      mychannel:
@@ -1203,26 +1204,26 @@ A channel object (e.g., `mychannel`) can contain the following properties.
          consortium: SampleConsortium
          msps: ['Org1MSP', 'Org2MSP']
          version: 0
-   ``` 
-   
+   ```
+
    *  <details><summary markdown="span">__capabilities__
       </summary>
       _Required. Non-sparse array of strings._ <br>
       List of channel capabilities to include in the configuration transaction.
       </details>
-   
+
    *  <details><summary markdown="span">__consortium__
       </summary>
       _Required. Non-empty string._ <br>
       The name of the consortium.
       </details>
-   
+
    *  <details><summary markdown="span">__msps__
       </summary>
       _Required. Non-sparse array of unique strings._ <br>
       The MSP IDs of the organizations in the channel.
       </details>
-   
+
    *  <details><summary markdown="span">__version__
       </summary>
       _Required. Non-negative integer._ <br>
@@ -1234,21 +1235,21 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    </summary>
    _Optional. Non-spares array of unique strings._ <br>
    a list of orderer node names (from the top-level `orderers` section) that participate in the channel.
-   
+
    > __Note:__ if discovery is disabled, then this property is required!
-   
+
    ```yaml
    channels:
      mychannel:
        orderers: ['orderer1.example.com', 'orderer2.example.com']
-   ``` 
+   ```
    </details>
 
 *  <details><summary markdown="span">__peers__
    </summary>
    _Required. Object._ <br>
    Contains the peer node names as _properties_ (from the top-level `peers` section) that participate in the channel.
-   
+
    ```yaml
    channels:
      mychannel:
@@ -1261,15 +1262,15 @@ A channel object (e.g., `mychannel`) can contain the following properties.
            ledgerQuery: false
            eventSource: true
    ```
-   
+
    Each key is an object that can have the following properties.
-   
+
    *  <details><summary markdown="span">__endorsingPeer__
       </summary>
       _Optional. Boolean._ <br>
       Indicates whether the peer will be sent transaction proposals for endorsement. The peer must have the contract installed. Caliper can also use this property to decide which peers to send the contract install request. Default: true
       </details>
-    
+
    *  <details><summary markdown="span">__chaincodeQuery__
       </summary>
       _Optional. Boolean._ <br>
@@ -1292,10 +1293,10 @@ A channel object (e.g., `mychannel`) can contain the following properties.
 *  <details><summary markdown="span">__contracts__
    </summary>
    _Required. Non-sparse array of objects._ <br>
-   Each array element contains information about a contract in the channel. 
+   Each array element contains information about a contract in the channel.
 
    > __Note:__ the `contractID` value of __every__ contract in __every__ channel must be unique on the configuration file level! If `contractID` is not specified for a contract then its default value is the `id` of the contract.
-   
+
    ```yaml
    channels:
      mychannel:
@@ -1306,7 +1307,7 @@ A channel object (e.g., `mychannel`) can contain the following properties.
          # other properties of smallbank CC
    ```
    Some prorperties are required depending on whether a contract needs to be deployed. The following constraints apply:
-   > __Note:__ 
+   > __Note:__
    >
    > Constraints for installing contracts:
    > * if `metadataPath` is provided, `path` is also required
@@ -1315,7 +1316,7 @@ A channel object (e.g., `mychannel`) can contain the following properties.
    > Constraints for instantiating contracts:
    > * if any of the following properties are provided, `language` is also needed: `init`, `function`, `initTransientMap`, `collections-config`, `endorsement-policy`
    Each element can contain the following properties.
-   
+
    *  <details><summary markdown="span">__[item].id__
       </summary>
       _Required. Non-empty string._ <br>
@@ -1334,7 +1335,7 @@ A channel object (e.g., `mychannel`) can contain the following properties.
       </summary>
       _Required. Non-empty string._ <br>
       The version string of the contract.
-      
+
       ```yaml
       channels:
         mychannel:
@@ -1359,12 +1360,12 @@ A channel object (e.g., `mychannel`) can contain the following properties.
             # other properties
       ```
       </details>
-   
+
    *  <details><summary markdown="span">__[item].language__
       </summary>
       _Optional. Non-empty string._ <br>
       Denotes the language of the contract. Currently supported values: `golang`, `node` and `java`.
-      
+
       ```yaml
       channels:
         mychannel:
@@ -1455,7 +1456,7 @@ A channel object (e.g., `mychannel`) can contain the following properties.
       </summary>
       _Optional. Non-empty, non-sparse array of objects._ <br>
       List of private collection definitions for the contract or a path to the JSON file containing the definitions. For details about the content of such definitions, refer to the [SDK page](https://fabric-sdk-node.github.io/release-1.4/tutorial-private-data.html).
-      
+
       ```yaml
       channels:
         mychannel:

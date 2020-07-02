@@ -104,7 +104,7 @@ class MyWorkload extends WorkloadModuleInterface {
             // TX arguments for "mycontract"
         };
 
-        return this.sutAdapter.invokeSmartContract(this.sutContext, 'mycontract', 'v1', txArgs, 30);
+        return this.sutAdapter.invokeSmartContract('mycontract', 'v1', txArgs, 30);
     }
     
     async cleanupWorkloadModule() {
@@ -131,7 +131,7 @@ class MyWorkload extends WorkloadModuleBase {
             // TX arguments for "mycontract"
         };
 
-        return this.sutAdapter.invokeSmartContract(this.sutContext, 'mycontract', 'v1', txArgs, 30);
+        return this.sutAdapter.invokeSmartContract('mycontract', 'v1', txArgs, 30);
     }
 }
 

@@ -60,7 +60,7 @@ We will provide an example of the configuration and then we'll in deep key by ke
 }
 ```
 
-The top-level `caliper` attribute specifies the type of the blockchain platform, so Caliper can instantiate the appropriate adapter when it starts. To use this adapter, specify the `ethereum` value for the `blockchain` attribute. 
+The top-level `caliper` attribute specifies the type of the blockchain platform, so Caliper can instantiate the appropriate adapter when it starts. To use this adapter, specify the `ethereum` value for the `blockchain` attribute.
 
 Furthermore, it also contains two optional commands: a `start` command to execute once before the tests and an `end` command to execute once after the tests. Using these commands is an easy way, for example, to automatically start and stop a test network. When connecting to an already deployed network, you can omit these commands.
 
@@ -73,7 +73,7 @@ These are the keys to provide inside the configuration file under the `ethereum`
 * [Private Key](#benchmark-address-private-key) the private key of the benchmark address
 * [Password](#benchmark-address-password) to unlock the benchmark address
 * Number of [confirmation blocks](#confirmation-blocks) to wait to consider a transaction as successfully accepted in the chain
-* [Contracts configuration](#contracts-configuration)
+* [Contracts configuration](#contract-configuration)
 
 The following sections detail each part separately. For a complete example, please refer to the [example section](#connection-profile-example) or one of the example files in the `network/ethereum` directories
 
@@ -217,13 +217,13 @@ It is the gas required to deploy the contract. It can be easily calculated with 
 
 # Using the Adapter Interface
 
-The [user callback modules](./Architecture.md#user-defined-test-module) interact with the adapter at two phases of the tests: during the initialization of the user module (the `init` callback), and when submitting invoke or query transactions (the `run` callback).
+The [workload modules](./Workload_Module.md) interact with the adapter at two phases of the tests: during the initialization of the workload module (the `initializeWorkloadModule` function), and when submitting invoke or query transactions (the `submitTransaction` function).
 
-## The _init_ Callback
+## The _initializeWorkloadModule_ function
 
-The first argument of the `init` callback is a `blockchain` object. We will discuss it in the next section for the `run` callback.
+See the [corresponding documentation](./Workload_Module.md#initializeworkloadmodule) of the function for the description of its parameters.
 
-The second argument of the `init` callback is a `context`, which is a platform-specific object provided by the backend blockchain's adapter. The context object provided by this adapter is the following:
+The last argument of the function is a `sutContext` object, which is a platform-specific object provided by the backend blockchain's connector. The context object provided by this connector is the following:
 
 ```mson
 {
@@ -235,13 +235,13 @@ The second argument of the `init` callback is a `context`, which is a platform-s
 The `fromAddress` property is the [benchmark address](#benchmark-address) while web3 is the configured instance of the Web3js client.
 
 
-## The _run_ Callback
+## The _submitTransaction_ function
 
-The `blockchain` object received (and saved) in the `init` callback is of type `Blockchain` you can find in `packages/caliper-core/lib/blockchain.js`, and it wraps the adapter object (if you know what you are doing, it can be reached at the `blockchain.bcObj` property). The `blockchain.bcType` property has the `ethereum` string value.
+The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type [`BlockchainConnector`](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/core/blockchain-connector.js). Its `getType()` function returns the `ethereum` string value.
 
 ### Invoking a contract method
 
-To submit a transaction, call the `blockchain.invokeSmartContract` function. It takes five parameters: the previously saved `context` object, the `contractID` of the contract (that is the key specified [here](#contract-configuration)), an unused contract version (you can put whatever), the `invokeData` array with methods data and a `timeout` value in seconds that is currently unimplemented (the default web3js timeout is used).
+To submit a transaction, call the `sutAdapter.invokeSmartContract` function. It takes four parameters: the `contractID` of the contract (that is the key specified [here](#contract-configuration)), an unused contract version (you can put whatever), the `invokeData` array with methods data and a `timeout` value in seconds that is currently unimplemented (the default web3js timeout is used).
 
 The `invokeData` parameter can be a single or array of JSON, that must contain:
 * `verb`: _string. Required._ The name of the function to call on the contract.
@@ -256,15 +256,15 @@ let invokeData = [{
     args: ['baba', 900]
 }];
 
-return blockchain.invokeSmartContract(context, 'simple', '', invokeData, 60);
+return this.sutAdapter.invokeSmartContract('simple', '', invokeData, 60);
 ```
 
 Currently each method call inside `invokeData` is sent separately, that is, they are NOT sent as a batch of calls on RPC.
 
 ### Querying a contract
 
-To query a state on a contract state, call the `blockchain.querySmartContract` function that has exactly same arguments as the `blockchain.invokeSmartContract` function. The difference is that it can't produce any change on the blockchain and node will answer with its local view of data. For backward compatibility reasons also the `blockchain.queryState` is present. It takes five parameters: the previously saved `context` object, the `contractID` of the contract, an unused contract version, the `key` to request information on and `fcn` to point which function call on the contract. `fcn` function on the contract must accept exactly one parameter; the `key` string will be passed as that parameter. `fcn` can also be omitted and the adapter will search on the contract for a function called `query`.
-  
+To query a state on a contract state, call the `sutAdapter.querySmartContract` function that has exactly same arguments as the `sutAdapter.invokeSmartContract` function. The difference is that it can't produce any change on the blockchain and node will answer with its local view of data. For backward compatibility reasons also the `sutAdapter.queryState` is present. It takes four parameters: the `contractID` of the contract, an unused contract version, the `key` to request information on and `fcn` to point which function call on the contract. `fcn` function on the contract must accept exactly one parameter; the `key` string will be passed as that parameter. `fcn` can also be omitted and the adapter will search on the contract for a function called `query`.
+
   > Querying a value in a contract is always counted in the workload. So keep it in mind that if you think to query a value when executing a workload.
 
 Querying a contract looks like the following:
@@ -278,11 +278,11 @@ let queryData = [{
     args: ['baba']
 }];
 
-return blockchain.querySmartContract(context, 'pastryBalance', '', queryData, 60);
+let balance = await this.sutAdapter.querySmartContract('pastryBalance', '', queryData, 60);
 ```
 or
 ```js
-let balance = blockchain.queryState(context, 'simple', '', 'sfogliatella');
+let balance = await this.sutAdapter.queryState('simple', '', 'sfogliatella');
 ```
 assuming that `simple` contract has the `query` function that takes only one argument.
 
