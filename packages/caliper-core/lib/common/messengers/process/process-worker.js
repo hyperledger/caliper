@@ -14,9 +14,9 @@
 
 'use strict';
 
-const MessengerInterface = require('./messenger-interface');
-const Logger = require('../utils/caliper-utils').getLogger('mqtt-worker-messenger');
-const MessageHandler = require('../../worker/message-handler');
+const MessengerInterface = require('./../messenger-interface');
+const Logger = require('./../../utils/caliper-utils').getLogger('mqtt-worker-messenger');
+const MessageHandler = require('./../../../worker/message-handler');
 
 /**
  * Messenger that is based on a process
@@ -48,12 +48,14 @@ class ProcessWorkerMessenger extends MessengerInterface {
     }
 
     /**
-     * Send a message using the messenger
-     * @param {object} message the message to send
+     * Method used to publish message to worker clients
+     * @param {string[]} to string array of workers that the update is intended for
+     * @param {*} type the string type of the update
+     * @param {*} data data pertinent to the update type
      */
-    send(message) {
+    send(to, type, data) {
         // Convert to string and send
-        const msg = JSON.stringify(message);
+        const msg = JSON.stringify(super.assembleMessage(to, type, data));
         process.send(msg);
         Logger.debug(`${this.configuration.sut} worker sent message: ${msg}`);
     }
@@ -85,13 +87,4 @@ class ProcessWorkerMessenger extends MessengerInterface {
 
 }
 
-/**
- * Creates a new ProcessWorkerMessenger instance.
- * @param {object} messengerConfig the messenger configuration
- * @return {MqttMessenger} The ProcessWorkerMessenger instance.
- */
-function createMessenger(messengerConfig) {
-    return new ProcessWorkerMessenger(messengerConfig);
-}
-
-module.exports.createMessenger = createMessenger;
+module.exports = ProcessWorkerMessenger;

@@ -37,7 +37,7 @@ fi
 export CALIPER_PROJECTCONFIG=../caliper.yaml
 
 dispose () {
-    ${CALL_METHOD} launch manager --caliper-workspace phase7 --caliper-flow-only-end
+    ${CALL_METHOD} launch manager --caliper-workspace phase7 --caliper-flow-only-end --caliper-fabric-gateway-enabled
 }
 
 # PHASE 1: just starting the network

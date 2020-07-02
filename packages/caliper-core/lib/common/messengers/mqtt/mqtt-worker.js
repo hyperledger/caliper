@@ -14,10 +14,10 @@
 
 'use strict';
 
-const MessengerInterface = require('./messenger-interface');
-const Logger = require('../utils/caliper-utils').getLogger('mqtt-worker-messenger');
-const ConfigUtil = require('../config/config-util');
-const MessageHandler = require('../../worker/message-handler');
+const MessengerInterface = require('./../messenger-interface');
+const Logger = require('./../../utils/caliper-utils').getLogger('mqtt-worker-messenger');
+const ConfigUtil = require('./../../config/config-util');
+const MessageHandler = require('./../../../worker/message-handler');
 
 const mqtt = require('mqtt');
 
@@ -89,12 +89,14 @@ class MqttWorkerMessenger extends MessengerInterface {
     }
 
     /**
-     * Send a message using the messenger
-     * @param {object} message the message to send
+     * Method used to publish message to worker clients
+     * @param {string[]} to string array of workers that the update is intended for
+     * @param {*} type the string type of the update
+     * @param {*} data data pertinent to the update type
      */
-    send(message) {
+    send(to, type, data) {
         // Convert to string and send
-        const msg = JSON.stringify(message);
+        const msg = JSON.stringify(super.assembleMessage(to, type, data));
         this.mqttClient.publish('worker/update', msg);
         Logger.debug(`${this.configuration.sut} worker published message: ${msg}`);
     }
@@ -142,13 +144,4 @@ class MqttWorkerMessenger extends MessengerInterface {
 
 }
 
-/**
- * Creates a new MqttWorkerMessenger instance.
- * @param {object} messengerConfig the messenger configuration
- * @return {MqttMessenger} The MqttWorkerMessenger instance.
- */
-function createMessenger(messengerConfig) {
-    return new MqttWorkerMessenger(messengerConfig);
-}
-
-module.exports.createMessenger = createMessenger;
+module.exports = MqttWorkerMessenger;

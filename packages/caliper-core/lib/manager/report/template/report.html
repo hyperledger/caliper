@@ -1,0 +1,225 @@
+<!doctype html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script>
+    function plotChart(divId, chartData) {
+        // Convert from stringified html, to valid JSON
+        const chartDetails = JSON.parse(chartData.replace(/&quot;/g,'"'));
+        new Chart(document.getElementById(divId), {
+            type: chartDetails.type,
+            data: {
+                labels: chartDetails.labels,
+                datasets: chartDetails.datasets
+            },
+            options: {
+                legend: { display: chartDetails.legend },
+                title: {
+                    display: true,
+                    text: chartDetails.title
+                }
+            }
+        });
+    }
+</script>
+<html>
+<head>
+    <title>Hyperledger Caliper Report</title>
+    <meta charset="UTF-8"/>
+    <style type="text/css">
+        .left-column {
+            position: fixed;
+            width:20%;
+        }
+        .left-column ul {
+            display: block;
+            padding: 0;
+            list-style: none;
+            border-bottom: 1px solid #d9d9d9;
+            font-size: 14px;
+        }
+        .left-column h2{
+            font-size: 24px;
+            font-weight: 400;
+            margin-block-end: 0.5em;
+        }
+        .left-column h3{
+            font-size: 18px;
+            font-weight: 400;
+            margin-block-end: 0.5em;
+        }
+        .left-column li{
+            margin-left: 10px;
+            margin-bottom: 5px;
+            color: #5e6b73;
+        }
+        .right-column {
+            margin-left: 22%;
+            width:60%;
+        }
+        .right-column table {
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        .right-column h2{
+            font-weight: 400;
+        }
+        .right-column h3{
+            font-weight: 400;
+        }
+        .right-column h4 {
+            font-weight: 400;
+            margin-block-end: 0;
+        }
+        .right-column th {
+            border-width: 1px;
+            font-size: small;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #f2f2f2;
+        }
+        .right-column td {
+            border-width: 1px;
+            font-size: small;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #ffffff;
+            font-weight: 400;
+        }
+        .tag {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+        }
+        pre {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+            overflow:auto;
+            max-height:300px;
+            font-size:12px;
+        }
+        .charting {
+            display:flex;
+            flex-direction:row;
+            flex-wrap: wrap;
+            page-break-inside: auto;
+        }
+        .chart {
+            display:flex;
+            flex:1;
+            max-width: 50%;
+        }
+    </style>
+</head>
+<body style="font-family: IBM Plex Sans; font-weight: 200;">
+    <main>
+        <div class="left-column">
+            <img src="https://hyperledger.github.io/caliper/assets/img/hyperledger_caliper_logo_color.png" style="width:95%;" alt="">
+            <ul>
+                <h3>&nbspBasic information</h3>
+                {{#summary.meta}}
+                <li>{{name}}: &nbsp<span style="font-weight: 500;">{{value}}</span></li>
+                {{/summary.meta}}
+                <li><a href="#benchmarkInfo">Details</a></li>
+            </ul>
+            <ul>
+                <h3>&nbspBenchmark results</h3>
+                <li><a href="#benchmarksummary">Summary</a></li>
+                {{#tests}}
+                    <li><a href="#{{label}}">{{label}}</a></li>
+                {{/tests}}
+            </ul>
+            <ul>
+                <h3>&nbspSystem under test</h3>
+                {{#sut.meta}}
+                <li>{{name}}: &nbsp<span style="font-weight: 500;">{{value}}</span></li>
+                {{/sut.meta}}
+                <li><a href="#sutdetails">Details</a></li>
+            </ul>
+        </div>
+
+        <div class="right-column">
+            <h1 style="padding-top: 3em; font-weight: 500;">Caliper report</h1>
+            <div style="border-bottom: 1px solid #d9d9d9; margin-bottom: 10px;" id="benchmarksummary">
+                {{#summary}}
+                <table style="min-width: 100%;">
+                    <h3>Summary of performance metrics</h3>
+                    <tr>
+                        {{#head}} <th>{{.}}</th>{{/head}}
+                    </tr>
+
+                    {{#results}}
+                    <tr>
+                        {{#result}} <td>{{.}}</td>{{/result}}
+                    </tr>
+                    {{/results}}
+                </table>
+                {{/summary}}
+            </div>
+            {{#tests}}
+            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;" id="{{label}}">
+                <h2>Benchmark round: {{label}}</h2>
+                <p>{{description}}</p>
+                <pre style="overflow: visible;white-space: pre-wrap;max-height:100%;">{{config}}</pre>
+                    {{#rounds}}
+                        <h3>Performance metrics for {{label}}</h3>
+                        {{#performance}}
+                            <table style="min-width: 100%;">
+                                <tr>
+                                    {{#head}} <th>{{.}}</th>{{/head}}
+                                </tr>
+                                <tr>
+                                    {{#result}} <td>{{.}}</td>{{/result}}
+                                </tr>
+                            </table>
+                        {{/performance}}
+                        <h3>Resource utilization for {{label}}</h3>
+                        {{#resources}}
+                            <h4>Resource monitor: {{monitor}}</h4>
+                            <table style="min-width: 100%;">
+                                <tr>
+                                <table>
+                                    <tr>
+                                        {{#head}} <th>{{.}}</th>{{/head}}
+                                    </tr>
+                                    {{#results}}
+                                    <tr>
+                                        {{#result}} <td>{{.}}</td>{{/result}}
+                                    </tr>
+                                    {{/results}}
+                                </table>
+                                </tr>
+                            </table>
+                            <div class="charting">
+                                {{#charts}}
+                                <div class="chart">
+                                    <canvas id="{{chart-id}}">
+                                        <script>plotChart("{{chart-id}}", "{{chart-data}}")</script>
+                                    </canvas>
+                                </div>
+                                {{/charts}}
+                            </div>
+                        {{/resources}}
+                    {{/rounds}}
+            </div>
+
+            {{/tests}}
+            <div style="border-bottom: 1px solid #d9d9d9; padding-bottom: 10px;">
+                <h2>Test Environment</h2>
+                <h3>benchmark config</h3>
+                <pre id="benchmarkInfo" style="overflow: visible;white-space: pre-wrap;max-height:100%;">{{benchmarkInfo}}</pre>
+                <h3>SUT</h3>
+                <pre id="sutdetails">{{sut.details}}</pre>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

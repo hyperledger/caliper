@@ -70,6 +70,26 @@ class MessengerInterface {
     }
 
     /**
+     * Assemble the complete message content with metadata
+     * @param {string[]} to string array of workers that the update is intended for
+     * @param {string} type the type of the update
+     * @param {object} data data pertinent to the update type
+     * @return {object} the assembled message.
+     */
+    assembleMessage(to, type, data) {
+        // Augment data object with type
+        data.type = type;
+
+        // Create complete message
+        return {
+            to,
+            from: this.getUUID(),
+            timestamp: new Date().toISOString(),
+            data
+        };
+    }
+
+    /**
      * Logs and throws a "not implemented" error for the given function.
      * @param {string} functionName The name of the function.
      * @private

@@ -22,6 +22,20 @@ const yaml = require('js-yaml');
 const loggingUtil = require('./logging-util.js');
 const Config = require('../config/config-util');
 
+const BuiltinConnectors = new Map([
+    ['burrow', '@hyperledger/caliper-burrow'],
+    ['ethereum', '@hyperledger/caliper-ethereum'],
+    ['fabric', '@hyperledger/caliper-fabric'],
+    ['fisco-bcos', '@hyperledger/caliper-fisco-bcos'],
+    ['iroha', '@hyperledger/caliper-iroha'],
+    ['sawtooth', '@hyperledger/caliper-sawtooth']
+]);
+
+const BuiltinMessengers = new Map([
+    ['process', path.join(__dirname, './../messengers/process/factory.js')],
+    ['mqtt', path.join(__dirname, './../messengers/mqtt/factory.js')]
+]);
+
 /**
  * Internal Utility class for Caliper
  */
@@ -81,14 +95,15 @@ class CaliperUtils {
      * @return {Map<string, string>} The mapping from simple names to package names.
      */
     static getBuiltinConnectorPackageNames() {
-        return new Map([
-            ['burrow', '@hyperledger/caliper-burrow'],
-            ['ethereum', '@hyperledger/caliper-ethereum'],
-            ['fabric', '@hyperledger/caliper-fabric'],
-            ['fisco-bcos', '@hyperledger/caliper-fisco-bcos'],
-            ['iroha', '@hyperledger/caliper-iroha'],
-            ['sawtooth', '@hyperledger/caliper-sawtooth']
-        ]);
+        return BuiltinConnectors;
+    }
+
+    /**
+     * Get the mapping of simple builtin messenger names to fully qualified factory paths.
+     * @return {Map<string, string>} The mapping from simple names to factory paths.
+     */
+    static getBuiltinMessengers() {
+        return BuiltinMessengers;
     }
 
     /**

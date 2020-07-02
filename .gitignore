@@ -3,7 +3,7 @@
 # Ignore any generated html files, but include the report html template
 *.html
 
-!/packages/caliper-core/lib/master/report/template/report.html
+!/packages/caliper-core/lib/manager/report/template/report.html
 
 # Ignore DS_Store files from Mac
 **.DS_Store
