@@ -341,7 +341,7 @@ class CaliperWorker {
 
         try {
             // Retrieve context for this round
-            this.context = await this.connector.getContext(test.label, test.clientArgs);
+            this.context = await this.connector.getContext(this.currentRoundIndex, test.clientArgs);
             if (typeof this.context === 'undefined') {
                 this.context = {
                     engine : {

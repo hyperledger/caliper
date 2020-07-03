@@ -59,6 +59,7 @@ class SawtoothConnector extends BlockchainConnector {
         this.currentBlockNum = 0;
         this.currentEndpoint = 0;
         this.restURL = this.getRESTUrl();
+        this.context = undefined;
     }
 
     /**
@@ -84,13 +85,13 @@ class SawtoothConnector extends BlockchainConnector {
     /**
      * Return the Sawtooth context
      * Nothing to do now
-     * @param {string} name Unused.
+     * @param {Number} roundIndex The zero-based round index of the test.
      * @param {object} args Unused.
      * @return {Promise} The return promise.
      */
-    async getContext(name, args) {
-        let context = this.config.sawtooth.context;
-        if (typeof context === 'undefined') {
+    async getContext(roundIndex, args) {
+        this.context = this.config.sawtooth.context;
+        if (typeof this.context === 'undefined') {
             const validatorUrl = this.config.sawtooth.network.validator.url;
             if (validatorUrl === null) {
                 logger.error('Error: Validator url is missing!!!');
@@ -113,12 +114,12 @@ class SawtoothConnector extends BlockchainConnector {
                     }
                 });
             });
-            context = {
+            this.context = {
                 stream,
                 restURL: this.restURL
             };
         }
-        return context;
+        return this.context;
     }
 
     /**
@@ -126,34 +127,34 @@ class SawtoothConnector extends BlockchainConnector {
      * @param {object} context Sawtooth context to be released.
      * @return {Promise} The return promise.
      */
-    releaseContext(context) {
-        return this.unsubscribe(context.stream);
+    async releaseContext(context) {
+        await this.unsubscribe(this.context.stream);
+        this.context = undefined;
     }
 
     /**
      * Invoke the given smart contract according to the specified options.
-     * @param {object} context Sawtooth context
      * @param {string} contractID The identity of the contract.
      * @param {string} contractVer The version of the contract.
      * @param {Array} args array of JSON formatted arguments for multiple transactions
      * @param {number} timeout The timeout to set for the execution in seconds.
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    async invokeSmartContract(context, contractID, contractVer, args, timeout) {
+    async invokeSmartContract(contractID, contractVer, args, timeout) {
         try {
             const builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer, this.config, this.workspaceRoot);
             const batchBytes = builder.buildBatch(args);
-            if (context.engine) {
-                context.engine.submitCallback(args.length);
+            if (this.context.engine) {
+                this.context.engine.submitCallback(args.length);
             }
             //Get the next block number and status of block to pending
             if (this.currentBlockNum === 0) {
-                const block_num = await SawtoothHelper.getCurrentBlockId(context.restURL);
+                const block_num = await SawtoothHelper.getCurrentBlockId(this.context.restURL);
                 this.currentBlockNum = block_num + 1;
             } else {
                 this.currentBlockNum = this.currentBlockNum + 1;
             }
-            const batchStats = await this.submitBatches(this.currentBlockNum, batchBytes, context.restURL, timeout * 1000);
+            const batchStats = await this.submitBatches(this.currentBlockNum, batchBytes, this.context.restURL, timeout * 1000);
 
             const txStats = [];
             for (let i = 0 ; i < args.length ; i++) {
@@ -176,14 +177,13 @@ class SawtoothConnector extends BlockchainConnector {
 
     /**
      * Query state according to given name
-     * @param {object} context Sawtooth context
      * @param {string} contractID The identity of the smart contract.
      * @param {string} contractVer The version of the smart contract.
      * @param {string} queryName Lookup name
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    queryState(context, contractID, contractVer, queryName) {
-        return this.queryByContext(context, contractID, contractVer, queryName, this.workspaceRoot);
+    queryState(contractID, contractVer, queryName) {
+        return this.queryByContext(this.context, contractID, contractVer, queryName, this.workspaceRoot);
     }
 
     // ****************************
@@ -241,7 +241,7 @@ class SawtoothConnector extends BlockchainConnector {
      * @return {void}
      */
     unsubscribe(stream1) {
-        stream1.send(
+        return stream1.send(
             Message.MessageType.CLIENT_EVENTS_UNSUBSCRIBE_REQUEST,
             ClientEventsUnsubscribeRequest.encode({
             }).finish())

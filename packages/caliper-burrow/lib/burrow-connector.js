@@ -113,14 +113,15 @@ class BurrowConnector extends BlockchainConnector {
 
     /**
      * Return the Burrow context associated with the given callback module name.
-     * @param {string} name The name of the callback module as defined in the configuration files.
+     * @param {number} roundIndex The zero-based round index of the test.
      * @param {object} args Unused.
      * @return {object} The assembled Burrow context.
      * @async
      */
-    async getContext(name, args) {
+    async getContext(roundIndex, args) {
         let context = this.config.burrow.context;
         if (typeof context === 'undefined') {
+            const self = this;
             let connection = burrowConnect(this.config);
             let burrow = new burrowTS.Burrow(connection.url, connection.account);
             let contractMetaData = JSON.parse(fs.readFileSync(CaliperUtils.resolvePath(this.config.contract.path)).toString());
@@ -133,6 +134,7 @@ class BurrowConnector extends BlockchainConnector {
                         let address=result.getData();
                         let  contract = new burrowTS.Contract(contractMetaData.Abi,contractMetaData.Evm.Bytecode.Object,address,burrow);
                         context = { account: connection.account, address: address,contract:contract, burrow: burrow };
+                        self.config.burrow.context = context;
                         resolve(context);
                     }
                 });
@@ -148,38 +150,35 @@ class BurrowConnector extends BlockchainConnector {
 
     /**
      * Release the given Burrow context.
-     * @param {object} context The Burrow context to release.
      * @async
      */
-    async releaseContext(context) {
+    async releaseContext() {
         // nothing to do
     }
     /**
      * Query state from the ledger using a smart contract
-     * @param {Object} context context object
      * @param {String} contractID identity of the contract
      * @param {String} contractVer version of the contract
      * @param {Array} args array of JSON formatted arguments
      * @param {Number} timeout request timeout, in seconds
      * @return {Promise} query response object
      */
-    async querySmartContract(context, contractID, contractVer, args, timeout) {
+    async querySmartContract(contractID, contractVer, args, timeout) {
         let promises = [];
         args.forEach((item, index) => {
-            promises.push(this.doInvoke(context, contractID, contractVer, item, timeout));
+            promises.push(this.doInvoke(this.config.burrow.context, contractID, contractVer, item, timeout));
         });
         return await Promise.all(promises);
     }
     /**
    * Invoke a smart contract.
-   * @param {Object} context Context object.
    * @param {String} contractID Identity of the contract.
    * @param {String} contractVer Version of the contract.
    * @param {Object | Array<Object>} invokeData eg {'verb':'invoke','funName': 'getInt','funArgs': []}
    * @param {Number} timeout Request timeout, in seconds.
    * @return {Promise<object>} The promise for the result of the execution.
    */
-    async invokeSmartContract(context, contractID, contractVer, invokeData, timeout) {
+    async invokeSmartContract(contractID, contractVer, invokeData, timeout) {
         let promises = [];
         let invocations;
         if (!Array.isArray(invokeData)) {
@@ -189,7 +188,7 @@ class BurrowConnector extends BlockchainConnector {
         }
         invocations.forEach((item, index) => {
             if (item.verb==='transfer') {
-                promises.push(this.acccountTransfer(context, item, timeout));
+                promises.push(this.acccountTransfer(this.config.burrow.context, item, timeout));
             } else if(item.verb==='invoke'){
                 if (!item.hasOwnProperty('funName')) {
                     return Promise.reject(new Error(' missed argument:funName '));
@@ -197,7 +196,7 @@ class BurrowConnector extends BlockchainConnector {
                 if (!item.hasOwnProperty('funArgs')) {
                     return Promise.reject(new Error(' missed argument:funArgs '));
                 }
-                promises.push(this.doInvoke(context, contractID, contractVer, item, timeout));
+                promises.push(this.doInvoke(this.config.burrow.context, contractID, contractVer, item, timeout));
             }
         });
         return await Promise.all(promises);
@@ -275,22 +274,21 @@ class BurrowConnector extends BlockchainConnector {
 
     /**
      * Query the given smart contract according to the specified options.
-     * @param {object} context The Burrow context returned by {getContext}.
      * @param {string} contractID The name of the contract.
      * @param {string} contractVer The version of the contract.
      * @param {string} key The argument to pass to the smart contract query.
      * @param {string} [fcn=query] The contract query function name.
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    async queryState(context, contractID, contractVer, key, fcn = 'query') {
+    async queryState(contractID, contractVer, key, fcn = 'query') {
         let status = new TxStatus();
-        if (context.engine) {
-            context.engine.submitCallback(1);
+        if (this.config.burrow.context.engine) {
+            this.config.burrow.context.engine.submitCallback(1);
         }
         return new Promise(function (resolve, reject) {
             let getAccountParam=new burrowTS.rpcquery.GetAccountParam();
-            getAccountParam.setAddress(Buffer.from(context.address, 'hex'));
-            context.burrow.qc.getAccount(getAccountParam, function (error, data) {
+            getAccountParam.setAddress(Buffer.from(this.config.burrow.context.address, 'hex'));
+            this.config.burrow.context.burrow.qc.getAccount(getAccountParam, function (error, data) {
                 if (error) {
                     status.SetStatusFail();
                     reject(error);

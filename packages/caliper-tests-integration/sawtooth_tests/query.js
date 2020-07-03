@@ -66,7 +66,7 @@ class SmallbankQueryWorkload extends WorkloadModuleBase {
         const account  = this._getAccount();
         Logger.debug(`Worker ${this.workerIndex} TX args: ${account}`);
         // NOTE: the query API is inconsistent with the invoke API
-        return this.sutAdapter.queryState(this.sutContext, 'smallbank', '1.0', account);
+        return this.sutAdapter.queryState('smallbank', '1.0', account);
     }
 }
 
