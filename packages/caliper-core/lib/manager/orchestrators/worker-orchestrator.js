@@ -19,7 +19,6 @@ const childProcess = require('child_process');
 
 const CaliperUtils = require('../../common/utils/caliper-utils');
 const ConfigUtils = require('../../common/config/config-util');
-const Messenger = require('../../common/messaging/messenger');
 
 const logger = CaliperUtils.getLogger('worker-orchestrator');
 
@@ -61,8 +60,10 @@ class WorkerOrchestrator {
         this.results = [];              // cumulative results
 
         // Messenger information
-        const type = `${ConfigUtils.get(ConfigUtils.keys.Worker.Communication.Method)}-manager`;
-        this.messenger = new Messenger({type});
+        let messagingMethod = ConfigUtils.get(ConfigUtils.keys.Worker.Communication.Method);
+        const messengerFactory = CaliperUtils.loadModuleFunction(CaliperUtils.getBuiltinMessengers(), messagingMethod,
+            'createManagerMessenger', require);
+        this.messenger = messengerFactory({type: `${messagingMethod}-manager`});
         this.messengerConfigured = false;
         this.workerPollingInterval = ConfigUtils.get(ConfigUtils.keys.Worker.PollInterval);
 

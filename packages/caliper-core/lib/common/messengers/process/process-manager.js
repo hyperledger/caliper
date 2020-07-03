@@ -14,8 +14,8 @@
 
 'use strict';
 
-const MessengerInterface = require('./messenger-interface');
-const Logger = require('../utils/caliper-utils').getLogger('process-manager-messenger');
+const MessengerInterface = require('./../messenger-interface');
+const Logger = require('./../../utils/caliper-utils').getLogger('process-manager-messenger');
 
 
 /**
@@ -69,12 +69,14 @@ class ProcessManagerMessenger extends MessengerInterface {
     }
 
     /**
-     * Send a message using the messenger
-     * @param {object} message the message to send
+     * Method used to publish message to worker clients
+     * @param {string[]} to string array of workers that the update is intended for
+     * @param {*} type the string type of the update
+     * @param {*} data data pertinent to the update type
      */
-    send(message) {
+    send(to, type, data) {
         // Convert to string and send
-        const msg = JSON.stringify(message);
+        const msg = JSON.stringify(super.assembleMessage(to, type, data));
         for (const workerProcess of this.workerProcesses) {
             workerProcess.send(msg);
             Logger.debug(`Sent message: ${msg}`);
@@ -83,13 +85,4 @@ class ProcessManagerMessenger extends MessengerInterface {
 
 }
 
-/**
- * Creates a new ProcessManagerMessenger instance.
- * @param {object} messengerConfig the messenger configuration
- * @return {ProcessManagerMessenger} The ProcessManagerMessenger instance.
- */
-function createMessenger(messengerConfig) {
-    return new ProcessManagerMessenger(messengerConfig);
-}
-
-module.exports.createMessenger = createMessenger;
+module.exports = ProcessManagerMessenger;

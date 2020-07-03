@@ -2,7 +2,7 @@
 
 # Ignore any generated html files, but include the report html template
 *.html
-!/lib/master/report/template/report.html
+!/lib/manager/report/template/report.html
 
 # Ignore DS_Store files from Mac
 **.DS_Store
