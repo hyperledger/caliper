@@ -44,9 +44,9 @@ jobs:
     - name: FISCO-BCOS integration test
       if: type = pull_request OR repo != hyperledger/caliper
       script: BENCHMARK=fisco-bcos ./.travis/benchmark-integration-test-direct.sh
-#    - name: Generator integration test
-#      if: type = pull_request OR repo != hyperledger/caliper
-#      script: BENCHMARK=generator ./.travis/benchmark-integration-test-direct.sh
+    - name: Generator integration test
+      if: type = pull_request OR repo != hyperledger/caliper
+      script: BENCHMARK=generator ./.travis/benchmark-integration-test-direct.sh
     - name: Iroha integration test
       if: type = pull_request
       script: BENCHMARK=iroha ./.travis/benchmark-integration-test-direct.sh

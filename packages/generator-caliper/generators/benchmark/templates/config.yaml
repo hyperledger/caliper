@@ -23,8 +23,14 @@ test:
   - label: <%= label %>
     contractId: <%= contractId %>
     <%= txType %>: <%= txValue %>
-    rateControl: { type: <%= rateController %>, opts: { <%= opts %> } }
-    callback: benchmarks/callbacks/<%= callback %>
+    rateControl: 
+      type: <%= rateController %>
+      opts: { <%= opts %> }
+    workload:
+      module: benchmarks/workloads/<%= workload %>
+      arguments:
+        contractId: <%= contractId %>
+        contractVersion: <%= contractVersion %>
 monitor:
   type:
   - none

@@ -42,7 +42,7 @@ module.exports = class extends Generator {
      */
     async configuring() {
         const { subgenerator } = this.options;
-        this.log(`You can also run the ${subgenerator} generator using: yo caliper:${subgenerator}\n`);
+        this.log(`You can also run the ${subgenerator} generator using: yo @hyperledger/caliper:${subgenerator}\n`);
         this.composeWith(require.resolve(`../${subgenerator}`));
     }
 };

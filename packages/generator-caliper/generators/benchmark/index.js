@@ -14,40 +14,40 @@
 
 'use strict';
 
-let Generator = require('yeoman-generator');
+const Generator = require('yeoman-generator');
+const camelcase = require('camelcase');
 
 const defaultTxValue = 50;
 const defaultClientValue = 5;
 const answersObject = {};
 
-let promptAnswers, workspaceAnswers, callbackAnswers, inititalAnswers, clientAnswer, roundAnswers, txValueAnswer;
+let promptAnswers;
+
 module.exports = class extends Generator {
     /**
      * Prompts questions about the benchmark generator settings.
      * @async
      */
     async prompting () {
-        this.log('Welcome to the Hyperledger Caliper benchmark generator!\nLet\'s start off by creating a workspace folder!');
-
         const workspaceQuestions = [{
             type: 'input',
             name: 'workspace',
-            message: 'What would you like to call your workspace?',
+            message: 'What would you like to name your workspace?',
             when: () => !this.options.workspace
         }];
-        workspaceAnswers = await this.prompt(workspaceQuestions);
+        const workspaceAnswers = await this.prompt(workspaceQuestions);
 
-        this.log('Now for the callback file...');
-        const callbackQuestions = [{
+        this.log('For the workload file...');
+        const workloadQuestions = [{
             type: 'input',
             name: 'contractId',
             message: 'What is the name of your smart contract?',
             when: () => !this.options.contractId
         }, {
             type: 'input',
-            name: 'version',
+            name: 'contractVersion',
             message: 'What is the version of your smart contract?',
-            when: () => !this.options.version
+            when: () => !this.options.contractVersion
         }, {
             type: 'input',
             name: 'contractFunction',
@@ -59,18 +59,18 @@ module.exports = class extends Generator {
             message: 'What are the arguments of your smart contract function? (e.g. ["arg1", "arg2"])',
             when: () => !this.options.contractArguments
         }];
-        callbackAnswers = await this.prompt(callbackQuestions);
+        const workloadAnswers = await this.prompt(workloadQuestions);
 
-        if (callbackAnswers.contractArguments) {
+        if (workloadAnswers.contractArguments) {
             try {
-                JSON.parse(callbackAnswers.contractArguments);
+                JSON.parse(workloadAnswers.contractArguments);
             } catch (error) {
                 this.log('Error: Incorrect array format. Using empty array for arguments. Defaulting to \'[]\' for arguments');
             }
         }
 
-        this.log('Now for the benchmark configuration file...');
-        const configQuestions = {
+        this.log('For the benchmark configuration file...');
+        const benchmarkQuestions = {
             initialQuestions: [{
                 type: 'input',
                 name: 'benchmarkName',
@@ -131,9 +131,9 @@ module.exports = class extends Generator {
             }]
         };
 
-        inititalAnswers = await this.prompt(configQuestions.initialQuestions);
+        const inititalAnswers = await this.prompt(benchmarkQuestions.initialQuestions);
 
-        clientAnswer = await this.prompt(configQuestions.clientQuestions);
+        const clientAnswer = await this.prompt(benchmarkQuestions.clientQuestions);
         if (isNaN(parseFloat(this.options.workers)) && isNaN(parseFloat(clientAnswer.workers))) {
             this.log(`Error: Not a valid input. Using default client value of ${defaultClientValue}.`);
         }
@@ -141,10 +141,11 @@ module.exports = class extends Generator {
             this.log(`Error: Negative values not accepted. Defaulting to ${Math.abs(clientAnswer.workers)}.`);
         }
 
-        roundAnswers = await this.prompt(configQuestions.roundQuestions);
+        const roundAnswers = await this.prompt(benchmarkQuestions.roundQuestions);
 
+        let txValueAnswer;
         if (roundAnswers.txType === 'txDuration') {
-            txValueAnswer = await this.prompt(configQuestions.txDurationQuestion);
+            txValueAnswer = await this.prompt(benchmarkQuestions.txDurationQuestion);
             if (isNaN(parseFloat(txValueAnswer.txDuration))) {
                 this.log(`Error: Not a valid input. Using default txDuration value of ${defaultTxValue}.`);
             }
@@ -153,7 +154,7 @@ module.exports = class extends Generator {
             }
         }
         if (roundAnswers.txType === 'txNumber') {
-            txValueAnswer = await this.prompt(configQuestions.txNumberQuestion);
+            txValueAnswer = await this.prompt(benchmarkQuestions.txNumberQuestion);
             if (isNaN(parseFloat(txValueAnswer.txNumber))) {
                 this.log(`Error: Not a valid input. Using default txNumber value of ${defaultTxValue}.`);
             }
@@ -162,19 +163,20 @@ module.exports = class extends Generator {
             }
         }
 
-        Object.assign(this.options, workspaceAnswers, callbackAnswers, inititalAnswers, clientAnswer, roundAnswers, txValueAnswer);
+        Object.assign(this.options, workspaceAnswers, workloadAnswers, inititalAnswers, clientAnswer, roundAnswers, txValueAnswer);
         promptAnswers = this.options;
     }
 
     /**
-     * Creates the workload module file/callback.
+     * Creates the workload module file/workload.
      * @private
      */
-    _callbackWrite() {
+    _workloadWrite() {
         answersObject.contractId = promptAnswers.contractId;
-        answersObject.version = promptAnswers.version;
+        answersObject.contractVersion = promptAnswers.contractVersion;
         answersObject.contractFunction = promptAnswers.contractFunction;
-        answersObject.callback = `${ promptAnswers.contractFunction }.js`;
+        answersObject.workload = `${ promptAnswers.contractFunction }.js`;
+        answersObject.pascalCase = camelcase(promptAnswers.contractFunction, { pascalCase: true });
 
         const argsString = promptAnswers.contractArguments;
         if (!argsString) {
@@ -191,8 +193,8 @@ module.exports = class extends Generator {
         }
 
         this.fs.copyTpl(
-            this.templatePath('callback.js'),
-            this.destinationPath(`${ promptAnswers.workspace }/benchmarks/callbacks/${ answersObject.callback }`), answersObject
+            this.templatePath('workload.js'),
+            this.destinationPath(`${ promptAnswers.workspace }/benchmarks/workloads/${ answersObject.workload }`), answersObject
         );
     }
 
@@ -227,7 +229,6 @@ module.exports = class extends Generator {
             }
         }
 
-
         if (promptAnswers.txType === 'txNumber') {
             if (isNaN(promptAnswers.txNumber)) {
                 answersObject.txValue = defaultTxValue;
@@ -250,7 +251,7 @@ module.exports = class extends Generator {
      */
     async writing () {
         console.log('Generating benchmark files...');
-        this._callbackWrite();
+        this._workloadWrite();
         answersObject.rateController = promptAnswers.rateController;
 
         switch(promptAnswers.rateController) {

@@ -5,6 +5,6 @@ A [Yeoman](http://yeoman.io) generator for scaffolding Hyperledger Caliper resou
 
 ## Getting started
 * Install: npm install -g @hyperledger/generator-caliper
-* Run: yo caliper
+* Run: yo @hyperledger/caliper
 
 See the [documentation](https://hyperledger.github.io/caliper/vNext/benchmark-generator) for more information.
