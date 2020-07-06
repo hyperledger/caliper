@@ -29,7 +29,7 @@ describe('fixedBacklog controller implementation', () => {
 
         let msg = {totalClients: 1};
         let opts = {
-            unfinished_per_client: 30,
+            transaction_load: 30,
             startingTps: 10
         };
 
@@ -43,7 +43,7 @@ describe('fixedBacklog controller implementation', () => {
         it('should set the sleep time for a single client if no clients are specified and the startingTps is not specified', () => {
             let msg = {};
             let opts = {
-                unfinished_per_client: 30
+                transaction_load: 90
             };
             controller = new FixedBacklog.createRateController(opts);
             controller.init(msg);
@@ -58,7 +58,7 @@ describe('fixedBacklog controller implementation', () => {
 
         it('should set the sleep time for a multiple clients it the startingTps is not specified', () => {
             let opts = {
-                unfinished_per_client: 30
+                transaction_load: 30
             };
             controller = new FixedBacklog.createRateController(opts);
             controller.init(msg);
@@ -68,13 +68,13 @@ describe('fixedBacklog controller implementation', () => {
         it('should set a default transaction backlog for multiple clients if not specified', () => {
             controller = new FixedBacklog.createRateController({});
             controller.init(msg);
-            controller.unfinished_per_client.should.equal(10);
+            controller.unfinished_per_worker.should.equal(10);
         });
 
         it('should set the transaction backlog for multiple clients if specified', () => {
             controller = new FixedBacklog.createRateController(opts);
             controller.init(msg);
-            controller.unfinished_per_client.should.equal(30);
+            controller.unfinished_per_worker.should.equal(30);
         });
 
     });
@@ -83,7 +83,7 @@ describe('fixedBacklog controller implementation', () => {
 
         let sleepStub;
         let opts = {
-            unfinished_per_client: 30,
+            transaction_load: 30,
             startingTps: 10
         };
 
@@ -93,7 +93,7 @@ describe('fixedBacklog controller implementation', () => {
 
             controller = new FixedBacklog.createRateController(opts);
             controller.sleepTime = 1000;
-            controller.unfinished_per_client = 30;
+            controller.unfinished_per_worker = 30;
         });
 
         it('should sleep if resultStats.length < 2', async () => {

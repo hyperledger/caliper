@@ -27,7 +27,7 @@ describe('fixedFeedbackRate controller implementation', () => {
         let controller;
         let opts = {
             tps: 100,
-            unfinished_per_client: 100
+            maximum_transaction_load: 100
         };
 
         beforeEach(() => {
@@ -46,7 +46,7 @@ describe('fixedFeedbackRate controller implementation', () => {
             let msg = {};
             let opts = {
                 tps: 0,
-                unfinished_per_client: 100
+                maximum_transaction_load: 100
             };
             controller = new FixedFeedbackRate.createRateController(opts);
 
@@ -82,17 +82,17 @@ describe('fixedFeedbackRate controller implementation', () => {
             controller.sleep_time.should.equal(100);
         });
 
-        it ('should set the transaction backlog for multiple clients if specified', () => {
-            let msg = {totalClients: 1};
+        it ('should set the transaction backlog for multiple workers if specified', () => {
+            let msg = {totalClients: 2};
             controller.init(msg);
-            controller.unfinished_per_client.should.equal(100);
+            controller.unfinished_per_worker.should.equal(50);
         });
 
-        it ('should set a default transaction backlog for multiple clients if not specified', () => {
+        it ('should set a default transaction backlog for multiple workers if not specified', () => {
             controller = new FixedFeedbackRate.createRateController({});
             let msg = {totalClients: 1};
             controller.init(msg);
-            controller.unfinished_per_client.should.equal(7000);
+            controller.unfinished_per_worker.should.equal(100);
         });
 
         it ('should set zero_succ_count to 0', () => {
@@ -114,8 +114,8 @@ describe('fixedFeedbackRate controller implementation', () => {
 
         let opts = {
             tps: 100,
-            unfinished_per_client: 100
-        }
+            maximum_transaction_load: 100
+        };
 
         beforeEach(() => {
             clock = sinon.useFakeTimers();
@@ -123,7 +123,7 @@ describe('fixedFeedbackRate controller implementation', () => {
             FixedFeedbackRate.__set__('util.sleep', sleepStub);
 
             controller = new FixedFeedbackRate.createRateController(opts);
-            controller.unfinished_per_client = 100;
+            controller.maximum_transaction_load = 100;
             controller.sleepTime = 50;
             controller.sleep_time = 100;
             controller.zero_succ_count = 0;
@@ -145,7 +145,7 @@ describe('fixedFeedbackRate controller implementation', () => {
             sinon.assert.notCalled(sleepStub);
         });
 
-        it ('should not sleep if id < unfinished_per_client', () => {
+        it ('should not sleep if id < maximum_transaction_load', () => {
             let start = 0;
             let idx = 50;
             let resultStats = [
@@ -212,7 +212,7 @@ describe('fixedFeedbackRate controller implementation', () => {
                     succ: 0, fail: 1
                 }
             ];
-            controller.unfinished_per_client = 2;
+            controller.maximum_transaction_load = 2;
             controller.sleepTime = 1;
             controller.total_sleep_time = 2;
 
@@ -235,7 +235,7 @@ describe('fixedFeedbackRate controller implementation', () => {
                 }
             ];
 
-            controller.unfinished_per_client = 2;
+            controller.unfinished_per_worker = 2;
             controller.sleepTime = 1;
             controller.total_sleep_time = 2;
 

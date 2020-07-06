@@ -60,7 +60,9 @@ class FixedFeedbackRateController extends RateInterface{
         this.sleepTime = (tpsPerClient > 0) ? 1000/tpsPerClient : 0;
 
         this.sleep_time = this.options.sleep_time ? this.options.sleep_time : 100;
-        this.unfinished_per_client = this.options.unfinished_per_client ? this.options.unfinished_per_client : 7000;
+
+        const maximumLoad = this.options.maximum_transaction_load ? parseInt(this.options.maximum_transaction_load) : 100;
+        this.unfinished_per_worker = msg.totalClients ? (maximumLoad / msg.totalClients) : maximumLoad;
         this.zero_succ_count = 0;
 
         this.total_sleep_time = 0;
@@ -75,7 +77,7 @@ class FixedFeedbackRateController extends RateInterface{
      * @async
     */
     async applyRateControl(start, idx, recentResults, resultStats) {
-        if(this.sleepTime === 0 || idx < this.unfinished_per_client) {
+        if(this.sleepTime === 0 || idx < this.unfinished_per_worker) {
             return;
         }
 
@@ -92,7 +94,7 @@ class FixedFeedbackRateController extends RateInterface{
         let stats = resultStats[0];
         let unfinished = idx - (stats.succ + stats.fail);
 
-        if(unfinished < this.unfinished_per_client / 2) {
+        if(unfinished < this.unfinished_per_worker / 2) {
             return;
         }
         // Determines the sleep time for waiting until
@@ -112,7 +114,7 @@ class FixedFeedbackRateController extends RateInterface{
         // Determines the sleep time according to the current number of
         // unfinished transactions with the configure one.
         for(let i = 10; i > 0; --i) {
-            if(unfinished >= i * this.unfinished_per_client) {
+            if(unfinished >= i * this.unfinished_per_worker) {
                 this.total_sleep_time += i * this.sleep_time;
                 await util.sleep(i * this.sleep_time);
                 return;
