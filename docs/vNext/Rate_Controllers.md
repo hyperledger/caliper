@@ -48,16 +48,16 @@ The fixed-feedback-rate controller can be specified by setting the rate controll
 
 Controller options include:
 - `tps`: the rate at which transactions are cumulatively sent to the SUT by all workers
-- `unfinished_per_client`: the unfinished transaction count at which workers will pause sending transactions
+- `maximum_transaction_load`: the maximum transaction load on the SUT at which workers will pause sending further transactions
 
-The fixed feedback rate controller, driving at 100 TPS, 100 unfinished transactions for each worker, is specified through the following controller option:
+The fixed feedback rate controller, driving at 100 TPS, with a maximum transaction load of 100 on the SUT, is specified through the following controller option:
 
 ```json
 {
   "type": "fixed-feedback-rate",
   "opts": {
       "tps" : 100,
-      "unfinished_per_client": 100
+      "maximum_transaction_load": 100
   }
 }
 ```
@@ -70,15 +70,15 @@ The fixed-backlog controller can be specified by setting the rate controller `ty
 
 Controller options include:
 - `startingTps`: the initial rate at which transactions are cumulatively sent to the SUT by all workers
-- `unfinished_per_client`: the unfinished transaction count that each worker will seek to maintain 
+- `transaction_load`: the number of transactions being processed by the SUT that is to be maintained
 
-The fixed backlog controller, targeting a backlog of 5 transactions with a starting TPS of 100, is specified through the following controller option:
+The fixed backlog controller, aiming to maintain a SUT transaction load of 5, with a starting TPS of 100, is specified through the following controller option:
 
 ```json
 {
   "type": "fixed-backlog",
   "opts": {
-    "unfinished_per_client": 5,
+    "transaction_load": 5,
     "startingTps": 100
   }
 }
