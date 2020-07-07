@@ -34,7 +34,7 @@ class FixedBacklog extends RateInterface {
 
     /**
      * Initialise the rate controller with a passed msg object
-     * - Only requires the desired cnumber of unfinished transactions per client
+     * - Only requires the desired number of unfinished transactions per worker, derived from the total load and number of workers
      * @param {object} msg Client options with adjusted per-client load settings.
      * @param {string} msg.type The type of the message. Currently always 'test'
      * @param {string} msg.label The label of the round.
@@ -62,7 +62,8 @@ class FixedBacklog extends RateInterface {
         }
         const tpsPerClient = msg.totalClients ? (tps / msg.totalClients) : tps;
         this.sleepTime = 1000/tpsPerClient;
-        this.unfinished_per_client = this.options.unfinished_per_client ? parseInt(this.options.unfinished_per_client) : 10;
+        const transactionLoad = this.options.transaction_load ? parseInt(this.options.transaction_load) : 10;
+        this.unfinished_per_worker = msg.totalClients ? (transactionLoad / msg.totalClients) : transactionLoad;
     }
 
     /**
@@ -85,11 +86,11 @@ class FixedBacklog extends RateInterface {
         const completeTransactions = resultStats[0].length + currentResults.length; // work from all processed results: resultStats[0]=all processed result stats
         let unfinished = idx - completeTransactions;
 
-        const targetBacklogError = unfinished - this.unfinished_per_client;
+        const targetTransactionLoad = unfinished - this.unfinished_per_worker;
 
         // Shortcut if we are below the target threshold and need to increase the loading
-        if (targetBacklogError < 0) {
-            Logger.debug('Difference between current and desired transaction backlog: ' + targetBacklogError);
+        if (targetTransactionLoad < 0) {
+            Logger.debug('Difference between current and desired transaction loading: ' + targetTransactionLoad);
             return;
         }
 
@@ -104,12 +105,12 @@ class FixedBacklog extends RateInterface {
         // Determine the required sleep to reduce the backlog ( deltaTXN * 1/TPS = sleep in seconds to build the desired txn load)
         let sleepTime = 0;
         if (tps !== 0) {
-            sleepTime = targetBacklogError * 1000 / tps;
+            sleepTime = targetTransactionLoad * 1000 / tps;
         } else {
-            sleepTime = targetBacklogError * this.sleepTime;
+            sleepTime = targetTransactionLoad * this.sleepTime;
         }
 
-        Logger.debug('Difference between current and desired transaction backlog: ' + targetBacklogError);
+        Logger.debug('Difference between current and desired transaction backlog: ' + targetTransactionLoad);
         await Sleep(sleepTime);
     }
 

@@ -32,7 +32,7 @@ test:
               money: 10000
     - label: query
       txNumber: 200
-      rateControl: { type: 'fixed-feedback-rate', opts: { tps: 10, unfinished_per_client: 5 } }
+      rateControl: { type: 'fixed-feedback-rate', opts: { tps: 10, maximum_transaction_load: 5 } }
       workload:
           module: ./query.js
           arguments:
