@@ -432,7 +432,7 @@ describe('Class: ConfigValidator', () => {
         });
     });
 
-    describe('Function: _validateTopLevel', () => {
+    describe.only('Function: _validateTopLevel', () => {
         // good practice for auto complete and easy backup
         let config = {
             name: 'Fabric',
@@ -2375,7 +2375,7 @@ describe('Class: ConfigValidator', () => {
                     hasOrgWallet = true;
                     delete config.client.credentialStore;
                     config.client.affiliation = 'aff';
-                    call.should.throw(err);
+                    call(false).should.throw(err);
                 });
 
                 it('should not throw for setting it without client materials', () => {

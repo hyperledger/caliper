@@ -39,7 +39,7 @@ class FabricNetwork {
 
         this.network = undefined;
         if (typeof networkConfig === 'string') {
-            // resolve path will by default use the known workspace root
+            // resolvePath() will by default use the known workspace root
             const configPath = CaliperUtils.resolvePath(networkConfig);
             this.network = CaliperUtils.parseYaml(configPath);
         } else if (typeof networkConfig === 'object' && networkConfig !== null) {
@@ -914,8 +914,8 @@ class FabricNetwork {
 
 
     /**
-     * Return the name of the first client in the named organisation
-     * @param {string} org the organisation name
+     * Return the name of the first client in the named organization
+     * @param {string} org the organization name
      * @returns {string} the client name
      */
     getFirstClientInOrg(org) {
