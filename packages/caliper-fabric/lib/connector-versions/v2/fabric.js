@@ -126,13 +126,11 @@ class Fabric extends BlockchainConnector {
     /**
      * Initializes the Fabric adapter.
      * @param {object} networkObject The parsed network configuration.
-     * @param {string} workspace_root The absolute path to the root location for the application configuration files.
      * @param {number} workerIndex the worker index
      * @param {string} bcType The target SUT type
      */
-    constructor(networkObject, workspace_root, workerIndex, bcType) {
+    constructor(networkObject, workerIndex, bcType) {
         super(workerIndex, bcType);
-        this.workspaceRoot = workspace_root;
         this.version = new Version(require('../connector-versions/v1/node_modules/fabric-client/package').version);
 
         // clone the object to prevent modification by other objects
@@ -165,7 +163,7 @@ class Fabric extends BlockchainConnector {
         this.configClientBasedLoadBalancing = ConfigUtil.get(ConfigUtil.keys.Fabric.LoadBalancing, 'client') === 'client';
         this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountQueryAsLoad, true);
 
-        this.networkUtil = new FabricNetwork(this.network, workspace_root);
+        this.networkUtil = new FabricNetwork(this.network);
         this.defaultInvoker = Array.from(this.networkUtil.getClients())[0];
 
         // NOTE: regardless of the version of the Fabric backend, the SDK must be at least v1.1.0 in order to
@@ -582,7 +580,7 @@ class Fabric extends BlockchainConnector {
      */
     _getChannelConfigFromFile(channelObject, channelName) {
         // extracting the config from the binary file
-        const binaryPath = CaliperUtils.resolvePath(channelObject.configBinary, this.workspaceRoot);
+        const binaryPath = CaliperUtils.resolvePath(channelObject.configBinary);
         let envelopeBytes;
 
         try {
@@ -924,7 +922,7 @@ class Fabric extends BlockchainConnector {
      */
     async _installContracts() {
         if (this.configOverwriteGopath) {
-            process.env.GOPATH = CaliperUtils.resolvePath('.', this.workspaceRoot);
+            process.env.GOPATH = CaliperUtils.resolvePath('.');
         }
 
         const errors = [];
@@ -999,7 +997,7 @@ class Fabric extends BlockchainConnector {
                     /** @{ChaincodeInstallRequest} */
                     const request = {
                         targets: orgPeerTargets,
-                        chaincodePath: ccObject.language === 'golang' ? ccObject.path : CaliperUtils.resolvePath(ccObject.path, this.workspaceRoot),
+                        chaincodePath: ccObject.language === 'golang' ? ccObject.path : CaliperUtils.resolvePath(ccObject.path),
                         chaincodeId: ccObject.id,
                         chaincodeVersion: ccObject.version,
                         chaincodeType: ccObject.language,
@@ -1009,7 +1007,7 @@ class Fabric extends BlockchainConnector {
                     // metadata (like CouchDB indices) are only supported since Fabric v1.1
                     if (CaliperUtils.checkProperty(ccObject, 'metadataPath')) {
                         if (!this.networkUtil.isInCompatibilityMode()) {
-                            request.metadataPath = CaliperUtils.resolvePath(ccObject.metadataPath, this.workspaceRoot);
+                            request.metadataPath = CaliperUtils.resolvePath(ccObject.metadataPath);
                         } else {
                             throw new Error(`Installing ${contractInfo.id}@${contractInfo.version} with metadata is not supported in Fabric v1.0`);
                         }

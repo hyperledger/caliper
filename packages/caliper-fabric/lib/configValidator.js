@@ -14,6 +14,9 @@
 
 'use strict';
 
+const CaliperUtils = require('@hyperledger/caliper-core').CaliperUtils;
+const Logger = CaliperUtils.getLogger('config-validator');
+
 const j = require('@hapi/joi');
 
 /**
@@ -28,6 +31,7 @@ class ConfigValidator {
      * @param {boolean} gateway Indicates whether gateway mode is configured or not.
      */
     static validateNetwork(config, flowOptions, discovery, gateway) {
+        Logger.debug('Entering validateNetwork');
 
         // Current limitation is that default Caliper transactions do not work with discovery, since full network knowledge is required; it is required to use a gateway
         if (discovery && !gateway) {
@@ -51,7 +55,7 @@ class ConfigValidator {
         // see the lines: "tls = ... || nodeUrl.startsWith(...);"
 
         // can't validate mutual TLS now
-        ConfigValidator._validateTopLevel(config, flowOptions, discovery, gateway, tls);
+        ConfigValidator._validateTopLevel(config, flowOptions, discovery, tls);
 
         // validate CA section
         let cas = [];
@@ -112,12 +116,22 @@ class ConfigValidator {
             }
         }
 
+        // validate organizationWallets section
+        if (config.organizationWallets) {
+            try {
+                ConfigValidator.validateOrganizationWallets(config.organizationWallets, orgs);
+            } catch (err) {
+                throw new Error(`Invalid organizationWallets configuration : ${err.message}`);
+            }
+        }
+
         // validate client section
         if (config.clients) {
             const clients = Object.keys(config.clients);
             for (const client of clients) {
                 try {
-                    ConfigValidator.validateClient(config.clients[client], orgs, config.wallet !== undefined);
+                    const hasOrgWallet = config.hasOwnProperty('organizationWallets') && Object.keys(config.organizationWallets).includes(config.clients[client].client.organization);
+                    ConfigValidator.validateClient(config.clients[client], orgs, hasOrgWallet);
                 } catch (err) {
                     throw new Error(`Invalid "${client}" client configuration: ${err.message}`);
                 }
@@ -139,7 +153,8 @@ class ConfigValidator {
         }
 
         // now we can validate mutual TLS
-        ConfigValidator._validateTopLevel(config, flowOptions, discovery, gateway, tls);
+        ConfigValidator._validateTopLevel(config, flowOptions, discovery, tls);
+        Logger.debug('Exiting validateNetwork');
     }
 
     /**
@@ -147,16 +162,16 @@ class ConfigValidator {
      * @param {object} config The network configuration object.
      * @param {object} flowOptions Contains the flow control options for Caliper.
      * @param {boolean} discovery Indicates whether discovery is configured or not.
-     * @param {boolean} gateway Indicates whether gateway mode is configured or not.
      * @param {boolean} tls Indicates whether TLS is enabled or known at this point.
      * @private
      */
-    static _validateTopLevel(config, flowOptions, discovery, gateway, tls) {
+    static _validateTopLevel(config, flowOptions, discovery, tls) {
+        Logger.debug(`Entering _validateTopLevel with discovery "${discovery}" and tls "${tls}"`);
         // some utility vars for the sake of readability
         const onlyScript = !flowOptions.performInit && !flowOptions.performInstall && !flowOptions.performTest;
 
         // to dynamically call the modifier functions
-        const modif = onlyScript ? 'optional' : 'required';
+        const scriptModif = onlyScript ? 'optional' : 'required';
         const ordererModif = (onlyScript || discovery) ? 'optional' : 'required';
 
         // if server TLS is explicitly disabled, can't enable mutual TLS
@@ -167,7 +182,6 @@ class ConfigValidator {
             name: j.string().min(1).required(),
             version: j.string().valid('1.0').required(),
             'mutual-tls': j.boolean().valid(mutualTlsValid).optional(),
-            wallet: j.string().min(1).optional(),
             caliper: j.object().keys({
                 blockchain: j.string().valid('fabric').required(),
                 command: j.object().keys({
@@ -176,13 +190,14 @@ class ConfigValidator {
                 }).or('start', 'end').optional(),
             }).required(),
             info: j.object().optional(),
-
+            // organizationWallets is an optional array of wallet objects to be used by clients
+            organizationWallets: j.object().optional(),
             // complicated parts with custom keys
-            clients: j.object()[modif](), // only required for full workflow
-            channels: j.object()[modif](), // only required for full workflow
-            organizations: j.object()[modif](), // only required for full workflow
+            clients: j.object()[scriptModif](), // only required for full workflow
+            channels: j.object()[scriptModif](), // only required for full workflow
+            organizations: j.object()[scriptModif](), // only required for full workflow
             orderers: j.object()[ordererModif](), // only required for full workflow without discovery
-            peers: j.object()[modif](), // only required for full workflow
+            peers: j.object()[scriptModif](), // only required for full workflow
             certificateAuthorities: j.object().optional()
         });
 
@@ -194,6 +209,7 @@ class ConfigValidator {
         if (result.error) {
             throw result.error;
         }
+        Logger.debug('Exiting validateNetwork');
     }
 
     /**
@@ -207,6 +223,7 @@ class ConfigValidator {
      * @param {boolean} discovery Indicates whether discovery is configured or not.
      */
     static validateChannel(config, validOrderers, validPeers, validMspIds, takenContractIds, flowOptions, discovery) {
+        Logger.debug('Entering validateChannel');
         // ugly hack, but there are too many declarative conditional modifiers otherwise
         const created = typeof config.created === 'boolean' ? config.created : false;
         const binary = !!config.configBinary;
@@ -359,6 +376,7 @@ class ConfigValidator {
         if (result.error) {
             throw result.error;
         }
+        Logger.debug('Exiting validateChannel');
     }
 
     /**
@@ -368,6 +386,7 @@ class ConfigValidator {
      * @param {string} requireRegistrar Indicates whether a registrar is optional or required.
      */
     static validateCertificateAuthority(config, tls, requireRegistrar) {
+        Logger.debug('Entering validateCertificateAuthority');
         const urlRegex = tls === undefined ? /^(https|http):\/\// : (tls ? /^https:\/\// : /^http:\/\//);
 
         const schema = j.object().keys({
@@ -400,6 +419,7 @@ class ConfigValidator {
         if (result.error) {
             throw result.error;
         }
+        Logger.debug('Exiting validateCertificateAuthority');
     }
 
     /**
@@ -409,6 +429,7 @@ class ConfigValidator {
      * @param {boolean} eventUrl Indicates whether other peers specified event URLs or not.
      */
     static validatePeer(config, tls, eventUrl) {
+        Logger.debug(`Entering validatePeer with tls "${tls}" and eventUrl "${eventUrl}"`);
         const urlRegex = tls === undefined ? /^(grpcs|grpc):\/\// : (tls ? /^grpcs:\/\// : /^grpc:\/\//);
         const eventModif = eventUrl === undefined ? 'optional' : (eventUrl ? 'required' : 'forbidden');
 
@@ -442,6 +463,7 @@ class ConfigValidator {
         if (result.error) {
             throw result.error;
         }
+        Logger.debug('Exiting validatePeer');
     }
 
     /**
@@ -450,6 +472,7 @@ class ConfigValidator {
      * @param {boolean} tls Indicates whether TLS is enabled or known at this point.
      */
     static validateOrderer(config, tls) {
+        Logger.debug(`Entering validateOrderer with tls "${tls}"`);
         const urlRegex = tls === undefined ? /^(grpcs|grpc):\/\// : (tls ? /^grpcs:\/\// : /^grpc:\/\//);
 
         const schema = j.object().keys({
@@ -475,6 +498,7 @@ class ConfigValidator {
         if (result.error) {
             throw result.error;
         }
+        Logger.debug('Exiting validateOrderer');
     }
 
     /**
@@ -484,6 +508,7 @@ class ConfigValidator {
      * @param {string[]} validCAs The array of valid CA names.
      */
     static validateOrganization(config, validPeers, validCAs) {
+        Logger.debug('Entering validateOrganization');
         const schema = j.object().keys({
             mspid: j.string().min(1).required(),
             // optional: to include orderer admin clients, and orderer org must be added, which doesn't have peers
@@ -513,17 +538,56 @@ class ConfigValidator {
         if (result.error) {
             throw result.error;
         }
+        Logger.debug('Exiting validateOrganization');
+    }
+
+    /**
+     * Validates the given organization wallet configuration object.
+     * @param {object} config The configuration object.
+     * @param {string[]} validOrgs The valid organizations
+     */
+    static validateOrganizationWallets(config, validOrgs) {
+        Logger.debug('Entering validateOrganizationWallets');
+
+        const options = {
+            abortEarly: false,
+            allowUnknown: false
+        };
+
+        const organizationWallets = Object.keys(config);
+        for (const organizationWallet of organizationWallets) {
+            // Valid key
+            let schema = j.string().valid(validOrgs);
+            let result = j.validate(organizationWallet, schema, options);
+            if (result.error) {
+                throw result.error;
+            }
+
+            // Valid object
+            const walletObject = config[organizationWallet];
+            schema = j.object().keys({
+                path: j.string().min(1).required(),
+            });
+
+            result = j.validate(walletObject, schema, options);
+            if (result.error) {
+                throw result.error;
+            }
+        }
+
+        Logger.debug('Exiting validateOrganizationWallets');
     }
 
     /**
      * Validates the given client configuration object.
      * @param {object} config The configuration object.
      * @param {string[]} validOrgs The array of valid organization names.
-     * @param {boolean} wallet Indicates whether a wallet is configured.
+     * @param {boolean} hasOrgWallet flag for presence of wallet for client organization
      */
-    static validateClient(config, validOrgs, wallet) {
-        const walletModif = wallet ? 'forbidden' : 'optional';
-        const credModif = wallet ? 'forbidden' : 'required';
+    static validateClient(config, validOrgs, hasOrgWallet) {
+        Logger.debug(`Entering validateClient with validOrgs ${JSON.stringify(validOrgs)} and hasOrgWallet "${hasOrgWallet}"`);
+        const walletModif = hasOrgWallet ? 'forbidden' : 'optional';
+        const credModif = hasOrgWallet ? 'forbidden' : 'required';
 
         let clientSchema = j.object().keys({
             organization: j.string().valid(validOrgs).required(),
@@ -566,7 +630,7 @@ class ConfigValidator {
             }).optional()
         });
 
-        if (!wallet) {
+        if (!hasOrgWallet) {
             // additional constraints for the different "client init" methods without wallet
             // 1) registration and enrollment specified, attributes require affiliation
             // 2) static credentials provided, must be set together
@@ -590,6 +654,7 @@ class ConfigValidator {
         if (result.error) {
             throw result.error;
         }
+        Logger.debug('Exiting validateClient');
     }
 }
 

@@ -14,8 +14,7 @@
 
 'use strict';
 
-const rewire = require('rewire');
-const ConfigValidator = rewire('../lib/configValidator.js');
+const ConfigValidator = require('../lib/configValidator.js');
 
 const chai = require('chai');
 chai.should();
@@ -439,7 +438,6 @@ describe('Class: ConfigValidator', () => {
             name: 'Fabric',
             version: '1.0',
             'mutual-tls': false,
-            wallet: '/path',
             caliper: {
                 blockchain: 'fabric',
                 command: { start: 'start command', end: 'end command' }
@@ -462,7 +460,7 @@ describe('Class: ConfigValidator', () => {
          * Wraps the actual call, so "should" can call this function without parameters
          */
         function call() {
-            ConfigValidator._validateTopLevel(config, flowOptions, discovery, gateway, tls);
+            ConfigValidator._validateTopLevel(config, flowOptions, discovery, tls);
         }
 
         it('should not throw for a valid value', () => {
@@ -548,23 +546,29 @@ describe('Class: ConfigValidator', () => {
             });
         });
 
-        describe(prop('wallet'), () => {
+        describe(prop('organizationWallets'), () => {
             it('should not throw for missing optional property', () => {
-                delete config.wallet;
                 call.should.not.throw();
             });
 
-            it('should throw for an empty string value', () => {
-                const err = 'child "wallet" fails because ["wallet" is not allowed to be empty, "wallet" length must be at least 1 characters long]';
-                config.wallet = '';
+            it('should not throw for a correctly defined object', () => {
+                config.organizationWallets = {
+                    org0: {
+                        path : 'myWalletPath'
+                    },
+                    org1: {
+                        path : 'myOtherWalletPath'
+                    }
+                };
+                call.should.not.throw();
+            });
+
+            it('should throw for a non-object value', () => {
+                const err = 'child "organizationWallets" fails because ["organizationWallets" must be an object]';
+                config.organizationWallets = 'yes';
                 call.should.throw(err);
             });
 
-            it('should throw for a non-string value', () => {
-                const err = 'child "wallet" fails because ["wallet" must be a string]';
-                config.wallet = true;
-                call.should.throw(err);
-            });
         });
 
         describe(prop('caliper'), () => {
@@ -1771,6 +1775,89 @@ describe('Class: ConfigValidator', () => {
         });
     });
 
+    describe('Function: validateOrganizationWallets', () => {
+        let config = {
+            org0: {
+                path : 'myWalletPath'
+            },
+            org1: {
+                path : 'myOtherWalletPath'
+            }
+        };
+
+        const validOrgs = ['org0', 'org1'];
+        const configString = JSON.stringify(config);
+
+
+        // reset the config before every test
+        beforeEach(() => {
+            config = JSON.parse(configString);
+        });
+
+        /**
+         * Wraps the actual call, so "should" can call this function without parameters
+         */
+        function call() {
+            ConfigValidator.validateOrganizationWallets(config, validOrgs);
+        }
+
+        it('should not throw for a valid value', () => {
+            call.should.not.throw();
+        });
+
+        it('should throw for an invalid org name', () => {
+            const err = '"value" must be one of [org0, org1]';
+            config = {
+                org0: {
+                    path : 'myWalletPath'
+                },
+                orgNotHere: {
+                    path : 'myOtherWalletPath'
+                }
+            };
+            call.should.throw(err);
+        });
+
+        it('should throw for a missing path', () => {
+            const err = 'child "path" fails because ["path" is required]';
+            config = {
+                org0: {},
+                org1: {
+                    path : 'myOtherWalletPath'
+                }
+            };
+            call.should.throw(err);
+        });
+
+        it('should throw for a non-string value for the path', () => {
+            const err = 'child "path" fails because ["path" must be a string]';
+            config = {
+                org0: {
+                    path : 1
+                },
+                org1: {
+                    path : 'myOtherWalletPath'
+                }
+            };
+            call.should.throw(err);
+        });
+
+        it('should throw for invalid additional items within the object', () => {
+            const err = 'child "path" fails because ["path" must be a string]. "aNumber" is not allowed';
+            config = {
+                org0: {
+                    path : 1,
+                    aNumber : 1
+                },
+                org1: {
+                    path : 'myOtherWalletPath'
+                }
+            };
+            call.should.throw(err);
+        });
+
+    });
+
     describe('Function: validateClient', () => {
         let config = {
             client: {
@@ -1801,14 +1888,14 @@ describe('Class: ConfigValidator', () => {
                 // other properties are added during the tests
             }
         };
-        const configString = JSON.stringify(config);
 
-        let wallet = false;
+        const configString = JSON.stringify(config);
+        let hasOrgWallet = false;
 
         // reset the config before every test
         beforeEach(() => {
+            hasOrgWallet = false;
             config = JSON.parse(configString);
-            wallet = false;
         });
 
         /**
@@ -1816,7 +1903,7 @@ describe('Class: ConfigValidator', () => {
          */
         function call() {
             ConfigValidator.validateClient(config,
-                ['Org1', 'Org2'], wallet);
+                ['Org1', 'Org2'], hasOrgWallet);
         }
 
         it('should not throw for a valid value', () => {
@@ -1871,16 +1958,19 @@ describe('Class: ConfigValidator', () => {
 
             it('should throw if no credential options are set when not using a wallet', () => {
                 const err = 'child "client" fails because ["value" must contain at least one of [affiliation, enrollmentSecret, clientSignedCert]]';
+                delete config.client.affiliation;
                 delete config.client.clientPrivateKey;
                 delete config.client.clientSignedCert;
+                hasOrgWallet = false;
                 call.should.throw(err);
             });
 
             it('should not throw if no credential options are set when using a wallet', () => {
-                wallet = true;
+                delete config.client.affiliation;
                 delete config.client.clientPrivateKey;
                 delete config.client.clientSignedCert;
                 delete config.client.credentialStore;
+                hasOrgWallet = true;
                 call.should.not.throw();
             });
 
@@ -1918,10 +2008,10 @@ describe('Class: ConfigValidator', () => {
                 });
 
                 it('should throw for property when using a wallet', () => {
-                    const err = 'child "client" fails because [child "credentialStore" fails because ["credentialStore" is not allowed]]';
-                    wallet = true;
                     delete config.client.clientPrivateKey;
                     delete config.client.clientSignedCert;
+                    const err = 'child "client" fails because [child "credentialStore" fails because ["credentialStore" is not allowed]]';
+                    hasOrgWallet = true;
                     call.should.throw(err);
                 });
 
@@ -1989,7 +2079,7 @@ describe('Class: ConfigValidator', () => {
             describe(prop('clientPrivateKey'), () => {
                 it('should throw for property when using a wallet', () => {
                     const err = 'child "client" fails because [child "clientPrivateKey" fails because ["clientPrivateKey" is not allowed]]';
-                    wallet = true;
+                    hasOrgWallet = true;
                     delete config.client.credentialStore;
                     delete config.client.clientSignedCert;
                     call.should.throw(err);
@@ -2060,7 +2150,7 @@ describe('Class: ConfigValidator', () => {
             describe(prop('clientSignedCert'), () => {
                 it('should throw for property when using a wallet', () => {
                     const err = 'child "client" fails because [child "clientSignedCert" fails because ["clientSignedCert" is not allowed]]';
-                    wallet = true;
+                    hasOrgWallet = true;
                     delete config.client.credentialStore;
                     delete config.client.clientPrivateKey;
                     call.should.throw(err);
@@ -2282,7 +2372,7 @@ describe('Class: ConfigValidator', () => {
 
                 it('should throw for property when using a wallet', () => {
                     const err = 'child "client" fails because [child "affiliation" fails because ["affiliation" is not allowed]]';
-                    wallet = true;
+                    hasOrgWallet = true;
                     delete config.client.credentialStore;
                     config.client.affiliation = 'aff';
                     call.should.throw(err);
@@ -2315,8 +2405,9 @@ describe('Class: ConfigValidator', () => {
 
                 it('should throw for property when using a wallet', () => {
                     const err = 'child "client" fails because [child "affiliation" fails because ["affiliation" is not allowed]]';
-                    wallet = true;
+                    hasOrgWallet = true;
                     delete config.client.credentialStore;
+                    config.client.affiliation = 'aff';
                     call.should.throw(err);
                 });
 
@@ -2401,7 +2492,7 @@ describe('Class: ConfigValidator', () => {
 
                 it('should throw for property when using a wallet', () => {
                     const err = 'child "client" fails because [child "enrollmentSecret" fails because ["enrollmentSecret" is not allowed]]';
-                    wallet = true;
+                    hasOrgWallet = true;
                     delete config.client.credentialStore;
                     config.client.enrollmentSecret = 'secret';
                     call.should.throw(err);
