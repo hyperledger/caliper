@@ -29,7 +29,7 @@ npm install -g @hyperledger/generator-caliper
 ## Using the Generator
 To use the generator, run the following command
 ```bash
-yo caliper
+yo @hyperledger/caliper
 ```
 If successful, you should get the following output where you will be prompted to choose a generator - choose **Benchmark** to run the Caliper benchmark generator:
 ```console
@@ -38,7 +38,7 @@ Welcome to the Hyperledger Caliper generator!
 ❯ Benchmark 
 ```
 
-> Alternatively, you can run the benchmark generator using: `yo caliper:benchmark`.
+> Alternatively, you can run the benchmark generator using: `yo @hyperledger/caliper:benchmark`.
 
 You will then get the following output where you will be prompted to name your workspace:
 ```console
@@ -137,7 +137,7 @@ The generator can also be run non-interactively from the command line using the 
 Below is an example of the generator being run non-interactively from the command line using the options above:
 
 ```console
-yo caliper:benchmark -- --workspace 'myWorkspace' --chaincodeId 'fabcar' --version '0.0.1' --chaincodeFunction 'changeCarOwner' --chaincodeArguments '["CAR001", "Tom"]' --benchmarkName 'Fabcar benchmark' --benchmarkDescription 'Benchmark for performance testing fabcar contract modules' --workers 5 --label 'Round for changing car owner' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 50
+yo @hyperledger/caliper:benchmark -- --workspace 'myWorkspace' --chaincodeId 'fabcar' --version '0.0.1' --chaincodeFunction 'changeCarOwner' --chaincodeArguments '["CAR001", "Tom"]' --benchmarkName 'Fabcar benchmark' --benchmarkDescription 'Benchmark for performance testing fabcar contract modules' --workers 5 --label 'Round for changing car owner' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 50
 ```
 
 > __Note:__ All the options above are required when using the generator non-interactively.
