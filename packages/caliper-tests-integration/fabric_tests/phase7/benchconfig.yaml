@@ -24,14 +24,14 @@ test:
       workload:
           module: ./../init.js
           arguments:
-              marblePrefix: marbles_phase_5
+              marblePrefix: marbles_phase_7
     - label: init2
       txNumber: 200
       rateControl: { type: 'fixed-feedback-rate', opts: { tps: 20, maximum_transaction_load: 5 } }
       workload:
           module: ./../init.js
           arguments:
-              marblePrefix: marbles_phase_5
+              marblePrefix: marbles_phase_7
     - label: query
       txNumber: 100
       rateControl: { type: 'linear-rate', opts: { startingTps: 10, finishingTps: 20 } }

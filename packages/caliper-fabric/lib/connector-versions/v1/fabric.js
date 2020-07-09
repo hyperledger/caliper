@@ -2078,7 +2078,7 @@ class Fabric extends BlockchainConnector {
      * Invokes the specified contract according to the provided settings.
      *
      * @param {string} contractID The unique contract ID of the target contract.
-     * @param {string} contractVersion Unused.
+     * @param {string} contractVersion The version of the contract. Only used when explicitly naming a channel within the invokeSettings.
      * @param {ContractInvokeSettings|ContractInvokeSettings[]} invokeSettings The settings (collection) associated with the (batch of) transactions to submit.
      * @param {number} timeout The timeout for the whole transaction life-cycle in seconds.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
@@ -2095,14 +2095,18 @@ class Fabric extends BlockchainConnector {
         }
 
         for (const settings of settingsArray) {
-            const contractDetails = this.networkUtil.getContractDetails(contractID);
-            if (!contractDetails) {
-                throw new Error(`Could not find details for contract ID ${contractID}`);
+            if (settings.hasOwnProperty('channel')) {
+                settings.contractId = contractID;
+                settings.contractVersion = contractVersion;
+            } else {
+                const contractDetails = this.networkUtil.getContractDetails(contractID);
+                if (!contractDetails) {
+                    throw new Error(`Could not find details for contract ID ${contractID}`);
+                }
+                settings.channel = contractDetails.channel;
+                settings.contractId = contractDetails.id;
+                settings.contractVersion = contractDetails.version;
             }
-
-            settings.channel = contractDetails.channel;
-            settings.contractId = contractDetails.id;
-            settings.contractVersion = contractDetails.version;
 
             if (!settings.invokerIdentity) {
                 settings.invokerIdentity = this.defaultInvoker;
@@ -2118,7 +2122,7 @@ class Fabric extends BlockchainConnector {
      * Queries the specified contract according to the provided settings.
      *
      * @param {string} contractID The unique contract ID of the target contract.
-     * @param {string} contractVersion Unused.
+     * @param {string} contractVersion The version of the contract. Only used when explicitly naming a channel within the invokeSettings.
      * @param {ContractQuerySettings|ContractQuerySettings[]} querySettings The settings (collection) associated with the (batch of) query to submit.
      * @param {number} timeout The timeout for the call in seconds.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction query.
@@ -2135,14 +2139,18 @@ class Fabric extends BlockchainConnector {
         }
 
         for (const settings of settingsArray) {
-            const contractDetails = this.networkUtil.getContractDetails(contractID);
-            if (!contractDetails) {
-                throw new Error(`Could not find details for contract ID ${contractID}`);
+            if (settings.hasOwnProperty('channel')) {
+                settings.contractId = contractID;
+                settings.contractVersion = contractVersion;
+            } else {
+                const contractDetails = this.networkUtil.getContractDetails(contractID);
+                if (!contractDetails) {
+                    throw new Error(`Could not find details for contract ID ${contractID}`);
+                }
+                settings.channel = contractDetails.channel;
+                settings.contractId = contractDetails.id;
+                settings.contractVersion = contractDetails.version;
             }
-
-            settings.channel = contractDetails.channel;
-            settings.contractId = contractDetails.id;
-            settings.contractVersion = contractDetails.version;
 
             if (!settings.invokerIdentity) {
                 settings.invokerIdentity = this.defaultInvoker;

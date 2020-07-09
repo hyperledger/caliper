@@ -309,7 +309,7 @@ class Fabric extends BlockchainConnector {
             for (const identity of walletIdentities) {
                 logger.info(`Retrieving and persisting contract map for identity ${identity}`);
                 // Retrieve
-                const contractMap = await this._retrieveContractsForIdentity(identity, orgWallet);
+                const contractMap = await this._retrieveContractMapForIdentity(identity, orgWallet);
                 // Persist
                 this.userContracts.set(identity, contractMap);
             }
@@ -318,15 +318,15 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
-     * Retrieve all Contracts from the passed client gateway object
+     * Retrieve all Contracts using a passed identity and organization wallet
      * @param {string} identity, the unique client identity name
      * @param {FileSystemWallet | InMemoryWallet} wallet, the wallet that holds the passed identity name
      * @returns {Map<Contract>} A map of all Contracts retrieved from the client Gateway
      * @async
      */
-    async _retrieveContractsForIdentity(identity, wallet) {
+    async _retrieveContractMapForIdentity(identity, wallet) {
         logger.debug('Entering _retrieveContractsForIdentity');
-        // Retrieve the gateway for the passed user. The gateway object is persisted for easier cleanup.
+        // Retrieve the gateway for the passed identity. The gateway object is persisted for easier cleanup.
         // - userName must match that created for wallet userId in init phases
         const gateway = await this._retrieveUserGateway(identity, wallet);
         this.userGateways.set(identity, gateway);
@@ -342,7 +342,7 @@ class Fabric extends BlockchainConnector {
             const contracts = this.networkUtil.getContractsOfChannel(channel);
             for (const contract of contracts) {
                 const networkContract = await network.getContract(contract.id);
-                contractMap.set(contract.id, networkContract);
+                contractMap.set(`${channel}_${contract.id}`, networkContract);
             }
         }
 
@@ -452,16 +452,34 @@ class Fabric extends BlockchainConnector {
 
     /**
      * Perform a transaction using a Gateway contract
-     * @param {object} context The context previously created by the Fabric adapter.
+     * @param {string} contractID The unique contract ID of the target contract.
+     * @param {string} contractVersion The version of the contract. Only used when explicitly naming a channel within the invokeSettings.
      * @param {ContractInvokeSettings} invokeSettings The settings associated with the transaction submission.
      * @param {boolean} isSubmit boolean flag to indicate if the transaction is a submit or evaluate
      * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
      * @async
      */
-    async _performGatewayTransaction(context, invokeSettings, isSubmit) {
+    async _performGatewayTransaction(contractID, contractVersion, invokeSettings, isSubmit) {
+        // Populate the contract details for the invoke
+        if (invokeSettings.hasOwnProperty('channel')) {
+            invokeSettings.contractId = contractID;
+            invokeSettings.contractVersion = contractVersion;
+        } else {
+            const contractDetails = this.networkUtil.getContractDetails(contractID);
+            if (!contractDetails) {
+                throw new Error(`Could not find details for contract ID ${contractID}`);
+            }
+            invokeSettings.channel = contractDetails.channel;
+            invokeSettings.contractId = contractDetails.id;
+            invokeSettings.contractVersion = contractDetails.version;
+        }
 
-        // Retrieve the existing contract and a client
-        const smartContract = await this._getUserContract(invokeSettings.invokerIdentity, invokeSettings.contractId);
+        if (!invokeSettings.invokerIdentity) {
+            invokeSettings.invokerIdentity = this.defaultInvoker;
+        }
+
+        // Retrieve the existing contract for the invokerIdentity
+        const smartContract = await this._getUserContract(invokeSettings.invokerIdentity, invokeSettings.channel, invokeSettings.contractId);
 
         // Create a transaction
         const transaction = smartContract.createTransaction(invokeSettings.contractFunction);
@@ -496,15 +514,15 @@ class Fabric extends BlockchainConnector {
         try {
             let result;
             if (isSubmit) {
-                if (context.engine) {
-                    context.engine.submitCallback(1);
+                if (this.context.engine) {
+                    this.context.engine.submitCallback(1);
                 }
                 invokeStatus.Set('request_type', 'transaction');
                 result = await transaction.submit(...invokeSettings.contractArguments);
             } else {
                 const countAsLoad = invokeSettings.countAsLoad === undefined ? this.configCountQueryAsLoad : invokeSettings.countAsLoad;
-                if (context.engine && countAsLoad) {
-                    context.engine.submitCallback(1);
+                if (this.context.engine && countAsLoad) {
+                    this.context.engine.submitCallback(1);
                 }
                 invokeStatus.Set('request_type', 'query');
                 result = await transaction.evaluate(...invokeSettings.contractArguments);
@@ -526,11 +544,12 @@ class Fabric extends BlockchainConnector {
     /**
      * Get the named contract for a named user
      * @param {string} invokerIdentity the user identity for interacting with the contract
-     * @param {string} contractName the name of the contract to return
+     * @param {string} channelName the channel name the contract exists on
+     * @param {string} contractId the name of the contract to return
      * @returns {FabricNetworkAPI.Contract} A contract that may be used to submit or evaluate transactions
      * @async
      */
-    async _getUserContract(invokerIdentity, contractName) {
+    async _getUserContract(invokerIdentity, channelName, contractId) {
         logger.debug('Entering _getUserContract');
         // Determine the invoking user for this transaction
         let userName;
@@ -548,11 +567,11 @@ class Fabric extends BlockchainConnector {
         }
 
         // Retrieve the named Network Contract for the invoking user from the Map
-        const contract = contractSet.get(contractName);
+        const contract = contractSet.get(`${channelName}_${contractId}`);
 
         // If no contract found, there is a user configuration/test specification error, so it should terminate
         if (!contract) {
-            throw Error(`No contract named ${contractName} found!`);
+            throw Error(`Unable to find specified contract ${contractId} on  channel ${channelName}!`);
         }
 
         logger.debug('Exiting _getUserContract');
@@ -619,7 +638,7 @@ class Fabric extends BlockchainConnector {
      * Invokes the specified contract according to the provided settings.
      *
      * @param {string} contractID The unique contract ID of the target contract.
-     * @param {string} contractVersion Unused.
+     * @param {string} contractVersion The version of the contract. Only used when explicitly naming a channel within the invokeSettings.
      * @param {ContractInvokeSettings|ContractInvokeSettings[]} invokeSettings The settings (collection) associated with the (batch of) transactions to submit.
      * @param {number} timeout The timeout override for the whole transaction life-cycle in seconds.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
@@ -635,20 +654,7 @@ class Fabric extends BlockchainConnector {
         }
 
         for (const settings of settingsArray) {
-            const contractDetails = this.networkUtil.getContractDetails(contractID);
-            if (!contractDetails) {
-                throw new Error(`Could not find details for contract ID ${contractID}`);
-            }
-
-            settings.channel = contractDetails.channel;
-            settings.contractId = contractDetails.id;
-            settings.contractVersion = contractDetails.version;
-
-            if (!settings.invokerIdentity) {
-                settings.invokerIdentity = this.defaultInvoker;
-            }
-
-            promises.push(this._performGatewayTransaction(this.context, settings, true));
+            promises.push(this._performGatewayTransaction(contractID, contractVersion, settings, true));
         }
 
         return await Promise.all(promises);
@@ -674,20 +680,7 @@ class Fabric extends BlockchainConnector {
         }
 
         for (const settings of settingsArray) {
-            const contractDetails = this.networkUtil.getContractDetails(contractID);
-            if (!contractDetails) {
-                throw new Error(`Could not find details for contract ID ${contractID}`);
-            }
-
-            settings.channel = contractDetails.channel;
-            settings.contractId = contractDetails.id;
-            settings.contractVersion = contractDetails.version;
-
-            if (!settings.invokerIdentity) {
-                settings.invokerIdentity = this.defaultInvoker;
-            }
-
-            promises.push(this._performGatewayTransaction(this.context, settings, false));
+            promises.push(this._performGatewayTransaction(contractID, contractVersion, settings, false));
         }
 
         return await Promise.all(promises);
