@@ -57,8 +57,8 @@ class PrometheusPushClient {
     /**
      * Configure the target for the push
      * @param {String} testLabel the benchmark test name to store under
-     * @param {String} testRound the test round to store under
-     * @param {String} clientId the clientId to store under
+     * @param {number} testRound the test round to store under
+     * @param {number} clientId the clientId to store under
      */
     configureTarget(testLabel, testRound, clientId) {
         const testPath = `instance/${testLabel}/round/${testRound.toString()}/client/${clientId.toString()}`;

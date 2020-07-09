@@ -14,7 +14,7 @@
 
 'use strict';
 
-const { CaliperUtils, ConfigUtil, MessageHandler } = require('@hyperledger/caliper-core');
+const { CaliperUtils, ConfigUtil, Constants, MessageHandler } = require('@hyperledger/caliper-core');
 const BindCommon = require('./../../lib/bindCommon');
 const logger = CaliperUtils.getLogger('cli-launch-worker');
 
@@ -69,21 +69,22 @@ class LaunchWorker {
         }
 
         let connectorFactory = CaliperUtils.loadModuleFunction(CaliperUtils.getBuiltinConnectorPackageNames(),
-            sutType, 'ConnectorFactory', require);
+            sutType, Constants.Factories.Connector, require);
 
         // Create the message client using the specified type
         const messengerFactory = CaliperUtils.loadModuleFunction(CaliperUtils.getBuiltinMessengers(), messagingMethod,
-            'createWorkerMessenger', require);
-        const messenger = messengerFactory({type: `${messagingMethod}-worker`, sut: sutType});
+            Constants.Factories.WorkerMessenger, require);
+
+        /**
+         * @type {MessengerInterface}
+         */
+        const messenger = messengerFactory({});
+        const messageHandler = new MessageHandler(messenger, connectorFactory);
+
         await messenger.initialize();
-
-        // Create a handler context for this worker
-        const handlerContext = new MessageHandler({
-            init: connectorFactory
-        }, messenger);
-
-        // Pass to the messenger to configure
-        await messenger.configure(handlerContext);
+        await messenger.configureProcessInstances([process]);
+        await messageHandler.waitForExit();
+        await messenger.dispose();
     }
 }
 

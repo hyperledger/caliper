@@ -14,8 +14,10 @@
 
 'use strict';
 
-const MqttManagerMessenger = require('./mqtt-manager');
-const MqttWorkerMessenger = require('./mqtt-worker');
+const MqttMessenger = require('./mqtt-messenger');
+
+const WorkerToManagerTopic = 'worker/update';
+const ManagerToWorkerTopic = 'manager/update';
 
 /**
  * Creates a new MqttManagerMessenger instance.
@@ -23,7 +25,7 @@ const MqttWorkerMessenger = require('./mqtt-worker');
  * @return {MessengerInterface} The messenger instance.
  */
 function createManagerMessenger(messengerConfig) {
-    return new MqttManagerMessenger(messengerConfig);
+    return new MqttMessenger(messengerConfig, WorkerToManagerTopic, ManagerToWorkerTopic);
 }
 
 /**
@@ -32,7 +34,7 @@ function createManagerMessenger(messengerConfig) {
  * @return {MessengerInterface} The messenger instance.
  */
 function createWorkerMessenger(messengerConfig) {
-    return new MqttWorkerMessenger(messengerConfig);
+    return new MqttMessenger(messengerConfig, ManagerToWorkerTopic, WorkerToManagerTopic);
 }
 
 module.exports.createManagerMessenger = createManagerMessenger;

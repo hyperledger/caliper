@@ -14,26 +14,16 @@
 
 'use strict';
 
-const ProcessManagerMessenger = require('./process-manager');
-const ProcessWorkerMessenger = require('./process-worker');
+const ProcessMessenger = require('./process-messenger');
 
 /**
- * Creates a new ProcessManagerMessenger instance.
+ * Creates a new ProcessMessenger instance.
  * @param {object} messengerConfig the messenger configuration
  * @return {MessengerInterface} The messenger instance.
  */
-function createManagerMessenger(messengerConfig) {
-    return new ProcessManagerMessenger(messengerConfig);
+function createProcessMessenger(messengerConfig) {
+    return new ProcessMessenger(messengerConfig);
 }
 
-/**
- * Creates a new ProcessWorkerMessenger instance.
- * @param {object} messengerConfig the messenger configuration
- * @return {MessengerInterface} The messenger instance.
- */
-function createWorkerMessenger(messengerConfig) {
-    return new ProcessWorkerMessenger(messengerConfig);
-}
-
-module.exports.createManagerMessenger = createManagerMessenger;
-module.exports.createWorkerMessenger = createWorkerMessenger;
+module.exports.createManagerMessenger = createProcessMessenger;
+module.exports.createWorkerMessenger = createProcessMessenger;
