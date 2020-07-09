@@ -27,13 +27,14 @@ describe ('benchmark configuration generator', () => {
     let dir, tmpConfigPath;
     let options = {
         subgenerator: 'benchmark',
-        contractFunction: 'callback',
+        contractFunction: 'workload',
         contractArguments: '["args1", "args2", "args3"]',
         benchmarkName: 'x contract benchmark',
         benchmarkDescription: 'benchmark for contract x',
         workers: 10,
         label: 'function test',
         contractId: 'xContract',
+        contractVersion: '1.0.0',
         txType: 'txDuration',
         rateController: 'fixed-rate',
         workspace: 'workspace'
@@ -57,7 +58,13 @@ describe ('benchmark configuration generator', () => {
                             tps: 10
                         }
                     },
-                    callback: 'benchmarks/callbacks/callback.js'
+                    workload: {
+                        module: 'benchmarks/workloads/workload.js',
+                        arguments: {
+                            contractId: 'xContract',
+                            contractVersion: '1.0.0'
+                        }
+                    }
                 }
             ]
         },
