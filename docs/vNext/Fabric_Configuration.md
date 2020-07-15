@@ -340,13 +340,17 @@ info:
 ```
 </details>
 
-<details><summary markdown="span">__wallet__
+<details><summary markdown="span">__organizationWallets__
 </summary>
-_Optional. Non-empty string._ <br>
-Specifies the path to an exported `FileSystemWallet`. If specified, all interactions will be based on the identities stored in the wallet, and any listed client keys within the `clients` section *must* correspond to an existing identity within the wallet.
+_Optional. Object._ <br>
+Specifies the paths to exported `FileSystemWallet`s for use by organization clients. If specified, all interactions will be based on the identities stored within the respective wallets, and any listed organization clients within the `clients` section *must* correspond to an existing identity within a linked organization wallet.
 
 ```yaml
-wallet: path/to/myFileWallet
+organizationWallets:
+  Org0:
+    path: path/to/file/wallet/for/Org0
+  Org1:
+    path: path/to/file/wallet/for/Org1
 ```
 </details>
 
@@ -838,10 +842,10 @@ clients:
       # properties of the client
 ```
 
-The `client` property of a client object (e.g., `client0.org1.example.com`) can contain the following properties. The list of required/forbidden properties depend on whether a wallet is configured or note. <br>
+The `client` property of a client object (e.g., `client0.org1.example.com`) can contain the following properties. The list of required/forbidden properties depend on whether an organization wallet is configured or note. <br>
 > __Note:__ the following constraints apply when __a file wallet is configured__:
 > * The `credentialStore`, `clientPrivateKey`, `clientSignedCert`, `affiliation`, `attributes` and `enrollmentSecret` properties are forbidden.
-> * Each client name __must__ correspond to one of the identities within the provided wallet. If you wish to specify an `Admin Client` then the naming convention is that of `admin.<orgname>`. If no explicit admin client is provided for an organisation, it is assumed that the first listed client for that organisation is associated with an administrative identity.
+> * Each client name __must__ correspond to one of the identities within the provided organization wallet. If you wish to specify an `Admin Client` then the naming convention is that of `admin.<orgname>`. If no explicit admin client is provided for an organisation, it is assumed that the first listed client for that organisation is associated with an administrative identity.
 
 > __Note:__ the following constraints apply when __a file wallet is not configured__:
 > * `credentialStore` is required.
