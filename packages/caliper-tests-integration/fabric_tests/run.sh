@@ -40,6 +40,10 @@ dispose () {
     ${CALL_METHOD} launch manager --caliper-workspace phase7 --caliper-flow-only-end --caliper-fabric-gateway-enabled
 }
 
+# needed, since the peer looks for the latest, which is no longer on dockerhub
+docker pull hyperledger/fabric-ccenv:1.4.7
+docker image tag hyperledger/fabric-ccenv:1.4.7 hyperledger/fabric-ccenv:latest
+
 # PHASE 1: just starting the network
 ${CALL_METHOD} launch manager --caliper-workspace phase1 --caliper-flow-only-start
 rc=$?

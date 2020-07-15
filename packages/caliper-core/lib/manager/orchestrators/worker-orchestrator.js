@@ -19,27 +19,18 @@ const childProcess = require('child_process');
 
 const CaliperUtils = require('../../common/utils/caliper-utils');
 const ConfigUtils = require('../../common/config/config-util');
+const Constants = require('./../../common/utils/constants');
+
+const MessageTypes = require('./../../common/utils/constants').Messages.Types;
+
+const RegisterMessage = require('./../../common/messages/registerMessage');
+const AssignIdMessage = require('./../../common/messages/assignIdMessage');
+const InitializeMessage = require('./../../common/messages/initializeMessage');
+const PrepareMessage = require('./../../common/messages/prepareMessage');
+const TestMessage = require('./../../common/messages/testMessage');
+const ExitMessage = require('./../../common/messages/exitMessage');
 
 const logger = CaliperUtils.getLogger('worker-orchestrator');
-
-// Orchestrator message typings
-const TYPES = {
-    REGISTER: 'register',
-    ASSIGN: 'assignId',
-    INITIALIZE: 'initialize',
-    PREPARE: 'prepare',
-    TEST: 'test',
-    EXIT: 'exit',
-};
-
-// Add in worker message typings
-TYPES.CONNECTED = 'connected';
-TYPES.ASSIGNED = 'assigned';
-TYPES.READY = 'ready';
-TYPES.PREPARED = 'prepared';
-TYPES.TXUPDATE = 'txUpdate';
-TYPES.TESTRESULT = 'testResult';
-TYPES.TXRESET = 'txReset';
 
 /**
  * Class for Worker Orchestration
@@ -62,8 +53,12 @@ class WorkerOrchestrator {
         // Messenger information
         let messagingMethod = ConfigUtils.get(ConfigUtils.keys.Worker.Communication.Method);
         const messengerFactory = CaliperUtils.loadModuleFunction(CaliperUtils.getBuiltinMessengers(), messagingMethod,
-            'createManagerMessenger', require);
-        this.messenger = messengerFactory({type: `${messagingMethod}-manager`});
+            Constants.Factories.ManagerMessenger, require);
+
+        /**
+         * @type {MessengerInterface}
+         */
+        this.messenger = messengerFactory({});
         this.messengerConfigured = false;
         this.workerPollingInterval = ConfigUtils.get(ConfigUtils.keys.Worker.PollInterval);
 
@@ -90,194 +85,53 @@ class WorkerOrchestrator {
      * @async
      */
     async configureMessenger() {
-        await this.messenger.initialize();
+        // to regain the context of the message handler
+        // "this" would point to the messenger instance
         const self = this;
-        await this.messenger.configure(self);
-    }
+        this.messenger.on(MessageTypes.Connected, async (message) => {
+            logger.debug(`Dealing with connected message ${message.stringify()}`);
+            self.updateWorkerPhase(message.getSender(), message.getType(), message.getContent(), message.getError());
+        });
 
-    /**
-     * Send a global message to all workers, indicating that orchestrator is pending worker registration
-     */
-    pollForWorkers() {
-        this.messenger.send(['all'], TYPES.REGISTER, {});
-    }
-
-    /**
-     * Process a worker message
-     * @param {object} message the worker message to process
-     */
-    processWorkerUpdate(message) {
-        switch (message.data.type) {
-        case 'connected':
-            logger.debug(`Dealing with connected message ${JSON.stringify(message)}`);
-            this.updateWorkerPhase(message.from, TYPES.CONNECTED, message.data);
-            break;
-        case 'assigned':
+        this.messenger.on(MessageTypes.Assigned, async (message) => {
             logger.debug(`Dealing with assigned message ${JSON.stringify(message)}`);
-            this.updateWorkerPhase(message.from, TYPES.ASSIGNED, message.data);
-            break;
-        case 'ready':
+            self.updateWorkerPhase(message.getSender(), message.getType(), message.getContent(), message.getError());
+        });
+
+        this.messenger.on(MessageTypes.Ready, async (message) => {
             logger.debug(`Dealing with ready message ${JSON.stringify(message)}`);
-            this.updateWorkerPhase(message.from, TYPES.READY, message.data);
-            break;
-        case 'prepared':
+            self.updateWorkerPhase(message.getSender(), message.getType(), message.getContent(), message.getError());
+        });
+
+        this.messenger.on(MessageTypes.Prepared, async (message) => {
             logger.debug(`Dealing with prepared message ${JSON.stringify(message)}`);
-            this.updateWorkerPhase(message.from, TYPES.PREPARED, message.data);
-            break;
-        case 'txUpdate':
+            self.updateWorkerPhase(message.getSender(), message.getType(), message.getContent(), message.getError());
+        });
+
+        this.messenger.on(MessageTypes.TxUpdate, async (message) => {
             logger.debug('Dealing with txUpdate message');
-            this.pushUpdate(message.from, message.data);
-            break;
-        case 'testResult':
+            self.pushUpdate(message.from, message.data);
+        });
+
+        this.messenger.on(MessageTypes.TestResult, async (message) => {
             logger.debug('Dealing with testResult message');
-            this.pushResult(message.from, message.data);
-            this.updateWorkerPhase(message.from, TYPES.TESTRESULT, {});
-            break;
-        case 'txReset':
+            self.pushResult(message.getSender(), message.getContent());
+            self.updateWorkerPhase(message.getSender(), message.getType(), {}, message.getError());
+        });
+
+        this.messenger.on(MessageTypes.TxReset, async (message) => {
             logger.debug('Dealing with txReset message');
-            this.pushUpdate(message.from, message.data);
-            break;
-        default:{
-            const msg = `processWorkerUpdate passed unknown message type "${message.type}" by worker ${message.from}`;
-            logger.error(msg);
-            throw new Error(msg);
-        }
-        }
+            self.pushUpdate(message.getSender(), message.getContent());
+        });
+
+        await this.messenger.initialize();
+        await this.messenger.configureProcessInstances(this.workerObjects);
     }
 
     /**
-     * Update a worker readiness phase
-     * @param {number} workerId the worker identifier
-     * @param {string} phase the phase the update relates to
-     * @param {object} data data object passed within the worker message
+     * Prepare all worker connections for further rounds.
      */
-    updateWorkerPhase(workerId, phase, data) {
-
-        logger.debug(`Handling ${phase} message from ${workerId} with data ${JSON.stringify(data)}`);
-        switch (phase) {
-        case TYPES.CONNECTED:{
-            if (data.error) {
-                this.workersConnectedPromise.reject(new Error(data.error));
-            } else {
-                const phases = {};
-                phases[TYPES.ASSIGNED] = false;
-                phases[TYPES.READY] = false;
-                phases[TYPES.PREPARED] = {};
-                phases[TYPES.TESTRESULT] = {};
-
-                // Add worker to this.workers
-                //  - updates array to save txUpdate results
-                //  - results array to save the test results
-                //  - phases used to track worker object status
-                this.workers[workerId] = {results: this.results, updates: this.updates, phases};
-
-                // Only check if all workers are connected
-                if (this.allWorkersReachedPhase(phase)) {
-                    clearInterval(this.pollingInterval);
-                    this.workersConnectedPromise.resolve();
-                }
-            }
-            break;
-        }
-        case TYPES.ASSIGNED:
-            if (!this.workers[workerId]) {
-                logger.warn(`Discarding ${phase} message from unregistered client ${workerId}`);
-            } else if (data.error) {
-                this.workersAssignedPromise.reject(new Error(data.error));
-            } else {
-                this.workers[workerId].phases[phase] = true;
-                // Only check if all workers are connected
-                if (this.allWorkersReachedPhase(phase)) {
-                    this.workersAssignedPromise.resolve();
-                }
-            }
-            break;
-        case TYPES.READY:
-            if (!this.workers[workerId]) {
-                logger.warn(`Discarding ${phase} message from unregistered client ${workerId}`);
-            } else if (data.error) {
-                this.workersReadyPromise.reject(new Error(data.error));
-            } else {
-                this.workers[workerId].phases[phase] = true;
-                // Only check if all workers are connected
-                if (this.allWorkersReachedPhase(phase)) {
-                    this.workersReadyPromise.resolve();
-                }
-            }
-            break;
-        case TYPES.PREPARED:
-            if (!this.workers[workerId]) {
-                logger.warn(`Discarding ${phase} message from unregistered client ${workerId}`);
-            } else if (data.error) {
-                this.workers[workerId].phases[phase].reject(new Error(data.error));
-            } else {
-                this.workers[workerId].phases[phase].resolve();
-            }
-            break;
-        case TYPES.TESTRESULT:
-            if (!this.workers[workerId]) {
-                logger.warn(`Discarding ${phase} message from unregistered client ${workerId}`);
-            } else if (data.error) {
-                this.workers[workerId].phases[phase].reject(new Error(data.error));
-            } else {
-                this.workers[workerId].phases[phase].resolve();
-            }
-            break;
-        default:
-            throw new Error(`updateWorkerPhase passed unknown phase ${phase} by worker ${workerId}`);
-        }
-    }
-
-    /**
-     * Check if all workers have notified that they are ready
-     * @param {string} phase the worker phase to be checked
-     * @returns {boolean} boolean true if all worker processes have notified of being ready; otherwise false
-     */
-    allWorkersReachedPhase(phase) {
-        switch (phase) {
-        case TYPES.CONNECTED:
-            return this.number === Object.keys(this.workers).length;
-        case TYPES.ASSIGNED:
-        case TYPES.READY: {
-            const pendingWorkers = [];
-            for (const workerId in this.workers) {
-                const worker = this.workers[workerId];
-                if (!worker.phases[phase]) {
-                    pendingWorkers.push(workerId);
-                }
-            }
-            // Debug logging of notifications
-            if (pendingWorkers.length === 0) {
-                logger.debug(`All workers completed phase ${phase}`);
-            } else {
-                logger.debug(`Pending ready messages from workers: [${pendingWorkers}]`);
-            }
-            return pendingWorkers.length === 0;
-        }
-        default:
-            throw new Error(`allWorkersReachedPhase passed unknown phase ${phase}`);
-        }
-
-    }
-
-    /**
-    * Prepare the test
-    * message = {
-    *              type: 'test',
-    *              label : label name,
-    *              numb:   total number of simulated txs,
-    *              txDuration: time duration of test,
-    *              rateControl: rate controller to use,
-    *              trim:   trim options,
-    *              args:   user defined arguments,
-    *              cb  :   path of the callback js file,
-    *              config: path of the blockchain config file
-    *            };
-    * @param {JSON} test test specification
-    * @async
-    */
-    async prepareTestRound(test) {
-
+    async prepareWorkerConnections() {
         // conditionally launch workers - they might exist in containers and not launched as processes
         if (!this.workersRemote && !this.workersLaunched) {
             for (let number = 1 ; number <= this.number ; number++) {
@@ -336,7 +190,8 @@ class WorkerOrchestrator {
             for (let clientId of workerArray) {
                 const worker = this.workers[clientId];
                 worker.workerId = workerArray.indexOf(clientId);
-                this.messenger.send([clientId], TYPES.ASSIGN, {workerId: worker.workerId});
+                const msg = new AssignIdMessage(this.messenger.getUUID(), [clientId], { workerIndex: worker.workerId });
+                this.messenger.send(msg);
             }
 
             // wait for all workers to have initialized
@@ -362,7 +217,8 @@ class WorkerOrchestrator {
 
             // wait for all workers to have initialized
             logger.info(`Waiting for ${this.number} workers to be ready...`);
-            this.messenger.send(['all'], TYPES.INITIALIZE, {});
+            const msg = new InitializeMessage(this.messenger.getUUID());
+            this.messenger.send(msg);
 
             await workersReadyPromise;
             this.workersReady = true;
@@ -371,7 +227,149 @@ class WorkerOrchestrator {
         } else {
             logger.info(`Existing ${Object.keys(this.workers).length} prepared workers detected, progressing to test preparation phase.`);
         }
+    }
 
+    /**
+     * Send a global message to all workers, indicating that orchestrator is pending worker registration
+     */
+    pollForWorkers() {
+        const message = new RegisterMessage(this.messenger.getUUID());
+        this.messenger.send(message);
+    }
+
+    /**
+     * Update a worker readiness phase
+     * @param {number} workerId the worker identifier
+     * @param {string} phase the phase the update relates to
+     * @param {object} data data object passed within the worker message
+     * @param {string} error The error associated with the message.
+     */
+    updateWorkerPhase(workerId, phase, data, error) {
+
+        logger.debug(`Handling ${phase} message from ${workerId} with data ${JSON.stringify(data)}`);
+        switch (phase) {
+        case MessageTypes.Connected:{
+            if (error) {
+                this.workersConnectedPromise.reject(new Error(error));
+            } else {
+                const phases = {};
+                phases[MessageTypes.Assigned] = false;
+                phases[MessageTypes.Ready] = false;
+                phases[MessageTypes.Prepared] = {};
+                phases[MessageTypes.TestResult] = {};
+
+                // Add worker to this.workers
+                //  - updates array to save txUpdate results
+                //  - results array to save the test results
+                //  - phases used to track worker object status
+                this.workers[workerId] = {results: this.results, updates: this.updates, phases};
+
+                // Only check if all workers are connected
+                if (this.allWorkersReachedPhase(phase)) {
+                    clearInterval(this.pollingInterval);
+                    this.workersConnectedPromise.resolve();
+                }
+            }
+            break;
+        }
+        case MessageTypes.Assigned:
+            if (!this.workers[workerId]) {
+                logger.warn(`Discarding ${phase} message from unregistered client ${workerId}`);
+            } else if (error) {
+                this.workersAssignedPromise.reject(new Error(error));
+            } else {
+                this.workers[workerId].phases[phase] = true;
+                // Only check if all workers are connected
+                if (this.allWorkersReachedPhase(phase)) {
+                    this.workersAssignedPromise.resolve();
+                }
+            }
+            break;
+        case MessageTypes.Ready:
+            if (!this.workers[workerId]) {
+                logger.warn(`Discarding ${phase} message from unregistered client ${workerId}`);
+            } else if (error) {
+                this.workersReadyPromise.reject(new Error(error));
+            } else {
+                this.workers[workerId].phases[phase] = true;
+                // Only check if all workers are connected
+                if (this.allWorkersReachedPhase(phase)) {
+                    this.workersReadyPromise.resolve();
+                }
+            }
+            break;
+        case MessageTypes.Prepared:
+            if (!this.workers[workerId]) {
+                logger.warn(`Discarding ${phase} message from unregistered client ${workerId}`);
+            } else if (error) {
+                this.workers[workerId].phases[phase].reject(new Error(error));
+            } else {
+                this.workers[workerId].phases[phase].resolve();
+            }
+            break;
+        case MessageTypes.TestResult:
+            if (!this.workers[workerId]) {
+                logger.warn(`Discarding ${phase} message from unregistered client ${workerId}`);
+            } else if (error) {
+                this.workers[workerId].phases[phase].reject(new Error(error));
+            } else {
+                this.workers[workerId].phases[phase].resolve();
+            }
+            break;
+        default:
+            throw new Error(`updateWorkerPhase passed unknown phase ${phase} by worker ${workerId}`);
+        }
+    }
+
+    /**
+     * Check if all workers have notified that they are ready
+     * @param {string} phase the worker phase to be checked
+     * @returns {boolean} boolean true if all worker processes have notified of being ready; otherwise false
+     */
+    allWorkersReachedPhase(phase) {
+        switch (phase) {
+        case MessageTypes.Connected:
+            return this.number === Object.keys(this.workers).length;
+        case MessageTypes.Assigned:
+        case MessageTypes.Ready: {
+            const pendingWorkers = [];
+            for (const workerId in this.workers) {
+                const worker = this.workers[workerId];
+                if (!worker.phases[phase]) {
+                    pendingWorkers.push(workerId);
+                }
+            }
+            // Debug logging of notifications
+            if (pendingWorkers.length === 0) {
+                logger.debug(`All workers completed phase ${phase}`);
+            } else {
+                logger.debug(`Pending ready messages from workers: [${pendingWorkers}]`);
+            }
+            return pendingWorkers.length === 0;
+        }
+        default:
+            throw new Error(`allWorkersReachedPhase passed unknown phase ${phase}`);
+        }
+
+    }
+
+    /**
+    * Prepare the test
+    * message = {
+    *              type: 'test',
+    *              label : label name,
+    *              numb:   total number of simulated txs,
+    *              txDuration: time duration of test,
+    *              rateControl: rate controller to use,
+    *              trim:   trim options,
+    *              args:   user defined arguments,
+    *              cb  :   path of the callback js file,
+    *              config: path of the blockchain config file
+    *            };
+    * @param {JSON} test test specification
+    * @async
+    */
+    async prepareTestRound(test) {
         // Work with a cloned message as we need to transform the passed message
         const prepSpec = JSON.parse(JSON.stringify(test));
 
@@ -380,7 +378,7 @@ class WorkerOrchestrator {
         for (let index in this.workers) {
             let worker = this.workers[index];
             let p = new Promise((resolve, reject) => {
-                worker.phases[TYPES.PREPARED] = {
+                worker.phases[MessageTypes.Prepared] = {
                     resolve: resolve,
                     reject:  reject
                 };
@@ -390,7 +388,8 @@ class WorkerOrchestrator {
             prepSpec.totalClients = this.number;
 
             // Send to worker
-            this.messenger.send([index], TYPES.PREPARE, prepSpec);
+            const msg = new PrepareMessage(this.messenger.getUUID(), [index], prepSpec);
+            this.messenger.send(msg);
         }
 
         await Promise.all(preparePromises);
@@ -398,7 +397,7 @@ class WorkerOrchestrator {
 
         // clear worker prepare promises so they can be reused
         for (let worker in this.workers) {
-            this.workers[worker].phases[TYPES.PREPARED] = {};
+            this.workers[worker].phases[MessageTypes.Prepared] = {};
         }
     }
 
@@ -464,7 +463,7 @@ class WorkerOrchestrator {
         for (let index in this.workers) {
             let worker = this.workers[index];
             let p = new Promise((resolve, reject) => {
-                worker.phases[TYPES.TESTRESULT] = {
+                worker.phases[MessageTypes.TestResult] = {
                     resolve: resolve,
                     reject:  reject
                 };
@@ -472,17 +471,18 @@ class WorkerOrchestrator {
             testPromises.push(p);
             worker.results = this.results;
             worker.updates = this.updates.data;
-            testSpecification.clientArgs = this.workerArguments[worker.workerId];
+            testSpecification.clientArgs = this.workerArguments[worker.workerIndex];
             testSpecification.totalClients = this.number;
 
             // Publish to worker
-            this.messenger.send([index], TYPES.TEST, testSpecification);
+            const msg = new TestMessage(this.messenger.getUUID(), [index], testSpecification);
+            this.messenger.send(msg);
         }
 
         await Promise.all(testPromises);
         // clear worker test promises so they can be reused
         for (let worker in this.workers) {
-            this.workers[worker].phases[TYPES.TESTRESULT] = {};
+            this.workers[worker].phases[MessageTypes.TestResult] = {};
         }
     }
 
@@ -491,7 +491,8 @@ class WorkerOrchestrator {
      */
     async stop() {
         logger.info('Sending exit message to connected workers');
-        this.messenger.send(['all'], TYPES.EXIT, {});
+        const msg = new ExitMessage(this.messenger.getUUID());
+        this.messenger.send(msg);
 
         // Internally spawned workers are killed within the messenger handling of 'exit', but clean the array of processes here
         this.workerObjects = [];

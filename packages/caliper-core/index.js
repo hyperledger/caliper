@@ -16,6 +16,7 @@
 
 module.exports.BlockchainConnector = require('./lib/common/core/blockchain-connector');
 module.exports.CaliperWorker = require('./lib/worker/caliper-worker');
+module.exports.Constants = require('./lib/common/utils/constants');
 module.exports.TxStatus = require('./lib/common/core/transaction-status');
 module.exports.CaliperUtils = require('./lib/common/utils/caliper-utils');
 module.exports.Version = require('./lib/common/utils/version');

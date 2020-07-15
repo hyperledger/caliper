@@ -14,25 +14,34 @@
 
 'use strict';
 
+const { EventEmitter } = require('events');
 const Logger = require('../utils/caliper-utils').getLogger('messenger-base');
 
 
 /**
- * Interface of messenger. Messenger implementations must follow a naming convention that is <type>-observer.js so
- * that they may be dynamically loaded in the WorkerOrchestrator and WorkerConnector
+ * Interface for messenger implementations. Derived classes must override every function of this class.
  */
-class MessengerInterface {
+class MessengerInterface extends EventEmitter {
 
     /**
-     * Set configuration details
-     * @param {object} configuration configuration details for the messenger
+     * Constructor for the messenger class.
+     * @param {object} configuration User-provided configuration details for the messenger.
      */
     constructor(configuration) {
+        super();
         this.configuration = configuration;
     }
 
     /**
-     * Initialize the Messenger
+     * Call the listeners registered for the given message type.
+     * @param {Message} message The message object.
+     */
+    onMessage(message) {
+        this.emit(message.getType(), message);
+    }
+
+    /**
+     * Initialize the messenger instance.
      * @async
      */
     async initialize() {
@@ -40,25 +49,28 @@ class MessengerInterface {
     }
 
     /**
-     * Configure the Messenger for use
-     * @async
+     * Configure the messenger instance with the related processes.
+     * @param {Process[]} processes The process instances this process can communicate with.
      */
-    async configure() {
+    async configureProcessInstances(processes) {
         this._throwNotImplementedError('configure');
     }
 
     /**
-     * Send a message using the messenger
+     * Send a message using the messenger.
+     * @param {Message} message The message object.
      */
-    send() {
+    send(message) {
         this._throwNotImplementedError('send');
     }
 
     /**
-     * Get the UUID for the messenger
+     * Get the UUID for the messenger instance to use as sender or recipient address.
+     * @return {string} The UUID of the messenger.
      */
     getUUID() {
         this._throwNotImplementedError('getUUID');
+        return '';
     }
 
     /**
@@ -67,26 +79,6 @@ class MessengerInterface {
     async dispose() {
         // require an explicit noop dispose implementation from child classes
         this._throwNotImplementedError('dispose');
-    }
-
-    /**
-     * Assemble the complete message content with metadata
-     * @param {string[]} to string array of workers that the update is intended for
-     * @param {string} type the type of the update
-     * @param {object} data data pertinent to the update type
-     * @return {object} the assembled message.
-     */
-    assembleMessage(to, type, data) {
-        // Augment data object with type
-        data.type = type;
-
-        // Create complete message
-        return {
-            to,
-            from: this.getUUID(),
-            timestamp: new Date().toISOString(),
-            data
-        };
     }
 
     /**

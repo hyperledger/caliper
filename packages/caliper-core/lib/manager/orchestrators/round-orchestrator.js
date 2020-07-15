@@ -153,7 +153,7 @@ class RoundOrchestrator {
                 trim: round.trim || 0,
                 workload: round.workload,
                 testRound: index,
-                pushUrl: this.monitorOrchestrator.hasMonitor('prometheus') ? this.monitorOrchestrator.getMonitor('prometheus').getPushGatewayURL() : null
+                pushUrl: this.monitorOrchestrator.hasMonitor('prometheus') ? this.monitorOrchestrator.getMonitor('prometheus').getPushGatewayURL() : undefined
             };
 
             if (round.txNumber) {
@@ -176,6 +176,14 @@ class RoundOrchestrator {
             logger.info('Monitors successfully started');
         } catch (err) {
             logger.error(`Could not start monitors: ${err.stack || err}`);
+        }
+
+        // Start all the monitors
+        try {
+            logger.info('Preparing worker connections');
+            await this.workerOrchestrator.prepareWorkerConnections();
+        } catch (err) {
+            logger.error(`Could not prepare worker connections: ${err.stack || err}`);
         }
 
         let benchStartTime = Date.now();
