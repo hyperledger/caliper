@@ -25,11 +25,23 @@ test:
           module: ./../init.js
           arguments:
               marblePrefix: marbles_phase_4
-    - label: query
+    - label: query1
       txNumber: 50
       rateControl: { type: 'linear-rate', opts: { startingTps: 5, finishingTps: 10 } }
       workload:
         module: ./../query.js
+    - label: init2
+      txNumber: 50
+      rateControl: { type: 'fixed-rate', opts: { tps: 5 } }
+      workload:
+          module: ./../initByChannel.js
+          arguments:
+              marblePrefix: marbles_phase_4
+    - label: query2
+      txNumber: 50
+      rateControl: { type: 'linear-rate', opts: { startingTps: 5, finishingTps: 10 } }
+      workload:
+        module: ./../queryByChannel.js
 observer:
     interval: 1
     type: prometheus

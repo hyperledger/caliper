@@ -55,14 +55,10 @@ channels:
                 eventSource: true
             peer0.org2.example.com:
                 eventSource: true
-
         contracts:
         - id: marbles
           contractID: mymarbles
           version: v0
-          language: node
-          path: src/marbles/node
-          metadataPath: src/marbles/node/metadata
     yourchannel:
         created: true
         orderers:
@@ -73,14 +69,10 @@ channels:
                 eventSource: true
             peer0.org2.example.com:
                 eventSource: true
-
         contracts:
         - id: marbles
           contractID: yourmarbles
           version: v0
-          language: golang
-          path: marbles/go
-          metadataPath: src/marbles/go/metadata
 
 organizations:
     Org1:

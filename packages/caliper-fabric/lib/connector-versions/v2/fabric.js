@@ -2095,14 +2095,18 @@ class Fabric extends BlockchainConnector {
         }
 
         for (const settings of settingsArray) {
-            const contractDetails = this.networkUtil.getContractDetails(contractID);
-            if (!contractDetails) {
-                throw new Error(`Could not find details for contract ID ${contractID}`);
+            if (settings.hasOwnProperty('channel')) {
+                settings.contractId = contractID;
+                settings.contractVersion = contractVersion;
+            } else {
+                const contractDetails = this.networkUtil.getContractDetails(contractID);
+                if (!contractDetails) {
+                    throw new Error(`Could not find details for contract ID ${contractID}`);
+                }
+                settings.channel = contractDetails.channel;
+                settings.contractId = contractDetails.id;
+                settings.contractVersion = contractDetails.version;
             }
-
-            settings.channel = contractDetails.channel;
-            settings.contractId = contractDetails.id;
-            settings.contractVersion = contractDetails.version;
 
             if (!settings.invokerIdentity) {
                 settings.invokerIdentity = this.defaultInvoker;
@@ -2135,14 +2139,18 @@ class Fabric extends BlockchainConnector {
         }
 
         for (const settings of settingsArray) {
-            const contractDetails = this.networkUtil.getContractDetails(contractID);
-            if (!contractDetails) {
-                throw new Error(`Could not find details for contract ID ${contractID}`);
+            if (settings.hasOwnProperty('channel')) {
+                settings.contractId = contractID;
+                settings.contractVersion = contractVersion;
+            } else {
+                const contractDetails = this.networkUtil.getContractDetails(contractID);
+                if (!contractDetails) {
+                    throw new Error(`Could not find details for contract ID ${contractID}`);
+                }
+                settings.channel = contractDetails.channel;
+                settings.contractId = contractDetails.id;
+                settings.contractVersion = contractDetails.version;
             }
-
-            settings.channel = contractDetails.channel;
-            settings.contractId = contractDetails.id;
-            settings.contractVersion = contractDetails.version;
 
             if (!settings.invokerIdentity) {
                 settings.invokerIdentity = this.defaultInvoker;
