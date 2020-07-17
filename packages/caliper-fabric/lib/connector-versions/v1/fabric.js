@@ -1499,16 +1499,13 @@ class Fabric extends BlockchainConnector {
     /**
      * Queries the specified contract according to the provided settings.
      *
-     * @param {object} context The context previously created by the Fabric adapter.
      * @param {ContractQuerySettings} querySettings The settings associated with the query.
      * @param {number} timeout The timeout for the call in milliseconds.
      * @return {Promise<TxStatus>} The result and stats of the transaction query.
      */
-    async _submitSingleQuery(context, querySettings, timeout) {
+    async _submitSingleQuery(querySettings, timeout) {
         const startTime = Date.now();
         this.txIndex++;
-
-        const countAsLoad = querySettings.countAsLoad === undefined ? this.configCountQueryAsLoad : querySettings.countAsLoad;
 
         // retrieve the necessary client/admin profile
         let invoker;
@@ -1551,10 +1548,6 @@ class Fabric extends BlockchainConnector {
 
         // the exception should propagate up for an invalid channel name, indicating a user callback module error
         const channel = invoker.getChannel(querySettings.channel, true);
-
-        if (countAsLoad && context.engine) {
-            context.engine.submitCallback(1);
-        }
 
         /** Array of {Buffer|Error} */
         let results = null;
@@ -1612,12 +1605,11 @@ class Fabric extends BlockchainConnector {
     /**
      * Invokes the specified contract according to the provided settings.
      *
-     * @param {object} context The context previously created by the Fabric adapter.
      * @param {ContractInvokeSettings} invokeSettings The settings associated with the transaction submission.
      * @param {number} timeout The timeout for the whole transaction life-cycle in milliseconds.
      * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
      */
-    async _submitSingleTransaction(context, invokeSettings, timeout) {
+    async _submitSingleTransaction(invokeSettings, timeout) {
         // note start time to adjust the timeout parameter later
         const startTime = Date.now();
         this.txIndex++; // increase the counter
@@ -1678,9 +1670,6 @@ class Fabric extends BlockchainConnector {
         // NOTE: everything happens inside a try-catch
         // no exception should escape, transaction failures have to be handled gracefully
         try {
-            if (context.engine) {
-                context.engine.submitCallback(1);
-            }
             try {
                 // account for the elapsed time up to this point
                 proposalResponseObject = await channel.sendTransactionProposal(proposalRequest,
@@ -2112,10 +2101,13 @@ class Fabric extends BlockchainConnector {
                 settings.invokerIdentity = this.defaultInvoker;
             }
 
-            promises.push(this._submitSingleTransaction(this.context, settings, timeout * 1000));
+            this._onTxsSubmitted(1);
+            promises.push(this._submitSingleTransaction(settings, timeout * 1000));
         }
 
-        return await Promise.all(promises);
+        const results = await Promise.all(promises);
+        this._onTxsFinished(results);
+        return results;
     }
 
     /**
@@ -2156,10 +2148,13 @@ class Fabric extends BlockchainConnector {
                 settings.invokerIdentity = this.defaultInvoker;
             }
 
-            promises.push(this._submitSingleQuery(this.context, settings, timeout * 1000));
+            this._onTxsSubmitted(1);
+            promises.push(this._submitSingleQuery(settings, timeout * 1000));
         }
 
-        return await Promise.all(promises);
+        const results = await Promise.all(promises);
+        this._onTxsFinished(results);
+        return results;
     }
 
     /**

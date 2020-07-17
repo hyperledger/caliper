@@ -1511,13 +1511,12 @@ class Fabric extends BlockchainConnector {
      * Perform a transaction using a Gateway contract
      * @param {string} contractID The unique contract ID of the target contract.
      * @param {string} contractVersion The version of the contract. Only used when explicitly naming a channel within the invokeSettings.
-     * @param {object} context The context previously created by the Fabric adapter.
      * @param {ContractInvokeSettings | ContractQuerySettings} invokeSettings The settings associated with the transaction submission.
      * @param {boolean} isSubmit boolean flag to indicate if the transaction is a submit or evaluate
      * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
      * @async
      */
-    async _performGatewayTransaction(contractID, contractVersion, context, invokeSettings, isSubmit) {
+    async _performGatewayTransaction(contractID, contractVersion, invokeSettings, isSubmit) {
         // Populate the contract details for the invoke
         if (invokeSettings.hasOwnProperty('channel')) {
             invokeSettings.contractId = contractID;
@@ -1575,16 +1574,9 @@ class Fabric extends BlockchainConnector {
         try {
             let result;
             if (isSubmit) {
-                if (context.engine) {
-                    context.engine.submitCallback(1);
-                }
                 invokeStatus.Set('request_type', 'transaction');
                 result = await transaction.submit(...invokeSettings.contractArguments);
             } else {
-                const countAsLoad = invokeSettings.countAsLoad === undefined ? this.configCountQueryAsLoad : invokeSettings.countAsLoad;
-                if (context.engine && countAsLoad) {
-                    context.engine.submitCallback(1);
-                }
                 invokeStatus.Set('request_type', 'query');
                 result = await transaction.evaluate(...invokeSettings.contractArguments);
             }
@@ -1742,10 +1734,13 @@ class Fabric extends BlockchainConnector {
         }
 
         for (const settings of settingsArray) {
-            promises.push(this._performGatewayTransaction(contractID, contractVersion, this.context, settings, true));
+            this._onTxsSubmitted(1);
+            promises.push(this._performGatewayTransaction(contractID, contractVersion, settings, true));
         }
 
-        return await Promise.all(promises);
+        const results = await Promise.all(promises);
+        this._onTxsFinished(results);
+        return results;
     }
 
     /**
@@ -1768,10 +1763,13 @@ class Fabric extends BlockchainConnector {
         }
 
         for (const settings of settingsArray) {
-            promises.push(this._performGatewayTransaction(contractID, contractVersion, this.context, settings, false));
+            this._onTxsSubmitted(1);
+            promises.push(this._performGatewayTransaction(contractID, contractVersion, settings, false));
         }
 
-        return await Promise.all(promises);
+        const results = await Promise.all(promises);
+        this._onTxsFinished(results);
+        return results;
     }
 
     /**

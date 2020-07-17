@@ -127,10 +127,14 @@ class FiscoBcosConnector extends BlockchainConnector {
                         fcArgs.push(arg[key].toString());
                     }
                 }
-                promises.push(invokeSmartContractImpl.run(this.context, this.fiscoBcosSettings, contractID, fcn, fcArgs, this.workspaceRoot));
+
+                this._onTxsSubmitted(1);
+                promises.push(invokeSmartContractImpl.run(this.fiscoBcosSettings, contractID, fcn, fcArgs, this.workspaceRoot));
             });
 
-            return await Promise.all(promises);
+            const results = await Promise.all(promises);
+            this._onTxsFinished(results);
+            return results;
         } catch (error) {
             commLogger.error(`FISCO BCOS smart contract invoke failed: ${(error.stack ? error.stack : JSON.stringify(error))}`);
             throw error;
@@ -147,7 +151,10 @@ class FiscoBcosConnector extends BlockchainConnector {
      */
     async queryState(contractID, contractVer, key, fcn) {
         try {
-            return invokeSmartContractImpl.run(this.context, this.fiscoBcosSettings, contractID, fcn, key, this.workspaceRoot, true);
+            this._onTxsSubmitted(1);
+            const result = await invokeSmartContractImpl.run(this.fiscoBcosSettings, contractID, fcn, key, this.workspaceRoot, true);
+            this._onTxsFinished(result);
+            return result;
         } catch (error) {
             commLogger.error(`FISCO BCOS smart contract query failed: ${(error.stack ? error.stack : error)}`);
             throw error;
@@ -162,7 +169,10 @@ class FiscoBcosConnector extends BlockchainConnector {
      * @return {TaskStatus} Indicates whether the transaction is written to the file successfully or not
      */
     async generateRawTransaction(contractID, arg, file) {
-        return generateRawTransactionImpl.run(this.fiscoBcosSettings, this.workspaceRoot, this.context, contractID, arg, file);
+        this._onTxsSubmitted(1);
+        const result = await generateRawTransactionImpl.run(this.fiscoBcosSettings, this.workspaceRoot, contractID, arg, file);
+        this._onTxsFinished(result);
+        return result;
     }
 
     /**
@@ -172,7 +182,7 @@ class FiscoBcosConnector extends BlockchainConnector {
      * @return {Promise} The promise for the result of the execution
      */
     async sendRawTransaction(context, transactions) {
-        return sendRawTransactionImpl.run(this.fiscoBcosSettings, context, transactions);
+        return sendRawTransactionImpl.run(this.fiscoBcosSettings, transactions, this._onTxsSubmitted, this._onTxsFinished);
     }
 }
 

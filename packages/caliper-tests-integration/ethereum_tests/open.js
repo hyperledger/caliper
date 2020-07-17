@@ -108,12 +108,11 @@ class SimpleOpenWorkload extends WorkloadModuleBase {
 
     /**
      * Assemble TXs for opening new accounts.
-     * @return {Promise<TxStatus[]>}
      */
     async submitTransaction() {
         let args = this._generateWorkload();
         Logger.debug(`Worker ${this.workerIndex} for TX ${this.txIndex}: ${JSON.stringify(args)}`);
-        return this.sutAdapter.invokeSmartContract('simple', 'v0', args, 100);
+        await this.sutAdapter.invokeSmartContract('simple', 'v0', args, 100);
     }
 }
 

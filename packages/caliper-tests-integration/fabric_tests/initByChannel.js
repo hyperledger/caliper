@@ -67,7 +67,7 @@ class MarblesInitByChannelWorkload extends WorkloadModuleBase {
         };
 
         let targetCC = 'marbles';
-        return this.sutAdapter.invokeSmartContract(targetCC, 'v0', args, 5);
+        await this.sutAdapter.invokeSmartContract(targetCC, 'v0', args, 5);
     }
 }
 

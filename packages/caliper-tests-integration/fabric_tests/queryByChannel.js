@@ -45,7 +45,7 @@ class MarblesQueryByChannelWorkload extends WorkloadModuleBase {
         };
 
         let targetCC = 'marbles';
-        return this.sutAdapter.querySmartContract(targetCC, 'v0', args, 10);
+        await this.sutAdapter.querySmartContract(targetCC, 'v0', args, 10);
     }
 }
 

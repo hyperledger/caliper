@@ -14,7 +14,7 @@
 
 'use strict';
 
-const { BlockchainConnector, CaliperUtils, ConfigUtil } = require('@hyperledger/caliper-core');
+const { BlockchainConnector, CaliperUtils, ConfigUtil, Constants } = require('@hyperledger/caliper-core');
 const ConfigValidator = require('./configValidator.js');
 const Logger = CaliperUtils.getLogger('fabric-connector');
 
@@ -80,6 +80,11 @@ const FabricConnector = class extends BlockchainConnector {
 
         const Fabric = require(modulePath);
         this.fabric = new Fabric(networkObject, workerIndex, bcType);
+
+        // propagate inside events through this decorator
+        const self = this;
+        this.fabric.on(Constants.Events.Connector.TxsSubmitted, count => self._onTxsSubmitted(count));
+        this.fabric.on(Constants.Events.Connector.TxsFinished, results => self._onTxsFinished(results));
     }
 
     /**
