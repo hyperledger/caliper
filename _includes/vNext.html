@@ -33,6 +33,18 @@
 {% endif %}
 {% endfor %}
 <hr>
+<h2>Tutorials</h2>
+{% for page in sorted_pages %}
+{% if page.categories contains 'tutorial' %}
+{% if page.permalink contains site.caliper.next_release %}
+<div class="item">
+  <!-- <p>{{page.description}}</p> -->
+  <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
+</div>
+{% endif %}
+{% endif %}
+{% endfor %}
+<hr>
 <h2>Reference</h2>
 {% for page in sorted_pages %}
 {% if page.categories contains 'reference' %}
