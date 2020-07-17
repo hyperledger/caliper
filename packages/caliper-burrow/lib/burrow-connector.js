@@ -115,7 +115,7 @@ class BurrowConnector extends BlockchainConnector {
      * Return the Burrow context associated with the given callback module name.
      * @param {number} roundIndex The zero-based round index of the test.
      * @param {object} args Unused.
-     * @return {object} The assembled Burrow context.
+     * @return {Promise<object>} The assembled Burrow context.
      * @async
      */
     async getContext(roundIndex, args) {
@@ -142,7 +142,7 @@ class BurrowConnector extends BlockchainConnector {
                 return Promise.resolve(result);
             },err => {
                 logger.info('getContext reject error:',err);
-                Promise.reject(err);
+                return Promise.reject(err);
             });
         }
         return Promise.resolve(context);
@@ -166,9 +166,13 @@ class BurrowConnector extends BlockchainConnector {
     async querySmartContract(contractID, contractVer, args, timeout) {
         let promises = [];
         args.forEach((item, index) => {
+            this._onTxsSubmitted(1);
             promises.push(this.doInvoke(this.config.burrow.context, contractID, contractVer, item, timeout));
         });
-        return await Promise.all(promises);
+
+        const results = await Promise.all(promises);
+        this._onTxsFinished(results);
+        return results;
     }
     /**
    * Invoke a smart contract.
@@ -187,6 +191,8 @@ class BurrowConnector extends BlockchainConnector {
             invocations = invokeData;
         }
         invocations.forEach((item, index) => {
+            this._onTxsSubmitted(1);
+
             if (item.verb==='transfer') {
                 promises.push(this.acccountTransfer(this.config.burrow.context, item, timeout));
             } else if(item.verb==='invoke'){
@@ -199,7 +205,9 @@ class BurrowConnector extends BlockchainConnector {
                 promises.push(this.doInvoke(this.config.burrow.context, contractID, contractVer, item, timeout));
             }
         });
-        return await Promise.all(promises);
+        const results = await Promise.all(promises);
+        this._onTxsFinished(results);
+        return results;
     }
 
     /**
@@ -213,9 +221,7 @@ class BurrowConnector extends BlockchainConnector {
    */
     async doInvoke(context, contractID, contractVer, arg, timeout) {
         let status = new TxStatus();
-        if (context.engine) {
-            context.engine.submitCallback(1);
-        }
+
         //let contract = await context.burrow.contracts.address(context.address);
         //Todo: can't get contract with burrow.contracts.address
         return  context.contract[arg.funName](...arg.funArgs).then(function (result) {
@@ -239,9 +245,6 @@ class BurrowConnector extends BlockchainConnector {
         let toAccount=arg.toAccount;
         let amount= parseFloat(arg.money);
         let status = new TxStatus(toAccount);
-        if (context.engine) {
-            context.engine.submitCallback(1);
-        }
 
         let inputTx=new burrowTS.payload.TxInput();
         inputTx.setAddress(Buffer.from(account, 'hex'));
@@ -282,9 +285,9 @@ class BurrowConnector extends BlockchainConnector {
      */
     async queryState(contractID, contractVer, key, fcn = 'query') {
         let status = new TxStatus();
-        if (this.config.burrow.context.engine) {
-            this.config.burrow.context.engine.submitCallback(1);
-        }
+        this._onTxsSubmitted(1);
+        const self = this;
+
         return new Promise(function (resolve, reject) {
             let getAccountParam=new burrowTS.rpcquery.GetAccountParam();
             getAccountParam.setAddress(Buffer.from(this.config.burrow.context.address, 'hex'));
@@ -298,9 +301,11 @@ class BurrowConnector extends BlockchainConnector {
                 }
             });
         }).then(function (result) {
+            self._onTxsFinished(status);
             return status;
         },error => {
             logger.info('queryState reject error:',error);
+            self._onTxsFinished(status);
             return status;
         });
     }

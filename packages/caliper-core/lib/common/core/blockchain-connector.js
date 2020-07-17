@@ -14,10 +14,13 @@
 
 'use strict';
 
+const { EventEmitter } = require('events');
+const Events = require('./../utils/constants').Events.Connector;
+
 /**
  * Base class for all blockchain connectors
  */
-class BlockchainConnector {
+class BlockchainConnector extends EventEmitter {
 
     /**
      * Constructor
@@ -25,8 +28,27 @@ class BlockchainConnector {
      * @param {string} bcType The target SUT type
      */
     constructor(workerIndex, bcType) {
+        super();
         this.workerIndex = workerIndex;
         this.bcType = bcType;
+    }
+
+    /**
+     * Raises the "txsSubmitted" event.
+     * @param {number} count The number of TXs submitted. Passed to the raised event.
+     * @protected
+     */
+    _onTxsSubmitted(count) {
+        this.emit(Events.TxsSubmitted, count);
+    }
+
+    /**
+     * Raises the "txsFinished" event.
+     * @param {TxStatus|TxStatus[]} txResults The array of TX results. Passed to the raised event.
+     * @protected
+     */
+    _onTxsFinished(txResults) {
+        this.emit(Events.TxsFinished, txResults);
     }
 
     /**

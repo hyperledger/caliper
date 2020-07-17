@@ -23,6 +23,7 @@ const TransactionStatistics = require('../common/core/transaction-statistics');
 
 const TxResetMessage = require('./../common/messages/txResetMessage');
 const TxUpdateMessage = require('./../common/messages/txUpdateMessage');
+const Events = require('../common/utils/constants').Events.Connector;
 
 const Logger = CaliperUtils.getLogger('caliper-worker');
 
@@ -67,6 +68,10 @@ class CaliperWorker {
          * @type {WorkloadModuleInterface}
          */
         this.workloadModule = undefined;
+
+        const self = this;
+        this.connector.on(Events.TxsSubmitted, count => self.txNum += count);
+        this.connector.on(Events.TxsFinished, results => self.addResult(results));
     }
 
     /**
@@ -226,14 +231,6 @@ class CaliperWorker {
     }
 
     /**
-     * Callback for new submitted transaction(s)
-     * @param {Number} count count of new submitted transaction(s)
-     */
-    submitCallback(count) {
-        this.txNum += count;
-    }
-
-    /**
      * Put a task to immediate queue of NodeJS event loop
      * @param {function} func The function needed to be executed immediately
      * @return {Promise} Promise of execution
@@ -264,11 +261,7 @@ class CaliperWorker {
             // and I/O task(s) will get no chance to be execute and fall into starvation, for more detail info please visit:
             // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
             await this.setImmediatePromise(() => {
-                circularArray.add(self.workloadModule.submitTransaction()
-                    .then((result) => {
-                        this.addResult(result);
-                        return Promise.resolve();
-                    }));
+                circularArray.add(self.workloadModule.submitTransaction());
             });
             await rateController.applyRateControl(this.startTime, this.txNum, this.results, this.resultStats);
         }
@@ -295,11 +288,7 @@ class CaliperWorker {
             // and I/O task(s) will get no chance to be execute and fall into starvation, for more detail info please visit:
             // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
             await this.setImmediatePromise(() => {
-                circularArray.add(self.workloadModule.submitTransaction()
-                    .then((result) => {
-                        this.addResult(result);
-                        return Promise.resolve();
-                    }));
+                circularArray.add(self.workloadModule.submitTransaction());
             });
             await rateController.applyRateControl(this.startTime, this.txNum, this.results, this.resultStats);
         }
@@ -349,17 +338,6 @@ class CaliperWorker {
         try {
             // Retrieve context for this round
             this.context = await this.connector.getContext(message.getRoundIndex(), message.getWorkerArguments());
-            if (typeof this.context === 'undefined') {
-                this.context = {
-                    engine : {
-                        submitCallback : (count) => { self.submitCallback(count); }
-                    }
-                };
-            } else {
-                this.context.engine = {
-                    submitCallback : (count) => { self.submitCallback(count); }
-                };
-            }
 
             // Run init phase of callback
             Logger.info(`Info: worker ${this.workerIndex} prepare test phase for round ${this.currentRoundIndex + 1} is starting...`);

@@ -97,7 +97,7 @@ class SimpleTransferWorkload extends WorkloadModuleBase {
         };
 
         Logger.debug(`Worker ${this.workerIndex} TX parameters: ${JSON.stringify(args)}`);
-        return this.sutAdapter.invokeSmartContract('simple', 'v0', args, 10);
+        await this.sutAdapter.invokeSmartContract('simple', 'v0', args, 10);
     }
 }
 

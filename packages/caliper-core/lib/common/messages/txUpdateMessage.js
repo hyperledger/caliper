@@ -31,6 +31,9 @@ class TxUpdateMessage extends Message {
      */
     constructor(sender, recipients, content, date = undefined, error = undefined) {
         super(sender, recipients, MessageTypes.TxUpdate, content, date, error);
+
+        // the local observers needs this content, deep-deep down
+        this.content.type = MessageTypes.TxUpdate;
     }
 }
 

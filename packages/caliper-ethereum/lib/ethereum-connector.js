@@ -198,9 +198,13 @@ class EthereumConnector extends BlockchainConnector {
         }
         let promises = [];
         invocations.forEach((item, index) => {
+            this._onTxsSubmitted(1);
             promises.push(this.sendTransaction(this.context, contractID, contractVer, item, timeout));
         });
-        return Promise.all(promises);
+
+        const results = await Promise.all(promises);
+        this._onTxsFinished(results);
+        return results;
     }
 
     /**
@@ -221,9 +225,13 @@ class EthereumConnector extends BlockchainConnector {
         let promises = [];
         invocations.forEach((item, index) => {
             item.isView = true;
+            this._onTxsSubmitted(1);
             promises.push(this.sendTransaction(this.context, contractID, contractVer, item, timeout));
         });
-        return Promise.all(promises);
+
+        const results = await Promise.all(promises);
+        this._onTxsFinished(results);
+        return results;
     }
 
     /**
@@ -240,7 +248,6 @@ class EthereumConnector extends BlockchainConnector {
         let params = {from: context.fromAddress};
         let contractInfo = context.contracts[contractID];
 
-        context.engine.submitCallback(1);
         let receipt = null;
         let methodType = 'send';
         if (methodCall.isView) {
@@ -315,7 +322,10 @@ class EthereumConnector extends BlockchainConnector {
             args: [key],
             isView: true
         };
-        return this.sendTransaction(this.context, contractID, contractVer, methodCall, 60);
+        this._onTxsSubmitted(1);
+        const result = await this.sendTransaction(this.context, contractID, contractVer, methodCall, 60);
+        this._onTxsFinished(result);
+        return result;
     }
 
     /**

@@ -91,7 +91,6 @@ class SimpleQueryWorkload extends WorkloadModuleBase {
 
     /**
      * Assemble TXs for querying accounts.
-     * @return {Promise<TxStatus[]>}
      */
     async submitTransaction() {
         const args = {
@@ -100,7 +99,7 @@ class SimpleQueryWorkload extends WorkloadModuleBase {
         };
 
         Logger.debug(`Worker ${this.workerIndex} TX parameters: ${JSON.stringify(args)}`);
-        return this.sutAdapter.querySmartContract('simple', 'v0', args, 100);
+        await this.sutAdapter.querySmartContract('simple', 'v0', args, 100);
     }
 }
 

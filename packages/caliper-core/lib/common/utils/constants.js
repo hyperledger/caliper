@@ -40,5 +40,11 @@ module.exports = {
         Connector: 'ConnectorFactory',
         WorkerMessenger: 'createWorkerMessenger',
         ManagerMessenger: 'createManagerMessenger'
+    },
+    Events: {
+        Connector: {
+            TxsSubmitted: 'txsSubmitted',
+            TxsFinished: 'txsFinished'
+        }
     }
 };

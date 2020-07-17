@@ -417,9 +417,7 @@ class IrohaConnector extends BlockchainConnector {
         let status = new TxStatus(null);
         status.Set('timeout', timeout);
 
-        if (context.engine) {
-            context.engine.submitCallback(args.length);
-        }
+        this._onTxsSubmitted(args.length);
 
         // Submit the transaction
         let commandOptions = {
@@ -431,7 +429,7 @@ class IrohaConnector extends BlockchainConnector {
         };
 
         let p = batchCommand(commandOptions, commands);
-        return Promise.all([p])
+        const results = await Promise.all([p])
             .then(res => {
                 let txStatuses = commands.map(() => {
                     let statusCopy = Object.assign({}, status);
@@ -445,6 +443,9 @@ class IrohaConnector extends BlockchainConnector {
                 status.SetStatusFail();
                 return Promise.resolve(status);
             });
+
+        this._onTxsFinished(results);
+        return results;
     }
 
     /**
@@ -467,9 +468,8 @@ class IrohaConnector extends BlockchainConnector {
         }
 
         let status = new TxStatus(null);
-        if (this.context.engine) {
-            this.context.engine.submitCallback(1);
-        }
+        this._onTxsSubmitted(1);
+
         try {
             let queryOptions = {
                 privateKey: this.context.privKey,
@@ -479,12 +479,13 @@ class IrohaConnector extends BlockchainConnector {
             };
             await irohaQuery(queryOptions, commands);
             status.SetStatusSuccess();
-            return Promise.resolve(status);
         } catch (err) {
             logger.info(err);
             status.SetStatusFail();
-            return Promise.resolve(status);
         }
+
+        this._onTxsFinished(status);
+        return status;
     }
 
     /**

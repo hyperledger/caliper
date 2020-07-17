@@ -20,18 +20,14 @@ const uuid = require('uuid/v4');
 const fiscoBcosApi = require('./fiscoBcosApi');
 const commLogger = CaliperUtils.getLogger('generateRawTransactions.js');
 
-module.exports.run = async function (fiscoBcosSettings, context, transactions) {
+module.exports.run = async function (fiscoBcosSettings, transactions, onSubmitted, onFinished) {
     let promises = [];
-    let hasEngine =  context && context.engine;
     let network = fiscoBcosSettings.network;
 
     for (let transaction of transactions) {
         let invokeStatus = new TxStatus(uuid());
 
-        if(hasEngine) {
-            context.engine.submitCallback(1);
-        }
-
+        onSubmitted(1);
         promises.push(fiscoBcosApi.sendRawTransaction(network, transaction).then(receipt => {
             invokeStatus.SetFlag(TxErrorEnum.NoError);
             invokeStatus.SetResult(receipt.result);
@@ -47,5 +43,7 @@ module.exports.run = async function (fiscoBcosSettings, context, transactions) {
             return invokeStatus;
         }));
     }
-    return Promise.all(promises);
+    const results = await Promise.all(promises);
+    onFinished(results);
+    return results;
 };

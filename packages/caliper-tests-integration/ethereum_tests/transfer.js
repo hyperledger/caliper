@@ -93,7 +93,6 @@ class SimpleTransferWorkload extends WorkloadModuleBase {
 
     /**
      * Assemble TXs for transferring money.
-     * @return {Promise<TxStatus[]>}
      */
     async submitTransaction() {
         const args = {
@@ -102,7 +101,7 @@ class SimpleTransferWorkload extends WorkloadModuleBase {
         };
 
         Logger.debug(`Worker ${this.workerIndex} TX parameters: ${JSON.stringify(args)}`);
-        return this.sutAdapter.invokeSmartContract('simple', 'v0', args, 100);
+        await this.sutAdapter.invokeSmartContract('simple', 'v0', args, 100);
     }
 }
 

@@ -110,7 +110,7 @@ class WorkerOrchestrator {
 
         this.messenger.on(MessageTypes.TxUpdate, async (message) => {
             logger.debug('Dealing with txUpdate message');
-            self.pushUpdate(message.from, message.data);
+            self.pushUpdate(message.getSender(), message.getContent());
         });
 
         this.messenger.on(MessageTypes.TestResult, async (message) => {
