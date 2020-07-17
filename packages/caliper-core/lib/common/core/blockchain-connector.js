@@ -144,19 +144,6 @@ class BlockchainConnector extends EventEmitter {
     async querySmartContract(contractID, contractVer, args, timeout) {
         throw new Error('querySmartContract is not implemented for this blockchain connector');
     }
-
-    /**
-     * Query state from the ledger
-     * @param {String} contractID identity of the contract
-     * @param {String} contractVer version of the contract
-     * @param {String} key lookup key
-     * @param {String} fcn The contract query function name
-     * @return {Promise<TxStatus[]>} The array of data about the executed queries.
-     * @deprecated
-     */
-    async queryState(contractID, contractVer, key, fcn) {
-        throw new Error('queryState is not implemented for this blockchain connector');
-    }
 }
 
 module.exports = BlockchainConnector;

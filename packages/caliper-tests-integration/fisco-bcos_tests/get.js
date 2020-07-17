@@ -25,7 +25,10 @@ class HelloGetWorkload extends WorkloadModuleBase {
      * @return {Promise<TxStatus[]>}
      */
     async submitTransaction() {
-        await this.sutAdapter.queryState('helloworld', 'v0', null, 'get()');
+        const args = {
+            'transaction_type': 'get()'
+        };
+        await this.sutAdapter.querySmartContract('helloworld', 'v0', args, undefined);
     }
 }
 

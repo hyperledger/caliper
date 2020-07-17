@@ -98,21 +98,22 @@ class FiscoBcosConnector extends BlockchainConnector {
     }
 
     /**
-     * Invoke the given smart contract according to the specified options. Multiple transactions will be generated according to the length of args.
+     * Invoke/query the given smart contract according to the specified options. Multiple transactions will be generated according to the length of args.
      * @param {string} contractID The name of the smart contract.
      * @param {string} contractVer The version of the smart contract.
-     * @param {Object | Array<Object>} invokeData Array of JSON formatted arguments for transaction(s). Each element contains arguments (including the function name) passing to the smart contract. JSON attribute named transaction_type is used by default to specify the function name. If the attribute does not exist, the first attribute will be used as the function name.
+     * @param {Object | Array<Object>} txArgs Array of JSON formatted arguments for transaction(s). Each element contains arguments (including the function name) passing to the smart contract. JSON attribute named transaction_type is used by default to specify the function name. If the attribute does not exist, the first attribute will be used as the function name.
      * @param {number} timeout The timeout to set for the execution in seconds.
+     * @param {boolean} readOnly Indicates whether the request is a query or not.
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    async invokeSmartContract(contractID, contractVer, invokeData, timeout) {
+    async _sendRequest(contractID, contractVer, txArgs, timeout, readOnly) {
         let promises = [];
 
         let invocations;
-        if (!Array.isArray(invokeData)) {
-            invocations = [invokeData];
+        if (!Array.isArray(txArgs)) {
+            invocations = [txArgs];
         } else {
-            invocations = invokeData;
+            invocations = txArgs;
         }
 
         try {
@@ -129,36 +130,40 @@ class FiscoBcosConnector extends BlockchainConnector {
                 }
 
                 this._onTxsSubmitted(1);
-                promises.push(invokeSmartContractImpl.run(this.fiscoBcosSettings, contractID, fcn, fcArgs, this.workspaceRoot));
+                promises.push(invokeSmartContractImpl.run(this.fiscoBcosSettings, contractID, fcn, fcArgs, this.workspaceRoot, readOnly));
             });
 
             const results = await Promise.all(promises);
             this._onTxsFinished(results);
             return results;
         } catch (error) {
-            commLogger.error(`FISCO BCOS smart contract invoke failed: ${(error.stack ? error.stack : JSON.stringify(error))}`);
+            commLogger.error(`FISCO BCOS smart contract ${readOnly ? 'query': 'invoke'} failed: ${(error.stack ? error.stack : JSON.stringify(error))}`);
             throw error;
         }
     }
 
     /**
-     * Query state from the ledger
-     * @param {String} contractID Identity of the contract
-     * @param {String} contractVer Version of the contract
-     * @param {String} key lookup key
-     * @param {String} fcn The smart contract query function name
-     * @return {Promise<object>} The result of the query.
+     * Invoke the given smart contract according to the specified options. Multiple transactions will be generated according to the length of args.
+     * @param {string} contractID The name of the smart contract.
+     * @param {string} contractVer The version of the smart contract.
+     * @param {Object | Array<Object>} invokeData Array of JSON formatted arguments for transaction(s). Each element contains arguments (including the function name) passing to the smart contract. JSON attribute named transaction_type is used by default to specify the function name. If the attribute does not exist, the first attribute will be used as the function name.
+     * @param {number} timeout The timeout to set for the execution in seconds.
+     * @return {Promise<object>} The promise for the result of the execution.
      */
-    async queryState(contractID, contractVer, key, fcn) {
-        try {
-            this._onTxsSubmitted(1);
-            const result = await invokeSmartContractImpl.run(this.fiscoBcosSettings, contractID, fcn, key, this.workspaceRoot, true);
-            this._onTxsFinished(result);
-            return result;
-        } catch (error) {
-            commLogger.error(`FISCO BCOS smart contract query failed: ${(error.stack ? error.stack : error)}`);
-            throw error;
-        }
+    async invokeSmartContract(contractID, contractVer, invokeData, timeout) {
+        return this._sendRequest(contractID, contractVer, invokeData, timeout, false);
+    }
+
+    /**
+     * Query the given smart contract according to the specified options. Multiple transactions will be generated according to the length of args.
+     * @param {string} contractID The name of the smart contract.
+     * @param {string} contractVer The version of the smart contract.
+     * @param {Object | Array<Object>} queryData Array of JSON formatted arguments for transaction(s). Each element contains arguments (including the function name) passing to the smart contract. JSON attribute named transaction_type is used by default to specify the function name. If the attribute does not exist, the first attribute will be used as the function name.
+     * @param {number} timeout The timeout to set for the execution in seconds.
+     * @return {Promise<object>} The promise for the result of the execution.
+     */
+    async querySmartContract(contractID, contractVer, queryData, timeout) {
+        return this._sendRequest(contractID, contractVer, queryData, timeout, true);
     }
 
     /**

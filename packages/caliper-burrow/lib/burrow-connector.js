@@ -155,34 +155,16 @@ class BurrowConnector extends BlockchainConnector {
     async releaseContext() {
         // nothing to do
     }
-    /**
-     * Query state from the ledger using a smart contract
-     * @param {String} contractID identity of the contract
-     * @param {String} contractVer version of the contract
-     * @param {Array} args array of JSON formatted arguments
-     * @param {Number} timeout request timeout, in seconds
-     * @return {Promise} query response object
-     */
-    async querySmartContract(contractID, contractVer, args, timeout) {
-        let promises = [];
-        args.forEach((item, index) => {
-            this._onTxsSubmitted(1);
-            promises.push(this.doInvoke(this.config.burrow.context, contractID, contractVer, item, timeout));
-        });
 
-        const results = await Promise.all(promises);
-        this._onTxsFinished(results);
-        return results;
-    }
     /**
-   * Invoke a smart contract.
-   * @param {String} contractID Identity of the contract.
-   * @param {String} contractVer Version of the contract.
-   * @param {Object | Array<Object>} invokeData eg {'verb':'invoke','funName': 'getInt','funArgs': []}
-   * @param {Number} timeout Request timeout, in seconds.
-   * @return {Promise<object>} The promise for the result of the execution.
-   */
-    async invokeSmartContract(contractID, contractVer, invokeData, timeout) {
+     * Send a request to a smart contract.
+     * @param {String} contractID Identity of the contract.
+     * @param {String} contractVer Version of the contract.
+     * @param {Object | Array<Object>} invokeData eg {'verb':'invoke','funName': 'getInt','funArgs': []}
+     * @param {Number} timeout Request timeout, in seconds.
+     * @return {Promise<object>} The promise for the result of the execution.
+     */
+    async _sendRequest(contractID, contractVer, invokeData, timeout) {
         let promises = [];
         let invocations;
         if (!Array.isArray(invokeData)) {
@@ -208,6 +190,29 @@ class BurrowConnector extends BlockchainConnector {
         const results = await Promise.all(promises);
         this._onTxsFinished(results);
         return results;
+    }
+
+    /**
+     * Query state from the ledger using a smart contract
+     * @param {String} contractID identity of the contract
+     * @param {String} contractVer version of the contract
+     * @param {Array} args array of JSON formatted arguments
+     * @param {Number} timeout request timeout, in seconds
+     * @return {Promise} query response object
+     */
+    async querySmartContract(contractID, contractVer, args, timeout) {
+        return this._sendRequest(contractID, contractVer, args, timeout);
+    }
+    /**
+   * Invoke a smart contract.
+   * @param {String} contractID Identity of the contract.
+   * @param {String} contractVer Version of the contract.
+   * @param {Object | Array<Object>} invokeData eg {'verb':'invoke','funName': 'getInt','funArgs': []}
+   * @param {Number} timeout Request timeout, in seconds.
+   * @return {Promise<object>} The promise for the result of the execution.
+   */
+    async invokeSmartContract(contractID, contractVer, invokeData, timeout) {
+        return this._sendRequest(contractID, contractVer, invokeData, timeout);
     }
 
     /**
@@ -274,41 +279,5 @@ class BurrowConnector extends BlockchainConnector {
             return status;
         });
     }
-
-    /**
-     * Query the given smart contract according to the specified options.
-     * @param {string} contractID The name of the contract.
-     * @param {string} contractVer The version of the contract.
-     * @param {string} key The argument to pass to the smart contract query.
-     * @param {string} [fcn=query] The contract query function name.
-     * @return {Promise<object>} The promise for the result of the execution.
-     */
-    async queryState(contractID, contractVer, key, fcn = 'query') {
-        let status = new TxStatus();
-        this._onTxsSubmitted(1);
-        const self = this;
-
-        return new Promise(function (resolve, reject) {
-            let getAccountParam=new burrowTS.rpcquery.GetAccountParam();
-            getAccountParam.setAddress(Buffer.from(this.config.burrow.context.address, 'hex'));
-            this.config.burrow.context.burrow.qc.getAccount(getAccountParam, function (error, data) {
-                if (error) {
-                    status.SetStatusFail();
-                    reject(error);
-                } else {
-                    status.SetStatusSuccess();
-                    resolve(data);
-                }
-            });
-        }).then(function (result) {
-            self._onTxsFinished(status);
-            return status;
-        },error => {
-            logger.info('queryState reject error:',error);
-            self._onTxsFinished(status);
-            return status;
-        });
-    }
-
 }
 module.exports = BurrowConnector;

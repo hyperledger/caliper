@@ -35,9 +35,6 @@ jobs:
     - name: Ethereum integration test
       if: type = pull_request OR repo != hyperledger/caliper
       script: BENCHMARK=ethereum ./.travis/benchmark-integration-test-direct.sh
-    - name: HL Sawtooth integration test
-      if: type = pull_request OR repo != hyperledger/caliper
-      script: BENCHMARK=sawtooth ./.travis/benchmark-integration-test-direct.sh
     - name: HL Besu integration test
       if: type = pull_request OR repo != hyperledger/caliper
       script: BENCHMARK=besu ./.travis/benchmark-integration-test-direct.sh
@@ -47,9 +44,12 @@ jobs:
     - name: Generator integration test
       if: type = pull_request OR repo != hyperledger/caliper
       script: BENCHMARK=generator ./.travis/benchmark-integration-test-direct.sh
-    - name: Iroha integration test
-      if: type = pull_request
-      script: BENCHMARK=iroha ./.travis/benchmark-integration-test-direct.sh
+#    - name: HL Sawtooth integration test
+#      if: type = pull_request OR repo != hyperledger/caliper
+#      script: BENCHMARK=sawtooth ./.travis/benchmark-integration-test-direct.sh
+#    - name: Iroha integration test
+#      if: type = pull_request
+#      script: BENCHMARK=iroha ./.travis/benchmark-integration-test-direct.sh
 
     # publish packages
     - stage: publish
