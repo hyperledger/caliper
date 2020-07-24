@@ -15,6 +15,7 @@
 'use strict';
 
 const FabricClient = require('fabric-client');
+const FabricConstants = require('fabric-client/lib/Constants');
 const {google, common} = require('fabric-protos');
 const {BlockchainConnector, CaliperUtils, TxStatus, Version, ConfigUtil} = require('@hyperledger/caliper-core');
 const FabricNetwork = require('../../fabricNetwork.js');
@@ -44,18 +45,21 @@ const logger = CaliperUtils.getLogger('connectors/v1/fabric');
  *           should be invoked.
  * @property {string} contractFunction Required. The name of the function that should be
  *           invoked in the contract.
- * @property {string[]} contractArguments Optional. The list of {string} arguments that should
+ * @property {string[]} [contractArguments] Optional. The list of {string} arguments that should
  *           be passed to the contract.
- * @property {Map<string, Buffer>} transientMap Optional. The transient map that should be
+ * @property {Map<string, Buffer>} [transientMap] Optional. The transient map that should be
  *           passed to the contract.
  * @property {string} invokerIdentity Required. The name of the client who should invoke the
  *           contract. If an admin is needed, use the organization name prefixed with a # symbol.
  * @property {string} channel Required. The name of the channel whose contract should be invoked.
- * @property {string[]} targetPeers Optional. An array of endorsing
+ * @property {string[]} [targetPeers] Optional. An array of endorsing
  *           peer names as the targets of the invoke. When this
  *           parameter is omitted the target list will include the endorsing peers assigned
  *           to the target contract, or if it is also omitted, to the channel.
- * @property {string} orderer Optional. The name of the orderer to whom the request should
+ * @property {string[]} [targetOrganizations] Optional. An array of endorsing
+ *           organizations as the targets of the invoke. If both targetPeers and targetOrganizations
+ *           are specified then targetPeers will take precedence
+ * @property {string} [orderer] Optional. The name of the orderer to whom the request should
  *           be submitted. If omitted, then the first orderer node of the channel will be used.
  */
 
@@ -70,16 +74,16 @@ const logger = CaliperUtils.getLogger('connectors/v1/fabric');
  *           invoked in the contract.
  * @property {string[]} contractArguments Optional. The list of {string} arguments that should
  *           be passed to the contract.
- * @property {Map<string, Buffer>} transientMap Optional. The transient map that should be
+ * @property {Map<string, Buffer>} [transientMap] Optional. The transient map that should be
  *           passed to the contract.
  * @property {string} invokerIdentity Required. The name of the client who should invoke the
  *           contract. If an admin is needed, use the organization name prefixed with a # symbol.
  * @property {string} channel Required. The name of the channel whose contract should be invoked.
- * @property {string[]} targetPeers Optional. An array of endorsing
+ * @property {string[]} [targetPeers] Optional. An array of endorsing
  *           peer names as the targets of the invoke. When this
  *           parameter is omitted the target list will include the endorsing peers assigned
  *           to the target contract, or if it is also omitted, to the channel.
- * @property {boolean} countAsLoad Optional. Indicates whether to count this query as workload.
+ * @property {boolean} [countAsLoad] Optional. Indicates whether to count this query as workload.
  */
 
 /////////////////////////////
@@ -226,6 +230,21 @@ class Fabric extends BlockchainConnector {
         }
 
         return eventSources;
+    }
+
+    /**
+     * Collects all peers that are endorsing peers belonging to a set of organizations
+     * @param {*} channel The name of the channel
+     * @param {string[]} endorsingOrgs An array of the required orgs to target
+     * @returns {ChannelPeer[]} Array containing the set of peers
+     */
+    _getEndorsingPeersForOrgs(channel, endorsingOrgs) {
+        const channelPeers = channel.getChannelPeers();
+        const filteredPeers = channelPeers.filter((channelPeer) => {
+            return channelPeer.isInRole(FabricConstants.NetworkConfig.ENDORSING_PEER_ROLE) &&
+                endorsingOrgs.some((org) => channelPeer.isInOrg(org));
+        });
+        return filteredPeers;
     }
 
     /**
@@ -1561,6 +1580,7 @@ class Fabric extends BlockchainConnector {
                     reject(new Error('TIMEOUT'));
                 }, this._getRemainingTimeout(startTime, timeout));
 
+                invokeStatus.Set('time_create', Date.now());
                 const result = await channel.queryByChaincode(proposalRequest, admin);
                 clearTimeout(timeoutHandle);
                 resolve(result);
@@ -1649,8 +1669,24 @@ class Fabric extends BlockchainConnector {
         // SEND TRANSACTION PROPOSALS //
         ////////////////////////////////
 
-        const targetPeers = invokeSettings.targetPeers ||
-            this._assembleRandomTargetPeers(invokeSettings.channel, invokeSettings.contractId, invokeSettings.contractVersion);
+        const channel = invoker.getChannel(invokeSettings.channel, true);
+        let targetPeers;
+
+        if (invokeSettings.targetPeers) {
+            targetPeers = invokeSettings.targetPeers;
+        } else if (invokeSettings.targetOrganizations) {
+            if (Array.isArray(invokeSettings.targetOrganizations) && invokeSettings.targetOrganizations.length > 0) {
+                // discovery is never enabled for low level fabric client, so just target all peers in the org
+                targetPeers = this._getEndorsingPeersForOrgs(channel, invokeSettings.targetOrganizations);
+            } else {
+                logger.warn(`${invokeSettings.targetOrganizations} is not a populated array, no orgs targetted`);
+            }
+        }
+        if (!targetPeers) {
+            targetPeers = this._assembleRandomTargetPeers(invokeSettings.channel, invokeSettings.contractId, invokeSettings.contractVersion);
+        } else if (targetPeers.length === 0) {
+            logger.warn('No peers found to be able to target. If targetting organizations, check the organization exists');
+        }
 
         /** @link{ChaincodeInvokeRequest} */
         const proposalRequest = {
@@ -1662,7 +1698,6 @@ class Fabric extends BlockchainConnector {
             targets: targetPeers
         };
 
-        const channel = invoker.getChannel(invokeSettings.channel, true);
 
         /** @link{ProposalResponseObject} */
         let proposalResponseObject = null;
@@ -1672,6 +1707,7 @@ class Fabric extends BlockchainConnector {
         try {
             try {
                 // account for the elapsed time up to this point
+                invokeStatus.Set('time_create', Date.now());
                 proposalResponseObject = await channel.sendTransactionProposal(proposalRequest,
                     this._getRemainingTimeout(startTime, timeout));
 
@@ -1803,9 +1839,14 @@ class Fabric extends BlockchainConnector {
                         reject(new Error('TIMEOUT'));
                     }, this._getRemainingTimeout(startTime, timeout));
 
-                    const result = await channel.sendTransaction(transactionRequest);
-                    clearTimeout(timeoutHandle);
-                    resolve(result);
+                    try {
+                        const result = await channel.sendTransaction(transactionRequest);
+                        clearTimeout(timeoutHandle);
+                        resolve(result);
+                    } catch(err) {
+                        clearTimeout(timeoutHandle);
+                        reject(err);
+                    }
                 });
 
                 broadcastResponse = await responsePromise;
@@ -1965,6 +2006,7 @@ class Fabric extends BlockchainConnector {
             // so connect to the defined event sources of every org in every channel
             for (const channel of this.networkUtil.getChannels()) {
                 for (const org of this.networkUtil.getOrganizationsOfChannel(channel)) {
+                    //TODO: Why are admins used here ? clients should be used really
                     const admin = this.adminProfiles.get(org);
 
                     // The API for retrieving channel event hubs changed, from SDK v1.2 it expects the MSP ID of the org
@@ -2026,6 +2068,7 @@ class Fabric extends BlockchainConnector {
         const compMode = this.networkUtil.isInCompatibilityMode() ? '; Fabric v1.0 compatibility mode' : '';
         logger.info(`Fabric SDK version: ${this.version.toString()}; TLS: ${tlsInfo}${compMode}`);
 
+        // TODO: only required for specific scenarios, means network config has to have more info defined
         await this._initializeRegistrars(workerInit);
         await this._initializeAdmins(workerInit);
         await this._initializeUsers(workerInit);
