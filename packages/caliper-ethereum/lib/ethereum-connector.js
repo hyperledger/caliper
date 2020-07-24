@@ -182,14 +182,15 @@ class EthereumConnector extends BlockchainConnector {
     }
 
     /**
-     * Invoke a smart contract.
+     * Send a request to a smart contract.
      * @param {String} contractID Identity of the contract.
      * @param {String} contractVer Version of the contract.
      * @param {EthereumInvoke|EthereumInvoke[]} invokeData Smart contract methods calls.
      * @param {Number} timeout Request timeout, in seconds.
+     * @param {boolean} isView Indicates whether the request is view call or not.
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    async invokeSmartContract(contractID, contractVer, invokeData, timeout) {
+    async _sendRequest(contractID, contractVer, invokeData, timeout, isView) {
         let invocations;
         if (!Array.isArray(invokeData)) {
             invocations = [invokeData];
@@ -198,9 +199,26 @@ class EthereumConnector extends BlockchainConnector {
         }
         let promises = [];
         invocations.forEach((item, index) => {
+            item.isView = isView;
+            this._onTxsSubmitted(1);
             promises.push(this.sendTransaction(this.context, contractID, contractVer, item, timeout));
         });
-        return Promise.all(promises);
+
+        const results = await Promise.all(promises);
+        this._onTxsFinished(results);
+        return results;
+    }
+
+    /**
+     * Invoke a smart contract.
+     * @param {String} contractID Identity of the contract.
+     * @param {String} contractVer Version of the contract.
+     * @param {EthereumInvoke|EthereumInvoke[]} invokeData Smart contract methods calls.
+     * @param {Number} timeout Request timeout, in seconds.
+     * @return {Promise<object>} The promise for the result of the execution.
+     */
+    async invokeSmartContract(contractID, contractVer, invokeData, timeout) {
+        return this._sendRequest(contractID, contractVer, invokeData, timeout, false);
     }
 
     /**
@@ -212,18 +230,7 @@ class EthereumConnector extends BlockchainConnector {
      * @return {Promise<object>} The promise for the result of the execution.
      */
     async querySmartContract(contractID, contractVer, invokeData, timeout) {
-        let invocations;
-        if (!Array.isArray(invokeData)) {
-            invocations = [invokeData];
-        } else {
-            invocations = invokeData;
-        }
-        let promises = [];
-        invocations.forEach((item, index) => {
-            item.isView = true;
-            promises.push(this.sendTransaction(this.context, contractID, contractVer, item, timeout));
-        });
-        return Promise.all(promises);
+        return this._sendRequest(contractID, contractVer, invokeData, timeout, true);
     }
 
     /**
@@ -240,7 +247,6 @@ class EthereumConnector extends BlockchainConnector {
         let params = {from: context.fromAddress};
         let contractInfo = context.contracts[contractID];
 
-        context.engine.submitCallback(1);
         let receipt = null;
         let methodType = 'send';
         if (methodCall.isView) {
@@ -299,23 +305,6 @@ class EthereumConnector extends BlockchainConnector {
         }
 
         return status;
-    }
-
-    /**
-     * Query the given smart contract according to the specified options.
-     * @param {string} contractID The name of the contract.
-     * @param {string} contractVer The version of the contract.
-     * @param {string} key The argument to pass to the smart contract query.
-     * @param {string} [fcn=query] The contract query function name.
-     * @return {Promise<object>} The promise for the result of the execution.
-     */
-    async queryState(contractID, contractVer, key, fcn = 'query') {
-        let methodCall = {
-            verb: fcn,
-            args: [key],
-            isView: true
-        };
-        return this.sendTransaction(this.context, contractID, contractVer, methodCall, 60);
     }
 
     /**

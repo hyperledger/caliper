@@ -126,13 +126,11 @@ class Fabric extends BlockchainConnector {
     /**
      * Initializes the Fabric adapter.
      * @param {object} networkObject The parsed network configuration.
-     * @param {string} workspace_root The absolute path to the root location for the application configuration files.
      * @param {number} workerIndex the worker index
      * @param {string} bcType The target SUT type
      */
-    constructor(networkObject, workspace_root, workerIndex, bcType) {
+    constructor(networkObject, workerIndex, bcType) {
         super(workerIndex, bcType);
-        this.workspaceRoot = workspace_root;
         this.version = new Version(require('../connector-versions/v1/node_modules/fabric-client/package').version);
 
         // clone the object to prevent modification by other objects
@@ -165,7 +163,7 @@ class Fabric extends BlockchainConnector {
         this.configClientBasedLoadBalancing = ConfigUtil.get(ConfigUtil.keys.Fabric.LoadBalancing, 'client') === 'client';
         this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountQueryAsLoad, true);
 
-        this.networkUtil = new FabricNetwork(this.network, workspace_root);
+        this.networkUtil = new FabricNetwork(this.network);
         this.defaultInvoker = Array.from(this.networkUtil.getClients())[0];
 
         // NOTE: regardless of the version of the Fabric backend, the SDK must be at least v1.1.0 in order to
@@ -582,7 +580,7 @@ class Fabric extends BlockchainConnector {
      */
     _getChannelConfigFromFile(channelObject, channelName) {
         // extracting the config from the binary file
-        const binaryPath = CaliperUtils.resolvePath(channelObject.configBinary, this.workspaceRoot);
+        const binaryPath = CaliperUtils.resolvePath(channelObject.configBinary);
         let envelopeBytes;
 
         try {
@@ -924,7 +922,7 @@ class Fabric extends BlockchainConnector {
      */
     async _installContracts() {
         if (this.configOverwriteGopath) {
-            process.env.GOPATH = CaliperUtils.resolvePath('.', this.workspaceRoot);
+            process.env.GOPATH = CaliperUtils.resolvePath('.');
         }
 
         const errors = [];
@@ -999,7 +997,7 @@ class Fabric extends BlockchainConnector {
                     /** @{ChaincodeInstallRequest} */
                     const request = {
                         targets: orgPeerTargets,
-                        chaincodePath: ccObject.language === 'golang' ? ccObject.path : CaliperUtils.resolvePath(ccObject.path, this.workspaceRoot),
+                        chaincodePath: ccObject.language === 'golang' ? ccObject.path : CaliperUtils.resolvePath(ccObject.path),
                         chaincodeId: ccObject.id,
                         chaincodeVersion: ccObject.version,
                         chaincodeType: ccObject.language,
@@ -1009,7 +1007,7 @@ class Fabric extends BlockchainConnector {
                     // metadata (like CouchDB indices) are only supported since Fabric v1.1
                     if (CaliperUtils.checkProperty(ccObject, 'metadataPath')) {
                         if (!this.networkUtil.isInCompatibilityMode()) {
-                            request.metadataPath = CaliperUtils.resolvePath(ccObject.metadataPath, this.workspaceRoot);
+                            request.metadataPath = CaliperUtils.resolvePath(ccObject.metadataPath);
                         } else {
                             throw new Error(`Installing ${contractInfo.id}@${contractInfo.version} with metadata is not supported in Fabric v1.0`);
                         }
@@ -1501,16 +1499,13 @@ class Fabric extends BlockchainConnector {
     /**
      * Queries the specified contract according to the provided settings.
      *
-     * @param {object} context The context previously created by the Fabric adapter.
      * @param {ContractQuerySettings} querySettings The settings associated with the query.
      * @param {number} timeout The timeout for the call in milliseconds.
      * @return {Promise<TxStatus>} The result and stats of the transaction query.
      */
-    async _submitSingleQuery(context, querySettings, timeout) {
+    async _submitSingleQuery(querySettings, timeout) {
         const startTime = Date.now();
         this.txIndex++;
-
-        const countAsLoad = querySettings.countAsLoad === undefined ? this.configCountQueryAsLoad : querySettings.countAsLoad;
 
         // retrieve the necessary client/admin profile
         let invoker;
@@ -1553,10 +1548,6 @@ class Fabric extends BlockchainConnector {
 
         // the exception should propagate up for an invalid channel name, indicating a user callback module error
         const channel = invoker.getChannel(querySettings.channel, true);
-
-        if (countAsLoad && context.engine) {
-            context.engine.submitCallback(1);
-        }
 
         /** Array of {Buffer|Error} */
         let results = null;
@@ -1614,12 +1605,11 @@ class Fabric extends BlockchainConnector {
     /**
      * Invokes the specified contract according to the provided settings.
      *
-     * @param {object} context The context previously created by the Fabric adapter.
      * @param {ContractInvokeSettings} invokeSettings The settings associated with the transaction submission.
      * @param {number} timeout The timeout for the whole transaction life-cycle in milliseconds.
      * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
      */
-    async _submitSingleTransaction(context, invokeSettings, timeout) {
+    async _submitSingleTransaction(invokeSettings, timeout) {
         // note start time to adjust the timeout parameter later
         const startTime = Date.now();
         this.txIndex++; // increase the counter
@@ -1680,9 +1670,6 @@ class Fabric extends BlockchainConnector {
         // NOTE: everything happens inside a try-catch
         // no exception should escape, transaction failures have to be handled gracefully
         try {
-            if (context.engine) {
-                context.engine.submitCallback(1);
-            }
             try {
                 // account for the elapsed time up to this point
                 proposalResponseObject = await channel.sendTransactionProposal(proposalRequest,
@@ -2097,23 +2084,30 @@ class Fabric extends BlockchainConnector {
         }
 
         for (const settings of settingsArray) {
-            const contractDetails = this.networkUtil.getContractDetails(contractID);
-            if (!contractDetails) {
-                throw new Error(`Could not find details for contract ID ${contractID}`);
+            if (settings.hasOwnProperty('channel')) {
+                settings.contractId = contractID;
+                settings.contractVersion = contractVersion;
+            } else {
+                const contractDetails = this.networkUtil.getContractDetails(contractID);
+                if (!contractDetails) {
+                    throw new Error(`Could not find details for contract ID ${contractID}`);
+                }
+                settings.channel = contractDetails.channel;
+                settings.contractId = contractDetails.id;
+                settings.contractVersion = contractDetails.version;
             }
-
-            settings.channel = contractDetails.channel;
-            settings.contractId = contractDetails.id;
-            settings.contractVersion = contractDetails.version;
 
             if (!settings.invokerIdentity) {
                 settings.invokerIdentity = this.defaultInvoker;
             }
 
-            promises.push(this._submitSingleTransaction(this.context, settings, timeout * 1000));
+            this._onTxsSubmitted(1);
+            promises.push(this._submitSingleTransaction(settings, timeout * 1000));
         }
 
-        return await Promise.all(promises);
+        const results = await Promise.all(promises);
+        this._onTxsFinished(results);
+        return results;
     }
 
     /**
@@ -2137,23 +2131,30 @@ class Fabric extends BlockchainConnector {
         }
 
         for (const settings of settingsArray) {
-            const contractDetails = this.networkUtil.getContractDetails(contractID);
-            if (!contractDetails) {
-                throw new Error(`Could not find details for contract ID ${contractID}`);
+            if (settings.hasOwnProperty('channel')) {
+                settings.contractId = contractID;
+                settings.contractVersion = contractVersion;
+            } else {
+                const contractDetails = this.networkUtil.getContractDetails(contractID);
+                if (!contractDetails) {
+                    throw new Error(`Could not find details for contract ID ${contractID}`);
+                }
+                settings.channel = contractDetails.channel;
+                settings.contractId = contractDetails.id;
+                settings.contractVersion = contractDetails.version;
             }
-
-            settings.channel = contractDetails.channel;
-            settings.contractId = contractDetails.id;
-            settings.contractVersion = contractDetails.version;
 
             if (!settings.invokerIdentity) {
                 settings.invokerIdentity = this.defaultInvoker;
             }
 
-            promises.push(this._submitSingleQuery(this.context, settings, timeout * 1000));
+            this._onTxsSubmitted(1);
+            promises.push(this._submitSingleQuery(settings, timeout * 1000));
         }
 
-        return await Promise.all(promises);
+        const results = await Promise.all(promises);
+        this._onTxsFinished(results);
+        return results;
     }
 
     /**

@@ -14,244 +14,255 @@
 
 'use strict';
 
-const ConfigUtil = require('../common/config/config-util.js');
-const CaliperUtils = require('../common/utils/caliper-utils.js');
 const CaliperWorker = require('./caliper-worker');
+const MessageTypes = require('./../common/utils/constants').Messages.Types;
 
-const logger = CaliperUtils.getLogger('message-handler');
+const ConnectedMessage = require('./../common/messages/connectedMessage');
+const AssignedMessage = require('./../common/messages/assignedMessage');
+const ReadyMessage = require('./../common/messages/readyMessage');
+const PreparedMessage = require('./../common/messages/preparedMessage');
+const TestResultMessage = require('./../common/messages/testResultMessage');
+
+const logger = require('../common/utils/caliper-utils.js').getLogger('worker-message-handler');
 
 /**
- * Base class for handling IPC messages in worker processes.
+ * Class for handling messages in worker processes.
+ *
+ * @property {MessengerInterface} messenger The messenger instance.
+ * @property {function} connectorFactory The SUT connector factory function.
+ * @property {string} managerUuid The UUID of the manager messenger.
+ * @property {number} workerIndex The zero-based index of the worker process.
+ * @property {CaliperWorker} The worker round executor.
+ * @property {BlockchainConnector} The SUT connector instance.
+ * @property {{resolve, reject}} exitPromiseFunctions The resolve/reject Promise functions to handle the async exit message later.
  */
 class MessageHandler {
     /**
-     * Initializes the BaseMessageHandler instance.
-     * @param {object} handlers Object of message handler functions.
-     * @param {Messenger} messenger the Messenger to use for communication with the orchestrator
+     * Initializes the message handler instance.
+     * @param {MessengerInterface} messenger The messenger to use for communication with the manager.
+     * @param {function} connectorFactory Factory function for creating the connector instance.
      */
-    constructor(handlers, messenger) {
-
-        if (!handlers.init) {
-            let msg = 'Handler for "init" is not specified';
+    constructor(messenger, connectorFactory) {
+        if (!messenger) {
+            let msg = 'Messenger instance is undefined';
             logger.error(msg);
             throw new Error(msg);
         }
 
-        if (!messenger) {
-            let msg = '"messenger" is not specified';
+        if (!connectorFactory || typeof connectorFactory !== 'function') {
+            let msg = 'Connector factory is undefined or not a function';
             logger.error(msg);
             throw new Error(msg);
         }
 
         this.messenger = messenger;
+        this.connectorFactory = connectorFactory;
+        this.managerUuid = undefined;
+        this.workerIndex = undefined;
+        this.worker = undefined;
+        this.connector = undefined;
+        this.exitPromiseFunctions = undefined;
 
-        this.beforeInitHandler = handlers.beforeInit || MessageHandler.beforeInit;
-        this.afterInitHandler = handlers.afterInit || MessageHandler.afterInit;
-        this.initHandler = handlers.init;
+        this.exitPromise = new Promise((resolve, reject) => {
+            this.exitPromiseFunctions = {
+                resolve: resolve,
+                reject: reject
+            };
+        });
 
-        this.beforePrepareHandler = handlers.beforePrepare || MessageHandler.beforePrepare;
-        this.afterPrepareHandler = handlers.afterPrepare || MessageHandler.afterPrepare;
-        this.prepareHandler = handlers.prepare || MessageHandler.prepare;
+        // to regain the context of the message handler
+        // "this" would point to the messenger instance
+        const self = this;
+        this.messenger.on(MessageTypes.Register, async (message) => {
+            await self._handleRegisterMessage(message);
+        });
 
-        this.beforeTestHandler = handlers.beforeTest || MessageHandler.beforeTest;
-        this.afterTestHandler = handlers.afterTest || MessageHandler.afterTest;
-        this.testHandler = handlers.test || MessageHandler.test;
+        this.messenger.on(MessageTypes.AssignId, async (message) => {
+            await self._handleAssignIdMessage(message);
+        });
 
-        // context/this fields
-        this.workspacePath = ConfigUtil.get(ConfigUtil.keys.Workspace);
-        this.networkConfigPath = ConfigUtil.get(ConfigUtil.keys.NetworkConfig);
-        this.networkConfigPath = CaliperUtils.resolvePath(this.networkConfigPath);
-        this.connector = undefined;      // The connector to pass to the CaliperWorker
-        this.worker = undefined; // An instantiated CaliperWorker
-        this.workerId = undefined;     // The Caliper client index (zero based)
-        this.testResult = undefined;   // The result of running a test
+        this.messenger.on(MessageTypes.Initialize, async (message) => {
+            await self._handleInitializeMessage(message);
+        });
 
+        this.messenger.on(MessageTypes.Prepare, async (message) => {
+            await self._handlePrepareMessage(message);
+        });
+
+        this.messenger.on(MessageTypes.Test, async (message) => {
+            await self._handleTestMessage(message);
+        });
+
+        this.messenger.on(MessageTypes.Exit, async (message) => {
+            await self._handleExitMessage(message);
+        });
     }
 
     /**
-     * Called before processing the "init" message.
-     * @param {object} context The context/state of the message handler.
-     * @param {object} message The message object.
+     * Logs that a message is being handled.
+     * @param {Message} message The message being handled.
+     * @private
      */
-    static async beforeInit(context, message) {
-        logger.info('Handling "init" message');
-        logger.debug('Message content', message);
+    _logHandling(message) {
+        const workerID = this.workerIndex
+            ? `Worker#${this.workerIndex} (${this.messenger.getUUID()})`
+            : `Worker (${this.messenger.getUUID()})`;
+
+        logger.debug(`Handling "${message.getType()}" message for ${workerID}: ${message.stringify()}`);
     }
 
     /**
-     * Called after processing the "init" message.
-     * @param {object} context The context/state of the message handler.
-     * @param {object} message The message object.
-     * @param {object} error Possible error object
+     * Logs that a message was handled, either successfully or unsuccessfully.
+     * @param {Message} message The message that was handled.
+     * @param {Error} error The error instance if an error occurred.
+     * @private
      */
-    static async afterInit(context, message, error) {
-        const type = 'ready';
-        if (error) {
-            // send(to, type, data)
-            context.messenger.send(['orchestrator'], type, {error: error.toString()});
-            logger.error(`Handled unsuccessful "init" message for worker ${context.workerId}, with error: ${error.stack}`);
-        } else {
-            context.worker = new CaliperWorker(context.connector, context.workerId, context.messenger);
-            context.messenger.send(['orchestrator'], type, {});
-            logger.info(`Handled successful "init" message for worker ${context.workerId}`);
-        }
-    }
-
-    /**
-     * Called before processing the "prepare" message.
-     * @param {object} context The context/state of the message handler.
-     * @param {object} message The message object.
-     */
-    static async beforePrepare(context, message) {
-        logger.info('Handling "prepare" message');
-        logger.debug('Message content', message);
-    }
-
-    /**
-     * Called after processing the "prepare" message.
-     * @param {object} context The context/state of the message handler.
-     * @param {object} message The message object.
-     * @param {object} error An error conditioning message
-     */
-    static async afterPrepare(context, message, error) {
-        const type = 'prepared';
-        if (error) {
-            // send(to, type, data)
-            context.messenger.send(['orchestrator'], type, {error: error.toString()});
-            logger.error(`Handled unsuccessful "prepare" message for worker ${context.workerId} and test round ${message.testRound} with error ${error.stack}`);
-        } else {
-            context.messenger.send(['orchestrator'], type, {});
-            logger.info(`Handled successful "prepare" message for worker ${context.workerId} and test round ${message.testRound}`);
-        }
-
-    }
-
-    /**
-     * Called before processing the "test" message.
-     * @param {object} context The context/state of the message handler.
-     * @param {object} message The message object.
-     */
-    static async beforeTest(context, message) {
-        logger.info('Handling "test" message');
-        logger.debug('Message content', message);
-    }
-
-    /**
-     * Called after processing the "test" message.
-     * @param {object} context The context/state of the message handler.
-     * @param {object} message The message object.
-     * @param {object} error An error conditioning message
-     */
-    static async afterTest(context, message, error) {
-        const type = 'testResult';
+    _logHandled(message, error = undefined) {
+        const workerID = this.workerIndex
+            ? `Worker#${this.workerIndex} (${this.messenger.getUUID()})`
+            : `Worker (${this.messenger.getUUID()})`;
 
         if (error) {
-            // send(to, type, data)
-            context.messenger.send(['orchestrator'], type, {error: error.toString()});
-            logger.error(`Handled unsuccessful "test" message for worker ${context.workerId} and test round ${message.testRound} with error ${error.stack}`);
+            logger.error(`Error while handling "${message.getType()}" message for ${workerID}: ${error.stack}`);
         } else {
-            context.messenger.send(['orchestrator'], type, context.testResult);
-            logger.info(`Handled successful "test" message for worker ${context.workerId} and test round ${message.testRound}`);
+            logger.debug(`Handled "${message.getType()}" message for ${workerID}`);
         }
     }
 
     /**
-     * Called for processing the "prepare" message.
-     * @param {object} context The context/state of the message handler.
-     * @param {object} message The message object.
-     * @return {Promise<object>} The result object.
+     * Handles the "register" message.
+     * @param {RegisterMessage} message The message object.
+     * @private
+     * @async
      */
-    static async prepare(context, message) {
-        await context.worker.prepareTest(message);
-    }
+    async _handleRegisterMessage(message) {
+        this._logHandling(message);
 
-    /**
-     * Called for processing the "test" message.
-     * @param {object} context The context/state of the message handler.
-     * @param {object} message The message object.
-     * @return {Promise<object>} The result object.
-     */
-    static async test(context, message) {
-        return context.worker.doTest(message);
-    }
+        const sender = message.getSender();
+        const workerID = this.workerIndex
+            ? `Worker#${this.workerIndex} (${this.messenger.getUUID()})`
+            : `Worker (${this.messenger.getUUID()})`;
 
-    /**
-     * Handles the IPC message.
-     * @param {object} context The context/state of the message handler.
-     * @param {object} message The message object.
-     */
-    static async handle(context, message) {
-        if (!message.hasOwnProperty('type')) {
-            let msg = 'Message type is missing';
-            logger.error(msg, message);
-            context.messenger.send(['orchestrator'], 'error', {error: msg});
-            return;
+        if (!this.managerUuid) {
+            // Register availability with manager
+            this.managerUuid = sender;
+            logger.debug(`Registering ${workerID} with manager "${this.managerUuid}"`);
+            const msg = new ConnectedMessage(this.messenger.getUUID(), [this.managerUuid]);
+            this.messenger.send(msg);
         }
 
+        this._logHandled(message);
+    }
+
+    /**
+     * Handles the "assignId" message.
+     * @param {AssignIdMessage} message The message object.
+     * @private
+     * @async
+     */
+    async _handleAssignIdMessage(message) {
+        this._logHandling(message);
+
+        this.workerIndex = message.getWorkerIndex();
+        const msg = new AssignedMessage(this.messenger.getUUID(), [this.managerUuid]);
+        this.messenger.send(msg);
+
+        this._logHandled(message);
+    }
+
+    /**
+     * Handles the "initialize" message.
+     * @param {InitializeMessage} message The message object.
+     * @private
+     * @async
+     */
+    async _handleInitializeMessage(message) {
+        this._logHandling(message);
+        logger.info(`Initializing Worker#${this.workerIndex}...`);
+
+        let err;
         try {
-            switch (message.type) {
-            case 'register':
-                if (!context.registered) {
-                    // Register availability with orchestrator
-                    context.messenger.send(['orchestrator'], 'connected', {});
-                    context.registered = true;
-                }
-                break;
-            case 'assignId':
-                context.workerId = message.workerId;
-                context.messenger.send(['orchestrator'], 'assigned', {});
-                break;
-            case 'initialize': {
-                try {
-                    await context.beforeInitHandler(context, message);
-                    context.connector = await context.initHandler(context.workerId);
-                    await context.afterInitHandler(context, message, undefined);
-                } catch (error) {
-                    await context.afterInitHandler(context, message, error);
-                }
-
-                break;
-            }
-            case 'prepare': {
-                try {
-                    await context.beforePrepareHandler(context, message);
-                    await context.prepareHandler(context, message);
-                    await context.afterPrepareHandler(context, message, undefined);
-                } catch (error) {
-                    await context.afterPrepareHandler(context, message, error);
-                }
-
-                break;
-            }
-            case 'test': {
-                try {
-                    await context.beforeTestHandler(context, message);
-                    context.testResult = await context.testHandler(context, message);
-                    await context.afterTestHandler(context, message, undefined);
-                } catch (err) {
-                    await context.afterTestHandler(context, message, err);
-                }
-
-                break;
-            }
-            case 'exit': {
-                logger.info('Handling "exit" message');
-                await context.messenger.dispose();
-                logger.info(`Handled "exit" message for worker ${context.workerId}, exiting process`);
-                process.exit(0);
-                break;
-            }
-            default: {
-                let msg = `Unknown message type "${message.type}"`;
-                logger.error(msg, message);
-                context.messenger.send(['orchestrator'], 'error', {error: msg});
-            }
-            }
+            this.connector = await this.connectorFactory(this.workerIndex);
+            this.worker = new CaliperWorker(this.connector, this.workerIndex, this.messenger, this.managerUuid);
+            logger.info(`Worker#${this.workerIndex} initialized`);
+        } catch (error) {
+            err = error;
         }
-        catch (err) {
-            logger.error(`Error while handling "${message.type}" message: ${err.stack || err}`);
-            context.messenger.send(['orchestrator'], 'error', {error: err.toString()});
+
+        const msg = new ReadyMessage(this.messenger.getUUID(), [this.managerUuid]);
+        this.messenger.send(msg);
+
+        this._logHandled(message, err);
+    }
+
+    /**
+     * Handles the "prepare" message.
+     * @param {PrepareMessage} message The message object.
+     * @private
+     * @async
+     */
+    async _handlePrepareMessage(message) {
+        this._logHandling(message);
+        logger.info(`Preparing Worker#${this.workerIndex} for Round#${message.getRoundIndex()}`);
+
+        let err;
+        try {
+            await this.worker.prepareTest(message);
+            logger.info(`Worker#${this.workerIndex} prepared for Round#${message.getRoundIndex()}`);
+        } catch (error) {
+            err = error;
         }
+
+        const msg = new PreparedMessage(this.messenger.getUUID(), [this.managerUuid], undefined, err ? err.toString() : undefined);
+        this.messenger.send(msg);
+
+        this._logHandled(message, err);
+    }
+
+    /**
+     * Handles the "test" message.
+     * @param {TestMessage} message The message object.
+     * @private
+     * @async
+     */
+    async _handleTestMessage(message) {
+        this._logHandling(message);
+        logger.info(`Worker#${this.workerIndex} is starting Round#${message.getRoundIndex()}`);
+
+        let err;
+        let result;
+        try {
+            result = await this.worker.doTest(message);
+            logger.info(`Worker#${this.workerIndex} finished Round#${message.getRoundIndex()}`);
+        } catch (error) {
+            err = error;
+        }
+
+        const msg = new TestResultMessage(this.messenger.getUUID(), [this.managerUuid], result || {}, undefined, err ? err.toString() : undefined);
+        this.messenger.send(msg);
+        this._logHandled(message, err);
+    }
+
+    /**
+     * Handles the "exit" message.
+     * @param {ExitMessage} message The message object.
+     * @private
+     * @async
+     */
+    async _handleExitMessage(message) {
+        this._logHandling(message);
+
+        logger.info(`Worker#${this.workerIndex} is exiting`);
+        this.exitPromiseFunctions.resolve();
+
+        this._logHandled(message);
+    }
+
+    /**
+     * Gets a promise that will resolve when the message handler receives an exit message.
+     */
+    async waitForExit() {
+        await this.exitPromise;
     }
 }
 

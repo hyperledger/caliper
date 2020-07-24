@@ -32,7 +32,6 @@ class MarblesInitWorkload extends WorkloadModuleBase {
 
     /**
      * Assemble TXs for creating new marbles.
-     * @return {Promise<TxStatus[]>}
      */
     async submitTransaction() {
         this.txIndex++;
@@ -48,7 +47,7 @@ class MarblesInitWorkload extends WorkloadModuleBase {
         };
 
         let targetCC = this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles';
-        return this.sutAdapter.invokeSmartContract(targetCC, 'v0', args, 5);
+        await this.sutAdapter.invokeSmartContract(targetCC, 'v0', args, 5);
     }
 }
 

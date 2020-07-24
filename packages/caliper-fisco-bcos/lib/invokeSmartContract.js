@@ -22,7 +22,7 @@ const fiscoBcosApi = require('./fiscoBcosApi');
 const { TxErrorEnum, findContractAddress } = require('./common');
 const commLogger = CaliperUtils.getLogger('invokeSmartContract.js');
 
-module.exports.run = async function (context, fiscoBcosSettings, contractID, fcn, args, workspaceRoot, readOnly = false) {
+module.exports.run = async function (fiscoBcosSettings, contractID, fcn, args, workspaceRoot, readOnly = false) {
     let smartContracts = fiscoBcosSettings.smartContracts;
     let address = findContractAddress(workspaceRoot, smartContracts, contractID);
     if (address === null) {
@@ -37,9 +37,6 @@ module.exports.run = async function (context, fiscoBcosSettings, contractID, fcn
     let receipt = null;
 
     try {
-        if (context && context.engine) {
-            context.engine.submitCallback(1);
-        }
 
         if (readOnly) {
             receipt = await fiscoBcosApi.call(networkConfig, account, address, fcn, args);

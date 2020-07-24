@@ -28,8 +28,10 @@ class RegistrarHelper {
      * @param {FabricNetwork} networkUtil the network
      */
     static async newWithNetwork(networkUtil) {
+        logger.debug('Entering newWithNetwork');
         const identityHelper = new RegistrarHelper(networkUtil);
         await identityHelper.initialize();
+        logger.debug('Exiting newWithNetwork');
         return identityHelper;
     }
 
@@ -46,14 +48,17 @@ class RegistrarHelper {
      * Initialize the helper
      */
     async initialize() {
+        logger.debug('Entering initialize');
         // Use a wallet for convenience
         this.wallet = await Wallets.newInMemoryWallet();
 
         // Loop over all known orgs to configure accessible CAs
         for (const orgName of this.networkUtil.getOrganizations()) {
+            logger.debug(`Operating on organization ${orgName}`);
             const caName = this.networkUtil.getCertificateAuthorityOfOrganization(orgName);
             const caObject = this.networkUtil.getCertificateAuthority(caName);
             if (caObject) {
+                logger.debug(`Retrieved Certificate Authority for organization ${orgName}`);
                 const tlsOptions = {
                     trustedRoots: [],
                     verify: caObject.verify || false
@@ -62,6 +67,7 @@ class RegistrarHelper {
 
                 const registrarInfo = this.networkUtil.getRegistrarOfOrganization(orgName);
                 if (registrarInfo) {
+                    logger.debug(`Retrieved Registrar information for organization ${orgName}`);
                     const registrarName = this.getRegistrarNameForOrg(orgName);
                     const registrarEnrollment = await this.enrollUser(orgCA, registrarInfo.enrollId, registrarInfo.enrollSecret);
                     const registrarIdentity = {
@@ -82,6 +88,7 @@ class RegistrarHelper {
                 continue;
             }
         }
+        logger.debug('Exiting initialize');
     }
 
     /**
@@ -105,12 +112,15 @@ class RegistrarHelper {
     /**
      * Register a user and return an enrollment secret
      * @param {string} orgName the organization to register under
-     * @param {string} clientName the client name to register
+     * @param {string} userID The user identity name to be registered
      */
-    async registerUserForOrg(orgName, clientName) {
+    async registerUserForOrg(orgName, userID) {
+        logger.debug(`Entering registerUserForOrg for organization ${orgName} userID ${userID}`);
         const registrarInfo = this.registrarInfo.get(orgName);
-        const affiliation = this.networkUtil.getAffiliationOfUser(clientName);
-        return await this.registerUser(registrarInfo, clientName, { affiliation });
+        const affiliation = this.networkUtil.getAffiliationOfUser(userID);
+        const userSecret =  await this.registerUser(registrarInfo, userID, { affiliation });
+        logger.debug('Exiting registerUserForOrg');
+        return userSecret;
     }
 
     /**
@@ -120,6 +130,7 @@ class RegistrarHelper {
      * @param {object} options options to be used during registration
      */
     async registerUser(registrarInfo, userID, options = {}) {
+        logger.debug(`Entering registerUser for userID ${userID}`);
         const identity = await this.wallet.get(registrarInfo.registrarName);
         const provider = this.wallet.getProviderRegistry().getProvider(identity.type);
         const user = await provider.getUserContext(identity, registrarInfo.registrarName);
@@ -176,6 +187,7 @@ class RegistrarHelper {
             }
         }
 
+        logger.debug('Exiting registerUser');
         return userSecret;
     }
 
@@ -187,8 +199,11 @@ class RegistrarHelper {
      * @return {Promise<{key: ECDSA_KEY, certificate: string}>} The resulting private key and certificate.
      */
     async enrollUserForOrg(orgName, clientName, enrollmentSecret) {
+        logger.debug(`Entering enrollUserForOrg for organization ${orgName} and identity name ${clientName}`);
         const caDetails = this.registrarInfo.get(orgName);
-        return await this.enrollUser(caDetails.orgCA, clientName, enrollmentSecret);
+        const enrollment = await this.enrollUser(caDetails.orgCA, clientName, enrollmentSecret);
+        logger.debug('Exiting enrollUserForOrg');
+        return enrollment;
     }
 
     /**
@@ -201,13 +216,16 @@ class RegistrarHelper {
      * @async
      */
     async enrollUser(ca, id, secret) {
+        logger.debug(`Entering enrollUser with enrollment ID ${id}`);
         // this call will throw an error if the CA configuration is not found
         // this error should propagate up
         try {
-            return await ca.enroll({
+            const enrollment = await ca.enroll({
                 enrollmentID: id,
                 enrollmentSecret: secret
             });
+            logger.debug('Exiting enrollUser');
+            return enrollment;
         } catch (err) {
             throw new Error(`Couldn't enroll 'user' ${id}: ${err.message}`);
         }

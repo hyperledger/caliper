@@ -15,7 +15,7 @@
 'use strict';
 
 const path = require('path');
-const { CaliperEngine, CaliperUtils, ConfigUtil } = require('@hyperledger/caliper-core');
+const { CaliperEngine, CaliperUtils, ConfigUtil, Constants } = require('@hyperledger/caliper-core');
 const BindCommon = require('../../lib/bindCommon');
 const logger = CaliperUtils.getLogger('cli-launch-manager');
 
@@ -56,7 +56,7 @@ class LaunchManager {
             logger.info(`Set SUT type: ${bindingSpec || sutType}`);
 
             let connectorFactory = CaliperUtils.loadModuleFunction(CaliperUtils.getBuiltinConnectorPackageNames(),
-                sutType, 'ConnectorFactory', require);
+                sutType, Constants.Factories.Connector, require);
 
             const engine = new CaliperEngine(benchmarkConfig, networkConfig, connectorFactory);
             const response = await engine.run();

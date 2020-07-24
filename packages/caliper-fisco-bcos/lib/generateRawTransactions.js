@@ -21,11 +21,7 @@ const uuid = require('uuid/v4');
 const fiscoBcosApi = require('./fiscoBcosApi');
 const commLogger = CaliperUtils.getLogger('generateRawTransactions.js');
 
-module.exports.run = async function (fiscoBcosSettings, workspaceRoot, context, contractID, arg, file) {
-    if (context && context.engine) {
-        context.engine.submitCallback(1);
-    }
-
+module.exports.run = async function (fiscoBcosSettings, workspaceRoot, contractID, arg, file) {
     let smartContracts = fiscoBcosSettings.smartContracts;
     let address = findContractAddress(workspaceRoot, smartContracts, contractID);
     let account = fiscoBcosSettings.config.account;

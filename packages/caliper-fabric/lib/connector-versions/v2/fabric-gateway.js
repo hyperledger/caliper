@@ -89,7 +89,7 @@ const QueryStrategies = {
 /////////////////////////////
 
 /**
- * Extends {BlockchainConnector} for a Fabric backend, utilizing the SDK's Common Connection Profile.
+ * Extends {BlockchainConnector} for a Fabric backend, utilizing the SDK Common Connection Profile.
  *
  * @property {Version} version Contains the version information about the used Fabric SDK.
  * @property {number} workerIndex The index of the client process using the adapter that is set in the constructor
@@ -105,7 +105,7 @@ const QueryStrategies = {
  * @property {boolean} configDiscovery Indicates whether to use discovery within the Fabric Gateway API
  * @property {string} eventStrategy Event strategy to use within the Fabric Gateway
  * @property {string} queryStrategy Query strategy to use within the Fabric Gateway
- * @property {Wallet} wallet The wallet containing all identities
+ * @property {Map} orgWallets A map of wallets for each organization
  * @property {Map} userContracts A map of identities to contracts they may submit/evaluate
  * @property {Map} userGateways A map of identities to the gateway they are connected
  * @property {Map} peerCache A cache of peer objects
@@ -114,23 +114,21 @@ class Fabric extends BlockchainConnector {
     /**
      * Initializes the Fabric adapter.
      * @param {object} networkObject The parsed network configuration.
-     * @param {string} workspace_root The absolute path to the root location for the application configuration files.
      * @param {number} workerIndex the worker index
      * @param {string} bcType The target SUT type
      */
-    constructor(networkObject, workspace_root, workerIndex, bcType) {
+    constructor(networkObject, workerIndex, bcType) {
         super(workerIndex, bcType);
-        this.workspaceRoot = workspace_root;
         this.version = new Version(require('fabric-network/package').version);
 
         // clone the object to prevent modification by other objects
         this.network = CaliperUtils.parseYamlString(CaliperUtils.stringifyYaml(networkObject));
 
         this.txIndex = -1;
-        this.networkUtil = new FabricNetwork(this.network, workspace_root);
+        this.networkUtil = new FabricNetwork(this.network);
         this.defaultInvoker = Array.from(this.networkUtil.getClients())[0];
 
-        this.wallet = undefined;
+        this.orgWallets = new Map();
         this.userContracts = new Map();
         this.userGateways = new Map();
         this.peerCache = new Map();
@@ -156,16 +154,17 @@ class Fabric extends BlockchainConnector {
      * Initialize the connector
      */
     async _initConnector() {
+        logger.debug('Entering _initConnector');
         const tlsInfo = this.networkUtil.isMutualTlsEnabled() ? 'mutual'
             : (this.networkUtil.isTlsEnabled() ? 'server' : 'none');
         logger.info(`Fabric SDK version: ${this.version.toString()}; TLS: ${tlsInfo}`);
 
-        await this._prepareWallet();
+        await this._prepareOrgWallets();
         await this._initializeAdmins();
         // Initialize registrars *after* initialization of admins so that admins are not created
         this.registrarHelper = await RegistrarHelper.newWithNetwork(this.networkUtil);
         await this._initializeUsers();
-        this.initPhaseCompleted = true;
+        logger.debug('Exiting _initConnector');
     }
 
     /**
@@ -187,11 +186,13 @@ class Fabric extends BlockchainConnector {
             }
 
             // Since admin exists, conditionally use it
-            const fileWalletPath = this.networkUtil.getFileWalletPath();
-            if (fileWalletPath) {
+            logger.info(`Administrator ${adminName} found in caliper configuration file - checking for ability to use the identity`);
+            const usesOrgWallets = this.networkUtil.usesOrganizationWallets();
+            if (usesOrgWallets) {
                 // If a file wallet is provided, it is expected that *all* required identities are provided
                 // Admin is a super-user identity, and is consequently optional
-                const hasAdmin = await this.wallet.get(adminName);
+                const orgWallet = this.orgWallets.get(org);
+                const hasAdmin = await orgWallet.get(adminName);
                 if (!hasAdmin) {
                     logger.info(`No ${adminName} found in wallet - unable to perform admin options using client specified in caliper configuration file`);
                 }
@@ -202,11 +203,12 @@ class Fabric extends BlockchainConnector {
                     logger.info(`No ${adminName} cryptoContent found in caliper configuration file - unable to perform admin options`);
                     continue;
                 } else {
-                    await this._addToWallet(org, cryptoContent.signedCertPEM, cryptoContent.privateKeyPEM, adminName);
+                    await this._addToOrgWallet(org, cryptoContent.signedCertPEM, cryptoContent.privateKeyPEM, adminName);
                 }
             }
             logger.info(`${org}'s admin's materials are successfully loaded`);
         }
+        logger.info('Completed initializing administrators');
     }
 
     /**
@@ -225,7 +227,9 @@ class Fabric extends BlockchainConnector {
         // - Register and enroll each client with its organization's CA as a fall back option
         for (const clientName of this.networkUtil.getClients()) {
             const orgName = this.networkUtil.getOrganizationOfClient(clientName);
-            const hasClient = await this.wallet.get(clientName);
+
+            const orgWallet = this.orgWallets.get(orgName);
+            const hasClient = await orgWallet.get(clientName);
             if (hasClient) {
                 logger.info(`Client ${clientName} present in wallet: skipping client enrollment`);
                 continue;
@@ -233,8 +237,10 @@ class Fabric extends BlockchainConnector {
                 // Extract required information from the supplied caliper config
                 const cryptoContent = this.networkUtil.getClientCryptoContent(clientName);
                 if (cryptoContent) {
-                    await this._addToWallet(orgName, cryptoContent.signedCertPEM.toString('utf8'), cryptoContent.privateKeyPEM.toString('utf8'), clientName);
+                    logger.info(`Client ${clientName} being initialized using provided crypto content`);
+                    await this._addToOrgWallet(orgName, cryptoContent.signedCertPEM.toString('utf8'), cryptoContent.privateKeyPEM.toString('utf8'), clientName);
                 } else {
+                    logger.info(`No crypto content provided for client ${clientName}; will attempt to register and enrol`);
                     try {
                         // Check if there is a valid registrar to use for the org
                         if (this.registrarHelper.registrarExistsForOrg(orgName)) {
@@ -243,12 +249,12 @@ class Fabric extends BlockchainConnector {
                             if (enrollmentSecret) {
                                 // enrolled, so register with enrollment secret
                                 const enrollment = await this.registrarHelper.enrollUserForOrg(orgName, clientName, enrollmentSecret);
-                                await this._addToWallet(orgName, enrollment.certificate,  enrollment.key.toBytes(), clientName);
+                                await this._addToOrgWallet(orgName, enrollment.certificate,  enrollment.key.toBytes(), clientName);
                             } else {
                                 // Register and enrol
                                 const secret = await this.registrarHelper.registerUserForOrg(orgName, clientName);
                                 const enrollment = await this.registrarHelper.enrollUserForOrg(orgName, clientName, secret);
-                                await this._addToWallet(orgName, enrollment.certificate,  enrollment.key.toBytes(), clientName);
+                                await this._addToOrgWallet(orgName, enrollment.certificate,  enrollment.key.toBytes(), clientName);
                             }
                         } else {
                             logger.warn(`Required registrar for organization ${orgName} does not exist; unable to enroll client with identity ${clientName}.`);
@@ -260,6 +266,7 @@ class Fabric extends BlockchainConnector {
                 }
             }
         }
+        logger.info('Completed initializing users');
     }
 
     /**
@@ -270,7 +277,8 @@ class Fabric extends BlockchainConnector {
      * @param {string} identityName the name to store the User as within the wallet
      * @async
      */
-    async _addToWallet(org, certificate, key, identityName) {
+    async _addToOrgWallet(org, certificate, key, identityName) {
+        logger.info(`Adding identity for name ${identityName} to wallet for organization ${org}`);
         const identity = {
             credentials: {
                 certificate: certificate,
@@ -280,8 +288,8 @@ class Fabric extends BlockchainConnector {
             type: 'X.509',
         };
 
-        logger.info(`Adding identity for identityName ${identityName} to wallet`);
-        await this.wallet.put(identityName, identity);
+        const orgWallet = this.orgWallets.get(org);
+        await orgWallet.put(identityName, identity);
         logger.info(`Identity ${identityName} created and imported to wallet`);
     }
 
@@ -290,32 +298,40 @@ class Fabric extends BlockchainConnector {
      * @async
      */
     async _initializeContracts() {
-        // Prepare client contracts based on wallet identities only
-        const walletIdentities = await this.wallet.list();
-        for (const identity of walletIdentities) {
-            logger.info(`Retrieving and persisting contract map for identity ${identity}`);
-            // Retrieve
-            const contractMap = await this._retrieveContractsForUser(identity);
-            // Persist
-            this.userContracts.set(identity, contractMap);
+        logger.debug('Entering _initializeContracts');
+        for (const walletOrg of this.orgWallets.keys()) {
+            logger.info(`Retrieving and persisting contract map for organization ${walletOrg}`);
+            const orgWallet = this.orgWallets.get(walletOrg);
+
+            // Prepare client contracts based on wallet identities only
+            const walletIdentities = await orgWallet.list();
+            for (const identity of walletIdentities) {
+                logger.info(`Retrieving and persisting contract map for identity ${identity}`);
+                // Retrieve
+                const contractMap = await this._retrieveContractMapForIdentity(identity, orgWallet);
+                // Persist
+                this.userContracts.set(identity, contractMap);
+            }
         }
+        logger.debug('Exiting _initializeContracts');
     }
 
     /**
-     * Retrieve all Contracts from the passed client gateway object
-     * @param {string} userName, the unique client user name
+     * Retrieve all Contracts using a passed identity and organization wallet
+     * @param {string} identity, the unique client identity name
+     * @param {FileSystemWallet | InMemoryWallet} wallet, the wallet that holds the passed identity name
      * @returns {Map<Contract>} A map of all Contracts retrieved from the client Gateway
      * @async
      */
-    async _retrieveContractsForUser(userName) {
-
-        // Retrieve the gateway for the passed user. The gateway object is persisted for easier cleanup.
+    async _retrieveContractMapForIdentity(identity, wallet) {
+        logger.debug('Entering _retrieveContractsForIdentity');
+        // Retrieve the gateway for the passed identity. The gateway object is persisted for easier cleanup.
         // - userName must match that created for wallet userId in init phases
-        const gateway = await this._retrieveUserGateway(userName);
-        this.userGateways.set(userName, gateway);
+        const gateway = await this._retrieveUserGateway(identity, wallet);
+        this.userGateways.set(identity, gateway);
 
         // Work on all channels to build a contract map
-        logger.info(`Generating contract map for user ${userName}`);
+        logger.info(`Generating contract map for user ${identity}`);
         const contractMap = new Map();
         const channels = this.networkUtil.getChannels();
         for (const channel of channels) {
@@ -325,24 +341,27 @@ class Fabric extends BlockchainConnector {
             const contracts = this.networkUtil.getContractsOfChannel(channel);
             for (const contract of contracts) {
                 const networkContract = await network.getContract(contract.id);
-                contractMap.set(contract.id, networkContract);
+                contractMap.set(`${channel}_${contract.id}`, networkContract);
             }
         }
 
+        logger.debug('Exiting _retrieveContractsForIdentity');
         return contractMap;
     }
 
     /**
      * Retrieve a Gateway object for the passed userId
-     * @param {string} userId string user id to use as the identity
+     * @param {string} identity string identity
+     * @param {FileSystemWallet | InMemoryWallet} wallet, the wallet that holds the passed identity name
      * @returns {FabricNet.Gateway} a gateway object for the passed user identity
      * @async
      */
-    async _retrieveUserGateway(userId) {
-        // Build options for the connection (this.wallet is set on _prepareWallet call)
+    async _retrieveUserGateway(identity, wallet) {
+        logger.debug(`Entering _retrieveUserGateway for identity name ${identity}`);
+        // Build options for the connection
         const opts = {
-            wallet: this.wallet,
-            identity: userId,
+            identity,
+            wallet,
             discovery: {
                 asLocalhost: this.configLocalHost,
                 enabled: this.configDiscovery
@@ -359,21 +378,22 @@ class Fabric extends BlockchainConnector {
 
         // Optional on mutual auth
         if (this.networkUtil.isMutualTlsEnabled()) {
-            opts.clientTlsIdentity = userId;
+            opts.clientTlsIdentity = identity;
         }
 
         // Retrieve gateway using ccp and options
         const gateway = new Gateway();
 
         try {
-            logger.info(`Connecting user ${userId} to a Network Gateway`);
+            logger.info(`Connecting user with identity ${identity} to a Network Gateway`);
             await gateway.connect(this.networkUtil.getNetworkObject(), opts);
-            logger.info(`Successfully connected user ${userId} to a Network Gateway`);
+            logger.info(`Successfully connected user with identity ${identity} to a Network Gateway`);
         } catch (err) {
-            logger.error(`Connecting user ${userId} to a Network Gateway failed with error: ${err}`);
+            logger.error(`Connecting user with identity ${identity} to a Network Gateway failed with error: ${err}`);
         }
 
         // return the gateway object
+        logger.debug('Exiting _retrieveUserGateway');
         return gateway;
     }
 
@@ -382,7 +402,7 @@ class Fabric extends BlockchainConnector {
      * formed in advance.
      */
     async _initializePeerCache() {
-
+        logger.debug('Entering _initializePeerCache');
         for (const userName of this.userGateways.keys()) {
             const gateway = this.userGateways.get(userName);
             // Loop over known channel names
@@ -397,35 +417,68 @@ class Fabric extends BlockchainConnector {
                 }
             }
         }
+        logger.debug('Exiting _initializePeerCache');
     }
 
     /**
-     * Conditionally initializes a wallet depending on user provided options
+     * Conditionally initializes the organization wallet map depending on network configuration
      * @private
      */
-    async _prepareWallet() {
-        const fileWalletPath = this.networkUtil.getFileWalletPath();
-        if (fileWalletPath) {
-            logger.info(`Using defined file wallet path ${fileWalletPath}`);
-            this.wallet = await Wallets.newFileSystemWallet(fileWalletPath);
+    async _prepareOrgWallets() {
+        logger.debug('Entering _prepareOrgWallets');
+        if (this.networkUtil.usesOrganizationWallets()) {
+            logger.info('Using defined organization file system wallets');
+            const orgs = this.networkUtil.getOrganizations();
+            for (const org of orgs) {
+                const fileWalletPath = this.networkUtil.getWalletPathForOrganization(org);
+                if (fileWalletPath) {
+                    const wallet = await Wallets.newFileSystemWallet(fileWalletPath);
+                    this.orgWallets.set(org, wallet);
+                } else {
+                    logger.warn(`No defined organization wallet for org ${org}`);
+                }
+            }
         } else {
-            logger.info('Creating new InMemoryWallet to persist user identities');
-            this.wallet = await Wallets.newInMemoryWallet();
+            logger.info('Creating new InMemoryWallets for organizations');
+            const orgs = this.networkUtil.getOrganizations();
+            for (const org of orgs) {
+                const wallet = await Wallets.newInMemoryWallet();
+                this.orgWallets.set(org, wallet);
+            }
         }
+        logger.debug('Exiting _prepareOrgWallets');
     }
 
     /**
      * Perform a transaction using a Gateway contract
-     * @param {object} context The context previously created by the Fabric adapter.
-     * @param {ContractInvokeSettings | ContractQuerySettings} invokeSettings The settings associated with the transaction submission.
+     * @param {string} contractID The unique contract ID of the target contract.
+     * @param {string} contractVersion The version of the contract. Only used when explicitly naming a channel within the invokeSettings.
+     * @param {ContractInvokeSettings|ContractQuerySettings} invokeSettings The settings associated with the transaction submission.
      * @param {boolean} isSubmit boolean flag to indicate if the transaction is a submit or evaluate
      * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
      * @async
      */
-    async _performGatewayTransaction(context, invokeSettings, isSubmit) {
+    async _performGatewayTransaction(contractID, contractVersion, invokeSettings, isSubmit) {
+        // Populate the contract details for the invoke
+        if (invokeSettings.hasOwnProperty('channel')) {
+            invokeSettings.contractId = contractID;
+            invokeSettings.contractVersion = contractVersion;
+        } else {
+            const contractDetails = this.networkUtil.getContractDetails(contractID);
+            if (!contractDetails) {
+                throw new Error(`Could not find details for contract ID ${contractID}`);
+            }
+            invokeSettings.channel = contractDetails.channel;
+            invokeSettings.contractId = contractDetails.id;
+            invokeSettings.contractVersion = contractDetails.version;
+        }
 
-        // Retrieve the existing contract and a client
-        const smartContract = await this._getUserContract(invokeSettings.invokerIdentity, invokeSettings.contractId);
+        if (!invokeSettings.invokerIdentity) {
+            invokeSettings.invokerIdentity = this.defaultInvoker;
+        }
+
+        // Retrieve the existing contract for the invokerIdentity
+        const smartContract = await this._getUserContract(invokeSettings.invokerIdentity, invokeSettings.channel, invokeSettings.contractId);
 
         // Create a transaction
         const transaction = smartContract.createTransaction(invokeSettings.contractFunction);
@@ -470,19 +523,12 @@ class Fabric extends BlockchainConnector {
         try {
             let result;
             if (isSubmit) {
-                if (context.engine) {
-                    context.engine.submitCallback(1);
-                }
                 invokeStatus.Set('request_type', 'transaction');
                 invokeStatus.Set('time_create', Date.now());
                 result = await transaction.submit(...invokeSettings.contractArguments);
             } else {
                 if (invokeSettings.targetPeers || invokeSettings.targetOrganizations) {
                     logger.warn('targetPeers or targetOrganizations options are not valid for query requests');
-                }
-                const countAsLoad = invokeSettings.countAsLoad === undefined ? this.configCountQueryAsLoad : invokeSettings.countAsLoad;
-                if (context.engine && countAsLoad) {
-                    context.engine.submitCallback(1);
                 }
                 invokeStatus.Set('request_type', 'query');
                 invokeStatus.Set('time_create', Date.now());
@@ -505,12 +551,13 @@ class Fabric extends BlockchainConnector {
     /**
      * Get the named contract for a named user
      * @param {string} invokerIdentity the user identity for interacting with the contract
-     * @param {string} contractName the name of the contract to return
+     * @param {string} channelName the channel name the contract exists on
+     * @param {string} contractId the name of the contract to return
      * @returns {FabricNetworkAPI.Contract} A contract that may be used to submit or evaluate transactions
      * @async
      */
-    async _getUserContract(invokerIdentity, contractName) {
-
+    async _getUserContract(invokerIdentity, channelName, contractId) {
+        logger.debug('Entering _getUserContract');
         // Determine the invoking user for this transaction
         let userName;
         if (invokerIdentity.startsWith('#')) {
@@ -527,13 +574,14 @@ class Fabric extends BlockchainConnector {
         }
 
         // Retrieve the named Network Contract for the invoking user from the Map
-        const contract = contractSet.get(contractName);
+        const contract = contractSet.get(`${channelName}_${contractId}`);
 
         // If no contract found, there is a user configuration/test specification error, so it should terminate
         if (!contract) {
-            throw Error(`No contract named ${contractName} found!`);
+            throw Error(`Unable to find specified contract ${contractId} on channel ${channelName}!`);
         }
 
+        logger.debug('Exiting _getUserContract');
         return contract;
     }
 
@@ -613,23 +661,13 @@ class Fabric extends BlockchainConnector {
         }
 
         for (const settings of settingsArray) {
-            const contractDetails = this.networkUtil.getContractDetails(contractID);
-            if (!contractDetails) {
-                throw new Error(`Could not find details for contract ID ${contractID}`);
-            }
-
-            settings.channel = contractDetails.channel;
-            settings.contractId = contractDetails.id;
-            settings.contractVersion = contractDetails.version;
-
-            if (!settings.invokerIdentity) {
-                settings.invokerIdentity = this.defaultInvoker;
-            }
-
-            promises.push(this._performGatewayTransaction(this.context, settings, true));
+            this._onTxsSubmitted(1);
+            promises.push(this._performGatewayTransaction(contractID, contractVersion, settings, true));
         }
 
-        return await Promise.all(promises);
+        const results = await Promise.all(promises);
+        this._onTxsFinished(results);
+        return results;
     }
 
     /**
@@ -652,23 +690,13 @@ class Fabric extends BlockchainConnector {
         }
 
         for (const settings of settingsArray) {
-            const contractDetails = this.networkUtil.getContractDetails(contractID);
-            if (!contractDetails) {
-                throw new Error(`Could not find details for contract ID ${contractID}`);
-            }
-
-            settings.channel = contractDetails.channel;
-            settings.contractId = contractDetails.id;
-            settings.contractVersion = contractDetails.version;
-
-            if (!settings.invokerIdentity) {
-                settings.invokerIdentity = this.defaultInvoker;
-            }
-
-            promises.push(this._performGatewayTransaction(this.context, settings, false));
+            this._onTxsSubmitted(1);
+            promises.push(this._performGatewayTransaction(contractID, contractVersion, settings, false));
         }
 
-        return await Promise.all(promises);
+        const results = await Promise.all(promises);
+        this._onTxsFinished(results);
+        return results;
     }
 
     /**

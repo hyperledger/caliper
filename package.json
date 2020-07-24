@@ -12,7 +12,8 @@
         "pretest": "npm run licchk",
         "licchk": "license-check-and-add",
         "test": "lerna run test",
-        "version-fix": "node ./packages/caliper-publish/publish.js version fix"
+        "version-fix": "node ./packages/caliper-publish/publish.js version fix",
+        "force-clean": "./scripts/force-clean.sh"
     },
     "engines": {
         "node": ">=8.10.0",

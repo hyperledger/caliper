@@ -37,6 +37,10 @@ cd ./config
 # back to this dir
 cd ${DIR}
 
+# needed, since the peer looks for the latest, which is no longer on dockerhub
+docker pull hyperledger/fabric-ccenv:1.4.7
+docker image tag hyperledger/fabric-ccenv:1.4.7 hyperledger/fabric-ccenv:latest
+
 # Run benchmark generator using generator defaults (specify invalid values for options)
 ${GENERATOR_METHOD} -- --workspace 'myWorkspace' --contractId 'mymarbles' --contractVersion 'v0' --contractFunction 'queryMarblesByOwner' --contractArguments '["Alice"]' --workers 'marbles' --benchmarkName 'A name for the marbles benchmark' --benchmarkDescription 'A description for the marbles benchmark' --label 'A label for the round' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 'marbles'
 # start network and run benchmark test

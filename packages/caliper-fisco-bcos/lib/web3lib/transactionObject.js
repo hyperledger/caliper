@@ -171,7 +171,7 @@ function Transaction(data) {
  * @return {Boolean} returns `true` if tx is to to the creation address, otherwise returns `false`
  */
 Transaction.prototype.toCreationAddress = function () {
-    return this.to.toString('hex') === '';
+    return this.recipients.toString('hex') === '';
 };
 
 /**

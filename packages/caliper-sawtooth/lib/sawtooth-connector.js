@@ -144,9 +144,9 @@ class SawtoothConnector extends BlockchainConnector {
         try {
             const builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer, this.config, this.workspaceRoot);
             const batchBytes = builder.buildBatch(args);
-            if (this.context.engine) {
-                this.context.engine.submitCallback(args.length);
-            }
+
+            this._onTxsSubmitted(args.length);
+
             //Get the next block number and status of block to pending
             if (this.currentBlockNum === 0) {
                 const block_num = await SawtoothHelper.getCurrentBlockId(this.context.restURL);
@@ -162,6 +162,8 @@ class SawtoothConnector extends BlockchainConnector {
                 Object.setPrototypeOf(cloned, TxStatus.prototype);
                 txStats.push(cloned);
             }
+
+            this._onTxsFinished(txStats);
             return txStats;
         } catch (err) {
             logger.error('invokeSmartContract failed, ' + err);
@@ -171,6 +173,8 @@ class SawtoothConnector extends BlockchainConnector {
                 txStatus.SetStatusFail();
                 txStats.push(txStatus);
             }
+
+            this._onTxsFinished(txStats);
             return txStats;
         }
     }
@@ -179,11 +183,19 @@ class SawtoothConnector extends BlockchainConnector {
      * Query state according to given name
      * @param {string} contractID The identity of the smart contract.
      * @param {string} contractVer The version of the smart contract.
-     * @param {string} queryName Lookup name
+     * @param {string} key Lookup name
+     * @param {string} fcn Unused.
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    queryState(contractID, contractVer, queryName) {
-        return this.queryByContext(this.context, contractID, contractVer, queryName, this.workspaceRoot);
+    async queryState(contractID, contractVer, key, fcn = undefined) {
+        this._onTxsSubmitted(1);
+
+        const builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer, this.config, this.workspaceRoot);
+        const addr = builder.calculateAddress(key);
+        const result = await this.getState(addr);
+
+        this._onTxsFinished(result);
+        return result;
     }
 
     // ****************************
@@ -284,7 +296,7 @@ class SawtoothConnector extends BlockchainConnector {
     /**
      * Get state according from given address
      * @param {String} address Sawtooth address
-     * @return {Promise<object>} The promise for the result of the execution.
+     * @return {Promise<TxStatus>} The promise for the result of the execution.
      */
     getState(address) {
         const txStatus = new TxStatus(0);
@@ -312,24 +324,6 @@ class SawtoothConnector extends BlockchainConnector {
                 logger.error('Query failed, ' + (err.stack?err.stack:err));
                 return Promise.resolve(txStatus);
             });
-    }
-
-    /**
-     * Query state according to given address
-     * @param {object} context Sawtooth context
-     * @param {string} contractID The identity of the smart contract.
-     * @param {string} contractVer The version of the smart contract.
-     * @param {string} address Lookup address
-     * @param {string} workspaceRoot the workspace root
-     * @return {Promise<object>} The promise for the result of the execution.
-     */
-    queryByContext(context, contractID, contractVer, address, workspaceRoot) {
-        const builder = BatchBuilderFactory.getBatchBuilder(contractID, contractVer, this.config, workspaceRoot);
-        const addr = builder.calculateAddress(address);
-        if (context.engine) {
-            context.engine.submitCallback(1);
-        }
-        return this.getState(addr);
     }
 
     /**

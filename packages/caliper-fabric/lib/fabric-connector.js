@@ -14,12 +14,11 @@
 
 'use strict';
 
-const { BlockchainConnector, CaliperUtils, ConfigUtil } = require('@hyperledger/caliper-core');
+const { BlockchainConnector, CaliperUtils, ConfigUtil, Constants } = require('@hyperledger/caliper-core');
 const ConfigValidator = require('./configValidator.js');
 const Logger = CaliperUtils.getLogger('fabric-connector');
 
 const semver = require('semver');
-const path = require('path');
 
 const FabricConnector = class extends BlockchainConnector {
 
@@ -73,15 +72,19 @@ const FabricConnector = class extends BlockchainConnector {
         }
 
         const networkConfig = CaliperUtils.resolvePath(ConfigUtil.get(ConfigUtil.keys.NetworkConfig));
-        const workspaceRoot = path.resolve(ConfigUtil.get(ConfigUtil.keys.Workspace));
 
         // validate the passed network file before use in underlying connector(s)
-        const configPath = CaliperUtils.resolvePath(networkConfig, workspaceRoot);
+        const configPath = CaliperUtils.resolvePath(networkConfig);
         const networkObject = CaliperUtils.parseYaml(configPath);
         ConfigValidator.validateNetwork(networkObject, CaliperUtils.getFlowOptions(), useDiscovery, useGateway);
 
         const Fabric = require(modulePath);
-        this.fabric = new Fabric(networkObject, workspaceRoot, workerIndex, bcType);
+        this.fabric = new Fabric(networkObject, workerIndex, bcType);
+
+        // propagate inside events through this decorator
+        const self = this;
+        this.fabric.on(Constants.Events.Connector.TxsSubmitted, count => self._onTxsSubmitted(count));
+        this.fabric.on(Constants.Events.Connector.TxsFinished, results => self._onTxsFinished(results));
     }
 
     /**

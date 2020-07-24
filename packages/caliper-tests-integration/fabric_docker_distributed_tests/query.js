@@ -31,7 +31,6 @@ class MarblesQueryWorkload extends WorkloadModuleBase {
 
     /**
      * Assemble TXs for querying existing marbles based on their owners.
-     * @return {Promise<TxStatus[]>}
      */
     async submitTransaction() {
         this.txIndex++;
@@ -43,7 +42,7 @@ class MarblesQueryWorkload extends WorkloadModuleBase {
         };
 
         let targetCC = this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles';
-        return this.sutAdapter.querySmartContract(targetCC, 'v0', args, 10);
+        await this.sutAdapter.querySmartContract(targetCC, 'v0', args, 10);
     }
 }
 

@@ -175,7 +175,7 @@ class SmallbankWorkload extends WorkloadModuleBase {
     async submitTransaction() {
         let args = this._generateWorkload();
         Logger.debug(`Worker ${this.workerIndex} TX args: ${JSON.stringify(args)}`);
-        return this.sutAdapter.invokeSmartContract('smallbank', '1.0', args, 30);
+        await this.sutAdapter.invokeSmartContract('smallbank', '1.0', args, 30);
     }
 }
 

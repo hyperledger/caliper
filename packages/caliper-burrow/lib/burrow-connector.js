@@ -115,7 +115,7 @@ class BurrowConnector extends BlockchainConnector {
      * Return the Burrow context associated with the given callback module name.
      * @param {number} roundIndex The zero-based round index of the test.
      * @param {object} args Unused.
-     * @return {object} The assembled Burrow context.
+     * @return {Promise<object>} The assembled Burrow context.
      * @async
      */
     async getContext(roundIndex, args) {
@@ -142,7 +142,7 @@ class BurrowConnector extends BlockchainConnector {
                 return Promise.resolve(result);
             },err => {
                 logger.info('getContext reject error:',err);
-                Promise.reject(err);
+                return Promise.reject(err);
             });
         }
         return Promise.resolve(context);
@@ -155,30 +155,16 @@ class BurrowConnector extends BlockchainConnector {
     async releaseContext() {
         // nothing to do
     }
+
     /**
-     * Query state from the ledger using a smart contract
-     * @param {String} contractID identity of the contract
-     * @param {String} contractVer version of the contract
-     * @param {Array} args array of JSON formatted arguments
-     * @param {Number} timeout request timeout, in seconds
-     * @return {Promise} query response object
+     * Send a request to a smart contract.
+     * @param {String} contractID Identity of the contract.
+     * @param {String} contractVer Version of the contract.
+     * @param {Object | Array<Object>} invokeData eg {'verb':'invoke','funName': 'getInt','funArgs': []}
+     * @param {Number} timeout Request timeout, in seconds.
+     * @return {Promise<object>} The promise for the result of the execution.
      */
-    async querySmartContract(contractID, contractVer, args, timeout) {
-        let promises = [];
-        args.forEach((item, index) => {
-            promises.push(this.doInvoke(this.config.burrow.context, contractID, contractVer, item, timeout));
-        });
-        return await Promise.all(promises);
-    }
-    /**
-   * Invoke a smart contract.
-   * @param {String} contractID Identity of the contract.
-   * @param {String} contractVer Version of the contract.
-   * @param {Object | Array<Object>} invokeData eg {'verb':'invoke','funName': 'getInt','funArgs': []}
-   * @param {Number} timeout Request timeout, in seconds.
-   * @return {Promise<object>} The promise for the result of the execution.
-   */
-    async invokeSmartContract(contractID, contractVer, invokeData, timeout) {
+    async _sendRequest(contractID, contractVer, invokeData, timeout) {
         let promises = [];
         let invocations;
         if (!Array.isArray(invokeData)) {
@@ -187,6 +173,8 @@ class BurrowConnector extends BlockchainConnector {
             invocations = invokeData;
         }
         invocations.forEach((item, index) => {
+            this._onTxsSubmitted(1);
+
             if (item.verb==='transfer') {
                 promises.push(this.acccountTransfer(this.config.burrow.context, item, timeout));
             } else if(item.verb==='invoke'){
@@ -199,7 +187,32 @@ class BurrowConnector extends BlockchainConnector {
                 promises.push(this.doInvoke(this.config.burrow.context, contractID, contractVer, item, timeout));
             }
         });
-        return await Promise.all(promises);
+        const results = await Promise.all(promises);
+        this._onTxsFinished(results);
+        return results;
+    }
+
+    /**
+     * Query state from the ledger using a smart contract
+     * @param {String} contractID identity of the contract
+     * @param {String} contractVer version of the contract
+     * @param {Array} args array of JSON formatted arguments
+     * @param {Number} timeout request timeout, in seconds
+     * @return {Promise} query response object
+     */
+    async querySmartContract(contractID, contractVer, args, timeout) {
+        return this._sendRequest(contractID, contractVer, args, timeout);
+    }
+    /**
+   * Invoke a smart contract.
+   * @param {String} contractID Identity of the contract.
+   * @param {String} contractVer Version of the contract.
+   * @param {Object | Array<Object>} invokeData eg {'verb':'invoke','funName': 'getInt','funArgs': []}
+   * @param {Number} timeout Request timeout, in seconds.
+   * @return {Promise<object>} The promise for the result of the execution.
+   */
+    async invokeSmartContract(contractID, contractVer, invokeData, timeout) {
+        return this._sendRequest(contractID, contractVer, invokeData, timeout);
     }
 
     /**
@@ -213,9 +226,7 @@ class BurrowConnector extends BlockchainConnector {
    */
     async doInvoke(context, contractID, contractVer, arg, timeout) {
         let status = new TxStatus();
-        if (context.engine) {
-            context.engine.submitCallback(1);
-        }
+
         //let contract = await context.burrow.contracts.address(context.address);
         //Todo: can't get contract with burrow.contracts.address
         return  context.contract[arg.funName](...arg.funArgs).then(function (result) {
@@ -239,9 +250,6 @@ class BurrowConnector extends BlockchainConnector {
         let toAccount=arg.toAccount;
         let amount= parseFloat(arg.money);
         let status = new TxStatus(toAccount);
-        if (context.engine) {
-            context.engine.submitCallback(1);
-        }
 
         let inputTx=new burrowTS.payload.TxInput();
         inputTx.setAddress(Buffer.from(account, 'hex'));
@@ -271,39 +279,5 @@ class BurrowConnector extends BlockchainConnector {
             return status;
         });
     }
-
-    /**
-     * Query the given smart contract according to the specified options.
-     * @param {string} contractID The name of the contract.
-     * @param {string} contractVer The version of the contract.
-     * @param {string} key The argument to pass to the smart contract query.
-     * @param {string} [fcn=query] The contract query function name.
-     * @return {Promise<object>} The promise for the result of the execution.
-     */
-    async queryState(contractID, contractVer, key, fcn = 'query') {
-        let status = new TxStatus();
-        if (this.config.burrow.context.engine) {
-            this.config.burrow.context.engine.submitCallback(1);
-        }
-        return new Promise(function (resolve, reject) {
-            let getAccountParam=new burrowTS.rpcquery.GetAccountParam();
-            getAccountParam.setAddress(Buffer.from(this.config.burrow.context.address, 'hex'));
-            this.config.burrow.context.burrow.qc.getAccount(getAccountParam, function (error, data) {
-                if (error) {
-                    status.SetStatusFail();
-                    reject(error);
-                } else {
-                    status.SetStatusSuccess();
-                    resolve(data);
-                }
-            });
-        }).then(function (result) {
-            return status;
-        },error => {
-            logger.info('queryState reject error:',error);
-            return status;
-        });
-    }
-
 }
 module.exports = BurrowConnector;

@@ -21,6 +21,10 @@ const RateControl = require('./rate-control/rateControl.js');
 const PrometheusClient = require('../common/prometheus/prometheus-push-client');
 const TransactionStatistics = require('../common/core/transaction-statistics');
 
+const TxResetMessage = require('./../common/messages/txResetMessage');
+const TxUpdateMessage = require('./../common/messages/txUpdateMessage');
+const Events = require('../common/utils/constants').Events.Connector;
+
 const Logger = CaliperUtils.getLogger('caliper-worker');
 
 /**
@@ -32,13 +36,15 @@ class CaliperWorker {
      * Create the test worker
      * @param {Object} connector blockchain worker connector
      * @param {number} workerIndex the worker index
-     * @param {Messenger} messenger a configured Messenger instance used to communicate with the orchestrator
+     * @param {MessengerInterface} messenger a configured Messenger instance used to communicate with the orchestrator
+     * @param {string} managerUuid The UUID of the messenger for message sending.
      */
-    constructor(connector, workerIndex, messenger) {
+    constructor(connector, workerIndex, messenger, managerUuid) {
         this.connector = connector;
         this.workerIndex = workerIndex;
         this.currentRoundIndex = -1;
         this.messenger = messenger;
+        this.managerUuid = managerUuid;
         this.context = undefined;
         this.txUpdateTime = Config.get(Config.keys.TxUpdateTime, 5000);
         this.maxTxPromises = Config.get(Config.keys.Worker.MaxTxPromises, 100);
@@ -62,6 +68,10 @@ class CaliperWorker {
          * @type {WorkloadModuleInterface}
          */
         this.workloadModule = undefined;
+
+        const self = this;
+        this.connector.on(Events.TxsSubmitted, count => self.txNum += count);
+        this.connector.on(Events.TxsFinished, results => self.addResult(results));
     }
 
     /**
@@ -114,7 +124,8 @@ class CaliperWorker {
         } else {
             // worker-orchestrator based update
             // send(to, type, data)
-            this.messenger.send(['orchestrator'],'txUpdate', {submitted: newNum, committed: newStats});
+            const msg = new TxUpdateMessage(this.messenger.getUUID(), [this.managerUuid], {submitted: newNum, committed: newStats});
+            this.messenger.send(msg);
         }
 
         if (this.resultStats.length === 0) {
@@ -165,7 +176,8 @@ class CaliperWorker {
         } else {
             // Reset Local
             // send(to, type, data)
-            this.messenger.send(['orchestrator'],'txReset', {type: 'txReset'});
+            const msg = new TxResetMessage(this.messenger.getUUID(), [this.managerUuid]);
+            this.messenger.send(msg);
         }
     }
 
@@ -185,45 +197,37 @@ class CaliperWorker {
 
     /**
      * Call before starting a new test
-     * @param {JSON} msg start test message
+     * @param {TestMessage} testMessage start test message
      */
-    beforeTest(msg) {
+    beforeTest(testMessage) {
         this.txReset();
 
         // TODO: once prometheus is enabled, trim occurs as part of the retrieval query
         // conditionally trim beginning and end results for this test run
-        if (msg.trim) {
-            if (msg.txDuration) {
+        if (testMessage.getTrimLength()) {
+            if (testMessage.getRoundDuration()) {
                 this.trimType = 1;
             } else {
                 this.trimType = 2;
             }
-            this.trim = msg.trim;
+            this.trim = testMessage.getTrimLength();
         } else {
             this.trimType = 0;
         }
 
-        // Prometheus is specified if msg.pushUrl !== null
-        if (msg.pushUrl !== null) {
+        // Prometheus is specified if testMessage.pushUrl !== undefined
+        if (testMessage.getPrometheusPushGatewayUrl()) {
             // - ensure counters reset
             this.totalTxnSubmitted = 0;
             this.totalTxnSuccess = 0;
             this.totalTxnFailure = 0;
             // - Ensure gateway base URL is set
             if (!this.prometheusClient.gatewaySet()){
-                this.prometheusClient.setGateway(msg.pushUrl);
+                this.prometheusClient.setGateway(testMessage.getPrometheusPushGatewayUrl());
             }
             // - set target for this round test/round/worker
-            this.prometheusClient.configureTarget(msg.label, msg.testRound, this.workerIndex);
+            this.prometheusClient.configureTarget(testMessage.getRoundLabel(), testMessage.getRoundIndex(), this.workerIndex);
         }
-    }
-
-    /**
-     * Callback for new submitted transaction(s)
-     * @param {Number} count count of new submitted transaction(s)
-     */
-    submitCallback(count) {
-        this.txNum += count;
     }
 
     /**
@@ -257,11 +261,7 @@ class CaliperWorker {
             // and I/O task(s) will get no chance to be execute and fall into starvation, for more detail info please visit:
             // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
             await this.setImmediatePromise(() => {
-                circularArray.add(self.workloadModule.submitTransaction()
-                    .then((result) => {
-                        this.addResult(result);
-                        return Promise.resolve();
-                    }));
+                circularArray.add(self.workloadModule.submitTransaction());
             });
             await rateController.applyRateControl(this.startTime, this.txNum, this.results, this.resultStats);
         }
@@ -288,11 +288,7 @@ class CaliperWorker {
             // and I/O task(s) will get no chance to be execute and fall into starvation, for more detail info please visit:
             // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
             await this.setImmediatePromise(() => {
-                circularArray.add(self.workloadModule.submitTransaction()
-                    .then((result) => {
-                        this.addResult(result);
-                        return Promise.resolve();
-                    }));
+                circularArray.add(self.workloadModule.submitTransaction());
             });
             await rateController.applyRateControl(this.startTime, this.txNum, this.results, this.resultStats);
         }
@@ -316,7 +312,7 @@ class CaliperWorker {
 
     /**
      * Perform test init within Benchmark
-     * @param {JSON} test the test details
+     * @param {PrepareMessage} message the test details
      * message = {
      *              label : label name,
      *              numb:   total number of simulated txs,
@@ -329,11 +325,11 @@ class CaliperWorker {
      *            };
      * @async
      */
-    async prepareTest(test) {
-        Logger.debug('prepareTest() with:', test);
-        this.currentRoundIndex = test.testRound;
+    async prepareTest(message) {
+        Logger.debug('prepareTest() with:', message.stringify());
+        this.currentRoundIndex = message.getRoundIndex();
 
-        const workloadModuleFactory = CaliperUtils.loadModuleFunction(new Map(), test.workload.module, 'createWorkloadModule');
+        const workloadModuleFactory = CaliperUtils.loadModuleFunction(new Map(), message.getWorkloadSpec().module, 'createWorkloadModule');
         this.workloadModule = workloadModuleFactory();
 
         const self = this;
@@ -341,22 +337,11 @@ class CaliperWorker {
 
         try {
             // Retrieve context for this round
-            this.context = await this.connector.getContext(this.currentRoundIndex, test.clientArgs);
-            if (typeof this.context === 'undefined') {
-                this.context = {
-                    engine : {
-                        submitCallback : (count) => { self.submitCallback(count); }
-                    }
-                };
-            } else {
-                this.context.engine = {
-                    submitCallback : (count) => { self.submitCallback(count); }
-                };
-            }
+            this.context = await this.connector.getContext(message.getRoundIndex(), message.getWorkerArguments());
 
             // Run init phase of callback
             Logger.info(`Info: worker ${this.workerIndex} prepare test phase for round ${this.currentRoundIndex + 1} is starting...`);
-            await this.workloadModule.initializeWorkloadModule(this.workerIndex, test.totalClients, this.currentRoundIndex, test.workload.arguments, this.connector, this.context);
+            await this.workloadModule.initializeWorkloadModule(this.workerIndex, message.getWorkersNumber(), this.currentRoundIndex, message.getWorkloadSpec().arguments, this.connector, this.context);
             await CaliperUtils.sleep(this.txUpdateTime);
         } catch (err) {
             Logger.info(`Worker [${this.workerIndex}] encountered an error during prepare test phase for round ${this.currentRoundIndex + 1}: ${(err.stack ? err.stack : err)}`);
@@ -369,7 +354,7 @@ class CaliperWorker {
 
     /**
      * Perform the test
-     * @param {JSON} test start test message
+     * @param {TestMessage} testMessage start test message
      * message = {
      *              label : label name,
      *              numb:   total number of simulated txs,
@@ -382,10 +367,10 @@ class CaliperWorker {
      *            };
      * @return {Promise} promise object
      */
-    async doTest(test) {
-        Logger.debug('doTest() with:', test);
+    async doTest(testMessage) {
+        Logger.debug('doTest() with:', testMessage.stringify());
 
-        this.beforeTest(test);
+        this.beforeTest(testMessage);
 
         Logger.info('txUpdateTime: ' + this.txUpdateTime);
         const self = this;
@@ -394,15 +379,15 @@ class CaliperWorker {
         try {
 
             // Configure
-            let rateController = new RateControl(test.rateControl, this.workerIndex, test.testRound);
-            await rateController.init(test);
+            let rateController = new RateControl(testMessage.getRateControlSpec(), this.workerIndex, testMessage.getRoundIndex());
+            await rateController.init(testMessage.getContent());
 
             // Run the test loop
-            if (test.txDuration) {
-                const duration = test.txDuration; // duration in seconds
+            if (testMessage.getRoundDuration()) {
+                const duration = testMessage.getRoundDuration(); // duration in seconds
                 await this.runDuration(duration, rateController);
             } else {
-                const number = test.numb;
+                const number = testMessage.getNumberOfTxs();
                 await this.runFixedNumber(number, rateController);
             }
 
@@ -427,7 +412,7 @@ class CaliperWorker {
                 };
             }
         } catch (err) {
-            this.clearUpdateInter();
+            this.clearUpdateInter(txUpdateInter);
             Logger.info(`Worker [${this.workerIndex}] encountered an error: ${(err.stack ? err.stack : err)}`);
             throw err;
         } finally {

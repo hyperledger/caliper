@@ -34,7 +34,6 @@ class WorkloadModuleInterface {
 
     /**
      * Assemble the next TX content(s) and submit it to the SUT adapter.
-     * @return {Promise<TxStatus[]>} The promises for the TX results as returned by the SUT adapter.
      * @async
      */
     async submitTransaction() {
