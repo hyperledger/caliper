@@ -196,7 +196,7 @@ class Fabric extends BlockchainConnector {
         const eventSources = [];
         if (this.networkUtil.isInCompatibilityMode()) {
             // NOTE: for old event hubs we have a single connection to every peer set as an event source
-            const EventHub = require('../connector-versions/v1/node_modules/fabric-client/lib/EventHub.js.js');
+            const EventHub = require('../connector-versions/v1/node_modules/fabric-client/lib/EventHub.js');
 
             for (const peer of targetPeers) {
                 const org = this.networkUtil.getOrganizationOfPeer(peer);

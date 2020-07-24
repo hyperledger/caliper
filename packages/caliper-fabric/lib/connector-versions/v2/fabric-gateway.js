@@ -47,18 +47,21 @@ const QueryStrategies = {
  *           should be invoked.
  * @property {string} contractFunction Required. The name of the function that should be
  *           invoked in the contract.
- * @property {string[]} contractArguments Optional. The list of {string} arguments that should
+ * @property {string[]} [contractArguments] Optional. The list of {string} arguments that should
  *           be passed to the contract.
- * @property {Map<string, Buffer>} transientMap Optional. The transient map that should be
+ * @property {Map<string, Buffer>} [transientMap] Optional. The transient map that should be
  *           passed to the contract.
  * @property {string} invokerIdentity Required. The name of the client who should invoke the
  *           contract. If an admin is needed, use the organization name prefixed with a # symbol.
  * @property {string} channel Required. The name of the channel whose contract should be invoked.
- * @property {string[]} targetPeers Optional. An array of endorsing
+ * @property {string[]} [targetPeers] Optional. An array of endorsing
  *           peer names as the targets of the invoke. When this
  *           parameter is omitted the target list will include the endorsing peers assigned
  *           to the target contract, or if it is also omitted, to the channel.
- * @property {string} orderer Optional. The name of the orderer to whom the request should
+ * @property {string[]} [targetOrganizations] Optional. An array of endorsing
+ *           organizations as the targets of the invoke. If both targetPeers and targetOrganizations
+ *           are specified then targetPeers will take precedence
+ * @property {string} [orderer] Optional. The name of the orderer to whom the request should
  *           be submitted. If omitted, then the first orderer node of the channel will be used.
  */
 
@@ -71,18 +74,14 @@ const QueryStrategies = {
  *           should be invoked.
  * @property {string} contractFunction Required. The name of the function that should be
  *           invoked in the contract.
- * @property {string[]} contractArguments Optional. The list of {string} arguments that should
+ * @property {string[]} [contractArguments] Optional. The list of {string} arguments that should
  *           be passed to the contract.
- * @property {Map<string, Buffer>} transientMap Optional. The transient map that should be
+ * @property {Map<string, Buffer>} [transientMap] Optional. The transient map that should be
  *           passed to the contract.
  * @property {string} invokerIdentity Required. The name of the client who should invoke the
  *           contract. If an admin is needed, use the organization name prefixed with a # symbol.
  * @property {string} channel Required. The name of the channel whose contract should be invoked.
- * @property {string[]} targetPeers Optional. An array of endorsing
- *           peer names as the targets of the invoke. When this
- *           parameter is omitted the target list will include the endorsing peers assigned
- *           to the target contract, or if it is also omitted, to the channel.
- * @property {boolean} countAsLoad Optional. Indicates whether to count this query as workload.
+ * @property {boolean} [countAsLoad] Optional. Indicates whether to count this query as workload.
  */
 
 /////////////////////////////
@@ -418,7 +417,7 @@ class Fabric extends BlockchainConnector {
     /**
      * Perform a transaction using a Gateway contract
      * @param {object} context The context previously created by the Fabric adapter.
-     * @param {ContractInvokeSettings} invokeSettings The settings associated with the transaction submission.
+     * @param {ContractInvokeSettings | ContractQuerySettings} invokeSettings The settings associated with the transaction submission.
      * @param {boolean} isSubmit boolean flag to indicate if the transaction is a submit or evaluate
      * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
      * @async
@@ -452,10 +451,20 @@ class Fabric extends BlockchainConnector {
             const targetPeerObjects = [];
             for (const name of invokeSettings.targetPeers) {
                 const peer = this.peerCache.get(name);
-                targetPeerObjects.push(peer);
+                if (peer) {
+                    targetPeerObjects.push(peer);
+                }
             }
             // Set the peer objects in the transaction
-            transaction.setEndorsingPeers(targetPeerObjects);
+            if (targetPeerObjects.length > 0) {
+                transaction.setEndorsingPeers(targetPeerObjects);
+            }
+        } else if (invokeSettings.targetOrganizations) {
+            if (Array.isArray(invokeSettings.targetOrganizations) && invokeSettings.targetOrganizations.length > 0) {
+                transaction.setEndorsingOrganizations(...invokeSettings.targetOrganizations);
+            } else {
+                logger.warn(`${invokeSettings.targetOrganizations} is not a populated array, no orgs targetted`);
+            }
         }
 
         try {
@@ -465,13 +474,18 @@ class Fabric extends BlockchainConnector {
                     context.engine.submitCallback(1);
                 }
                 invokeStatus.Set('request_type', 'transaction');
+                invokeStatus.Set('time_create', Date.now());
                 result = await transaction.submit(...invokeSettings.contractArguments);
             } else {
+                if (invokeSettings.targetPeers || invokeSettings.targetOrganizations) {
+                    logger.warn('targetPeers or targetOrganizations options are not valid for query requests');
+                }
                 const countAsLoad = invokeSettings.countAsLoad === undefined ? this.configCountQueryAsLoad : invokeSettings.countAsLoad;
                 if (context.engine && countAsLoad) {
                     context.engine.submitCallback(1);
                 }
                 invokeStatus.Set('request_type', 'query');
+                invokeStatus.Set('time_create', Date.now());
                 result = await transaction.evaluate(...invokeSettings.contractArguments);
             }
             invokeStatus.result = result;
