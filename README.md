@@ -64,7 +64,7 @@ order: 1
 
 * layout links to a html template within `_layouts` that the page is to use
 * tile is the title of the page, that will appear under a menu category
-* categories names the category under which the apge will appear and is one of [docs, config, reference, opensource]
+* categories names the category under which the page will appear and is one of [docs, config, reference, opensource]
 * order specifies the order in which the page title will appear within the category list
 
 ## Bumping the docs
