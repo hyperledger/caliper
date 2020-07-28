@@ -16,7 +16,7 @@ order: 3
 
 This page introduces the Fabric adapter that utilizes the Common Connection Profile (CCP) feature of the Fabric SDK to provide compatibility and a unified programming model across different Fabric versions.
 
-> The latest supported version of Hyperledger Fabric is v2.0.0
+> The latest supported version of Hyperledger Fabric is v2.2.x
 
 The adapter exposes many SDK features directly to the user callback modules, making it possible to implement complex scenarios.
 
@@ -39,23 +39,23 @@ To install the Fabric SDK dependencies of the adapter, configure the binding com
 
 You can set the above keys either from the command line:
 ```console
-user@ubuntu:~/caliper-benchmarks$ npx caliper bind --caliper-bind-sut fabric --caliper-bind-sdk 1.4.0
+user@ubuntu:~/caliper-benchmarks$ npx caliper bind --caliper-bind-sut fabric --caliper-bind-sdk 1.4.11
 ```
 or from environment variables:
 ```console
 user@ubuntu:~/caliper-benchmarks$ export CALIPER_BIND_SUT=fabric
-user@ubuntu:~/caliper-benchmarks$ export CALIPER_BIND_SDK=1.4.0
+user@ubuntu:~/caliper-benchmarks$ export CALIPER_BIND_SDK=1.4.11
 user@ubuntu:~/caliper-benchmarks$ npx caliper bind
 ```
 or from various [other sources](./Runtime_Configuration.md).
 
 ### Binding with Fabric SDK 2.0.x
-> Note that when using the binding target for the Fabric SDK 2.0.x there are capability restrictions:
-> * The 2.0 SDK does not facilitate administration actions. It it not possible to create/join channels, nor install/instantiate contract. Consequently the 2.0 binding only facilitates operation with a `--caliper-flow-only-test` flag
-> * The 2.0 SDK currently only supports operation using a `gateway`. Consequently the 2.0.0 binding requires a `--caliper-fabric-gateway-enabled` flag
+> Note that when using the binding target for the Fabric SDK 2.2.x there are capability restrictions:
+> * The 2.2 SDK does not facilitate administration actions. It it not possible to create/join channels, nor install/instantiate contract. Consequently the 2.2 binding only facilitates operation with a `--caliper-flow-only-test` flag
+> * The 2.2 SDK currently only supports operation using a `gateway`. Consequently the 2.2.x binding requires a `--caliper-fabric-gateway-enabled` flag
 >
-> When testing with the 2.0 SDK, it is recommended to configure the system in advance with a network tool of your choice, or using Caliper bound to a 1.4 SDK. The 2.0 SDK may then be bound to Caliper and used for testing.
-> Caliper does not support the Fabric v2.0 contract lifecycle, however the legacy commands of install/instantiate are still valid, and so Caliper can perform basic network configuration using 1.4 SDK bindings.
+> When testing with the 2.2 SDK, it is recommended to configure the system in advance with a network tool of your choice, or using Caliper bound to a 1.4 SDK. The 2.2 SDK may then be bound to Caliper and used for testing.
+> Caliper does not support the Fabric v2.2 contract lifecycle, however the legacy commands of install/instantiate are still valid, and so Caliper can perform basic network configuration using 1.4 SDK bindings.
 
 ## Runtime settings
 
@@ -124,6 +124,8 @@ The `invokeSettings` object has the following structure:
 * `transientMap`: _Map<string, byte[]>. Optional._ The transient map to pass to the contract.
 * `invokerIdentity`: _string. Optional._ The name of the user who should invoke the contract. If an admin is needed, use the organization name prefixed with a `#` symbol (e.g., `#Org2`). Defaults to the first client in the network configuration file.
 * `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the transaction proposal. If omitted, the target list will include endorsing peers selected according to the specified load balancing method.
+* `targetOrganizations`: _string[]. Optional._ An array of endorsing organizations as the targets of the invoke. If both targetPeers and 
+are specified then targetPeers will take precedence
 * `orderer`: _string. Optional._ The name of the target orderer for the transaction broadcast. If omitted, then an orderer node of the channel will be used, according to the specified load balancing method.
 * `channel`: _string. Optional._ The name of the channel on which the contract to call resides.
 
@@ -157,7 +159,7 @@ The `querySettings` object has the following structure:
 * `contractArguments`: _string[]. Optional._ The list of __string__ arguments passed to the contract.
 * `transientMap`: _Map<string, byte[]>. Optional._ The transient map passed to the contract.
 * `invokerIdentity`: _string. Optional._ The name of the user who should invoke the contract. If an admin is needed, use the organization name prefixed with a `#` symbol (e.g., `#Org2`). Defaults to the first client in the network configuration file.
-* `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the query. If omitted, the target list will include endorsing peers selected according to the specified load balancing method.
+* `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the query. If omitted, the target list will include endorsing peers selected according to the specified load balancing method. This option is ignored when a `gateway` is used.
 * `countAsLoad`: _boolean. Optional._ Indicates whether the query should be counted as workload and reflected in the generated report. If specified, overrides the adapter-level `caliper-fabric-countqueryasload` setting.
 * `channel`: _string. Optional._ The name of the channel on which the contract to call resides.
 
