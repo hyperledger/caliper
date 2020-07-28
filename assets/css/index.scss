@@ -376,7 +376,6 @@ hr {
 }
 
 .section-3 {
-  height: 100px;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -384,7 +383,6 @@ hr {
   border-bottom: 1px solid $c-grey;
   background-color: $c-grey;
   color: white;
-
   .title-1 {
     h2, p {
       color: black;
@@ -393,6 +391,11 @@ hr {
   .tut-section {
     display: flex;
     padding-top: 30px;
+    &:hover {
+      border: 1px solid mix($c-black, 40%);
+      color: black;
+      text-decoration: none;
+    }
     .tut-specific {
       strong {
         padding-top: 5px;
@@ -405,7 +408,7 @@ hr {
       background-color: mix($c-grey 40%);
       color: black;
       &:hover {
-        border: 1px solid mix($c-black, 40%);
+        border: 1px solid transparent;
         color: black;
         text-decoration: none;
       }
@@ -538,9 +541,6 @@ article {
 }
 
 .section-3 {
-  height: auto;
-  padding-top: 50px;
-  padding-bottom: 50px;
   .tut-section {
     flex-direction: column;
     .tut-specific {
@@ -552,5 +552,4 @@ article {
 .docs-wrapper {
   flex-direction: column;
 }
-
 }
