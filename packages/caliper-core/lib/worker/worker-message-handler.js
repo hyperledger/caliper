@@ -15,13 +15,13 @@
 'use strict';
 
 const CaliperWorker = require('./caliper-worker');
-const MessageTypes = require('./../common/utils/constants').Messages.Types;
+const MessageTypes = require('../common/utils/constants').Messages.Types;
 
-const ConnectedMessage = require('./../common/messages/connectedMessage');
-const AssignedMessage = require('./../common/messages/assignedMessage');
-const ReadyMessage = require('./../common/messages/readyMessage');
-const PreparedMessage = require('./../common/messages/preparedMessage');
-const TestResultMessage = require('./../common/messages/testResultMessage');
+const ConnectedMessage = require('../common/messages/connectedMessage');
+const AssignedMessage = require('../common/messages/assignedMessage');
+const ReadyMessage = require('../common/messages/readyMessage');
+const PreparedMessage = require('../common/messages/preparedMessage');
+const TestResultMessage = require('../common/messages/testResultMessage');
 
 const logger = require('../common/utils/caliper-utils.js').getLogger('worker-message-handler');
 
@@ -36,7 +36,7 @@ const logger = require('../common/utils/caliper-utils.js').getLogger('worker-mes
  * @property {BlockchainConnector} The SUT connector instance.
  * @property {{resolve, reject}} exitPromiseFunctions The resolve/reject Promise functions to handle the async exit message later.
  */
-class MessageHandler {
+class WorkerMessageHandler {
     /**
      * Initializes the message handler instance.
      * @param {MessengerInterface} messenger The messenger to use for communication with the manager.
@@ -108,7 +108,7 @@ class MessageHandler {
             ? `Worker#${this.workerIndex} (${this.messenger.getUUID()})`
             : `Worker (${this.messenger.getUUID()})`;
 
-        logger.debug(`Handling "${message.getType()}" message for ${workerID}: ${message.stringify()}`);
+        logger.info(`Handling "${message.getType()}" message for ${workerID}: ${message.stringify()}`);
     }
 
     /**
@@ -232,7 +232,7 @@ class MessageHandler {
         let err;
         let result;
         try {
-            result = await this.worker.doTest(message);
+            result = await this.worker.executeRound(message);
             logger.info(`Worker#${this.workerIndex} finished Round#${message.getRoundIndex()}`);
         } catch (error) {
             err = error;
@@ -266,4 +266,4 @@ class MessageHandler {
     }
 }
 
-module.exports = MessageHandler;
+module.exports = WorkerMessageHandler;

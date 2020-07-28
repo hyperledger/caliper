@@ -18,7 +18,8 @@ const Generator = require('yeoman-generator');
 const camelcase = require('camelcase');
 
 const defaultTxValue = 50;
-const defaultClientValue = 5;
+const defaultTxDuration = 20;
+const defaultWorkerCount = 1;
 const answersObject = {};
 
 let promptAnswers;
@@ -86,7 +87,7 @@ module.exports = class extends Generator {
                 type: 'number',
                 name: 'workers',
                 message: 'How many workers would you like to have?',
-                default: defaultClientValue,
+                default: defaultWorkerCount,
                 when: () => !this.options.workers
             }],
             roundQuestions: [{
@@ -119,7 +120,7 @@ module.exports = class extends Generator {
                 type: 'number',
                 name: 'txDuration',
                 message: 'How long would you like the round to last?',
-                default: defaultTxValue,
+                default: defaultTxDuration,
                 when: () => !this.options.txDuration
             }],
             txNumberQuestion : [{
@@ -135,7 +136,7 @@ module.exports = class extends Generator {
 
         const clientAnswer = await this.prompt(benchmarkQuestions.clientQuestions);
         if (isNaN(parseFloat(this.options.workers)) && isNaN(parseFloat(clientAnswer.workers))) {
-            this.log(`Error: Not a valid input. Using default client value of ${defaultClientValue}.`);
+            this.log(`Error: Not a valid input. Using default client value of ${defaultWorkerCount}.`);
         }
         if (this.options.workers < 0 || clientAnswer.workers < 0) {
             this.log(`Error: Negative values not accepted. Defaulting to ${Math.abs(clientAnswer.workers)}.`);
@@ -147,7 +148,7 @@ module.exports = class extends Generator {
         if (roundAnswers.txType === 'txDuration') {
             txValueAnswer = await this.prompt(benchmarkQuestions.txDurationQuestion);
             if (isNaN(parseFloat(txValueAnswer.txDuration))) {
-                this.log(`Error: Not a valid input. Using default txDuration value of ${defaultTxValue}.`);
+                this.log(`Error: Not a valid input. Using default txDuration value of ${defaultTxDuration}.`);
             }
             if (txValueAnswer.txDuration < 0) {
                 this.log(`Error: Negative values not accepted. Defaulting to ${Math.abs(txValueAnswer.txDuration)}.`);
@@ -211,7 +212,7 @@ module.exports = class extends Generator {
         answersObject.contractId = promptAnswers.contractId;
 
         if (isNaN(promptAnswers.workers)) {
-            answersObject.workers = defaultClientValue;
+            answersObject.workers = defaultWorkerCount;
         } else if (promptAnswers.workers < 0) {
             answersObject.workers = Math.abs(promptAnswers.workers);
         }
@@ -221,7 +222,7 @@ module.exports = class extends Generator {
 
         if (promptAnswers.txType === 'txDuration') {
             if (isNaN(promptAnswers.txDuration)) {
-                answersObject.txValue = defaultTxValue;
+                answersObject.txValue = defaultTxDuration;
             } else if (promptAnswers.txDuration < 0) {
                 answersObject.txValue = Math.abs(promptAnswers.txDuration);
             } else {

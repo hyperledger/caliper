@@ -28,8 +28,3 @@ test:
       rateControl: { type: 'linear-rate', opts: { startingTps: 5, finishingTps: 10 } }
       workload:
         module: ./query.js
-observer:
-    interval: 5
-    type: local
-monitor:
-    type: ['none']

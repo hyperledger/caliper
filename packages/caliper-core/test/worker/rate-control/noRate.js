@@ -16,21 +16,41 @@
 
 const rewire = require('rewire');
 const NoRate = rewire('../../../lib/worker/rate-control/noRate');
+const TestMessage = require('../../../lib/common/messages/testMessage');
+const TransactionStatisticsCollector = require('../../../lib/common/core/transaction-statistics-collector');
 
 const chai = require('chai');
 chai.should();
 const sinon = require('sinon');
 const assert = require('assert');
 
-describe ('noRate controller implementation', () => {
-    let controller;
+describe('noRate controller implementation', () => {
 
-    describe('#init', () => {
+    describe('#constructor', () => {
+
+        let controller, testMessage;
+        beforeEach( () => {
+            const msgContent = {
+                label: 'query2',
+                rateControl: {
+                    type: 'linear-rate',
+                    opts: {}
+                },
+                workload: {
+                    module:'./../queryByChannel.js'
+                },
+                testRound:0,
+                txDuration:250,
+                totalClients:2
+            };
+            testMessage = new TestMessage('test', [], msgContent);
+        });
+
+
         it ('should throw an error if a value for the number of transactions is set', async () => {
             try {
-                controller = new NoRate.createRateController({});
-                const msg = {numb: 5};
-                await controller.init(msg);
+                testMessage.content.numb = 6;
+                controller = new NoRate.createRateController(testMessage, {}, 0);
                 assert.fail(null, null, 'Exception expected');
             } catch (error) {
                 if (error.constructor.name === 'AssertionError') {
@@ -41,29 +61,52 @@ describe ('noRate controller implementation', () => {
         });
 
         it ('should set the sleep time based on the length of the round in seconds', () => {
-            let msg = {txDuration: 100};
-            controller = new NoRate.createRateController({});
-            controller.init(msg);
+            testMessage.content.txDuration = 6;
+            controller = new NoRate.createRateController(testMessage, {}, 0);
 
-            let sleepTime = msg.txDuration * 1000;
-            controller.sleepTime.should.equal(sleepTime);
+            controller.sleepTime.should.equal(6000);
         });
     });
 
     describe('#applyRateControl', () => {
+
+        let controller, sleepStub, msgContent, clock;
+
+        beforeEach(() => {
+            msgContent = {
+                label: 'query2',
+                rateControl: {
+                    type: 'linear-feedback-rate',
+                    opts: { startingTps: 20, finishingTps: 80 }
+                },
+                workload: {
+                    module:'./../queryByChannel.js'
+                },
+                testRound:0,
+                txDuration:250,
+                totalClients:2
+            };
+
+            clock = sinon.useFakeTimers();
+
+            sleepStub = sinon.stub();
+            NoRate.__set__('Sleep', sleepStub);
+        });
+
+        afterEach(() => {
+            clock.restore();
+        });
+
         it('should sleep for the set sleep time', () => {
-            let sleepStub = sinon.stub();
-            let msg = {txDuration: 100};
-            NoRate.__set__('Util.sleep', sleepStub);
+            const txnStats = new TransactionStatisticsCollector();
 
-            controller = new NoRate.createRateController({});
+            const testMessage = new TestMessage('test', [], msgContent);
+            testMessage.content.txDuration = 5;
+            controller = new NoRate.createRateController(testMessage, txnStats, 0);
 
-            controller.sleepTime = msg.txDuration * 1000;
-            let sleepTime = controller.sleepTime;
-
-            controller.applyRateControl(null, null, null, null);
+            controller.applyRateControl();
             sinon.assert.calledOnce(sleepStub);
-            sinon.assert.calledWith(sleepStub, sleepTime);
+            sinon.assert.calledWith(sleepStub, 5000);
         });
     });
 });

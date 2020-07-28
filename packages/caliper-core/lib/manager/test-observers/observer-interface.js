@@ -24,10 +24,8 @@ class TestObserverInterface {
 
     /**
      * Constructor
-     * @param {object} benchmarkConfig The benchmark configuration object.
      */
-    constructor(benchmarkConfig) {
-        this.benchmarkConfig = benchmarkConfig;
+    constructor() {
     }
 
     /**
@@ -79,6 +77,14 @@ class TestObserverInterface {
      */
     setRound(roundIdx) {
         this._throwNotImplementedError('setRound');
+    }
+
+    /**
+     * Called when new TX stats are available.
+     * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
+     */
+    txUpdateArrived(stats) {
+        this._throwNotImplementedError('txUpdateArrived');
     }
 
 }

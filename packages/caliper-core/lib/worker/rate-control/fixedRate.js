@@ -18,71 +18,41 @@ let RateInterface = require('./rateInterface.js');
 let Sleep = require('../../common/utils/caliper-utils').sleep;
 
 /**
- * This controller will send transactions at a specified fixed interval.
+ * Rate controller that sends transactions at a fixed rate.
  *
- * The TPS rate must be specified within the options for the controller type:
- * "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 10}}]
+ * @property {number} sleepTime The number of milliseconds to sleep to keep the specified TX sending rate.
+ *
+ * @extends RateInterface
  *
 */
 class FixedRate extends RateInterface {
 
     /**
-     * Creates a new instance of the FixedRate class.
-     * @constructor
-     * @param {object} opts Options for the rate controller.
+     * Initializes the rate controller instance.
+     * @param {TestMessage} testMessage start test message
+     * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
+     * @param {number} workerIndex The 0-based index of the worker node.
      */
-    constructor(opts) {
-        super(opts);
-    }
+    constructor(testMessage, stats, workerIndex) {
+        super(testMessage, stats, workerIndex);
 
-    /**
-     * Initializes the rate controller.
-     *
-     * @param {object} msg Client options with adjusted per-client load settings.
-     * @param {string} msg.type The type of the message. Currently always 'test'
-     * @param {string} msg.label The label of the round.
-     * @param {object} msg.rateControl The rate control to use for the round.
-     * @param {number} msg.trim The number/seconds of transactions to trim from the results.
-     * @param {object} msg.args The user supplied arguments for the round.
-     * @param {string} msg.cb The path of the user's callback module.
-     * @param {string} msg.config The path of the network's configuration file.
-     * @param {number} msg.numb The number of transactions to generate during the round.
-     * @param {number} msg.txDuration The length of the round in SECONDS.
-     * @param {number} msg.totalClients The number of clients executing the round.
-     * @param {number} msg.clients The number of clients executing the round.
-     * @param {object} msg.clientArgs Arguments for the client.
-     * @param {number} msg.clientIdx The 0-based index of the current client.
-     * @param {number} msg.roundIdx The 1-based index of the current round.
-     * @async
-     */
-    async init(msg) {
-        // Use the passed tps option
-        const tps = this.options.tps;
-        const tpsPerClient = msg.totalClients ? (tps / msg.totalClients) : tps;
+        const tps = this.options.tps ? this.options.tps : 10;
+        const tpsPerClient = tps / this.numberOfWorkers;
         this.sleepTime = (tpsPerClient > 0) ? 1000/tpsPerClient : 0;
     }
 
     /**
-    * Perform the rate control action based on knowledge of the start time, current index, and current results.
-    * - Sleep a suitable time according to the required transaction generation time
-    * @param {number} start The epoch time at the start of the round (ms precision).
-    * @param {number} idx Sequence number of the current transaction.
-    * @param {object[]} recentResults The list of results of recent transactions.
-    * @param {object[]} resultStats The aggregated stats of previous results.
-    * @async
-    */
-    async applyRateControl(start, idx, recentResults, resultStats) {
-        if(this.sleepTime === 0) {
+     * Perform the rate control action by blocking the execution for a certain amount of time.
+     * @async
+     */
+    async applyRateControl() {
+        if (this.sleepTime === 0) {
             return;
         }
-        let diff = (this.sleepTime * idx - (Date.now() - start));
-        if(diff<=5 && idx % 100 === 0) {
-            await Sleep(5);
-            return;
-        }
-        if( diff > 5) {
-            await Sleep(diff);
-        }
+
+        const totalSubmitted = this.stats.getTotalSubmittedTx();
+        const diff = (this.sleepTime * totalSubmitted - (Date.now() - this.stats.getRoundStartTime()));
+        await Sleep(diff);
     }
 
     /**
@@ -93,14 +63,15 @@ class FixedRate extends RateInterface {
 }
 
 /**
- * Creates a new rate controller instance.
- * @param {object} opts The rate controller options.
- * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
- * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
- * @return {RateInterface} The rate controller instance.
+ * Factory for creating a new rate controller instance.
+ * @param {TestMessage} testMessage start test message
+ * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
+ * @param {number} workerIndex The 0-based index of the worker node.
+ *
+ * @return {RateInterface} The new rate controller instance.
  */
-function createRateController(opts, clientIdx, roundIdx) {
-    return new FixedRate(opts);
+function createRateController(testMessage, stats, workerIndex) {
+    return new FixedRate(testMessage, stats, workerIndex);
 }
 
 module.exports.createRateController = createRateController;

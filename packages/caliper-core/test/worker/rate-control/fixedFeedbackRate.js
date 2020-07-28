@@ -16,6 +16,8 @@
 
 const rewire = require('rewire');
 const FixedFeedbackRate = rewire('../../../lib/worker/rate-control/fixedFeedbackRate');
+const TestMessage = require('../../../lib/common/messages/testMessage');
+const TransactionStatisticsCollector = require('../../../lib/common/core/transaction-statistics-collector');
 
 const chai = require('chai');
 chai.should();
@@ -23,227 +25,124 @@ const sinon = require('sinon');
 
 describe('fixedFeedbackRate controller implementation', () => {
 
-    describe('#init', () => {
+    describe('#constructor', () => {
         let controller;
-        let opts = {
-            tps: 100,
-            maximum_transaction_load: 100
-        };
-
-        beforeEach(() => {
-            controller = new FixedFeedbackRate.createRateController(opts);
-        });
-
-        it('should set the sleepTime for a single client if no clients are specified', () => {
-            let msg = {};
-            controller.init(msg);
-
-            // if the tps per client is is 100, then the sleep time is (1000/100) = 10
-            controller.sleepTime.should.equal(10);
-        });
-
-        it('should set the sleepTime for a single client to 0 if no clients are specified and tps is 0', () => {
-            let msg = {};
-            let opts = {
-                tps: 0,
-                maximum_transaction_load: 100
+        let testMessage;
+        beforeEach( () => {
+            const msgContent = {
+                label: 'query2',
+                rateControl: {
+                    type: 'fixed-feedback-rate',
+                    opts: {}
+                },
+                workload: {
+                    module:'./../queryByChannel.js'
+                },
+                testRound:0,
+                txDuration:250,
+                totalClients:2
             };
-            controller = new FixedFeedbackRate.createRateController(opts);
-
-            controller.init(msg);
-            controller.sleepTime.should.equal(0);
+            testMessage = new TestMessage('test', [], msgContent);
         });
 
-        it('should set the sleepTime for multiple clients', () => {
-            let msg = {totalClients: 4};
-            controller.init(msg);
-
-            // if the number of clients is 4, then the tps per client is (100/4) = 25 and the sleeptime is (1000/25) = 40
-            controller.sleepTime.should.equal(40);
+        it('should set the sleepTime for a single client if no options are specified', () => {
+            testMessage.content.totalClients = 1;
+            controller = new FixedFeedbackRate.createRateController(testMessage, {}, 0);
+            controller.generalSleepTime.should.equal(100);
         });
 
-        it('should set the sleepTime to zero if 0 tps is specified', () => {
-            controller = new FixedFeedbackRate.createRateController({tps: 0});
-            let msg = {totalClients: 1};
-            controller.init(msg);
-            controller.sleepTime.should.equal(0);
+        it('should set unfinishedPerWorker for multiple workers if specified', () => {
+            testMessage.content.rateControl.opts = { transactionLoad: 50 };
+            controller = new FixedFeedbackRate.createRateController(testMessage, {}, 0);
+            controller.unfinishedPerWorker.should.equal(25);
         });
 
-        it ('should set the sleep_time if specified', () => {
-            controller = new FixedFeedbackRate.createRateController({sleep_time: 50});
-            let msg = {totalClients: 1};
-            controller.init(msg);
-            controller.sleep_time.should.equal(50);
+        it('should set unfinishedPerWorker for multiple workers if not specified', () => {
+            testMessage.content.rateControl.opts = { };
+            controller = new FixedFeedbackRate.createRateController(testMessage, {}, 0);
+            controller.unfinishedPerWorker.should.equal(5);
         });
 
-        it ('should set a default sleep_time if not specified', () => {
-            let msg = {totalClients: 1};
-            controller.init(msg);
-            controller.sleep_time.should.equal(100);
-        });
-
-        it ('should set the transaction backlog for multiple workers if specified', () => {
-            let msg = {totalClients: 2};
-            controller.init(msg);
-            controller.unfinished_per_worker.should.equal(50);
-        });
-
-        it ('should set a default transaction backlog for multiple workers if not specified', () => {
-            controller = new FixedFeedbackRate.createRateController({});
-            let msg = {totalClients: 1};
-            controller.init(msg);
-            controller.unfinished_per_worker.should.equal(100);
-        });
-
-        it ('should set zero_succ_count to 0', () => {
-            let msg = {totalClients: 1};
-            controller.init(msg);
-            controller.zero_succ_count.should.equal(0);
+        it('should set zeroSuccessfulCounter to 0', () => {
+            testMessage.content.rateControl.opts = { };
+            controller = new FixedFeedbackRate.createRateController(testMessage, {}, 0);
+            controller.zeroSuccessfulCounter.should.equal(0);
         });
 
         it ('should set the total sleep time to 0', () => {
-            let msg = {totalClients: 1};
-            controller.init(msg);
-            controller.total_sleep_time.should.equal(0);
+            testMessage.content.rateControl.opts = { };
+            controller = new FixedFeedbackRate.createRateController(testMessage, {}, 0);
+            controller.totalSleepTime.should.equal(0);
         });
 
     });
 
     describe('#applyRateController', () => {
-        let controller, sleepStub, clock;
+        let controller, sleepStub, txnStats, clock;
 
-        let opts = {
-            tps: 100,
-            maximum_transaction_load: 100
-        };
+        beforeEach( () => {
+            const msgContent = {
+                label: 'query2',
+                rateControl: {
+                    type: 'fixed-feedback-rate',
+                    opts: {}
+                },
+                workload: {
+                    module:'./../queryByChannel.js'
+                },
+                testRound:0,
+                txDuration:250,
+                totalClients:2
+            };
 
-        beforeEach(() => {
             clock = sinon.useFakeTimers();
             sleepStub = sinon.stub();
             FixedFeedbackRate.__set__('util.sleep', sleepStub);
 
-            controller = new FixedFeedbackRate.createRateController(opts);
-            controller.maximum_transaction_load = 100;
-            controller.sleepTime = 50;
-            controller.sleep_time = 100;
-            controller.zero_succ_count = 0;
+            const testMessage = new TestMessage('test', [], msgContent);
+            txnStats = new TransactionStatisticsCollector();
+            controller = new FixedFeedbackRate.createRateController(testMessage, txnStats, 0);
         });
 
-        it ('should not sleep if the sleepTime is 0', () => {
-            let start = 0;
-            let idx = 100;
-            let resultStats = [
-                {
-                    succ: 15,
-                    fail: 5
-                }
-            ];
-            controller.sleepTime = 0;
-            controller.applyRateControl(start, idx, [], resultStats);
+        afterEach(() => {
+            clock.restore();
+        });
+
+        it('should not sleep if the generalSleepTime is 0', () => {
+            controller.generalSleepTime = 0;
+            txnStats.stats.txCounters.totalSubmitted = 2000;
+            controller.applyRateControl();
 
             // should have not called the sleep method
             sinon.assert.notCalled(sleepStub);
         });
 
-        it ('should not sleep if id < maximum_transaction_load', () => {
-            let start = 0;
-            let idx = 50;
-            let resultStats = [
-                {
-                    succ: 15,
-                    fail: 5
-                }
-            ];
-            controller.applyRateControl(start, idx, [], resultStats);
+        it('should not sleep if there are no unfinished transactions', () => {
+            txnStats.stats.txCounters.totalSubmitted = 0;
+            controller.applyRateControl();
+
+            // should have not called the sleep method
+            sinon.assert.notCalled(sleepStub);
+        });
+
+        it('should not sleep if backlog transaction is below half the target', () => {
+            txnStats.stats.txCounters.totalSubmitted = 1000;
+            txnStats.stats.txCounters.totalFinished = 999;
+            controller.generalSleepTime = 1;
+            controller.applyRateControl();
 
             // should have not called the sleep method
             sinon.assert.notCalled(sleepStub);
         });
 
         it ('should sleep if the elapsed time difference is greater than 5ms', () => {
-            let start = 0;
-            let idx = 100;
-            controller.sleepTime = 10;
-            controller.total_sleep_time = 50;
-            clock.tick(100);
-
-            let diff = (10 * idx - ((Date.now() - 50) - start));
-
-            controller.applyRateControl(start, idx, null, []);
+            txnStats.stats.txCounters.totalSubmitted = 100;
+            txnStats.stats.txCounters.totalFinished = 2;
+            controller.applyRateControl();
 
             // should have called the sleep method with a value equal to diff
             sinon.assert.calledOnce(sleepStub);
-            sinon.assert.calledWith(sleepStub, diff);
-        });
-
-        it ('should not sleep if there are no aggregated stats from the previous round', () => {
-            let start = 0;
-            let idx = 100;
-            let resultStats = [];
-            controller.applyRateControl(start, idx, [], resultStats);
-
-            // should have not called the sleep method
-            sinon.assert.notCalled(sleepStub);
-        });
-
-        it ('should not sleep if backlog transaction is below half the target', () => {
-            let start = 50;
-            let idx = 100;
-            let resultStats = [
-                {
-                    succ: 50,
-                    fail: 4
-                }
-            ];
-            controller.applyRateControl(start, idx, [], resultStats);
-
-            // should have not called the sleep method
-            sinon.assert.notCalled(sleepStub);
-        });
-
-        it ('should determine the sleeptime for waiting until successful transactions occur', () => {
-            let start = 0;
-            let idx = 2;
-            let resultStats = [
-                {
-                    succ: 1, fail: 0
-                },
-                {
-                    succ: 0, fail: 1
-                }
-            ];
-            controller.maximum_transaction_load = 2;
-            controller.sleepTime = 1;
-            controller.total_sleep_time = 2;
-
-            controller.applyRateControl(start, idx, [], resultStats);
-
-            // should have called the sleep method with a value equal to sleep_time
-            sinon.assert.calledOnce(sleepStub);
-            sinon.assert.calledWith(sleepStub, controller.sleep_time);
-        });
-
-        it ('should determines the sleep time according to the current number of unfinished transactions with the configure one', () => {
-            let start = 0;
-            let idx = 2;
-            let resultStats = [
-                {
-                    succ: 0, fail: 0
-                },
-                {
-                    succ: 2, fail: 0
-                }
-            ];
-
-            controller.unfinished_per_worker = 2;
-            controller.sleepTime = 1;
-            controller.total_sleep_time = 2;
-
-            controller.applyRateControl(start, idx, [], resultStats);
-
-            // should have called the sleep method with a value equal to sleep_time
-            sinon.assert.calledOnce(sleepStub);
-            sinon.assert.calledWith(sleepStub, controller.sleep_time);
+            sinon.assert.calledWith(sleepStub, 20000);
         });
     });
 });

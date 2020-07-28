@@ -14,16 +14,12 @@
 
 'use strict';
 
-const Config = require('../common/config/config-util.js');
 const CaliperUtils = require('../common/utils/caliper-utils.js');
-const CircularArray = require('../common/utils/circular-array');
 const RateControl = require('./rate-control/rateControl.js');
-const PrometheusClient = require('../common/prometheus/prometheus-push-client');
-const TransactionStatistics = require('../common/core/transaction-statistics');
 
-const TxResetMessage = require('./../common/messages/txResetMessage');
-const TxUpdateMessage = require('./../common/messages/txUpdateMessage');
 const Events = require('../common/utils/constants').Events.Connector;
+const TxObserverDispatch = require('./tx-observers/tx-observer-dispatch');
+const InternalTxObserver = require('./tx-observers/internal-tx-observer');
 
 const Logger = CaliperUtils.getLogger('caliper-worker');
 
@@ -42,191 +38,28 @@ class CaliperWorker {
     constructor(connector, workerIndex, messenger, managerUuid) {
         this.connector = connector;
         this.workerIndex = workerIndex;
-        this.currentRoundIndex = -1;
         this.messenger = messenger;
-        this.managerUuid = managerUuid;
-        this.context = undefined;
-        this.txUpdateTime = Config.get(Config.keys.TxUpdateTime, 5000);
-        this.maxTxPromises = Config.get(Config.keys.Worker.MaxTxPromises, 100);
 
-        // Internal stats
-        this.results      = [];
-        this.txNum        = 0;
-        this.txLastNum    = 0;
-        this.resultStats  = [];
-        this.trimType = 0;
-        this.trim = 0;
-        this.startTime = 0;
+        this.internalTxObserver = new InternalTxObserver(messenger, managerUuid);
+        this.txObserverDispatch = new TxObserverDispatch(messenger, this.internalTxObserver, managerUuid);
 
-        // Prometheus related
-        this.prometheusClient = new PrometheusClient();
-        this.totalTxCount = 0;
-        this.totalTxDelay = 0;
-
-        /**
-         * The workload module instance associated with the current round, updated by {CaliperWorker.prepareTest}.
-         * @type {WorkloadModuleInterface}
-         */
-        this.workloadModule = undefined;
-
+        // forward adapter notifications to the TX dispatch observer
         const self = this;
-        this.connector.on(Events.TxsSubmitted, count => self.txNum += count);
-        this.connector.on(Events.TxsFinished, results => self.addResult(results));
+        this.connector.on(Events.TxsSubmitted, count => self.txObserverDispatch.txSubmitted(count));
+        this.connector.on(Events.TxsFinished, results => self.txObserverDispatch.txFinished(results));
     }
 
     /**
-     * Initialization update
+     * Wait until every submitted TX is finished.
+     * @param {TransactionStatistics} roundStats The TX statistics of the current round.
+     * @private
+     * @async
      */
-    initUpdate() {
-        Logger.info('Initialization ongoing...');
-    }
-
-    /**
-     * Calculate real-time transaction statistics and send the txUpdated message
-     */
-    txUpdate() {
-        let newNum = this.txNum - this.txLastNum;
-        this.txLastNum += newNum;
-
-        // get a copy to work from
-        let newResults = this.results.slice(0);
-        this.results = [];
-        if (newResults.length === 0 && newNum === 0) {
-            return;
-        }
-        let newStats;
-        let publish = true;
-        if (newResults.length === 0) {
-            newStats = TransactionStatistics.createNullDefaultTxStats();
-            publish = false; // no point publishing nothing!!
-        } else {
-            newStats = TransactionStatistics.getDefaultTxStats(newResults, false);
-        }
-
-        // Update monitor
-        if (this.prometheusClient.gatewaySet() && publish){
-            // Send to Prometheus push gateway
-
-            // TPS and latency batch results for this current txUpdate limited set
-            const batchTxCount = newStats.succ + newStats.fail;
-            const batchTPS = (batchTxCount/this.txUpdateTime)*1000;  // txUpdate is in ms
-            const batchLatency = newStats.delay.sum/batchTxCount;
-            this.prometheusClient.push('caliper_tps', batchTPS);
-            this.prometheusClient.push('caliper_latency', batchLatency);
-            this.prometheusClient.push('caliper_txn_submit_rate', (newNum/this.txUpdateTime)*1000); // txUpdate is in ms
-
-            // Numbers for test round only
-            this.totalTxnSuccess += newStats.succ;
-            this.totalTxnFailure += newStats.fail;
-            this.prometheusClient.push('caliper_txn_success', this.totalTxnSuccess);
-            this.prometheusClient.push('caliper_txn_failure', this.totalTxnFailure);
-            this.prometheusClient.push('caliper_txn_pending', (this.txNum - (this.totalTxnSuccess + this.totalTxnFailure)));
-        } else {
-            // worker-orchestrator based update
-            // send(to, type, data)
-            const msg = new TxUpdateMessage(this.messenger.getUUID(), [this.managerUuid], {submitted: newNum, committed: newStats});
-            this.messenger.send(msg);
-        }
-
-        if (this.resultStats.length === 0) {
-            switch (this.trimType) {
-            case 0: // no trim
-                this.resultStats[0] = newStats;
-                break;
-            case 1: // based on duration
-                if (this.trim < (Date.now() - this.startTime)/1000) {
-                    this.resultStats[0] = newStats;
-                }
-                break;
-            case 2: // based on number
-                if (this.trim < newResults.length) {
-                    newResults = newResults.slice(this.trim);
-                    newStats = TransactionStatistics.getDefaultTxStats(newResults, false);
-                    this.resultStats[0] = newStats;
-                    this.trim = 0;
-                } else {
-                    this.trim -= newResults.length;
-                }
-                break;
-            }
-        } else {
-            this.resultStats[1] = newStats;
-            TransactionStatistics.mergeDefaultTxStats(this.resultStats);
-        }
-    }
-
-    /**
-     * Method to reset values
-     */
-    txReset(){
-
-        // Reset txn counters
-        this.results  = [];
-        this.resultStats = [];
-        this.txNum = 0;
-        this.txLastNum = 0;
-
-        if (this.prometheusClient.gatewaySet()) {
-            // Reset Prometheus
-            this.totalTxnSuccess = 0;
-            this.totalTxnFailure = 0;
-            this.prometheusClient.push('caliper_txn_success', 0);
-            this.prometheusClient.push('caliper_txn_failure', 0);
-            this.prometheusClient.push('caliper_txn_pending', 0);
-        } else {
-            // Reset Local
-            // send(to, type, data)
-            const msg = new TxResetMessage(this.messenger.getUUID(), [this.managerUuid]);
-            this.messenger.send(msg);
-        }
-    }
-
-    /**
-     * Add new test result into global array
-     * @param {Object} result test result, should be an array or a single JSON object
-     */
-    addResult(result) {
-        if (Array.isArray(result)) { // contain multiple results
-            for(let i = 0 ; i < result.length ; i++) {
-                this.results.push(result[i]);
-            }
-        } else {
-            this.results.push(result);
-        }
-    }
-
-    /**
-     * Call before starting a new test
-     * @param {TestMessage} testMessage start test message
-     */
-    beforeTest(testMessage) {
-        this.txReset();
-
-        // TODO: once prometheus is enabled, trim occurs as part of the retrieval query
-        // conditionally trim beginning and end results for this test run
-        if (testMessage.getTrimLength()) {
-            if (testMessage.getRoundDuration()) {
-                this.trimType = 1;
-            } else {
-                this.trimType = 2;
-            }
-            this.trim = testMessage.getTrimLength();
-        } else {
-            this.trimType = 0;
-        }
-
-        // Prometheus is specified if testMessage.pushUrl !== undefined
-        if (testMessage.getPrometheusPushGatewayUrl()) {
-            // - ensure counters reset
-            this.totalTxnSubmitted = 0;
-            this.totalTxnSuccess = 0;
-            this.totalTxnFailure = 0;
-            // - Ensure gateway base URL is set
-            if (!this.prometheusClient.gatewaySet()){
-                this.prometheusClient.setGateway(testMessage.getPrometheusPushGatewayUrl());
-            }
-            // - set target for this round test/round/worker
-            this.prometheusClient.configureTarget(testMessage.getRoundLabel(), testMessage.getRoundIndex(), this.workerIndex);
+    static async _waitForTxsToFinish(roundStats) {
+        // might lose some precision here, but checking the same after every TX result whether it was the last TX
+        // (so we could resolve a promise we're waiting for here) might hurt the sending rate
+        while (roundStats.getTotalFinishedTx() !== roundStats.getTotalSubmittedTx()) {
+            await CaliperUtils.sleep(100);
         }
     }
 
@@ -246,177 +79,136 @@ class CaliperWorker {
 
     /**
      * Perform test with specified number of transactions
+     * @param {object} workloadModule The user test module.
      * @param {Object} number number of transactions to submit
      * @param {Object} rateController rate controller object
      * @async
      */
-    async runFixedNumber(number, rateController) {
-        Logger.info(`Worker ${this.workerIndex} is starting TX number-based round ${this.currentRoundIndex + 1} (${number} TXs)`);
-        this.startTime = Date.now();
+    async runFixedNumber(workloadModule, number, rateController) {
+        const stats = this.internalTxObserver.getCurrentStatistics();
+        while (stats.getTotalSubmittedTx() < number) {
+            await rateController.applyRateControl();
 
-        const circularArray = new CircularArray(this.maxTxPromises);
-        const self = this;
-        while (this.txNum < number) {
             // If this function calls this.workloadModule.submitTransaction() too quickly, micro task queue will be filled with unexecuted promises,
             // and I/O task(s) will get no chance to be execute and fall into starvation, for more detail info please visit:
             // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
             await this.setImmediatePromise(() => {
-                circularArray.add(self.workloadModule.submitTransaction());
+                workloadModule.submitTransaction()
+                    .catch(err => { Logger.error(`Unhandled error while executing TX: ${err.stack || err}`); });
             });
-            await rateController.applyRateControl(this.startTime, this.txNum, this.results, this.resultStats);
         }
 
-        await Promise.all(circularArray);
-        this.endTime = Date.now();
+        await CaliperWorker._waitForTxsToFinish(stats);
     }
 
     /**
      * Perform test with specified test duration
+     * @param {object} workloadModule The user test module.
      * @param {Object} duration duration to run for
      * @param {Object} rateController rate controller object
      * @async
      */
-    async runDuration(duration, rateController) {
-        Logger.info(`Worker ${this.workerIndex} is starting duration-based round ${this.currentRoundIndex + 1} (${duration} seconds)`);
-        this.startTime = Date.now();
+    async runDuration(workloadModule, duration, rateController) {
+        const stats = this.internalTxObserver.getCurrentStatistics();
+        let startTime = stats.getRoundStartTime();
+        while ((Date.now() - startTime) < (duration * 1000)) {
+            await rateController.applyRateControl();
 
-        // Use a circular array of Promises so that the Promise.all() call does not exceed the maximum permissable Array size
-        const circularArray = new CircularArray(this.maxTxPromises);
-        const self = this;
-        while ((Date.now() - this.startTime)/1000 < duration) {
             // If this function calls this.workloadModule.submitTransaction() too quickly, micro task queue will be filled with unexecuted promises,
             // and I/O task(s) will get no chance to be execute and fall into starvation, for more detail info please visit:
             // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
             await this.setImmediatePromise(() => {
-                circularArray.add(self.workloadModule.submitTransaction());
+                workloadModule.submitTransaction()
+                    .catch(err => { Logger.error(`Unhandled error while executing TX: ${err.stack || err}`); });
             });
-            await rateController.applyRateControl(this.startTime, this.txNum, this.results, this.resultStats);
         }
 
-        await Promise.all(circularArray);
-        this.endTime = Date.now();
+        await CaliperWorker._waitForTxsToFinish(stats);
     }
 
     /**
-     * Clear the update interval
-     * @param {Object} txUpdateInter the test transaction update interval
+     * Prepare the round corresponding to the "prepare-round" message.
+     * @param {PrepareRoundMessage} prepareTestMessage The "execute-round" message containing schedule information.
      */
-    clearUpdateInter(txUpdateInter) {
-        // stop reporter
-        if (txUpdateInter) {
-            clearInterval(txUpdateInter);
-            txUpdateInter = null;
-            this.txUpdate();
-        }
-    }
+    async prepareTest(prepareTestMessage) {
+        Logger.debug('Entering prepareTest');
 
-    /**
-     * Perform test init within Benchmark
-     * @param {PrepareMessage} message the test details
-     * message = {
-     *              label : label name,
-     *              numb:   total number of simulated txs,
-     *              rateControl: rate controller to use
-     *              trim:   trim options
-     *              workload:  the workload object from the config,
-     *              config: path of the blockchain config file
-     *              totalClients = total number of clients,
-     *              pushUrl = the url for the push gateway
-     *            };
-     * @async
-     */
-    async prepareTest(message) {
-        Logger.debug('prepareTest() with:', message.stringify());
-        this.currentRoundIndex = message.getRoundIndex();
+        const roundIndex = prepareTestMessage.getRoundIndex();
 
-        const workloadModuleFactory = CaliperUtils.loadModuleFunction(new Map(), message.getWorkloadSpec().module, 'createWorkloadModule');
+        Logger.debug(`Worker #${this.workerIndex} creating workload module`);
+        const workloadModuleFactory = CaliperUtils.loadModuleFunction(new Map(), prepareTestMessage.getWorkloadSpec().module, 'createWorkloadModule');
         this.workloadModule = workloadModuleFactory();
-
-        const self = this;
-        let initUpdateInter = setInterval( () => { self.initUpdate();  } , self.txUpdateTime);
 
         try {
             // Retrieve context for this round
-            this.context = await this.connector.getContext(message.getRoundIndex(), message.getWorkerArguments());
+            const context = await this.connector.getContext(roundIndex, prepareTestMessage.getWorkerArguments());
 
             // Run init phase of callback
-            Logger.info(`Info: worker ${this.workerIndex} prepare test phase for round ${this.currentRoundIndex + 1} is starting...`);
-            await this.workloadModule.initializeWorkloadModule(this.workerIndex, message.getWorkersNumber(), this.currentRoundIndex, message.getWorkloadSpec().arguments, this.connector, this.context);
+            Logger.info(`Info: worker ${this.workerIndex} prepare test phase for round ${roundIndex} is starting...`);
+            await this.workloadModule.initializeWorkloadModule(this.workerIndex, prepareTestMessage.getWorkersNumber(), roundIndex, prepareTestMessage.getWorkloadSpec().arguments, this.connector, context);
             await CaliperUtils.sleep(this.txUpdateTime);
         } catch (err) {
-            Logger.info(`Worker [${this.workerIndex}] encountered an error during prepare test phase for round ${this.currentRoundIndex + 1}: ${(err.stack ? err.stack : err)}`);
+            Logger.info(`Worker [${this.workerIndex}] encountered an error during prepare test phase for round ${roundIndex}: ${(err.stack ? err.stack : err)}`);
             throw err;
         } finally {
-            clearInterval(initUpdateInter);
-            Logger.info(`Info: worker ${this.workerIndex} prepare test phase for round ${this.currentRoundIndex + 1} is completed`);
+            Logger.info(`Info: worker ${this.workerIndex} prepare test phase for round ${roundIndex} is completed`);
         }
     }
 
     /**
      * Perform the test
      * @param {TestMessage} testMessage start test message
-     * message = {
-     *              label : label name,
-     *              numb:   total number of simulated txs,
-     *              rateControl: rate controller to use
-     *              trim:   trim options
-     *              workload:  the workload object from the config,
-     *              config: path of the blockchain config file
-     *              totalClients = total number of clients,
-     *              pushUrl = the url for the push gateway
-     *            };
-     * @return {Promise} promise object
+     * @return {Promise<TransactionStatisticsCollector>} The results of the round execution.
      */
-    async doTest(testMessage) {
-        Logger.debug('doTest() with:', testMessage.stringify());
+    async executeRound(testMessage) {
+        Logger.debug('Entering executeRound');
 
-        this.beforeTest(testMessage);
-
-        Logger.info('txUpdateTime: ' + this.txUpdateTime);
-        const self = this;
-        let txUpdateInter = setInterval( () => { self.txUpdate();  } , self.txUpdateTime);
+        const workerArguments = testMessage.getWorkerArguments();
+        const roundIndex = testMessage.getRoundIndex();
+        const roundLabel = testMessage.getRoundLabel();
+        Logger.debug(`Worker #${this.workerIndex} starting round #${roundIndex}`);
 
         try {
+            Logger.debug(`Worker #${this.workerIndex} initializing adapter context`);
+            let context = await this.connector.getContext(testMessage.getRoundLabel(), workerArguments, this.workerIndex);
+
+            // Activate dispatcher
+            Logger.debug(`Worker #${this.workerIndex} activating TX observer dispatch`);
+            await this.txObserverDispatch.activate(this.workerIndex, roundIndex, roundLabel);
 
             // Configure
-            let rateController = new RateControl(testMessage.getRateControlSpec(), this.workerIndex, testMessage.getRoundIndex());
-            await rateController.init(testMessage.getContent());
+            Logger.debug(`Worker #${this.workerIndex} creating rate controller`);
+            let rateController = new RateControl(testMessage, this.internalTxObserver.getCurrentStatistics(), this.workerIndex);
 
             // Run the test loop
+            Logger.info(`Worker #${this.workerIndex} starting workload loop`);
             if (testMessage.getRoundDuration()) {
                 const duration = testMessage.getRoundDuration(); // duration in seconds
-                await this.runDuration(duration, rateController);
+                await this.runDuration(this.workloadModule, duration, rateController);
             } else {
                 const number = testMessage.getNumberOfTxs();
-                await this.runFixedNumber(number, rateController);
+                await this.runFixedNumber(this.workloadModule, number, rateController);
             }
+
+            // Deactivate dispatcher
+            Logger.debug(`Worker #${this.workerIndex} deactivating TX observer dispatch`);
+            await this.txObserverDispatch.deactivate();
 
             // Clean up
+            Logger.debug(`Worker #${this.workerIndex} cleaning up rate controller`);
             await rateController.end();
-            await this.workloadModule.cleanupWorkloadModule();
-            await this.connector.releaseContext(this.context);
-            this.clearUpdateInter(txUpdateInter);
 
-            // Return the results and time stamps
-            if (this.resultStats.length > 0) {
-                return {
-                    results: this.resultStats[0],
-                    start: this.startTime,
-                    end: this.endTime
-                };
-            } else {
-                return {
-                    results: TransactionStatistics.createNullDefaultTxStats(),
-                    start: this.startTime,
-                    end: this.endTime
-                };
-            }
+            Logger.debug(`Worker #${this.workerIndex} cleaning up user test module`);
+            await this.workloadModule.cleanupWorkloadModule();
+
+            Logger.debug(`Worker #${this.workerIndex} cleaning up adapter context`);
+            await this.connector.releaseContext(context);
+
+            Logger.debug(`Worker #${this.workerIndex} finished round #${roundIndex}`, this.internalTxObserver.getCurrentStatistics().getCumulativeTxStatistics());
+            return this.internalTxObserver.getCurrentStatistics();
         } catch (err) {
-            this.clearUpdateInter(txUpdateInter);
-            Logger.info(`Worker [${this.workerIndex}] encountered an error: ${(err.stack ? err.stack : err)}`);
+            Logger.error(`Unexpected error in worker #${this.workerIndex}: ${(err.stack || err)}`);
             throw err;
-        } finally {
-            this.txReset();
         }
     }
 }

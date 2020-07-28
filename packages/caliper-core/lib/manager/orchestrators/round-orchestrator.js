@@ -40,7 +40,7 @@ class RoundOrchestrator {
         this.workerOrchestrator = new WorkerOrchestrator(this.benchmarkConfig, workerArguments);
         this.monitorOrchestrator = new MonitorOrchestrator(this.benchmarkConfig);
         this.report = new Report(this.monitorOrchestrator, this.benchmarkConfig, this.networkConfig);
-        this.testObserver = new TestObserver(this.benchmarkConfig);
+        this.testObserver = new TestObserver();
     }
 
     /**
@@ -152,8 +152,7 @@ class RoundOrchestrator {
                 rateControl: round.rateControl,
                 trim: round.trim || 0,
                 workload: round.workload,
-                testRound: index,
-                pushUrl: this.monitorOrchestrator.hasMonitor('prometheus') ? this.monitorOrchestrator.getMonitor('prometheus').getPushGatewayURL() : undefined
+                testRound: index
             };
 
             if (round.txNumber) {
@@ -170,15 +169,7 @@ class RoundOrchestrator {
 
         this.report.createReport();
 
-        // Start all the monitors
-        try {
-            await this.monitorOrchestrator.startAllMonitors();
-            logger.info('Monitors successfully started');
-        } catch (err) {
-            logger.error(`Could not start monitors: ${err.stack || err}`);
-        }
-
-        // Start all the monitors
+        // Prepare worker connections
         try {
             logger.info('Preparing worker connections');
             await this.workerOrchestrator.prepareWorkerConnections();
@@ -198,30 +189,34 @@ class RoundOrchestrator {
                 await this.workerOrchestrator.prepareTestRound(roundConfig);
 
                 // Run main test round
+                // - Start observer and monitors so that only the main round is considered in retrieved metrics
                 this.testObserver.startWatch(this.workerOrchestrator);
+                try {
+                    await this.monitorOrchestrator.startAllMonitors();
+                    logger.info('Monitors successfully started');
+                } catch (err) {
+                    logger.error(`Could not start monitors: ${err.stack || err}`);
+                }
+                // - Run main test
                 const {results, start, end} = await this.workerOrchestrator.startTest(roundConfig);
                 await this.testObserver.stopWatch();
 
                 // Build the report
                 // - TPS
-                let idx;
-                if (this.monitorOrchestrator.hasMonitor('prometheus')) {
-                    idx = await this.report.processPrometheusTPSResults({start, end}, roundConfig, index);
-                } else {
-                    idx = await this.report.processLocalTPSResults(results, roundConfig);
-                }
-
+                const idx = await this.report.processTPSResults(results, roundConfig);
                 // - Resource utilization
                 await this.report.buildRoundResourceStatistics(idx, roundConfig.label);
 
                 success++;
-                logger.info(`Finished round ${index + 1} (${roundConfig.label}) in ${(end - start) / 1000.0} seconds`);
+                logger.info(`Finished round ${index + 1} (${roundConfig.label}) in ${CaliperUtils.millisToSeconds(end - start)} seconds`);
+
+                // Stop all monitors so that they can be reset between rounds
+                await this.monitorOrchestrator.stopAllMonitors();
 
                 // sleep some between the rounds
                 if (index !== roundConfigs.length - 1) {
                     logger.info('Waiting 5 seconds for the next round...');
                     await CaliperUtils.sleep(5000);
-                    await this.monitorOrchestrator.restartAllMonitors();
                 }
             } catch (err) {
                 await this.testObserver.stopWatch();

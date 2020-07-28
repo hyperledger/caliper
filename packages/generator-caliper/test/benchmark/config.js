@@ -67,9 +67,6 @@ describe ('benchmark configuration generator', () => {
                     }
                 }
             ]
-        },
-        monitor: {
-            type: [ 'none' ]
         }
     };
 
@@ -187,7 +184,7 @@ describe ('benchmark configuration generator', () => {
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
-        const fileContains = configStr.includes('"workers":{"type":"local","number":5');
+        const fileContains = configStr.includes('"workers":{"type":"local","number":1');
 
         fileContains.should.equal(true);
     });
@@ -234,7 +231,7 @@ describe ('benchmark configuration generator', () => {
 
         const config = yaml.safeLoad(fs.readFileSync(tmpConfigPath),'utf8');
         const configStr = JSON.stringify(config);
-        const fileContains = configStr.includes('"txDuration":50');
+        const fileContains = configStr.includes('"txDuration":20');
 
         fileContains.should.equal(true);
     });

@@ -54,7 +54,7 @@ class TestMessage extends Message {
      * Gets the label of the round.
      * @return {string} The label of the round.
      */
-    getRoundLabel () {
+    getRoundLabel() {
         return this.content.label;
     }
 

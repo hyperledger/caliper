@@ -579,6 +579,15 @@ class CaliperUtils {
 
     }
 
+    /**
+     * Convert milliseconds to seconds
+     * @param {number} value to convert
+     * @returns {number} the converted value
+     */
+    static millisToSeconds(value) {
+        return value / 1000;
+    }
+
 }
 
 module.exports = CaliperUtils;

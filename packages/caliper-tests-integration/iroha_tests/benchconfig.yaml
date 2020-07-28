@@ -44,6 +44,3 @@ test:
               txnPerBatch: 10
               numberOfAccounts: *accounts
               money: '10.00'
-observer:
-    interval: 1
-    type: local

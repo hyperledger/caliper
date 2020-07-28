@@ -14,7 +14,7 @@
 
 'use strict';
 
-const { CaliperUtils, ConfigUtil, Constants, MessageHandler } = require('@hyperledger/caliper-core');
+const { CaliperUtils, ConfigUtil, Constants, WorkerMessageHandler } = require('@hyperledger/caliper-core');
 const BindCommon = require('./../../lib/bindCommon');
 const logger = CaliperUtils.getLogger('cli-launch-worker');
 
@@ -79,7 +79,7 @@ class LaunchWorker {
          * @type {MessengerInterface}
          */
         const messenger = messengerFactory({});
-        const messageHandler = new MessageHandler(messenger, connectorFactory);
+        const messageHandler = new WorkerMessageHandler(messenger, connectorFactory);
 
         await messenger.initialize();
         await messenger.configureProcessInstances([process]);

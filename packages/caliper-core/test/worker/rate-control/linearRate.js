@@ -15,7 +15,10 @@
 'use strict';
 
 const rewire = require('rewire');
+const LinearRateRewire = rewire('../../../lib/worker/rate-control/linearRate');
 const LinearRate = rewire('../../../lib/worker/rate-control/linearRate');
+const TestMessage = require('../../../lib/common/messages/testMessage');
+const TransactionStatisticsCollector = require('../../../lib/common/core/transaction-statistics-collector');
 
 const chai = require('chai');
 chai.should();
@@ -23,162 +26,210 @@ const sinon = require('sinon');
 
 describe('linearRate controller implementation', () => {
 
-    let controller;
-    let opts = {
-        startingTps: 20,
-        finishingTps: 80
-    };
-
     describe('#_interpolateFromIndex', () => {
+
+        let controller, testMessage, txnStats;
+        beforeEach( () => {
+            const msgContent = {
+                label: 'query2',
+                rateControl: {
+                    type: 'linear-rate',
+                    opts: {}
+                },
+                workload: {
+                    module:'./../queryByChannel.js'
+                },
+                testRound:0,
+                txDuration:250,
+                totalClients:2
+            };
+            testMessage = new TestMessage('test', [], msgContent);
+        });
+
         it('should return value interpolated from index', () => {
-            controller = new LinearRate.createRateController();
+            txnStats = new TransactionStatisticsCollector();
+            txnStats.stats.txCounters.totalSubmitted = 5;
+            controller = new LinearRate.createRateController(testMessage, txnStats, 0);
             controller.startingSleepTime = 3;
             controller.gradient = 2;
-            const idx = 5;
 
             // If the starting sleeptime is 3ms, the gradient is 2 and the index is 5, the returned interpolated value should be ((3 + (5*2)) = 13
-            const value = controller._interpolateFromIndex(null, idx);
-            value.should.equal(13);
+            controller._interpolateFromIndex().should.equal(13);
         });
     });
 
     describe('#_interpolateFromTime', () => {
-        let clock;
+        let clock, controller, testMessage, txnStats;
 
-        it('should return value interpolated from time', () => {
+        beforeEach( () => {
             clock = sinon.useFakeTimers();
-            controller = new LinearRate.createRateController(opts);
-            controller.startingSleepTime = 3;
-            controller.gradient = 2;
-
-            const start = 5;
-            clock.tick(5);
-
-            // If the starting sleeptime is 3ms, the gradient is 2 and start is 5ms, the returned interpolated value should be ((3 + (5-5)*2)) = 3
-            const value = controller._interpolateFromTime(start, null);
-            value.should.equal(3);
-
-            clock.restore();
-        });
-    });
-
-    describe('#init', () => {
-        let clock;
-
-        beforeEach(() => {
-            clock = sinon.useFakeTimers();
-            controller = new LinearRate.createRateController(opts);
+            const msgContent = {
+                label: 'query2',
+                rateControl: {
+                    type: 'linear-rate',
+                    opts: {}
+                },
+                workload: {
+                    module:'./../queryByChannel.js'
+                },
+                testRound:0,
+                txDuration:250,
+                totalClients:2
+            };
+            testMessage = new TestMessage('test', [], msgContent);
         });
 
         afterEach(() => {
             clock.restore();
         });
 
-        
+        it('should return value interpolate from time', () => {
+            txnStats = new TransactionStatisticsCollector();
+            txnStats.stats.metadata.roundStartTime = 5;
+            controller = new LinearRate.createRateController(testMessage, txnStats, 0);
+            controller.startingSleepTime = 3;
+            controller.gradient = 2;
+
+            clock.tick(5);
+
+            // If the starting sleeptime is 3ms, the gradient is 2 and start is 5ms, the returned interpolated value should be ((3 + (5-5)*2)) = 3
+            controller._interpolateFromTime().should.equal(3);
+        });
+    });
+
+    describe('#constructor', () => {
+        let clock, controller, testMessage;
+
+        beforeEach( () => {
+            clock = sinon.useFakeTimers();
+            const msgContent = {
+                label: 'query2',
+                rateControl: {
+                    type: 'linear-rate',
+                    opts: {}
+                },
+                workload: {
+                    module:'./../queryByChannel.js'
+                },
+                testRound:0,
+                txDuration:250,
+                totalClients:2
+            };
+            testMessage = new TestMessage('test', [], msgContent);
+        });
+
+        afterEach(() => {
+            clock.restore();
+        });
+
         it('should set the starting sleep time based on starting tps and total number of clients', () => {
-            let msg = {totalClients: 6};
-            controller.init(msg);
+            testMessage.content.totalClients = 6;
+            testMessage.content.rateControl.opts = { startingTps: 20 };
+            controller = new LinearRate.createRateController(testMessage, {}, 0);
 
             // If there are 6 clients with an initial 20 TPS goal, the starting sleep time should be (1000/(20/6)) = 300ms
             controller.startingSleepTime.should.equal(300);
         });
 
-        it('should set the gradient based on linear interpolation between two points with index and sleep time axis', () => {
-            let msg = {
-                totalClients: 6,
-                numb: 5
-            };
-            controller.init(msg);
+        it('should set the gradient based on linear interpolation between two points separated based on a txn count', () => {
+            testMessage.content.totalClients = 6;
+            testMessage.content.rateControl.opts = { startingTps: 20, finishingTps: 80 };
+            testMessage.content.numb = 5;
+            controller = new LinearRate.createRateController(testMessage, {}, 0);
 
             // if there are 6 clients with a starting sleep time of (1000/(20/6) = 300, a finishing sleep time of (1000/(80/6)) = 75, and a duration of 5,
             // the gradient should be ((75 - 300) / 5) = -45
             controller.gradient.should.equal(-45);
         });
 
-        it('should set the gradient based on linear interpolation between two points with time and sleep time axis', () => {
-            let msg = {
-                totalClients: 6,
-                txDuration: 5,
-            };
-            controller.init(msg);
+        it('should set the gradient based on linear interpolation between two points separated based on a duration count', () => {
+            testMessage.content.totalClients = 6;
+            testMessage.content.rateControl.opts = { startingTps: 20, finishingTps: 80 };
+            testMessage.content.txDuration = 5;
+            controller = new LinearRate.createRateController(testMessage, {}, 0);
 
-            // If there are 6 clients with a starting sleep time of (1000/(20/6) = 300, a finishing sleep time of (1000/(80/6)) = 75, and a duration of (5*1000) = 5000, 
+            // If there are 6 clients with a starting sleep time of (1000/(20/6) = 300, a finishing sleep time of (1000/(80/6)) = 75, and a duration of (5*1000) = 5000,
             // the gradient should be ((75 - 300) / 5000) = -0.045
             controller.gradient.should.equal(-0.045);
         });
 
-        it('should determine the interpolated value when the number of transactions generated in the round is specified', () => {
-            let msg = {
-                totalClients: 6,
-                numb: 5
-            };
-            const idx = 5;
-            controller.init(msg);
+        it('should assign _interpolateFromIndex to _interpolate if txCount based', () => {
+            testMessage.content.totalClients = 6;
+            testMessage.content.rateControl.opts = { startingTps: 20, finishingTps: 80 };
+            testMessage.content.numb = 5;
 
-            // if there are 5 transactions to be generated in the round with an index of 5, a starting sleep time of (1000/(20/6)) = 300ms and a gradient of (((1000/(80/6)) - 300) / 5) = -45
-            // then the value interpolated (300 + 5*-45) = 75
-            controller._interpolateFromIndex(null, idx).should.equal(75); 
+            const txnStats = new TransactionStatisticsCollector();
+            const mySpy = sinon.spy(txnStats, 'getTotalSubmittedTx');
+            controller = new LinearRate.createRateController(testMessage, txnStats, 0);
+
+            controller._interpolate();
+            sinon.assert.called(mySpy);
         });
 
-        it('should determine the interpolated value when the number of transactions generated in the round is not specified', () => {
-            let msg = {
-                totalClients: 6,
-                txDuration: 5
-            };
-            const start = 5;
-            clock.tick(5);
-            controller.init(msg);
+        it('should assign _interpolateFromTime to _interpolate if txCount based', () => {
+            testMessage.content.totalClients = 6;
+            testMessage.content.rateControl.opts = { startingTps: 20, finishingTps: 80 };
+            testMessage.content.txDuration = 5;
 
-            // if the number of transaction generated in the round is 5, the start is 5, the starting sleep time is (1000/(20/6)) = 300ms and the gradient is (((1000/(80/6)) - 300) / 5) = -0.045,
-            // then the value interpolated (300 + (5-5)*-0.045) = 300
-            controller._interpolateFromTime(start, null).should.equal(300);
+            const txnStats = new TransactionStatisticsCollector();
+            const mySpy = sinon.spy(txnStats, 'getRoundStartTime');
+            controller = new LinearRate.createRateController(testMessage, txnStats, 0);
+
+            controller._interpolate();
+            sinon.assert.called(mySpy);
         });
 
     });
 
     describe('#applyRateController', () => {
 
-        let sleepStub;
+        let controller, sleepStub, txnStats, clock;
 
         beforeEach(() => {
-            sleepStub = sinon.stub();
-            LinearRate.__set__('util.sleep', sleepStub);
-
-            controller = new LinearRate.createRateController(opts);
-        });
-  
-        it('should sleep for a duration of current sleep time if greater than 5ms', () => {
-            const currentSleepTime = 6;
-            let interpolateStub = sinon.stub().returns(currentSleepTime);
-            controller._interpolateFromIndex = interpolateStub;
-
-            let msg = {
-                totalClients: 6,
-                numb: 5
+            const msgContent = {
+                label: 'query2',
+                rateControl: {
+                    type: 'linear-feedback-rate',
+                    opts: { startingTps: 20, finishingTps: 80 }
+                },
+                workload: {
+                    module:'./../queryByChannel.js'
+                },
+                testRound:0,
+                txDuration:250,
+                totalClients:2
             };
-            controller.init(msg);
-            const idx = 5;
 
-            controller.applyRateControl(null, idx, null, null);
+            clock = sinon.useFakeTimers();
+
+            sleepStub = sinon.stub();
+            LinearRateRewire.__set__('Sleep', sleepStub);
+
+            const testMessage = new TestMessage('test', [], msgContent);
+            txnStats = new TransactionStatisticsCollector();
+            controller = new LinearRateRewire.createRateController(testMessage, txnStats, 0);
+        });
+
+        afterEach(() => {
+            clock.restore();
+        });
+
+        it('should sleep for a duration of current sleep time if greater than 5ms', () => {
+            txnStats.stats.txCounters.totalSubmitted = 1000;
+            txnStats.stats.metadata.roundStartTime = 0;
+            controller.startingSleepTime = 50;
+            controller.applyRateControl();
 
             // should have called the sleep method with current sleep time of 6ms
             sinon.assert.calledOnce(sleepStub);
-            sinon.assert.calledWith(sleepStub, currentSleepTime);
+            sinon.assert.calledWith(sleepStub, 50);
         });
 
         it('should do nothing where current sleep time is less than or equal to 5ms', () => {
-            let currentSleepTime = 4;
-            let interpolateStub = sinon.stub().returns(currentSleepTime);
-            controller._interpolateFromTime = interpolateStub;
-
-            let msg = {
-                totalClients: 6,
-                txDuration: 5
-            };
-            controller.init(msg);
-            const start = 5;
-
-            controller.applyRateControl(start, null, null, null);
+            txnStats.stats.txCounters.totalSubmitted = 0;
+            txnStats.stats.metadata.roundStartTime = 0;
+            controller.startingSleepTime = 0;
+            controller.applyRateControl();
 
             // should not have called the sleep method
             sinon.assert.notCalled(sleepStub);

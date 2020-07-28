@@ -15,6 +15,7 @@
 'use strict';
 
 const Report = require('../../../lib/manager/report/report');
+const TransactionStatisticsCollector = require('../../../lib/common/core/transaction-statistics-collector');
 
 const chai = require('chai');
 chai.should();
@@ -22,117 +23,117 @@ const sinon = require('sinon');
 
 describe('report implementation', () => {
 
-    describe('#getLocalResultValues', () => {
+    describe('#getResultValues', () => {
 
         it('should retrieve a result column map', () => {
             const report = new Report();
+            const txnStats = new TransactionStatisticsCollector();
 
             const getResultColumnMapSpy = new sinon.stub().returns(new Map());
             report.getResultColumnMap = getResultColumnMapSpy;
 
-            report.getLocalResultValues('label', {});
+            report.getResultValues('label', txnStats);
 
             sinon.assert.calledOnce(getResultColumnMapSpy);
         });
 
         it('should set Name to `unknown` if missing', () => {
             const report = new Report();
-            const output = report.getLocalResultValues(null,  {});
+            const txnStats = new TransactionStatisticsCollector();
+
+            const output = report.getResultValues(null, txnStats);
             output.get('Name').should.equal('unknown');
         });
 
         it('should set Name if available', () => {
             const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', {});
-            output.get('Name').should.equal('myTestLabel');
-        });
+            const txnStats = new TransactionStatisticsCollector();
 
-        it('should set Succ to `-` if missing', () => {
-            const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', {});
-            output.get('Succ').should.equal('-');
+            const output = report.getResultValues('myTestLabel', txnStats);
+            output.get('Name').should.equal('myTestLabel');
         });
 
         it('should set Succ if available', () => {
             const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', {succ: '42'});
-            output.get('Succ').should.equal('42');
+            const txnStats = new TransactionStatisticsCollector();
+            txnStats.stats.txCounters.totalSuccessful = 42;
+
+            const output = report.getResultValues('myTestLabel', txnStats);
+            output.get('Succ').should.equal(42);
         });
 
         it('should set Succ to zero if passed', () => {
             const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', {succ: '0'});
-            output.get('Succ').should.equal('0');
-        });
+            const txnStats = new TransactionStatisticsCollector();
 
-        it('should set Fail to `-` if missing', () => {
-            const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', {});
-            output.get('Fail').should.equal('-');
+            const output = report.getResultValues('myTestLabel', txnStats);
+            output.get('Succ').should.equal(0);
         });
 
         it('should set Fail if available', () => {
             const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', {fail: '38'});
-            output.get('Fail').should.equal('38');
-        });
+            const txnStats = new TransactionStatisticsCollector();
+            txnStats.stats.txCounters.totalFailed = 38;
 
-        it('should set Max Latency to `-` if missing', () => {
-            const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', {});
-            output.get('Max Latency (s)').should.equal('-');
+            const output = report.getResultValues('myTestLabel', txnStats);
+            output.get('Fail').should.equal(38);
         });
 
         it('should set Max Latency to 2DP if available', () => {
             const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', {delay: { max: 1.2322}} );
+            const txnStats = new TransactionStatisticsCollector();
+            txnStats.stats.latency.successful.max = 1232.2;
+
+            const output = report.getResultValues('myTestLabel', txnStats );
             output.get('Max Latency (s)').should.equal('1.23');
-        });
-        it('should set Min Latency to `-` if missing', () => {
-            const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', {});
-            output.get('Min Latency (s)').should.equal('-');
         });
 
         it('should set Min Latency to 2DP if available', () => {
             const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', {delay: { min: 0.2322}});
+            const txnStats = new TransactionStatisticsCollector();
+            txnStats.stats.latency.successful.min = 232.2;
+
+            const output = report.getResultValues('myTestLabel', txnStats);
             output.get('Min Latency (s)').should.equal('0.23');
         });
 
-        it('should set Avg Latency to `-` if missing', () => {
+        it('should set Avg Latency to `-` if no successful transactions', () => {
             const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', {});
+            const txnStats = new TransactionStatisticsCollector();
+
+            const output = report.getResultValues('myTestLabel', txnStats);
             output.get('Avg Latency (s)').should.equal('-');
         });
 
         it('should set Avg Latency to 2DP if available', () => {
             const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', { succ: 3, delay: { sum: 10}});
-            output.get('Avg Latency (s)').should.equal('3.33');
-        });
+            const txnStats = new TransactionStatisticsCollector();
+            txnStats.stats.txCounters.totalSuccessful = 3;
+            txnStats.stats.latency.successful.total = 10000;
 
-        it('should set Send Rate `-` if missing', () => {
-            const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', {});
-            output.get('Send Rate (TPS)').should.equal('-');
+            const output = report.getResultValues('myTestLabel', txnStats);
+            output.get('Avg Latency (s)').should.equal('3.33');
         });
 
         it('should set Send Rate to 1DP if available', () => {
             const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', { succ:500, fail:0, create:{min:1565001755.094, max:1565001774.893} });
-            output.get('Send Rate (TPS)').should.equal('25.3');
-        });
+            const txnStats = new TransactionStatisticsCollector();
+            txnStats.stats.txCounters.totalSuccessful = 500;
+            txnStats.stats.timestamps.firstCreateTime = 1565001755094;
+            txnStats.stats.timestamps.lastCreateTime  = 1565001774893;
 
-        it('should set Throughput to `-` if missing', () => {
-            const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', {});
-            output.get('Throughput (TPS)').should.equal('-');
+            const output = report.getResultValues('myTestLabel', txnStats);
+            output.get('Send Rate (TPS)').should.equal('25.3');
         });
 
         it('should set Throughput to 1DP if available', () => {
             const report = new Report();
-            const output = report.getLocalResultValues('myTestLabel', {succ:500,fail:0,create:{min:1565001755.094,max:1565001774.893},final:{min:1565001755.407,max:1565001774.988,last:1565001774.988},delay:{min:0.072,max:0.342,sum:98.64099999999999,detail:[]},out:[],sTPTotal:0,sTTotal:0,invokeTotal:0,length:500});
+            const txnStats = new TransactionStatisticsCollector();
+            txnStats.stats.txCounters.totalSuccessful = 500;
+            txnStats.stats.timestamps.lastFinishTime  = 1565001774988;
+            txnStats.stats.timestamps.firstCreateTime = 1565001755094;
+
+            const output = report.getResultValues('myTestLabel', txnStats);
             output.get('Throughput (TPS)').should.equal('25.1');
         });
     });

@@ -16,6 +16,7 @@
 
 const rewire = require('rewire');
 const WorkerOrchestratorRewire = rewire('../../../lib/manager/orchestrators/worker-orchestrator');
+const TransactionStatisticsCollector = require('../../../lib/common/core/transaction-statistics-collector');
 
 const chai = require('chai');
 chai.should();
@@ -102,7 +103,7 @@ describe('worker orchestrator implementation', () => {
             const checkVal = 'this is my update';
             // overwrite with known value
             myOrchestrator.updates = checkVal;
-            // assert repsonse
+            // assert response
             myOrchestrator.getUpdates().should.equal(checkVal);
         });
 
@@ -111,33 +112,39 @@ describe('worker orchestrator implementation', () => {
     describe('#formatResults', () => {
         const myOrchestrator = new WorkerOrchestratorRewire(benchmarkConfig, workerFactory);
 
-        it('should group all worker results into an array under a results label', () => {
-            const result0 = {results: [1] , start: new Date(2018, 11, 24, 10, 33), end: new Date(2018, 11, 24, 11, 33)};
-            const result1 = {results: [2] , start: new Date(2018, 11, 24, 10, 34), end: new Date(2018, 11, 24, 11, 23)};
-            const result2 = {results: [3] , start: new Date(2018, 11, 24, 10, 35), end: new Date(2018, 11, 24, 11, 13)};
-            const testData = [result0, result1, result2];
+        let workerStats0;
+        let workerStats1;
+        beforeEach( () => {
+            workerStats0 = new TransactionStatisticsCollector(0, 0, 'testLabel');
+            workerStats1 = new TransactionStatisticsCollector(1, 0, 'testLabel');
+            workerStats0.activate();
+            workerStats1.activate();
+        });
+
+        it('should merge all worker results into a single txStats object', () => {
+            workerStats0.txSubmitted(3);
+            workerStats1.txSubmitted(2);
+            const testData = [workerStats0, workerStats1];
 
             const output = myOrchestrator.formatResults(testData);
-            output.results.should.deep.equal([1,2,3]);
+            output.results.getTotalSubmittedTx().should.equal(5);
         });
 
         it('should determine and persist the time when all workers have started', () => {
-            const compareStart = new Date(2018, 11, 24, 10, 35);
-            const result0 = {results: [1] , start: new Date(2018, 11, 24, 10, 33), end: new Date(2018, 11, 24, 11, 33)};
-            const result1 = {results: [2] , start: new Date(2018, 11, 24, 10, 34), end: new Date(2018, 11, 24, 11, 13)};
-            const result2 = {results: [3] , start: compareStart, end: new Date(2018, 11, 24, 11, 23)};
-            const testData = [result0, result1, result2];
+            const compareStart = Date.UTC(2018, 11, 24);
+            workerStats0.stats.metadata.roundStartTime = Date.UTC(2018, 11, 24);
+            workerStats1.stats.metadata.roundStartTime = Date.UTC(2018, 11, 24);
+            const testData = [workerStats0, workerStats1];
 
             const output = myOrchestrator.formatResults(testData);
             output.start.should.equal(compareStart);
         });
 
         it('should determine and persist the last time when all workers were running', () => {
-            const compareEnd = new Date(2018, 11, 24, 11, 13);
-            const result0 = {results: [1] , start: new Date(2018, 11, 24, 10, 33), end: new Date(2018, 11, 24, 11, 33)};
-            const result1 = {results: [2] , start: new Date(2018, 11, 24, 10, 34), end: compareEnd};
-            const result2 = {results: [3] , start:  new Date(2018, 11, 24, 10, 35), end: new Date(2018, 11, 24, 11, 23)};
-            const testData = [result0, result1, result2];
+            const compareEnd = Date.UTC(2018, 11, 24);
+            workerStats0.stats.metadata.roundFinishTime = Date.UTC(2018, 11, 24);
+            workerStats1.stats.metadata.roundFinishTime = Date.UTC(2018, 11, 24);
+            const testData = [workerStats0, workerStats1];
 
             const output = myOrchestrator.formatResults(testData);
             output.end.should.equal(compareEnd);

@@ -18,7 +18,7 @@ const RateInterface = require('./rateInterface.js');
 const RateControl = require('./rateControl');
 const fs = require('fs');
 const util = require('../../common/utils/caliper-utils');
-const logger = util.getLogger('recordRate.js');
+const logger = util.getLogger('record-rate-controller');
 
 const TEXT_FORMAT = 'TEXT';
 const BINARY_BE_FORMAT = 'BIN_BE';
@@ -28,52 +28,57 @@ const supportedFormats = [TEXT_FORMAT, BINARY_BE_FORMAT, BINARY_LE_FORMAT];
 /**
  * Decorator rate controller for recording the rate of an other controller.
  *
- * @property {object} options The user-supplied options for the controller.
- * @property {object[]} records The record of times for submitted transactions.
+ * @property {number[]} records The record of relative times for submitted transactions.
  * @property {RateControl} rateController The rate controller to record.
  * @property {string} pathTemplate The template path for the file to record to.
- * @property {number} roundIdx The index of the current round.
- * @property {number} clientIdx The index of the current client.
  * @property {string} outputFormat Specifies the output format for the recordings.
- * @property {boolean} logEnd Indicates whether log when the records are written to file.
+ *
+ * @extends RateInterface
  */
-class RecordRateController extends RateInterface{
+class RecordRateController extends RateInterface {
     /**
-     * Creates a new instance of the {RecordRateController} class.
-     * @constructor
-     * @param {object} opts Options for the rate controller.
-     * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
-     * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
+     * Initializes the rate controller instance.
+     * @param {TestMessage} testMessage start test message
+     * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
+     * @param {number} workerIndex The 0-based index of the worker node.
      */
-    constructor(opts, clientIdx, roundIdx) {
-        super(opts);
-        this.roundIdx = roundIdx;
-        this.clientIdx = clientIdx + 1;
-        this.records = [];
+    constructor(testMessage, stats, workerIndex) {
+        super(testMessage, stats, workerIndex);
 
-        if (typeof opts.pathTemplate === 'undefined') {
+        this.records = [];
+        // if we know the number of transactions beforehand, pre-allocate the array
+        if (testMessage.getNumberOfTxs()) {
+            this.records = new Array(testMessage.getNumberOfTxs());
+            this.records.fill(0);
+        }
+
+        if (typeof this.options.pathTemplate === 'undefined') {
             throw new Error('The path to save the recording to is undefined');
         }
 
-        if (typeof opts.rateController === 'undefined') {
+        if (typeof this.options.rateController === 'undefined') {
             throw new Error('The rate controller to record is undefined');
         }
 
-        this.logEnd = Boolean(opts.logEnd || false);
-
         // check for supported output formats
-        if (typeof opts.outputFormat === 'undefined') {
-            logger.warn(`Output format is undefined. Defaulting to ${TEXT_FORMAT} format`);
+        if (typeof this.options.outputFormat === 'undefined') {
+            logger.warn(`Output format is undefined. Defaulting to "${TEXT_FORMAT}" format`);
             this.outputFormat = TEXT_FORMAT;
-        } else if (supportedFormats.includes(opts.outputFormat.toUpperCase())) {
-            this.outputFormat = opts.outputFormat.toUpperCase();
+        } else if (supportedFormats.includes(this.options.outputFormat.toUpperCase())) {
+            this.outputFormat = this.options.outputFormat.toUpperCase();
+            logger.debug(`Output format is set to "${this.outputFormat}" format in worker #${this.workerIndex} in round #${this.roundIndex}`);
         } else {
-            logger.warn(`Output format ${opts.outputFormat} is not supported. Defaulting to CSV format`);
+            logger.warn(`Output format "${this.options.outputFormat}" is not supported. Defaulting to "${TEXT_FORMAT}" format`);
             this.outputFormat = TEXT_FORMAT;
         }
 
-        this.pathTemplate = opts.pathTemplate;
-        this.rateController = new RateControl(opts.rateController, clientIdx, roundIdx);
+        this.pathTemplate = this.options.pathTemplate;
+        // resolve template path placeholders
+        this.pathTemplate = this.pathTemplate.replace(/<R>/gi, this.roundIndex.toString());
+        this.pathTemplate = this.pathTemplate.replace(/<C>/gi, this.workerIndex.toString());
+        this.pathTemplate = util.resolvePath(this.pathTemplate);
+
+        this.rateController = new RateControl(testMessage, stats, workerIndex,);
     }
 
     /**
@@ -119,51 +124,12 @@ class RecordRateController extends RateInterface{
     }
 
     /**
-     * Initializes the rate controller.
-     *
-     * @param {object} msg Client options with adjusted per-client load settings.
-     * @param {string} msg.type The type of the message. Currently always 'test'
-     * @param {string} msg.label The label of the round.
-     * @param {object} msg.rateControl The rate control to use for the round.
-     * @param {number} msg.trim The number/seconds of transactions to trim from the results.
-     * @param {object} msg.args The user supplied arguments for the round.
-     * @param {string} msg.cb The path of the user's callback module.
-     * @param {string} msg.config The path of the network's configuration file.
-     * @param {number} msg.numb The number of transactions to generate during the round.
-     * @param {number} msg.txDuration The length of the round in SECONDS.
-     * @param {number} msg.totalClients The number of clients executing the round.
-     * @param {number} msg.clients The number of clients executing the round.
-     * @param {object} msg.clientArgs Arguments for the client.
-     * @param {number} msg.clientIdx The 0-based index of the current client.
-     * @param {number} msg.roundIdx The 1-based index of the current round.
+     * Perform the rate control action by blocking the execution for a certain amount of time.
      * @async
      */
-    async init(msg) {
-        // if we know the number of transactions beforehand, pre-allocate the array
-        if (msg.numb) {
-            this.records = new Array(msg.numb);
-            this.records.fill(0);
-        }
-
-        // resolve template path placeholders
-        this.pathTemplate = this.pathTemplate.replace(/<R>/gi, this.roundIdx.toString());
-        this.pathTemplate = this.pathTemplate.replace(/<C>/gi, this.clientIdx.toString());
-        this.pathTemplate = util.resolvePath(this.pathTemplate);
-
-        await this.rateController.init(msg);
-    }
-
-    /**
-     * Perform the rate control.
-     * @param {number} start The epoch time at the start of the round (ms precision).
-     * @param {number} idx Sequence number of the current transaction.
-     * @param {object[]} recentResults The list of results of recent transactions.
-     * @param {object[]} resultStats The aggregated stats of previous results.
-     * @async
-     */
-    async applyRateControl(start, idx, recentResults, resultStats) {
-        await this.rateController.applyRateControl(start, idx, recentResults, resultStats);
-        this.records[idx] = Date.now() - start;
+    async applyRateControl() {
+        await this.rateController.applyRateControl();
+        this.records[this.stats.getTotalSubmittedTx()] = Date.now() - this.stats.getRoundStartTime();
     }
 
     /**
@@ -189,25 +155,23 @@ class RecordRateController extends RateInterface{
                 break;
             }
 
-            if (this.logEnd) {
-                logger.debug(`Recorded Tx submission times for Client#${this.clientIdx} in Round#${this.roundIdx} to ${this.pathTemplate}`);
-            }
+            logger.debug(`Recorded Tx submission times for worker #${this.workerIndex} in round #${this.roundIndex} to ${this.pathTemplate}`);
         } catch (err) {
-            logger.error(`An error occurred while writing records to ${this.pathTemplate}: ${err.stack ? err.stack : err}`);
+            logger.error(`An error occurred for worker #${this.workerIndex} in round #${this.roundIndex} while writing records to ${this.pathTemplate}: ${err.stack || err}`);
         }
     }
 }
 
 /**
- * Creates a new rate controller instance.
- * @constructor
- * @param {object} opts The rate controller options.
- * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
- * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
- * @return {RateInterface} The rate controller instance.
+ * Factory for creating a new rate controller instance.
+ * @param {TestMessage} testMessage start test message
+ * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
+ * @param {number} workerIndex The 0-based index of the worker node.
+ *
+ * @return {RateInterface} The new rate controller instance.
  */
-function createRateController(opts, clientIdx, roundIdx) {
-    return new RecordRateController(opts, clientIdx, roundIdx);
+function createRateController(testMessage, stats, workerIndex) {
+    return new RecordRateController(testMessage, stats, workerIndex);
 }
 
 module.exports.createRateController = createRateController;

@@ -31,11 +31,10 @@ const SystemInformation = require('systeminformation');
 class MonitorDocker extends MonitorInterface {
     /**
      * Constructor
-     * @param {JSON} monitorConfig Configuration object for the monitor
-     * @param {*} interval resource fetching interval
+     * @param {JSON} resourceMonitorOptions Configuration options for the monitor
      */
-    constructor(monitorConfig, interval) {
-        super(monitorConfig, interval);
+    constructor(resourceMonitorOptions) {
+        super(resourceMonitorOptions);
         this.containers = null;
         this.isReading = false;
         this.intervalObj = null;
@@ -66,9 +65,9 @@ class MonitorDocker extends MonitorInterface {
         this.containers = [];
         let filterName = { local: [], remote: {} };
         // Split docker items that are local or remote
-        if (this.monitorConfig.hasOwnProperty('containers')) {
-            for (let key in this.monitorConfig.containers) {
-                let container = this.monitorConfig.containers[key];
+        if (this.options.hasOwnProperty('containers')) {
+            for (let key in this.options.containers) {
+                let container = this.options.containers[key];
                 if (container.indexOf('http://') === 0) {
                     // Is remote
                     let remote = URL.parse(container, true);
@@ -378,7 +377,7 @@ class MonitorDocker extends MonitorInterface {
             }
 
             // Retrieve Chart data
-            const chartTypes = this.monitorConfig.charting;
+            const chartTypes = this.options.charting;
             let chartStats = [];
             if (chartTypes) {
                 chartStats = ChartBuilder.retrieveChartStats(this.constructor.name, chartTypes, testLabel, resourceStats);

@@ -17,7 +17,7 @@
 const RateInterface = require('./rateInterface.js');
 const fs = require('fs');
 const util = require('../../common/utils/caliper-utils');
-const logger = util.getLogger('replayRate.js');
+const logger = util.getLogger('replay-rate-controller');
 
 const TEXT_FORMAT = 'TEXT';
 const BINARY_BE_FORMAT = 'BIN_BE';
@@ -27,47 +27,65 @@ const supportedFormats = [TEXT_FORMAT, BINARY_BE_FORMAT, BINARY_LE_FORMAT];
 /**
  * Rate controller for replaying a previously recorded transaction trace.
  *
- * @property {object} options The user-supplied options for the controller.
- * @property {object[]} records The record of times for submitted transactions.
+ * @property {number[]} records The record of relative times for submitted transactions.
  * @property {string} pathTemplate The template path for the file to record to.
- * @property {number} roundIdx The index of the current round.
- * @property {number} clientIdx The index of the current client.
  * @property {string} inputFormat Specifies the input format for the recordings.
  * @property {number} defaultSleepTime The default sleep time between extra transactions.
  * @property {string} delimiter The delimiter character for the CSV format.
- * @property {boolean} logWarnings Indicates whether to log extra transaction warnings.
+ * @property {boolean} loggedWarning Indicates whether the warning has been logged for running out of the trace.
+ *
+ * @extends RateInterface
  */
-class ReplayRateController extends RateInterface{
+class ReplayRateController extends RateInterface {
     /**
-     * Creates a new instance of the {ReplayRateController} class.
-     * @constructor
-     * @param {object} opts Options for the rate controller.
-     * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
-     * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
+     * Initializes the rate controller instance.
+     * @param {TestMessage} testMessage start test message
+     * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
+     * @param {number} workerIndex The 0-based index of the worker node.
      */
-    constructor(opts, clientIdx, roundIdx) {
-        super(opts);
-        this.roundIdx = roundIdx;
-        this.clientIdx = clientIdx + 1;
+    constructor(testMessage, stats, workerIndex) {
+        super(testMessage, stats, workerIndex);
         this.records = [];
 
-        if (typeof opts.pathTemplate === 'undefined') {
+        if (typeof this.options.pathTemplate === 'undefined') {
             throw new Error('The path to load the recording from is undefined');
         }
 
-        this.pathTemplate = opts.pathTemplate;
-        this.logWarnings = Boolean(opts.logWarnings || false);
-        this.defaultSleepTime = Number(opts.defaultSleepTime || 20);
+        this.loggedWarning = false;
+        this.defaultSleepTime = Number(this.options.defaultSleepTime || 100);
 
         // check for supported input formats
-        if (typeof opts.inputFormat === 'undefined') {
-            logger.warn(`[ReplayRateController] Input format is undefined. Defaulting to ${TEXT_FORMAT} format`);
+        if (typeof this.options.inputFormat === 'undefined') {
+            logger.warn(`Input format is undefined. Defaulting to "${TEXT_FORMAT}" format`);
             this.inputFormat = TEXT_FORMAT;
-        } else if (supportedFormats.includes(opts.inputFormat.toUpperCase())) {
-            this.inputFormat = opts.inputFormat.toUpperCase();
+        } else if (supportedFormats.includes(this.options.inputFormat.toUpperCase())) {
+            this.inputFormat = this.options.inputFormat.toUpperCase();
+            logger.debug(`Input format is set to "${this.inputFormat}" format in worker #${this.workerIndex} in round #${this.roundIndex}`);
         } else {
-            logger.warn(`[ReplayRateController] Input format ${opts.inputFormat} is not supported. Defaulting to CSV format`);
+            logger.warn(`Input format "${this.options.inputFormat}" is not supported. Defaulting to "${TEXT_FORMAT}" format`);
             this.inputFormat = TEXT_FORMAT;
+        }
+
+        this.pathTemplate = this.options.pathTemplate;
+        // resolve template path placeholders
+        this.pathTemplate = this.pathTemplate.replace(/<R>/gi, this.roundIndex.toString());
+        this.pathTemplate = this.pathTemplate.replace(/<C>/gi, this.workerIndex.toString());
+        this.pathTemplate = util.resolvePath(this.pathTemplate);
+
+        if (!fs.existsSync(this.pathTemplate)) {
+            throw new Error(`Trace file does not exist: ${this.pathTemplate}`);
+        }
+
+        switch (this.inputFormat) {
+        case TEXT_FORMAT:
+            this._importFromText();
+            break;
+        case BINARY_BE_FORMAT:
+            this._importFromBinaryBigEndian();
+            break;
+        case BINARY_LE_FORMAT:
+            this._importFromBinaryLittleEndian();
+            break;
         }
     }
 
@@ -107,67 +125,20 @@ class ReplayRateController extends RateInterface{
     }
 
     /**
-     * Initializes the rate controller.
-     *
-     * @param {object} msg Client options with adjusted per-client load settings.
-     * @param {string} msg.type The type of the message. Currently always 'test'
-     * @param {string} msg.label The label of the round.
-     * @param {object} msg.rateControl The rate control to use for the round.
-     * @param {number} msg.trim The number/seconds of transactions to trim from the results.
-     * @param {object} msg.args The user supplied arguments for the round.
-     * @param {string} msg.cb The path of the user's callback module.
-     * @param {string} msg.config The path of the network's configuration file.
-     * @param {number} msg.numb The number of transactions to generate during the round.
-     * @param {number} msg.txDuration The length of the round in SECONDS.
-     * @param {number} msg.totalClients The number of clients executing the round.
-     * @param {number} msg.clients The number of clients executing the round.
-     * @param {object} msg.clientArgs Arguments for the client.
-     * @param {number} msg.clientIdx The 0-based index of the current client.
-     * @param {number} msg.roundIdx The 1-based index of the current round.
+     * Perform the rate control action by blocking the execution for a certain amount of time.
      * @async
      */
-    async init(msg) {
-        // resolve template path placeholders
-        this.pathTemplate = this.pathTemplate.replace(/<R>/gi, this.roundIdx.toString());
-        this.pathTemplate = this.pathTemplate.replace(/<C>/gi, this.clientIdx.toString());
-        this.pathTemplate = util.resolvePath(this.pathTemplate);
-
-        if (!fs.existsSync(this.pathTemplate)) {
-            throw new Error(`Trace file does not exist: ${this.pathTemplate}`);
-        }
-
-        switch (this.inputFormat) {
-        case TEXT_FORMAT:
-            this._importFromText();
-            break;
-        case BINARY_BE_FORMAT:
-            this._importFromBinaryBigEndian();
-            break;
-        case BINARY_LE_FORMAT:
-            this._importFromBinaryLittleEndian();
-            break;
-        default:
-            throw new Error(`Unsupported replay rate controller input format: ${this.inputFormat}`);
-        }
-    }
-
-    /**
-     * Perform the rate control.
-     * @param {number} start The epoch time at the start of the round (ms precision).
-     * @param {number} idx Sequence number of the current transaction.
-     * @param {object[]} recentResults The list of results of recent transactions.
-     * @param {object[]} resultStats The aggregated stats of previous results.
-     * @async
-     */
-    async applyRateControl(start, idx, recentResults, resultStats) {
-        if (idx <= this.records.length - 1) {
-            let sleepTime = this.records[idx] - (Date.now() - start);
+    async applyRateControl() {
+        let currentIndex = this.stats.getTotalSubmittedTx();
+        if (currentIndex <= this.records.length - 1) {
+            let sleepTime = this.records[currentIndex] - (Date.now() - this.stats.getRoundStartTime());
             if (sleepTime > 5) {
                 await util.sleep(sleepTime);
             }
         } else {
-            if (this.logWarnings) {
-                logger.warn(`Using default sleep time of ${this.defaultSleepTime}ms for Tx#${idx}`);
+            if (!this.loggedWarning) {
+                logger.warn(`Using default sleep time of ${this.defaultSleepTime} ms from now on for worker #${this.workerIndex} in round #${this.roundIndex}`);
+                this.loggedWarning = true;
             }
             await util.sleep(this.defaultSleepTime);
         }
@@ -181,15 +152,15 @@ class ReplayRateController extends RateInterface{
 }
 
 /**
- * Creates a new rate controller instance.
- * @constructor
- * @param {object} opts The rate controller options.
- * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
- * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
- * @return {RateInterface} The rate controller instance.
+ * Factory for creating a new rate controller instance.
+ * @param {TestMessage} testMessage start test message
+ * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
+ * @param {number} workerIndex The 0-based index of the worker node.
+ *
+ * @return {RateInterface} The new rate controller instance.
  */
-function createRateController(opts, clientIdx, roundIdx) {
-    return new ReplayRateController(opts);
+function createRateController(testMessage, stats, workerIndex) {
+    return new ReplayRateController(testMessage, stats, workerIndex);
 }
 
 module.exports.createRateController = createRateController;

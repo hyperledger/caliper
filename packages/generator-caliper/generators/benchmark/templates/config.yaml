@@ -23,7 +23,7 @@ test:
   - label: <%= label %>
     contractId: <%= contractId %>
     <%= txType %>: <%= txValue %>
-    rateControl: 
+    rateControl:
       type: <%= rateController %>
       opts: { <%= opts %> }
     workload:
@@ -31,6 +31,3 @@ test:
       arguments:
         contractId: <%= contractId %>
         contractVersion: <%= contractVersion %>
-monitor:
-  type:
-  - none

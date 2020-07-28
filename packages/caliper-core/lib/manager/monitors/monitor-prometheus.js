@@ -19,7 +19,6 @@ const ConfigUtil = require('../../common/config/config-util');
 const ChartBuilder = require('../charts/chart-builder');
 const Logger = Util.getLogger('monitor-prometheus');
 const MonitorInterface = require('./monitor-interface');
-const PrometheusPushClient = require('../../common/prometheus/prometheus-push-client');
 const PrometheusQueryClient = require('../../common/prometheus/prometheus-query-client');
 const PrometheusQueryHelper = require('../../common/prometheus/prometheus-query-helper');
 
@@ -30,26 +29,24 @@ class PrometheusMonitor extends MonitorInterface {
 
     /**
      * Constructor
-     * @param {JSON} monitorConfig Monitor config information
-     * @param {*} interval resource fetching interval
+     * @param {JSON} resourceMonitorOptions Configuration options for the monitor
      */
-    constructor(monitorConfig, interval) {
-        super(monitorConfig, interval);
+    constructor(resourceMonitorOptions) {
+        super(resourceMonitorOptions);
         this.precision = ConfigUtil.get(ConfigUtil.keys.Report.Precision, 3);
-        this.prometheusPushClient = new PrometheusPushClient(monitorConfig.push_url);
-        this.prometheusQueryClient = new PrometheusQueryClient(monitorConfig.url);
+        this.prometheusQueryClient = new PrometheusQueryClient(this.options.url);
         // User defined options for monitoring
-        if (monitorConfig.hasOwnProperty('metrics')) {
+        if (this.options.hasOwnProperty('metrics')) {
             // Might have an ignore list
-            if (monitorConfig.metrics.hasOwnProperty('ignore')) {
-                this.ignore = monitorConfig.metrics.ignore;
+            if (this.options.metrics.hasOwnProperty('ignore')) {
+                this.ignore = this.options.metrics.ignore;
             } else {
                 Logger.info('No monitor metrics `ignore` option specified, will provide statistics on all items retrieved by queries');
             }
 
             // Might have user specified queries to run
-            if (monitorConfig.metrics.hasOwnProperty('include')) {
-                this.include =  monitorConfig.metrics.include;
+            if (this.options.metrics.hasOwnProperty('include')) {
+                this.include =  this.options.metrics.include;
             } else {
                 Logger.info('No monitor metrics `include` options specified, unable to provide statistics on any resources');
             }
@@ -59,27 +56,11 @@ class PrometheusMonitor extends MonitorInterface {
     }
 
     /**
-     * Retrieve the push client
-     * @returns {PrometheusPushClient} the push client
-     */
-    getPushClient(){
-        return this.prometheusPushClient;
-    }
-
-    /**
      * Retrieve the query client
      * @returns {PrometheusQueryClient} the query client
      */
     getQueryClient(){
         return this.prometheusQueryClient;
-    }
-
-    /**
-     * Retrieve the PushGateway URL from the monitor config
-     * @returns{String} the PushGateway URL
-     */
-    getPushGatewayURL(){
-        return this.monitorConfig.push_url;
     }
 
     /**
@@ -169,11 +150,13 @@ class PrometheusMonitor extends MonitorInterface {
                         metricArray.push(metricMap);
                     }
                 }
-                chartArray.push(metricArray);
+                if (metricArray.length > 0) {
+                    chartArray.push(metricArray);
+                }
             }
 
             // Retrieve Chart data
-            const chartTypes = this.monitorConfig.charting;
+            const chartTypes = this.options.charting;
             const chartStats = [];
             if (chartTypes) {
                 for (const metrics of chartArray) {

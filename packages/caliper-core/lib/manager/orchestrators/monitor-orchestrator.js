@@ -39,34 +39,30 @@ class MonitorOrchestrator {
         this.started = false;
         this.monitors = new Map();
         // Parse the config and retrieve the monitor types
-        const monitorConfig = benchmarkConfig.monitor;
-        if(typeof monitorConfig === 'undefined') {
-            logger.info('No monitor specified, will default to "none"');
+        const resourceMonitors = benchmarkConfig.monitors && benchmarkConfig.monitors.resource ? benchmarkConfig.monitors.resource : [];
+        if (resourceMonitors.length === 0) {
+            logger.info('No resource monitors specified');
             return;
         }
 
-        if(typeof monitorConfig.type === 'undefined') {
-            throw new Error('Failed to find monitor types in config file');
-        }
-
-        let monitorTypes = Array.isArray(monitorConfig.type) ? monitorConfig.type : [monitorConfig.type];
-        monitorTypes = Array.from(new Set(monitorTypes)); // remove duplicates
-        for (let type of monitorTypes) {
+        for (const resourceMonitor of resourceMonitors) {
+            const monitorModule = resourceMonitor.module;
             let monitor = null;
-            if(type === DOCKER) {
-                monitor = new DockerMonitor(monitorConfig.docker, monitorConfig.interval);
-            } else if(type === PROCESS) {
-                monitor = new ProcessMonitor(monitorConfig.process, monitorConfig.interval);
-            } else if(type === PROMETHEUS) {
-                monitor = new PrometheusMonitor(monitorConfig.prometheus, monitorConfig.interval);
-            } else if(type === NONE) {
+            logger.info(`Attempting to create resource monitor of type ${monitorModule}`);
+            if (monitorModule === DOCKER) {
+                monitor = new DockerMonitor(resourceMonitor.options);
+            } else if(monitorModule === PROCESS) {
+                monitor = new ProcessMonitor(resourceMonitor.options);
+            } else if(monitorModule === PROMETHEUS) {
+                monitor = new PrometheusMonitor(resourceMonitor.options);
+            } else if(monitorModule === NONE) {
                 continue;
             } else {
-                const msg = `Unsupported monitor type ${type}, must be one of ${VALID_MONITORS}`;
+                const msg = `Unsupported monitor type ${monitorModule}, must be one of ${VALID_MONITORS}`;
                 logger.error(msg);
                 throw new Error(msg);
             }
-            this.monitors.set(type, monitor);
+            this.monitors.set(monitorModule, monitor);
         }
     }
 
