@@ -62,6 +62,10 @@ sut:
             packages: ['fabric-client@1.4.7', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.7']
         1.4.8:
             packages: ['fabric-client@1.4.8', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.8']
+        1.4.9:
+            packages: ['fabric-client@1.4.9', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.9']
+        1.4.10:
+            packages: ['fabric-client@1.4.10', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.10']
         1.4.11: &fabric-latest
             packages: ['fabric-client@1.4.11', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.11']
         2.1.0:
