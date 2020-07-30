@@ -49,7 +49,7 @@ user@ubuntu:~/caliper-benchmarks$ npx caliper bind
 ```
 or from various [other sources](./Runtime_Configuration.md).
 
-### Binding with Fabric SDK 2.0.x
+### Binding with Fabric SDK 2.2.x
 > Note that when using the binding target for the Fabric SDK 2.2.x there are capability restrictions:
 > * The 2.2 SDK does not facilitate administration actions. It it not possible to create/join channels, nor install/instantiate contract. Consequently the 2.2 binding only facilitates operation with a `--caliper-flow-only-test` flag
 > * The 2.2 SDK currently only supports operation using a `gateway`. Consequently the 2.2.x binding requires a `--caliper-fabric-gateway-enabled` flag

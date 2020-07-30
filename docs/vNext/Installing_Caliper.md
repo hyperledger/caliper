@@ -115,8 +115,13 @@ The following SUT name (column header) and SDK version (column value) combinatio
 |        |        |          | 1.4.5     |            |        |          |
 |        |        |          | 1.4.6     |            |        |          |
 |        |        |          | 1.4.7     |            |        |          |
+|        |        |          | 1.4.8     |            |        |          |
+|        |        |          | 1.4.9     |            |        |          |
+|        |        |          | 1.4.10    |            |        |          |
+|        |        |          | 1.4.11    |            |        |          |
 |        |        |          | latest    |            |        |          |
 |        |        |          | 2.1.0     |            |        |          |
+|        |        |          | 2.2.0     |            |        |          |
 |        |        |          | latest-v2 |            |        |          |
 
 
