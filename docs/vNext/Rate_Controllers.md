@@ -10,7 +10,7 @@ The rate at which transactions are input to the blockchain system is a key facto
 
 * [Fixed rate](#fixed-rate)
 * [Fixed feedback rate](#fixed-feedback-rate)
-* [Fixed backlog](#fixed-backlog)
+* [Fixed load](#fixed-load)
 * [Maximum rate](#maximum-rate)
 * [Linear rate](#linear-rate)
 * [Composite rate](#composite-rate)
@@ -48,7 +48,7 @@ The fixed-feedback-rate controller can be specified by setting the rate controll
 
 Controller options include:
 - `tps`: the rate at which transactions are cumulatively sent to the SUT by all workers
-- `maximum_transaction_load`: the maximum transaction load on the SUT at which workers will pause sending further transactions
+- `transactionLoad`: the maximum transaction load on the SUT at which workers will pause sending further transactions
 
 The fixed feedback rate controller, driving at 100 TPS, with a maximum transaction load of 100 on the SUT, is specified through the following controller option:
 
@@ -57,28 +57,28 @@ The fixed feedback rate controller, driving at 100 TPS, with a maximum transacti
   "type": "fixed-feedback-rate",
   "opts": {
       "tps" : 100,
-      "maximum_transaction_load": 100
+      "transactionLoad": 100
   }
 }
 ```
 
-## Fixed Backlog
-The fixed backlog rate controller is a controller for driving the tests at a target loading (backlog transactions). This controller will aim to maintain a defined backlog of transactions within the system by modifying the driven TPS. The result is the maximum possible TPS for the system whilst maintaining the backlog level.
+## Fixed Load
+The fixed load rate controller is a controller for driving the tests at a target loading (backlog transactions). This controller will aim to maintain a defined backlog of transactions within the system by modifying the driven TPS. The result is the maximum possible TPS for the system whilst maintaining the pending transaction load.
 
 ### Options and use
-The fixed-backlog controller can be specified by setting the rate controller `type` to the `fixed-backlog` string.
+The fixed-load controller can be specified by setting the rate controller `type` to the `fixed-load` string.
 
 Controller options include:
 - `startingTps`: the initial rate at which transactions are cumulatively sent to the SUT by all workers
-- `transaction_load`: the number of transactions being processed by the SUT that is to be maintained
+- `transactionLoad`: the number of transactions being processed by the SUT that is to be maintained
 
-The fixed backlog controller, aiming to maintain a SUT transaction load of 5, with a starting TPS of 100, is specified through the following controller option:
+The fixed load controller, aiming to maintain a SUT transaction load of 5, with a starting TPS of 100, is specified through the following controller option:
 
 ```json
 {
-  "type": "fixed-backlog",
+  "type": "fixed-load",
   "opts": {
-    "transaction_load": 5,
+    "transactionLoad": 5,
     "startingTps": 100
   }
 }
@@ -343,13 +343,12 @@ It is possible to use rate controllers that are not built-in controllers of Cali
 
 You can set the `type` attribute so that it points to your custom JS file that satisfies the following criteria:
 1. The file/module exports a `createRateController` function that takes the following parameters:
-    1. An `opts` parameter that is the `object` representation of the `opts` attribute set in the configuration file, and contains the custom settings of your rate controller.
-    1. A `clientIdx` parameter of type `number` that is the 0-based index of the worker process using this rate controller.
-    1. A `roundIdx` parameter of type `number` that is the 1-based index of the round where the rate controller is used.
+    1. An `TestMessage` parameter that is the `object` representation of the `opts` attribute set in the configuration file, and contains the custom settings of your rate controller.
+    1. A `TransactionStatisticsCollector` object that gives the rate controller access to the current worker transaction statistics
+    1. A `workerIndex` parameter of type `number` that is the 0-based index of the worker process using this rate controller.
     
     The function must return an object (i.e., your rate controller instance) that satisfies the next criteria.
 2. The object returned by `createRateController` must implement the `/packages/caliper-core/lib/rate-control/rateInterface.js` interface, i.e., must provide the following async functions:
-    1. `init`, for initializing the rate controller at the beginning of the round.
     1. `applyRateControl`, for performing the actual rate control by "blocking" the execution (in an async manner) for the desired time.
     1. `end`, for disposing any acquired resources at the end of a round.
 
@@ -375,54 +374,29 @@ The following example is a complete implementation of a rate control that doesn'
 const RateInterface = require('path-to-caliper/caliper-core/lib/rate-control/rateInterface.js');
 
 /**
- * Rate controller for allowing uninterrupted workloadload generation.
+ * Rate controller for allowing uninterrupted workload generation.
  *
  * @property {object} options The user-supplied options for the controller. Empty.
  */
-class MaxRateController extends RateInterface{
+class MyRateController extends RateInterface{
     /**
-     * Creates a new instance of the MaxRateController class.
-     * @constructor
-     * @param {object} opts Options for the rate controller. Empty.
+     * Initializes the rate controller instance.
+     * @param {TestMessage} testMessage The testMessage passed for the round execution
+     * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
+     * @param {number} workerIndex The 0-based index of the worker node.
+     * @param {number} roundIndex The 0-based index of the current round.
+     * @param {number} numberOfWorkers The total number of worker nodes.
+     * @param {object} roundConfig The round configuration object.
      */
-    constructor(opts) {
-        // just pass it to the base class
-        super(opts);
-    }
-
-    /**
-     * Initializes the rate controller.
-     *
-     * @param {object} msg Client options with adjusted per-worker load settings.
-     * @param {string} msg.type The type of the message. Currently always 'test'
-     * @param {string} msg.label The label of the round.
-     * @param {object} msg.rateControl The rate control to use for the round.
-     * @param {number} msg.trim The number/seconds of transactions to trim from the results.
-     * @param {object} msg.args The user supplied arguments for the round.
-     * @param {string} msg.cb The path of the user's callback module.
-     * @param {string} msg.config The path of the network's configuration file.
-     * @param {number} msg.numb The number of transactions to generate during the round.
-     * @param {number} msg.txDuration The length of the round in SECONDS.
-     * @param {number} msg.totalClients The number of workers executing the round.
-     * @param {number} msg.workers The number of workers executing the round.
-     * @param {object} msg.clientargs Arguments for the worker.
-     * @param {number} msg.clientIdx The 0-based index of the current worker.
-     * @param {number} msg.roundIdx The 1-based index of the current round.
-     * @async
-     */
-    async init(msg) {
-        // no init is needed
+    constructor(testMessage, stats, workerIndex) {
+        super(testMessage, stats, workerIndex);
     }
 
     /**
      * Doesn't perform any rate control.
-     * @param {number} start The epoch time at the start of the round (ms precision).
-     * @param {number} idx Sequence number of the current transaction.
-     * @param {object[]} recentResults The list of results of recent transactions.
-     * @param {object[]} resultStats The aggregated stats of previous results.
      * @async
      */
-    async applyRateControl(start, idx, recentResults, resultStats) {
+    async applyRateControl() {
         // no sleeping is needed, allow the transaction invocation immediately
     }
 
@@ -436,26 +410,26 @@ class MaxRateController extends RateInterface{
 }
 
 /**
- * Creates a new rate controller instance.
- * @param {object} opts The rate controller options.
- * @param {number} clientIdx The 0-based index of the worker who instantiates the controller.
- * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
- * @return {RateInterface} The rate controller instance.
+ * Factory for creating a new rate controller instance.
+ * @param {TestMessage} testMessage start test message
+ * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
+ * @param {number} workerIndex The 0-based index of the worker node.
+ *
+ * @return {RateInterface} The new rate controller instance.
  */
-function createRateController(opts, clientIdx, roundIdx) {
-    // no need for the other parameters
-    return new MaxRateController(opts);
+function createRateController(testMessage, stats, workerIndex) {
+    return new MyRate(testMessage, stats, workerIndex);
 }
 
 module.exports.createRateController = createRateController;
 ``` 
 
-Let's say you save this implementation into a file called `maxRateController.js` next to your Caliper directory (so they're on the same level). In the test configuration file you can set this rate controller (at its required place in the configuration hierarchy) the following way:
+Let's say you save this implementation into a file called `myRateController.js` next to your Caliper directory (so they're on the same level). In the test configuration file you can set this rate controller (at its required place in the configuration hierarchy) the following way:
 
 ```yaml
 rateControl:
   # relative path from the Caliper directory
-- type: ../maxRateController.js
+- type: ../myRateController.js
   # empty options
   opts: 
 
