@@ -37,13 +37,22 @@ const keys = {
             Transparency: 'caliper-report-charting-transparency'
         }
     },
+    Progress: {
+        Reporting: {
+            Enabled: 'caliper-progress-reporting-enabled',
+            Interval: 'caliper-progress-reporting-interval'
+        }
+    },
+    Monitor: {
+        DefaultInterval: 'caliper-monitor-default-interval'
+    },
     Workspace: 'caliper-workspace',
     ProjectConfig: 'caliper-projectconfig',
     UserConfig: 'caliper-userconfig',
     MachineConfig: 'caliper-machineconfig',
     BenchConfig: 'caliper-benchconfig',
     NetworkConfig: 'caliper-networkconfig',
-    TxUpdateTime: 'caliper-txupdatetime',
+    MonitorConfig: 'caliper-monitorconfig',
     LoggingRoot: 'caliper-logging',
     Logging: {
         Template: 'caliper-logging-template',
@@ -92,7 +101,9 @@ const keys = {
             Method: 'caliper-worker-communication-method',
             Address: 'caliper-worker-communication-address',
         },
-        MaxTxPromises: 'caliper-worker-maxtxpromises'
+        Update: {
+            Interval: 'caliper-worker-update-interval'
+        }
     },
     Flow: {
         Skip: {

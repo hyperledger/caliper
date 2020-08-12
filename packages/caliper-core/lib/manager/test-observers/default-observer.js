@@ -16,25 +16,25 @@
 'use strict';
 
 const TestObserverInterface = require('./observer-interface');
+const TransactionStatisticsCollector = require('../../common/core/transaction-statistics-collector');
 const Utils = require('../../common/utils/caliper-utils');
-const Logger = Utils.getLogger('local-observer');
+const ConfigUtil = require('../../common/config/config-util');
+const Logger = Utils.getLogger('default-observer');
 
 /**
- * LocalObserver class used to observe test statistics via terminal
+ * DefaultObserver class used to observe test statistics via terminal
  */
-class LocalObserver extends TestObserverInterface {
+class DefaultObserver extends TestObserverInterface {
 
     /**
      * Constructor
-     * @param {object} benchmarkConfig The benchmark configuration object.
      */
-    constructor(benchmarkConfig) {
-        super(benchmarkConfig);
+    constructor() {
+        super();
 
         // set the observer interval
-        const interval = (this.benchmarkConfig.observer && this.benchmarkConfig.observer.interval) ? this.benchmarkConfig.observer.interval : 1;
-        this.observeInterval = interval * 1000;
-        Logger.info(`Observer interval set to ${interval} seconds`);
+        this.observeInterval = ConfigUtil.get(ConfigUtil.keys.Progress.Reporting.Interval);
+        Logger.info(`Observer interval set to ${this.observeInterval} seconds`);
         this.observeIntervalObject = null;
         this.updateTail = 0;
         this.updateID   = 0;
@@ -68,23 +68,10 @@ class LocalObserver extends TestObserverInterface {
      * @param {*} suc successful
      * @param {*} fail fail
      */
-    addThroughput(sub, suc, fail) {
-        this.testData.throughput.submitted.push(sub/this.observeInterval);
-        this.testData.throughput.succeeded.push(suc/this.observeInterval);
-        this.testData.throughput.failed.push(fail/this.observeInterval);
-        if (this.testData.throughput.x.length < this.testData.throughput.submitted.length) {
-            let last = this.testData.throughput.x[this.testData.throughput.x.length - 1];
-            this.testData.throughput.x.push(last + this.observeInterval);
-        }
-        if (this.testData.throughput.submitted.length > this.testData.maxlen) {
-            this.testData.throughput.submitted.shift();
-            this.testData.throughput.succeeded.shift();
-            this.testData.throughput.failed.shift();
-            this.testData.throughput.x.shift();
-        }
-        this.testData.summary.txSub  += sub;
-        this.testData.summary.txSucc += suc;
-        this.testData.summary.txFail += fail;
+    setThroughput(sub, suc, fail) {
+        this.testData.summary.txSub  = sub;
+        this.testData.summary.txSucc = suc;
+        this.testData.summary.txFail = fail;
     }
 
     /**
@@ -97,7 +84,7 @@ class LocalObserver extends TestObserverInterface {
         this.testData.latency.max.push(max);
         this.testData.latency.min.push(min);
         this.testData.latency.avg.push(avg);
-        if(this.testData.latency.x.length < this.testData.latency.max.length) {
+        if (this.testData.latency.x.length < this.testData.latency.max.length) {
             let last = this.testData.latency.x[this.testData.latency.x.length - 1];
             this.testData.latency.x.push(last + this.observeInterval);
         }
@@ -113,12 +100,6 @@ class LocalObserver extends TestObserverInterface {
      * Reset test data
      */
     resetTestData() {
-        this.testData.throughput = {
-            x: [],
-            submitted: [0],
-            succeeded: [0],
-            failed: [0]
-        };
         this.testData.latency = {
             x: [],
             max: [0],
@@ -139,47 +120,64 @@ class LocalObserver extends TestObserverInterface {
      */
     refreshData(updates) {
         if (updates.length === 0 || Object.entries(updates[0]).length === 0) {
-            this.addThroughput(0,0,0);
+            // Nothing to update with, set zero
+            this.setThroughput(0,0,0);
             this.addLatency(0,0,0);
         } else {
-            let sub = 0, suc = 0, fail = 0;
             let deMax = -1, deMin = -1, deAvg = 0;
-            for(let i = 0 ; i < updates.length ; i++) {
-                let data = updates[i];
+
+            // Updates may come from multiple workers, and may get more than one update per worker in an interval
+            // - We need to sum the transaction counts, and evaluate the min/max/average of latencies
+            const txnCollectionMap = new Map();
+            for (let i = 0 ; i < updates.length ; i++) {
+                const data = updates[i];
                 if (data.type.localeCompare('txReset') === 0) {
-                    // Resetting values
+                    // Resetting internal store
+                    // - return once reset to prevent printing unrequired values
                     Logger.info('Resetting txCount indicator count');
                     this.resetTestData();
-                    continue;
+                    return;
                 }
-                sub += data.submitted;
-                suc += data.committed.succ;
-                fail += data.committed.fail;
 
-                if(data.committed.succ > 0) {
-                    if(deMax === -1 || deMax < data.committed.delay.max) {
-                        deMax = data.committed.delay.max;
+                // Work on the stats object
+                const stats = data.stats;
+                const txnCollector = TransactionStatisticsCollector.loadFromObject(stats);
+                const workerIndex = txnCollector.getWorkerIndex();
+
+                txnCollectionMap.set(workerIndex, txnCollector);
+            }
+
+            if (txnCollectionMap.size > 0) {
+                let txnCollectorArray = Array.from( txnCollectionMap.values() );
+                const txnCollection = TransactionStatisticsCollector.mergeCollectorResults(txnCollectorArray);
+
+                // Base transaction counters
+                this.setThroughput(txnCollection.getTotalSubmittedTx(), txnCollection.getTotalSuccessfulTx(), txnCollection.getTotalFailedTx());
+
+                // Latencies calculated on successful transactions
+                if (txnCollection.getTotalSuccessfulTx() > 0) {
+                    if (deMax === -1 || deMax < txnCollection.getMaxLatencyForSuccessful()) {
+                        deMax = txnCollection.getMaxLatencyForSuccessful();
                     }
-                    if(deMin === -1 || deMin > data.committed.delay.min) {
-                        deMin = data.committed.delay.min;
+                    if (deMin === -1 || deMin > txnCollection.getMinLatencyForSuccessful()) {
+                        deMin = txnCollection.getMinLatencyForSuccessful();
                     }
-                    deAvg += data.committed.delay.sum;
+                    deAvg += txnCollection.getTotalLatencyForSuccessful();
+                }
+
+                if (txnCollection.getTotalSuccessfulTx() > 0) {
+                    deAvg /= txnCollection.getTotalSuccessfulTx();
                 }
             }
-            if(suc > 0) {
-                deAvg /= suc;
-            }
-            this.addThroughput(sub, suc, fail);
 
-            if(isNaN(deMax) || isNaN(deMin) || deAvg === 0) {
+            if (isNaN(deMax) || isNaN(deMin) || deAvg === 0) {
                 this.addLatency(0,0,0);
-            }
-            else {
+            } else {
                 this.addLatency(deMax, deMin, deAvg);
             }
-
         }
 
+        // Log current statistics using global observer store as above update might not have occurred
         Logger.info('[' + this.testName + ' Round ' + this.testRound + ' Transaction Info] - Submitted: ' + this.testData.summary.txSub +
         ' Succ: ' + this.testData.summary.txSucc +
         ' Fail:' +  this.testData.summary.txFail +
@@ -191,18 +189,19 @@ class LocalObserver extends TestObserverInterface {
      * @async
      */
     async update() {
-        if (typeof this.clientOrchestrator === 'undefined') {
+        if (typeof this.workerOrchestrator === 'undefined') {
             this.refreshData([]);
             return;
         }
-        let updates = this.clientOrchestrator.getUpdates();
-        if(updates.id > this.updateID) { // new buffer
+        let updates = this.workerOrchestrator.getUpdates();
+        if (updates.id > this.updateID) {
+            // new buffer
             this.updateTail = 0;
-            this.updateID   = updates.id;
+            this.updateID = updates.id;
         }
         let data = [];
-        let len  = updates.data.length;
-        if(len > this.updateTail) {
+        let len = updates.data.length;
+        if (len > this.updateTail) {
             data = updates.data.slice(this.updateTail, len);
             this.updateTail = len;
         }
@@ -211,10 +210,10 @@ class LocalObserver extends TestObserverInterface {
 
     /**
      * Start watching the test output of the orchestrator
-     * @param {ClientOrchestrator} clientOrchestrator  the client orchestrator
+     * @param {WorkerOrchestrator} workerOrchestrator  the worker orchestrator
      */
-    startWatch(clientOrchestrator) {
-        this.clientOrchestrator  = clientOrchestrator;
+    startWatch(workerOrchestrator) {
+        this.workerOrchestrator  = workerOrchestrator;
         if(this.observeIntervalObject === null) {
             this.updateTail = 0;
             this.updateID   = 0;
@@ -244,6 +243,7 @@ class LocalObserver extends TestObserverInterface {
     setBenchmark(name) {
         this.testName = name;
     }
+
     /**
      * Set the test round for the watcher
      * @param{*} roundIdx the round index
@@ -251,15 +251,22 @@ class LocalObserver extends TestObserverInterface {
     setRound(roundIdx) {
         this.testRound = roundIdx;
     }
+
+    /**
+     * Called when new TX stats are available.
+     * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
+     */
+    txUpdateArrived(stats) {
+        // TODO: push model instead of pull
+    }
 }
 
 /**
- * Creates a new LocalObserver instance.
- * @param {object} benchmarkConfig The benchmark configuration object.
- * @return {TestObserverInterface} The LocalObserver instance.
+ * Creates a new DefaultObserver instance.
+ * @return {TestObserverInterface} The DefaultObserver instance.
  */
-function createTestObserver(benchmarkConfig) {
-    return new LocalObserver(benchmarkConfig);
+function createTestObserver() {
+    return new DefaultObserver();
 }
 
 module.exports.createTestObserver = createTestObserver;

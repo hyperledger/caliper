@@ -15,6 +15,8 @@
 
 'use strict';
 
+const ConfigUtil = require('../../common/config/config-util.js');
+
 // TODO: now we record the performance information in local variable, it's better to use db later
 /**
  * Interface of resource consumption monitor
@@ -22,12 +24,11 @@
 class MonitorInterface{
     /**
      * Constructor
-     * @param {JSON} monitorConfig Configuration object for the monitor
-     * @param {number} interval Watching interval, in seconds
+     * @param {JSON} resourceMonitorOptions Configuration options for the monitor
      */
-    constructor(monitorConfig, interval) {
-        this.monitorConfig = monitorConfig;
-        this.interval     = interval*1000; // convert to ms
+    constructor(resourceMonitorOptions) {
+        this.options = resourceMonitorOptions;
+        this.interval = resourceMonitorOptions.interval ? resourceMonitorOptions.interval*1000 : ConfigUtil.get(ConfigUtil.keys.Monitor.DefaultInterval);
     }
 
     /**

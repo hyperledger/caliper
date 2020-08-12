@@ -14,23 +14,22 @@
 'use strict';
 
 const CaliperUtils = require('../../common/utils/caliper-utils');
+const ConfigUtil = require('../../common/config/config-util');
 const Logger = CaliperUtils.getLogger('testObserver.js');
 
 const builtInObservers = new Map([
     ['none', './null-observer'],
-    ['local', './local-observer.js'],
-    ['prometheus', './prometheus-observer.js']
+    ['default', './default-observer.js']
 ]);
 
 const TestObserver = class {
 
     /**
      * Instantiates the proxy test observer and creates the configured observer behind it.
-     * @param {object} benchmarkConfig The benchmark configuration object.
      */
-    constructor(benchmarkConfig) {
-        // Test observer is dynamically loaded, but defaults to none
-        const observerType = (benchmarkConfig.observer && benchmarkConfig.observer.type) ? benchmarkConfig.observer.type : 'none';
+    constructor() {
+        // Test observer is dynamically loaded, based on progress reporting configuration
+        const observerType = ConfigUtil.get(ConfigUtil.keys.Progress.Reporting.Enabled) ? 'default' : 'none';
 
         Logger.debug(`Creating test observer of type "${observerType}"`);
 
@@ -43,7 +42,7 @@ const TestObserver = class {
             throw new Error(`${observerType} does not export the mandatory factory function 'createTestObserver'`);
         }
 
-        this.observer = factoryFunction(benchmarkConfig);
+        this.observer = factoryFunction();
     }
 
     /**
@@ -84,6 +83,14 @@ const TestObserver = class {
      */
     setRound(roundIdx) {
         this.observer.setRound(roundIdx);
+    }
+
+    /**
+     * Called when new TX stats are available.
+     * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
+     */
+    txUpdateArrived(stats) {
+        this.observer.txUpdateArrived(stats);
     }
 
 };

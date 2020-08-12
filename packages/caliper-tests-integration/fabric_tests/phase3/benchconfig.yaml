@@ -33,13 +33,13 @@ test:
       rateControl: { type: 'linear-rate', opts: { startingTps: 10, finishingTps: 20 } }
       workload:
         module: ./../query.js
-observer:
-    interval: 1
-    type: local
-monitor:
-    interval: 1
-    type: ['process', 'docker']
-    process:
-        processes: [{ command: 'node', arguments: 'fabricClientWorker.js', multiOutput: 'avg' }]
-    docker:
+monitors:
+    resource:
+    - module: process
+      options:
+        interval: 3
+        processes: [{ command: 'node', arguments: 'caliper.js', multiOutput: 'avg' }]
+    - module: docker
+      options:
+        interval: 4
         containers: ['peer0.org1.example.com', 'peer0.org2.example.com', 'orderer0.example.com', 'orderer1.example.com']

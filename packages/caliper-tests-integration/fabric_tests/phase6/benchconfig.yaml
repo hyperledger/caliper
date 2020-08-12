@@ -42,15 +42,17 @@ test:
       rateControl: { type: 'linear-rate', opts: { startingTps: 5, finishingTps: 10 } }
       workload:
         module: ./../queryByChannel.js
-observer:
-    interval: 1
-    type: prometheus
-monitor:
-    interval: 1
-    type: ['prometheus']
-    prometheus:
-        url: "http://localhost:9090"
+monitors:
+    transaction:
+    - module: prometheus-push
+      options:
+        interval: 5
         push_url: "http://localhost:9091"
+    resource:
+    - module: prometheus
+      options:
+        interval: 5
+        url: "http://localhost:9090"
         metrics:
             ignore: [prometheus, pushGateway, cadvisor, grafana, node-exporter]
             include:

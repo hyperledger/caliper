@@ -15,9 +15,7 @@
 'use strict';
 
 const ReportBuilder = require('./report-builder');
-const PrometheusQueryHelper = require('../../common/prometheus/prometheus-query-helper');
 const CaliperUtils = require('../../common/utils/caliper-utils');
-const TransactionStatistics = require('../../common/core/transaction-statistics');
 const Logger = CaliperUtils.getLogger('report-builder');
 
 const table = require('table');
@@ -149,95 +147,25 @@ class Report {
     /**
      * Create a result map from locally gathered values
      * @param {string} testLabel the test label name
-     * @param {JSON} results txStatistics JSON object
+     * @param {TransactionStatisticsCollector} results TransactionStatisticsCollector containing cumulative worker transaction statistics
      * @return {Map} a Map of key value pairing to create the default result table
      */
-    getLocalResultValues(testLabel, results) {
+    getResultValues(testLabel, results) {
         Logger.debug ('getLocalResultValues called with: ', JSON.stringify(results));
         const resultMap = this.getResultColumnMap();
         resultMap.set('Name', testLabel ? testLabel : 'unknown');
-        resultMap.set('Succ', results.hasOwnProperty('succ') ? results.succ : '-');
-        resultMap.set('Fail', results.hasOwnProperty('fail') ? results.fail : '-');
-        resultMap.set('Max Latency (s)', (results.hasOwnProperty('delay') && results.delay.hasOwnProperty('max')) ? results.delay.max.toFixed(2) : '-');
-        resultMap.set('Min Latency (s)', (results.hasOwnProperty('delay') && results.delay.hasOwnProperty('min')) ? results.delay.min.toFixed(2) : '-');
-        resultMap.set('Avg Latency (s)', (results.hasOwnProperty('delay') && results.delay.hasOwnProperty('sum') && results.hasOwnProperty('succ')) ? (results.delay.sum / results.succ).toFixed(2) : '-');
+        resultMap.set('Succ', results.getTotalSuccessfulTx());
+        resultMap.set('Fail', results.getTotalFailedTx());
+        resultMap.set('Max Latency (s)', CaliperUtils.millisToSeconds(results.getMaxLatencyForSuccessful()).toFixed(2));
+        resultMap.set('Min Latency (s)', CaliperUtils.millisToSeconds(results.getMinLatencyForSuccessful()).toFixed(2));
+        resultMap.set('Avg Latency (s)', results.getTotalSuccessfulTx() > 0 ? (CaliperUtils.millisToSeconds(results.getTotalLatencyForSuccessful() / results.getTotalSuccessfulTx())).toFixed(2) : '-');
 
-        // Send rate needs a little more conditioning than sensible for a ternary op
-        if (results.hasOwnProperty('succ') && results.hasOwnProperty('fail') && results.hasOwnProperty('create') && results.create.hasOwnProperty('max') && results.create.hasOwnProperty('min')) {
-            const sendRate = (results.create.max === results.create.min) ? (results.succ + results.fail) : ((results.succ + results.fail) / (results.create.max - results.create.min)).toFixed(1);
-            resultMap.set('Send Rate (TPS)', sendRate);
-        } else {
-            resultMap.set('Send Rate (TPS)', '-');
-        }
+        // Send rate
+        const sendRate = ((results.getTotalSuccessfulTx() + results.getTotalFailedTx()) / (CaliperUtils.millisToSeconds(results.getLastCreateTime() - results.getFirstCreateTime()))).toFixed(1);
+        resultMap.set('Send Rate (TPS)', sendRate);
 
-        // Observed TPS needs a little more conditioning than sensible for a ternary op
-        if (results.hasOwnProperty('succ') && results.hasOwnProperty('final') && results.final.hasOwnProperty('last') && results.hasOwnProperty('create') && results.create.hasOwnProperty('min')) {
-            const tps = (results.final.last === results.create.min) ? results.succ  : (results.succ / (results.final.last - results.create.min)).toFixed(1);
-            resultMap.set('Throughput (TPS)', tps);
-        } else {
-            resultMap.set('Throughput (TPS)', '-');
-        }
-
-        return resultMap;
-    }
-
-    /**
-     * Create a result mapping through querying a Prometheus server
-     * @param {string} testLabel the test label name
-     * @param {string} round the test round
-     * @param {number} startTime start time for Prometheus data query, in milliseconds since epoch
-     * @param {number} endTime end time for Prometheus data query, in milliseconds since epoch
-     * @return {Map} a Map of key value pairing to create the result table
-     */
-    async getPrometheusResultValues(testLabel, round, startTime, endTime) {
-        const startQuery = startTime/1000; //convert to seconds
-        const endQuery = endTime/1000;
-
-        const resultMap = this.getResultColumnMap();
-        resultMap.set('Name', testLabel ? testLabel : 'unknown');
-
-        // Successful transactions
-        const txSuccessQuery = `sum(caliper_txn_success{instance="${testLabel}", round="${round}"})`;
-        const txSuccessCountResponse = await this.queryClient.query(txSuccessQuery, endQuery);
-        const txSuccessCount = txSuccessCountResponse ? PrometheusQueryHelper.extractFirstValueFromQueryResponse(txSuccessCountResponse) : '-';
-        resultMap.set('Succ', txSuccessCount);
-
-        // Failed transactions
-        const txFailQuery = `sum(caliper_txn_failure{instance="${testLabel}", round="${round}"})`;
-        const txFailCountResponse = await this.queryClient.query(txFailQuery, endQuery);
-        const txFailCount = txFailCountResponse ? PrometheusQueryHelper.extractFirstValueFromQueryResponse(txFailCountResponse) : '-';
-        resultMap.set('Fail', txFailCount);
-
-        // Maximum latency
-        const maxLatencyQuery = `max(caliper_latency{instance="${testLabel}", round="${round}"})`;
-        const maxLatenciesResponse = await this.queryClient.rangeQuery(maxLatencyQuery, startQuery, endQuery);
-        const maxLatenciesStats = PrometheusQueryHelper.extractStatisticFromRange(maxLatenciesResponse, 'max');
-        const maxLatency = maxLatenciesStats.has('unknown') ? maxLatenciesStats.get('unknown').toFixed(2) : '-';
-        resultMap.set('Max Latency (s)', maxLatency);
-
-        // Min latency
-        const minLatencyQuery = `min(caliper_latency{instance="${testLabel}", round="${round}"})`;
-        const minLatenciesResponse = await this.queryClient.rangeQuery(minLatencyQuery, startQuery, endQuery);
-        const minLatenciesStats = PrometheusQueryHelper.extractStatisticFromRange(minLatenciesResponse, 'min');
-        const minLatency = minLatenciesStats.has('unknown') ? minLatenciesStats.get('unknown').toFixed(2) : '-';
-        resultMap.set('Min Latency (s)', minLatency);
-
-        // Avg Latency
-        const avgLatencyQuery = `avg(caliper_latency{instance="${testLabel}", round="${round}"})`;
-        const avgLatenciesResponse = await this.queryClient.rangeQuery(avgLatencyQuery, startQuery, endQuery);
-        const avgLatenciesStats = PrometheusQueryHelper.extractStatisticFromRange(avgLatenciesResponse, 'avg');
-        const avgLatency = avgLatenciesStats.has('unknown') ? avgLatenciesStats.get('unknown').toFixed(2) : '-';
-        resultMap.set('Avg Latency (s)', avgLatency);
-
-        // Avg Submit Rate within the time bounding
-        const avgSubmitRateQuery = `sum(caliper_txn_submit_rate{instance="${testLabel}", round="${round}"})`;
-        const avgSubmitRateResponse = await this.queryClient.rangeQuery(avgSubmitRateQuery, startQuery, endQuery);
-        const avgSubmitRateStats = PrometheusQueryHelper.extractStatisticFromRange(avgSubmitRateResponse, 'avg');
-        const avgSubmitRate = avgSubmitRateStats.has('unknown') ? avgSubmitRateStats.get('unknown').toFixed(2) : '-';
-        resultMap.set('Send Rate (TPS)', avgSubmitRate);
-
-        // Average TPS (completed transactions)
-        const tps = ((txSuccessCount + txFailCount)/(endQuery - startQuery)).toFixed(1);
+        // Observed TPS
+        const tps = ((results.getTotalSuccessfulTx() + results.getTotalFailedTx()) / (CaliperUtils.millisToSeconds(results.getLastFinishTime() - results.getFirstCreateTime()))).toFixed(1);
         resultMap.set('Throughput (TPS)', tps);
 
         return resultMap;
@@ -256,21 +184,13 @@ class Report {
 
     /**
      * Augment the report with details generated through extraction from local process reporting
-     * @param {JSON} results JSON object {tsStats: txStats[], start: number, end: number} containing an array of txStatistics
+     * @param {TransactionStatisticsCollector} results cumulative results from all worker TransactionStatisticsCollectors
      * @param {Object} roundConfig test round configuration object
      * @return {Promise} promise object containing the current report index
      */
-    async processLocalTPSResults(results, roundConfig){
+    async processTPSResults(results, roundConfig) {
         try {
-            let resultSet;
-
-            if (TransactionStatistics.mergeDefaultTxStats(results) === 0) {
-                resultSet = TransactionStatistics.createNullDefaultTxStats();
-            } else {
-                resultSet = results[0];
-            }
-
-            const resultMap = this.getLocalResultValues(roundConfig.label, resultSet);
+            const resultMap = this.getResultValues(roundConfig.label, results);
             // Add this set of results to the main round collection
             this.resultsByRound.push(resultMap);
 
@@ -285,7 +205,7 @@ class Report {
 
             return idx;
         } catch(error) {
-            Logger.error(`processLocalTPSResults failed with error: ${error}`);
+            Logger.error(`processTPSResults failed with error: ${error}`);
             throw error;
         }
     }
@@ -306,38 +226,6 @@ class Report {
                 this.printTable(resourceTable);
                 this.reportBuilder.setRoundResourceTable(label, idx, resourceTable, chartStats, type);
             }
-        }
-    }
-
-    /**
-     * Augment the report with details generated through extraction from Prometheus
-     * @param {JSON} timing JSON object containing start/end times required to query
-     * the prometheus server
-     * @param {Object} roundConfig test round configuration object
-     * @param {number} round the current test round
-     * @return {Promise} promise object containing the report index
-     * @async
-     */
-    async processPrometheusTPSResults(timing, roundConfig, round){
-        try {
-            const resultMap = await this.getPrometheusResultValues(roundConfig.label, round, timing.start, timing.end);
-
-            // Add this set of results to the main round collection
-            this.resultsByRound.push(resultMap);
-
-            // Print TPS result for round to console
-            Logger.info('### Test result ###');
-            const tableArray = this.convertToTable(resultMap);
-            this.printTable(tableArray);
-
-            // Add TPS to the report
-            let idx = this.reportBuilder.addBenchmarkRound(roundConfig);
-            this.reportBuilder.setRoundPerformance(roundConfig.label, idx, tableArray);
-
-            return idx;
-        } catch (error) {
-            Logger.error(`processPrometheusTPSResults failed with error: ${error}`);
-            throw error;
         }
     }
 

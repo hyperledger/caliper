@@ -152,7 +152,7 @@ class CaliperEngine {
             // this means that we haven't handled/logged this failure yet
             if (this.returnCode < 0) {
                 // log full stack
-                let msg = `Error while performing "test" step: ${err}`;
+                let msg = `Error while performing "test" step: ${err.stack}`;
                 logger.error(msg);
                 this.returnCode = 6;
             }

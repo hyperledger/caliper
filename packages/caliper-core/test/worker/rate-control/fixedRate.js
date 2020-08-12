@@ -16,6 +16,8 @@
 
 const rewire = require('rewire');
 const FixedRate = rewire('../../../lib/worker/rate-control/fixedRate');
+const TestMessage = require('../../../lib/common/messages/testMessage');
+const TransactionStatisticsCollector = require('../../../lib/common/core/transaction-statistics-collector');
 
 const chai = require('chai');
 chai.should();
@@ -23,87 +25,93 @@ const sinon = require('sinon');
 
 describe('fixedRate controller implementation', () => {
 
-    let controller;
-    let opts = {tps: 40};
+    describe('#constructor', () => {
 
-    describe('#init', () => {
-
-        beforeEach(() => {
-            controller = new FixedRate.createRateController(opts);
+        let controller;
+        let testMessage;
+        beforeEach( () => {
+            const msgContent = {
+                label: 'query2',
+                rateControl: {
+                    type: 'fixed-rate',
+                    opts: {}
+                },
+                workload: {
+                    module:'./../queryByChannel.js'
+                },
+                testRound:0,
+                txDuration:250,
+                totalClients:2
+            };
+            testMessage = new TestMessage('test', [], msgContent);
         });
 
-        it('should set the sleep time for a single client if no clients are specified', () => {
-            let msg = {};
-            controller.init(msg);
-            controller.sleepTime.should.equal(25);
-        });
-
-        it('should set the sleep time for a single client', () => {
-            let msg = {totalClients: 1};
-            controller.init(msg);
-            controller.sleepTime.should.equal(25);
-        });
-
-        it('should set the sleep time for multiple clients', () => {
-            let msg = {totalClients: 4};
-            controller.init(msg);
+        it('should set a default sleep time if no options passed', () => {
+            testMessage.content.totalClients = 1;
+            controller = new FixedRate.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(100);
         });
 
-        it('should set the sleep time to zero if 0 tps specified', () => {
-            controller = new FixedRate.createRateController({tps: 0});
-            let msg = {totalClients: 1};
-            controller.init(msg);
-            controller.sleepTime.should.equal(0);
+        it('should set the sleep time for a single client', () => {
+            testMessage.content.totalClients = 1;
+            testMessage.content.rateControl.opts = { tps: 50 };
+            controller = new FixedRate.createRateController(testMessage, {}, 0);
+            controller.sleepTime.should.equal(20);
+        });
+
+        it('should set the sleep time for multiple clients', () => {
+            testMessage.content.totalClients = 2;
+            testMessage.content.rateControl.opts = { tps: 50 };
+            controller = new FixedRate.createRateController(testMessage, {}, 0);
+            controller.sleepTime.should.equal(40);
         });
     });
 
     describe('#applyRateControl', () => {
 
-        let sleepStub;
-        let clock;
+        let controller, sleepStub, txnStats, clock;
 
         beforeEach(() => {
+            const msgContent = {
+                label: 'query2',
+                rateControl: {
+                    type: 'fixed-feedback-rate',
+                    opts: {}
+                },
+                workload: {
+                    module:'./../queryByChannel.js'
+                },
+                testRound:0,
+                txDuration:250,
+                totalClients:2
+            };
+
             clock = sinon.useFakeTimers();
 
             sleepStub = sinon.stub();
             FixedRate.__set__('Sleep', sleepStub);
 
-            controller = new FixedRate.createRateController(opts);
-            controller.sleepTime = 10000;
+            const testMessage = new TestMessage('test', [], msgContent);
+            txnStats = new TransactionStatisticsCollector();
+            controller = new FixedRate.createRateController(testMessage, txnStats, 0);
         });
 
         afterEach(() => {
             clock.restore();
         });
 
-        it('should sleep for the full ammount of time if there is zero elapsed time', () => {
-            controller.applyRateControl(Date.now(), 1, []);
-            sinon.assert.calledOnce(sleepStub);
-            sinon.assert.calledWith(sleepStub, 10000);
-        });
-
-        it('should reduce the sleep time based on the elapsed time difference', () => {
-            let startTime = Date.now();
-            clock.tick(5000);
-            controller.applyRateControl(startTime, 1, []);
-            sinon.assert.calledOnce(sleepStub);
-            sinon.assert.calledWith(sleepStub, 5000);
-        });
-
-        it('should not sleep if the elapsed time difference is below the 5ms threshold', () => {
-            let startTime = Date.now();
-            clock.tick(99996);
-            controller.applyRateControl(startTime, 1, []);
-            sinon.assert.notCalled(sleepStub);
-        });
-
         it('should not sleep if the sleepTime is zero', () => {
             controller.sleepTime = 0;
-            controller.applyRateControl(Date.now(), 1, []);
+            controller.applyRateControl();
             sinon.assert.notCalled(sleepStub);
         });
 
+        it('should sleep based on the difference between the required increment time, and the elapsed time', () => {
+            txnStats.stats.txCounters.totalSubmitted = 100;
+            controller.applyRateControl();
+            sinon.assert.calledOnce(sleepStub);
+            sinon.assert.calledWith(sleepStub, 20000);
+        });
     });
 
 });

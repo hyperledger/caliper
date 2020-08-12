@@ -14,86 +14,66 @@
 'use strict';
 
 const CaliperUtils = require('../../common/utils/caliper-utils');
+const RateInterface = require('./rateInterface');
+const path = require('path');
 const logger = CaliperUtils.getLogger('rateControl.js');
 
 const builtInControllers = new Map([
-    ['fixed-rate', './fixedRate.js'],
-    ['fixed-backlog', './fixedBacklog.js'],
-    ['composite-rate', './compositeRate.js'],
-    ['zero-rate', './noRate.js'],
-    ['record-rate', './recordRate.js'],
-    ['replay-rate', './replayRate.js'],
-    ['linear-rate', './linearRate.js'],
-    ['fixed-feedback-rate', './fixedFeedbackRate.js'],
-    ['maximum-rate', './maxRate.js']
+    ['composite-rate', path.join(__dirname, 'compositeRate.js')],
+    ['fixed-load', path.join(__dirname, 'fixedLoad.js')],
+    ['fixed-feedback-rate', path.join(__dirname, 'fixedFeedbackRate.js')],
+    ['fixed-rate', path.join(__dirname, 'fixedRate.js')],
+    ['linear-rate', path.join(__dirname, 'linearRate.js')],
+    ['maximum-rate', path.join(__dirname, 'maxRate.js')],
+    ['zero-rate', path.join(__dirname, 'noRate.js')],
+    ['record-rate', path.join(__dirname, 'recordRate.js')],
+    ['replay-rate', path.join(__dirname, 'replayRate.js')]
 ]);
 
-const RateControl = class {
+/**
+ * Proxy class for creating and managing the configured rate controller.
+ *
+ * @property {RateInterface} controller The managed rate controller instance.
+ *
+ * @extends RateInterface
+ */
+class RateControl extends RateInterface {
 
     /**
-     * Instantiates the proxy rate controller and creates the configured rate controller behind it.
-     * @param {{type:string, opts:object}} rateControl The object describing the rate controller to use.
-     * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
-     * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
+     * Initializes the rate controller proxy.
+     * @param {TestMessage} testMessage start test message
+     * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
+     * @param {number} workerIndex The 0-based index of the worker node.
      */
-    constructor(rateControl, clientIdx, roundIdx) {
-        logger.debug(`Creating rate controller for client#${clientIdx} for round#${roundIdx}`, rateControl);
+    constructor(testMessage, stats, workerIndex) {
+        super(testMessage, stats, workerIndex);
 
-        // resolve the type to a module path
-        let modulePath = builtInControllers.has(rateControl.type)
-            ? builtInControllers.get(rateControl.type) : CaliperUtils.resolvePath(rateControl.type);
-
-        let factoryFunction = require(modulePath).createRateController;
+        logger.debug(`Creating rate controller of type ${testMessage.getRateControlSpec().type} for worker #${workerIndex} in round #${testMessage.getRoundIndex()}`, testMessage.getRateControlSpec());
+        const factoryFunction = CaliperUtils.loadModuleFunction(builtInControllers, testMessage.getRateControlSpec().type, 'createRateController');
         if (!factoryFunction) {
-            throw new Error(`${rateControl.type} does not export the mandatory factory function`);
+            throw new Error(`${testMessage.getRateControlSpec().type} does not export the mandatory factory function`);
         }
 
-        this.controller = factoryFunction(rateControl.opts, clientIdx, roundIdx);
+        this.controller = factoryFunction(testMessage, stats, workerIndex);
     }
 
     /**
-     * Initializes the rate controller for the round.
-     *
-     * @param {object} msg Client options with adjusted per-client load settings.
-     * @param {string} msg.type The type of the message. Currently always 'test'
-     * @param {string} msg.label The label of the round.
-     * @param {object} msg.rateControl The rate control to use for the round.
-     * @param {number} msg.trim The number/seconds of transactions to trim from the results.
-     * @param {object} msg.args The user supplied arguments for the round.
-     * @param {string} msg.cb The path of the user's callback module.
-     * @param {string} msg.config The path of the network's configuration file.
-     * @param {number} msg.numb The number of transactions to generate during the round.
-     * @param {number} msg.txDuration The length of the round in SECONDS.
-     * @param {number} msg.totalClients The number of clients executing the round.
-     * @param {number} msg.clients The number of clients executing the round.
-     * @param {object} msg.clientArgs Arguments for the client.
-     * @param {number} msg.clientIdx The 0-based index of the current client.
-     * @param {number} msg.roundIdx The 1-based index of the current round.
+     * Perform the rate control action by blocking the execution for a certain amount of time.
+     * Delegates to the underlying rate controller.
      * @async
      */
-    async init(msg) {
-        await this.controller.init(msg);
-    }
-
-    /**
-     * Perform the rate control action based on knowledge of the start time, current index, and previous results.
-     * @param {number} start The epoch time at the start of the round (ms precision).
-     * @param {number} idx Sequence number of the current transaction.
-     * @param {object[]} recentResults The list of results of recent transactions.
-     * @param {Array} resultStats The aggregated stats of previous results.
-     * @async
-     */
-    async applyRateControl(start, idx, recentResults, resultStats) {
-        await this.controller.applyRateControl(start, idx, recentResults, resultStats);
+    async applyRateControl() {
+        await this.controller.applyRateControl();
     }
 
     /**
      * Notify the rate controller about the end of the round.
+     * Delegates to the underlying rate controller.
      * @async
      */
     async end() {
         await this.controller.end();
     }
-};
+}
 
 module.exports = RateControl;

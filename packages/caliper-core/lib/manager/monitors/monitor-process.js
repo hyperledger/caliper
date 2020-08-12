@@ -17,8 +17,8 @@
 const MonitorInterface = require('./monitor-interface');
 const MonitorUtilities = require('./monitor-utilities');
 const Util = require('../../common/utils/caliper-utils');
-const Logger = Util.getLogger('monitor-process');
 const ChartBuilder = require('../charts/chart-builder');
+const Logger = Util.getLogger('monitor-process');
 
 const ps = require('ps-node');
 const usage = require('pidusage');
@@ -29,33 +29,13 @@ const usage = require('pidusage');
 class MonitorProcess extends MonitorInterface {
     /**
      * Constructor
-     * @param {JSON} monitorConfig Configuration object for the monitor
-     * @param {*} interval resource fetching interval
+     * @param {JSON} resourceMonitorOptions Configuration options for the monitor
      */
-    constructor(monitorConfig, interval) {
-        super(monitorConfig, interval);
+    constructor(resourceMonitorOptions) {
+        super(resourceMonitorOptions);
         this.isReading    = false;
         this.intervalObj  = null;
         this.pids = {}; // pid history array
-
-        /* this.stats : record statistics of each process
-            {
-                'id' : {                    // 'command args'
-                    'mem_usage'   : [],
-                    'cpu_percent' : [],
-                }
-                .....
-            }
-        */
-        this.stats  = {'time': []};
-        this.watchItems = [];
-        for(let i = 0 ; i < this.monitorConfig.processes.length ; i++) {
-            if(this.monitorConfig.processes[i].hasOwnProperty('command')) {
-                let id = this.getId(this.monitorConfig.processes[i]);
-                this.stats[id] = this.newStat();
-                this.watchItems.push(this.monitorConfig.processes[i]);
-            }
-        }
     }
 
     /**
@@ -202,7 +182,32 @@ class MonitorProcess extends MonitorInterface {
      * @async
      */
     async start() {
+        // Configure items to be recorded
+        this.stats  = {'time': []};
+        this.watchItems = [];
+
+
+        /* this.stats : record statistics of each process
+            {
+                'id' : {                    // 'command args'
+                    'mem_usage'   : [],
+                    'cpu_percent' : [],
+                }
+                .....
+            }
+        */
+        for (let i = 0 ; i < this.options.processes.length ; i++) {
+            if (this.options.processes[i].hasOwnProperty('command')) {
+                let id = this.getId(this.options.processes[i]);
+                Logger.info(`Registering ${id} within process monitor`);
+                this.stats[id] = this.newStat();
+                this.watchItems.push(this.options.processes[i]);
+            }
+        }
+
+        // First read
         await this.readStats();
+
         // Start interval monitor
         const self = this;
         this.intervalObj = setInterval(async () => { await self.readStats(); } , this.interval);
@@ -214,22 +219,7 @@ class MonitorProcess extends MonitorInterface {
      * @async
      */
     async restart() {
-        clearInterval(this.intervalObj);
-        for (let key in this.stats) {
-            if (key === 'time') {
-                this.stats[key] = [];
-            } else {
-                for (let v in this.stats[key]) {
-                    this.stats[key][v] = [];
-                }
-            }
-        }
-
-        for (let key in this.pids) {
-            usage.unmonitor(key);
-        }
-        this.pids = [];
-
+        await this.stop();
         await this.start();
     }
 
@@ -242,7 +232,7 @@ class MonitorProcess extends MonitorInterface {
         this.containers = [];
         this.stats      = {'time': []};
 
-        for(let key in this.pids) {
+        for (let key in this.pids) {
             usage.unmonitor(key);
         }
         this.pids = [];
@@ -302,7 +292,7 @@ class MonitorProcess extends MonitorInterface {
             }
 
             // Retrieve Chart data
-            const chartTypes = this.monitorConfig.charting;
+            const chartTypes = this.options.charting;
             let chartStats = [];
             if (chartTypes) {
                 chartStats = ChartBuilder.retrieveChartStats(this.constructor.name, chartTypes, testLabel, resourceStats);

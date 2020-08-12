@@ -17,6 +17,3 @@ test:
     workers:
         type: local
         number: 1
-observer:
-    interval: 1
-    type: local

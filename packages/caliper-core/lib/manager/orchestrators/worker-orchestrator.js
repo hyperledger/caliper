@@ -22,6 +22,7 @@ const ConfigUtils = require('../../common/config/config-util');
 const Constants = require('./../../common/utils/constants');
 
 const MessageTypes = require('./../../common/utils/constants').Messages.Types;
+const TransactionStatisticsCollector = require('./../../common/core/transaction-statistics-collector');
 
 const RegisterMessage = require('./../../common/messages/registerMessage');
 const AssignIdMessage = require('./../../common/messages/assignIdMessage');
@@ -557,34 +558,28 @@ class WorkerOrchestrator {
     }
 
     /**
-     * Format the final test results for subsequent consumption from [ {result: [], start: val, end: val}, {result: [], start: val, end: val}, {result: [], start: val, end: val}]
-     * to {results: [val, val], start: val, end: val}
-     * @param {JSON[]} results an Array of JSON objects
+     * Format the final test results for subsequent consumption by the round orchestrator
+     * to {results: TransactionStatisticsCollector, start: val, end: val}
+     * @param {TransactionStatisticsCollector[]} workerResults an Array of TransactionStatisticsCollector objects
      * @return {JSON} an appropriately formatted result
      */
-    formatResults(results) {
+    formatResults(workerResults) {
+        logger.debug(`Entering formatResults with ${JSON.stringify(workerResults)}`);
 
-        let resultArray = [];
-        let allStartedTime = null;
-        let allFinishedTime = null;
-        for (const workerResult of results){
-            // Start building the array of all worker results
-            resultArray = resultArray.concat(workerResult.results);
-
-            // Track all started/complete times
-            if (!allStartedTime || workerResult.start > allStartedTime) {
-                allStartedTime = workerResult.start;
-            }
-
-            if (!allFinishedTime || workerResult.end < allFinishedTime) {
-                allFinishedTime = workerResult.end;
-            }
+        const txnCollectorArray = [];
+        for (const workerResult of workerResults) {
+            // Start building the array of all worker stats
+            const stats = workerResult.stats;
+            const txnCollector = TransactionStatisticsCollector.loadFromObject(stats);
+            txnCollectorArray.push(txnCollector);
         }
 
+        const results = TransactionStatisticsCollector.mergeCollectorResults(txnCollectorArray);
+
         return {
-            results: resultArray,
-            start: allStartedTime,
-            end: allFinishedTime
+            results,
+            start: results.getRoundStartTime(),
+            end: results.getRoundFinishTime()
         };
     }
 

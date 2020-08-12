@@ -50,8 +50,18 @@ caliper:
     benchconfig:
     # Path to the blockchain configuration file that contains information required to interact with the SUT
     networkconfig:
-    # Sets the frequency of the progress reports in milliseconds
-    txupdatetime: 5000
+    # Configurations related to caliper test progress
+    progress:
+        # Progress reports
+        reporting:
+            # Enable the reporting action
+            enabled: true
+            # Reporting frequency
+            interval: 5000
+    # Configurations related to caliper test monitors
+    monitor:
+        # Default update interval
+        defaultinterval: 5000
     # Configurations related to the logging mechanism
     logging:
         # Specifies the message structure through placeholders
@@ -114,15 +124,16 @@ caliper:
     worker:
         # Indicate if workers are in distributed mode
         remote: false
-        # Polling interval to use once created, in milliseconds
-        pollinterval: 5000
         # Worker communication details
         communication:
             # Method used (process | mqtt)
             method: process
             # Address used for mqtt communications
             address: mqtt://localhost:1883
-        maxtxpromises: 100
+        # Worker update configuration
+        update:
+            # update interval for sending round statistics to the manager
+            interval: 1000
     # Caliper flow options
     flow:
         # Skip options

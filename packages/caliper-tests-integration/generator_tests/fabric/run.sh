@@ -57,7 +57,7 @@ fi
 cd ${DIR}
 # Run benchmark generator not using generator defaults
 rm -r myWorkspace/benchmarks
-${GENERATOR_METHOD} -- --workspace 'myWorkspace' --contractId 'mymarbles' --contractVersion 'v0' --contractFunction 'queryMarblesByOwner' --contractArguments '["Alice"]' --workers 3 --benchmarkName 'A name for the marbles benchmark' --benchmarkDescription 'A description for the marbles benchmark' --label 'A label for the round' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 30
+${GENERATOR_METHOD} -- --workspace 'myWorkspace' --contractId 'mymarbles' --contractVersion 'v0' --contractFunction 'queryMarblesByOwner' --contractArguments '["Alice"]' --workers 2 --benchmarkName 'A name for the marbles benchmark' --benchmarkDescription 'A description for the marbles benchmark' --label 'A label for the round' --rateController 'fixed-rate' --txType 'txDuration' --txDuration 10
 
 # Run benchmark test
 cd ../

@@ -16,6 +16,8 @@
 
 const rewire = require('rewire');
 const MaxRate = rewire('../../../lib/worker/rate-control/maxRate');
+const TestMessage = require('../../../lib/common/messages/testMessage');
+const TransactionStatisticsCollector = require('../../../lib/common/core/transaction-statistics-collector');
 
 const chai = require('chai');
 chai.should();
@@ -23,401 +25,367 @@ const sinon = require('sinon');
 
 describe('maxRate controller implementation', () => {
 
-    let sandbox;
+    describe('#constructor', () => {
 
-    beforeEach(() => {
-        sandbox = sinon.createSandbox();
-    });
+        let sandbox, controller, testMessage;
+        beforeEach(() => {
+            sandbox = sinon.createSandbox();
 
-    afterEach( () => {
-        sandbox.restore();
-    });
+            const msgContent = {
+                label: 'query2',
+                rateControl: {
+                    type: 'maximum-rate',
+                    opts: {}
+                },
+                workload: {
+                    module:'./../queryByChannel.js'
+                },
+                testRound:0,
+                txDuration:250,
+                totalClients:1
+            };
+            testMessage = new TestMessage('test', [], msgContent);
+        });
 
-    describe('#init', () => {
+        afterEach( () => {
+            sandbox.restore();
+        });
+
         it('should set a default starting TPS for single or multiple workers', () => {
 
-            let opts = {};
-            let msg = {};
-            let controller = new MaxRate.createRateController(opts);
-            controller.init(msg);
+            controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.tpsSettings.current.should.equal(5);
 
-            msg.totalClients = 2;
-            controller.init(msg);
+            testMessage.content.totalClients = 2;
+            controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.tpsSettings.current.should.equal(2.5);
         });
 
         it('should set a starting TPS for single or multiple workers', () => {
-            let opts = {
+            testMessage.content.rateControl.opts = {
                 tps: 10
             };
-            let msg = {};
-            let controller = new MaxRate.createRateController(opts);
-            controller.init(msg);
+            controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.tpsSettings.current.should.equal(10);
 
-            msg.totalClients = 2;
-            controller.init(msg);
+            testMessage.content.totalClients = 2;
+            controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.tpsSettings.current.should.equal(5);
         });
 
         it('should set a default step size for single or multiple workers', () => {
-            let opts = {};
-            let msg = {};
-            let controller = new MaxRate.createRateController(opts);
-            controller.init(msg);
+            controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.step.should.equal(5);
 
-            msg.totalClients = 2;
-            controller.init(msg);
+            testMessage.content.totalClients = 2;
+            controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.step.should.equal(2.5);
         });
 
         it('should set a specified step size for single or multiple workers', () => {
-            let opts = {
+            testMessage.content.rateControl.opts = {
                 step: 10
             };
-            let msg = {};
-            let controller = new MaxRate.createRateController(opts);
-            controller.init(msg);
+            controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.step.should.equal(10);
 
-            msg.totalClients = 2;
-            controller.init(msg);
+            testMessage.content.totalClients = 2;
+            controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.step.should.equal(5);
         });
 
         it('should set a default sample interval for single or multiple workers', () => {
-            let opts = {};
-            let msg = {};
-            let controller = new MaxRate.createRateController(opts);
-            controller.init(msg);
-            controller.sampleInterval.should.equal(10);
+            controller = new MaxRate.createRateController(testMessage, {}, 0);
+            controller.sampleInterval.should.equal(10000);
 
-            msg.totalClients = 2;
-            controller.init(msg);
-            controller.sampleInterval.should.equal(10);
+            testMessage.content.totalClients = 2;
+            controller = new MaxRate.createRateController(testMessage, {}, 0);
+            controller.sampleInterval.should.equal(10000);
         });
 
         it('should set a sample interval if specified for single or multiple workers', () => {
-            let opts = {
+            testMessage.content.rateControl.opts = {
                 sampleInterval: 20
             };
-            let msg = {};
-            let controller = new MaxRate.createRateController(opts);
-            controller.init(msg);
-            controller.sampleInterval.should.equal(20);
+            controller = new MaxRate.createRateController(testMessage, {}, 0);
+            controller.sampleInterval.should.equal(20000);
 
-            msg.totalClients = 2;
-            controller.init(msg);
-            controller.sampleInterval.should.equal(20);
+            testMessage.content.totalClients = 2;
+            controller = new MaxRate.createRateController(testMessage, {}, 0);
+            controller.sampleInterval.should.equal(20000);
         });
 
     });
 
     describe('#applyRateControl', async () => {
 
+        let sandbox;
         let sleepStub;
         let controller;
-        let opts = {};
+        let txnStats;
+        let clock;
 
         beforeEach(() => {
-            controller = new MaxRate.createRateController(opts);
-            sleepStub = sandbox.stub(controller, 'applySleepInterval');
-        });
 
-        it('should sleep if resultStats.length < 2',async  () => {
-            let updateSpy = sandbox.spy(controller, 'updateOccurred');
-            await controller.applyRateControl(null, 1, [], [{}]);
-
-            sinon.assert.notCalled(updateSpy);
-            sinon.assert.calledOnce(sleepStub);
-        });
-
-        it('should sleep if no successful results are available', async () => {
-            let updateSpy = sandbox.spy(controller, 'updateOccurred');
-            await controller.applyRateControl(null, 1, [], [{}, {}]);
-
-            sinon.assert.notCalled(updateSpy);
-            sinon.assert.calledOnce(sleepStub);
-        });
-
-        it('should sleep if no successful results are available', async () => {
-            let updateSpy = sandbox.spy(controller, 'updateOccurred');
-            await controller.applyRateControl(null, 1, [], [{ucc: 12}, {}]);
-
-            sinon.assert.notCalled(updateSpy);
-            sinon.assert.calledOnce(sleepStub);
-        });
-
-        it('should initialize internal stats and tps maps on first pass', async () => {
-            let idx = 50;
-            let currentResults = [];
-            let item = {
-                succ: 5,
-                create: {
-                    min: 100
+            sandbox = sinon.createSandbox();
+            const msgContent = {
+                label: 'query2',
+                rateControl: {
+                    type: 'maximum-rate',
+                    opts: { startingTps: 20, finishingTps: 80 }
                 },
-                final: {
-                    last: 200
-                }
+                workload: {
+                    module:'./../queryByChannel.js'
+                },
+                testRound:0,
+                txDuration:250,
+                totalClients: 1
             };
-            const resultStats = [];
-            resultStats.push(item);
-            resultStats.push(item);
 
-            let exceededSampleIntervalSpy = sandbox.spy(controller, 'exceededSampleInterval');
-            sandbox.stub(controller, 'updateOccurred').returns(false);
-            sandbox.stub(controller, 'retrieveIntervalTPS').returns(123);
+            sleepStub = sinon.stub();
 
-            controller.init({});
-            await controller.applyRateControl(null, idx, currentResults, resultStats);
+            const testMessage = new TestMessage('test', [], msgContent);
+            txnStats = new TransactionStatisticsCollector();
+            controller = new MaxRate.createRateController(testMessage, txnStats, 0);
+
+            sleepStub = sandbox.stub(controller, 'applySleepInterval');
+            clock = sinon.useFakeTimers();
+        });
+
+        afterEach( () => {
+            sandbox.restore();
+            clock.restore();
+        });
+
+        it('should sleep if no completed transactions',async  () => {
+            let exceededSpy = sandbox.spy(controller, 'exceededSampleInterval');
+            await controller.applyRateControl();
+
+            sinon.assert.notCalled(exceededSpy);
+            sinon.assert.calledOnce(sleepStub);
+        });
+
+        it('should initialize internal stats on first pass', async () => {
+            sandbox.stub(controller, 'exceededSampleInterval').returns(false);
+
+            txnStats.stats.txCounters.totalFinished = 500;
+
+            controller.internalStats.lastUpdate.should.equal(0);
+            clock.tick(5);
+            await controller.applyRateControl();
 
             // should have internal values
-            controller.statistics.previous.should.deep.equal(item);
-            controller.statistics.current.should.deep.equal(item);
-            controller.statistics.sampleStart.should.equal(100);
-
-            controller.observedTPS.current.should.equal(123);
-
-            // Should not have processed update
-            sinon.assert.notCalled(exceededSampleIntervalSpy);
+            controller.internalStats.lastUpdate.should.equal(5);
         });
 
-        it('should ramp the driven TPS if current TPS > previous TPS', async () => {
-            let idx = 50;
-            let currentResults = [];
-            let item = {
-                succ: 5,
-                create: {
-                    min: 100
-                },
-                final: {
-                    last: 200
-                }
-            };
-            const resultStats = [];
-            resultStats.push(item);
-            resultStats.push(item);
+        it('should ramp the driven TPS if current TPS > previous TPS, including failed', async () => {
 
-            sandbox.stub(controller, 'updateOccurred').returns(true);
+            txnStats.stats.txCounters.totalFinished = 500;
+            txnStats.stats.txCounters.totalSuccessful = 400;
+            txnStats.stats.txCounters.totalFailed = 100;
+            txnStats.stats.latency.successful.total = 10;
+            txnStats.stats.latency.failed.total = 5;
             sandbox.stub(controller, 'exceededSampleInterval').returns(true);
-            sandbox.stub(controller, 'retrieveIntervalTPS').returns(10);
+            sandbox.stub(controller, 'retrieveIntervalTPS').returns(100);
 
-            controller.init({});
-            controller.statistics.current = {};
-            controller.observedTPS.current = 5;
-
-            await controller.applyRateControl(null, idx, currentResults, resultStats);
-
-            controller.tpsSettings.current.should.equal(10);
-        });
-
-        it('should drop the driven TPS and halve the step size if current TPS < previous TPS', async () => {
-            let idx = 50;
-            let currentResults = [];
-            let item = {
-                succ: 5,
-                create: {
-                    min: 100
-                },
-                final: {
-                    last: 200
-                }
-            };
-            const resultStats = [];
-            resultStats.push(item);
-            resultStats.push(item);
-
-            sandbox.stub(controller, 'updateOccurred').returns(true);
-            sandbox.stub(controller, 'exceededSampleInterval').returns(true);
-            sandbox.stub(controller, 'retrieveIntervalTPS').returns(10);
-
-            controller.init({});
-            controller.statistics.current = {};
-            controller.observedTPS.current = 11;
-            controller.step = 5;
-            controller.tpsSettings.current = 20;
-            await controller.applyRateControl(null, idx, currentResults, resultStats);
+            controller.tpsSettings.current = 10;
+            await controller.applyRateControl();
 
             controller.tpsSettings.current.should.equal(15);
+            controller.internalStats.currentCompletedTotal = 500;
+            controller.internalStats.currentElapsedTime = 15;
+        });
+
+        it('should ramp the driven TPS if current TPS > previous TPS, not including failed', async () => {
+            txnStats.stats.txCounters.totalFinished = 500;
+            txnStats.stats.txCounters.totalSuccessful = 400;
+            txnStats.stats.txCounters.totalFailed = 100;
+            txnStats.stats.latency.successful.total = 10;
+            txnStats.stats.latency.failed.total = 5;
+            sandbox.stub(controller, 'exceededSampleInterval').returns(true);
+            sandbox.stub(controller, 'retrieveIntervalTPS').returns(100);
+
+            controller.tpsSettings.current = 10;
+            controller.includeFailed = false;
+            await controller.applyRateControl();
+
+            controller.tpsSettings.current.should.equal(15);
+            controller.internalStats.currentCompletedTotal = 400;
+            controller.internalStats.currentElapsedTime = 10;
+        });
+
+        it('should drop the driven TPS and halve the step size if current TPS < previous TPS, including failed', async () => {
+            txnStats.stats.txCounters.totalFinished = 500;
+            txnStats.stats.txCounters.totalSuccessful = 400;
+            txnStats.stats.txCounters.totalFailed = 100;
+            txnStats.stats.latency.successful.total = 10;
+            txnStats.stats.latency.failed.total = 5;
+
+            sandbox.stub(controller, 'exceededSampleInterval').returns(true);
+            sandbox.stub(controller, 'retrieveIntervalTPS').returns(100);
+
+            controller.tpsSettings.current = 200;
+            controller.observedTPS.current = 250;
+            await controller.applyRateControl();
+
+            controller.tpsSettings.current.should.equal(195);
+            controller.internalStats.currentCompletedTotal = 500;
+            controller.internalStats.currentElapsedTime = 15;
             controller.step.should.equal(2.5);
         });
 
-        it('should drop the driven TPS only if current TPS < previous TPS and the step is below a threshold', async () => {
-            let idx = 50;
-            let currentResults = [];
-            let item = {
-                succ: 5,
-                create: {
-                    min: 100
-                },
-                final: {
-                    last: 200
-                }
-            };
-            const resultStats = [];
-            resultStats.push(item);
-            resultStats.push(item);
+        it('should drop the driven TPS and halve the step size if current TPS < previous TPS, not including failed', async () => {
+            txnStats.stats.txCounters.totalFinished = 500;
+            txnStats.stats.txCounters.totalSuccessful = 400;
+            txnStats.stats.txCounters.totalFailed = 100;
+            txnStats.stats.latency.successful.total = 10;
+            txnStats.stats.latency.failed.total = 5;
 
-            sandbox.stub(controller, 'updateOccurred').returns(true);
             sandbox.stub(controller, 'exceededSampleInterval').returns(true);
-            sandbox.stub(controller, 'retrieveIntervalTPS').returns(10);
+            sandbox.stub(controller, 'retrieveIntervalTPS').returns(100);
 
-            controller.init({});
-            controller.statistics.current = {};
-            controller.observedTPS.current = 11;
-            controller.step = 0.1;
-            controller.tpsSettings.current= 20;
-            await controller.applyRateControl(null, idx, currentResults, resultStats);
+            controller.tpsSettings.current = 200;
+            controller.observedTPS.current = 250;
+            controller.includeFailed = false;
+            await controller.applyRateControl();
 
-            controller.tpsSettings.current.should.equal(19.9);
-            controller.step.should.equal(0.1);
-        });
-
-    });
-
-    describe('#updateOccurred', () => {
-
-        let item = {
-            succ: 5,
-            create: {
-                min: 100
-            },
-            final: {
-                last: 200
-            }
-        };
-        const resultStats = [];
-        resultStats.push(item);
-        resultStats.push(item);
-
-        it('should return true if the stored stats "create.min" differs from the passed', () => {
-
-            let opts = {};
-            let msg = {};
-            let controller = new MaxRate.createRateController(opts);
-            controller.init(msg);
-            controller.statistics.current = {
-                create: {
-                    min: 123
-                }
-            };
-
-            controller.updateOccurred(resultStats).should.equal(true);
-        });
-
-        it('should return false if the stored stats "create.min" is the same as the passed', () => {
-
-            let opts = {};
-            let msg = {};
-            let controller = new MaxRate.createRateController(opts);
-            controller.init(msg);
-            controller.statistics.current = {
-                create: {
-                    min: 100
-                }
-            };
-            controller.updateOccurred(resultStats).should.equal(false);
+            controller.tpsSettings.current.should.equal(195);
+            controller.internalStats.currentCompletedTotal = 400;
+            controller.internalStats.currentElapsedTime = 10;
+            controller.step.should.equal(2.5);
         });
 
     });
 
     describe('#exceededSampleInterval', () => {
 
-        let item = {
-            succ: 5,
-            create: {
-                min: 100
-            },
-            final: {
-                last: 2000
-            }
-        };
-        const resultStats = [];
-        resultStats.push(item);
-        resultStats.push(item);
+        let sandbox, txnStats, controller, clock;
 
-        it('should return true if the sample time is less than the elapsed time', () => {
+        beforeEach(() => {
 
-            let opts = {};
-            let msg = {};
-            let controller = new MaxRate.createRateController(opts);
-            controller.init(msg);
-            controller.statistics.sampleStart = 0;
+            sandbox = sinon.createSandbox();
 
-            controller.exceededSampleInterval(resultStats).should.equal(true);
+            clock = sinon.useFakeTimers();
+
+            const msgContent = {
+                label: 'query2',
+                rateControl: {
+                    type: 'maximum-rate',
+                    opts: { startingTps: 20, finishingTps: 80 }
+                },
+                workload: {
+                    module:'./../queryByChannel.js'
+                },
+                testRound:0,
+                txDuration:250,
+                totalClients: 1
+            };
+
+            const testMessage = new TestMessage('test', [], msgContent);
+            txnStats = new TransactionStatisticsCollector();
+            controller = new MaxRate.createRateController(testMessage, txnStats, 0);
         });
 
-        it('should return false if the sample time is greater than the elapsed time', () => {
+        afterEach( () => {
+            sandbox.restore();
+            clock.restore();
+        });
 
-            let opts = {};
-            let msg = {};
-            let controller = new MaxRate.createRateController(opts);
-            controller.init(msg);
-            controller.statistics.sampleStart = 1999;
-            controller.exceededSampleInterval(resultStats).should.equal(false);
+        it('should return true if the elapsed time exceeds the configured sample interval', () => {
+            clock.tick(100);
+            controller.internalStats.lastUpdate = 1;
+            controller.sampleInterval = 1;
+            controller.exceededSampleInterval().should.equal(true);
+        });
+
+        it('should return false if the elapsed time is less than the configured sample interval', () => {
+            clock.tick(100);
+            controller.internalStats.lastUpdate = 1;
+            controller.sampleInterval = 10000;
+            controller.exceededSampleInterval().should.equal(false);
         });
 
     });
 
     describe('#retrieveIntervalTPS', () => {
 
-        let item = {
-            succ: 50,
-            fail: 50,
-            create: {
-                min: 10
-            },
-            final: {
-                last: 20
-            }
-        };
-        const resultStats = [];
-        resultStats.push(item);
-        resultStats.push(item);
+        let sandbox, txnStats, controller;
 
-        it('should return the TPS from the interval including failed transactions', () => {
+        beforeEach(() => {
 
-            let opts = {
-                includeFailed: true
+            sandbox = sinon.createSandbox();
+
+            const msgContent = {
+                label: 'query2',
+                rateControl: {
+                    type: 'maximum-rate',
+                    opts: { startingTps: 20, finishingTps: 80 }
+                },
+                workload: {
+                    module:'./../queryByChannel.js'
+                },
+                testRound:0,
+                txDuration:250,
+                totalClients: 1
             };
-            let msg = {};
-            let controller = new MaxRate.createRateController(opts);
-            controller.init(msg);
-            controller.statistics.sampleStart = 0;
 
-            controller.retrieveIntervalTPS(resultStats).should.equal(10);
+            const testMessage = new TestMessage('test', [], msgContent);
+            txnStats = new TransactionStatisticsCollector();
+            controller = new MaxRate.createRateController(testMessage, txnStats, 0);
         });
 
-        it('should return the TPS from the interval excluding failed transactions', () => {
+        afterEach( () => {
+            sandbox.restore();
+        });
 
-            let opts = {
-                includeFailed: false
-            };
-            let msg = {};
-            let controller = new MaxRate.createRateController(opts);
-            controller.init(msg);
-            controller.statistics.sampleStart = 0;
+        it('should return the TPS from internalStats', () => {
 
-            controller.retrieveIntervalTPS(resultStats).should.equal(10);
+            controller.internalStats.currentCompletedTotal = 10;
+            controller.internalStats.currentElapsedTime = 5;
+            controller.retrieveIntervalTPS().should.equal(2000);
         });
 
     });
 
     describe('#applySleepInterval', () => {
 
-        it('should apply the global TPS setting as a sleep interval', () => {
+        let sandbox;
+        let sleepStub;
+        let controller;
+        let txnStats;
 
-            let opts = {};
-            let msg = {};
-            let sleepStub = sinon.stub();
+        beforeEach(() => {
+
+            sandbox = sinon.createSandbox();
+            const msgContent = {
+                label: 'query2',
+                rateControl: {
+                    type: 'maximum-rate',
+                    opts: { startingTps: 20, finishingTps: 80 }
+                },
+                workload: {
+                    module:'./../queryByChannel.js'
+                },
+                testRound:0,
+                txDuration:250,
+                totalClients: 1
+            };
+
+            sleepStub = sinon.stub();
+
+            const testMessage = new TestMessage('test', [], msgContent);
+            txnStats = new TransactionStatisticsCollector();
+
             MaxRate.__set__('Sleep', sleepStub);
-            let controller = new MaxRate.createRateController(opts);
-            controller.init(msg);
-            controller.statistics.sampleStart = 0;
+            controller = new MaxRate.createRateController(testMessage, txnStats, 0);
+        });
 
-            controller.applySleepInterval();
+        afterEach( () => {
+            sandbox.restore();
+        });
+
+        it('should apply the global TPS setting as a sleep interval', async () => {
+            await controller.applySleepInterval();
             // 200 = 1000/default
             sinon.assert.calledOnceWithExactly(sleepStub, 200);
         });

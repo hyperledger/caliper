@@ -28,6 +28,3 @@ test:
       rateControl: { type: 'linear-rate', opts: { startingTps: 100, finishingTps: 200 } }
       workload:
         module: ./get.js
-observer:
-    interval: 1
-    type: local

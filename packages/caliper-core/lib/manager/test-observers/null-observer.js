@@ -25,10 +25,9 @@ class NullObserver extends TestObserverInterface {
 
     /**
      * Constructor
-     * @param {object} benchmarkConfig The benchmark configuration object.
      */
-    constructor(benchmarkConfig) {
-        super(benchmarkConfig);
+    constructor() {
+        super();
         Logger.info('Configured "null" observer');
     }
 
@@ -63,6 +62,7 @@ class NullObserver extends TestObserverInterface {
     setBenchmark(name) {
         Logger.debug('No action taken by NullObserver on setBenchmark');
     }
+
     /**
      * Set the test round for the watcher
      * @param{*} roundIdx the round index
@@ -71,15 +71,21 @@ class NullObserver extends TestObserverInterface {
         Logger.debug('No action taken by NullObserver on setRound');
     }
 
+    /**
+     * Called when new TX stats are available.
+     * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
+     */
+    txUpdateArrived(stats) {
+        Logger.debug('No action taken by NullObserver on txUpdateArrived');
+    }
 }
 
 /**
  * Creates a new NullObserver instance.
- * @param {object} benchmarkConfig The benchmark configuration object.
  * @return {TestObserverInterface} The NullObserver instance.
  */
-function createTestObserver(benchmarkConfig) {
-    return new NullObserver(benchmarkConfig);
+function createTestObserver() {
+    return new NullObserver();
 }
 
 module.exports.createTestObserver = createTestObserver;

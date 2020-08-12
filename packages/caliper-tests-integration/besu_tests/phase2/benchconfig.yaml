@@ -47,6 +47,3 @@ test:
               accountPhasePrefix: *prefix
               numberOfAccounts: *accounts
               money: 100
-observer:
-    interval: 1
-    type: local

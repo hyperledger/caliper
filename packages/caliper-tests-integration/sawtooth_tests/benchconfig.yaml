@@ -35,7 +35,3 @@ test:
         module: ./query.js
         arguments:
             accounts: 30
-observer:
-  interval: 1
-  type: local
-

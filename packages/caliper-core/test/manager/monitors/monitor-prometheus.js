@@ -23,9 +23,7 @@ const sinon = require('sinon');
 
 describe('Prometheus monitor implementation', () => {
 
-    const fakePushClient = sinon.stub();
     const fakeQueryClient = sinon.stub();
-    PrometheusMonitorRewire.__set__('PrometheusPushClient', fakePushClient);
     PrometheusMonitorRewire.__set__('PrometheusQueryClient', fakeQueryClient);
 
     // Before/After
@@ -89,16 +87,6 @@ describe('Prometheus monitor implementation', () => {
         });
     });
 
-    describe('#getPushClient', () => {
-
-        it('should return the internal Push Client', () => {
-            const mon = new PrometheusMonitorRewire({});
-            const test = 'penguin';
-            mon.prometheusPushClient = test;
-            mon.getPushClient().should.equal(test);
-        });
-    });
-
     describe('#getQueryClient', ()=>{
 
         it('should return the internal Query Client', () => {
@@ -106,14 +94,6 @@ describe('Prometheus monitor implementation', () => {
             const test = 'penguin';
             mon.prometheusQueryClient = test;
             mon.getQueryClient().should.equal(test);
-        });
-    });
-
-    describe('#getPushGatewayURL', () => {
-
-        it('should return the push gateway url from teh config file', () => {
-            const mon = new PrometheusMonitorRewire({push_url: '123'});
-            mon.getPushGatewayURL().should.equal('123');
         });
     });
 

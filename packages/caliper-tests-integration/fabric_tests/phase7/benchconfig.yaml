@@ -37,11 +37,3 @@ test:
       rateControl: { type: 'linear-rate', opts: { startingTps: 10, finishingTps: 20 } }
       workload:
         module: ./../query.js
-observer:
-    interval: 1
-    type: local
-monitor:
-    interval: 1
-    type: ['process']
-    process:
-        processes: [{ command: 'node', arguments: 'fabricClientWorker.js', multiOutput: 'avg' }]

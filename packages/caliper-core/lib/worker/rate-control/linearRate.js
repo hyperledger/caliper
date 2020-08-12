@@ -15,94 +15,68 @@
 'use strict';
 
 const RateInterface = require('./rateInterface.js');
-const util = require('../../common/utils/caliper-utils');
+let Sleep = require('../../common/utils/caliper-utils').sleep;
 
 /**
  * Rate controller for generating a linearly changing workload.
  *
- * @property {object} options The user-supplied options for the controller.
  * @property {number} startingSleepTime The sleep time for the first transaction in milliseconds.
  * @property {number} gradient The gradient of the line.
+ * @property {function} _interpolate Function for calculating the current time to sleep (either from TX index, or from the elapsed time).
+ *
+ * @extends RateInterface
  */
-class LinearRateController extends RateInterface{
+class LinearRateController extends RateInterface {
     /**
-     * Creates a new instance of the LinearRateController class.
-     * @constructor
-     * @param {object} opts Options for the rate controller.
+     * Initializes the rate controller instance.
+     * @param {TestMessage} testMessage The testMessage passed for the round execution
+     * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
+     * @param {number} workerIndex The 0-based index of the worker node.
+     * @param {number} roundIndex The 0-based index of the current round.
+     * @param {number} numberOfWorkers The total number of worker nodes.
+     * @param {object} roundConfig The round configuration object.
      */
-    constructor(opts) {
-        super(opts);
-    }
+    constructor(testMessage, stats, workerIndex) {
+        super(testMessage, stats, workerIndex);
 
-    /**
-     * Interpolates the current sleep time from the transaction index.
-     * @param {number} start The epoch time at the start of the round (ms precision).
-     * @param {number} idx Sequence number of the current transaction.
-     * @return {number} The interpolated sleep time.
-     * @private
-     */
-    _interpolateFromIndex(start, idx) {
-        return this.startingSleepTime + idx * this.gradient;
-    }
-
-    /**
-     * Interpolates the current sleep time from the elapsed time.
-     * @param {number} start The epoch time at the start of the round (ms precision).
-     * @param {number} idx Sequence number of the current transaction.
-     * @return {number} The interpolated sleep time.
-     * @private
-     */
-    _interpolateFromTime(start, idx) {
-        return this.startingSleepTime + (Date.now() - start) * this.gradient;
-    }
-
-    /**
-     * Initializes the rate controller.
-     *
-     * @param {object} msg Client options with adjusted per-client load settings.
-     * @param {string} msg.type The type of the message. Currently always 'test'
-     * @param {string} msg.label The label of the round.
-     * @param {object} msg.rateControl The rate control to use for the round.
-     * @param {number} msg.trim The number/seconds of transactions to trim from the results.
-     * @param {object} msg.args The user supplied arguments for the round.
-     * @param {string} msg.cb The path of the user's callback module.
-     * @param {string} msg.config The path of the network's configuration file.
-     * @param {number} msg.numb The number of transactions to generate during the round.
-     * @param {number} msg.txDuration The length of the round in SECONDS.
-     * @param {number} msg.totalClients The number of clients executing the round.
-     * @param {number} msg.clients The number of clients executing the round.
-     * @param {object} msg.clientArgs Arguments for the client.
-     * @param {number} msg.clientIdx The 0-based index of the current client.
-     * @param {number} msg.roundIdx The 1-based index of the current round.
-     * @async
-     */
-    async init(msg) {
         // distributing TPS among clients
-        let startingTps = Number(this.options.startingTps) / msg.totalClients;
-        let finishingTps = Number(this.options.finishingTps) / msg.totalClients;
+        let startingTps = Number(this.options.startingTps) / this.numberOfWorkers;
+        let finishingTps = Number(this.options.finishingTps) / this.numberOfWorkers;
         this.startingSleepTime = 1000 / startingTps;
         let finishingSleepTime = 1000 / finishingTps;
 
         // based on linear interpolation between two points with (time/index, sleep time) axes
-        let duration = msg.numb? msg.numb : msg.txDuration * 1000;
+        let duration = this.testMessage.getNumberOfTxs() || (this.testMessage.getRoundDuration() * 1000);
         this.gradient = (finishingSleepTime - this.startingSleepTime) / duration;
 
         // to avoid constant if/else check with the same result
-        this._interpolate = msg.numb ? this._interpolateFromIndex : this._interpolateFromTime;
+        this._interpolate = this.testMessage.getNumberOfTxs() ? this._interpolateFromIndex : this._interpolateFromTime;
     }
 
     /**
-     * Perform the rate control.
-     * @param {number} start The epoch time at the start of the round (ms precision).
-     * @param {number} idx Sequence number of the current transaction.
-     * @param {object[]} recentResults The list of results of recent transactions.
-     * @param {object[]} resultStats The aggregated stats of previous results.
+     * Interpolates the current sleep time from the transaction index.
+     * @return {number} The interpolated sleep time.
+     */
+    _interpolateFromIndex() {
+        return this.startingSleepTime + this.stats.getTotalSubmittedTx() * this.gradient;
+    }
+
+    /**
+     * Interpolates the current sleep time from the elapsed time.
+     * @return {number} The interpolated sleep time.
+     */
+    _interpolateFromTime() {
+        return this.startingSleepTime + (Date.now() - this.stats.getRoundStartTime()) * this.gradient;
+    }
+
+    /**
+     * Perform the rate control action by blocking the execution for a certain amount of time.
      * @async
      */
-    async applyRateControl(start, idx, recentResults, resultStats) {
-        let currentSleepTime = this._interpolate(start, idx);
+    async applyRateControl() {
+        let currentSleepTime = this._interpolate();
         if (currentSleepTime > 5) {
-            await util.sleep(currentSleepTime);
+            await Sleep(currentSleepTime);
         }
     }
 
@@ -114,14 +88,15 @@ class LinearRateController extends RateInterface{
 }
 
 /**
- * Creates a new rate controller instance.
- * @param {object} opts The rate controller options.
- * @param {number} clientIdx The 0-based index of the client who instantiates the controller.
- * @param {number} roundIdx The 1-based index of the round the controller is instantiated in.
- * @return {RateInterface} The rate controller instance.
+ * Factory for creating a new rate controller instance.
+ * @param {TestMessage} testMessage start test message
+ * @param {TransactionStatisticsCollector} stats The TX stats collector instance.
+ * @param {number} workerIndex The 0-based index of the worker node.
+ *
+ * @return {RateInterface} The new rate controller instance.
  */
-function createRateController(opts, clientIdx, roundIdx) {
-    return new LinearRateController(opts);
+function createRateController(testMessage, stats, workerIndex) {
+    return new LinearRateController(testMessage, stats, workerIndex);
 }
 
 module.exports.createRateController = createRateController;
