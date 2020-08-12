@@ -94,12 +94,13 @@ class SimpleQueryWorkload extends WorkloadModuleBase {
      */
     async submitTransaction() {
         const args = {
+            contract: 'simple',
             verb: 'query',
             args: [this._generateAccount()]
         };
 
         Logger.debug(`Worker ${this.workerIndex} TX parameters: ${JSON.stringify(args)}`);
-        await this.sutAdapter.querySmartContract('simple', 'v0', args, 100);
+        await this.sutAdapter.querySmartContract(args);
     }
 }
 

@@ -61,13 +61,15 @@ class MarblesInitByChannelWorkload extends WorkloadModuleBase {
         let marbleOwner = this.owners[this.txIndex % this.owners.length];
 
         let args = {
+            contractId: 'marbles',
+            contractVersion: 'v0',
             contractFunction: 'initMarble',
             channel: this.txIndex % 2 === 0 ? 'mychannel' : 'yourchannel',
             contractArguments: [marbleName, marbleColor, marbleSize, marbleOwner],
+            timeout: 5
         };
 
-        let targetCC = 'marbles';
-        await this.sutAdapter.invokeSmartContract(targetCC, 'v0', args, 5);
+        await this.sutAdapter.invokeSmartContract(args);
     }
 }
 

@@ -71,6 +71,7 @@ class SimpleOpenWorkload extends WorkloadModuleBase {
             let accountId = this._generateAccount();
 
             workload.push({
+                contract: 'simple',
                 verb: 'open',
                 args: [accountId, this.roundArguments.money]
             });
@@ -112,7 +113,7 @@ class SimpleOpenWorkload extends WorkloadModuleBase {
     async submitTransaction() {
         let args = this._generateWorkload();
         Logger.debug(`Worker ${this.workerIndex} for TX ${this.txIndex}: ${JSON.stringify(args)}`);
-        await this.sutAdapter.invokeSmartContract('simple', 'v0', args, 100);
+        await this.sutAdapter.invokeSmartContract(args);
     }
 }
 

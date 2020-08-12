@@ -2109,43 +2109,36 @@ class Fabric extends BlockchainConnector {
     /**
      * Invokes the specified contract according to the provided settings.
      *
-     * @param {string} contractID The unique contract ID of the target contract.
-     * @param {string} contractVersion Unused.
-     * @param {ContractInvokeSettings|ContractInvokeSettings[]} invokeSettings The settings (collection) associated with the (batch of) transactions to submit.
-     * @param {number} timeout The timeout for the whole transaction life-cycle in seconds.
+     * @param {ContractInvokeSettings|ContractInvokeSettings[]} requests The settings (collection) associated with the (batch of) transactions to submit.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
      */
-    async invokeSmartContract(contractID, contractVersion, invokeSettings, timeout) {
-        timeout = timeout || this.configDefaultTimeout;
+    async invokeSmartContract(requests) {
         const promises = [];
-        let settingsArray;
+        let requestArray;
 
-        if (!Array.isArray(invokeSettings)) {
-            settingsArray = [invokeSettings];
+        if (!Array.isArray(requests)) {
+            requestArray = [requests];
         } else {
-            settingsArray = invokeSettings;
+            requestArray = requests;
         }
 
-        for (const settings of settingsArray) {
-            if (settings.hasOwnProperty('channel')) {
-                settings.contractId = contractID;
-                settings.contractVersion = contractVersion;
-            } else {
-                const contractDetails = this.networkUtil.getContractDetails(contractID);
+        for (const request of requestArray) {
+            if (!request.hasOwnProperty('channel')) {
+                const contractDetails = this.networkUtil.getContractDetails(request.contractId);
                 if (!contractDetails) {
-                    throw new Error(`Could not find details for contract ID ${contractID}`);
+                    throw new Error(`Could not find details for contract ID ${request.contractId}`);
                 }
-                settings.channel = contractDetails.channel;
-                settings.contractId = contractDetails.id;
-                settings.contractVersion = contractDetails.version;
+                request.channel = contractDetails.channel;
+                request.contractId = contractDetails.id;
+                request.contractVersion = contractDetails.version;
             }
 
-            if (!settings.invokerIdentity) {
-                settings.invokerIdentity = this.defaultInvoker;
+            if (!request.invokerIdentity) {
+                request.invokerIdentity = this.defaultInvoker;
             }
 
             this._onTxsSubmitted(1);
-            promises.push(this._submitSingleTransaction(settings, timeout * 1000));
+            promises.push(this._submitSingleTransaction(request, (request.timeout || this.configDefaultTimeout) * 1000));
         }
 
         const results = await Promise.all(promises);
@@ -2156,43 +2149,36 @@ class Fabric extends BlockchainConnector {
     /**
      * Queries the specified contract according to the provided settings.
      *
-     * @param {string} contractID The unique contract ID of the target contract.
-     * @param {string} contractVersion Unused.
-     * @param {ContractQuerySettings|ContractQuerySettings[]} querySettings The settings (collection) associated with the (batch of) query to submit.
-     * @param {number} timeout The timeout for the call in seconds.
+     * @param {ContractQuerySettings|ContractQuerySettings[]} requests The settings (collection) associated with the (batch of) query to submit.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction query.
      */
-    async querySmartContract(contractID, contractVersion, querySettings, timeout) {
-        timeout = timeout || this.configDefaultTimeout;
+    async querySmartContract(requests) {
         const promises = [];
-        let settingsArray;
+        let requestArray;
 
-        if (!Array.isArray(querySettings)) {
-            settingsArray = [querySettings];
+        if (!Array.isArray(requests)) {
+            requestArray = [requests];
         } else {
-            settingsArray = querySettings;
+            requestArray = requests;
         }
 
-        for (const settings of settingsArray) {
-            if (settings.hasOwnProperty('channel')) {
-                settings.contractId = contractID;
-                settings.contractVersion = contractVersion;
-            } else {
-                const contractDetails = this.networkUtil.getContractDetails(contractID);
+        for (const request of requestArray) {
+            if (!request.hasOwnProperty('channel')) {
+                const contractDetails = this.networkUtil.getContractDetails(request.contractId);
                 if (!contractDetails) {
-                    throw new Error(`Could not find details for contract ID ${contractID}`);
+                    throw new Error(`Could not find details for contract ID ${request.contractId}`);
                 }
-                settings.channel = contractDetails.channel;
-                settings.contractId = contractDetails.id;
-                settings.contractVersion = contractDetails.version;
+                request.channel = contractDetails.channel;
+                request.contractId = contractDetails.id;
+                request.contractVersion = contractDetails.version;
             }
 
-            if (!settings.invokerIdentity) {
-                settings.invokerIdentity = this.defaultInvoker;
+            if (!request.invokerIdentity) {
+                request.invokerIdentity = this.defaultInvoker;
             }
 
             this._onTxsSubmitted(1);
-            promises.push(this._submitSingleQuery(settings, timeout * 1000));
+            promises.push(this._submitSingleQuery(request, (request.timeout || this.configDefaultTimeout) * 1000));
         }
 
         const results = await Promise.all(promises);

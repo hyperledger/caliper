@@ -38,14 +38,16 @@ class MarblesQueryByChannelWorkload extends WorkloadModuleBase {
         let marbleOwner = this.owners[this.txIndex % this.owners.length];
 
         let args = {
+            contractId: 'marbles',
+            contractVersion: 'v0',
             channel: this.txIndex % 2 === 0 ? 'mychannel' : 'yourchannel',
             contractFunction: 'queryMarblesByOwner',
             contractArguments: [marbleOwner],
-            targetPeers: ['peer0.org1.example.com']
+            targetPeers: ['peer0.org1.example.com'],
+            timeout: 10
         };
 
-        let targetCC = 'marbles';
-        await this.sutAdapter.querySmartContract(targetCC, 'v0', args, 10);
+        await this.sutAdapter.querySmartContract(args);
     }
 }
 

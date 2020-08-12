@@ -26,10 +26,13 @@ class HelloSetWorkload extends WorkloadModuleBase {
      */
     async submitTransaction() {
         const args = {
-            'transaction_type': 'set(string)',
-            'name': 'hello! - from ' + this.workerIndex.toString(),
+            contractId: 'helloworld',
+            args: {
+                transaction_type: 'set(string)',
+                name: 'hello! - from ' + this.workerIndex.toString()
+            }
         };
-        await this.sutAdapter.invokeSmartContract('helloworld', 'v0', args, null);
+        await this.sutAdapter.invokeSmartContract(args);
     }
 }
 
