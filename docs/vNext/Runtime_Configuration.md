@@ -250,9 +250,10 @@ A default/fallback configuration file is shipped with the Caliper-related packag
 | caliper-networkconfig | Path to the blockchain configuration file that contains information required to interact with the SUT. |
 | caliper-machineconfig | The file path for the user-level configuration file. Can be relative to the workspace. |
 | caliper-projectconfig | The file path for the project-level configuration file. Can be relative to the workspace. |
-| caliper-txupdatetime | The frequency of the worker's progress report in milliseconds. |
 | caliper-userconfig | The file path for the user-level configuration file. Can be relative to the workspace. |
 | caliper-workspace | Workspace directory that contains all configuration information |
+| caliper-progress-reporting-enabled  | Boolean value for enabling transaction completion progress display by the Caliper manager process|
+| caliper-progress-reporting-interval | Numeric value used to specify the caliper progress update frequency, in milliseconds|
 
 ### Binding settings
 
