@@ -121,27 +121,21 @@ const FabricConnector = class extends BlockchainConnector {
     /**
      * Invokes the specified contract according to the provided settings.
      *
-     * @param {string} contractID The unique contract ID of the target contract.
-     * @param {string} contractVersion Unused.
-     * @param {ContractInvokeSettings|ContractInvokeSettings[]} invokeSettings The settings (collection) associated with the (batch of) transactions to submit.
-     * @param {number} timeout The timeout for the whole transaction life-cycle in seconds.
+     * @param {ContractInvokeSettings|ContractInvokeSettings[]} requests The settings (collection) associated with the (batch of) transactions to submit.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
      */
-    async invokeSmartContract(contractID, contractVersion, invokeSettings, timeout) {
-        return await this.fabric.invokeSmartContract(contractID, contractVersion, invokeSettings, timeout);
+    async invokeSmartContract(requests) {
+        return await this.fabric.invokeSmartContract(requests);
     }
 
     /**
      * Queries the specified contract according to the provided settings.
      *
-     * @param {string} contractID The unique contract ID of the target contract.
-     * @param {string} contractVersion Unused.
-     * @param {ContractQuerySettings|ContractQuerySettings[]} querySettings The settings (collection) associated with the (batch of) query to submit.
-     * @param {number} timeout The timeout for the call in seconds.
+     * @param {ContractQuerySettings|ContractQuerySettings[]} requests The settings (collection) associated with the (batch of) query to submit.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction query.
      */
-    async querySmartContract(contractID, contractVersion, querySettings, timeout) {
-        return await this.fabric.querySmartContract(contractID, contractVersion, querySettings, timeout);
+    async querySmartContract(requests) {
+        return await this.fabric.querySmartContract(requests);
     }
 
     /**

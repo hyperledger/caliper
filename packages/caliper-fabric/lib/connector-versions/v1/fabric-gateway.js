@@ -1508,32 +1508,12 @@ class Fabric extends BlockchainConnector {
 
     /**
      * Perform a transaction using a Gateway contract
-     * @param {string} contractID The unique contract ID of the target contract.
-     * @param {string} contractVersion The version of the contract. Only used when explicitly naming a channel within the invokeSettings.
      * @param {ContractInvokeSettings | ContractQuerySettings} invokeSettings The settings associated with the transaction submission.
      * @param {boolean} isSubmit boolean flag to indicate if the transaction is a submit or evaluate
      * @return {Promise<TxStatus>} The result and stats of the transaction invocation.
      * @async
      */
-    async _performGatewayTransaction(contractID, contractVersion, invokeSettings, isSubmit) {
-        // Populate the contract details for the invoke
-        if (invokeSettings.hasOwnProperty('channel')) {
-            invokeSettings.contractId = contractID;
-            invokeSettings.contractVersion = contractVersion;
-        } else {
-            const contractDetails = this.networkUtil.getContractDetails(contractID);
-            if (!contractDetails) {
-                throw new Error(`Could not find details for contract ID ${contractID}`);
-            }
-            invokeSettings.channel = contractDetails.channel;
-            invokeSettings.contractId = contractDetails.id;
-            invokeSettings.contractVersion = contractDetails.version;
-        }
-
-        if (!invokeSettings.invokerIdentity) {
-            invokeSettings.invokerIdentity = this.defaultInvoker;
-        }
-
+    async _performGatewayTransaction(invokeSettings, isSubmit) {
         // Retrieve the existing contract and a client
         const smartContract = await this._getUserContract(invokeSettings.invokerIdentity, invokeSettings.channel, invokeSettings.contractId);
 
@@ -1725,27 +1705,41 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
-     * Invokes the specified contract according to the provided settings.
+     * Invokes/queries the specified contract according to the provided settings.
      *
-     * @param {string} contractID The unique contract ID of the target contract.
-     * @param {string} contractVersion Unused.
-     * @param {ContractInvokeSettings|ContractInvokeSettings[]} invokeSettings The settings (collection) associated with the (batch of) transactions to submit.
-     * @param {number} timeout The timeout for the whole transaction life-cycle in seconds.
+     * @param {ContractInvokeSettings|ContractInvokeSettings[]|ContractQuerySettings|ContractQuerySettings[]} requests The settings (collection) associated with the (batch of) transactions to submit.
+     * @param {boolean} isSubmit Indicates whether the TX is read-write, or read-only.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
      */
-    async invokeSmartContract(contractID, contractVersion, invokeSettings, timeout) {
+    async _sendRequests(requests, isSubmit) {
         const promises = [];
-        let settingsArray;
+        let requestsArray;
 
-        if (!Array.isArray(invokeSettings)) {
-            settingsArray = [invokeSettings];
+        if (!Array.isArray(requests)) {
+            requestsArray = [requests];
         } else {
-            settingsArray = invokeSettings;
+            requestsArray = requests;
         }
 
-        for (const settings of settingsArray) {
+        for (const request of requestsArray) {
             this._onTxsSubmitted(1);
-            promises.push(this._performGatewayTransaction(contractID, contractVersion, settings, true));
+
+            // Populate the contract details for the invoke
+            if (!request.hasOwnProperty('channel')) {
+                const contractDetails = this.networkUtil.getContractDetails(request.contractId);
+                if (!contractDetails) {
+                    throw new Error(`Could not find details for contract ID ${request.contractId}`);
+                }
+                request.channel = contractDetails.channel;
+                request.contractId = contractDetails.id;
+                request.contractVersion = contractDetails.version;
+            }
+
+            if (!request.invokerIdentity) {
+                request.invokerIdentity = this.defaultInvoker;
+            }
+
+            promises.push(this._performGatewayTransaction(request, isSubmit));
         }
 
         const results = await Promise.all(promises);
@@ -1754,32 +1748,23 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
+     * Invokes the specified contract according to the provided settings.
+     *
+     * @param {ContractInvokeSettings|ContractInvokeSettings[]} requests The settings (collection) associated with the (batch of) transactions to submit.
+     * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
+     */
+    async invokeSmartContract(requests) {
+        return this._sendRequests(requests, true);
+    }
+
+    /**
      * Queries the specified contract according to the provided settings.
      *
-     * @param {string} contractID The unique contract ID of the target contract.
-     * @param {string} contractVersion Unused.
-     * @param {ContractQuerySettings|ContractQuerySettings[]} querySettings The settings (collection) associated with the (batch of) query to submit.
-     * @param {number} timeout The timeout for the call in seconds.
+     * @param {ContractQuerySettings|ContractQuerySettings[]} requests The settings (collection) associated with the (batch of) query to submit.
      * @return {Promise<TxStatus[]>} The result and stats of the transaction query.
      */
-    async querySmartContract(contractID, contractVersion, querySettings, timeout) {
-        const promises = [];
-        let settingsArray;
-
-        if (!Array.isArray(querySettings)) {
-            settingsArray = [querySettings];
-        } else {
-            settingsArray = querySettings;
-        }
-
-        for (const settings of settingsArray) {
-            this._onTxsSubmitted(1);
-            promises.push(this._performGatewayTransaction(contractID, contractVersion, settings, false));
-        }
-
-        const results = await Promise.all(promises);
-        this._onTxsFinished(results);
-        return results;
+    async querySmartContract(requests) {
+        return this._sendRequests(requests, false);
     }
 
     /**

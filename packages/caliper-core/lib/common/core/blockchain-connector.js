@@ -86,7 +86,7 @@ class BlockchainConnector extends EventEmitter {
      * Retrieve required arguments for test workers, e.g. retrieve information from the connector that is generated during an admin phase such as contract installation.
      * Information returned here is passed to the worker through the messaging protocol on test.
      * @param {Number} number total count of test workers
-     * @return {Promise} array of obtained material for each test worker
+     * @return {Promise<object[]>} array of obtained material for each test worker
      * @async
      */
     async prepareWorkerArguments(number) {
@@ -121,27 +121,21 @@ class BlockchainConnector extends EventEmitter {
 
     /**
      * Invoke a smart contract
-     * @param {String} contractID identity of the contract
-     * @param {String} contractVer version of the contract
-     * @param {Object[]} args array of JSON formatted arguments for multiple transactions
-     * @param {Number} timeout request timeout, in seconds
+     * @param {object|object[]} requests The object(s) containing the arguments of the call.
      * @return {Promise<TxStatus[]>} The array of data about the executed transactions.
      * @async
      */
-    async invokeSmartContract(contractID, contractVer, args, timeout) {
+    async invokeSmartContract(requests) {
         throw new Error('invokeSmartContract is not implemented for this blockchain connector');
     }
 
     /**
      * Query state from the ledger using a smart contract
-     * @param {String} contractID identity of the contract
-     * @param {String} contractVer version of the contract
-     * @param {Object[]} args array of JSON formatted arguments
-     * @param {Number} timeout request timeout, in seconds
+     * @param {object|object[]} requests The object(s) containing the arguments for the call.
      * @return {Promise<TxStatus[]>} The array of data about the executed queries.
      * @async
      */
-    async querySmartContract(contractID, contractVer, args, timeout) {
+    async querySmartContract(requests) {
         throw new Error('querySmartContract is not implemented for this blockchain connector');
     }
 }

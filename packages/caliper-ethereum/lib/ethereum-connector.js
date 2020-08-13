@@ -22,9 +22,10 @@ const logger = CaliperUtils.getLogger('ethereum-connector');
 /**
  * @typedef {Object} EthereumInvoke
  *
+ * @property {string} contract Required. The name of the smart contract
  * @property {string} verb Required. The name of the smart contract function
  * @property {string} args Required. Arguments of the smart contract function in the order in which they are defined
- * @property {boolean} isView Optional. If method to call is a view.
+ * @property {boolean} readOnly Optional. If method to call is a view.
  */
 
 /**
@@ -183,25 +184,23 @@ class EthereumConnector extends BlockchainConnector {
 
     /**
      * Send a request to a smart contract.
-     * @param {String} contractID Identity of the contract.
-     * @param {String} contractVer Version of the contract.
-     * @param {EthereumInvoke|EthereumInvoke[]} invokeData Smart contract methods calls.
-     * @param {Number} timeout Request timeout, in seconds.
-     * @param {boolean} isView Indicates whether the request is view call or not.
+     * @param {EthereumInvoke|EthereumInvoke[]} requests Smart contract methods calls.
+     * @param {boolean} readOnly Indicates whether the request is view call or not.
      * @return {Promise<object>} The promise for the result of the execution.
      */
-    async _sendRequest(contractID, contractVer, invokeData, timeout, isView) {
-        let invocations;
-        if (!Array.isArray(invokeData)) {
-            invocations = [invokeData];
+    async _sendRequest(requests, readOnly) {
+        let requestArray;
+        if (!Array.isArray(requests)) {
+            requestArray = [requests];
         } else {
-            invocations = invokeData;
+            requestArray = requests;
         }
         let promises = [];
-        invocations.forEach((item, index) => {
-            item.isView = isView;
+
+        requestArray.forEach(request => {
+            request.readOnly = readOnly;
             this._onTxsSubmitted(1);
-            promises.push(this.sendTransaction(this.context, contractID, contractVer, item, timeout));
+            promises.push(this.sendTransaction(this.context, request));
         });
 
         const results = await Promise.all(promises);
@@ -210,46 +209,39 @@ class EthereumConnector extends BlockchainConnector {
     }
 
     /**
-     * Invoke a smart contract.
-     * @param {String} contractID Identity of the contract.
-     * @param {String} contractVer Version of the contract.
-     * @param {EthereumInvoke|EthereumInvoke[]} invokeData Smart contract methods calls.
-     * @param {Number} timeout Request timeout, in seconds.
-     * @return {Promise<object>} The promise for the result of the execution.
+     * Invoke a smart contract
+     * @param {object|object[]} requests The object(s) containing the arguments of the call.
+     * @return {Promise<TxStatus[]>} The array of data about the executed transactions.
+     * @async
      */
-    async invokeSmartContract(contractID, contractVer, invokeData, timeout) {
-        return this._sendRequest(contractID, contractVer, invokeData, timeout, false);
+    async invokeSmartContract(requests) {
+        return this._sendRequest(requests, false);
     }
 
     /**
-     * Query a smart contract.
-     * @param {String} contractID Identity of the contract.
-     * @param {String} contractVer Version of the contract.
-     * @param {EthereumInvoke|EthereumInvoke[]} invokeData Smart contract methods calls.
-     * @param {Number} timeout Request timeout, in seconds.
-     * @return {Promise<object>} The promise for the result of the execution.
+     * Query state from the ledger using a smart contract
+     * @param {object|object[]} requests The object(s) containing the arguments for the call.
+     * @return {Promise<TxStatus[]>} The array of data about the executed queries.
+     * @async
      */
-    async querySmartContract(contractID, contractVer, invokeData, timeout) {
-        return this._sendRequest(contractID, contractVer, invokeData, timeout, true);
+    async querySmartContract(requests) {
+        return this._sendRequest(requests, true);
     }
 
     /**
      * Submit a transaction to the ethereum context.
      * @param {Object} context Context object.
-     * @param {String} contractID Identity of the contract.
-     * @param {String} contractVer Version of the contract.
-     * @param {EthereumInvoke} methodCall Methods call data.
-     * @param {Number} timeout Request timeout, in seconds.
+     * @param {EthereumInvoke} request Methods call data.
      * @return {Promise<TxStatus>} Result and stats of the transaction invocation.
      */
-    async sendTransaction(context, contractID, contractVer, methodCall, timeout) {
+    async sendTransaction(context, request) {
         let status = new TxStatus();
         let params = {from: context.fromAddress};
-        let contractInfo = context.contracts[contractID];
+        let contractInfo = context.contracts[request.contract];
 
         let receipt = null;
         let methodType = 'send';
-        if (methodCall.isView) {
+        if (request.readOnly) {
             methodType = 'call';
         } else if (context.nonces && (typeof context.nonces[context.fromAddress] !== 'undefined')) {
             let nonce = context.nonces[context.fromAddress];
@@ -265,7 +257,7 @@ class EthereumConnector extends BlockchainConnector {
 
         const onFailure = (err) => {
             status.SetStatusFail();
-            logger.error('Failed tx on ' + contractID + ' calling method ' + methodCall.verb + ' nonce ' + params.nonce);
+            logger.error('Failed tx on ' + request.contract + ' calling method ' + request.verb + ' nonce ' + params.nonce);
             logger.error(err);
         };
 
@@ -276,28 +268,28 @@ class EthereumConnector extends BlockchainConnector {
             status.SetStatusSuccess();
         };
 
-        if (methodCall.args) {
-            if (contractInfo.gas && contractInfo.gas[methodCall.verb]) {
-                params.gas = contractInfo.gas[methodCall.verb];
+        if (request.args) {
+            if (contractInfo.gas && contractInfo.gas[request.verb]) {
+                params.gas = contractInfo.gas[request.verb];
             } else if (contractInfo.estimateGas) {
-                params.gas = 1000 + await contractInfo.contract.methods[methodCall.verb](...methodCall.args).estimateGas();
+                params.gas = 1000 + await contractInfo.contract.methods[request.verb](...request.args).estimateGas();
             }
 
             try {
-                receipt = await contractInfo.contract.methods[methodCall.verb](...methodCall.args)[methodType](params);
+                receipt = await contractInfo.contract.methods[request.verb](...request.args)[methodType](params);
                 onSuccess(receipt);
             } catch (err) {
                 onFailure(err);
             }
         } else {
-            if (contractInfo.gas && contractInfo.gas[methodCall.verb]) {
-                params.gas = contractInfo.gas[methodCall.verb];
+            if (contractInfo.gas && contractInfo.gas[request.verb]) {
+                params.gas = contractInfo.gas[request.verb];
             } else if (contractInfo.estimateGas) {
-                params.gas = 1000 + await contractInfo.contract.methods[methodCall.verb].estimateGas(params);
+                params.gas = 1000 + await contractInfo.contract.methods[request.verb].estimateGas(params);
             }
 
             try {
-                receipt = await contractInfo.contract.methods[methodCall.verb]()[methodType](params);
+                receipt = await contractInfo.contract.methods[request.verb]()[methodType](params);
                 onSuccess(receipt);
             } catch (err) {
                 onFailure(err);

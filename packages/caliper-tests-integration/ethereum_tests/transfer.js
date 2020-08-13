@@ -96,12 +96,13 @@ class SimpleTransferWorkload extends WorkloadModuleBase {
      */
     async submitTransaction() {
         const args = {
+            contract: 'simple',
             verb: 'transfer',
             args: [this._generateAccount(), this._generateAccount(), this.roundArguments.money.toString()]
         };
 
         Logger.debug(`Worker ${this.workerIndex} TX parameters: ${JSON.stringify(args)}`);
-        await this.sutAdapter.invokeSmartContract('simple', 'v0', args, 100);
+        await this.sutAdapter.invokeSmartContract(args);
     }
 }
 

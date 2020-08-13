@@ -26,9 +26,12 @@ class HelloGetWorkload extends WorkloadModuleBase {
      */
     async submitTransaction() {
         const args = {
-            'transaction_type': 'get()'
+            contractId: 'helloworld',
+            args: {
+                transaction_type: 'get()'
+            }
         };
-        await this.sutAdapter.querySmartContract('helloworld', 'v0', args, undefined);
+        await this.sutAdapter.querySmartContract(args);
     }
 }
 

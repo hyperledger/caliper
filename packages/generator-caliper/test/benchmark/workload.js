@@ -115,10 +115,11 @@ describe('', () => {
         '     */\n' +
         '    async submitTransaction() {\n' +
         '        const myArgs = {\n' +
+        '            contractId: this.contractId,\n' +
         '            contractFunction: \'penguin\',\n' +
         '            contractArguments: ["args1", "args2", "args3"]\n' +
         '        };\n' +
-        '        return this.sutAdapter.invokeSmartContract(this.contractId, this.contractVersion, myArgs);\n' +
+        '        return this.sutAdapter.invokeSmartContract(myArgs);\n' +
         '    }\n' +
         '}\n' +
         '\n' +

@@ -38,13 +38,14 @@ class MarblesQueryWorkload extends WorkloadModuleBase {
         let marbleOwner = this.owners[this.txIndex % this.owners.length];
 
         let args = {
+            contractId: this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles',
             contractFunction: 'queryMarblesByOwner',
             contractArguments: [marbleOwner],
-            targetPeers: ['peer0.org1.example.com']
+            targetPeers: ['peer0.org1.example.com'],
+            timeout: 10
         };
 
-        let targetCC = this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles';
-        await this.sutAdapter.querySmartContract(targetCC, 'v0', args, 10);
+        await this.sutAdapter.querySmartContract(args);
     }
 }
 
