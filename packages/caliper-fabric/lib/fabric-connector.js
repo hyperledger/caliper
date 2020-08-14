@@ -12,6 +12,34 @@
 * limitations under the License.
 */
 
+/**
+ * @typedef {Object} FabricRequestSettings
+ *
+ * @property {string} contractId Required. The name/ID of the contract whose function
+ *           should be invoked.
+ * @property {string} contractVersion Required. The version of the contract whose function
+ *           should be invoked.
+ * @property {string} contractFunction Required. The name of the function that should be
+ *           invoked in the contract.
+ * @property {boolean} readOnly Optional. Indicates whether the request is a transaction or a query.
+ * @property {string[]} [contractArguments] Optional. The list of {string} arguments that should
+ *           be passed to the contract.
+ * @property {Map<string, Buffer>} [transientMap] Optional. The transient map that should be
+ *           passed to the contract.
+ * @property {string} invokerIdentity Required. The name of the client who should invoke the
+ *           contract. If an admin is needed, use the organization name prefixed with a # symbol.
+ * @property {string} channel Required. The name of the channel whose contract should be invoked.
+ * @property {string[]} [targetPeers] Optional. An array of endorsing
+ *           peer names as the targets of the invoke. When this
+ *           parameter is omitted the target list will include the endorsing peers assigned
+ *           to the target contract, or if it is also omitted, to the channel.
+ * @property {string[]} [targetOrganizations] Optional. An array of endorsing
+ *           organizations as the targets of the invoke. If both targetPeers and targetOrganizations
+ *           are specified then targetPeers will take precedence
+ * @property {string} [orderer] Optional. The name of the orderer to whom the request should
+ *           be submitted. If omitted, then the first orderer node of the channel will be used.
+ */
+
 'use strict';
 
 const { BlockchainConnector, CaliperUtils, ConfigUtil, Constants } = require('@hyperledger/caliper-core');
@@ -119,23 +147,13 @@ const FabricConnector = class extends BlockchainConnector {
     }
 
     /**
-     * Invokes the specified contract according to the provided settings.
-     *
-     * @param {ContractInvokeSettings|ContractInvokeSettings[]} requests The settings (collection) associated with the (batch of) transactions to submit.
-     * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
+     * Send one or more requests to the backing SUT.
+     * @param {FabricRequestSettings} requests The object(s) containing the options of the request(s).
+     * @return {Promise<TxStatus>} The array of data about the executed requests.
+     * @async
      */
-    async invokeSmartContract(requests) {
-        return await this.fabric.invokeSmartContract(requests);
-    }
-
-    /**
-     * Queries the specified contract according to the provided settings.
-     *
-     * @param {ContractQuerySettings|ContractQuerySettings[]} requests The settings (collection) associated with the (batch of) query to submit.
-     * @return {Promise<TxStatus[]>} The result and stats of the transaction query.
-     */
-    async querySmartContract(requests) {
-        return await this.fabric.querySmartContract(requests);
+    async _sendSingleRequest(requests) {
+        return this.fabric._sendSingleRequest(requests);
     }
 
     /**

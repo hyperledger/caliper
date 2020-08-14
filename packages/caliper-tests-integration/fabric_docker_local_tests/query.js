@@ -41,10 +41,11 @@ class MarblesQueryWorkload extends WorkloadModuleBase {
             contractId: this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles',
             contractFunction: 'queryMarblesByOwner',
             contractArguments: [marbleOwner],
-            timeout: 10
+            timeout: 10,
+            readOnly: true
         };
 
-        await this.sutAdapter.querySmartContract(args);
+        await this.sutAdapter.sendRequests(args);
     }
 }
 

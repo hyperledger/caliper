@@ -56,9 +56,10 @@ class <%= pascalCase %>Workload extends WorkloadModuleBase {
         const myArgs = {
             contractId: this.contractId,
             contractFunction: '<%= contractFunction %>',
-            contractArguments: <%- contractArguments %>
+            contractArguments: <%- contractArguments %>,
+            readOnly: false
         };
-        return this.sutAdapter.invokeSmartContract(myArgs);
+        return this.sutAdapter.sendRequests(myArgs);
     }
 }
 

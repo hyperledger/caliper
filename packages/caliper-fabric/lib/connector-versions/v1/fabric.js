@@ -36,56 +36,6 @@ const logger = CaliperUtils.getLogger('connectors/v1/fabric');
  * @property {EventHub|ChannelEventHub} eventHub The event hub object representing the connection.
  */
 
-/**
- * @typedef {Object} ContractInvokeSettings
- *
- * @property {string} contractId Required. The name/ID of the contract whose function
- *           should be invoked.
- * @property {string} contractVersion Required. The version of the contract whose function
- *           should be invoked.
- * @property {string} contractFunction Required. The name of the function that should be
- *           invoked in the contract.
- * @property {string[]} [contractArguments] Optional. The list of {string} arguments that should
- *           be passed to the contract.
- * @property {Map<string, Buffer>} [transientMap] Optional. The transient map that should be
- *           passed to the contract.
- * @property {string} invokerIdentity Required. The name of the client who should invoke the
- *           contract. If an admin is needed, use the organization name prefixed with a # symbol.
- * @property {string} channel Required. The name of the channel whose contract should be invoked.
- * @property {string[]} [targetPeers] Optional. An array of endorsing
- *           peer names as the targets of the invoke. When this
- *           parameter is omitted the target list will include the endorsing peers assigned
- *           to the target contract, or if it is also omitted, to the channel.
- * @property {string[]} [targetOrganizations] Optional. An array of endorsing
- *           organizations as the targets of the invoke. If both targetPeers and targetOrganizations
- *           are specified then targetPeers will take precedence
- * @property {string} [orderer] Optional. The name of the orderer to whom the request should
- *           be submitted. If omitted, then the first orderer node of the channel will be used.
- */
-
-/**
- * @typedef {Object} ContractQuerySettings
- *
- * @property {string} contractId Required. The name/ID of the contract whose function
- *           should be invoked.
- * @property {string} contractVersion Required. The version of the contract whose function
- *           should be invoked.
- * @property {string} contractFunction Required. The name of the function that should be
- *           invoked in the contract.
- * @property {string[]} contractArguments Optional. The list of {string} arguments that should
- *           be passed to the contract.
- * @property {Map<string, Buffer>} [transientMap] Optional. The transient map that should be
- *           passed to the contract.
- * @property {string} invokerIdentity Required. The name of the client who should invoke the
- *           contract. If an admin is needed, use the organization name prefixed with a # symbol.
- * @property {string} channel Required. The name of the channel whose contract should be invoked.
- * @property {string[]} [targetPeers] Optional. An array of endorsing
- *           peer names as the targets of the invoke. When this
- *           parameter is omitted the target list will include the endorsing peers assigned
- *           to the target contract, or if it is also omitted, to the channel.
- * @property {boolean} [countAsLoad] Optional. Indicates whether to count this query as workload.
- */
-
 /////////////////////////////
 // END OF TYPE DEFINITIONS //
 /////////////////////////////
@@ -2107,83 +2057,30 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
-     * Invokes the specified contract according to the provided settings.
-     *
-     * @param {ContractInvokeSettings|ContractInvokeSettings[]} requests The settings (collection) associated with the (batch of) transactions to submit.
-     * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
+     * Send a single request to the backing SUT.
+     * @param {FabricRequestSettings} request The request object.
      */
-    async invokeSmartContract(requests) {
-        const promises = [];
-        let requestArray;
+    async _sendSingleRequest(request) {
+        if (!request.hasOwnProperty('channel')) {
+            const contractDetails = this.networkUtil.getContractDetails(request.contractId);
+            if (!contractDetails) {
+                throw new Error(`Could not find details for contract ID ${request.contractId}`);
+            }
+            request.channel = contractDetails.channel;
+            request.contractId = contractDetails.id;
+            request.contractVersion = contractDetails.version;
+        }
 
-        if (!Array.isArray(requests)) {
-            requestArray = [requests];
+        if (!request.invokerIdentity) {
+            request.invokerIdentity = this.defaultInvoker;
+        }
+
+        const timeout = (request.timeout || this.configDefaultTimeout) * 1000;
+        if (request.readOnly) {
+            return this._submitSingleQuery(request, timeout);
         } else {
-            requestArray = requests;
+            return this._submitSingleTransaction(request, timeout);
         }
-
-        for (const request of requestArray) {
-            if (!request.hasOwnProperty('channel')) {
-                const contractDetails = this.networkUtil.getContractDetails(request.contractId);
-                if (!contractDetails) {
-                    throw new Error(`Could not find details for contract ID ${request.contractId}`);
-                }
-                request.channel = contractDetails.channel;
-                request.contractId = contractDetails.id;
-                request.contractVersion = contractDetails.version;
-            }
-
-            if (!request.invokerIdentity) {
-                request.invokerIdentity = this.defaultInvoker;
-            }
-
-            this._onTxsSubmitted(1);
-            promises.push(this._submitSingleTransaction(request, (request.timeout || this.configDefaultTimeout) * 1000));
-        }
-
-        const results = await Promise.all(promises);
-        this._onTxsFinished(results);
-        return results;
-    }
-
-    /**
-     * Queries the specified contract according to the provided settings.
-     *
-     * @param {ContractQuerySettings|ContractQuerySettings[]} requests The settings (collection) associated with the (batch of) query to submit.
-     * @return {Promise<TxStatus[]>} The result and stats of the transaction query.
-     */
-    async querySmartContract(requests) {
-        const promises = [];
-        let requestArray;
-
-        if (!Array.isArray(requests)) {
-            requestArray = [requests];
-        } else {
-            requestArray = requests;
-        }
-
-        for (const request of requestArray) {
-            if (!request.hasOwnProperty('channel')) {
-                const contractDetails = this.networkUtil.getContractDetails(request.contractId);
-                if (!contractDetails) {
-                    throw new Error(`Could not find details for contract ID ${request.contractId}`);
-                }
-                request.channel = contractDetails.channel;
-                request.contractId = contractDetails.id;
-                request.contractVersion = contractDetails.version;
-            }
-
-            if (!request.invokerIdentity) {
-                request.invokerIdentity = this.defaultInvoker;
-            }
-
-            this._onTxsSubmitted(1);
-            promises.push(this._submitSingleQuery(request, (request.timeout || this.configDefaultTimeout) * 1000));
-        }
-
-        const results = await Promise.all(promises);
-        this._onTxsFinished(results);
-        return results;
     }
 
     /**

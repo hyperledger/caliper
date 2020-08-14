@@ -183,58 +183,12 @@ class EthereumConnector extends BlockchainConnector {
     }
 
     /**
-     * Send a request to a smart contract.
-     * @param {EthereumInvoke|EthereumInvoke[]} requests Smart contract methods calls.
-     * @param {boolean} readOnly Indicates whether the request is view call or not.
-     * @return {Promise<object>} The promise for the result of the execution.
-     */
-    async _sendRequest(requests, readOnly) {
-        let requestArray;
-        if (!Array.isArray(requests)) {
-            requestArray = [requests];
-        } else {
-            requestArray = requests;
-        }
-        let promises = [];
-
-        requestArray.forEach(request => {
-            request.readOnly = readOnly;
-            this._onTxsSubmitted(1);
-            promises.push(this.sendTransaction(this.context, request));
-        });
-
-        const results = await Promise.all(promises);
-        this._onTxsFinished(results);
-        return results;
-    }
-
-    /**
-     * Invoke a smart contract
-     * @param {object|object[]} requests The object(s) containing the arguments of the call.
-     * @return {Promise<TxStatus[]>} The array of data about the executed transactions.
-     * @async
-     */
-    async invokeSmartContract(requests) {
-        return this._sendRequest(requests, false);
-    }
-
-    /**
-     * Query state from the ledger using a smart contract
-     * @param {object|object[]} requests The object(s) containing the arguments for the call.
-     * @return {Promise<TxStatus[]>} The array of data about the executed queries.
-     * @async
-     */
-    async querySmartContract(requests) {
-        return this._sendRequest(requests, true);
-    }
-
-    /**
      * Submit a transaction to the ethereum context.
-     * @param {Object} context Context object.
      * @param {EthereumInvoke} request Methods call data.
      * @return {Promise<TxStatus>} Result and stats of the transaction invocation.
      */
-    async sendTransaction(context, request) {
+    async _sendSingleRequest(request) {
+        const context = this.context;
         let status = new TxStatus();
         let params = {from: context.fromAddress};
         let contractInfo = context.contracts[request.contract];

@@ -117,9 +117,10 @@ describe('', () => {
         '        const myArgs = {\n' +
         '            contractId: this.contractId,\n' +
         '            contractFunction: \'penguin\',\n' +
-        '            contractArguments: ["args1", "args2", "args3"]\n' +
+        '            contractArguments: ["args1", "args2", "args3"],\n' +
+        '            readOnly: false\n' +
         '        };\n' +
-        '        return this.sutAdapter.invokeSmartContract(myArgs);\n' +
+        '        return this.sutAdapter.sendRequests(myArgs);\n' +
         '    }\n' +
         '}\n' +
         '\n' +

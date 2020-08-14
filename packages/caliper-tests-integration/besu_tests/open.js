@@ -14,8 +14,7 @@
 
 'use strict';
 
-const { WorkloadModuleBase, CaliperUtils } = require('@hyperledger/caliper-core');
-const Logger = CaliperUtils.getLogger('simple-workload-open');
+const { WorkloadModuleBase } = require('@hyperledger/caliper-core');
 
 const Dictionary = 'abcdefghijklmnopqrstuvwxyz';
 
@@ -73,7 +72,8 @@ class SimpleOpenWorkload extends WorkloadModuleBase {
             workload.push({
                 contract: 'simple',
                 verb: 'open',
-                args: [accountId, this.roundArguments.money]
+                args: [accountId, this.roundArguments.money],
+                readOnly: false
             });
         }
         return workload;
@@ -112,8 +112,7 @@ class SimpleOpenWorkload extends WorkloadModuleBase {
      */
     async submitTransaction() {
         let args = this._generateWorkload();
-        Logger.debug(`Worker ${this.workerIndex} for TX ${this.txIndex}: ${JSON.stringify(args)}`);
-        await this.sutAdapter.invokeSmartContract(args);
+        await this.sutAdapter.sendRequests(args);
     }
 }
 
