@@ -554,7 +554,7 @@ module.exports.init = async function(blockchain, context, args) {
             const myArgs = {
                 chaincodeFunction: 'createCar',
                 invokerIdentity: 'Admin@org1.example.com',
-                chaincodeArguments: [assetID,'blue','fiat','rubbish','rosie']
+                chaincodeArguments: [assetID,'blue','ford','fiesta','Jamie']
             };
             await bc.bcObj.invokeSmartContract(ctx, contractID, version, myArgs);
         } catch (error) {
