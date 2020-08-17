@@ -1,9 +1,9 @@
 ---
 layout: v0.3.2
-title:  "Setting up and Running a Performance Benchmark"
-categories: tutorial
-permalink: /v0.3.2/workingtitle/
-order: 1
+title:  "Setting up and Running a Performance Benchmark on an existing network"
+categories: 
+permalink: /v0.3.2/benchmark-fabric-tutorial/
+order: 
 ---
 ## Table of Contents
 {:.no_toc}
@@ -13,11 +13,9 @@ order: 1
 
 ## Overview
 
-This tutorial aims to walk you through running a performance test using caliper on a fabric network without the use of vscode inbetween. 
+This tutorial takes you through performance testing a smart contract on a pre-existing Fabric network using Caliper. 
 
-You will need to already have a fabric network deployed. This tutorial follows from this [fabric tutorial](https://hlf.readthedocs.io/en/latest/test_network.html) but you can follow from any fabric network. You need to have initated a smart contract (part two of the fabric tutorial). 
-
-This tutorial uses Caliper 0.3.2 and Node-SDK 1.4.8. 
+You will need to already have a fabric network deployed. This tutorial follows from this [fabric tutorial](https://hlf.readthedocs.io/en/latest/test_network.html) but you can follow from any Fabric network. You need to have initiated a smart contract (part two of the Fabric tutorial). 
 
 
 ## Step 1 - Install and Bind Caliper
@@ -32,7 +30,9 @@ Bind the SDK using the following terminal command:
 
 ## Step 2 - Setting Up Folders
 
-Caliper needs two configuration files. One is the network configuration file that will describe the network and will provide the connection requirments. The other is the benchmark file which will have the callback and the references for the user test files. 
+Caliper needs two configuration files:
+- The network configuration file that will describe the network and will provide the connection requirements. 
+- The benchmark file which will have the callback and the references for the user test files. 
 
 First set up a parent folder named **caliper-workspace** and then within this folder create two subfolders named **networks** and **benchmarks**
 
@@ -40,21 +40,44 @@ We will then populate these folders with the assets required by Caliper.
 
 ## Step 3 - Network Configuration File
 
-The network configuration file is an extenstion of the common connection profile and provides the connection requirments for clients that interact with the network. The file can be in YAML or JSON format, this tutorial shows the JSON format. 
+The network configuration file is an extension of the common connection profile and provides the connection requirements for clients that interact with the network. The file can be in YAML or JSON format, this tutorial shows the JSON format. 
 
 ### Create File
 
 Under the **networks** folder create a file called **network_config.json**. That is the file we will be populating. 
 
+This is the shape of the file before population. The file is made up of eight objects: caliper, clients, channels, name, organization, peers, certificateAuthorities, and version. Each of these we will be adding properties to that are required for the benchmark to occur. 
+
+``` bash
+{
+    "caliper" : {
+    },
+    "clients" : {
+    },
+    "channels" : {
+    },
+    "name": {
+    },
+    "organization" : {
+    },
+    "peers" : {
+    },
+    "certificateAuthorities" : {
+    },
+    "version" : {
+    }
+}
+```
+
 ### Find and Copy Template
 
-First we will use a template to populate the file initially. This template will have some unique certficates on therefore you will need to use the one on your network however it should still like the one below. 
+First we will use a template to populate the file initially. This template will have some unique certificates on therefore you will need to use the one on the network however it should still like the one below. 
 
 We will be using Org1 to connect in this example. To find the template, look in the **fabric-samples** -> **test-network** -> **organizations** -> **peerOrganizations** -> **org1.example.com** -> **connection-org1.json** 
 
 The YAML file can also be found here. 
 
-Copy the whole template and paste it into your **network_config.json** file. 
+Copy the whole template and paste it into the **network_config.json** file. 
 
 It should look like this: 
 
@@ -125,7 +148,7 @@ It should look like this:
 
 ### Clients Object
 
-Add an object called `Clients` to the schema and a property named after one of the identities in your network. In this case the identiy used is `Admin@org1.example.com`. Then nest the existing `Client` object within the identity. 
+Add an object called `Clients` to the schema and a property named after one of the identities in the network. In this case the identity used is `Admin@org1.example.com`. Then nest the existing `Client` object within the identity. 
 
 ``` bash
 "clients": {
@@ -143,9 +166,9 @@ Add an object called `Clients` to the schema and a property named after one of t
 },
 ```
 
-Under the `client` object add a property called `credentialStore` under this property add a property called `path` that has a string variable leading to a temp file in your workspace with the name `tmp/hfc-kvs/org1`. Also under the `credentialStore` proeprty add a property called `cryptoStore` and under this add another `path` property that points to the same temp file above, `tmp/hfc-kvs/org1`. 
+Under the `client` object add a property called `credentialStore` under this property add a property called `path` that has a string variable leading to a temp file in the workspace with the name `tmp/hfc-kvs/org1`. Also under the `credentialStore` property add a property called `cryptoStore` and under this add another `path` property that points to the same temp file above, `tmp/hfc-kvs/org1`. 
 
-This is what should be add to your `client` : 
+This is what should be add to the `client` : 
 
 ``` bash
 "credentialStore": {
@@ -156,9 +179,9 @@ This is what should be add to your `client` :
 },
 ```
 
-Under the `client` object add a property called `clientPrivateKey` under this property add a property called `path` that has a string variable leading to a the identities private key. This can be found in your network, in this example it is found under **fabric-samples** -> **test-network** -> **organizations** -> **peerOrganizations** -> **org1.example.com** -> **users** -> **Admin@org1.example.com** -> **msp** -> **keystore** -> **priv_sk** . Ensure that it is the correct identities private key. 
+Under the `client` object add a property called `clientPrivateKey` under this property add a property called `path` that has a string variable leading to a the identities private key. This can be found in the network, in this example it is found under **fabric-samples** -> **test-network** -> **organizations** -> **peerOrganizations** -> **org1.example.com** -> **users** -> **Admin@org1.example.com** -> **msp** -> **keystore** -> **priv_sk** . Ensure that it is the correct identities private key. 
 
-This is what should be added to your `client`:
+This is what should be added to the `client`:
 
 ``` bash
 "clientPrivateKey": {
@@ -166,9 +189,9 @@ This is what should be added to your `client`:
     },
 ```
 
-Also under the `client` object add another property called `clientSignedCert` and under this add a property called `path` that has a string varaible leading to the identities signed certificate. This can be found in your network, in this example it is found under **fabric-samples** -> **test-network** -> **organizations** -> **peerOrganizations** -> **org1.example.com** -> **users** -> **Admin@org1.example.com** -> **msp** -> **signedcerts** -> **admin@org1.example.com-cert.pem**
+Also under the `client` object add another property called `clientSignedCert` and under this add a property called `path` that has a string variable leading to the identities signed certificate. This can be found in the network, in this example it is found under **fabric-samples** -> **test-network** -> **organizations** -> **peerOrganizations** -> **org1.example.com** -> **users** -> **Admin@org1.example.com** -> **msp** -> **signedcerts** -> **admin@org1.example.com-cert.pem**
 
-This is what should be added to your `client`:
+This is what should be added to the `client`:
 
 ``` bash
 "clientSignedCert": {
@@ -210,7 +233,7 @@ That is all you need to add to the `clients` object. It should now look like thi
 
 ### Channels Object
 
-Add an object called `channels` to the schema and a property named after your channel name. The default channel name, and the one used in this tutorial, is `mychannel`. Under the channel name, add two properties, one called `created` and the other `chaincodes`. 
+Add an object called `channels` to the schema and a property named after the channel name. The default channel name, and the one used in this tutorial, is `mychannel`. Under the channel name, add two properties, one called `created` and the other `chaincodes`. 
 
 Set `created` to the boolean variable `true`. It should look like this:
 
@@ -218,7 +241,7 @@ Set `created` to the boolean variable `true`. It should look like this:
 "created" : true,
 ```
 
-`chaincodes` is going to hold an array which will have two properties, `id` and `version`. `id` will have the chaincode ID, in this case it is `fabcar`. The version is that specfic chaincode's version, in this case that is `0.0.1`. It should look like this: 
+`chaincodes` is going to hold an array which will have two properties, `id` and `version`. `id` will have the chaincode ID, in this case it is `fabcar`. The version is that specific chaincode's version, in this case that is `0.0.1`. It should look like this: 
 
 ``` bash
 "chaincodes": [
@@ -229,7 +252,7 @@ Set `created` to the boolean variable `true`. It should look like this:
 ]
 ```
 
-This is what your `channels` object should look like:
+This is what the `channels` object should look like:
 
 ``` bash
     "channels": {
@@ -247,7 +270,11 @@ This is what your `channels` object should look like:
 
 ### Organizations Object
 
-In the `organizations` object under `Org1` add two more properties, `adminPrivateKey` and `signedCert`. `adminPrivateKey` will have the path to the admin user's private key and `signedCert` will have the path to the admin user's signed certficate. As we, in this example, our identity we are using is our admin user, these paths will be the same as in our clients object. If you are using a different identity the admin user's keys and certficates can be found in: **fabric-samples** -> **test-network** -> **organizations** -> **peerOrganizations** -> **org1.example.com** -> **users** -> **Admin@org1.example.com** -> **msp**. 
+In the `organizations` object under `Org1` add two more properties: 
+- `adminPrivateKey` that will have the path to the admin user's private key.
+-`signedCert` that will have the path to the admin user's signed certificate
+
+ As we, in this example, the identity we are using is the admin user, these paths will be the same as in the clients object. If you are using a different identity the admin user's keys and certificate can be found in: **fabric-samples** -> **test-network** -> **organizations** -> **peerOrganizations** -> **org1.example.com** -> **users** -> **Admin@org1.example.com** -> **msp**. 
 
 This is what should be added: 
 
@@ -260,7 +287,7 @@ This is what should be added:
     }
 ```
 
-And this is what your `organizations` object should look like now:
+And this is what the `organizations` object should look like now:
 
 ```bash
     "organizations":{
@@ -284,9 +311,9 @@ And this is what your `organizations` object should look like now:
 
 ### Resulting file:
 
-Your network configuration file should now be fully populated. It can be useful to take time to look over and ensure that the paths to the certifcates and keys are correct. 
+The network configuration file should now be fully populated. It can be useful to take time to look over and ensure that the paths to the certificate and keys are correct. 
 
-Your whole file should look like this: 
+The whole file should resemble like this: 
 
 ```bash
 {
@@ -380,9 +407,9 @@ Your whole file should look like this:
 ## Step 4 - Test Callback File
 
 The test callback file interacts with the deployed smart contract during the benchmark round. Each test callback file must export three functions: 
-- `init` - used to initalise the ledger to run the session
+- `init` - used to initialise the ledger to run the session
 - `run` - used to interact with the smart contract method during the monitored phase of the benchmark
-- `end` - will end and clean up after the completion of the run phase
+- `end` - will end and clean up after the completion of the `run` phase
 
 ### Create File
 
@@ -430,17 +457,17 @@ module.exports.end = async function() {
 
 ### Init Function
 
-This function is used to initalise passed arguements and prepeare any items required by the run function. 
+This function is used to init passed arguments and prepare any items required by the `run` function. 
 
 First we will set the blockchain (`bc`), context (`ctx`), and args (`clientArgs`). 
 
-Then assume that the number of assests to be created will be given as `clientArgs.assets` and create a `for` loop that is between 0 and the number of assets to be created. 
+Then assume that the number of assets to be created will be given as `clientArgs.assets` and create a `for` loop that is between 0 and the number of assets to be created. 
 
 In the `for` loop we will be using the smart contract method (found, in this example, in **fabcar.js**) `createCar`. Since this may throw if an error occurs, we will be using a try-catch lock to print an error to ease debugging. I
 
 n the catch, add an information statement reporting the error. 
 
-In the try, await completion of an `invokeSmartContract` call on the blockchain object passing the context, contract name, contract version, and an object that contains: `chaincodeFunction` set as `createCar`; `invokeIdentity` set as `admin@org.example.com`; `chaincodeArguments` set as an array containing `assetID` and the arguements needed to be passed to `createCar`.
+In the try, await completion of an `invokeSmartContract` call on the blockchain object passing the context, contract name, contract version, and an object that contains: `chaincodeFunction` set as `createCar`; `invokeIdentity` set as `admin@org.example.com`; `chaincodeArguments` set as an array containing `assetID` and the arguments needed to be passed to `createCar`.
 
 The function should look like this:
 
@@ -467,11 +494,11 @@ module.exports.init = async function(blockchain, context, args) {
 };
 ```
 
-The `chaincodeArguments` we past our own arguements to be used. The smart contract will be tested on making multiple of the same asset (blue, ford, focus, Jim). If you are using a different smart contract, you will pass in different arguements here. 
+The `chaincodeArguments` we passed unique own arguments to be used. The smart contract will be tested on making multiple of the same asset (blue, ford, focus, Jim). If you are using a different smart contract, you will pass in different arguments here. 
 
 ### Run Function
 
-This function runs repetedly in the benchmark test phase. We will be evaluating the `queryCar` smart contract function by querying the assets we created in the `init` function. Because we are running this for multiple assets concurrently it will need to return a unresolved promise and not block.
+This function runs repeatedly in the benchmark test phase. We will be evaluating the `queryCar` smart contract function by querying the assets we created in the `init` function. Because we are running this for multiple assets concurrently it will need to return a unresolved promise and not block.
 
 First, create a string identity for the asset to query, formed by the concat of the test client index and a random integer between 0 and the number of created assets. 
 
@@ -497,11 +524,11 @@ This function is used to clean up after a test as it deletes the assets created 
 
 We will not be using this function this time as the smart contract we are testing doesn't have a function to delete the assets. So this function will remain empty. 
 
-However, if you are using a different smart contract to test that does have a delete function you can use the same for loop from the `init` phase. You only need to modifiy the `chaincodeFunction` to call the name of your delete function from the chainode. 
+However, if you are using a different smart contract to test that does have a delete function you can use the same for loop from the `init` phase. You only need to modify the `chaincodeFunction` to call the name of the delete function from the chaincode. 
 
 ### Resulting File:
 
-Your test callback file should now be fully populated. 
+The test callback file should now be fully populated. 
 
 The whole file should look like this:
 
@@ -555,6 +582,16 @@ module.exports.end = async function() {
 The benchmark configuration file defines the benchmark rounds and references the defined callbacks. It will specify the number of test clients to use when generating the load, the number of test rounds, the duration of each round, the load generation method during each round, and the callback to use within each round. 
 
 The file will be a YAML file. It is to note that YAML files are case sensitive and all labels are in lowercase. 
+
+This file will have three root blocks that need to be populated. The shape of the file will be as follows:
+
+``` bash
+test:
+
+monitor:
+
+observer:
+```
 ### Create File
 
 Under the **benchmarks** folder create a file called **myAssetBenchmark.yaml**. That is the file we will be populating.
@@ -580,7 +617,7 @@ The `round` block contains the following:
 - `chaincodeId` - the chaincode ID that is being tested. 
 - `txDuration` - the length of the round measured by duration. 
 - `rateControl` - a rate control method with options and the type. 
-- `callback` - a path to the callback file that is being tested, in this case this is our queryAssetBenchmark.js file. 
+- `callback` - a path to the callback file that is being tested, in this case this is the queryAssetBenchmark.js file. 
 - `arguments` - an optional array of arguments to be passed to the callback file when being invoked. 
 
 This is how it should be populated: 
@@ -683,7 +720,7 @@ Ensure that you are in the caliper-workspace directory.
 
 In the terminal run the following Caliper CLI command:
 
-`caliper launch master --caliper-benchconfig benchmarks/myAssetBenchmark.yaml --caliper-networkconfig netorks/network_config.json --caliper-workspace ./ --caliper-flow-only-test --caliper-fabric-gateway-usegateway --caliper-fabric-gateway-discovery`
+`caliper launch master --caliper-benchconfig benchmarks/myAssetBenchmark.yaml --caliper-networkconfig networks/network_config.json --caliper-workspace ./ --caliper-flow-only-test --caliper-fabric-gateway-usegateway --caliper-fabric-gateway-discovery`
 
 ### Result
 
@@ -692,7 +729,7 @@ The resulting report will detail the following items for each benchmark round:
 - Name - the round name from the benchmark configuration file
 - Succ/Fail - the number of successful/failing transactions
 - Send Rate - the rate at which caliper issued the transactions
-- Latency (max/min/avg) - statistics relating to the time taken in seconds between issuing a transaction and recieving a response
+- Latency (max/min/avg) - statistics relating to the time taken in seconds between issuing a transaction and receiving a response
 - Throughput - the average number of transactions processed per second
 
 You have successfully benchmarked a smart contract. You can repeat the test varying the benchmark parameters. For the full set of parameters you can see the [Caliper Documentation](https://hyperledger.github.io/caliper/)
