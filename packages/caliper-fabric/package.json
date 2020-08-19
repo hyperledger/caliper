@@ -53,6 +53,7 @@
         "file_type_method": "EXCLUDE",
         "file_types": [
             ".yml",
+            ".yaml",
             ".md",
             ".log"
         ],

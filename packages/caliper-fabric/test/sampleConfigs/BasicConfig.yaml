@@ -1,0 +1,89 @@
+---
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+# The name of the benchmark
+name: Geoff
+# The caliper semantic version
+version: "1.0.0"
+
+# Global properties that define the SUT, and options that are specific to the target SUT
+caliper:
+    blockchain: fabric,
+    sutOptions :
+       mutualTls: true
+
+# Array of fabric channels for creation or use
+channels:
+    - channelName: my-channel
+      # [Optional] create the channel
+      create: true
+      definition:
+        capabilities: []
+        consortium: 'SampleConsortium2'
+        msps: ['Org1MSP', 'Org2MSP']
+        version: 0
+        orderers:
+        - orderer0.example.com
+        - orderer1.example.com
+        peers:
+            peer0.org1.example.com:
+                eventSource: true
+            peer0.org2.example.com:
+                eventSource: true
+      # Array of contracts to be installed/instantiated on the named channel and available for use by the workload module
+      contracts:
+      - id: marbles
+        contractID: myMarbles
+        version: v0
+        language: golang
+        path: marbles/go
+        metadataPath: src/marbles/go/metadata
+
+    - channelName: your-channel
+      create: false
+      contracts:
+      - id: marbles
+        contractID: lostMyMarbles
+        version: v0
+
+# [Minimum 1] Array of organizations that are to be used within the benchmarking, containing one of more identities to be used by the connector
+organizations:
+  - mspid: org1MSP
+    # One or more identity specification types that may provide a unique identity for the use by the connector.
+    identities:
+      # [Optional] only used for fabric connector not gateway (can also be defined in connection profile)
+      credentialStore:
+        path: /tmp/hfc-kvs/org1
+        cryptoStore:
+            path: /tmp/hfc-cvs/org1
+      #  [Optional] File path to a FileWallet, within which all entries are all for the same org. Only for use by gateway
+      wallet:
+         path: 'some/path/to/org-specific-wallet'
+      # [Optional] certificates for the client
+      certificates:
+      - alias: 'User1'
+        clientPrivateKey:
+            # can use PEM as well, ie pem: < text >
+            path: ../config/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/key.pem
+        clientSignedCert:
+            path: ../config/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem..
+    # Connection profile to be used by the connector for the organization
+    # - could validate this connection profile matches declared mspid
+    connectionProfile: {
+         path: 'some/path/to/org-specific-profile',
+         discover: true
+     }
+  - mspid: org2MSP
+    # and so forth
