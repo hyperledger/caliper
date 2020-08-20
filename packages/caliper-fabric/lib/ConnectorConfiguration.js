@@ -23,7 +23,7 @@ class ConnectorConfiguration {
 
     /**
      * Constructor
-     * @param {*} connectorConfigurationPath path to the json or yaml file defining the configuration
+     * @param {string} connectorConfigurationPath path to the json or yaml file defining the configuration
      */
     constructor(connectorConfigurationPath) {
         CaliperUtils.assertDefined(connectorConfigurationPath, '[ConnectorConfiguration.constructor] Parameter \'connectorConfigurationPath\' is undefined or null');
