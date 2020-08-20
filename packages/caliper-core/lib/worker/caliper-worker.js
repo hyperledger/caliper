@@ -86,7 +86,8 @@ class CaliperWorker {
      */
     async runFixedNumber(workloadModule, number, rateController) {
         const stats = this.internalTxObserver.getCurrentStatistics();
-        while (stats.getTotalSubmittedTx() < number) {
+        let error = undefined;
+        while (stats.getTotalSubmittedTx() < number && !error) {
             await rateController.applyRateControl();
 
             // If this function calls this.workloadModule.submitTransaction() too quickly, micro task queue will be filled with unexecuted promises,
@@ -94,8 +95,13 @@ class CaliperWorker {
             // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
             await this.setImmediatePromise(() => {
                 workloadModule.submitTransaction()
-                    .catch(err => { Logger.error(`Unhandled error while executing TX: ${err.stack || err}`); });
+                    .catch(err => { error = err; });
             });
+        }
+
+        if (error) {
+            Logger.error(`Unhandled error while executing TX: ${error.stack || error}`);
+            throw error;
         }
 
         await CaliperWorker._waitForTxsToFinish(stats);
@@ -111,7 +117,8 @@ class CaliperWorker {
     async runDuration(workloadModule, duration, rateController) {
         const stats = this.internalTxObserver.getCurrentStatistics();
         let startTime = stats.getRoundStartTime();
-        while ((Date.now() - startTime) < (duration * 1000)) {
+        let error = undefined;
+        while ((Date.now() - startTime) < (duration * 1000) && !error) {
             await rateController.applyRateControl();
 
             // If this function calls this.workloadModule.submitTransaction() too quickly, micro task queue will be filled with unexecuted promises,
@@ -119,8 +126,13 @@ class CaliperWorker {
             // https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/
             await this.setImmediatePromise(() => {
                 workloadModule.submitTransaction()
-                    .catch(err => { Logger.error(`Unhandled error while executing TX: ${err.stack || err}`); });
+                    .catch(err => { error = err; });
             });
+        }
+
+        if (error) {
+            Logger.error(`Unhandled error while executing TX: ${error.stack || error}`);
+            throw error;
         }
 
         await CaliperWorker._waitForTxsToFinish(stats);

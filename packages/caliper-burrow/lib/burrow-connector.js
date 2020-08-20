@@ -157,62 +157,29 @@ class BurrowConnector extends BlockchainConnector {
 
     /**
      * Send a request to a smart contract.
-     * @param {Object | Array<Object>} requests eg {'verb':'invoke','function': 'getInt','args': []}
-     * @return {Promise<object>} The promise for the result of the execution.
+     * @param {Object} request eg {'verb':'invoke','function': 'getInt','args': []}
+     * @return {Promise<TxStatus>} The promise for the result of the execution.
      */
-    async _sendRequest(requests) {
-        // requests = [{
+    async _sendSingleRequest(request) {
+        // request = {
         //     verb: 'transfer/invoke',
         //     function
         //     args
-        // }]
+        // }
 
-        let promises = [];
-        let requestArray;
-        if (!Array.isArray(requests)) {
-            requestArray = [requests];
-        } else {
-            requestArray = requests;
+        if (request.verb === 'transfer') {
+            return this.accountTransfer(this.config.burrow.context, request);
         }
 
-        requestArray.forEach(request => {
-            this._onTxsSubmitted(1);
-
-            if (request.verb==='transfer') {
-                promises.push(this.accountTransfer(this.config.burrow.context, request));
-            } else if(request.verb==='invoke'){
-                if (!request.hasOwnProperty('function')) {
-                    return Promise.reject(new Error('missed argument: function'));
-                }
-                if (!request.hasOwnProperty('args')) {
-                    return Promise.reject(new Error('missed argument: args'));
-                }
-                promises.push(this.doInvoke(this.config.burrow.context, request));
+        if(request.verb === 'invoke'){
+            if (!request.hasOwnProperty('function')) {
+                return Promise.reject(new Error('missed argument: function'));
             }
-        });
-        const results = await Promise.all(promises);
-        this._onTxsFinished(results);
-        return results;
-    }
-
-    /**
-     * Query a smart contract
-     * @param {object|object[]} requests The object(s) containing the arguments of the call.
-     * @return {Promise<TxStatus[]>} The array of data about the executed transactions.
-     * @async
-     */
-    async querySmartContract(requests) {
-        return this._sendRequest(requests);
-    }
-
-    /**
-     * Invoke a smart contract
-     * @param {object|object[]} requests The object(s) containing the arguments of the call.
-     * @return {Promise<TxStatus[]>} The array of data about the executed transactions.
-     * @async
-     */
-    async invokeSmartContract(requests) {
-        return this._sendRequest(requests);
+            if (!request.hasOwnProperty('args')) {
+                return Promise.reject(new Error('missed argument: args'));
+            }
+            return this.doInvoke(this.config.burrow.context, request);
+        }
     }
 
     /**

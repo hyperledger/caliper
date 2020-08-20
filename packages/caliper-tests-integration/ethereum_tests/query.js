@@ -16,8 +16,7 @@
 
 'use strict';
 
-const { WorkloadModuleBase, CaliperUtils } = require('@hyperledger/caliper-core');
-const Logger = CaliperUtils.getLogger('simple-workload-query');
+const { WorkloadModuleBase } = require('@hyperledger/caliper-core');
 
 const Dictionary = 'abcdefghijklmnopqrstuvwxyz';
 
@@ -96,11 +95,11 @@ class SimpleQueryWorkload extends WorkloadModuleBase {
         const args = {
             contract: 'simple',
             verb: 'query',
-            args: [this._generateAccount()]
+            args: [this._generateAccount()],
+            readOnly: true
         };
 
-        Logger.debug(`Worker ${this.workerIndex} TX parameters: ${JSON.stringify(args)}`);
-        await this.sutAdapter.querySmartContract(args);
+        await this.sutAdapter.sendRequests(args);
     }
 }
 

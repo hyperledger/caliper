@@ -146,21 +146,32 @@ class FiscoBcosConnector extends BlockchainConnector {
     }
 
     /**
-     * Invoke the given smart contract according to the specified options. Multiple transactions will be generated according to the length of args.
-     * @param {Object | Array<Object>} requests Array of JSON formatted arguments for transaction(s). Each element contains arguments (including the function name) passing to the smart contract. JSON attribute named transaction_type is used by default to specify the function name. If the attribute does not exist, the first attribute will be used as the function name.
-     * @return {Promise<object>} The promise for the result of the execution.
+     * Prepare the request for sending.
+     * @param {FabricRequestSettings} request The request object.
      */
-    async invokeSmartContract(requests) {
-        return this._sendRequest(requests, false);
-    }
+    async _sendSingleRequest(request) {
+        /**
+         * request = { contractId: string, args: object, readOnly: boolean }
+         */
 
-    /**
-     * Query the given smart contract according to the specified options. Multiple transactions will be generated according to the length of args.
-     * @param {Object | Array<Object>} requests Array of JSON formatted arguments for transaction(s). Each element contains arguments (including the function name) passing to the smart contract. JSON attribute named transaction_type is used by default to specify the function name. If the attribute does not exist, the first attribute will be used as the function name.
-     * @return {Promise<object>} The promise for the result of the execution.
-     */
-    async querySmartContract(requests) {
-        return this._sendRequest(requests, true);
+        try {
+            let fcn = null;
+            let fcArgs = [];
+
+            for (let key in request.args) {
+                if (key === 'transaction_type') {
+                    fcn = request.args[key].toString();
+                } else {
+                    fcArgs.push(request.args[key].toString());
+                }
+            }
+
+            return invokeSmartContractImpl.run(this.fiscoBcosSettings, request.contractId, fcn, fcArgs,
+                this.workspaceRoot, request.readOnly);
+        } catch (error) {
+            commLogger.error(`FISCO BCOS smart contract ${request.readOnly ? 'query': 'invoke'} failed: ${(error.stack ? error.stack : JSON.stringify(error))}`);
+            throw error;
+        }
     }
 
     /**

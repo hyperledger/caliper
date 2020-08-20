@@ -29,9 +29,10 @@ class HelloGetWorkload extends WorkloadModuleBase {
             contractId: 'helloworld',
             args: {
                 transaction_type: 'get()'
-            }
+            },
+            readOnly: true
         };
-        await this.sutAdapter.querySmartContract(args);
+        await this.sutAdapter.sendRequests(args);
     }
 }
 

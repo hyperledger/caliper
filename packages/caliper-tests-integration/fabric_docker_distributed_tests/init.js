@@ -45,10 +45,11 @@ class MarblesInitWorkload extends WorkloadModuleBase {
             contractId: this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles',
             contractFunction: 'initMarble',
             contractArguments: [marbleName, marbleColor, marbleSize, marbleOwner],
-            timeout: 5
+            timeout: 5,
+            readOnly: false
         };
 
-        await this.sutAdapter.invokeSmartContract(args);
+        await this.sutAdapter.sendRequests(args);
     }
 }
 

@@ -47,7 +47,7 @@ class MarblesQueryByChannelWorkload extends WorkloadModuleBase {
             timeout: 10
         };
 
-        await this.sutAdapter.querySmartContract(args);
+        await this.sutAdapter.sendRequests(args);
     }
 }
 

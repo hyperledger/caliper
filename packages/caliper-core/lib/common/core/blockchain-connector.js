@@ -120,23 +120,38 @@ class BlockchainConnector extends EventEmitter {
     }
 
     /**
-     * Invoke a smart contract
-     * @param {object|object[]} requests The object(s) containing the arguments of the call.
-     * @return {Promise<TxStatus[]>} The array of data about the executed transactions.
+     * Send one or more requests to the backing SUT.
+     * @param {object|object[]} requests The object(s) containing the options of the request(s).
+     * @return {Promise<TxStatus|TxStatus[]>} The array of data about the executed requests.
      * @async
      */
-    async invokeSmartContract(requests) {
-        throw new Error('invokeSmartContract is not implemented for this blockchain connector');
+    async sendRequests(requests) {
+        if (!Array.isArray(requests)) {
+            this._onTxsSubmitted(1);
+            const result = await this._sendSingleRequest(requests);
+            this._onTxsFinished(result);
+            return result;
+        }
+
+        const promises = [];
+        for (let i = 0; i < requests.length; ++i) {
+            this._onTxsSubmitted(1);
+            promises.push(this._sendSingleRequest(requests[i]));
+        }
+
+        const results = await Promise.all(promises);
+        this._onTxsFinished(results);
+        return results;
     }
 
     /**
-     * Query state from the ledger using a smart contract
-     * @param {object|object[]} requests The object(s) containing the arguments for the call.
-     * @return {Promise<TxStatus[]>} The array of data about the executed queries.
+     * Send a request to the backing SUT. Must be overridden by derived classes.
+     * @param {object} request The object containing the options of the request.
+     * @return {Promise<TxStatus>} The array of data about the executed requests.
      * @async
      */
-    async querySmartContract(requests) {
-        throw new Error('querySmartContract is not implemented for this blockchain connector');
+    async _sendSingleRequest(request) {
+        throw new Error('_sendSingleRequest is not implemented for this blockchain connector');
     }
 }
 

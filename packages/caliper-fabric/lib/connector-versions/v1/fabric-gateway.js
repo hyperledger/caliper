@@ -1705,66 +1705,25 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
-     * Invokes/queries the specified contract according to the provided settings.
-     *
-     * @param {ContractInvokeSettings|ContractInvokeSettings[]|ContractQuerySettings|ContractQuerySettings[]} requests The settings (collection) associated with the (batch of) transactions to submit.
-     * @param {boolean} isSubmit Indicates whether the TX is read-write, or read-only.
-     * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
+     * Send a single request to the backing SUT.
+     * @param {FabricRequestSettings} request The request object.
      */
-    async _sendRequests(requests, isSubmit) {
-        const promises = [];
-        let requestsArray;
-
-        if (!Array.isArray(requests)) {
-            requestsArray = [requests];
-        } else {
-            requestsArray = requests;
+    async _sendSingleRequest(request) {
+        if (!request.hasOwnProperty('channel')) {
+            const contractDetails = this.networkUtil.getContractDetails(request.contractId);
+            if (!contractDetails) {
+                throw new Error(`Could not find details for contract ID ${request.contractId}`);
+            }
+            request.channel = contractDetails.channel;
+            request.contractId = contractDetails.id;
+            request.contractVersion = contractDetails.version;
         }
 
-        for (const request of requestsArray) {
-            this._onTxsSubmitted(1);
-
-            // Populate the contract details for the invoke
-            if (!request.hasOwnProperty('channel')) {
-                const contractDetails = this.networkUtil.getContractDetails(request.contractId);
-                if (!contractDetails) {
-                    throw new Error(`Could not find details for contract ID ${request.contractId}`);
-                }
-                request.channel = contractDetails.channel;
-                request.contractId = contractDetails.id;
-                request.contractVersion = contractDetails.version;
-            }
-
-            if (!request.invokerIdentity) {
-                request.invokerIdentity = this.defaultInvoker;
-            }
-
-            promises.push(this._performGatewayTransaction(request, isSubmit));
+        if (!request.invokerIdentity) {
+            request.invokerIdentity = this.defaultInvoker;
         }
 
-        const results = await Promise.all(promises);
-        this._onTxsFinished(results);
-        return results;
-    }
-
-    /**
-     * Invokes the specified contract according to the provided settings.
-     *
-     * @param {ContractInvokeSettings|ContractInvokeSettings[]} requests The settings (collection) associated with the (batch of) transactions to submit.
-     * @return {Promise<TxStatus[]>} The result and stats of the transaction invocation.
-     */
-    async invokeSmartContract(requests) {
-        return this._sendRequests(requests, true);
-    }
-
-    /**
-     * Queries the specified contract according to the provided settings.
-     *
-     * @param {ContractQuerySettings|ContractQuerySettings[]} requests The settings (collection) associated with the (batch of) query to submit.
-     * @return {Promise<TxStatus[]>} The result and stats of the transaction query.
-     */
-    async querySmartContract(requests) {
-        return this._sendRequests(requests, false);
+        return this._performGatewayTransaction(request, request.readOnly === undefined || !request.readOnly);
     }
 
     /**
