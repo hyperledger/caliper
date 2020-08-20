@@ -17,36 +17,39 @@
 const chai = require('chai');
 chai.should();
 
+const ConnectorConfigurationFactory = require('../lib/ConnectorConfigurationFactory');
 const ConnectorConfiguration = require('../lib/ConnectorConfiguration');
 
-describe('An Adapter Configuration', () => {
+describe('An Adapter Configuration Factory', () => {
     it('should accept a valid YAML file', () => {
         (() => {
-            new ConnectorConfiguration('./test/sampleConfigs/BasicConfig.yaml');
+            const connectorConfiguration = new ConnectorConfigurationFactory().create('./test/sampleConfigs/BasicConfig.yaml');
+            connectorConfiguration.should.be.instanceOf(ConnectorConfiguration);
         }).should.not.throw();
     });
 
     it('should accept a valid JSON file', () => {
         (() => {
-            new ConnectorConfiguration('./test/sampleConfigs/BasicConfig.json');
+            const connectorConfiguration = new ConnectorConfigurationFactory().create('./test/sampleConfigs/BasicConfig.json');
+            connectorConfiguration.should.be.instanceOf(ConnectorConfiguration);
         }).should.not.throw();
     });
 
     it('should throw an error if not a valid YAML file', () => {
         (() => {
-            new ConnectorConfiguration('./sampleConfigs/invalid.yaml');
+            new ConnectorConfigurationFactory().create('./sampleConfigs/invalid.yaml');
         }).should.throw(/Failed to parse the .*invalid.yaml/);
     });
 
     it('should throw an error if not a valid JSON file', () => {
         (() => {
-            new ConnectorConfiguration('./sampleConfigs/invalid.json');
+            new ConnectorConfigurationFactory().create('./sampleConfigs/invalid.json');
         }).should.throw(/Failed to parse the .*invalid.json/);
     });
 
     it('should throw an error if no file exists', () => {
         (() => {
-            new ConnectorConfiguration('/path/to/nonexistent/config.yaml');
+            new ConnectorConfigurationFactory().create('/path/to/nonexistent/config.yaml');
         }).should.throw(/Failed to parse the \/path\/to\/nonexistent\/config.yaml/);
     });
 });
