@@ -342,7 +342,7 @@ hr {
   flex-direction: column;
   border-top: 1px solid $c-grey;
   border-bottom: 1px solid $c-grey;
-  background-color: $c-purple;
+  background-color: $c-grey;
   color: white;
 
   .title-1 {
@@ -369,6 +369,44 @@ hr {
       &:hover {
         border: 1px solid mix($c-grey, $c-purple, 40%);
         color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.section-3 {
+  height: 100px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $c-grey;
+  border-bottom: 1px solid $c-grey;
+  background-color: $c-grey;
+  color: white;
+
+  .title-1 {
+    h2, p {
+      color: black;
+    }
+  }
+  .tut-section {
+    display: flex;
+    padding-top: 30px;
+    .tut-specific {
+      strong {
+        padding-top: 5px;
+      }
+      flex: 1;
+      margin-right: 30px;
+      padding: 25px;
+      border: 1px solid transparent;
+      transition: 0.4s cubic-bezier(0.075, 0.820, 0.165, 1.000);
+      background-color: mix($c-grey 40%);
+      color: black;
+      &:hover {
+        border: 1px solid mix($c-black, 40%);
+        color: black;
         text-decoration: none;
       }
     }
@@ -499,6 +537,18 @@ article {
   }
 }
 
+.section-3 {
+  height: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  .tut-section {
+    flex-direction: column;
+    .tut-specific {
+      margin-right: 0px;
+      margin-bottom: 20px;
+    }
+  }
+}
 .docs-wrapper {
   flex-direction: column;
 }
