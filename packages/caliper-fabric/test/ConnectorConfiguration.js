@@ -17,36 +17,43 @@
 const chai = require('chai');
 chai.should();
 
-const ConnectorConfiguration = require('../lib/ConnectorConfiguration');
+const ConnectorConfigurationFactory = require('../lib/ConnectorConfigurationFactory');
+const GenerateConfiguration = require('./utils/GenerateConfiguration');
 
-describe('An Adapter Configuration', () => {
-    it('should accept a valid YAML file', () => {
-        (() => {
-            new ConnectorConfiguration('./test/sampleConfigs/BasicConfig.yaml');
-        }).should.not.throw();
-    });
+describe('A valid Adapter Configuration', () => {
 
-    it('should accept a valid JSON file', () => {
-        (() => {
-            new ConnectorConfiguration('./test/sampleConfigs/BasicConfig.json');
-        }).should.not.throw();
-    });
+    describe('for mutual TLS', () => {
+        it('should report true if specified as true in the configuration', () => {
+            const connectorConfiguration = new ConnectorConfigurationFactory().create('./test/sampleConfigs/BasicConfig.yaml');
+            connectorConfiguration.isMutualTLS().should.be.true;
+        });
 
-    it('should throw an error if not a valid YAML file', () => {
-        (() => {
-            new ConnectorConfiguration('./sampleConfigs/invalid.yaml');
-        }).should.throw(/Failed to parse the .*invalid.yaml/);
-    });
+        it('should report false if specified as false in the configuration', () => {
+            const configFile = new GenerateConfiguration('./test/sampleConfigs/BasicConfig.yaml').generateConfigurationFileWithSpecifics(
+                {
+                    caliper: {
+                        blockchain: 'fabric',
+                        sutOptions: {
+                            mutualTls: false
+                        }
+                    }
+                }
+            );
+            const connectorConfiguration = new ConnectorConfigurationFactory().create(configFile);
+            connectorConfiguration.isMutualTLS().should.be.false;
+        });
 
-    it('should throw an error if not a valid JSON file', () => {
-        (() => {
-            new ConnectorConfiguration('./sampleConfigs/invalid.json');
-        }).should.throw(/Failed to parse the .*invalid.json/);
-    });
+        it('should report false if not specified in the configuration', () => {
+            const configFile = new GenerateConfiguration('./test/sampleConfigs/BasicConfig.yaml').generateConfigurationFileWithSpecifics(
+                {
+                    caliper: {
+                        blockchain: 'fabric'
+                    }
+                }
+            );
+            const connectorConfiguration = new ConnectorConfigurationFactory().create(configFile);
+            connectorConfiguration.isMutualTLS().should.be.false;
+        });
 
-    it('should throw an error if no file exists', () => {
-        (() => {
-            new ConnectorConfiguration('/path/to/nonexistent/config.yaml');
-        }).should.throw(/Failed to parse the \/path\/to\/nonexistent\/config.yaml/);
     });
 });
