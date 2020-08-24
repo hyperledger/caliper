@@ -31,6 +31,16 @@ class ConnectorConfiguration {
         const configPath = CaliperUtils.resolvePath(connectorConfigurationPath);
         this.adapterConfiguration = CaliperUtils.parseYaml(configPath);
     }
+
+    /**
+     * return whether mutual TLS is required or not
+     * @returns {boolean} true if mutual TLS required, false otherwise
+     */
+    isMutualTLS() {
+
+        return (this.adapterConfiguration.caliper.sutOptions &&
+                this.adapterConfiguration.caliper.sutOptions.mutualTls) ? true : false;
+    }
 }
 
 module.exports = ConnectorConfiguration;
