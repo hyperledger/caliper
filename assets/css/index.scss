@@ -390,16 +390,19 @@ hr {
       color: black;
     }
   }
-  .tutorialsthing {
+  .tut-section {
     display: flex;
     padding-top: 30px;
-    .tutorialthing {
+    .tut-specific {
+      strong {
+        padding-top: 5px;
+      }
       flex: 1;
       margin-right: 30px;
       padding: 25px;
       border: 1px solid transparent;
       transition: 0.4s cubic-bezier(0.075, 0.820, 0.165, 1.000);
-      background-color: mix($c-offwhite, 40%);
+      background-color: mix($c-grey 40%);
       color: black;
       &:hover {
         border: 1px solid mix($c-black, 40%);
@@ -538,9 +541,9 @@ article {
   height: auto;
   padding-top: 50px;
   padding-bottom: 50px;
-  .tutorialsthing {
+  .tut-section {
     flex-direction: column;
-    .tutorialthing {
+    .tut-specific {
       margin-right: 0px;
       margin-bottom: 20px;
     }
