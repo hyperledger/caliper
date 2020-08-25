@@ -167,7 +167,7 @@ class MaxRate extends RateInterface {
     }
 
     /**
-     * Apply the client TPS
+     * Apply the worker TPS
      */
     async applySleepInterval() {
         const sleepTime = 1000 / this.tpsSettings.current;
