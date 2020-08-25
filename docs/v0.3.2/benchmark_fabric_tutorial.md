@@ -15,7 +15,7 @@ order:
 
 This tutorial takes you through performance testing a smart contract on a pre-existing Fabric network using Caliper. 
 
- This tutorial follows from this [fabric tutorial](https://hlf.readthedocs.io/en/latest/test_network.html) follows from the test-network fabric tutorial. You need to have installed and instantiated the fabcar smart contract (part two of the Fabric tutorial).
+ This tutorial follows from th3 test-network [fabric tutorial](https://hlf.readthedocs.io/en/latest/test_network.html). You need to have installed and instantiated the fabcar smart contract (part two of the Fabric tutorial).
 
 
 ## Step 1 - Install and Bind Caliper
