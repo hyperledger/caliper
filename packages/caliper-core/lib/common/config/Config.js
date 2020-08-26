@@ -44,7 +44,8 @@ const keys = {
         }
     },
     Monitor: {
-        DefaultInterval: 'caliper-monitor-default-interval'
+        DefaultInterval: 'caliper-monitor-default-interval',
+        PrometheusScrapePort: 'caliper-monitor-prometheus-scrape-port'
     },
     Workspace: 'caliper-workspace',
     ProjectConfig: 'caliper-projectconfig',

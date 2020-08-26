@@ -29,9 +29,10 @@ class InternalTxObserver extends TxObserverInterface {
      * Initializes the observer instance.
      * @param {MessengerInterface} messenger The worker messenger instance.
      * @param {string} managerUuid The UUID of the messenger for message sending.
+     * @param {number} workerIndex The 0-based index of the worker node.
      */
-    constructor(messenger, managerUuid) {
-        super(messenger);
+    constructor(messenger, managerUuid, workerIndex) {
+        super(messenger, workerIndex);
         this.updateInterval = ConfigUtil.get(ConfigUtil.keys.Worker.Update.Interval);
         this.intervalObject = undefined;
         this.messengerUUID = messenger.getUUID();
@@ -49,12 +50,11 @@ class InternalTxObserver extends TxObserverInterface {
 
     /**
      * Activates the TX observer instance and starts the regular update scheduling.
-     * @param {number} workerIndex The 0-based index of the worker node.
      * @param {number} roundIndex The 0-based index of the current round.
      * @param {string} roundLabel The roundLabel name.
      */
-    async activate(workerIndex, roundIndex, roundLabel) {
-        await super.activate(workerIndex, roundIndex, roundLabel);
+    async activate(roundIndex, roundLabel) {
+        await super.activate(roundIndex, roundLabel);
         this.intervalObject = setInterval(async () => { await this._sendUpdate(); }, this.updateInterval);
     }
 

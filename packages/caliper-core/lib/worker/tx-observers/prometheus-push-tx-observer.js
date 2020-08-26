@@ -15,7 +15,6 @@
 'use strict';
 
 const TxObserverInterface = require('./tx-observer-interface');
-// const TxResetMessage = require('../../common/messages/txResetMessage');
 const PrometheusClient = require('../../common/prometheus/prometheus-push-client');
 const CaliperUtils = require('../../common/utils/caliper-utils');
 
@@ -27,9 +26,10 @@ class PrometheusPushTxObserver extends TxObserverInterface {
      * Initializes the observer instance.
      * @param {object} options The observer configuration object.
      * @param {MessengerInterface} messenger The worker messenger instance.
+     * @param {number} workerIndex The 0-based index of the worker node.
      */
-    constructor(options, messenger) {
-        super(messenger);
+    constructor(options, messenger, workerIndex) {
+        super(messenger, workerIndex);
         this.sendInterval = options && options.sendInterval || 1000;
         this.intervalObject = undefined;
 
@@ -76,12 +76,11 @@ class PrometheusPushTxObserver extends TxObserverInterface {
 
     /**
      * Activates the TX observer instance and starts the regular update scheduling.
-     * @param {number} workerIndex The 0-based index of the worker node.
      * @param {number} roundIndex The 0-based index of the current round.
      * @param {string} roundLabel The roundLabel name.
      */
-    async activate(workerIndex, roundIndex, roundLabel) {
-        await super.activate(workerIndex, roundIndex, roundLabel);
+    async activate(roundIndex, roundLabel) {
+        await super.activate(roundIndex, roundLabel);
         this.intervalObject = setInterval(async () => { await this._sendUpdate(); }, this.sendInterval);
     }
 
@@ -112,10 +111,11 @@ class PrometheusPushTxObserver extends TxObserverInterface {
  * Factory function for creating a PrometheusPushTxObserver instance.
  * @param {object} options The observer configuration object.
  * @param {MessengerInterface} messenger The worker messenger instance.
+ * @param {number} workerIndex The 0-based index of the worker node.
  * @return {TxObserverInterface} The observer instance.
  */
-function createTxObserver(options, messenger) {
-    return new PrometheusPushTxObserver(options, messenger);
+function createTxObserver(options, messenger, workerIndex) {
+    return new PrometheusPushTxObserver(options, messenger, workerIndex);
 }
 
 module.exports.createTxObserver = createTxObserver;

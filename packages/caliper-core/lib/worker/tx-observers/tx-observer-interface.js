@@ -31,11 +31,12 @@ class TxObserverInterface {
     /**
      * Initializes the TX observer instance.
      * @param {MessengerInterface} messenger The worker messenger instance.
+     * @param {number} workerIndex The 0-based index of the worker node.
      */
-    constructor(messenger) {
+    constructor(messenger, workerIndex) {
         this.messenger = messenger;
         this.active = false;
-        this.workerIndex = 0;
+        this.workerIndex = workerIndex;
         this.currentRound = 0;
         this.roundStatistics = [];
 
@@ -57,15 +58,14 @@ class TxObserverInterface {
 
     /**
      * Activates the TX observer instance, and in turn, the new TX statistics collector.
-     * @param {number} workerIndex The 0-based index of the worker node.
      * @param {number} roundIndex The 0-based index of the current round.
      * @param {string} roundLabel The roundLabel name.
      */
-    async activate(workerIndex, roundIndex, roundLabel) {
+    async activate(roundIndex, roundLabel) {
         this.active = true;
-        this.workerIndex = workerIndex;
         this.currentRound = roundIndex;
-        this.roundStatistics[this.currentRound] = new TransactionStatisticsCollector(workerIndex, roundIndex, roundLabel);
+        this.roundLabel = roundLabel;
+        this.roundStatistics[this.currentRound] = new TransactionStatisticsCollector(this.workerIndex, roundIndex, roundLabel);
         this.roundStatistics[this.currentRound].activate();
     }
 

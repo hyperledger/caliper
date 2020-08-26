@@ -27,10 +27,11 @@ class LoggingTxObserver extends TxObserverInterface{
      * Initializes the observer instance.
      * @param {object} options The log observer configuration object.
      * @param {MessengerInterface} messenger The worker messenger instance. Not used.
+     * @param {number} workerIndex The 0-based index of the worker node.
      */
-    constructor(options, messenger) {
-        super(messenger);
-        let logger = CaliperUtils.getLogger(options.loggerModuleName || 'txinfo');
+    constructor(options, messenger, workerIndex) {
+        super(messenger, workerIndex);
+        let logger = CaliperUtils.getLogger(options.loggerModuleName || 'txInfo');
         this.logFunction = logger[options.messageLevel || 'info'];
     }
 
@@ -70,10 +71,11 @@ class LoggingTxObserver extends TxObserverInterface{
  * Factory function for creating a LoggingTxObserver instance.
  * @param {object} options The logging observer configuration object.
  * @param {MessengerInterface} messenger The worker messenger instance. Not used.
+ * @param {number} workerIndex The 0-based index of the worker node.
  * @return {TxObserverInterface} The observer instance.
  */
-function createTxObserver(options, messenger) {
-    return new LoggingTxObserver(options, messenger);
+function createTxObserver(options, messenger, workerIndex) {
+    return new LoggingTxObserver(options, messenger, workerIndex);
 }
 
 module.exports.createTxObserver = createTxObserver;

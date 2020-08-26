@@ -20,7 +20,7 @@ const CaliperUtils = require('../../common/utils/caliper-utils');
 
 const builtInTxObservers = new Map([
     ['logging', path.join(__dirname, 'logging-tx-observer.js')],
-    // spoilers :) ['prometheus', path.join(__dirname, 'prometheus-tx-observer.js')],
+    ['prometheus', path.join(__dirname, 'prometheus-tx-observer.js')],
     ['prometheus-push', path.join(__dirname, 'prometheus-push-tx-observer.js')]
 ]);
 
@@ -35,9 +35,10 @@ class TxObserverDispatch extends TxObserverInterface {
      * @param {MessengerInterface} messenger The worker messenger instance.
      * @param {TxObserverInterface} internalTxObserver The executor's internal TX observer instance.
      * @param {string} managerUuid The UUID of the messenger for message sending.
+     * @param {number} workerIndex The 0-based index of the worker node.
      */
-    constructor(messenger, internalTxObserver, managerUuid) {
-        super(messenger);
+    constructor(messenger, internalTxObserver, managerUuid, workerIndex) {
+        super(messenger, workerIndex);
         // contains the loaded TX observers
         this.txObservers = [];
 
@@ -45,7 +46,7 @@ class TxObserverDispatch extends TxObserverInterface {
         let observerConfigs = super.getDeclaredTxObservers();
         for (let observer of observerConfigs) {
             const factoryFunction = CaliperUtils.loadModuleFunction(builtInTxObservers, observer.module, 'createTxObserver');
-            this.txObservers.push(factoryFunction(observer.options, messenger, managerUuid));
+            this.txObservers.push(factoryFunction(observer.options, messenger, workerIndex));
         }
 
         // always load the internal TX observer
@@ -54,16 +55,15 @@ class TxObserverDispatch extends TxObserverInterface {
 
     /**
      * Activates the dispatch, and in turn, every configured TX observer instance.
-     * @param {number} workerIndex The 0-based index of the worker node.
      * @param {number} roundIndex The 0-based index of the current round.
      * @param {string} roundLabel The roundLabel name.
      * @async
      */
-    async activate(workerIndex, roundIndex, roundLabel) {
-        await super.activate(workerIndex, roundIndex, roundLabel);
+    async activate(roundIndex, roundLabel) {
+        await super.activate(roundIndex, roundLabel);
 
         for (let observer of this.txObservers) {
-            await observer.activate(workerIndex, roundIndex, roundLabel);
+            await observer.activate(roundIndex, roundLabel);
         }
     }
 
