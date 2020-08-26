@@ -16,6 +16,7 @@ order: 5
 * [Transaction](#transaction)
   * [Logging](#logging)
   * [Prometheus](#prometheus)
+  * [Prometheus Push Gateway](#prometheus-push-gateway)
 * [Resource Charting](#resource-charting)
   * [Process charting](#process-charting)
   * [Docker charting](#docker-charting)
@@ -160,8 +161,41 @@ monitors:
     transaction:
     - module: logging
 ```
-
 ### Prometheus
+The `prometheus` transaction module is used to expose current transaction statistics of all workers to a Prometheus server, via a scrape mechanism. The module exposes the following metrics:
+- caliper_tx_submitted (counter)
+- caliper_tx_finished (counter)
+- caliper_tx_e2e_latency (histogram)
+
+The following specifies the use of a `prometheus` transaction module that exposes metrics for collection on the default port (3000) and the default scrape URL (`/metrics`).
+
+```
+monitors:
+    transaction:
+    - module: prometheus
+```
+
+If operating with process based workers, each worker will increment the default (or overridden) port with their 0 based index, thereby exposing metrics for each worker on different ports. 
+
+It is the responsibility of the user to configure a Prometheus server that correctly targets the exposed URLS through a correctly specified [configuration file](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
+
+Options comprise:
+- metricPath: override for the metrics path to be scraped (default `/metrics`).
+- scrapePort: override for the port to be used when configuring the scrape sever (default 3000).
+- processMetricCollectInterval: time interval for default metrics collection, enabled when present
+- defaultLabels: object of key:value pairs to augment the default labels applied to the exposed metrics during collection.
+- histogramBuckets: override for the histogram to be used for collection of `caliper_tx_e2e_latency`
+  - explicit: direct pass through of user defined bucket
+  - linear: use a linear bucket with user defined start, width and count parameters
+    - start: start bucket size
+    - width: bucket width
+    - count: number of buckets to create
+  - exponential
+    - start: start bucket size
+    - factor: bucket factor
+    - count: number of buckets to create
+
+### Prometheus Push Gateway
 The `prometheus-push` transaction module is used to dispatch current transaction submissions of all clients to a Prometheus server, via a push gateway. The following specifies the use of a `prometheus-push` transaction module that sends current transaction statistics to a push gateway located at `http://localhost:9091` at 5 second intervals.
 
 ```
