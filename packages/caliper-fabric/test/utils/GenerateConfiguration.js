@@ -19,7 +19,6 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 
-
 /**
  * Class to generate a test configuration file
  */
@@ -47,7 +46,7 @@ class GenerateTestConfiguration {
      * @returns {string} A Path to the new configuration file
      */
     generateConfigurationFileWithSpecifics(overrideBaseConfiguration) {
-        const clonedConfiguration = this._deepCloneObject(this.baseConfiguration);
+        const clonedConfiguration = JSON.parse(JSON.stringify(this.baseConfiguration));
         Object.assign(clonedConfiguration, overrideBaseConfiguration);
         const newConfigurationFilePath = path.join(this.temporaryDirectory, 'TestConfig.json');
         fs.writeFileSync(newConfigurationFilePath, JSON.stringify(clonedConfiguration));
@@ -65,22 +64,12 @@ class GenerateTestConfiguration {
      * @returns {string} A Path to the new configuration file
      */
     generateConfigurationFileReplacingProperties(propertyName, replacementValue) {
-        const clonedConfiguration = this._deepCloneObject(this.baseConfiguration);
+        const clonedConfiguration = JSON.parse(JSON.stringify(this.baseConfiguration));
         this._searchAndReplaceProperty(clonedConfiguration, propertyName, replacementValue);
         const newConfigurationFilePath = path.join(this.temporaryDirectory, 'TestConfig.json');
         fs.writeFileSync(newConfigurationFilePath, JSON.stringify(clonedConfiguration));
 
         return newConfigurationFilePath;
-    }
-
-    /**
-     * Simple utility to clone an object
-     *
-     * @param {*} object input object
-     * @returns {*} cloned output object
-     */
-    _deepCloneObject(object) {
-        return JSON.parse(JSON.stringify(object));
     }
 
     /**
