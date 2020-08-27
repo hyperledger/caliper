@@ -15,8 +15,14 @@
 'use strict';
 
 const TxObserverInterface = require('./tx-observer-interface');
-const PrometheusClient = require('../../common/prometheus/prometheus-push-client');
 const CaliperUtils = require('../../common/utils/caliper-utils');
+const ConfigUtil = require('../../common/config/config-util');
+const Constants = require('../../common/utils/constants');
+
+const prometheusClient = require('prom-client');
+const prometheusGcStats = require('prometheus-gc-stats');
+
+const Logger = CaliperUtils.getLogger('prometheus-push-tx-observer');
 
 /**
  * Prometheus TX observer used to maintain Prometheus metrics for the push-based scenario (through a push gateway).
@@ -30,16 +36,68 @@ class PrometheusPushTxObserver extends TxObserverInterface {
      */
     constructor(options, messenger, workerIndex) {
         super(messenger, workerIndex);
-        this.sendInterval = options && options.sendInterval || 1000;
+        this.pushInterval = options && options.pushInterval || ConfigUtil.get(ConfigUtil.keys.Monitor.DefaultInterval);
         this.intervalObject = undefined;
 
-        this.prometheusClient = new PrometheusClient();
-        this.prometheusClient.setGateway(options.push_url);
+        // do not use global registry to avoid conflicts with other potential prom-based observers
+        this.registry = new prometheusClient.Registry();
 
-        this.internalStats = {
-            previouslyCompletedTotal: 0,
-            previouslySubmittedTotal: 0
-        };
+        // automatically apply default internal and user supplied labels
+        this.defaultLabels = options.defaultLabels || {};
+        this.defaultLabels.workerIndex = this.workerIndex;
+        this.defaultLabels.roundIndex = this.currentRound;
+        this.defaultLabels.roundLabel = this.roundLabel;
+        this.registry.setDefaultLabels(this.defaultLabels);
+
+        // Exposed metrics
+        this.counterTxSubmitted = new prometheusClient.Counter({
+            name: 'caliper_tx_submitted',
+            help: 'The total number of submitted transactions.',
+            registers: [this.registry]
+        });
+
+        this.counterTxFinished = new prometheusClient.Counter({
+            name: 'caliper_tx_finished',
+            help: 'The total number of finished transactions.',
+            labelNames: ['final_status'],
+            registers: [this.registry]
+        });
+
+        // configure buckets
+        let buckets = prometheusClient.linearBuckets(0.1, 0.5, 10); // default
+        if (options.histogramBuckets) {
+            if (options.histogramBuckets.explicit) {
+                buckets = options.histogramBuckets.explicit;
+            } else if (options.histogramBuckets.linear) {
+                let linear = options.histogramBuckets.linear;
+                buckets = prometheusClient.linearBuckets(linear.start, linear.width, linear.count);
+            } else if (options.histogramBuckets.exponential) {
+                let exponential = options.histogramBuckets.exponential;
+                buckets = prometheusClient.exponentialBuckets(exponential.start, exponential.factor, exponential.count);
+            }
+        }
+
+        this.histogramLatency = new prometheusClient.Histogram({
+            name: 'caliper_tx_e2e_latency',
+            help: 'The histogram of end-to-end transaction latencies in seconds.',
+            labelNames: ['final_status'],
+            buckets,
+            registers: [this.registry]
+        });
+
+        // setting an interval enables the default metric collection
+        if (this.processMetricCollectInterval) {
+            this.processMetricHandle = prometheusClient.collectDefaultMetrics({
+                register: this.registry,
+                timestamps: false,
+                timeout: this.processMetricCollectInterval
+            });
+            const startGcStats = prometheusGcStats(this.registry);
+            startGcStats();
+        }
+
+        const url = CaliperUtils.augmentUrlWithBasicAuth(options.pushUrl, Constants.AuthComponents.PushGateway);
+        this.prometheusPushGateway = new prometheusClient.Pushgateway(url, null, this.registry);
     }
 
     /**
@@ -47,31 +105,11 @@ class PrometheusPushTxObserver extends TxObserverInterface {
      * @private
      */
     async _sendUpdate() {
-        const stats = super.getCurrentStatistics();
-        this.prometheusClient.configureTarget(stats.getRoundLabel(), stats.getRoundIndex(), stats.getWorkerIndex());
-
-        // Observer based requirements
-        this.prometheusClient.push('caliper_txn_success', stats.getTotalSuccessfulTx());
-        this.prometheusClient.push('caliper_txn_failure', stats.getTotalFailedTx());
-        this.prometheusClient.push('caliper_txn_pending', stats.getTotalSubmittedTx() - stats.getTotalFinishedTx());
-
-        // TxStats based requirements, existing behaviour batches results bounded within txUpdateTime
-        const completedTransactions = stats.getTotalSuccessfulTx() + stats.getTotalFailedTx();
-        const submittedTransactions = stats.getTotalSubmittedTx();
-
-        const batchCompletedTransactions = completedTransactions - this.internalStats.previouslyCompletedTotal;
-        const batchTPS = (batchCompletedTransactions/this.sendInterval)*1000;  // txUpdate is in ms
-
-        const batchSubmittedTransactions = submittedTransactions - this.internalStats.previouslyCompletedTotal;
-        const batchSubmitTPS = (batchSubmittedTransactions/this.sendInterval)*1000;  // txUpdate is in ms
-        const latency = (stats.getTotalLatencyForFailed() + stats.getTotalLatencyForSuccessful()) / completedTransactions;
-
-        this.prometheusClient.push('caliper_tps', batchTPS);
-        this.prometheusClient.push('caliper_latency', latency/1000);
-        this.prometheusClient.push('caliper_txn_submit_rate', batchSubmitTPS);
-
-        this.internalStats.previouslyCompletedTotal = batchCompletedTransactions;
-        this.internalStats.previouslyCompletedTotal = batchSubmittedTransactions;
+        this.prometheusPushGateway.pushAdd({jobName: 'workers'}, function(err, _resp, _body) {
+            if (err) {
+                Logger.error(`Error sending update to Prometheus Push Gateway: ${err.stack}`);
+            }
+        });
     }
 
     /**
@@ -81,7 +119,14 @@ class PrometheusPushTxObserver extends TxObserverInterface {
      */
     async activate(roundIndex, roundLabel) {
         await super.activate(roundIndex, roundLabel);
-        this.intervalObject = setInterval(async () => { await this._sendUpdate(); }, this.sendInterval);
+
+        // update worker and round metadata
+        this.defaultLabels.workerIndex = this.workerIndex;
+        this.defaultLabels.roundIndex = this.currentRound;
+        this.defaultLabels.roundLabel = this.roundLabel;
+        this.registry.setDefaultLabels(this.defaultLabels);
+
+        this.intervalObject = setInterval(async () => { await this._sendUpdate(); }, this.pushInterval);
     }
 
     /**
@@ -89,19 +134,40 @@ class PrometheusPushTxObserver extends TxObserverInterface {
      */
     async deactivate() {
         await super.deactivate();
-
-        this.internalStats = {
-            previouslyCompletedTotal: 0,
-            previouslySubmittedTotal: 0
-        };
+        this.counterTxSubmitted.reset();
+        this.counterTxFinished.reset();
+        this.histogramLatency.reset();
+        this.registry.resetMetrics();
 
         if (this.intervalObject) {
             clearInterval(this.intervalObject);
+            await this._sendUpdate();
+        }
+    }
 
-            this.prometheusClient.push('caliper_txn_success', 0);
-            this.prometheusClient.push('caliper_txn_failure', 0);
-            this.prometheusClient.push('caliper_txn_pending', 0);
-            await CaliperUtils.sleep(this.sendInterval);
+    /**
+     * Called when TXs are submitted.
+     * @param {number} count The number of submitted TXs. Can be greater than one for a batch of TXs.
+     */
+    txSubmitted(count) {
+        this.counterTxSubmitted.inc(count);
+    }
+
+    /**
+     * Called when TXs are finished.
+     * @param {TxStatus | TxStatus[]} results The result information of the finished TXs. Can be a collection of results for a batch of TXs.
+     */
+    txFinished(results) {
+        if (Array.isArray(results)) {
+            for (const result of results) {
+                // pass/fail status from result.GetStatus()
+                this.counterTxFinished.labels(result.GetStatus()).inc();
+                this.histogramLatency.labels(result.GetStatus()).observe(result.GetTimeFinal() - result.GetTimeCreate());
+            }
+        } else {
+            // pass/fail status from result.GetStatus()
+            this.counterTxFinished.labels(results.GetStatus()).inc();
+            this.histogramLatency.labels(results.GetStatus()).observe((results.GetTimeFinal() - results.GetTimeCreate())/1000);
         }
     }
 
