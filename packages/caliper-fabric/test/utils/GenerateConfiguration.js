@@ -26,7 +26,6 @@ const path = require('path');
 class GenerateTestConfiguration {
 
     /**
-     *
      * @param {string} [baseConfigurationPath] a path to an base configuration to be modified
      */
     constructor(baseConfigurationPath) {
@@ -42,7 +41,7 @@ class GenerateTestConfiguration {
     }
 
     /**
-     * override the base configuration, currently only allows overriding at the root of the object
+     * Generate a configuration overriding (replacing or adding) part of the root configuration
      *
      * @param {*} overrideBaseConfiguration object which is applied to the base configuration to override
      * @returns {string} A Path to the new configuration file
@@ -57,9 +56,12 @@ class GenerateTestConfiguration {
     }
 
     /**
+     * Generate a configuration from an existing configuration by replacing a specific
+     * properties value. If the property is repeated more than once it replaces all those
+     * instances
      *
-     * @param {*} propertyName b
-     * @param {*} replacementValue b
+     * @param {string} propertyName a property name in the configuration
+     * @param {*} replacementValue a replacement value for the property in the configuration
      * @returns {string} A Path to the new configuration file
      */
     generateConfigurationFileReplacingProperties(propertyName, replacementValue) {
@@ -72,19 +74,21 @@ class GenerateTestConfiguration {
     }
 
     /**
-     * simple utility to clone an object
+     * Simple utility to clone an object
+     *
      * @param {*} object input object
-     * @returns {object} cloned output object
+     * @returns {*} cloned output object
      */
     _deepCloneObject(object) {
         return JSON.parse(JSON.stringify(object));
     }
 
     /**
+     * Search for a property name and replace it's value if found
      *
-     * @param {*} object b
-     * @param {*} propertyName b
-     * @param {*} replacementValue  b
+     * @param {*} object the object to search and update
+     * @param {string} propertyName a property name in the configuration
+     * @param {*} replacementValue a replacement value for the property in the configuration
      */
     _searchAndReplaceProperty(object, propertyName, replacementValue) {
         for (const objectKey in object) {

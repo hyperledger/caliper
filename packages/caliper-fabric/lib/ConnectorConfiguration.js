@@ -22,7 +22,6 @@ const CaliperUtils = require('@hyperledger/caliper-core').CaliperUtils;
 class ConnectorConfiguration {
 
     /**
-     * Constructor
      * @param {string} connectorConfigurationPath path to the json or yaml file defining the configuration
      */
     constructor(connectorConfigurationPath) {
