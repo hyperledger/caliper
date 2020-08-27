@@ -196,33 +196,56 @@ Options comprise:
     - count: number of buckets to create
 
 ### Prometheus Push Gateway
-The `prometheus-push` transaction module is used to dispatch current transaction submissions of all clients to a Prometheus server, via a push gateway. The following specifies the use of a `prometheus-push` transaction module that sends current transaction statistics to a push gateway located at `http://localhost:9091` at 5 second intervals.
+The `prometheus-push` transaction module is used to expose current transaction statistics of all workers to a Prometheus server, via a push gateway. The module exposes the following metrics:
+- caliper_tx_submitted (counter)
+- caliper_tx_finished (counter)
+- caliper_tx_e2e_latency (histogram)
+
+The following specifies the use of a `prometheus-push` transaction module that sends current transaction statistics to a push gateway located at `http://localhost:9091` at 5 second intervals.
 
 ```
 monitors:
     transaction:
     - module: prometheus-push
       options:
-        interval: 5
-        push_url: "http://localhost:9091"
+        pushInterval: 5
+        pushUrl: "http://localhost:9091"
 ```
+Options comprise:
+- pushInterval: override for the metrics path to be scraped (default `/metrics`).
+- pushUrl: URL for Prometheus Push Gateway
+- processMetricCollectInterval: time interval for default metrics collection, enabled when present
+- defaultLabels: object of key:value pairs to augment the default labels applied to the exposed metrics during collection.
+- histogramBuckets: override for the histogram to be used for collection of `caliper_tx_e2e_latency`
+  - explicit: direct pass through of user defined bucket
+  - linear: use a linear bucket with user defined start, width and count parameters
+    - start: start bucket size
+    - width: bucket width
+    - count: number of buckets to create
+  - exponential
+    - start: start bucket size
+    - factor: bucket factor
+    - count: number of buckets to create
 
-Use of a `prometheus-push` transaction module is predicated on the availability and use of a Prometheus monitor. 
+Use of a `prometheus-push` transaction module is predicated on the availability and use of a Prometheus Push Gateway that is available as a scrape target to Prometheus. 
+
+#### Basic Auth
+It is possible to use a Prometheus Push Gateway that is secured via basic authentication through provision of a username and password as runtime parameters, under the flags:
+- caliper-auth-prometheuspush-username
+- caliper-auth-prometheuspush-password
+
+These will be used to augment the configuration file based URL prior to making a connection.
 
 ### Grafana Visualization
-Grafana is an analytics platform that may be used to query and visualize metrics collected by Prometheus. Caliper clients will send the following to the PushGateway:
- - caliper_tps
- - caliper_latency
- - caliper_send_rate
- - caliper_txn_submitted
- - caliper_txn_success
- - caliper_txn_failure
- - caliper_txn_pending
+Grafana is an analytics platform that may be used to query and visualize metrics collected by Prometheus. Caliper clients make the following metrics available, either via a direct scrape or indirectly via a Prometheus Push Gateway:
+- caliper_tx_submitted (counter)
+- caliper_tx_finished (counter)
+- caliper_tx_e2e_latency (histogram)
 
- Each of the above are sent to the PushGateway, tagged with the following labels: 
-  - instance: the current test label
-  - round: the current test round
-  - client: the client identifier that is sending the information
+ Each of the above are tagged with the following default labels: 
+  - roundLabel: the current test round label
+  - roundIndex: the current test round index
+  - workerIndex: the zero based worker index that is sending the information
 
  We are currently working on a Grafana dashboard to give you immediate access to the metrics published above, but in the interim please feel free to create custom queries to view the above metrics that are accessible in real time.
 
