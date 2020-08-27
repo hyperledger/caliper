@@ -62,6 +62,8 @@ caliper:
     monitor:
         # Default update interval
         defaultinterval: 5000
+        # Default scrape port for prometheus tx observer
+        prometheusscrapeport: 3000
     # Configurations related to the logging mechanism
     logging:
         # Specifies the message structure through placeholders

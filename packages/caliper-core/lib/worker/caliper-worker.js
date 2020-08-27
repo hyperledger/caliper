@@ -40,8 +40,8 @@ class CaliperWorker {
         this.workerIndex = workerIndex;
         this.messenger = messenger;
 
-        this.internalTxObserver = new InternalTxObserver(messenger, managerUuid);
-        this.txObserverDispatch = new TxObserverDispatch(messenger, this.internalTxObserver, managerUuid);
+        this.internalTxObserver = new InternalTxObserver(messenger, managerUuid, workerIndex);
+        this.txObserverDispatch = new TxObserverDispatch(messenger, this.internalTxObserver, managerUuid, workerIndex);
 
         // forward adapter notifications to the TX dispatch observer
         const self = this;
@@ -186,7 +186,7 @@ class CaliperWorker {
 
             // Activate dispatcher
             Logger.debug(`Worker #${this.workerIndex} activating TX observer dispatch`);
-            await this.txObserverDispatch.activate(this.workerIndex, roundIndex, roundLabel);
+            await this.txObserverDispatch.activate(roundIndex, roundLabel);
 
             // Configure
             Logger.debug(`Worker #${this.workerIndex} creating rate controller`);
