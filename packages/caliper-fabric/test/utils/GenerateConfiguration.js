@@ -30,7 +30,7 @@ class GenerateTestConfiguration {
      * @param {string} [baseConfigurationPath] a path to an base configuration to be modified
      */
     constructor(baseConfigurationPath) {
-        this.baseConfigurationPath = {};
+        this.baseConfiguration = {};
 
         if (baseConfigurationPath) {
             this.baseConfiguration = CaliperUtils.parseYaml(baseConfigurationPath);
@@ -57,12 +57,45 @@ class GenerateTestConfiguration {
     }
 
     /**
+     *
+     * @param {*} propertyName b
+     * @param {*} replacementValue b
+     * @returns {string} A Path to the new configuration file
+     */
+    generateConfigurationFileReplacingProperties(propertyName, replacementValue) {
+        const clonedConfiguration = this._deepCloneObject(this.baseConfiguration);
+        this._searchAndReplaceProperty(clonedConfiguration, propertyName, replacementValue);
+        const newConfigurationFilePath = path.join(this.temporaryDirectory, 'TestConfig.json');
+        fs.writeFileSync(newConfigurationFilePath, JSON.stringify(clonedConfiguration));
+
+        return newConfigurationFilePath;
+    }
+
+    /**
      * simple utility to clone an object
      * @param {*} object input object
      * @returns {object} cloned output object
      */
     _deepCloneObject(object) {
         return JSON.parse(JSON.stringify(object));
+    }
+
+    /**
+     *
+     * @param {*} object b
+     * @param {*} propertyName b
+     * @param {*} replacementValue  b
+     */
+    _searchAndReplaceProperty(object, propertyName, replacementValue) {
+        for (const objectKey in object) {
+            if (objectKey === propertyName) {
+                object[objectKey] = replacementValue;
+            } else {
+                if (typeof object[objectKey] === 'object') {
+                    this._searchAndReplaceProperty(object[objectKey], propertyName, replacementValue);
+                }
+            }
+        }
     }
 }
 module.exports = GenerateTestConfiguration;

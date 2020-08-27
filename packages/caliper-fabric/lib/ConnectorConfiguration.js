@@ -37,9 +37,40 @@ class ConnectorConfiguration {
      * @returns {boolean} true if mutual TLS required, false otherwise
      */
     isMutualTLS() {
-
         return (this.adapterConfiguration.caliper.sutOptions &&
                 this.adapterConfiguration.caliper.sutOptions.mutualTls) ? true : false;
+    }
+
+    /**
+     * Returns a list of all the channels which are marked for creation
+     * @returns {string[]} A list of all channels which are marked for creation
+     */
+    getChannelNamesForCreation() {
+        const channelList = this.adapterConfiguration.channels;
+
+        if (channelList &&
+            Array.isArray(channelList)) {
+            return channelList.filter(channelDefinition => channelDefinition.create).map(channelDefinition => channelDefinition.channelName);
+        }
+
+        return [];
+    }
+
+    /**
+     *
+     * @param {string} channelName the name of the channel
+     * @returns {*} returns the channel definition or null if no channel definition for that name
+     */
+    getDefinitionForChannelName(channelName) {
+        const channelList = this.adapterConfiguration.channels;
+
+        if (channelList &&
+            Array.isArray(channelList)) {
+            const filteredChannelDefinitionList = channelList.filter(channelDefinition => channelDefinition.channelName === channelName);
+            return filteredChannelDefinitionList.length > 0 ? filteredChannelDefinitionList[0].definition : null;
+        }
+
+        return null;
     }
 }
 
