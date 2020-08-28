@@ -19,18 +19,16 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 
-
 /**
  * Class to generate a test configuration file
  */
 class GenerateTestConfiguration {
 
     /**
-     *
      * @param {string} [baseConfigurationPath] a path to an base configuration to be modified
      */
     constructor(baseConfigurationPath) {
-        this.baseConfigurationPath = {};
+        this.baseConfiguration = {};
 
         if (baseConfigurationPath) {
             this.baseConfiguration = CaliperUtils.parseYaml(baseConfigurationPath);
@@ -42,13 +40,13 @@ class GenerateTestConfiguration {
     }
 
     /**
-     * override the base configuration, currently only allows overriding at the root of the object
+     * Generate a configuration overriding (replacing or adding) part of the root configuration
      *
      * @param {*} overrideBaseConfiguration object which is applied to the base configuration to override
      * @returns {string} A Path to the new configuration file
      */
     generateConfigurationFileWithSpecifics(overrideBaseConfiguration) {
-        const clonedConfiguration = this._deepCloneObject(this.baseConfiguration);
+        const clonedConfiguration = JSON.parse(JSON.stringify(this.baseConfiguration));
         Object.assign(clonedConfiguration, overrideBaseConfiguration);
         const newConfigurationFilePath = path.join(this.temporaryDirectory, 'TestConfig.json');
         fs.writeFileSync(newConfigurationFilePath, JSON.stringify(clonedConfiguration));
@@ -57,12 +55,40 @@ class GenerateTestConfiguration {
     }
 
     /**
-     * simple utility to clone an object
-     * @param {*} object input object
-     * @returns {object} cloned output object
+     * Generate a configuration from an existing configuration by replacing a specific
+     * properties value. If the property is repeated more than once it replaces all those
+     * instances
+     *
+     * @param {string} propertyName a property name in the configuration
+     * @param {*} replacementValue a replacement value for the property in the configuration
+     * @returns {string} A Path to the new configuration file
      */
-    _deepCloneObject(object) {
-        return JSON.parse(JSON.stringify(object));
+    generateConfigurationFileReplacingProperties(propertyName, replacementValue) {
+        const clonedConfiguration = JSON.parse(JSON.stringify(this.baseConfiguration));
+        this._searchAndReplaceProperty(clonedConfiguration, propertyName, replacementValue);
+        const newConfigurationFilePath = path.join(this.temporaryDirectory, 'TestConfig.json');
+        fs.writeFileSync(newConfigurationFilePath, JSON.stringify(clonedConfiguration));
+
+        return newConfigurationFilePath;
+    }
+
+    /**
+     * Search for a property name and replace it's value if found
+     *
+     * @param {*} object the object to search and update
+     * @param {string} propertyName a property name in the configuration
+     * @param {*} replacementValue a replacement value for the property in the configuration
+     */
+    _searchAndReplaceProperty(object, propertyName, replacementValue) {
+        for (const objectKey in object) {
+            if (objectKey === propertyName) {
+                object[objectKey] = replacementValue;
+            } else {
+                if (typeof object[objectKey] === 'object') {
+                    this._searchAndReplaceProperty(object[objectKey], propertyName, replacementValue);
+                }
+            }
+        }
     }
 }
 module.exports = GenerateTestConfiguration;
