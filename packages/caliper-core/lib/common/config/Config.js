@@ -21,6 +21,12 @@ const nconf = require('nconf');
 nconf.formats.yaml = require('nconf-yaml');
 
 const keys = {
+    Auth: {
+        PrometheusPush: {
+            UserName: 'caliper-auth-prometheuspush-username',
+            Password: 'caliper-auth-prometheuspush-password'
+        }
+    },
     Bind: {
         Sut: 'caliper-bind-sut',
         Args: 'caliper-bind-args',

@@ -46,5 +46,8 @@ module.exports = {
             TxsSubmitted: 'txsSubmitted',
             TxsFinished: 'txsFinished'
         }
+    },
+    AuthComponents: {
+        PushGateway: 'PrometheusPush'
     }
 };

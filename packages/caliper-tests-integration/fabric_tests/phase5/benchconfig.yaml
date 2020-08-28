@@ -33,8 +33,8 @@ monitors:
     transaction:
     - module: prometheus-push
       options:
-        interval: 5
-        push_url: "http://localhost:9091"
+        pushInterval: 5
+        pushUrl: "http://localhost:9091"
     resource:
     - module: prometheus
       options:

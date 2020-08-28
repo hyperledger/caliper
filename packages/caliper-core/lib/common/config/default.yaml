@@ -13,6 +13,14 @@
 #
 
 caliper:
+    # Settings related to the authorization
+    auth:
+        # Prometheus Push Gateway
+        prometheuspush:
+            # username
+            username:
+            # password
+            password:
     # Settings related to the binding command
     bind:
         # The binding specification of the SUT in the <SUT type>:<SDK version> format
@@ -61,7 +69,7 @@ caliper:
     # Configurations related to caliper test monitors
     monitor:
         # Default update interval
-        defaultinterval: 5000
+        defaultinterval: 10000
         # Default scrape port for prometheus tx observer
         prometheusscrapeport: 3000
     # Configurations related to the logging mechanism

@@ -14,13 +14,15 @@
 
 'use strict';
 
-const {exec, spawn} = require('child_process');
-const path = require('path');
-require('winston-daily-rotate-file');
-const fs = require('fs');
-const yaml = require('js-yaml');
 const loggingUtil = require('./logging-util.js');
 const Config = require('../config/config-util');
+
+const {exec, spawn} = require('child_process');
+const fs = require('fs');
+const path = require('path');
+const yaml = require('js-yaml');
+const url = require('url');
+require('winston-daily-rotate-file');
 
 const BuiltinConnectors = new Map([
     ['burrow', '@hyperledger/caliper-burrow'],
@@ -586,6 +588,25 @@ class CaliperUtils {
      */
     static millisToSeconds(value) {
         return value / 1000;
+    }
+
+    /**
+     * Augment the passed URL with basic auth if the settings are present
+     * @param {string} urlPath the URL to augment
+     * @param {string} component the component being augmented
+     * @returns {string} the URL to be used, which may have been augmented with basic auth
+     */
+    static augmentUrlWithBasicAuth(urlPath, component) {
+        const username = Config.get(Config.keys.Auth[component].UserName, undefined);
+        const password = Config.get(Config.keys.Auth[component].Password, undefined);
+        if (username && password) {
+            const myURL = new url.URL(urlPath);
+            myURL.username = username;
+            myURL.password = password;
+            return url.format(myURL);
+        } else {
+            return urlPath;
+        }
     }
 
 }
