@@ -94,14 +94,15 @@ All data stored on Prometheus may be queried by Caliper using the Prometheus que
 The prometheus monitoring module options comprise:
 - interval: monitor update interval
 - url: The Prometheus URL, used for direct queries
-- metrics: The queries to be run for inclusion within the Caliper report, comprised of to keys: `ignore` and `include`. 
-  - `ignore` a string array that is used as a blacklist for report results. Any results where the component label matches an item in the list, will *not* be included in a generated report.
-  - `include` a series of blocks that describe the queries that are to be run at the end of each Caliper test.
+- metrics: The queries to be run for inclusion within the Caliper report, comprised of to keys: `include` and `queries`. 
+  - `include` a string array that is used to determine metric inclusion through javascript regex. Any query results where the label of interest, as specified in the queries block, matches an item within the include list via regex, will be included in a generated report.
+  - `queries` a series of blocks that describe the queries that are to be run at the end of each Caliper test.
 
-The `include` block is defined by:
+The `queries` block is defined by:
+- name: the metric name that the query relates to, used when building the report
 - query: the query to be issued to the Prometheus server at the end of each test. Note that Caliper will add time bounding for the query so that only results pertaining to the test round are included.
 - step: the timing step size to use within the range query
-- label: a string to match on the returned query and used when populating the report
+- label: a string to match on the returned query and used as a component identifier when populating the report
 - statistic: if multiple values are returned, for instance if looking at a specific resource over a time range, the statistic will condense the values to a single result to enable reporting. Permitted options are:
   - avg: return the average from all values
   - max: return the maximum from all values
@@ -118,24 +119,31 @@ monitors:
         interval: 5
         url: "http://localhost:9090"
         metrics:
-            ignore: [prometheus, pushGateway, cadvisor, grafana, node-exporter]
-            include:
-                Endorse Time (s):
-                    query: rate(endorser_propsal_duration_sum{chaincode="marbles:v0"}[1m])/rate(endorser_propsal_duration_count{chaincode="marbles:v0"}[1m])
-                    step: 1
-                    label: instance
-                    statistic: avg
-                Max Memory (MB):
-                    query: sum(container_memory_rss{name=~".+"}) by (name)
-                    step: 10
-                    label: name
-                    statistic: max
-                    multiplier: 0.000001
+            include: [dev-.*, couch, peer, orderer]
+            queries:
+                - name: Endorse Time (s)
+                  query: rate(endorser_propsal_duration_sum{chaincode="marbles:v0"}[1m])/rate(endorser_propsal_duration_count{chaincode="marbles:v0"}[1m])
+                  step: 1
+                  label: instance
+                  statistic: avg
+                - name: Max Memory (MB)
+                  query: sum(container_memory_rss{name=~".+"}) by (name)
+                  step: 10
+                  label: name
+                  statistic: max
+                  multiplier: 0.000001
 ```
 The two queries above will be listed in the generated report as "Endorse Time (s)" and "Max Memory (MB)" respectively:
  - **Endorse Time (s):** Runs the listed query with a step size of 1; filters on return tags using the `instance` label; exclude the result if the instance value matches any of the string values provided in the `ignore` array; if the instance does not match an exclude option, then determine the average of all return results and return this value to be reported under "Endorse Time (s)".
  - **Max Memory (MB):** Runs the listed query with a step size of 10; filter return tags using the `name` label; exclude the result if the instance value matches any of the string values provided in the `ignore` array; if the instance does not match an exclude option, then determine the maximum of all return results; multiply by the provided multiplier and return this value to be reported under "Max Memory (MB)".
 
+Returned components with labels that pass a regex test against the `include` array items, will be included within the report; all others will be omitted.
+#### Basic Auth
+It is possible to use a Prometheus Server that is secured via basic authentication through provision of a username and password as runtime parameters, under the flags:
+- caliper-auth-prometheus-username
+- caliper-auth-prometheus-password
+
+These will be used to augment the configuration file based URL prior to making a connection.
 
 #### Obtaining a Prometheus Enabled Network
 A sample network that includes a docker-compose file for standing up a Prometheus server, a Prometheus PushGateway and a linked Grafana analytics container, is available within the companion [caliper-benchmarks repository](https://github.com/hyperledger/caliper-benchmarks/tree/master/networks/prometheus-grafana).
@@ -319,19 +327,19 @@ monitors:
         interval: 5
         url: "http://localhost:9090"
         metrics:
-            ignore: [prometheus, pushGateway, cadvisor, grafana, node-exporter]
-            include:
-                Endorse Time (s):
-                    query: rate(endorser_propsal_duration_sum{chaincode="marbles:v0"}[1m])/rate(endorser_propsal_duration_count{chaincode="marbles:v0"}[1m])
-                    step: 1
-                    label: instance
-                    statistic: avg
-                Max Memory (MB):
-                    query: sum(container_memory_rss{name=~".+"}) by (name)
-                    step: 10
-                    label: name
-                    statistic: max
-                    multiplier: 0.000001
+            include: [dev.*, couch, peer, orderer]
+            queries:
+                - name: Endorse Time (s)
+                  query: rate(endorser_propsal_duration_sum{chaincode="marbles:v0"}[1m])/rate(endorser_propsal_duration_count{chaincode="marbles:v0"}[1m])
+                  step: 1
+                  label: instance
+                  statistic: avg
+                - name: Max Memory (MB)
+                  query: sum(container_memory_rss{name=~".+"}) by (name)
+                  step: 10
+                  label: name
+                  statistic: max
+                  multiplier: 0.000001
       charting:
         polar:
           metrics: [Max Memory (MB)]
