@@ -41,6 +41,21 @@ class ConnectorConfiguration {
     }
 
     /**
+     * Returns a list of all the channels defined in the configuration
+     * @returns {string[]} A list of all channels in the configuration
+     */
+    getAllChannelNames() {
+        const channelList = this.adapterConfiguration.channels;
+
+        if (channelList &&
+            Array.isArray(channelList)) {
+            return channelList.map(channelDefinition => channelDefinition.channelName);
+        }
+
+        return [];
+    }
+
+    /**
      * Returns a list of all the channels which are marked for creation
      * @returns {string[]} A list of all channels which are marked for creation
      */

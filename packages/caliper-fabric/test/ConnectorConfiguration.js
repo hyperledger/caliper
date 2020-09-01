@@ -56,8 +56,52 @@ describe('A valid Adapter Configuration', () => {
         });
     });
 
+    describe('for Channel name retrieval', () => {
+        it('should provide a list of all the channel names', () => {
+            const connectorConfiguration = new ConnectorConfigurationFactory().create('./test/sampleConfigs/BasicConfig.yaml');
+            const channelNames = connectorConfiguration.getAllChannelNames();
+            channelNames.length.should.equal(2);
+            channelNames[0].should.equal('my-channel', 'your-channel');
+        });
+
+        it('should provide an empty list of channel names if channel section not defined', () => {
+            const configFile = new GenerateConfiguration().generateConfigurationFileWithSpecifics(
+                {
+                    caliper: {
+                        blockchain: 'fabric'
+                    }
+                }
+            );
+            const connectorConfiguration = new ConnectorConfigurationFactory().create(configFile);
+            const channelNames = connectorConfiguration.getAllChannelNames();
+            channelNames.length.should.equal(0);
+        });
+
+        it('should provide an empty list of channel names if channel section is empty', () => {
+            const configFile = new GenerateConfiguration('./test/sampleConfigs/BasicConfig.yaml').generateConfigurationFileWithSpecifics(
+                {
+                    channels: []
+                }
+            );
+            const connectorConfiguration = new ConnectorConfigurationFactory().create(configFile);
+            const channelNames = connectorConfiguration.getAllChannelNames();
+            channelNames.length.should.equal(0);
+        });
+
+        it('should provide an empty list of channel names if channel section is not an array', () => {
+            const configFile = new GenerateConfiguration('./test/sampleConfigs/BasicConfig.yaml').generateConfigurationFileWithSpecifics(
+                {
+                    channels: {}
+                }
+            );
+            const connectorConfiguration = new ConnectorConfigurationFactory().create(configFile);
+            const channelNames = connectorConfiguration.getAllChannelNames();
+            channelNames.length.should.equal(0);
+        });
+    });
+
     describe('for Channel creation', () => {
-        it('should provide a list with a single channel name that require creation', () => {
+        it('should provide a list with a single channel name that requires creation', () => {
             const connectorConfiguration = new ConnectorConfigurationFactory().create('./test/sampleConfigs/BasicConfig.yaml');
             const channelNames = connectorConfiguration.getChannelNamesForCreation();
             channelNames.length.should.equal(1);
