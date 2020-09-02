@@ -41,7 +41,7 @@ describe('linearRate controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients:2
+                totalWorkers:2
             };
             testMessage = new TestMessage('test', [], msgContent);
         });
@@ -74,7 +74,7 @@ describe('linearRate controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients:2
+                totalWorkers:2
             };
             testMessage = new TestMessage('test', [], msgContent);
         });
@@ -113,7 +113,7 @@ describe('linearRate controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients:2
+                totalWorkers:2
             };
             testMessage = new TestMessage('test', [], msgContent);
         });
@@ -122,39 +122,39 @@ describe('linearRate controller implementation', () => {
             clock.restore();
         });
 
-        it('should set the starting sleep time based on starting tps and total number of clients', () => {
-            testMessage.content.totalClients = 6;
+        it('should set the starting sleep time based on starting tps and total number of workers', () => {
+            testMessage.content.totalWorkers = 6;
             testMessage.content.rateControl.opts = { startingTps: 20 };
             controller = new LinearRate.createRateController(testMessage, {}, 0);
 
-            // If there are 6 clients with an initial 20 TPS goal, the starting sleep time should be (1000/(20/6)) = 300ms
+            // If there are 6 workers with an initial 20 TPS goal, the starting sleep time should be (1000/(20/6)) = 300ms
             controller.startingSleepTime.should.equal(300);
         });
 
         it('should set the gradient based on linear interpolation between two points separated based on a txn count', () => {
-            testMessage.content.totalClients = 6;
+            testMessage.content.totalWorkers = 6;
             testMessage.content.rateControl.opts = { startingTps: 20, finishingTps: 80 };
             testMessage.content.numb = 5;
             controller = new LinearRate.createRateController(testMessage, {}, 0);
 
-            // if there are 6 clients with a starting sleep time of (1000/(20/6) = 300, a finishing sleep time of (1000/(80/6)) = 75, and a duration of 5,
+            // if there are 6 workers with a starting sleep time of (1000/(20/6) = 300, a finishing sleep time of (1000/(80/6)) = 75, and a duration of 5,
             // the gradient should be ((75 - 300) / 5) = -45
             controller.gradient.should.equal(-45);
         });
 
         it('should set the gradient based on linear interpolation between two points separated based on a duration count', () => {
-            testMessage.content.totalClients = 6;
+            testMessage.content.totalWorkers = 6;
             testMessage.content.rateControl.opts = { startingTps: 20, finishingTps: 80 };
             testMessage.content.txDuration = 5;
             controller = new LinearRate.createRateController(testMessage, {}, 0);
 
-            // If there are 6 clients with a starting sleep time of (1000/(20/6) = 300, a finishing sleep time of (1000/(80/6)) = 75, and a duration of (5*1000) = 5000,
+            // If there are 6 workers with a starting sleep time of (1000/(20/6) = 300, a finishing sleep time of (1000/(80/6)) = 75, and a duration of (5*1000) = 5000,
             // the gradient should be ((75 - 300) / 5000) = -0.045
             controller.gradient.should.equal(-0.045);
         });
 
         it('should assign _interpolateFromIndex to _interpolate if txCount based', () => {
-            testMessage.content.totalClients = 6;
+            testMessage.content.totalWorkers = 6;
             testMessage.content.rateControl.opts = { startingTps: 20, finishingTps: 80 };
             testMessage.content.numb = 5;
 
@@ -167,7 +167,7 @@ describe('linearRate controller implementation', () => {
         });
 
         it('should assign _interpolateFromTime to _interpolate if txCount based', () => {
-            testMessage.content.totalClients = 6;
+            testMessage.content.totalWorkers = 6;
             testMessage.content.rateControl.opts = { startingTps: 20, finishingTps: 80 };
             testMessage.content.txDuration = 5;
 
@@ -197,7 +197,7 @@ describe('linearRate controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients:2
+                totalWorkers:2
             };
 
             clock = sinon.useFakeTimers();

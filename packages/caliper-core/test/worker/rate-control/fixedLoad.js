@@ -44,46 +44,46 @@ describe('fixedLoad controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients:2
+                totalWorkers:2
             };
             testMessage = new TestMessage('test', [], msgContent);
         });
 
-        it('should set the sleep time for a single client if a single worker is specified and the startingTps is not specified', () => {
+        it('should set the sleep time for a single worker if a single worker is specified and the startingTps is not specified', () => {
             testMessage.content.rateControl.opts = {};
-            testMessage.content.totalClients = 1;
+            testMessage.content.totalWorkers = 1;
             controller = new FixedLoad.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(200);
         });
 
-        it('should set the sleep time for a single client if no clients are specified and the startingTps is specified', () => {
+        it('should set the sleep time for a single worker if no workers are specified and the startingTps is specified', () => {
             testMessage.content.rateControl.opts = { startTps: 50 };
-            testMessage.content.totalClients = 1;
+            testMessage.content.totalWorkers = 1;
             controller = new FixedLoad.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(20);
         });
 
         it('should set the sleep time for a multiple workers it the startingTps is not specified', () => {
             testMessage.content.rateControl.opts = {};
-            testMessage.content.totalClients = 2;
+            testMessage.content.totalWorkers = 2;
             controller = new FixedLoad.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(400);
         });
 
         it('should set the sleep time for a multiple workers if the startingTps is specified', () => {
             testMessage.content.rateControl.opts = { startTps: 50 };
-            testMessage.content.totalClients = 2;
+            testMessage.content.totalWorkers = 2;
             controller = new FixedLoad.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(40);
         });
 
-        it('should set a default transaction backlog for multiple clients if not specified', () => {
+        it('should set a default transaction backlog for multiple workers if not specified', () => {
             testMessage.content.rateControl.opts = { startTps: 50 };
             controller = new FixedLoad.createRateController(testMessage, {}, 0);
             controller.targetLoad.should.equal(5);
         });
 
-        it('should set the transaction backlog for multiple clients if specified', () => {
+        it('should set the transaction backlog for multiple workers if specified', () => {
             controller = new FixedLoad.createRateController(testMessage, {}, 0);
             controller.targetLoad.should.equal(10);
         });
@@ -114,7 +114,7 @@ describe('fixedLoad controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients:2
+                totalWorkers:2
             };
             const testMessage = new TestMessage('test', [], msgContent);
             txnStats = new TransactionStatisticsCollector();

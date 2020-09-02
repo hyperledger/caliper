@@ -41,26 +41,26 @@ describe('fixedRate controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients:2
+                totalWorkers:2
             };
             testMessage = new TestMessage('test', [], msgContent);
         });
 
         it('should set a default sleep time if no options passed', () => {
-            testMessage.content.totalClients = 1;
+            testMessage.content.totalWorkers = 1;
             controller = new FixedRate.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(100);
         });
 
-        it('should set the sleep time for a single client', () => {
-            testMessage.content.totalClients = 1;
+        it('should set the sleep time for a single worker', () => {
+            testMessage.content.totalWorkers = 1;
             testMessage.content.rateControl.opts = { tps: 50 };
             controller = new FixedRate.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(20);
         });
 
-        it('should set the sleep time for multiple clients', () => {
-            testMessage.content.totalClients = 2;
+        it('should set the sleep time for multiple workers', () => {
+            testMessage.content.totalWorkers = 2;
             testMessage.content.rateControl.opts = { tps: 50 };
             controller = new FixedRate.createRateController(testMessage, {}, 0);
             controller.sleepTime.should.equal(40);
@@ -83,7 +83,7 @@ describe('fixedRate controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients:2
+                totalWorkers:2
             };
 
             clock = sinon.useFakeTimers();

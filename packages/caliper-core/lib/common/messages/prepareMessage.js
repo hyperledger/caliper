@@ -39,7 +39,7 @@ class PrepareMessage extends Message {
      * @return {object} The worker arguments.
      */
     getWorkerArguments() {
-        return this.content.clientArgs;
+        return this.content.workerArgs;
     }
 
     /**
@@ -47,7 +47,7 @@ class PrepareMessage extends Message {
      * @return {number} The number of workers.
      */
     getWorkersNumber() {
-        return this.content.totalClients;
+        return this.content.totalWorkers;
     }
 
     /**

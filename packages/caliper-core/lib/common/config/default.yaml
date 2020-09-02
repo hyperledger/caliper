@@ -54,7 +54,7 @@ caliper:
     userconfig:
     # The file path for the user-level configuration file. Can be relative to the workspace.
     machineconfig:
-    # Path to the benchmark workload file that describes the test client(s), test rounds and monitor
+    # Path to the benchmark workload file that describes the test workers(s), test rounds and monitor
     benchconfig:
     # Path to the blockchain configuration file that contains information required to interact with the SUT
     networkconfig:
@@ -81,7 +81,7 @@ caliper:
         formats:
             # Adds a timestamp to the messages with the following format
             timestamp: 'YYYY.MM.DD-HH:mm:ss.SSS'
-            # Adds a specified label to every message. Useful for distributed client scenario
+            # Adds a specified label to every message. Useful for distributed workers scenario
             label: caliper
             # serializes the log messages as JSON
             json: false
@@ -188,7 +188,7 @@ caliper:
             proposalresponse: false
             # Indicates whether to verify that the read-write sets returned by the endorsers match
             readwritesets: true
-        # Contains client-side timeouts related to the initialization part of the adapter
+        # Contains worker-side timeouts related to the initialization part of the adapter
         timeout:
             # Timeout in milliseconds for the endorsement part of a contract instantiation
             contractinstantiate: 300000
@@ -196,8 +196,8 @@ caliper:
             contractinstantiateevent: 100000
             # The default timeout in milliseconds to use for invoking or querying transactions (applied for the entire life-cycle)
             invokeorquery: 60000
-        # Determines how automatic load balancing is applied if the client callback module doesn’t provide explicit targets.
-        # Use the value 'client' to perform client-based load balancing, meaning that each client process will have fix target peers and target orderer.
+        # Determines how automatic load balancing is applied if the worker callback module doesn’t provide explicit targets.
+        # Use the value 'worker' to perform worker-based load balancing, meaning that each worker process will have fix target peers and target orderer.
         # Use the value 'tx' to perform transaction-based load balancing, meaning that the peer and orderer targets change for every submitted transaction or query.
         loadbalancing: tx
         # Indicates whether to temporarily set the GOPATH environment variable to the Caliper root directory

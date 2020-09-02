@@ -37,8 +37,8 @@ class FixedRate extends RateInterface {
         super(testMessage, stats, workerIndex);
 
         const tps = this.options.tps ? this.options.tps : 10;
-        const tpsPerClient = tps / this.numberOfWorkers;
-        this.sleepTime = (tpsPerClient > 0) ? 1000/tpsPerClient : 0;
+        const tpsPerWorker = tps / this.numberOfWorkers;
+        this.sleepTime = (tpsPerWorker > 0) ? 1000/tpsPerWorker : 0;
     }
 
     /**

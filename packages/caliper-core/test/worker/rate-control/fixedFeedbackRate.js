@@ -40,13 +40,13 @@ describe('fixedFeedbackRate controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients:2
+                totalWorkers:2
             };
             testMessage = new TestMessage('test', [], msgContent);
         });
 
-        it('should set the sleepTime for a single client if no options are specified', () => {
-            testMessage.content.totalClients = 1;
+        it('should set the sleepTime for a single worker if no options are specified', () => {
+            testMessage.content.totalWorkers = 1;
             controller = new FixedFeedbackRate.createRateController(testMessage, {}, 0);
             controller.generalSleepTime.should.equal(100);
         });
@@ -92,7 +92,7 @@ describe('fixedFeedbackRate controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients:2
+                totalWorkers:2
             };
 
             clock = sinon.useFakeTimers();

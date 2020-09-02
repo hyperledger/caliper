@@ -49,9 +49,9 @@ class TestObserverInterface {
 
     /**
      * Start watching the test output from the orchestrator
-     * @param {ClientOrchestrator} clientOrchestrator  the client orchestrator
+     * @param {WorkerOrchestrator} workerOrchestrator  the worker orchestrator
      */
-    startWatch(clientOrchestrator) {
+    startWatch(workerOrchestrator) {
         this._throwNotImplementedError('startWatch');
     }
 

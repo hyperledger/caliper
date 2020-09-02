@@ -39,8 +39,8 @@ class FixedLoad extends RateInterface {
         super(testMessage, stats, workerIndex);
 
         const tps = this.options.startTps ? parseInt(this.options.startTps) : 5;
-        const tpsPerClient = tps / this.numberOfWorkers;
-        this.sleepTime = 1000 / tpsPerClient;
+        const tpsPerWorker = tps / this.numberOfWorkers;
+        this.sleepTime = 1000 / tpsPerWorker;
         const transactionLoad = this.options.transactionLoad ? parseInt(this.options.transactionLoad) : 10;
         this.targetLoad = transactionLoad / this.numberOfWorkers;
     }

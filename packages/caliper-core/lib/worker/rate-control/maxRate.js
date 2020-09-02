@@ -48,11 +48,11 @@ class MaxRate extends RateInterface {
         // Include failed transactions in TPS
         this.includeFailed = this.options.includeFailed ? this.options.includeFailed : true;
 
-        // Client TPS
+        // Worker TPS
         const startTps = this.options.tps ? this.options.tps : 5;
-        const startTpsPerClient = startTps / this.numberOfWorkers;
+        const startTpsPerWorker = startTps / this.numberOfWorkers;
 
-        // Client TPS Step
+        // Worker TPS Step
         const tpsStep = this.options.step ? this.options.step : 5;
         this.step = tpsStep / this.numberOfWorkers;
 
@@ -64,8 +64,8 @@ class MaxRate extends RateInterface {
 
         // Object for TPS settings
         this.tpsSettings = {
-            previous: startTpsPerClient,
-            current: startTpsPerClient
+            previous: startTpsPerWorker,
+            current: startTpsPerWorker
         };
 
         // Object for observed stats

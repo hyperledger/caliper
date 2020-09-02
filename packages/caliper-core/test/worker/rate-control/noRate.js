@@ -41,7 +41,7 @@ describe('noRate controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients:2
+                totalWorkers:2
             };
             testMessage = new TestMessage('test', [], msgContent);
         });
@@ -84,7 +84,7 @@ describe('noRate controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients:2
+                totalWorkers:2
             };
 
             clock = sinon.useFakeTimers();

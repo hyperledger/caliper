@@ -42,7 +42,7 @@ describe('maxRate controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients:1
+                totalWorkers:1
             };
             testMessage = new TestMessage('test', [], msgContent);
         });
@@ -56,7 +56,7 @@ describe('maxRate controller implementation', () => {
             controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.tpsSettings.current.should.equal(5);
 
-            testMessage.content.totalClients = 2;
+            testMessage.content.totalWorkers = 2;
             controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.tpsSettings.current.should.equal(2.5);
         });
@@ -68,7 +68,7 @@ describe('maxRate controller implementation', () => {
             controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.tpsSettings.current.should.equal(10);
 
-            testMessage.content.totalClients = 2;
+            testMessage.content.totalWorkers = 2;
             controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.tpsSettings.current.should.equal(5);
         });
@@ -77,7 +77,7 @@ describe('maxRate controller implementation', () => {
             controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.step.should.equal(5);
 
-            testMessage.content.totalClients = 2;
+            testMessage.content.totalWorkers = 2;
             controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.step.should.equal(2.5);
         });
@@ -89,7 +89,7 @@ describe('maxRate controller implementation', () => {
             controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.step.should.equal(10);
 
-            testMessage.content.totalClients = 2;
+            testMessage.content.totalWorkers = 2;
             controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.step.should.equal(5);
         });
@@ -98,7 +98,7 @@ describe('maxRate controller implementation', () => {
             controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.sampleInterval.should.equal(10000);
 
-            testMessage.content.totalClients = 2;
+            testMessage.content.totalWorkers = 2;
             controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.sampleInterval.should.equal(10000);
         });
@@ -110,7 +110,7 @@ describe('maxRate controller implementation', () => {
             controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.sampleInterval.should.equal(20000);
 
-            testMessage.content.totalClients = 2;
+            testMessage.content.totalWorkers = 2;
             controller = new MaxRate.createRateController(testMessage, {}, 0);
             controller.sampleInterval.should.equal(20000);
         });
@@ -139,7 +139,7 @@ describe('maxRate controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients: 1
+                totalWorkers: 1
             };
 
             sleepStub = sinon.stub();
@@ -278,7 +278,7 @@ describe('maxRate controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients: 1
+                totalWorkers: 1
             };
 
             const testMessage = new TestMessage('test', [], msgContent);
@@ -326,7 +326,7 @@ describe('maxRate controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients: 1
+                totalWorkers: 1
             };
 
             const testMessage = new TestMessage('test', [], msgContent);
@@ -368,7 +368,7 @@ describe('maxRate controller implementation', () => {
                 },
                 testRound:0,
                 txDuration:250,
-                totalClients: 1
+                totalWorkers: 1
             };
 
             sleepStub = sinon.stub();
