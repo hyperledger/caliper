@@ -30,6 +30,7 @@ fi
 export CALIPER_PROJECTCONFIG=../caliper.yaml
 
 dispose () {
+    docker ps -a
     ${CALL_METHOD} launch manager --caliper-workspace phase1 --caliper-flow-only-end
 }
 

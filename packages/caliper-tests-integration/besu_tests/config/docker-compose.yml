@@ -22,6 +22,7 @@ services:
     container_name: besu_clique
     volumes:
       - ./keys:/root/.ethereum/keystore
+      - ./data:/root
     ports:
       - 8545-8547:8545-8547
     command: --revert-reason-enabled --rpc-ws-enabled --rpc-ws-host 0.0.0.0 --host-whitelist=* --rpc-ws-apis admin,eth,miner,web3,net --graphql-http-enabled --discovery-enabled=false
