@@ -22,8 +22,8 @@
         "nyc": "nyc mocha --recursive -t 10000"
     },
     "engines": {
-        "node": ">=8.10.0",
-        "npm": ">=5.6.0"
+        "node": ">=14.9.0",
+        "npm": ">=6.14.6"
     },
     "files": [
         "generators"
