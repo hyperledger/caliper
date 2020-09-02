@@ -1926,21 +1926,20 @@ class Fabric extends BlockchainConnector {
         this.txIndex = -1;
 
         if (!this.context) {
-            await this._initializeChannelsAndEventHubs();
             this.context = {
                 networkInfo: this.networkUtil,
                 clientIdx: this.workerIndex
             };
+            await this._initializeChannelsAndEventHubs();
         }
 
         return this.context;
     }
 
     /**
-     *
+     * Initialize the channels and event hubs
      */
     async _initializeChannelsAndEventHubs() {
-        // Configure the connector
         for (const channel of this.networkUtil.getChannels()) {
             // initialize the channels by getting the config from the orderer
             await this._initializeChannel(this.adminProfiles, channel, true);
