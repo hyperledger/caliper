@@ -1925,6 +1925,21 @@ class Fabric extends BlockchainConnector {
         // Reset counter for new test round
         this.txIndex = -1;
 
+        if (!this.context) {
+            await this._initializeChannelsAndEventHubs();
+            this.context = {
+                networkInfo: this.networkUtil,
+                clientIdx: this.workerIndex
+            };
+        }
+
+        return this.context;
+    }
+
+    /**
+     *
+     */
+    async _initializeChannelsAndEventHubs() {
         // Configure the connector
         for (const channel of this.networkUtil.getChannels()) {
             // initialize the channels by getting the config from the orderer
@@ -1998,13 +2013,6 @@ class Fabric extends BlockchainConnector {
                 eventSources.push(es);
             }
         }
-
-        this.context = {
-            networkInfo: this.networkUtil,
-            clientIdx: this.workerIndex
-        };
-
-        return this.context;
     }
 
     /**
