@@ -35,7 +35,7 @@ module.exports.builder = function (yargs){
         'caliper-bind-args'  : {describe: 'Additional arguments to pass to "npm remove". Use the "=" notation when setting this parameter', type: 'string' },
         'caliper-bind-file'  : {describe: 'Yaml file to override default (supported) package versions when unbinding an SDK', type: 'string' }
     });
-    yargs.usage('Usage:\n  caliper unbind --caliper-bind-sut fabric:1.4.1 --caliper-bind-cwd ./ --caliper-bind-args="-g"');
+    yargs.usage('Usage:\n  caliper unbind --caliper-bind-sut fabric:1.4 --caliper-bind-cwd ./ --caliper-bind-args="-g"');
     // enforce the option after these options
     yargs.requiresArg(['caliper-bind-sut', 'caliper-bind-args', 'caliper-bind-cwd']);
 

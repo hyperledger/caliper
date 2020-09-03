@@ -30,48 +30,30 @@ sut:
     # Specifies the available SDK bindings and their Node.js-specific install settings
     fabric:
         # The name/key of the SDK binding
-        1.0.0:
+        1.1.0:
             # Specifies the packages and their versions to install
             packages: ['grpc@1.10.1', 'fabric-ca-client@1.1.0', 'fabric-client@1.1.0', 'fabric-protos@2.0.0-snapshot.1']
             # The settings to apply during binding. The first setting whose versionRegexp matches the node version will be used
             settings:
             - *new-node-old-grpc
-        1.1.0:
+        1.1:
+            # Specifies the packages and their versions to install
             packages: ['grpc@1.10.1', 'fabric-ca-client@1.1.0', 'fabric-client@1.1.0', 'fabric-protos@2.0.0-snapshot.1']
+            # The settings to apply during binding. The first setting whose versionRegexp matches the node version will be used
             settings:
             - *new-node-old-grpc
-        1.2.0:
-            packages: ['grpc@1.10.1', 'fabric-ca-client@1.2.0', 'fabric-client@1.2.0', 'fabric-protos@2.0.0-snapshot.1']
-            settings:
-            - *new-node-old-grpc
-        1.3.0:
-            packages: ['grpc@1.14.2', 'fabric-ca-client@1.3.0', 'fabric-client@1.3.0', 'fabric-protos@2.0.0-snapshot.1']
-        1.4.0:
-            packages: ['grpc@1.14.2', 'fabric-ca-client@1.4.0', 'fabric-client@1.4.0', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.0']
-        1.4.1:
-            packages: ['grpc@1.14.2', 'fabric-ca-client@1.4.1', 'fabric-client@1.4.1', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.1']
-        1.4.3:
-            packages: ['grpc@1.14.2', 'fabric-ca-client@1.4.2', 'fabric-client@1.4.3', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.2']
-        1.4.4:
-            packages: ['grpc@1.14.2', 'fabric-ca-client@1.4.4', 'fabric-client@1.4.4', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.4']
-        1.4.5:
-            packages: ['fabric-client@1.4.5', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.5']
-        1.4.6:
-            packages: ['fabric-client@1.4.6', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.6']
-        1.4.7:
-            packages: ['fabric-client@1.4.7', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.7']
-        1.4.8:
-            packages: ['fabric-client@1.4.8', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.8']
-        1.4.9:
-            packages: ['fabric-client@1.4.9', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.9']
-        1.4.10:
-            packages: ['fabric-client@1.4.10', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.10']
         1.4.11: &fabric-latest
             packages: ['fabric-client@1.4.11', 'fabric-protos@2.0.0-snapshot.1', 'fabric-network@1.4.11']
+        1.4: *fabric-latest
         2.1.0:
             packages: ['fabric-common@2.1.0', 'fabric-protos@2.1.0', 'fabric-network@2.1.0', 'fabric-ca-client@2.1.0']
-        2.2.0: &fabric-latest-v2
+        2.2.0:
             packages: ['fabric-common@2.2.0', 'fabric-protos@2.2.0', 'fabric-network@2.2.0', 'fabric-ca-client@2.2.0']
+        2.2.1:
+            packages: ['fabric-common@2.2.1', 'fabric-protos@2.2.1', 'fabric-network@2.2.1', 'fabric-ca-client@2.2.1']
+        2.2.2: &fabric-latest-v2
+            packages: ['fabric-common@2.2.2', 'fabric-protos@2.2.2', 'fabric-network@2.2.2', 'fabric-ca-client@2.2.2']
+        2.2: *fabric-latest-v2
         latest: *fabric-latest
         latest-v2: *fabric-latest-v2
 
