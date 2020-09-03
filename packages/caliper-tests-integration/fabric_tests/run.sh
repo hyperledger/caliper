@@ -30,7 +30,7 @@ cd ${DIR}
 # bind during CI tests, using the package dir as CWD
 # Note: do not use env variables for binding settings, as subsequent launch calls will pick them up and bind again
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    ${CALL_METHOD} bind --caliper-bind-sut fabric:1.4.11 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev"
+    ${CALL_METHOD} bind --caliper-bind-sut fabric:1.4 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev"
 fi
 
 # change default settings (add config paths too)
@@ -103,12 +103,12 @@ fi
 # UNBIND SDK, using the package dir as CWD
 # Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    ${CALL_METHOD} unbind --caliper-bind-sut fabric:1.4.11 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev" --caliper-projectconfig ./caliper.yaml
+    ${CALL_METHOD} unbind --caliper-bind-sut fabric:1.4 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev" --caliper-projectconfig ./caliper.yaml
 fi
 # BIND with 2.2.2 SDK, using the package dir as CWD
 # Note: do not use env variables for unbinding settings, as subsequent launch calls will pick them up and bind again
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
-    ${CALL_METHOD} bind --caliper-bind-sut fabric:2.2.2 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev"
+    ${CALL_METHOD} bind --caliper-bind-sut fabric:2.2 --caliper-bind-cwd ./../../caliper-fabric/ --caliper-bind-args="--save-dev"
 fi
 
 # PHASE 6: testing through the gateway API (v2 SDK)
