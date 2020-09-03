@@ -44,9 +44,9 @@ class FixedFeedbackRateController extends RateInterface {
         super(testMessage, stats, workerIndex);
 
         const tps = this.options.tps ? parseInt(this.options.tps) : 10;
-        const tpsPerClient = tps / this.numberOfWorkers;
+        const tpsPerWorker = tps / this.numberOfWorkers;
 
-        this.generalSleepTime = (tpsPerClient > 0) ? 1000 / tpsPerClient : 0;
+        this.generalSleepTime = (tpsPerWorker > 0) ? 1000 / tpsPerWorker : 0;
         this.backOffTime = this.options.sleepTime || 100;
 
         const transactionLoad = this.options.transactionLoad ? this.options.transactionLoad : 10;

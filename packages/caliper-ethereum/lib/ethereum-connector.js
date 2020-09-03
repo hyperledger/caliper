@@ -17,6 +17,7 @@
 const EthereumHDKey = require('ethereumjs-wallet/hdkey');
 const Web3 = require('web3');
 const {BlockchainConnector, CaliperUtils, ConfigUtil, TxStatus} = require('@hyperledger/caliper-core');
+
 const logger = CaliperUtils.getLogger('ethereum-connector');
 
 /**
@@ -50,7 +51,7 @@ class EthereumConnector extends BlockchainConnector {
         this.ethereumConfig = ethereumConfig;
         this.web3 = new Web3(this.ethereumConfig.url);
         this.web3.transactionConfirmationBlocks = this.ethereumConfig.transactionConfirmationBlocks;
-        this.clientIndex = workerIndex;
+        this.workerIndex = workerIndex;
         this.context = undefined;
     }
 
@@ -118,14 +119,14 @@ class EthereumConnector extends BlockchainConnector {
     /**
      * Return the Ethereum context associated with the given callback module name.
      * @param {Number} roundIndex The zero-based round index of the test.
-     * @param {object} args Unused.
+     * @param {object} args worker arguments.
      * @return {object} The assembled Ethereum context.
      * @async
      */
     async getContext(roundIndex, args) {
         let context = {
             chainId: 1,
-            clientIndex: this.clientIndex,
+            clientIndex: this.workerIndex,
             gasPrice: 0,
             contracts: {},
             nonces: {},
@@ -159,7 +160,7 @@ class EthereumConnector extends BlockchainConnector {
 
         if (this.ethereumConfig.fromAddressSeed) {
             let hdwallet = EthereumHDKey.fromMasterSeed(this.ethereumConfig.fromAddressSeed);
-            let wallet = hdwallet.derivePath('m/44\'/60\'/' + this.clientIndex + '\'/0/0').getWallet();
+            let wallet = hdwallet.derivePath('m/44\'/60\'/' + this.workerIndex + '\'/0/0').getWallet();
             context.fromAddress = wallet.getChecksumAddressString();
             context.nonces[context.fromAddress] = await this.web3.eth.getTransactionCount(context.fromAddress);
             this.web3.eth.accounts.wallet.add(wallet.getPrivateKeyString());
@@ -278,9 +279,9 @@ class EthereumConnector extends BlockchainConnector {
     }
 
     /**
-     * It passes deployed contracts addresses to all clients (only known after deploy contract)
-     * @param {Number} number of clients to prepare
-     * @returns {Array} client args
+     * It passes deployed contracts addresses to all workers (only known after deploy contract)
+     * @param {Number} number of workers to prepare
+     * @returns {Array} worker args
      * @async
      */
     async prepareWorkerArguments(number) {

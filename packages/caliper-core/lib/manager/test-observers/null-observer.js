@@ -41,9 +41,9 @@ class NullObserver extends TestObserverInterface {
 
     /**
      * Start observing the test output
-     * @param {ClientOrchestrator} clientOrchestrator  the client orchestrator
+     * @param {WorkerOrchestrator} workerOrchestrator  the worker orchestrator
      */
-    startWatch(clientOrchestrator) {
+    startWatch(workerOrchestrator) {
         Logger.debug('No action taken by NullObserver on startWatch');
     }
 

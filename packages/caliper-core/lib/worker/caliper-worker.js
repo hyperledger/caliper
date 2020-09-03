@@ -182,7 +182,7 @@ class CaliperWorker {
 
         try {
             Logger.debug(`Worker #${this.workerIndex} initializing adapter context`);
-            let context = await this.connector.getContext(testMessage.getRoundLabel(), workerArguments, this.workerIndex);
+            let context = await this.connector.getContext(roundIndex, workerArguments);
 
             // Activate dispatcher
             Logger.debug(`Worker #${this.workerIndex} activating TX observer dispatch`);

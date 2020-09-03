@@ -39,7 +39,7 @@ class LinearRateController extends RateInterface {
     constructor(testMessage, stats, workerIndex) {
         super(testMessage, stats, workerIndex);
 
-        // distributing TPS among clients
+        // distributing TPS among workers
         let startingTps = Number(this.options.startingTps) / this.numberOfWorkers;
         let finishingTps = Number(this.options.finishingTps) / this.numberOfWorkers;
         this.startingSleepTime = 1000 / startingTps;

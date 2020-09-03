@@ -55,10 +55,10 @@ const TestObserver = class {
 
     /**
      * Start watching the test output from the orchestrator
-     * @param {ClientOrchestrator} clientOrchestrator  the client orchestrator
+     * @param {WorkerOrchestrator} workerOrchestrator  the worker orchestrator
      */
-    startWatch(clientOrchestrator) {
-        this.observer.startWatch(clientOrchestrator);
+    startWatch(workerOrchestrator) {
+        this.observer.startWatch(workerOrchestrator);
     }
 
     /**

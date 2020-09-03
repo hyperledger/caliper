@@ -174,7 +174,7 @@ class WorkerOrchestrator {
             logger.info(`Existing ${Object.keys(this.workers).length} connected workers detected, progressing to worker assignment phase.`);
         }
 
-        // Make sure the clients have been assigned an index
+        // Make sure the workers have been assigned an index
         if(!this.workersAssigned) {
             logger.info('Workers currently unassigned, awaiting index assignment...');
             // Use promise array to await all worker init operations
@@ -188,10 +188,10 @@ class WorkerOrchestrator {
             // Inform connected worker of their workerIndex (!== mqttClientId)
             // worker index is integer based, and maps to worker arguments passed by a user
             const workerArray = Object.keys(this.workers);
-            for (let clientId of workerArray) {
-                const worker = this.workers[clientId];
-                worker.workerId = workerArray.indexOf(clientId);
-                const msg = new AssignIdMessage(this.messenger.getUUID(), [clientId], { workerIndex: worker.workerId });
+            for (let workerId of workerArray) {
+                const worker = this.workers[workerId];
+                worker.workerId = workerArray.indexOf(workerId);
+                const msg = new AssignIdMessage(this.messenger.getUUID(), [workerId], { workerIndex: worker.workerId });
                 this.messenger.send(msg);
             }
 
@@ -206,7 +206,7 @@ class WorkerOrchestrator {
             logger.info(`Existing ${Object.keys(this.workers).length} connected workers detected are assigned, progressing to worker initialization phase.`);
         }
 
-        // Make sure the clients are ready
+        // Make sure the workers are ready
         if (!this.workersReady) {
             // Use promise array to await all worker init operations
             const workersReadyPromise = new Promise((resolve, reject) => {
@@ -275,7 +275,7 @@ class WorkerOrchestrator {
         }
         case MessageTypes.Assigned:
             if (!this.workers[workerId]) {
-                logger.warn(`Discarding ${phase} message from unregistered client ${workerId}`);
+                logger.warn(`Discarding ${phase} message from unregistered worker ${workerId}`);
             } else if (error) {
                 this.workersAssignedPromise.reject(new Error(error));
             } else {
@@ -288,7 +288,7 @@ class WorkerOrchestrator {
             break;
         case MessageTypes.Ready:
             if (!this.workers[workerId]) {
-                logger.warn(`Discarding ${phase} message from unregistered client ${workerId}`);
+                logger.warn(`Discarding ${phase} message from unregistered worker ${workerId}`);
             } else if (error) {
                 this.workersReadyPromise.reject(new Error(error));
             } else {
@@ -301,7 +301,7 @@ class WorkerOrchestrator {
             break;
         case MessageTypes.Prepared:
             if (!this.workers[workerId]) {
-                logger.warn(`Discarding ${phase} message from unregistered client ${workerId}`);
+                logger.warn(`Discarding ${phase} message from unregistered worker ${workerId}`);
             } else if (error) {
                 this.workers[workerId].phases[phase].reject(new Error(error));
             } else {
@@ -310,7 +310,7 @@ class WorkerOrchestrator {
             break;
         case MessageTypes.TestResult:
             if (!this.workers[workerId]) {
-                logger.warn(`Discarding ${phase} message from unregistered client ${workerId}`);
+                logger.warn(`Discarding ${phase} message from unregistered worker ${workerId}`);
             } else if (error) {
                 this.workers[workerId].phases[phase].reject(new Error(error));
             } else {
@@ -385,8 +385,8 @@ class WorkerOrchestrator {
                 };
             });
             preparePromises.push(p);
-            prepSpec.clientArgs = this.workerArguments[worker.workerId];
-            prepSpec.totalClients = this.number;
+            prepSpec.workerArgs = this.workerArguments[worker.workerId];
+            prepSpec.totalWorkers = this.number;
 
             // Send to worker
             const msg = new PrepareMessage(this.messenger.getUUID(), [index], prepSpec);
@@ -472,8 +472,8 @@ class WorkerOrchestrator {
             testPromises.push(p);
             worker.results = this.results;
             worker.updates = this.updates.data;
-            testSpecification.clientArgs = this.workerArguments[worker.workerIndex];
-            testSpecification.totalClients = this.number;
+            testSpecification.workerArgs = this.workerArguments[worker.workerId];
+            testSpecification.totalWorkers = this.number;
 
             // Publish to worker
             const msg = new TestMessage(this.messenger.getUUID(), [index], testSpecification);
