@@ -133,6 +133,97 @@ class Fabric extends BlockchainConnector {
         this._prepareCaches();
     }
 
+    //////////////////////////
+    // PUBLIC API FUNCTIONS //
+    //////////////////////////
+
+    /**
+     * Initializes the Fabric adapter: sets up clients, admins, registrars, channels and contracts.
+     * @param {boolean} workerInit Indicates whether the initialization happens in the worker process.
+     * @async
+     */
+    async init(workerInit = false) {
+        const tlsInfo = this.networkUtil.isMutualTlsEnabled() ? 'mutual'
+            : (this.networkUtil.isTlsEnabled() ? 'server' : 'none');
+        const compMode = this.networkUtil.isInCompatibilityMode() ? '; Fabric v1.0 compatibility mode' : '';
+        logger.info(`Fabric SDK version: ${this.version.toString()}; TLS: ${tlsInfo}${compMode}`);
+
+        // TODO: only required for specific scenarios, means network config has to have more info defined
+        await this._initializeRegistrars(workerInit);
+        await this._initializeAdmins(workerInit);
+        await this._initializeUsers(workerInit);
+        this.initPhaseCompleted = true;
+
+        if (!workerInit) {
+            if (await this._createChannels()) {
+                logger.info(`Sleeping ${this.configSleepAfterCreateChannel / 1000.0}s...`);
+                await CaliperUtils.sleep(this.configSleepAfterCreateChannel);
+            }
+
+            if (await this._joinChannels()) {
+                logger.info(`Sleeping ${this.configSleepAfterJoinChannel / 1000.0}s...`);
+                await CaliperUtils.sleep(this.configSleepAfterJoinChannel);
+            }
+        }
+    }
+
+    /**
+     * Prepares the adapter by loading user data and connection to the event hubs.
+     *
+     * @param {Number} roundIndex The zero-based round index of the test.
+     * @param {Array<string>} args Unused.
+     * @return {Promise<{networkInfo : FabricNetwork, eventSources: EventSource[]}>} Returns the network utility object.
+     * @async
+     */
+    async getContext(roundIndex, args) {
+        // Reset counter for new test round
+        this.txIndex = -1;
+
+        if (!this.context) {
+            this.context = {
+                networkInfo: this.networkUtil,
+                clientIdx: this.workerIndex
+            };
+            await this._initializeChannelsAndEventHubs();
+        }
+
+        return this.context;
+    }
+
+    /**
+     * Releases the resources of the adapter.
+     * @async
+     */
+    async releaseContext() {
+        this.eventSources.forEach((es) => {
+            if (es.eventHub.isconnected()) {
+                es.eventHub.disconnect();
+            }
+        });
+
+        this.eventSources = [];
+        this.context = undefined;
+    }
+
+    /**
+     * Installs and initializes the specified contracts.
+     * @async
+     */
+    async installSmartContract() {
+        // With flow conditioning, this phase is conditionally required
+        if (!this.initPhaseCompleted ) {
+            await this._initializeRegistrars(true);
+            await this._initializeAdmins(true);
+            await this._initializeUsers(true);
+        }
+
+        await this._installContracts();
+        if (await this._instantiateContracts()) {
+            logger.info(`Sleeping ${this.configSleepAfterInstantiateContract / 1000.0}s...`);
+            await CaliperUtils.sleep(this.configSleepAfterInstantiateContract);
+        }
+    }
+
     ////////////////////////////////
     // INTERNAL UTILITY FUNCTIONS //
     ////////////////////////////////
@@ -1909,35 +2000,9 @@ class Fabric extends BlockchainConnector {
         return contract;
     }
 
-    //////////////////////////
-    // PUBLIC API FUNCTIONS //
-    //////////////////////////
-
-    /**
-     * Prepares the adapter by loading user data and connection to the event hubs.
-     *
-     * @param {Number} roundIndex The zero-based round index of the test.
-     * @param {Array<string>} args Unused.
-     * @return {Promise<{networkInfo : FabricNetwork, eventSources: EventSource[]}>} Returns the network utility object.
-     * @async
-     */
-    async getContext(roundIndex, args) {
-        // Reset counter for new test round
-        this.txIndex = -1;
-
-        if (!this.context) {
-            this.context = {
-                networkInfo: this.networkUtil,
-                clientIdx: this.workerIndex
-            };
-            await this._initializeChannelsAndEventHubs();
-        }
-
-        return this.context;
-    }
-
     /**
      * Initialize the channels and event hubs
+     * @async
      */
     async _initializeChannelsAndEventHubs() {
         for (const channel of this.networkUtil.getChannels()) {
@@ -2015,55 +2080,6 @@ class Fabric extends BlockchainConnector {
     }
 
     /**
-     * Initializes the Fabric adapter: sets up clients, admins, registrars, channels and contracts.
-     * @param {boolean} workerInit Indicates whether the initialization happens in the worker process.
-     * @async
-     */
-    async init(workerInit = false) {
-        const tlsInfo = this.networkUtil.isMutualTlsEnabled() ? 'mutual'
-            : (this.networkUtil.isTlsEnabled() ? 'server' : 'none');
-        const compMode = this.networkUtil.isInCompatibilityMode() ? '; Fabric v1.0 compatibility mode' : '';
-        logger.info(`Fabric SDK version: ${this.version.toString()}; TLS: ${tlsInfo}${compMode}`);
-
-        // TODO: only required for specific scenarios, means network config has to have more info defined
-        await this._initializeRegistrars(workerInit);
-        await this._initializeAdmins(workerInit);
-        await this._initializeUsers(workerInit);
-        this.initPhaseCompleted = true;
-
-        if (!workerInit) {
-            if (await this._createChannels()) {
-                logger.info(`Sleeping ${this.configSleepAfterCreateChannel / 1000.0}s...`);
-                await CaliperUtils.sleep(this.configSleepAfterCreateChannel);
-            }
-
-            if (await this._joinChannels()) {
-                logger.info(`Sleeping ${this.configSleepAfterJoinChannel / 1000.0}s...`);
-                await CaliperUtils.sleep(this.configSleepAfterJoinChannel);
-            }
-        }
-    }
-
-    /**
-     * Installs and initializes the specified contracts.
-     * @async
-     */
-    async installSmartContract() {
-        // With flow conditioning, this phase is conditionally required
-        if (!this.initPhaseCompleted ) {
-            await this._initializeRegistrars(true);
-            await this._initializeAdmins(true);
-            await this._initializeUsers(true);
-        }
-
-        await this._installContracts();
-        if (await this._instantiateContracts()) {
-            logger.info(`Sleeping ${this.configSleepAfterInstantiateContract / 1000.0}s...`);
-            await CaliperUtils.sleep(this.configSleepAfterInstantiateContract);
-        }
-    }
-
-    /**
      * Send a single request to the backing SUT.
      * @param {FabricRequestSettings} request The request object.
      */
@@ -2088,22 +2104,6 @@ class Fabric extends BlockchainConnector {
         } else {
             return this._submitSingleTransaction(request, timeout);
         }
-    }
-
-    /**
-     * Releases the resources of the adapter.
-     *
-     * @async
-     */
-    async releaseContext() {
-        this.eventSources.forEach((es) => {
-            if (es.eventHub.isconnected()) {
-                es.eventHub.disconnect();
-            }
-        });
-
-        this.eventSources = [];
-        this.context = undefined;
     }
 }
 
