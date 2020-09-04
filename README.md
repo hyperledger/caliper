@@ -14,12 +14,9 @@ Welcome to the Hyperledger Caliper project. Caliper is a blockchain performance 
 
 Currently supported blockchain solutions:
 
-* [Hyperledger Fabric v1.X](https://github.com/hyperledger/fabric)
-* [Hyperledger Sawtooth 1.0+](https://github.com/hyperledger/sawtooth-core)
-* [Hyperledger Iroha 1.0 beta-3](https://github.com/hyperledger/iroha)
-* [Hyperledger Burrow 1.0](https://github.com/hyperledger/burrow)
-* [Ethereum](https://github.com/ethereum/go-ethereum)
 * [Hyperledger Besu](https://github.com/hyperledger/besu), utilizing the Ethereum adapter.
+* [Hyperledger Fabric v1.X, v2.X](https://github.com/hyperledger/fabric)
+* [Ethereum](https://github.com/ethereum/go-ethereum)
 * [FISCO BCOS](https://github.com/FISCO-BCOS/FISCO-BCOS)
 
 Currently supported performance indicators:
@@ -43,10 +40,7 @@ If you have any issues using Caliper that the documentation does not help you so
 
 Caliper interacts with multiple blockchain technologies and consequently it *might* be an issue with the underlying blockchain technology being interacted with. You can seek specific help on these technologies within the following Rocket Chat channels:
 * [Hyperledger Besu](https://chat.hyperledger.org/channel/besu)
-* [Hyperledger Burrow](https://chat.hyperledger.org/channel/burrow)
 * [Hyperledger Fabric](https://chat.hyperledger.org/channel/fabric)
-* [Hyperledger Iroha](https://chat.hyperledger.org/channel/iroha)
-* [Hyperledger Sawtooth](https://chat.hyperledger.org/channel/sawtooth)
 
 ## How to contribute
 

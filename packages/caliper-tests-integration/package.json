@@ -31,14 +31,11 @@
         "license-check-and-add": "2.3.6"
     },
     "dependencies": {
-        "@hyperledger/caliper-burrow": "0.4.0-unstable",
         "@hyperledger/caliper-cli": "0.4.0-unstable",
         "@hyperledger/caliper-core": "0.4.0-unstable",
         "@hyperledger/caliper-ethereum": "0.4.0-unstable",
         "@hyperledger/caliper-fabric": "0.4.0-unstable",
         "@hyperledger/caliper-fisco-bcos": "0.4.0-unstable",
-        "@hyperledger/caliper-iroha": "0.4.0-unstable",
-        "@hyperledger/caliper-sawtooth": "0.4.0-unstable",
         "yeoman-generator": "4.7.2",
         "yosay": "^2.0.1"
     },
@@ -80,7 +77,6 @@
             "besu_tests/.gitignore",
             "besu_tests/config/data",
             "besu_tests/config/keys",
-            "sawtooth_tests/.gitignore",
             "fisco-bcos_tests/.gitignore",
             "fisco-bcos_tests/config/node0",
             "fisco-bcos_tests/config/node1",
@@ -88,11 +84,7 @@
             "fisco-bcos_tests/config/node3",
             "fisco-bcos_tests/config/sdk",
             "generator_tests/fabric/.gitignore",
-            "generator_tests/fabric/config/.gitignore",
-            "iroha_tests/.gitignore",
-            "iroha_tests/config/node0",
-            "iroha_tests/config/node1",
-            "iroha_tests/config/node2"
+            "generator_tests/fabric/config/.gitignore"
         ],
         "file_type_method": "EXCLUDE",
         "file_types": [

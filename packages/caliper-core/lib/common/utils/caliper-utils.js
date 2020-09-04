@@ -25,12 +25,9 @@ const url = require('url');
 require('winston-daily-rotate-file');
 
 const BuiltinConnectors = new Map([
-    ['burrow', '@hyperledger/caliper-burrow'],
     ['ethereum', '@hyperledger/caliper-ethereum'],
     ['fabric', '@hyperledger/caliper-fabric'],
-    ['fisco-bcos', '@hyperledger/caliper-fisco-bcos'],
-    ['iroha', '@hyperledger/caliper-iroha'],
-    ['sawtooth', '@hyperledger/caliper-sawtooth']
+    ['fisco-bcos', '@hyperledger/caliper-fisco-bcos']
 ]);
 
 const BuiltinMessengers = new Map([

@@ -225,5 +225,3 @@ caliper:
             # Which query strategy to use
             querystrategy: msp_round_robin
 
-
-    sawtooth:
