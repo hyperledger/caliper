@@ -87,7 +87,7 @@ class ConnectorConfiguration {
         return null;
     }
     /**
-     * return array of contract definitionss for specific channel
+     * return array of contract definitions for specific channel
      * @param {string} channelPassed channel wanted
      * @returns {Array} all of contract definitions for channel
     */
