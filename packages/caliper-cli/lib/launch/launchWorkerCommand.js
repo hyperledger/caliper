@@ -34,7 +34,7 @@ module.exports.builder = yargs => {
         'caliper-bind-args'  : {describe: 'Additional arguments to pass to "npm install". Use the "=" notation when setting this parameter', type: 'string' },
         'caliper-bind-file'  : {describe: 'Yaml file to override default (supported) package versions when binding an SDK', type: 'string' }
     });
-    yargs.usage('Usage:\n caliper launch worker --caliper-bind-sut fabric:1.4.1 [other options]');
+    yargs.usage('Usage:\n caliper launch worker --caliper-bind-sut fabric:1.4 [other options]');
 
     // enforce singletons
     yargs.check(checkFn);
