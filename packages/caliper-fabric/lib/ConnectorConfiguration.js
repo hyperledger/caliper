@@ -86,6 +86,17 @@ class ConnectorConfiguration {
 
         return null;
     }
+    /**
+     * return array of contract definitions for specific channel
+     * @param {string} channelPassed channel wanted
+     * @returns {Array} all of contract definitions for channel
+    */
+    getContractDefinitionsForChannelName(channelPassed) {
+        const channelList = this.adapterConfiguration.channels;
+        const channelWanted = channelList.filter(channelContracts => channelContracts.channelName === channelPassed);
+        const contractDefinitions = channelWanted[0].contracts;
+        return contractDefinitions;
+    }
 }
 
 module.exports = ConnectorConfiguration;
