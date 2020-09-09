@@ -184,8 +184,13 @@ class CaliperUtils {
             CaliperUtils.loadModule(modulePath, requireFunction);
             return true;
         } catch (err) {
-            // If the module can not be found, an error is thrown
-            return false;
+
+            if (err.message.includes(`Cannot find module '${moduleName}'`)) {
+                // If the expected module can not be found, it's not an error to throw
+                return false;
+            }
+
+            throw err;
         }
     }
 
