@@ -88,14 +88,19 @@ class ConnectorConfiguration {
     }
     /**
      * return array of contract definitions for specific channel
-     * @param {string} channelPassed channel wanted
+     * @param {string} channelName channel name wanted
      * @returns {Array} all of contract definitions for channel
     */
-    getContractDefinitionsForChannelName(channelPassed) {
+    getContractDefinitionsForChannelName(channelName) {
         const channelList = this.adapterConfiguration.channels;
-        const channelWanted = channelList.filter(channelContracts => channelContracts.channelName === channelPassed);
-        const contractDefinitions = channelWanted[0].contracts;
-        return contractDefinitions;
+
+        if (channelList && Array.isArray(channelList)){
+            const channelWanted = channelList.filter(channelContracts => channelContracts.channelName === channelName);
+            const contractDefinitions = channelWanted[0].contracts;
+            return contractDefinitions;
+        }
+
+        return [];
     }
 }
 

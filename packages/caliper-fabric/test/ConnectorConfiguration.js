@@ -249,5 +249,14 @@ describe('A valid Adapter Configuration', () => {
             const contractDef = connectorConfiguration.getContractDefinitionsForChannelName('my-channel');
             contractDef.length.should.equal(0);
         });
+        it('should return an empty array if there are no channels', () => {
+            const configFile = new GenerateConfiguration('./test/sampleConfigs/BasicConfig.yaml').generateConfigurationFileWithSpecifics(
+                {
+                    channels: {}
+                });
+            const connectorConfiguration = new ConnectorConfigurationFactory().create(configFile);
+            const contractDef = connectorConfiguration.getContractDefinitionsForChannelName('my-channel');
+            contractDef.length.should.equal(0);
+        });
     });
 });
