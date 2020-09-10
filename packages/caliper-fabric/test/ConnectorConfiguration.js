@@ -222,4 +222,53 @@ describe('A valid Adapter Configuration', () => {
             should.equal(channelDefinition, null);
         });
     });
+
+    describe('for finding the Contract Definitions For a Channel Name', ()=> {
+        it('should return the contract definitions for the specified channel if there are contracts', () => {
+            const connectorConfiguration = new ConnectorConfigurationFactory().create('./test/sampleConfigs/BasicConfig.yaml');
+            const result=[{
+                id: 'marbles',
+                contractID: 'myMarbles',
+                version: 'v0',
+                language: 'golang',
+                path: 'marbles/go',
+                metadataPath: 'src/marbles/go/metadata'}];
+            const contractDef =connectorConfiguration.getContractDefinitionsForChannelName('my-channel');
+            contractDef.should.deep.equal(result);
+        });
+
+        it('should return an empty array if there are no contracts for the specified channel', () => {
+            const configFile = new GenerateConfiguration('./test/sampleConfigs/BasicConfig.yaml').generateConfigurationFileWithSpecifics(
+                {
+                    channels: [{
+                        channelName: 'my-channel',
+                        contracts: []
+                    }]
+                });
+            const connectorConfiguration = new ConnectorConfigurationFactory().create(configFile);
+            const contractDef = connectorConfiguration.getContractDefinitionsForChannelName('my-channel');
+            contractDef.length.should.equal(0);
+        });
+        it('should return an empty array if there are no channels', () => {
+            const configFile = new GenerateConfiguration('./test/sampleConfigs/BasicConfig.yaml').generateConfigurationFileWithSpecifics(
+                {
+                    channels: {}
+                });
+            const connectorConfiguration = new ConnectorConfigurationFactory().create(configFile);
+            const contractDef = connectorConfiguration.getContractDefinitionsForChannelName('my-channel');
+            contractDef.length.should.equal(0);
+        });
+
+        it('should return an empty array if there is not contract property', () => {
+            const configFile = new GenerateConfiguration('./test/sampleConfigs/BasicConfig.yaml').generateConfigurationFileWithSpecifics(
+                {
+                    channels: [{
+                        channelName: 'my-channel',
+                    }]
+                });
+            const connectorConfiguration = new ConnectorConfigurationFactory().create(configFile);
+            const contractDef = connectorConfiguration.getContractDefinitionsForChannelName('my-channel');
+            contractDef.should.deep.equal([]);
+        });
+    });
 });
