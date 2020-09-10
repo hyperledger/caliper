@@ -97,9 +97,10 @@ class ConnectorConfiguration {
         if (channelList && Array.isArray(channelList)){
             const channelWanted = channelList.filter(channelContracts => channelContracts.channelName === channelName);
             const contractDefinitions = channelWanted[0].contracts;
-            return contractDefinitions;
+            if (contractDefinitions && Array.isArray(contractDefinitions)) {
+                return contractDefinitions;
+            }
         }
-
         return [];
     }
 }
