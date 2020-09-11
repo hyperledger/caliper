@@ -192,37 +192,18 @@ class Fabric extends BlockchainConnector {
      */
     _assembleTargetEventSources(channel, targetPeers) {
         const eventSources = [];
-        if (this.networkUtil.isInCompatibilityMode()) {
-            // NOTE: for old event hubs we have a single connection to every peer set as an event source
-            const EventHub = require('fabric-client/lib/EventHub.js');
 
-            for (const peer of targetPeers) {
-                const org = this.networkUtil.getOrganizationOfPeer(peer);
-                const admin = this.adminProfiles.get(org);
+        for (const peer of targetPeers) {
+            const org = this.networkUtil.getOrganizationOfPeer(peer);
+            const admin = this.adminProfiles.get(org);
 
-                const eventHub = new EventHub(admin);
-                eventHub.setPeerAddr(this.networkUtil.getPeerEventUrl(peer),
-                    this.networkUtil.getGrpcOptionsOfPeer(peer));
+            const eventHub = admin.getChannel(channel, true).newChannelEventHub(peer);
 
-                eventSources.push({
-                    channel: [channel], // unused during contract instantiation
-                    peer: peer,
-                    eventHub: eventHub
-                });
-            }
-        } else {
-            for (const peer of targetPeers) {
-                const org = this.networkUtil.getOrganizationOfPeer(peer);
-                const admin = this.adminProfiles.get(org);
-
-                const eventHub = admin.getChannel(channel, true).newChannelEventHub(peer);
-
-                eventSources.push({
-                    channel: [channel], // unused during contract instantiation
-                    peer: peer,
-                    eventHub: eventHub
-                });
-            }
+            eventSources.push({
+                channel: [channel], // unused during contract instantiation
+                peer: peer,
+                eventHub: eventHub
+            });
         }
 
         return eventSources;
@@ -755,25 +736,21 @@ class Fabric extends BlockchainConnector {
                 // this error should propagate up
                 const ca = clientProfile.getCertificateAuthority();
                 const userAffiliation = this.networkUtil.getAffiliationOfUser(client);
-
-                // if not in compatibility mode (i.e., at least SDK v1.1), check whether the affiliation is already registered or not
-                if (!this.networkUtil.isInCompatibilityMode()) {
-                    const affService = ca.newAffiliationService();
-                    let affiliationExists = false;
-                    try {
-                        await affService.getOne(userAffiliation, registrar);
-                        affiliationExists = true;
-                    } catch (err) {
-                        if (!workerInit) {
-                            logger.info(`${userAffiliation} affiliation doesn't exists`);
-                        }
+                const affService = ca.newAffiliationService();
+                let affiliationExists = false;
+                try {
+                    await affService.getOne(userAffiliation, registrar);
+                    affiliationExists = true;
+                } catch (err) {
+                    if (!workerInit) {
+                        logger.info(`${userAffiliation} affiliation doesn't exists`);
                     }
+                }
 
-                    if (!affiliationExists) {
-                        await affService.create({name: userAffiliation, force: true}, registrar);
-                        if (!workerInit) {
-                            logger.info(`${userAffiliation} affiliation added`);
-                        }
+                if (!affiliationExists) {
+                    await affService.create({name: userAffiliation, force: true}, registrar);
+                    if (!workerInit) {
+                        logger.info(`${userAffiliation} affiliation added`);
                     }
                 }
 
@@ -1019,11 +996,7 @@ class Fabric extends BlockchainConnector {
 
                     // metadata (like CouchDB indices) are only supported since Fabric v1.1
                     if (CaliperUtils.checkProperty(ccObject, 'metadataPath')) {
-                        if (!this.networkUtil.isInCompatibilityMode()) {
-                            request.metadataPath = CaliperUtils.resolvePath(ccObject.metadataPath);
-                        } else {
-                            throw new Error(`Installing ${contractInfo.id}@${contractInfo.version} with metadata is not supported in Fabric v1.0`);
-                        }
+                        request.metadataPath = CaliperUtils.resolvePath(ccObject.metadataPath);
                     }
 
                     // install to necessary peers of org and process the results
@@ -1664,8 +1637,7 @@ class Fabric extends BlockchainConnector {
     async init(workerInit = false) {
         const tlsInfo = this.networkUtil.isMutualTlsEnabled() ? 'mutual'
             : (this.networkUtil.isTlsEnabled() ? 'server' : 'none');
-        const compMode = this.networkUtil.isInCompatibilityMode() ? '; Fabric v1.0 compatibility mode' : '';
-        logger.info(`Fabric SDK version: ${this.version.toString()}; TLS: ${tlsInfo}${compMode}`);
+        logger.info(`Fabric SDK version: ${this.version.toString()}; TLS: ${tlsInfo}`);
 
         await this._initializeRegistrars(workerInit);
         await this._initializeAdmins(workerInit);
