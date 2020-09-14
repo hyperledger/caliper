@@ -84,9 +84,6 @@
           "path": "some/path/to/org-specific-profile",
           "discover": true
         }
-      },
-      {
-        "mspid": "org2MSP"
       }
     ]
   }
