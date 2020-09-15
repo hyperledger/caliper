@@ -25,6 +25,10 @@ const keys = {
         PrometheusPush: {
             UserName: 'caliper-auth-prometheuspush-username',
             Password: 'caliper-auth-prometheuspush-password'
+        },
+        Prometheus: {
+            UserName: 'caliper-auth-prometheus-username',
+            Password: 'caliper-auth-prometheus-password'
         }
     },
     Bind: {

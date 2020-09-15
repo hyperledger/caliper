@@ -37,53 +37,44 @@ describe('Prometheus monitor implementation', () => {
     });
 
     // Test data
-    const ignore = {
+    const monitorOptions = {
         metrics : {
-            ignore: ['prometheus', 'pushgateway', 'cadvisor']
+            include: ['peer', 'pushgateway', 'dev.*'],
+            queries: [
+                {
+                    query: 'sum(rate(container_cpu_usage_seconds_total{name=~".+"}[$interval])) by (name) * 100',
+                    statistic: 'average'
+                },
+                {
+                    query: 'sum(rate(container_cpu_usage_seconds_total{name=~".+"}[$interval])) by (name) * 100',
+                    statistic: 'maximum'
+                }
+            ]
         }
     };
 
-    const includeOpts = {
-        Tag0: {
-            query: 'sum(rate(container_cpu_usage_seconds_total{name=~".+"}[$interval])) by (name) * 100',
-            statistic: 'average'
-        },
-        Tag1: {
-            query: 'sum(rate(container_cpu_usage_seconds_total{name=~".+"}[$interval])) by (name) * 100',
-            statistic: 'maximum'
-        },
-        Tag2: {
-            query: 'sum(container_memory_rss{name=~".+"}) by (name)',
-            statistic: 'average'
-        }
-    };
-
-    const include = {
-        metrics: {
-            include : includeOpts
-        }
-    };
+    const emptyOptions = {};
 
     describe('#constructor', () => {
 
-        it('should set ignore list if provided', () => {
-            const mon = new PrometheusMonitorRewire(ignore);
-            mon.ignore.should.be.an('array').that.deep.equals(['prometheus', 'pushgateway', 'cadvisor']);
-        });
-
-        it('should not set ignore list if missing', () => {
-            const mon = new PrometheusMonitorRewire(include);
-            should.not.exist(mon.ignore);
-        });
-
         it('should set include list if provided', () => {
-            const mon = new PrometheusMonitorRewire(include);
-            mon.include.should.be.an('object').that.deep.equals(includeOpts);
+            const prometheusMonitor = new PrometheusMonitorRewire(monitorOptions);
+            prometheusMonitor.include.should.be.an('array').that.deep.equals(monitorOptions.metrics.include);
         });
 
         it('should not set include list if missing', () => {
-            const mon = new PrometheusMonitorRewire(ignore);
-            should.not.exist(mon.include);
+            const prometheusMonitor = new PrometheusMonitorRewire(emptyOptions);
+            should.not.exist(prometheusMonitor.include);
+        });
+
+        it('should set queries list if provided', () => {
+            const prometheusMonitor = new PrometheusMonitorRewire(monitorOptions);
+            prometheusMonitor.queries.should.be.an('array').that.deep.equals(monitorOptions.metrics.queries);
+        });
+
+        it('should not set queries list if missing', () => {
+            const prometheusMonitor = new PrometheusMonitorRewire(emptyOptions);
+            should.not.exist(prometheusMonitor.queries);
         });
     });
 
@@ -137,7 +128,7 @@ describe('Prometheus monitor implementation', () => {
 
         it('should return a map with keys that correspond to the passed `include` keys, with default entries populated', () => {
 
-            const mon = new PrometheusMonitorRewire(include);
+            const mon = new PrometheusMonitorRewire(monitorOptions);
             const map = mon.getResultColumnMapForQueryTag('query', 'MyTag');
 
             // Three keys
@@ -150,6 +141,23 @@ describe('Prometheus monitor implementation', () => {
         });
     });
 
+    describe('checking if a statistic should be included in the report', () => {
+
+
+        it('should identify user requested components', () => {
+
+            const mon = new PrometheusMonitorRewire(monitorOptions);
+            mon.includeStatistic('peer0.org0.example.com').should.equal(true);
+
+            mon.includeStatistic('pushgateway').should.equal(true);
+
+            mon.includeStatistic('dev-org0.example.com').should.equal(true);
+
+            mon.includeStatistic('penuin').should.equal(false);
+
+            mon.includeStatistic('orderer0.example.com').should.equal(false);
+        });
+    });
 
 
 });

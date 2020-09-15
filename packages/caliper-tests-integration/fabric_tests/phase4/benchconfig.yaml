@@ -59,19 +59,19 @@ monitors:
         interval: 5
         url: "http://localhost:9090"
         metrics:
-            ignore: [prometheus, pushGateway, cadvisor, grafana, node-exporter]
-            include:
-                Endorse Time (s):
-                    query: rate(endorser_propsal_duration_sum{chaincode="marbles:v0"}[1m])/rate(endorser_propsal_duration_count{chaincode="marbles:v0"}[1m])
-                    step: 1
-                    label: instance
-                    statistic: avg
-                Max Memory (MB):
-                    query: sum(container_memory_rss{name=~".+"}) by (name)
-                    step: 10
-                    label: name
-                    statistic: max
-                    multiplier: 0.000001
+            include: [peer*, dev*]
+            queries:
+            - name: Endorse Time (s)
+              query: rate(endorser_propsal_duration_sum{chaincode="marbles:v0"}[1m])/rate(endorser_propsal_duration_count{chaincode="marbles:v0"}[1m])
+              step: 1
+              label: instance
+              statistic: avg
+            - name: Max Memory (MB)
+              query: sum(container_memory_rss{name=~".+"}) by (name)
+              step: 10
+              label: name
+              statistic: max
+              multiplier: 0.000001
         charting:
             polar:
                 metrics: [Max Memory (MB)]

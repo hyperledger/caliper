@@ -14,13 +14,16 @@
 
 'use strict';
 
-const Util = require('../../common/utils/caliper-utils.js');
-const ConfigUtil = require('../../common/config/config-util');
+const CaliperUtils = require('../../common/utils/caliper-utils');
 const ChartBuilder = require('../charts/chart-builder');
-const Logger = Util.getLogger('monitor-prometheus');
+const Constants = require('../../common/utils/constants');
+const ConfigUtil = require('../../common/config/config-util');
 const MonitorInterface = require('./monitor-interface');
 const PrometheusQueryClient = require('../../common/prometheus/prometheus-query-client');
 const PrometheusQueryHelper = require('../../common/prometheus/prometheus-query-helper');
+const Util = require('../../common/utils/caliper-utils.js');
+
+const Logger = Util.getLogger('monitor-prometheus');
 
 /**
  * Prometheus monitor implementation
@@ -34,21 +37,24 @@ class PrometheusMonitor extends MonitorInterface {
     constructor(resourceMonitorOptions) {
         super(resourceMonitorOptions);
         this.precision = ConfigUtil.get(ConfigUtil.keys.Report.Precision, 3);
-        this.prometheusQueryClient = new PrometheusQueryClient(this.options.url);
+
+        // Might be using basic auth
+        const url = CaliperUtils.augmentUrlWithBasicAuth(this.options.url, Constants.AuthComponents.Prometheus);
+        this.prometheusQueryClient = new PrometheusQueryClient(url);
         // User defined options for monitoring
         if (this.options.hasOwnProperty('metrics')) {
-            // Might have an ignore list
-            if (this.options.metrics.hasOwnProperty('ignore')) {
-                this.ignore = this.options.metrics.ignore;
+            // Might have an include list
+            if (this.options.metrics.hasOwnProperty('include')) {
+                this.include = this.options.metrics.include;
             } else {
-                Logger.info('No monitor metrics `ignore` option specified, will provide statistics on all items retrieved by queries');
+                Logger.info('No monitor metrics `include` option specified, will provide statistics on all items retrieved by queries');
             }
 
             // Might have user specified queries to run
-            if (this.options.metrics.hasOwnProperty('include')) {
-                this.include =  this.options.metrics.include;
+            if (this.options.metrics.hasOwnProperty('queries')) {
+                this.queries =  this.options.metrics.queries;
             } else {
-                Logger.info('No monitor metrics `include` options specified, unable to provide statistics on any resources');
+                Logger.info('No monitor metrics `queries` options specified, unable to provide statistics on any resources');
             }
         } else {
             Logger.info('No monitor `metrics` specified, will not provide statistics on any resources');
@@ -110,43 +116,41 @@ class PrometheusMonitor extends MonitorInterface {
     async getStatistics(testLabel) {
         this.endTime = Date.now()/1000;
 
-        if (this.include) {
+        if (this.queries) {
             const resourceStats = [];
             const chartArray = [];
-            for (const metricKey of Object.keys(this.include)) {
-                let newKey = true;
-                // Each metric is of the form
-                // Tag0: {
+            for (const queryObject of this.queries) {
+                // Each queryObject is of the form
+                // {
+                //     name: 'tag name',
                 //     query: 'the prometheus query to be made',
                 //     statistic: 'the action to be taken on returned metrics'
                 //     step: step size
                 // }
-                const params = this.include[metricKey];
-                const queryString = PrometheusQueryHelper.buildStringRangeQuery(params.query, this.startTime, this.endTime, params.step);
+                const queryString = PrometheusQueryHelper.buildStringRangeQuery(queryObject.query, this.startTime, this.endTime, queryObject.step);
                 const response = await this.prometheusQueryClient.getByEncodedUrl(queryString);
 
-                // Retrieve base mapped statistics and coerce into correct format
-                const resultMap = PrometheusQueryHelper.extractStatisticFromRange(response, params.statistic, params.label);
+                // Retrieve map of component names and corresponding values for the issued query
+                const componentNameValueMap = PrometheusQueryHelper.extractStatisticFromRange(response, queryObject.statistic, queryObject.label);
 
                 const metricArray = [];
-                for (const [key, value] of resultMap.entries()) {
-                    // Filter here
-                    if (this.ignore.includes(key)) {
-                        continue;
-                    } else {
+                let newQueryObjectIteration = true;
+                for (const [key, value] of componentNameValueMap.entries()) {
+                    // Filter here, based on a regex match
+                    if (this.includeStatistic(key)) {
                         // Build report table information
-                        const watchItemStat = newKey ? this.getResultColumnMapForQueryTag(params.query, metricKey) : this.getResultColumnMapForQueryTag('', '');
+                        const watchItemStat = newQueryObjectIteration ? this.getResultColumnMapForQueryTag(queryObject.query, queryObject.name) : this.getResultColumnMapForQueryTag('', '');
+                        newQueryObjectIteration = false;
                         watchItemStat.set('Name', key);
-                        const multiplier = params.multiplier ? params.multiplier : 1;
+                        const multiplier = queryObject.multiplier ? queryObject.multiplier : 1;
                         watchItemStat.set('Value', (value*multiplier).toPrecision(this.precision));
                         // Store
                         resourceStats.push(watchItemStat);
-                        newKey = false;
 
                         // Build separate charting information
                         const metricMap = new Map();
                         metricMap.set('Name',  watchItemStat.get('Name'));
-                        metricMap.set(metricKey, watchItemStat.get('Value'));
+                        metricMap.set(queryObject.name, watchItemStat.get('Value'));
                         metricArray.push(metricMap);
                     }
                 }
@@ -167,8 +171,25 @@ class PrometheusMonitor extends MonitorInterface {
 
             return { resourceStats, chartStats };
         } else {
-            Logger.debug('No include options specified for monitor - skipping action');
+            Logger.debug('No queries specified for monitor - skipping action');
         }
+    }
+
+    /**
+     * Check if the passed key should be included
+     * @param {string} componentName the name to test for inclusion against the user supplied list of components to monitor
+     * @returns {boolean} boolean flag for inclusion
+     */
+    includeStatistic(componentName) {
+        let includeStat = false;
+        for (const includeItem of this.include) {
+            const regex = RegExp(includeItem);
+            if (regex.test(componentName)) {
+                includeStat = true;
+                continue;
+            }
+        }
+        return includeStat;
     }
 
 }

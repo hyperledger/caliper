@@ -48,6 +48,7 @@ module.exports = {
         }
     },
     AuthComponents: {
-        PushGateway: 'PrometheusPush'
+        PushGateway: 'PrometheusPush',
+        Prometheus: 'Prometheus'
     }
 };
