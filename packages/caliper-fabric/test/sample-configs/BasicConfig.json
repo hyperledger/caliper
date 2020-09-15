@@ -81,9 +81,17 @@
           ]
         },
         "connectionProfile": {
-          "path": "some/path/to/org-specific-profile",
+          "path": "./test/sample-configs/Org1ConnectionProfile.json",
           "discover": true
         }
+      },
+      {
+        "mspid": "org2MSP",
+        "connectionProfile": {
+          "path": "some/path/to/org-specific-profile",
+          "discover": false
+        }
       }
+
     ]
   }

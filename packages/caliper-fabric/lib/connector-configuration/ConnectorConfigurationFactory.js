@@ -15,6 +15,7 @@
 'use strict';
 
 const ConnectorConfiguration = require('./ConnectorConfiguration');
+const IdentityManagerFactory = require('../identity-management/IdentityManagerFactory');
 
 /**
  * Factory class for ConnectorConfigurations
@@ -24,10 +25,14 @@ class ConnectorConfigurationFactory {
     /**
      * Create a ConnectorConfiguration instance
      * @param {string} connectorConfigurationPath path to connector configuration file
+     * @param {IWalletFacadeFactory} walletFacadeFactory a version specific wallet facade factory
      * @returns {ConnectorConfiguration} instance of a ConnectorConfiguration
+     * @async
      */
-    create(connectorConfigurationPath) {
-        return new ConnectorConfiguration(connectorConfigurationPath);
+    async create(connectorConfigurationPath, walletFacadeFactory) {
+        const connectorConfiguration = new ConnectorConfiguration(connectorConfigurationPath, new IdentityManagerFactory(), walletFacadeFactory);
+        await connectorConfiguration.parseConfiguration();
+        return connectorConfiguration;
     }
 }
 

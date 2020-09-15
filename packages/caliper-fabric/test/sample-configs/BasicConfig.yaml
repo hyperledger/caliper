@@ -82,5 +82,9 @@ organizations:
     # Connection profile to be used by the connector for the organization
     # - could validate this connection profile matches declared mspid
     connectionProfile:
-      path: 'some/path/to/org-specific-profile'
+      path: './test/sample-configs/Org1ConnectionProfile.yaml'
       discover: true
+  - mspid: org2MSP
+    connectionProfile:
+      path: 'some/path/to/org-specific-profile'
+      discover: false

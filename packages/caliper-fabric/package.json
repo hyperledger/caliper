@@ -78,7 +78,9 @@
     },
     "nyc": {
         "include": [
-            "lib/configValidator.js"
+            "lib/configValidator.js",
+            "lib/connector-configuration",
+            "lib/identity-management"
         ],
         "reporter": [
             "text-summary",

@@ -26,6 +26,7 @@ class IdentityManagerFactory {
      * @param {IWalletFacadeFactory} walletFacadeFactory instance of a WalletFacadeFactory used to create wallet facades
      * @param {*} organizations The organizations block from the connector configuration
      * @returns {IdentityManager} an instance of an IdentityManager
+     * @async
      */
     async create(walletFacadeFactory, organizations) {
         const identityManager = new IdentityManager(walletFacadeFactory, organizations);
