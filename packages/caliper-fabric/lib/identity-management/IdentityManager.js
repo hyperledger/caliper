@@ -32,10 +32,11 @@ class IdentityManager {
 
     /**
      * initialize this Identity Manager
+     * @async
      */
     async initialize() {
         this.inMemoryWalletFacade = await this.walletFacadeFactory.create();
-        this._parseOrganizations();
+        await this._parseOrganizations();
     }
 
     /**
@@ -56,6 +57,7 @@ class IdentityManager {
      * Get a list of all the alias names for an organization that will be in the wallet
      * @param {string} mspId the msp ID of the organization
      * @returns {string[]} a list of all the aliases or a blank array if there are none
+     * @async
      */
     async getAliasNamesForOrganization(mspId) {
         const walletIdentityNames = await this.inMemoryWalletFacade.getAllIdentityNames();
@@ -82,6 +84,7 @@ class IdentityManager {
      * Define and return the non default organization prefix
      * @param {string} mspId The msp ID
      * @returns {string} The alias prefix
+     * @private
      */
     _getPrefixForIdentityNameFromOrganisation(mspId) {
         return `_${mspId}_`;
@@ -93,6 +96,8 @@ class IdentityManager {
      * @param {*} identityName The identity name that represents the identity for the organization
      * @param {*} certificate The pem encoded certificate
      * @param {*} privateKey The pem encoded private key
+     * @async
+     * @private
      */
     async _addToWallet(mspId, identityName, certificate, privateKey) {
         const alias = this.getWalletAliasFromOrganizationAndIdentityName(mspId, identityName);
@@ -101,8 +106,10 @@ class IdentityManager {
 
     /**
      * Parse the organizations block
+     * @private
+     * @async
      */
-    _parseOrganizations() {
+    async _parseOrganizations() {
         if (this.organizations &&
             Array.isArray(this.organizations) &&
             this.organizations.length > 0) {
@@ -130,11 +137,11 @@ class IdentityManager {
                     }
 
                     if (organization.identities.wallet) {
-                        this._extractIdentitiesFromWallet(organization.identities.wallet);
+                        await this._extractIdentitiesFromWallet(organization.identities.wallet);
                     }
 
                     if (organization.identities.credentialStore) {
-                        this._extractIdentitiesFromCredentialStore(organization.identities.credentialStore);
+                        await this._extractIdentitiesFromCredentialStore(organization.identities.credentialStore);
                     }
 
                 }
@@ -147,22 +154,27 @@ class IdentityManager {
     /**
      * Extract identities from a fabric node sdk 1.4 credential store and store in the in memory wallet
      * @param {*} credentialStore the credential store information
+     * @async
+     * @private
      */
-    _extractIdentitiesFromCredentialStore(credentialStore) {
+    async _extractIdentitiesFromCredentialStore(credentialStore) {
         // TODO: To be implemented
     }
 
     /**
      * Extract identities from a version specific wallet and store in the in memory wallet
      * @param {*} wallet the wallet information
+     * @async
+     * @private
      */
-    _extractIdentitiesFromWallet(wallet) {
+    async _extractIdentitiesFromWallet(wallet) {
         // TODO: To be implemented
     }
 
     /**
      * Extract the identities from the array of identities and store in the in memory wallet
      * @param {[*]} identities Array of identities
+     * @private
      */
     _extractIdentitiesFromCertificateAndPrivateKeyArray(identities) {
         // TODO: To be implemented

@@ -90,15 +90,15 @@ const org2MSP = {
 describe('An Identity Manager', () => {
 
     describe('When being created by it\'s factory', () => {
+        const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+
         it('should return Identity Manager instance if an array of valid organizations are supplied', async () => {
-            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
             const identityManagerFactory = new IdentityManagerFactory();
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP]);
             identityManager.should.be.instanceOf(IdentityManager);
         });
 
         it('should throw an error if no organizations are provided', async () => {
-            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
             const identityManagerFactory = new IdentityManagerFactory();
             await identityManagerFactory.create(stubWalletFacadeFactory,[]).should.be.rejectedWith(/No organizations have been defined/);
             await identityManagerFactory.create(stubWalletFacadeFactory).should.be.rejectedWith(/No organizations have been defined/);
@@ -106,7 +106,6 @@ describe('An Identity Manager', () => {
         });
 
         it('should throw an error if first organization does not define an mspid', async () => {
-            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
             const identityManagerFactory = new IdentityManagerFactory();
             const badOrg = JSON.parse(JSON.stringify(org2MSP));
             delete badOrg.mspid;
@@ -114,7 +113,6 @@ describe('An Identity Manager', () => {
         });
 
         it('should throw an error if a non default organization does not define an mspid', async () => {
-            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
             const identityManagerFactory = new IdentityManagerFactory();
             const badOrg = JSON.parse(JSON.stringify(org2MSP));
             delete badOrg.mspid;
@@ -122,7 +120,6 @@ describe('An Identity Manager', () => {
         });
 
         it('should throw an error if a non default organization has same mspid as default organization', async () => {
-            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
             const identityManagerFactory = new IdentityManagerFactory();
             const badOrg = JSON.parse(JSON.stringify(org2MSP));
             badOrg.mspid = 'org1MSP';
@@ -131,8 +128,9 @@ describe('An Identity Manager', () => {
     });
 
     describe('when generating an alias name', () => {
+        const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+
         it('should not prefix for the default organisation', async () => {
-            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
             const identityManagerFactory = new IdentityManagerFactory();
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP]);
             identityManager.getAliasNameFromOrganizationAndIdentityName('org1MSP', 'admin').should.equal('admin');
@@ -140,7 +138,6 @@ describe('An Identity Manager', () => {
         });
 
         it('should prefix for the non default organisation', async () => {
-            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
             const identityManagerFactory = new IdentityManagerFactory();
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP, org2MSP]);
             identityManager.getAliasNameFromOrganizationAndIdentityName('org2MSP', 'admin').should.equal('_org2MSP_admin');
@@ -148,31 +145,24 @@ describe('An Identity Manager', () => {
     });
 
     describe('when getting a list of alias names from an organisation', () => {
+        const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+        const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
+        stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+        stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_org2MSP_admin', '_org2MSP_issuer']);
+
         it('should return the correct aliases for the default organisation', async () => {
-            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
-            const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
-            stubWalletFacadeFactory.create.resolves(stubWalletFacade);
-            stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_org2MSP_admin', '_org2MSP_issuer']);
             const identityManagerFactory = new IdentityManagerFactory();
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP, org2MSP]);
             await identityManager.getAliasNamesForOrganization('org1MSP').should.eventually.deep.equal(['admin', 'user']);
         });
 
         it('should return the correct aliases for a non default organisation', async () => {
-            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
-            const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
-            stubWalletFacadeFactory.create.resolves(stubWalletFacade);
-            stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_org2MSP_admin', '_org2MSP_issuer']);
             const identityManagerFactory = new IdentityManagerFactory();
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP, org2MSP]);
             await identityManager.getAliasNamesForOrganization('org2MSP').should.eventually.deep.equal(['_org2MSP_admin', '_org2MSP_issuer']);
         });
 
         it('should return the an empty array if there are no aliases for the organization', async () => {
-            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
-            const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
-            stubWalletFacadeFactory.create.resolves(stubWalletFacade);
-            stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_org2MSP_admin', '_org2MSP_issuer']);
             const identityManagerFactory = new IdentityManagerFactory();
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP, org2MSP]);
             await identityManager.getAliasNamesForOrganization('org3MSP').should.eventually.deep.equal([]);
