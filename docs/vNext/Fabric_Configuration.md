@@ -33,21 +33,7 @@ The adapter exposes many SDK features directly to the user callback modules, mak
 
 ## Installing dependencies
 
-To install the Fabric SDK dependencies of the adapter, configure the binding command as follows:
-* Set the `caliper-bind-sut` setting key to `fabric`
-* Set the `caliper-bind-sdk` setting key to a [supported SDK binding](./Installing_Caliper.md#the-bind-command).
-
-You can set the above keys either from the command line:
-```console
-user@ubuntu:~/caliper-benchmarks$ npx caliper bind --caliper-bind-sut fabric --caliper-bind-sdk 1.4.11
-```
-or from environment variables:
-```console
-user@ubuntu:~/caliper-benchmarks$ export CALIPER_BIND_SUT=fabric
-user@ubuntu:~/caliper-benchmarks$ export CALIPER_BIND_SDK=1.4.11
-user@ubuntu:~/caliper-benchmarks$ npx caliper bind
-```
-or from various [other sources](./Runtime_Configuration.md).
+You must bind Caliper to a specific Fabric SDK to target the corresponding (or compatible) SUT version. Refer to the [binding documentation](./Installing_Caliper.md#the-bind-command) for details.
 
 ### Binding with Fabric SDK 2.2.x
 > Note that when using the binding target for the Fabric SDK 2.2.x there are capability restrictions:
@@ -105,22 +91,17 @@ For the current details/documentation of the API, refer to the [source code](htt
 
 ### The `submitTransaction` function
 
-The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type [`BlockchainConnector`](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/core/blockchain-connector.js). Its `getType()` function returns the `fabric` string value.
+The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type [`ConnectorInterface`](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/core/connector-interface.js). Its `getType()` function returns the `fabric` string value.
 
-The two main functions of the adapter are `invokeSmartContract` and `querySmartContract`, sharing a similar API.
+The `sendRequests` method of the connector API allows the workload module to submit requests to the SUT. It takes a single parameter: an object or array of objects containing the settings of the requests.
 
-#### Invoking a contract
-
-To submit a transaction, call the `sutAdapter.invokeSmartContract` function. It takes four parameters:
-
-1. `contractID`: the unique (Caliper-level) ID of the contract.
-2. `version`: the contract version. __Unused.__
-3. `invokeSettings`:  an object containing different TX-related settings
-4. `timeout`: the timeout value for the transaction __in seconds__.
-
-The `invokeSettings` object has the following structure:
+The settings object has the following structure:
+* `contractId`: _string. Required._ The ID of the contract to call.
+* `contractVersion`: _string. Required._ The version of the contract to call.
 * `contractFunction`: _string. Required._ The name of the function to call in the contract.
 * `contractArguments`: _string[]. Optional._ The list of __string__ arguments to pass to the contract.
+* `readOnly`: _boolean. Optional._ Indicates whether the request is a TX or a query. Defaults to `false`.
+* `timeout`: _number. Optional._ The timeout in seconds to use for this request.
 * `transientMap`: _Map<string, byte[]>. Optional._ The transient map to pass to the contract.
 * `invokerIdentity`: _string. Optional._ The name of the user who should invoke the contract. If an admin is needed, use the organization name prefixed with a `#` symbol (e.g., `#Org2`). Defaults to the first client in the network configuration file.
 * `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the transaction proposal. If omitted, the target list will include endorsing peers selected according to the specified load balancing method.
@@ -132,58 +113,24 @@ are specified then targetPeers will take precedence
 So invoking a contract looks like the following (with automatic load balancing between endorsing peers and orderers):
 
 ```js
-let settings = {
+let requestSettings = {
+    contractId: 'marbles',
+    contractVersion: '0.1.0',
     contractFunction: 'initMarble',
     contractArguments: ['MARBLE#1', 'Red', '100', 'Attila'],
-    invokerIdentity: 'client0.org2.example.com'
+    invokerIdentity: 'client0.org2.example.com',
+    timeout: 10
 };
 
-return this.sutAdapter.invokeSmartContract('marbles', '', settings, 10);
+await this.sutAdapter.sendRequests(requestSettings);
 ```
 
-`invokeSmartContract` also accepts an array of `invokeSettings` as the second arguments. However, Fabric does not support submitting an atomic batch of transactions like Sawtooth, so there is no guarantee that the order of these transactions will remain the same, or whether they will reside in the same block.
+> __Note:__ `sendRequests` also accepts an array of request settings. However, Fabric does not support submitting an atomic batch of transactions like Sawtooth, so there is no guarantee that the order of these transactions will remain the same, or whether they will reside in the same block.
 
-Using "batches" also increases the expected workload of the system, since the rate controller mechanism of Caliper cannot account for these "extra" transactions. However, the resulting report will accurately reflect the additional load.
-
-#### Querying a contract
-
-To query the world state, call the `sutAdapter.querySmartContract` function. It takes four parameters:
-
-1. `contractID`: the unique (Caliper-level) ID of the contract.
-2. `version`: the contract version. __Unused.__
-3. `querySettings`:  an object containing different query-related settings
-4. `timeout`: the timeout value for the transaction __in seconds__.
-
-The `querySettings` object has the following structure:
-* `contractFunction`: _string. Required._ The name of the function to call in the contract.
-* `contractArguments`: _string[]. Optional._ The list of __string__ arguments passed to the contract.
-* `transientMap`: _Map<string, byte[]>. Optional._ The transient map passed to the contract.
-* `invokerIdentity`: _string. Optional._ The name of the user who should invoke the contract. If an admin is needed, use the organization name prefixed with a `#` symbol (e.g., `#Org2`). Defaults to the first client in the network configuration file.
-* `targetPeers`: _string[]. Optional._ An array of endorsing peer names as the targets of the query. If omitted, the target list will include endorsing peers selected according to the specified load balancing method. This option is ignored when a `gateway` is used.
-* `countAsLoad`: _boolean. Optional._ Indicates whether the query should be counted as workload and reflected in the generated report. If specified, overrides the adapter-level `caliper-fabric-countqueryasload` setting.
-* `channel`: _string. Optional._ The name of the channel on which the contract to call resides.
-
-  > Not counting a query in the workload is useful when _occasionally_ retrieving information from the ledger to use as a parameter in a transaction (might skew the latency results). However, count the queries into the workload if the test round specifically targets the query execution capabilities of the contract.
-
-So querying a contract looks like the following (with automatic load balancing between endorsing peers):
-
-```js
-let settings = {
-    contractFunction: 'readMarble',
-    contractArguments: ['MARBLE#1'],
-    invokerIdentity: 'client0.org2.example.com'
-};
-
-return this.sutAdapter.querySmartContract('marbles', '', settings, 3);
-```
-
-`querySmartContract` also accepts an array of `querySettings` as the second arguments. However, Fabric does not support submitting an atomic batch of queries, so there is no guarantee that their execution order will remain the same (although it's highly probably, since queries have shorter life-cycles than transactions).
-
-Using "batches" also increases the expected workload of the system, since the rate controller mechanism of Caliper cannot account for these extra queries. However, the resulting report will accurately reflect the additional load.
 
 ## Gathered TX data
 
-The previously discussed  `invokeSmartContract` and `querySmartContract` functions return an array whose elements correspond to the result of the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
+The previously discussed  `sendRequests` function returns the result (or an array of results) for the submitted request(s) with the type of [TxStatus](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/transaction-status.js). The class provides some standard and platform-specific information about its corresponding transaction.
 
 The standard data provided are the following:
 * `GetID():string` returns the transaction ID.
@@ -216,31 +163,25 @@ The adapter-specific data keys are the following:
 |      `commit_success_<P>`      |  number   | The Unix epoch when the adapter received a successful commit event from the peer node `<P>`. Note, that transactions committed in the same block have nearly identical commit times, since the SDK receives them block-wise, i.e., at the same time.                         |
 |     `event_hub_error_<P>`      |  string   | The error message in case some event hub connection-related error occurs with peer node `<P>`.                                                                                                                                                                               |
 
-You can access these data in your user callback after calling `invokeSmartContract` or `querySmartContract`:
+You can access these data in your workload module after calling `sendRequests`:
 
 ```js
-let settings = {
+let requestSettings = {
+    contractId: 'marbles',
+    contractVersion: '0.1.0',
     contractFunction: 'initMarble',
     contractArguments: ['MARBLE#1', 'Red', '100', 'Attila'],
-    invokerIdentity: 'client0.org2.example.com'
+    invokerIdentity: 'client0.org2.example.com',
+    timeout: 10
 };
 
-// "results" is of type TxStatus[] 
-// DO NOT FORGET "await"!!
-let results = await blockchain.invokeSmartContract(context, 'marbles', '', settings, 10);
+// single argument, single return value
+const result = await this.sutAdapter.sendRequests(requestSettings);
 
-// do something with the data
-for (let result of results) {
-    let shortID = result.GetID().substring(8);
-    let executionTime = result.GetTimeFinal() - result.GetTimeCreate();
-    console.log(`TX [${shortID}] took ${executionTime}ms to execute. Result: ${result.GetStatus()}`);
-}
-
-// DO NOT FORGET THIS!!
-return results;
+let shortID = result.GetID().substring(8);
+let executionTime = result.GetTimeFinal() - result.GetTimeCreate();
+console.log(`TX [${shortID}] took ${executionTime}ms to execute. Result: ${result.GetStatus()}`);
 ```
-
-> __Note:__ Do not forget to return the result array at the end of the `run` function!
 
 ## Network configuration file reference
 

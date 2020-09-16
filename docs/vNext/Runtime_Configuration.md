@@ -20,11 +20,11 @@ In general, a setting is a simple `string` key associated with some `value`. How
 
 `caliper-fabric-timeout-invokeorquery`
 
-The key consists of several parts that makes it easy to identify the purpose of the setting: it is used in Caliper, by the Fabric adapter, it is a timeout-related setting that specifies the timeout to use for transaction invocations or queries. Every setting key in Caliper follows the same convention.
+The key consists of several parts that makes it easy to identify the purpose of the setting: it is used in Caliper, by the Fabric connector, it is a timeout-related setting that specifies the timeout to use for transaction invocations or queries. Every setting key in Caliper follows the same convention.
 
 The rule of thumb is to use lowercase letters (maybe numbers), and the hierarchy should be denoted by dashes (`-`) as separator.
 
-Every setting used by Caliper is prefixed with the `caliper-` string. The prefix serves as a namespace for the internal settings of Caliper modules. It also prevents name collisions since the configuration mechanism parses every setting available from the various sources, some intended, for example, to the underlying SDK modules or the user test module.
+Every setting used by Caliper is prefixed with the `caliper-` string. The prefix serves as a namespace for the internal settings of Caliper modules. It also prevents name collisions since the configuration mechanism parses every setting available from the various sources, some intended, for example, to the underlying SDK modules or the workload modules.
 
 > For every available runtime setting, refer to the [last section](#available-settings).
 
@@ -44,7 +44,7 @@ For simplicity, you can think of the above order as the following: the "closer" 
 
 ### In-memory settings
 
-If some component (Caliper-related, or user provided) sets a setting during runtime (using the configuration API), then that value will have priority over any other source/location that might have also set the same setting.
+If some component (internal or plugin) sets a setting during runtime (using the configuration API), then that value will have priority over any other source/location that might have also set the same setting.
 
 The simple configuration API is provided by the `ConfigUtil` module of the `@hyperledger/caliper-core` package. It exports a simple `get` and `set` method:
 
@@ -65,13 +65,13 @@ const shouldBeFast = ConfigUtil.get('mymodule-performance-shoudbefast', /*defaul
 if (shouldBeFast) { /* ... */ } else { /* ... */ }
 ```
 
-The above code also shows how a custom user module/code can easily leverage Caliper's configuration mechanism. Since the `mymodule-performance-shoudbefast` setting is queried through the configuration API, setting it from various sources automatically became possible (see the next sections for details). 
+The above code also shows how a plugin module can easily leverage Caliper's configuration mechanism. Since the `mymodule-performance-shoudbefast` setting is queried through the configuration API, setting it from various sources automatically became possible (see the next sections for details). 
 
 > Thus adding a flexible runtime setting to any module requires only to query that setting through the configuration API when you need it (with the desired default/fallback value).
 
 ### Command line arguments
 
-If we wish to influence the behavior of a third-party code (e.g., Caliper or a user callback module), we usually can't (or don't want to) overwrite the setting in the source code. A standard way of modifying the behavior of third-party/pre-packaged applications is to provide the settings as commandline arguments.
+If we wish to influence the behavior of a third-party code (e.g., Caliper or a workload module), we usually can't (or don't want to) overwrite the setting in the source code. A standard way of modifying the behavior of third-party/pre-packaged applications is to provide the settings as commandline arguments.
 
 Starting Caliper through the [CLI](./Installing_Caliper.md#the-caliper-cli), you can override runtime settings the following way:
 
@@ -97,7 +97,7 @@ Both ways will result in the setting key `mymodule-performance-shoudbefast` asso
 
 Note, that `nconf` will automatically parse values of common types, so the `true` and `false` values will be parsed (and returned by `get`) as `boolean` values. This also holds for (both integer and floating point) numbers.
 
-Moreover, `boolean` values can be specified as flags, without explicitly setting the `true` or `false` value (note the `no-` prefix for the second case):
+Moreover, `boolean` values can be specified as flags, without explicitly setting the `true` or `false` value.
 * Setting a key to `true`:
     ```bash
     caliper launch manager \
@@ -106,7 +106,7 @@ Moreover, `boolean` values can be specified as flags, without explicitly setting
         --caliper-networkconfig yournetwork.yaml \
         --mymodule-performance-shoudbefast
     ```
-* Setting a key to `false`:
+* Setting a key to `false` (note the `no-` prefix):
     ```bash
     caliper launch manager \
         --caliper-workspace yourworkspace/ \
@@ -247,8 +247,8 @@ A default/fallback configuration file is shipped with the Caliper-related packag
 | Key | Description |
 |:----|:------------|
 | caliper-benchconfig | Path to the benchmark configuration file that describes the test worker(s), test rounds and monitors. |
-| caliper-networkconfig | Path to the blockchain configuration file that contains information required to interact with the SUT. |
-| caliper-machineconfig | The file path for the user-level configuration file. Can be relative to the workspace. |
+| caliper-networkconfig | Path to the network configuration file that contains information required to interact with the SUT. |
+| caliper-machineconfig | The file path for the machine-level configuration file. Can be relative to the workspace. |
 | caliper-projectconfig | The file path for the project-level configuration file. Can be relative to the workspace. |
 | caliper-userconfig | The file path for the user-level configuration file. Can be relative to the workspace. |
 | caliper-workspace | Workspace directory that contains all configuration information |
@@ -262,7 +262,7 @@ A default/fallback configuration file is shipped with the Caliper-related packag
 | caliper-bind-args | The additional args to pass to the binding (i.e., npm install) command. |
 | caliper-bind-cwd | The CWD to use for the binding (i.e., npm install) command. |
 | caliper-bind-file | The path of a custom binding configuration file that will override the default one. |
-| caliper-bind-sut | The binding specification of the SUT in the <SUT type>:<SDK version> format. |
+| caliper-bind-sut | The binding specification of the SUT in the `<SUT type>:<SDK version>` format. |
 
 ### Reporting settings
 

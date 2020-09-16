@@ -21,7 +21,9 @@ Installing and running Caliper usually consists of the following steps, thorough
 2. Execute a _bind_ command through the CLI. This step pulls the specified version of SDK packages for the selected platform.
 3. Start the benchmark through the CLI or by starting the Docker container.
 
-The examples in the rest of the documentation use the [caliper-benchmarks](https://github.com/hyperledger/caliper-benchmarks) repository as the Caliper _workspace_ since it contains many sample artifacts for benchmarking. Make sure you check out the appropriate tag/commit of the repository, matching the version of Caliper you use.
+The examples in the rest of the documentation use the [caliper-benchmarks](https://github.com/hyperledger/caliper-benchmarks) repository as the Caliper _workspace_ since it contains many sample artifacts for benchmarking. 
+
+> **Important:** make sure you check out the appropriate tag/commit of the repository, matching the version of Caliper you use.
 
 To clone the `caliper-benchmarks` repository, run:
 ```bash
@@ -99,31 +101,14 @@ Options:
  * __Working directory:__ the directory from which the `npm install` command must be performed. Defaults to the current working directory
  * __User arguments:__ additional arguments to pass to `npm install`, e.g., `--save`
 
-The following SUT name (column header) and SDK version (column value) combinations are supported:
-
-
-| besu   | burrow | ethereum | fabric    | fisco-bcos | iroha  | sawtooth |
-|:------:|:------:|:--------:|:---------:|:----------:|:------:|:--------:|
-| 1.3.2  | 0.23.0 | 1.2.1    | 1.0.0     | 2.0.0      | 0.6.3  | 1.0.0    |
-| 1.3    | latest | latest   | 1.1.0     | latest     | latest | 1.0.1    |
-| 1.4    |        |          | 1.2.0     |            |        | 1.0.2    |
-| latest |        |          | 1.3.0     |            |        | 1.0.4    |
-|        |        |          | 1.4.0     |            |        | 1.0.5    |
-|        |        |          | 1.4.1     |            |        | latest   |
-|        |        |          | 1.4.3     |            |        |          |
-|        |        |          | 1.4.4     |            |        |          |
-|        |        |          | 1.4.5     |            |        |          |
-|        |        |          | 1.4.6     |            |        |          |
-|        |        |          | 1.4.7     |            |        |          |
-|        |        |          | 1.4.8     |            |        |          |
-|        |        |          | 1.4.9     |            |        |          |
-|        |        |          | 1.4.10    |            |        |          |
-|        |        |          | 1.4.11    |            |        |          |
-|        |        |          | latest    |            |        |          |
-|        |        |          | 2.1.0     |            |        |          |
-|        |        |          | 2.2.0     |            |        |          |
-|        |        |          | latest-v2 |            |        |          |
-
+The following SUT name and SDK version combinations are supported:
+* **besu**: `1.3.2`, `1.3`, `1.4`, `latest`
+* **burrow**: `0.23.0`, `latest`
+* **ethereum**: `1.2.1`, `latest`
+* **fabric**: `1.0.0`, `1.1.0`, `1.2.0`, `1.3.0`, `1.4.0`, `1.4.1`, `1.4.3`, `1.4.4`, `1.4.5`, `1.4.6`, `1.4.7`, `1.4.8`, `1.4.9`, `1.4.10`, `1.4.11`, `2.1.0`, `2.2.0`, `latest`, `latest-v2`
+* **fisco-bcos**: `2.0.0`, `latest`
+* **iroha**: `0.6.3`, `latest`
+* **sawtooth**: `1.0.0`, `1.0.1`, `1.0.2`, `1.0.4`, `1.0.5`, `latest`
 
 > __Note:__ the `latest` value always points to the last explicit versions in the columns. However, it is recommended to explicitly specify the SDK version to avoid any surprise between two benchmark runs.
 
@@ -131,7 +116,7 @@ The following SUT name (column header) and SDK version (column value) combinatio
 
 The `bind` command is useful when you plan to run multiple benchmarks against the same SUT version. Bind once, then run different benchmarks without the need to bind again. As you will see in the next sections, the launcher commands for the manager and worker processes can also perform the binding step if the required parameter is present.
 
-> __Note:__ the built-in bindings can be overridden by setting the `caliper-bind-file` parameter to a YAML file path. The file must match the structure of the [default binding file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-cli/lib/lib/config.yaml). This way you can use experimental SDK versions that are not (yet) officially supported by Caliper. __This also means that we cannot provide help for such SDK versions!__
+> __Note:__ the built-in bindings can be overridden by setting the `caliper-bind-file` parameter to a YAML file path. The file must match the structure of the [default binding file](https://github.com/hyperledger/caliper/blob/master/packages/caliper-cli/lib/lib/config.yaml), documented [here](./Writing_Connectors.md#binding-configuration). This way you can use experimental SDK versions that are not (yet) officially supported by Caliper. __This also means that we cannot provide help for such SDK versions!__
 
 ### The unbind command
 
@@ -199,7 +184,7 @@ As you can see, the `launch manager` command can also process the parameters of 
 
 However, the command __requires__ the following parameters to be set:
 * __caliper-workspace:__ the directory serving as the root of your project. Every relative path in other configuration files or settings will be resolved from this directory. The workspace concept was introduced to make Caliper projects portable across different machines.
-* __caliper-benchconfig:__ the path of the file containing the configuration of the test rounds, as detailed in the [Architecture page](./Architecture.md#configuration-file). _Should be relative_ to the workspace path.
+* __caliper-benchconfig:__ the path of the file containing the configuration of the test rounds, as detailed in the [Architecture page](./Architecture.md#benchmark-configuration-file). _Should be relative_ to the workspace path.
 * __caliper-networkconfig:__ the path of the file containing the network configuration/description for the selected SUT, detailed in the configuration pages of the respective adapters. _Should be relative_ to the workspace path.
 
 #### The launch worker command
@@ -247,8 +232,8 @@ But why is all this important to you? Because Caliper is still in its pre-releas
 > __Note:__ Until Caliper reaches v1.0.0, always use the explicit version numbers when installing from NPM. So let's forget about the `latest` and `unstable` tags, as of now they are just a mandatory hindrance of NPM. As you will see, we deliberately do not provide such tags for the Docker images.
 
 Now that we ignored the tags, let's see the two types of version numbers you will encounter:
-* `0.2.0`: Version numbers of this form denote releases deemed _stable_ by the maintainers. Such versions have a corresponding GitHub tag, both in the `caliper` and `caliper-benchmarks` repositories. Moreover, the latest stable version is documented by the `latest` version of the documentation page. So make sure to align the different versions if you run into some issue.
-* `0.4.0-unstable-20200206065953`: Such version "numbers" denote _unstable_ releases that are published upon every merged pull request (hence the timestamp at the end), and eventually will become a stable version, e.g., `0.4.0`. This way you always have access to the NPM (and Docker) artifacts pertaining to the `manager` branch of the repository. Let's find and fix the bugs of new features before they make it to the stable release!
+* `0.2.0`: Version numbers of this form denote releases deemed _stable_ by the maintainers. Such versions have a corresponding GitHub tag, both in the `caliper` and `caliper-benchmarks` repositories. Moreover, the latest stable version is documented by the matching version of the documentation page. So make sure to align the different versions if you run into some issue.
+* `0.4.0-unstable-20200206065953`: Such version "numbers" denote _unstable_ releases that are published upon every merged pull request (hence the timestamp at the end), and eventually will become a stable version, e.g., `0.4.0`. This way you always have access to the NPM (and Docker) artifacts pertaining to the `master` branch of the repository. Let's find and fix the bugs of new features before they make it to the stable release!
 
 > __Note:__ The newest unstable release always corresponds to the up-to-date version of the related repositories, and the `vNext` version of the documentation page!
 

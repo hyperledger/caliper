@@ -50,7 +50,7 @@ For the exact structure of the network configuration files, refer to the corresp
 
 Workload modules are the brain of a benchmark. Since Caliper is a general benchmark framework, it does not include any concrete benchmark implementation. When Caliper schedules TXs for a given round, it is the task of the round's workload module to generate the content of the TXs and submit it. Each round can have a different associated workload module, so separating your workload implementation based on phases/behavior should be easy.
 
-Workload modules are simply Node.JS modules that must export a given API/functions. Other than that, the workload module logic can be arbitrary. Really, anything you can code in Node.JS.
+Workload modules are simply Node.JS modules that must export a given factory function. Other than that, the workload module logic can be arbitrary. Really, anything you can code in Node.JS.
 
 > __Note:__ For a more technical introduction to workload modules, see the [corresponding page](./Workload_Module.md).
 
@@ -117,7 +117,7 @@ The worker process spends most of its time in the workload generation loop. The 
 2. Once the rate controller enables the next TX, the worker gives control to the workload module. The workload module assembles the parameters of the TX (specific to the SUT and smart contract API) and calls the simple API of the SUT connector that will, in turn, send the TX request to the SUT (probably using the SDK of the SUT).
   > __Note:__ The workload modules of each round can be configured in the [benchmark configuration file](./BenchmarkConfiguration.md). For the technical details of workload modules, see the [Workload Modules](./Workload_Module.md) page.
 
-During the workload loop, the worker process sends progress updates to the manager process. Multiple approaches are available for signaling worker progress, achieved by different observers. For the available methods, see the [Monitors and Observers](./MonitorsAndObservers.md) page.
+During the workload loop, the worker process sends progress updates to the manager process. Progress reporting on the manager side can be enabled and configured with the `caliper-progress-reporting-enabled` and `caliper-progress-reporting-interval` setting keys. For details, see the [Basic Runtime Settings](./Runtime_Configuration.md#basic-settings).
 
 ## Process distribution models
 
