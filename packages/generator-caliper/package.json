@@ -29,18 +29,16 @@
         "generators"
     ],
     "dependencies": {
-        "yeoman-generator": "^4.7.2",
+        "yeoman-generator": "4.7.2",
         "camelcase": "6.0.0"
     },
     "devDependencies": {
-        "chai": "^4.2.0",
-        "eslint": "^6.8.0",
+        "chai": "^3.5.0",
+        "eslint": "^5.16.0",
         "js-yaml": "^3.13.1",
         "license-check-and-add": "2.3.6",
-        "mocha": "^7.1.1",
-        "nyc": "^15.0.0",
-        "sinon": "^9.0.1",
-        "sinon-chai": "^3.5.0",
+        "mocha": "3.4.2",
+        "nyc": "11.1.0",
         "yeoman-assert": "^3.1.1",
         "yeoman-test": "^2.3.0"
     },
