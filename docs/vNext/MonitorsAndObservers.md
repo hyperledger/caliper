@@ -134,8 +134,8 @@ monitors:
                   multiplier: 0.000001
 ```
 The two queries above will be listed in the generated report as "Endorse Time (s)" and "Max Memory (MB)" respectively:
- - **Endorse Time (s):** Runs the listed query with a step size of 1; filters on return tags using the `instance` label; exclude the result if the instance value matches any of the string values provided in the `ignore` array; if the instance does not match an exclude option, then determine the average of all return results and return this value to be reported under "Endorse Time (s)".
- - **Max Memory (MB):** Runs the listed query with a step size of 10; filter return tags using the `name` label; exclude the result if the instance value matches any of the string values provided in the `ignore` array; if the instance does not match an exclude option, then determine the maximum of all return results; multiply by the provided multiplier and return this value to be reported under "Max Memory (MB)".
+ - **Endorse Time (s):** Runs the listed query with a step size of 1; filters on return tags within the Prometheus query response using the `instance` label; exclude the result if the instance value does not regex match any of the string values provided in the `include` array; if the instance does match an include option, then determine the average of all return results and return this value to be reported under "Endorse Time (s)".
+ - **Max Memory (MB):** Runs the listed query with a step size of 10; filter return tags within the Prometheus query response using the `name` label; exclude the result if the instance value does not regex match any of the string values provided in the `include` array; if the instance does match an include option, then determine the maximum of all return results; multiply by the provided multiplier and return this value to be reported under "Max Memory (MB)".
 
 Returned components with labels that pass a regex test against the `include` array items, will be included within the report; all others will be omitted.
 #### Basic Auth
