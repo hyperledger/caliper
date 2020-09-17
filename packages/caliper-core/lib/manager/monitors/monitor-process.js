@@ -262,8 +262,10 @@ class MonitorProcess extends MonitorInterface {
      * @async
      */
     async getStatistics(testLabel) {
+
+        const resourceStats = [];
+        let chartStats = [];
         try {
-            const resourceStats = [];
             for (const watchItem of this.watchItems) {
                 const key = this.getId(watchItem);
 
@@ -293,16 +295,14 @@ class MonitorProcess extends MonitorInterface {
 
             // Retrieve Chart data
             const chartTypes = this.options.charting;
-            let chartStats = [];
             if (chartTypes) {
                 chartStats = ChartBuilder.retrieveChartStats(this.constructor.name, chartTypes, testLabel, resourceStats);
             }
 
-            return { resourceStats, chartStats };
         } catch (error) {
             Logger.error('Failed to read monitoring data, ' + (error.stack ? error.stack : error));
-            return [];
         }
+        return { resourceStats, chartStats };
     }
 
     /**

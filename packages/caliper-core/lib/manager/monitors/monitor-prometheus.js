@@ -52,12 +52,12 @@ class PrometheusMonitor extends MonitorInterface {
 
             // Might have user specified queries to run
             if (this.options.metrics.hasOwnProperty('queries')) {
-                this.queries =  this.options.metrics.queries;
+                this.queries = this.options.metrics.queries;
             } else {
-                Logger.info('No monitor metrics `queries` options specified, unable to provide statistics on any resources');
+                Logger.warn('No monitor metrics `queries` options specified, unable to provide statistics on any resources');
             }
         } else {
-            Logger.info('No monitor `metrics` specified, will not provide statistics on any resources');
+            Logger.warn('No monitor `metrics` specified, will not provide statistics on any resources');
         }
     }
 
@@ -116,16 +116,19 @@ class PrometheusMonitor extends MonitorInterface {
     async getStatistics(testLabel) {
         this.endTime = Date.now()/1000;
 
+        const resourceStats = [];
+        const chartArray = [];
+        const chartStats = [];
         if (this.queries) {
-            const resourceStats = [];
-            const chartArray = [];
             for (const queryObject of this.queries) {
-                // Each queryObject is of the form
+                // Each queryObject is taken directly from the parse monitor config file and of the form
                 // {
                 //     name: 'tag name',
                 //     query: 'the prometheus query to be made',
                 //     statistic: 'the action to be taken on returned metrics'
                 //     step: step size
+                //     multiplier: a multiplier to use on the returned prometheus value
+                //     label: a matching label for the component of interest
                 // }
                 const queryString = PrometheusQueryHelper.buildStringRangeQuery(queryObject.query, this.startTime, this.endTime, queryObject.step);
                 const response = await this.prometheusQueryClient.getByEncodedUrl(queryString);
@@ -161,18 +164,16 @@ class PrometheusMonitor extends MonitorInterface {
 
             // Retrieve Chart data
             const chartTypes = this.options.charting;
-            const chartStats = [];
             if (chartTypes) {
                 for (const metrics of chartArray) {
                     const stats = ChartBuilder.retrieveChartStats(this.constructor.name, chartTypes, `${testLabel}_${metrics[0].get('Name')}`, metrics);
                     chartStats.push(...stats);
                 }
             }
-
-            return { resourceStats, chartStats };
         } else {
             Logger.debug('No queries specified for monitor - skipping action');
         }
+        return { resourceStats, chartStats };
     }
 
     /**
