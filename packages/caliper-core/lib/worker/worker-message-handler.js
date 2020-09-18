@@ -108,7 +108,7 @@ class WorkerMessageHandler {
             ? `Worker#${this.workerIndex} (${this.messenger.getUUID()})`
             : `Worker (${this.messenger.getUUID()})`;
 
-        logger.info(`Handling "${message.getType()}" message for ${workerID}: ${message.stringify()}`);
+        logger.debug(`Handling "${message.getType()}" message for ${workerID}: ${message.stringify()}`);
     }
 
     /**
