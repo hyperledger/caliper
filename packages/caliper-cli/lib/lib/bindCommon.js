@@ -28,9 +28,8 @@ class BindCommon {
      * Implementation of the bind/unbind command.
      * @param {object} argv Argument list from the caliper bind command. Unused, relying on ConfigUtil instead.
      * @param {boolean} binding Indicates whether binding should be performed, or unbinding.
-     * @param {string} networkConfigSut Optional SUT type read from the network configuration for cross-checking.
      */
-    static async handler(argv, binding, networkConfigSut = undefined) {
+    static async handler(argv, binding) {
         const logger = CaliperUtils.getLogger(binding ? 'bind' : 'unbind');
         const defaultOpts = CaliperUtils.parseYaml(path.join(__dirname, './config.yaml'));
 
@@ -86,13 +85,6 @@ class BindCommon {
         let sutSdkList = Object.keys(options.sut[sut]);
         if (!sutSdkList.includes(sdk)) {
             let msg = `Unknown "${sut}" SDK version "${sdk}"`;
-            logger.error(msg);
-            throw new Error(msg);
-        }
-
-        // if a SUT type is provided by the launch commands, cross-check it with the explicit binding setting
-        if (networkConfigSut && sut !== networkConfigSut) {
-            let msg = `SUT type in the network configuration (${networkConfigSut}) does not match the passed SUT type (${sut})`;
             logger.error(msg);
             throw new Error(msg);
         }

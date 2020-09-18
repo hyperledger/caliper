@@ -97,7 +97,7 @@ describe('', () => {
         '     * @param {number} totalWorkers The total number of workers participating in the round.\n' +
         '     * @param {number} roundIndex The 0-based index of the currently executing round.\n' +
         '     * @param {Object} roundArguments The user-provided arguments for the round from the benchmark configuration file.\n' +
-        '     * @param {BlockchainInterface} sutAdapter The adapter of the underlying SUT.\n' +
+        '     * @param {ConnectorBase} sutAdapter The adapter of the underlying SUT.\n' +
         '     * @param {Object} sutContext The custom context object provided by the SUT adapter.\n' +
         '     * @async\n' +
         '     */\n' +

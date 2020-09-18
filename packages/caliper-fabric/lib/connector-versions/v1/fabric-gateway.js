@@ -17,7 +17,7 @@
 const FabricClient = require('fabric-client');
 const { DefaultEventHandlerStrategies, DefaultQueryHandlerStrategies, FileSystemWallet, Gateway, InMemoryWallet, X509WalletMixin } = require('fabric-network');
 const { google, common } = require('fabric-protos');
-const { BlockchainConnector, CaliperUtils, TxStatus, ConfigUtil } = require('@hyperledger/caliper-core');
+const { ConnectorBase, CaliperUtils, TxStatus, ConfigUtil } = require('@hyperledger/caliper-core');
 const FabricNetwork = require('../../fabricNetwork.js');
 
 const fs = require('fs');
@@ -128,7 +128,7 @@ const QueryStrategies = {
  * @property {boolean} configLocalHost Indicates whether to use the localhost default within the Fabric Gateway API
  * @property {boolean} configDiscovery Indicates whether to use discovery within the Fabric Gateway API
  */
-class Fabric extends BlockchainConnector {
+class Fabric extends ConnectorBase {
     /**
      * Initializes the Fabric adapter.
      * @param {object} networkObject The parsed network configuration.

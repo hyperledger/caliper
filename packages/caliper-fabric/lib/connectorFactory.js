@@ -19,7 +19,7 @@ const FabricConnector = require('./fabric-connector');
 /**
  * Constructs a Fabric connector.
  * @param {number} workerIndex The zero-based index of the worker who wants to create an connector instance. -1 for the manager process.
- * @return {Promise<BlockchainConnector>} The initialized connector instance.
+ * @return {Promise<ConnectorBase>} The initialized connector instance.
  * @async
  */
 async function connectorFactory(workerIndex) {

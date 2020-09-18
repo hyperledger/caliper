@@ -42,13 +42,13 @@
 
 'use strict';
 
-const { BlockchainConnector, CaliperUtils, ConfigUtil, Constants } = require('@hyperledger/caliper-core');
+const { ConnectorBase, CaliperUtils, ConfigUtil, Constants } = require('@hyperledger/caliper-core');
 const ConfigValidator = require('./configValidator.js');
 const Logger = CaliperUtils.getLogger('fabric-connector');
 
 const semver = require('semver');
 
-const FabricConnector = class extends BlockchainConnector {
+const FabricConnector = class extends ConnectorBase {
 
     /**
      * Initializes the Fabric adapter.

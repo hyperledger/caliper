@@ -16,7 +16,7 @@
 
 const EthereumHDKey = require('ethereumjs-wallet/hdkey');
 const Web3 = require('web3');
-const {BlockchainConnector, CaliperUtils, ConfigUtil, TxStatus} = require('@hyperledger/caliper-core');
+const {ConnectorBase, CaliperUtils, ConfigUtil, TxStatus} = require('@hyperledger/caliper-core');
 
 const logger = CaliperUtils.getLogger('ethereum-connector');
 
@@ -32,7 +32,7 @@ const logger = CaliperUtils.getLogger('ethereum-connector');
 /**
  * Extends {BlockchainConnector} for a web3 Ethereum backend.
  */
-class EthereumConnector extends BlockchainConnector {
+class EthereumConnector extends ConnectorBase {
 
     /**
      * Create a new instance of the {Ethereum} class.

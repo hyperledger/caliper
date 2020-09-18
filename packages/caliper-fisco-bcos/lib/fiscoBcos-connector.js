@@ -17,7 +17,7 @@
 const path = require('path');
 
 const {
-    BlockchainConnector,
+    ConnectorBase,
     CaliperUtils,
     ConfigUtil
 } = require('@hyperledger/caliper-core');
@@ -30,7 +30,7 @@ const commLogger = CaliperUtils.getLogger('fiscoBcos-connector');
 /**
  * Extends {BlockchainConnector} for a FISCO BCOS backend.
  */
-class FiscoBcosConnector extends BlockchainConnector {
+class FiscoBcosConnector extends ConnectorBase {
     /**
      * Create a new instance of the {FISCO BCOS} connector class.
      * @param {number} workerIndex The zero-based index of the worker who wants to create an adapter instance. -1 for the manager process.
