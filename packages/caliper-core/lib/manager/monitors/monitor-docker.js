@@ -335,9 +335,10 @@ class MonitorDocker extends MonitorInterface {
      * @async
      */
     async getStatistics(testLabel) {
-        try {
-            const resourceStats = [];
 
+        const resourceStats = [];
+        let chartStats = [];
+        try {
             // Build a statistic for each monitored container and push into watchItems array
             for (const container of this.containers) {
                 if (container.hasOwnProperty('id')) {
@@ -378,16 +379,13 @@ class MonitorDocker extends MonitorInterface {
 
             // Retrieve Chart data
             const chartTypes = this.options.charting;
-            let chartStats = [];
             if (chartTypes) {
                 chartStats = ChartBuilder.retrieveChartStats(this.constructor.name, chartTypes, testLabel, resourceStats);
             }
-
-            return { resourceStats, chartStats };
         } catch (error) {
             Logger.error('Failed to read monitoring data, ' + (error.stack ? error.stack : error));
-            return [];
         }
+        return { resourceStats, chartStats };
     }
 
     /**
