@@ -70,12 +70,12 @@
           },
           "certificates": [
             {
-              "alias": "User1",
+              "name": "User1",
               "clientPrivateKey": {
-                "path": "../config/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/key.pem"
+                "pem": "-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----"
               },
               "clientSignedCert": {
-                "path": "../config/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem.."
+                "pem": "-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----"
               }
             }
           ]

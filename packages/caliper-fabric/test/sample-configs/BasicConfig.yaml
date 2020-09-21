@@ -73,12 +73,15 @@ organizations:
          path: 'some/path/to/org-specific-wallet'
       # [Optional] certificates for the client
       certificates:
-      - alias: 'User1'
+      - name: 'User1'
         clientPrivateKey:
-            # can use PEM as well, ie pem: < text >
-            path: ../config/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/key.pem
+          pem: |-
+            -----BEGIN PRIVATE KEY-----
+            -----END PRIVATE KEY-----
         clientSignedCert:
-            path: ../config/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem..
+          pem: |-
+            -----BEGIN CERTIFICATE-----
+            -----END CERTIFICATE-----
     # Connection profile to be used by the connector for the organization
     # - could validate this connection profile matches declared mspid
     connectionProfile:

@@ -23,10 +23,13 @@ const sinon = require('sinon');
 const ConnectorConfigurationFactory = require('../../lib/connector-configuration/ConnectorConfigurationFactory');
 const ConnectorConfiguration = require('../../lib/connector-configuration/ConnectorConfiguration');
 const IWalletFacadeFactory = require('../../lib/identity-management/IWalletFacadeFactory');
+const IWalletFacade = require('../../lib/identity-management/IWalletFacade');
 
 describe('A Connector Configuration Factory', () => {
 
     const walletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+    const walletFacade = sinon.createStubInstance(IWalletFacade);
+    walletFacadeFactory.create.resolves(walletFacade);
 
     it('should accept a valid YAML file', async () => {
         const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
