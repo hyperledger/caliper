@@ -29,6 +29,8 @@ const ConnectionProfileDefinition = require('../../lib/connector-configuration/C
 describe('A valid Connector Configuration', () => {
 
     const walletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+    const walletFacade = sinon.createStubInstance(IWalletFacade);
+    walletFacadeFactory.create.resolves(walletFacade);
 
     describe('for mutual TLS', () => {
         it('should report true if specified as true in the configuration', async () => {

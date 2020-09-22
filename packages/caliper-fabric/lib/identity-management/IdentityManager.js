@@ -13,6 +13,8 @@
 */
 
 'use strict';
+const CaliperUtils = require('@hyperledger/caliper-core').CaliperUtils;
+const fs = require('fs').promises;
 
 /**
  * A class to handle identities defined via the connector configuration
@@ -100,7 +102,7 @@ class IdentityManager {
      * @private
      */
     async _addToWallet(mspId, identityName, certificate, privateKey) {
-        const alias = this.getWalletAliasFromOrganizationAndIdentityName(mspId, identityName);
+        const alias = this.getAliasNameFromOrganizationAndIdentityName(mspId, identityName);
         this.inMemoryWalletFacade.import(alias, mspId, certificate, privateKey);
     }
 
@@ -133,15 +135,15 @@ class IdentityManager {
                 if (organization.identities) {
 
                     if (organization.identities.certificates) {
-                        this._extractIdentitiesFromCertificateAndPrivateKeyArray(organization.identities.certificates);
+                        await this._extractIdentitiesFromCertificateAndPrivateKeyArray(organization.mspid, organization.identities.certificates);
                     }
 
                     if (organization.identities.wallet) {
-                        await this._extractIdentitiesFromWallet(organization.identities.wallet);
+                        await this._extractIdentitiesFromWallet(organization.mspid, organization.identities.wallet);
                     }
 
                     if (organization.identities.credentialStore) {
-                        await this._extractIdentitiesFromCredentialStore(organization.identities.credentialStore);
+                        await this._extractIdentitiesFromCredentialStore(organization.mspid, organization.identities.credentialStore);
                     }
 
                 }
@@ -153,33 +155,128 @@ class IdentityManager {
 
     /**
      * Extract identities from a fabric node sdk 1.4 credential store and store in the in memory wallet
+     * @param {string} mspId mspId of the organisation
      * @param {*} credentialStore the credential store information
      * @async
      * @private
      */
-    async _extractIdentitiesFromCredentialStore(credentialStore) {
+    async _extractIdentitiesFromCredentialStore(mspId, credentialStore) {
         // TODO: To be implemented
     }
 
     /**
      * Extract identities from a version specific wallet and store in the in memory wallet
+     * @param {string} mspId mspId of the organisation
      * @param {*} wallet the wallet information
      * @async
      * @private
      */
-    async _extractIdentitiesFromWallet(wallet) {
+    async _extractIdentitiesFromWallet(mspId, wallet) {
         // TODO: To be implemented
     }
 
     /**
-     * Extract the identities from the array of identities and store in the in memory wallet
-     * @param {[*]} identities Array of identities
+     * Extract the identities from the array of certificates and store in the in memory wallet
+     *
+     * @param {string} mspId mspId of the organisation
+     * @param {[*]} certificates Array of identities
+     * @async
      * @private
      */
-    _extractIdentitiesFromCertificateAndPrivateKeyArray(identities) {
-        // TODO: To be implemented
-        // TODO: Support both direct pem and b64 encoded pem
-        // TODO: Support both absolute, relative paths as well as env prefixed ?
+    async _extractIdentitiesFromCertificateAndPrivateKeyArray(mspId, certificates) {
+        if (!Array.isArray(certificates)) {
+            throw new Error('certificates property must be an array');
+        }
+
+        for (const identity of certificates) {
+
+            if (!identity.name || !identity.clientSignedCert || !identity.clientPrivateKey) {
+                throw new Error('A valid entry in certificates must have an name, clientSignedCert and clientPrivateKey entry');
+            }
+
+            const certificate = await this._extractPEMFromPathOrPEMDefinition(identity.clientSignedCert, 'clientSignedCert', identity.name);
+            const privateKey = await this._extractPEMFromPathOrPEMDefinition(identity.clientPrivateKey, 'clientPrivateKey', identity.name);
+            await this._addToWallet(mspId, identity.name, certificate, privateKey);
+        }
+    }
+
+    /**
+     * Extract the PEM from a file or the embedded definition
+     *
+     * @param {*} CertificateOrPrivateKeyDefinition The clientSignedCert or clientPrivateKey property in the configuation
+     * @param {string} propertyNameBeingProcessed A string of the provided property
+     * @param {string} name The name associated with this identity
+     * @returns {string} the PEM
+     * @async
+     * @private
+     */
+    async _extractPEMFromPathOrPEMDefinition(CertificateOrPrivateKeyDefinition, propertyNameBeingProcessed, name) {
+        let pem;
+
+        if (CertificateOrPrivateKeyDefinition.path) {
+            pem = await this._extractPEMFromPath(CertificateOrPrivateKeyDefinition.path, propertyNameBeingProcessed, name);
+        } else if (CertificateOrPrivateKeyDefinition.pem) {
+            pem = this._extractPEMFromPEM(CertificateOrPrivateKeyDefinition.pem, propertyNameBeingProcessed, name);
+        } else {
+            throw new Error(`No path or pem property specified for ${propertyNameBeingProcessed} for name ${name}`);
+        }
+
+        return pem;
+    }
+
+    /**
+     * Extract the PEM from the file pointed to by the path
+     *
+     * @param {string} pathToPEMFile The path to the file containing the PEM information
+     * @param {string} propertyNameBeingProcessed A string of the provided property
+     * @param {string} name The name associated with this identity
+     * @returns {string} the PEM
+     * @async
+     * @private
+     */
+    async _extractPEMFromPath(pathToPEMFile, propertyNameBeingProcessed, name) {
+        const configPath = CaliperUtils.resolvePath(pathToPEMFile);
+
+        try {
+            await fs.stat(configPath);
+        } catch(err) {
+            if (err.errno === -2) {
+                throw new Error(`path property does not point to a file that exists for ${propertyNameBeingProcessed} for name ${name}`);
+            }
+            throw err;
+        }
+
+        const pem = (await fs.readFile(configPath)).toString();
+
+        if (!pem.startsWith('-----BEGIN ')) {
+            throw new Error(`path property does not point to a valid pem file for ${propertyNameBeingProcessed} for name ${name}`);
+        }
+
+        return pem;
+    }
+
+    /**
+     * Extract the embedded PEM from the config, which could be base64 encoded
+     *
+     * @param {string} pem the embedded pem property value
+     * @param {string} propertyNameBeingProcessed A string of the provided property
+     * @param {string} name The name associated with this identity
+     * @returns {string} the PEM
+     * @async
+     * @private
+     */
+    _extractPEMFromPEM(pem, propertyNameBeingProcessed, name) {
+        if (pem.startsWith('-----BEGIN ')) {
+            return pem;
+        }
+
+        const decodedPEM = Buffer.from(pem, 'base64').toString();
+
+        if (!decodedPEM.startsWith('-----BEGIN ')) {
+            throw new Error(`pem property not valid for ${propertyNameBeingProcessed} for name ${name}`);
+        }
+
+        return decodedPEM;
     }
 }
 

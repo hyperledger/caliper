@@ -19,11 +19,31 @@ const chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 chai.should();
 const sinon = require('sinon');
+const path = require('path');
 
 const IdentityManagerFactory = require('../../lib/identity-management/IdentityManagerFactory');
 const IdentityManager = require('../../lib/identity-management/IdentityManager');
 const IWalletFacadeFactory = require('../../lib/identity-management/IWalletFacadeFactory');
 const IWalletFacade = require('../../lib/identity-management/IWalletFacade');
+
+const blankMSP = {
+    mspid: 'org1MSP',
+    identities: {
+        credentialStore: {
+            path: '/tmp/hfc-kvs/org1',
+            cryptoStore: {
+                path: '/tmp/hfc-cvs/org1'
+            }
+        },
+        wallet: {
+            path: 'some/path/to/org-specific-wallet'
+        }
+    },
+    connectionProfile: {
+        path: 'some/path/to/org-specific-profile',
+        discover: true
+    }
+};
 
 const org1MSP = {
     mspid: 'org1MSP',
@@ -39,12 +59,12 @@ const org1MSP = {
         },
         certificates: [
             {
-                alias: 'User1',
+                name: 'User1',
                 clientPrivateKey: {
-                    path: '../config/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/key.pem'
+                    path: path.resolve(__dirname, '../sample-configs/User1.key.pem')
                 },
                 clientSignedCert: {
-                    path: '../config/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem..'
+                    path: path.resolve(__dirname, '../sample-configs/User1.cert.pem')
                 }
             }
         ]
@@ -69,12 +89,12 @@ const org2MSP = {
         },
         certificates: [
             {
-                alias: 'User1',
+                name: 'User1',
                 clientPrivateKey: {
-                    path: '../config/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/key.pem'
+                    path: path.resolve(__dirname, '../sample-configs/User1.key.pem')
                 },
                 clientSignedCert: {
-                    path: '../config/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem..'
+                    path: path.resolve(__dirname, '../sample-configs/User1.cert.pem')
                 }
             }
         ]
@@ -85,7 +105,44 @@ const org2MSP = {
     }
 };
 
-
+const org3MSP = {
+    mspid: 'org3MSP',
+    identities: {
+        credentialStore: {
+            path: '/tmp/hfc-kvs/org1',
+            cryptoStore: {
+                path: '/tmp/hfc-cvs/org1'
+            }
+        },
+        wallet: {
+            path: 'some/path/to/org-specific-wallet'
+        },
+        certificates: [
+            {
+                name: 'User1',
+                clientPrivateKey: {
+                    path: path.resolve(__dirname, '../sample-configs/User1.key.pem')
+                },
+                clientSignedCert: {
+                    path: path.resolve(__dirname, '../sample-configs/User1.cert.pem')
+                }
+            },
+            {
+                name: 'User2',
+                clientPrivateKey: {
+                    pem: '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----'
+                },
+                clientSignedCert: {
+                    pem: '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----'
+                }
+            }
+        ]
+    },
+    connectionProfile: {
+        path: 'some/path/to/org-specific-profile',
+        discover: true
+    }
+};
 
 describe('An Identity Manager', () => {
 
@@ -94,7 +151,7 @@ describe('An Identity Manager', () => {
 
         it('should return Identity Manager instance if an array of valid organizations are supplied', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
-            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP]);
+            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [blankMSP]);
             identityManager.should.be.instanceOf(IdentityManager);
         });
 
@@ -107,23 +164,22 @@ describe('An Identity Manager', () => {
 
         it('should throw an error if first organization does not define an mspid', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
-            const badOrg = JSON.parse(JSON.stringify(org2MSP));
+            const badOrg = JSON.parse(JSON.stringify(blankMSP));
             delete badOrg.mspid;
             await identityManagerFactory.create(stubWalletFacadeFactory,[badOrg]).should.be.rejectedWith(/No mspid has been defined for the first organization/);
         });
 
         it('should throw an error if a non default organization does not define an mspid', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
-            const badOrg = JSON.parse(JSON.stringify(org2MSP));
+            const badOrg = JSON.parse(JSON.stringify(blankMSP));
             delete badOrg.mspid;
-            await identityManagerFactory.create(stubWalletFacadeFactory,[org1MSP, badOrg]).should.be.rejectedWith(/At least 1 organization has not specified the mspid property/);
+            await identityManagerFactory.create(stubWalletFacadeFactory,[blankMSP, badOrg]).should.be.rejectedWith(/At least 1 organization has not specified the mspid property/);
         });
 
         it('should throw an error if a non default organization has same mspid as default organization', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
-            const badOrg = JSON.parse(JSON.stringify(org2MSP));
-            badOrg.mspid = 'org1MSP';
-            await identityManagerFactory.create(stubWalletFacadeFactory,[org1MSP, badOrg]).should.be.rejectedWith(/More than 1 organization with the same mspid is not allowed/);
+            const badOrg = JSON.parse(JSON.stringify(blankMSP));
+            await identityManagerFactory.create(stubWalletFacadeFactory,[blankMSP, badOrg]).should.be.rejectedWith(/More than 1 organization with the same mspid is not allowed/);
         });
     });
 
@@ -132,14 +188,16 @@ describe('An Identity Manager', () => {
 
         it('should not prefix for the default organisation', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
-            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP]);
+            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [blankMSP]);
             identityManager.getAliasNameFromOrganizationAndIdentityName('org1MSP', 'admin').should.equal('admin');
 
         });
 
         it('should prefix for the non default organisation', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
-            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP, org2MSP]);
+            const anotherBlankMSP = JSON.parse(JSON.stringify(blankMSP));
+            anotherBlankMSP.mspid = 'org2MSP';
+            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [blankMSP, anotherBlankMSP]);
             identityManager.getAliasNameFromOrganizationAndIdentityName('org2MSP', 'admin').should.equal('_org2MSP_admin');
         });
     });
@@ -168,6 +226,148 @@ describe('An Identity Manager', () => {
             await identityManager.getAliasNamesForOrganization('org3MSP').should.eventually.deep.equal([]);
         });
     });
+
+    describe('when processing the explicit certificates in a configuration', () => {
+
+        const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+        const identityManagerFactory = new IdentityManagerFactory();
+        let stubWalletFacade;
+
+        beforeEach(() => {
+            stubWalletFacade = sinon.createStubInstance(IWalletFacade);
+            stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+            stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_org2MSP_admin', '_org2MSP_issuer']);
+        });
+
+        it('should throw an error if certificates section isn\'t an array', async () => {
+            const badOrg1MSP = JSON.parse(JSON.stringify(org1MSP));
+            badOrg1MSP.identities.certificates = {};
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/certificates property must be an array/);
+        });
+
+        it('should throw an error if name, clientSignCert or clientPrivateKey not specified', async () => {
+            let badOrg1MSP = JSON.parse(JSON.stringify(org1MSP));
+            delete badOrg1MSP.identities.certificates[0].name;
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/A valid entry in certificates must have an name, clientSignedCert and clientPrivateKey entry/);
+
+            badOrg1MSP = JSON.parse(JSON.stringify(org1MSP));
+            delete badOrg1MSP.identities.certificates[0].clientSignedCert;
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/A valid entry in certificates must have an name, clientSignedCert and clientPrivateKey entry/);
+
+            badOrg1MSP = JSON.parse(JSON.stringify(org1MSP));
+            delete badOrg1MSP.identities.certificates[0].clientPrivateKey;
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/A valid entry in certificates must have an name, clientSignedCert and clientPrivateKey entry/);
+        });
+
+        it('should throw an error if path or pem not specified', async () => {
+            let badOrg1MSP = JSON.parse(JSON.stringify(org1MSP));
+            delete badOrg1MSP.identities.certificates[0].clientSignedCert.path;
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/No path or pem property specified for clientSignedCert for name User1/);
+
+            badOrg1MSP = JSON.parse(JSON.stringify(org1MSP));
+            delete badOrg1MSP.identities.certificates[0].clientPrivateKey.path;
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/No path or pem property specified for clientPrivateKey for name User1/);
+        });
+
+        it('should throw an error if path specified for clientSignCert or clientPrivateKey does not exist', async () => {
+            let badOrg1MSP = JSON.parse(JSON.stringify(org1MSP));
+            badOrg1MSP.identities.certificates[0].clientSignedCert.path = '/to/some/known/path/file';
+            delete badOrg1MSP.identities.certificates[0].clientPrivateKey.path;
+            badOrg1MSP.identities.certificates[0].clientPrivateKey.pem = '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----';
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property does not point to a file that exists for clientSignedCert for name User1/);
+
+            badOrg1MSP = JSON.parse(JSON.stringify(org1MSP));
+            badOrg1MSP.identities.certificates[0].clientPrivateKey.path = '/to/some/known/path/file';
+            delete badOrg1MSP.identities.certificates[0].clientSignedCert.path;
+            badOrg1MSP.identities.certificates[0].clientSignedCert.pem = '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----';
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property does not point to a file that exists for clientPrivateKey for name User1/);
+        });
+
+        it('should throw an error if path specified for clientSignCert or clientPrivateKey does not appear to have valid PEM contents', async () => {
+            let badOrg1MSP = JSON.parse(JSON.stringify(org1MSP));
+            delete badOrg1MSP.identities.certificates[0].clientPrivateKey.path;
+            badOrg1MSP.identities.certificates[0].clientPrivateKey.pem = '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----';
+            badOrg1MSP.identities.certificates[0].clientSignedCert.path = path.resolve(__dirname, '../sample-configs/invalid.yaml');
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property does not point to a valid pem file for clientSignedCert for name User1/);
+
+            badOrg1MSP = JSON.parse(JSON.stringify(org1MSP));
+            delete badOrg1MSP.identities.certificates[0].clientSignedCert.path;
+            badOrg1MSP.identities.certificates[0].clientSignedCert.pem = '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----';
+            badOrg1MSP.identities.certificates[0].clientPrivateKey.path = path.resolve(__dirname, '../sample-configs/invalid.yaml');
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/path property does not point to a valid pem file for clientPrivateKey for name User1/);
+        });
+
+        it('should throw an error if pem specified for clientSignCert or clientPrivateKey does not appear to have valid PEM contents', async () => {
+            const badOrg1MSP = JSON.parse(JSON.stringify(org1MSP));
+            delete badOrg1MSP.identities.certificates[0].clientPrivateKey.path;
+            delete badOrg1MSP.identities.certificates[0].clientSignedCert.path;
+            badOrg1MSP.identities.certificates[0].clientPrivateKey.pem = '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----';
+            badOrg1MSP.identities.certificates[0].clientSignedCert.pem = 'I am not valid';
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/pem property not valid for clientSignedCert for name User1/);
+            badOrg1MSP.identities.certificates[0].clientSignedCert.pem = '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----';
+            badOrg1MSP.identities.certificates[0].clientPrivateKey.pem = 'I am not valid';
+            await identityManagerFactory.create(stubWalletFacadeFactory, [badOrg1MSP]).should.be.rejectedWith(/pem property not valid for clientPrivateKey for name User1/);
+        });
+
+        it('should import an identity from a pem which is not base64 encoded', async () => {
+            const newOrg1MSP = JSON.parse(JSON.stringify(org1MSP));
+            const newOrg2MSP = JSON.parse(JSON.stringify(org2MSP));
+            delete newOrg1MSP.identities.certificates[0].clientPrivateKey.path;
+            delete newOrg1MSP.identities.certificates[0].clientSignedCert.path;
+            delete newOrg2MSP.identities.certificates[0].clientPrivateKey.path;
+            delete newOrg2MSP.identities.certificates[0].clientSignedCert.path;
+
+            newOrg1MSP.identities.certificates[0].clientPrivateKey.pem = '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----';
+            newOrg1MSP.identities.certificates[0].clientSignedCert.pem = '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----';
+            newOrg2MSP.identities.certificates[0].clientPrivateKey.pem = '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----';
+            newOrg2MSP.identities.certificates[0].clientSignedCert.pem = '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----';
+
+            await identityManagerFactory.create(stubWalletFacadeFactory, [newOrg1MSP, newOrg2MSP]);
+            sinon.assert.calledTwice(stubWalletFacade.import);
+            sinon.assert.calledWith(stubWalletFacade.import, 'User1', 'org1MSP', '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----', '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----');
+            sinon.assert.calledWith(stubWalletFacade.import, '_org2MSP_User1', 'org2MSP', '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----', '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----');
+        });
+
+        it('should import an identity from a pem which are base64 encoded', async () => {
+            const newOrg1MSP = JSON.parse(JSON.stringify(org1MSP));
+            const newOrg2MSP = JSON.parse(JSON.stringify(org2MSP));
+            delete newOrg1MSP.identities.certificates[0].clientPrivateKey.path;
+            delete newOrg1MSP.identities.certificates[0].clientSignedCert.path;
+            delete newOrg2MSP.identities.certificates[0].clientPrivateKey.path;
+            delete newOrg2MSP.identities.certificates[0].clientSignedCert.path;
+
+            newOrg1MSP.identities.certificates[0].clientPrivateKey.pem = 'LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0=';
+            newOrg1MSP.identities.certificates[0].clientSignedCert.pem = 'LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0=';
+            newOrg2MSP.identities.certificates[0].clientPrivateKey.pem = 'LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0=';
+            newOrg2MSP.identities.certificates[0].clientSignedCert.pem = 'LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0=';
+
+            await identityManagerFactory.create(stubWalletFacadeFactory, [newOrg1MSP, newOrg2MSP]);
+            sinon.assert.calledTwice(stubWalletFacade.import);
+            sinon.assert.calledWith(stubWalletFacade.import, 'User1', 'org1MSP', '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----', '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----');
+            sinon.assert.calledWith(stubWalletFacade.import, '_org2MSP_User1', 'org2MSP', '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----', '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----');
+        });
+
+        it('should import an identity from a path', async () => {
+            await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP, org2MSP]);
+            sinon.assert.calledTwice(stubWalletFacade.import);
+            sinon.assert.calledWith(stubWalletFacade.import, 'User1', 'org1MSP', sinon.match(/^-----BEGIN CERTIFICATE-----.*/),
+                sinon.match(/^-----BEGIN PRIVATE KEY-----.*/));
+            sinon.assert.calledWith(stubWalletFacade.import, '_org2MSP_User1', 'org2MSP', sinon.match(/^-----BEGIN CERTIFICATE-----.*/),
+                sinon.match(/^-----BEGIN PRIVATE KEY-----.*/));
+        });
+
+        it('should import multiple identities', async () => {
+            await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP, org3MSP]);
+            sinon.assert.calledThrice(stubWalletFacade.import);
+            sinon.assert.calledWith(stubWalletFacade.import, 'User1', 'org1MSP', sinon.match(/^-----BEGIN CERTIFICATE-----.*/),
+                sinon.match(/^-----BEGIN PRIVATE KEY-----.*/));
+            sinon.assert.calledWith(stubWalletFacade.import, '_org3MSP_User1', 'org3MSP', sinon.match(/^-----BEGIN CERTIFICATE-----.*/),
+                sinon.match(/^-----BEGIN PRIVATE KEY-----.*/));
+            sinon.assert.calledWith(stubWalletFacade.import, '_org3MSP_User2', 'org3MSP', sinon.match(/^-----BEGIN CERTIFICATE-----.*/),
+                sinon.match(/^-----BEGIN PRIVATE KEY-----.*/));
+        });
+    });
+
 
     it('should return a wallet when requested', async () => {
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);

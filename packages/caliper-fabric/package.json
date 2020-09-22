@@ -55,7 +55,8 @@
             ".yml",
             ".yaml",
             ".md",
-            ".log"
+            ".log",
+            ".pem"
         ],
         "insert_license": false,
         "license_formats": {
