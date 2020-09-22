@@ -404,8 +404,6 @@ describe('A valid Connector Configuration', () => {
         await connectorConfiguration.getWalletForAliasName('alias2').should.equal('IamAwallet');
     });
 
-
-
     describe('when generating an alias name', () => {
         it('should not prefix for the default organisation', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
@@ -416,6 +414,43 @@ describe('A valid Connector Configuration', () => {
         it('should prefix for the non default organisation', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
             connectorConfiguration.getAliasNameFromOrganizationAndIdentityName('org2MSP', 'admin').should.equal('_org2MSP_admin');
+        });
+    });
+
+    describe('when getting contract details by id', () => {
+        it('should return the right contract details', async () => {
+            const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
+            connectorConfiguration.getContractDetailsForContractId('myMarbles').should.deep.equal({channel: 'my-channel', id: 'marbles'});
+            connectorConfiguration.getContractDetailsForContractId('lostMyMarbles').should.deep.equal({channel: 'your-channel', id: 'marbles'});
+        });
+
+        it('should return undefined if id not found', async () => {
+            const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
+            should.equal(connectorConfiguration.getContractDetailsForContractId('NoMarbles'), undefined);
+        });
+
+        it('should set the contract id property to the id property of the contract if the contract id property is not specified', async () => {
+            const configFile = new GenerateConfiguration('./test/sample-configs/BasicConfig.yaml').generateConfigurationFileWithSpecifics(
+                {
+                    channels: [
+                        {
+                            channelName: 'my-channel',
+                            create: false,
+                            contracts: [
+                                {
+                                    id: 'foundmarbles',
+                                    version: 'v0',
+                                    language: 'node',
+                                    path: 'marbles/src',
+                                    metadataPath: 'marbles/metadata'
+                                }
+                            ]
+                        }
+                    ]
+                }
+            );
+            const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
+            connectorConfiguration.getContractDetailsForContractId('foundmarbles').should.deep.equal({channel: 'my-channel', id: 'foundmarbles'});
         });
     });
 });
