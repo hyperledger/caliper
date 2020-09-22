@@ -35,6 +35,7 @@ class ConnectorConfiguration {
         this.identityManagerFactory = identityManagerFactory;
         this.walletFacadeFactory = walletFacadeFactory;
         this.identityManager = null;
+        this.contractDetailsById = new Map();
     }
 
     /**
@@ -44,6 +45,7 @@ class ConnectorConfiguration {
         const configPath = CaliperUtils.resolvePath(this.connectorConfigurationPath);
         this.connectorConfiguration = CaliperUtils.parseYaml(configPath);
         this.identityManager = await this.identityManagerFactory.create(this.walletFacadeFactory, this.connectorConfiguration.organizations);
+        this._createContractMappingById();
     }
 
     /**
@@ -119,6 +121,14 @@ class ConnectorConfiguration {
         return [];
     }
 
+    /**
+     * Gets the details (channel, id and version) for the given contract.
+     * @param {string} contractId The unique Id of the contract.
+     * @return {{channel: string, id: string}} The details of the contract, null otherwise.
+     */
+    getContractDetailsForContractId(contractId) {
+        return this.contractDetailsById.get(contractId);
+    }
 
     /**
      * Returns a list of all the mspids that represent organizations
@@ -197,6 +207,38 @@ class ConnectorConfiguration {
         }
 
         return CaliperUtils.parseYaml(resolvedConnectionProfilePath);
+    }
+
+    /**
+     * create a map to be able to look up contract details based on the contract
+     * id.
+     * Contract details are just the channel and chaincode id (version number is not required)
+     */
+    _createContractMappingById() {
+        const channelDefinitions = this.connectorConfiguration.channels;
+
+        if (channelDefinitions && Array.isArray(channelDefinitions)){
+
+            for (const channelDefinition of channelDefinitions) {
+                const contractDefinitions = channelDefinition.contracts;
+
+                if (contractDefinitions && Array.isArray(contractDefinitions)) {
+
+                    for (const contractDefinition of contractDefinitions) {
+
+                        if (!contractDefinition.contractID) {
+                            contractDefinition.contractID = contractDefinition.id;
+                        }
+
+                        if (contractDefinition.language && contractDefinition.language !== 'golang' && contractDefinition.path) {
+                            contractDefinition.path = CaliperUtils.resolvePath(contractDefinition.path);
+                        }
+
+                        this.contractDetailsById.set(contractDefinition.contractID, {channel: channelDefinition.channelName, id: contractDefinition.id});
+                    }
+                }
+            }
+        }
     }
 }
 
