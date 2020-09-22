@@ -6,12 +6,9 @@
     },
 	"packages": [
 	    "packages/caliper-core",
-        "packages/caliper-burrow",
         "packages/caliper-ethereum",
         "packages/caliper-fabric",
         "packages/caliper-fisco-bcos",
-        "packages/caliper-iroha",
-        "packages/caliper-sawtooth",
         "packages/caliper-cli",
         "packages/caliper-publish",
         "packages/caliper-tests-integration",

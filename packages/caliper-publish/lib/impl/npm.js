@@ -20,14 +20,11 @@ const utils = require('./../utils/cmdutils');
 
 const packages = [
     'caliper-core',
-    'caliper-burrow',
     'caliper-ethereum',
     'caliper-fabric',
-    'caliper-iroha',
-    'caliper-sawtooth',
     'caliper-fisco-bcos',
     'caliper-cli',
-    // 'generator-caliper'
+    'generator-caliper'
 ];
 
 // impl => lib => caliper-publish

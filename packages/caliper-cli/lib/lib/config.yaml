@@ -57,33 +57,6 @@ sut:
         latest: *fabric-latest
         latest-v2: *fabric-latest-v2
 
-    sawtooth:
-        1.0.0:
-            packages: [ 'sawtooth-sdk@1.0.0' ]
-        1.0.1:
-            packages: [ 'sawtooth-sdk@1.0.1' ]
-        1.0.2:
-            packages: [ 'sawtooth-sdk@1.0.2' ]
-        1.0.4:
-            packages: [ 'sawtooth-sdk@1.0.4' ]
-        1.0.5: &sawtooth-latest
-            packages: [ 'sawtooth-sdk@1.0.5' ]
-        latest: *sawtooth-latest
-
-    burrow:
-        0.23.0:
-            packages: [ '@monax/burrow@0.23.0' ]
-        0.30.2: &burrow-latest
-            packages: [ '@hyperledger/burrow@0.30.2' ]
-        latest: *burrow-latest
-
-    iroha:
-        0.6.3:
-            packages: [ 'iroha-helpers@0.6.3' ]
-        0.8.8: &iroha-latest
-            packages: [ 'iroha-helpers@0.8.8' ]
-        latest: *iroha-latest
-
     fisco-bcos:
         2.0.0: &fisco-latest
             packages: ['web3@0.20.7']

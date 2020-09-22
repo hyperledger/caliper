@@ -22,11 +22,8 @@
         "npm": ">=5.6.0"
     },
     "dependencies": {
-        "@hyperledger/caliper-burrow": "0.4.0-unstable",
         "@hyperledger/caliper-core": "0.4.0-unstable",
         "@hyperledger/caliper-fabric": "0.4.0-unstable",
-        "@hyperledger/caliper-iroha": "0.4.0-unstable",
-        "@hyperledger/caliper-sawtooth": "0.4.0-unstable",
         "chalk": "1.1.3",
         "cors": "^2.8.5",
         "express": "4.17.1",

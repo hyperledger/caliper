@@ -599,7 +599,7 @@ describe('Class: ConfigValidator', () => {
 
                 it('should throw for an invalid string value', () => {
                     const err = 'child "caliper" fails because [child "blockchain" fails because ["blockchain" must be one of [fabric]]]';
-                    config.caliper.blockchain = 'sawtooth';
+                    config.caliper.blockchain = 'ethereum';
                     call.should.throw(err);
                 });
 
