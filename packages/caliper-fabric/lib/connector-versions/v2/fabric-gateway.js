@@ -15,7 +15,7 @@
 'use strict';
 
 const { DefaultEventHandlerStrategies, DefaultQueryHandlerStrategies, Gateway, Wallets } = require('fabric-network');
-const { BlockchainConnector, CaliperUtils, TxStatus, Version, ConfigUtil } = require('@hyperledger/caliper-core');
+const { ConnectorBase, CaliperUtils, TxStatus, Version, ConfigUtil } = require('@hyperledger/caliper-core');
 
 const FabricNetwork = require('../../fabricNetwork.js');
 const RegistrarHelper = require('./registrarHelper');
@@ -110,7 +110,7 @@ const QueryStrategies = {
  * @property {Map} userGateways A map of identities to the gateway they are connected
  * @property {Map} peerCache A cache of peer objects
  */
-class Fabric extends BlockchainConnector {
+class Fabric extends ConnectorBase {
     /**
      * Initializes the Fabric adapter.
      * @param {object} networkObject The parsed network configuration.

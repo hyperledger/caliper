@@ -36,7 +36,7 @@ class MarblesInitByChannelWorkload extends WorkloadModuleBase {
      * @param {number} totalWorkers The total number of workers participating in the round.
      * @param {number} roundIndex The 0-based index of the currently executing round.
      * @param {Object} roundArguments The user-provided arguments for the round from the benchmark configuration file.
-     * @param {BlockchainConnector} sutAdapter The adapter of the underlying SUT.
+     * @param {ConnectorBase} sutAdapter The adapter of the underlying SUT.
      * @param {Object} sutContext The custom context object provided by the SUT adapter.
      * @async
      */

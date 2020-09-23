@@ -17,7 +17,7 @@
 const FabricClient = require('fabric-client');
 const FabricConstants = require('fabric-client/lib/Constants');
 const {google, common} = require('fabric-protos');
-const {BlockchainConnector, CaliperUtils, TxStatus, Version, ConfigUtil} = require('@hyperledger/caliper-core');
+const {ConnectorBase, CaliperUtils, TxStatus, Version, ConfigUtil} = require('@hyperledger/caliper-core');
 const FabricNetwork = require('../../fabricNetwork.js');
 
 const fs = require('fs');
@@ -76,7 +76,7 @@ const logger = CaliperUtils.getLogger('connectors/v1/fabric');
  * @property {string} configClientBasedLoadBalancing The value indicating the type of automatic load balancing to use.
  * @property {boolean} configCountQueryAsLoad Indicates whether queries should be counted as workload.
  */
-class Fabric extends BlockchainConnector {
+class Fabric extends ConnectorBase {
     /**
      * Initializes the Fabric adapter.
      * @param {object} networkObject The parsed network configuration.

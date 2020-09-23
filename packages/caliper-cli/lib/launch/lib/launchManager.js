@@ -44,7 +44,7 @@ class LaunchManager {
 
         if (bindingSpec) {
             logger.info(`Binding specification is present, performing binding for "${bindingSpec}"`);
-            await BindCommon.handler(argv, true, sutType);
+            await BindCommon.handler(argv, true);
         }
 
         let knownError = false;
@@ -53,7 +53,7 @@ class LaunchManager {
             logger.info(`Set workspace path: ${workspacePath}`);
             logger.info(`Set benchmark configuration path: ${benchmarkConfigPath}`);
             logger.info(`Set network configuration path: ${networkConfigPath}`);
-            logger.info(`Set SUT type: ${bindingSpec || sutType}`);
+            logger.info(`Set SUT type: ${sutType}`);
 
             let connectorFactory = CaliperUtils.loadModuleFunction(CaliperUtils.getBuiltinConnectorPackageNames(),
                 sutType, Constants.Factories.Connector, require);

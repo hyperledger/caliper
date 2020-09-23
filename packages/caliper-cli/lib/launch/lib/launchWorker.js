@@ -44,14 +44,14 @@ class LaunchWorker {
             }
             else {
                 logger.info(`Binding specification is present, performing binding for "${bindingSpec}"`);
-                await BindCommon.handler(argv, true, sutType);
+                await BindCommon.handler(argv, true);
             }
         }
 
         logger.info(`Set workspace path: ${workspacePath}`);
         logger.info(`Set benchmark configuration path: ${benchmarkConfigPath}`);
         logger.info(`Set network configuration path: ${networkConfigPath}`);
-        logger.info(`Set SUT type: ${bindingSpec || sutType}`);
+        logger.info(`Set SUT type: ${sutType}`);
 
         let messagingMethod = ConfigUtil.get(ConfigUtil.keys.Worker.Communication.Method);
         let isRemoteProcess = ConfigUtil.get(ConfigUtil.keys.Worker.Remote);

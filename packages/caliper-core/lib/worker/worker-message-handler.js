@@ -33,7 +33,7 @@ const logger = require('../common/utils/caliper-utils.js').getLogger('worker-mes
  * @property {string} managerUuid The UUID of the manager messenger.
  * @property {number} workerIndex The zero-based index of the worker process.
  * @property {CaliperWorker} The worker round executor.
- * @property {BlockchainConnector} The SUT connector instance.
+ * @property {ConnectorBase} The SUT connector instance.
  * @property {{resolve, reject}} exitPromiseFunctions The resolve/reject Promise functions to handle the async exit message later.
  */
 class WorkerMessageHandler {
