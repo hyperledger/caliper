@@ -54,7 +54,7 @@ This function is a good place to validate your workload module arguments provide
 #### submitTransaction
 The `submitTransaction` function is the backbone of the workload generation. The worker process calls this function every time the rate controller enables the next TX. So it is vital to keep this function implementation as efficient as possible in order to be able to keep up with high frequency scheduling settings.
 
-The function requires no parameters, but it is its responsibility to submit the TX to the connector API, and return the execution results as an array of [`TxStatus`](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/core/transaction-status.js) objects.
+The function requires no parameters, but it is its responsibility to submit the TX through the connector API.
 
 #### cleanupWorkloadModule
 The `cleanupWorkloadModule` function is called at the end of the round, and can be used to perform any resource cleanup required by your workload implementation.

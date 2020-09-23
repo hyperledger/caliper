@@ -237,56 +237,33 @@ The `fromAddress` property is the [benchmark address](#benchmark-address) while 
 
 ## The _submitTransaction_ function
 
-The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type [`BlockchainConnector`](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/core/blockchain-connector.js). Its `getType()` function returns the `ethereum` string value.
+The `sutAdapter` object received (and saved) in the `initializeWorkloadModule` function is of type [`ConnectorInterface`](https://github.com/hyperledger/caliper/blob/master/packages/caliper-core/lib/common/core/connector-interface.js). Its `getType()` function returns the `fabric` string value.
 
-### Invoking a contract method
+The `sendRequests` method of the connector API allows the workload module to submit requests to the SUT. It takes a single parameter: an object or array of objects containing the settings of the requests.
 
-To submit a transaction, call the `sutAdapter.invokeSmartContract` function. It takes four parameters: the `contractID` of the contract (that is the key specified [here](#contract-configuration)), an unused contract version (you can put whatever), the `invokeData` array with methods data and a `timeout` value in seconds that is currently unimplemented (the default web3js timeout is used).
-
-The `invokeData` parameter can be a single or array of JSON, that must contain:
+The settings object has the following structure:
+* `contract`: _string. Required._ The ID of the contract (that is the key specified [here](#contract-configuration)).
+* `readOnly`: _boolean. Optional._ Indicates whether the request is a TX or a query. Defaults to `false`.
 * `verb`: _string. Required._ The name of the function to call on the contract.
 * `args`: _mixed[]. Optional._ The list of arguments to pass to the method in the correct order as they appear in method signature. It must be an array.
 
 ```js
-let invokeData = [{
+let requestsSettings = [{
+    contract: 'simple',
     verb: 'open',
     args: ['sfogliatella', 1000]
 },{
+    contract: 'simple',
     verb: 'open',
     args: ['baba', 900]
 }];
 
-return this.sutAdapter.invokeSmartContract('simple', '', invokeData, 60);
+await this.sutAdapter.sendRequests(requestsSettings);
 ```
 
-Currently each method call inside `invokeData` is sent separately, that is, they are NOT sent as a batch of calls on RPC.
+Currently each method call inside `sendRequests` is sent separately, that is, they are NOT sent as a batch of calls on RPC.
 
-### Querying a contract
-
-To query a state on a contract state, call the `sutAdapter.querySmartContract` function that has exactly same arguments as the `sutAdapter.invokeSmartContract` function. The difference is that it can't produce any change on the blockchain and node will answer with its local view of data. For backward compatibility reasons also the `sutAdapter.queryState` is present. It takes four parameters: the `contractID` of the contract, an unused contract version, the `key` to request information on and `fcn` to point which function call on the contract. `fcn` function on the contract must accept exactly one parameter; the `key` string will be passed as that parameter. `fcn` can also be omitted and the adapter will search on the contract for a function called `query`.
-
-  > Querying a value in a contract is always counted in the workload. So keep it in mind that if you think to query a value when executing a workload.
-
-Querying a contract looks like the following:
-
-```js
-let queryData = [{
-    verb: 'queryPastryBalance',
-    args: ['sfogliatella']
-},{
-    verb: 'queryPastryBalance',
-    args: ['baba']
-}];
-
-let balance = await this.sutAdapter.querySmartContract('pastryBalance', '', queryData, 60);
-```
-or
-```js
-let balance = await this.sutAdapter.queryState('simple', '', 'sfogliatella');
-```
-assuming that `simple` contract has the `query` function that takes only one argument.
-
-Like invoke, currently there is not any support for batch calls.
+To query a state on a contract state, set the `readOnly` attribute to `true`. The difference is that it can't produce any change on the blockchain and node will answer with its local view of data. Like for traditional requests, currently there is no support for batch queries.
 
 ---
 

@@ -48,6 +48,8 @@ Sample benchmarks that may be used by Caliper are hosted on a companion [GitHub 
 
 Performance reports for the provided samples are hosted on the [documentation pages of the repository](https://hyperledger.github.io/caliper-benchmarks/).
 
+> **Important:** make sure that the version/tag of the benchmark repository matches the version of Caliper you are using! For example, if you are using Caliper v0.3.2, then `checkout` the `v0.3.2` tag after cloning the benchmark repository. The `master` branch of the benchmark repository corresponds to the latest `unstable` Caliper version.
+
 ## How to Contribute
 
 Every contribution is welcome! See the [Contributing](./CONTRIBUTING.md) page for details.
