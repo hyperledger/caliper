@@ -48,7 +48,10 @@ class IdentityManager {
      * @returns {string} the unique alias name that will be in the wallet
      */
     getAliasNameFromOrganizationAndIdentityName(mspId, identityName) {
-        if (mspId === this.defaultMspId) {
+        if (!mspId ||
+            mspId.length === 0 ||
+            mspId === this.defaultMspId) {
+
             return identityName;
         }
 
@@ -103,7 +106,7 @@ class IdentityManager {
      */
     async _addToWallet(mspId, identityName, certificate, privateKey) {
         const alias = this.getAliasNameFromOrganizationAndIdentityName(mspId, identityName);
-        this.inMemoryWalletFacade.import(alias, mspId, certificate, privateKey);
+        await this.inMemoryWalletFacade.import(mspId, alias, certificate, privateKey);
     }
 
     /**
