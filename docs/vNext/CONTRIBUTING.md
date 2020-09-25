@@ -45,13 +45,10 @@ Contains all the Caliper core code. Interested developers can follow the code fl
 
 ### caliper-adaptor
 Each `caliper-<adapter>` is a separate package that contains a distinct adaptor implementation to interact with different blockchain technologies. Current adaptors include:
-- caliper-burrow
 - caliper-besu
 - caliper-ethereum
 - caliper-fabric
 - caliper-fisco-bcos
-- caliper-iroha
-- caliper-sawtooth
 
 Each adaptor implements the `BlockchainInterface` from the core package, as well as a `ClientFactory` and `ClientWorker` that are bespoke to the adaptor.
 
