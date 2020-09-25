@@ -19,12 +19,9 @@ Caliper is a blockchain performance benchmark framework, which allows users to t
 ### Supported blockchain solutions
 
 * [Hyperledger Besu](https://github.com/hyperledger/besu)
-* [Hyperledger Burrow](https://github.com/hyperledger/burrow)
 * [Ethereum](https://github.com/ethereum/)
 * [Hyperledger Fabric](https://github.com/hyperledger/fabric)
 * [FISCO BCOS](https://github.com/FISCO-BCOS/FISCO-BCOS)
-* [Hyperledger Iroha](https://github.com/hyperledger/iroha)
-* [Hyperledger Sawtooth](https://github.com/hyperledger/sawtooth-core)
 
 ### Supported performance metrics
 

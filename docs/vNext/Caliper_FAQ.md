@@ -17,13 +17,13 @@ When you run Caliper to test a blockchain network, you maybe encounter some erro
 
 a. **Benchmark configuration file**: The example benchmark configuration files are named like `config-xxx.yaml` and are located in the directories of the sample benchmarks. The configuration contains test round and monitoring settings. You can refer to the [Architecture documentation](./Architecture.md) for details.  
 
-b. **Blockchain configuration file**: The blockchain configuration file is named like `xxx-yyy.json/`, where `xxx` is the blockchain type (for example, `fabric`, `sawtooth`, `burrow` or `iroha`), and `yyy` is some deployment-specific information, like the language of the contracts (for example, `fabric-go.json` for a Fabric deployment). You can refer to the platform-specific configuration pages for more information.
+b. **Blockchain configuration file**: The blockchain configuration file is named like `xxx-yyy.json/`, where `xxx` is the blockchain type (for example, `fabric`), and `yyy` is some deployment-specific information, like the language of the contracts (for example, `fabric-go.json` for a Fabric deployment). You can refer to the platform-specific configuration pages for more information.
 
 c. There is another configuration file, namely `./config/default.yaml`, containing runtime setting for Caliper and the blockchain adapters. These settings can also be specified as command line arguments or environment variables.
 
 ### III. Testing a Blockchain Network  
 **Q:** What kind of networks does Caliper support currently?  
-**A:** Now you can use Caliper to test Besu, Burrow, Ethereum, Fabric, FISCO-SCOS, Iroha, and Sawtooth networks. Caliper provides some example networks out-of-the-box. For Fabric, example networks are located in the `network/fabric-v<VERSION>/<X>org<Y>peer<STATEDB>` directories, where `<VERSION>` is the version of Fabric binaries comprising the network, `<X>` is the number of organizations in the network, `<Y>` is the number of peers each organization has and `<STATEDB>` denotes the type of the DB storing the world state (`goleveldb` or `couchdb`).
+**A:** Now you can use Caliper to test Besu, Ethereum, Fabric, and FISCO-SCOS networks. Caliper provides some example networks out-of-the-box. For Fabric, example networks are located in the `network/fabric-v<VERSION>/<X>org<Y>peer<STATEDB>` directories, where `<VERSION>` is the version of Fabric binaries comprising the network, `<X>` is the number of organizations in the network, `<Y>` is the number of peers each organization has and `<STATEDB>` denotes the type of the DB storing the world state (`goleveldb` or `couchdb`).
 
 **Q:** How can I change the network topology that Caliper tests?  
 **A:** Caliper provides example configurations for each platform. Below are the steps needed to test a custom Fabric network:  
