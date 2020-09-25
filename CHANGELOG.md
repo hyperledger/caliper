@@ -1,3 +1,30 @@
+## 0.4.0
+
+* Core changes
+  * [Breaking] Burrow connector removed
+  * [Breaking] Sawtooth connector removed
+  * [Breaking] Iroha connector removed
+  * [Breaking] Modification of Prometheus Resource Monitor configuration ([PR974](https://github.com/hyperledger/caliper/pull/974))
+  * [Breaking] Modification of Prometheus Push gateway configuration ([PR966](https://github.com/hyperledger/caliper/pull/966))
+  * [Breaking] Alignment of rate controller configuration to be SUT centric ([PR959](https://github.com/hyperledger/caliper/pull/959))
+  * [Breaking] Caliper API change for workload specification ([PR950](https://github.com/hyperledger/caliper/pull/950))
+  * [Breaking] Caliper API change: removal of queryState ([PR931](https://github.com/hyperledger/caliper/pull/931))
+  * [Breaking] Caliper API change: master -> manager ([PR893](https://github.com/hyperledger/caliper/pull/893))
+  * [Breaking] Caliper API change: chaincode -> contract ([PR891](https://github.com/hyperledger/caliper/pull/891))
+  * [Breaking] Caliper API change: adaptor -> connector ([PR881](https://github.com/hyperledger/caliper/pull/881))
+  * [Breaking] Caliper API change: callbacks converted to Workload module class ([PR856](https://github.com/hyperledger/caliper/pull/856))
+
+  * [Feature] Basic auth for Prometheus interaction ([PR966](https://github.com/hyperledger/caliper/pull/966), [PR960](https://github.com/hyperledger/caliper/pull/960))
+  * [Feature] Prometheus txObserver scrape target ([PR960](https://github.com/hyperledger/caliper/pull/960))
+  * [Feature] Introduction of txObservers ([PR943](https://github.com/hyperledger/caliper/pull/943))
+  * [Feature] Max rate controller ([PR874](https://github.com/hyperledger/caliper/pull/874))
+
+* Hyperledger Fabric adapter changes
+  * [Breaking] Modification to Fabric binding options ([PR984](https://github.com/hyperledger/caliper/pull/984))
+
+  * [Feature] Addition of target Organizations to fabric connector  ([PR937](https://github.com/hyperledger/caliper/pull/937))
+  * [Feature] Addition of target channel to fabric connector  ([PR925](https://github.com/hyperledger/caliper/pull/925))
+
 ## 0.3.2 (June 11, 2020)
 
 * Core changes
