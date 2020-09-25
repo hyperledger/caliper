@@ -20,9 +20,8 @@ chai.use(chaiAsPromised);
 chai.should();
 const mockery = require('mockery');
 
-
 /**
- *
+ * simulate a node sdk v2 wallet
  */
 class StubWallet {
     /**
@@ -94,7 +93,7 @@ describe('When testing a V2 Wallet Facade Implementation', () => {
         await walletFacade.import('mspid', 'label', 'cert', 'key').should.be.rejectedWith(/already exists/);
     });
 
-    it('A wallet facade get all identity names it has', async () => {
+    it('A wallet facade should get all identity names it has', async () => {
         const walletFacade = await new WalletFacadeFactory().create();
         await walletFacade.import('mspid', 'label', 'cert', 'key');
         await walletFacade.import('mspid', 'bart', 'cert', 'key');
@@ -107,10 +106,8 @@ describe('When testing a V2 Wallet Facade Implementation', () => {
         walletFacade.getWallet().should.be.instanceOf(StubWallet);
     });
 
-
     it('should unregister and disable mockery', () => {
         mockery.deregisterAll();
         mockery.disable();
     });
 });
-
