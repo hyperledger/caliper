@@ -168,7 +168,7 @@ class CaliperWorker {
     }
 
     /**
-     * Perform the test
+     * Perform the test - and in this case also test if we have travis
      * @param {TestMessage} testMessage start test message
      * @return {Promise<TransactionStatisticsCollector>} The results of the round execution.
      */
