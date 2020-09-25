@@ -35,6 +35,7 @@
         "chai-as-promised": "^7.1.1",
         "eslint": "^5.16.0",
         "mocha": "3.4.2",
+        "mockery": "^2.1.0",
         "nyc": "11.1.0",
         "sinon": "^7.3.2",
         "license-check-and-add": "2.3.6"
