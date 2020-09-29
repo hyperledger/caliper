@@ -16,7 +16,7 @@ order: 3
 
 This page introduces the Fabric adapter that utilizes the Common Connection Profile (CCP) feature of the Fabric SDK to provide compatibility and a unified programming model across different Fabric versions.
 
-> The latest supported version of Hyperledger Fabric is v2.2.x
+> The latest supported version of Hyperledger Fabric is v2.x
 
 The adapter exposes many SDK features directly to the user callback modules, making it possible to implement complex scenarios.
 
@@ -35,13 +35,13 @@ The adapter exposes many SDK features directly to the user callback modules, mak
 
 You must bind Caliper to a specific Fabric SDK to target the corresponding (or compatible) SUT version. Refer to the [binding documentation](./Installing_Caliper.md#the-bind-command) for details.
 
-### Binding with Fabric SDK 2.2.x
-> Note that when using the binding target for the Fabric SDK 2.2.x there are capability restrictions:
-> * The 2.2 SDK does not facilitate administration actions. It it not possible to create/join channels, nor install/instantiate contract. Consequently the 2.2 binding only facilitates operation with a `--caliper-flow-only-test` flag
-> * The 2.2 SDK currently only supports operation using a `gateway`. Consequently the 2.2.x binding requires a `--caliper-fabric-gateway-enabled` flag
+### Binding with Fabric SDK 2.x
+> Note that when using the binding target for the Fabric SDK 2.x there are capability restrictions:
+> * The 2.x SDK does not facilitate administration actions. It it not possible to create/join channels, nor install/instantiate contract. Consequently the 2.x binding only facilitates operation with a `--caliper-flow-only-test` flag
+> * The 2.x SDK currently only supports operation using a `gateway`. Consequently the 2.x binding requires a `--caliper-fabric-gateway-enabled` flag
 >
-> When testing with the 2.2 SDK, it is recommended to configure the system in advance with a network tool of your choice, or using Caliper bound to a 1.4 SDK. The 2.2 SDK may then be bound to Caliper and used for testing.
-> Caliper does not support the Fabric v2.2 contract lifecycle, however the legacy commands of install/instantiate are still valid, and so Caliper can perform basic network configuration using 1.4 SDK bindings.
+> When testing with the 2.x SDK, it is recommended to configure the system in advance with a network tool of your choice, or using Caliper bound to a 1.4 SDK. The 2.x SDK may then be bound to Caliper and used for testing.
+> Caliper does not support the Fabric v2 contract lifecycle, however the legacy commands of install/instantiate are still valid, and so Caliper can perform basic network configuration using 1.4 SDK bindings.
 
 ## Runtime settings
 
