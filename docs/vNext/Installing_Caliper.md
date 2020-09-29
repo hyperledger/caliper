@@ -104,7 +104,7 @@ Options:
 The following SUT name and SDK version combinations are supported:
 * **besu**: `1.3.2`, `1.3`, `1.4`, `latest`
 * **ethereum**: `1.2.1`, `latest`
-* **fabric**: `1.0.0`, `1.1.0`, `1.2.0`, `1.3.0`, `1.4.0`, `1.4.1`, `1.4.3`, `1.4.4`, `1.4.5`, `1.4.6`, `1.4.7`, `1.4.8`, `1.4.9`, `1.4.10`, `1.4.11`, `2.1.0`, `2.2.0`, `latest`, `latest-v2`
+* **fabric**: `1.0.0`, `1.1.0`, `1.2.0`, `1.3.0`, `1.4.0`, `1.4.1`, `1.4.3`, `1.4.4`, `1.4.5`, `1.4.6`, `1.4.7`, `1.4.8`, `1.4.9`, `1.4.10`, `1.4.11`, `2.1.0`, `latest`, `latest-v2`
 * **fisco-bcos**: `2.0.0`, `latest`
 
 > __Note:__ the `latest` value always points to the last explicit versions in the columns. However, it is recommended to explicitly specify the SDK version to avoid any surprise between two benchmark runs.
