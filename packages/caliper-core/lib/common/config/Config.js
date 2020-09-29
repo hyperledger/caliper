@@ -54,8 +54,18 @@ const keys = {
         }
     },
     Monitor: {
-        DefaultInterval: 'caliper-monitor-default-interval',
-        PrometheusScrapePort: 'caliper-monitor-prometheus-scrape-port'
+        Interval: 'caliper-monitor-interval'
+    },
+    Observer: {
+        Internal: {
+            Interval: 'caliper-observer-internal-interval'
+        },
+        Prometheus: {
+            ScrapePort: 'caliper-observer-prometheus-scrapeport'
+        },
+        PrometheusPush: {
+            Interval: 'caliper-observer-prometheuspush-interval'
+        }
     },
     Workspace: 'caliper-workspace',
     ProjectConfig: 'caliper-projectconfig',
@@ -111,9 +121,6 @@ const keys = {
         Communication: {
             Method: 'caliper-worker-communication-method',
             Address: 'caliper-worker-communication-address',
-        },
-        Update: {
-            Interval: 'caliper-worker-update-interval'
         }
     },
     Flow: {

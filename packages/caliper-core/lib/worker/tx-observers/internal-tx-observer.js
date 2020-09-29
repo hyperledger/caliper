@@ -33,7 +33,7 @@ class InternalTxObserver extends TxObserverInterface {
      */
     constructor(messenger, managerUuid, workerIndex) {
         super(messenger, workerIndex);
-        this.updateInterval = ConfigUtil.get(ConfigUtil.keys.Worker.Update.Interval);
+        this.updateInterval = ConfigUtil.get(ConfigUtil.keys.Observer.Internal.Interval);
         this.intervalObject = undefined;
         this.messengerUUID = messenger.getUUID();
         this.managerUuid = managerUuid;

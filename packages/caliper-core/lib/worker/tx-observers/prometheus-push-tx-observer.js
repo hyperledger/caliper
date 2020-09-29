@@ -36,14 +36,15 @@ class PrometheusPushTxObserver extends TxObserverInterface {
      */
     constructor(options, messenger, workerIndex) {
         super(messenger, workerIndex);
-        this.pushInterval = options && options.pushInterval || ConfigUtil.get(ConfigUtil.keys.Monitor.DefaultInterval);
+        this.pushInterval = (options && options.pushInterval) ? options.pushInterval : ConfigUtil.get(ConfigUtil.keys.Observer.PrometheusPush.Interval);
+        this.processMetricCollectInterval =  (options && options.processMetricCollectInterval) ? options.processMetricCollectInterval : undefined;
         this.intervalObject = undefined;
 
         // do not use global registry to avoid conflicts with other potential prom-based observers
         this.registry = new prometheusClient.Registry();
 
         // automatically apply default internal and user supplied labels
-        this.defaultLabels = options.defaultLabels || {};
+        this.defaultLabels = (options && options.defaultLabels) ? options.defaultLabels : {};
         this.defaultLabels.workerIndex = this.workerIndex;
         this.defaultLabels.roundIndex = this.currentRound;
         this.defaultLabels.roundLabel = this.roundLabel;
@@ -65,7 +66,7 @@ class PrometheusPushTxObserver extends TxObserverInterface {
 
         // configure buckets
         let buckets = prometheusClient.linearBuckets(0.1, 0.5, 10); // default
-        if (options.histogramBuckets) {
+        if (options && options.histogramBuckets) {
             if (options.histogramBuckets.explicit) {
                 buckets = options.histogramBuckets.explicit;
             } else if (options.histogramBuckets.linear) {
@@ -96,6 +97,11 @@ class PrometheusPushTxObserver extends TxObserverInterface {
             startGcStats();
         }
 
+        if (!(options && options.pushUrl)) {
+            const msg = 'PushGateway transaction observer must be provided with a pushUrl within the passed options';
+            Logger.error(msg);
+            throw new Error(msg);
+        }
         const url = CaliperUtils.augmentUrlWithBasicAuth(options.pushUrl, Constants.AuthComponents.PushGateway);
         this.prometheusPushGateway = new prometheusClient.Pushgateway(url, null, this.registry);
     }

@@ -72,12 +72,24 @@ caliper:
             enabled: true
             # Reporting frequency
             interval: 5000
-    # Configurations related to caliper test monitors
+    # Configurations related to caliper resource monitors
     monitor:
-        # Default update interval
-        defaultinterval: 10000
-        # Default scrape port for prometheus tx observer
-        prometheusscrapeport: 3000
+        # Update interval
+        interval: 10000
+    # Configurations related to caliper transaction observers
+    observer:
+        # Internal tx observer
+        internal:
+            # Default update interval
+            interval: 1000
+        # Prometheus PushGateway tx observer
+        prometheuspush:
+            # Default update interval
+            interval: 10000
+        # Prometheus tx observer
+        prometheus:
+            # Default scrape port for prometheus tx observer
+            scrapeport: 3000
     # Configurations related to the logging mechanism
     logging:
         # Specifies the message structure through placeholders
@@ -146,10 +158,6 @@ caliper:
             method: process
             # Address used for mqtt communications
             address: mqtt://localhost:1883
-        # Worker update configuration
-        update:
-            # update interval for sending round statistics to the manager
-            interval: 1000
     # Caliper flow options
     flow:
         # Skip options
