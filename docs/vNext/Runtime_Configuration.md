@@ -315,6 +315,15 @@ A default/fallback configuration file is shipped with the Caliper-related packag
 | caliper-flow-skip-start | Indicates whether to skip the start command script in the network configuration file. |
 | caliper-flow-skip-test | Indicates whether to skip the test phase of the benchmark. |
 
+### Authentication settings
+
+| Key | Description |
+|:----|:------------|
+| caliper-auth-prometheus-username | Basic authentication username to use authenticate with an existing prometheus server. |
+| caliper-auth-prometheus-password | Basic authentication password to use authenticate with an existing prometheus server. |
+| caliper-auth-prometheuspush-username | Basic authentication username to use authenticate with an existing prometheus push gateway. |
+| caliper-auth-prometheuspush-password | Basic authentication password to use authenticate with an existing prometheus push gateway. |
+
 ### Fabric adapter settings
 
 | Key | Description |
