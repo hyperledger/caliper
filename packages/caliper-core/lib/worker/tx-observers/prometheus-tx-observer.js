@@ -37,13 +37,13 @@ class PrometheusTxObserver extends TxObserverInterface {
      */
     constructor(options, messenger, workerIndex) {
         super(messenger, workerIndex);
-        this.metricPath = options.metricPath || '/metrics';
-        this.scrapePort = Number(options.scrapePort) || ConfigUtil.get(ConfigUtil.keys.Monitor.PrometheusScrapePort);
+        this.metricPath = (options && options.metricPath) ? options.metricPath : '/metrics';
+        this.scrapePort = (options && options.scrapePort) ? Number(options.scrapePort) : ConfigUtil.get(ConfigUtil.keys.Observer.Prometheus.ScrapePort);
         if (CaliperUtils.isForkedProcess()) {
             this.scrapePort += workerIndex;
         }
-        this.processMetricCollectInterval = options.processMetricCollectInterval;
-        this.defaultLabels = options.defaultLabels || {};
+        this.processMetricCollectInterval =  (options && options.processMetricCollectInterval) ? options.processMetricCollectInterval : undefined;
+        this.defaultLabels = (options && options.defaultLabels) ? options.defaultLabels : {};
 
         Logger.debug(`Configuring Prometheus scrape server for worker ${workerIndex} on port ${this.scrapePort}, with metrics exposed on ${this.metricPath} endpoint`);
 
@@ -72,7 +72,7 @@ class PrometheusTxObserver extends TxObserverInterface {
 
         // configure buckets
         let buckets = prometheusClient.linearBuckets(0.1, 0.5, 10); // default
-        if (options.histogramBuckets) {
+        if (options && options.histogramBuckets) {
             if (options.histogramBuckets.explicit) {
                 buckets = options.histogramBuckets.explicit;
             } else if (options.histogramBuckets.linear) {

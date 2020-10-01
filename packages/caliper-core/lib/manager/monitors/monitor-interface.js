@@ -21,14 +21,14 @@ const ConfigUtil = require('../../common/config/config-util.js');
 /**
  * Interface of resource consumption monitor
  */
-class MonitorInterface{
+class MonitorInterface {
     /**
      * Constructor
      * @param {JSON} resourceMonitorOptions Configuration options for the monitor
      */
     constructor(resourceMonitorOptions) {
         this.options = resourceMonitorOptions;
-        this.interval = resourceMonitorOptions.interval ? resourceMonitorOptions.interval*1000 : ConfigUtil.get(ConfigUtil.keys.Monitor.DefaultInterval);
+        this.interval = resourceMonitorOptions.interval ? resourceMonitorOptions.interval*1000 : ConfigUtil.get(ConfigUtil.keys.Monitor.Interval);
     }
 
     /**
