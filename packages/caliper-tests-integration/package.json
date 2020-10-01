@@ -112,7 +112,8 @@
             ".sol",
             ".address",
             ".proto",
-            ".cfg"
+            ".cfg",
+            ".conf"
         ],
         "insert_license": false,
         "license_formats": {
