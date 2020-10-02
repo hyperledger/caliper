@@ -1,7 +1,7 @@
 {
     "name": "@hyperledger/caliper-ethereum",
     "description": "Ethereum connector for Caliper, enabling the running of performance benchmarks that interact with Ethereum",
-    "version": "0.4.0-unstable",
+    "version": "0.4.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/hyperledger/caliper",
@@ -22,7 +22,7 @@
         "npm": ">=5.6.0"
     },
     "dependencies": {
-        "@hyperledger/caliper-core": "0.4.0-unstable",
+        "@hyperledger/caliper-core": "0.4.0",
         "ethereumjs-wallet": "^0.6.3"
     },
     "devDependencies": {
