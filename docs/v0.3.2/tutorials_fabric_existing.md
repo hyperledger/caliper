@@ -2,7 +2,7 @@
 layout: v0.3.2
 title:  "Setting up and Running a Performance Benchmark on an existing network"
 categories: 
-permalink: /v0.3.2/fabric-tutorial/benchmark-fabric-tutorial/
+permalink: /v0.3.2/fabric-tutorial/tutorials-fabric-existing/
 order: 
 ---
 ## Table of Contents
