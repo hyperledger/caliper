@@ -1,6 +1,6 @@
 {
     "name": "caliper-tests-integration",
-    "version": "0.4.0",
+    "version": "0.5.0-unstable",
     "private": true,
     "description": "Integration tests for Hyperledger Caliper",
     "scripts": {
@@ -31,11 +31,11 @@
         "license-check-and-add": "2.3.6"
     },
     "dependencies": {
-        "@hyperledger/caliper-cli": "0.4.0",
-        "@hyperledger/caliper-core": "0.4.0",
-        "@hyperledger/caliper-ethereum": "0.4.0",
-        "@hyperledger/caliper-fabric": "0.4.0",
-        "@hyperledger/caliper-fisco-bcos": "0.4.0",
+        "@hyperledger/caliper-cli": "0.5.0-unstable",
+        "@hyperledger/caliper-core": "0.5.0-unstable",
+        "@hyperledger/caliper-ethereum": "0.5.0-unstable",
+        "@hyperledger/caliper-fabric": "0.5.0-unstable",
+        "@hyperledger/caliper-fisco-bcos": "0.5.0-unstable",
         "yeoman-generator": "4.7.2",
         "yosay": "^2.0.1"
     },
