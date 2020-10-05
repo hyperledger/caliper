@@ -26,7 +26,7 @@ class StoreWorkload extends WorkloadModuleBase {
         super();
         this.txIndex = -1;
         this.private = false;
-        this.contract;
+        this.contract = {};
     }
 
     /**
