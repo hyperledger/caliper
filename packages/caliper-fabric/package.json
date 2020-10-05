@@ -81,7 +81,11 @@
         "include": [
             "lib/configValidator.js",
             "lib/connector-configuration",
-            "lib/identity-management"
+            "lib/identity-management",
+            "lib/connector-versions/v2"
+        ],
+        "exclude": [
+            "lib/identity-management/IWallet*"
         ],
         "reporter": [
             "text-summary",

@@ -14,4 +14,20 @@
 
 'use strict';
 
-module.exports.ConnectorFactory = require('./lib/FabricConnectorFactory').ConnectorFactory;
+// This would be a public api for use by the workloads
+
+/**
+ * THIS CLASS AND CONTENTS TO BE DECIDED
+ */
+class FabricConnectorContext {
+
+    /**
+     *
+     * @param {number} clientIndex The worker index really
+     */
+    constructor(clientIndex) {
+        this.clientIndex = clientIndex;
+    }
+}
+
+module.exports = FabricConnectorContext;

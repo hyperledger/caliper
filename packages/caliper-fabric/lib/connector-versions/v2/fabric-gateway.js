@@ -89,28 +89,9 @@ const QueryStrategies = {
 /////////////////////////////
 
 /**
- * Extends {BlockchainConnector} for a Fabric backend, utilizing the SDK Common Connection Profile.
- *
- * @property {Version} version Contains the version information about the used Fabric SDK.
- * @property {number} workerIndex The index of the client process using the adapter that is set in the constructor
- * @property {number} txIndex A counter for keeping track of the index of the currently submitted transaction.
- * @property {FabricNetwork} networkUtil Utility object containing easy-to-query information about the topology
- *           and settings of the network.
- * @property {RegistrarHelper} registrarHelper A RegistrarHelper used to help register and enrol new test clients
- * @property {string} defaultInvoker The name of the client to use if an invoker is not specified.
- * @property {number} configSmallestTimeout The timeout value to use when the user-provided timeout is too small.
- * @property {number} configDefaultTimeout The default timeout in milliseconds to use for invoke/query transactions.
- * @property {boolean} configCountQueryAsLoad Indicates whether queries should be counted as workload.
- * @property {boolean} configLocalHost Indicates whether to use the localhost default within the Fabric Gateway API
- * @property {boolean} configDiscovery Indicates whether to use discovery within the Fabric Gateway API
- * @property {string} eventStrategy Event strategy to use within the Fabric Gateway
- * @property {string} queryStrategy Query strategy to use within the Fabric Gateway
- * @property {Map} orgWallets A map of wallets for each organization
- * @property {Map} userContracts A map of identities to contracts they may submit/evaluate
- * @property {Map} userGateways A map of identities to the gateway they are connected
- * @property {Map} peerCache A cache of peer objects
+ * Legacy (old network config format) Connector for V2 Node SDK using Gateway API
  */
-class Fabric extends ConnectorBase {
+class LegacyV2FabricGateway extends ConnectorBase {
     /**
      * Initializes the Fabric adapter.
      * @param {object} networkObject The parsed network configuration.
@@ -661,4 +642,4 @@ class Fabric extends ConnectorBase {
         this.context = undefined;
     }}
 
-module.exports = Fabric;
+module.exports = LegacyV2FabricGateway;

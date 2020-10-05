@@ -1,0 +1,82 @@
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+name: Fabric
+version: "1.0"
+mutual-tls: false
+
+caliper:
+    blockchain: fabric
+
+clients:
+    client0.org1.example.com:
+        client:
+            organization: Org1
+            enrollmentSecret: Dummy
+            credentialStore:
+                path: /tmp/hfc-kvs/org1
+                cryptoStore:
+                    path: /tmp/hfc-cvs/org1
+
+channels:
+    mychannel:
+        created: true
+        orderers:
+        - orderer0.example.com
+        peers:
+            peer0.org1.example.com:
+                eventSource: true
+        contracts:
+        - id: marbles
+          contractID: mymarbles
+          version: v0
+    yourchannel:
+        created: true
+        orderers:
+        - orderer0.example.com
+        peers:
+            peer0.org1.example.com:
+                eventSource: true
+        contracts:
+        - id: marbles
+          contractID: yourmarbles
+          version: v0
+
+organizations:
+    Org1:
+        mspid: Org1MSP
+        peers:
+        - peer0.org1.example.com
+        certificateAuthorities:
+        - ca.org1.example.com
+
+orderers:
+    orderer0.example.com:
+        url: grpc://localhost:7050
+        grpcOptions:
+            ssl-target-name-override: orderer0.example.com
+
+peers:
+    peer0.org1.example.com:
+        url: grpc://localhost:7051
+
+certificateAuthorities:
+    ca.org1.example.com:
+        url: http://localhost:7054
+        httpOptions:
+            verify: false
+        registrar:
+        - enrollId: admin
+          enrollSecret: adminpw
+
