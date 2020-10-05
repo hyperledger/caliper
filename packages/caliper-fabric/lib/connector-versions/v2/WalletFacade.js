@@ -33,7 +33,7 @@ class WalletFacade extends IWalletFacade {
     /**
      * initialize this WalletFacade
      *
-     * @param {atring} [walletPath] an optional path to a file system wallet
+     * @param {string} [walletPath] an optional path to a file system wallet
      */
     async initialize(walletPath) {
         if (!walletPath) {

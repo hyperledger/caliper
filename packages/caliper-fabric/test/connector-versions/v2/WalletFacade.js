@@ -17,53 +17,10 @@
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
-chai.should();
+const should = chai.should();
 const mockery = require('mockery');
 
-/**
- * simulate a node sdk v2 wallet
- */
-class StubWallet {
-    /**
-     * Mock V2 wallet implementation
-     */
-    constructor() {
-        this.map = new Map();
-    }
-
-    /**
-     *
-     * @param {*} key b
-     * @param {*} value b
-     */
-    async put(key, value) {
-        this.map.set(key, value);
-    }
-
-    /**
-     *
-     * @param {*} key b
-     */
-    async get(key) {
-        return this.map.get(key);
-    }
-
-    /**
-     *
-     */
-    async list() {
-        return Array.from(this.map.keys());
-    }
-}
-
-const Wallets = {
-    newInMemoryWallet: async () => {
-        return new StubWallet();
-    },
-    newFileSystemWallet: async(walletPath) => {
-        return new StubWallet();
-    }
-};
+const { Wallets, StubWallet } = require('./GatewayStubs');
 
 mockery.enable();
 mockery.registerMock('fabric-network', {Wallets});
@@ -72,6 +29,10 @@ const WalletFacadeFactory = require('../../../lib/connector-versions/v2/WalletFa
 const WalletFacade = require('../../../lib/connector-versions/v2/WalletFacade');
 
 describe('When testing a V2 Wallet Facade Implementation', () => {
+    after(() => {
+        mockery.deregisterAll();
+        mockery.disable();
+    });
 
     it('A Wallet Facade Factory should create a wallet facade', async () => {
         const walletFacade = await new WalletFacadeFactory().create();
@@ -85,6 +46,12 @@ describe('When testing a V2 Wallet Facade Implementation', () => {
         await walletFacade.import('mspid', 'label', 'cert', 'key');
         const exported = await walletFacade.export('label');
         exported.should.deep.equal({mspid: 'mspid', certificate: 'cert', privateKey: 'key'});
+    });
+
+    it('A wallet facade should return null on export if the identity does not exist', async () => {
+        const walletFacade = await new WalletFacadeFactory().create();
+        const exported = await walletFacade.export('label');
+        should.equal(exported, null);
     });
 
     it('A wallet facade should throw an error if an identity already exists', async () => {
@@ -104,10 +71,5 @@ describe('When testing a V2 Wallet Facade Implementation', () => {
     it('A wallet facade should return the real wallet instance', async () => {
         const walletFacade = await new WalletFacadeFactory().create();
         walletFacade.getWallet().should.be.instanceOf(StubWallet);
-    });
-
-    it('should unregister and disable mockery', () => {
-        mockery.deregisterAll();
-        mockery.disable();
     });
 });

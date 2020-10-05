@@ -25,7 +25,7 @@ class WalletFacadeFactory extends IWalletFacadeFactory {
     /**
      * create a V2 Wallet Facade
      *
-     * @param {[string]} walletPath optional path to a file system wallet
+     * @param {string} [walletPath] optional path to a file system wallet
      */
     async create(walletPath) {
         const walletFacade = new WalletFacade();

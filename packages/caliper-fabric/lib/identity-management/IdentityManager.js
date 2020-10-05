@@ -106,7 +106,16 @@ class IdentityManager {
      */
     async _addToWallet(mspId, identityName, certificate, privateKey) {
         const alias = this.getAliasNameFromOrganizationAndIdentityName(mspId, identityName);
-        await this.inMemoryWalletFacade.import(mspId, alias, certificate, privateKey);
+        try {
+            await this.inMemoryWalletFacade.import(mspId, alias, certificate, privateKey);
+        } catch(err) {
+            if (err.message.includes('already exists')) {
+                const extraInsert = mspId ? `within organization ${mspId}` : '';
+                throw new Error(`${identityName} has been declared in more than 1 place ${extraInsert}`);
+            }
+
+            throw err;
+        }
     }
 
     /**
