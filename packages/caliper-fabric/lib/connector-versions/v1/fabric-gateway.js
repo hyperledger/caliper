@@ -128,7 +128,7 @@ const QueryStrategies = {
  * @property {boolean} configLocalHost Indicates whether to use the localhost default within the Fabric Gateway API
  * @property {boolean} configDiscovery Indicates whether to use discovery within the Fabric Gateway API
  */
-class Fabric extends ConnectorBase {
+class LegacyV1FabricGateway extends ConnectorBase {
     /**
      * Initializes the Fabric adapter.
      * @param {object} networkObject The parsed network configuration.
@@ -1717,4 +1717,4 @@ class Fabric extends ConnectorBase {
     }
 }
 
-module.exports = Fabric;
+module.exports = LegacyV1FabricGateway;
