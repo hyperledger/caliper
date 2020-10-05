@@ -65,7 +65,7 @@ class WalletFacade extends IWalletFacade {
     async export(identityName) {
         const exported = await this.wallet.export(identityName);
         if (exported) {
-            return new ExportedIdentity(exported.mspId, exported.credentials.certificate, exported.credentials.privateKey);
+            return new ExportedIdentity(exported.mspId, exported.certificate, exported.privateKey);
         }
         return null;
     }

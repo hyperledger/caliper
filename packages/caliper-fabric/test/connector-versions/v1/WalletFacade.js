@@ -50,10 +50,8 @@ class FileSystemWallet extends StubWallet {}
 class X509WalletMixin {
     static createIdentity(mspId, certificate, privateKey){
         const identity = {
-            credentials: {
-                certificate,
-                privateKey
-            },
+            certificate,
+            privateKey,
             mspId,
             type: 'X.509',
         };
