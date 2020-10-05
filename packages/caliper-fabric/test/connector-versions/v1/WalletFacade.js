@@ -17,72 +17,44 @@
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
-chai.should();
+const should = chai.should();
 const mockery = require('mockery');
+/* eslint-disable require-jsdoc */
 
-/**
- * simulate a node sdk v1 wallet
- */
 class StubWallet {
-    /**
-     * Mock V1 wallet implementation
-     */
     constructor() {
         this.map = new Map();
     }
 
-    /**
-     *
-     * @param {*} key b
-     * @param {*} value b
-     */
     async import(key, value) {
         this.map.set(key, value);
     }
 
-    /**
-     *
-     * @param {*} key b
-     */
     async export(key) {
         return this.map.get(key);
     }
 
-    /**
-     *
-     */
-    async list() {
+    async getAllLabels() {
         return Array.from(this.map.keys());
+    }
+
+    async exists(key) {
+        return this.map.has(key);
     }
 }
 
-/**
- * InMemoryWallet copy
- */
 class InMemoryWallet extends StubWallet {}
 
-/**
- * FileSystemWallet copy
- */
 class FileSystemWallet extends StubWallet {}
 
-/**
- * x509walletmixin class
- */
 class X509WalletMixin {
-    /**
-    * @param {*} mspid b
-    * @param {*} cert b
-    * @param {*} key b
-    * @return {*} identity b
-    */
-    static createIdentity(mspid, cert, key){
+    static createIdentity(mspId, certificate, privateKey){
         const identity = {
             credentials: {
-                cert,
-                key
+                certificate,
+                privateKey
             },
-            mspid,
+            mspId,
             type: 'X.509',
         };
         return identity;
@@ -97,12 +69,7 @@ const WalletFacade = require('../../../lib/connector-versions/v1/WalletFacade');
 
 describe('When testing a V1 Wallet Facade Implementation', () => {
 
-    beforeEach(() => {
-        mockery.enable();
-        mockery.registerMock('fabric-network',  {FileSystemWallet, InMemoryWallet, X509WalletMixin});
-    });
-
-    afterEach(() => {
+    after(() => {
         mockery.deregisterAll();
         mockery.disable();
     });
@@ -137,5 +104,11 @@ describe('When testing a V1 Wallet Facade Implementation', () => {
     it('A wallet facade should return the real wallet instance', async () => {
         const walletFacade = await new WalletFacadeFactory().create();
         walletFacade.getWallet().should.be.instanceOf(StubWallet);
+    });
+
+    it('A wallet facade should return null on export if the identity does not exist', async () => {
+        const walletFacade = await new WalletFacadeFactory().create();
+        const exported = await walletFacade.export('label');
+        should.equal(exported, null);
     });
 });

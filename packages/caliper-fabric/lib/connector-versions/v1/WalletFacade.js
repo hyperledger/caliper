@@ -24,18 +24,12 @@ const {FileSystemWallet, InMemoryWallet, X509WalletMixin} = require('fabric-netw
 class WalletFacade extends IWalletFacade {
 
     /**
-     */
-    constructor() {
-        super();
-        this.wallet = null;
-    }
-
-    /**
-     * initialize this WalletFacade
      *
      * @param {string} [walletPath] an optional path to a file system wallet
      */
-    async initialize(walletPath) {
+    constructor(walletPath) {
+        super();
+        this.wallet = null;
         if (!walletPath) {
             this.wallet = new InMemoryWallet();
         } else {
@@ -52,7 +46,7 @@ class WalletFacade extends IWalletFacade {
      * @param {string} privateKey The identity private key
      */
     async import(mspId, identityName, certificate, privateKey) {
-        const exists = await this.wallet.export(identityName);
+        const exists = await this.wallet.exists(identityName);
 
         if (exists) {
             throw new Error(`${identityName} already exists in the wallet`);
@@ -71,7 +65,7 @@ class WalletFacade extends IWalletFacade {
     async export(identityName) {
         const exported = await this.wallet.export(identityName);
         if (exported) {
-            return new ExportedIdentity(exported.mspid, exported.credentials.cert, exported.credentials.key);
+            return new ExportedIdentity(exported.mspId, exported.credentials.certificate, exported.credentials.privateKey);
         }
         return null;
     }
@@ -82,7 +76,7 @@ class WalletFacade extends IWalletFacade {
      * @returns {[string]} all the identity names in the wallet
      */
     async getAllIdentityNames() {
-        return await this.wallet.list();
+        return await this.wallet.getAllLabels();
     }
 
     /**
