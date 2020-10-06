@@ -43,6 +43,7 @@ class MarblesQueryByChannelWorkload extends WorkloadModuleBase {
             channel: this.txIndex % 2 === 0 ? 'mychannel' : 'yourchannel',
             contractFunction: 'queryMarblesByOwner',
             contractArguments: [marbleOwner],
+            invokerIdentity: 'client0.org1.example.com',
             targetPeers: ['peer0.org1.example.com'],
             timeout: 10
         };

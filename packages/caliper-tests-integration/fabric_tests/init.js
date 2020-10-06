@@ -64,6 +64,7 @@ class MarblesInitWorkload extends WorkloadModuleBase {
             contractId: this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles',
             contractFunction: 'initMarble',
             contractArguments: [marbleName, marbleColor, marbleSize, marbleOwner],
+            invokerIdentity: 'client0.org1.example.com',
             timeout: 5,
             readOnly: false
         };
