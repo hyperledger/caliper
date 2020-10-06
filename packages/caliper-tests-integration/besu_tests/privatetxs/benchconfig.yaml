@@ -21,7 +21,7 @@
         number: 1
       rounds:
         - label: public store
-          txNumber: 5
+          txNumber: 100
           rateControl:
             type: fixed-rate
             opts:
@@ -31,7 +31,7 @@
             arguments:
               contract: public_storage
         - label: private store
-          txNumber: 5
+          txNumber: 100
           rateControl:
             type: fixed-rate
             opts:
