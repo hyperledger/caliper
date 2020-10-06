@@ -76,7 +76,7 @@ const logger = CaliperUtils.getLogger('connectors/v1/fabric');
  * @property {string} configClientBasedLoadBalancing The value indicating the type of automatic load balancing to use.
  * @property {boolean} configCountQueryAsLoad Indicates whether queries should be counted as workload.
  */
-class Fabric extends ConnectorBase {
+class LegacyV1Fabric extends ConnectorBase {
     /**
      * Initializes the Fabric adapter.
      * @param {object} networkObject The parsed network configuration.
@@ -2107,4 +2107,4 @@ class Fabric extends ConnectorBase {
     }
 }
 
-module.exports = Fabric;
+module.exports = LegacyV1Fabric;

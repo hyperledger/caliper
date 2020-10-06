@@ -16,7 +16,7 @@
 # The name of the benchmark
 name: Geoff
 # The caliper semantic version
-version: "1.0.0"
+version: "2.0.0"
 
 # Global properties that define the SUT, and options that are specific to the target SUT
 caliper:
