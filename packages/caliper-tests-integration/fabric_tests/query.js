@@ -41,6 +41,7 @@ class MarblesQueryWorkload extends WorkloadModuleBase {
             contractId: this.txIndex % 2 === 0 ? 'mymarbles' : 'yourmarbles',
             contractFunction: 'queryMarblesByOwner',
             contractArguments: [marbleOwner],
+            invokerIdentity: 'client0.org1.example.com',
             targetPeers: ['peer0.org1.example.com'],
             timeout: 10
         };
