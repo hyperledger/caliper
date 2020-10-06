@@ -17,8 +17,6 @@ caliper:
     networkconfig: networkconfig.json
     txupdatetime: 500
     workspace: ./
-    report:
-        path: report.html
     logging:
         template: '%timestamp%%level%%module%%message%%metadata%'
         formats:
