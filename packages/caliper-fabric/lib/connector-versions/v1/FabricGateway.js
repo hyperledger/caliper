@@ -13,12 +13,12 @@
 */
 
 'use strict';
-
+const semver = require('semver');
 const { DefaultEventHandlerStrategies, DefaultQueryHandlerStrategies, Gateway } = require('fabric-network');
-const { ConnectorBase, CaliperUtils, TxStatus, Version, ConfigUtil } = require('@hyperledger/caliper-core');
+const { ConnectorBase, CaliperUtils, TxStatus, ConfigUtil } = require('@hyperledger/caliper-core');
 const FabricConnectorContext = require('../../FabricConnectorContext');
 
-const logger = CaliperUtils.getLogger('connectors/v2/FabricGateway');
+const logger = CaliperUtils.getLogger('connectors/v1/FabricGateway');
 
 const EventStrategies = {
     msp_all : DefaultEventHandlerStrategies.MSPID_SCOPE_ALLFORTX,
@@ -68,8 +68,7 @@ const QueryStrategies = {
 
 /**
  */
-class V2FabricGateway extends ConnectorBase {
-
+class V1FabricGateway extends ConnectorBase {
     /**
      * Initializes the Fabric adapter.
      * @param {connectorConfiguration} connectorConfiguration the Connector Configuration
@@ -80,14 +79,14 @@ class V2FabricGateway extends ConnectorBase {
         super(workerIndex, bcType);
         this.connectorConfiguration = connectorConfiguration;
 
-        this.fabricNetworkVersion = new Version(require('fabric-network/package').version);
+        this.fabricNetworkVersion = require('fabric-network/package').version;
 
         this.contractInstancesByIdentity = new Map();
         this.gatewayInstanceByIdentity = new Map();
         this.peerNameToPeerObjectCache = new Map();
         this.context = undefined;
 
-        // Timeouts
+        // this value is hardcoded, if it's used, that means that the provided timeouts are not sufficient
         this.configSmallestTimeout = 1000;
         this.configDefaultTimeout = ConfigUtil.get(ConfigUtil.keys.Fabric.Timeout.InvokeOrQuery, 60000);
         this.configCountQueryAsLoad = ConfigUtil.get(ConfigUtil.keys.Fabric.CountQueryAsLoad, true);
@@ -115,7 +114,12 @@ class V2FabricGateway extends ConnectorBase {
         if (!this.context) {
             this.context = new FabricConnectorContext(this.workerIndex);
             await this._prepareGatewayAndContractMapsForEachIdentity();
-            await this._buildPeerCache(); // TODO: might be able to do this just once
+
+            if (semver.satisfies(semver.coerce(this.fabricNetworkVersion), '>=1.4.5')) {
+                await this._buildPeerCache();
+            } else {
+                logger.warn(`Bound SDK ${this.fabricNetworkVersion} is unable to use target peers; to enable target peer nomination for a gateway transaction, bind Caliper to Fabric 1.4.5 and above`);
+            }
         }
 
         return this.context;
@@ -126,12 +130,13 @@ class V2FabricGateway extends ConnectorBase {
      * @async
      */
     async init() {
-        // Seems to be only for operational initialisation but need to implement as the master
-        // will call it
         const defaultOrganization = this.connectorConfiguration.getOrganizations()[0];
         const tlsInfo = this.connectorConfiguration.isMutualTLS() ? 'mutual'
             : (this.connectorConfiguration.getConnectionProfileDefinitionForOrganization(defaultOrganization).isTLSEnabled() ? 'server' : 'none');
         logger.info(`Fabric SDK version: ${this.fabricNetworkVersion.toString()}; TLS based on ${defaultOrganization}: ${tlsInfo}`);
+
+        // TODO: Will need to perform some operational initialisation
+        // eg creation of channels and joining of channels (based on legacy version)
     }
 
     /**
@@ -140,6 +145,8 @@ class V2FabricGateway extends ConnectorBase {
      */
     async installSmartContract() {
         logger.warn(`Install smart contract not available with Fabric SDK version: ${this.fabricNetworkVersion.toString()}`);
+
+        // TODO: Operational support to be added later
     }
 
     /**
@@ -306,9 +313,8 @@ class V2FabricGateway extends ConnectorBase {
                 const network = await gateway.getNetwork(channelName);
                 const channel = network.getChannel();
 
-                // WARNING: This uses an internal API to get the endorsers
-                for (const peerObject of channel.client.getEndorsers()) {
-                    this.peerNameToPeerObjectCache.set(peerObject.name, peerObject);
+                for (const peerObject of channel.getChannelPeers()) {
+                    this.peerNameToPeerObjectCache.set(peerObject.getName(), peerObject);
                 }
             }
         }
@@ -326,9 +332,8 @@ class V2FabricGateway extends ConnectorBase {
         const smartContract = await this._getContractForIdentityOnChannelWithChaincodeID(invokeSettings.invokerMspId, invokeSettings.invokerIdentity, invokeSettings.channel, invokeSettings.contractId);
         const transaction = smartContract.createTransaction(invokeSettings.contractFunction);
 
-        // Build the Caliper TxStatus, this is a reduced item when compared to the low level API capabilities
-        // - TxID is not available until after transaction submit/evaluate and must be set at that point
-        const invokeStatus = new TxStatus();
+        // Build the Caliper TxStatus
+        const invokeStatus = new TxStatus(transaction.getTransactionID());
 
         // Add transient data if present
         // - passed as key value pairing such as {"hello":"world"}
@@ -385,14 +390,12 @@ class V2FabricGateway extends ConnectorBase {
             invokeStatus.SetResult(result);
             invokeStatus.SetVerification(true);
             invokeStatus.SetStatusSuccess();
-            invokeStatus.SetID(transaction.getTransactionId());
 
             return invokeStatus;
         } catch (err) {
             logger.error(`Failed to perform ${isSubmit ? 'submit' : 'query' } transaction [${invokeSettings.contractFunction}] using arguments [${invokeSettings.contractArguments}],  with error: ${err.stack ? err.stack : err}`);
             invokeStatus.SetStatusFail();
             invokeStatus.SetResult('');
-            invokeStatus.SetID(transaction.getTransactionId());
 
             return invokeStatus;
         }
@@ -434,4 +437,4 @@ class V2FabricGateway extends ConnectorBase {
     }
 }
 
-module.exports = V2FabricGateway;
+module.exports = V1FabricGateway;

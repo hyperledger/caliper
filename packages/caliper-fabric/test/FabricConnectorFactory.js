@@ -22,7 +22,7 @@ const mockery = require('mockery');
 
 const path = require('path');
 
-const { Wallets } = require('./connector-versions/v2/GatewayStubs');
+const { Wallets } = require('./connector-versions/v2/V2GatewayStubs');
 const { ConnectorFactory } = require('../lib/FabricConnectorFactory');
 const { ConfigUtil } = require('@hyperledger/caliper-core');
 
@@ -118,7 +118,22 @@ describe('A Fabric Connector Factory', () => {
         mockery.deregisterAll();
     });
 
-    it('should create a new V2 Gateway connector if a 2.x fabric library is bound and usegateway was specified', async () => {
+    it('should create a new V1 Gateway connector when a 1.4 fabric library is bound, usegateway was specified and a v2 network config', async () => {
+        mockery.registerMock('fabric-network', {
+            DefaultEventHandlerStrategies,
+            DefaultQueryHandlerStrategies,
+            InMemoryWallet,
+            X509WalletMixin
+        });
+        mockery.registerMock('fabric-network/package', {version: '1.4.11'});
+        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, path.resolve(__dirname, v2Config));
+        ConfigUtil.set(ConfigUtil.keys.Fabric.Gateway.Enabled, true);
+        const connector = await ConnectorFactory(1);
+        connector.constructor.name.should.equal('V1FabricGateway');
+        mockery.deregisterAll();
+    });
+
+    it('should create a new V2 Gateway connector when a 2.x fabric library is bound, usegateway was specified and a v2 network config', async () => {
         mockery.registerMock('fabric-network', {
             DefaultEventHandlerStrategies,
             DefaultQueryHandlerStrategies,

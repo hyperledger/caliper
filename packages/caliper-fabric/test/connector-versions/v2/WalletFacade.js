@@ -20,7 +20,7 @@ chai.use(chaiAsPromised);
 const should = chai.should();
 const mockery = require('mockery');
 
-const { Wallets, StubWallet } = require('./GatewayStubs');
+const { Wallets, StubWallet } = require('./V2GatewayStubs');
 
 mockery.enable();
 mockery.registerMock('fabric-network', {Wallets});
