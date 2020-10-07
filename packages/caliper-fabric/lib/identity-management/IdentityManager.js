@@ -185,10 +185,21 @@ class IdentityManager {
      */
     async _extractIdentitiesFromWallet(mspId, wallet) {
         // TODO: To be implemented
+
+        // NONE OF THIS WORKING
+        // TO DO: changes: create wallet facade with the wallet path please
+        //                 change this.wallet to the created facade
+        this.walletFacade = await this.walletFacadeFactory.create(wallet.path);
         // grab all identities
+        const allIDNames = await this.walletFacade.getAllIdentityNames();
+        const numberOfIDs = allIDNames.length();
         // loop through them
-        //         extract the identity in format
-        //         add to memory wallet
+        for (let counter = 0; counter < numberOfIDs; counter++){
+            // extract the identity in formant
+            const identity = await this.walletFacade.export(allIDNames[counter]);
+            // add to memory wallet
+            await this._addToWallet(mspId, identity.certificate, identity.privateKey);
+        }
     }
 
     /**

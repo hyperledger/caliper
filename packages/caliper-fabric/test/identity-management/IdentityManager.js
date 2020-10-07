@@ -399,9 +399,8 @@ describe('An Identity Manager', () => {
             stubWalletFacadeFactory.create.resolves(stubWalletFacade);
             const identityManagerFactory = new IdentityManagerFactory();
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP]);
-
-            // await identityManager._extractIdentitiesFromWallet()
-            // check wallet.getIdentities is called once
+            await identityManager._extractIdentitiesFromWallet(org1MSP, stubWalletFacade);
+            sinon.assert.calledOnce(stubWalletFacade.getAllIdentityNames());
             // check that it is called back with the ARRAY of identities (deep.equal)
         });
 
@@ -410,11 +409,23 @@ describe('An Identity Manager', () => {
         });
 
         it('should export the correct identities information', async () => {
-            //
+            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+            const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
+            stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+            const identityManagerFactory = new IdentityManagerFactory();
+            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP]);
+            await identityManager._extractIdentitiesFromWallet(org1MSP, stubWalletFacade);
+            sinon.assert.calledOnceWithExactly(stubWalletFacade.export(org1MSP), 'put idetity here?'); //deep equal?
         });
 
         it('should add the identities to the memory wallet', async() => {
-            //
+            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+            const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
+            stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+            const identityManagerFactory = new IdentityManagerFactory();
+            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP]);
+            await identityManager._extractIdentitiesFromWallet(org1MSP, stubWalletFacade);
+            // assert called once with exactly
         });
     });
 });
