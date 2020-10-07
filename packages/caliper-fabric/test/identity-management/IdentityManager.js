@@ -386,4 +386,35 @@ describe('An Identity Manager', () => {
         const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP, org2MSP]);
         await identityManager.getWallet().should.equal('IamAwallet');
     });
+
+    // describe
+    // should list all the identities available
+    // if no identities available should ?
+    // should export the correct identities information
+    // should add the identities to the memory wallet
+    describe('Extracting identities from a specific wallet and store in the in memory wallet', () => {
+        it('should list all the identities available', async () => {
+            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+            const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
+            stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+            const identityManagerFactory = new IdentityManagerFactory();
+            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP]);
+
+            // await identityManager._extractIdentitiesFromWallet()
+            // check wallet.getIdentities is called once
+            // check that it is called back with the ARRAY of identities (deep.equal)
+        });
+
+        it('if not identities available should not add anything to wallet', () => {
+            //
+        });
+
+        it('should export the correct identities information', async () => {
+            //
+        });
+
+        it('should add the identities to the memory wallet', async() => {
+            //
+        });
+    });
 });

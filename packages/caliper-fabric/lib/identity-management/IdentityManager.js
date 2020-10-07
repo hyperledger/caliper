@@ -185,6 +185,10 @@ class IdentityManager {
      */
     async _extractIdentitiesFromWallet(mspId, wallet) {
         // TODO: To be implemented
+        // grab all identities
+        // loop through them
+        //         extract the identity in format
+        //         add to memory wallet
     }
 
     /**
