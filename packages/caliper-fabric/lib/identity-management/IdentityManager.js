@@ -179,26 +179,26 @@ class IdentityManager {
     /**
      * Extract identities from a version specific wallet and store in the in memory wallet
      * @param {string} mspId mspId of the organisation
-     * @param {*} wallet the wallet information
+     * @param {*} wallet the wallet information from the configuration file
      * @async
      * @private
      */
     async _extractIdentitiesFromWallet(mspId, wallet) {
         // TODO: To be implemented
-
-        // NONE OF THIS WORKING
-        // TO DO: changes: create wallet facade with the wallet path please
-        //                 change this.wallet to the created facade
-        this.walletFacade = await this.walletFacadeFactory.create(wallet.path);
+        const walletFacade = await this.walletFacadeFactory.create(wallet.path);
         // grab all identities
-        const allIDNames = await this.walletFacade.getAllIdentityNames();
-        const numberOfIDs = allIDNames.length();
-        // loop through them
-        for (let counter = 0; counter < numberOfIDs; counter++){
-            // extract the identity in formant
-            const identity = await this.walletFacade.export(allIDNames[counter]);
-            // add to memory wallet
-            await this._addToWallet(mspId, identity.certificate, identity.privateKey);
+        // do if statement to check before length called
+        const allIDNames = await walletFacade.getAllIdentityNames();
+        if (allIDNames) {
+            const numberOfIDs = allIDNames.length;
+            for (let counter = 0; counter < numberOfIDs; counter++){
+                // extract the identity in formant
+                const identity = await walletFacade.export(allIDNames[counter]);
+                // add to memory wallet
+                if (identity){
+                    await this._addToWallet(mspId, allIDNames[counter], identity.certificate, identity.privateKey);
+                }
+            }
         }
     }
 

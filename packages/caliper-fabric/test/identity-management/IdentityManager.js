@@ -415,7 +415,7 @@ describe('An Identity Manager', () => {
             const identityManagerFactory = new IdentityManagerFactory();
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP]);
             await identityManager._extractIdentitiesFromWallet(org1MSP, stubWalletFacade);
-            sinon.assert.calledOnceWithExactly(stubWalletFacade.export(org1MSP), 'put idetity here?'); //deep equal?
+            sinon.assert.calledOnceWithExactly(stubWalletFacade.export(org1MSP), 'put idetity here?');
         });
 
         it('should add the identities to the memory wallet', async() => {
