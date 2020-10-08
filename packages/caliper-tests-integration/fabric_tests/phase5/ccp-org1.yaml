@@ -1,0 +1,79 @@
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+name: test-network-org1
+version: 1.0.0
+client:
+  organization: Org1
+  connection:
+    timeout:
+      peer:
+        endorser: '300'
+
+organizations:
+  Org1:
+    mspid: Org1MSP
+    peers:
+    - peer0.org1.example.com
+
+orderers:
+    orderer0.example.com:
+        url: grpcs://localhost:7050
+        grpcOptions:
+            ssl-target-name-override: orderer0.example.com
+        tlsCACerts:
+            path: ./config/crypto-config/ordererOrganizations/example.com/orderers/orderer0.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+    orderer1.example.com:
+        url: grpcs://localhost:8050
+        grpcOptions:
+            ssl-target-name-override: orderer1.example.com
+        tlsCACerts:
+            path: ./config/crypto-config/ordererOrganizations/example.com/orderers/orderer1.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+
+peers:
+    peer0.org1.example.com:
+        url: grpcs://localhost:7051
+        grpcOptions:
+            ssl-target-name-override: peer0.org1.example.com
+            grpc.keepalive_time_ms: 600000
+        tlsCACerts:
+            path: ./config/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/tlscacerts/tlsca.org1.example.com-cert.pem
+
+    peer0.org2.example.com:
+        url: grpcs://localhost:8051
+        grpcOptions:
+            ssl-target-name-override: peer0.org2.example.com
+            grpc.keepalive_time_ms: 600000
+        tlsCACerts:
+            path: ./config/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/msp/tlscacerts/tlsca.org2.example.com-cert.pem
+
+channels:
+    mychannel:
+        orderers:
+        - orderer0.example.com
+        - orderer1.example.com
+        peers:
+            peer0.org1.example.com:
+                eventSource: true
+            peer0.org2.example.com:
+                eventSource: true
+    yourchannel:
+        orderers:
+        - orderer0.example.com
+        - orderer1.example.com
+        peers:
+            peer0.org1.example.com:
+                eventSource: true
+            peer0.org2.example.com:
+                eventSource: true

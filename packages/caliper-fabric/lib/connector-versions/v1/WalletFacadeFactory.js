@@ -25,11 +25,10 @@ class WalletFacadeFactory extends IWalletFacadeFactory {
     /**
      * create a V1 Wallet Facade
      *
-     * @param {[string]} walletPath optional path to a file system wallet
+     * @param {string} [walletPath] optional path to a file system wallet
      */
     async create(walletPath) {
-        const walletFacade = new WalletFacade(walletPath);
-        return walletFacade;
+        return new WalletFacade(walletPath);
     }
 }
 

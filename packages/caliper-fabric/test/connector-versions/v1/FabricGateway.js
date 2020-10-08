@@ -23,15 +23,15 @@ const path = require('path');
 
 const DefaultEventHandlerStrategies = {};
 const DefaultQueryHandlerStrategies = {};
+
 const v2ConfigWithNoIdentities = '../../sample-configs/NoIdentitiesNetworkConfig.yaml';
 const v2ConfigWithSingleUser = '../../sample-configs/BasicConfig.yaml';
 
-const { Gateway, Transaction, Wallets } = require('./V2GatewayStubs');
+const { Gateway, Transaction, InMemoryWallet, FileSystemWallet, X509WalletMixin } = require('./V1GatewayStubs');
 const GenerateConfiguration = require('../../utils/GenerateConfiguration');
 const ConnectorConfigurationFactory = require('../../../lib/connector-configuration/ConnectorConfigurationFactory');
 
-describe('A Node-SDK V2 Fabric Gateway', () => {
-
+describe('A Node-SDK V1 Fabric Gateway', () => {
     let FabricGateway;
     let WalletFacadeFactory;
     let FabricConnectorContext;
@@ -47,14 +47,16 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
         mockery.registerMock('fabric-network', {
             DefaultEventHandlerStrategies,
             DefaultQueryHandlerStrategies,
-            Wallets,
+            InMemoryWallet,
+            FileSystemWallet,
+            X509WalletMixin,
             Gateway
         });
 
-        mockery.registerMock('fabric-network/package', {version: '2.2.0'});
+        mockery.registerMock('fabric-network/package', {version: '1.4.11'});
 
-        FabricGateway = require('../../../lib/connector-versions/v2/FabricGateway');
-        WalletFacadeFactory = require('../../../lib/connector-versions/v2/WalletFacadeFactory');
+        FabricGateway = require('../../../lib/connector-versions/v1/FabricGateway');
+        WalletFacadeFactory = require('../../../lib/connector-versions/v1/WalletFacadeFactory');
         FabricConnectorContext = require('../../../lib/FabricConnectorContext');
         TxStatus = require('@hyperledger/caliper-core').TxStatus;
     });

@@ -34,11 +34,11 @@
         "chai": "^3.5.0",
         "chai-as-promised": "^7.1.1",
         "eslint": "^5.16.0",
+        "license-check-and-add": "2.3.6",
         "mocha": "3.4.2",
         "mockery": "^2.1.0",
         "nyc": "11.1.0",
-        "sinon": "^7.3.2",
-        "license-check-and-add": "2.3.6"
+        "sinon": "^7.3.2"
     },
     "license-check-and-add-config": {
         "folder": ".",
@@ -82,10 +82,15 @@
             "lib/configValidator.js",
             "lib/connector-configuration",
             "lib/identity-management",
-            "lib/connector-versions/v2"
+            "lib/connector-versions/v2",
+            "lib/connector-versions/v1"
         ],
         "exclude": [
-            "lib/identity-management/IWallet*"
+            "lib/identity-management/IWallet*",
+            "lib/connector-versions/v1/fabric-gateway.js",
+            "lib/connector-versions/v1/fabric.js",
+            "lib/connector-versions/v2/fabric-gateway.js",
+            "lib/connector-versions/v2/registrarHelper.js"
         ],
         "reporter": [
             "text-summary",

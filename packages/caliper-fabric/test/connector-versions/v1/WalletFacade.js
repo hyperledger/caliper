@@ -19,45 +19,8 @@ const chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 const should = chai.should();
 const mockery = require('mockery');
-/* eslint-disable require-jsdoc */
 
-class StubWallet {
-    constructor() {
-        this.map = new Map();
-    }
-
-    async import(key, value) {
-        this.map.set(key, value);
-    }
-
-    async export(key) {
-        return this.map.get(key);
-    }
-
-    async getAllLabels() {
-        return Array.from(this.map.keys());
-    }
-
-    async exists(key) {
-        return this.map.has(key);
-    }
-}
-
-class InMemoryWallet extends StubWallet {}
-
-class FileSystemWallet extends StubWallet {}
-
-class X509WalletMixin {
-    static createIdentity(mspId, certificate, privateKey){
-        const identity = {
-            certificate,
-            privateKey,
-            mspId,
-            type: 'X.509',
-        };
-        return identity;
-    }
-}
+const { StubWallet , FileSystemWallet, InMemoryWallet, X509WalletMixin } = require('./V1GatewayStubs');
 
 mockery.enable();
 mockery.registerMock('fabric-network',  {FileSystemWallet, InMemoryWallet, X509WalletMixin});
@@ -66,11 +29,11 @@ const WalletFacadeFactory = require('../../../lib/connector-versions/v1/WalletFa
 const WalletFacade = require('../../../lib/connector-versions/v1/WalletFacade');
 
 describe('When testing a V1 Wallet Facade Implementation', () => {
-
     after(() => {
         mockery.deregisterAll();
         mockery.disable();
     });
+
     it('A Wallet Facade Factory should create a wallet facade', async () => {
         const walletFacade = await new WalletFacadeFactory().create();
         walletFacade.should.be.instanceOf(WalletFacade);

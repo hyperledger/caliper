@@ -91,8 +91,17 @@ if [[ ${rc} != 0 ]]; then
     exit ${rc};
 fi
 
-# PHASE 5: testing through the gateway API
+# PHASE 5: testing through the gateway API (v1 SDK)
 ${CALL_METHOD} launch manager --caliper-workspace phase5 --caliper-flow-only-test --caliper-fabric-gateway-enabled
+rc=$?
+if [[ ${rc} != 0 ]]; then
+    echo "Failed CI step 6";
+    dispose;
+    exit ${rc};
+fi
+
+echo "Run Legacy connector"
+${CALL_METHOD} launch manager --caliper-workspace phase5 --caliper-networkconfig networkconfig-legacy.yaml --caliper-flow-only-test --caliper-fabric-gateway-enabled
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 6";

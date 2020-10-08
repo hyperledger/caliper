@@ -24,6 +24,9 @@ const LEGACY_V1_NODE_CONNECTOR = './connector-versions/v1/fabric.js';
 const LEGACY_V1_GATEWAY_CONNECTOR = './connector-versions/v1/fabric-gateway.js';
 const LEGACY_V2_GATEWAY_CONNECTOR = './connector-versions/v2/fabric-gateway.js';
 
+const NEW_V1_GATEWAY_CONNECTOR = './connector-versions/v1/FabricGateway.js';
+const NEW_V1_WALLET_FACADE_FACTORY = './connector-versions/v1/WalletFacadeFactory.js';
+
 const NEW_V2_GATEWAY_CONNECTOR = './connector-versions/v2/FabricGateway.js';
 const NEW_V2_WALLET_FACADE_FACTORY = './connector-versions/v2/WalletFacadeFactory.js';
 
@@ -62,7 +65,8 @@ const _loadAppropriateConnectorClass = (installedNodeSDKVersion, useGateway, use
                 if (useLegacyVersion) {
                     connectorPath = LEGACY_V1_GATEWAY_CONNECTOR;
                 } else {
-                    throw new Error('New version for 1.4 Gateway is not yet available');
+                    connectorPath = NEW_V1_GATEWAY_CONNECTOR;
+                    walletFacadeFactoryPath = NEW_V1_WALLET_FACADE_FACTORY;
                 }
             } else {
                 throw new Error('Caliper currently only supports Fabric gateway based operation using Fabric-SDK 1.4.2 and higher. Please retry with a different SDK binding');
