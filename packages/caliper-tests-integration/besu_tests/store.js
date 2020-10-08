@@ -85,7 +85,7 @@ class StoreWorkload extends WorkloadModuleBase {
             this.privacyOpts = sutContext.privacy[this.roundArguments.private];
             this.privacyOpts['id'] = this.roundArguments.private;
         } else {
-            this.private = false;
+            this.isPrivate = false;
         }
 
         if(!this.roundArguments.txnPerBatch) {
