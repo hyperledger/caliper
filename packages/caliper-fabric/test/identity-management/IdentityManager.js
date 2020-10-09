@@ -421,6 +421,7 @@ describe('An Identity Manager', () => {
         it('should add the identities to the memory wallet', async() => {
             const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
             const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
+            stubWalletFacadeFactory.getAllIdentityNames.resolves(['bob','frank']);
             stubWalletFacadeFactory.create.resolves(stubWalletFacade);
             const identityManagerFactory = new IdentityManagerFactory();
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP]);
