@@ -20,6 +20,8 @@ set -v
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "${DIR}"
 
+npm i
+
 # bind during CI tests, using the package dir as CWD
 # Note: do not use env variables for binding settings, as subsequent launch calls will pick them up and bind again
 if [[ "${BIND_IN_PACKAGE_DIR}" = "true" ]]; then
@@ -57,6 +59,15 @@ ${CALL_METHOD} launch manager --caliper-workspace phase3 --caliper-flow-skip-sta
 rc=$?
 if [[ ${rc} != 0 ]]; then
     echo "Failed CI step 3";
+    dispose;
+    exit ${rc};
+fi
+
+# PHASE 4: private transactions
+${CALL_METHOD} launch manager --caliper-workspace privatetxs --caliper-flow-skip-start --caliper-flow-skip-end
+rc=$?
+if [[ ${rc} != 0 ]]; then
+    echo "Failed CI step 4 - private txs";
     dispose;
     exit ${rc};
 fi

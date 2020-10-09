@@ -16,6 +16,7 @@
 
 const EthereumHDKey = require('ethereumjs-wallet/hdkey');
 const Web3 = require('web3');
+const EEAClient = require('web3-eea');
 const {ConnectorBase, CaliperUtils, ConfigUtil, TxStatus} = require('@hyperledger/caliper-core');
 
 const logger = CaliperUtils.getLogger('ethereum-connector');
@@ -50,6 +51,9 @@ class EthereumConnector extends ConnectorBase {
 
         this.ethereumConfig = ethereumConfig;
         this.web3 = new Web3(this.ethereumConfig.url);
+        if (this.ethereumConfig.privacy) {
+            this.web3eea = new EEAClient(this.web3, ethereumConfig.chainId);
+        }
         this.web3.transactionConfirmationBlocks = this.ethereumConfig.transactionConfirmationBlocks;
         this.workerIndex = workerIndex;
         this.context = undefined;
@@ -100,13 +104,29 @@ class EthereumConnector extends ConnectorBase {
         let self = this;
         logger.info('Creating contracts...');
         for (const key of Object.keys(this.ethereumConfig.contracts)) {
-            let contractData = require(CaliperUtils.resolvePath(this.ethereumConfig.contracts[key].path)); // TODO remove path property
-            let contractGas = this.ethereumConfig.contracts[key].gas;
-            let estimateGas = this.ethereumConfig.contracts[key].estimateGas;
+            const contract = this.ethereumConfig.contracts[key];
+            const contractData = require(CaliperUtils.resolvePath(contract.path)); // TODO remove path property
+            const contractGas = contract.gas;
+            const estimateGas = contract.estimateGas;
+            let privacy;
+            if (this.ethereumConfig.privacy) {
+                privacy = this.ethereumConfig.privacy[contract.private];
+            }
+
             this.ethereumConfig.contracts[key].abi = contractData.abi;
             promises.push(new Promise(async function(resolve, reject) {
-                let contractInstance = await self.deployContract(contractData);
-                logger.info('Deployed contract ' + contractData.name + ' at ' + contractInstance.options.address);
+                let contractInstance;
+                try {
+                    if (privacy) {
+                        contractInstance = await self.deployPrivateContract(contractData, privacy);
+                        logger.info('Deployed private contract ' + contractData.name + ' at ' + contractInstance.options.address);
+                    } else {
+                        contractInstance = await self.deployContract(contractData);
+                        logger.info('Deployed contract ' + contractData.name + ' at ' + contractInstance.options.address);
+                    }
+                } catch (err) {
+                    reject(err);
+                }
                 self.ethereumConfig.contracts[key].address = contractInstance.options.address;
                 self.ethereumConfig.contracts[key].gas = contractGas;
                 self.ethereumConfig.contracts[key].estimateGas = estimateGas;
@@ -171,6 +191,11 @@ class EthereumConnector extends ConnectorBase {
             await context.web3.eth.personal.unlockAccount(this.ethereumConfig.fromAddress, this.ethereumConfig.fromAddressPassword, 1000);
         }
 
+        if (this.ethereumConfig.privacy) {
+            context.web3eea = this.web3eea;
+            context.privacy = this.ethereumConfig.privacy;
+        }
+
         this.context = context;
         return context;
     }
@@ -189,6 +214,10 @@ class EthereumConnector extends ConnectorBase {
      * @return {Promise<TxStatus>} Result and stats of the transaction invocation.
      */
     async _sendSingleRequest(request) {
+        if (request.privacy) {
+            return this._sendSinglePrivateRequest(request);
+        }
+
         const context = this.context;
         let status = new TxStatus();
         let params = {from: context.fromAddress};
@@ -255,27 +284,128 @@ class EthereumConnector extends ConnectorBase {
     }
 
     /**
+     * Submit a private transaction to the ethereum context.
+     * @param {EthereumInvoke} request Methods call data.
+     * @return {Promise<TxStatus>} Result and stats of the transaction invocation.
+     */
+    async _sendSinglePrivateRequest(request) {
+        const context = this.context;
+        const web3eea = context.web3eea;
+        const contractInfo = context.contracts[request.contract];
+        const privacy = request.privacy;
+        const sender = privacy.sender;
+
+        const status = new TxStatus();
+
+        const onFailure = (err) => {
+            status.SetStatusFail();
+            logger.error('Failed private tx on ' + request.contract + ' calling method ' + request.verb + ' private nonce ' + 0);
+            logger.error(err);
+        };
+
+        const onSuccess = (rec) => {
+            status.SetID(rec.transactionHash);
+            status.SetResult(rec);
+            status.SetVerification(true);
+            status.SetStatusSuccess();
+        };
+
+        let payload;
+        if (request.args) {
+            payload = contractInfo.contract.methods[request.verb](...request.args).encodeABI();
+        } else {
+            payload = contractInfo.contract.methods[request.verb]().encodeABI();
+        }
+
+        const transaction = {
+            to: contractInfo.contract._address,
+            data: payload
+        };
+
+        try {
+            if (request.readOnly) {
+                transaction.privacyGroupId = await this.resolvePrivacyGroup(privacy);
+
+                const value = await web3eea.priv.call(transaction);
+                onSuccess(value);
+            } else {
+                transaction.nonce = sender.nonce;
+                transaction.privateKey = sender.privateKey.substring(2);
+                this.setPrivateTransactionParticipants(transaction, privacy);
+
+                const txHash = await web3eea.eea.sendRawTransaction(transaction);
+                const rcpt = await web3eea.priv.getTransactionReceipt(txHash, transaction.privateFrom);
+                if (rcpt.status === '0x1')  {
+                    onSuccess(rcpt);
+                } else {
+                    onFailure(rcpt);
+                }
+            }
+        } catch(err) {
+            onFailure(err);
+        }
+
+        return status;
+    }
+
+
+    /**
      * Deploys a new contract using the given web3 instance
      * @param {JSON} contractData Contract data with abi, bytecode and gas properties
      * @returns {Promise<web3.eth.Contract>} The deployed contract instance
      */
-    deployContract(contractData) {
-        let web3 = this.web3;
-        let contractDeployerAddress = this.ethereumConfig.contractDeployerAddress;
-        return new Promise(function(resolve, reject) {
-            let contract = new web3.eth.Contract(contractData.abi);
-            let contractDeploy = contract.deploy({
-                data: contractData.bytecode
-            });
-            contractDeploy.send({
+    async deployContract(contractData) {
+        const web3 = this.web3;
+        const contractDeployerAddress = this.ethereumConfig.contractDeployerAddress;
+        const contract = new web3.eth.Contract(contractData.abi);
+        const contractDeploy = contract.deploy({
+            data: contractData.bytecode
+        });
+
+        try {
+            return contractDeploy.send({
                 from: contractDeployerAddress,
                 gas: contractData.gas
-            }).on('error', (error) => {
-                reject(error);
-            }).then((newContractInstance) => {
-                resolve(newContractInstance);
             });
-        });
+        } catch (err) {
+            throw(err);
+        }
+    }
+
+    /**
+     * Deploys a new contract using the given web3 instance
+     * @param {JSON} contractData Contract data with abi, bytecode and gas properties
+     * @param {JSON} privacy Privacy options
+     * @returns {Promise<web3.eth.Contract>} The deployed contract instance
+     */
+    async deployPrivateContract(contractData, privacy) {
+        const web3 = this.web3;
+        const web3eea = this.web3eea;
+        // Using randomly generated account to deploy private contract to avoid public/private nonce issues
+        const deployerAccount =  web3.eth.accounts.create();
+
+        const transaction = {
+            data: contractData.bytecode,
+            nonce: deployerAccount.nonce,
+            privateKey: deployerAccount.privateKey.substring(2),    // web3js-eea doesn't not accept private keys prefixed by '0x'
+        };
+
+        this.setPrivateTransactionParticipants(transaction, privacy);
+
+        try {
+            const txHash = await web3eea.eea.sendRawTransaction(transaction);
+            const txRcpt = await web3eea.priv.getTransactionReceipt(txHash, transaction.privateFrom);
+
+            if (txRcpt.status === '0x1') {
+                return new web3.eth.Contract(contractData.abi, txRcpt.contractAddress);
+            } else {
+                logger.error('Failed private transaction hash ' + txHash);
+                throw new Error('Failed private transaction hash ' + txHash);
+            }
+        } catch (err) {
+            logger.error('Error deploying private contract: ', JSON.stringify(err));
+            throw(err);
+        }
     }
 
     /**
@@ -290,6 +420,57 @@ class EthereumConnector extends ConnectorBase {
             result[i] = {contracts: this.ethereumConfig.contracts};
         }
         return result;
+    }
+
+    /**
+     * Returns the privacy group id depending on the privacy mode being used
+     * @param {JSON} privacy Privacy options
+     * @returns {Promise<string>} The privacyGroupId
+     */
+    async resolvePrivacyGroup(privacy) {
+        const web3eea = this.context.web3eea;
+
+        switch(privacy.groupType) {
+        case 'legacy': {
+            const privGroups = await web3eea.priv.findPrivacyGroup({addresses: [privacy.privateFrom, ...privacy.privateFor]});
+            if (privGroups.length > 0) {
+                return privGroups.filter(function(el) {
+                    return el.type === 'LEGACY';
+                })[0].privacyGroupId;
+            } else {
+                throw new Error('Multiple legacy privacy groups with same members. Can\'t resolve privacyGroupId.');
+            }
+        }
+        case 'pantheon':
+        case 'onchain': {
+            return privacy.privacyGroupId;
+        } default: {
+            throw new Error('Invalid privacy type');
+        }
+        }
+    }
+
+    /**
+     * Set the participants of a privacy transaction depending on the privacy mode being used
+     * @param {JSON} transaction Object representing the transaction fields
+     * @param {JSON} privacy Privacy options
+     */
+    setPrivateTransactionParticipants(transaction, privacy) {
+        switch(privacy.groupType) {
+        case 'legacy': {
+            transaction.privateFrom = privacy.privateFrom;
+            transaction.privateFor = privacy.privateFor;
+            break;
+        }
+        case 'pantheon':
+        case 'onchain': {
+            transaction.privateFrom = privacy.privateFrom;
+            transaction.privacyGroupId = privacy.privacyGroupId;
+            break;
+        } default: {
+            throw new Error('Invalid privacy type');
+        }
+        }
     }
 }
 
