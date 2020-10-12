@@ -164,6 +164,9 @@ describe('An Identity Manager', () => {
 
         it('should return Identity Manager instance if an array of valid organizations are supplied', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
+            const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
+            stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+            stubWalletFacade.getAllIdentityNames.resolves([]);
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [blankMSP]);
             identityManager.should.be.instanceOf(IdentityManager);
         });
@@ -201,6 +204,9 @@ describe('An Identity Manager', () => {
 
         it('should not prefix for the default organisation', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
+            const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
+            stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+            stubWalletFacade.getAllIdentityNames.resolves([]);
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [blankMSP]);
             identityManager.getAliasNameFromOrganizationAndIdentityName('org1MSP', 'admin').should.equal('admin');
         });
@@ -404,11 +410,10 @@ describe('An Identity Manager', () => {
 
         it('if not identities available should not add anything to wallet', async () => {
             const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
-            const spyWalletFacade = sinon.spy(IWalletFacade);
+            const spyWalletFacade = sinon.createStubInstance(IWalletFacade);
             stubWalletFacadeFactory.create.resolves(spyWalletFacade);
-            const identityManagerFactory = new IdentityManagerFactory();
-
             spyWalletFacade.getAllIdentityNames.resolves([]);
+            const identityManagerFactory = new IdentityManagerFactory();
 
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org4MSP]);
             await identityManager._extractIdentitiesFromWallet(org4MSP, spyWalletFacade);
@@ -418,16 +423,14 @@ describe('An Identity Manager', () => {
 
         it('should export the correct identities information', async () => {
             const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
-            const spyWalletFacade = sinon.spy(IWalletFacade);
-            stubWalletFacadeFactory.create.resolves(spyWalletFacade);
+            const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
+            stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+            stubWalletFacade.getAllIdentityNames.resolves(['User1']);
             const identityManagerFactory = new IdentityManagerFactory();
 
-            spyWalletFacade.getAllIdentityNames.resolves(['User1']);
-
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org4MSP]);
-            await identityManager._extractIdentitiesFromWallet(org4MSP, spyWalletFacade);
-
-            sinon.assert.calledOnceWithExactly(spyWalletFacade.export, 'User1');
+            await identityManager._extractIdentitiesFromWallet(org4MSP, stubWalletFacade);
+            sinon.assert.called(stubWalletFacade.export);
         });
 
         it('should add the identities to the memory wallet', async() => {
@@ -447,7 +450,7 @@ describe('An Identity Manager', () => {
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org4MSP]);
             await identityManager._extractIdentitiesFromWallet(org4MSP, stubWalletFacade);
 
-            sinon.assert.calledOnceWithExactly(identityManager._addToWallet, 'org4MSP', 'User1', testIdentity.certificate, testIdentity.privateKey);
+            sinon.assert.calledWithExactly(identityManager._addToWallet, 'org4MSP', 'User1', testIdentity.certificate, testIdentity.privateKey);
         });
     });
 });
