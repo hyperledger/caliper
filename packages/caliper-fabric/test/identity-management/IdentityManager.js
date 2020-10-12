@@ -448,9 +448,13 @@ describe('An Identity Manager', () => {
             stubWalletFacade.export.resolves(testIdentity);
 
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org4MSP]);
+
+            const stubAddToWallet = sinon.stub();
+            identityManager._addToWallet = stubAddToWallet;
+
             await identityManager._extractIdentitiesFromWallet(org4MSP, stubWalletFacade);
 
-            sinon.assert.calledWithExactly(identityManager._addToWallet, 'org4MSP', 'User1', testIdentity.certificate, testIdentity.privateKey);
+            sinon.assert.calledWithExactly(stubAddToWallet, testIdentity.mspid, 'User1', testIdentity.certificate, testIdentity.privateKey);
         });
     });
 });
