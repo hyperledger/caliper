@@ -144,12 +144,28 @@ const org3MSP = {
     }
 };
 
+const org4MSP = {
+    mspid: 'org4MSP',
+    identities: {
+        wallet: {
+            path: 'some/path/to/org-specific-wallet'
+        }
+    },
+    connectionProfile: {
+        path: 'some/path/to/org-specific-profile',
+        discover: true
+    }
+};
+
 describe('An Identity Manager', () => {
 
     describe('When being created by it\'s factory', () => {
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
 
         it('should return Identity Manager instance if an array of valid organizations are supplied', async () => {
+            const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
+            stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+            stubWalletFacade.getAllIdentityNames.resolves([]);
             const identityManagerFactory = new IdentityManagerFactory();
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [blankMSP]);
             identityManager.should.be.instanceOf(IdentityManager);
@@ -187,6 +203,9 @@ describe('An Identity Manager', () => {
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
 
         it('should not prefix for the default organisation', async () => {
+            const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
+            stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+            stubWalletFacade.getAllIdentityNames.resolves([]);
             const identityManagerFactory = new IdentityManagerFactory();
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [blankMSP]);
             identityManager.getAliasNameFromOrganizationAndIdentityName('org1MSP', 'admin').should.equal('admin');
@@ -385,5 +404,57 @@ describe('An Identity Manager', () => {
         const identityManagerFactory = new IdentityManagerFactory();
         const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP, org2MSP]);
         await identityManager.getWallet().should.equal('IamAwallet');
+    });
+
+    describe('when extracting identities from a specific wallet and store in the in memory wallet', () => {
+
+        it('if not identities available should not add anything to wallet', async () => {
+            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+            const spyWalletFacade = sinon.createStubInstance(IWalletFacade);
+            stubWalletFacadeFactory.create.resolves(spyWalletFacade);
+            spyWalletFacade.getAllIdentityNames.resolves([]);
+            const identityManagerFactory = new IdentityManagerFactory();
+
+            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org4MSP]);
+            await identityManager._extractIdentitiesFromWallet(org4MSP, spyWalletFacade);
+
+            sinon.assert.notCalled(spyWalletFacade.export);
+        });
+
+        it('should export the correct identities information', async () => {
+            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+            const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
+            stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+            stubWalletFacade.getAllIdentityNames.resolves(['User1']);
+            const identityManagerFactory = new IdentityManagerFactory();
+
+            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org4MSP]);
+            await identityManager._extractIdentitiesFromWallet(org4MSP, stubWalletFacade);
+            sinon.assert.called(stubWalletFacade.export);
+        });
+
+        it('should add the identities to the memory wallet', async() => {
+            const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+            const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
+            stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+            stubWalletFacade.getAllIdentityNames.resolves(['User1']);
+            const identityManagerFactory = new IdentityManagerFactory();
+
+            const testIdentity = {
+                mspid : 'org4MSP',
+                certificate : 'cert/path/to/somewhere.pem',
+                privateKey : 'key/path/to/somewhere.pem',
+            };
+            stubWalletFacade.export.resolves(testIdentity);
+
+            const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org4MSP]);
+
+            const stubAddToWallet = sinon.stub();
+            identityManager._addToWallet = stubAddToWallet;
+
+            await identityManager._extractIdentitiesFromWallet(org4MSP, stubWalletFacade);
+
+            sinon.assert.calledWithExactly(stubAddToWallet, testIdentity.mspid, 'User1', testIdentity.certificate, testIdentity.privateKey);
+        });
     });
 });

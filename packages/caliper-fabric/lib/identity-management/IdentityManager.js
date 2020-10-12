@@ -184,7 +184,14 @@ class IdentityManager {
      * @private
      */
     async _extractIdentitiesFromWallet(mspId, wallet) {
-        // TODO: To be implemented
+        const walletFacade = await this.walletFacadeFactory.create(wallet.path);
+        const allIDNames = await walletFacade.getAllIdentityNames();
+        for (const identityNames in allIDNames){
+            const identity = await walletFacade.export(identityNames);
+            if (identity){
+                await this._addToWallet(identity.mspid, allIDNames[identityNames], identity.certificate, identity.privateKey);
+            }
+        }
     }
 
     /**
