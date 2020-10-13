@@ -34,6 +34,3 @@ channels:
 
 organizations:
   - mspid: Org1MSP
-    connectionProfile:
-      path: './test/sample-configs/Org1ConnectionProfile.yaml'
-      discover: true

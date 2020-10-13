@@ -249,6 +249,11 @@ describe('A valid Connector Configuration', () => {
     });
 
     describe('for finding the Contract Definitions For a Channel Name', () => {
+        it('should throw an error if contracts have the same ID', async () => {
+            const configFile = new GenerateConfiguration('./test/sample-configs/BasicConfig.yaml').generateConfigurationFileReplacingProperties('contractID', 'replicatedID');
+            await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory).should.be.rejectedWith(/replicatedID has already been defined in the configuration/);
+        });
+
         it('should return the contract definitions for the specified channel if there are contracts', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
             const result=[{
@@ -274,6 +279,7 @@ describe('A valid Connector Configuration', () => {
             const contractDef = connectorConfiguration.getContractDefinitionsForChannelName('my-channel');
             contractDef.length.should.equal(0);
         });
+
         it('should return an empty array if there are no channels', async () => {
             const configFile = new GenerateConfiguration('./test/sample-configs/BasicConfig.yaml').generateConfigurationFileWithSpecifics(
                 {
@@ -298,7 +304,6 @@ describe('A valid Connector Configuration', () => {
     });
 
     describe('when getting a list of alias names from an organisation', () => {
-
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
         const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
         stubWalletFacadeFactory.create.resolves(stubWalletFacade);
@@ -321,6 +326,11 @@ describe('A valid Connector Configuration', () => {
     });
 
     describe('when getting a connection profile definition', () => {
+        it('should throw an error if the connection profile information is not provided', async () => {
+            const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/NoConnectionProfileNetworkConfig.yaml', walletFacadeFactory);
+            await connectorConfiguration.getConnectionProfileDefinitionForOrganization('Org1MSP')
+                .should.be.rejectedWith(/No connection profile entry for organization Org1MSP has been defined/);
+        });
 
         it('should throw an error if the connection profile file doesn\'t exist', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.json', walletFacadeFactory);
@@ -388,7 +398,6 @@ describe('A valid Connector Configuration', () => {
             await connectorConfiguration.getConnectionProfileDefinitionForOrganization('org1MSP');
             sinon.assert.calledOnce(connectorConfiguration._loadConnectionProfile);
         });
-
     });
 
     it('should return the list of mspid\'s defined when getting the list of organizations', async () => {
@@ -402,8 +411,15 @@ describe('A valid Connector Configuration', () => {
         stubWalletFacadeFactory.create.resolves(stubWalletFacade);
         stubWalletFacade.getWallet.returns('IamAwallet');
         const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', stubWalletFacadeFactory);
-        await connectorConfiguration.getWalletForAliasName('alias1').should.equal('IamAwallet');
-        await connectorConfiguration.getWalletForAliasName('alias2').should.equal('IamAwallet');
+        await connectorConfiguration.getWallet().should.equal('IamAwallet');
+    });
+
+    it('should return the  wallet facade', async () => {
+        const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+        const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
+        stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+        const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', stubWalletFacadeFactory);
+        await connectorConfiguration.getWalletFacade().should.equal(stubWalletFacade);
     });
 
     describe('when generating an alias name', () => {

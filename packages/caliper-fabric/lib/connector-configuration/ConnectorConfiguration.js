@@ -153,12 +153,15 @@ class ConnectorConfiguration {
 
         if (filteredOrganizationList.length > 0) {
             const connectionProfileEntry = filteredOrganizationList[0].connectionProfile;
+            if (!connectionProfileEntry) {
+                throw new Error(`No connection profile entry for organization ${mspId} has been defined`);
+            }
 
             if (!connectionProfileEntry.loadedConnectionProfile) {
                 connectionProfileEntry.loadedConnectionProfile = await this._loadConnectionProfile(connectionProfileEntry.path);
             }
 
-            return new ConnectionProfileDefinition(connectionProfileEntry);
+            return new ConnectionProfileDefinition(mspId, connectionProfileEntry);
         }
 
         throw new Error(`No organization defined for ${mspId}`);
@@ -175,12 +178,19 @@ class ConnectorConfiguration {
     }
 
     /**
-     * Return the wallet that contains the identity for the alias
-     * @param {string} aliasName the alias name
+     * Return the node-sdk version specific wallet
      * @returns {*} the node-sdk version specific wallet
      */
-    getWalletForAliasName(aliasName) {
+    getWallet() {
         return this.identityManager.getWallet();
+    }
+
+    /**
+     * Return the wallet facade that contains all the identities
+     * @returns {*} the node-sdk version agnostic wallet
+     */
+    getWalletFacade() {
+        return this.identityManager.getWalletFacade();
     }
 
     /**
@@ -232,6 +242,10 @@ class ConnectorConfiguration {
 
                         if (contractDefinition.language && contractDefinition.language !== 'golang' && contractDefinition.path) {
                             contractDefinition.path = CaliperUtils.resolvePath(contractDefinition.path);
+                        }
+
+                        if (this.contractDetailsById.has(contractDefinition.contractID)) {
+                            throw new Error(`${contractDefinition.contractID} has already been defined in the configuration`);
                         }
 
                         this.contractDetailsById.set(contractDefinition.contractID, {channel: channelDefinition.channelName, id: contractDefinition.id});

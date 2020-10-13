@@ -25,23 +25,25 @@ const ConnectionProfileDefinition = require('../../lib/connector-configuration/C
 
 describe('A Connection Profile Definition', async () => {
     const connectionProfile = fs.readFileSync(path.resolve(__dirname, '../sample-configs/Org1ConnectionProfile.json'));
+    const staticConnectionProfile = fs.readFileSync(path.resolve(__dirname, '../sample-configs/StaticOrg1ConnectionProfile.json'));
+    const mspId = 'Org1MSP';
 
-    it('should the provided connection profile and whether it is dynamic or not', () => {
+    it('should return whether it is dynamic or not based on the discover property', () => {
         const providedConnectionPofile = JSON.parse(connectionProfile.toString());
-        let  connectionProfileDefinition = new ConnectionProfileDefinition({
+        let  connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
             loadedConnectionProfile: providedConnectionPofile,
             discover: true
         });
         connectionProfileDefinition.getConnectionProfile().should.equal(providedConnectionPofile);
         connectionProfileDefinition.isDynamicConnectionProfile().should.equal(true);
 
-        connectionProfileDefinition = new ConnectionProfileDefinition({
+        connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
             loadedConnectionProfile: providedConnectionPofile,
             discover: false
         });
         connectionProfileDefinition.isDynamicConnectionProfile().should.equal(false);
 
-        connectionProfileDefinition = new ConnectionProfileDefinition({
+        connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
             loadedConnectionProfile: providedConnectionPofile
         });
         connectionProfileDefinition.isDynamicConnectionProfile().should.equal(false);
@@ -49,7 +51,7 @@ describe('A Connection Profile Definition', async () => {
 
 
     it('should return true if a connection profile is using tls', () => {
-        const connectionProfileDefinition = new ConnectionProfileDefinition({
+        const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
             loadedConnectionProfile: JSON.parse(connectionProfile.toString()),
             discover: true
         });
@@ -60,11 +62,253 @@ describe('A Connection Profile Definition', async () => {
         const alteredConnectionProfile = JSON.parse(connectionProfile.toString());
         alteredConnectionProfile.peers['peer0.org1.example.com'].url = 'grpc://localhost:7051';
         alteredConnectionProfile.certificateAuthorities['ca.org1.example.com'].url = 'http://localhost:7054';
-        const connectionProfileDefinition = new ConnectionProfileDefinition({
+        const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
             loadedConnectionProfile: alteredConnectionProfile,
             discover: true
         });
         connectionProfileDefinition.isTLSEnabled().should.equal(false);
     });
 
+    describe('when getting the organization owned endorsing peers for a channel', () => {
+        it('should get the owned peers for a channel when defined in the connection profile', () => {
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: JSON.parse(staticConnectionProfile.toString()),
+                discover: false
+            });
+
+            let peersInChannelForOrg = connectionProfileDefinition.getOwnedEndorsingPeersInChannel('mychannel');
+            peersInChannelForOrg.should.deep.equal(['peer0.org1.example.com', 'peer1.org1.example.com']);
+
+            peersInChannelForOrg = connectionProfileDefinition.getOwnedEndorsingPeersInChannel('yourchannel');
+            peersInChannelForOrg.should.deep.equal(['peer0.org1.example.com']);
+        });
+
+        it('should throw an error when no channels are defined in the connection profile', () => {
+            const blankConnectionProfile = {
+            };
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: blankConnectionProfile,
+                discover: false
+            });
+            (() => {
+                connectionProfileDefinition.getOwnedEndorsingPeersInChannel('mychannel');
+            }).should.throw(/No channel mychannel defined in the connection profile for organization Org1MSP/);
+        });
+
+        it('should throw an error when the specific channel is not defined in the connection profile', () => {
+            const limitedConnectionProfile = {
+                channels: {
+                    yourchannel: {
+                        orderers: [
+                            'orderer0.example.com',
+                            'orderer1.example.com'
+                        ],
+                        peers: {
+                            'peer0.org1.example.com': {},
+                            'peer0.org2.example.com': {}
+                        }
+                    }
+                }
+            };
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: limitedConnectionProfile,
+                discover: false
+            });
+            (() => {
+                connectionProfileDefinition.getOwnedEndorsingPeersInChannel('mychannel');
+            }).should.throw(/No channel mychannel defined in the connection profile for organization Org1MSP/);
+        });
+
+        it('should throw an error when the specific channel has no peers in the connection profile', () => {
+            const limitedConnectionProfile = {
+                channels: {
+                    mychannel: {
+                        orderers: [
+                            'orderer0.example.com',
+                            'orderer1.example.com'
+                        ]
+                    }
+                }
+            };
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: limitedConnectionProfile,
+                discover: false
+            });
+            (() => {
+                connectionProfileDefinition.getOwnedEndorsingPeersInChannel('mychannel');
+            }).should.throw(/No peers defined for mychannel in the connection profile for organization Org1MSP/);
+        });
+
+        it('should return an empty list when no peers are specified for the organization', () => {
+            const limitedConnectionProfile = {
+                client: {
+                    organization: 'Org1'
+                },
+                organizations: {
+                    Org1: {
+                        mspid: 'Org1MSP'
+                    }
+                },
+                channels: {
+                    mychannel: {
+                        orderers: [
+                            'orderer0.example.com',
+                            'orderer1.example.com'
+                        ],
+                        peers: {
+                            'peer0.org1.example.com': {},
+                            'peer0.org2.example.com': {}
+                        }
+                    }
+                }
+            };
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: limitedConnectionProfile,
+                discover: false
+            });
+            connectionProfileDefinition.getOwnedEndorsingPeersInChannel('mychannel').should.deep.equal([]);
+        });
+
+        it('should return only peers that are defined as endorsing or chaincode query peers', () => {
+            const limitedConnectionProfile = {
+                client: {
+                    organization: 'Org1'
+                },
+                organizations: {
+                    Org1: {
+                        mspid: 'Org1MSP',
+                        peers: [
+                            'peer0.org1.example.com',
+                            'peer1.org1.example.com',
+                            'peer2.org1.example.com',
+                            'peer3.org1.example.com',
+                            'peer4.org1.example.com',
+                            'peer5.org1.example.com'
+                        ]
+                    }
+                },
+                channels: {
+                    mychannel: {
+                        orderers: [
+                            'orderer0.example.com',
+                            'orderer1.example.com'
+                        ],
+                        peers: {
+                            'peer0.org1.example.com': {endorsingPeer: false, chaincodeQuery:false},
+                            'peer1.org1.example.com': {endorsingPeer: true, chaincodeQuery: false},
+                            'peer2.org1.example.com': {endorsingPeer: false, chaincodeQuery: true},
+                            'peer3.org1.example.com': {endorsingPeer: false},
+                            'peer4.org1.example.com': {endorsingPeer: false, chaincodeQuery:false},
+                            'peer5.org1.example.com': {chaincodeQuery: false},
+                            'peer0.org2.example.com': {}
+                        }
+                    }
+                }
+            };
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: limitedConnectionProfile,
+                discover: false
+            });
+            connectionProfileDefinition.getOwnedEndorsingPeersInChannel('mychannel').should.deep.equal([
+                'peer1.org1.example.com',
+                'peer2.org1.example.com',
+                'peer3.org1.example.com',
+                'peer5.org1.example.com'
+            ]);
+        });
+    });
+
+    describe('when getting the orderers for a channel', () => {
+        it('should get the orderers for a channel when defined in the connection profile', () => {
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: JSON.parse(staticConnectionProfile.toString()),
+                discover: false
+            });
+            const orderers = connectionProfileDefinition.getOrderersForChannel('mychannel');
+            orderers.should.deep.equal(['orderer0.example.com', 'orderer1.example.com']);
+        });
+
+        it('should throw an error when no channels are defined in the connection profile', () => {
+            const blankConnectionProfile = {
+            };
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: blankConnectionProfile,
+                discover: false
+            });
+            (() => {
+                connectionProfileDefinition.getOrderersForChannel('mychannel');
+            }).should.throw(/No channel mychannel defined in the connection profile for organization Org1MSP/);
+        });
+
+        it('should throw an error when the specific channel is not defined in the connection profile', () => {
+            const limitedConnectionProfile = {
+                channels: {
+                    yourchannel: {
+                        orderers: [
+                            'orderer0.example.com',
+                            'orderer1.example.com'
+                        ],
+                        peers: {
+                            'peer0.org1.example.com': {},
+                            'peer0.org2.example.com': {}
+                        }
+                    }
+                }
+            };
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: limitedConnectionProfile,
+                discover: false
+            });
+            (() => {
+                connectionProfileDefinition.getOrderersForChannel('mychannel');
+            }).should.throw(/No channel mychannel defined in the connection profile for organization Org1MSP/);
+        });
+
+        it('should throw an error when the specific channel has no orderers in the connection profile', () => {
+            const limitedConnectionProfile = {
+                channels: {
+                    mychannel: {
+                        peers: {
+                            'peer0.org1.example.com': {},
+                            'peer0.org2.example.com': {}
+                        }
+                    }
+                }
+            };
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: limitedConnectionProfile,
+                discover: false
+            });
+            (() => {
+                connectionProfileDefinition.getOrderersForChannel('mychannel');
+            }).should.throw(/No orderers defined for mychannel in the connection profile for organization Org1MSP/);
+        });
+
+        it('should throw an error when the specific channel does not define the orderer list as an array in the connection profile', () => {
+            const limitedConnectionProfile = {
+                channels: {
+                    mychannel: {
+                        orderers: {
+                            'orderer0.example.com': '',
+                            'orderer1.example.com': ''
+                        },
+                        peers: {
+                            'peer0.org1.example.com': {},
+                            'peer0.org2.example.com': {}
+                        }
+                    }
+                }
+            };
+            const connectionProfileDefinition = new ConnectionProfileDefinition(mspId, {
+                loadedConnectionProfile: limitedConnectionProfile,
+                discover: false
+            });
+            (() => {
+                connectionProfileDefinition.getOrderersForChannel('mychannel');
+            }).should.throw(/No orderers defined for mychannel in the connection profile for organization Org1MSP/);
+        });
+    });
+
+
+    // TODO: TESTS required
 });
