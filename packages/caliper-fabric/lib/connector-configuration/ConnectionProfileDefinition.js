@@ -14,15 +14,19 @@
 
 'use strict';
 
+const CaliperUtils = require('@hyperledger/caliper-core').CaliperUtils;
+
 /**
  *
  */
 class ConnectionProfileDefinition {
 
     /**
+     * @param {*} mspId The Connection Profile's organization mspId
      * @param {*} ConnectionProfileConfiguration The Connection Profile Configuration
      */
-    constructor(ConnectionProfileConfiguration) {
+    constructor(mspId, ConnectionProfileConfiguration) {
+        this.mspId = mspId;
         this.connectionProfile = ConnectionProfileConfiguration.loadedConnectionProfile;
         this.dynamicConnectionProfile = typeof ConnectionProfileConfiguration.discover === 'boolean' ? ConnectionProfileConfiguration.discover : false;
         this.TLSEnabled = false;
@@ -48,6 +52,57 @@ class ConnectionProfileDefinition {
     }
 
     /**
+     * get the list of Orderers defined for a channel.
+     *
+     * @param {*} channelName The channel name
+     * @returns {[string]} The array of orderers allocated to that channel
+     */
+    getOrderersForChannel(channelName) {
+        if (!this.connectionProfile.channels || !this.connectionProfile.channels[channelName]) {
+            throw new Error(`No channel ${channelName} defined in the connection profile for organization ${this.mspId}`);
+        }
+
+        const orderersDefined = this.connectionProfile.channels[channelName].orderers;
+
+        if (!orderersDefined || !Array.isArray(orderersDefined)) {
+            throw new Error(`No orderers defined for ${channelName} in the connection profile for organization ${this.mspId}`);
+        }
+
+        return orderersDefined;
+    }
+
+    /**
+     * get the list of peers in this connection profile organisation that are part of the requested chanel
+     *
+     * @param {*} channelName The channel name
+     * @returns {[string]} The array of peers that are in the channel for this organisation's CCP
+     */
+    getOwnedEndorsingPeersInChannel(channelName) {
+        if (!this.connectionProfile.channels || !this.connectionProfile.channels[channelName]) {
+            throw new Error(`No channel ${channelName} defined in the connection profile for organization ${this.mspId}`);
+        }
+
+        const channelPeers = this.connectionProfile.channels[channelName].peers;
+
+        if (!channelPeers) {
+            throw new Error(`No peers defined for ${channelName} in the connection profile for organization ${this.mspId}`);
+        }
+
+        const ownedPeersInChannelName = [];
+        const organizationPeersList = this._searchForPropertyValues(this.connectionProfile.organizations[this.connectionProfile.client.organization], 'peers');
+        if (organizationPeersList.length > 0) {
+            const organizationPeers = organizationPeersList[0];
+            for (const organizationPeer of organizationPeers) {
+                if (channelPeers.hasOwnProperty(organizationPeer) && this._isAbleToEndorse(channelPeers[organizationPeer])) {
+                    ownedPeersInChannelName.push(organizationPeer);
+                }
+            }
+        }
+
+        return ownedPeersInChannelName;
+    }
+
+    /**
      * Returns whether the connection profile is using TLS somewhere or not
      * @returns {boolean} true if at least 1 entry has grpcs or https
      */
@@ -66,21 +121,47 @@ class ConnectionProfileDefinition {
      *
      */
     _searchForPropertyValues(object, propertyName, propertyValueMatch) {
-        const foundProperties = [];
+        const foundPropertyValues = [];
 
         for (const objectKey in object) {
-            if (objectKey === propertyName &&
-                propertyValueMatch.test(object[objectKey])) {
-                foundProperties.push(object[objectKey]);
+            if (objectKey === propertyName) {
+                if (!propertyValueMatch) {
+                    foundPropertyValues.push(object[objectKey]);
+                } else if (propertyValueMatch.test(object[objectKey])) {
+                    foundPropertyValues.push(object[objectKey]);
+                }
             } else {
                 if (typeof object[objectKey] === 'object') {
-                    foundProperties.push(...this._searchForPropertyValues(object[objectKey], propertyName, propertyValueMatch));
+                    foundPropertyValues.push(...this._searchForPropertyValues(object[objectKey], propertyName, propertyValueMatch));
                 }
             }
 
         }
 
-        return foundProperties;
+        return foundPropertyValues;
+    }
+
+    /**
+     * Check peer can endorse
+     * @param {*} peer the peer to check
+     * @returns {boolean} true if peer is defined as able to endorse (meaning it has chaincode to run)
+     */
+    _isAbleToEndorse(peer) {
+        // the default value of 'endorsingPeer' is true, or it's explicitly set to true
+        if (!CaliperUtils.checkProperty(peer, 'endorsingPeer') ||
+            (CaliperUtils.checkProperty(peer, 'endorsingPeer') && peer.endorsingPeer)) {
+
+            return true;
+        }
+
+        // the default value of 'chaincodeQuery' is true, or it's explicitly set to true
+        if (!CaliperUtils.checkProperty(peer, 'chaincodeQuery') ||
+            (CaliperUtils.checkProperty(peer, 'chaincodeQuery') && peer.chaincodeQuery)) {
+
+            return true;
+        }
+
+        return false;
     }
 
 }

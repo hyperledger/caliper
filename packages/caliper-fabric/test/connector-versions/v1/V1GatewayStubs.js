@@ -16,7 +16,6 @@
 
 /* eslint-disable require-jsdoc */
 
-
 class StubWallet {
     constructor() {
         this.map = new Map();

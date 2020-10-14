@@ -236,7 +236,6 @@ describe('An Identity Manager', () => {
     });
 
     describe('when processing the explicit certificates in a configuration', () => {
-
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
         const identityManagerFactory = new IdentityManagerFactory();
         let stubWalletFacade;
@@ -376,7 +375,6 @@ describe('An Identity Manager', () => {
         });
     });
 
-
     it('should return a wallet when requested', async () => {
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
         const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
@@ -385,5 +383,14 @@ describe('An Identity Manager', () => {
         const identityManagerFactory = new IdentityManagerFactory();
         const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP, org2MSP]);
         await identityManager.getWallet().should.equal('IamAwallet');
+    });
+
+    it('should return a wallet facade when requested', async () => {
+        const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
+        const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
+        stubWalletFacadeFactory.create.resolves(stubWalletFacade);
+        const identityManagerFactory = new IdentityManagerFactory();
+        const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP, org2MSP]);
+        await identityManager.getWalletFacade().should.equal(stubWalletFacade);
     });
 });

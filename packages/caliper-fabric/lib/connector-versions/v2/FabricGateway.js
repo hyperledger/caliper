@@ -205,10 +205,10 @@ class V2FabricGateway extends ConnectorBase {
 
         for (const organization of this.connectorConfiguration.getOrganizations()) {
             const aliasNames = await this.connectorConfiguration.getAliasNamesForOrganization(organization);
+            const walletWithIdentities = this.connectorConfiguration.getWallet();
 
             for (const aliasName of aliasNames) {
-                const wallet = this.connectorConfiguration.getWalletForAliasName(aliasName);
-                const gateway = await this._createGatewayWithIdentity(organization, aliasName, wallet);
+                const gateway = await this._createGatewayWithIdentity(organization, aliasName, walletWithIdentities);
                 this.gatewayInstanceByIdentity.set(aliasName, gateway);
 
                 const contractMap = await this._createChannelAndChaincodeIdToContractMap(gateway, aliasName);

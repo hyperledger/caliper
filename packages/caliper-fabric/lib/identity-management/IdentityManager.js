@@ -86,6 +86,13 @@ class IdentityManager {
     }
 
     /**
+     * @returns {*} returns an agnostic wallet implementation
+     */
+    getWalletFacade() {
+        return this.inMemoryWalletFacade;
+    }
+
+    /**
      * Define and return the non default organization prefix
      * @param {string} mspId The msp ID
      * @returns {string} The alias prefix
