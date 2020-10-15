@@ -26,7 +26,7 @@ const DefaultQueryHandlerStrategies = {};
 const v2ConfigWithNoIdentities = '../../sample-configs/NoIdentitiesNetworkConfig.yaml';
 const v2ConfigWithSingleUser = '../../sample-configs/BasicConfig.yaml';
 
-const { Gateway, Transaction, Wallets } = require('./V2GatewayStubs');
+const { Gateway, Transaction, Network, Wallets } = require('./V2GatewayStubs');
 const GenerateConfiguration = require('../../utils/GenerateConfiguration');
 const ConnectorConfigurationFactory = require('../../../lib/connector-configuration/ConnectorConfigurationFactory');
 
@@ -64,6 +64,10 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
         mockery.disable();
     });
 
+    beforeEach(() => {
+        Gateway.reset();
+    });
+
     it('should be able to initialise in preperation for use by a caliper master', async () => {
         const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, v2ConfigWithSingleUser), new WalletFacadeFactory());
         const fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
@@ -92,23 +96,19 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
     });
 
     it('should create Gateways when a context is first requested', async () => {
-        Gateway.reset();
         const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, v2ConfigWithSingleUser), new WalletFacadeFactory());
         const fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
         const context = await fabricGateway.getContext();
         context.should.be.instanceOf(FabricConnectorContext);
         Gateway.constructed.should.equal(1);
-        Gateway.reset();
     });
 
     it('should disconnect Gateways when a context is released', async () => {
-        Gateway.reset();
         const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, v2ConfigWithSingleUser), new WalletFacadeFactory());
         const fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
         await fabricGateway.getContext();
         await fabricGateway.releaseContext();
         Gateway.disconnected.should.equal(1);
-        Gateway.reset();
     });
 
     it('should throw an error if gateway connection fails ', async () => {
@@ -122,21 +122,21 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
         let fabricGateway;
 
         beforeEach(async () => {
-            Gateway.reset();
             Transaction.reset();
+            Network.reset();
             const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, v2ConfigWithSingleUser), new WalletFacadeFactory());
             fabricGateway = new FabricGateway(connectorConfiguration, 1, 'fabric');
             await fabricGateway.getContext();
         });
 
         afterEach(async () => {
-            fabricGateway.releaseContext();
+            await fabricGateway.releaseContext();
         });
 
         describe('should throw an error', () => {
             it('when no invokerIdentity provided', async () => {
                 const request = {
-                    channel: 'my-channel',
+                    channel: 'mychannel',
                     contractId: 'marbles',
                     contractFunction: '',
                     invokerIdentity: ''
@@ -150,7 +150,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
 
             it('when invokerIdentity not known', async () => {
                 const request = {
-                    channel: 'my-channel',
+                    channel: 'mychannel',
                     contractId: 'marbles',
                     contractFunction: 'myFunction',
                     invokerIdentity: 'NoOne',
@@ -160,7 +160,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
 
             it('when invokerMspId is not known', async () => {
                 const request = {
-                    channel: 'my-channel',
+                    channel: 'mychannel',
                     contractId: 'marbles',
                     contractFunction: 'myFunction',
                     invokerMspId: 'Org7',
@@ -171,7 +171,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
 
             it('when contractFunction not provided', async () => {
                 const request = {
-                    channel: 'my-channel',
+                    channel: 'mychannel',
                     contractId: 'marbles',
                     contractFunction: '',
                     invokerIdentity: 'User1'
@@ -185,7 +185,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
 
             it('when no contractId provided', async () => {
                 const request = {
-                    channel: 'my-channel',
+                    channel: 'mychannel',
                     contractId: '',
                     contractFunction: '',
                     invokerIdentity: 'User1'
@@ -199,12 +199,12 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
 
             it('when channel provided but contractId is not a valid chaincode id', async () => {
                 const request = {
-                    channel: 'your-channel',
-                    contractId: 'lostMyMarbles',
+                    channel: 'yourchannel',
+                    contractId: 'findingMyMarbles',
                     contractFunction: 'myFunction',
                     invokerIdentity: 'User1'
                 };
-                await fabricGateway._sendSingleRequest(request).should.be.rejectedWith(/Unable to find specified contract lostMyMarbles on channel your-channel/);
+                await fabricGateway._sendSingleRequest(request).should.be.rejectedWith(/Unable to find specified contract findingMyMarbles on channel yourchannel/);
             });
 
             it('when no channel provided and contract id is not a valid contract id', async () => {
@@ -219,10 +219,10 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
         });
 
         describe('when making a submit request', () => {
-            it('should succeed, set clientIdentity and return with an appropraite TxStatus', async () => {
+            it('should succeed, set clientIdentity and return with an appropriate TxStatus', async () => {
                 const args = ['arg1', 'arg2'];
                 const request = {
-                    channel: 'my-channel',
+                    channel: 'mychannel',
                     contractId: 'marbles',
                     contractFunction: 'myFunction',
                     contractArguments: args,
@@ -251,7 +251,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
 
             it('should set the transientMap', async () => {
                 const request = {
-                    channel: 'my-channel',
+                    channel: 'mychannel',
                     contractId: 'marbles',
                     contractFunction: 'myFunction',
                     transientMap: {'param1': 'value1', 'param2': 'value2'},
@@ -275,7 +275,8 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     invokerIdentity: 'User1'
                 };
                 await fabricGateway._sendSingleRequest(request);
-                Gateway.channel.should.equal('your-channel');
+                Gateway.channel.should.equal('yourchannel');
+                Network.getContractArgs.should.equal('marbles');
                 Transaction.submit.should.be.true;
                 Transaction.submitArgs.should.deep.equal(['arg1']);
                 Transaction.constructorArgs.should.equal('myFunction');
@@ -290,7 +291,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     targetPeers: ['peer1', 'peer3', 'peer4']
                 };
                 await fabricGateway._sendSingleRequest(request);
-                Gateway.channel.should.equal('your-channel');
+                Gateway.channel.should.equal('yourchannel');
                 Transaction.submit.should.be.true;
                 Transaction.submitArgs.should.deep.equal(['arg1']);
                 Transaction.constructorArgs.should.equal('myFunction');
@@ -309,7 +310,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     targetOrganizations
                 };
                 await fabricGateway._sendSingleRequest(request);
-                Gateway.channel.should.equal('your-channel');
+                Gateway.channel.should.equal('yourchannel');
                 Transaction.submit.should.be.true;
                 Transaction.submitArgs.should.deep.equal(['arg1']);
                 Transaction.constructorArgs.should.equal('myFunction');
@@ -325,7 +326,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     targetOrganizations: 'Org1MSP'
                 };
                 await fabricGateway._sendSingleRequest(request);
-                Gateway.channel.should.equal('your-channel');
+                Gateway.channel.should.equal('yourchannel');
                 Transaction.submit.should.be.true;
                 Transaction.submitArgs.should.deep.equal(['arg1']);
                 Transaction.constructorArgs.should.equal('myFunction');
@@ -341,7 +342,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     targetPeers: 'peer1'
                 };
                 await fabricGateway._sendSingleRequest(request);
-                Gateway.channel.should.equal('your-channel');
+                Gateway.channel.should.equal('yourchannel');
                 Transaction.submit.should.be.true;
                 Transaction.submitArgs.should.deep.equal(['arg1']);
                 Transaction.constructorArgs.should.equal('myFunction');
@@ -357,7 +358,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     targetPeers: ['NotPeer1', 'NotPeer2']
                 };
                 await fabricGateway._sendSingleRequest(request);
-                Gateway.channel.should.equal('your-channel');
+                Gateway.channel.should.equal('yourchannel');
                 Transaction.submit.should.be.true;
                 Transaction.submitArgs.should.deep.equal(['arg1']);
                 Transaction.constructorArgs.should.equal('myFunction');
@@ -374,7 +375,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                     targetOrganizations: ['Org1MSP']
                 };
                 await fabricGateway._sendSingleRequest(request);
-                Gateway.channel.should.equal('your-channel');
+                Gateway.channel.should.equal('yourchannel');
                 Transaction.submit.should.be.true;
                 Transaction.submitArgs.should.deep.equal(['arg1']);
                 Transaction.constructorArgs.should.equal('myFunction');
@@ -386,7 +387,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
             it('should return an appropriate TxStatus if submit throws an error', async () => {
                 const args = ['arg1', 'arg2'];
                 const request = {
-                    channel: 'my-channel',
+                    channel: 'mychannel',
                     contractId: 'marbles',
                     contractFunction: 'myFunction',
                     contractArguments: args,
@@ -398,7 +399,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                 txStatus.GetID().should.equal('1');
                 txStatus.GetStatus().should.equal('failed');
                 txStatus.GetResult().should.equal('');
-                txStatus.IsVerified().should.be.false;
+                txStatus.IsVerified().should.be.true;
             });
 
             it('should not set the client identity on a gateway when mutual TLS is not specified', async () => {
@@ -419,7 +420,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                 await fabricGateway.getContext();
                 const args = ['arg1', 'arg2'];
                 const request = {
-                    channel: 'my-channel',
+                    channel: 'mychannel',
                     contractId: 'marbles',
                     contractFunction: 'myFunction',
                     contractArguments: args,
@@ -431,10 +432,10 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
         });
 
         describe('when making an evaluate request', () => {
-            it('should succeed, set clientIdentity and return with an appropraite TxStatus', async () => {
+            it('should succeed, set clientIdentity and return with an appropriate TxStatus', async () => {
                 const args = ['arg1', 'arg2'];
                 const request = {
-                    channel: 'my-channel',
+                    channel: 'mychannel',
                     contractId: 'marbles',
                     contractFunction: 'myFunction',
                     contractArguments: args,
@@ -454,7 +455,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                 Transaction.constructorArgs.should.equal('myFunction');
             });
 
-            it('should ignore peer targeting when evaluating a transaction', async () => {
+            it('should ignore peer targeting', async () => {
                 const request = {
                     contractId: 'lostMyMarbles',
                     contractFunction: 'myFunction',
@@ -468,7 +469,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                 should.equal(Transaction.endorsingPeers, undefined);
             });
 
-            it('should ignore target organisations when evaluating a transaction', async () => {
+            it('should ignore target organisations', async () => {
                 const targetOrganizations = ['Org1MSP', 'Org3MSP'];
                 const request = {
                     contractId: 'lostMyMarbles',
@@ -486,7 +487,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
             it('should return an appropriate TxStatus if evaluate throws an error', async () => {
                 const args = ['arg1', 'arg2'];
                 const request = {
-                    channel: 'my-channel',
+                    channel: 'mychannel',
                     contractId: 'marbles',
                     contractFunction: 'myFunction',
                     contractArguments: args,
@@ -499,7 +500,7 @@ describe('A Node-SDK V2 Fabric Gateway', () => {
                 txStatus.GetID().should.equal('1');
                 txStatus.GetStatus().should.equal('failed');
                 txStatus.GetResult().should.equal('');
-                txStatus.IsVerified().should.be.false;
+                txStatus.IsVerified().should.be.true;
             });
         });
     });

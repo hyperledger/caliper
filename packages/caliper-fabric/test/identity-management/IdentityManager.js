@@ -27,7 +27,7 @@ const IWalletFacadeFactory = require('../../lib/identity-management/IWalletFacad
 const IWalletFacade = require('../../lib/identity-management/IWalletFacade');
 
 const blankMSP = {
-    mspid: 'org1MSP',
+    mspid: 'Org1MSP',
     identities: {
         credentialStore: {
             path: '/tmp/hfc-kvs/org1',
@@ -46,7 +46,7 @@ const blankMSP = {
 };
 
 const org1MSP = {
-    mspid: 'org1MSP',
+    mspid: 'Org1MSP',
     identities: {
         credentialStore: {
             path: '/tmp/hfc-kvs/org1',
@@ -76,7 +76,7 @@ const org1MSP = {
 };
 
 const org2MSP = {
-    mspid: 'org2MSP',
+    mspid: 'Org2MSP',
     identities: {
         credentialStore: {
             path: '/tmp/hfc-kvs/org1',
@@ -189,7 +189,7 @@ describe('An Identity Manager', () => {
         it('should not prefix for the default organisation', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [blankMSP]);
-            identityManager.getAliasNameFromOrganizationAndIdentityName('org1MSP', 'admin').should.equal('admin');
+            identityManager.getAliasNameFromOrganizationAndIdentityName('Org1MSP', 'admin').should.equal('admin');
         });
 
         it('should not prefix for when organisation is not provided', async () => {
@@ -204,9 +204,9 @@ describe('An Identity Manager', () => {
         it('should prefix for the non default organisation', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
             const anotherBlankMSP = JSON.parse(JSON.stringify(blankMSP));
-            anotherBlankMSP.mspid = 'org2MSP';
+            anotherBlankMSP.mspid = 'Org2MSP';
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [blankMSP, anotherBlankMSP]);
-            identityManager.getAliasNameFromOrganizationAndIdentityName('org2MSP', 'admin').should.equal('_org2MSP_admin');
+            identityManager.getAliasNameFromOrganizationAndIdentityName('Org2MSP', 'admin').should.equal('_Org2MSP_admin');
         });
     });
 
@@ -214,18 +214,18 @@ describe('An Identity Manager', () => {
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
         const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
         stubWalletFacadeFactory.create.resolves(stubWalletFacade);
-        stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_org2MSP_admin', '_org2MSP_issuer']);
+        stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_Org2MSP_admin', '_Org2MSP_issuer']);
 
         it('should return the correct aliases for the default organisation', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP, org2MSP]);
-            await identityManager.getAliasNamesForOrganization('org1MSP').should.eventually.deep.equal(['admin', 'user']);
+            await identityManager.getAliasNamesForOrganization('Org1MSP').should.eventually.deep.equal(['admin', 'user']);
         });
 
         it('should return the correct aliases for a non default organisation', async () => {
             const identityManagerFactory = new IdentityManagerFactory();
             const identityManager = await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP, org2MSP]);
-            await identityManager.getAliasNamesForOrganization('org2MSP').should.eventually.deep.equal(['_org2MSP_admin', '_org2MSP_issuer']);
+            await identityManager.getAliasNamesForOrganization('Org2MSP').should.eventually.deep.equal(['_Org2MSP_admin', '_Org2MSP_issuer']);
         });
 
         it('should return the an empty array if there are no aliases for the organization', async () => {
@@ -243,7 +243,7 @@ describe('An Identity Manager', () => {
         beforeEach(() => {
             stubWalletFacade = sinon.createStubInstance(IWalletFacade);
             stubWalletFacadeFactory.create.resolves(stubWalletFacade);
-            stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_org2MSP_admin', '_org2MSP_issuer']);
+            stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_Org2MSP_admin', '_Org2MSP_issuer']);
         });
 
         it('should throw an error if certificates section isn\'t an array', async () => {
@@ -331,8 +331,8 @@ describe('An Identity Manager', () => {
 
             await identityManagerFactory.create(stubWalletFacadeFactory, [newOrg1MSP, newOrg2MSP]);
             sinon.assert.calledTwice(stubWalletFacade.import);
-            sinon.assert.calledWith(stubWalletFacade.import, 'org1MSP', 'User1', '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----', '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----');
-            sinon.assert.calledWith(stubWalletFacade.import, 'org2MSP', '_org2MSP_User1', '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----', '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----');
+            sinon.assert.calledWith(stubWalletFacade.import, 'Org1MSP', 'User1', '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----', '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----');
+            sinon.assert.calledWith(stubWalletFacade.import, 'Org2MSP', '_Org2MSP_User1', '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----', '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----');
         });
 
         it('should import an identity from a pem which are base64 encoded', async () => {
@@ -350,23 +350,23 @@ describe('An Identity Manager', () => {
 
             await identityManagerFactory.create(stubWalletFacadeFactory, [newOrg1MSP, newOrg2MSP]);
             sinon.assert.calledTwice(stubWalletFacade.import);
-            sinon.assert.calledWith(stubWalletFacade.import, 'org1MSP', 'User1', '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----', '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----');
-            sinon.assert.calledWith(stubWalletFacade.import, 'org2MSP', '_org2MSP_User1', '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----', '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----');
+            sinon.assert.calledWith(stubWalletFacade.import, 'Org1MSP', 'User1', '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----', '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----');
+            sinon.assert.calledWith(stubWalletFacade.import, 'Org2MSP', '_Org2MSP_User1', '-----BEGIN CERTIFICATE-----\n-----END CERTIFICATE-----', '-----BEGIN PRIVATE KEY-----\n-----END PRIVATE KEY-----');
         });
 
         it('should import an identity from a path', async () => {
             await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP, org2MSP]);
             sinon.assert.calledTwice(stubWalletFacade.import);
-            sinon.assert.calledWith(stubWalletFacade.import, 'org1MSP', 'User1', sinon.match(/^-----BEGIN CERTIFICATE-----.*/),
+            sinon.assert.calledWith(stubWalletFacade.import, 'Org1MSP', 'User1', sinon.match(/^-----BEGIN CERTIFICATE-----.*/),
                 sinon.match(/^-----BEGIN PRIVATE KEY-----.*/));
-            sinon.assert.calledWith(stubWalletFacade.import, 'org2MSP', '_org2MSP_User1', sinon.match(/^-----BEGIN CERTIFICATE-----.*/),
+            sinon.assert.calledWith(stubWalletFacade.import, 'Org2MSP', '_Org2MSP_User1', sinon.match(/^-----BEGIN CERTIFICATE-----.*/),
                 sinon.match(/^-----BEGIN PRIVATE KEY-----.*/));
         });
 
         it('should import multiple identities', async () => {
             await identityManagerFactory.create(stubWalletFacadeFactory, [org1MSP, org3MSP]);
             sinon.assert.calledThrice(stubWalletFacade.import);
-            sinon.assert.calledWith(stubWalletFacade.import, 'org1MSP', 'User1', sinon.match(/^-----BEGIN CERTIFICATE-----.*/),
+            sinon.assert.calledWith(stubWalletFacade.import, 'Org1MSP', 'User1', sinon.match(/^-----BEGIN CERTIFICATE-----.*/),
                 sinon.match(/^-----BEGIN PRIVATE KEY-----.*/));
             sinon.assert.calledWith(stubWalletFacade.import, 'org3MSP', '_org3MSP_User1', sinon.match(/^-----BEGIN CERTIFICATE-----.*/),
                 sinon.match(/^-----BEGIN PRIVATE KEY-----.*/));

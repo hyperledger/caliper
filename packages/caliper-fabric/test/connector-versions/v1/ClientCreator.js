@@ -25,7 +25,7 @@ const path = require('path');
 const IWalletFacadeFactory = require('../../../lib/identity-management/IWalletFacadeFactory');
 const IWalletFacade = require('../../../lib/identity-management/IWalletFacade');
 const ConnectorConfigurationFactory = require('../../../lib/connector-configuration/ConnectorConfigurationFactory');
-const ClientStub = require('./ClientStub');
+const { Client } = require('./ClientStubs');
 
 const v2ConfigWithNoIdentities = '../../sample-configs/NoIdentitiesNetworkConfig.yaml';
 const basicConfig = '../../sample-configs/BasicConfig.yaml';
@@ -40,11 +40,11 @@ describe('When creating Fabric Client instances', () => {
             useCleanCache: true
         });
 
-        mockery.registerMock('fabric-client', ClientStub);
+        mockery.registerMock('fabric-client', Client);
         mockery.registerMock('fabric-client/package', {version: '1.4.11'});
         ClientCreator = require('../../../lib/connector-versions/v1/ClientCreator');
 
-        ClientStub.reset();
+        Client.reset();
     });
 
     after(() => {
@@ -66,11 +66,11 @@ describe('When creating Fabric Client instances', () => {
         const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, v2ConfigWithNoIdentities), stubWalletFacadeFactory);
         const clientCreator = new ClientCreator(connectorConfiguration);
         const identityToClientMap = await clientCreator.createClientsForAllIdentitiesInOrganization('Org1MSP');
-        identityToClientMap.get('user1').should.be.instanceOf(ClientStub);
-        identityToClientMap.get('user2').should.be.instanceOf(ClientStub);
-        identityToClientMap.get('user3').should.be.instanceOf(ClientStub);
+        identityToClientMap.get('user1').should.be.instanceOf(Client);
+        identityToClientMap.get('user2').should.be.instanceOf(Client);
+        identityToClientMap.get('user3').should.be.instanceOf(Client);
         identityToClientMap.size.should.equal(3);
-        ClientStub.setTlsClientCertAndKeyCalls.should.equal(0);
+        Client.setTlsClientCertAndKeyCalls.should.equal(0);
     });
 
     it('should create a client and set mutual TLS when specied in the connection profile', async () => {
@@ -86,10 +86,10 @@ describe('When creating Fabric Client instances', () => {
 
         const connectorConfiguration = await new ConnectorConfigurationFactory().create(path.resolve(__dirname, basicConfig), stubWalletFacadeFactory);
         const clientCreator = new ClientCreator(connectorConfiguration);
-        const identityToClientMap = await clientCreator.createClientsForAllIdentitiesInOrganization('org1MSP');
-        identityToClientMap.get('tlsUser').should.be.instanceOf(ClientStub);
+        const identityToClientMap = await clientCreator.createClientsForAllIdentitiesInOrganization('Org1MSP');
+        identityToClientMap.get('tlsUser').should.be.instanceOf(Client);
         identityToClientMap.size.should.equal(1);
-        ClientStub.setTlsClientCertAndKeyCalls.should.equal(1);
+        Client.setTlsClientCertAndKeyCalls.should.equal(1);
     });
 
 });

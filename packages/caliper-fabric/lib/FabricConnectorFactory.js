@@ -24,6 +24,7 @@ const LEGACY_V1_NODE_CONNECTOR = './connector-versions/v1/fabric.js';
 const LEGACY_V1_GATEWAY_CONNECTOR = './connector-versions/v1/fabric-gateway.js';
 const LEGACY_V2_GATEWAY_CONNECTOR = './connector-versions/v2/fabric-gateway.js';
 
+const NEW_V1_NODE_CONNECTOR = './connector-versions/v1/FabricNonGateway.js';
 const NEW_V1_GATEWAY_CONNECTOR = './connector-versions/v1/FabricGateway.js';
 const NEW_V1_WALLET_FACADE_FACTORY = './connector-versions/v1/WalletFacadeFactory.js';
 
@@ -57,7 +58,8 @@ const _loadAppropriateConnectorClass = (installedNodeSDKVersion, useGateway, use
             if (useLegacyVersion) {
                 connectorPath = LEGACY_V1_NODE_CONNECTOR;
             } else {
-                throw new Error('New version for 1.4 non gateway is not yet available');
+                connectorPath = NEW_V1_NODE_CONNECTOR;
+                walletFacadeFactoryPath = NEW_V1_WALLET_FACADE_FACTORY;
             }
         } else {
             // gateway with default event handlers appears in SDK > 1.4.2

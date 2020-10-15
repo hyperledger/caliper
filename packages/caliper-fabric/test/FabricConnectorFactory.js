@@ -164,8 +164,27 @@ describe('A Fabric Connector Factory', () => {
         const connector = await ConnectorFactory(1);
         connector.constructor.name.should.equal('LegacyV1Fabric');
         mockery.deregisterAll();
-
     });
+
+    it('should create a new V1 Fabric connector if a 1.4 fabric library is bound and usegateway was not specified', async () => {
+        mockery.registerMock('fabric-network', {
+            DefaultEventHandlerStrategies,
+            DefaultQueryHandlerStrategies,
+            InMemoryWallet,
+            X509WalletMixin
+        });
+        mockery.registerMock('fabric-network/package', {version: '1.4.11'});
+        mockery.registerMock('fabric-client', {
+            loadFromConfig
+        });
+        mockery.registerMock('fabric-client/package', {version: '1.4.11'});
+        ConfigUtil.set(ConfigUtil.keys.NetworkConfig, path.resolve(__dirname, v2Config));
+        ConfigUtil.set(ConfigUtil.keys.Fabric.Gateway.Enabled, false);
+        const connector = await ConnectorFactory(1);
+        connector.constructor.name.should.equal('V1Fabric');
+        mockery.deregisterAll();
+    });
+
 
     it('should throw an error if no fabric library is bound', async () => {
         // Can't test this with mockery because really need require to fail trying to

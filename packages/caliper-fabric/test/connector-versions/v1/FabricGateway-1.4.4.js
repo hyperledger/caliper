@@ -85,7 +85,7 @@ describe('A Node-SDK V1 Fabric Gateway', () => {
                 targetPeers: ['peer1', 'peer2']
             };
             await fabricGateway._sendSingleRequest(request);
-            Gateway.channel.should.equal('your-channel');
+            Gateway.channel.should.equal('yourchannel');
             Transaction.submit.should.be.true;
             Transaction.submitArgs.should.deep.equal(['arg1']);
             Transaction.constructorArgs.should.equal('myFunction');

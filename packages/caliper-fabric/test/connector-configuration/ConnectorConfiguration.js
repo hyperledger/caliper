@@ -71,7 +71,7 @@ describe('A valid Connector Configuration', () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
             const channelNames = connectorConfiguration.getAllChannelNames();
             channelNames.length.should.equal(2);
-            channelNames[0].should.equal('my-channel', 'your-channel');
+            channelNames[0].should.equal('mychannel', 'yourchannel');
         });
 
         it('should provide an empty list of channel names if channel section not defined', async () => {
@@ -120,7 +120,7 @@ describe('A valid Connector Configuration', () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
             const channelNames = connectorConfiguration.getChannelNamesForCreation();
             channelNames.length.should.equal(1);
-            channelNames[0].should.equal('my-channel');
+            channelNames[0].should.equal('mychannel');
         });
 
         it('should provide an empty list if no channels require creation', async () => {
@@ -141,7 +141,7 @@ describe('A valid Connector Configuration', () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
             const channelNames = connectorConfiguration.getChannelNamesForCreation();
             channelNames.length.should.equal(2);
-            channelNames.should.deep.equal(['my-channel', 'your-channel']);
+            channelNames.should.deep.equal(['mychannel', 'yourchannel']);
         });
 
         it('should provide an empty list of channel names if channel section not defined', async () => {
@@ -186,7 +186,7 @@ describe('A valid Connector Configuration', () => {
 
         it('should be able retrieve a channel definition if it exists', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
-            const channelDefinition = connectorConfiguration.getDefinitionForChannelName('my-channel');
+            const channelDefinition = connectorConfiguration.getDefinitionForChannelName('mychannel');
             channelDefinition.should.deep.equal(
                 { capabilities: [],
                     consortium: 'SampleConsortium2',
@@ -221,7 +221,7 @@ describe('A valid Connector Configuration', () => {
                 }
             );
             const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
-            const channelDefinition = connectorConfiguration.getDefinitionForChannelName('my-channel');
+            const channelDefinition = connectorConfiguration.getDefinitionForChannelName('mychannel');
             should.equal(channelDefinition, null);
         });
 
@@ -232,7 +232,7 @@ describe('A valid Connector Configuration', () => {
                 }
             );
             const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
-            const channelDefinition = connectorConfiguration.getDefinitionForChannelName('my-channel');
+            const channelDefinition = connectorConfiguration.getDefinitionForChannelName('mychannel');
             should.equal(channelDefinition, null);
         });
 
@@ -243,7 +243,7 @@ describe('A valid Connector Configuration', () => {
                 }
             );
             const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
-            const channelDefinition = connectorConfiguration.getDefinitionForChannelName('my-channel');
+            const channelDefinition = connectorConfiguration.getDefinitionForChannelName('mychannel');
             should.equal(channelDefinition, null);
         });
     });
@@ -263,7 +263,7 @@ describe('A valid Connector Configuration', () => {
                 language: 'golang',
                 path: 'marbles/go',
                 metadataPath: 'src/marbles/go/metadata'}];
-            const contractDef =connectorConfiguration.getContractDefinitionsForChannelName('my-channel');
+            const contractDef =connectorConfiguration.getContractDefinitionsForChannelName('mychannel');
             contractDef.should.deep.equal(result);
         });
 
@@ -271,12 +271,12 @@ describe('A valid Connector Configuration', () => {
             const configFile = new GenerateConfiguration('./test/sample-configs/BasicConfig.yaml').generateConfigurationFileWithSpecifics(
                 {
                     channels: [{
-                        channelName: 'my-channel',
+                        channelName: 'mychannel',
                         contracts: []
                     }]
                 });
             const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
-            const contractDef = connectorConfiguration.getContractDefinitionsForChannelName('my-channel');
+            const contractDef = connectorConfiguration.getContractDefinitionsForChannelName('mychannel');
             contractDef.length.should.equal(0);
         });
 
@@ -286,7 +286,7 @@ describe('A valid Connector Configuration', () => {
                     channels: {}
                 });
             const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
-            const contractDef = connectorConfiguration.getContractDefinitionsForChannelName('my-channel');
+            const contractDef = connectorConfiguration.getContractDefinitionsForChannelName('mychannel');
             contractDef.length.should.equal(0);
         });
 
@@ -294,11 +294,11 @@ describe('A valid Connector Configuration', () => {
             const configFile = new GenerateConfiguration('./test/sample-configs/BasicConfig.yaml').generateConfigurationFileWithSpecifics(
                 {
                     channels: [{
-                        channelName: 'my-channel',
+                        channelName: 'mychannel',
                     }]
                 });
             const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
-            const contractDef = connectorConfiguration.getContractDefinitionsForChannelName('my-channel');
+            const contractDef = connectorConfiguration.getContractDefinitionsForChannelName('mychannel');
             contractDef.should.deep.equal([]);
         });
     });
@@ -307,19 +307,19 @@ describe('A valid Connector Configuration', () => {
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
         const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
         stubWalletFacadeFactory.create.resolves(stubWalletFacade);
-        stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_org2MSP_admin', '_org2MSP_issuer']);
+        stubWalletFacade.getAllIdentityNames.resolves(['admin', 'user', '_Org2MSP_admin', '_Org2MSP_issuer']);
 
         it('should return the correct aliases for the default organisation', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', stubWalletFacadeFactory);
-            await connectorConfiguration.getAliasNamesForOrganization('org1MSP').should.eventually.deep.equal(['admin', 'user']);
+            await connectorConfiguration.getAliasNamesForOrganization('Org1MSP').should.eventually.deep.equal(['admin', 'user']);
         });
 
         it('should return the correct aliases for a non default organisation', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', stubWalletFacadeFactory);
-            await connectorConfiguration.getAliasNamesForOrganization('org2MSP').should.eventually.deep.equal(['_org2MSP_admin', '_org2MSP_issuer']);
+            await connectorConfiguration.getAliasNamesForOrganization('Org2MSP').should.eventually.deep.equal(['_Org2MSP_admin', '_Org2MSP_issuer']);
         });
 
-        it('should return the an empty array if there are no aliases for the organization', async () => {
+        it('should return an empty array when there are no aliases for the organization', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', stubWalletFacadeFactory);
             await connectorConfiguration.getAliasNamesForOrganization('org3MSP').should.eventually.deep.equal([]);
         });
@@ -334,7 +334,7 @@ describe('A valid Connector Configuration', () => {
 
         it('should throw an error if the connection profile file doesn\'t exist', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.json', walletFacadeFactory);
-            await connectorConfiguration.getConnectionProfileDefinitionForOrganization('org2MSP')
+            await connectorConfiguration.getConnectionProfileDefinitionForOrganization('Org2MSP')
                 .should.be.rejectedWith(/No connection profile file found/);
         });
 
@@ -352,13 +352,13 @@ describe('A valid Connector Configuration', () => {
                 }
             );
             const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
-            await connectorConfiguration.getConnectionProfileDefinitionForOrganization('org2MSP')
-                .should.be.rejectedWith(/No organization defined for org2MSP/);
+            await connectorConfiguration.getConnectionProfileDefinitionForOrganization('Org2MSP')
+                .should.be.rejectedWith(/No organization defined for Org2MSP/);
         });
 
         it('should return a connection profile definition if a valid json file is provided', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.json', walletFacadeFactory);
-            const connectionProfileDefinition = await connectorConfiguration.getConnectionProfileDefinitionForOrganization('org1MSP');
+            const connectionProfileDefinition = await connectorConfiguration.getConnectionProfileDefinitionForOrganization('Org1MSP');
             connectionProfileDefinition.should.be.instanceOf(ConnectionProfileDefinition);
             connectionProfileDefinition.isDynamicConnectionProfile().should.be.true;
             connectionProfileDefinition.getConnectionProfile().name.should.equal('test-network-org1');
@@ -366,7 +366,7 @@ describe('A valid Connector Configuration', () => {
 
         it('should return a connection profile definition if a valid yaml is provided', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
-            const connectionProfileDefinition = await connectorConfiguration.getConnectionProfileDefinitionForOrganization('org1MSP');
+            const connectionProfileDefinition = await connectorConfiguration.getConnectionProfileDefinitionForOrganization('Org1MSP');
             connectionProfileDefinition.should.be.instanceOf(ConnectionProfileDefinition);
             connectionProfileDefinition.isDynamicConnectionProfile().should.be.true;
             connectionProfileDefinition.getConnectionProfile().name.should.equal('test-network-org1');
@@ -378,7 +378,7 @@ describe('A valid Connector Configuration', () => {
                 './test/sample-configs/invalid.json'
             );
             const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
-            await connectorConfiguration.getConnectionProfileDefinitionForOrganization('org1MSP').should.be.rejectedWith(/Failed to parse the .*invalid.json/);
+            await connectorConfiguration.getConnectionProfileDefinitionForOrganization('Org1MSP').should.be.rejectedWith(/Failed to parse the .*invalid.json/);
         });
 
         it('should throw an error if a invalid yaml is provided', async () => {
@@ -387,22 +387,22 @@ describe('A valid Connector Configuration', () => {
                 './test/sample-configs/invalid.yaml'
             );
             const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
-            await connectorConfiguration.getConnectionProfileDefinitionForOrganization('org1MSP').should.be.rejectedWith(/Failed to parse the .*invalid.yaml/);
+            await connectorConfiguration.getConnectionProfileDefinitionForOrganization('Org1MSP').should.be.rejectedWith(/Failed to parse the .*invalid.yaml/);
         });
 
         it('should not attempt to load the connection profile more than once', async () => {
 
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.json', walletFacadeFactory);
             sinon.spy(connectorConfiguration, '_loadConnectionProfile');
-            await connectorConfiguration.getConnectionProfileDefinitionForOrganization('org1MSP');
-            await connectorConfiguration.getConnectionProfileDefinitionForOrganization('org1MSP');
+            await connectorConfiguration.getConnectionProfileDefinitionForOrganization('Org1MSP');
+            await connectorConfiguration.getConnectionProfileDefinitionForOrganization('Org1MSP');
             sinon.assert.calledOnce(connectorConfiguration._loadConnectionProfile);
         });
     });
 
     it('should return the list of mspid\'s defined when getting the list of organizations', async () => {
         const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.json', walletFacadeFactory);
-        connectorConfiguration.getOrganizations().should.deep.equal(['org1MSP', 'org2MSP']);
+        connectorConfiguration.getOrganizations().should.deep.equal(['Org1MSP', 'Org2MSP']);
     });
 
     it('should return a wallet for the alias when requested', async () => {
@@ -414,7 +414,7 @@ describe('A valid Connector Configuration', () => {
         await connectorConfiguration.getWallet().should.equal('IamAwallet');
     });
 
-    it('should return the  wallet facade', async () => {
+    it('should return the wallet facade', async () => {
         const stubWalletFacadeFactory = sinon.createStubInstance(IWalletFacadeFactory);
         const stubWalletFacade = sinon.createStubInstance(IWalletFacade);
         stubWalletFacadeFactory.create.resolves(stubWalletFacade);
@@ -425,21 +425,21 @@ describe('A valid Connector Configuration', () => {
     describe('when generating an alias name', () => {
         it('should not prefix for the default organisation', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
-            connectorConfiguration.getAliasNameFromOrganizationAndIdentityName('org1MSP', 'admin').should.equal('admin');
+            connectorConfiguration.getAliasNameFromOrganizationAndIdentityName('Org1MSP', 'admin').should.equal('admin');
 
         });
 
         it('should prefix for the non default organisation', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
-            connectorConfiguration.getAliasNameFromOrganizationAndIdentityName('org2MSP', 'admin').should.equal('_org2MSP_admin');
+            connectorConfiguration.getAliasNameFromOrganizationAndIdentityName('Org2MSP', 'admin').should.equal('_Org2MSP_admin');
         });
     });
 
     describe('when getting contract details by id', () => {
         it('should return the right contract details', async () => {
             const connectorConfiguration = await new ConnectorConfigurationFactory().create('./test/sample-configs/BasicConfig.yaml', walletFacadeFactory);
-            connectorConfiguration.getContractDetailsForContractId('myMarbles').should.deep.equal({channel: 'my-channel', id: 'marbles'});
-            connectorConfiguration.getContractDetailsForContractId('lostMyMarbles').should.deep.equal({channel: 'your-channel', id: 'marbles'});
+            connectorConfiguration.getContractDetailsForContractId('myMarbles').should.deep.equal({channel: 'mychannel', id: 'marbles'});
+            connectorConfiguration.getContractDetailsForContractId('lostMyMarbles').should.deep.equal({channel: 'yourchannel', id: 'marbles'});
         });
 
         it('should return undefined if id not found', async () => {
@@ -452,7 +452,7 @@ describe('A valid Connector Configuration', () => {
                 {
                     channels: [
                         {
-                            channelName: 'my-channel',
+                            channelName: 'mychannel',
                             create: false,
                             contracts: [
                                 {
@@ -468,7 +468,7 @@ describe('A valid Connector Configuration', () => {
                 }
             );
             const connectorConfiguration = await new ConnectorConfigurationFactory().create(configFile, walletFacadeFactory);
-            connectorConfiguration.getContractDetailsForContractId('foundmarbles').should.deep.equal({channel: 'my-channel', id: 'foundmarbles'});
+            connectorConfiguration.getContractDetailsForContractId('foundmarbles').should.deep.equal({channel: 'mychannel', id: 'foundmarbles'});
         });
     });
 });
